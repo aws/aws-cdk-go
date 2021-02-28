@@ -1,15 +1,10 @@
-## My Project
+## Go Bindings for AWS CDK
 
-TODO: Fill this README out!
-
-Be sure to:
-
-* Change the title in this README
-* Edit your repository description on GitHub
+This repository included Go bindings for the AWS CDK.
 
 ## Security
 
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+See [Security Issue Notifications](CONTRIBUTING.md#security-issue-notifications) for more information.
 
 ## License
 
