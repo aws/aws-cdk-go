@@ -472,10 +472,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_docdb.InstanceProps",
-		reflect.TypeOf((*InstanceProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"monocdk.aws_docdb.Login",
 		reflect.TypeOf((*Login)(nil)).Elem(),
 	)

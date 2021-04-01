@@ -1355,17 +1355,20 @@ func (a *jsiiProxy_AssetImageCode) BindToResource(_resource awscdk.CfnResource, 
 // Experimental.
 type AssetImageCodeProps struct {
 	// Glob patterns to exclude from the copy.
-	// Deprecated.
+	// Experimental.
 	Exclude *[]*string `json:"exclude"`
 	// A strategy for how to handle symlinks.
-	// Deprecated.
+	// Deprecated: use `followSymlinks` instead
 	Follow assets.FollowMode `json:"follow"`
 	// The ignore behavior to use for exclude patterns.
-	// Deprecated.
+	// Experimental.
 	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
-	// Deprecated.
+	// Experimental.
 	ExtraHash *string `json:"extraHash"`
+	// A strategy for how to handle symlinks.
+	// Experimental.
+	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
 	// Build args to pass to the `docker build` command.
 	//
 	// Since Docker build arguments are resolved before deployment, keys and
@@ -11460,6 +11463,13 @@ type EventSourceMappingOptions struct {
 	//
 	// Experimental.
 	StartingPosition StartingPosition `json:"startingPosition"`
+	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis.
+	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-windows
+	//
+	// Valid Range: 0 - 15 minutes
+	//
+	// Experimental.
+	TumblingWindow awscdk.Duration `json:"tumblingWindow"`
 }
 
 // Properties for declaring a new event source mapping.
@@ -11535,6 +11545,13 @@ type EventSourceMappingProps struct {
 	//
 	// Experimental.
 	StartingPosition StartingPosition `json:"startingPosition"`
+	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis.
+	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-windows
+	//
+	// Valid Range: 0 - 15 minutes
+	//
+	// Experimental.
+	TumblingWindow awscdk.Duration `json:"tumblingWindow"`
 	// The target AWS Lambda function.
 	// Experimental.
 	Target IFunction `json:"target"`
@@ -15098,13 +15115,13 @@ type LogRetentionProps struct {
 }
 
 // Retry options for all AWS API calls.
-// Deprecated: use `LogRetentionRetryOptions` from '
+// Experimental.
 type LogRetentionRetryOptions struct {
 	// The base duration to use in the exponential backoff for operation retries.
-	// Deprecated: use `LogRetentionRetryOptions` from '
+	// Experimental.
 	Base awscdk.Duration `json:"base"`
 	// The maximum amount of retries.
-	// Deprecated: use `LogRetentionRetryOptions` from '
+	// Experimental.
 	MaxRetries *float64 `json:"maxRetries"`
 }
 
@@ -15770,6 +15787,7 @@ type ResourceBindOptions struct {
 // Experimental.
 type Runtime interface {
 	BundlingDockerImage() awscdk.BundlingDockerImage
+	BundlingImage() awscdk.DockerImage
 	Family() RuntimeFamily
 	Name() *string
 	SupportsCodeGuruProfiling() *bool
@@ -15788,6 +15806,16 @@ func (j *jsiiProxy_Runtime) BundlingDockerImage() awscdk.BundlingDockerImage {
 	_jsii_.Get(
 		j,
 		"bundlingDockerImage",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Runtime) BundlingImage() awscdk.DockerImage {
+	var returns awscdk.DockerImage
+	_jsii_.Get(
+		j,
+		"bundlingImage",
 		&returns,
 	)
 	return returns

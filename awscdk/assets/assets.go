@@ -16,7 +16,7 @@ type CopyOptions struct {
 	// Deprecated: see `core.CopyOptions`
 	Exclude *[]*string `json:"exclude"`
 	// A strategy for how to handle symlinks.
-	// Deprecated: see `core.CopyOptions`
+	// Deprecated: use `followSymlinks` instead
 	Follow FollowMode `json:"follow"`
 	// The ignore behavior to use for exclude patterns.
 	// Deprecated: see `core.CopyOptions`
@@ -30,7 +30,7 @@ type FingerprintOptions struct {
 	// Deprecated: see `core.FingerprintOptions`
 	Exclude *[]*string `json:"exclude"`
 	// A strategy for how to handle symlinks.
-	// Deprecated: see `core.FingerprintOptions`
+	// Deprecated: use `followSymlinks` instead
 	Follow FollowMode `json:"follow"`
 	// The ignore behavior to use for exclude patterns.
 	// Deprecated: see `core.FingerprintOptions`
@@ -419,7 +419,7 @@ type StagingProps struct {
 	// Deprecated: use `core.AssetStagingProps`
 	Exclude *[]*string `json:"exclude"`
 	// A strategy for how to handle symlinks.
-	// Deprecated: use `core.AssetStagingProps`
+	// Deprecated: use `followSymlinks` instead
 	Follow FollowMode `json:"follow"`
 	// The ignore behavior to use for exclude patterns.
 	// Deprecated: use `core.AssetStagingProps`

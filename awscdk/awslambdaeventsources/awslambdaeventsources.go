@@ -208,6 +208,9 @@ type DynamoEventSourceProps struct {
 	// Maximum number of retry attempts Valid Range: * Minimum value of 0 * Maximum value of 10000.
 	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
+	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis Valid Range: 0 - 15 minutes.
+	// Experimental.
+	TumblingWindow awscdk.Duration `json:"tumblingWindow"`
 }
 
 // Properties for a Kafka event source.
@@ -259,6 +262,9 @@ type KafkaEventSourceProps struct {
 	// Maximum number of retry attempts Valid Range: * Minimum value of 0 * Maximum value of 10000.
 	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
+	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis Valid Range: 0 - 15 minutes.
+	// Experimental.
+	TumblingWindow awscdk.Duration `json:"tumblingWindow"`
 	// the secret with the Kafka credentials, see https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html for details.
 	// Experimental.
 	Secret awssecretsmanager.ISecret `json:"secret"`
@@ -412,6 +418,9 @@ type KinesisEventSourceProps struct {
 	// Maximum number of retry attempts Valid Range: * Minimum value of 0 * Maximum value of 10000.
 	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
+	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis Valid Range: 0 - 15 minutes.
+	// Experimental.
+	TumblingWindow awscdk.Duration `json:"tumblingWindow"`
 }
 
 // Use a MSK cluster as a streaming source for AWS Lambda.
@@ -538,6 +547,9 @@ type ManagedKafkaEventSourceProps struct {
 	// Maximum number of retry attempts Valid Range: * Minimum value of 0 * Maximum value of 10000.
 	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
+	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis Valid Range: 0 - 15 minutes.
+	// Experimental.
+	TumblingWindow awscdk.Duration `json:"tumblingWindow"`
 	// the secret with the Kafka credentials, see https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html for details.
 	// Experimental.
 	Secret awssecretsmanager.ISecret `json:"secret"`
@@ -749,6 +761,9 @@ type SelfManagedKafkaEventSourceProps struct {
 	// Maximum number of retry attempts Valid Range: * Minimum value of 0 * Maximum value of 10000.
 	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
+	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis Valid Range: 0 - 15 minutes.
+	// Experimental.
+	TumblingWindow awscdk.Duration `json:"tumblingWindow"`
 	// the secret with the Kafka credentials, see https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html for details.
 	// Experimental.
 	Secret awssecretsmanager.ISecret `json:"secret"`
@@ -1037,6 +1052,11 @@ type SqsEventSourceProps struct {
 	// If the SQS event source mapping should be enabled.
 	// Experimental.
 	Enabled *bool `json:"enabled"`
+	// The maximum amount of time to gather records before invoking the function.
+	//
+	// Valid Range: Minimum value of 0 minutes. Maximum value of 5 minutes.
+	// Experimental.
+	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow"`
 }
 
 // Use an stream as an event source for AWS Lambda.
@@ -1148,5 +1168,8 @@ type StreamEventSourceProps struct {
 	// Maximum number of retry attempts Valid Range: * Minimum value of 0 * Maximum value of 10000.
 	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
+	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis Valid Range: 0 - 15 minutes.
+	// Experimental.
+	TumblingWindow awscdk.Duration `json:"tumblingWindow"`
 }
 

@@ -269,17 +269,20 @@ func (d *jsiiProxy_DockerImageAsset) Validate() *[]*string {
 // Experimental.
 type DockerImageAssetOptions struct {
 	// Glob patterns to exclude from the copy.
-	// Deprecated.
+	// Experimental.
 	Exclude *[]*string `json:"exclude"`
 	// A strategy for how to handle symlinks.
-	// Deprecated.
+	// Deprecated: use `followSymlinks` instead
 	Follow assets.FollowMode `json:"follow"`
 	// The ignore behavior to use for exclude patterns.
-	// Deprecated.
+	// Experimental.
 	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
-	// Deprecated.
+	// Experimental.
 	ExtraHash *string `json:"extraHash"`
+	// A strategy for how to handle symlinks.
+	// Experimental.
+	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
 	// Build args to pass to the `docker build` command.
 	//
 	// Since Docker build arguments are resolved before deployment, keys and
@@ -308,17 +311,20 @@ type DockerImageAssetOptions struct {
 // Experimental.
 type DockerImageAssetProps struct {
 	// Glob patterns to exclude from the copy.
-	// Deprecated.
+	// Experimental.
 	Exclude *[]*string `json:"exclude"`
 	// A strategy for how to handle symlinks.
-	// Deprecated.
+	// Deprecated: use `followSymlinks` instead
 	Follow assets.FollowMode `json:"follow"`
 	// The ignore behavior to use for exclude patterns.
-	// Deprecated.
+	// Experimental.
 	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
-	// Deprecated.
+	// Experimental.
 	ExtraHash *string `json:"extraHash"`
+	// A strategy for how to handle symlinks.
+	// Experimental.
+	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
 	// Build args to pass to the `docker build` command.
 	//
 	// Since Docker build arguments are resolved before deployment, keys and

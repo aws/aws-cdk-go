@@ -357,14 +357,17 @@ func (a *jsiiProxy_Asset) Validate() *[]*string {
 // Experimental.
 type AssetOptions struct {
 	// Glob patterns to exclude from the copy.
-	// Deprecated.
+	// Experimental.
 	Exclude *[]*string `json:"exclude"`
 	// A strategy for how to handle symlinks.
-	// Deprecated.
+	// Deprecated: use `followSymlinks` instead
 	Follow assets.FollowMode `json:"follow"`
 	// The ignore behavior to use for exclude patterns.
-	// Deprecated.
+	// Experimental.
 	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode"`
+	// A strategy for how to handle symlinks.
+	// Experimental.
+	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
 	// Specify a custom hash for this asset.
 	//
 	// If `assetHashType` is set it must
@@ -416,14 +419,17 @@ type AssetOptions struct {
 // Experimental.
 type AssetProps struct {
 	// Glob patterns to exclude from the copy.
-	// Deprecated.
+	// Experimental.
 	Exclude *[]*string `json:"exclude"`
 	// A strategy for how to handle symlinks.
-	// Deprecated.
+	// Deprecated: use `followSymlinks` instead
 	Follow assets.FollowMode `json:"follow"`
 	// The ignore behavior to use for exclude patterns.
-	// Deprecated.
+	// Experimental.
 	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode"`
+	// A strategy for how to handle symlinks.
+	// Experimental.
+	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
 	// Specify a custom hash for this asset.
 	//
 	// If `assetHashType` is set it must

@@ -1428,6 +1428,7 @@ func init() {
 		reflect.TypeOf((*Runtime)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "bundlingDockerImage", GoGetter: "BundlingDockerImage"},
+			_jsii_.MemberProperty{JsiiProperty: "bundlingImage", GoGetter: "BundlingImage"},
 			_jsii_.MemberProperty{JsiiProperty: "family", GoGetter: "Family"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberMethod{JsiiMethod: "runtimeEquals", GoMethod: "RuntimeEquals"},

@@ -21,6 +21,7 @@ type Accelerator interface {
 	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
+	AddListener(id *string, options *ListenerOptions) Listener
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
@@ -172,6 +173,21 @@ func Accelerator_IsResource(construct awscdk.IConstruct) *bool {
 		"monocdk.aws_globalaccelerator.Accelerator",
 		"isResource",
 		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Add a listener to the accelerator.
+// Experimental.
+func (a *jsiiProxy_Accelerator) AddListener(id *string, options *ListenerOptions) Listener {
+	var returns Listener
+
+	_jsii_.Invoke(
+		a,
+		"addListener",
+		[]interface{}{id, options},
 		&returns,
 	)
 
@@ -384,40 +400,6 @@ type AcceleratorProps struct {
 	// Indicates whether the accelerator is enabled.
 	// Experimental.
 	Enabled *bool `json:"enabled"`
-}
-
-// The security group used by a Global Accelerator to send traffic to resources in a VPC.
-// Experimental.
-type AcceleratorSecurityGroup interface {
-}
-
-// The jsii proxy struct for AcceleratorSecurityGroup
-type jsiiProxy_AcceleratorSecurityGroup struct {
-	_ byte // padding
-}
-
-// Lookup the Global Accelerator security group at CloudFormation deployment time.
-//
-// As of this writing, Global Accelerators (AGA) create a single security group per VPC. AGA security groups are shared
-// by all AGAs in an account. Additionally, there is no CloudFormation mechanism to reference the AGA security groups.
-//
-// This makes creating security group rules which allow traffic from an AGA complicated in CDK. This lookup will identify
-// the AGA security group for a given VPC at CloudFormation deployment time, and lets you create rules for traffic from AGA
-// to other resources created by CDK.
-// Experimental.
-func AcceleratorSecurityGroup_FromVpc(scope awscdk.Construct, id *string, vpc awsec2.IVpc, endpointGroup EndpointGroup) awsec2.ISecurityGroup {
-	_init_.Initialize()
-
-	var returns awsec2.ISecurityGroup
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_globalaccelerator.AcceleratorSecurityGroup",
-		"fromVpc",
-		[]interface{}{scope, id, vpc, endpointGroup},
-		&returns,
-	)
-
-	return returns
 }
 
 // A CloudFormation `AWS::GlobalAccelerator::Accelerator`.
@@ -2585,11 +2567,7 @@ type CfnListenerProps struct {
 	ClientAffinity *string `json:"clientAffinity"`
 }
 
-// Client affinity lets you direct all requests from a user to the same endpoint, if you have stateful applications, regardless of the port and protocol of the client request.
-//
-// Client affinity gives you control over whether to always
-// route each client to the same specific endpoint. If you want a given client to always be routed to the same
-// endpoint, set client affinity to SOURCE_IP.
+// Client affinity gives you control over whether to always route each client to the same specific endpoint.
 // See: https://docs.aws.amazon.com/global-accelerator/latest/dg/about-listeners.html#about-listeners-client-affinity
 //
 // Experimental.
@@ -2609,285 +2587,6 @@ const (
 	ConnectionProtocol_UDP ConnectionProtocol = "UDP"
 )
 
-// EC2 Instance interface.
-// Experimental.
-type Ec2Instance struct {
-	// The id of the instance resource.
-	// Experimental.
-	InstanceId *string `json:"instanceId"`
-}
-
-// EIP Interface.
-// Experimental.
-type ElasticIpAddress struct {
-	// allocation ID of the EIP resoruce.
-	// Experimental.
-	AttrAllocationId *string `json:"attrAllocationId"`
-}
-
-// The class for endpoint configuration.
-// Experimental.
-type EndpointConfiguration interface {
-	awscdk.Construct
-	Node() awscdk.ConstructNode
-	Props() *EndpointConfigurationProps
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	RenderEndpointConfiguration() *CfnEndpointGroup_EndpointConfigurationProperty
-	Synthesize(session awscdk.ISynthesisSession)
-	ToString() *string
-	Validate() *[]*string
-}
-
-// The jsii proxy struct for EndpointConfiguration
-type jsiiProxy_EndpointConfiguration struct {
-	internal.Type__awscdkConstruct
-}
-
-func (j *jsiiProxy_EndpointConfiguration) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
-	_jsii_.Get(
-		j,
-		"node",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_EndpointConfiguration) Props() *EndpointConfigurationProps {
-	var returns *EndpointConfigurationProps
-	_jsii_.Get(
-		j,
-		"props",
-		&returns,
-	)
-	return returns
-}
-
-
-// Experimental.
-func NewEndpointConfiguration(scope constructs.Construct, id *string, props *EndpointConfigurationProps) EndpointConfiguration {
-	_init_.Initialize()
-
-	j := jsiiProxy_EndpointConfiguration{}
-
-	_jsii_.Create(
-		"monocdk.aws_globalaccelerator.EndpointConfiguration",
-		[]interface{}{scope, id, props},
-		&j,
-	)
-
-	return &j
-}
-
-// Experimental.
-func NewEndpointConfiguration_Override(e EndpointConfiguration, scope constructs.Construct, id *string, props *EndpointConfigurationProps) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"monocdk.aws_globalaccelerator.EndpointConfiguration",
-		[]interface{}{scope, id, props},
-		e,
-	)
-}
-
-// Return whether the given object is a Construct.
-// Experimental.
-func EndpointConfiguration_IsConstruct(x interface{}) *bool {
-	_init_.Initialize()
-
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_globalaccelerator.EndpointConfiguration",
-		"isConstruct",
-		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (e *jsiiProxy_EndpointConfiguration) OnPrepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (e *jsiiProxy_EndpointConfiguration) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (e *jsiiProxy_EndpointConfiguration) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		e,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (e *jsiiProxy_EndpointConfiguration) Prepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// render the endpoint configuration for the endpoint group.
-// Experimental.
-func (e *jsiiProxy_EndpointConfiguration) RenderEndpointConfiguration() *CfnEndpointGroup_EndpointConfigurationProperty {
-	var returns *CfnEndpointGroup_EndpointConfigurationProperty
-
-	_jsii_.Invoke(
-		e,
-		"renderEndpointConfiguration",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (e *jsiiProxy_EndpointConfiguration) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
-// Returns a string representation of this construct.
-// Experimental.
-func (e *jsiiProxy_EndpointConfiguration) ToString() *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		e,
-		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (e *jsiiProxy_EndpointConfiguration) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		e,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Options for `addLoadBalancer`, `addElasticIpAddress` and `addEc2Instance` to add endpoints into the endpoint group.
-// Experimental.
-type EndpointConfigurationOptions struct {
-	// Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint.
-	// Experimental.
-	ClientIpReservation *bool `json:"clientIpReservation"`
-	// The weight associated with the endpoint.
-	//
-	// When you add weights to endpoints, you configure AWS Global Accelerator
-	// to route traffic based on proportions that you specify. For example, you might specify endpoint weights of 4, 5,
-	// 5, and 6 (sum=20). The result is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is
-	// routed both to the second and third endpoints, and 6/20 is routed to the last endpoint.
-	// See: https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html
-	//
-	// Experimental.
-	Weight *float64 `json:"weight"`
-}
-
-// Properties to create EndpointConfiguration.
-// Experimental.
-type EndpointConfigurationProps struct {
-	// Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint.
-	// Experimental.
-	ClientIpReservation *bool `json:"clientIpReservation"`
-	// The weight associated with the endpoint.
-	//
-	// When you add weights to endpoints, you configure AWS Global Accelerator
-	// to route traffic based on proportions that you specify. For example, you might specify endpoint weights of 4, 5,
-	// 5, and 6 (sum=20). The result is that 4/20 of your traffic, on average, is routed to the first endpoint, 5/20 is
-	// routed both to the second and third endpoints, and 6/20 is routed to the last endpoint.
-	// See: https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoints-endpoint-weights.html
-	//
-	// Experimental.
-	Weight *float64 `json:"weight"`
-	// The endopoint group reesource.
-	//
-	// [disable-awslint:ref-via-interface]
-	// Experimental.
-	EndpointGroup EndpointGroup `json:"endpointGroup"`
-	// An ID for the endpoint.
-	//
-	// If the endpoint is a Network Load Balancer or Application Load Balancer,
-	// this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address,
-	// this is the Elastic IP address allocation ID. For EC2 instances, this is the EC2 instance ID.
-	// Experimental.
-	EndpointId *string `json:"endpointId"`
-}
-
 // EndpointGroup construct.
 // Experimental.
 type EndpointGroup interface {
@@ -2895,16 +2594,14 @@ type EndpointGroup interface {
 	IEndpointGroup
 	EndpointGroupArn() *string
 	EndpointGroupName() *string
-	Endpoints() *[]EndpointConfiguration
+	Endpoints() *[]IEndpoint
 	Env() *awscdk.ResourceEnvironment
 	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
-	AddEc2Instance(id *string, instance *Ec2Instance, props *EndpointConfigurationOptions) EndpointConfiguration
-	AddElasticIpAddress(id *string, eip *ElasticIpAddress, props *EndpointConfigurationOptions) EndpointConfiguration
-	AddEndpoint(id *string, endpointId *string, props *EndpointConfigurationOptions) EndpointConfiguration
-	AddLoadBalancer(id *string, lb *LoadBalancer, props *EndpointConfigurationOptions) EndpointConfiguration
+	AddEndpoint(endpoint IEndpoint)
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	ConnectionsPeer(id *string, vpc awsec2.IVpc) awsec2.IPeer
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
@@ -2943,8 +2640,8 @@ func (j *jsiiProxy_EndpointGroup) EndpointGroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_EndpointGroup) Endpoints() *[]EndpointConfiguration {
-	var returns *[]EndpointConfiguration
+func (j *jsiiProxy_EndpointGroup) Endpoints() *[]IEndpoint {
+	var returns *[]IEndpoint
 	_jsii_.Get(
 		j,
 		"endpoints",
@@ -3071,64 +2768,14 @@ func EndpointGroup_IsResource(construct awscdk.IConstruct) *bool {
 	return returns
 }
 
-// Add an EC2 Instance as an endpoint in this endpoint group.
-// Experimental.
-func (e *jsiiProxy_EndpointGroup) AddEc2Instance(id *string, instance *Ec2Instance, props *EndpointConfigurationOptions) EndpointConfiguration {
-	var returns EndpointConfiguration
-
-	_jsii_.Invoke(
-		e,
-		"addEc2Instance",
-		[]interface{}{id, instance, props},
-		&returns,
-	)
-
-	return returns
-}
-
-// Add an EIP as an endpoint in this endpoint group.
-// Experimental.
-func (e *jsiiProxy_EndpointGroup) AddElasticIpAddress(id *string, eip *ElasticIpAddress, props *EndpointConfigurationOptions) EndpointConfiguration {
-	var returns EndpointConfiguration
-
-	_jsii_.Invoke(
-		e,
-		"addElasticIpAddress",
-		[]interface{}{id, eip, props},
-		&returns,
-	)
-
-	return returns
-}
-
 // Add an endpoint.
 // Experimental.
-func (e *jsiiProxy_EndpointGroup) AddEndpoint(id *string, endpointId *string, props *EndpointConfigurationOptions) EndpointConfiguration {
-	var returns EndpointConfiguration
-
-	_jsii_.Invoke(
+func (e *jsiiProxy_EndpointGroup) AddEndpoint(endpoint IEndpoint) {
+	_jsii_.InvokeVoid(
 		e,
 		"addEndpoint",
-		[]interface{}{id, endpointId, props},
-		&returns,
+		[]interface{}{endpoint},
 	)
-
-	return returns
-}
-
-// Add an Elastic Load Balancer as an endpoint in this endpoint group.
-// Experimental.
-func (e *jsiiProxy_EndpointGroup) AddLoadBalancer(id *string, lb *LoadBalancer, props *EndpointConfigurationOptions) EndpointConfiguration {
-	var returns EndpointConfiguration
-
-	_jsii_.Invoke(
-		e,
-		"addLoadBalancer",
-		[]interface{}{id, lb, props},
-		&returns,
-	)
-
-	return returns
 }
 
 // Apply the given removal policy to this resource.
@@ -3147,6 +2794,31 @@ func (e *jsiiProxy_EndpointGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 		"applyRemovalPolicy",
 		[]interface{}{policy},
 	)
+}
+
+// Return an object that represents the Accelerator's Security Group.
+//
+// Uses a Custom Resource to look up the Security Group that Accelerator
+// creates at deploy time. Requires your VPC ID to perform the lookup.
+//
+// The Security Group will only be created if you enable **Client IP
+// Preservation** on any of the endpoints.
+//
+// You cannot manipulate the rules inside this security group, but you can
+// use this security group as a Peer in Connections rules on other
+// constructs.
+// Experimental.
+func (e *jsiiProxy_EndpointGroup) ConnectionsPeer(id *string, vpc awsec2.IVpc) awsec2.IPeer {
+	var returns awsec2.IPeer
+
+	_jsii_.Invoke(
+		e,
+		"connectionsPeer",
+		[]interface{}{id, vpc},
+		&returns,
+	)
+
+	return returns
 }
 
 // Experimental.
@@ -3317,19 +2989,106 @@ func (e *jsiiProxy_EndpointGroup) Validate() *[]*string {
 	return returns
 }
 
-// Property of the EndpointGroup.
+// Basic options for creating a new EndpointGroup.
 // Experimental.
-type EndpointGroupProps struct {
-	// The Amazon Resource Name (ARN) of the listener.
-	// Experimental.
-	Listener IListener `json:"listener"`
+type EndpointGroupOptions struct {
 	// Name of the endpoint group.
 	// Experimental.
 	EndpointGroupName *string `json:"endpointGroupName"`
+	// Initial list of endpoints for this group.
+	// Experimental.
+	Endpoints *[]IEndpoint `json:"endpoints"`
+	// The time between health checks for each endpoint.
+	//
+	// Must be either 10 or 30 seconds.
+	// Experimental.
+	HealthCheckInterval awscdk.Duration `json:"healthCheckInterval"`
+	// The ping path for health checks (if the protocol is HTTP(S)).
+	// Experimental.
+	HealthCheckPath *string `json:"healthCheckPath"`
+	// The port used to perform health checks.
+	// Experimental.
+	HealthCheckPort *float64 `json:"healthCheckPort"`
+	// The protocol used to perform health checks.
+	// Experimental.
+	HealthCheckProtocol HealthCheckProtocol `json:"healthCheckProtocol"`
+	// The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy.
+	// Experimental.
+	HealthCheckThreshold *float64 `json:"healthCheckThreshold"`
+	// Override the destination ports used to route traffic to an endpoint.
+	//
+	// Unless overridden, the port used to hit the endpoint will be the same as the port
+	// that traffic arrives on at the listener.
+	// Experimental.
+	PortOverrides *[]*PortOverride `json:"portOverrides"`
 	// The AWS Region where the endpoint group is located.
 	// Experimental.
 	Region *string `json:"region"`
+	// The percentage of traffic to send to this AWS Region.
+	//
+	// The percentage is applied to the traffic that would otherwise have been
+	// routed to the Region based on optimal routing. Additional traffic is
+	// distributed to other endpoint groups for this listener.
+	// Experimental.
+	TrafficDialPercentage *float64 `json:"trafficDialPercentage"`
 }
+
+// Property of the EndpointGroup.
+// Experimental.
+type EndpointGroupProps struct {
+	// Name of the endpoint group.
+	// Experimental.
+	EndpointGroupName *string `json:"endpointGroupName"`
+	// Initial list of endpoints for this group.
+	// Experimental.
+	Endpoints *[]IEndpoint `json:"endpoints"`
+	// The time between health checks for each endpoint.
+	//
+	// Must be either 10 or 30 seconds.
+	// Experimental.
+	HealthCheckInterval awscdk.Duration `json:"healthCheckInterval"`
+	// The ping path for health checks (if the protocol is HTTP(S)).
+	// Experimental.
+	HealthCheckPath *string `json:"healthCheckPath"`
+	// The port used to perform health checks.
+	// Experimental.
+	HealthCheckPort *float64 `json:"healthCheckPort"`
+	// The protocol used to perform health checks.
+	// Experimental.
+	HealthCheckProtocol HealthCheckProtocol `json:"healthCheckProtocol"`
+	// The number of consecutive health checks required to set the state of a healthy endpoint to unhealthy, or to set an unhealthy endpoint to healthy.
+	// Experimental.
+	HealthCheckThreshold *float64 `json:"healthCheckThreshold"`
+	// Override the destination ports used to route traffic to an endpoint.
+	//
+	// Unless overridden, the port used to hit the endpoint will be the same as the port
+	// that traffic arrives on at the listener.
+	// Experimental.
+	PortOverrides *[]*PortOverride `json:"portOverrides"`
+	// The AWS Region where the endpoint group is located.
+	// Experimental.
+	Region *string `json:"region"`
+	// The percentage of traffic to send to this AWS Region.
+	//
+	// The percentage is applied to the traffic that would otherwise have been
+	// routed to the Region based on optimal routing. Additional traffic is
+	// distributed to other endpoint groups for this listener.
+	// Experimental.
+	TrafficDialPercentage *float64 `json:"trafficDialPercentage"`
+	// The Amazon Resource Name (ARN) of the listener.
+	// Experimental.
+	Listener IListener `json:"listener"`
+}
+
+// The protocol for the connections from clients to the accelerator.
+// Experimental.
+type HealthCheckProtocol string
+
+const (
+	HealthCheckProtocol_TCP HealthCheckProtocol = "TCP"
+	HealthCheckProtocol_HTTP HealthCheckProtocol = "HTTP"
+	HealthCheckProtocol_HTTPS HealthCheckProtocol = "HTTPS"
+)
 
 // The interface of the Accelerator.
 // Experimental.
@@ -3363,6 +3122,49 @@ func (j *jsiiProxy_IAccelerator) DnsName() *string {
 	_jsii_.Get(
 		j,
 		"dnsName",
+		&returns,
+	)
+	return returns
+}
+
+// An endpoint for the endpoint group.
+//
+// Implementations of `IEndpoint` can be found in the `aws-globalaccelerator-endpoints` package.
+// Experimental.
+type IEndpoint interface {
+	// Render the endpoint to an endpoint configuration.
+	// Experimental.
+	RenderEndpointConfiguration() interface{}
+	// The region where the endpoint is located.
+	//
+	// If the region cannot be determined, `undefined` is returned
+	// Experimental.
+	Region() *string
+}
+
+// The jsii proxy for IEndpoint
+type jsiiProxy_IEndpoint struct {
+	_ byte // padding
+}
+
+func (i *jsiiProxy_IEndpoint) RenderEndpointConfiguration() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		i,
+		"renderEndpointConfiguration",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+func (j *jsiiProxy_IEndpoint) Region() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"region",
 		&returns,
 	)
 	return returns
@@ -3427,6 +3229,7 @@ type Listener interface {
 	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
+	AddEndpointGroup(id *string, options *EndpointGroupOptions) EndpointGroup
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
@@ -3578,6 +3381,21 @@ func Listener_IsResource(construct awscdk.IConstruct) *bool {
 		"monocdk.aws_globalaccelerator.Listener",
 		"isResource",
 		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Add a new endpoint group to this listener.
+// Experimental.
+func (l *jsiiProxy_Listener) AddEndpointGroup(id *string, options *EndpointGroupOptions) EndpointGroup {
+	var returns EndpointGroup
+
+	_jsii_.Invoke(
+		l,
+		"addEndpointGroup",
+		[]interface{}{id, options},
 		&returns,
 	)
 
@@ -3770,16 +3588,20 @@ func (l *jsiiProxy_Listener) Validate() *[]*string {
 	return returns
 }
 
-// construct properties for Listener.
+// Construct options for Listener.
 // Experimental.
-type ListenerProps struct {
-	// The accelerator for this listener.
-	// Experimental.
-	Accelerator IAccelerator `json:"accelerator"`
+type ListenerOptions struct {
 	// The list of port ranges for the connections from clients to the accelerator.
 	// Experimental.
 	PortRanges *[]*PortRange `json:"portRanges"`
 	// Client affinity to direct all requests from a user to the same endpoint.
+	//
+	// If you have stateful applications, client affinity lets you direct all
+	// requests from a user to the same endpoint.
+	//
+	// By default, each connection from each client is routed to seperate
+	// endpoints. Set client affinity to SOURCE_IP to route all connections from
+	// a single client to the same endpoint.
 	// Experimental.
 	ClientAffinity ClientAffinity `json:"clientAffinity"`
 	// Name of the listener.
@@ -3790,12 +3612,46 @@ type ListenerProps struct {
 	Protocol ConnectionProtocol `json:"protocol"`
 }
 
-// LoadBalancer Interface.
+// Construct properties for Listener.
 // Experimental.
-type LoadBalancer struct {
-	// The ARN of this load balancer.
+type ListenerProps struct {
+	// The list of port ranges for the connections from clients to the accelerator.
 	// Experimental.
-	LoadBalancerArn *string `json:"loadBalancerArn"`
+	PortRanges *[]*PortRange `json:"portRanges"`
+	// Client affinity to direct all requests from a user to the same endpoint.
+	//
+	// If you have stateful applications, client affinity lets you direct all
+	// requests from a user to the same endpoint.
+	//
+	// By default, each connection from each client is routed to seperate
+	// endpoints. Set client affinity to SOURCE_IP to route all connections from
+	// a single client to the same endpoint.
+	// Experimental.
+	ClientAffinity ClientAffinity `json:"clientAffinity"`
+	// Name of the listener.
+	// Experimental.
+	ListenerName *string `json:"listenerName"`
+	// The protocol for the connections from clients to the accelerator.
+	// Experimental.
+	Protocol ConnectionProtocol `json:"protocol"`
+	// The accelerator for this listener.
+	// Experimental.
+	Accelerator IAccelerator `json:"accelerator"`
+}
+
+// Override specific listener ports used to route traffic to endpoints that are part of an endpoint group.
+// Experimental.
+type PortOverride struct {
+	// The endpoint port that you want a listener port to be mapped to.
+	//
+	// This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
+	// Experimental.
+	EndpointPort *float64 `json:"endpointPort"`
+	// The listener port that you want to map to a specific endpoint port.
+	//
+	// This is the port that user traffic arrives to the Global Accelerator on.
+	// Experimental.
+	ListenerPort *float64 `json:"listenerPort"`
 }
 
 // The list of port ranges for the connections from clients to the accelerator.
@@ -3807,5 +3663,103 @@ type PortRange struct {
 	// The last port in the range of ports, inclusive.
 	// Experimental.
 	ToPort *float64 `json:"toPort"`
+}
+
+// Untyped endpoint implementation.
+//
+// Prefer using the classes in the `aws-globalaccelerator-endpoints` package instead,
+// as they accept typed constructs. You can use this class if you want to use an
+// endpoint type that does not have an appropriate class in that package yet.
+// Experimental.
+type RawEndpoint interface {
+	IEndpoint
+	Region() *string
+	RenderEndpointConfiguration() interface{}
+}
+
+// The jsii proxy struct for RawEndpoint
+type jsiiProxy_RawEndpoint struct {
+	jsiiProxy_IEndpoint
+}
+
+func (j *jsiiProxy_RawEndpoint) Region() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"region",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewRawEndpoint(props *RawEndpointProps) RawEndpoint {
+	_init_.Initialize()
+
+	j := jsiiProxy_RawEndpoint{}
+
+	_jsii_.Create(
+		"monocdk.aws_globalaccelerator.RawEndpoint",
+		[]interface{}{props},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewRawEndpoint_Override(r RawEndpoint, props *RawEndpointProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_globalaccelerator.RawEndpoint",
+		[]interface{}{props},
+		r,
+	)
+}
+
+// Render the endpoint to an endpoint configuration.
+// Experimental.
+func (r *jsiiProxy_RawEndpoint) RenderEndpointConfiguration() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		r,
+		"renderEndpointConfiguration",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Properties for RawEndpoint.
+// Experimental.
+type RawEndpointProps struct {
+	// Identifier of the endpoint.
+	//
+	// Load balancer ARN, instance ID or EIP allocation ID.
+	// Experimental.
+	EndpointId *string `json:"endpointId"`
+	// Forward the client IP address.
+	//
+	// GlobalAccelerator will create Network Interfaces in your VPC in order
+	// to preserve the client IP address.
+	//
+	// Only applies to Application Load Balancers and EC2 instances.
+	//
+	// Client IP address preservation is supported only in specific AWS Regions.
+	// See the GlobalAccelerator Developer Guide for a list.
+	// Experimental.
+	PreserveClientIp *bool `json:"preserveClientIp"`
+	// The region where this endpoint is located.
+	// Experimental.
+	Region *string `json:"region"`
+	// Endpoint weight across all endpoints in the group.
+	//
+	// Must be a value between 0 and 255.
+	// Experimental.
+	Weight *float64 `json:"weight"`
 }
 

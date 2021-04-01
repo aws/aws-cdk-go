@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/awscloudformation/internal"
 	"github.com/aws/aws-cdk-go/awscdk/awslambda"
 	"github.com/aws/aws-cdk-go/awscdk/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/cloudassemblyschema"
 	"github.com/aws/aws-cdk-go/awscdk/cxapi"
 	"github.com/aws/constructs-go/constructs/v3"
 )
@@ -7350,6 +7351,7 @@ type NestedStack interface {
 	PrepareCrossReference(_sourceStack awscdk.Stack, reference awscdk.Reference) awscdk.IResolvable
 	RenameLogicalId(oldId *string, newId *string)
 	ReportMissingContext(report *cxapi.MissingContext)
+	ReportMissingContextKey(report *cloudassemblyschema.MissingContext)
 	Resolve(obj interface{}) interface{}
 	SetParameter(name *string, value *string)
 	Synthesize(session awscdk.ISynthesisSession)
@@ -8036,15 +8038,25 @@ func (n *jsiiProxy_NestedStack) RenameLogicalId(oldId *string, newId *string) {
 	)
 }
 
+// DEPRECATED.
+// Deprecated: use `reportMissingContextKey()`
+func (n *jsiiProxy_NestedStack) ReportMissingContext(report *cxapi.MissingContext) {
+	_jsii_.InvokeVoid(
+		n,
+		"reportMissingContext",
+		[]interface{}{report},
+	)
+}
+
 // Indicate that a context key was expected.
 //
 // Contains instructions which will be emitted into the cloud assembly on how
 // the key should be supplied.
 // Deprecated: use core.NestedStack instead
-func (n *jsiiProxy_NestedStack) ReportMissingContext(report *cxapi.MissingContext) {
+func (n *jsiiProxy_NestedStack) ReportMissingContextKey(report *cloudassemblyschema.MissingContext) {
 	_jsii_.InvokeVoid(
 		n,
-		"reportMissingContext",
+		"reportMissingContextKey",
 		[]interface{}{report},
 	)
 }

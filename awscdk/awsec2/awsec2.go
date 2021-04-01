@@ -55895,14 +55895,17 @@ type InitFileAssetOptions struct {
 	// Experimental.
 	ServiceRestartHandles *[]InitServiceRestartHandle `json:"serviceRestartHandles"`
 	// Glob patterns to exclude from the copy.
-	// Deprecated.
+	// Experimental.
 	Exclude *[]*string `json:"exclude"`
 	// A strategy for how to handle symlinks.
-	// Deprecated.
+	// Deprecated: use `followSymlinks` instead
 	Follow assets.FollowMode `json:"follow"`
 	// The ignore behavior to use for exclude patterns.
-	// Deprecated.
+	// Experimental.
 	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode"`
+	// A strategy for how to handle symlinks.
+	// Experimental.
+	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
 	// Specify a custom hash for this asset.
 	//
 	// If `assetHashType` is set it must
@@ -56478,14 +56481,17 @@ type InitSourceAssetOptions struct {
 	// Experimental.
 	ServiceRestartHandles *[]InitServiceRestartHandle `json:"serviceRestartHandles"`
 	// Glob patterns to exclude from the copy.
-	// Deprecated.
+	// Experimental.
 	Exclude *[]*string `json:"exclude"`
 	// A strategy for how to handle symlinks.
-	// Deprecated.
+	// Deprecated: use `followSymlinks` instead
 	Follow assets.FollowMode `json:"follow"`
 	// The ignore behavior to use for exclude patterns.
-	// Deprecated.
+	// Experimental.
 	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode"`
+	// A strategy for how to handle symlinks.
+	// Experimental.
+	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
 	// Specify a custom hash for this asset.
 	//
 	// If `assetHashType` is set it must
@@ -63438,6 +63444,18 @@ type SecurityGroupProps struct {
 	// A description of the security group.
 	// Experimental.
 	Description *string `json:"description"`
+	// Whether to disable inline ingress and egress rule optimization.
+	//
+	// If this is set to true, ingress and egress rules will not be declared under the
+	// SecurityGroup in cloudformation, but will be separate elements.
+	//
+	// Inlining rules is an optimization for producing smaller stack templates. Sometimes
+	// this is not desirable, for example when security group access is managed via tags.
+	//
+	// The default value can be overriden globally by setting the context variable
+	// '@aws-cdk/aws-ec2.securityGroupDisableInlineRules'.
+	// Experimental.
+	DisableInlineRules *bool `json:"disableInlineRules"`
 	// The name of the security group.
 	//
 	// For valid values, see the GroupName

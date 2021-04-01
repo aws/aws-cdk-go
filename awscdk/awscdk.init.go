@@ -1277,6 +1277,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
 			_jsii_.MemberProperty{JsiiProperty: "locked", GoGetter: "Locked"},
 			_jsii_.MemberProperty{JsiiProperty: "metadata", GoGetter: "Metadata"},
+			_jsii_.MemberProperty{JsiiProperty: "metadataEntry", GoGetter: "MetadataEntry"},
 			_jsii_.MemberProperty{JsiiProperty: "path", GoGetter: "Path"},
 			_jsii_.MemberProperty{JsiiProperty: "root", GoGetter: "Root"},
 			_jsii_.MemberProperty{JsiiProperty: "scope", GoGetter: "Scope"},
@@ -1558,6 +1559,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.FileAssetSource",
 		reflect.TypeOf((*FileAssetSource)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.FileCopyOptions",
+		reflect.TypeOf((*FileCopyOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.FileFingerprintOptions",
+		reflect.TypeOf((*FileFingerprintOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"monocdk.FileSystem",
@@ -2040,6 +2049,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "region", GoGetter: "Region"},
 			_jsii_.MemberMethod{JsiiMethod: "renameLogicalId", GoMethod: "RenameLogicalId"},
 			_jsii_.MemberMethod{JsiiMethod: "reportMissingContext", GoMethod: "ReportMissingContext"},
+			_jsii_.MemberMethod{JsiiMethod: "reportMissingContextKey", GoMethod: "ReportMissingContextKey"},
 			_jsii_.MemberMethod{JsiiMethod: "resolve", GoMethod: "Resolve"},
 			_jsii_.MemberMethod{JsiiMethod: "setParameter", GoMethod: "SetParameter"},
 			_jsii_.MemberProperty{JsiiProperty: "stackId", GoGetter: "StackId"},
@@ -2279,6 +2289,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "region", GoGetter: "Region"},
 			_jsii_.MemberMethod{JsiiMethod: "renameLogicalId", GoMethod: "RenameLogicalId"},
 			_jsii_.MemberMethod{JsiiMethod: "reportMissingContext", GoMethod: "ReportMissingContext"},
+			_jsii_.MemberMethod{JsiiMethod: "reportMissingContextKey", GoMethod: "ReportMissingContextKey"},
 			_jsii_.MemberMethod{JsiiMethod: "resolve", GoMethod: "Resolve"},
 			_jsii_.MemberProperty{JsiiProperty: "stackId", GoGetter: "StackId"},
 			_jsii_.MemberProperty{JsiiProperty: "stackName", GoGetter: "StackName"},

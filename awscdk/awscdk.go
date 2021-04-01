@@ -5,6 +5,7 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
+	"github.com/aws/aws-cdk-go/awscdk/cloudassemblyschema"
 	"github.com/aws/aws-cdk-go/awscdk/cxapi"
 	"github.com/aws/aws-cdk-go/awscdk/internal"
 	"github.com/aws/constructs-go/constructs/v3"
@@ -1633,7 +1634,7 @@ func (b *jsiiProxy_BundlingDockerImage) ToJSON() *string {
 type BundlingOptions struct {
 	// The Docker image where the command will run.
 	// Experimental.
-	Image BundlingDockerImage `json:"image"`
+	Image DockerImage `json:"image"`
 	// The command to run in the Docker container.
 	//
 	// TODO: EXAMPLE
@@ -13392,6 +13393,7 @@ type ConstructNode interface {
 	Id() *string
 	Locked() *bool
 	Metadata() *[]*cxapi.MetadataEntry
+	MetadataEntry() *[]*constructs.MetadataEntry
 	Path() *string
 	Root() IConstruct
 	Scope() IConstruct
@@ -13482,6 +13484,16 @@ func (j *jsiiProxy_ConstructNode) Metadata() *[]*cxapi.MetadataEntry {
 	_jsii_.Get(
 		j,
 		"metadata",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ConstructNode) MetadataEntry() *[]*constructs.MetadataEntry {
+	var returns *[]*constructs.MetadataEntry
+	_jsii_.Get(
+		j,
+		"metadataEntry",
 		&returns,
 	)
 	return returns
@@ -13879,7 +13891,7 @@ func ContextProvider_GetValue(scope constructs.Construct, options *GetContextVal
 	return returns
 }
 
-// Obtains applied when copying directories into the staging location.
+// Options applied when copying directories.
 // Experimental.
 type CopyOptions struct {
 	// Glob patterns to exclude from the copy.
@@ -15382,10 +15394,10 @@ func DockerImage_FromAsset(path *string, options *DockerBuildOptions) BundlingDo
 
 // Builds a Docker image.
 // Experimental.
-func DockerImage_FromBuild(path *string, options *DockerBuildOptions) BundlingDockerImage {
+func DockerImage_FromBuild(path *string, options *DockerBuildOptions) DockerImage {
 	_init_.Initialize()
 
-	var returns BundlingDockerImage
+	var returns DockerImage
 
 	_jsii_.StaticInvoke(
 		"monocdk.DockerImage",
@@ -16245,6 +16257,37 @@ type FileAssetSource struct {
 	// Which type of packaging to perform.
 	// Experimental.
 	Packaging FileAssetPackaging `json:"packaging"`
+}
+
+// Options applied when copying directories into the staging location.
+// Experimental.
+type FileCopyOptions struct {
+	// Glob patterns to exclude from the copy.
+	// Experimental.
+	Exclude *[]*string `json:"exclude"`
+	// A strategy for how to handle symlinks.
+	// Experimental.
+	FollowSymlinks SymlinkFollowMode `json:"followSymlinks"`
+	// The ignore behavior to use for exclude patterns.
+	// Experimental.
+	IgnoreMode IgnoreMode `json:"ignoreMode"`
+}
+
+// Options related to calculating source hash.
+// Experimental.
+type FileFingerprintOptions struct {
+	// Glob patterns to exclude from the copy.
+	// Experimental.
+	Exclude *[]*string `json:"exclude"`
+	// A strategy for how to handle symlinks.
+	// Experimental.
+	FollowSymlinks SymlinkFollowMode `json:"followSymlinks"`
+	// The ignore behavior to use for exclude patterns.
+	// Experimental.
+	IgnoreMode IgnoreMode `json:"ignoreMode"`
+	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
+	// Experimental.
+	ExtraHash *string `json:"extraHash"`
 }
 
 // File system utilities.
@@ -19295,6 +19338,7 @@ type NestedStack interface {
 	PrepareCrossReference(_sourceStack Stack, reference Reference) IResolvable
 	RenameLogicalId(oldId *string, newId *string)
 	ReportMissingContext(report *cxapi.MissingContext)
+	ReportMissingContextKey(report *cloudassemblyschema.MissingContext)
 	Resolve(obj interface{}) interface{}
 	SetParameter(name *string, value *string)
 	Synthesize(session ISynthesisSession)
@@ -19981,15 +20025,25 @@ func (n *jsiiProxy_NestedStack) RenameLogicalId(oldId *string, newId *string) {
 	)
 }
 
+// DEPRECATED.
+// Deprecated: use `reportMissingContextKey()`
+func (n *jsiiProxy_NestedStack) ReportMissingContext(report *cxapi.MissingContext) {
+	_jsii_.InvokeVoid(
+		n,
+		"reportMissingContext",
+		[]interface{}{report},
+	)
+}
+
 // Indicate that a context key was expected.
 //
 // Contains instructions which will be emitted into the cloud assembly on how
 // the key should be supplied.
 // Experimental.
-func (n *jsiiProxy_NestedStack) ReportMissingContext(report *cxapi.MissingContext) {
+func (n *jsiiProxy_NestedStack) ReportMissingContextKey(report *cloudassemblyschema.MissingContext) {
 	_jsii_.InvokeVoid(
 		n,
-		"reportMissingContext",
+		"reportMissingContextKey",
 		[]interface{}{report},
 	)
 }
@@ -20886,6 +20940,14 @@ type ResourceProps struct {
 	// The AWS account ID this resource belongs to.
 	// Experimental.
 	Account *string `json:"account"`
+	// ARN to deduce region and account from.
+	//
+	// The ARN is parsed and the account and region are taken from the ARN.
+	// This should be used for imported resources.
+	//
+	// Cannot be supplied together with either `account` or `region`.
+	// Experimental.
+	EnvironmentFromArn *string `json:"environmentFromArn"`
 	// The value passed in by users to the physical name prop of the resource.
 	//
 	// - `undefined` implies that a physical name will be allocated by
@@ -21562,6 +21624,7 @@ type Stack interface {
 	PrepareCrossReference(_sourceStack Stack, reference Reference) IResolvable
 	RenameLogicalId(oldId *string, newId *string)
 	ReportMissingContext(report *cxapi.MissingContext)
+	ReportMissingContextKey(report *cloudassemblyschema.MissingContext)
 	Resolve(obj interface{}) interface{}
 	Synthesize(session ISynthesisSession)
 	ToJsonString(obj interface{}, space *float64) *string
@@ -22233,15 +22296,25 @@ func (s *jsiiProxy_Stack) RenameLogicalId(oldId *string, newId *string) {
 	)
 }
 
+// DEPRECATED.
+// Deprecated: use `reportMissingContextKey()`
+func (s *jsiiProxy_Stack) ReportMissingContext(report *cxapi.MissingContext) {
+	_jsii_.InvokeVoid(
+		s,
+		"reportMissingContext",
+		[]interface{}{report},
+	)
+}
+
 // Indicate that a context key was expected.
 //
 // Contains instructions which will be emitted into the cloud assembly on how
 // the key should be supplied.
 // Experimental.
-func (s *jsiiProxy_Stack) ReportMissingContext(report *cxapi.MissingContext) {
+func (s *jsiiProxy_Stack) ReportMissingContextKey(report *cloudassemblyschema.MissingContext) {
 	_jsii_.InvokeVoid(
 		s,
-		"reportMissingContext",
+		"reportMissingContextKey",
 		[]interface{}{report},
 	)
 }

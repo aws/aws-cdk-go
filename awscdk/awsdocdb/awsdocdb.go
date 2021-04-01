@@ -3950,12 +3950,17 @@ type DatabaseClusterAttributes struct {
 // Properties for a new database cluster.
 // Experimental.
 type DatabaseClusterProps struct {
-	// Settings for the individual instances that are launched.
+	// What type of instance to start for the replicas.
 	// Experimental.
-	InstanceProps *InstanceProps `json:"instanceProps"`
+	InstanceType awsec2.InstanceType `json:"instanceType"`
 	// Username and password for the administrative user.
 	// Experimental.
 	MasterUser *Login `json:"masterUser"`
+	// What subnets to run the DocumentDB instances in.
+	//
+	// Must be at least 2 subnets in two different AZs.
+	// Experimental.
+	Vpc awsec2.IVpc `json:"vpc"`
 	// Backup settings.
 	// See: https://docs.aws.amazon.com/documentdb/latest/developerguide/backup-restore.db-cluster-snapshots.html#backup-restore.backup-window
 	//
@@ -3978,7 +3983,7 @@ type DatabaseClusterProps struct {
 	// The KMS key for storage encryption.
 	// Experimental.
 	KmsKey awskms.IKey `json:"kmsKey"`
-	// Additional parameters to pass to the database engine.
+	// The DB parameter group to associate with the instance.
 	// Experimental.
 	ParameterGroup IClusterParameterGroup `json:"parameterGroup"`
 	// The port the DocumentDB cluster will listen on.
@@ -4000,9 +4005,15 @@ type DatabaseClusterProps struct {
 	// cluster if one is not supplied as a parameter.
 	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	// Security group.
+	// Experimental.
+	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 	// Whether to enable storage encryption.
 	// Experimental.
 	StorageEncrypted *bool `json:"storageEncrypted"`
+	// Where to place the instances within the VPC.
+	// Experimental.
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 }
 
 // A database instance.
@@ -4425,7 +4436,7 @@ type DatabaseInstanceProps struct {
 	Cluster IDatabaseCluster `json:"cluster"`
 	// The name of the compute and memory capacity classes.
 	// Experimental.
-	InstanceClass awsec2.InstanceType `json:"instanceClass"`
+	InstanceType awsec2.InstanceType `json:"instanceType"`
 	// Indicates that minor engine upgrades are applied automatically to the DB instance during the maintenance window.
 	// Experimental.
 	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade"`
@@ -5436,28 +5447,6 @@ func (j *jsiiProxy_IDatabaseInstance) InstanceIdentifier() *string {
 		&returns,
 	)
 	return returns
-}
-
-// Instance properties for database instances.
-// Experimental.
-type InstanceProps struct {
-	// What type of instance to start for the replicas.
-	// Experimental.
-	InstanceType awsec2.InstanceType `json:"instanceType"`
-	// What subnets to run the DocumentDB instances in.
-	//
-	// Must be at least 2 subnets in two different AZs.
-	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
-	// The DB parameter group to associate with the instance.
-	// Experimental.
-	ParameterGroup IClusterParameterGroup `json:"parameterGroup"`
-	// Security group.
-	// Experimental.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
-	// Where to place the instances within the VPC.
-	// Experimental.
-	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 }
 
 // Login credentials for a database cluster.

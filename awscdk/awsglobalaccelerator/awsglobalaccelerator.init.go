@@ -12,6 +12,7 @@ func init() {
 		reflect.TypeOf((*Accelerator)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "acceleratorArn", GoGetter: "AcceleratorArn"},
+			_jsii_.MemberMethod{JsiiMethod: "addListener", GoMethod: "AddListener"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "dnsName", GoGetter: "DnsName"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -43,14 +44,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_globalaccelerator.AcceleratorProps",
 		reflect.TypeOf((*AcceleratorProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"monocdk.aws_globalaccelerator.AcceleratorSecurityGroup",
-		reflect.TypeOf((*AcceleratorSecurityGroup)(nil)).Elem(),
-		nil, // no members
-		func() interface{} {
-			return &jsiiProxy_AcceleratorSecurityGroup{}
-		},
 	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_globalaccelerator.CfnAccelerator",
@@ -241,52 +234,13 @@ func init() {
 			"UDP": ConnectionProtocol_UDP,
 		},
 	)
-	_jsii_.RegisterStruct(
-		"monocdk.aws_globalaccelerator.Ec2Instance",
-		reflect.TypeOf((*Ec2Instance)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"monocdk.aws_globalaccelerator.ElasticIpAddress",
-		reflect.TypeOf((*ElasticIpAddress)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"monocdk.aws_globalaccelerator.EndpointConfiguration",
-		reflect.TypeOf((*EndpointConfiguration)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
-			_jsii_.MemberProperty{JsiiProperty: "props", GoGetter: "Props"},
-			_jsii_.MemberMethod{JsiiMethod: "renderEndpointConfiguration", GoMethod: "RenderEndpointConfiguration"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
-		},
-		func() interface{} {
-			j := jsiiProxy_EndpointConfiguration{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkConstruct)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"monocdk.aws_globalaccelerator.EndpointConfigurationOptions",
-		reflect.TypeOf((*EndpointConfigurationOptions)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"monocdk.aws_globalaccelerator.EndpointConfigurationProps",
-		reflect.TypeOf((*EndpointConfigurationProps)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_globalaccelerator.EndpointGroup",
 		reflect.TypeOf((*EndpointGroup)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "addEc2Instance", GoMethod: "AddEc2Instance"},
-			_jsii_.MemberMethod{JsiiMethod: "addElasticIpAddress", GoMethod: "AddElasticIpAddress"},
 			_jsii_.MemberMethod{JsiiMethod: "addEndpoint", GoMethod: "AddEndpoint"},
-			_jsii_.MemberMethod{JsiiMethod: "addLoadBalancer", GoMethod: "AddLoadBalancer"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "connectionsPeer", GoMethod: "ConnectionsPeer"},
 			_jsii_.MemberProperty{JsiiProperty: "endpointGroupArn", GoGetter: "EndpointGroupArn"},
 			_jsii_.MemberProperty{JsiiProperty: "endpointGroupName", GoGetter: "EndpointGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "endpoints", GoGetter: "Endpoints"},
@@ -313,8 +267,21 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_globalaccelerator.EndpointGroupOptions",
+		reflect.TypeOf((*EndpointGroupOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_globalaccelerator.EndpointGroupProps",
 		reflect.TypeOf((*EndpointGroupProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_globalaccelerator.HealthCheckProtocol",
+		reflect.TypeOf((*HealthCheckProtocol)(nil)).Elem(),
+		map[string]interface{}{
+			"TCP": HealthCheckProtocol_TCP,
+			"HTTP": HealthCheckProtocol_HTTP,
+			"HTTPS": HealthCheckProtocol_HTTPS,
+		},
 	)
 	_jsii_.RegisterInterface(
 		"monocdk.aws_globalaccelerator.IAccelerator",
@@ -330,6 +297,17 @@ func init() {
 			j := jsiiProxy_IAccelerator{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"monocdk.aws_globalaccelerator.IEndpoint",
+		reflect.TypeOf((*IEndpoint)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "region", GoGetter: "Region"},
+			_jsii_.MemberMethod{JsiiMethod: "renderEndpointConfiguration", GoMethod: "RenderEndpointConfiguration"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IEndpoint{}
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -366,6 +344,7 @@ func init() {
 		"monocdk.aws_globalaccelerator.Listener",
 		reflect.TypeOf((*Listener)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addEndpointGroup", GoMethod: "AddEndpointGroup"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -392,15 +371,36 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_globalaccelerator.ListenerOptions",
+		reflect.TypeOf((*ListenerOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_globalaccelerator.ListenerProps",
 		reflect.TypeOf((*ListenerProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_globalaccelerator.LoadBalancer",
-		reflect.TypeOf((*LoadBalancer)(nil)).Elem(),
+		"monocdk.aws_globalaccelerator.PortOverride",
+		reflect.TypeOf((*PortOverride)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_globalaccelerator.PortRange",
 		reflect.TypeOf((*PortRange)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_globalaccelerator.RawEndpoint",
+		reflect.TypeOf((*RawEndpoint)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "region", GoGetter: "Region"},
+			_jsii_.MemberMethod{JsiiMethod: "renderEndpointConfiguration", GoMethod: "RenderEndpointConfiguration"},
+		},
+		func() interface{} {
+			j := jsiiProxy_RawEndpoint{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IEndpoint)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_globalaccelerator.RawEndpointProps",
+		reflect.TypeOf((*RawEndpointProps)(nil)).Elem(),
 	)
 }
