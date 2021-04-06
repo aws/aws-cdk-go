@@ -2612,6 +2612,7 @@ type ApplicationTargetGroup interface {
 	TargetGroupLoadBalancerArns() *[]*string
 	TargetGroupName() *string
 	TargetType() TargetType
+	SetTargetType(val TargetType)
 	AddLoadBalancerTarget(props *LoadBalancerTargetProps)
 	AddTarget(targets ...IApplicationLoadBalancerTarget)
 	ConfigureHealthCheck(healthCheck *HealthCheck)
@@ -11271,6 +11272,7 @@ type NetworkTargetGroup interface {
 	TargetGroupLoadBalancerArns() *[]*string
 	TargetGroupName() *string
 	TargetType() TargetType
+	SetTargetType(val TargetType)
 	AddLoadBalancerTarget(props *LoadBalancerTargetProps)
 	AddTarget(targets ...INetworkLoadBalancerTarget)
 	ConfigureHealthCheck(healthCheck *HealthCheck)
@@ -11940,6 +11942,7 @@ type TargetGroupBase interface {
 	TargetGroupLoadBalancerArns() *[]*string
 	TargetGroupName() *string
 	TargetType() TargetType
+	SetTargetType(val TargetType)
 	AddLoadBalancerTarget(props *LoadBalancerTargetProps)
 	ConfigureHealthCheck(healthCheck *HealthCheck)
 	OnPrepare()

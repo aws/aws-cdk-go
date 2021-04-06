@@ -1266,6 +1266,10 @@ func init() {
 		"monocdk.aws_appmesh.MeshProps",
 		reflect.TypeOf((*MeshProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_appmesh.OutlierDetection",
+		reflect.TypeOf((*OutlierDetection)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"monocdk.aws_appmesh.Protocol",
 		reflect.TypeOf((*Protocol)(nil)).Elem(),

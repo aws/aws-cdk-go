@@ -16,9 +16,13 @@ import (
 type HttpAlbIntegration interface {
 	awsapigatewayv2.IHttpRouteIntegration
 	ConnectionType() awsapigatewayv2.HttpConnectionType
+	SetConnectionType(val awsapigatewayv2.HttpConnectionType)
 	HttpMethod() awsapigatewayv2.HttpMethod
+	SetHttpMethod(val awsapigatewayv2.HttpMethod)
 	IntegrationType() awsapigatewayv2.HttpIntegrationType
+	SetIntegrationType(val awsapigatewayv2.HttpIntegrationType)
 	PayloadFormatVersion() awsapigatewayv2.PayloadFormatVersion
+	SetPayloadFormatVersion(val awsapigatewayv2.PayloadFormatVersion)
 	Bind(options *awsapigatewayv2.HttpRouteIntegrationBindOptions) *awsapigatewayv2.HttpRouteIntegrationConfig
 }
 
@@ -160,9 +164,13 @@ type HttpAlbIntegrationProps struct {
 type HttpNlbIntegration interface {
 	awsapigatewayv2.IHttpRouteIntegration
 	ConnectionType() awsapigatewayv2.HttpConnectionType
+	SetConnectionType(val awsapigatewayv2.HttpConnectionType)
 	HttpMethod() awsapigatewayv2.HttpMethod
+	SetHttpMethod(val awsapigatewayv2.HttpMethod)
 	IntegrationType() awsapigatewayv2.HttpIntegrationType
+	SetIntegrationType(val awsapigatewayv2.HttpIntegrationType)
 	PayloadFormatVersion() awsapigatewayv2.PayloadFormatVersion
+	SetPayloadFormatVersion(val awsapigatewayv2.PayloadFormatVersion)
 	Bind(options *awsapigatewayv2.HttpRouteIntegrationBindOptions) *awsapigatewayv2.HttpRouteIntegrationConfig
 }
 
@@ -379,9 +387,13 @@ type HttpProxyIntegrationProps struct {
 type HttpServiceDiscoveryIntegration interface {
 	awsapigatewayv2.IHttpRouteIntegration
 	ConnectionType() awsapigatewayv2.HttpConnectionType
+	SetConnectionType(val awsapigatewayv2.HttpConnectionType)
 	HttpMethod() awsapigatewayv2.HttpMethod
+	SetHttpMethod(val awsapigatewayv2.HttpMethod)
 	IntegrationType() awsapigatewayv2.HttpIntegrationType
+	SetIntegrationType(val awsapigatewayv2.HttpIntegrationType)
 	PayloadFormatVersion() awsapigatewayv2.PayloadFormatVersion
+	SetPayloadFormatVersion(val awsapigatewayv2.PayloadFormatVersion)
 	Bind(_arg *awsapigatewayv2.HttpRouteIntegrationBindOptions) *awsapigatewayv2.HttpRouteIntegrationConfig
 }
 

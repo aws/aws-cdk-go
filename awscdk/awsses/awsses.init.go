@@ -7,6 +7,14 @@ import (
 )
 
 func init() {
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ses.AddHeaderActionConfig",
+		reflect.TypeOf((*AddHeaderActionConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ses.BounceActionConfig",
+		reflect.TypeOf((*BounceActionConfig)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_ses.CfnConfigurationSet",
 		reflect.TypeOf((*CfnConfigurationSet)(nil)).Elem(),
@@ -421,6 +429,10 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ses.LambdaActionConfig",
+		reflect.TypeOf((*LambdaActionConfig)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_ses.ReceiptFilter",
 		reflect.TypeOf((*ReceiptFilter)(nil)).Elem(),
@@ -534,6 +546,18 @@ func init() {
 		"monocdk.aws_ses.ReceiptRuleSetProps",
 		reflect.TypeOf((*ReceiptRuleSetProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ses.S3ActionConfig",
+		reflect.TypeOf((*S3ActionConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ses.SNSActionConfig",
+		reflect.TypeOf((*SNSActionConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ses.StopActionConfig",
+		reflect.TypeOf((*StopActionConfig)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"monocdk.aws_ses.TlsPolicy",
 		reflect.TypeOf((*TlsPolicy)(nil)).Elem(),
@@ -564,5 +588,9 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_ses.WhiteListReceiptFilterProps",
 		reflect.TypeOf((*WhiteListReceiptFilterProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ses.WorkmailActionConfig",
+		reflect.TypeOf((*WorkmailActionConfig)(nil)).Elem(),
 	)
 }

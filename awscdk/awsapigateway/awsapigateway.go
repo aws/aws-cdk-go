@@ -27097,6 +27097,9 @@ type IRestApi interface {
 	// API Gateway stage that points to the latest deployment (if defined).
 	// Experimental.
 	DeploymentStage() Stage
+	// API Gateway stage that points to the latest deployment (if defined).
+	// Experimental.
+	SetDeploymentStage(d Stage)
 	// API Gateway deployment that represents the latest changes of the API.
 	//
 	// This resource will be automatically updated every time the REST API model changes.
@@ -31084,6 +31087,7 @@ type RequestAuthorizer interface {
 	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	RestApiId() *string
+	SetRestApiId(val *string)
 	Role() awsiam.IRole
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
@@ -36363,6 +36367,7 @@ type TokenAuthorizer interface {
 	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	RestApiId() *string
+	SetRestApiId(val *string)
 	Role() awsiam.IRole
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)

@@ -15,13 +15,16 @@ import (
 type Alarm interface {
 	AlarmBase
 	AlarmActionArns() *[]*string
+	SetAlarmActionArns(val *[]*string)
 	AlarmArn() *string
 	AlarmName() *string
 	Env() *awscdk.ResourceEnvironment
 	InsufficientDataActionArns() *[]*string
+	SetInsufficientDataActionArns(val *[]*string)
 	Metric() IMetric
 	Node() awscdk.ConstructNode
 	OkActionArns() *[]*string
+	SetOkActionArns(val *[]*string)
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	AddAlarmAction(actions ...IAlarmAction)
@@ -543,12 +546,15 @@ type AlarmBase interface {
 	awscdk.Resource
 	IAlarm
 	AlarmActionArns() *[]*string
+	SetAlarmActionArns(val *[]*string)
 	AlarmArn() *string
 	AlarmName() *string
 	Env() *awscdk.ResourceEnvironment
 	InsufficientDataActionArns() *[]*string
+	SetInsufficientDataActionArns(val *[]*string)
 	Node() awscdk.ConstructNode
 	OkActionArns() *[]*string
+	SetOkActionArns(val *[]*string)
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	AddAlarmAction(actions ...IAlarmAction)
@@ -1216,7 +1222,9 @@ type AlarmStatusWidget interface {
 	Height() *float64
 	Width() *float64
 	X() *float64
+	SetX(val *float64)
 	Y() *float64
+	SetY(val *float64)
 	Position(x *float64, y *float64)
 	ToJson() *[]interface{}
 }
@@ -1358,7 +1366,9 @@ type AlarmWidget interface {
 	Height() *float64
 	Width() *float64
 	X() *float64
+	SetX(val *float64)
 	Y() *float64
+	SetY(val *float64)
 	Position(x *float64, y *float64)
 	ToJson() *[]interface{}
 }
@@ -6316,12 +6326,15 @@ const (
 type CompositeAlarm interface {
 	AlarmBase
 	AlarmActionArns() *[]*string
+	SetAlarmActionArns(val *[]*string)
 	AlarmArn() *string
 	AlarmName() *string
 	Env() *awscdk.ResourceEnvironment
 	InsufficientDataActionArns() *[]*string
+	SetInsufficientDataActionArns(val *[]*string)
 	Node() awscdk.ConstructNode
 	OkActionArns() *[]*string
+	SetOkActionArns(val *[]*string)
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	AddAlarmAction(actions ...IAlarmAction)
@@ -6833,7 +6846,9 @@ type ConcreteWidget interface {
 	Height() *float64
 	Width() *float64
 	X() *float64
+	SetX(val *float64)
 	Y() *float64
+	SetY(val *float64)
 	Position(x *float64, y *float64)
 	ToJson() *[]interface{}
 }
@@ -7384,7 +7399,9 @@ type GraphWidget interface {
 	Height() *float64
 	Width() *float64
 	X() *float64
+	SetX(val *float64)
 	Y() *float64
+	SetY(val *float64)
 	AddLeftMetric(metric IMetric)
 	AddRightMetric(metric IMetric)
 	Position(x *float64, y *float64)
@@ -7885,7 +7902,9 @@ type LogQueryWidget interface {
 	Height() *float64
 	Width() *float64
 	X() *float64
+	SetX(val *float64)
 	Y() *float64
+	SetY(val *float64)
 	Position(x *float64, y *float64)
 	ToJson() *[]interface{}
 }
@@ -8972,7 +8991,9 @@ type SingleValueWidget interface {
 	Height() *float64
 	Width() *float64
 	X() *float64
+	SetX(val *float64)
 	Y() *float64
+	SetY(val *float64)
 	Position(x *float64, y *float64)
 	ToJson() *[]interface{}
 }
@@ -9233,7 +9254,9 @@ type TextWidget interface {
 	Height() *float64
 	Width() *float64
 	X() *float64
+	SetX(val *float64)
 	Y() *float64
+	SetY(val *float64)
 	Position(x *float64, y *float64)
 	ToJson() *[]interface{}
 }

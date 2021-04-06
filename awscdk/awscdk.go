@@ -2,6 +2,8 @@
 package awscdk
 
 import (
+	"time"
+
 	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
@@ -15986,7 +15988,7 @@ type Environment struct {
 // The amount can be specified either as a Date object, timestamp, Duration or string.
 // Experimental.
 type Expiration interface {
-	Date() *string
+	Date() *time.Time
 	IsAfter(t Duration) *bool
 	IsBefore(t Duration) *bool
 	ToEpoch() *float64
@@ -15997,8 +15999,8 @@ type jsiiProxy_Expiration struct {
 	_ byte // padding
 }
 
-func (j *jsiiProxy_Expiration) Date() *string {
-	var returns *string
+func (j *jsiiProxy_Expiration) Date() *time.Time {
+	var returns *time.Time
 	_jsii_.Get(
 		j,
 		"date",
@@ -16027,7 +16029,7 @@ func Expiration_After(t Duration) Expiration {
 
 // Expire at the specified date.
 // Experimental.
-func Expiration_AtDate(d *string) Expiration {
+func Expiration_AtDate(d *time.Time) Expiration {
 	_init_.Initialize()
 
 	var returns Expiration
@@ -17447,6 +17449,13 @@ type ICfnResourceOptions interface {
 	// there is no need to use it in CDK projects.
 	// Experimental.
 	Condition() CfnCondition
+	// A condition to associate with this resource.
+	//
+	// This means that only if the condition evaluates to 'true' when the stack
+	// is deployed, the resource will be included. This is provided to allow CDK projects to produce legacy templates, but noramlly
+	// there is no need to use it in CDK projects.
+	// Experimental.
+	SetCondition(c CfnCondition)
 	// Associate the CreationPolicy attribute with a resource to prevent its status from reaching create complete until AWS CloudFormation receives a specified number of success signals or the timeout period is exceeded.
 	//
 	// To signal a
@@ -17454,6 +17463,13 @@ type ICfnResourceOptions interface {
 	// to the stack events so that you track the number of signals sent.
 	// Experimental.
 	CreationPolicy() *CfnCreationPolicy
+	// Associate the CreationPolicy attribute with a resource to prevent its status from reaching create complete until AWS CloudFormation receives a specified number of success signals or the timeout period is exceeded.
+	//
+	// To signal a
+	// resource, you can use the cfn-signal helper script or SignalResource API. AWS CloudFormation publishes valid signals
+	// to the stack events so that you track the number of signals sent.
+	// Experimental.
+	SetCreationPolicy(c *CfnCreationPolicy)
 	// With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted.
 	//
 	// You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy
@@ -17461,6 +17477,13 @@ type ICfnResourceOptions interface {
 	// that lead to resources being removed.
 	// Experimental.
 	DeletionPolicy() CfnDeletionPolicy
+	// With the DeletionPolicy attribute you can preserve or (in some cases) backup a resource when its stack is deleted.
+	//
+	// You specify a DeletionPolicy attribute for each resource that you want to control. If a resource has no DeletionPolicy
+	// attribute, AWS CloudFormation deletes the resource by default. Note that this capability also applies to update operations
+	// that lead to resources being removed.
+	// Experimental.
+	SetDeletionPolicy(d CfnDeletionPolicy)
 	// The description of this resource.
 	//
 	// Used for informational purposes only, is not processed in any way
@@ -17468,21 +17491,43 @@ type ICfnResourceOptions interface {
 	// even if it does have a 'description' property).
 	// Experimental.
 	Description() *string
+	// The description of this resource.
+	//
+	// Used for informational purposes only, is not processed in any way
+	// (and stays with the CloudFormation template, is not passed to the underlying resource,
+	// even if it does have a 'description' property).
+	// Experimental.
+	SetDescription(d *string)
 	// Metadata associated with the CloudFormation resource.
 	//
 	// This is not the same as the construct metadata which can be added
 	// using construct.addMetadata(), but would not appear in the CloudFormation template automatically.
 	// Experimental.
 	Metadata() *map[string]interface{}
+	// Metadata associated with the CloudFormation resource.
+	//
+	// This is not the same as the construct metadata which can be added
+	// using construct.addMetadata(), but would not appear in the CloudFormation template automatically.
+	// Experimental.
+	SetMetadata(m *map[string]interface{})
 	// Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource.
 	//
 	// AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a
 	// scheduled action is associated with the Auto Scaling group.
 	// Experimental.
 	UpdatePolicy() *CfnUpdatePolicy
+	// Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource.
+	//
+	// AWS CloudFormation invokes one of three update policies depending on the type of change you make or whether a
+	// scheduled action is associated with the Auto Scaling group.
+	// Experimental.
+	SetUpdatePolicy(u *CfnUpdatePolicy)
 	// Use the UpdateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
 	// Experimental.
 	UpdateReplacePolicy() CfnDeletionPolicy
+	// Use the UpdateReplacePolicy attribute to retain or (in some cases) backup the existing physical instance of a resource when it is replaced during a stack update operation.
+	// Experimental.
+	SetUpdateReplacePolicy(u CfnDeletionPolicy)
 	// The version of this resource.
 	//
 	// Used only for custom CloudFormation resources.
@@ -17490,6 +17535,13 @@ type ICfnResourceOptions interface {
 	//
 	// Experimental.
 	Version() *string
+	// The version of this resource.
+	//
+	// Used only for custom CloudFormation resources.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html
+	//
+	// Experimental.
+	SetVersion(v *string)
 }
 
 // The jsii proxy for ICfnResourceOptions
@@ -18218,9 +18270,15 @@ type ISynthesisSession interface {
 	// Cloud assembly builder.
 	// Experimental.
 	Assembly() cxapi.CloudAssemblyBuilder
+	// Cloud assembly builder.
+	// Experimental.
+	SetAssembly(a cxapi.CloudAssemblyBuilder)
 	// The output directory for this synthesis session.
 	// Experimental.
 	Outdir() *string
+	// The output directory for this synthesis session.
+	// Experimental.
+	SetOutdir(o *string)
 }
 
 // The jsii proxy for ISynthesisSession
@@ -18295,18 +18353,35 @@ type ITemplateOptions interface {
 	// If provided, it will be included in the CloudFormation template's "Description" attribute.
 	// Experimental.
 	Description() *string
+	// Gets or sets the description of this stack.
+	//
+	// If provided, it will be included in the CloudFormation template's "Description" attribute.
+	// Experimental.
+	SetDescription(d *string)
 	// Metadata associated with the CloudFormation template.
 	// Experimental.
 	Metadata() *map[string]interface{}
+	// Metadata associated with the CloudFormation template.
+	// Experimental.
+	SetMetadata(m *map[string]interface{})
 	// Gets or sets the AWSTemplateFormatVersion field of the CloudFormation template.
 	// Experimental.
 	TemplateFormatVersion() *string
+	// Gets or sets the AWSTemplateFormatVersion field of the CloudFormation template.
+	// Experimental.
+	SetTemplateFormatVersion(t *string)
 	// Gets or sets the top-level template transform for this stack (e.g. "AWS::Serverless-2016-10-31").
 	// Deprecated: use `transforms` instead.
 	Transform() *string
+	// Gets or sets the top-level template transform for this stack (e.g. "AWS::Serverless-2016-10-31").
+	// Deprecated: use `transforms` instead.
+	SetTransform(t *string)
 	// Gets or sets the top-level template transform(s) for this stack (e.g. `["AWS::Serverless-2016-10-31"]`).
 	// Experimental.
 	Transforms() *[]*string
+	// Gets or sets the top-level template transform(s) for this stack (e.g. `["AWS::Serverless-2016-10-31"]`).
+	// Experimental.
+	SetTransforms(t *[]*string)
 }
 
 // The jsii proxy for ITemplateOptions

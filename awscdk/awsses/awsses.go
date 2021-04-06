@@ -9,6 +9,39 @@ import (
 	"github.com/aws/constructs-go/constructs/v3"
 )
 
+// AddHeaderAction configuration.
+// Experimental.
+type AddHeaderActionConfig struct {
+	// The name of the header that you want to add to the incoming message.
+	// Experimental.
+	HeaderName *string `json:"headerName"`
+	// The content that you want to include in the header.
+	// Experimental.
+	HeaderValue *string `json:"headerValue"`
+}
+
+// BoundAction configuration.
+// Experimental.
+type BounceActionConfig struct {
+	// Human-readable text to include in the bounce message.
+	// Experimental.
+	Message *string `json:"message"`
+	// The email address of the sender of the bounced email.
+	//
+	// This is the address that the bounce message is sent from.
+	// Experimental.
+	Sender *string `json:"sender"`
+	// The SMTP reply code, as defined by RFC 5321.
+	// Experimental.
+	SmtpReplyCode *string `json:"smtpReplyCode"`
+	// The SMTP enhanced status code, as defined by RFC 3463.
+	// Experimental.
+	StatusCode *string `json:"statusCode"`
+	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the bounce action is taken.
+	// Experimental.
+	TopicArn *string `json:"topicArn"`
+}
+
 // A CloudFormation `AWS::SES::ConfigurationSet`.
 type CfnConfigurationSet interface {
 	awscdk.CfnResource
@@ -4059,6 +4092,20 @@ func (j *jsiiProxy_IReceiptRuleSet) ReceiptRuleSetName() *string {
 	return returns
 }
 
+// LambdaAction configuration.
+// Experimental.
+type LambdaActionConfig struct {
+	// The Amazon Resource Name (ARN) of the AWS Lambda function.
+	// Experimental.
+	FunctionArn *string `json:"functionArn"`
+	// The invocation type of the AWS Lambda function.
+	// Experimental.
+	InvocationType *string `json:"invocationType"`
+	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is executed.
+	// Experimental.
+	TopicArn *string `json:"topicArn"`
+}
+
 // A receipt filter.
 //
 // When instantiated without props, it creates a
@@ -4756,25 +4803,25 @@ func (r *jsiiProxy_ReceiptRule) Validate() *[]*string {
 type ReceiptRuleActionConfig struct {
 	// Adds a header to the received email.
 	// Experimental.
-	AddHeaderAction *CfnReceiptRule_AddHeaderActionProperty `json:"addHeaderAction"`
+	AddHeaderAction *AddHeaderActionConfig `json:"addHeaderAction"`
 	// Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon SNS.
 	// Experimental.
-	BounceAction *CfnReceiptRule_BounceActionProperty `json:"bounceAction"`
+	BounceAction *BounceActionConfig `json:"bounceAction"`
 	// Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.
 	// Experimental.
-	LambdaAction *CfnReceiptRule_LambdaActionProperty `json:"lambdaAction"`
+	LambdaAction *LambdaActionConfig `json:"lambdaAction"`
 	// Saves the received message to an Amazon S3 bucket and, optionally, publishes a notification to Amazon SNS.
 	// Experimental.
-	S3Action *CfnReceiptRule_S3ActionProperty `json:"s3Action"`
+	S3Action *S3ActionConfig `json:"s3Action"`
 	// Publishes the email content within a notification to Amazon SNS.
 	// Experimental.
-	SnsAction *CfnReceiptRule_SNSActionProperty `json:"snsAction"`
+	SnsAction *SNSActionConfig `json:"snsAction"`
 	// Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS.
 	// Experimental.
-	StopAction *CfnReceiptRule_StopActionProperty `json:"stopAction"`
+	StopAction *StopActionConfig `json:"stopAction"`
 	// Calls Amazon WorkMail and, optionally, publishes a notification to Amazon SNS.
 	// Experimental.
-	WorkmailAction *CfnReceiptRule_WorkmailActionProperty `json:"workmailAction"`
+	WorkmailAction *WorkmailActionConfig `json:"workmailAction"`
 }
 
 // Options to add a receipt rule to a receipt rule set.
@@ -5222,6 +5269,47 @@ type ReceiptRuleSetProps struct {
 	Rules *[]*ReceiptRuleOptions `json:"rules"`
 }
 
+// S3Action configuration.
+// Experimental.
+type S3ActionConfig struct {
+	// The name of the Amazon S3 bucket that you want to send incoming mail to.
+	// Experimental.
+	BucketName *string `json:"bucketName"`
+	// The customer master key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket.
+	// Experimental.
+	KmsKeyArn *string `json:"kmsKeyArn"`
+	// The key prefix of the Amazon S3 bucket.
+	// Experimental.
+	ObjectKeyPrefix *string `json:"objectKeyPrefix"`
+	// The ARN of the Amazon SNS topic to notify when the message is saved to the Amazon S3 bucket.
+	// Experimental.
+	TopicArn *string `json:"topicArn"`
+}
+
+// SNSAction configuration.
+// Experimental.
+type SNSActionConfig struct {
+	// The encoding to use for the email within the Amazon SNS notification.
+	// Experimental.
+	Encoding *string `json:"encoding"`
+	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify.
+	// Experimental.
+	TopicArn *string `json:"topicArn"`
+}
+
+// StopAction configuration.
+// Experimental.
+type StopActionConfig struct {
+	// The scope of the StopAction.
+	//
+	// The only acceptable value is RuleSet.
+	// Experimental.
+	Scope *string `json:"scope"`
+	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken.
+	// Experimental.
+	TopicArn *string `json:"topicArn"`
+}
+
 // The type of TLS policy for a receipt rule.
 // Experimental.
 type TlsPolicy string
@@ -5425,5 +5513,16 @@ type WhiteListReceiptFilterProps struct {
 	// A list of ip addresses or ranges to white list.
 	// Experimental.
 	Ips *[]*string `json:"ips"`
+}
+
+// WorkmailAction configuration.
+// Experimental.
+type WorkmailActionConfig struct {
+	// The Amazon Resource Name (ARN) of the Amazon WorkMail organization.
+	// Experimental.
+	OrganizationArn *string `json:"organizationArn"`
+	// The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action is called.
+	// Experimental.
+	TopicArn *string `json:"topicArn"`
 }
 

@@ -1,6 +1,8 @@
 package awsautoscaling
 
 import (
+	"time"
+
 	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
@@ -109,6 +111,7 @@ type AutoScalingGroup interface {
 	awselasticloadbalancingv2.IApplicationLoadBalancerTarget
 	awselasticloadbalancingv2.INetworkLoadBalancerTarget
 	AlbTargetGroup() awselasticloadbalancingv2.ApplicationTargetGroup
+	SetAlbTargetGroup(val awselasticloadbalancingv2.ApplicationTargetGroup)
 	AutoScalingGroupArn() *string
 	AutoScalingGroupName() *string
 	Connections() awsec2.Connections
@@ -1057,7 +1060,7 @@ type BasicScheduledActionProps struct {
 	DesiredCapacity *float64 `json:"desiredCapacity"`
 	// When this scheduled action expires.
 	// Experimental.
-	EndTime *string `json:"endTime"`
+	EndTime *time.Time `json:"endTime"`
 	// The new maximum capacity.
 	//
 	// At the scheduled time, set the maximum capacity to the given capacity.
@@ -1074,7 +1077,7 @@ type BasicScheduledActionProps struct {
 	MinCapacity *float64 `json:"minCapacity"`
 	// When this scheduled action becomes active.
 	// Experimental.
-	StartTime *string `json:"startTime"`
+	StartTime *time.Time `json:"startTime"`
 }
 
 // Experimental.
@@ -7842,7 +7845,7 @@ type ScheduledActionProps struct {
 	DesiredCapacity *float64 `json:"desiredCapacity"`
 	// When this scheduled action expires.
 	// Experimental.
-	EndTime *string `json:"endTime"`
+	EndTime *time.Time `json:"endTime"`
 	// The new maximum capacity.
 	//
 	// At the scheduled time, set the maximum capacity to the given capacity.
@@ -7859,7 +7862,7 @@ type ScheduledActionProps struct {
 	MinCapacity *float64 `json:"minCapacity"`
 	// When this scheduled action becomes active.
 	// Experimental.
-	StartTime *string `json:"startTime"`
+	StartTime *time.Time `json:"startTime"`
 	// The AutoScalingGroup to apply the scheduled actions to.
 	// Experimental.
 	AutoScalingGroup IAutoScalingGroup `json:"autoScalingGroup"`

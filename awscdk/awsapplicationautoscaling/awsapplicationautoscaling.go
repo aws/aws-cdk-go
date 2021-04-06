@@ -1,6 +1,8 @@
 package awsapplicationautoscaling
 
 import (
+	"time"
+
 	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
@@ -2563,7 +2565,7 @@ type ScalingSchedule struct {
 	Schedule Schedule `json:"schedule"`
 	// When this scheduled action expires.
 	// Experimental.
-	EndTime *string `json:"endTime"`
+	EndTime *time.Time `json:"endTime"`
 	// The new maximum capacity.
 	//
 	// During the scheduled time, the current capacity is above the maximum
@@ -2582,7 +2584,7 @@ type ScalingSchedule struct {
 	MinCapacity *float64 `json:"minCapacity"`
 	// When this scheduled action becomes active.
 	// Experimental.
-	StartTime *string `json:"startTime"`
+	StartTime *time.Time `json:"startTime"`
 }
 
 // Schedule for scheduled scaling actions.
@@ -2620,7 +2622,7 @@ func NewSchedule_Override(s Schedule) {
 
 // Construct a Schedule from a moment in time.
 // Experimental.
-func Schedule_At(moment *string) Schedule {
+func Schedule_At(moment *time.Time) Schedule {
 	_init_.Initialize()
 
 	var returns Schedule

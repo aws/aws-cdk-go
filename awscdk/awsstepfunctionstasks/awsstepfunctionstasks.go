@@ -219,10 +219,12 @@ type AthenaGetQueryExecution interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -1108,10 +1110,12 @@ type AthenaGetQueryResults interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -2003,10 +2007,12 @@ type AthenaStartQueryExecution interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -2901,10 +2907,12 @@ type AthenaStopQueryExecution interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -3852,10 +3860,12 @@ type BatchSubmitJob interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -4834,10 +4844,12 @@ type CallApiGatewayHttpApiEndpoint interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -5789,10 +5801,12 @@ type CallApiGatewayRestApiEndpoint interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -6771,10 +6785,12 @@ type CodeBuildStartBuild interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -8311,10 +8327,12 @@ type DynamoDeleteItem interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -9236,10 +9254,12 @@ type DynamoGetItem interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -10244,10 +10264,12 @@ type DynamoPutItem interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -11178,10 +11200,12 @@ type DynamoUpdateItem interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -12251,10 +12275,12 @@ type EcsRunTask interface {
 	Comment() *string
 	Connections() awsec2.Connections
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -13278,10 +13304,12 @@ type EksCall interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -14178,10 +14206,12 @@ type EmrAddStep interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -15096,10 +15126,12 @@ type EmrCancelStep interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -15989,10 +16021,12 @@ type EmrCreateCluster interface {
 	ClusterRole() awsiam.IRole
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -17602,10 +17636,12 @@ type EmrModifyInstanceFleetByName interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -18499,10 +18535,12 @@ type EmrModifyInstanceGroupByName interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -19449,10 +19487,12 @@ type EmrSetClusterTerminationProtection interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -20336,10 +20376,12 @@ type EmrTerminateCluster interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -21247,10 +21289,12 @@ type EvaluateExpression interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -22141,10 +22185,12 @@ type GlueDataBrewStartJobRun interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -23030,10 +23076,12 @@ type GlueStartJobRun interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -24200,10 +24248,12 @@ type LambdaInvoke interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -25985,10 +26035,12 @@ type SageMakerCreateEndpoint interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -26829,10 +26881,12 @@ type SageMakerCreateEndpointConfig interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -27784,11 +27838,13 @@ type SageMakerCreateModel interface {
 	Comment() *string
 	Connections() awsec2.Connections
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	GrantPrincipal() awsiam.IPrincipal
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -28741,11 +28797,13 @@ type SageMakerCreateTrainingJob interface {
 	Comment() *string
 	Connections() awsec2.Connections
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	GrantPrincipal() awsiam.IPrincipal
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -29707,10 +29765,12 @@ type SageMakerCreateTransformJob interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -30637,10 +30697,12 @@ type SageMakerUpdateEndpoint interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -31617,10 +31679,12 @@ type SnsPublish interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -32538,10 +32602,12 @@ type SqsSendMessage interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -33520,10 +33586,12 @@ type StepFunctionsInvokeActivity interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -34406,10 +34474,12 @@ type StepFunctionsStartExecution interface {
 	Branches() *[]awsstepfunctions.StateGraph
 	Comment() *string
 	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
 	EndStates() *[]awsstepfunctions.INextable
 	Id() *string
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}

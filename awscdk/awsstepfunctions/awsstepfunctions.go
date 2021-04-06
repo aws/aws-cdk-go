@@ -2209,10 +2209,12 @@ type Choice interface {
 	Branches() *[]StateGraph
 	Comment() *string
 	DefaultChoice() State
+	SetDefaultChoice(val State)
 	EndStates() *[]INextable
 	Id() *string
 	InputPath() *string
 	Iteration() StateGraph
+	SetIteration(val StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -3821,10 +3823,12 @@ type CustomState interface {
 	Branches() *[]StateGraph
 	Comment() *string
 	DefaultChoice() State
+	SetDefaultChoice(val State)
 	EndStates() *[]INextable
 	Id() *string
 	InputPath() *string
 	Iteration() StateGraph
+	SetIteration(val StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -4670,10 +4674,12 @@ type Fail interface {
 	Branches() *[]StateGraph
 	Comment() *string
 	DefaultChoice() State
+	SetDefaultChoice(val State)
 	EndStates() *[]INextable
 	Id() *string
 	InputPath() *string
 	Iteration() StateGraph
+	SetIteration(val StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -5969,10 +5975,12 @@ type Map interface {
 	Branches() *[]StateGraph
 	Comment() *string
 	DefaultChoice() State
+	SetDefaultChoice(val State)
 	EndStates() *[]INextable
 	Id() *string
 	InputPath() *string
 	Iteration() StateGraph
+	SetIteration(val StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -6684,10 +6692,12 @@ type Parallel interface {
 	Branches() *[]StateGraph
 	Comment() *string
 	DefaultChoice() State
+	SetDefaultChoice(val State)
 	EndStates() *[]INextable
 	Id() *string
 	InputPath() *string
 	Iteration() StateGraph
+	SetIteration(val StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -7390,10 +7400,12 @@ type Pass interface {
 	Branches() *[]StateGraph
 	Comment() *string
 	DefaultChoice() State
+	SetDefaultChoice(val State)
 	EndStates() *[]INextable
 	Id() *string
 	InputPath() *string
 	Iteration() StateGraph
+	SetIteration(val StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -8252,10 +8264,12 @@ type State interface {
 	Branches() *[]StateGraph
 	Comment() *string
 	DefaultChoice() State
+	SetDefaultChoice(val State)
 	EndStates() *[]INextable
 	Id() *string
 	InputPath() *string
 	Iteration() StateGraph
+	SetIteration(val StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -10127,10 +10141,12 @@ type Succeed interface {
 	Branches() *[]StateGraph
 	Comment() *string
 	DefaultChoice() State
+	SetDefaultChoice(val State)
 	EndStates() *[]INextable
 	Id() *string
 	InputPath() *string
 	Iteration() StateGraph
+	SetIteration(val StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -10761,10 +10777,12 @@ type Task interface {
 	Branches() *[]StateGraph
 	Comment() *string
 	DefaultChoice() State
+	SetDefaultChoice(val State)
 	EndStates() *[]INextable
 	Id() *string
 	InputPath() *string
 	Iteration() StateGraph
+	SetIteration(val StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -11792,10 +11810,12 @@ type TaskStateBase interface {
 	Branches() *[]StateGraph
 	Comment() *string
 	DefaultChoice() State
+	SetDefaultChoice(val State)
 	EndStates() *[]INextable
 	Id() *string
 	InputPath() *string
 	Iteration() StateGraph
+	SetIteration(val StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
@@ -12662,10 +12682,12 @@ type Wait interface {
 	Branches() *[]StateGraph
 	Comment() *string
 	DefaultChoice() State
+	SetDefaultChoice(val State)
 	EndStates() *[]INextable
 	Id() *string
 	InputPath() *string
 	Iteration() StateGraph
+	SetIteration(val StateGraph)
 	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}

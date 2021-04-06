@@ -1,6 +1,8 @@
 package awss3
 
 import (
+	"time"
+
 	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
@@ -183,6 +185,7 @@ type Bucket interface {
 	awscdk.Resource
 	IBucket
 	AutoCreatePolicy() *bool
+	SetAutoCreatePolicy(val *bool)
 	BucketArn() *string
 	BucketDomainName() *string
 	BucketDualStackDomainName() *string
@@ -191,6 +194,7 @@ type Bucket interface {
 	BucketWebsiteDomainName() *string
 	BucketWebsiteUrl() *string
 	DisallowPublicAccess() *bool
+	SetDisallowPublicAccess(val *bool)
 	EncryptionKey() awskms.IKey
 	Env() *awscdk.ResourceEnvironment
 	IsWebsite() *bool
@@ -5423,6 +5427,12 @@ type IBucket interface {
 	// first call to addToResourcePolicy(s).
 	// Experimental.
 	Policy() BucketPolicy
+	// The resource policy associated with this bucket.
+	//
+	// If `autoCreatePolicy` is true, a `BucketPolicy` will be created upon the
+	// first call to addToResourcePolicy(s).
+	// Experimental.
+	SetPolicy(p BucketPolicy)
 }
 
 // The jsii proxy for IBucket
@@ -5873,7 +5883,7 @@ type LifecycleRule struct {
 	// time unit for both properties (either in days or by date). The
 	// expiration time must also be later than the transition time.
 	// Experimental.
-	ExpirationDate *string `json:"expirationDate"`
+	ExpirationDate *time.Time `json:"expirationDate"`
 	// A unique identifier for this rule.
 	//
 	// The value cannot be more than 255 characters.
@@ -6239,7 +6249,7 @@ type Transition struct {
 	//
 	// The date value must be in ISO 8601 format. The time is always midnight UTC.
 	// Experimental.
-	TransitionDate *string `json:"transitionDate"`
+	TransitionDate *time.Time `json:"transitionDate"`
 }
 
 // Options for creating Virtual-Hosted style URL.

@@ -1609,12 +1609,15 @@ type ApplicationMultipleTargetGroupsEc2Service interface {
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.ApplicationListener
 	Listeners() *[]awselasticloadbalancingv2.ApplicationListener
+	SetListeners(val *[]awselasticloadbalancingv2.ApplicationListener)
 	LoadBalancer() awselasticloadbalancingv2.ApplicationLoadBalancer
 	LogDriver() awsecs.LogDriver
+	SetLogDriver(val awsecs.LogDriver)
 	Node() awscdk.ConstructNode
 	Service() awsecs.Ec2Service
 	TargetGroup() awselasticloadbalancingv2.ApplicationTargetGroup
 	TargetGroups() *[]awselasticloadbalancingv2.ApplicationTargetGroup
+	SetTargetGroups(val *[]awselasticloadbalancingv2.ApplicationTargetGroup)
 	TaskDefinition() awsecs.Ec2TaskDefinition
 	AddPortMappingForTargets(container awsecs.ContainerDefinition, targets *[]*ApplicationTargetProps)
 	CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver
@@ -2096,12 +2099,15 @@ type ApplicationMultipleTargetGroupsFargateService interface {
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.ApplicationListener
 	Listeners() *[]awselasticloadbalancingv2.ApplicationListener
+	SetListeners(val *[]awselasticloadbalancingv2.ApplicationListener)
 	LoadBalancer() awselasticloadbalancingv2.ApplicationLoadBalancer
 	LogDriver() awsecs.LogDriver
+	SetLogDriver(val awsecs.LogDriver)
 	Node() awscdk.ConstructNode
 	Service() awsecs.FargateService
 	TargetGroup() awselasticloadbalancingv2.ApplicationTargetGroup
 	TargetGroups() *[]awselasticloadbalancingv2.ApplicationTargetGroup
+	SetTargetGroups(val *[]awselasticloadbalancingv2.ApplicationTargetGroup)
 	TaskDefinition() awsecs.FargateTaskDefinition
 	AddPortMappingForTargets(container awsecs.ContainerDefinition, targets *[]*ApplicationTargetProps)
 	CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver
@@ -2611,10 +2617,13 @@ type ApplicationMultipleTargetGroupsServiceBase interface {
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.ApplicationListener
 	Listeners() *[]awselasticloadbalancingv2.ApplicationListener
+	SetListeners(val *[]awselasticloadbalancingv2.ApplicationListener)
 	LoadBalancer() awselasticloadbalancingv2.ApplicationLoadBalancer
 	LogDriver() awsecs.LogDriver
+	SetLogDriver(val awsecs.LogDriver)
 	Node() awscdk.ConstructNode
 	TargetGroups() *[]awselasticloadbalancingv2.ApplicationTargetGroup
+	SetTargetGroups(val *[]awselasticloadbalancingv2.ApplicationTargetGroup)
 	AddPortMappingForTargets(container awsecs.ContainerDefinition, targets *[]*ApplicationTargetProps)
 	CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver
 	FindListener(name *string) awselasticloadbalancingv2.ApplicationListener
@@ -4488,12 +4497,15 @@ type NetworkMultipleTargetGroupsEc2Service interface {
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.NetworkListener
 	Listeners() *[]awselasticloadbalancingv2.NetworkListener
+	SetListeners(val *[]awselasticloadbalancingv2.NetworkListener)
 	LoadBalancer() awselasticloadbalancingv2.NetworkLoadBalancer
 	LogDriver() awsecs.LogDriver
+	SetLogDriver(val awsecs.LogDriver)
 	Node() awscdk.ConstructNode
 	Service() awsecs.Ec2Service
 	TargetGroup() awselasticloadbalancingv2.NetworkTargetGroup
 	TargetGroups() *[]awselasticloadbalancingv2.NetworkTargetGroup
+	SetTargetGroups(val *[]awselasticloadbalancingv2.NetworkTargetGroup)
 	TaskDefinition() awsecs.Ec2TaskDefinition
 	AddPortMappingForTargets(container awsecs.ContainerDefinition, targets *[]*NetworkTargetProps)
 	CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver
@@ -4977,12 +4989,15 @@ type NetworkMultipleTargetGroupsFargateService interface {
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.NetworkListener
 	Listeners() *[]awselasticloadbalancingv2.NetworkListener
+	SetListeners(val *[]awselasticloadbalancingv2.NetworkListener)
 	LoadBalancer() awselasticloadbalancingv2.NetworkLoadBalancer
 	LogDriver() awsecs.LogDriver
+	SetLogDriver(val awsecs.LogDriver)
 	Node() awscdk.ConstructNode
 	Service() awsecs.FargateService
 	TargetGroup() awselasticloadbalancingv2.NetworkTargetGroup
 	TargetGroups() *[]awselasticloadbalancingv2.NetworkTargetGroup
+	SetTargetGroups(val *[]awselasticloadbalancingv2.NetworkTargetGroup)
 	TaskDefinition() awsecs.FargateTaskDefinition
 	AddPortMappingForTargets(container awsecs.ContainerDefinition, targets *[]*NetworkTargetProps)
 	CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver
@@ -5494,10 +5509,13 @@ type NetworkMultipleTargetGroupsServiceBase interface {
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.NetworkListener
 	Listeners() *[]awselasticloadbalancingv2.NetworkListener
+	SetListeners(val *[]awselasticloadbalancingv2.NetworkListener)
 	LoadBalancer() awselasticloadbalancingv2.NetworkLoadBalancer
 	LogDriver() awsecs.LogDriver
+	SetLogDriver(val awsecs.LogDriver)
 	Node() awscdk.ConstructNode
 	TargetGroups() *[]awselasticloadbalancingv2.NetworkTargetGroup
+	SetTargetGroups(val *[]awselasticloadbalancingv2.NetworkTargetGroup)
 	AddPortMappingForTargets(container awsecs.ContainerDefinition, targets *[]*NetworkTargetProps)
 	CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver
 	FindListener(name *string) awselasticloadbalancingv2.NetworkListener

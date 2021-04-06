@@ -14371,6 +14371,7 @@ type DatabaseInstance interface {
 	DbInstanceEndpointAddress() *string
 	DbInstanceEndpointPort() *string
 	EnableIamAuthentication() *bool
+	SetEnableIamAuthentication(val *bool)
 	Engine() IInstanceEngine
 	Env() *awscdk.ResourceEnvironment
 	InstanceArn() *string
@@ -15118,6 +15119,7 @@ type DatabaseInstanceBase interface {
 	DbInstanceEndpointAddress() *string
 	DbInstanceEndpointPort() *string
 	EnableIamAuthentication() *bool
+	SetEnableIamAuthentication(val *bool)
 	Engine() IInstanceEngine
 	Env() *awscdk.ResourceEnvironment
 	InstanceArn() *string
@@ -16069,6 +16071,7 @@ type DatabaseInstanceFromSnapshot interface {
 	DbInstanceEndpointAddress() *string
 	DbInstanceEndpointPort() *string
 	EnableIamAuthentication() *bool
+	SetEnableIamAuthentication(val *bool)
 	Engine() IInstanceEngine
 	Env() *awscdk.ResourceEnvironment
 	InstanceArn() *string
@@ -17418,6 +17421,7 @@ type DatabaseInstanceReadReplica interface {
 	DbInstanceEndpointAddress() *string
 	DbInstanceEndpointPort() *string
 	EnableIamAuthentication() *bool
+	SetEnableIamAuthentication(val *bool)
 	Engine() IInstanceEngine
 	Env() *awscdk.ResourceEnvironment
 	InstanceArn() *string
@@ -24748,6 +24752,7 @@ type ServerlessCluster interface {
 	ClusterReadEndpoint() Endpoint
 	Connections() awsec2.Connections
 	EnableDataApi() *bool
+	SetEnableDataApi(val *bool)
 	Env() *awscdk.ResourceEnvironment
 	Node() awscdk.ConstructNode
 	PhysicalName() *string

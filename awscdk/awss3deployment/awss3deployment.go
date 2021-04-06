@@ -1,6 +1,8 @@
 package awss3deployment
 
 import (
+	"time"
+
 	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
@@ -14,6 +16,7 @@ import (
 	"github.com/aws/constructs-go/constructs/v3"
 )
 
+// `BucketDeployment` populates an S3 bucket with the contents of .zip files from other S3 buckets or from local disk.
 // Experimental.
 type BucketDeployment interface {
 	awscdk.Construct
@@ -201,6 +204,7 @@ func (b *jsiiProxy_BucketDeployment) Validate() *[]*string {
 	return returns
 }
 
+// Properties for `BucketDeployment`.
 // Experimental.
 type BucketDeploymentProps struct {
 	// The S3 bucket to sync the contents of the zip file to.
@@ -269,10 +273,10 @@ type BucketDeploymentProps struct {
 	Prune *bool `json:"prune"`
 	// If this is set to "false", the destination files will be deleted when the resource is deleted or the destination is updated.
 	//
-	// NOTICE: if this is set to "false" and destination bucket/prefix is updated,
-	// all files in the previous destination will first be deleted and then
-	// uploaded to the new destination location. This could have availablity
-	// implications on your users.
+	// NOTICE: Configuring this to "false" might have operational implications. Please
+	// visit to the package documentation referred below to make sure you fully understand those implications.
+	// See: https://github.com/aws/aws-cdk/tree/master/packages/%40aws-cdk/aws-s3-deployment#retain-on-delete
+	//
 	// Experimental.
 	RetainOnDelete *bool `json:"retainOnDelete"`
 	// Execution role associated with this function.
@@ -339,6 +343,7 @@ func (j *jsiiProxy_CacheControl) Value() interface{} {
 }
 
 
+// Constructs a custom cache control key from the literal value.
 // Experimental.
 func CacheControl_FromString(s *string) CacheControl {
 	_init_.Initialize()
@@ -355,6 +360,7 @@ func CacheControl_FromString(s *string) CacheControl {
 	return returns
 }
 
+// Sets 'max-age=<duration-in-seconds>'.
 // Experimental.
 func CacheControl_MaxAge(t awscdk.Duration) CacheControl {
 	_init_.Initialize()
@@ -371,6 +377,7 @@ func CacheControl_MaxAge(t awscdk.Duration) CacheControl {
 	return returns
 }
 
+// Sets 'must-revalidate'.
 // Experimental.
 func CacheControl_MustRevalidate() CacheControl {
 	_init_.Initialize()
@@ -387,6 +394,7 @@ func CacheControl_MustRevalidate() CacheControl {
 	return returns
 }
 
+// Sets 'no-cache'.
 // Experimental.
 func CacheControl_NoCache() CacheControl {
 	_init_.Initialize()
@@ -403,6 +411,7 @@ func CacheControl_NoCache() CacheControl {
 	return returns
 }
 
+// Sets 'no-transform'.
 // Experimental.
 func CacheControl_NoTransform() CacheControl {
 	_init_.Initialize()
@@ -419,6 +428,7 @@ func CacheControl_NoTransform() CacheControl {
 	return returns
 }
 
+// Sets 'proxy-revalidate'.
 // Experimental.
 func CacheControl_ProxyRevalidate() CacheControl {
 	_init_.Initialize()
@@ -435,6 +445,7 @@ func CacheControl_ProxyRevalidate() CacheControl {
 	return returns
 }
 
+// Sets 'private'.
 // Experimental.
 func CacheControl_SetPrivate() CacheControl {
 	_init_.Initialize()
@@ -451,6 +462,7 @@ func CacheControl_SetPrivate() CacheControl {
 	return returns
 }
 
+// Sets 'public'.
 // Experimental.
 func CacheControl_SetPublic() CacheControl {
 	_init_.Initialize()
@@ -467,6 +479,7 @@ func CacheControl_SetPublic() CacheControl {
 	return returns
 }
 
+// Sets 's-maxage=<duration-in-seconds>'.
 // Experimental.
 func CacheControl_SMaxAge(t awscdk.Duration) CacheControl {
 	_init_.Initialize()
@@ -536,7 +549,7 @@ func Expires_After(t awscdk.Duration) Expires {
 
 // Expire at the specified date.
 // Deprecated: use core.Expiration
-func Expires_AtDate(d *string) Expires {
+func Expires_AtDate(d *time.Time) Expires {
 	_init_.Initialize()
 
 	var returns Expires
@@ -568,6 +581,7 @@ func Expires_AtTimestamp(t *float64) Expires {
 	return returns
 }
 
+// Create an expiration date from a raw date string.
 // Deprecated: use core.Expiration
 func Expires_FromString(s *string) Expires {
 	_init_.Initialize()
@@ -671,6 +685,7 @@ func Source_Bucket(bucket awss3.IBucket, zipObjectKey *string) ISource {
 	return returns
 }
 
+// Source information.
 // Experimental.
 type SourceConfig struct {
 	// The source bucket to deploy from.
@@ -697,6 +712,7 @@ const (
 	StorageClass_DEEP_ARCHIVE StorageClass = "DEEP_ARCHIVE"
 )
 
+// Custom user defined metadata.
 // Experimental.
 type UserDefinedObjectMetadata struct {
 }

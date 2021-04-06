@@ -1117,9 +1117,11 @@ type CustomEndpointOptions struct {
 // Experimental.
 type Domain interface {
 	awscdk.Resource
+	awsec2.IConnectable
 	IDomain
 	AppLogGroup() awslogs.ILogGroup
 	AuditLogGroup() awslogs.ILogGroup
+	Connections() awsec2.Connections
 	DomainArn() *string
 	DomainEndpoint() *string
 	DomainName() *string
@@ -1145,7 +1147,7 @@ type Domain interface {
 	GrantWrite(identity awsiam.IGrantable) awsiam.Grant
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricAutomatedSnapshotFailure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	MetricClusterIndexWriteBlocked(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricClusterIndexWritesBlocked(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricClusterStatusRed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricClusterStatusYellow(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
@@ -1171,6 +1173,7 @@ type Domain interface {
 // The jsii proxy struct for Domain
 type jsiiProxy_Domain struct {
 	internal.Type__awscdkResource
+	internal.Type__awsec2IConnectable
 	jsiiProxy_IDomain
 }
 
@@ -1189,6 +1192,16 @@ func (j *jsiiProxy_Domain) AuditLogGroup() awslogs.ILogGroup {
 	_jsii_.Get(
 		j,
 		"auditLogGroup",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Domain) Connections() awsec2.Connections {
+	var returns awsec2.Connections
+	_jsii_.Get(
+		j,
+		"connections",
 		&returns,
 	)
 	return returns
@@ -1627,12 +1640,12 @@ func (d *jsiiProxy_Domain) MetricAutomatedSnapshotFailure(props *awscloudwatch.M
 
 // Metric for the cluster blocking index writes.
 // Experimental.
-func (d *jsiiProxy_Domain) MetricClusterIndexWriteBlocked(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+func (d *jsiiProxy_Domain) MetricClusterIndexWritesBlocked(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
 		d,
-		"metricClusterIndexWriteBlocked",
+		"metricClusterIndexWritesBlocked",
 		[]interface{}{props},
 		&returns,
 	)
@@ -2030,6 +2043,13 @@ type DomainProps struct {
 	// Policy to apply when the domain is removed from the stack.
 	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	// The list of security groups that are associated with the VPC endpoints for the domain.
+	//
+	// Only used if `vpc` is specified.
+	// See: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html
+	//
+	// Experimental.
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 	// The minimum TLS version required for traffic to the domain.
 	// Experimental.
 	TlsSecurityPolicy TLSSecurityPolicy `json:"tlsSecurityPolicy"`
@@ -2045,14 +2065,22 @@ type DomainProps struct {
 	// setting will cause a failure.
 	// Experimental.
 	UseUnsignedBasicAuth *bool `json:"useUnsignedBasicAuth"`
-	// The virtual private cloud (VPC) configuration for the Amazon ES domain.
+	// Place the domain inside this VPC.
+	// See: https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html
 	//
-	// For
-	// more information, see [VPC Support for Amazon Elasticsearch Service
-	// Domains](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html)
-	// in the Amazon Elasticsearch Service Developer Guide.
 	// Experimental.
-	VpcOptions *VpcOptions `json:"vpcOptions"`
+	Vpc awsec2.IVpc `json:"vpc"`
+	// The specific vpc subnets the domain will be placed in.
+	//
+	// You must provide one subnet for each Availability Zone
+	// that your domain uses. For example, you must specify three subnet IDs for a three Availability Zone
+	// domain.
+	//
+	// Only used if `vpc` is specified.
+	// See: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html
+	//
+	// Experimental.
+	VpcSubnets *[]*awsec2.SubnetSelection `json:"vpcSubnets"`
 	// The cluster zone awareness configuration for the Amazon ES domain.
 	// Experimental.
 	ZoneAwareness *ZoneAwarenessConfig `json:"zoneAwareness"`
@@ -2384,7 +2412,7 @@ type IDomain interface {
 	MetricAutomatedSnapshotFailure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the cluster blocking index writes.
 	// Experimental.
-	MetricClusterIndexWriteBlocked(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricClusterIndexWritesBlocked(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the time the cluster status is red.
 	// Experimental.
 	MetricClusterStatusRed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
@@ -2583,12 +2611,12 @@ func (i *jsiiProxy_IDomain) MetricAutomatedSnapshotFailure(props *awscloudwatch.
 	return returns
 }
 
-func (i *jsiiProxy_IDomain) MetricClusterIndexWriteBlocked(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+func (i *jsiiProxy_IDomain) MetricClusterIndexWritesBlocked(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
 	_jsii_.Invoke(
 		i,
-		"metricClusterIndexWriteBlocked",
+		"metricClusterIndexWritesBlocked",
 		[]interface{}{props},
 		&returns,
 	)
@@ -2840,33 +2868,6 @@ const (
 	TLSSecurityPolicy_TLS_1_0 TLSSecurityPolicy = "TLS_1_0"
 	TLSSecurityPolicy_TLS_1_2 TLSSecurityPolicy = "TLS_1_2"
 )
-
-// The virtual private cloud (VPC) configuration for the Amazon ES domain.
-//
-// For
-// more information, see [VPC Support for Amazon Elasticsearch Service
-// Domains](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html)
-// in the Amazon Elasticsearch Service Developer Guide.
-// Experimental.
-type VpcOptions struct {
-	// The list of security groups that are associated with the VPC endpoints for the domain.
-	//
-	// If you don't provide a security group ID, Amazon ES uses
-	// the default security group for the VPC. To learn more, see [Security Groups for your VPC]
-	// (https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) in the Amazon VPC
-	// User Guide.
-	// Experimental.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
-	// Provide one subnet for each Availability Zone that your domain uses.
-	//
-	// For
-	// example, you must specify three subnet IDs for a three Availability Zone
-	// domain. To learn more, see [VPCs and Subnets]
-	// (https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) in the
-	// Amazon VPC User Guide.
-	// Experimental.
-	Subnets *[]awsec2.ISubnet `json:"subnets"`
-}
 
 // Specifies zone awareness configuration options.
 // Experimental.

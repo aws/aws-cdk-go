@@ -4257,6 +4257,7 @@ type DatabaseCluster interface {
 	ClusterResourceIdentifier() *string
 	Connections() awsec2.Connections
 	EnableIamAuthentication() *bool
+	SetEnableIamAuthentication(val *bool)
 	Env() *awscdk.ResourceEnvironment
 	InstanceEndpoints() *[]Endpoint
 	InstanceIdentifiers() *[]*string
@@ -4768,6 +4769,7 @@ type DatabaseClusterBase interface {
 	ClusterResourceIdentifier() *string
 	Connections() awsec2.Connections
 	EnableIamAuthentication() *bool
+	SetEnableIamAuthentication(val *bool)
 	Env() *awscdk.ResourceEnvironment
 	Node() awscdk.ConstructNode
 	PhysicalName() *string

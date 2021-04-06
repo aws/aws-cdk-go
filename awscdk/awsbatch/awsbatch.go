@@ -3123,14 +3123,25 @@ type IMultiNodeProps interface {
 	// The number of nodes associated with a multi-node parallel job.
 	// Experimental.
 	Count() *float64
+	// The number of nodes associated with a multi-node parallel job.
+	// Experimental.
+	SetCount(c *float64)
 	// Specifies the node index for the main node of a multi-node parallel job.
 	//
 	// This node index value must be fewer than the number of nodes.
 	// Experimental.
 	MainNode() *float64
+	// Specifies the node index for the main node of a multi-node parallel job.
+	//
+	// This node index value must be fewer than the number of nodes.
+	// Experimental.
+	SetMainNode(m *float64)
 	// A list of node ranges and their properties associated with a multi-node parallel job.
 	// Experimental.
 	RangeProps() *[]INodeRangeProps
+	// A list of node ranges and their properties associated with a multi-node parallel job.
+	// Experimental.
+	SetRangeProps(r *[]INodeRangeProps)
 }
 
 // The jsii proxy for IMultiNodeProps
@@ -3198,17 +3209,31 @@ type INodeRangeProps interface {
 	// The container details for the node range.
 	// Experimental.
 	Container() *JobDefinitionContainer
+	// The container details for the node range.
+	// Experimental.
+	SetContainer(c *JobDefinitionContainer)
 	// The minimum node index value to apply this container definition against.
 	//
 	// You may nest node ranges, for example 0:10 and 4:5, in which case the 4:5 range properties override the 0:10 properties.
 	// Experimental.
 	FromNodeIndex() *float64
+	// The minimum node index value to apply this container definition against.
+	//
+	// You may nest node ranges, for example 0:10 and 4:5, in which case the 4:5 range properties override the 0:10 properties.
+	// Experimental.
+	SetFromNodeIndex(f *float64)
 	// The maximum node index value to apply this container definition against. If omitted, the highest value is used relative.
 	//
 	// to the number of nodes associated with the job. You may nest node ranges, for example 0:10 and 4:5,
 	// in which case the 4:5 range properties override the 0:10 properties.
 	// Experimental.
 	ToNodeIndex() *float64
+	// The maximum node index value to apply this container definition against. If omitted, the highest value is used relative.
+	//
+	// to the number of nodes associated with the job. You may nest node ranges, for example 0:10 and 4:5,
+	// in which case the 4:5 range properties override the 0:10 properties.
+	// Experimental.
+	SetToNodeIndex(t *float64)
 }
 
 // The jsii proxy for INodeRangeProps

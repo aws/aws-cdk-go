@@ -53142,6 +53142,7 @@ type GatewayVpcEndpoint interface {
 	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	PolicyDocument() awsiam.PolicyDocument
+	SetPolicyDocument(val awsiam.PolicyDocument)
 	Stack() awscdk.Stack
 	VpcEndpointCreationTimestamp() *string
 	VpcEndpointDnsEntries() *[]*string
@@ -57426,6 +57427,7 @@ type InterfaceVpcEndpoint interface {
 	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	PolicyDocument() awsiam.PolicyDocument
+	SetPolicyDocument(val awsiam.PolicyDocument)
 	SecurityGroupId() *string
 	Stack() awscdk.Stack
 	VpcEndpointCreationTimestamp() *string
@@ -65433,6 +65435,7 @@ type Vpc interface {
 	DnsSupportEnabled() *bool
 	Env() *awscdk.ResourceEnvironment
 	IncompleteSubnetDefinition() *bool
+	SetIncompleteSubnetDefinition(val *bool)
 	InternetConnectivityEstablished() awscdk.IDependable
 	InternetGatewayId() *string
 	IsolatedSubnets() *[]ISubnet
@@ -66257,6 +66260,7 @@ type VpcEndpoint interface {
 	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	PolicyDocument() awsiam.PolicyDocument
+	SetPolicyDocument(val awsiam.PolicyDocument)
 	Stack() awscdk.Stack
 	VpcEndpointId() *string
 	AddToPolicy(statement awsiam.PolicyStatement)

@@ -141,6 +141,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "appLogGroup", GoGetter: "AppLogGroup"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "auditLogGroup", GoGetter: "AuditLogGroup"},
+			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberProperty{JsiiProperty: "domainArn", GoGetter: "DomainArn"},
 			_jsii_.MemberProperty{JsiiProperty: "domainEndpoint", GoGetter: "DomainEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "domainName", GoGetter: "DomainName"},
@@ -160,7 +161,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "masterUserPassword", GoGetter: "MasterUserPassword"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricAutomatedSnapshotFailure", GoMethod: "MetricAutomatedSnapshotFailure"},
-			_jsii_.MemberMethod{JsiiMethod: "metricClusterIndexWriteBlocked", GoMethod: "MetricClusterIndexWriteBlocked"},
+			_jsii_.MemberMethod{JsiiMethod: "metricClusterIndexWritesBlocked", GoMethod: "MetricClusterIndexWritesBlocked"},
 			_jsii_.MemberMethod{JsiiMethod: "metricClusterStatusRed", GoMethod: "MetricClusterStatusRed"},
 			_jsii_.MemberMethod{JsiiMethod: "metricClusterStatusYellow", GoMethod: "MetricClusterStatusYellow"},
 			_jsii_.MemberMethod{JsiiMethod: "metricCPUUtilization", GoMethod: "MetricCPUUtilization"},
@@ -190,6 +191,7 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_Domain{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.Type__awsec2IConnectable)
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IDomain)
 			return &j
 		},
@@ -239,7 +241,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantWrite", GoMethod: "GrantWrite"},
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricAutomatedSnapshotFailure", GoMethod: "MetricAutomatedSnapshotFailure"},
-			_jsii_.MemberMethod{JsiiMethod: "metricClusterIndexWriteBlocked", GoMethod: "MetricClusterIndexWriteBlocked"},
+			_jsii_.MemberMethod{JsiiMethod: "metricClusterIndexWritesBlocked", GoMethod: "MetricClusterIndexWritesBlocked"},
 			_jsii_.MemberMethod{JsiiMethod: "metricClusterStatusRed", GoMethod: "MetricClusterStatusRed"},
 			_jsii_.MemberMethod{JsiiMethod: "metricClusterStatusYellow", GoMethod: "MetricClusterStatusYellow"},
 			_jsii_.MemberMethod{JsiiMethod: "metricCPUUtilization", GoMethod: "MetricCPUUtilization"},
@@ -273,10 +275,6 @@ func init() {
 			"TLS_1_0": TLSSecurityPolicy_TLS_1_0,
 			"TLS_1_2": TLSSecurityPolicy_TLS_1_2,
 		},
-	)
-	_jsii_.RegisterStruct(
-		"monocdk.aws_elasticsearch.VpcOptions",
-		reflect.TypeOf((*VpcOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_elasticsearch.ZoneAwarenessConfig",

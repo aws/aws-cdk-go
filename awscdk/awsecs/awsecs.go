@@ -839,17 +839,21 @@ type BaseService interface {
 	awselasticloadbalancingv2.IApplicationLoadBalancerTarget
 	awselasticloadbalancingv2.INetworkLoadBalancerTarget
 	CloudmapService() awsservicediscovery.Service
+	SetCloudmapService(val awsservicediscovery.Service)
 	CloudMapService() awsservicediscovery.IService
 	Cluster() ICluster
 	Connections() awsec2.Connections
 	Env() *awscdk.ResourceEnvironment
 	LoadBalancers() *[]*CfnService_LoadBalancerProperty
+	SetLoadBalancers(val *[]*CfnService_LoadBalancerProperty)
 	NetworkConfiguration() *CfnService_NetworkConfigurationProperty
+	SetNetworkConfiguration(val *CfnService_NetworkConfigurationProperty)
 	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	ServiceArn() *string
 	ServiceName() *string
 	ServiceRegistries() *[]*CfnService_ServiceRegistryProperty
+	SetServiceRegistries(val *[]*CfnService_ServiceRegistryProperty)
 	Stack() awscdk.Stack
 	TaskDefinition() TaskDefinition
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
@@ -9379,17 +9383,21 @@ type Ec2Service interface {
 	BaseService
 	IEc2Service
 	CloudmapService() awsservicediscovery.Service
+	SetCloudmapService(val awsservicediscovery.Service)
 	CloudMapService() awsservicediscovery.IService
 	Cluster() ICluster
 	Connections() awsec2.Connections
 	Env() *awscdk.ResourceEnvironment
 	LoadBalancers() *[]*CfnService_LoadBalancerProperty
+	SetLoadBalancers(val *[]*CfnService_LoadBalancerProperty)
 	NetworkConfiguration() *CfnService_NetworkConfigurationProperty
+	SetNetworkConfiguration(val *CfnService_NetworkConfigurationProperty)
 	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	ServiceArn() *string
 	ServiceName() *string
 	ServiceRegistries() *[]*CfnService_ServiceRegistryProperty
+	SetServiceRegistries(val *[]*CfnService_ServiceRegistryProperty)
 	Stack() awscdk.Stack
 	TaskDefinition() TaskDefinition
 	AddPlacementConstraints(constraints ...PlacementConstraint)
@@ -11363,17 +11371,21 @@ type FargateService interface {
 	BaseService
 	IFargateService
 	CloudmapService() awsservicediscovery.Service
+	SetCloudmapService(val awsservicediscovery.Service)
 	CloudMapService() awsservicediscovery.IService
 	Cluster() ICluster
 	Connections() awsec2.Connections
 	Env() *awscdk.ResourceEnvironment
 	LoadBalancers() *[]*CfnService_LoadBalancerProperty
+	SetLoadBalancers(val *[]*CfnService_LoadBalancerProperty)
 	NetworkConfiguration() *CfnService_NetworkConfigurationProperty
+	SetNetworkConfiguration(val *CfnService_NetworkConfigurationProperty)
 	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	ServiceArn() *string
 	ServiceName() *string
 	ServiceRegistries() *[]*CfnService_ServiceRegistryProperty
+	SetServiceRegistries(val *[]*CfnService_ServiceRegistryProperty)
 	Stack() awscdk.Stack
 	TaskDefinition() TaskDefinition
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)

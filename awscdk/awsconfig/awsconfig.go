@@ -25,10 +25,13 @@ type AccessKeysRotated interface {
 	ConfigRuleName() *string
 	Env() *awscdk.ResourceEnvironment
 	IsCustomWithChanges() *bool
+	SetIsCustomWithChanges(val *bool)
 	IsManaged() *bool
+	SetIsManaged(val *bool)
 	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	RuleScope() RuleScope
+	SetRuleScope(val RuleScope)
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
@@ -7478,10 +7481,13 @@ type CloudFormationStackDriftDetectionCheck interface {
 	ConfigRuleName() *string
 	Env() *awscdk.ResourceEnvironment
 	IsCustomWithChanges() *bool
+	SetIsCustomWithChanges(val *bool)
 	IsManaged() *bool
+	SetIsManaged(val *bool)
 	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	RuleScope() RuleScope
+	SetRuleScope(val RuleScope)
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
@@ -7995,10 +8001,13 @@ type CloudFormationStackNotificationCheck interface {
 	ConfigRuleName() *string
 	Env() *awscdk.ResourceEnvironment
 	IsCustomWithChanges() *bool
+	SetIsCustomWithChanges(val *bool)
 	IsManaged() *bool
+	SetIsManaged(val *bool)
 	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	RuleScope() RuleScope
+	SetRuleScope(val RuleScope)
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
@@ -8503,10 +8512,13 @@ type CustomRule interface {
 	ConfigRuleName() *string
 	Env() *awscdk.ResourceEnvironment
 	IsCustomWithChanges() *bool
+	SetIsCustomWithChanges(val *bool)
 	IsManaged() *bool
+	SetIsManaged(val *bool)
 	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	RuleScope() RuleScope
+	SetRuleScope(val RuleScope)
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
@@ -9091,10 +9103,13 @@ type ManagedRule interface {
 	ConfigRuleName() *string
 	Env() *awscdk.ResourceEnvironment
 	IsCustomWithChanges() *bool
+	SetIsCustomWithChanges(val *bool)
 	IsManaged() *bool
+	SetIsManaged(val *bool)
 	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	RuleScope() RuleScope
+	SetRuleScope(val RuleScope)
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string

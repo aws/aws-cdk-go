@@ -6872,6 +6872,9 @@ type GrpcVirtualNodeListenerOptions struct {
 	// The health check information for the listener.
 	// Experimental.
 	HealthCheck *HealthCheck `json:"healthCheck"`
+	// Represents the configuration for enabling outlier detection.
+	// Experimental.
+	OutlierDetection *OutlierDetection `json:"outlierDetection"`
 	// Port to listen for connections on.
 	// Experimental.
 	Port *float64 `json:"port"`
@@ -7295,6 +7298,9 @@ type HttpVirtualNodeListenerOptions struct {
 	// The health check information for the listener.
 	// Experimental.
 	HealthCheck *HealthCheck `json:"healthCheck"`
+	// Represents the configuration for enabling outlier detection.
+	// Experimental.
+	OutlierDetection *OutlierDetection `json:"outlierDetection"`
 	// Port to listen for connections on.
 	// Experimental.
 	Port *float64 `json:"port"`
@@ -8168,6 +8174,26 @@ type MeshProps struct {
 	MeshName *string `json:"meshName"`
 }
 
+// Represents the outlier detection for a listener.
+// Experimental.
+type OutlierDetection struct {
+	// The base amount of time for which a host is ejected.
+	// Experimental.
+	BaseEjectionDuration awscdk.Duration `json:"baseEjectionDuration"`
+	// The time interval between ejection sweep analysis.
+	// Experimental.
+	Interval awscdk.Duration `json:"interval"`
+	// Maximum percentage of hosts in load balancing pool for upstream service that can be ejected.
+	//
+	// Will eject at
+	// least one host regardless of the value.
+	// Experimental.
+	MaxEjectionPercent *float64 `json:"maxEjectionPercent"`
+	// Number of consecutive 5xx errors required for ejection.
+	// Experimental.
+	MaxServerErrors *float64 `json:"maxServerErrors"`
+}
+
 // Enum of supported AppMesh protocols.
 // Experimental.
 type Protocol string
@@ -8867,6 +8893,9 @@ type TcpVirtualNodeListenerOptions struct {
 	// The health check information for the listener.
 	// Experimental.
 	HealthCheck *HealthCheck `json:"healthCheck"`
+	// Represents the configuration for enabling outlier detection.
+	// Experimental.
+	OutlierDetection *OutlierDetection `json:"outlierDetection"`
 	// Port to listen for connections on.
 	// Experimental.
 	Port *float64 `json:"port"`

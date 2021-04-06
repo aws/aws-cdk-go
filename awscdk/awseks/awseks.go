@@ -492,6 +492,9 @@ type BootstrapOptions struct {
 	// Number of retry attempts for AWS API call (DescribeCluster).
 	// Experimental.
 	AwsApiRetryAttempts *float64 `json:"awsApiRetryAttempts"`
+	// Overrides the IP address to use for DNS queries within the cluster.
+	// Experimental.
+	DnsClusterIp *string `json:"dnsClusterIp"`
 	// The contents of the `/etc/docker/daemon.json` file. Useful if you want a custom config differing from the default one in the EKS AMI.
 	// Experimental.
 	DockerConfigJson *string `json:"dockerConfigJson"`
@@ -4622,6 +4625,9 @@ type ClusterOptions struct {
 	// when issuing the `kubectl apply` operation with the `--prune` switch.
 	// Experimental.
 	Prune *bool `json:"prune"`
+	// KMS secret for envelope encryption for Kubernetes secrets.
+	// Experimental.
+	SecretsEncryptionKey awskms.IKey `json:"secretsEncryptionKey"`
 }
 
 // Common configuration props for EKS clusters.
@@ -4722,6 +4728,9 @@ type ClusterProps struct {
 	// when issuing the `kubectl apply` operation with the `--prune` switch.
 	// Experimental.
 	Prune *bool `json:"prune"`
+	// KMS secret for envelope encryption for Kubernetes secrets.
+	// Experimental.
+	SecretsEncryptionKey awskms.IKey `json:"secretsEncryptionKey"`
 	// Number of instances to allocate as an initial capacity for this cluster.
 	//
 	// Instance type can be configured through `defaultCapacityInstanceType`,
@@ -4740,9 +4749,6 @@ type ClusterProps struct {
 	// The default capacity type for the cluster.
 	// Experimental.
 	DefaultCapacityType DefaultCapacityType `json:"defaultCapacityType"`
-	// KMS secret for envelope encryption for Kubernetes secrets.
-	// Experimental.
-	SecretsEncryptionKey awskms.IKey `json:"secretsEncryptionKey"`
 }
 
 // Options for configuring an EKS cluster.
@@ -5830,6 +5836,9 @@ type FargateClusterProps struct {
 	// when issuing the `kubectl apply` operation with the `--prune` switch.
 	// Experimental.
 	Prune *bool `json:"prune"`
+	// KMS secret for envelope encryption for Kubernetes secrets.
+	// Experimental.
+	SecretsEncryptionKey awskms.IKey `json:"secretsEncryptionKey"`
 	// Fargate Profile to create along with the cluster.
 	// Experimental.
 	DefaultProfile *FargateProfileOptions `json:"defaultProfile"`

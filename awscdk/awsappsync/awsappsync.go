@@ -723,11 +723,13 @@ type BackedDataSource interface {
 	BaseDataSource
 	awsiam.IGrantable
 	Api() IGraphqlApi
+	SetApi(val IGraphqlApi)
 	Ds() CfnDataSource
 	GrantPrincipal() awsiam.IPrincipal
 	Name() *string
 	Node() awscdk.ConstructNode
 	ServiceRole() awsiam.IRole
+	SetServiceRole(val awsiam.IRole)
 	CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction
 	CreateResolver(props *BaseResolverProps) Resolver
 	OnPrepare()
@@ -1036,10 +1038,12 @@ type BaseAppsyncFunctionProps struct {
 type BaseDataSource interface {
 	awscdk.Construct
 	Api() IGraphqlApi
+	SetApi(val IGraphqlApi)
 	Ds() CfnDataSource
 	Name() *string
 	Node() awscdk.ConstructNode
 	ServiceRole() awsiam.IRole
+	SetServiceRole(val awsiam.IRole)
 	CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction
 	CreateResolver(props *BaseResolverProps) Resolver
 	OnPrepare()
@@ -6811,6 +6815,7 @@ type DataSourceOptions struct {
 type Directive interface {
 	Mode() AuthorizationType
 	Modes() *[]AuthorizationType
+	SetModes(val *[]AuthorizationType)
 	MutationFields() *[]*string
 	ToString() *string
 }
@@ -6993,11 +6998,13 @@ func (d *jsiiProxy_Directive) ToString() *string {
 type DynamoDbDataSource interface {
 	BackedDataSource
 	Api() IGraphqlApi
+	SetApi(val IGraphqlApi)
 	Ds() CfnDataSource
 	GrantPrincipal() awsiam.IPrincipal
 	Name() *string
 	Node() awscdk.ConstructNode
 	ServiceRole() awsiam.IRole
+	SetServiceRole(val awsiam.IRole)
 	CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction
 	CreateResolver(props *BaseResolverProps) Resolver
 	OnPrepare()
@@ -7311,6 +7318,7 @@ type EnumType interface {
 	IIntermediateType
 	Definition() *map[string]IField
 	Modes() *[]AuthorizationType
+	SetModes(val *[]AuthorizationType)
 	Name() *string
 	AddField(options *AddFieldOptions)
 	Attribute(options *BaseTypeOptions) GraphqlType
@@ -9543,11 +9551,13 @@ type GraphqlTypeOptions struct {
 type HttpDataSource interface {
 	BackedDataSource
 	Api() IGraphqlApi
+	SetApi(val IGraphqlApi)
 	Ds() CfnDataSource
 	GrantPrincipal() awsiam.IPrincipal
 	Name() *string
 	Node() awscdk.ConstructNode
 	ServiceRole() awsiam.IRole
+	SetServiceRole(val awsiam.IRole)
 	CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction
 	CreateResolver(props *BaseResolverProps) Resolver
 	OnPrepare()
@@ -10218,6 +10228,9 @@ type IIntermediateType interface {
 	// The resolvers linked to this data source.
 	// Experimental.
 	Resolvers() *[]Resolver
+	// The resolvers linked to this data source.
+	// Experimental.
+	SetResolvers(r *[]Resolver)
 }
 
 // The jsii proxy for IIntermediateType
@@ -10422,6 +10435,7 @@ type InputType interface {
 	IIntermediateType
 	Definition() *map[string]IField
 	Modes() *[]AuthorizationType
+	SetModes(val *[]AuthorizationType)
 	Name() *string
 	AddField(options *AddFieldOptions)
 	Attribute(options *BaseTypeOptions) GraphqlType
@@ -10547,6 +10561,7 @@ type InterfaceType interface {
 	Definition() *map[string]IField
 	Directives() *[]Directive
 	Modes() *[]AuthorizationType
+	SetModes(val *[]AuthorizationType)
 	Name() *string
 	AddField(options *AddFieldOptions)
 	Attribute(options *BaseTypeOptions) GraphqlType
@@ -10854,11 +10869,13 @@ func (k *jsiiProxy_KeyCondition) RenderTemplate() *string {
 type LambdaDataSource interface {
 	BackedDataSource
 	Api() IGraphqlApi
+	SetApi(val IGraphqlApi)
 	Ds() CfnDataSource
 	GrantPrincipal() awsiam.IPrincipal
 	Name() *string
 	Node() awscdk.ConstructNode
 	ServiceRole() awsiam.IRole
+	SetServiceRole(val awsiam.IRole)
 	CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction
 	CreateResolver(props *BaseResolverProps) Resolver
 	OnPrepare()
@@ -11403,10 +11420,12 @@ func (m *jsiiProxy_MappingTemplate) RenderTemplate() *string {
 type NoneDataSource interface {
 	BaseDataSource
 	Api() IGraphqlApi
+	SetApi(val IGraphqlApi)
 	Ds() CfnDataSource
 	Name() *string
 	Node() awscdk.ConstructNode
 	ServiceRole() awsiam.IRole
+	SetServiceRole(val awsiam.IRole)
 	CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction
 	CreateResolver(props *BaseResolverProps) Resolver
 	OnPrepare()
@@ -11701,6 +11720,7 @@ type ObjectType interface {
 	Directives() *[]Directive
 	InterfaceTypes() *[]InterfaceType
 	Modes() *[]AuthorizationType
+	SetModes(val *[]AuthorizationType)
 	Name() *string
 	Resolvers() *[]Resolver
 	SetResolvers(val *[]Resolver)
@@ -12176,11 +12196,13 @@ func (p *jsiiProxy_PrimaryKey) RenderTemplate() *string {
 type RdsDataSource interface {
 	BackedDataSource
 	Api() IGraphqlApi
+	SetApi(val IGraphqlApi)
 	Ds() CfnDataSource
 	GrantPrincipal() awsiam.IPrincipal
 	Name() *string
 	Node() awscdk.ConstructNode
 	ServiceRole() awsiam.IRole
+	SetServiceRole(val awsiam.IRole)
 	CreateFunction(props *BaseAppsyncFunctionProps) AppsyncFunction
 	CreateResolver(props *BaseResolverProps) Resolver
 	OnPrepare()
@@ -13465,6 +13487,7 @@ type UnionType interface {
 	IIntermediateType
 	Definition() *map[string]IField
 	Modes() *[]AuthorizationType
+	SetModes(val *[]AuthorizationType)
 	Name() *string
 	AddField(options *AddFieldOptions)
 	Attribute(options *BaseTypeOptions) GraphqlType
