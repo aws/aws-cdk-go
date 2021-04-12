@@ -7442,8 +7442,30 @@ func (j *jsiiProxy_GeoRestriction) RestrictionType() *string {
 }
 
 
-// Blacklist specific countries which you don't want CloudFront to distribute your content.
+// Allow specific countries which you want CloudFront to distribute your content.
 // Experimental.
+func GeoRestriction_Allowlist(locations ...*string) GeoRestriction {
+	_init_.Initialize()
+
+	args := []interface{}{}
+	for _, a := range locations {
+		args = append(args, a)
+	}
+
+	var returns GeoRestriction
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_cloudfront.GeoRestriction",
+		"allowlist",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
+// DEPRECATED.
+// Deprecated: use `denylist`
 func GeoRestriction_Blacklist(locations ...*string) GeoRestriction {
 	_init_.Initialize()
 
@@ -7464,8 +7486,30 @@ func GeoRestriction_Blacklist(locations ...*string) GeoRestriction {
 	return returns
 }
 
-// Whitelist specific countries which you want CloudFront to distribute your content.
+// Deny specific countries which you don't want CloudFront to distribute your content.
 // Experimental.
+func GeoRestriction_Denylist(locations ...*string) GeoRestriction {
+	_init_.Initialize()
+
+	args := []interface{}{}
+	for _, a := range locations {
+		args = append(args, a)
+	}
+
+	var returns GeoRestriction
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_cloudfront.GeoRestriction",
+		"denylist",
+		args,
+		&returns,
+	)
+
+	return returns
+}
+
+// DEPRECATED.
+// Deprecated: use `allowlist`
 func GeoRestriction_Whitelist(locations ...*string) GeoRestriction {
 	_init_.Initialize()
 

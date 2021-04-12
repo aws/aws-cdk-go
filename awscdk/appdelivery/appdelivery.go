@@ -97,6 +97,7 @@ func (p *jsiiProxy_PipelineDeployStackAction) AddToDeploymentRolePolicy(statemen
 	)
 }
 
+// The callback invoked when this Action is added to a Pipeline.
 // Experimental.
 func (p *jsiiProxy_PipelineDeployStackAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
@@ -111,6 +112,7 @@ func (p *jsiiProxy_PipelineDeployStackAction) Bind(scope awscdk.Construct, stage
 	return returns
 }
 
+// Creates an Event that will be triggered whenever the state of this Action changes.
 // Experimental.
 func (p *jsiiProxy_PipelineDeployStackAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule

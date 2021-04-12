@@ -8465,6 +8465,12 @@ type HealthCheck struct {
 	// is instance or ip, health checks are always enabled and cannot be disabled.
 	// Experimental.
 	Enabled *bool `json:"enabled"`
+	// GRPC code to use when checking for a successful response from a target.
+	//
+	// You can specify values between 0 and 99. You can specify multiple values
+	// (for example, "0,1") or a range of values (for example, "0-5").
+	// Experimental.
+	HealthyGrpcCodes *string `json:"healthyGrpcCodes"`
 	// HTTP code to use when checking for a successful response from a target.
 	//
 	// For Application Load Balancers, you can specify values between 200 and

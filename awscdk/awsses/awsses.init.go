@@ -11,6 +11,29 @@ func init() {
 		"monocdk.aws_ses.AddHeaderActionConfig",
 		reflect.TypeOf((*AddHeaderActionConfig)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_ses.AllowListReceiptFilter",
+		reflect.TypeOf((*AllowListReceiptFilter)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AllowListReceiptFilter{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkConstruct)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ses.AllowListReceiptFilterProps",
+		reflect.TypeOf((*AllowListReceiptFilterProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_ses.BounceActionConfig",
 		reflect.TypeOf((*BounceActionConfig)(nil)).Elem(),
@@ -581,7 +604,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_WhiteListReceiptFilter{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkConstruct)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_AllowListReceiptFilter)
 			return &j
 		},
 	)

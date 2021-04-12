@@ -2409,6 +2409,9 @@ func (i *jsiiProxy_ITopicSubscription) Bind(topic ITopic) *TopicSubscriptionConf
 // Conditions that can be applied to numeric attributes.
 // Experimental.
 type NumericConditions struct {
+	// Match one or more values.
+	// Experimental.
+	Allowlist *[]*float64 `json:"allowlist"`
 	// Match values that are between the specified values.
 	// Experimental.
 	Between *BetweenCondition `json:"between"`
@@ -2428,21 +2431,27 @@ type NumericConditions struct {
 	// Experimental.
 	LessThanOrEqualTo *float64 `json:"lessThanOrEqualTo"`
 	// Match one or more values.
-	// Experimental.
+	// Deprecated: use `allowlist`
 	Whitelist *[]*float64 `json:"whitelist"`
 }
 
 // Conditions that can be applied to string attributes.
 // Experimental.
 type StringConditions struct {
+	// Match one or more values.
+	// Experimental.
+	Allowlist *[]*string `json:"allowlist"`
+	// Match any value that doesn't include any of the specified values.
+	// Deprecated: use `denylist`
+	Blacklist *[]*string `json:"blacklist"`
 	// Match any value that doesn't include any of the specified values.
 	// Experimental.
-	Blacklist *[]*string `json:"blacklist"`
+	Denylist *[]*string `json:"denylist"`
 	// Matches values that begins with the specified prefixes.
 	// Experimental.
 	MatchPrefixes *[]*string `json:"matchPrefixes"`
 	// Match one or more values.
-	// Experimental.
+	// Deprecated: use `allowlist`
 	Whitelist *[]*string `json:"whitelist"`
 }
 

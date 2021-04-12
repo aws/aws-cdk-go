@@ -1058,6 +1058,14 @@ func (a *jsiiProxy_AccessLogFormat) ToString() *string {
 	return returns
 }
 
+// Options to the UsagePlan.addApiKey() method.
+// Experimental.
+type AddApiKeyOptions struct {
+	// Override the CloudFormation logical id of the AWS::ApiGateway::UsagePlanKey resource.
+	// Experimental.
+	OverrideLogicalId *string `json:"overrideLogicalId"`
+}
+
 // Represents an OpenAPI definition asset.
 // Experimental.
 type ApiDefinition interface {
@@ -36842,7 +36850,7 @@ type UsagePlan interface {
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	UsagePlanId() *string
-	AddApiKey(apiKey IApiKey)
+	AddApiKey(apiKey IApiKey, options *AddApiKeyOptions)
 	AddApiStage(apiStage *UsagePlanPerApiStage)
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
@@ -36975,11 +36983,11 @@ func UsagePlan_IsResource(construct awscdk.IConstruct) *bool {
 
 // Adds an ApiKey.
 // Experimental.
-func (u *jsiiProxy_UsagePlan) AddApiKey(apiKey IApiKey) {
+func (u *jsiiProxy_UsagePlan) AddApiKey(apiKey IApiKey, options *AddApiKeyOptions) {
 	_jsii_.InvokeVoid(
 		u,
 		"addApiKey",
-		[]interface{}{apiKey},
+		[]interface{}{apiKey, options},
 	)
 }
 
@@ -37194,7 +37202,7 @@ type UsagePlanPerApiStage struct {
 // Experimental.
 type UsagePlanProps struct {
 	// ApiKey to be associated with the usage plan.
-	// Experimental.
+	// Deprecated: use `addApiKey()`
 	ApiKey IApiKey `json:"apiKey"`
 	// API Stages to be associated with the usage plan.
 	// Experimental.

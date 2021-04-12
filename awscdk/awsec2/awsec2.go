@@ -66602,6 +66602,7 @@ type VpcEndpointService interface {
 	awscdk.Resource
 	IVpcEndpointService
 	AcceptanceRequired() *bool
+	AllowedPrincipals() *[]awsiam.ArnPrincipal
 	Env() *awscdk.ResourceEnvironment
 	Node() awscdk.ConstructNode
 	PhysicalName() *string
@@ -66634,6 +66635,16 @@ func (j *jsiiProxy_VpcEndpointService) AcceptanceRequired() *bool {
 	_jsii_.Get(
 		j,
 		"acceptanceRequired",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_VpcEndpointService) AllowedPrincipals() *[]awsiam.ArnPrincipal {
+	var returns *[]awsiam.ArnPrincipal
+	_jsii_.Get(
+		j,
+		"allowedPrincipals",
 		&returns,
 	)
 	return returns
@@ -66975,6 +66986,12 @@ type VpcEndpointServiceProps struct {
 	// Whether requests from service consumers to connect to the service through an endpoint must be accepted.
 	// Experimental.
 	AcceptanceRequired *bool `json:"acceptanceRequired"`
+	// IAM users, IAM roles, or AWS accounts to allow inbound connections from.
+	//
+	// These principals can connect to your service using VPC endpoints. Takes a
+	// list of one or more ArnPrincipal.
+	// Experimental.
+	AllowedPrincipals *[]awsiam.ArnPrincipal `json:"allowedPrincipals"`
 	// Name of the Vpc Endpoint Service.
 	// Deprecated: This property is not used
 	VpcEndpointServiceName *string `json:"vpcEndpointServiceName"`
@@ -66982,7 +66999,7 @@ type VpcEndpointServiceProps struct {
 	//
 	// These principals can connect to your service using VPC endpoints. Takes a
 	// list of one or more ArnPrincipal.
-	// Experimental.
+	// Deprecated: use `allowedPrincipals`
 	WhitelistedPrincipals *[]awsiam.ArnPrincipal `json:"whitelistedPrincipals"`
 }
 

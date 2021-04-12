@@ -2873,10 +2873,15 @@ func GlobalVariables_ExecutionId() *string {
 // A Pipeline Action.
 // Experimental.
 type IAction interface {
+	// The callback invoked when this Action is added to a Pipeline.
 	// Experimental.
 	Bind(scope awscdk.Construct, stage IStage, options *ActionBindOptions) *ActionConfig
+	// Creates an Event that will be triggered whenever the state of this Action changes.
 	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	// The simple properties of the Action, like its Owner, name, etc.
+	//
+	// Note that this accessor will be called before the {@link bind} callback.
 	// Experimental.
 	ActionProperties() *ActionProperties
 }

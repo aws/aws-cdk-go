@@ -65,6 +65,7 @@ func NewAction_Override(a Action, actionProperties *awscodepipeline.ActionProper
 	)
 }
 
+// The callback invoked when this Action is added to a Pipeline.
 // Experimental.
 func (a *jsiiProxy_Action) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
@@ -96,6 +97,7 @@ func (a *jsiiProxy_Action) Bound(scope awscdk.Construct, stage awscodepipeline.I
 	return returns
 }
 
+// Creates an Event that will be triggered whenever the state of this Action changes.
 // Experimental.
 func (a *jsiiProxy_Action) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
@@ -177,6 +179,7 @@ func NewAlexaSkillDeployAction_Override(a AlexaSkillDeployAction, props *AlexaSk
 	)
 }
 
+// The callback invoked when this Action is added to a Pipeline.
 // Experimental.
 func (a *jsiiProxy_AlexaSkillDeployAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
@@ -208,6 +211,7 @@ func (a *jsiiProxy_AlexaSkillDeployAction) Bound(_scope awscdk.Construct, _stage
 	return returns
 }
 
+// Creates an Event that will be triggered whenever the state of this Action changes.
 // Experimental.
 func (a *jsiiProxy_AlexaSkillDeployAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
@@ -482,19 +486,17 @@ func (b *jsiiProxy_BaseJenkinsProvider) Validate() *[]*string {
 }
 
 // A CodePipeline source action for BitBucket.
-// Experimental.
+// Deprecated: use CodeStarConnectionsSourceAction instead
 type BitBucketSourceAction interface {
-	Action
+	awscodepipeline.IAction
 	ActionProperties() *awscodepipeline.ActionProperties
 	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
-	VariableExpression(variableName *string) *string
 }
 
 // The jsii proxy struct for BitBucketSourceAction
 type jsiiProxy_BitBucketSourceAction struct {
-	jsiiProxy_Action
+	internal.Type__awscodepipelineIAction
 }
 
 func (j *jsiiProxy_BitBucketSourceAction) ActionProperties() *awscodepipeline.ActionProperties {
@@ -508,7 +510,7 @@ func (j *jsiiProxy_BitBucketSourceAction) ActionProperties() *awscodepipeline.Ac
 }
 
 
-// Experimental.
+// Deprecated: use CodeStarConnectionsSourceAction instead
 func NewBitBucketSourceAction(props *BitBucketSourceActionProps) BitBucketSourceAction {
 	_init_.Initialize()
 
@@ -523,7 +525,7 @@ func NewBitBucketSourceAction(props *BitBucketSourceActionProps) BitBucketSource
 	return &j
 }
 
-// Experimental.
+// Deprecated: use CodeStarConnectionsSourceAction instead
 func NewBitBucketSourceAction_Override(b BitBucketSourceAction, props *BitBucketSourceActionProps) {
 	_init_.Initialize()
 
@@ -534,7 +536,8 @@ func NewBitBucketSourceAction_Override(b BitBucketSourceAction, props *BitBucket
 	)
 }
 
-// Experimental.
+// The callback invoked when this Action is added to a Pipeline.
+// Deprecated: use CodeStarConnectionsSourceAction instead
 func (b *jsiiProxy_BitBucketSourceAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
@@ -548,24 +551,8 @@ func (b *jsiiProxy_BitBucketSourceAction) Bind(scope awscdk.Construct, stage aws
 	return returns
 }
 
-// The method called when an Action is attached to a Pipeline.
-//
-// This method is guaranteed to be called only once for each Action instance.
-// Experimental.
-func (b *jsiiProxy_BitBucketSourceAction) Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
-	var returns *awscodepipeline.ActionConfig
-
-	_jsii_.Invoke(
-		b,
-		"bound",
-		[]interface{}{_scope, _stage, options},
-		&returns,
-	)
-
-	return returns
-}
-
-// Experimental.
+// Creates an Event that will be triggered whenever the state of this Action changes.
+// Deprecated: use CodeStarConnectionsSourceAction instead
 func (b *jsiiProxy_BitBucketSourceAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -579,37 +566,23 @@ func (b *jsiiProxy_BitBucketSourceAction) OnStateChange(name *string, target aws
 	return returns
 }
 
-// Experimental.
-func (b *jsiiProxy_BitBucketSourceAction) VariableExpression(variableName *string) *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		b,
-		"variableExpression",
-		[]interface{}{variableName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Construction properties for {@link BitBucketSourceAction}.
-// Experimental.
+// Deprecated: use CodeStarConnectionsSourceActionProps instead
 type BitBucketSourceActionProps struct {
 	// The physical, human-readable name of the Action.
 	//
 	// Note that Action names must be unique within a single Stage.
-	// Experimental.
+	// Deprecated: use CodeStarConnectionsSourceActionProps instead
 	ActionName *string `json:"actionName"`
 	// The runOrder property for this Action.
 	//
 	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
 	//
-	// Experimental.
+	// Deprecated: use CodeStarConnectionsSourceActionProps instead
 	RunOrder *float64 `json:"runOrder"`
 	// The name of the namespace to use for variables emitted by this action.
-	// Experimental.
+	// Deprecated: use CodeStarConnectionsSourceActionProps instead
 	VariablesNamespace *string `json:"variablesNamespace"`
 	// The Role in which context's this Action will be executing in.
 	//
@@ -618,7 +591,7 @@ type BitBucketSourceActionProps struct {
 	// right before executing this Action.
 	// This Action will be passed into your {@link IAction.bind}
 	// method in the {@link ActionBindOptions.role} property.
-	// Experimental.
+	// Deprecated: use CodeStarConnectionsSourceActionProps instead
 	Role awsiam.IRole `json:"role"`
 	// The ARN of the CodeStar Connection created in the AWS console that has permissions to access this BitBucket repository.
 	//
@@ -626,27 +599,27 @@ type BitBucketSourceActionProps struct {
 	//
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/connections-create.html
 	//
-	// Experimental.
+	// Deprecated: use CodeStarConnectionsSourceActionProps instead
 	ConnectionArn *string `json:"connectionArn"`
 	// The output artifact that this action produces.
 	//
 	// Can be used as input for further pipeline actions.
-	// Experimental.
+	// Deprecated: use CodeStarConnectionsSourceActionProps instead
 	Output awscodepipeline.Artifact `json:"output"`
 	// The owning user or organization of the repository.
 	//
 	// TODO: EXAMPLE
 	//
-	// Experimental.
+	// Deprecated: use CodeStarConnectionsSourceActionProps instead
 	Owner *string `json:"owner"`
 	// The name of the repository.
 	//
 	// TODO: EXAMPLE
 	//
-	// Experimental.
+	// Deprecated: use CodeStarConnectionsSourceActionProps instead
 	Repo *string `json:"repo"`
 	// The branch to build.
-	// Experimental.
+	// Deprecated: use CodeStarConnectionsSourceActionProps instead
 	Branch *string `json:"branch"`
 	// Whether the output should be the contents of the repository (which is the default), or a link that allows CodeBuild to clone the repository before building.
 	//
@@ -654,7 +627,7 @@ type BitBucketSourceActionProps struct {
 	// then only CodeBuild actions can use the resulting {@link output}.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config
 	//
-	// Experimental.
+	// Deprecated: use CodeStarConnectionsSourceActionProps instead
 	CodeBuildCloneOutput *bool `json:"codeBuildCloneOutput"`
 	// Controls automatically starting your pipeline when a new commit is made on the configured repository and branch.
 	//
@@ -662,7 +635,7 @@ type BitBucketSourceActionProps struct {
 	// the default value is true, and the field does not display by default.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html
 	//
-	// Experimental.
+	// Deprecated: use CodeStarConnectionsSourceActionProps instead
 	TriggerOnPush *bool `json:"triggerOnPush"`
 }
 
@@ -938,6 +911,7 @@ func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) AddToDeploymentRo
 	return returns
 }
 
+// The callback invoked when this Action is added to a Pipeline.
 // Experimental.
 func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
@@ -969,6 +943,7 @@ func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) Bound(scope awscd
 	return returns
 }
 
+// Creates an Event that will be triggered whenever the state of this Action changes.
 // Experimental.
 func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
@@ -1238,6 +1213,7 @@ func (c *jsiiProxy_CloudFormationCreateUpdateStackAction) AddToDeploymentRolePol
 	return returns
 }
 
+// The callback invoked when this Action is added to a Pipeline.
 // Experimental.
 func (c *jsiiProxy_CloudFormationCreateUpdateStackAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
@@ -1269,6 +1245,7 @@ func (c *jsiiProxy_CloudFormationCreateUpdateStackAction) Bound(scope awscdk.Con
 	return returns
 }
 
+// Creates an Event that will be triggered whenever the state of this Action changes.
 // Experimental.
 func (c *jsiiProxy_CloudFormationCreateUpdateStackAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
@@ -1538,6 +1515,7 @@ func (c *jsiiProxy_CloudFormationDeleteStackAction) AddToDeploymentRolePolicy(st
 	return returns
 }
 
+// The callback invoked when this Action is added to a Pipeline.
 // Experimental.
 func (c *jsiiProxy_CloudFormationDeleteStackAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
@@ -1569,6 +1547,7 @@ func (c *jsiiProxy_CloudFormationDeleteStackAction) Bound(scope awscdk.Construct
 	return returns
 }
 
+// Creates an Event that will be triggered whenever the state of this Action changes.
 // Experimental.
 func (c *jsiiProxy_CloudFormationDeleteStackAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
@@ -1794,6 +1773,7 @@ func NewCloudFormationExecuteChangeSetAction_Override(c CloudFormationExecuteCha
 	)
 }
 
+// The callback invoked when this Action is added to a Pipeline.
 // Experimental.
 func (c *jsiiProxy_CloudFormationExecuteChangeSetAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
@@ -1825,6 +1805,7 @@ func (c *jsiiProxy_CloudFormationExecuteChangeSetAction) Bound(scope awscdk.Cons
 	return returns
 }
 
+// Creates an Event that will be triggered whenever the state of this Action changes.
 // Experimental.
 func (c *jsiiProxy_CloudFormationExecuteChangeSetAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
@@ -1970,6 +1951,7 @@ func NewCodeBuildAction_Override(c CodeBuildAction, props *CodeBuildActionProps)
 	)
 }
 
+// The callback invoked when this Action is added to a Pipeline.
 // Experimental.
 func (c *jsiiProxy_CodeBuildAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
@@ -2001,6 +1983,7 @@ func (c *jsiiProxy_CodeBuildAction) Bound(scope awscdk.Construct, _stage awscode
 	return returns
 }
 
+// Creates an Event that will be triggered whenever the state of this Action changes.
 // Experimental.
 func (c *jsiiProxy_CodeBuildAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
@@ -2195,6 +2178,7 @@ func NewCodeCommitSourceAction_Override(c CodeCommitSourceAction, props *CodeCom
 	)
 }
 
+// The callback invoked when this Action is added to a Pipeline.
 // Experimental.
 func (c *jsiiProxy_CodeCommitSourceAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
@@ -2226,6 +2210,7 @@ func (c *jsiiProxy_CodeCommitSourceAction) Bound(_scope awscdk.Construct, stage 
 	return returns
 }
 
+// Creates an Event that will be triggered whenever the state of this Action changes.
 // Experimental.
 func (c *jsiiProxy_CodeCommitSourceAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
@@ -2413,6 +2398,7 @@ func NewCodeDeployEcsDeployAction_Override(c CodeDeployEcsDeployAction, props *C
 	)
 }
 
+// The callback invoked when this Action is added to a Pipeline.
 // Experimental.
 func (c *jsiiProxy_CodeDeployEcsDeployAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
@@ -2444,6 +2430,7 @@ func (c *jsiiProxy_CodeDeployEcsDeployAction) Bound(_scope awscdk.Construct, _st
 	return returns
 }
 
+// Creates an Event that will be triggered whenever the state of this Action changes.
 // Experimental.
 func (c *jsiiProxy_CodeDeployEcsDeployAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
@@ -2605,6 +2592,7 @@ func NewCodeDeployServerDeployAction_Override(c CodeDeployServerDeployAction, pr
 	)
 }
 
+// The callback invoked when this Action is added to a Pipeline.
 // Experimental.
 func (c *jsiiProxy_CodeDeployServerDeployAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
@@ -2636,6 +2624,7 @@ func (c *jsiiProxy_CodeDeployServerDeployAction) Bound(_scope awscdk.Construct, 
 	return returns
 }
 
+// Creates an Event that will be triggered whenever the state of this Action changes.
 // Experimental.
 func (c *jsiiProxy_CodeDeployServerDeployAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
@@ -2697,6 +2686,193 @@ type CodeDeployServerDeployActionProps struct {
 	// The source to use as input for deployment.
 	// Experimental.
 	Input awscodepipeline.Artifact `json:"input"`
+}
+
+// A CodePipeline source action for the CodeStar Connections source, which allows connecting to GitHub and BitBucket.
+// Experimental.
+type CodeStarConnectionsSourceAction interface {
+	Action
+	ActionProperties() *awscodepipeline.ActionProperties
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	VariableExpression(variableName *string) *string
+}
+
+// The jsii proxy struct for CodeStarConnectionsSourceAction
+type jsiiProxy_CodeStarConnectionsSourceAction struct {
+	jsiiProxy_Action
+}
+
+func (j *jsiiProxy_CodeStarConnectionsSourceAction) ActionProperties() *awscodepipeline.ActionProperties {
+	var returns *awscodepipeline.ActionProperties
+	_jsii_.Get(
+		j,
+		"actionProperties",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewCodeStarConnectionsSourceAction(props *CodeStarConnectionsSourceActionProps) CodeStarConnectionsSourceAction {
+	_init_.Initialize()
+
+	j := jsiiProxy_CodeStarConnectionsSourceAction{}
+
+	_jsii_.Create(
+		"monocdk.aws_codepipeline_actions.CodeStarConnectionsSourceAction",
+		[]interface{}{props},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewCodeStarConnectionsSourceAction_Override(c CodeStarConnectionsSourceAction, props *CodeStarConnectionsSourceActionProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_codepipeline_actions.CodeStarConnectionsSourceAction",
+		[]interface{}{props},
+		c,
+	)
+}
+
+// The callback invoked when this Action is added to a Pipeline.
+// Experimental.
+func (c *jsiiProxy_CodeStarConnectionsSourceAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	var returns *awscodepipeline.ActionConfig
+
+	_jsii_.Invoke(
+		c,
+		"bind",
+		[]interface{}{scope, stage, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// The method called when an Action is attached to a Pipeline.
+//
+// This method is guaranteed to be called only once for each Action instance.
+// Experimental.
+func (c *jsiiProxy_CodeStarConnectionsSourceAction) Bound(_scope awscdk.Construct, _stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	var returns *awscodepipeline.ActionConfig
+
+	_jsii_.Invoke(
+		c,
+		"bound",
+		[]interface{}{_scope, _stage, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates an Event that will be triggered whenever the state of this Action changes.
+// Experimental.
+func (c *jsiiProxy_CodeStarConnectionsSourceAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	var returns awsevents.Rule
+
+	_jsii_.Invoke(
+		c,
+		"onStateChange",
+		[]interface{}{name, target, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (c *jsiiProxy_CodeStarConnectionsSourceAction) VariableExpression(variableName *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"variableExpression",
+		[]interface{}{variableName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Construction properties for {@link CodeStarConnectionsSourceAction}.
+// Experimental.
+type CodeStarConnectionsSourceActionProps struct {
+	// The physical, human-readable name of the Action.
+	//
+	// Note that Action names must be unique within a single Stage.
+	// Experimental.
+	ActionName *string `json:"actionName"`
+	// The runOrder property for this Action.
+	//
+	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
+	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
+	//
+	// Experimental.
+	RunOrder *float64 `json:"runOrder"`
+	// The name of the namespace to use for variables emitted by this action.
+	// Experimental.
+	VariablesNamespace *string `json:"variablesNamespace"`
+	// The Role in which context's this Action will be executing in.
+	//
+	// The Pipeline's Role will assume this Role
+	// (the required permissions for that will be granted automatically)
+	// right before executing this Action.
+	// This Action will be passed into your {@link IAction.bind}
+	// method in the {@link ActionBindOptions.role} property.
+	// Experimental.
+	Role awsiam.IRole `json:"role"`
+	// The ARN of the CodeStar Connection created in the AWS console that has permissions to access this BitBucket repository.
+	//
+	// TODO: EXAMPLE
+	//
+	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/connections-create.html
+	//
+	// Experimental.
+	ConnectionArn *string `json:"connectionArn"`
+	// The output artifact that this action produces.
+	//
+	// Can be used as input for further pipeline actions.
+	// Experimental.
+	Output awscodepipeline.Artifact `json:"output"`
+	// The owning user or organization of the repository.
+	//
+	// TODO: EXAMPLE
+	//
+	// Experimental.
+	Owner *string `json:"owner"`
+	// The name of the repository.
+	//
+	// TODO: EXAMPLE
+	//
+	// Experimental.
+	Repo *string `json:"repo"`
+	// The branch to build.
+	// Experimental.
+	Branch *string `json:"branch"`
+	// Whether the output should be the contents of the repository (which is the default), or a link that allows CodeBuild to clone the repository before building.
+	//
+	// **Note**: if this option is true,
+	// then only CodeBuild actions can use the resulting {@link output}.
+	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config
+	//
+	// Experimental.
+	CodeBuildCloneOutput *bool `json:"codeBuildCloneOutput"`
+	// Controls automatically starting your pipeline when a new commit is made on the configured repository and branch.
+	//
+	// If unspecified,
+	// the default value is true, and the field does not display by default.
+	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html
+	//
+	// Experimental.
+	TriggerOnPush *bool `json:"triggerOnPush"`
 }
 
 // The ECR Repository source CodePipeline Action.
@@ -2767,6 +2943,7 @@ func NewEcrSourceAction_Override(e EcrSourceAction, props *EcrSourceActionProps)
 	)
 }
 
+// The callback invoked when this Action is added to a Pipeline.
 // Experimental.
 func (e *jsiiProxy_EcrSourceAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
@@ -2798,6 +2975,7 @@ func (e *jsiiProxy_EcrSourceAction) Bound(_scope awscdk.Construct, stage awscode
 	return returns
 }
 
+// Creates an Event that will be triggered whenever the state of this Action changes.
 // Experimental.
 func (e *jsiiProxy_EcrSourceAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
@@ -2938,6 +3116,7 @@ func NewEcsDeployAction_Override(e EcsDeployAction, props *EcsDeployActionProps)
 	)
 }
 
+// The callback invoked when this Action is added to a Pipeline.
 // Experimental.
 func (e *jsiiProxy_EcsDeployAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
@@ -2969,6 +3148,7 @@ func (e *jsiiProxy_EcsDeployAction) Bound(_scope awscdk.Construct, _stage awscod
 	return returns
 }
 
+// Creates an Event that will be triggered whenever the state of this Action changes.
 // Experimental.
 func (e *jsiiProxy_EcsDeployAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
@@ -3123,6 +3303,7 @@ func NewGitHubSourceAction_Override(g GitHubSourceAction, props *GitHubSourceAct
 	)
 }
 
+// The callback invoked when this Action is added to a Pipeline.
 // Experimental.
 func (g *jsiiProxy_GitHubSourceAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
@@ -3154,6 +3335,7 @@ func (g *jsiiProxy_GitHubSourceAction) Bound(scope awscdk.Construct, stage awsco
 	return returns
 }
 
+// Creates an Event that will be triggered whenever the state of this Action changes.
 // Experimental.
 func (g *jsiiProxy_GitHubSourceAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
@@ -3382,6 +3564,7 @@ func NewJenkinsAction_Override(j JenkinsAction, props *JenkinsActionProps) {
 	)
 }
 
+// The callback invoked when this Action is added to a Pipeline.
 // Experimental.
 func (j *jsiiProxy_JenkinsAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
@@ -3413,6 +3596,7 @@ func (j *jsiiProxy_JenkinsAction) Bound(_scope awscdk.Construct, _stage awscodep
 	return returns
 }
 
+// Creates an Event that will be triggered whenever the state of this Action changes.
 // Experimental.
 func (j *jsiiProxy_JenkinsAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
@@ -3837,6 +4021,7 @@ func NewLambdaInvokeAction_Override(l LambdaInvokeAction, props *LambdaInvokeAct
 	)
 }
 
+// The callback invoked when this Action is added to a Pipeline.
 // Experimental.
 func (l *jsiiProxy_LambdaInvokeAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
@@ -3868,6 +4053,7 @@ func (l *jsiiProxy_LambdaInvokeAction) Bound(scope awscdk.Construct, _stage awsc
 	return returns
 }
 
+// Creates an Event that will be triggered whenever the state of this Action changes.
 // Experimental.
 func (l *jsiiProxy_LambdaInvokeAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
@@ -4034,6 +4220,7 @@ func NewManualApprovalAction_Override(m ManualApprovalAction, props *ManualAppro
 	)
 }
 
+// The callback invoked when this Action is added to a Pipeline.
 // Experimental.
 func (m *jsiiProxy_ManualApprovalAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
@@ -4065,6 +4252,7 @@ func (m *jsiiProxy_ManualApprovalAction) Bound(scope awscdk.Construct, _stage aw
 	return returns
 }
 
+// Creates an Event that will be triggered whenever the state of this Action changes.
 // Experimental.
 func (m *jsiiProxy_ManualApprovalAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
@@ -4190,6 +4378,7 @@ func NewS3DeployAction_Override(s S3DeployAction, props *S3DeployActionProps) {
 	)
 }
 
+// The callback invoked when this Action is added to a Pipeline.
 // Experimental.
 func (s *jsiiProxy_S3DeployAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
@@ -4221,6 +4410,7 @@ func (s *jsiiProxy_S3DeployAction) Bound(_scope awscdk.Construct, _stage awscode
 	return returns
 }
 
+// Creates an Event that will be triggered whenever the state of this Action changes.
 // Experimental.
 func (s *jsiiProxy_S3DeployAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
@@ -4370,6 +4560,7 @@ func NewS3SourceAction_Override(s S3SourceAction, props *S3SourceActionProps) {
 	)
 }
 
+// The callback invoked when this Action is added to a Pipeline.
 // Experimental.
 func (s *jsiiProxy_S3SourceAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
@@ -4401,6 +4592,7 @@ func (s *jsiiProxy_S3SourceAction) Bound(_scope awscdk.Construct, stage awscodep
 	return returns
 }
 
+// Creates an Event that will be triggered whenever the state of this Action changes.
 // Experimental.
 func (s *jsiiProxy_S3SourceAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
@@ -4555,6 +4747,7 @@ func NewServiceCatalogDeployAction_Override(s ServiceCatalogDeployAction, props 
 	)
 }
 
+// The callback invoked when this Action is added to a Pipeline.
 // Experimental.
 func (s *jsiiProxy_ServiceCatalogDeployAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
@@ -4586,6 +4779,7 @@ func (s *jsiiProxy_ServiceCatalogDeployAction) Bound(_scope awscdk.Construct, _s
 	return returns
 }
 
+// Creates an Event that will be triggered whenever the state of this Action changes.
 // Experimental.
 func (s *jsiiProxy_ServiceCatalogDeployAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule
@@ -4790,6 +4984,7 @@ func NewStepFunctionInvokeAction_Override(s StepFunctionInvokeAction, props *Ste
 	)
 }
 
+// The callback invoked when this Action is added to a Pipeline.
 // Experimental.
 func (s *jsiiProxy_StepFunctionInvokeAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
@@ -4821,6 +5016,7 @@ func (s *jsiiProxy_StepFunctionInvokeAction) Bound(_scope awscdk.Construct, _sta
 	return returns
 }
 
+// Creates an Event that will be triggered whenever the state of this Action changes.
 // Experimental.
 func (s *jsiiProxy_StepFunctionInvokeAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
 	var returns awsevents.Rule

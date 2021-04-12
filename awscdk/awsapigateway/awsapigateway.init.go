@@ -29,6 +29,10 @@ func init() {
 			return &jsiiProxy_AccessLogFormat{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_apigateway.AddApiKeyOptions",
+		reflect.TypeOf((*AddApiKeyOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_apigateway.ApiDefinition",
 		reflect.TypeOf((*ApiDefinition)(nil)).Elem(),

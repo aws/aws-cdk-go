@@ -20,6 +20,202 @@ type AddHeaderActionConfig struct {
 	HeaderValue *string `json:"headerValue"`
 }
 
+// An allow list receipt filter.
+// Experimental.
+type AllowListReceiptFilter interface {
+	awscdk.Construct
+	Node() awscdk.ConstructNode
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
+}
+
+// The jsii proxy struct for AllowListReceiptFilter
+type jsiiProxy_AllowListReceiptFilter struct {
+	internal.Type__awscdkConstruct
+}
+
+func (j *jsiiProxy_AllowListReceiptFilter) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewAllowListReceiptFilter(scope constructs.Construct, id *string, props *AllowListReceiptFilterProps) AllowListReceiptFilter {
+	_init_.Initialize()
+
+	j := jsiiProxy_AllowListReceiptFilter{}
+
+	_jsii_.Create(
+		"monocdk.aws_ses.AllowListReceiptFilter",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewAllowListReceiptFilter_Override(a AllowListReceiptFilter, scope constructs.Construct, id *string, props *AllowListReceiptFilterProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_ses.AllowListReceiptFilter",
+		[]interface{}{scope, id, props},
+		a,
+	)
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func AllowListReceiptFilter_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ses.AllowListReceiptFilter",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_AllowListReceiptFilter) OnPrepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_AllowListReceiptFilter) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_AllowListReceiptFilter) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_AllowListReceiptFilter) Prepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_AllowListReceiptFilter) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+// Experimental.
+func (a *jsiiProxy_AllowListReceiptFilter) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		a,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_AllowListReceiptFilter) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Construction properties for am AllowListReceiptFilter.
+// Experimental.
+type AllowListReceiptFilterProps struct {
+	// A list of ip addresses or ranges to allow list.
+	// Experimental.
+	Ips *[]*string `json:"ips"`
+}
+
 // BoundAction configuration.
 // Experimental.
 type BounceActionConfig struct {
@@ -5319,10 +5515,10 @@ const (
 	TlsPolicy_REQUIRE TlsPolicy = "REQUIRE"
 )
 
-// A white list receipt filter.
-// Experimental.
+// An allow list receipt filter.
+// Deprecated: use `AllowListReceiptFilter`
 type WhiteListReceiptFilter interface {
-	awscdk.Construct
+	AllowListReceiptFilter
 	Node() awscdk.ConstructNode
 	OnPrepare()
 	OnSynthesize(session constructs.ISynthesisSession)
@@ -5335,7 +5531,7 @@ type WhiteListReceiptFilter interface {
 
 // The jsii proxy struct for WhiteListReceiptFilter
 type jsiiProxy_WhiteListReceiptFilter struct {
-	internal.Type__awscdkConstruct
+	jsiiProxy_AllowListReceiptFilter
 }
 
 func (j *jsiiProxy_WhiteListReceiptFilter) Node() awscdk.ConstructNode {
@@ -5349,7 +5545,7 @@ func (j *jsiiProxy_WhiteListReceiptFilter) Node() awscdk.ConstructNode {
 }
 
 
-// Experimental.
+// Deprecated: use `AllowListReceiptFilter`
 func NewWhiteListReceiptFilter(scope constructs.Construct, id *string, props *WhiteListReceiptFilterProps) WhiteListReceiptFilter {
 	_init_.Initialize()
 
@@ -5364,7 +5560,7 @@ func NewWhiteListReceiptFilter(scope constructs.Construct, id *string, props *Wh
 	return &j
 }
 
-// Experimental.
+// Deprecated: use `AllowListReceiptFilter`
 func NewWhiteListReceiptFilter_Override(w WhiteListReceiptFilter, scope constructs.Construct, id *string, props *WhiteListReceiptFilterProps) {
 	_init_.Initialize()
 
@@ -5376,7 +5572,7 @@ func NewWhiteListReceiptFilter_Override(w WhiteListReceiptFilter, scope construc
 }
 
 // Return whether the given object is a Construct.
-// Experimental.
+// Deprecated: use `AllowListReceiptFilter`
 func WhiteListReceiptFilter_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -5400,7 +5596,7 @@ func WhiteListReceiptFilter_IsConstruct(x interface{}) *bool {
 //
 // This is an advanced framework feature. Only use this if you
 // understand the implications.
-// Experimental.
+// Deprecated: use `AllowListReceiptFilter`
 func (w *jsiiProxy_WhiteListReceiptFilter) OnPrepare() {
 	_jsii_.InvokeVoid(
 		w,
@@ -5413,7 +5609,7 @@ func (w *jsiiProxy_WhiteListReceiptFilter) OnPrepare() {
 //
 // This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
 // as they participate in synthesizing the cloud assembly.
-// Experimental.
+// Deprecated: use `AllowListReceiptFilter`
 func (w *jsiiProxy_WhiteListReceiptFilter) OnSynthesize(session constructs.ISynthesisSession) {
 	_jsii_.InvokeVoid(
 		w,
@@ -5428,7 +5624,7 @@ func (w *jsiiProxy_WhiteListReceiptFilter) OnSynthesize(session constructs.ISynt
 // validation logic. It is called on all constructs before synthesis.
 //
 // Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
+// Deprecated: use `AllowListReceiptFilter`
 func (w *jsiiProxy_WhiteListReceiptFilter) OnValidate() *[]*string {
 	var returns *[]*string
 
@@ -5450,7 +5646,7 @@ func (w *jsiiProxy_WhiteListReceiptFilter) OnValidate() *[]*string {
 //
 // This is an advanced framework feature. Only use this if you
 // understand the implications.
-// Experimental.
+// Deprecated: use `AllowListReceiptFilter`
 func (w *jsiiProxy_WhiteListReceiptFilter) Prepare() {
 	_jsii_.InvokeVoid(
 		w,
@@ -5463,7 +5659,7 @@ func (w *jsiiProxy_WhiteListReceiptFilter) Prepare() {
 //
 // This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
 // as they participate in synthesizing the cloud assembly.
-// Experimental.
+// Deprecated: use `AllowListReceiptFilter`
 func (w *jsiiProxy_WhiteListReceiptFilter) Synthesize(session awscdk.ISynthesisSession) {
 	_jsii_.InvokeVoid(
 		w,
@@ -5473,7 +5669,7 @@ func (w *jsiiProxy_WhiteListReceiptFilter) Synthesize(session awscdk.ISynthesisS
 }
 
 // Returns a string representation of this construct.
-// Experimental.
+// Deprecated: use `AllowListReceiptFilter`
 func (w *jsiiProxy_WhiteListReceiptFilter) ToString() *string {
 	var returns *string
 
@@ -5493,7 +5689,7 @@ func (w *jsiiProxy_WhiteListReceiptFilter) ToString() *string {
 // validation logic. It is called on all constructs before synthesis.
 //
 // Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
+// Deprecated: use `AllowListReceiptFilter`
 func (w *jsiiProxy_WhiteListReceiptFilter) Validate() *[]*string {
 	var returns *[]*string
 
@@ -5508,10 +5704,10 @@ func (w *jsiiProxy_WhiteListReceiptFilter) Validate() *[]*string {
 }
 
 // Construction properties for a WhiteListReceiptFilter.
-// Experimental.
+// Deprecated: use `AllowListReceiptFilterProps`
 type WhiteListReceiptFilterProps struct {
-	// A list of ip addresses or ranges to white list.
-	// Experimental.
+	// A list of ip addresses or ranges to allow list.
+	// Deprecated: use `AllowListReceiptFilterProps`
 	Ips *[]*string `json:"ips"`
 }
 

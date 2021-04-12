@@ -72,13 +72,11 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-			_jsii_.MemberMethod{JsiiMethod: "bound", GoMethod: "Bound"},
 			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
-			_jsii_.MemberMethod{JsiiMethod: "variableExpression", GoMethod: "VariableExpression"},
 		},
 		func() interface{} {
 			j := jsiiProxy_BitBucketSourceAction{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_Action)
+			_jsii_.InitJsiiProxy(&j.Type__awscodepipelineIAction)
 			return &j
 		},
 	)
@@ -288,6 +286,26 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_codepipeline_actions.CodeDeployServerDeployActionProps",
 		reflect.TypeOf((*CodeDeployServerDeployActionProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_codepipeline_actions.CodeStarConnectionsSourceAction",
+		reflect.TypeOf((*CodeStarConnectionsSourceAction)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberMethod{JsiiMethod: "bound", GoMethod: "Bound"},
+			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
+			_jsii_.MemberMethod{JsiiMethod: "variableExpression", GoMethod: "VariableExpression"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CodeStarConnectionsSourceAction{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_Action)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_codepipeline_actions.CodeStarConnectionsSourceActionProps",
+		reflect.TypeOf((*CodeStarConnectionsSourceActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_codepipeline_actions.EcrSourceAction",
