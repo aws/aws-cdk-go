@@ -1,16 +1,16 @@
 package awssynthetics
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/awss3assets"
-	"github.com/aws/aws-cdk-go/awscdk/awssynthetics/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssynthetics/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Options for specifying the s3 location that stores the data of each canary run.
@@ -33,7 +33,7 @@ type ArtifactsBucketLocation struct {
 // Experimental.
 type AssetCode interface {
 	Code
-	Bind(scope awscdk.Construct, handler *string) *CodeConfig
+	Bind(scope constructs.Construct, handler *string) *CodeConfig
 }
 
 // The jsii proxy struct for AssetCode
@@ -48,7 +48,7 @@ func NewAssetCode(assetPath *string, options *awss3assets.AssetOptions) AssetCod
 	j := jsiiProxy_AssetCode{}
 
 	_jsii_.Create(
-		"monocdk.aws_synthetics.AssetCode",
+		"aws-cdk-lib.aws_synthetics.AssetCode",
 		[]interface{}{assetPath, options},
 		&j,
 	)
@@ -61,7 +61,7 @@ func NewAssetCode_Override(a AssetCode, assetPath *string, options *awss3assets.
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_synthetics.AssetCode",
+		"aws-cdk-lib.aws_synthetics.AssetCode",
 		[]interface{}{assetPath, options},
 		a,
 	)
@@ -81,7 +81,7 @@ func AssetCode_FromAsset(assetPath *string, options *awss3assets.AssetOptions) A
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_synthetics.AssetCode",
+		"aws-cdk-lib.aws_synthetics.AssetCode",
 		"fromAsset",
 		[]interface{}{assetPath, options},
 		&returns,
@@ -105,7 +105,7 @@ func AssetCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion *stri
 	var returns S3Code
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_synthetics.AssetCode",
+		"aws-cdk-lib.aws_synthetics.AssetCode",
 		"fromBucket",
 		[]interface{}{bucket, key, objectVersion},
 		&returns,
@@ -124,7 +124,7 @@ func AssetCode_FromInline(code *string) InlineCode {
 	var returns InlineCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_synthetics.AssetCode",
+		"aws-cdk-lib.aws_synthetics.AssetCode",
 		"fromInline",
 		[]interface{}{code},
 		&returns,
@@ -135,7 +135,7 @@ func AssetCode_FromInline(code *string) InlineCode {
 
 // Called when the canary is initialized to allow this object to bind to the stack, add resources and have fun.
 // Experimental.
-func (a *jsiiProxy_AssetCode) Bind(scope awscdk.Construct, handler *string) *CodeConfig {
+func (a *jsiiProxy_AssetCode) Bind(scope constructs.Construct, handler *string) *CodeConfig {
 	var returns *CodeConfig
 
 	_jsii_.Invoke(
@@ -157,7 +157,7 @@ type Canary interface {
 	CanaryName() *string
 	CanaryState() *string
 	Env() *awscdk.ResourceEnvironment
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	PhysicalName() *string
 	Role() awsiam.IRole
 	Stack() awscdk.Stack
@@ -168,13 +168,7 @@ type Canary interface {
 	MetricDuration(options *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricFailed(options *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricSuccessPercent(options *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for Canary
@@ -232,8 +226,8 @@ func (j *jsiiProxy_Canary) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_Canary) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_Canary) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -280,7 +274,7 @@ func NewCanary(scope constructs.Construct, id *string, props *CanaryProps) Canar
 	j := jsiiProxy_Canary{}
 
 	_jsii_.Create(
-		"monocdk.aws_synthetics.Canary",
+		"aws-cdk-lib.aws_synthetics.Canary",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -293,21 +287,23 @@ func NewCanary_Override(c Canary, scope constructs.Construct, id *string, props 
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_synthetics.Canary",
+		"aws-cdk-lib.aws_synthetics.Canary",
 		[]interface{}{scope, id, props},
 		c,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func Canary_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_synthetics.Canary",
+		"aws-cdk-lib.aws_synthetics.Canary",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -318,13 +314,13 @@ func Canary_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func Canary_IsResource(construct awscdk.IConstruct) *bool {
+func Canary_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_synthetics.Canary",
+		"aws-cdk-lib.aws_synthetics.Canary",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -451,86 +447,6 @@ func (c *jsiiProxy_Canary) MetricSuccessPercent(options *awscloudwatch.MetricOpt
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_Canary) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_Canary) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_Canary) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_Canary) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_Canary) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (c *jsiiProxy_Canary) ToString() *string {
@@ -539,26 +455,6 @@ func (c *jsiiProxy_Canary) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_Canary) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -649,7 +545,7 @@ type CfnCanary interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Ref() *string
 	RunConfig() interface{}
 	SetRunConfig(val interface{})
@@ -676,16 +572,10 @@ type CfnCanary interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -815,8 +705,8 @@ func (j *jsiiProxy_CfnCanary) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCanary) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnCanary) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -927,13 +817,13 @@ func (j *jsiiProxy_CfnCanary) VpcConfig() interface{} {
 
 
 // Create a new `AWS::Synthetics::Canary`.
-func NewCfnCanary(scope awscdk.Construct, id *string, props *CfnCanaryProps) CfnCanary {
+func NewCfnCanary(scope constructs.Construct, id *string, props *CfnCanaryProps) CfnCanary {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnCanary{}
 
 	_jsii_.Create(
-		"monocdk.aws_synthetics.CfnCanary",
+		"aws-cdk-lib.aws_synthetics.CfnCanary",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -942,11 +832,11 @@ func NewCfnCanary(scope awscdk.Construct, id *string, props *CfnCanaryProps) Cfn
 }
 
 // Create a new `AWS::Synthetics::Canary`.
-func NewCfnCanary_Override(c CfnCanary, scope awscdk.Construct, id *string, props *CfnCanaryProps) {
+func NewCfnCanary_Override(c CfnCanary, scope constructs.Construct, id *string, props *CfnCanaryProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_synthetics.CfnCanary",
+		"aws-cdk-lib.aws_synthetics.CfnCanary",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1053,7 +943,7 @@ func CfnCanary_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_synthetics.CfnCanary",
+		"aws-cdk-lib.aws_synthetics.CfnCanary",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1070,7 +960,7 @@ func CfnCanary_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_synthetics.CfnCanary",
+		"aws-cdk-lib.aws_synthetics.CfnCanary",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1079,15 +969,17 @@ func CfnCanary_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnCanary_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_synthetics.CfnCanary",
+		"aws-cdk-lib.aws_synthetics.CfnCanary",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1100,7 +992,7 @@ func CfnCanary_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_synthetics.CfnCanary",
+		"aws-cdk-lib.aws_synthetics.CfnCanary",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1273,56 +1165,6 @@ func (c *jsiiProxy_CfnCanary) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnCanary) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnCanary) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnCanary) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnCanary) OverrideLogicalId(newLogicalId *string) {
@@ -1330,23 +1172,6 @@ func (c *jsiiProxy_CfnCanary) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnCanary) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1381,19 +1206,6 @@ func (c *jsiiProxy_CfnCanary) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnCanary) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -1404,26 +1216,6 @@ func (c *jsiiProxy_CfnCanary) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnCanary) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1511,7 +1303,7 @@ type CfnCanaryProps struct {
 // The code the canary should execute.
 // Experimental.
 type Code interface {
-	Bind(scope awscdk.Construct, handler *string) *CodeConfig
+	Bind(scope constructs.Construct, handler *string) *CodeConfig
 }
 
 // The jsii proxy struct for Code
@@ -1524,7 +1316,7 @@ func NewCode_Override(c Code) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_synthetics.Code",
+		"aws-cdk-lib.aws_synthetics.Code",
 		nil, // no parameters
 		c,
 	)
@@ -1544,7 +1336,7 @@ func Code_FromAsset(assetPath *string, options *awss3assets.AssetOptions) AssetC
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_synthetics.Code",
+		"aws-cdk-lib.aws_synthetics.Code",
 		"fromAsset",
 		[]interface{}{assetPath, options},
 		&returns,
@@ -1568,7 +1360,7 @@ func Code_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S
 	var returns S3Code
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_synthetics.Code",
+		"aws-cdk-lib.aws_synthetics.Code",
 		"fromBucket",
 		[]interface{}{bucket, key, objectVersion},
 		&returns,
@@ -1587,7 +1379,7 @@ func Code_FromInline(code *string) InlineCode {
 	var returns InlineCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_synthetics.Code",
+		"aws-cdk-lib.aws_synthetics.Code",
 		"fromInline",
 		[]interface{}{code},
 		&returns,
@@ -1600,7 +1392,7 @@ func Code_FromInline(code *string) InlineCode {
 //
 // Returns: a bound `CodeConfig`.
 // Experimental.
-func (c *jsiiProxy_Code) Bind(scope awscdk.Construct, handler *string) *CodeConfig {
+func (c *jsiiProxy_Code) Bind(scope constructs.Construct, handler *string) *CodeConfig {
 	var returns *CodeConfig
 
 	_jsii_.Invoke(
@@ -1641,7 +1433,7 @@ type CustomTestOptions struct {
 // Experimental.
 type InlineCode interface {
 	Code
-	Bind(_scope awscdk.Construct, handler *string) *CodeConfig
+	Bind(_scope constructs.Construct, handler *string) *CodeConfig
 }
 
 // The jsii proxy struct for InlineCode
@@ -1656,7 +1448,7 @@ func NewInlineCode(code *string) InlineCode {
 	j := jsiiProxy_InlineCode{}
 
 	_jsii_.Create(
-		"monocdk.aws_synthetics.InlineCode",
+		"aws-cdk-lib.aws_synthetics.InlineCode",
 		[]interface{}{code},
 		&j,
 	)
@@ -1669,7 +1461,7 @@ func NewInlineCode_Override(i InlineCode, code *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_synthetics.InlineCode",
+		"aws-cdk-lib.aws_synthetics.InlineCode",
 		[]interface{}{code},
 		i,
 	)
@@ -1689,7 +1481,7 @@ func InlineCode_FromAsset(assetPath *string, options *awss3assets.AssetOptions) 
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_synthetics.InlineCode",
+		"aws-cdk-lib.aws_synthetics.InlineCode",
 		"fromAsset",
 		[]interface{}{assetPath, options},
 		&returns,
@@ -1713,7 +1505,7 @@ func InlineCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion *str
 	var returns S3Code
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_synthetics.InlineCode",
+		"aws-cdk-lib.aws_synthetics.InlineCode",
 		"fromBucket",
 		[]interface{}{bucket, key, objectVersion},
 		&returns,
@@ -1732,7 +1524,7 @@ func InlineCode_FromInline(code *string) InlineCode {
 	var returns InlineCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_synthetics.InlineCode",
+		"aws-cdk-lib.aws_synthetics.InlineCode",
 		"fromInline",
 		[]interface{}{code},
 		&returns,
@@ -1743,7 +1535,7 @@ func InlineCode_FromInline(code *string) InlineCode {
 
 // Called when the canary is initialized to allow this object to bind to the stack, add resources and have fun.
 // Experimental.
-func (i *jsiiProxy_InlineCode) Bind(_scope awscdk.Construct, handler *string) *CodeConfig {
+func (i *jsiiProxy_InlineCode) Bind(_scope constructs.Construct, handler *string) *CodeConfig {
 	var returns *CodeConfig
 
 	_jsii_.Invoke(
@@ -1785,7 +1577,7 @@ func NewRuntime(name *string) Runtime {
 	j := jsiiProxy_Runtime{}
 
 	_jsii_.Create(
-		"monocdk.aws_synthetics.Runtime",
+		"aws-cdk-lib.aws_synthetics.Runtime",
 		[]interface{}{name},
 		&j,
 	)
@@ -1798,7 +1590,7 @@ func NewRuntime_Override(r Runtime, name *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_synthetics.Runtime",
+		"aws-cdk-lib.aws_synthetics.Runtime",
 		[]interface{}{name},
 		r,
 	)
@@ -1808,7 +1600,7 @@ func Runtime_SYNTHETICS_1_0() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_synthetics.Runtime",
+		"aws-cdk-lib.aws_synthetics.Runtime",
 		"SYNTHETICS_1_0",
 		&returns,
 	)
@@ -1819,7 +1611,7 @@ func Runtime_SYNTHETICS_NODEJS_2_0() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_synthetics.Runtime",
+		"aws-cdk-lib.aws_synthetics.Runtime",
 		"SYNTHETICS_NODEJS_2_0",
 		&returns,
 	)
@@ -1830,7 +1622,7 @@ func Runtime_SYNTHETICS_NODEJS_2_1() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_synthetics.Runtime",
+		"aws-cdk-lib.aws_synthetics.Runtime",
 		"SYNTHETICS_NODEJS_2_1",
 		&returns,
 	)
@@ -1841,7 +1633,7 @@ func Runtime_SYNTHETICS_NODEJS_2_2() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_synthetics.Runtime",
+		"aws-cdk-lib.aws_synthetics.Runtime",
 		"SYNTHETICS_NODEJS_2_2",
 		&returns,
 	)
@@ -1852,7 +1644,7 @@ func Runtime_SYNTHETICS_NODEJS_PUPPETEER_3_0() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"monocdk.aws_synthetics.Runtime",
+		"aws-cdk-lib.aws_synthetics.Runtime",
 		"SYNTHETICS_NODEJS_PUPPETEER_3_0",
 		&returns,
 	)
@@ -1863,7 +1655,7 @@ func Runtime_SYNTHETICS_NODEJS_PUPPETEER_3_0() Runtime {
 // Experimental.
 type S3Code interface {
 	Code
-	Bind(_scope awscdk.Construct, _handler *string) *CodeConfig
+	Bind(_scope constructs.Construct, _handler *string) *CodeConfig
 }
 
 // The jsii proxy struct for S3Code
@@ -1878,7 +1670,7 @@ func NewS3Code(bucket awss3.IBucket, key *string, objectVersion *string) S3Code 
 	j := jsiiProxy_S3Code{}
 
 	_jsii_.Create(
-		"monocdk.aws_synthetics.S3Code",
+		"aws-cdk-lib.aws_synthetics.S3Code",
 		[]interface{}{bucket, key, objectVersion},
 		&j,
 	)
@@ -1891,7 +1683,7 @@ func NewS3Code_Override(s S3Code, bucket awss3.IBucket, key *string, objectVersi
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_synthetics.S3Code",
+		"aws-cdk-lib.aws_synthetics.S3Code",
 		[]interface{}{bucket, key, objectVersion},
 		s,
 	)
@@ -1911,7 +1703,7 @@ func S3Code_FromAsset(assetPath *string, options *awss3assets.AssetOptions) Asse
 	var returns AssetCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_synthetics.S3Code",
+		"aws-cdk-lib.aws_synthetics.S3Code",
 		"fromAsset",
 		[]interface{}{assetPath, options},
 		&returns,
@@ -1935,7 +1727,7 @@ func S3Code_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string)
 	var returns S3Code
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_synthetics.S3Code",
+		"aws-cdk-lib.aws_synthetics.S3Code",
 		"fromBucket",
 		[]interface{}{bucket, key, objectVersion},
 		&returns,
@@ -1954,7 +1746,7 @@ func S3Code_FromInline(code *string) InlineCode {
 	var returns InlineCode
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_synthetics.S3Code",
+		"aws-cdk-lib.aws_synthetics.S3Code",
 		"fromInline",
 		[]interface{}{code},
 		&returns,
@@ -1965,7 +1757,7 @@ func S3Code_FromInline(code *string) InlineCode {
 
 // Called when the canary is initialized to allow this object to bind to the stack, add resources and have fun.
 // Experimental.
-func (s *jsiiProxy_S3Code) Bind(_scope awscdk.Construct, _handler *string) *CodeConfig {
+func (s *jsiiProxy_S3Code) Bind(_scope constructs.Construct, _handler *string) *CodeConfig {
 	var returns *CodeConfig
 
 	_jsii_.Invoke(
@@ -2011,7 +1803,7 @@ func Schedule_Expression(expression *string) Schedule {
 	var returns Schedule
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_synthetics.Schedule",
+		"aws-cdk-lib.aws_synthetics.Schedule",
 		"expression",
 		[]interface{}{expression},
 		&returns,
@@ -2028,7 +1820,7 @@ func Schedule_Once() Schedule {
 	var returns Schedule
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_synthetics.Schedule",
+		"aws-cdk-lib.aws_synthetics.Schedule",
 		"once",
 		nil, // no parameters
 		&returns,
@@ -2048,7 +1840,7 @@ func Schedule_Rate(interval awscdk.Duration) Schedule {
 	var returns Schedule
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_synthetics.Schedule",
+		"aws-cdk-lib.aws_synthetics.Schedule",
 		"rate",
 		[]interface{}{interval},
 		&returns,
@@ -2100,7 +1892,7 @@ func Test_Custom(options *CustomTestOptions) Test {
 	var returns Test
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_synthetics.Test",
+		"aws-cdk-lib.aws_synthetics.Test",
 		"custom",
 		[]interface{}{options},
 		&returns,

@@ -1,12 +1,12 @@
 package assets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/assets/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/assets/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Obtains applied when copying directories into the staging location.
@@ -85,19 +85,13 @@ type Staging interface {
 	AbsoluteStagedPath() *string
 	AssetHash() *string
 	IsArchive() *bool
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Packaging() awscdk.FileAssetPackaging
 	SourceHash() *string
 	SourcePath() *string
 	StagedPath() *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
 	RelativeStagedPath(stack awscdk.Stack) *string
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for Staging
@@ -135,8 +129,8 @@ func (j *jsiiProxy_Staging) IsArchive() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_Staging) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_Staging) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -187,13 +181,13 @@ func (j *jsiiProxy_Staging) StagedPath() *string {
 
 
 // Deprecated: use `core.AssetStaging`
-func NewStaging(scope awscdk.Construct, id *string, props *StagingProps) Staging {
+func NewStaging(scope constructs.Construct, id *string, props *StagingProps) Staging {
 	_init_.Initialize()
 
 	j := jsiiProxy_Staging{}
 
 	_jsii_.Create(
-		"monocdk.assets.Staging",
+		"aws-cdk-lib.assets.Staging",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -202,11 +196,11 @@ func NewStaging(scope awscdk.Construct, id *string, props *StagingProps) Staging
 }
 
 // Deprecated: use `core.AssetStaging`
-func NewStaging_Override(s Staging, scope awscdk.Construct, id *string, props *StagingProps) {
+func NewStaging_Override(s Staging, scope constructs.Construct, id *string, props *StagingProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.assets.Staging",
+		"aws-cdk-lib.assets.Staging",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -218,21 +212,23 @@ func Staging_ClearAssetHashCache() {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"monocdk.assets.Staging",
+		"aws-cdk-lib.assets.Staging",
 		"clearAssetHashCache",
 		nil, // no parameters
 	)
 }
 
-// Return whether the given object is a Construct.
-// Deprecated: use `core.AssetStaging`
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func Staging_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.assets.Staging",
+		"aws-cdk-lib.assets.Staging",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -245,7 +241,7 @@ func Staging_BUNDLING_INPUT_DIR() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.assets.Staging",
+		"aws-cdk-lib.assets.Staging",
 		"BUNDLING_INPUT_DIR",
 		&returns,
 	)
@@ -256,78 +252,11 @@ func Staging_BUNDLING_OUTPUT_DIR() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.assets.Staging",
+		"aws-cdk-lib.assets.Staging",
 		"BUNDLING_OUTPUT_DIR",
 		&returns,
 	)
 	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Deprecated: use `core.AssetStaging`
-func (s *jsiiProxy_Staging) OnPrepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Deprecated: use `core.AssetStaging`
-func (s *jsiiProxy_Staging) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Deprecated: use `core.AssetStaging`
-func (s *jsiiProxy_Staging) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Deprecated: use `core.AssetStaging`
-func (s *jsiiProxy_Staging) Prepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"prepare",
-		nil, // no parameters
-	)
 }
 
 // Return the path to the staged asset, relative to the Cloud Assembly (manifest) directory of the given stack.
@@ -364,19 +293,6 @@ func (s *jsiiProxy_Staging) RelativeStagedPath(stack awscdk.Stack) *string {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Deprecated: use `core.AssetStaging`
-func (s *jsiiProxy_Staging) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Deprecated: use `core.AssetStaging`
 func (s *jsiiProxy_Staging) ToString() *string {
@@ -385,26 +301,6 @@ func (s *jsiiProxy_Staging) ToString() *string {
 	_jsii_.Invoke(
 		s,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Deprecated: use `core.AssetStaging`
-func (s *jsiiProxy_Staging) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

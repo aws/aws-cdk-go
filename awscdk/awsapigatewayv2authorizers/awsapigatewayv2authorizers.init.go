@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_apigatewayv2_authorizers.HttpJwtAuthorizer",
+		"aws-cdk-lib.aws_apigatewayv2_authorizers.HttpJwtAuthorizer",
 		reflect.TypeOf((*HttpJwtAuthorizer)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -20,11 +20,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_apigatewayv2_authorizers.HttpJwtAuthorizerProps",
+		"aws-cdk-lib.aws_apigatewayv2_authorizers.HttpJwtAuthorizerProps",
 		reflect.TypeOf((*HttpJwtAuthorizerProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_apigatewayv2_authorizers.HttpUserPoolAuthorizer",
+		"aws-cdk-lib.aws_apigatewayv2_authorizers.HttpUserPoolAuthorizer",
 		reflect.TypeOf((*HttpUserPoolAuthorizer)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -36,7 +36,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_apigatewayv2_authorizers.UserPoolAuthorizerProps",
+		"aws-cdk-lib.aws_apigatewayv2_authorizers.UserPoolAuthorizerProps",
 		reflect.TypeOf((*UserPoolAuthorizerProps)(nil)).Elem(),
 	)
 }

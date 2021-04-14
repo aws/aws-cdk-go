@@ -1,10 +1,10 @@
 package cxapi
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
-	"github.com/aws/aws-cdk-go/awscdk/cloudassemblyschema"
+	"github.com/aws/aws-cdk-go/awscdk/v2/cloudassemblyschema"
 )
 
 // Experimental.
@@ -123,7 +123,7 @@ func NewAssetManifestArtifact(assembly CloudAssembly, name *string, artifact *cl
 	j := jsiiProxy_AssetManifestArtifact{}
 
 	_jsii_.Create(
-		"monocdk.cx_api.AssetManifestArtifact",
+		"aws-cdk-lib.cx_api.AssetManifestArtifact",
 		[]interface{}{assembly, name, artifact},
 		&j,
 	)
@@ -136,7 +136,7 @@ func NewAssetManifestArtifact_Override(a AssetManifestArtifact, assembly CloudAs
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.cx_api.AssetManifestArtifact",
+		"aws-cdk-lib.cx_api.AssetManifestArtifact",
 		[]interface{}{assembly, name, artifact},
 		a,
 	)
@@ -152,7 +152,7 @@ func AssetManifestArtifact_FromManifest(assembly CloudAssembly, id *string, arti
 	var returns CloudArtifact
 
 	_jsii_.StaticInvoke(
-		"monocdk.cx_api.AssetManifestArtifact",
+		"aws-cdk-lib.cx_api.AssetManifestArtifact",
 		"fromManifest",
 		[]interface{}{assembly, id, artifact},
 		&returns,
@@ -267,7 +267,7 @@ func NewCloudArtifact(assembly CloudAssembly, id *string, manifest *cloudassembl
 	j := jsiiProxy_CloudArtifact{}
 
 	_jsii_.Create(
-		"monocdk.cx_api.CloudArtifact",
+		"aws-cdk-lib.cx_api.CloudArtifact",
 		[]interface{}{assembly, id, manifest},
 		&j,
 	)
@@ -280,7 +280,7 @@ func NewCloudArtifact_Override(c CloudArtifact, assembly CloudAssembly, id *stri
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.cx_api.CloudArtifact",
+		"aws-cdk-lib.cx_api.CloudArtifact",
 		[]interface{}{assembly, id, manifest},
 		c,
 	)
@@ -296,7 +296,7 @@ func CloudArtifact_FromManifest(assembly CloudAssembly, id *string, artifact *cl
 	var returns CloudArtifact
 
 	_jsii_.StaticInvoke(
-		"monocdk.cx_api.CloudArtifact",
+		"aws-cdk-lib.cx_api.CloudArtifact",
 		"fromManifest",
 		[]interface{}{assembly, id, artifact},
 		&returns,
@@ -423,7 +423,7 @@ func NewCloudAssembly(directory *string) CloudAssembly {
 	j := jsiiProxy_CloudAssembly{}
 
 	_jsii_.Create(
-		"monocdk.cx_api.CloudAssembly",
+		"aws-cdk-lib.cx_api.CloudAssembly",
 		[]interface{}{directory},
 		&j,
 	)
@@ -437,7 +437,7 @@ func NewCloudAssembly_Override(c CloudAssembly, directory *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.cx_api.CloudAssembly",
+		"aws-cdk-lib.cx_api.CloudAssembly",
 		[]interface{}{directory},
 		c,
 	)
@@ -603,7 +603,7 @@ func NewCloudAssemblyBuilder(outdir *string, props *CloudAssemblyBuilderProps) C
 	j := jsiiProxy_CloudAssemblyBuilder{}
 
 	_jsii_.Create(
-		"monocdk.cx_api.CloudAssemblyBuilder",
+		"aws-cdk-lib.cx_api.CloudAssemblyBuilder",
 		[]interface{}{outdir, props},
 		&j,
 	)
@@ -617,7 +617,7 @@ func NewCloudAssemblyBuilder_Override(c CloudAssemblyBuilder, outdir *string, pr
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.cx_api.CloudAssemblyBuilder",
+		"aws-cdk-lib.cx_api.CloudAssemblyBuilder",
 		[]interface{}{outdir, props},
 		c,
 	)
@@ -945,7 +945,7 @@ func NewCloudFormationStackArtifact(assembly CloudAssembly, artifactId *string, 
 	j := jsiiProxy_CloudFormationStackArtifact{}
 
 	_jsii_.Create(
-		"monocdk.cx_api.CloudFormationStackArtifact",
+		"aws-cdk-lib.cx_api.CloudFormationStackArtifact",
 		[]interface{}{assembly, artifactId, artifact},
 		&j,
 	)
@@ -958,7 +958,7 @@ func NewCloudFormationStackArtifact_Override(c CloudFormationStackArtifact, asse
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.cx_api.CloudFormationStackArtifact",
+		"aws-cdk-lib.cx_api.CloudFormationStackArtifact",
 		[]interface{}{assembly, artifactId, artifact},
 		c,
 	)
@@ -974,7 +974,7 @@ func CloudFormationStackArtifact_FromManifest(assembly CloudAssembly, id *string
 	var returns CloudArtifact
 
 	_jsii_.StaticInvoke(
-		"monocdk.cx_api.CloudFormationStackArtifact",
+		"aws-cdk-lib.cx_api.CloudFormationStackArtifact",
 		"fromManifest",
 		[]interface{}{assembly, id, artifact},
 		&returns,
@@ -1060,7 +1060,7 @@ func NewEnvironmentPlaceholders() EnvironmentPlaceholders {
 	j := jsiiProxy_EnvironmentPlaceholders{}
 
 	_jsii_.Create(
-		"monocdk.cx_api.EnvironmentPlaceholders",
+		"aws-cdk-lib.cx_api.EnvironmentPlaceholders",
 		nil, // no parameters
 		&j,
 	)
@@ -1073,7 +1073,7 @@ func NewEnvironmentPlaceholders_Override(e EnvironmentPlaceholders) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.cx_api.EnvironmentPlaceholders",
+		"aws-cdk-lib.cx_api.EnvironmentPlaceholders",
 		nil, // no parameters
 		e,
 	)
@@ -1090,7 +1090,7 @@ func EnvironmentPlaceholders_Replace(object interface{}, values *EnvironmentPlac
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
-		"monocdk.cx_api.EnvironmentPlaceholders",
+		"aws-cdk-lib.cx_api.EnvironmentPlaceholders",
 		"replace",
 		[]interface{}{object, values},
 		&returns,
@@ -1107,7 +1107,7 @@ func EnvironmentPlaceholders_ReplaceAsync(object interface{}, provider IEnvironm
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
-		"monocdk.cx_api.EnvironmentPlaceholders",
+		"aws-cdk-lib.cx_api.EnvironmentPlaceholders",
 		"replaceAsync",
 		[]interface{}{object, provider},
 		&returns,
@@ -1120,7 +1120,7 @@ func EnvironmentPlaceholders_CURRENT_ACCOUNT() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.cx_api.EnvironmentPlaceholders",
+		"aws-cdk-lib.cx_api.EnvironmentPlaceholders",
 		"CURRENT_ACCOUNT",
 		&returns,
 	)
@@ -1131,7 +1131,7 @@ func EnvironmentPlaceholders_CURRENT_PARTITION() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.cx_api.EnvironmentPlaceholders",
+		"aws-cdk-lib.cx_api.EnvironmentPlaceholders",
 		"CURRENT_PARTITION",
 		&returns,
 	)
@@ -1142,7 +1142,7 @@ func EnvironmentPlaceholders_CURRENT_REGION() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.cx_api.EnvironmentPlaceholders",
+		"aws-cdk-lib.cx_api.EnvironmentPlaceholders",
 		"CURRENT_REGION",
 		&returns,
 	)
@@ -1165,7 +1165,7 @@ func NewEnvironmentUtils() EnvironmentUtils {
 	j := jsiiProxy_EnvironmentUtils{}
 
 	_jsii_.Create(
-		"monocdk.cx_api.EnvironmentUtils",
+		"aws-cdk-lib.cx_api.EnvironmentUtils",
 		nil, // no parameters
 		&j,
 	)
@@ -1178,7 +1178,7 @@ func NewEnvironmentUtils_Override(e EnvironmentUtils) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.cx_api.EnvironmentUtils",
+		"aws-cdk-lib.cx_api.EnvironmentUtils",
 		nil, // no parameters
 		e,
 	)
@@ -1192,7 +1192,7 @@ func EnvironmentUtils_Format(account *string, region *string) *string {
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"monocdk.cx_api.EnvironmentUtils",
+		"aws-cdk-lib.cx_api.EnvironmentUtils",
 		"format",
 		[]interface{}{account, region},
 		&returns,
@@ -1209,7 +1209,7 @@ func EnvironmentUtils_Make(account *string, region *string) *Environment {
 	var returns *Environment
 
 	_jsii_.StaticInvoke(
-		"monocdk.cx_api.EnvironmentUtils",
+		"aws-cdk-lib.cx_api.EnvironmentUtils",
 		"make",
 		[]interface{}{account, region},
 		&returns,
@@ -1225,7 +1225,7 @@ func EnvironmentUtils_Parse(environment *string) *Environment {
 	var returns *Environment
 
 	_jsii_.StaticInvoke(
-		"monocdk.cx_api.EnvironmentUtils",
+		"aws-cdk-lib.cx_api.EnvironmentUtils",
 		"parse",
 		[]interface{}{environment},
 		&returns,
@@ -1515,7 +1515,7 @@ func NewNestedCloudAssemblyArtifact(assembly CloudAssembly, name *string, artifa
 	j := jsiiProxy_NestedCloudAssemblyArtifact{}
 
 	_jsii_.Create(
-		"monocdk.cx_api.NestedCloudAssemblyArtifact",
+		"aws-cdk-lib.cx_api.NestedCloudAssemblyArtifact",
 		[]interface{}{assembly, name, artifact},
 		&j,
 	)
@@ -1528,7 +1528,7 @@ func NewNestedCloudAssemblyArtifact_Override(n NestedCloudAssemblyArtifact, asse
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.cx_api.NestedCloudAssemblyArtifact",
+		"aws-cdk-lib.cx_api.NestedCloudAssemblyArtifact",
 		[]interface{}{assembly, name, artifact},
 		n,
 	)
@@ -1544,7 +1544,7 @@ func NestedCloudAssemblyArtifact_FromManifest(assembly CloudAssembly, id *string
 	var returns CloudArtifact
 
 	_jsii_.StaticInvoke(
-		"monocdk.cx_api.NestedCloudAssemblyArtifact",
+		"aws-cdk-lib.cx_api.NestedCloudAssemblyArtifact",
 		"fromManifest",
 		[]interface{}{assembly, id, artifact},
 		&returns,
@@ -1699,7 +1699,7 @@ func NewTreeCloudArtifact(assembly CloudAssembly, name *string, artifact *clouda
 	j := jsiiProxy_TreeCloudArtifact{}
 
 	_jsii_.Create(
-		"monocdk.cx_api.TreeCloudArtifact",
+		"aws-cdk-lib.cx_api.TreeCloudArtifact",
 		[]interface{}{assembly, name, artifact},
 		&j,
 	)
@@ -1712,7 +1712,7 @@ func NewTreeCloudArtifact_Override(t TreeCloudArtifact, assembly CloudAssembly, 
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.cx_api.TreeCloudArtifact",
+		"aws-cdk-lib.cx_api.TreeCloudArtifact",
 		[]interface{}{assembly, name, artifact},
 		t,
 	)
@@ -1728,7 +1728,7 @@ func TreeCloudArtifact_FromManifest(assembly CloudAssembly, id *string, artifact
 	var returns CloudArtifact
 
 	_jsii_.StaticInvoke(
-		"monocdk.cx_api.TreeCloudArtifact",
+		"aws-cdk-lib.cx_api.TreeCloudArtifact",
 		"fromManifest",
 		[]interface{}{assembly, id, artifact},
 		&returns,

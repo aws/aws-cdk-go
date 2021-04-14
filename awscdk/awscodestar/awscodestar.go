@@ -1,13 +1,13 @@
 package awscodestar
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscodestar/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodestar/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::CodeStar::GitHubRepository`.
@@ -27,7 +27,7 @@ type CfnGitHubRepository interface {
 	IsPrivate() interface{}
 	SetIsPrivate(val interface{})
 	LogicalId() *string
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Ref() *string
 	RepositoryAccessToken() *string
 	SetRepositoryAccessToken(val *string)
@@ -49,16 +49,10 @@ type CfnGitHubRepository interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -158,8 +152,8 @@ func (j *jsiiProxy_CfnGitHubRepository) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGitHubRepository) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnGitHubRepository) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -240,13 +234,13 @@ func (j *jsiiProxy_CfnGitHubRepository) UpdatedProperites() *map[string]interfac
 
 
 // Create a new `AWS::CodeStar::GitHubRepository`.
-func NewCfnGitHubRepository(scope awscdk.Construct, id *string, props *CfnGitHubRepositoryProps) CfnGitHubRepository {
+func NewCfnGitHubRepository(scope constructs.Construct, id *string, props *CfnGitHubRepositoryProps) CfnGitHubRepository {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnGitHubRepository{}
 
 	_jsii_.Create(
-		"monocdk.aws_codestar.CfnGitHubRepository",
+		"aws-cdk-lib.aws_codestar.CfnGitHubRepository",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -255,11 +249,11 @@ func NewCfnGitHubRepository(scope awscdk.Construct, id *string, props *CfnGitHub
 }
 
 // Create a new `AWS::CodeStar::GitHubRepository`.
-func NewCfnGitHubRepository_Override(c CfnGitHubRepository, scope awscdk.Construct, id *string, props *CfnGitHubRepositoryProps) {
+func NewCfnGitHubRepository_Override(c CfnGitHubRepository, scope constructs.Construct, id *string, props *CfnGitHubRepositoryProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codestar.CfnGitHubRepository",
+		"aws-cdk-lib.aws_codestar.CfnGitHubRepository",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -342,7 +336,7 @@ func CfnGitHubRepository_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codestar.CfnGitHubRepository",
+		"aws-cdk-lib.aws_codestar.CfnGitHubRepository",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -359,7 +353,7 @@ func CfnGitHubRepository_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codestar.CfnGitHubRepository",
+		"aws-cdk-lib.aws_codestar.CfnGitHubRepository",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -368,15 +362,17 @@ func CfnGitHubRepository_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnGitHubRepository_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codestar.CfnGitHubRepository",
+		"aws-cdk-lib.aws_codestar.CfnGitHubRepository",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -389,7 +385,7 @@ func CfnGitHubRepository_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_codestar.CfnGitHubRepository",
+		"aws-cdk-lib.aws_codestar.CfnGitHubRepository",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -562,56 +558,6 @@ func (c *jsiiProxy_CfnGitHubRepository) Inspect(inspector awscdk.TreeInspector) 
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnGitHubRepository) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnGitHubRepository) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnGitHubRepository) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnGitHubRepository) OverrideLogicalId(newLogicalId *string) {
@@ -619,23 +565,6 @@ func (c *jsiiProxy_CfnGitHubRepository) OverrideLogicalId(newLogicalId *string) 
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnGitHubRepository) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -670,19 +599,6 @@ func (c *jsiiProxy_CfnGitHubRepository) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnGitHubRepository) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -693,26 +609,6 @@ func (c *jsiiProxy_CfnGitHubRepository) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnGitHubRepository) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -769,7 +665,7 @@ type GitHubRepository interface {
 	awscdk.Resource
 	IGitHubRepository
 	Env() *awscdk.ResourceEnvironment
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Owner() *string
 	PhysicalName() *string
 	Repo() *string
@@ -778,13 +674,7 @@ type GitHubRepository interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for GitHubRepository
@@ -803,8 +693,8 @@ func (j *jsiiProxy_GitHubRepository) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_GitHubRepository) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_GitHubRepository) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -861,7 +751,7 @@ func NewGitHubRepository(scope constructs.Construct, id *string, props *GitHubRe
 	j := jsiiProxy_GitHubRepository{}
 
 	_jsii_.Create(
-		"monocdk.aws_codestar.GitHubRepository",
+		"aws-cdk-lib.aws_codestar.GitHubRepository",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -874,21 +764,23 @@ func NewGitHubRepository_Override(g GitHubRepository, scope constructs.Construct
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codestar.GitHubRepository",
+		"aws-cdk-lib.aws_codestar.GitHubRepository",
 		[]interface{}{scope, id, props},
 		g,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func GitHubRepository_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codestar.GitHubRepository",
+		"aws-cdk-lib.aws_codestar.GitHubRepository",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -899,13 +791,13 @@ func GitHubRepository_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func GitHubRepository_IsResource(construct awscdk.IConstruct) *bool {
+func GitHubRepository_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codestar.GitHubRepository",
+		"aws-cdk-lib.aws_codestar.GitHubRepository",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -985,86 +877,6 @@ func (g *jsiiProxy_GitHubRepository) GetResourceNameAttribute(nameAttr *string) 
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (g *jsiiProxy_GitHubRepository) OnPrepare() {
-	_jsii_.InvokeVoid(
-		g,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (g *jsiiProxy_GitHubRepository) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		g,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (g *jsiiProxy_GitHubRepository) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		g,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (g *jsiiProxy_GitHubRepository) Prepare() {
-	_jsii_.InvokeVoid(
-		g,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (g *jsiiProxy_GitHubRepository) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		g,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (g *jsiiProxy_GitHubRepository) ToString() *string {
@@ -1073,26 +885,6 @@ func (g *jsiiProxy_GitHubRepository) ToString() *string {
 	_jsii_.Invoke(
 		g,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (g *jsiiProxy_GitHubRepository) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		g,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

@@ -1,14 +1,14 @@
 package awsapigatewayv2integrations
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsapigatewayv2"
-	"github.com/aws/aws-cdk-go/awscdk/awsapigatewayv2integrations/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/awsservicediscovery"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2integrations/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicediscovery"
 )
 
 // The Application Load Balancer integration resource for HTTP API.
@@ -79,7 +79,7 @@ func NewHttpAlbIntegration(props *HttpAlbIntegrationProps) HttpAlbIntegration {
 	j := jsiiProxy_HttpAlbIntegration{}
 
 	_jsii_.Create(
-		"monocdk.aws_apigatewayv2_integrations.HttpAlbIntegration",
+		"aws-cdk-lib.aws_apigatewayv2_integrations.HttpAlbIntegration",
 		[]interface{}{props},
 		&j,
 	)
@@ -92,7 +92,7 @@ func NewHttpAlbIntegration_Override(h HttpAlbIntegration, props *HttpAlbIntegrat
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_apigatewayv2_integrations.HttpAlbIntegration",
+		"aws-cdk-lib.aws_apigatewayv2_integrations.HttpAlbIntegration",
 		[]interface{}{props},
 		h,
 	)
@@ -227,7 +227,7 @@ func NewHttpNlbIntegration(props *HttpNlbIntegrationProps) HttpNlbIntegration {
 	j := jsiiProxy_HttpNlbIntegration{}
 
 	_jsii_.Create(
-		"monocdk.aws_apigatewayv2_integrations.HttpNlbIntegration",
+		"aws-cdk-lib.aws_apigatewayv2_integrations.HttpNlbIntegration",
 		[]interface{}{props},
 		&j,
 	)
@@ -240,7 +240,7 @@ func NewHttpNlbIntegration_Override(h HttpNlbIntegration, props *HttpNlbIntegrat
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_apigatewayv2_integrations.HttpNlbIntegration",
+		"aws-cdk-lib.aws_apigatewayv2_integrations.HttpNlbIntegration",
 		[]interface{}{props},
 		h,
 	)
@@ -337,7 +337,7 @@ func NewHttpProxyIntegration(props *HttpProxyIntegrationProps) HttpProxyIntegrat
 	j := jsiiProxy_HttpProxyIntegration{}
 
 	_jsii_.Create(
-		"monocdk.aws_apigatewayv2_integrations.HttpProxyIntegration",
+		"aws-cdk-lib.aws_apigatewayv2_integrations.HttpProxyIntegration",
 		[]interface{}{props},
 		&j,
 	)
@@ -350,7 +350,7 @@ func NewHttpProxyIntegration_Override(h HttpProxyIntegration, props *HttpProxyIn
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_apigatewayv2_integrations.HttpProxyIntegration",
+		"aws-cdk-lib.aws_apigatewayv2_integrations.HttpProxyIntegration",
 		[]interface{}{props},
 		h,
 	)
@@ -450,7 +450,7 @@ func NewHttpServiceDiscoveryIntegration(props *HttpServiceDiscoveryIntegrationPr
 	j := jsiiProxy_HttpServiceDiscoveryIntegration{}
 
 	_jsii_.Create(
-		"monocdk.aws_apigatewayv2_integrations.HttpServiceDiscoveryIntegration",
+		"aws-cdk-lib.aws_apigatewayv2_integrations.HttpServiceDiscoveryIntegration",
 		[]interface{}{props},
 		&j,
 	)
@@ -463,7 +463,7 @@ func NewHttpServiceDiscoveryIntegration_Override(h HttpServiceDiscoveryIntegrati
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_apigatewayv2_integrations.HttpServiceDiscoveryIntegration",
+		"aws-cdk-lib.aws_apigatewayv2_integrations.HttpServiceDiscoveryIntegration",
 		[]interface{}{props},
 		h,
 	)
@@ -549,7 +549,7 @@ func NewLambdaProxyIntegration(props *LambdaProxyIntegrationProps) LambdaProxyIn
 	j := jsiiProxy_LambdaProxyIntegration{}
 
 	_jsii_.Create(
-		"monocdk.aws_apigatewayv2_integrations.LambdaProxyIntegration",
+		"aws-cdk-lib.aws_apigatewayv2_integrations.LambdaProxyIntegration",
 		[]interface{}{props},
 		&j,
 	)
@@ -562,7 +562,7 @@ func NewLambdaProxyIntegration_Override(l LambdaProxyIntegration, props *LambdaP
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_apigatewayv2_integrations.LambdaProxyIntegration",
+		"aws-cdk-lib.aws_apigatewayv2_integrations.LambdaProxyIntegration",
 		[]interface{}{props},
 		l,
 	)
@@ -615,7 +615,7 @@ func NewLambdaWebSocketIntegration(props *LambdaWebSocketIntegrationProps) Lambd
 	j := jsiiProxy_LambdaWebSocketIntegration{}
 
 	_jsii_.Create(
-		"monocdk.aws_apigatewayv2_integrations.LambdaWebSocketIntegration",
+		"aws-cdk-lib.aws_apigatewayv2_integrations.LambdaWebSocketIntegration",
 		[]interface{}{props},
 		&j,
 	)
@@ -628,7 +628,7 @@ func NewLambdaWebSocketIntegration_Override(l LambdaWebSocketIntegration, props 
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_apigatewayv2_integrations.LambdaWebSocketIntegration",
+		"aws-cdk-lib.aws_apigatewayv2_integrations.LambdaWebSocketIntegration",
 		[]interface{}{props},
 		l,
 	)

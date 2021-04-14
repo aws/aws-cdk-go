@@ -1,19 +1,19 @@
 package awselasticsearch
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscertificatemanager"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticsearch/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/awslogs"
-	"github.com/aws/aws-cdk-go/awscdk/awsroute53"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticsearch/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Specifies options for fine-grained access control.
@@ -94,7 +94,7 @@ type CfnDomain interface {
 	LogicalId() *string
 	LogPublishingOptions() interface{}
 	SetLogPublishingOptions(val interface{})
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	NodeToNodeEncryptionOptions() interface{}
 	SetNodeToNodeEncryptionOptions(val interface{})
 	Ref() *string
@@ -115,16 +115,10 @@ type CfnDomain interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -314,8 +308,8 @@ func (j *jsiiProxy_CfnDomain) LogPublishingOptions() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDomain) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnDomain) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -396,13 +390,13 @@ func (j *jsiiProxy_CfnDomain) VpcOptions() interface{} {
 
 
 // Create a new `AWS::Elasticsearch::Domain`.
-func NewCfnDomain(scope awscdk.Construct, id *string, props *CfnDomainProps) CfnDomain {
+func NewCfnDomain(scope constructs.Construct, id *string, props *CfnDomainProps) CfnDomain {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDomain{}
 
 	_jsii_.Create(
-		"monocdk.aws_elasticsearch.CfnDomain",
+		"aws-cdk-lib.aws_elasticsearch.CfnDomain",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -411,11 +405,11 @@ func NewCfnDomain(scope awscdk.Construct, id *string, props *CfnDomainProps) Cfn
 }
 
 // Create a new `AWS::Elasticsearch::Domain`.
-func NewCfnDomain_Override(c CfnDomain, scope awscdk.Construct, id *string, props *CfnDomainProps) {
+func NewCfnDomain_Override(c CfnDomain, scope constructs.Construct, id *string, props *CfnDomainProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_elasticsearch.CfnDomain",
+		"aws-cdk-lib.aws_elasticsearch.CfnDomain",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -546,7 +540,7 @@ func CfnDomain_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticsearch.CfnDomain",
+		"aws-cdk-lib.aws_elasticsearch.CfnDomain",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -563,7 +557,7 @@ func CfnDomain_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticsearch.CfnDomain",
+		"aws-cdk-lib.aws_elasticsearch.CfnDomain",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -572,15 +566,17 @@ func CfnDomain_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnDomain_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticsearch.CfnDomain",
+		"aws-cdk-lib.aws_elasticsearch.CfnDomain",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -593,7 +589,7 @@ func CfnDomain_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.CfnDomain",
+		"aws-cdk-lib.aws_elasticsearch.CfnDomain",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -766,56 +762,6 @@ func (c *jsiiProxy_CfnDomain) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnDomain) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnDomain) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnDomain) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnDomain) OverrideLogicalId(newLogicalId *string) {
@@ -823,23 +769,6 @@ func (c *jsiiProxy_CfnDomain) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnDomain) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -874,19 +803,6 @@ func (c *jsiiProxy_CfnDomain) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnDomain) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -897,26 +813,6 @@ func (c *jsiiProxy_CfnDomain) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnDomain) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1127,7 +1023,7 @@ type Domain interface {
 	DomainName() *string
 	Env() *awscdk.ResourceEnvironment
 	MasterUserPassword() awscdk.SecretValue
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	PhysicalName() *string
 	SlowIndexLogGroup() awslogs.ILogGroup
 	SlowSearchLogGroup() awslogs.ILogGroup
@@ -1161,13 +1057,7 @@ type Domain interface {
 	MetricNodes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricSearchableDocuments(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricSearchLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for Domain
@@ -1257,8 +1147,8 @@ func (j *jsiiProxy_Domain) MasterUserPassword() awscdk.SecretValue {
 	return returns
 }
 
-func (j *jsiiProxy_Domain) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_Domain) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1315,7 +1205,7 @@ func NewDomain(scope constructs.Construct, id *string, props *DomainProps) Domai
 	j := jsiiProxy_Domain{}
 
 	_jsii_.Create(
-		"monocdk.aws_elasticsearch.Domain",
+		"aws-cdk-lib.aws_elasticsearch.Domain",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1328,7 +1218,7 @@ func NewDomain_Override(d Domain, scope constructs.Construct, id *string, props 
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_elasticsearch.Domain",
+		"aws-cdk-lib.aws_elasticsearch.Domain",
 		[]interface{}{scope, id, props},
 		d,
 	)
@@ -1342,7 +1232,7 @@ func Domain_FromDomainAttributes(scope constructs.Construct, id *string, attrs *
 	var returns IDomain
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticsearch.Domain",
+		"aws-cdk-lib.aws_elasticsearch.Domain",
 		"fromDomainAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -1359,7 +1249,7 @@ func Domain_FromDomainEndpoint(scope constructs.Construct, id *string, domainEnd
 	var returns IDomain
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticsearch.Domain",
+		"aws-cdk-lib.aws_elasticsearch.Domain",
 		"fromDomainEndpoint",
 		[]interface{}{scope, id, domainEndpoint},
 		&returns,
@@ -1368,15 +1258,17 @@ func Domain_FromDomainEndpoint(scope constructs.Construct, id *string, domainEnd
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func Domain_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticsearch.Domain",
+		"aws-cdk-lib.aws_elasticsearch.Domain",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1387,13 +1279,13 @@ func Domain_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func Domain_IsResource(construct awscdk.IConstruct) *bool {
+func Domain_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticsearch.Domain",
+		"aws-cdk-lib.aws_elasticsearch.Domain",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -1848,86 +1740,6 @@ func (d *jsiiProxy_Domain) MetricSearchLatency(props *awscloudwatch.MetricOption
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (d *jsiiProxy_Domain) OnPrepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (d *jsiiProxy_Domain) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (d *jsiiProxy_Domain) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (d *jsiiProxy_Domain) Prepare() {
-	_jsii_.InvokeVoid(
-		d,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (d *jsiiProxy_Domain) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		d,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (d *jsiiProxy_Domain) ToString() *string {
@@ -1936,26 +1748,6 @@ func (d *jsiiProxy_Domain) ToString() *string {
 	_jsii_.Invoke(
 		d,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (d *jsiiProxy_Domain) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		d,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2152,7 +1944,7 @@ func ElasticsearchVersion_Of(version *string) ElasticsearchVersion {
 	var returns ElasticsearchVersion
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"of",
 		[]interface{}{version},
 		&returns,
@@ -2165,7 +1957,7 @@ func ElasticsearchVersion_V1_5() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V1_5",
 		&returns,
 	)
@@ -2176,7 +1968,7 @@ func ElasticsearchVersion_V2_3() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V2_3",
 		&returns,
 	)
@@ -2187,7 +1979,7 @@ func ElasticsearchVersion_V5_1() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V5_1",
 		&returns,
 	)
@@ -2198,7 +1990,7 @@ func ElasticsearchVersion_V5_3() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V5_3",
 		&returns,
 	)
@@ -2209,7 +2001,7 @@ func ElasticsearchVersion_V5_5() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V5_5",
 		&returns,
 	)
@@ -2220,7 +2012,7 @@ func ElasticsearchVersion_V5_6() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V5_6",
 		&returns,
 	)
@@ -2231,7 +2023,7 @@ func ElasticsearchVersion_V6_0() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V6_0",
 		&returns,
 	)
@@ -2242,7 +2034,7 @@ func ElasticsearchVersion_V6_2() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V6_2",
 		&returns,
 	)
@@ -2253,7 +2045,7 @@ func ElasticsearchVersion_V6_3() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V6_3",
 		&returns,
 	)
@@ -2264,7 +2056,7 @@ func ElasticsearchVersion_V6_4() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V6_4",
 		&returns,
 	)
@@ -2275,7 +2067,7 @@ func ElasticsearchVersion_V6_5() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V6_5",
 		&returns,
 	)
@@ -2286,7 +2078,7 @@ func ElasticsearchVersion_V6_7() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V6_7",
 		&returns,
 	)
@@ -2297,7 +2089,7 @@ func ElasticsearchVersion_V6_8() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V6_8",
 		&returns,
 	)
@@ -2308,7 +2100,7 @@ func ElasticsearchVersion_V7_1() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V7_1",
 		&returns,
 	)
@@ -2319,7 +2111,7 @@ func ElasticsearchVersion_V7_4() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V7_4",
 		&returns,
 	)
@@ -2330,7 +2122,7 @@ func ElasticsearchVersion_V7_7() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V7_7",
 		&returns,
 	)
@@ -2341,7 +2133,7 @@ func ElasticsearchVersion_V7_8() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V7_8",
 		&returns,
 	)
@@ -2352,7 +2144,7 @@ func ElasticsearchVersion_V7_9() ElasticsearchVersion {
 	_init_.Initialize()
 	var returns ElasticsearchVersion
 	_jsii_.StaticGet(
-		"monocdk.aws_elasticsearch.ElasticsearchVersion",
+		"aws-cdk-lib.aws_elasticsearch.ElasticsearchVersion",
 		"V7_9",
 		&returns,
 	)
