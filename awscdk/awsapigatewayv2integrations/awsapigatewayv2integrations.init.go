@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_apigatewayv2_integrations.HttpAlbIntegration",
+		"aws-cdk-lib.aws_apigatewayv2_integrations.HttpAlbIntegration",
 		reflect.TypeOf((*HttpAlbIntegration)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -24,11 +24,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_apigatewayv2_integrations.HttpAlbIntegrationProps",
+		"aws-cdk-lib.aws_apigatewayv2_integrations.HttpAlbIntegrationProps",
 		reflect.TypeOf((*HttpAlbIntegrationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_apigatewayv2_integrations.HttpNlbIntegration",
+		"aws-cdk-lib.aws_apigatewayv2_integrations.HttpNlbIntegration",
 		reflect.TypeOf((*HttpNlbIntegration)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -44,15 +44,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_apigatewayv2_integrations.HttpNlbIntegrationProps",
+		"aws-cdk-lib.aws_apigatewayv2_integrations.HttpNlbIntegrationProps",
 		reflect.TypeOf((*HttpNlbIntegrationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_apigatewayv2_integrations.HttpPrivateIntegrationOptions",
+		"aws-cdk-lib.aws_apigatewayv2_integrations.HttpPrivateIntegrationOptions",
 		reflect.TypeOf((*HttpPrivateIntegrationOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_apigatewayv2_integrations.HttpProxyIntegration",
+		"aws-cdk-lib.aws_apigatewayv2_integrations.HttpProxyIntegration",
 		reflect.TypeOf((*HttpProxyIntegration)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -64,11 +64,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_apigatewayv2_integrations.HttpProxyIntegrationProps",
+		"aws-cdk-lib.aws_apigatewayv2_integrations.HttpProxyIntegrationProps",
 		reflect.TypeOf((*HttpProxyIntegrationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_apigatewayv2_integrations.HttpServiceDiscoveryIntegration",
+		"aws-cdk-lib.aws_apigatewayv2_integrations.HttpServiceDiscoveryIntegration",
 		reflect.TypeOf((*HttpServiceDiscoveryIntegration)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -84,11 +84,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_apigatewayv2_integrations.HttpServiceDiscoveryIntegrationProps",
+		"aws-cdk-lib.aws_apigatewayv2_integrations.HttpServiceDiscoveryIntegrationProps",
 		reflect.TypeOf((*HttpServiceDiscoveryIntegrationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_apigatewayv2_integrations.LambdaProxyIntegration",
+		"aws-cdk-lib.aws_apigatewayv2_integrations.LambdaProxyIntegration",
 		reflect.TypeOf((*LambdaProxyIntegration)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -100,11 +100,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_apigatewayv2_integrations.LambdaProxyIntegrationProps",
+		"aws-cdk-lib.aws_apigatewayv2_integrations.LambdaProxyIntegrationProps",
 		reflect.TypeOf((*LambdaProxyIntegrationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_apigatewayv2_integrations.LambdaWebSocketIntegration",
+		"aws-cdk-lib.aws_apigatewayv2_integrations.LambdaWebSocketIntegration",
 		reflect.TypeOf((*LambdaWebSocketIntegration)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -116,7 +116,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_apigatewayv2_integrations.LambdaWebSocketIntegrationProps",
+		"aws-cdk-lib.aws_apigatewayv2_integrations.LambdaWebSocketIntegrationProps",
 		reflect.TypeOf((*LambdaWebSocketIntegrationProps)(nil)).Elem(),
 	)
 }

@@ -1,22 +1,22 @@
 package awsecspatterns
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsapplicationautoscaling"
-	"github.com/aws/aws-cdk-go/awscdk/awscertificatemanager"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awsecs"
-	"github.com/aws/aws-cdk-go/awscdk/awsecspatterns/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/awseventstargets"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awsroute53"
-	"github.com/aws/aws-cdk-go/awscdk/awssqs"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationautoscaling"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecspatterns/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Properties to define an application listener.
@@ -48,25 +48,18 @@ type ApplicationLoadBalancedEc2Service interface {
 	ApplicationLoadBalancedServiceBase
 	Certificate() awscertificatemanager.ICertificate
 	Cluster() awsecs.ICluster
-	DesiredCount() *float64
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.ApplicationListener
 	LoadBalancer() awselasticloadbalancingv2.ApplicationLoadBalancer
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	RedirectListener() awselasticloadbalancingv2.ApplicationListener
 	Service() awsecs.Ec2Service
 	TargetGroup() awselasticloadbalancingv2.ApplicationTargetGroup
 	TaskDefinition() awsecs.Ec2TaskDefinition
 	AddServiceAsTarget(service awsecs.BaseService)
 	CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver
-	GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
+	GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for ApplicationLoadBalancedEc2Service
@@ -89,16 +82,6 @@ func (j *jsiiProxy_ApplicationLoadBalancedEc2Service) Cluster() awsecs.ICluster 
 	_jsii_.Get(
 		j,
 		"cluster",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ApplicationLoadBalancedEc2Service) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -134,8 +117,8 @@ func (j *jsiiProxy_ApplicationLoadBalancedEc2Service) LoadBalancer() awselasticl
 	return returns
 }
 
-func (j *jsiiProxy_ApplicationLoadBalancedEc2Service) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_ApplicationLoadBalancedEc2Service) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -193,7 +176,7 @@ func NewApplicationLoadBalancedEc2Service(scope constructs.Construct, id *string
 	j := jsiiProxy_ApplicationLoadBalancedEc2Service{}
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.ApplicationLoadBalancedEc2Service",
+		"aws-cdk-lib.aws_ecs_patterns.ApplicationLoadBalancedEc2Service",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -207,21 +190,23 @@ func NewApplicationLoadBalancedEc2Service_Override(a ApplicationLoadBalancedEc2S
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.ApplicationLoadBalancedEc2Service",
+		"aws-cdk-lib.aws_ecs_patterns.ApplicationLoadBalancedEc2Service",
 		[]interface{}{scope, id, props},
 		a,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func ApplicationLoadBalancedEc2Service_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs_patterns.ApplicationLoadBalancedEc2Service",
+		"aws-cdk-lib.aws_ecs_patterns.ApplicationLoadBalancedEc2Service",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -256,7 +241,7 @@ func (a *jsiiProxy_ApplicationLoadBalancedEc2Service) CreateAWSLogDriver(prefix 
 
 // Returns the default cluster.
 // Experimental.
-func (a *jsiiProxy_ApplicationLoadBalancedEc2Service) GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster {
+func (a *jsiiProxy_ApplicationLoadBalancedEc2Service) GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster {
 	var returns awsecs.Cluster
 
 	_jsii_.Invoke(
@@ -269,86 +254,6 @@ func (a *jsiiProxy_ApplicationLoadBalancedEc2Service) GetDefaultCluster(scope aw
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (a *jsiiProxy_ApplicationLoadBalancedEc2Service) OnPrepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (a *jsiiProxy_ApplicationLoadBalancedEc2Service) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (a *jsiiProxy_ApplicationLoadBalancedEc2Service) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (a *jsiiProxy_ApplicationLoadBalancedEc2Service) Prepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (a *jsiiProxy_ApplicationLoadBalancedEc2Service) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (a *jsiiProxy_ApplicationLoadBalancedEc2Service) ToString() *string {
@@ -357,26 +262,6 @@ func (a *jsiiProxy_ApplicationLoadBalancedEc2Service) ToString() *string {
 	_jsii_.Invoke(
 		a,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (a *jsiiProxy_ApplicationLoadBalancedEc2Service) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -543,25 +428,18 @@ type ApplicationLoadBalancedFargateService interface {
 	AssignPublicIp() *bool
 	Certificate() awscertificatemanager.ICertificate
 	Cluster() awsecs.ICluster
-	DesiredCount() *float64
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.ApplicationListener
 	LoadBalancer() awselasticloadbalancingv2.ApplicationLoadBalancer
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	RedirectListener() awselasticloadbalancingv2.ApplicationListener
 	Service() awsecs.FargateService
 	TargetGroup() awselasticloadbalancingv2.ApplicationTargetGroup
 	TaskDefinition() awsecs.FargateTaskDefinition
 	AddServiceAsTarget(service awsecs.BaseService)
 	CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver
-	GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
+	GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for ApplicationLoadBalancedFargateService
@@ -599,16 +477,6 @@ func (j *jsiiProxy_ApplicationLoadBalancedFargateService) Cluster() awsecs.IClus
 	return returns
 }
 
-func (j *jsiiProxy_ApplicationLoadBalancedFargateService) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_ApplicationLoadBalancedFargateService) InternalDesiredCount() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -639,8 +507,8 @@ func (j *jsiiProxy_ApplicationLoadBalancedFargateService) LoadBalancer() awselas
 	return returns
 }
 
-func (j *jsiiProxy_ApplicationLoadBalancedFargateService) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_ApplicationLoadBalancedFargateService) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -698,7 +566,7 @@ func NewApplicationLoadBalancedFargateService(scope constructs.Construct, id *st
 	j := jsiiProxy_ApplicationLoadBalancedFargateService{}
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.ApplicationLoadBalancedFargateService",
+		"aws-cdk-lib.aws_ecs_patterns.ApplicationLoadBalancedFargateService",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -712,21 +580,23 @@ func NewApplicationLoadBalancedFargateService_Override(a ApplicationLoadBalanced
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.ApplicationLoadBalancedFargateService",
+		"aws-cdk-lib.aws_ecs_patterns.ApplicationLoadBalancedFargateService",
 		[]interface{}{scope, id, props},
 		a,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func ApplicationLoadBalancedFargateService_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs_patterns.ApplicationLoadBalancedFargateService",
+		"aws-cdk-lib.aws_ecs_patterns.ApplicationLoadBalancedFargateService",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -761,7 +631,7 @@ func (a *jsiiProxy_ApplicationLoadBalancedFargateService) CreateAWSLogDriver(pre
 
 // Returns the default cluster.
 // Experimental.
-func (a *jsiiProxy_ApplicationLoadBalancedFargateService) GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster {
+func (a *jsiiProxy_ApplicationLoadBalancedFargateService) GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster {
 	var returns awsecs.Cluster
 
 	_jsii_.Invoke(
@@ -774,86 +644,6 @@ func (a *jsiiProxy_ApplicationLoadBalancedFargateService) GetDefaultCluster(scop
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (a *jsiiProxy_ApplicationLoadBalancedFargateService) OnPrepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (a *jsiiProxy_ApplicationLoadBalancedFargateService) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (a *jsiiProxy_ApplicationLoadBalancedFargateService) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (a *jsiiProxy_ApplicationLoadBalancedFargateService) Prepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (a *jsiiProxy_ApplicationLoadBalancedFargateService) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (a *jsiiProxy_ApplicationLoadBalancedFargateService) ToString() *string {
@@ -862,26 +652,6 @@ func (a *jsiiProxy_ApplicationLoadBalancedFargateService) ToString() *string {
 	_jsii_.Invoke(
 		a,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (a *jsiiProxy_ApplicationLoadBalancedFargateService) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1062,31 +832,24 @@ type ApplicationLoadBalancedFargateServiceProps struct {
 // The base class for ApplicationLoadBalancedEc2Service and ApplicationLoadBalancedFargateService services.
 // Experimental.
 type ApplicationLoadBalancedServiceBase interface {
-	awscdk.Construct
+	constructs.Construct
 	Certificate() awscertificatemanager.ICertificate
 	Cluster() awsecs.ICluster
-	DesiredCount() *float64
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.ApplicationListener
 	LoadBalancer() awselasticloadbalancingv2.ApplicationLoadBalancer
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	RedirectListener() awselasticloadbalancingv2.ApplicationListener
 	TargetGroup() awselasticloadbalancingv2.ApplicationTargetGroup
 	AddServiceAsTarget(service awsecs.BaseService)
 	CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver
-	GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
+	GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for ApplicationLoadBalancedServiceBase
 type jsiiProxy_ApplicationLoadBalancedServiceBase struct {
-	internal.Type__awscdkConstruct
+	internal.Type__constructsConstruct
 }
 
 func (j *jsiiProxy_ApplicationLoadBalancedServiceBase) Certificate() awscertificatemanager.ICertificate {
@@ -1104,16 +867,6 @@ func (j *jsiiProxy_ApplicationLoadBalancedServiceBase) Cluster() awsecs.ICluster
 	_jsii_.Get(
 		j,
 		"cluster",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ApplicationLoadBalancedServiceBase) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -1149,8 +902,8 @@ func (j *jsiiProxy_ApplicationLoadBalancedServiceBase) LoadBalancer() awselastic
 	return returns
 }
 
-func (j *jsiiProxy_ApplicationLoadBalancedServiceBase) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_ApplicationLoadBalancedServiceBase) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1186,21 +939,23 @@ func NewApplicationLoadBalancedServiceBase_Override(a ApplicationLoadBalancedSer
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.ApplicationLoadBalancedServiceBase",
+		"aws-cdk-lib.aws_ecs_patterns.ApplicationLoadBalancedServiceBase",
 		[]interface{}{scope, id, props},
 		a,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func ApplicationLoadBalancedServiceBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs_patterns.ApplicationLoadBalancedServiceBase",
+		"aws-cdk-lib.aws_ecs_patterns.ApplicationLoadBalancedServiceBase",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1235,7 +990,7 @@ func (a *jsiiProxy_ApplicationLoadBalancedServiceBase) CreateAWSLogDriver(prefix
 
 // Returns the default cluster.
 // Experimental.
-func (a *jsiiProxy_ApplicationLoadBalancedServiceBase) GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster {
+func (a *jsiiProxy_ApplicationLoadBalancedServiceBase) GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster {
 	var returns awsecs.Cluster
 
 	_jsii_.Invoke(
@@ -1248,86 +1003,6 @@ func (a *jsiiProxy_ApplicationLoadBalancedServiceBase) GetDefaultCluster(scope a
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (a *jsiiProxy_ApplicationLoadBalancedServiceBase) OnPrepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (a *jsiiProxy_ApplicationLoadBalancedServiceBase) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (a *jsiiProxy_ApplicationLoadBalancedServiceBase) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (a *jsiiProxy_ApplicationLoadBalancedServiceBase) Prepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (a *jsiiProxy_ApplicationLoadBalancedServiceBase) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (a *jsiiProxy_ApplicationLoadBalancedServiceBase) ToString() *string {
@@ -1336,26 +1011,6 @@ func (a *jsiiProxy_ApplicationLoadBalancedServiceBase) ToString() *string {
 	_jsii_.Invoke(
 		a,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (a *jsiiProxy_ApplicationLoadBalancedServiceBase) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1605,7 +1260,6 @@ type ApplicationLoadBalancerProps struct {
 type ApplicationMultipleTargetGroupsEc2Service interface {
 	ApplicationMultipleTargetGroupsServiceBase
 	Cluster() awsecs.ICluster
-	DesiredCount() *float64
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.ApplicationListener
 	Listeners() *[]awselasticloadbalancingv2.ApplicationListener
@@ -1613,7 +1267,7 @@ type ApplicationMultipleTargetGroupsEc2Service interface {
 	LoadBalancer() awselasticloadbalancingv2.ApplicationLoadBalancer
 	LogDriver() awsecs.LogDriver
 	SetLogDriver(val awsecs.LogDriver)
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Service() awsecs.Ec2Service
 	TargetGroup() awselasticloadbalancingv2.ApplicationTargetGroup
 	TargetGroups() *[]awselasticloadbalancingv2.ApplicationTargetGroup
@@ -1623,14 +1277,8 @@ type ApplicationMultipleTargetGroupsEc2Service interface {
 	CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver
 	FindListener(name *string) awselasticloadbalancingv2.ApplicationListener
 	GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
 	RegisterECSTargets(service awsecs.BaseService, container awsecs.ContainerDefinition, targets *[]*ApplicationTargetProps) awselasticloadbalancingv2.ApplicationTargetGroup
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for ApplicationMultipleTargetGroupsEc2Service
@@ -1643,16 +1291,6 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) Cluster() awsecs.I
 	_jsii_.Get(
 		j,
 		"cluster",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -1708,8 +1346,8 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) LogDriver() awsecs
 	return returns
 }
 
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1767,7 +1405,7 @@ func NewApplicationMultipleTargetGroupsEc2Service(scope constructs.Construct, id
 	j := jsiiProxy_ApplicationMultipleTargetGroupsEc2Service{}
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.ApplicationMultipleTargetGroupsEc2Service",
+		"aws-cdk-lib.aws_ecs_patterns.ApplicationMultipleTargetGroupsEc2Service",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1781,7 +1419,7 @@ func NewApplicationMultipleTargetGroupsEc2Service_Override(a ApplicationMultiple
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.ApplicationMultipleTargetGroupsEc2Service",
+		"aws-cdk-lib.aws_ecs_patterns.ApplicationMultipleTargetGroupsEc2Service",
 		[]interface{}{scope, id, props},
 		a,
 	)
@@ -1811,15 +1449,17 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) SetTargetGroups(va
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func ApplicationMultipleTargetGroupsEc2Service_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs_patterns.ApplicationMultipleTargetGroupsEc2Service",
+		"aws-cdk-lib.aws_ecs_patterns.ApplicationMultipleTargetGroupsEc2Service",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1880,73 +1520,6 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) GetDefaultCluster(
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) OnPrepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) Prepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 // Experimental.
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) RegisterECSTargets(service awsecs.BaseService, container awsecs.ContainerDefinition, targets *[]*ApplicationTargetProps) awselasticloadbalancingv2.ApplicationTargetGroup {
 	var returns awselasticloadbalancingv2.ApplicationTargetGroup
@@ -1961,19 +1534,6 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) RegisterECSTargets
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) ToString() *string {
@@ -1982,26 +1542,6 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) ToString() *string
 	_jsii_.Invoke(
 		a,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (a *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2095,7 +1635,6 @@ type ApplicationMultipleTargetGroupsFargateService interface {
 	ApplicationMultipleTargetGroupsServiceBase
 	AssignPublicIp() *bool
 	Cluster() awsecs.ICluster
-	DesiredCount() *float64
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.ApplicationListener
 	Listeners() *[]awselasticloadbalancingv2.ApplicationListener
@@ -2103,7 +1642,7 @@ type ApplicationMultipleTargetGroupsFargateService interface {
 	LoadBalancer() awselasticloadbalancingv2.ApplicationLoadBalancer
 	LogDriver() awsecs.LogDriver
 	SetLogDriver(val awsecs.LogDriver)
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Service() awsecs.FargateService
 	TargetGroup() awselasticloadbalancingv2.ApplicationTargetGroup
 	TargetGroups() *[]awselasticloadbalancingv2.ApplicationTargetGroup
@@ -2113,14 +1652,8 @@ type ApplicationMultipleTargetGroupsFargateService interface {
 	CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver
 	FindListener(name *string) awselasticloadbalancingv2.ApplicationListener
 	GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
 	RegisterECSTargets(service awsecs.BaseService, container awsecs.ContainerDefinition, targets *[]*ApplicationTargetProps) awselasticloadbalancingv2.ApplicationTargetGroup
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for ApplicationMultipleTargetGroupsFargateService
@@ -2143,16 +1676,6 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) Cluster() awse
 	_jsii_.Get(
 		j,
 		"cluster",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -2208,8 +1731,8 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) LogDriver() aw
 	return returns
 }
 
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2267,7 +1790,7 @@ func NewApplicationMultipleTargetGroupsFargateService(scope constructs.Construct
 	j := jsiiProxy_ApplicationMultipleTargetGroupsFargateService{}
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.ApplicationMultipleTargetGroupsFargateService",
+		"aws-cdk-lib.aws_ecs_patterns.ApplicationMultipleTargetGroupsFargateService",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2281,7 +1804,7 @@ func NewApplicationMultipleTargetGroupsFargateService_Override(a ApplicationMult
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.ApplicationMultipleTargetGroupsFargateService",
+		"aws-cdk-lib.aws_ecs_patterns.ApplicationMultipleTargetGroupsFargateService",
 		[]interface{}{scope, id, props},
 		a,
 	)
@@ -2311,15 +1834,17 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) SetTargetGroup
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func ApplicationMultipleTargetGroupsFargateService_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs_patterns.ApplicationMultipleTargetGroupsFargateService",
+		"aws-cdk-lib.aws_ecs_patterns.ApplicationMultipleTargetGroupsFargateService",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2380,73 +1905,6 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) GetDefaultClus
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) OnPrepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) Prepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 // Experimental.
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) RegisterECSTargets(service awsecs.BaseService, container awsecs.ContainerDefinition, targets *[]*ApplicationTargetProps) awselasticloadbalancingv2.ApplicationTargetGroup {
 	var returns awselasticloadbalancingv2.ApplicationTargetGroup
@@ -2461,19 +1919,6 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) RegisterECSTar
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) ToString() *string {
@@ -2482,26 +1927,6 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) ToString() *st
 	_jsii_.Invoke(
 		a,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (a *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2611,9 +2036,8 @@ type ApplicationMultipleTargetGroupsFargateServiceProps struct {
 // The base class for ApplicationMultipleTargetGroupsEc2Service and ApplicationMultipleTargetGroupsFargateService classes.
 // Experimental.
 type ApplicationMultipleTargetGroupsServiceBase interface {
-	awscdk.Construct
+	constructs.Construct
 	Cluster() awsecs.ICluster
-	DesiredCount() *float64
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.ApplicationListener
 	Listeners() *[]awselasticloadbalancingv2.ApplicationListener
@@ -2621,26 +2045,20 @@ type ApplicationMultipleTargetGroupsServiceBase interface {
 	LoadBalancer() awselasticloadbalancingv2.ApplicationLoadBalancer
 	LogDriver() awsecs.LogDriver
 	SetLogDriver(val awsecs.LogDriver)
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	TargetGroups() *[]awselasticloadbalancingv2.ApplicationTargetGroup
 	SetTargetGroups(val *[]awselasticloadbalancingv2.ApplicationTargetGroup)
 	AddPortMappingForTargets(container awsecs.ContainerDefinition, targets *[]*ApplicationTargetProps)
 	CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver
 	FindListener(name *string) awselasticloadbalancingv2.ApplicationListener
 	GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
 	RegisterECSTargets(service awsecs.BaseService, container awsecs.ContainerDefinition, targets *[]*ApplicationTargetProps) awselasticloadbalancingv2.ApplicationTargetGroup
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for ApplicationMultipleTargetGroupsServiceBase
 type jsiiProxy_ApplicationMultipleTargetGroupsServiceBase struct {
-	internal.Type__awscdkConstruct
+	internal.Type__constructsConstruct
 }
 
 func (j *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) Cluster() awsecs.ICluster {
@@ -2648,16 +2066,6 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) Cluster() awsecs.
 	_jsii_.Get(
 		j,
 		"cluster",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -2713,8 +2121,8 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) LogDriver() awsec
 	return returns
 }
 
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2740,7 +2148,7 @@ func NewApplicationMultipleTargetGroupsServiceBase_Override(a ApplicationMultipl
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.ApplicationMultipleTargetGroupsServiceBase",
+		"aws-cdk-lib.aws_ecs_patterns.ApplicationMultipleTargetGroupsServiceBase",
 		[]interface{}{scope, id, props},
 		a,
 	)
@@ -2770,15 +2178,17 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) SetTargetGroups(v
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func ApplicationMultipleTargetGroupsServiceBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs_patterns.ApplicationMultipleTargetGroupsServiceBase",
+		"aws-cdk-lib.aws_ecs_patterns.ApplicationMultipleTargetGroupsServiceBase",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2839,73 +2249,6 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) GetDefaultCluster
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) OnPrepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) Prepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 // Experimental.
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) RegisterECSTargets(service awsecs.BaseService, container awsecs.ContainerDefinition, targets *[]*ApplicationTargetProps) awselasticloadbalancingv2.ApplicationTargetGroup {
 	var returns awselasticloadbalancingv2.ApplicationTargetGroup
@@ -2920,19 +2263,6 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) RegisterECSTarget
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) ToString() *string {
@@ -2941,26 +2271,6 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) ToString() *strin
 	_jsii_.Invoke(
 		a,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3078,24 +2388,17 @@ type NetworkListenerProps struct {
 type NetworkLoadBalancedEc2Service interface {
 	NetworkLoadBalancedServiceBase
 	Cluster() awsecs.ICluster
-	DesiredCount() *float64
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.NetworkListener
 	LoadBalancer() awselasticloadbalancingv2.NetworkLoadBalancer
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Service() awsecs.Ec2Service
 	TargetGroup() awselasticloadbalancingv2.NetworkTargetGroup
 	TaskDefinition() awsecs.Ec2TaskDefinition
 	AddServiceAsTarget(service awsecs.BaseService)
 	CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver
-	GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
+	GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for NetworkLoadBalancedEc2Service
@@ -3108,16 +2411,6 @@ func (j *jsiiProxy_NetworkLoadBalancedEc2Service) Cluster() awsecs.ICluster {
 	_jsii_.Get(
 		j,
 		"cluster",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_NetworkLoadBalancedEc2Service) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -3153,8 +2446,8 @@ func (j *jsiiProxy_NetworkLoadBalancedEc2Service) LoadBalancer() awselasticloadb
 	return returns
 }
 
-func (j *jsiiProxy_NetworkLoadBalancedEc2Service) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_NetworkLoadBalancedEc2Service) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -3202,7 +2495,7 @@ func NewNetworkLoadBalancedEc2Service(scope constructs.Construct, id *string, pr
 	j := jsiiProxy_NetworkLoadBalancedEc2Service{}
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.NetworkLoadBalancedEc2Service",
+		"aws-cdk-lib.aws_ecs_patterns.NetworkLoadBalancedEc2Service",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3216,21 +2509,23 @@ func NewNetworkLoadBalancedEc2Service_Override(n NetworkLoadBalancedEc2Service, 
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.NetworkLoadBalancedEc2Service",
+		"aws-cdk-lib.aws_ecs_patterns.NetworkLoadBalancedEc2Service",
 		[]interface{}{scope, id, props},
 		n,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func NetworkLoadBalancedEc2Service_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs_patterns.NetworkLoadBalancedEc2Service",
+		"aws-cdk-lib.aws_ecs_patterns.NetworkLoadBalancedEc2Service",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3265,7 +2560,7 @@ func (n *jsiiProxy_NetworkLoadBalancedEc2Service) CreateAWSLogDriver(prefix *str
 
 // Returns the default cluster.
 // Experimental.
-func (n *jsiiProxy_NetworkLoadBalancedEc2Service) GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster {
+func (n *jsiiProxy_NetworkLoadBalancedEc2Service) GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster {
 	var returns awsecs.Cluster
 
 	_jsii_.Invoke(
@@ -3278,86 +2573,6 @@ func (n *jsiiProxy_NetworkLoadBalancedEc2Service) GetDefaultCluster(scope awscdk
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (n *jsiiProxy_NetworkLoadBalancedEc2Service) OnPrepare() {
-	_jsii_.InvokeVoid(
-		n,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (n *jsiiProxy_NetworkLoadBalancedEc2Service) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		n,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (n *jsiiProxy_NetworkLoadBalancedEc2Service) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		n,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (n *jsiiProxy_NetworkLoadBalancedEc2Service) Prepare() {
-	_jsii_.InvokeVoid(
-		n,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (n *jsiiProxy_NetworkLoadBalancedEc2Service) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		n,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (n *jsiiProxy_NetworkLoadBalancedEc2Service) ToString() *string {
@@ -3366,26 +2581,6 @@ func (n *jsiiProxy_NetworkLoadBalancedEc2Service) ToString() *string {
 	_jsii_.Invoke(
 		n,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (n *jsiiProxy_NetworkLoadBalancedEc2Service) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		n,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3527,24 +2722,17 @@ type NetworkLoadBalancedFargateService interface {
 	NetworkLoadBalancedServiceBase
 	AssignPublicIp() *bool
 	Cluster() awsecs.ICluster
-	DesiredCount() *float64
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.NetworkListener
 	LoadBalancer() awselasticloadbalancingv2.NetworkLoadBalancer
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Service() awsecs.FargateService
 	TargetGroup() awselasticloadbalancingv2.NetworkTargetGroup
 	TaskDefinition() awsecs.FargateTaskDefinition
 	AddServiceAsTarget(service awsecs.BaseService)
 	CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver
-	GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
+	GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for NetworkLoadBalancedFargateService
@@ -3567,16 +2755,6 @@ func (j *jsiiProxy_NetworkLoadBalancedFargateService) Cluster() awsecs.ICluster 
 	_jsii_.Get(
 		j,
 		"cluster",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_NetworkLoadBalancedFargateService) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -3612,8 +2790,8 @@ func (j *jsiiProxy_NetworkLoadBalancedFargateService) LoadBalancer() awselasticl
 	return returns
 }
 
-func (j *jsiiProxy_NetworkLoadBalancedFargateService) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_NetworkLoadBalancedFargateService) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -3661,7 +2839,7 @@ func NewNetworkLoadBalancedFargateService(scope constructs.Construct, id *string
 	j := jsiiProxy_NetworkLoadBalancedFargateService{}
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.NetworkLoadBalancedFargateService",
+		"aws-cdk-lib.aws_ecs_patterns.NetworkLoadBalancedFargateService",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3675,21 +2853,23 @@ func NewNetworkLoadBalancedFargateService_Override(n NetworkLoadBalancedFargateS
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.NetworkLoadBalancedFargateService",
+		"aws-cdk-lib.aws_ecs_patterns.NetworkLoadBalancedFargateService",
 		[]interface{}{scope, id, props},
 		n,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func NetworkLoadBalancedFargateService_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs_patterns.NetworkLoadBalancedFargateService",
+		"aws-cdk-lib.aws_ecs_patterns.NetworkLoadBalancedFargateService",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3724,7 +2904,7 @@ func (n *jsiiProxy_NetworkLoadBalancedFargateService) CreateAWSLogDriver(prefix 
 
 // Returns the default cluster.
 // Experimental.
-func (n *jsiiProxy_NetworkLoadBalancedFargateService) GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster {
+func (n *jsiiProxy_NetworkLoadBalancedFargateService) GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster {
 	var returns awsecs.Cluster
 
 	_jsii_.Invoke(
@@ -3737,86 +2917,6 @@ func (n *jsiiProxy_NetworkLoadBalancedFargateService) GetDefaultCluster(scope aw
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (n *jsiiProxy_NetworkLoadBalancedFargateService) OnPrepare() {
-	_jsii_.InvokeVoid(
-		n,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (n *jsiiProxy_NetworkLoadBalancedFargateService) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		n,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (n *jsiiProxy_NetworkLoadBalancedFargateService) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		n,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (n *jsiiProxy_NetworkLoadBalancedFargateService) Prepare() {
-	_jsii_.InvokeVoid(
-		n,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (n *jsiiProxy_NetworkLoadBalancedFargateService) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		n,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (n *jsiiProxy_NetworkLoadBalancedFargateService) ToString() *string {
@@ -3825,26 +2925,6 @@ func (n *jsiiProxy_NetworkLoadBalancedFargateService) ToString() *string {
 	_jsii_.Invoke(
 		n,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (n *jsiiProxy_NetworkLoadBalancedFargateService) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		n,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3996,29 +3076,22 @@ type NetworkLoadBalancedFargateServiceProps struct {
 // The base class for NetworkLoadBalancedEc2Service and NetworkLoadBalancedFargateService services.
 // Experimental.
 type NetworkLoadBalancedServiceBase interface {
-	awscdk.Construct
+	constructs.Construct
 	Cluster() awsecs.ICluster
-	DesiredCount() *float64
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.NetworkListener
 	LoadBalancer() awselasticloadbalancingv2.NetworkLoadBalancer
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	TargetGroup() awselasticloadbalancingv2.NetworkTargetGroup
 	AddServiceAsTarget(service awsecs.BaseService)
 	CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver
-	GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
+	GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for NetworkLoadBalancedServiceBase
 type jsiiProxy_NetworkLoadBalancedServiceBase struct {
-	internal.Type__awscdkConstruct
+	internal.Type__constructsConstruct
 }
 
 func (j *jsiiProxy_NetworkLoadBalancedServiceBase) Cluster() awsecs.ICluster {
@@ -4026,16 +3099,6 @@ func (j *jsiiProxy_NetworkLoadBalancedServiceBase) Cluster() awsecs.ICluster {
 	_jsii_.Get(
 		j,
 		"cluster",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_NetworkLoadBalancedServiceBase) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -4071,8 +3134,8 @@ func (j *jsiiProxy_NetworkLoadBalancedServiceBase) LoadBalancer() awselasticload
 	return returns
 }
 
-func (j *jsiiProxy_NetworkLoadBalancedServiceBase) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_NetworkLoadBalancedServiceBase) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -4098,21 +3161,23 @@ func NewNetworkLoadBalancedServiceBase_Override(n NetworkLoadBalancedServiceBase
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.NetworkLoadBalancedServiceBase",
+		"aws-cdk-lib.aws_ecs_patterns.NetworkLoadBalancedServiceBase",
 		[]interface{}{scope, id, props},
 		n,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func NetworkLoadBalancedServiceBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs_patterns.NetworkLoadBalancedServiceBase",
+		"aws-cdk-lib.aws_ecs_patterns.NetworkLoadBalancedServiceBase",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4147,7 +3212,7 @@ func (n *jsiiProxy_NetworkLoadBalancedServiceBase) CreateAWSLogDriver(prefix *st
 
 // Returns the default cluster.
 // Experimental.
-func (n *jsiiProxy_NetworkLoadBalancedServiceBase) GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster {
+func (n *jsiiProxy_NetworkLoadBalancedServiceBase) GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster {
 	var returns awsecs.Cluster
 
 	_jsii_.Invoke(
@@ -4160,86 +3225,6 @@ func (n *jsiiProxy_NetworkLoadBalancedServiceBase) GetDefaultCluster(scope awscd
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (n *jsiiProxy_NetworkLoadBalancedServiceBase) OnPrepare() {
-	_jsii_.InvokeVoid(
-		n,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (n *jsiiProxy_NetworkLoadBalancedServiceBase) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		n,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (n *jsiiProxy_NetworkLoadBalancedServiceBase) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		n,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (n *jsiiProxy_NetworkLoadBalancedServiceBase) Prepare() {
-	_jsii_.InvokeVoid(
-		n,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (n *jsiiProxy_NetworkLoadBalancedServiceBase) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		n,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (n *jsiiProxy_NetworkLoadBalancedServiceBase) ToString() *string {
@@ -4248,26 +3233,6 @@ func (n *jsiiProxy_NetworkLoadBalancedServiceBase) ToString() *string {
 	_jsii_.Invoke(
 		n,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (n *jsiiProxy_NetworkLoadBalancedServiceBase) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		n,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4493,7 +3458,6 @@ type NetworkLoadBalancerProps struct {
 type NetworkMultipleTargetGroupsEc2Service interface {
 	NetworkMultipleTargetGroupsServiceBase
 	Cluster() awsecs.ICluster
-	DesiredCount() *float64
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.NetworkListener
 	Listeners() *[]awselasticloadbalancingv2.NetworkListener
@@ -4501,7 +3465,7 @@ type NetworkMultipleTargetGroupsEc2Service interface {
 	LoadBalancer() awselasticloadbalancingv2.NetworkLoadBalancer
 	LogDriver() awsecs.LogDriver
 	SetLogDriver(val awsecs.LogDriver)
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Service() awsecs.Ec2Service
 	TargetGroup() awselasticloadbalancingv2.NetworkTargetGroup
 	TargetGroups() *[]awselasticloadbalancingv2.NetworkTargetGroup
@@ -4511,14 +3475,8 @@ type NetworkMultipleTargetGroupsEc2Service interface {
 	CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver
 	FindListener(name *string) awselasticloadbalancingv2.NetworkListener
 	GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
 	RegisterECSTargets(service awsecs.BaseService, container awsecs.ContainerDefinition, targets *[]*NetworkTargetProps) awselasticloadbalancingv2.NetworkTargetGroup
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for NetworkMultipleTargetGroupsEc2Service
@@ -4531,16 +3489,6 @@ func (j *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) Cluster() awsecs.IClus
 	_jsii_.Get(
 		j,
 		"cluster",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -4596,8 +3544,8 @@ func (j *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) LogDriver() awsecs.Log
 	return returns
 }
 
-func (j *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -4655,7 +3603,7 @@ func NewNetworkMultipleTargetGroupsEc2Service(scope constructs.Construct, id *st
 	j := jsiiProxy_NetworkMultipleTargetGroupsEc2Service{}
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.NetworkMultipleTargetGroupsEc2Service",
+		"aws-cdk-lib.aws_ecs_patterns.NetworkMultipleTargetGroupsEc2Service",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4669,7 +3617,7 @@ func NewNetworkMultipleTargetGroupsEc2Service_Override(n NetworkMultipleTargetGr
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.NetworkMultipleTargetGroupsEc2Service",
+		"aws-cdk-lib.aws_ecs_patterns.NetworkMultipleTargetGroupsEc2Service",
 		[]interface{}{scope, id, props},
 		n,
 	)
@@ -4699,15 +3647,17 @@ func (j *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) SetTargetGroups(val *[
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func NetworkMultipleTargetGroupsEc2Service_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs_patterns.NetworkMultipleTargetGroupsEc2Service",
+		"aws-cdk-lib.aws_ecs_patterns.NetworkMultipleTargetGroupsEc2Service",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4768,73 +3718,6 @@ func (n *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) GetDefaultCluster(scop
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (n *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) OnPrepare() {
-	_jsii_.InvokeVoid(
-		n,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (n *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		n,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (n *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		n,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (n *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) Prepare() {
-	_jsii_.InvokeVoid(
-		n,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 // Experimental.
 func (n *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) RegisterECSTargets(service awsecs.BaseService, container awsecs.ContainerDefinition, targets *[]*NetworkTargetProps) awselasticloadbalancingv2.NetworkTargetGroup {
 	var returns awselasticloadbalancingv2.NetworkTargetGroup
@@ -4849,19 +3732,6 @@ func (n *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) RegisterECSTargets(ser
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (n *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		n,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (n *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) ToString() *string {
@@ -4870,26 +3740,6 @@ func (n *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) ToString() *string {
 	_jsii_.Invoke(
 		n,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (n *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		n,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4985,7 +3835,6 @@ type NetworkMultipleTargetGroupsFargateService interface {
 	NetworkMultipleTargetGroupsServiceBase
 	AssignPublicIp() *bool
 	Cluster() awsecs.ICluster
-	DesiredCount() *float64
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.NetworkListener
 	Listeners() *[]awselasticloadbalancingv2.NetworkListener
@@ -4993,7 +3842,7 @@ type NetworkMultipleTargetGroupsFargateService interface {
 	LoadBalancer() awselasticloadbalancingv2.NetworkLoadBalancer
 	LogDriver() awsecs.LogDriver
 	SetLogDriver(val awsecs.LogDriver)
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Service() awsecs.FargateService
 	TargetGroup() awselasticloadbalancingv2.NetworkTargetGroup
 	TargetGroups() *[]awselasticloadbalancingv2.NetworkTargetGroup
@@ -5003,14 +3852,8 @@ type NetworkMultipleTargetGroupsFargateService interface {
 	CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver
 	FindListener(name *string) awselasticloadbalancingv2.NetworkListener
 	GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
 	RegisterECSTargets(service awsecs.BaseService, container awsecs.ContainerDefinition, targets *[]*NetworkTargetProps) awselasticloadbalancingv2.NetworkTargetGroup
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for NetworkMultipleTargetGroupsFargateService
@@ -5033,16 +3876,6 @@ func (j *jsiiProxy_NetworkMultipleTargetGroupsFargateService) Cluster() awsecs.I
 	_jsii_.Get(
 		j,
 		"cluster",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_NetworkMultipleTargetGroupsFargateService) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -5098,8 +3931,8 @@ func (j *jsiiProxy_NetworkMultipleTargetGroupsFargateService) LogDriver() awsecs
 	return returns
 }
 
-func (j *jsiiProxy_NetworkMultipleTargetGroupsFargateService) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_NetworkMultipleTargetGroupsFargateService) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -5157,7 +3990,7 @@ func NewNetworkMultipleTargetGroupsFargateService(scope constructs.Construct, id
 	j := jsiiProxy_NetworkMultipleTargetGroupsFargateService{}
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.NetworkMultipleTargetGroupsFargateService",
+		"aws-cdk-lib.aws_ecs_patterns.NetworkMultipleTargetGroupsFargateService",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5171,7 +4004,7 @@ func NewNetworkMultipleTargetGroupsFargateService_Override(n NetworkMultipleTarg
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.NetworkMultipleTargetGroupsFargateService",
+		"aws-cdk-lib.aws_ecs_patterns.NetworkMultipleTargetGroupsFargateService",
 		[]interface{}{scope, id, props},
 		n,
 	)
@@ -5201,15 +4034,17 @@ func (j *jsiiProxy_NetworkMultipleTargetGroupsFargateService) SetTargetGroups(va
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func NetworkMultipleTargetGroupsFargateService_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs_patterns.NetworkMultipleTargetGroupsFargateService",
+		"aws-cdk-lib.aws_ecs_patterns.NetworkMultipleTargetGroupsFargateService",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5270,73 +4105,6 @@ func (n *jsiiProxy_NetworkMultipleTargetGroupsFargateService) GetDefaultCluster(
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (n *jsiiProxy_NetworkMultipleTargetGroupsFargateService) OnPrepare() {
-	_jsii_.InvokeVoid(
-		n,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (n *jsiiProxy_NetworkMultipleTargetGroupsFargateService) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		n,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (n *jsiiProxy_NetworkMultipleTargetGroupsFargateService) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		n,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (n *jsiiProxy_NetworkMultipleTargetGroupsFargateService) Prepare() {
-	_jsii_.InvokeVoid(
-		n,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 // Experimental.
 func (n *jsiiProxy_NetworkMultipleTargetGroupsFargateService) RegisterECSTargets(service awsecs.BaseService, container awsecs.ContainerDefinition, targets *[]*NetworkTargetProps) awselasticloadbalancingv2.NetworkTargetGroup {
 	var returns awselasticloadbalancingv2.NetworkTargetGroup
@@ -5351,19 +4119,6 @@ func (n *jsiiProxy_NetworkMultipleTargetGroupsFargateService) RegisterECSTargets
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (n *jsiiProxy_NetworkMultipleTargetGroupsFargateService) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		n,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (n *jsiiProxy_NetworkMultipleTargetGroupsFargateService) ToString() *string {
@@ -5372,26 +4127,6 @@ func (n *jsiiProxy_NetworkMultipleTargetGroupsFargateService) ToString() *string
 	_jsii_.Invoke(
 		n,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (n *jsiiProxy_NetworkMultipleTargetGroupsFargateService) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		n,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5503,9 +4238,8 @@ type NetworkMultipleTargetGroupsFargateServiceProps struct {
 // The base class for NetworkMultipleTargetGroupsEc2Service and NetworkMultipleTargetGroupsFargateService classes.
 // Experimental.
 type NetworkMultipleTargetGroupsServiceBase interface {
-	awscdk.Construct
+	constructs.Construct
 	Cluster() awsecs.ICluster
-	DesiredCount() *float64
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.NetworkListener
 	Listeners() *[]awselasticloadbalancingv2.NetworkListener
@@ -5513,26 +4247,20 @@ type NetworkMultipleTargetGroupsServiceBase interface {
 	LoadBalancer() awselasticloadbalancingv2.NetworkLoadBalancer
 	LogDriver() awsecs.LogDriver
 	SetLogDriver(val awsecs.LogDriver)
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	TargetGroups() *[]awselasticloadbalancingv2.NetworkTargetGroup
 	SetTargetGroups(val *[]awselasticloadbalancingv2.NetworkTargetGroup)
 	AddPortMappingForTargets(container awsecs.ContainerDefinition, targets *[]*NetworkTargetProps)
 	CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver
 	FindListener(name *string) awselasticloadbalancingv2.NetworkListener
 	GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
 	RegisterECSTargets(service awsecs.BaseService, container awsecs.ContainerDefinition, targets *[]*NetworkTargetProps) awselasticloadbalancingv2.NetworkTargetGroup
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for NetworkMultipleTargetGroupsServiceBase
 type jsiiProxy_NetworkMultipleTargetGroupsServiceBase struct {
-	internal.Type__awscdkConstruct
+	internal.Type__constructsConstruct
 }
 
 func (j *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) Cluster() awsecs.ICluster {
@@ -5540,16 +4268,6 @@ func (j *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) Cluster() awsecs.IClu
 	_jsii_.Get(
 		j,
 		"cluster",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -5605,8 +4323,8 @@ func (j *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) LogDriver() awsecs.Lo
 	return returns
 }
 
-func (j *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -5632,7 +4350,7 @@ func NewNetworkMultipleTargetGroupsServiceBase_Override(n NetworkMultipleTargetG
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.NetworkMultipleTargetGroupsServiceBase",
+		"aws-cdk-lib.aws_ecs_patterns.NetworkMultipleTargetGroupsServiceBase",
 		[]interface{}{scope, id, props},
 		n,
 	)
@@ -5662,15 +4380,17 @@ func (j *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) SetTargetGroups(val *
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func NetworkMultipleTargetGroupsServiceBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs_patterns.NetworkMultipleTargetGroupsServiceBase",
+		"aws-cdk-lib.aws_ecs_patterns.NetworkMultipleTargetGroupsServiceBase",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5731,73 +4451,6 @@ func (n *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) GetDefaultCluster(sco
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (n *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) OnPrepare() {
-	_jsii_.InvokeVoid(
-		n,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (n *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		n,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (n *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		n,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (n *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) Prepare() {
-	_jsii_.InvokeVoid(
-		n,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 // Experimental.
 func (n *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) RegisterECSTargets(service awsecs.BaseService, container awsecs.ContainerDefinition, targets *[]*NetworkTargetProps) awselasticloadbalancingv2.NetworkTargetGroup {
 	var returns awselasticloadbalancingv2.NetworkTargetGroup
@@ -5812,19 +4465,6 @@ func (n *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) RegisterECSTargets(se
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (n *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		n,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (n *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) ToString() *string {
@@ -5833,26 +4473,6 @@ func (n *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) ToString() *string {
 	_jsii_.Invoke(
 		n,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (n *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		n,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5930,12 +4550,11 @@ type QueueProcessingEc2Service interface {
 	QueueProcessingServiceBase
 	Cluster() awsecs.ICluster
 	DeadLetterQueue() awssqs.IQueue
-	DesiredCount() *float64
 	Environment() *map[string]*string
 	LogDriver() awsecs.LogDriver
 	MaxCapacity() *float64
 	MinCapacity() *float64
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	ScalingSteps() *[]*awsapplicationautoscaling.ScalingInterval
 	Secrets() *map[string]awsecs.Secret
 	Service() awsecs.Ec2Service
@@ -5944,13 +4563,7 @@ type QueueProcessingEc2Service interface {
 	ConfigureAutoscalingForService(service awsecs.BaseService)
 	GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster
 	GrantPermissionsToService(service awsecs.BaseService)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for QueueProcessingEc2Service
@@ -5973,16 +4586,6 @@ func (j *jsiiProxy_QueueProcessingEc2Service) DeadLetterQueue() awssqs.IQueue {
 	_jsii_.Get(
 		j,
 		"deadLetterQueue",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_QueueProcessingEc2Service) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -6028,8 +4631,8 @@ func (j *jsiiProxy_QueueProcessingEc2Service) MinCapacity() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_QueueProcessingEc2Service) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_QueueProcessingEc2Service) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -6097,7 +4700,7 @@ func NewQueueProcessingEc2Service(scope constructs.Construct, id *string, props 
 	j := jsiiProxy_QueueProcessingEc2Service{}
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.QueueProcessingEc2Service",
+		"aws-cdk-lib.aws_ecs_patterns.QueueProcessingEc2Service",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6111,21 +4714,23 @@ func NewQueueProcessingEc2Service_Override(q QueueProcessingEc2Service, scope co
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.QueueProcessingEc2Service",
+		"aws-cdk-lib.aws_ecs_patterns.QueueProcessingEc2Service",
 		[]interface{}{scope, id, props},
 		q,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func QueueProcessingEc2Service_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs_patterns.QueueProcessingEc2Service",
+		"aws-cdk-lib.aws_ecs_patterns.QueueProcessingEc2Service",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6169,86 +4774,6 @@ func (q *jsiiProxy_QueueProcessingEc2Service) GrantPermissionsToService(service 
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (q *jsiiProxy_QueueProcessingEc2Service) OnPrepare() {
-	_jsii_.InvokeVoid(
-		q,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (q *jsiiProxy_QueueProcessingEc2Service) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		q,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (q *jsiiProxy_QueueProcessingEc2Service) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		q,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (q *jsiiProxy_QueueProcessingEc2Service) Prepare() {
-	_jsii_.InvokeVoid(
-		q,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (q *jsiiProxy_QueueProcessingEc2Service) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		q,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (q *jsiiProxy_QueueProcessingEc2Service) ToString() *string {
@@ -6257,26 +4782,6 @@ func (q *jsiiProxy_QueueProcessingEc2Service) ToString() *string {
 	_jsii_.Invoke(
 		q,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (q *jsiiProxy_QueueProcessingEc2Service) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		q,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -6312,9 +4817,6 @@ type QueueProcessingEc2ServiceProps struct {
 	// [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
 	// Experimental.
 	DeploymentController *awsecs.DeploymentController `json:"deploymentController"`
-	// The desired number of instantiations of the task definition to keep running on the service.
-	// Deprecated: - Use `minScalingCapacity` or a literal object instead.
-	DesiredTaskCount *float64 `json:"desiredTaskCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
@@ -6432,12 +4934,11 @@ type QueueProcessingFargateService interface {
 	QueueProcessingServiceBase
 	Cluster() awsecs.ICluster
 	DeadLetterQueue() awssqs.IQueue
-	DesiredCount() *float64
 	Environment() *map[string]*string
 	LogDriver() awsecs.LogDriver
 	MaxCapacity() *float64
 	MinCapacity() *float64
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	ScalingSteps() *[]*awsapplicationautoscaling.ScalingInterval
 	Secrets() *map[string]awsecs.Secret
 	Service() awsecs.FargateService
@@ -6446,13 +4947,7 @@ type QueueProcessingFargateService interface {
 	ConfigureAutoscalingForService(service awsecs.BaseService)
 	GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster
 	GrantPermissionsToService(service awsecs.BaseService)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for QueueProcessingFargateService
@@ -6475,16 +4970,6 @@ func (j *jsiiProxy_QueueProcessingFargateService) DeadLetterQueue() awssqs.IQueu
 	_jsii_.Get(
 		j,
 		"deadLetterQueue",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_QueueProcessingFargateService) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -6530,8 +5015,8 @@ func (j *jsiiProxy_QueueProcessingFargateService) MinCapacity() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_QueueProcessingFargateService) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_QueueProcessingFargateService) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -6599,7 +5084,7 @@ func NewQueueProcessingFargateService(scope constructs.Construct, id *string, pr
 	j := jsiiProxy_QueueProcessingFargateService{}
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.QueueProcessingFargateService",
+		"aws-cdk-lib.aws_ecs_patterns.QueueProcessingFargateService",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6613,21 +5098,23 @@ func NewQueueProcessingFargateService_Override(q QueueProcessingFargateService, 
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.QueueProcessingFargateService",
+		"aws-cdk-lib.aws_ecs_patterns.QueueProcessingFargateService",
 		[]interface{}{scope, id, props},
 		q,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func QueueProcessingFargateService_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs_patterns.QueueProcessingFargateService",
+		"aws-cdk-lib.aws_ecs_patterns.QueueProcessingFargateService",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6671,86 +5158,6 @@ func (q *jsiiProxy_QueueProcessingFargateService) GrantPermissionsToService(serv
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (q *jsiiProxy_QueueProcessingFargateService) OnPrepare() {
-	_jsii_.InvokeVoid(
-		q,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (q *jsiiProxy_QueueProcessingFargateService) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		q,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (q *jsiiProxy_QueueProcessingFargateService) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		q,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (q *jsiiProxy_QueueProcessingFargateService) Prepare() {
-	_jsii_.InvokeVoid(
-		q,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (q *jsiiProxy_QueueProcessingFargateService) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		q,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (q *jsiiProxy_QueueProcessingFargateService) ToString() *string {
@@ -6759,26 +5166,6 @@ func (q *jsiiProxy_QueueProcessingFargateService) ToString() *string {
 	_jsii_.Invoke(
 		q,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (q *jsiiProxy_QueueProcessingFargateService) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		q,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -6814,9 +5201,6 @@ type QueueProcessingFargateServiceProps struct {
 	// [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
 	// Experimental.
 	DeploymentController *awsecs.DeploymentController `json:"deploymentController"`
-	// The desired number of instantiations of the task definition to keep running on the service.
-	// Deprecated: - Use `minScalingCapacity` or a literal object instead.
-	DesiredTaskCount *float64 `json:"desiredTaskCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
@@ -6951,33 +5335,26 @@ type QueueProcessingFargateServiceProps struct {
 // The base class for QueueProcessingEc2Service and QueueProcessingFargateService services.
 // Experimental.
 type QueueProcessingServiceBase interface {
-	awscdk.Construct
+	constructs.Construct
 	Cluster() awsecs.ICluster
 	DeadLetterQueue() awssqs.IQueue
-	DesiredCount() *float64
 	Environment() *map[string]*string
 	LogDriver() awsecs.LogDriver
 	MaxCapacity() *float64
 	MinCapacity() *float64
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	ScalingSteps() *[]*awsapplicationautoscaling.ScalingInterval
 	Secrets() *map[string]awsecs.Secret
 	SqsQueue() awssqs.IQueue
 	ConfigureAutoscalingForService(service awsecs.BaseService)
 	GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster
 	GrantPermissionsToService(service awsecs.BaseService)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for QueueProcessingServiceBase
 type jsiiProxy_QueueProcessingServiceBase struct {
-	internal.Type__awscdkConstruct
+	internal.Type__constructsConstruct
 }
 
 func (j *jsiiProxy_QueueProcessingServiceBase) Cluster() awsecs.ICluster {
@@ -6995,16 +5372,6 @@ func (j *jsiiProxy_QueueProcessingServiceBase) DeadLetterQueue() awssqs.IQueue {
 	_jsii_.Get(
 		j,
 		"deadLetterQueue",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_QueueProcessingServiceBase) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -7050,8 +5417,8 @@ func (j *jsiiProxy_QueueProcessingServiceBase) MinCapacity() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_QueueProcessingServiceBase) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_QueueProcessingServiceBase) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -7097,21 +5464,23 @@ func NewQueueProcessingServiceBase_Override(q QueueProcessingServiceBase, scope 
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.QueueProcessingServiceBase",
+		"aws-cdk-lib.aws_ecs_patterns.QueueProcessingServiceBase",
 		[]interface{}{scope, id, props},
 		q,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func QueueProcessingServiceBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs_patterns.QueueProcessingServiceBase",
+		"aws-cdk-lib.aws_ecs_patterns.QueueProcessingServiceBase",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7155,86 +5524,6 @@ func (q *jsiiProxy_QueueProcessingServiceBase) GrantPermissionsToService(service
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (q *jsiiProxy_QueueProcessingServiceBase) OnPrepare() {
-	_jsii_.InvokeVoid(
-		q,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (q *jsiiProxy_QueueProcessingServiceBase) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		q,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (q *jsiiProxy_QueueProcessingServiceBase) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		q,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (q *jsiiProxy_QueueProcessingServiceBase) Prepare() {
-	_jsii_.InvokeVoid(
-		q,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (q *jsiiProxy_QueueProcessingServiceBase) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		q,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (q *jsiiProxy_QueueProcessingServiceBase) ToString() *string {
@@ -7243,26 +5532,6 @@ func (q *jsiiProxy_QueueProcessingServiceBase) ToString() *string {
 	_jsii_.Invoke(
 		q,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (q *jsiiProxy_QueueProcessingServiceBase) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		q,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -7298,9 +5567,6 @@ type QueueProcessingServiceBaseProps struct {
 	// [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
 	// Experimental.
 	DeploymentController *awsecs.DeploymentController `json:"deploymentController"`
-	// The desired number of instantiations of the task definition to keep running on the service.
-	// Deprecated: - Use `minScalingCapacity` or a literal object instead.
-	DesiredTaskCount *float64 `json:"desiredTaskCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
@@ -7381,20 +5647,14 @@ type ScheduledEc2Task interface {
 	Cluster() awsecs.ICluster
 	DesiredTaskCount() *float64
 	EventRule() awsevents.Rule
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	SubnetSelection() *awsec2.SubnetSelection
 	TaskDefinition() awsecs.Ec2TaskDefinition
 	AddTaskAsTarget(ecsTaskTarget awseventstargets.EcsTask)
 	AddTaskDefinitionToEventTarget(taskDefinition awsecs.TaskDefinition) awseventstargets.EcsTask
 	CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver
-	GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
+	GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for ScheduledEc2Task
@@ -7432,8 +5692,8 @@ func (j *jsiiProxy_ScheduledEc2Task) EventRule() awsevents.Rule {
 	return returns
 }
 
-func (j *jsiiProxy_ScheduledEc2Task) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_ScheduledEc2Task) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -7471,7 +5731,7 @@ func NewScheduledEc2Task(scope constructs.Construct, id *string, props *Schedule
 	j := jsiiProxy_ScheduledEc2Task{}
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.ScheduledEc2Task",
+		"aws-cdk-lib.aws_ecs_patterns.ScheduledEc2Task",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7485,21 +5745,23 @@ func NewScheduledEc2Task_Override(s ScheduledEc2Task, scope constructs.Construct
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.ScheduledEc2Task",
+		"aws-cdk-lib.aws_ecs_patterns.ScheduledEc2Task",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func ScheduledEc2Task_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs_patterns.ScheduledEc2Task",
+		"aws-cdk-lib.aws_ecs_patterns.ScheduledEc2Task",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7550,7 +5812,7 @@ func (s *jsiiProxy_ScheduledEc2Task) CreateAWSLogDriver(prefix *string) awsecs.A
 
 // Returns the default cluster.
 // Experimental.
-func (s *jsiiProxy_ScheduledEc2Task) GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster {
+func (s *jsiiProxy_ScheduledEc2Task) GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster {
 	var returns awsecs.Cluster
 
 	_jsii_.Invoke(
@@ -7563,86 +5825,6 @@ func (s *jsiiProxy_ScheduledEc2Task) GetDefaultCluster(scope awscdk.Construct, v
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (s *jsiiProxy_ScheduledEc2Task) OnPrepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (s *jsiiProxy_ScheduledEc2Task) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (s *jsiiProxy_ScheduledEc2Task) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (s *jsiiProxy_ScheduledEc2Task) Prepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (s *jsiiProxy_ScheduledEc2Task) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (s *jsiiProxy_ScheduledEc2Task) ToString() *string {
@@ -7651,26 +5833,6 @@ func (s *jsiiProxy_ScheduledEc2Task) ToString() *string {
 	_jsii_.Invoke(
 		s,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (s *jsiiProxy_ScheduledEc2Task) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -7786,20 +5948,14 @@ type ScheduledFargateTask interface {
 	Cluster() awsecs.ICluster
 	DesiredTaskCount() *float64
 	EventRule() awsevents.Rule
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	SubnetSelection() *awsec2.SubnetSelection
 	TaskDefinition() awsecs.FargateTaskDefinition
 	AddTaskAsTarget(ecsTaskTarget awseventstargets.EcsTask)
 	AddTaskDefinitionToEventTarget(taskDefinition awsecs.TaskDefinition) awseventstargets.EcsTask
 	CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver
-	GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
+	GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for ScheduledFargateTask
@@ -7837,8 +5993,8 @@ func (j *jsiiProxy_ScheduledFargateTask) EventRule() awsevents.Rule {
 	return returns
 }
 
-func (j *jsiiProxy_ScheduledFargateTask) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_ScheduledFargateTask) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -7876,7 +6032,7 @@ func NewScheduledFargateTask(scope constructs.Construct, id *string, props *Sche
 	j := jsiiProxy_ScheduledFargateTask{}
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.ScheduledFargateTask",
+		"aws-cdk-lib.aws_ecs_patterns.ScheduledFargateTask",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7890,21 +6046,23 @@ func NewScheduledFargateTask_Override(s ScheduledFargateTask, scope constructs.C
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.ScheduledFargateTask",
+		"aws-cdk-lib.aws_ecs_patterns.ScheduledFargateTask",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func ScheduledFargateTask_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs_patterns.ScheduledFargateTask",
+		"aws-cdk-lib.aws_ecs_patterns.ScheduledFargateTask",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7955,7 +6113,7 @@ func (s *jsiiProxy_ScheduledFargateTask) CreateAWSLogDriver(prefix *string) awse
 
 // Returns the default cluster.
 // Experimental.
-func (s *jsiiProxy_ScheduledFargateTask) GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster {
+func (s *jsiiProxy_ScheduledFargateTask) GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster {
 	var returns awsecs.Cluster
 
 	_jsii_.Invoke(
@@ -7968,86 +6126,6 @@ func (s *jsiiProxy_ScheduledFargateTask) GetDefaultCluster(scope awscdk.Construc
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (s *jsiiProxy_ScheduledFargateTask) OnPrepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (s *jsiiProxy_ScheduledFargateTask) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (s *jsiiProxy_ScheduledFargateTask) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (s *jsiiProxy_ScheduledFargateTask) Prepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (s *jsiiProxy_ScheduledFargateTask) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (s *jsiiProxy_ScheduledFargateTask) ToString() *string {
@@ -8056,26 +6134,6 @@ func (s *jsiiProxy_ScheduledFargateTask) ToString() *string {
 	_jsii_.Invoke(
 		s,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (s *jsiiProxy_ScheduledFargateTask) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -8196,28 +6254,22 @@ type ScheduledFargateTaskProps struct {
 // The base class for ScheduledEc2Task and ScheduledFargateTask tasks.
 // Experimental.
 type ScheduledTaskBase interface {
-	awscdk.Construct
+	constructs.Construct
 	Cluster() awsecs.ICluster
 	DesiredTaskCount() *float64
 	EventRule() awsevents.Rule
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	SubnetSelection() *awsec2.SubnetSelection
 	AddTaskAsTarget(ecsTaskTarget awseventstargets.EcsTask)
 	AddTaskDefinitionToEventTarget(taskDefinition awsecs.TaskDefinition) awseventstargets.EcsTask
 	CreateAWSLogDriver(prefix *string) awsecs.AwsLogDriver
-	GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
+	GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for ScheduledTaskBase
 type jsiiProxy_ScheduledTaskBase struct {
-	internal.Type__awscdkConstruct
+	internal.Type__constructsConstruct
 }
 
 func (j *jsiiProxy_ScheduledTaskBase) Cluster() awsecs.ICluster {
@@ -8250,8 +6302,8 @@ func (j *jsiiProxy_ScheduledTaskBase) EventRule() awsevents.Rule {
 	return returns
 }
 
-func (j *jsiiProxy_ScheduledTaskBase) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_ScheduledTaskBase) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -8277,21 +6329,23 @@ func NewScheduledTaskBase_Override(s ScheduledTaskBase, scope constructs.Constru
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ecs_patterns.ScheduledTaskBase",
+		"aws-cdk-lib.aws_ecs_patterns.ScheduledTaskBase",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func ScheduledTaskBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ecs_patterns.ScheduledTaskBase",
+		"aws-cdk-lib.aws_ecs_patterns.ScheduledTaskBase",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -8342,7 +6396,7 @@ func (s *jsiiProxy_ScheduledTaskBase) CreateAWSLogDriver(prefix *string) awsecs.
 
 // Returns the default cluster.
 // Experimental.
-func (s *jsiiProxy_ScheduledTaskBase) GetDefaultCluster(scope awscdk.Construct, vpc awsec2.IVpc) awsecs.Cluster {
+func (s *jsiiProxy_ScheduledTaskBase) GetDefaultCluster(scope constructs.Construct, vpc awsec2.IVpc) awsecs.Cluster {
 	var returns awsecs.Cluster
 
 	_jsii_.Invoke(
@@ -8355,86 +6409,6 @@ func (s *jsiiProxy_ScheduledTaskBase) GetDefaultCluster(scope awscdk.Construct, 
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (s *jsiiProxy_ScheduledTaskBase) OnPrepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (s *jsiiProxy_ScheduledTaskBase) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (s *jsiiProxy_ScheduledTaskBase) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (s *jsiiProxy_ScheduledTaskBase) Prepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (s *jsiiProxy_ScheduledTaskBase) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (s *jsiiProxy_ScheduledTaskBase) ToString() *string {
@@ -8443,26 +6417,6 @@ func (s *jsiiProxy_ScheduledTaskBase) ToString() *string {
 	_jsii_.Invoke(
 		s,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (s *jsiiProxy_ScheduledTaskBase) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

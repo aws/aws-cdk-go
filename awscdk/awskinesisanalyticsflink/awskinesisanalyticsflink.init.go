@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_kinesisanalytics_flink.Application",
+		"aws-cdk-lib.aws_kinesisanalytics_flink.Application",
 		reflect.TypeOf((*Application)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addToRolePolicy", GoMethod: "AddToRolePolicy"},
@@ -21,16 +21,10 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Application{}
@@ -40,7 +34,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_kinesisanalytics_flink.ApplicationCode",
+		"aws-cdk-lib.aws_kinesisanalytics_flink.ApplicationCode",
 		reflect.TypeOf((*ApplicationCode)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -50,15 +44,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalytics_flink.ApplicationCodeConfig",
+		"aws-cdk-lib.aws_kinesisanalytics_flink.ApplicationCodeConfig",
 		reflect.TypeOf((*ApplicationCodeConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalytics_flink.ApplicationProps",
+		"aws-cdk-lib.aws_kinesisanalytics_flink.ApplicationProps",
 		reflect.TypeOf((*ApplicationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_kinesisanalytics_flink.IApplication",
+		"aws-cdk-lib.aws_kinesisanalytics_flink.IApplication",
 		reflect.TypeOf((*IApplication)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addToRolePolicy", GoMethod: "AddToRolePolicy"},
@@ -78,7 +72,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_kinesisanalytics_flink.LogLevel",
+		"aws-cdk-lib.aws_kinesisanalytics_flink.LogLevel",
 		reflect.TypeOf((*LogLevel)(nil)).Elem(),
 		map[string]interface{}{
 			"DEBUG": LogLevel_DEBUG,
@@ -88,7 +82,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_kinesisanalytics_flink.MetricsLevel",
+		"aws-cdk-lib.aws_kinesisanalytics_flink.MetricsLevel",
 		reflect.TypeOf((*MetricsLevel)(nil)).Elem(),
 		map[string]interface{}{
 			"APPLICATION": MetricsLevel_APPLICATION,
@@ -98,11 +92,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kinesisanalytics_flink.PropertyGroups",
+		"aws-cdk-lib.aws_kinesisanalytics_flink.PropertyGroups",
 		reflect.TypeOf((*PropertyGroups)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_kinesisanalytics_flink.Runtime",
+		"aws-cdk-lib.aws_kinesisanalytics_flink.Runtime",
 		reflect.TypeOf((*Runtime)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},

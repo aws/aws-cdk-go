@@ -1,12 +1,12 @@
 package awsacmpca
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsacmpca/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsacmpca/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Defines a Certificate for ACMPCA.
@@ -27,7 +27,7 @@ func CertificateAuthority_FromCertificateAuthorityArn(scope constructs.Construct
 	var returns ICertificateAuthority
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_acmpca.CertificateAuthority",
+		"aws-cdk-lib.aws_acmpca.CertificateAuthority",
 		"fromCertificateAuthorityArn",
 		[]interface{}{scope, id, certificateAuthorityArn},
 		&returns,
@@ -53,7 +53,7 @@ type CfnCertificate interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Ref() *string
 	SigningAlgorithm() *string
 	SetSigningAlgorithm(val *string)
@@ -75,16 +75,10 @@ type CfnCertificate interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -194,8 +188,8 @@ func (j *jsiiProxy_CfnCertificate) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCertificate) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnCertificate) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -276,13 +270,13 @@ func (j *jsiiProxy_CfnCertificate) ValidityNotBefore() interface{} {
 
 
 // Create a new `AWS::ACMPCA::Certificate`.
-func NewCfnCertificate(scope awscdk.Construct, id *string, props *CfnCertificateProps) CfnCertificate {
+func NewCfnCertificate(scope constructs.Construct, id *string, props *CfnCertificateProps) CfnCertificate {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnCertificate{}
 
 	_jsii_.Create(
-		"monocdk.aws_acmpca.CfnCertificate",
+		"aws-cdk-lib.aws_acmpca.CfnCertificate",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -291,11 +285,11 @@ func NewCfnCertificate(scope awscdk.Construct, id *string, props *CfnCertificate
 }
 
 // Create a new `AWS::ACMPCA::Certificate`.
-func NewCfnCertificate_Override(c CfnCertificate, scope awscdk.Construct, id *string, props *CfnCertificateProps) {
+func NewCfnCertificate_Override(c CfnCertificate, scope constructs.Construct, id *string, props *CfnCertificateProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_acmpca.CfnCertificate",
+		"aws-cdk-lib.aws_acmpca.CfnCertificate",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -370,7 +364,7 @@ func CfnCertificate_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_acmpca.CfnCertificate",
+		"aws-cdk-lib.aws_acmpca.CfnCertificate",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -387,7 +381,7 @@ func CfnCertificate_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_acmpca.CfnCertificate",
+		"aws-cdk-lib.aws_acmpca.CfnCertificate",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -396,15 +390,17 @@ func CfnCertificate_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnCertificate_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_acmpca.CfnCertificate",
+		"aws-cdk-lib.aws_acmpca.CfnCertificate",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -417,7 +413,7 @@ func CfnCertificate_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_acmpca.CfnCertificate",
+		"aws-cdk-lib.aws_acmpca.CfnCertificate",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -590,56 +586,6 @@ func (c *jsiiProxy_CfnCertificate) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnCertificate) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnCertificate) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnCertificate) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnCertificate) OverrideLogicalId(newLogicalId *string) {
@@ -647,23 +593,6 @@ func (c *jsiiProxy_CfnCertificate) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnCertificate) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -698,19 +627,6 @@ func (c *jsiiProxy_CfnCertificate) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnCertificate) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -721,26 +637,6 @@ func (c *jsiiProxy_CfnCertificate) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnCertificate) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -928,7 +824,7 @@ type CfnCertificateAuthority interface {
 	KeyAlgorithm() *string
 	SetKeyAlgorithm(val *string)
 	LogicalId() *string
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Ref() *string
 	RevocationConfiguration() interface{}
 	SetRevocationConfiguration(val interface{})
@@ -951,16 +847,10 @@ type CfnCertificateAuthority interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1060,8 +950,8 @@ func (j *jsiiProxy_CfnCertificateAuthority) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCertificateAuthority) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnCertificateAuthority) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1152,13 +1042,13 @@ func (j *jsiiProxy_CfnCertificateAuthority) UpdatedProperites() *map[string]inte
 
 
 // Create a new `AWS::ACMPCA::CertificateAuthority`.
-func NewCfnCertificateAuthority(scope awscdk.Construct, id *string, props *CfnCertificateAuthorityProps) CfnCertificateAuthority {
+func NewCfnCertificateAuthority(scope constructs.Construct, id *string, props *CfnCertificateAuthorityProps) CfnCertificateAuthority {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnCertificateAuthority{}
 
 	_jsii_.Create(
-		"monocdk.aws_acmpca.CfnCertificateAuthority",
+		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthority",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1167,11 +1057,11 @@ func NewCfnCertificateAuthority(scope awscdk.Construct, id *string, props *CfnCe
 }
 
 // Create a new `AWS::ACMPCA::CertificateAuthority`.
-func NewCfnCertificateAuthority_Override(c CfnCertificateAuthority, scope awscdk.Construct, id *string, props *CfnCertificateAuthorityProps) {
+func NewCfnCertificateAuthority_Override(c CfnCertificateAuthority, scope constructs.Construct, id *string, props *CfnCertificateAuthorityProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_acmpca.CfnCertificateAuthority",
+		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthority",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1238,7 +1128,7 @@ func CfnCertificateAuthority_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_acmpca.CfnCertificateAuthority",
+		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthority",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1255,7 +1145,7 @@ func CfnCertificateAuthority_IsCfnResource(construct constructs.IConstruct) *boo
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_acmpca.CfnCertificateAuthority",
+		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthority",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1264,15 +1154,17 @@ func CfnCertificateAuthority_IsCfnResource(construct constructs.IConstruct) *boo
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnCertificateAuthority_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_acmpca.CfnCertificateAuthority",
+		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthority",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1285,7 +1177,7 @@ func CfnCertificateAuthority_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_acmpca.CfnCertificateAuthority",
+		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthority",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1458,56 +1350,6 @@ func (c *jsiiProxy_CfnCertificateAuthority) Inspect(inspector awscdk.TreeInspect
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnCertificateAuthority) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnCertificateAuthority) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnCertificateAuthority) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnCertificateAuthority) OverrideLogicalId(newLogicalId *string) {
@@ -1515,23 +1357,6 @@ func (c *jsiiProxy_CfnCertificateAuthority) OverrideLogicalId(newLogicalId *stri
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnCertificateAuthority) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1566,19 +1391,6 @@ func (c *jsiiProxy_CfnCertificateAuthority) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnCertificateAuthority) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -1589,26 +1401,6 @@ func (c *jsiiProxy_CfnCertificateAuthority) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnCertificateAuthority) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1768,7 +1560,7 @@ type CfnCertificateAuthorityActivation interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Ref() *string
 	Stack() awscdk.Stack
 	Status() *string
@@ -1784,16 +1576,10 @@ type CfnCertificateAuthorityActivation interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1893,8 +1679,8 @@ func (j *jsiiProxy_CfnCertificateAuthorityActivation) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCertificateAuthorityActivation) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnCertificateAuthorityActivation) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1945,13 +1731,13 @@ func (j *jsiiProxy_CfnCertificateAuthorityActivation) UpdatedProperites() *map[s
 
 
 // Create a new `AWS::ACMPCA::CertificateAuthorityActivation`.
-func NewCfnCertificateAuthorityActivation(scope awscdk.Construct, id *string, props *CfnCertificateAuthorityActivationProps) CfnCertificateAuthorityActivation {
+func NewCfnCertificateAuthorityActivation(scope constructs.Construct, id *string, props *CfnCertificateAuthorityActivationProps) CfnCertificateAuthorityActivation {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnCertificateAuthorityActivation{}
 
 	_jsii_.Create(
-		"monocdk.aws_acmpca.CfnCertificateAuthorityActivation",
+		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthorityActivation",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1960,11 +1746,11 @@ func NewCfnCertificateAuthorityActivation(scope awscdk.Construct, id *string, pr
 }
 
 // Create a new `AWS::ACMPCA::CertificateAuthorityActivation`.
-func NewCfnCertificateAuthorityActivation_Override(c CfnCertificateAuthorityActivation, scope awscdk.Construct, id *string, props *CfnCertificateAuthorityActivationProps) {
+func NewCfnCertificateAuthorityActivation_Override(c CfnCertificateAuthorityActivation, scope constructs.Construct, id *string, props *CfnCertificateAuthorityActivationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_acmpca.CfnCertificateAuthorityActivation",
+		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthorityActivation",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2015,7 +1801,7 @@ func CfnCertificateAuthorityActivation_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_acmpca.CfnCertificateAuthorityActivation",
+		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthorityActivation",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2032,7 +1818,7 @@ func CfnCertificateAuthorityActivation_IsCfnResource(construct constructs.IConst
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_acmpca.CfnCertificateAuthorityActivation",
+		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthorityActivation",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2041,15 +1827,17 @@ func CfnCertificateAuthorityActivation_IsCfnResource(construct constructs.IConst
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnCertificateAuthorityActivation_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_acmpca.CfnCertificateAuthorityActivation",
+		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthorityActivation",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2062,7 +1850,7 @@ func CfnCertificateAuthorityActivation_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_acmpca.CfnCertificateAuthorityActivation",
+		"aws-cdk-lib.aws_acmpca.CfnCertificateAuthorityActivation",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2235,56 +2023,6 @@ func (c *jsiiProxy_CfnCertificateAuthorityActivation) Inspect(inspector awscdk.T
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnCertificateAuthorityActivation) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnCertificateAuthorityActivation) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnCertificateAuthorityActivation) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnCertificateAuthorityActivation) OverrideLogicalId(newLogicalId *string) {
@@ -2292,23 +2030,6 @@ func (c *jsiiProxy_CfnCertificateAuthorityActivation) OverrideLogicalId(newLogic
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnCertificateAuthorityActivation) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -2343,19 +2064,6 @@ func (c *jsiiProxy_CfnCertificateAuthorityActivation) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnCertificateAuthorityActivation) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -2366,26 +2074,6 @@ func (c *jsiiProxy_CfnCertificateAuthorityActivation) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnCertificateAuthorityActivation) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

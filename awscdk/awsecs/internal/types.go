@@ -1,10 +1,11 @@
 package internal
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancing"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awsapplicationautoscaling"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancing"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationautoscaling"
 )
 type Type__awscdkResource = awscdk.Resource
 type Type__awselasticloadbalancingILoadBalancerTarget = awselasticloadbalancing.ILoadBalancerTarget
@@ -13,6 +14,6 @@ type Type__awselasticloadbalancingv2INetworkLoadBalancerTarget = awselasticloadb
 type Type__awsec2IMachineImage = awsec2.IMachineImage
 type Type__awscdkCfnResource = awscdk.CfnResource
 type Type__awscdkIInspectable = awscdk.IInspectable
-type Type__awscdkConstruct = awscdk.Construct
+type Type__constructsConstruct = constructs.Construct
 type Type__awscdkIResource = awscdk.IResource
 type Type__awsapplicationautoscalingBaseScalableAttribute = awsapplicationautoscaling.BaseScalableAttribute
