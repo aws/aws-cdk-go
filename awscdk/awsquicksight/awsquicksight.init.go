@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis",
+		"monocdk.aws_quicksight.CfnAnalysis",
 		reflect.TypeOf((*CfnAnalysis)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -37,18 +37,24 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "permissions", GoGetter: "Permissions"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "sourceEntity", GoGetter: "SourceEntity"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "themeArn", GoGetter: "ThemeArn"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -59,55 +65,55 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis.AnalysisErrorProperty",
+		"monocdk.aws_quicksight.CfnAnalysis.AnalysisErrorProperty",
 		reflect.TypeOf((*CfnAnalysis_AnalysisErrorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis.AnalysisSourceEntityProperty",
+		"monocdk.aws_quicksight.CfnAnalysis.AnalysisSourceEntityProperty",
 		reflect.TypeOf((*CfnAnalysis_AnalysisSourceEntityProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis.AnalysisSourceTemplateProperty",
+		"monocdk.aws_quicksight.CfnAnalysis.AnalysisSourceTemplateProperty",
 		reflect.TypeOf((*CfnAnalysis_AnalysisSourceTemplateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis.DataSetReferenceProperty",
+		"monocdk.aws_quicksight.CfnAnalysis.DataSetReferenceProperty",
 		reflect.TypeOf((*CfnAnalysis_DataSetReferenceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis.DateTimeParameterProperty",
+		"monocdk.aws_quicksight.CfnAnalysis.DateTimeParameterProperty",
 		reflect.TypeOf((*CfnAnalysis_DateTimeParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis.DecimalParameterProperty",
+		"monocdk.aws_quicksight.CfnAnalysis.DecimalParameterProperty",
 		reflect.TypeOf((*CfnAnalysis_DecimalParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis.IntegerParameterProperty",
+		"monocdk.aws_quicksight.CfnAnalysis.IntegerParameterProperty",
 		reflect.TypeOf((*CfnAnalysis_IntegerParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis.ParametersProperty",
+		"monocdk.aws_quicksight.CfnAnalysis.ParametersProperty",
 		reflect.TypeOf((*CfnAnalysis_ParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis.ResourcePermissionProperty",
+		"monocdk.aws_quicksight.CfnAnalysis.ResourcePermissionProperty",
 		reflect.TypeOf((*CfnAnalysis_ResourcePermissionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis.SheetProperty",
+		"monocdk.aws_quicksight.CfnAnalysis.SheetProperty",
 		reflect.TypeOf((*CfnAnalysis_SheetProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis.StringParameterProperty",
+		"monocdk.aws_quicksight.CfnAnalysis.StringParameterProperty",
 		reflect.TypeOf((*CfnAnalysis_StringParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysisProps",
+		"monocdk.aws_quicksight.CfnAnalysisProps",
 		reflect.TypeOf((*CfnAnalysisProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard",
+		"monocdk.aws_quicksight.CfnDashboard",
 		reflect.TypeOf((*CfnDashboard)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -134,18 +140,24 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "permissions", GoGetter: "Permissions"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "sourceEntity", GoGetter: "SourceEntity"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "themeArn", GoGetter: "ThemeArn"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "versionDescription", GoGetter: "VersionDescription"},
 		},
@@ -157,63 +169,63 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard.AdHocFilteringOptionProperty",
+		"monocdk.aws_quicksight.CfnDashboard.AdHocFilteringOptionProperty",
 		reflect.TypeOf((*CfnDashboard_AdHocFilteringOptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard.DashboardPublishOptionsProperty",
+		"monocdk.aws_quicksight.CfnDashboard.DashboardPublishOptionsProperty",
 		reflect.TypeOf((*CfnDashboard_DashboardPublishOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard.DashboardSourceEntityProperty",
+		"monocdk.aws_quicksight.CfnDashboard.DashboardSourceEntityProperty",
 		reflect.TypeOf((*CfnDashboard_DashboardSourceEntityProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard.DashboardSourceTemplateProperty",
+		"monocdk.aws_quicksight.CfnDashboard.DashboardSourceTemplateProperty",
 		reflect.TypeOf((*CfnDashboard_DashboardSourceTemplateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard.DataSetReferenceProperty",
+		"monocdk.aws_quicksight.CfnDashboard.DataSetReferenceProperty",
 		reflect.TypeOf((*CfnDashboard_DataSetReferenceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard.DateTimeParameterProperty",
+		"monocdk.aws_quicksight.CfnDashboard.DateTimeParameterProperty",
 		reflect.TypeOf((*CfnDashboard_DateTimeParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard.DecimalParameterProperty",
+		"monocdk.aws_quicksight.CfnDashboard.DecimalParameterProperty",
 		reflect.TypeOf((*CfnDashboard_DecimalParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard.ExportToCSVOptionProperty",
+		"monocdk.aws_quicksight.CfnDashboard.ExportToCSVOptionProperty",
 		reflect.TypeOf((*CfnDashboard_ExportToCSVOptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard.IntegerParameterProperty",
+		"monocdk.aws_quicksight.CfnDashboard.IntegerParameterProperty",
 		reflect.TypeOf((*CfnDashboard_IntegerParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard.ParametersProperty",
+		"monocdk.aws_quicksight.CfnDashboard.ParametersProperty",
 		reflect.TypeOf((*CfnDashboard_ParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard.ResourcePermissionProperty",
+		"monocdk.aws_quicksight.CfnDashboard.ResourcePermissionProperty",
 		reflect.TypeOf((*CfnDashboard_ResourcePermissionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard.SheetControlsOptionProperty",
+		"monocdk.aws_quicksight.CfnDashboard.SheetControlsOptionProperty",
 		reflect.TypeOf((*CfnDashboard_SheetControlsOptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard.StringParameterProperty",
+		"monocdk.aws_quicksight.CfnDashboard.StringParameterProperty",
 		reflect.TypeOf((*CfnDashboard_StringParameterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnDashboardProps",
+		"monocdk.aws_quicksight.CfnDashboardProps",
 		reflect.TypeOf((*CfnDashboardProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_quicksight.CfnTemplate",
+		"monocdk.aws_quicksight.CfnTemplate",
 		reflect.TypeOf((*CfnTemplate)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -237,17 +249,23 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "permissions", GoGetter: "Permissions"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "sourceEntity", GoGetter: "SourceEntity"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "templateId", GoGetter: "TemplateId"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "versionDescription", GoGetter: "VersionDescription"},
 		},
@@ -259,31 +277,31 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnTemplate.DataSetReferenceProperty",
+		"monocdk.aws_quicksight.CfnTemplate.DataSetReferenceProperty",
 		reflect.TypeOf((*CfnTemplate_DataSetReferenceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnTemplate.ResourcePermissionProperty",
+		"monocdk.aws_quicksight.CfnTemplate.ResourcePermissionProperty",
 		reflect.TypeOf((*CfnTemplate_ResourcePermissionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnTemplate.TemplateSourceAnalysisProperty",
+		"monocdk.aws_quicksight.CfnTemplate.TemplateSourceAnalysisProperty",
 		reflect.TypeOf((*CfnTemplate_TemplateSourceAnalysisProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnTemplate.TemplateSourceEntityProperty",
+		"monocdk.aws_quicksight.CfnTemplate.TemplateSourceEntityProperty",
 		reflect.TypeOf((*CfnTemplate_TemplateSourceEntityProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnTemplate.TemplateSourceTemplateProperty",
+		"monocdk.aws_quicksight.CfnTemplate.TemplateSourceTemplateProperty",
 		reflect.TypeOf((*CfnTemplate_TemplateSourceTemplateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnTemplateProps",
+		"monocdk.aws_quicksight.CfnTemplateProps",
 		reflect.TypeOf((*CfnTemplateProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_quicksight.CfnTheme",
+		"monocdk.aws_quicksight.CfnTheme",
 		reflect.TypeOf((*CfnTheme)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -310,16 +328,22 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "permissions", GoGetter: "Permissions"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "themeId", GoGetter: "ThemeId"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "versionDescription", GoGetter: "VersionDescription"},
 		},
@@ -331,55 +355,55 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnTheme.BorderStyleProperty",
+		"monocdk.aws_quicksight.CfnTheme.BorderStyleProperty",
 		reflect.TypeOf((*CfnTheme_BorderStyleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnTheme.DataColorPaletteProperty",
+		"monocdk.aws_quicksight.CfnTheme.DataColorPaletteProperty",
 		reflect.TypeOf((*CfnTheme_DataColorPaletteProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnTheme.FontProperty",
+		"monocdk.aws_quicksight.CfnTheme.FontProperty",
 		reflect.TypeOf((*CfnTheme_FontProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnTheme.GutterStyleProperty",
+		"monocdk.aws_quicksight.CfnTheme.GutterStyleProperty",
 		reflect.TypeOf((*CfnTheme_GutterStyleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnTheme.MarginStyleProperty",
+		"monocdk.aws_quicksight.CfnTheme.MarginStyleProperty",
 		reflect.TypeOf((*CfnTheme_MarginStyleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnTheme.ResourcePermissionProperty",
+		"monocdk.aws_quicksight.CfnTheme.ResourcePermissionProperty",
 		reflect.TypeOf((*CfnTheme_ResourcePermissionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnTheme.SheetStyleProperty",
+		"monocdk.aws_quicksight.CfnTheme.SheetStyleProperty",
 		reflect.TypeOf((*CfnTheme_SheetStyleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnTheme.ThemeConfigurationProperty",
+		"monocdk.aws_quicksight.CfnTheme.ThemeConfigurationProperty",
 		reflect.TypeOf((*CfnTheme_ThemeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnTheme.TileLayoutStyleProperty",
+		"monocdk.aws_quicksight.CfnTheme.TileLayoutStyleProperty",
 		reflect.TypeOf((*CfnTheme_TileLayoutStyleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnTheme.TileStyleProperty",
+		"monocdk.aws_quicksight.CfnTheme.TileStyleProperty",
 		reflect.TypeOf((*CfnTheme_TileStyleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnTheme.TypographyProperty",
+		"monocdk.aws_quicksight.CfnTheme.TypographyProperty",
 		reflect.TypeOf((*CfnTheme_TypographyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnTheme.UIColorPaletteProperty",
+		"monocdk.aws_quicksight.CfnTheme.UIColorPaletteProperty",
 		reflect.TypeOf((*CfnTheme_UIColorPaletteProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_quicksight.CfnThemeProps",
+		"monocdk.aws_quicksight.CfnThemeProps",
 		reflect.TypeOf((*CfnThemeProps)(nil)).Elem(),
 	)
 }

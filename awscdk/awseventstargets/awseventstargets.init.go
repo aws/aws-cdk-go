@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_events_targets.AwsApi",
+		"monocdk.aws_events_targets.AwsApi",
 		reflect.TypeOf((*AwsApi)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -20,15 +20,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_events_targets.AwsApiInput",
+		"monocdk.aws_events_targets.AwsApiInput",
 		reflect.TypeOf((*AwsApiInput)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_events_targets.AwsApiProps",
+		"monocdk.aws_events_targets.AwsApiProps",
 		reflect.TypeOf((*AwsApiProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_events_targets.BatchJob",
+		"monocdk.aws_events_targets.BatchJob",
 		reflect.TypeOf((*BatchJob)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -40,11 +40,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_events_targets.BatchJobProps",
+		"monocdk.aws_events_targets.BatchJobProps",
 		reflect.TypeOf((*BatchJobProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_events_targets.CloudWatchLogGroup",
+		"monocdk.aws_events_targets.CloudWatchLogGroup",
 		reflect.TypeOf((*CloudWatchLogGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -56,7 +56,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_events_targets.CodeBuildProject",
+		"monocdk.aws_events_targets.CodeBuildProject",
 		reflect.TypeOf((*CodeBuildProject)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -68,11 +68,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_events_targets.CodeBuildProjectProps",
+		"monocdk.aws_events_targets.CodeBuildProjectProps",
 		reflect.TypeOf((*CodeBuildProjectProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_events_targets.CodePipeline",
+		"monocdk.aws_events_targets.CodePipeline",
 		reflect.TypeOf((*CodePipeline)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -84,15 +84,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_events_targets.CodePipelineTargetOptions",
+		"monocdk.aws_events_targets.CodePipelineTargetOptions",
 		reflect.TypeOf((*CodePipelineTargetOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_events_targets.ContainerOverride",
+		"monocdk.aws_events_targets.ContainerOverride",
 		reflect.TypeOf((*ContainerOverride)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_events_targets.EcsTask",
+		"monocdk.aws_events_targets.EcsTask",
 		reflect.TypeOf((*EcsTask)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -106,11 +106,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_events_targets.EcsTaskProps",
+		"monocdk.aws_events_targets.EcsTaskProps",
 		reflect.TypeOf((*EcsTaskProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_events_targets.EventBus",
+		"monocdk.aws_events_targets.EventBus",
 		reflect.TypeOf((*EventBus)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -122,11 +122,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_events_targets.EventBusProps",
+		"monocdk.aws_events_targets.EventBusProps",
 		reflect.TypeOf((*EventBusProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_events_targets.KinesisFirehoseStream",
+		"monocdk.aws_events_targets.KinesisFirehoseStream",
 		reflect.TypeOf((*KinesisFirehoseStream)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -138,11 +138,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_events_targets.KinesisFirehoseStreamProps",
+		"monocdk.aws_events_targets.KinesisFirehoseStreamProps",
 		reflect.TypeOf((*KinesisFirehoseStreamProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_events_targets.KinesisStream",
+		"monocdk.aws_events_targets.KinesisStream",
 		reflect.TypeOf((*KinesisStream)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -154,11 +154,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_events_targets.KinesisStreamProps",
+		"monocdk.aws_events_targets.KinesisStreamProps",
 		reflect.TypeOf((*KinesisStreamProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_events_targets.LambdaFunction",
+		"monocdk.aws_events_targets.LambdaFunction",
 		reflect.TypeOf((*LambdaFunction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -170,15 +170,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_events_targets.LambdaFunctionProps",
+		"monocdk.aws_events_targets.LambdaFunctionProps",
 		reflect.TypeOf((*LambdaFunctionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_events_targets.LogGroupProps",
+		"monocdk.aws_events_targets.LogGroupProps",
 		reflect.TypeOf((*LogGroupProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_events_targets.SfnStateMachine",
+		"monocdk.aws_events_targets.SfnStateMachine",
 		reflect.TypeOf((*SfnStateMachine)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -191,11 +191,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_events_targets.SfnStateMachineProps",
+		"monocdk.aws_events_targets.SfnStateMachineProps",
 		reflect.TypeOf((*SfnStateMachineProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_events_targets.SnsTopic",
+		"monocdk.aws_events_targets.SnsTopic",
 		reflect.TypeOf((*SnsTopic)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -208,11 +208,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_events_targets.SnsTopicProps",
+		"monocdk.aws_events_targets.SnsTopicProps",
 		reflect.TypeOf((*SnsTopicProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_events_targets.SqsQueue",
+		"monocdk.aws_events_targets.SqsQueue",
 		reflect.TypeOf((*SqsQueue)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -225,15 +225,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_events_targets.SqsQueueProps",
+		"monocdk.aws_events_targets.SqsQueueProps",
 		reflect.TypeOf((*SqsQueueProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_events_targets.TargetBaseProps",
+		"monocdk.aws_events_targets.TargetBaseProps",
 		reflect.TypeOf((*TargetBaseProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_events_targets.TaskEnvironmentVariable",
+		"monocdk.aws_events_targets.TaskEnvironmentVariable",
 		reflect.TypeOf((*TaskEnvironmentVariable)(nil)).Elem(),
 	)
 }

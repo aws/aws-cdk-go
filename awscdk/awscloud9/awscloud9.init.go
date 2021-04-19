@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloud9.CfnEnvironmentEC2",
+		"monocdk.aws_cloud9.CfnEnvironmentEC2",
 		reflect.TypeOf((*CfnEnvironmentEC2)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -35,17 +35,23 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "ownerArn", GoGetter: "OwnerArn"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "repositories", GoGetter: "Repositories"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetId", GoGetter: "SubnetId"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -56,15 +62,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloud9.CfnEnvironmentEC2.RepositoryProperty",
+		"monocdk.aws_cloud9.CfnEnvironmentEC2.RepositoryProperty",
 		reflect.TypeOf((*CfnEnvironmentEC2_RepositoryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloud9.CfnEnvironmentEC2Props",
+		"monocdk.aws_cloud9.CfnEnvironmentEC2Props",
 		reflect.TypeOf((*CfnEnvironmentEC2Props)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloud9.CloneRepository",
+		"monocdk.aws_cloud9.CloneRepository",
 		reflect.TypeOf((*CloneRepository)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "pathComponent", GoGetter: "PathComponent"},
@@ -75,7 +81,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_cloud9.Ec2Environment",
+		"monocdk.aws_cloud9.Ec2Environment",
 		reflect.TypeOf((*Ec2Environment)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -88,9 +94,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "ideUrl", GoGetter: "IdeUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberProperty{JsiiProperty: "vpc", GoGetter: "Vpc"},
 		},
 		func() interface{} {
@@ -101,11 +113,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloud9.Ec2EnvironmentProps",
+		"monocdk.aws_cloud9.Ec2EnvironmentProps",
 		reflect.TypeOf((*Ec2EnvironmentProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_cloud9.IEc2Environment",
+		"monocdk.aws_cloud9.IEc2Environment",
 		reflect.TypeOf((*IEc2Environment)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "ec2EnvironmentArn", GoGetter: "Ec2EnvironmentArn"},

@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_amplify.App",
+		"monocdk.aws_amplify.App",
 		reflect.TypeOf((*App)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addAutoBranchEnvironment", GoMethod: "AddAutoBranchEnvironment"},
@@ -27,9 +27,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_App{}
@@ -40,15 +46,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_amplify.AppProps",
+		"monocdk.aws_amplify.AppProps",
 		reflect.TypeOf((*AppProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_amplify.AutoBranchCreation",
+		"monocdk.aws_amplify.AutoBranchCreation",
 		reflect.TypeOf((*AutoBranchCreation)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_amplify.BasicAuth",
+		"monocdk.aws_amplify.BasicAuth",
 		reflect.TypeOf((*BasicAuth)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -58,15 +64,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_amplify.BasicAuthConfig",
+		"monocdk.aws_amplify.BasicAuthConfig",
 		reflect.TypeOf((*BasicAuthConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_amplify.BasicAuthProps",
+		"monocdk.aws_amplify.BasicAuthProps",
 		reflect.TypeOf((*BasicAuthProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_amplify.Branch",
+		"monocdk.aws_amplify.Branch",
 		reflect.TypeOf((*Branch)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addEnvironment", GoMethod: "AddEnvironment"},
@@ -78,9 +84,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Branch{}
@@ -90,15 +102,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_amplify.BranchOptions",
+		"monocdk.aws_amplify.BranchOptions",
 		reflect.TypeOf((*BranchOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_amplify.BranchProps",
+		"monocdk.aws_amplify.BranchProps",
 		reflect.TypeOf((*BranchProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_amplify.CfnApp",
+		"monocdk.aws_amplify.CfnApp",
 		reflect.TypeOf((*CfnApp)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "accessToken", GoGetter: "AccessToken"},
@@ -133,15 +145,21 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "oauthToken", GoGetter: "OauthToken"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "repository", GoGetter: "Repository"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -152,27 +170,27 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_amplify.CfnApp.AutoBranchCreationConfigProperty",
+		"monocdk.aws_amplify.CfnApp.AutoBranchCreationConfigProperty",
 		reflect.TypeOf((*CfnApp_AutoBranchCreationConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_amplify.CfnApp.BasicAuthConfigProperty",
+		"monocdk.aws_amplify.CfnApp.BasicAuthConfigProperty",
 		reflect.TypeOf((*CfnApp_BasicAuthConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_amplify.CfnApp.CustomRuleProperty",
+		"monocdk.aws_amplify.CfnApp.CustomRuleProperty",
 		reflect.TypeOf((*CfnApp_CustomRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_amplify.CfnApp.EnvironmentVariableProperty",
+		"monocdk.aws_amplify.CfnApp.EnvironmentVariableProperty",
 		reflect.TypeOf((*CfnApp_EnvironmentVariableProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_amplify.CfnAppProps",
+		"monocdk.aws_amplify.CfnAppProps",
 		reflect.TypeOf((*CfnAppProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_amplify.CfnBranch",
+		"monocdk.aws_amplify.CfnBranch",
 		reflect.TypeOf((*CfnBranch)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -202,16 +220,22 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "pullRequestEnvironmentName", GoGetter: "PullRequestEnvironmentName"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "stage", GoGetter: "Stage"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -222,19 +246,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_amplify.CfnBranch.BasicAuthConfigProperty",
+		"monocdk.aws_amplify.CfnBranch.BasicAuthConfigProperty",
 		reflect.TypeOf((*CfnBranch_BasicAuthConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_amplify.CfnBranch.EnvironmentVariableProperty",
+		"monocdk.aws_amplify.CfnBranch.EnvironmentVariableProperty",
 		reflect.TypeOf((*CfnBranch_EnvironmentVariableProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_amplify.CfnBranchProps",
+		"monocdk.aws_amplify.CfnBranchProps",
 		reflect.TypeOf((*CfnBranchProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_amplify.CfnDomain",
+		"monocdk.aws_amplify.CfnDomain",
 		reflect.TypeOf((*CfnDomain)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -266,14 +290,20 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subDomainSettings", GoGetter: "SubDomainSettings"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -284,15 +314,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_amplify.CfnDomain.SubDomainSettingProperty",
+		"monocdk.aws_amplify.CfnDomain.SubDomainSettingProperty",
 		reflect.TypeOf((*CfnDomain_SubDomainSettingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_amplify.CfnDomainProps",
+		"monocdk.aws_amplify.CfnDomainProps",
 		reflect.TypeOf((*CfnDomainProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_amplify.CodeCommitSourceCodeProvider",
+		"monocdk.aws_amplify.CodeCommitSourceCodeProvider",
 		reflect.TypeOf((*CodeCommitSourceCodeProvider)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -304,11 +334,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_amplify.CodeCommitSourceCodeProviderProps",
+		"monocdk.aws_amplify.CodeCommitSourceCodeProviderProps",
 		reflect.TypeOf((*CodeCommitSourceCodeProviderProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_amplify.CustomRule",
+		"monocdk.aws_amplify.CustomRule",
 		reflect.TypeOf((*CustomRule)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "condition", GoGetter: "Condition"},
@@ -321,11 +351,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_amplify.CustomRuleOptions",
+		"monocdk.aws_amplify.CustomRuleOptions",
 		reflect.TypeOf((*CustomRuleOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_amplify.Domain",
+		"monocdk.aws_amplify.Domain",
 		reflect.TypeOf((*Domain)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -343,10 +373,16 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "mapRoot", GoMethod: "MapRoot"},
 			_jsii_.MemberMethod{JsiiMethod: "mapSubDomain", GoMethod: "MapSubDomain"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "statusReason", GoGetter: "StatusReason"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Domain{}
@@ -355,15 +391,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_amplify.DomainOptions",
+		"monocdk.aws_amplify.DomainOptions",
 		reflect.TypeOf((*DomainOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_amplify.DomainProps",
+		"monocdk.aws_amplify.DomainProps",
 		reflect.TypeOf((*DomainProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_amplify.GitHubSourceCodeProvider",
+		"monocdk.aws_amplify.GitHubSourceCodeProvider",
 		reflect.TypeOf((*GitHubSourceCodeProvider)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -375,11 +411,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_amplify.GitHubSourceCodeProviderProps",
+		"monocdk.aws_amplify.GitHubSourceCodeProviderProps",
 		reflect.TypeOf((*GitHubSourceCodeProviderProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_amplify.GitLabSourceCodeProvider",
+		"monocdk.aws_amplify.GitLabSourceCodeProvider",
 		reflect.TypeOf((*GitLabSourceCodeProvider)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -391,11 +427,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_amplify.GitLabSourceCodeProviderProps",
+		"monocdk.aws_amplify.GitLabSourceCodeProviderProps",
 		reflect.TypeOf((*GitLabSourceCodeProviderProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_amplify.IApp",
+		"monocdk.aws_amplify.IApp",
 		reflect.TypeOf((*IApp)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "appId", GoGetter: "AppId"},
@@ -410,7 +446,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_amplify.IBranch",
+		"monocdk.aws_amplify.IBranch",
 		reflect.TypeOf((*IBranch)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "branchName", GoGetter: "BranchName"},
@@ -425,7 +461,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_amplify.ISourceCodeProvider",
+		"monocdk.aws_amplify.ISourceCodeProvider",
 		reflect.TypeOf((*ISourceCodeProvider)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -435,7 +471,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_amplify.RedirectStatus",
+		"monocdk.aws_amplify.RedirectStatus",
 		reflect.TypeOf((*RedirectStatus)(nil)).Elem(),
 		map[string]interface{}{
 			"REWRITE": RedirectStatus_REWRITE,
@@ -446,11 +482,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_amplify.SourceCodeProviderConfig",
+		"monocdk.aws_amplify.SourceCodeProviderConfig",
 		reflect.TypeOf((*SourceCodeProviderConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_amplify.SubDomain",
+		"monocdk.aws_amplify.SubDomain",
 		reflect.TypeOf((*SubDomain)(nil)).Elem(),
 	)
 }

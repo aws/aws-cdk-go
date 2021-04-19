@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_batch.AllocationStrategy",
+		"monocdk.aws_batch.AllocationStrategy",
 		reflect.TypeOf((*AllocationStrategy)(nil)).Elem(),
 		map[string]interface{}{
 			"BEST_FIT": AllocationStrategy_BEST_FIT,
@@ -17,7 +17,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_batch.CfnComputeEnvironment",
+		"monocdk.aws_batch.CfnComputeEnvironment",
 		reflect.TypeOf((*CfnComputeEnvironment)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -38,17 +38,23 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "serviceRole", GoGetter: "ServiceRole"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "state", GoGetter: "State"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -59,23 +65,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnComputeEnvironment.ComputeResourcesProperty",
+		"monocdk.aws_batch.CfnComputeEnvironment.ComputeResourcesProperty",
 		reflect.TypeOf((*CfnComputeEnvironment_ComputeResourcesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnComputeEnvironment.Ec2ConfigurationObjectProperty",
+		"monocdk.aws_batch.CfnComputeEnvironment.Ec2ConfigurationObjectProperty",
 		reflect.TypeOf((*CfnComputeEnvironment_Ec2ConfigurationObjectProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnComputeEnvironment.LaunchTemplateSpecificationProperty",
+		"monocdk.aws_batch.CfnComputeEnvironment.LaunchTemplateSpecificationProperty",
 		reflect.TypeOf((*CfnComputeEnvironment_LaunchTemplateSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnComputeEnvironmentProps",
+		"monocdk.aws_batch.CfnComputeEnvironmentProps",
 		reflect.TypeOf((*CfnComputeEnvironmentProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_batch.CfnJobDefinition",
+		"monocdk.aws_batch.CfnJobDefinition",
 		reflect.TypeOf((*CfnJobDefinition)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -97,20 +103,26 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "nodeProperties", GoGetter: "NodeProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "platformCapabilities", GoGetter: "PlatformCapabilities"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "propagateTags", GoGetter: "PropagateTags"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "retryStrategy", GoGetter: "RetryStrategy"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "timeout", GoGetter: "Timeout"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -121,87 +133,87 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnJobDefinition.ContainerPropertiesProperty",
+		"monocdk.aws_batch.CfnJobDefinition.ContainerPropertiesProperty",
 		reflect.TypeOf((*CfnJobDefinition_ContainerPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnJobDefinition.DeviceProperty",
+		"monocdk.aws_batch.CfnJobDefinition.DeviceProperty",
 		reflect.TypeOf((*CfnJobDefinition_DeviceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnJobDefinition.EnvironmentProperty",
+		"monocdk.aws_batch.CfnJobDefinition.EnvironmentProperty",
 		reflect.TypeOf((*CfnJobDefinition_EnvironmentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnJobDefinition.EvaluateOnExitProperty",
+		"monocdk.aws_batch.CfnJobDefinition.EvaluateOnExitProperty",
 		reflect.TypeOf((*CfnJobDefinition_EvaluateOnExitProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnJobDefinition.FargatePlatformConfigurationProperty",
+		"monocdk.aws_batch.CfnJobDefinition.FargatePlatformConfigurationProperty",
 		reflect.TypeOf((*CfnJobDefinition_FargatePlatformConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnJobDefinition.LinuxParametersProperty",
+		"monocdk.aws_batch.CfnJobDefinition.LinuxParametersProperty",
 		reflect.TypeOf((*CfnJobDefinition_LinuxParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnJobDefinition.LogConfigurationProperty",
+		"monocdk.aws_batch.CfnJobDefinition.LogConfigurationProperty",
 		reflect.TypeOf((*CfnJobDefinition_LogConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnJobDefinition.MountPointsProperty",
+		"monocdk.aws_batch.CfnJobDefinition.MountPointsProperty",
 		reflect.TypeOf((*CfnJobDefinition_MountPointsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnJobDefinition.NetworkConfigurationProperty",
+		"monocdk.aws_batch.CfnJobDefinition.NetworkConfigurationProperty",
 		reflect.TypeOf((*CfnJobDefinition_NetworkConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnJobDefinition.NodePropertiesProperty",
+		"monocdk.aws_batch.CfnJobDefinition.NodePropertiesProperty",
 		reflect.TypeOf((*CfnJobDefinition_NodePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnJobDefinition.NodeRangePropertyProperty",
+		"monocdk.aws_batch.CfnJobDefinition.NodeRangePropertyProperty",
 		reflect.TypeOf((*CfnJobDefinition_NodeRangePropertyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnJobDefinition.ResourceRequirementProperty",
+		"monocdk.aws_batch.CfnJobDefinition.ResourceRequirementProperty",
 		reflect.TypeOf((*CfnJobDefinition_ResourceRequirementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnJobDefinition.RetryStrategyProperty",
+		"monocdk.aws_batch.CfnJobDefinition.RetryStrategyProperty",
 		reflect.TypeOf((*CfnJobDefinition_RetryStrategyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnJobDefinition.SecretProperty",
+		"monocdk.aws_batch.CfnJobDefinition.SecretProperty",
 		reflect.TypeOf((*CfnJobDefinition_SecretProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnJobDefinition.TimeoutProperty",
+		"monocdk.aws_batch.CfnJobDefinition.TimeoutProperty",
 		reflect.TypeOf((*CfnJobDefinition_TimeoutProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnJobDefinition.TmpfsProperty",
+		"monocdk.aws_batch.CfnJobDefinition.TmpfsProperty",
 		reflect.TypeOf((*CfnJobDefinition_TmpfsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnJobDefinition.UlimitProperty",
+		"monocdk.aws_batch.CfnJobDefinition.UlimitProperty",
 		reflect.TypeOf((*CfnJobDefinition_UlimitProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnJobDefinition.VolumesHostProperty",
+		"monocdk.aws_batch.CfnJobDefinition.VolumesHostProperty",
 		reflect.TypeOf((*CfnJobDefinition_VolumesHostProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnJobDefinition.VolumesProperty",
+		"monocdk.aws_batch.CfnJobDefinition.VolumesProperty",
 		reflect.TypeOf((*CfnJobDefinition_VolumesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnJobDefinitionProps",
+		"monocdk.aws_batch.CfnJobDefinitionProps",
 		reflect.TypeOf((*CfnJobDefinitionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_batch.CfnJobQueue",
+		"monocdk.aws_batch.CfnJobQueue",
 		reflect.TypeOf((*CfnJobQueue)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -222,16 +234,22 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "jobQueueName", GoGetter: "JobQueueName"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "priority", GoGetter: "Priority"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "state", GoGetter: "State"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -242,15 +260,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnJobQueue.ComputeEnvironmentOrderProperty",
+		"monocdk.aws_batch.CfnJobQueue.ComputeEnvironmentOrderProperty",
 		reflect.TypeOf((*CfnJobQueue_ComputeEnvironmentOrderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.CfnJobQueueProps",
+		"monocdk.aws_batch.CfnJobQueueProps",
 		reflect.TypeOf((*CfnJobQueueProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_batch.ComputeEnvironment",
+		"monocdk.aws_batch.ComputeEnvironment",
 		reflect.TypeOf((*ComputeEnvironment)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -261,9 +279,15 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ComputeEnvironment{}
@@ -273,11 +297,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.ComputeEnvironmentProps",
+		"monocdk.aws_batch.ComputeEnvironmentProps",
 		reflect.TypeOf((*ComputeEnvironmentProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_batch.ComputeResourceType",
+		"monocdk.aws_batch.ComputeResourceType",
 		reflect.TypeOf((*ComputeResourceType)(nil)).Elem(),
 		map[string]interface{}{
 			"ON_DEMAND": ComputeResourceType_ON_DEMAND,
@@ -285,11 +309,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.ComputeResources",
+		"monocdk.aws_batch.ComputeResources",
 		reflect.TypeOf((*ComputeResources)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_batch.ExposedSecret",
+		"monocdk.aws_batch.ExposedSecret",
 		reflect.TypeOf((*ExposedSecret)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "optionName", GoGetter: "OptionName"},
@@ -300,7 +324,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_batch.IComputeEnvironment",
+		"monocdk.aws_batch.IComputeEnvironment",
 		reflect.TypeOf((*IComputeEnvironment)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "computeEnvironmentArn", GoGetter: "ComputeEnvironmentArn"},
@@ -316,7 +340,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_batch.IJobDefinition",
+		"monocdk.aws_batch.IJobDefinition",
 		reflect.TypeOf((*IJobDefinition)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -332,7 +356,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_batch.IJobQueue",
+		"monocdk.aws_batch.IJobQueue",
 		reflect.TypeOf((*IJobQueue)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -348,7 +372,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_batch.IMultiNodeProps",
+		"monocdk.aws_batch.IMultiNodeProps",
 		reflect.TypeOf((*IMultiNodeProps)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "count", GoGetter: "Count"},
@@ -360,7 +384,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_batch.INodeRangeProps",
+		"monocdk.aws_batch.INodeRangeProps",
 		reflect.TypeOf((*INodeRangeProps)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "container", GoGetter: "Container"},
@@ -372,7 +396,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_batch.JobDefinition",
+		"monocdk.aws_batch.JobDefinition",
 		reflect.TypeOf((*JobDefinition)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -383,9 +407,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "jobDefinitionArn", GoGetter: "JobDefinitionArn"},
 			_jsii_.MemberProperty{JsiiProperty: "jobDefinitionName", GoGetter: "JobDefinitionName"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_JobDefinition{}
@@ -395,15 +425,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.JobDefinitionContainer",
+		"monocdk.aws_batch.JobDefinitionContainer",
 		reflect.TypeOf((*JobDefinitionContainer)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.JobDefinitionProps",
+		"monocdk.aws_batch.JobDefinitionProps",
 		reflect.TypeOf((*JobDefinitionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_batch.JobQueue",
+		"monocdk.aws_batch.JobQueue",
 		reflect.TypeOf((*JobQueue)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -414,9 +444,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "jobQueueArn", GoGetter: "JobQueueArn"},
 			_jsii_.MemberProperty{JsiiProperty: "jobQueueName", GoGetter: "JobQueueName"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_JobQueue{}
@@ -426,23 +462,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.JobQueueComputeEnvironment",
+		"monocdk.aws_batch.JobQueueComputeEnvironment",
 		reflect.TypeOf((*JobQueueComputeEnvironment)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.JobQueueProps",
+		"monocdk.aws_batch.JobQueueProps",
 		reflect.TypeOf((*JobQueueProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.LaunchTemplateSpecification",
+		"monocdk.aws_batch.LaunchTemplateSpecification",
 		reflect.TypeOf((*LaunchTemplateSpecification)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_batch.LogConfiguration",
+		"monocdk.aws_batch.LogConfiguration",
 		reflect.TypeOf((*LogConfiguration)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_batch.LogDriver",
+		"monocdk.aws_batch.LogDriver",
 		reflect.TypeOf((*LogDriver)(nil)).Elem(),
 		map[string]interface{}{
 			"AWSLOGS": LogDriver_AWSLOGS,
