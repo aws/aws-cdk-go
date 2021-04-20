@@ -1,20 +1,20 @@
 package awslambdapython
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodeguruprofiler"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambdapython/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awscodeguruprofiler"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/awslambdapython/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/awssqs"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A Python Lambda function.
@@ -32,8 +32,8 @@ type PythonFunction interface {
 	IsBoundToVpc() *bool
 	LatestVersion() awslambda.IVersion
 	LogGroup() awslogs.ILogGroup
-	Node() constructs.Node
-	PermissionsNode() constructs.Node
+	Node() awscdk.ConstructNode
+	PermissionsNode() awscdk.ConstructNode
 	PhysicalName() *string
 	Role() awsiam.IRole
 	Runtime() awslambda.Runtime
@@ -44,6 +44,7 @@ type PythonFunction interface {
 	AddLayers(layers ...awslambda.ILayerVersion)
 	AddPermission(id *string, permission *awslambda.Permission)
 	AddToRolePolicy(statement awsiam.PolicyStatement)
+	AddVersion(name *string, codeSha256 *string, description *string, provisionedExecutions *float64, asyncInvokeConfig *awslambda.EventInvokeConfigOptions) awslambda.Version
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	ConfigureAsyncInvoke(options *awslambda.EventInvokeConfigOptions)
 	GeneratePhysicalName() *string
@@ -55,7 +56,13 @@ type PythonFunction interface {
 	MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for PythonFunction
@@ -173,8 +180,8 @@ func (j *jsiiProxy_PythonFunction) LogGroup() awslogs.ILogGroup {
 	return returns
 }
 
-func (j *jsiiProxy_PythonFunction) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_PythonFunction) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -183,8 +190,8 @@ func (j *jsiiProxy_PythonFunction) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_PythonFunction) PermissionsNode() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_PythonFunction) PermissionsNode() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"permissionsNode",
@@ -235,13 +242,13 @@ func (j *jsiiProxy_PythonFunction) Stack() awscdk.Stack {
 
 
 // Experimental.
-func NewPythonFunction(scope constructs.Construct, id *string, props *PythonFunctionProps) PythonFunction {
+func NewPythonFunction(scope awscdk.Construct, id *string, props *PythonFunctionProps) PythonFunction {
 	_init_.Initialize()
 
 	j := jsiiProxy_PythonFunction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda_python.PythonFunction",
+		"monocdk.aws_lambda_python.PythonFunction",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -250,11 +257,11 @@ func NewPythonFunction(scope constructs.Construct, id *string, props *PythonFunc
 }
 
 // Experimental.
-func NewPythonFunction_Override(p PythonFunction, scope constructs.Construct, id *string, props *PythonFunctionProps) {
+func NewPythonFunction_Override(p PythonFunction, scope awscdk.Construct, id *string, props *PythonFunctionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda_python.PythonFunction",
+		"monocdk.aws_lambda_python.PythonFunction",
 		[]interface{}{scope, id, props},
 		p,
 	)
@@ -267,7 +274,7 @@ func PythonFunction_FromFunctionArn(scope constructs.Construct, id *string, func
 	var returns awslambda.IFunction
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda_python.PythonFunction",
+		"monocdk.aws_lambda_python.PythonFunction",
 		"fromFunctionArn",
 		[]interface{}{scope, id, functionArn},
 		&returns,
@@ -284,7 +291,7 @@ func PythonFunction_FromFunctionAttributes(scope constructs.Construct, id *strin
 	var returns awslambda.IFunction
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda_python.PythonFunction",
+		"monocdk.aws_lambda_python.PythonFunction",
 		"fromFunctionAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -293,17 +300,15 @@ func PythonFunction_FromFunctionAttributes(scope constructs.Construct, id *strin
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func PythonFunction_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda_python.PythonFunction",
+		"monocdk.aws_lambda_python.PythonFunction",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -314,13 +319,13 @@ func PythonFunction_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func PythonFunction_IsResource(construct constructs.IConstruct) *bool {
+func PythonFunction_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda_python.PythonFunction",
+		"monocdk.aws_lambda_python.PythonFunction",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -337,7 +342,7 @@ func PythonFunction_MetricAll(metricName *string, props *awscloudwatch.MetricOpt
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda_python.PythonFunction",
+		"monocdk.aws_lambda_python.PythonFunction",
 		"metricAll",
 		[]interface{}{metricName, props},
 		&returns,
@@ -354,7 +359,7 @@ func PythonFunction_MetricAllConcurrentExecutions(props *awscloudwatch.MetricOpt
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda_python.PythonFunction",
+		"monocdk.aws_lambda_python.PythonFunction",
 		"metricAllConcurrentExecutions",
 		[]interface{}{props},
 		&returns,
@@ -371,7 +376,7 @@ func PythonFunction_MetricAllDuration(props *awscloudwatch.MetricOptions) awsclo
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda_python.PythonFunction",
+		"monocdk.aws_lambda_python.PythonFunction",
 		"metricAllDuration",
 		[]interface{}{props},
 		&returns,
@@ -388,7 +393,7 @@ func PythonFunction_MetricAllErrors(props *awscloudwatch.MetricOptions) awscloud
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda_python.PythonFunction",
+		"monocdk.aws_lambda_python.PythonFunction",
 		"metricAllErrors",
 		[]interface{}{props},
 		&returns,
@@ -405,7 +410,7 @@ func PythonFunction_MetricAllInvocations(props *awscloudwatch.MetricOptions) aws
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda_python.PythonFunction",
+		"monocdk.aws_lambda_python.PythonFunction",
 		"metricAllInvocations",
 		[]interface{}{props},
 		&returns,
@@ -422,7 +427,7 @@ func PythonFunction_MetricAllThrottles(props *awscloudwatch.MetricOptions) awscl
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda_python.PythonFunction",
+		"monocdk.aws_lambda_python.PythonFunction",
 		"metricAllThrottles",
 		[]interface{}{props},
 		&returns,
@@ -439,7 +444,7 @@ func PythonFunction_MetricAllUnreservedConcurrentExecutions(props *awscloudwatch
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda_python.PythonFunction",
+		"monocdk.aws_lambda_python.PythonFunction",
 		"metricAllUnreservedConcurrentExecutions",
 		[]interface{}{props},
 		&returns,
@@ -533,6 +538,34 @@ func (p *jsiiProxy_PythonFunction) AddToRolePolicy(statement awsiam.PolicyStatem
 		"addToRolePolicy",
 		[]interface{}{statement},
 	)
+}
+
+// Add a new version for this Lambda.
+//
+// If you want to deploy through CloudFormation and use aliases, you need to
+// add a new version (with a new name) to your Lambda every time you want to
+// deploy an update. An alias can then refer to the newly created Version.
+//
+// All versions should have distinct names, and you should not delete versions
+// as long as your Alias needs to refer to them.
+//
+// Returns: A new Version object.
+// Deprecated: This method will create an AWS::Lambda::Version resource which
+// snapshots the AWS Lambda function *at the time of its creation* and it
+// won't get updated when the function changes. Instead, use
+// `this.currentVersion` to obtain a reference to a version resource that gets
+// automatically recreated when the function configuration (or code) changes.
+func (p *jsiiProxy_PythonFunction) AddVersion(name *string, codeSha256 *string, description *string, provisionedExecutions *float64, asyncInvokeConfig *awslambda.EventInvokeConfigOptions) awslambda.Version {
+	var returns awslambda.Version
+
+	_jsii_.Invoke(
+		p,
+		"addVersion",
+		[]interface{}{name, codeSha256, description, provisionedExecutions, asyncInvokeConfig},
+		&returns,
+	)
+
+	return returns
 }
 
 // Apply the given removal policy to this resource.
@@ -714,6 +747,86 @@ func (p *jsiiProxy_PythonFunction) MetricThrottles(props *awscloudwatch.MetricOp
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (p *jsiiProxy_PythonFunction) OnPrepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (p *jsiiProxy_PythonFunction) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (p *jsiiProxy_PythonFunction) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (p *jsiiProxy_PythonFunction) Prepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (p *jsiiProxy_PythonFunction) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (p *jsiiProxy_PythonFunction) ToString() *string {
@@ -722,6 +835,26 @@ func (p *jsiiProxy_PythonFunction) ToString() *string {
 	_jsii_.Invoke(
 		p,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (p *jsiiProxy_PythonFunction) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -864,6 +997,14 @@ type PythonFunctionProps struct {
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
 	// Experimental.
 	Role awsiam.IRole `json:"role"`
+	// What security group to associate with the Lambda's network interfaces. This property is being deprecated, consider using securityGroups instead.
+	//
+	// Only used if 'vpc' is supplied.
+	//
+	// Use securityGroups property instead.
+	// Function constructor will throw an error if both are specified.
+	// Deprecated: - This property is deprecated, use securityGroups instead
+	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.
@@ -943,7 +1084,7 @@ type PythonLayerVersion interface {
 	CompatibleRuntimes() *[]awslambda.Runtime
 	Env() *awscdk.ResourceEnvironment
 	LayerVersionArn() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	AddPermission(id *string, permission *awslambda.LayerVersionPermission)
@@ -951,7 +1092,13 @@ type PythonLayerVersion interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for PythonLayerVersion
@@ -989,8 +1136,8 @@ func (j *jsiiProxy_PythonLayerVersion) LayerVersionArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_PythonLayerVersion) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_PythonLayerVersion) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1021,13 +1168,13 @@ func (j *jsiiProxy_PythonLayerVersion) Stack() awscdk.Stack {
 
 
 // Experimental.
-func NewPythonLayerVersion(scope constructs.Construct, id *string, props *PythonLayerVersionProps) PythonLayerVersion {
+func NewPythonLayerVersion(scope awscdk.Construct, id *string, props *PythonLayerVersionProps) PythonLayerVersion {
 	_init_.Initialize()
 
 	j := jsiiProxy_PythonLayerVersion{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda_python.PythonLayerVersion",
+		"monocdk.aws_lambda_python.PythonLayerVersion",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1036,11 +1183,11 @@ func NewPythonLayerVersion(scope constructs.Construct, id *string, props *Python
 }
 
 // Experimental.
-func NewPythonLayerVersion_Override(p PythonLayerVersion, scope constructs.Construct, id *string, props *PythonLayerVersionProps) {
+func NewPythonLayerVersion_Override(p PythonLayerVersion, scope awscdk.Construct, id *string, props *PythonLayerVersionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda_python.PythonLayerVersion",
+		"monocdk.aws_lambda_python.PythonLayerVersion",
 		[]interface{}{scope, id, props},
 		p,
 	)
@@ -1056,7 +1203,7 @@ func PythonLayerVersion_FromLayerVersionArn(scope constructs.Construct, id *stri
 	var returns awslambda.ILayerVersion
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda_python.PythonLayerVersion",
+		"monocdk.aws_lambda_python.PythonLayerVersion",
 		"fromLayerVersionArn",
 		[]interface{}{scope, id, layerVersionArn},
 		&returns,
@@ -1073,7 +1220,7 @@ func PythonLayerVersion_FromLayerVersionAttributes(scope constructs.Construct, i
 	var returns awslambda.ILayerVersion
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda_python.PythonLayerVersion",
+		"monocdk.aws_lambda_python.PythonLayerVersion",
 		"fromLayerVersionAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -1082,17 +1229,15 @@ func PythonLayerVersion_FromLayerVersionAttributes(scope constructs.Construct, i
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func PythonLayerVersion_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda_python.PythonLayerVersion",
+		"monocdk.aws_lambda_python.PythonLayerVersion",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1103,13 +1248,13 @@ func PythonLayerVersion_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func PythonLayerVersion_IsResource(construct constructs.IConstruct) *bool {
+func PythonLayerVersion_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda_python.PythonLayerVersion",
+		"monocdk.aws_lambda_python.PythonLayerVersion",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -1206,6 +1351,86 @@ func (p *jsiiProxy_PythonLayerVersion) GetResourceNameAttribute(nameAttr *string
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (p *jsiiProxy_PythonLayerVersion) OnPrepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (p *jsiiProxy_PythonLayerVersion) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (p *jsiiProxy_PythonLayerVersion) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (p *jsiiProxy_PythonLayerVersion) Prepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (p *jsiiProxy_PythonLayerVersion) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (p *jsiiProxy_PythonLayerVersion) ToString() *string {
@@ -1214,6 +1439,26 @@ func (p *jsiiProxy_PythonLayerVersion) ToString() *string {
 	_jsii_.Invoke(
 		p,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (p *jsiiProxy_PythonLayerVersion) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

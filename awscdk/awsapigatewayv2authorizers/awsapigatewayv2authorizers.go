@@ -1,12 +1,12 @@
 package awsapigatewayv2authorizers
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigatewayv2authorizers/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito"
+	"github.com/aws/aws-cdk-go/awscdk/awsapigatewayv2"
+	"github.com/aws/aws-cdk-go/awscdk/awsapigatewayv2authorizers/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awscognito"
 )
 
 // Authorize Http Api routes on whether the requester is registered as part of an AWS Cognito user pool.
@@ -28,7 +28,7 @@ func NewHttpJwtAuthorizer(props *HttpJwtAuthorizerProps) HttpJwtAuthorizer {
 	j := jsiiProxy_HttpJwtAuthorizer{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_apigatewayv2_authorizers.HttpJwtAuthorizer",
+		"monocdk.aws_apigatewayv2_authorizers.HttpJwtAuthorizer",
 		[]interface{}{props},
 		&j,
 	)
@@ -41,7 +41,7 @@ func NewHttpJwtAuthorizer_Override(h HttpJwtAuthorizer, props *HttpJwtAuthorizer
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_apigatewayv2_authorizers.HttpJwtAuthorizer",
+		"monocdk.aws_apigatewayv2_authorizers.HttpJwtAuthorizer",
 		[]interface{}{props},
 		h,
 	)
@@ -100,7 +100,7 @@ func NewHttpUserPoolAuthorizer(props *UserPoolAuthorizerProps) HttpUserPoolAutho
 	j := jsiiProxy_HttpUserPoolAuthorizer{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_apigatewayv2_authorizers.HttpUserPoolAuthorizer",
+		"monocdk.aws_apigatewayv2_authorizers.HttpUserPoolAuthorizer",
 		[]interface{}{props},
 		&j,
 	)
@@ -113,7 +113,7 @@ func NewHttpUserPoolAuthorizer_Override(h HttpUserPoolAuthorizer, props *UserPoo
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_apigatewayv2_authorizers.HttpUserPoolAuthorizer",
+		"monocdk.aws_apigatewayv2_authorizers.HttpUserPoolAuthorizer",
 		[]interface{}{props},
 		h,
 	)

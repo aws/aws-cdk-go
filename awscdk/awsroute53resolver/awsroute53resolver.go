@@ -1,12 +1,12 @@
 package awsroute53resolver
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53resolver/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsroute53resolver/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::Route53Resolver::ResolverDNSSECConfig`.
@@ -21,7 +21,7 @@ type CfnResolverDNSSECConfig interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	ResourceId() *string
 	SetResourceId(val *string)
@@ -37,10 +37,16 @@ type CfnResolverDNSSECConfig interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -130,8 +136,8 @@ func (j *jsiiProxy_CfnResolverDNSSECConfig) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResolverDNSSECConfig) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnResolverDNSSECConfig) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -182,13 +188,13 @@ func (j *jsiiProxy_CfnResolverDNSSECConfig) UpdatedProperites() *map[string]inte
 
 
 // Create a new `AWS::Route53Resolver::ResolverDNSSECConfig`.
-func NewCfnResolverDNSSECConfig(scope constructs.Construct, id *string, props *CfnResolverDNSSECConfigProps) CfnResolverDNSSECConfig {
+func NewCfnResolverDNSSECConfig(scope awscdk.Construct, id *string, props *CfnResolverDNSSECConfigProps) CfnResolverDNSSECConfig {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnResolverDNSSECConfig{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverDNSSECConfig",
+		"monocdk.aws_route53resolver.CfnResolverDNSSECConfig",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -197,11 +203,11 @@ func NewCfnResolverDNSSECConfig(scope constructs.Construct, id *string, props *C
 }
 
 // Create a new `AWS::Route53Resolver::ResolverDNSSECConfig`.
-func NewCfnResolverDNSSECConfig_Override(c CfnResolverDNSSECConfig, scope constructs.Construct, id *string, props *CfnResolverDNSSECConfigProps) {
+func NewCfnResolverDNSSECConfig_Override(c CfnResolverDNSSECConfig, scope awscdk.Construct, id *string, props *CfnResolverDNSSECConfigProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverDNSSECConfig",
+		"monocdk.aws_route53resolver.CfnResolverDNSSECConfig",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -228,7 +234,7 @@ func CfnResolverDNSSECConfig_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverDNSSECConfig",
+		"monocdk.aws_route53resolver.CfnResolverDNSSECConfig",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -245,7 +251,7 @@ func CfnResolverDNSSECConfig_IsCfnResource(construct constructs.IConstruct) *boo
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverDNSSECConfig",
+		"monocdk.aws_route53resolver.CfnResolverDNSSECConfig",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -254,17 +260,15 @@ func CfnResolverDNSSECConfig_IsCfnResource(construct constructs.IConstruct) *boo
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnResolverDNSSECConfig_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverDNSSECConfig",
+		"monocdk.aws_route53resolver.CfnResolverDNSSECConfig",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -277,7 +281,7 @@ func CfnResolverDNSSECConfig_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverDNSSECConfig",
+		"monocdk.aws_route53resolver.CfnResolverDNSSECConfig",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -450,6 +454,56 @@ func (c *jsiiProxy_CfnResolverDNSSECConfig) Inspect(inspector awscdk.TreeInspect
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnResolverDNSSECConfig) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnResolverDNSSECConfig) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnResolverDNSSECConfig) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnResolverDNSSECConfig) OverrideLogicalId(newLogicalId *string) {
@@ -457,6 +511,23 @@ func (c *jsiiProxy_CfnResolverDNSSECConfig) OverrideLogicalId(newLogicalId *stri
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnResolverDNSSECConfig) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -491,6 +562,19 @@ func (c *jsiiProxy_CfnResolverDNSSECConfig) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnResolverDNSSECConfig) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -501,6 +585,26 @@ func (c *jsiiProxy_CfnResolverDNSSECConfig) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnResolverDNSSECConfig) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -544,7 +648,7 @@ type CfnResolverEndpoint interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
@@ -561,10 +665,16 @@ type CfnResolverEndpoint interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -714,8 +824,8 @@ func (j *jsiiProxy_CfnResolverEndpoint) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResolverEndpoint) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnResolverEndpoint) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -776,13 +886,13 @@ func (j *jsiiProxy_CfnResolverEndpoint) UpdatedProperites() *map[string]interfac
 
 
 // Create a new `AWS::Route53Resolver::ResolverEndpoint`.
-func NewCfnResolverEndpoint(scope constructs.Construct, id *string, props *CfnResolverEndpointProps) CfnResolverEndpoint {
+func NewCfnResolverEndpoint(scope awscdk.Construct, id *string, props *CfnResolverEndpointProps) CfnResolverEndpoint {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnResolverEndpoint{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverEndpoint",
+		"monocdk.aws_route53resolver.CfnResolverEndpoint",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -791,11 +901,11 @@ func NewCfnResolverEndpoint(scope constructs.Construct, id *string, props *CfnRe
 }
 
 // Create a new `AWS::Route53Resolver::ResolverEndpoint`.
-func NewCfnResolverEndpoint_Override(c CfnResolverEndpoint, scope constructs.Construct, id *string, props *CfnResolverEndpointProps) {
+func NewCfnResolverEndpoint_Override(c CfnResolverEndpoint, scope awscdk.Construct, id *string, props *CfnResolverEndpointProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverEndpoint",
+		"monocdk.aws_route53resolver.CfnResolverEndpoint",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -846,7 +956,7 @@ func CfnResolverEndpoint_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverEndpoint",
+		"monocdk.aws_route53resolver.CfnResolverEndpoint",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -863,7 +973,7 @@ func CfnResolverEndpoint_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverEndpoint",
+		"monocdk.aws_route53resolver.CfnResolverEndpoint",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -872,17 +982,15 @@ func CfnResolverEndpoint_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnResolverEndpoint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverEndpoint",
+		"monocdk.aws_route53resolver.CfnResolverEndpoint",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -895,7 +1003,7 @@ func CfnResolverEndpoint_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverEndpoint",
+		"monocdk.aws_route53resolver.CfnResolverEndpoint",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1068,6 +1176,56 @@ func (c *jsiiProxy_CfnResolverEndpoint) Inspect(inspector awscdk.TreeInspector) 
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnResolverEndpoint) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnResolverEndpoint) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnResolverEndpoint) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnResolverEndpoint) OverrideLogicalId(newLogicalId *string) {
@@ -1075,6 +1233,23 @@ func (c *jsiiProxy_CfnResolverEndpoint) OverrideLogicalId(newLogicalId *string) 
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnResolverEndpoint) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1109,6 +1284,19 @@ func (c *jsiiProxy_CfnResolverEndpoint) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnResolverEndpoint) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -1119,6 +1307,26 @@ func (c *jsiiProxy_CfnResolverEndpoint) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnResolverEndpoint) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1177,7 +1385,7 @@ type CfnResolverQueryLoggingConfig interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	UpdatedProperites() *map[string]interface{}
@@ -1191,10 +1399,16 @@ type CfnResolverQueryLoggingConfig interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1354,8 +1568,8 @@ func (j *jsiiProxy_CfnResolverQueryLoggingConfig) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResolverQueryLoggingConfig) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnResolverQueryLoggingConfig) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1396,13 +1610,13 @@ func (j *jsiiProxy_CfnResolverQueryLoggingConfig) UpdatedProperites() *map[strin
 
 
 // Create a new `AWS::Route53Resolver::ResolverQueryLoggingConfig`.
-func NewCfnResolverQueryLoggingConfig(scope constructs.Construct, id *string, props *CfnResolverQueryLoggingConfigProps) CfnResolverQueryLoggingConfig {
+func NewCfnResolverQueryLoggingConfig(scope awscdk.Construct, id *string, props *CfnResolverQueryLoggingConfigProps) CfnResolverQueryLoggingConfig {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnResolverQueryLoggingConfig{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverQueryLoggingConfig",
+		"monocdk.aws_route53resolver.CfnResolverQueryLoggingConfig",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1411,11 +1625,11 @@ func NewCfnResolverQueryLoggingConfig(scope constructs.Construct, id *string, pr
 }
 
 // Create a new `AWS::Route53Resolver::ResolverQueryLoggingConfig`.
-func NewCfnResolverQueryLoggingConfig_Override(c CfnResolverQueryLoggingConfig, scope constructs.Construct, id *string, props *CfnResolverQueryLoggingConfigProps) {
+func NewCfnResolverQueryLoggingConfig_Override(c CfnResolverQueryLoggingConfig, scope awscdk.Construct, id *string, props *CfnResolverQueryLoggingConfigProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverQueryLoggingConfig",
+		"monocdk.aws_route53resolver.CfnResolverQueryLoggingConfig",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1450,7 +1664,7 @@ func CfnResolverQueryLoggingConfig_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverQueryLoggingConfig",
+		"monocdk.aws_route53resolver.CfnResolverQueryLoggingConfig",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1467,7 +1681,7 @@ func CfnResolverQueryLoggingConfig_IsCfnResource(construct constructs.IConstruct
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverQueryLoggingConfig",
+		"monocdk.aws_route53resolver.CfnResolverQueryLoggingConfig",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1476,17 +1690,15 @@ func CfnResolverQueryLoggingConfig_IsCfnResource(construct constructs.IConstruct
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnResolverQueryLoggingConfig_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverQueryLoggingConfig",
+		"monocdk.aws_route53resolver.CfnResolverQueryLoggingConfig",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1499,7 +1711,7 @@ func CfnResolverQueryLoggingConfig_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverQueryLoggingConfig",
+		"monocdk.aws_route53resolver.CfnResolverQueryLoggingConfig",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1672,6 +1884,56 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfig) Inspect(inspector awscdk.TreeI
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnResolverQueryLoggingConfig) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnResolverQueryLoggingConfig) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnResolverQueryLoggingConfig) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnResolverQueryLoggingConfig) OverrideLogicalId(newLogicalId *string) {
@@ -1679,6 +1941,23 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfig) OverrideLogicalId(newLogicalId
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnResolverQueryLoggingConfig) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1713,6 +1992,19 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfig) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnResolverQueryLoggingConfig) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -1723,6 +2015,26 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfig) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnResolverQueryLoggingConfig) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1753,7 +2065,7 @@ type CfnResolverQueryLoggingConfigAssociation interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	ResolverQueryLogConfigId() *string
 	SetResolverQueryLogConfigId(val *string)
@@ -1771,10 +2083,16 @@ type CfnResolverQueryLoggingConfigAssociation interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1884,8 +2202,8 @@ func (j *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) LogicalId() *string
 	return returns
 }
 
-func (j *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1946,13 +2264,13 @@ func (j *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) UpdatedProperites()
 
 
 // Create a new `AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation`.
-func NewCfnResolverQueryLoggingConfigAssociation(scope constructs.Construct, id *string, props *CfnResolverQueryLoggingConfigAssociationProps) CfnResolverQueryLoggingConfigAssociation {
+func NewCfnResolverQueryLoggingConfigAssociation(scope awscdk.Construct, id *string, props *CfnResolverQueryLoggingConfigAssociationProps) CfnResolverQueryLoggingConfigAssociation {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnResolverQueryLoggingConfigAssociation{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverQueryLoggingConfigAssociation",
+		"monocdk.aws_route53resolver.CfnResolverQueryLoggingConfigAssociation",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1961,11 +2279,11 @@ func NewCfnResolverQueryLoggingConfigAssociation(scope constructs.Construct, id 
 }
 
 // Create a new `AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation`.
-func NewCfnResolverQueryLoggingConfigAssociation_Override(c CfnResolverQueryLoggingConfigAssociation, scope constructs.Construct, id *string, props *CfnResolverQueryLoggingConfigAssociationProps) {
+func NewCfnResolverQueryLoggingConfigAssociation_Override(c CfnResolverQueryLoggingConfigAssociation, scope awscdk.Construct, id *string, props *CfnResolverQueryLoggingConfigAssociationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverQueryLoggingConfigAssociation",
+		"monocdk.aws_route53resolver.CfnResolverQueryLoggingConfigAssociation",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2000,7 +2318,7 @@ func CfnResolverQueryLoggingConfigAssociation_IsCfnElement(x interface{}) *bool 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverQueryLoggingConfigAssociation",
+		"monocdk.aws_route53resolver.CfnResolverQueryLoggingConfigAssociation",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2017,7 +2335,7 @@ func CfnResolverQueryLoggingConfigAssociation_IsCfnResource(construct constructs
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverQueryLoggingConfigAssociation",
+		"monocdk.aws_route53resolver.CfnResolverQueryLoggingConfigAssociation",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2026,17 +2344,15 @@ func CfnResolverQueryLoggingConfigAssociation_IsCfnResource(construct constructs
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnResolverQueryLoggingConfigAssociation_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverQueryLoggingConfigAssociation",
+		"monocdk.aws_route53resolver.CfnResolverQueryLoggingConfigAssociation",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2049,7 +2365,7 @@ func CfnResolverQueryLoggingConfigAssociation_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverQueryLoggingConfigAssociation",
+		"monocdk.aws_route53resolver.CfnResolverQueryLoggingConfigAssociation",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2222,6 +2538,56 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) Inspect(inspector a
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) OverrideLogicalId(newLogicalId *string) {
@@ -2229,6 +2595,23 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) OverrideLogicalId(n
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2263,6 +2646,19 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) ShouldSynthesize() 
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -2273,6 +2669,26 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) ToString() *string 
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2324,7 +2740,7 @@ type CfnResolverRule interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	ResolverEndpointId() *string
 	SetResolverEndpointId(val *string)
@@ -2345,10 +2761,16 @@ type CfnResolverRule interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2488,8 +2910,8 @@ func (j *jsiiProxy_CfnResolverRule) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResolverRule) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnResolverRule) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2570,13 +2992,13 @@ func (j *jsiiProxy_CfnResolverRule) UpdatedProperites() *map[string]interface{} 
 
 
 // Create a new `AWS::Route53Resolver::ResolverRule`.
-func NewCfnResolverRule(scope constructs.Construct, id *string, props *CfnResolverRuleProps) CfnResolverRule {
+func NewCfnResolverRule(scope awscdk.Construct, id *string, props *CfnResolverRuleProps) CfnResolverRule {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnResolverRule{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverRule",
+		"monocdk.aws_route53resolver.CfnResolverRule",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2585,11 +3007,11 @@ func NewCfnResolverRule(scope constructs.Construct, id *string, props *CfnResolv
 }
 
 // Create a new `AWS::Route53Resolver::ResolverRule`.
-func NewCfnResolverRule_Override(c CfnResolverRule, scope constructs.Construct, id *string, props *CfnResolverRuleProps) {
+func NewCfnResolverRule_Override(c CfnResolverRule, scope awscdk.Construct, id *string, props *CfnResolverRuleProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverRule",
+		"monocdk.aws_route53resolver.CfnResolverRule",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2648,7 +3070,7 @@ func CfnResolverRule_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverRule",
+		"monocdk.aws_route53resolver.CfnResolverRule",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2665,7 +3087,7 @@ func CfnResolverRule_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverRule",
+		"monocdk.aws_route53resolver.CfnResolverRule",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2674,17 +3096,15 @@ func CfnResolverRule_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnResolverRule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverRule",
+		"monocdk.aws_route53resolver.CfnResolverRule",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2697,7 +3117,7 @@ func CfnResolverRule_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverRule",
+		"monocdk.aws_route53resolver.CfnResolverRule",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2870,6 +3290,56 @@ func (c *jsiiProxy_CfnResolverRule) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnResolverRule) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnResolverRule) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnResolverRule) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnResolverRule) OverrideLogicalId(newLogicalId *string) {
@@ -2877,6 +3347,23 @@ func (c *jsiiProxy_CfnResolverRule) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnResolverRule) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2911,6 +3398,19 @@ func (c *jsiiProxy_CfnResolverRule) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnResolverRule) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -2921,6 +3421,26 @@ func (c *jsiiProxy_CfnResolverRule) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnResolverRule) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2959,7 +3479,7 @@ type CfnResolverRuleAssociation interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	ResolverRuleId() *string
 	SetResolverRuleId(val *string)
@@ -2977,10 +3497,16 @@ type CfnResolverRuleAssociation interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -3090,8 +3616,8 @@ func (j *jsiiProxy_CfnResolverRuleAssociation) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResolverRuleAssociation) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnResolverRuleAssociation) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3152,13 +3678,13 @@ func (j *jsiiProxy_CfnResolverRuleAssociation) VpcId() *string {
 
 
 // Create a new `AWS::Route53Resolver::ResolverRuleAssociation`.
-func NewCfnResolverRuleAssociation(scope constructs.Construct, id *string, props *CfnResolverRuleAssociationProps) CfnResolverRuleAssociation {
+func NewCfnResolverRuleAssociation(scope awscdk.Construct, id *string, props *CfnResolverRuleAssociationProps) CfnResolverRuleAssociation {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnResolverRuleAssociation{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverRuleAssociation",
+		"monocdk.aws_route53resolver.CfnResolverRuleAssociation",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3167,11 +3693,11 @@ func NewCfnResolverRuleAssociation(scope constructs.Construct, id *string, props
 }
 
 // Create a new `AWS::Route53Resolver::ResolverRuleAssociation`.
-func NewCfnResolverRuleAssociation_Override(c CfnResolverRuleAssociation, scope constructs.Construct, id *string, props *CfnResolverRuleAssociationProps) {
+func NewCfnResolverRuleAssociation_Override(c CfnResolverRuleAssociation, scope awscdk.Construct, id *string, props *CfnResolverRuleAssociationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverRuleAssociation",
+		"monocdk.aws_route53resolver.CfnResolverRuleAssociation",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3214,7 +3740,7 @@ func CfnResolverRuleAssociation_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverRuleAssociation",
+		"monocdk.aws_route53resolver.CfnResolverRuleAssociation",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3231,7 +3757,7 @@ func CfnResolverRuleAssociation_IsCfnResource(construct constructs.IConstruct) *
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverRuleAssociation",
+		"monocdk.aws_route53resolver.CfnResolverRuleAssociation",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3240,17 +3766,15 @@ func CfnResolverRuleAssociation_IsCfnResource(construct constructs.IConstruct) *
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnResolverRuleAssociation_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverRuleAssociation",
+		"monocdk.aws_route53resolver.CfnResolverRuleAssociation",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3263,7 +3787,7 @@ func CfnResolverRuleAssociation_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_route53resolver.CfnResolverRuleAssociation",
+		"monocdk.aws_route53resolver.CfnResolverRuleAssociation",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3436,6 +3960,56 @@ func (c *jsiiProxy_CfnResolverRuleAssociation) Inspect(inspector awscdk.TreeInsp
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnResolverRuleAssociation) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnResolverRuleAssociation) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnResolverRuleAssociation) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnResolverRuleAssociation) OverrideLogicalId(newLogicalId *string) {
@@ -3443,6 +4017,23 @@ func (c *jsiiProxy_CfnResolverRuleAssociation) OverrideLogicalId(newLogicalId *s
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnResolverRuleAssociation) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3477,6 +4068,19 @@ func (c *jsiiProxy_CfnResolverRuleAssociation) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnResolverRuleAssociation) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -3487,6 +4091,26 @@ func (c *jsiiProxy_CfnResolverRuleAssociation) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnResolverRuleAssociation) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

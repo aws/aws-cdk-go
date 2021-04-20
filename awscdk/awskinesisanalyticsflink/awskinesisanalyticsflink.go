@@ -1,17 +1,17 @@
 package awskinesisanalyticsflink
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisanalytics"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisanalyticsflink/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awskinesisanalytics"
+	"github.com/aws/aws-cdk-go/awscdk/awskinesisanalyticsflink/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awss3assets"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // The L2 construct for Flink Kinesis Data Applications.
@@ -23,7 +23,7 @@ type Application interface {
 	ApplicationName() *string
 	Env() *awscdk.ResourceEnvironment
 	GrantPrincipal() awsiam.IPrincipal
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Role() awsiam.IRole
 	Stack() awscdk.Stack
@@ -32,7 +32,13 @@ type Application interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for Application
@@ -81,8 +87,8 @@ func (j *jsiiProxy_Application) GrantPrincipal() awsiam.IPrincipal {
 	return returns
 }
 
-func (j *jsiiProxy_Application) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Application) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -129,7 +135,7 @@ func NewApplication(scope constructs.Construct, id *string, props *ApplicationPr
 	j := jsiiProxy_Application{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kinesisanalytics_flink.Application",
+		"monocdk.aws_kinesisanalytics_flink.Application",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -142,7 +148,7 @@ func NewApplication_Override(a Application, scope constructs.Construct, id *stri
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kinesisanalytics_flink.Application",
+		"monocdk.aws_kinesisanalytics_flink.Application",
 		[]interface{}{scope, id, props},
 		a,
 	)
@@ -156,7 +162,7 @@ func Application_FromApplicationArn(scope constructs.Construct, id *string, appl
 	var returns IApplication
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kinesisanalytics_flink.Application",
+		"monocdk.aws_kinesisanalytics_flink.Application",
 		"fromApplicationArn",
 		[]interface{}{scope, id, applicationArn},
 		&returns,
@@ -173,7 +179,7 @@ func Application_FromApplicationName(scope constructs.Construct, id *string, app
 	var returns IApplication
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kinesisanalytics_flink.Application",
+		"monocdk.aws_kinesisanalytics_flink.Application",
 		"fromApplicationName",
 		[]interface{}{scope, id, applicationName},
 		&returns,
@@ -182,17 +188,15 @@ func Application_FromApplicationName(scope constructs.Construct, id *string, app
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func Application_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kinesisanalytics_flink.Application",
+		"monocdk.aws_kinesisanalytics_flink.Application",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -203,13 +207,13 @@ func Application_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func Application_IsResource(construct constructs.IConstruct) *bool {
+func Application_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kinesisanalytics_flink.Application",
+		"monocdk.aws_kinesisanalytics_flink.Application",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -304,6 +308,86 @@ func (a *jsiiProxy_Application) GetResourceNameAttribute(nameAttr *string) *stri
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_Application) OnPrepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_Application) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_Application) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_Application) Prepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_Application) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (a *jsiiProxy_Application) ToString() *string {
@@ -319,10 +403,30 @@ func (a *jsiiProxy_Application) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_Application) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Code configuration providing the location to a Flink application JAR file.
 // Experimental.
 type ApplicationCode interface {
-	Bind(scope constructs.Construct) *ApplicationCodeConfig
+	Bind(scope awscdk.Construct) *ApplicationCodeConfig
 }
 
 // The jsii proxy struct for ApplicationCode
@@ -335,7 +439,7 @@ func NewApplicationCode_Override(a ApplicationCode) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kinesisanalytics_flink.ApplicationCode",
+		"monocdk.aws_kinesisanalytics_flink.ApplicationCode",
 		nil, // no parameters
 		a,
 	)
@@ -349,7 +453,7 @@ func ApplicationCode_FromAsset(path *string, options *awss3assets.AssetOptions) 
 	var returns ApplicationCode
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kinesisanalytics_flink.ApplicationCode",
+		"monocdk.aws_kinesisanalytics_flink.ApplicationCode",
 		"fromAsset",
 		[]interface{}{path, options},
 		&returns,
@@ -366,7 +470,7 @@ func ApplicationCode_FromBucket(bucket awss3.IBucket, fileKey *string, objectVer
 	var returns ApplicationCode
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kinesisanalytics_flink.ApplicationCode",
+		"monocdk.aws_kinesisanalytics_flink.ApplicationCode",
 		"fromBucket",
 		[]interface{}{bucket, fileKey, objectVersion},
 		&returns,
@@ -377,7 +481,7 @@ func ApplicationCode_FromBucket(bucket awss3.IBucket, fileKey *string, objectVer
 
 // A method to lazily bind asset resources to the parent FlinkApplication.
 // Experimental.
-func (a *jsiiProxy_ApplicationCode) Bind(scope constructs.Construct) *ApplicationCodeConfig {
+func (a *jsiiProxy_ApplicationCode) Bind(scope awscdk.Construct) *ApplicationCodeConfig {
 	var returns *ApplicationCodeConfig
 
 	_jsii_.Invoke(
@@ -556,8 +660,8 @@ func (j *jsiiProxy_IApplication) GrantPrincipal() awsiam.IPrincipal {
 	return returns
 }
 
-func (j *jsiiProxy_IApplication) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_IApplication) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -633,7 +737,7 @@ func Runtime_Of(value *string) Runtime {
 	var returns Runtime
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kinesisanalytics_flink.Runtime",
+		"monocdk.aws_kinesisanalytics_flink.Runtime",
 		"of",
 		[]interface{}{value},
 		&returns,
@@ -646,7 +750,7 @@ func Runtime_FLINK_1_11() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_kinesisanalytics_flink.Runtime",
+		"monocdk.aws_kinesisanalytics_flink.Runtime",
 		"FLINK_1_11",
 		&returns,
 	)
@@ -657,7 +761,7 @@ func Runtime_FLINK_1_6() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_kinesisanalytics_flink.Runtime",
+		"monocdk.aws_kinesisanalytics_flink.Runtime",
 		"FLINK_1_6",
 		&returns,
 	)
@@ -668,7 +772,7 @@ func Runtime_FLINK_1_8() Runtime {
 	_init_.Initialize()
 	var returns Runtime
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_kinesisanalytics_flink.Runtime",
+		"monocdk.aws_kinesisanalytics_flink.Runtime",
 		"FLINK_1_8",
 		&returns,
 	)

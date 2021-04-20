@@ -1,16 +1,16 @@
 package awsconfig
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsconfig/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsconfig/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/awssns"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // Checks whether the active access keys are rotated within the number of days specified in `maxAge`.
@@ -28,7 +28,7 @@ type AccessKeysRotated interface {
 	SetIsCustomWithChanges(val *bool)
 	IsManaged() *bool
 	SetIsManaged(val *bool)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	RuleScope() RuleScope
 	SetRuleScope(val RuleScope)
@@ -39,8 +39,14 @@ type AccessKeysRotated interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	OnComplianceChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	OnPrepare()
 	OnReEvaluationStatus(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for AccessKeysRotated
@@ -118,8 +124,8 @@ func (j *jsiiProxy_AccessKeysRotated) IsManaged() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_AccessKeysRotated) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_AccessKeysRotated) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -166,7 +172,7 @@ func NewAccessKeysRotated(scope constructs.Construct, id *string, props *AccessK
 	j := jsiiProxy_AccessKeysRotated{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.AccessKeysRotated",
+		"monocdk.aws_config.AccessKeysRotated",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -179,7 +185,7 @@ func NewAccessKeysRotated_Override(a AccessKeysRotated, scope constructs.Constru
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.AccessKeysRotated",
+		"monocdk.aws_config.AccessKeysRotated",
 		[]interface{}{scope, id, props},
 		a,
 	)
@@ -217,7 +223,7 @@ func AccessKeysRotated_FromConfigRuleName(scope constructs.Construct, id *string
 	var returns IRule
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.AccessKeysRotated",
+		"monocdk.aws_config.AccessKeysRotated",
 		"fromConfigRuleName",
 		[]interface{}{scope, id, configRuleName},
 		&returns,
@@ -226,17 +232,15 @@ func AccessKeysRotated_FromConfigRuleName(scope constructs.Construct, id *string
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func AccessKeysRotated_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.AccessKeysRotated",
+		"monocdk.aws_config.AccessKeysRotated",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -247,13 +251,13 @@ func AccessKeysRotated_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func AccessKeysRotated_IsResource(construct constructs.IConstruct) *bool {
+func AccessKeysRotated_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.AccessKeysRotated",
+		"monocdk.aws_config.AccessKeysRotated",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -366,6 +370,23 @@ func (a *jsiiProxy_AccessKeysRotated) OnEvent(id *string, options *awsevents.OnE
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_AccessKeysRotated) OnPrepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
 // Defines an EventBridge event rule which triggers for rule re-evaluation status events.
 // Experimental.
 func (a *jsiiProxy_AccessKeysRotated) OnReEvaluationStatus(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
@@ -381,6 +402,69 @@ func (a *jsiiProxy_AccessKeysRotated) OnReEvaluationStatus(id *string, options *
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_AccessKeysRotated) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_AccessKeysRotated) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_AccessKeysRotated) Prepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_AccessKeysRotated) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (a *jsiiProxy_AccessKeysRotated) ToString() *string {
@@ -389,6 +473,26 @@ func (a *jsiiProxy_AccessKeysRotated) ToString() *string {
 	_jsii_.Invoke(
 		a,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_AccessKeysRotated) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -432,7 +536,7 @@ type CfnAggregationAuthorization interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -447,10 +551,16 @@ type CfnAggregationAuthorization interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -530,8 +640,8 @@ func (j *jsiiProxy_CfnAggregationAuthorization) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAggregationAuthorization) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnAggregationAuthorization) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -582,13 +692,13 @@ func (j *jsiiProxy_CfnAggregationAuthorization) UpdatedProperites() *map[string]
 
 
 // Create a new `AWS::Config::AggregationAuthorization`.
-func NewCfnAggregationAuthorization(scope constructs.Construct, id *string, props *CfnAggregationAuthorizationProps) CfnAggregationAuthorization {
+func NewCfnAggregationAuthorization(scope awscdk.Construct, id *string, props *CfnAggregationAuthorizationProps) CfnAggregationAuthorization {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAggregationAuthorization{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.CfnAggregationAuthorization",
+		"monocdk.aws_config.CfnAggregationAuthorization",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -597,11 +707,11 @@ func NewCfnAggregationAuthorization(scope constructs.Construct, id *string, prop
 }
 
 // Create a new `AWS::Config::AggregationAuthorization`.
-func NewCfnAggregationAuthorization_Override(c CfnAggregationAuthorization, scope constructs.Construct, id *string, props *CfnAggregationAuthorizationProps) {
+func NewCfnAggregationAuthorization_Override(c CfnAggregationAuthorization, scope awscdk.Construct, id *string, props *CfnAggregationAuthorizationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.CfnAggregationAuthorization",
+		"monocdk.aws_config.CfnAggregationAuthorization",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -636,7 +746,7 @@ func CfnAggregationAuthorization_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnAggregationAuthorization",
+		"monocdk.aws_config.CfnAggregationAuthorization",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -653,7 +763,7 @@ func CfnAggregationAuthorization_IsCfnResource(construct constructs.IConstruct) 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnAggregationAuthorization",
+		"monocdk.aws_config.CfnAggregationAuthorization",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -662,17 +772,15 @@ func CfnAggregationAuthorization_IsCfnResource(construct constructs.IConstruct) 
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnAggregationAuthorization_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnAggregationAuthorization",
+		"monocdk.aws_config.CfnAggregationAuthorization",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -685,7 +793,7 @@ func CfnAggregationAuthorization_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.CfnAggregationAuthorization",
+		"monocdk.aws_config.CfnAggregationAuthorization",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -858,6 +966,56 @@ func (c *jsiiProxy_CfnAggregationAuthorization) Inspect(inspector awscdk.TreeIns
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAggregationAuthorization) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAggregationAuthorization) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAggregationAuthorization) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnAggregationAuthorization) OverrideLogicalId(newLogicalId *string) {
@@ -865,6 +1023,23 @@ func (c *jsiiProxy_CfnAggregationAuthorization) OverrideLogicalId(newLogicalId *
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAggregationAuthorization) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -899,6 +1074,19 @@ func (c *jsiiProxy_CfnAggregationAuthorization) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAggregationAuthorization) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -909,6 +1097,26 @@ func (c *jsiiProxy_CfnAggregationAuthorization) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAggregationAuthorization) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -955,7 +1163,7 @@ type CfnConfigRule interface {
 	LogicalId() *string
 	MaximumExecutionFrequency() *string
 	SetMaximumExecutionFrequency(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Scope() interface{}
 	SetScope(val interface{})
@@ -973,10 +1181,16 @@ type CfnConfigRule interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1106,8 +1320,8 @@ func (j *jsiiProxy_CfnConfigRule) MaximumExecutionFrequency() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigRule) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnConfigRule) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1168,13 +1382,13 @@ func (j *jsiiProxy_CfnConfigRule) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Config::ConfigRule`.
-func NewCfnConfigRule(scope constructs.Construct, id *string, props *CfnConfigRuleProps) CfnConfigRule {
+func NewCfnConfigRule(scope awscdk.Construct, id *string, props *CfnConfigRuleProps) CfnConfigRule {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnConfigRule{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.CfnConfigRule",
+		"monocdk.aws_config.CfnConfigRule",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1183,11 +1397,11 @@ func NewCfnConfigRule(scope constructs.Construct, id *string, props *CfnConfigRu
 }
 
 // Create a new `AWS::Config::ConfigRule`.
-func NewCfnConfigRule_Override(c CfnConfigRule, scope constructs.Construct, id *string, props *CfnConfigRuleProps) {
+func NewCfnConfigRule_Override(c CfnConfigRule, scope awscdk.Construct, id *string, props *CfnConfigRuleProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.CfnConfigRule",
+		"monocdk.aws_config.CfnConfigRule",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1254,7 +1468,7 @@ func CfnConfigRule_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnConfigRule",
+		"monocdk.aws_config.CfnConfigRule",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1271,7 +1485,7 @@ func CfnConfigRule_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnConfigRule",
+		"monocdk.aws_config.CfnConfigRule",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1280,17 +1494,15 @@ func CfnConfigRule_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnConfigRule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnConfigRule",
+		"monocdk.aws_config.CfnConfigRule",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1303,7 +1515,7 @@ func CfnConfigRule_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.CfnConfigRule",
+		"monocdk.aws_config.CfnConfigRule",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1476,6 +1688,56 @@ func (c *jsiiProxy_CfnConfigRule) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnConfigRule) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnConfigRule) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnConfigRule) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnConfigRule) OverrideLogicalId(newLogicalId *string) {
@@ -1483,6 +1745,23 @@ func (c *jsiiProxy_CfnConfigRule) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnConfigRule) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1517,6 +1796,19 @@ func (c *jsiiProxy_CfnConfigRule) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnConfigRule) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -1527,6 +1819,26 @@ func (c *jsiiProxy_CfnConfigRule) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnConfigRule) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1601,7 +1913,7 @@ type CfnConfigurationAggregator interface {
 	SetConfigurationAggregatorName(val *string)
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OrganizationAggregationSource() interface{}
 	SetOrganizationAggregationSource(val interface{})
 	Ref() *string
@@ -1618,10 +1930,16 @@ type CfnConfigurationAggregator interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1701,8 +2019,8 @@ func (j *jsiiProxy_CfnConfigurationAggregator) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationAggregator) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnConfigurationAggregator) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1763,13 +2081,13 @@ func (j *jsiiProxy_CfnConfigurationAggregator) UpdatedProperites() *map[string]i
 
 
 // Create a new `AWS::Config::ConfigurationAggregator`.
-func NewCfnConfigurationAggregator(scope constructs.Construct, id *string, props *CfnConfigurationAggregatorProps) CfnConfigurationAggregator {
+func NewCfnConfigurationAggregator(scope awscdk.Construct, id *string, props *CfnConfigurationAggregatorProps) CfnConfigurationAggregator {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnConfigurationAggregator{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.CfnConfigurationAggregator",
+		"monocdk.aws_config.CfnConfigurationAggregator",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1778,11 +2096,11 @@ func NewCfnConfigurationAggregator(scope constructs.Construct, id *string, props
 }
 
 // Create a new `AWS::Config::ConfigurationAggregator`.
-func NewCfnConfigurationAggregator_Override(c CfnConfigurationAggregator, scope constructs.Construct, id *string, props *CfnConfigurationAggregatorProps) {
+func NewCfnConfigurationAggregator_Override(c CfnConfigurationAggregator, scope awscdk.Construct, id *string, props *CfnConfigurationAggregatorProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.CfnConfigurationAggregator",
+		"monocdk.aws_config.CfnConfigurationAggregator",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1825,7 +2143,7 @@ func CfnConfigurationAggregator_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnConfigurationAggregator",
+		"monocdk.aws_config.CfnConfigurationAggregator",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1842,7 +2160,7 @@ func CfnConfigurationAggregator_IsCfnResource(construct constructs.IConstruct) *
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnConfigurationAggregator",
+		"monocdk.aws_config.CfnConfigurationAggregator",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1851,17 +2169,15 @@ func CfnConfigurationAggregator_IsCfnResource(construct constructs.IConstruct) *
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnConfigurationAggregator_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnConfigurationAggregator",
+		"monocdk.aws_config.CfnConfigurationAggregator",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1874,7 +2190,7 @@ func CfnConfigurationAggregator_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.CfnConfigurationAggregator",
+		"monocdk.aws_config.CfnConfigurationAggregator",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2047,6 +2363,56 @@ func (c *jsiiProxy_CfnConfigurationAggregator) Inspect(inspector awscdk.TreeInsp
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnConfigurationAggregator) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnConfigurationAggregator) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnConfigurationAggregator) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnConfigurationAggregator) OverrideLogicalId(newLogicalId *string) {
@@ -2054,6 +2420,23 @@ func (c *jsiiProxy_CfnConfigurationAggregator) OverrideLogicalId(newLogicalId *s
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnConfigurationAggregator) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2088,6 +2471,19 @@ func (c *jsiiProxy_CfnConfigurationAggregator) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnConfigurationAggregator) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -2098,6 +2494,26 @@ func (c *jsiiProxy_CfnConfigurationAggregator) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnConfigurationAggregator) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2155,7 +2571,7 @@ type CfnConfigurationRecorder interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	RecordingGroup() interface{}
 	SetRecordingGroup(val interface{})
 	Ref() *string
@@ -2173,10 +2589,16 @@ type CfnConfigurationRecorder interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2246,8 +2668,8 @@ func (j *jsiiProxy_CfnConfigurationRecorder) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConfigurationRecorder) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnConfigurationRecorder) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2308,13 +2730,13 @@ func (j *jsiiProxy_CfnConfigurationRecorder) UpdatedProperites() *map[string]int
 
 
 // Create a new `AWS::Config::ConfigurationRecorder`.
-func NewCfnConfigurationRecorder(scope constructs.Construct, id *string, props *CfnConfigurationRecorderProps) CfnConfigurationRecorder {
+func NewCfnConfigurationRecorder(scope awscdk.Construct, id *string, props *CfnConfigurationRecorderProps) CfnConfigurationRecorder {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnConfigurationRecorder{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.CfnConfigurationRecorder",
+		"monocdk.aws_config.CfnConfigurationRecorder",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2323,11 +2745,11 @@ func NewCfnConfigurationRecorder(scope constructs.Construct, id *string, props *
 }
 
 // Create a new `AWS::Config::ConfigurationRecorder`.
-func NewCfnConfigurationRecorder_Override(c CfnConfigurationRecorder, scope constructs.Construct, id *string, props *CfnConfigurationRecorderProps) {
+func NewCfnConfigurationRecorder_Override(c CfnConfigurationRecorder, scope awscdk.Construct, id *string, props *CfnConfigurationRecorderProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.CfnConfigurationRecorder",
+		"monocdk.aws_config.CfnConfigurationRecorder",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2370,7 +2792,7 @@ func CfnConfigurationRecorder_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnConfigurationRecorder",
+		"monocdk.aws_config.CfnConfigurationRecorder",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2387,7 +2809,7 @@ func CfnConfigurationRecorder_IsCfnResource(construct constructs.IConstruct) *bo
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnConfigurationRecorder",
+		"monocdk.aws_config.CfnConfigurationRecorder",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2396,17 +2818,15 @@ func CfnConfigurationRecorder_IsCfnResource(construct constructs.IConstruct) *bo
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnConfigurationRecorder_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnConfigurationRecorder",
+		"monocdk.aws_config.CfnConfigurationRecorder",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2419,7 +2839,7 @@ func CfnConfigurationRecorder_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.CfnConfigurationRecorder",
+		"monocdk.aws_config.CfnConfigurationRecorder",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2592,6 +3012,56 @@ func (c *jsiiProxy_CfnConfigurationRecorder) Inspect(inspector awscdk.TreeInspec
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnConfigurationRecorder) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnConfigurationRecorder) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnConfigurationRecorder) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnConfigurationRecorder) OverrideLogicalId(newLogicalId *string) {
@@ -2599,6 +3069,23 @@ func (c *jsiiProxy_CfnConfigurationRecorder) OverrideLogicalId(newLogicalId *str
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnConfigurationRecorder) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2633,6 +3120,19 @@ func (c *jsiiProxy_CfnConfigurationRecorder) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnConfigurationRecorder) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -2643,6 +3143,26 @@ func (c *jsiiProxy_CfnConfigurationRecorder) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnConfigurationRecorder) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2695,7 +3215,7 @@ type CfnConformancePack interface {
 	DeliveryS3KeyPrefix() *string
 	SetDeliveryS3KeyPrefix(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	TemplateBody() *string
@@ -2713,10 +3233,16 @@ type CfnConformancePack interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2816,8 +3342,8 @@ func (j *jsiiProxy_CfnConformancePack) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnConformancePack) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnConformancePack) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2878,13 +3404,13 @@ func (j *jsiiProxy_CfnConformancePack) UpdatedProperites() *map[string]interface
 
 
 // Create a new `AWS::Config::ConformancePack`.
-func NewCfnConformancePack(scope constructs.Construct, id *string, props *CfnConformancePackProps) CfnConformancePack {
+func NewCfnConformancePack(scope awscdk.Construct, id *string, props *CfnConformancePackProps) CfnConformancePack {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnConformancePack{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.CfnConformancePack",
+		"monocdk.aws_config.CfnConformancePack",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2893,11 +3419,11 @@ func NewCfnConformancePack(scope constructs.Construct, id *string, props *CfnCon
 }
 
 // Create a new `AWS::Config::ConformancePack`.
-func NewCfnConformancePack_Override(c CfnConformancePack, scope constructs.Construct, id *string, props *CfnConformancePackProps) {
+func NewCfnConformancePack_Override(c CfnConformancePack, scope awscdk.Construct, id *string, props *CfnConformancePackProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.CfnConformancePack",
+		"monocdk.aws_config.CfnConformancePack",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2964,7 +3490,7 @@ func CfnConformancePack_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnConformancePack",
+		"monocdk.aws_config.CfnConformancePack",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2981,7 +3507,7 @@ func CfnConformancePack_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnConformancePack",
+		"monocdk.aws_config.CfnConformancePack",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2990,17 +3516,15 @@ func CfnConformancePack_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnConformancePack_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnConformancePack",
+		"monocdk.aws_config.CfnConformancePack",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3013,7 +3537,7 @@ func CfnConformancePack_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.CfnConformancePack",
+		"monocdk.aws_config.CfnConformancePack",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3186,6 +3710,56 @@ func (c *jsiiProxy_CfnConformancePack) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnConformancePack) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnConformancePack) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnConformancePack) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnConformancePack) OverrideLogicalId(newLogicalId *string) {
@@ -3193,6 +3767,23 @@ func (c *jsiiProxy_CfnConformancePack) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnConformancePack) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3227,6 +3818,19 @@ func (c *jsiiProxy_CfnConformancePack) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnConformancePack) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -3237,6 +3841,26 @@ func (c *jsiiProxy_CfnConformancePack) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnConformancePack) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3289,7 +3913,7 @@ type CfnDeliveryChannel interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	S3BucketName() *string
 	SetS3BucketName(val *string)
@@ -3309,10 +3933,16 @@ type CfnDeliveryChannel interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -3392,8 +4022,8 @@ func (j *jsiiProxy_CfnDeliveryChannel) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDeliveryChannel) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDeliveryChannel) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3464,13 +4094,13 @@ func (j *jsiiProxy_CfnDeliveryChannel) UpdatedProperites() *map[string]interface
 
 
 // Create a new `AWS::Config::DeliveryChannel`.
-func NewCfnDeliveryChannel(scope constructs.Construct, id *string, props *CfnDeliveryChannelProps) CfnDeliveryChannel {
+func NewCfnDeliveryChannel(scope awscdk.Construct, id *string, props *CfnDeliveryChannelProps) CfnDeliveryChannel {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDeliveryChannel{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.CfnDeliveryChannel",
+		"monocdk.aws_config.CfnDeliveryChannel",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3479,11 +4109,11 @@ func NewCfnDeliveryChannel(scope constructs.Construct, id *string, props *CfnDel
 }
 
 // Create a new `AWS::Config::DeliveryChannel`.
-func NewCfnDeliveryChannel_Override(c CfnDeliveryChannel, scope constructs.Construct, id *string, props *CfnDeliveryChannelProps) {
+func NewCfnDeliveryChannel_Override(c CfnDeliveryChannel, scope awscdk.Construct, id *string, props *CfnDeliveryChannelProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.CfnDeliveryChannel",
+		"monocdk.aws_config.CfnDeliveryChannel",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3542,7 +4172,7 @@ func CfnDeliveryChannel_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnDeliveryChannel",
+		"monocdk.aws_config.CfnDeliveryChannel",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3559,7 +4189,7 @@ func CfnDeliveryChannel_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnDeliveryChannel",
+		"monocdk.aws_config.CfnDeliveryChannel",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3568,17 +4198,15 @@ func CfnDeliveryChannel_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDeliveryChannel_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnDeliveryChannel",
+		"monocdk.aws_config.CfnDeliveryChannel",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3591,7 +4219,7 @@ func CfnDeliveryChannel_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.CfnDeliveryChannel",
+		"monocdk.aws_config.CfnDeliveryChannel",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3764,6 +4392,56 @@ func (c *jsiiProxy_CfnDeliveryChannel) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDeliveryChannel) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDeliveryChannel) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDeliveryChannel) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnDeliveryChannel) OverrideLogicalId(newLogicalId *string) {
@@ -3771,6 +4449,23 @@ func (c *jsiiProxy_CfnDeliveryChannel) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDeliveryChannel) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3805,6 +4500,19 @@ func (c *jsiiProxy_CfnDeliveryChannel) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDeliveryChannel) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -3815,6 +4523,26 @@ func (c *jsiiProxy_CfnDeliveryChannel) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDeliveryChannel) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3861,7 +4589,7 @@ type CfnOrganizationConfigRule interface {
 	ExcludedAccounts() *[]*string
 	SetExcludedAccounts(val *[]*string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OrganizationConfigRuleName() *string
 	SetOrganizationConfigRuleName(val *string)
 	OrganizationCustomRuleMetadata() interface{}
@@ -3881,10 +4609,16 @@ type CfnOrganizationConfigRule interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -3954,8 +4688,8 @@ func (j *jsiiProxy_CfnOrganizationConfigRule) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOrganizationConfigRule) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnOrganizationConfigRule) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4026,13 +4760,13 @@ func (j *jsiiProxy_CfnOrganizationConfigRule) UpdatedProperites() *map[string]in
 
 
 // Create a new `AWS::Config::OrganizationConfigRule`.
-func NewCfnOrganizationConfigRule(scope constructs.Construct, id *string, props *CfnOrganizationConfigRuleProps) CfnOrganizationConfigRule {
+func NewCfnOrganizationConfigRule(scope awscdk.Construct, id *string, props *CfnOrganizationConfigRuleProps) CfnOrganizationConfigRule {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnOrganizationConfigRule{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.CfnOrganizationConfigRule",
+		"monocdk.aws_config.CfnOrganizationConfigRule",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4041,11 +4775,11 @@ func NewCfnOrganizationConfigRule(scope constructs.Construct, id *string, props 
 }
 
 // Create a new `AWS::Config::OrganizationConfigRule`.
-func NewCfnOrganizationConfigRule_Override(c CfnOrganizationConfigRule, scope constructs.Construct, id *string, props *CfnOrganizationConfigRuleProps) {
+func NewCfnOrganizationConfigRule_Override(c CfnOrganizationConfigRule, scope awscdk.Construct, id *string, props *CfnOrganizationConfigRuleProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.CfnOrganizationConfigRule",
+		"monocdk.aws_config.CfnOrganizationConfigRule",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4096,7 +4830,7 @@ func CfnOrganizationConfigRule_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnOrganizationConfigRule",
+		"monocdk.aws_config.CfnOrganizationConfigRule",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4113,7 +4847,7 @@ func CfnOrganizationConfigRule_IsCfnResource(construct constructs.IConstruct) *b
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnOrganizationConfigRule",
+		"monocdk.aws_config.CfnOrganizationConfigRule",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4122,17 +4856,15 @@ func CfnOrganizationConfigRule_IsCfnResource(construct constructs.IConstruct) *b
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnOrganizationConfigRule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnOrganizationConfigRule",
+		"monocdk.aws_config.CfnOrganizationConfigRule",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4145,7 +4877,7 @@ func CfnOrganizationConfigRule_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.CfnOrganizationConfigRule",
+		"monocdk.aws_config.CfnOrganizationConfigRule",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -4318,6 +5050,56 @@ func (c *jsiiProxy_CfnOrganizationConfigRule) Inspect(inspector awscdk.TreeInspe
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnOrganizationConfigRule) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnOrganizationConfigRule) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnOrganizationConfigRule) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnOrganizationConfigRule) OverrideLogicalId(newLogicalId *string) {
@@ -4325,6 +5107,23 @@ func (c *jsiiProxy_CfnOrganizationConfigRule) OverrideLogicalId(newLogicalId *st
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnOrganizationConfigRule) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -4359,6 +5158,19 @@ func (c *jsiiProxy_CfnOrganizationConfigRule) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnOrganizationConfigRule) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -4369,6 +5181,26 @@ func (c *jsiiProxy_CfnOrganizationConfigRule) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnOrganizationConfigRule) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4454,7 +5286,7 @@ type CfnOrganizationConformancePack interface {
 	ExcludedAccounts() *[]*string
 	SetExcludedAccounts(val *[]*string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OrganizationConformancePackName() *string
 	SetOrganizationConformancePackName(val *string)
 	Ref() *string
@@ -4474,10 +5306,16 @@ type CfnOrganizationConformancePack interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -4577,8 +5415,8 @@ func (j *jsiiProxy_CfnOrganizationConformancePack) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOrganizationConformancePack) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnOrganizationConformancePack) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4649,13 +5487,13 @@ func (j *jsiiProxy_CfnOrganizationConformancePack) UpdatedProperites() *map[stri
 
 
 // Create a new `AWS::Config::OrganizationConformancePack`.
-func NewCfnOrganizationConformancePack(scope constructs.Construct, id *string, props *CfnOrganizationConformancePackProps) CfnOrganizationConformancePack {
+func NewCfnOrganizationConformancePack(scope awscdk.Construct, id *string, props *CfnOrganizationConformancePackProps) CfnOrganizationConformancePack {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnOrganizationConformancePack{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.CfnOrganizationConformancePack",
+		"monocdk.aws_config.CfnOrganizationConformancePack",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4664,11 +5502,11 @@ func NewCfnOrganizationConformancePack(scope constructs.Construct, id *string, p
 }
 
 // Create a new `AWS::Config::OrganizationConformancePack`.
-func NewCfnOrganizationConformancePack_Override(c CfnOrganizationConformancePack, scope constructs.Construct, id *string, props *CfnOrganizationConformancePackProps) {
+func NewCfnOrganizationConformancePack_Override(c CfnOrganizationConformancePack, scope awscdk.Construct, id *string, props *CfnOrganizationConformancePackProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.CfnOrganizationConformancePack",
+		"monocdk.aws_config.CfnOrganizationConformancePack",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4743,7 +5581,7 @@ func CfnOrganizationConformancePack_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnOrganizationConformancePack",
+		"monocdk.aws_config.CfnOrganizationConformancePack",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4760,7 +5598,7 @@ func CfnOrganizationConformancePack_IsCfnResource(construct constructs.IConstruc
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnOrganizationConformancePack",
+		"monocdk.aws_config.CfnOrganizationConformancePack",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4769,17 +5607,15 @@ func CfnOrganizationConformancePack_IsCfnResource(construct constructs.IConstruc
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnOrganizationConformancePack_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnOrganizationConformancePack",
+		"monocdk.aws_config.CfnOrganizationConformancePack",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4792,7 +5628,7 @@ func CfnOrganizationConformancePack_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.CfnOrganizationConformancePack",
+		"monocdk.aws_config.CfnOrganizationConformancePack",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -4965,6 +5801,56 @@ func (c *jsiiProxy_CfnOrganizationConformancePack) Inspect(inspector awscdk.Tree
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnOrganizationConformancePack) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnOrganizationConformancePack) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnOrganizationConformancePack) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnOrganizationConformancePack) OverrideLogicalId(newLogicalId *string) {
@@ -4972,6 +5858,23 @@ func (c *jsiiProxy_CfnOrganizationConformancePack) OverrideLogicalId(newLogicalI
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnOrganizationConformancePack) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -5006,6 +5909,19 @@ func (c *jsiiProxy_CfnOrganizationConformancePack) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnOrganizationConformancePack) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -5016,6 +5932,26 @@ func (c *jsiiProxy_CfnOrganizationConformancePack) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnOrganizationConformancePack) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5074,7 +6010,7 @@ type CfnRemediationConfiguration interface {
 	LogicalId() *string
 	MaximumAutomaticAttempts() *float64
 	SetMaximumAutomaticAttempts(val *float64)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Parameters() interface{}
 	SetParameters(val interface{})
 	Ref() *string
@@ -5100,10 +6036,16 @@ type CfnRemediationConfiguration interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -5203,8 +6145,8 @@ func (j *jsiiProxy_CfnRemediationConfiguration) MaximumAutomaticAttempts() *floa
 	return returns
 }
 
-func (j *jsiiProxy_CfnRemediationConfiguration) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnRemediationConfiguration) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5305,13 +6247,13 @@ func (j *jsiiProxy_CfnRemediationConfiguration) UpdatedProperites() *map[string]
 
 
 // Create a new `AWS::Config::RemediationConfiguration`.
-func NewCfnRemediationConfiguration(scope constructs.Construct, id *string, props *CfnRemediationConfigurationProps) CfnRemediationConfiguration {
+func NewCfnRemediationConfiguration(scope awscdk.Construct, id *string, props *CfnRemediationConfigurationProps) CfnRemediationConfiguration {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnRemediationConfiguration{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.CfnRemediationConfiguration",
+		"monocdk.aws_config.CfnRemediationConfiguration",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5320,11 +6262,11 @@ func NewCfnRemediationConfiguration(scope constructs.Construct, id *string, prop
 }
 
 // Create a new `AWS::Config::RemediationConfiguration`.
-func NewCfnRemediationConfiguration_Override(c CfnRemediationConfiguration, scope constructs.Construct, id *string, props *CfnRemediationConfigurationProps) {
+func NewCfnRemediationConfiguration_Override(c CfnRemediationConfiguration, scope awscdk.Construct, id *string, props *CfnRemediationConfigurationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.CfnRemediationConfiguration",
+		"monocdk.aws_config.CfnRemediationConfiguration",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -5423,7 +6365,7 @@ func CfnRemediationConfiguration_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnRemediationConfiguration",
+		"monocdk.aws_config.CfnRemediationConfiguration",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -5440,7 +6382,7 @@ func CfnRemediationConfiguration_IsCfnResource(construct constructs.IConstruct) 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnRemediationConfiguration",
+		"monocdk.aws_config.CfnRemediationConfiguration",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -5449,17 +6391,15 @@ func CfnRemediationConfiguration_IsCfnResource(construct constructs.IConstruct) 
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnRemediationConfiguration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnRemediationConfiguration",
+		"monocdk.aws_config.CfnRemediationConfiguration",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5472,7 +6412,7 @@ func CfnRemediationConfiguration_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.CfnRemediationConfiguration",
+		"monocdk.aws_config.CfnRemediationConfiguration",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -5645,6 +6585,56 @@ func (c *jsiiProxy_CfnRemediationConfiguration) Inspect(inspector awscdk.TreeIns
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnRemediationConfiguration) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnRemediationConfiguration) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnRemediationConfiguration) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnRemediationConfiguration) OverrideLogicalId(newLogicalId *string) {
@@ -5652,6 +6642,23 @@ func (c *jsiiProxy_CfnRemediationConfiguration) OverrideLogicalId(newLogicalId *
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnRemediationConfiguration) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -5686,6 +6693,19 @@ func (c *jsiiProxy_CfnRemediationConfiguration) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnRemediationConfiguration) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -5696,6 +6716,26 @@ func (c *jsiiProxy_CfnRemediationConfiguration) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnRemediationConfiguration) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5776,7 +6816,7 @@ type CfnStoredQuery interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	QueryDescription() *string
 	SetQueryDescription(val *string)
 	QueryExpression() *string
@@ -5797,10 +6837,16 @@ type CfnStoredQuery interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -5880,8 +6926,8 @@ func (j *jsiiProxy_CfnStoredQuery) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStoredQuery) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnStoredQuery) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5962,13 +7008,13 @@ func (j *jsiiProxy_CfnStoredQuery) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Config::StoredQuery`.
-func NewCfnStoredQuery(scope constructs.Construct, id *string, props *CfnStoredQueryProps) CfnStoredQuery {
+func NewCfnStoredQuery(scope awscdk.Construct, id *string, props *CfnStoredQueryProps) CfnStoredQuery {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnStoredQuery{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.CfnStoredQuery",
+		"monocdk.aws_config.CfnStoredQuery",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5977,11 +7023,11 @@ func NewCfnStoredQuery(scope constructs.Construct, id *string, props *CfnStoredQ
 }
 
 // Create a new `AWS::Config::StoredQuery`.
-func NewCfnStoredQuery_Override(c CfnStoredQuery, scope constructs.Construct, id *string, props *CfnStoredQueryProps) {
+func NewCfnStoredQuery_Override(c CfnStoredQuery, scope awscdk.Construct, id *string, props *CfnStoredQueryProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.CfnStoredQuery",
+		"monocdk.aws_config.CfnStoredQuery",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -6024,7 +7070,7 @@ func CfnStoredQuery_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnStoredQuery",
+		"monocdk.aws_config.CfnStoredQuery",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -6041,7 +7087,7 @@ func CfnStoredQuery_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnStoredQuery",
+		"monocdk.aws_config.CfnStoredQuery",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -6050,17 +7096,15 @@ func CfnStoredQuery_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnStoredQuery_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CfnStoredQuery",
+		"monocdk.aws_config.CfnStoredQuery",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6073,7 +7117,7 @@ func CfnStoredQuery_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.CfnStoredQuery",
+		"monocdk.aws_config.CfnStoredQuery",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -6246,6 +7290,56 @@ func (c *jsiiProxy_CfnStoredQuery) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnStoredQuery) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnStoredQuery) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnStoredQuery) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnStoredQuery) OverrideLogicalId(newLogicalId *string) {
@@ -6253,6 +7347,23 @@ func (c *jsiiProxy_CfnStoredQuery) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnStoredQuery) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -6287,6 +7398,19 @@ func (c *jsiiProxy_CfnStoredQuery) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnStoredQuery) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -6297,6 +7421,26 @@ func (c *jsiiProxy_CfnStoredQuery) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnStoredQuery) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -6340,7 +7484,7 @@ type CloudFormationStackDriftDetectionCheck interface {
 	SetIsCustomWithChanges(val *bool)
 	IsManaged() *bool
 	SetIsManaged(val *bool)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	RuleScope() RuleScope
 	SetRuleScope(val RuleScope)
@@ -6351,8 +7495,14 @@ type CloudFormationStackDriftDetectionCheck interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	OnComplianceChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	OnPrepare()
 	OnReEvaluationStatus(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for CloudFormationStackDriftDetectionCheck
@@ -6430,8 +7580,8 @@ func (j *jsiiProxy_CloudFormationStackDriftDetectionCheck) IsManaged() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_CloudFormationStackDriftDetectionCheck) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CloudFormationStackDriftDetectionCheck) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -6478,7 +7628,7 @@ func NewCloudFormationStackDriftDetectionCheck(scope constructs.Construct, id *s
 	j := jsiiProxy_CloudFormationStackDriftDetectionCheck{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.CloudFormationStackDriftDetectionCheck",
+		"monocdk.aws_config.CloudFormationStackDriftDetectionCheck",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6491,7 +7641,7 @@ func NewCloudFormationStackDriftDetectionCheck_Override(c CloudFormationStackDri
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.CloudFormationStackDriftDetectionCheck",
+		"monocdk.aws_config.CloudFormationStackDriftDetectionCheck",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -6529,7 +7679,7 @@ func CloudFormationStackDriftDetectionCheck_FromConfigRuleName(scope constructs.
 	var returns IRule
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CloudFormationStackDriftDetectionCheck",
+		"monocdk.aws_config.CloudFormationStackDriftDetectionCheck",
 		"fromConfigRuleName",
 		[]interface{}{scope, id, configRuleName},
 		&returns,
@@ -6538,17 +7688,15 @@ func CloudFormationStackDriftDetectionCheck_FromConfigRuleName(scope constructs.
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CloudFormationStackDriftDetectionCheck_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CloudFormationStackDriftDetectionCheck",
+		"monocdk.aws_config.CloudFormationStackDriftDetectionCheck",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6559,13 +7707,13 @@ func CloudFormationStackDriftDetectionCheck_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func CloudFormationStackDriftDetectionCheck_IsResource(construct constructs.IConstruct) *bool {
+func CloudFormationStackDriftDetectionCheck_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CloudFormationStackDriftDetectionCheck",
+		"monocdk.aws_config.CloudFormationStackDriftDetectionCheck",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -6678,6 +7826,23 @@ func (c *jsiiProxy_CloudFormationStackDriftDetectionCheck) OnEvent(id *string, o
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CloudFormationStackDriftDetectionCheck) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
 // Defines an EventBridge event rule which triggers for rule re-evaluation status events.
 // Experimental.
 func (c *jsiiProxy_CloudFormationStackDriftDetectionCheck) OnReEvaluationStatus(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
@@ -6693,6 +7858,69 @@ func (c *jsiiProxy_CloudFormationStackDriftDetectionCheck) OnReEvaluationStatus(
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CloudFormationStackDriftDetectionCheck) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CloudFormationStackDriftDetectionCheck) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CloudFormationStackDriftDetectionCheck) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CloudFormationStackDriftDetectionCheck) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (c *jsiiProxy_CloudFormationStackDriftDetectionCheck) ToString() *string {
@@ -6701,6 +7929,26 @@ func (c *jsiiProxy_CloudFormationStackDriftDetectionCheck) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CloudFormationStackDriftDetectionCheck) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -6756,7 +8004,7 @@ type CloudFormationStackNotificationCheck interface {
 	SetIsCustomWithChanges(val *bool)
 	IsManaged() *bool
 	SetIsManaged(val *bool)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	RuleScope() RuleScope
 	SetRuleScope(val RuleScope)
@@ -6767,8 +8015,14 @@ type CloudFormationStackNotificationCheck interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	OnComplianceChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	OnPrepare()
 	OnReEvaluationStatus(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for CloudFormationStackNotificationCheck
@@ -6846,8 +8100,8 @@ func (j *jsiiProxy_CloudFormationStackNotificationCheck) IsManaged() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_CloudFormationStackNotificationCheck) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CloudFormationStackNotificationCheck) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -6894,7 +8148,7 @@ func NewCloudFormationStackNotificationCheck(scope constructs.Construct, id *str
 	j := jsiiProxy_CloudFormationStackNotificationCheck{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.CloudFormationStackNotificationCheck",
+		"monocdk.aws_config.CloudFormationStackNotificationCheck",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6907,7 +8161,7 @@ func NewCloudFormationStackNotificationCheck_Override(c CloudFormationStackNotif
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.CloudFormationStackNotificationCheck",
+		"monocdk.aws_config.CloudFormationStackNotificationCheck",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -6945,7 +8199,7 @@ func CloudFormationStackNotificationCheck_FromConfigRuleName(scope constructs.Co
 	var returns IRule
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CloudFormationStackNotificationCheck",
+		"monocdk.aws_config.CloudFormationStackNotificationCheck",
 		"fromConfigRuleName",
 		[]interface{}{scope, id, configRuleName},
 		&returns,
@@ -6954,17 +8208,15 @@ func CloudFormationStackNotificationCheck_FromConfigRuleName(scope constructs.Co
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CloudFormationStackNotificationCheck_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CloudFormationStackNotificationCheck",
+		"monocdk.aws_config.CloudFormationStackNotificationCheck",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6975,13 +8227,13 @@ func CloudFormationStackNotificationCheck_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func CloudFormationStackNotificationCheck_IsResource(construct constructs.IConstruct) *bool {
+func CloudFormationStackNotificationCheck_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CloudFormationStackNotificationCheck",
+		"monocdk.aws_config.CloudFormationStackNotificationCheck",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -7094,6 +8346,23 @@ func (c *jsiiProxy_CloudFormationStackNotificationCheck) OnEvent(id *string, opt
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CloudFormationStackNotificationCheck) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
 // Defines an EventBridge event rule which triggers for rule re-evaluation status events.
 // Experimental.
 func (c *jsiiProxy_CloudFormationStackNotificationCheck) OnReEvaluationStatus(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
@@ -7109,6 +8378,69 @@ func (c *jsiiProxy_CloudFormationStackNotificationCheck) OnReEvaluationStatus(id
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CloudFormationStackNotificationCheck) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CloudFormationStackNotificationCheck) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CloudFormationStackNotificationCheck) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CloudFormationStackNotificationCheck) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (c *jsiiProxy_CloudFormationStackNotificationCheck) ToString() *string {
@@ -7117,6 +8449,26 @@ func (c *jsiiProxy_CloudFormationStackNotificationCheck) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CloudFormationStackNotificationCheck) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -7163,7 +8515,7 @@ type CustomRule interface {
 	SetIsCustomWithChanges(val *bool)
 	IsManaged() *bool
 	SetIsManaged(val *bool)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	RuleScope() RuleScope
 	SetRuleScope(val RuleScope)
@@ -7174,8 +8526,14 @@ type CustomRule interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	OnComplianceChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	OnPrepare()
 	OnReEvaluationStatus(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for CustomRule
@@ -7254,8 +8612,8 @@ func (j *jsiiProxy_CustomRule) IsManaged() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_CustomRule) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CustomRule) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -7302,7 +8660,7 @@ func NewCustomRule(scope constructs.Construct, id *string, props *CustomRuleProp
 	j := jsiiProxy_CustomRule{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.CustomRule",
+		"monocdk.aws_config.CustomRule",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7315,7 +8673,7 @@ func NewCustomRule_Override(c CustomRule, scope constructs.Construct, id *string
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.CustomRule",
+		"monocdk.aws_config.CustomRule",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -7353,7 +8711,7 @@ func CustomRule_FromConfigRuleName(scope constructs.Construct, id *string, confi
 	var returns IRule
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CustomRule",
+		"monocdk.aws_config.CustomRule",
 		"fromConfigRuleName",
 		[]interface{}{scope, id, configRuleName},
 		&returns,
@@ -7362,17 +8720,15 @@ func CustomRule_FromConfigRuleName(scope constructs.Construct, id *string, confi
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CustomRule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CustomRule",
+		"monocdk.aws_config.CustomRule",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7383,13 +8739,13 @@ func CustomRule_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func CustomRule_IsResource(construct constructs.IConstruct) *bool {
+func CustomRule_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.CustomRule",
+		"monocdk.aws_config.CustomRule",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -7502,6 +8858,23 @@ func (c *jsiiProxy_CustomRule) OnEvent(id *string, options *awsevents.OnEventOpt
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CustomRule) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
 // Defines an EventBridge event rule which triggers for rule re-evaluation status events.
 // Experimental.
 func (c *jsiiProxy_CustomRule) OnReEvaluationStatus(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
@@ -7517,6 +8890,69 @@ func (c *jsiiProxy_CustomRule) OnReEvaluationStatus(id *string, options *awseven
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CustomRule) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CustomRule) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CustomRule) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CustomRule) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (c *jsiiProxy_CustomRule) ToString() *string {
@@ -7525,6 +8961,26 @@ func (c *jsiiProxy_CustomRule) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CustomRule) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -7650,7 +9106,7 @@ type ManagedRule interface {
 	SetIsCustomWithChanges(val *bool)
 	IsManaged() *bool
 	SetIsManaged(val *bool)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	RuleScope() RuleScope
 	SetRuleScope(val RuleScope)
@@ -7661,8 +9117,14 @@ type ManagedRule interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	OnComplianceChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	OnPrepare()
 	OnReEvaluationStatus(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ManagedRule
@@ -7741,8 +9203,8 @@ func (j *jsiiProxy_ManagedRule) IsManaged() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_ManagedRule) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ManagedRule) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -7789,7 +9251,7 @@ func NewManagedRule(scope constructs.Construct, id *string, props *ManagedRulePr
 	j := jsiiProxy_ManagedRule{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.ManagedRule",
+		"monocdk.aws_config.ManagedRule",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7802,7 +9264,7 @@ func NewManagedRule_Override(m ManagedRule, scope constructs.Construct, id *stri
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_config.ManagedRule",
+		"monocdk.aws_config.ManagedRule",
 		[]interface{}{scope, id, props},
 		m,
 	)
@@ -7840,7 +9302,7 @@ func ManagedRule_FromConfigRuleName(scope constructs.Construct, id *string, conf
 	var returns IRule
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.ManagedRule",
+		"monocdk.aws_config.ManagedRule",
 		"fromConfigRuleName",
 		[]interface{}{scope, id, configRuleName},
 		&returns,
@@ -7849,17 +9311,15 @@ func ManagedRule_FromConfigRuleName(scope constructs.Construct, id *string, conf
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func ManagedRule_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.ManagedRule",
+		"monocdk.aws_config.ManagedRule",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7870,13 +9330,13 @@ func ManagedRule_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func ManagedRule_IsResource(construct constructs.IConstruct) *bool {
+func ManagedRule_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.ManagedRule",
+		"monocdk.aws_config.ManagedRule",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -7989,6 +9449,23 @@ func (m *jsiiProxy_ManagedRule) OnEvent(id *string, options *awsevents.OnEventOp
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (m *jsiiProxy_ManagedRule) OnPrepare() {
+	_jsii_.InvokeVoid(
+		m,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
 // Defines an EventBridge event rule which triggers for rule re-evaluation status events.
 // Experimental.
 func (m *jsiiProxy_ManagedRule) OnReEvaluationStatus(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
@@ -8004,6 +9481,69 @@ func (m *jsiiProxy_ManagedRule) OnReEvaluationStatus(id *string, options *awseve
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (m *jsiiProxy_ManagedRule) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		m,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (m *jsiiProxy_ManagedRule) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		m,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (m *jsiiProxy_ManagedRule) Prepare() {
+	_jsii_.InvokeVoid(
+		m,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (m *jsiiProxy_ManagedRule) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		m,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (m *jsiiProxy_ManagedRule) ToString() *string {
@@ -8012,6 +9552,26 @@ func (m *jsiiProxy_ManagedRule) ToString() *string {
 	_jsii_.Invoke(
 		m,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (m *jsiiProxy_ManagedRule) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		m,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -8035,7 +9595,7 @@ func ManagedRuleIdentifiers_ACCESS_KEYS_ROTATED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"ACCESS_KEYS_ROTATED",
 		&returns,
 	)
@@ -8046,7 +9606,7 @@ func ManagedRuleIdentifiers_ACCOUNT_PART_OF_ORGANIZATIONS() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"ACCOUNT_PART_OF_ORGANIZATIONS",
 		&returns,
 	)
@@ -8057,7 +9617,7 @@ func ManagedRuleIdentifiers_ACM_CERTIFICATE_EXPIRATION_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"ACM_CERTIFICATE_EXPIRATION_CHECK",
 		&returns,
 	)
@@ -8068,7 +9628,7 @@ func ManagedRuleIdentifiers_ALB_HTTP_DROP_INVALID_HEADER_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"ALB_HTTP_DROP_INVALID_HEADER_ENABLED",
 		&returns,
 	)
@@ -8079,7 +9639,7 @@ func ManagedRuleIdentifiers_ALB_HTTP_TO_HTTPS_REDIRECTION_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"ALB_HTTP_TO_HTTPS_REDIRECTION_CHECK",
 		&returns,
 	)
@@ -8090,7 +9650,7 @@ func ManagedRuleIdentifiers_ALB_WAF_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"ALB_WAF_ENABLED",
 		&returns,
 	)
@@ -8101,7 +9661,7 @@ func ManagedRuleIdentifiers_API_GW_CACHE_ENABLED_AND_ENCRYPTED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"API_GW_CACHE_ENABLED_AND_ENCRYPTED",
 		&returns,
 	)
@@ -8112,7 +9672,7 @@ func ManagedRuleIdentifiers_API_GW_ENDPOINT_TYPE_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"API_GW_ENDPOINT_TYPE_CHECK",
 		&returns,
 	)
@@ -8123,7 +9683,7 @@ func ManagedRuleIdentifiers_API_GW_EXECUTION_LOGGING_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"API_GW_EXECUTION_LOGGING_ENABLED",
 		&returns,
 	)
@@ -8134,7 +9694,7 @@ func ManagedRuleIdentifiers_APPROVED_AMIS_BY_ID() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"APPROVED_AMIS_BY_ID",
 		&returns,
 	)
@@ -8145,7 +9705,7 @@ func ManagedRuleIdentifiers_APPROVED_AMIS_BY_TAG() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"APPROVED_AMIS_BY_TAG",
 		&returns,
 	)
@@ -8156,7 +9716,7 @@ func ManagedRuleIdentifiers_AUTOSCALING_GROUP_ELB_HEALTHCHECK_REQUIRED() *string
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"AUTOSCALING_GROUP_ELB_HEALTHCHECK_REQUIRED",
 		&returns,
 	)
@@ -8167,7 +9727,7 @@ func ManagedRuleIdentifiers_CLOUD_TRAIL_CLOUD_WATCH_LOGS_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"CLOUD_TRAIL_CLOUD_WATCH_LOGS_ENABLED",
 		&returns,
 	)
@@ -8178,7 +9738,7 @@ func ManagedRuleIdentifiers_CLOUD_TRAIL_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"CLOUD_TRAIL_ENABLED",
 		&returns,
 	)
@@ -8189,7 +9749,7 @@ func ManagedRuleIdentifiers_CLOUD_TRAIL_ENCRYPTION_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"CLOUD_TRAIL_ENCRYPTION_ENABLED",
 		&returns,
 	)
@@ -8200,7 +9760,7 @@ func ManagedRuleIdentifiers_CLOUD_TRAIL_LOG_FILE_VALIDATION_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"CLOUD_TRAIL_LOG_FILE_VALIDATION_ENABLED",
 		&returns,
 	)
@@ -8211,7 +9771,7 @@ func ManagedRuleIdentifiers_CLOUDFORMATION_STACK_DRIFT_DETECTION_CHECK() *string
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"CLOUDFORMATION_STACK_DRIFT_DETECTION_CHECK",
 		&returns,
 	)
@@ -8222,7 +9782,7 @@ func ManagedRuleIdentifiers_CLOUDFORMATION_STACK_NOTIFICATION_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"CLOUDFORMATION_STACK_NOTIFICATION_CHECK",
 		&returns,
 	)
@@ -8233,7 +9793,7 @@ func ManagedRuleIdentifiers_CLOUDFRONT_DEFAULT_ROOT_OBJECT_CONFIGURED() *string 
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"CLOUDFRONT_DEFAULT_ROOT_OBJECT_CONFIGURED",
 		&returns,
 	)
@@ -8244,7 +9804,7 @@ func ManagedRuleIdentifiers_CLOUDFRONT_ORIGIN_ACCESS_IDENTITY_ENABLED() *string 
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"CLOUDFRONT_ORIGIN_ACCESS_IDENTITY_ENABLED",
 		&returns,
 	)
@@ -8255,7 +9815,7 @@ func ManagedRuleIdentifiers_CLOUDFRONT_ORIGIN_FAILOVER_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"CLOUDFRONT_ORIGIN_FAILOVER_ENABLED",
 		&returns,
 	)
@@ -8266,7 +9826,7 @@ func ManagedRuleIdentifiers_CLOUDFRONT_SNI_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"CLOUDFRONT_SNI_ENABLED",
 		&returns,
 	)
@@ -8277,7 +9837,7 @@ func ManagedRuleIdentifiers_CLOUDFRONT_VIEWER_POLICY_HTTPS() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"CLOUDFRONT_VIEWER_POLICY_HTTPS",
 		&returns,
 	)
@@ -8288,7 +9848,7 @@ func ManagedRuleIdentifiers_CLOUDTRAIL_MULTI_REGION_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"CLOUDTRAIL_MULTI_REGION_ENABLED",
 		&returns,
 	)
@@ -8299,7 +9859,7 @@ func ManagedRuleIdentifiers_CLOUDTRAIL_S3_DATAEVENTS_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"CLOUDTRAIL_S3_DATAEVENTS_ENABLED",
 		&returns,
 	)
@@ -8310,7 +9870,7 @@ func ManagedRuleIdentifiers_CLOUDTRAIL_SECURITY_TRAIL_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"CLOUDTRAIL_SECURITY_TRAIL_ENABLED",
 		&returns,
 	)
@@ -8321,7 +9881,7 @@ func ManagedRuleIdentifiers_CLOUDWATCH_ALARM_ACTION_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"CLOUDWATCH_ALARM_ACTION_CHECK",
 		&returns,
 	)
@@ -8332,7 +9892,7 @@ func ManagedRuleIdentifiers_CLOUDWATCH_ALARM_RESOURCE_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"CLOUDWATCH_ALARM_RESOURCE_CHECK",
 		&returns,
 	)
@@ -8343,7 +9903,7 @@ func ManagedRuleIdentifiers_CLOUDWATCH_ALARM_SETTINGS_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"CLOUDWATCH_ALARM_SETTINGS_CHECK",
 		&returns,
 	)
@@ -8354,7 +9914,7 @@ func ManagedRuleIdentifiers_CLOUDWATCH_LOG_GROUP_ENCRYPTED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"CLOUDWATCH_LOG_GROUP_ENCRYPTED",
 		&returns,
 	)
@@ -8365,7 +9925,7 @@ func ManagedRuleIdentifiers_CMK_BACKING_KEY_ROTATION_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"CMK_BACKING_KEY_ROTATION_ENABLED",
 		&returns,
 	)
@@ -8376,7 +9936,7 @@ func ManagedRuleIdentifiers_CODEBUILD_PROJECT_ENVVAR_AWSCRED_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"CODEBUILD_PROJECT_ENVVAR_AWSCRED_CHECK",
 		&returns,
 	)
@@ -8387,7 +9947,7 @@ func ManagedRuleIdentifiers_CODEBUILD_PROJECT_SOURCE_REPO_URL_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"CODEBUILD_PROJECT_SOURCE_REPO_URL_CHECK",
 		&returns,
 	)
@@ -8398,7 +9958,7 @@ func ManagedRuleIdentifiers_CODEPIPELINE_DEPLOYMENT_COUNT_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"CODEPIPELINE_DEPLOYMENT_COUNT_CHECK",
 		&returns,
 	)
@@ -8409,7 +9969,7 @@ func ManagedRuleIdentifiers_CODEPIPELINE_REGION_FANOUT_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"CODEPIPELINE_REGION_FANOUT_CHECK",
 		&returns,
 	)
@@ -8420,7 +9980,7 @@ func ManagedRuleIdentifiers_CW_LOGGROUP_RETENTION_PERIOD_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"CW_LOGGROUP_RETENTION_PERIOD_CHECK",
 		&returns,
 	)
@@ -8431,7 +9991,7 @@ func ManagedRuleIdentifiers_DAX_ENCRYPTION_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"DAX_ENCRYPTION_ENABLED",
 		&returns,
 	)
@@ -8442,7 +10002,7 @@ func ManagedRuleIdentifiers_DMS_REPLICATION_NOT_PUBLIC() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"DMS_REPLICATION_NOT_PUBLIC",
 		&returns,
 	)
@@ -8453,7 +10013,7 @@ func ManagedRuleIdentifiers_DYNAMODB_AUTOSCALING_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"DYNAMODB_AUTOSCALING_ENABLED",
 		&returns,
 	)
@@ -8464,7 +10024,7 @@ func ManagedRuleIdentifiers_DYNAMODB_IN_BACKUP_PLAN() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"DYNAMODB_IN_BACKUP_PLAN",
 		&returns,
 	)
@@ -8475,7 +10035,7 @@ func ManagedRuleIdentifiers_DYNAMODB_PITR_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"DYNAMODB_PITR_ENABLED",
 		&returns,
 	)
@@ -8486,7 +10046,7 @@ func ManagedRuleIdentifiers_DYNAMODB_TABLE_ENCRYPTED_KMS() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"DYNAMODB_TABLE_ENCRYPTED_KMS",
 		&returns,
 	)
@@ -8497,7 +10057,7 @@ func ManagedRuleIdentifiers_DYNAMODB_TABLE_ENCRYPTION_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"DYNAMODB_TABLE_ENCRYPTION_ENABLED",
 		&returns,
 	)
@@ -8508,7 +10068,7 @@ func ManagedRuleIdentifiers_DYNAMODB_THROUGHPUT_LIMIT_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"DYNAMODB_THROUGHPUT_LIMIT_CHECK",
 		&returns,
 	)
@@ -8519,7 +10079,7 @@ func ManagedRuleIdentifiers_EBS_ENCRYPTED_VOLUMES() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EBS_ENCRYPTED_VOLUMES",
 		&returns,
 	)
@@ -8530,7 +10090,7 @@ func ManagedRuleIdentifiers_EBS_IN_BACKUP_PLAN() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EBS_IN_BACKUP_PLAN",
 		&returns,
 	)
@@ -8541,7 +10101,7 @@ func ManagedRuleIdentifiers_EBS_OPTIMIZED_INSTANCE() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EBS_OPTIMIZED_INSTANCE",
 		&returns,
 	)
@@ -8552,7 +10112,7 @@ func ManagedRuleIdentifiers_EBS_SNAPSHOT_PUBLIC_RESTORABLE_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EBS_SNAPSHOT_PUBLIC_RESTORABLE_CHECK",
 		&returns,
 	)
@@ -8563,7 +10123,7 @@ func ManagedRuleIdentifiers_EC2_DESIRED_INSTANCE_TENANCY() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EC2_DESIRED_INSTANCE_TENANCY",
 		&returns,
 	)
@@ -8574,7 +10134,7 @@ func ManagedRuleIdentifiers_EC2_DESIRED_INSTANCE_TYPE() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EC2_DESIRED_INSTANCE_TYPE",
 		&returns,
 	)
@@ -8585,7 +10145,7 @@ func ManagedRuleIdentifiers_EC2_EBS_ENCRYPTION_BY_DEFAULT() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EC2_EBS_ENCRYPTION_BY_DEFAULT",
 		&returns,
 	)
@@ -8596,7 +10156,7 @@ func ManagedRuleIdentifiers_EC2_IMDSV2_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EC2_IMDSV2_CHECK",
 		&returns,
 	)
@@ -8607,7 +10167,7 @@ func ManagedRuleIdentifiers_EC2_INSTANCE_DETAILED_MONITORING_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EC2_INSTANCE_DETAILED_MONITORING_ENABLED",
 		&returns,
 	)
@@ -8618,7 +10178,7 @@ func ManagedRuleIdentifiers_EC2_INSTANCE_MANAGED_BY_SSM() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EC2_INSTANCE_MANAGED_BY_SSM",
 		&returns,
 	)
@@ -8629,7 +10189,7 @@ func ManagedRuleIdentifiers_EC2_INSTANCE_NO_PUBLIC_IP() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EC2_INSTANCE_NO_PUBLIC_IP",
 		&returns,
 	)
@@ -8640,7 +10200,7 @@ func ManagedRuleIdentifiers_EC2_INSTANCES_IN_VPC() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EC2_INSTANCES_IN_VPC",
 		&returns,
 	)
@@ -8651,7 +10211,7 @@ func ManagedRuleIdentifiers_EC2_MANAGED_INSTANCE_APPLICATIONS_BLOCKED() *string 
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EC2_MANAGED_INSTANCE_APPLICATIONS_BLOCKED",
 		&returns,
 	)
@@ -8662,7 +10222,7 @@ func ManagedRuleIdentifiers_EC2_MANAGED_INSTANCE_APPLICATIONS_REQUIRED() *string
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EC2_MANAGED_INSTANCE_APPLICATIONS_REQUIRED",
 		&returns,
 	)
@@ -8673,7 +10233,7 @@ func ManagedRuleIdentifiers_EC2_MANAGED_INSTANCE_ASSOCIATION_COMPLIANCE_STATUS_C
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EC2_MANAGED_INSTANCE_ASSOCIATION_COMPLIANCE_STATUS_CHECK",
 		&returns,
 	)
@@ -8684,7 +10244,7 @@ func ManagedRuleIdentifiers_EC2_MANAGED_INSTANCE_INVENTORY_BLOCKED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EC2_MANAGED_INSTANCE_INVENTORY_BLOCKED",
 		&returns,
 	)
@@ -8695,7 +10255,7 @@ func ManagedRuleIdentifiers_EC2_MANAGED_INSTANCE_PATCH_COMPLIANCE_STATUS_CHECK()
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EC2_MANAGED_INSTANCE_PATCH_COMPLIANCE_STATUS_CHECK",
 		&returns,
 	)
@@ -8706,7 +10266,7 @@ func ManagedRuleIdentifiers_EC2_MANAGED_INSTANCE_PLATFORM_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EC2_MANAGED_INSTANCE_PLATFORM_CHECK",
 		&returns,
 	)
@@ -8717,7 +10277,7 @@ func ManagedRuleIdentifiers_EC2_SECURITY_GROUP_ATTACHED_TO_ENI() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EC2_SECURITY_GROUP_ATTACHED_TO_ENI",
 		&returns,
 	)
@@ -8728,7 +10288,7 @@ func ManagedRuleIdentifiers_EC2_SECURITY_GROUPS_INCOMING_SSH_DISABLED() *string 
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EC2_SECURITY_GROUPS_INCOMING_SSH_DISABLED",
 		&returns,
 	)
@@ -8739,7 +10299,7 @@ func ManagedRuleIdentifiers_EC2_SECURITY_GROUPS_RESTRICTED_INCOMING_TRAFFIC() *s
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EC2_SECURITY_GROUPS_RESTRICTED_INCOMING_TRAFFIC",
 		&returns,
 	)
@@ -8750,7 +10310,7 @@ func ManagedRuleIdentifiers_EC2_STOPPED_INSTANCE() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EC2_STOPPED_INSTANCE",
 		&returns,
 	)
@@ -8761,7 +10321,7 @@ func ManagedRuleIdentifiers_EC2_VOLUME_INUSE_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EC2_VOLUME_INUSE_CHECK",
 		&returns,
 	)
@@ -8772,7 +10332,7 @@ func ManagedRuleIdentifiers_EFS_ENCRYPTED_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EFS_ENCRYPTED_CHECK",
 		&returns,
 	)
@@ -8783,7 +10343,7 @@ func ManagedRuleIdentifiers_EFS_IN_BACKUP_PLAN() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EFS_IN_BACKUP_PLAN",
 		&returns,
 	)
@@ -8794,7 +10354,7 @@ func ManagedRuleIdentifiers_EIP_ATTACHED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EIP_ATTACHED",
 		&returns,
 	)
@@ -8805,7 +10365,7 @@ func ManagedRuleIdentifiers_EKS_ENDPOINT_NO_PUBLIC_ACCESS() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EKS_ENDPOINT_NO_PUBLIC_ACCESS",
 		&returns,
 	)
@@ -8816,7 +10376,7 @@ func ManagedRuleIdentifiers_EKS_SECRETS_ENCRYPTED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EKS_SECRETS_ENCRYPTED",
 		&returns,
 	)
@@ -8827,7 +10387,7 @@ func ManagedRuleIdentifiers_ELASTICACHE_REDIS_CLUSTER_AUTOMATIC_BACKUP_CHECK() *
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"ELASTICACHE_REDIS_CLUSTER_AUTOMATIC_BACKUP_CHECK",
 		&returns,
 	)
@@ -8838,7 +10398,7 @@ func ManagedRuleIdentifiers_ELASTICSEARCH_ENCRYPTED_AT_REST() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"ELASTICSEARCH_ENCRYPTED_AT_REST",
 		&returns,
 	)
@@ -8849,7 +10409,7 @@ func ManagedRuleIdentifiers_ELASTICSEARCH_IN_VPC_ONLY() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"ELASTICSEARCH_IN_VPC_ONLY",
 		&returns,
 	)
@@ -8860,7 +10420,7 @@ func ManagedRuleIdentifiers_ELASTICSEARCH_NODE_TO_NODE_ENCRYPTION_CHECK() *strin
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"ELASTICSEARCH_NODE_TO_NODE_ENCRYPTION_CHECK",
 		&returns,
 	)
@@ -8871,7 +10431,7 @@ func ManagedRuleIdentifiers_ELB_ACM_CERTIFICATE_REQUIRED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"ELB_ACM_CERTIFICATE_REQUIRED",
 		&returns,
 	)
@@ -8882,7 +10442,7 @@ func ManagedRuleIdentifiers_ELB_CROSS_ZONE_LOAD_BALANCING_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"ELB_CROSS_ZONE_LOAD_BALANCING_ENABLED",
 		&returns,
 	)
@@ -8893,7 +10453,7 @@ func ManagedRuleIdentifiers_ELB_CUSTOM_SECURITY_POLICY_SSL_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"ELB_CUSTOM_SECURITY_POLICY_SSL_CHECK",
 		&returns,
 	)
@@ -8904,7 +10464,7 @@ func ManagedRuleIdentifiers_ELB_DELETION_PROTECTION_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"ELB_DELETION_PROTECTION_ENABLED",
 		&returns,
 	)
@@ -8915,7 +10475,7 @@ func ManagedRuleIdentifiers_ELB_LOGGING_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"ELB_LOGGING_ENABLED",
 		&returns,
 	)
@@ -8926,7 +10486,7 @@ func ManagedRuleIdentifiers_ELB_PREDEFINED_SECURITY_POLICY_SSL_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"ELB_PREDEFINED_SECURITY_POLICY_SSL_CHECK",
 		&returns,
 	)
@@ -8937,7 +10497,7 @@ func ManagedRuleIdentifiers_ELB_TLS_HTTPS_LISTENERS_ONLY() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"ELB_TLS_HTTPS_LISTENERS_ONLY",
 		&returns,
 	)
@@ -8948,7 +10508,7 @@ func ManagedRuleIdentifiers_EMR_KERBEROS_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EMR_KERBEROS_ENABLED",
 		&returns,
 	)
@@ -8959,7 +10519,7 @@ func ManagedRuleIdentifiers_EMR_MASTER_NO_PUBLIC_IP() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"EMR_MASTER_NO_PUBLIC_IP",
 		&returns,
 	)
@@ -8970,7 +10530,7 @@ func ManagedRuleIdentifiers_FMS_SECURITY_GROUP_AUDIT_POLICY_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"FMS_SECURITY_GROUP_AUDIT_POLICY_CHECK",
 		&returns,
 	)
@@ -8981,7 +10541,7 @@ func ManagedRuleIdentifiers_FMS_SECURITY_GROUP_CONTENT_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"FMS_SECURITY_GROUP_CONTENT_CHECK",
 		&returns,
 	)
@@ -8992,7 +10552,7 @@ func ManagedRuleIdentifiers_FMS_SECURITY_GROUP_RESOURCE_ASSOCIATION_CHECK() *str
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"FMS_SECURITY_GROUP_RESOURCE_ASSOCIATION_CHECK",
 		&returns,
 	)
@@ -9003,7 +10563,7 @@ func ManagedRuleIdentifiers_FMS_SHIELD_RESOURCE_POLICY_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"FMS_SHIELD_RESOURCE_POLICY_CHECK",
 		&returns,
 	)
@@ -9014,7 +10574,7 @@ func ManagedRuleIdentifiers_FMS_WEBACL_RESOURCE_POLICY_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"FMS_WEBACL_RESOURCE_POLICY_CHECK",
 		&returns,
 	)
@@ -9025,7 +10585,7 @@ func ManagedRuleIdentifiers_FMS_WEBACL_RULEGROUP_ASSOCIATION_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"FMS_WEBACL_RULEGROUP_ASSOCIATION_CHECK",
 		&returns,
 	)
@@ -9036,7 +10596,7 @@ func ManagedRuleIdentifiers_GUARDDUTY_ENABLED_CENTRALIZED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"GUARDDUTY_ENABLED_CENTRALIZED",
 		&returns,
 	)
@@ -9047,7 +10607,7 @@ func ManagedRuleIdentifiers_GUARDDUTY_NON_ARCHIVED_FINDINGS() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"GUARDDUTY_NON_ARCHIVED_FINDINGS",
 		&returns,
 	)
@@ -9058,7 +10618,7 @@ func ManagedRuleIdentifiers_IAM_CUSTOMER_POLICY_BLOCKED_KMS_ACTIONS() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"IAM_CUSTOMER_POLICY_BLOCKED_KMS_ACTIONS",
 		&returns,
 	)
@@ -9069,7 +10629,7 @@ func ManagedRuleIdentifiers_IAM_GROUP_HAS_USERS_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"IAM_GROUP_HAS_USERS_CHECK",
 		&returns,
 	)
@@ -9080,7 +10640,7 @@ func ManagedRuleIdentifiers_IAM_INLINE_POLICY_BLOCKED_KMS_ACTIONS() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"IAM_INLINE_POLICY_BLOCKED_KMS_ACTIONS",
 		&returns,
 	)
@@ -9091,7 +10651,7 @@ func ManagedRuleIdentifiers_IAM_NO_INLINE_POLICY_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"IAM_NO_INLINE_POLICY_CHECK",
 		&returns,
 	)
@@ -9102,7 +10662,7 @@ func ManagedRuleIdentifiers_IAM_PASSWORD_POLICY() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"IAM_PASSWORD_POLICY",
 		&returns,
 	)
@@ -9113,7 +10673,7 @@ func ManagedRuleIdentifiers_IAM_POLICY_BLOCKED_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"IAM_POLICY_BLOCKED_CHECK",
 		&returns,
 	)
@@ -9124,7 +10684,7 @@ func ManagedRuleIdentifiers_IAM_POLICY_IN_USE() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"IAM_POLICY_IN_USE",
 		&returns,
 	)
@@ -9135,7 +10695,7 @@ func ManagedRuleIdentifiers_IAM_POLICY_NO_STATEMENTS_WITH_ADMIN_ACCESS() *string
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"IAM_POLICY_NO_STATEMENTS_WITH_ADMIN_ACCESS",
 		&returns,
 	)
@@ -9146,7 +10706,7 @@ func ManagedRuleIdentifiers_IAM_ROLE_MANAGED_POLICY_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"IAM_ROLE_MANAGED_POLICY_CHECK",
 		&returns,
 	)
@@ -9157,7 +10717,7 @@ func ManagedRuleIdentifiers_IAM_ROOT_ACCESS_KEY_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"IAM_ROOT_ACCESS_KEY_CHECK",
 		&returns,
 	)
@@ -9168,7 +10728,7 @@ func ManagedRuleIdentifiers_IAM_USER_GROUP_MEMBERSHIP_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"IAM_USER_GROUP_MEMBERSHIP_CHECK",
 		&returns,
 	)
@@ -9179,7 +10739,7 @@ func ManagedRuleIdentifiers_IAM_USER_MFA_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"IAM_USER_MFA_ENABLED",
 		&returns,
 	)
@@ -9190,7 +10750,7 @@ func ManagedRuleIdentifiers_IAM_USER_NO_POLICIES_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"IAM_USER_NO_POLICIES_CHECK",
 		&returns,
 	)
@@ -9201,7 +10761,7 @@ func ManagedRuleIdentifiers_IAM_USER_UNUSED_CREDENTIALS_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"IAM_USER_UNUSED_CREDENTIALS_CHECK",
 		&returns,
 	)
@@ -9212,7 +10772,7 @@ func ManagedRuleIdentifiers_INTERNET_GATEWAY_AUTHORIZED_VPC_ONLY() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"INTERNET_GATEWAY_AUTHORIZED_VPC_ONLY",
 		&returns,
 	)
@@ -9223,7 +10783,7 @@ func ManagedRuleIdentifiers_KMS_CMK_NOT_SCHEDULED_FOR_DELETION() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"KMS_CMK_NOT_SCHEDULED_FOR_DELETION",
 		&returns,
 	)
@@ -9234,7 +10794,7 @@ func ManagedRuleIdentifiers_LAMBDA_CONCURRENCY_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"LAMBDA_CONCURRENCY_CHECK",
 		&returns,
 	)
@@ -9245,7 +10805,7 @@ func ManagedRuleIdentifiers_LAMBDA_DLQ_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"LAMBDA_DLQ_CHECK",
 		&returns,
 	)
@@ -9256,7 +10816,7 @@ func ManagedRuleIdentifiers_LAMBDA_FUNCTION_PUBLIC_ACCESS_PROHIBITED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"LAMBDA_FUNCTION_PUBLIC_ACCESS_PROHIBITED",
 		&returns,
 	)
@@ -9267,7 +10827,7 @@ func ManagedRuleIdentifiers_LAMBDA_FUNCTION_SETTINGS_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"LAMBDA_FUNCTION_SETTINGS_CHECK",
 		&returns,
 	)
@@ -9278,7 +10838,7 @@ func ManagedRuleIdentifiers_LAMBDA_INSIDE_VPC() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"LAMBDA_INSIDE_VPC",
 		&returns,
 	)
@@ -9289,7 +10849,7 @@ func ManagedRuleIdentifiers_MFA_ENABLED_FOR_IAM_CONSOLE_ACCESS() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"MFA_ENABLED_FOR_IAM_CONSOLE_ACCESS",
 		&returns,
 	)
@@ -9300,7 +10860,7 @@ func ManagedRuleIdentifiers_RDS_CLUSTER_DELETION_PROTECTION_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"RDS_CLUSTER_DELETION_PROTECTION_ENABLED",
 		&returns,
 	)
@@ -9311,7 +10871,7 @@ func ManagedRuleIdentifiers_RDS_DB_INSTANCE_BACKUP_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"RDS_DB_INSTANCE_BACKUP_ENABLED",
 		&returns,
 	)
@@ -9322,7 +10882,7 @@ func ManagedRuleIdentifiers_RDS_ENHANCED_MONITORING_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"RDS_ENHANCED_MONITORING_ENABLED",
 		&returns,
 	)
@@ -9333,7 +10893,7 @@ func ManagedRuleIdentifiers_RDS_IN_BACKUP_PLAN() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"RDS_IN_BACKUP_PLAN",
 		&returns,
 	)
@@ -9344,7 +10904,7 @@ func ManagedRuleIdentifiers_RDS_INSTANCE_DELETION_PROTECTION_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"RDS_INSTANCE_DELETION_PROTECTION_ENABLED",
 		&returns,
 	)
@@ -9355,7 +10915,7 @@ func ManagedRuleIdentifiers_RDS_INSTANCE_IAM_AUTHENTICATION_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"RDS_INSTANCE_IAM_AUTHENTICATION_ENABLED",
 		&returns,
 	)
@@ -9366,7 +10926,7 @@ func ManagedRuleIdentifiers_RDS_INSTANCE_PUBLIC_ACCESS_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"RDS_INSTANCE_PUBLIC_ACCESS_CHECK",
 		&returns,
 	)
@@ -9377,7 +10937,7 @@ func ManagedRuleIdentifiers_RDS_LOGGING_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"RDS_LOGGING_ENABLED",
 		&returns,
 	)
@@ -9388,7 +10948,7 @@ func ManagedRuleIdentifiers_RDS_MULTI_AZ_SUPPORT() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"RDS_MULTI_AZ_SUPPORT",
 		&returns,
 	)
@@ -9399,7 +10959,7 @@ func ManagedRuleIdentifiers_RDS_SNAPSHOT_ENCRYPTED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"RDS_SNAPSHOT_ENCRYPTED",
 		&returns,
 	)
@@ -9410,7 +10970,7 @@ func ManagedRuleIdentifiers_RDS_SNAPSHOTS_PUBLIC_PROHIBITED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"RDS_SNAPSHOTS_PUBLIC_PROHIBITED",
 		&returns,
 	)
@@ -9421,7 +10981,7 @@ func ManagedRuleIdentifiers_RDS_STORAGE_ENCRYPTED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"RDS_STORAGE_ENCRYPTED",
 		&returns,
 	)
@@ -9432,7 +10992,7 @@ func ManagedRuleIdentifiers_REDSHIFT_BACKUP_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"REDSHIFT_BACKUP_ENABLED",
 		&returns,
 	)
@@ -9443,7 +11003,7 @@ func ManagedRuleIdentifiers_REDSHIFT_CLUSTER_CONFIGURATION_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"REDSHIFT_CLUSTER_CONFIGURATION_CHECK",
 		&returns,
 	)
@@ -9454,7 +11014,7 @@ func ManagedRuleIdentifiers_REDSHIFT_CLUSTER_MAINTENANCE_SETTINGS_CHECK() *strin
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"REDSHIFT_CLUSTER_MAINTENANCE_SETTINGS_CHECK",
 		&returns,
 	)
@@ -9465,7 +11025,7 @@ func ManagedRuleIdentifiers_REDSHIFT_CLUSTER_PUBLIC_ACCESS_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"REDSHIFT_CLUSTER_PUBLIC_ACCESS_CHECK",
 		&returns,
 	)
@@ -9476,7 +11036,7 @@ func ManagedRuleIdentifiers_REDSHIFT_REQUIRE_TLS_SSL() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"REDSHIFT_REQUIRE_TLS_SSL",
 		&returns,
 	)
@@ -9487,7 +11047,7 @@ func ManagedRuleIdentifiers_REQUIRED_TAGS() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"REQUIRED_TAGS",
 		&returns,
 	)
@@ -9498,7 +11058,7 @@ func ManagedRuleIdentifiers_ROOT_ACCOUNT_HARDWARE_MFA_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"ROOT_ACCOUNT_HARDWARE_MFA_ENABLED",
 		&returns,
 	)
@@ -9509,7 +11069,7 @@ func ManagedRuleIdentifiers_ROOT_ACCOUNT_MFA_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"ROOT_ACCOUNT_MFA_ENABLED",
 		&returns,
 	)
@@ -9520,7 +11080,7 @@ func ManagedRuleIdentifiers_S3_ACCOUNT_LEVEL_PUBLIC_ACCESS_BLOCKS() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"S3_ACCOUNT_LEVEL_PUBLIC_ACCESS_BLOCKS",
 		&returns,
 	)
@@ -9531,7 +11091,7 @@ func ManagedRuleIdentifiers_S3_BUCKET_BLOCKED_ACTIONS_PROHIBITED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"S3_BUCKET_BLOCKED_ACTIONS_PROHIBITED",
 		&returns,
 	)
@@ -9542,7 +11102,7 @@ func ManagedRuleIdentifiers_S3_BUCKET_DEFAULT_LOCK_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"S3_BUCKET_DEFAULT_LOCK_ENABLED",
 		&returns,
 	)
@@ -9553,7 +11113,7 @@ func ManagedRuleIdentifiers_S3_BUCKET_LOGGING_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"S3_BUCKET_LOGGING_ENABLED",
 		&returns,
 	)
@@ -9564,7 +11124,7 @@ func ManagedRuleIdentifiers_S3_BUCKET_POLICY_GRANTEE_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"S3_BUCKET_POLICY_GRANTEE_CHECK",
 		&returns,
 	)
@@ -9575,7 +11135,7 @@ func ManagedRuleIdentifiers_S3_BUCKET_POLICY_NOT_MORE_PERMISSIVE() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"S3_BUCKET_POLICY_NOT_MORE_PERMISSIVE",
 		&returns,
 	)
@@ -9586,7 +11146,7 @@ func ManagedRuleIdentifiers_S3_BUCKET_PUBLIC_READ_PROHIBITED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"S3_BUCKET_PUBLIC_READ_PROHIBITED",
 		&returns,
 	)
@@ -9597,7 +11157,7 @@ func ManagedRuleIdentifiers_S3_BUCKET_PUBLIC_WRITE_PROHIBITED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"S3_BUCKET_PUBLIC_WRITE_PROHIBITED",
 		&returns,
 	)
@@ -9608,7 +11168,7 @@ func ManagedRuleIdentifiers_S3_BUCKET_REPLICATION_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"S3_BUCKET_REPLICATION_ENABLED",
 		&returns,
 	)
@@ -9619,7 +11179,7 @@ func ManagedRuleIdentifiers_S3_BUCKET_SERVER_SIDE_ENCRYPTION_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"S3_BUCKET_SERVER_SIDE_ENCRYPTION_ENABLED",
 		&returns,
 	)
@@ -9630,7 +11190,7 @@ func ManagedRuleIdentifiers_S3_BUCKET_SSL_REQUESTS_ONLY() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"S3_BUCKET_SSL_REQUESTS_ONLY",
 		&returns,
 	)
@@ -9641,7 +11201,7 @@ func ManagedRuleIdentifiers_S3_BUCKET_VERSIONING_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"S3_BUCKET_VERSIONING_ENABLED",
 		&returns,
 	)
@@ -9652,7 +11212,7 @@ func ManagedRuleIdentifiers_S3_DEFAULT_ENCRYPTION_KMS() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"S3_DEFAULT_ENCRYPTION_KMS",
 		&returns,
 	)
@@ -9663,7 +11223,7 @@ func ManagedRuleIdentifiers_SAGEMAKER_ENDPOINT_CONFIGURATION_KMS_KEY_CONFIGURED(
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"SAGEMAKER_ENDPOINT_CONFIGURATION_KMS_KEY_CONFIGURED",
 		&returns,
 	)
@@ -9674,7 +11234,7 @@ func ManagedRuleIdentifiers_SAGEMAKER_NOTEBOOK_INSTANCE_KMS_KEY_CONFIGURED() *st
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"SAGEMAKER_NOTEBOOK_INSTANCE_KMS_KEY_CONFIGURED",
 		&returns,
 	)
@@ -9685,7 +11245,7 @@ func ManagedRuleIdentifiers_SAGEMAKER_NOTEBOOK_NO_DIRECT_INTERNET_ACCESS() *stri
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"SAGEMAKER_NOTEBOOK_NO_DIRECT_INTERNET_ACCESS",
 		&returns,
 	)
@@ -9696,7 +11256,7 @@ func ManagedRuleIdentifiers_SECRETSMANAGER_ROTATION_ENABLED_CHECK() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"SECRETSMANAGER_ROTATION_ENABLED_CHECK",
 		&returns,
 	)
@@ -9707,7 +11267,7 @@ func ManagedRuleIdentifiers_SECRETSMANAGER_SCHEDULED_ROTATION_SUCCESS_CHECK() *s
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"SECRETSMANAGER_SCHEDULED_ROTATION_SUCCESS_CHECK",
 		&returns,
 	)
@@ -9718,7 +11278,7 @@ func ManagedRuleIdentifiers_SECURITYHUB_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"SECURITYHUB_ENABLED",
 		&returns,
 	)
@@ -9729,7 +11289,7 @@ func ManagedRuleIdentifiers_SERVICE_VPC_ENDPOINT_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"SERVICE_VPC_ENDPOINT_ENABLED",
 		&returns,
 	)
@@ -9740,7 +11300,7 @@ func ManagedRuleIdentifiers_SHIELD_ADVANCED_ENABLED_AUTO_RENEW() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"SHIELD_ADVANCED_ENABLED_AUTO_RENEW",
 		&returns,
 	)
@@ -9751,7 +11311,7 @@ func ManagedRuleIdentifiers_SHIELD_DRT_ACCESS() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"SHIELD_DRT_ACCESS",
 		&returns,
 	)
@@ -9762,7 +11322,7 @@ func ManagedRuleIdentifiers_SNS_ENCRYPTED_KMS() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"SNS_ENCRYPTED_KMS",
 		&returns,
 	)
@@ -9773,7 +11333,7 @@ func ManagedRuleIdentifiers_VPC_DEFAULT_SECURITY_GROUP_CLOSED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"VPC_DEFAULT_SECURITY_GROUP_CLOSED",
 		&returns,
 	)
@@ -9784,7 +11344,7 @@ func ManagedRuleIdentifiers_VPC_FLOW_LOGS_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"VPC_FLOW_LOGS_ENABLED",
 		&returns,
 	)
@@ -9795,7 +11355,7 @@ func ManagedRuleIdentifiers_VPC_SG_OPEN_ONLY_TO_AUTHORIZED_PORTS() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"VPC_SG_OPEN_ONLY_TO_AUTHORIZED_PORTS",
 		&returns,
 	)
@@ -9806,7 +11366,7 @@ func ManagedRuleIdentifiers_VPC_VPN_2_TUNNELS_UP() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"VPC_VPN_2_TUNNELS_UP",
 		&returns,
 	)
@@ -9817,7 +11377,7 @@ func ManagedRuleIdentifiers_WAF_CLASSIC_LOGGING_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"WAF_CLASSIC_LOGGING_ENABLED",
 		&returns,
 	)
@@ -9828,7 +11388,7 @@ func ManagedRuleIdentifiers_WAFV2_LOGGING_ENABLED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ManagedRuleIdentifiers",
+		"monocdk.aws_config.ManagedRuleIdentifiers",
 		"WAFV2_LOGGING_ENABLED",
 		&returns,
 	)
@@ -9904,7 +11464,7 @@ func ResourceType_Of(type_ *string) ResourceType {
 	var returns ResourceType
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"of",
 		[]interface{}{type_},
 		&returns,
@@ -9917,7 +11477,7 @@ func ResourceType_ACM_CERTIFICATE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"ACM_CERTIFICATE",
 		&returns,
 	)
@@ -9928,7 +11488,7 @@ func ResourceType_APIGATEWAY_REST_API() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"APIGATEWAY_REST_API",
 		&returns,
 	)
@@ -9939,7 +11499,7 @@ func ResourceType_APIGATEWAY_STAGE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"APIGATEWAY_STAGE",
 		&returns,
 	)
@@ -9950,7 +11510,7 @@ func ResourceType_APIGATEWAYV2_API() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"APIGATEWAYV2_API",
 		&returns,
 	)
@@ -9961,7 +11521,7 @@ func ResourceType_APIGATEWAYV2_STAGE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"APIGATEWAYV2_STAGE",
 		&returns,
 	)
@@ -9972,7 +11532,7 @@ func ResourceType_AUTO_SCALING_GROUP() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"AUTO_SCALING_GROUP",
 		&returns,
 	)
@@ -9983,7 +11543,7 @@ func ResourceType_AUTO_SCALING_LAUNCH_CONFIGURATION() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"AUTO_SCALING_LAUNCH_CONFIGURATION",
 		&returns,
 	)
@@ -9994,7 +11554,7 @@ func ResourceType_AUTO_SCALING_POLICY() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"AUTO_SCALING_POLICY",
 		&returns,
 	)
@@ -10005,7 +11565,7 @@ func ResourceType_AUTO_SCALING_SCHEDULED_ACTION() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"AUTO_SCALING_SCHEDULED_ACTION",
 		&returns,
 	)
@@ -10016,7 +11576,7 @@ func ResourceType_CLOUDFORMATION_STACK() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"CLOUDFORMATION_STACK",
 		&returns,
 	)
@@ -10027,7 +11587,7 @@ func ResourceType_CLOUDFRONT_DISTRIBUTION() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"CLOUDFRONT_DISTRIBUTION",
 		&returns,
 	)
@@ -10038,7 +11598,7 @@ func ResourceType_CLOUDFRONT_STREAMING_DISTRIBUTION() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"CLOUDFRONT_STREAMING_DISTRIBUTION",
 		&returns,
 	)
@@ -10049,7 +11609,7 @@ func ResourceType_CLOUDTRAIL_TRAIL() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"CLOUDTRAIL_TRAIL",
 		&returns,
 	)
@@ -10060,7 +11620,7 @@ func ResourceType_CLOUDWATCH_ALARM() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"CLOUDWATCH_ALARM",
 		&returns,
 	)
@@ -10071,7 +11631,7 @@ func ResourceType_CODEBUILD_PROJECT() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"CODEBUILD_PROJECT",
 		&returns,
 	)
@@ -10082,7 +11642,7 @@ func ResourceType_CODEPIPELINE_PIPELINE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"CODEPIPELINE_PIPELINE",
 		&returns,
 	)
@@ -10093,7 +11653,7 @@ func ResourceType_DYNAMODB_TABLE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"DYNAMODB_TABLE",
 		&returns,
 	)
@@ -10104,7 +11664,7 @@ func ResourceType_EBS_VOLUME() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EBS_VOLUME",
 		&returns,
 	)
@@ -10115,7 +11675,7 @@ func ResourceType_EC2_CUSTOMER_GATEWAY() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_CUSTOMER_GATEWAY",
 		&returns,
 	)
@@ -10126,7 +11686,7 @@ func ResourceType_EC2_EGRESS_ONLY_INTERNET_GATEWAY() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_EGRESS_ONLY_INTERNET_GATEWAY",
 		&returns,
 	)
@@ -10137,7 +11697,7 @@ func ResourceType_EC2_EIP() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_EIP",
 		&returns,
 	)
@@ -10148,7 +11708,7 @@ func ResourceType_EC2_FLOW_LOG() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_FLOW_LOG",
 		&returns,
 	)
@@ -10159,7 +11719,7 @@ func ResourceType_EC2_HOST() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_HOST",
 		&returns,
 	)
@@ -10170,7 +11730,7 @@ func ResourceType_EC2_INSTANCE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_INSTANCE",
 		&returns,
 	)
@@ -10181,7 +11741,7 @@ func ResourceType_EC2_INTERNET_GATEWAY() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_INTERNET_GATEWAY",
 		&returns,
 	)
@@ -10192,7 +11752,7 @@ func ResourceType_EC2_NAT_GATEWAY() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_NAT_GATEWAY",
 		&returns,
 	)
@@ -10203,7 +11763,7 @@ func ResourceType_EC2_NETWORK_ACL() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_NETWORK_ACL",
 		&returns,
 	)
@@ -10214,7 +11774,7 @@ func ResourceType_EC2_ROUTE_TABLE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_ROUTE_TABLE",
 		&returns,
 	)
@@ -10225,7 +11785,7 @@ func ResourceType_EC2_SECURITY_GROUP() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_SECURITY_GROUP",
 		&returns,
 	)
@@ -10236,7 +11796,7 @@ func ResourceType_EC2_SUBNET() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_SUBNET",
 		&returns,
 	)
@@ -10247,7 +11807,7 @@ func ResourceType_EC2_VPC() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_VPC",
 		&returns,
 	)
@@ -10258,7 +11818,7 @@ func ResourceType_EC2_VPC_ENDPOINT() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_VPC_ENDPOINT",
 		&returns,
 	)
@@ -10269,7 +11829,7 @@ func ResourceType_EC2_VPC_ENDPOINT_SERVICE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_VPC_ENDPOINT_SERVICE",
 		&returns,
 	)
@@ -10280,7 +11840,7 @@ func ResourceType_EC2_VPC_PEERING_CONNECTION() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_VPC_PEERING_CONNECTION",
 		&returns,
 	)
@@ -10291,7 +11851,7 @@ func ResourceType_EC2_VPN_CONNECTION() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_VPN_CONNECTION",
 		&returns,
 	)
@@ -10302,7 +11862,7 @@ func ResourceType_EC2_VPN_GATEWAY() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"EC2_VPN_GATEWAY",
 		&returns,
 	)
@@ -10313,7 +11873,7 @@ func ResourceType_ELASTIC_BEANSTALK_APPLICATION() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"ELASTIC_BEANSTALK_APPLICATION",
 		&returns,
 	)
@@ -10324,7 +11884,7 @@ func ResourceType_ELASTIC_BEANSTALK_APPLICATION_VERSION() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"ELASTIC_BEANSTALK_APPLICATION_VERSION",
 		&returns,
 	)
@@ -10335,7 +11895,7 @@ func ResourceType_ELASTIC_BEANSTALK_ENVIRONMENT() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"ELASTIC_BEANSTALK_ENVIRONMENT",
 		&returns,
 	)
@@ -10346,7 +11906,7 @@ func ResourceType_ELASTICSEARCH_DOMAIN() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"ELASTICSEARCH_DOMAIN",
 		&returns,
 	)
@@ -10357,7 +11917,7 @@ func ResourceType_ELB_LOAD_BALANCER() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"ELB_LOAD_BALANCER",
 		&returns,
 	)
@@ -10368,7 +11928,7 @@ func ResourceType_ELBV2_LOAD_BALANCER() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"ELBV2_LOAD_BALANCER",
 		&returns,
 	)
@@ -10379,7 +11939,7 @@ func ResourceType_IAM_GROUP() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"IAM_GROUP",
 		&returns,
 	)
@@ -10390,7 +11950,7 @@ func ResourceType_IAM_POLICY() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"IAM_POLICY",
 		&returns,
 	)
@@ -10401,7 +11961,7 @@ func ResourceType_IAM_ROLE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"IAM_ROLE",
 		&returns,
 	)
@@ -10412,7 +11972,7 @@ func ResourceType_IAM_USER() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"IAM_USER",
 		&returns,
 	)
@@ -10423,7 +11983,7 @@ func ResourceType_KMS_KEY() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"KMS_KEY",
 		&returns,
 	)
@@ -10434,7 +11994,7 @@ func ResourceType_LAMBDA_FUNCTION() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"LAMBDA_FUNCTION",
 		&returns,
 	)
@@ -10445,7 +12005,7 @@ func ResourceType_QLDB_LEDGER() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"QLDB_LEDGER",
 		&returns,
 	)
@@ -10456,7 +12016,7 @@ func ResourceType_RDS_DB_CLUSTER() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"RDS_DB_CLUSTER",
 		&returns,
 	)
@@ -10467,7 +12027,7 @@ func ResourceType_RDS_DB_CLUSTER_SNAPSHOT() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"RDS_DB_CLUSTER_SNAPSHOT",
 		&returns,
 	)
@@ -10478,7 +12038,7 @@ func ResourceType_RDS_DB_INSTANCE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"RDS_DB_INSTANCE",
 		&returns,
 	)
@@ -10489,7 +12049,7 @@ func ResourceType_RDS_DB_SECURITY_GROUP() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"RDS_DB_SECURITY_GROUP",
 		&returns,
 	)
@@ -10500,7 +12060,7 @@ func ResourceType_RDS_DB_SNAPSHOT() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"RDS_DB_SNAPSHOT",
 		&returns,
 	)
@@ -10511,7 +12071,7 @@ func ResourceType_RDS_DB_SUBNET_GROUP() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"RDS_DB_SUBNET_GROUP",
 		&returns,
 	)
@@ -10522,7 +12082,7 @@ func ResourceType_RDS_EVENT_SUBSCRIPTION() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"RDS_EVENT_SUBSCRIPTION",
 		&returns,
 	)
@@ -10533,7 +12093,7 @@ func ResourceType_REDSHIFT_CLUSTER() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"REDSHIFT_CLUSTER",
 		&returns,
 	)
@@ -10544,7 +12104,7 @@ func ResourceType_REDSHIFT_CLUSTER_PARAMETER_GROUP() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"REDSHIFT_CLUSTER_PARAMETER_GROUP",
 		&returns,
 	)
@@ -10555,7 +12115,7 @@ func ResourceType_REDSHIFT_CLUSTER_SECURITY_GROUP() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"REDSHIFT_CLUSTER_SECURITY_GROUP",
 		&returns,
 	)
@@ -10566,7 +12126,7 @@ func ResourceType_REDSHIFT_CLUSTER_SNAPSHOT() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"REDSHIFT_CLUSTER_SNAPSHOT",
 		&returns,
 	)
@@ -10577,7 +12137,7 @@ func ResourceType_REDSHIFT_CLUSTER_SUBNET_GROUP() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"REDSHIFT_CLUSTER_SUBNET_GROUP",
 		&returns,
 	)
@@ -10588,7 +12148,7 @@ func ResourceType_REDSHIFT_EVENT_SUBSCRIPTION() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"REDSHIFT_EVENT_SUBSCRIPTION",
 		&returns,
 	)
@@ -10599,7 +12159,7 @@ func ResourceType_S3_ACCOUNT_PUBLIC_ACCESS_BLOCK() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"S3_ACCOUNT_PUBLIC_ACCESS_BLOCK",
 		&returns,
 	)
@@ -10610,7 +12170,7 @@ func ResourceType_S3_BUCKET() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"S3_BUCKET",
 		&returns,
 	)
@@ -10621,7 +12181,7 @@ func ResourceType_SECRETS_MANAGER_SECRET() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"SECRETS_MANAGER_SECRET",
 		&returns,
 	)
@@ -10632,7 +12192,7 @@ func ResourceType_SERVICE_CATALOG_CLOUDFORMATION_PRODUCT() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"SERVICE_CATALOG_CLOUDFORMATION_PRODUCT",
 		&returns,
 	)
@@ -10643,7 +12203,7 @@ func ResourceType_SERVICE_CATALOG_CLOUDFORMATION_PROVISIONED_PRODUCT() ResourceT
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"SERVICE_CATALOG_CLOUDFORMATION_PROVISIONED_PRODUCT",
 		&returns,
 	)
@@ -10654,7 +12214,7 @@ func ResourceType_SERVICE_CATALOG_PORTFOLIO() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"SERVICE_CATALOG_PORTFOLIO",
 		&returns,
 	)
@@ -10665,7 +12225,7 @@ func ResourceType_SHIELD_PROTECTION() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"SHIELD_PROTECTION",
 		&returns,
 	)
@@ -10676,7 +12236,7 @@ func ResourceType_SHIELD_REGIONAL_PROTECTION() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"SHIELD_REGIONAL_PROTECTION",
 		&returns,
 	)
@@ -10687,7 +12247,7 @@ func ResourceType_SNS_TOPIC() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"SNS_TOPIC",
 		&returns,
 	)
@@ -10698,7 +12258,7 @@ func ResourceType_SQS_QUEUE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"SQS_QUEUE",
 		&returns,
 	)
@@ -10709,7 +12269,7 @@ func ResourceType_SYSTEMS_MANAGER_ASSOCIATION_COMPLIANCE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"SYSTEMS_MANAGER_ASSOCIATION_COMPLIANCE",
 		&returns,
 	)
@@ -10720,7 +12280,7 @@ func ResourceType_SYSTEMS_MANAGER_FILE_DATA() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"SYSTEMS_MANAGER_FILE_DATA",
 		&returns,
 	)
@@ -10731,7 +12291,7 @@ func ResourceType_SYSTEMS_MANAGER_MANAGED_INSTANCE_INVENTORY() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"SYSTEMS_MANAGER_MANAGED_INSTANCE_INVENTORY",
 		&returns,
 	)
@@ -10742,7 +12302,7 @@ func ResourceType_SYSTEMS_MANAGER_PATCH_COMPLIANCE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"SYSTEMS_MANAGER_PATCH_COMPLIANCE",
 		&returns,
 	)
@@ -10753,7 +12313,7 @@ func ResourceType_WAF_RATE_BASED_RULE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"WAF_RATE_BASED_RULE",
 		&returns,
 	)
@@ -10764,7 +12324,7 @@ func ResourceType_WAF_REGIONAL_RATE_BASED_RULE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"WAF_REGIONAL_RATE_BASED_RULE",
 		&returns,
 	)
@@ -10775,7 +12335,7 @@ func ResourceType_WAF_REGIONAL_RULE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"WAF_REGIONAL_RULE",
 		&returns,
 	)
@@ -10786,7 +12346,7 @@ func ResourceType_WAF_REGIONAL_RULE_GROUP() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"WAF_REGIONAL_RULE_GROUP",
 		&returns,
 	)
@@ -10797,7 +12357,7 @@ func ResourceType_WAF_REGIONAL_WEB_ACL() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"WAF_REGIONAL_WEB_ACL",
 		&returns,
 	)
@@ -10808,7 +12368,7 @@ func ResourceType_WAF_RULE() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"WAF_RULE",
 		&returns,
 	)
@@ -10819,7 +12379,7 @@ func ResourceType_WAF_RULE_GROUP() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"WAF_RULE_GROUP",
 		&returns,
 	)
@@ -10830,7 +12390,7 @@ func ResourceType_WAF_WEB_ACL() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"WAF_WEB_ACL",
 		&returns,
 	)
@@ -10841,7 +12401,7 @@ func ResourceType_WAFV2_MANAGED_RULE_SET() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"WAFV2_MANAGED_RULE_SET",
 		&returns,
 	)
@@ -10852,7 +12412,7 @@ func ResourceType_WAFV2_RULE_GROUP() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"WAFV2_RULE_GROUP",
 		&returns,
 	)
@@ -10863,7 +12423,7 @@ func ResourceType_WAFV2_WEB_ACL() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"WAFV2_WEB_ACL",
 		&returns,
 	)
@@ -10874,7 +12434,7 @@ func ResourceType_XRAY_ENCRYPTION_CONFIGURATION() ResourceType {
 	_init_.Initialize()
 	var returns ResourceType
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_config.ResourceType",
+		"monocdk.aws_config.ResourceType",
 		"XRAY_ENCRYPTION_CONFIGURATION",
 		&returns,
 	)
@@ -10964,7 +12524,7 @@ func RuleScope_FromResource(resourceType ResourceType, resourceId *string) RuleS
 	var returns RuleScope
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.RuleScope",
+		"monocdk.aws_config.RuleScope",
 		"fromResource",
 		[]interface{}{resourceType, resourceId},
 		&returns,
@@ -10981,7 +12541,7 @@ func RuleScope_FromResources(resourceTypes *[]ResourceType) RuleScope {
 	var returns RuleScope
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.RuleScope",
+		"monocdk.aws_config.RuleScope",
 		"fromResources",
 		[]interface{}{resourceTypes},
 		&returns,
@@ -10998,7 +12558,7 @@ func RuleScope_FromTag(key *string, value *string) RuleScope {
 	var returns RuleScope
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_config.RuleScope",
+		"monocdk.aws_config.RuleScope",
 		"fromTag",
 		[]interface{}{key, value},
 		&returns,

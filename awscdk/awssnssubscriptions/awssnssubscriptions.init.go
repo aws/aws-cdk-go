@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_sns_subscriptions.EmailSubscription",
+		"monocdk.aws_sns_subscriptions.EmailSubscription",
 		reflect.TypeOf((*EmailSubscription)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -20,11 +20,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sns_subscriptions.EmailSubscriptionProps",
+		"monocdk.aws_sns_subscriptions.EmailSubscriptionProps",
 		reflect.TypeOf((*EmailSubscriptionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_sns_subscriptions.LambdaSubscription",
+		"monocdk.aws_sns_subscriptions.LambdaSubscription",
 		reflect.TypeOf((*LambdaSubscription)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -36,11 +36,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sns_subscriptions.LambdaSubscriptionProps",
+		"monocdk.aws_sns_subscriptions.LambdaSubscriptionProps",
 		reflect.TypeOf((*LambdaSubscriptionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_sns_subscriptions.SmsSubscription",
+		"monocdk.aws_sns_subscriptions.SmsSubscription",
 		reflect.TypeOf((*SmsSubscription)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -52,11 +52,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sns_subscriptions.SmsSubscriptionProps",
+		"monocdk.aws_sns_subscriptions.SmsSubscriptionProps",
 		reflect.TypeOf((*SmsSubscriptionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_sns_subscriptions.SqsSubscription",
+		"monocdk.aws_sns_subscriptions.SqsSubscription",
 		reflect.TypeOf((*SqsSubscription)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -68,15 +68,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sns_subscriptions.SqsSubscriptionProps",
+		"monocdk.aws_sns_subscriptions.SqsSubscriptionProps",
 		reflect.TypeOf((*SqsSubscriptionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sns_subscriptions.SubscriptionProps",
+		"monocdk.aws_sns_subscriptions.SubscriptionProps",
 		reflect.TypeOf((*SubscriptionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_sns_subscriptions.UrlSubscription",
+		"monocdk.aws_sns_subscriptions.UrlSubscription",
 		reflect.TypeOf((*UrlSubscription)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -88,7 +88,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_sns_subscriptions.UrlSubscriptionProps",
+		"monocdk.aws_sns_subscriptions.UrlSubscriptionProps",
 		reflect.TypeOf((*UrlSubscriptionProps)(nil)).Elem(),
 	)
 }
