@@ -1,14 +1,12 @@
 package awscloud9
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloud9/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awscodecommit"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloud9/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::Cloud9::EnvironmentEC2`.
@@ -34,7 +32,7 @@ type CfnEnvironmentEC2 interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	OwnerArn() *string
 	SetOwnerArn(val *string)
 	Ref() *string
@@ -55,16 +53,10 @@ type CfnEnvironmentEC2 interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -204,8 +196,8 @@ func (j *jsiiProxy_CfnEnvironmentEC2) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironmentEC2) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnEnvironmentEC2) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -286,13 +278,13 @@ func (j *jsiiProxy_CfnEnvironmentEC2) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::Cloud9::EnvironmentEC2`.
-func NewCfnEnvironmentEC2(scope awscdk.Construct, id *string, props *CfnEnvironmentEC2Props) CfnEnvironmentEC2 {
+func NewCfnEnvironmentEC2(scope constructs.Construct, id *string, props *CfnEnvironmentEC2Props) CfnEnvironmentEC2 {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnEnvironmentEC2{}
 
 	_jsii_.Create(
-		"monocdk.aws_cloud9.CfnEnvironmentEC2",
+		"aws-cdk-lib.aws_cloud9.CfnEnvironmentEC2",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -301,11 +293,11 @@ func NewCfnEnvironmentEC2(scope awscdk.Construct, id *string, props *CfnEnvironm
 }
 
 // Create a new `AWS::Cloud9::EnvironmentEC2`.
-func NewCfnEnvironmentEC2_Override(c CfnEnvironmentEC2, scope awscdk.Construct, id *string, props *CfnEnvironmentEC2Props) {
+func NewCfnEnvironmentEC2_Override(c CfnEnvironmentEC2, scope constructs.Construct, id *string, props *CfnEnvironmentEC2Props) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cloud9.CfnEnvironmentEC2",
+		"aws-cdk-lib.aws_cloud9.CfnEnvironmentEC2",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -396,7 +388,7 @@ func CfnEnvironmentEC2_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cloud9.CfnEnvironmentEC2",
+		"aws-cdk-lib.aws_cloud9.CfnEnvironmentEC2",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -413,7 +405,7 @@ func CfnEnvironmentEC2_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cloud9.CfnEnvironmentEC2",
+		"aws-cdk-lib.aws_cloud9.CfnEnvironmentEC2",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -422,15 +414,17 @@ func CfnEnvironmentEC2_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnEnvironmentEC2_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cloud9.CfnEnvironmentEC2",
+		"aws-cdk-lib.aws_cloud9.CfnEnvironmentEC2",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -443,7 +437,7 @@ func CfnEnvironmentEC2_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cloud9.CfnEnvironmentEC2",
+		"aws-cdk-lib.aws_cloud9.CfnEnvironmentEC2",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -616,56 +610,6 @@ func (c *jsiiProxy_CfnEnvironmentEC2) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnEnvironmentEC2) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnEnvironmentEC2) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnEnvironmentEC2) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnEnvironmentEC2) OverrideLogicalId(newLogicalId *string) {
@@ -673,23 +617,6 @@ func (c *jsiiProxy_CfnEnvironmentEC2) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnEnvironmentEC2) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -724,19 +651,6 @@ func (c *jsiiProxy_CfnEnvironmentEC2) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnEnvironmentEC2) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -747,26 +661,6 @@ func (c *jsiiProxy_CfnEnvironmentEC2) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnEnvironmentEC2) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -812,502 +706,5 @@ type CfnEnvironmentEC2Props struct {
 	SubnetId *string `json:"subnetId"`
 	// `AWS::Cloud9::EnvironmentEC2.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
-}
-
-// The class for different repository providers.
-// Experimental.
-type CloneRepository interface {
-	PathComponent() *string
-	RepositoryUrl() *string
-}
-
-// The jsii proxy struct for CloneRepository
-type jsiiProxy_CloneRepository struct {
-	_ byte // padding
-}
-
-func (j *jsiiProxy_CloneRepository) PathComponent() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"pathComponent",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CloneRepository) RepositoryUrl() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"repositoryUrl",
-		&returns,
-	)
-	return returns
-}
-
-
-// import repository to cloud9 environment from AWS CodeCommit.
-// Experimental.
-func CloneRepository_FromCodeCommit(repository awscodecommit.IRepository, path *string) CloneRepository {
-	_init_.Initialize()
-
-	var returns CloneRepository
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_cloud9.CloneRepository",
-		"fromCodeCommit",
-		[]interface{}{repository, path},
-		&returns,
-	)
-
-	return returns
-}
-
-// A Cloud9 Environment with Amazon EC2.
-// Experimental.
-type Ec2Environment interface {
-	awscdk.Resource
-	IEc2Environment
-	Ec2EnvironmentArn() *string
-	Ec2EnvironmentName() *string
-	Env() *awscdk.ResourceEnvironment
-	EnvironmentId() *string
-	IdeUrl() *string
-	Node() awscdk.ConstructNode
-	PhysicalName() *string
-	Stack() awscdk.Stack
-	Vpc() awsec2.IVpc
-	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	GeneratePhysicalName() *string
-	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
-	GetResourceNameAttribute(nameAttr *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
-	ToString() *string
-	Validate() *[]*string
-}
-
-// The jsii proxy struct for Ec2Environment
-type jsiiProxy_Ec2Environment struct {
-	internal.Type__awscdkResource
-	jsiiProxy_IEc2Environment
-}
-
-func (j *jsiiProxy_Ec2Environment) Ec2EnvironmentArn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"ec2EnvironmentArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Ec2Environment) Ec2EnvironmentName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"ec2EnvironmentName",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Ec2Environment) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
-	_jsii_.Get(
-		j,
-		"env",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Ec2Environment) EnvironmentId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"environmentId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Ec2Environment) IdeUrl() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"ideUrl",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Ec2Environment) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
-	_jsii_.Get(
-		j,
-		"node",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Ec2Environment) PhysicalName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"physicalName",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Ec2Environment) Stack() awscdk.Stack {
-	var returns awscdk.Stack
-	_jsii_.Get(
-		j,
-		"stack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Ec2Environment) Vpc() awsec2.IVpc {
-	var returns awsec2.IVpc
-	_jsii_.Get(
-		j,
-		"vpc",
-		&returns,
-	)
-	return returns
-}
-
-
-// Experimental.
-func NewEc2Environment(scope constructs.Construct, id *string, props *Ec2EnvironmentProps) Ec2Environment {
-	_init_.Initialize()
-
-	j := jsiiProxy_Ec2Environment{}
-
-	_jsii_.Create(
-		"monocdk.aws_cloud9.Ec2Environment",
-		[]interface{}{scope, id, props},
-		&j,
-	)
-
-	return &j
-}
-
-// Experimental.
-func NewEc2Environment_Override(e Ec2Environment, scope constructs.Construct, id *string, props *Ec2EnvironmentProps) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"monocdk.aws_cloud9.Ec2Environment",
-		[]interface{}{scope, id, props},
-		e,
-	)
-}
-
-// import from EnvironmentEc2Name.
-// Experimental.
-func Ec2Environment_FromEc2EnvironmentName(scope constructs.Construct, id *string, ec2EnvironmentName *string) IEc2Environment {
-	_init_.Initialize()
-
-	var returns IEc2Environment
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_cloud9.Ec2Environment",
-		"fromEc2EnvironmentName",
-		[]interface{}{scope, id, ec2EnvironmentName},
-		&returns,
-	)
-
-	return returns
-}
-
-// Return whether the given object is a Construct.
-// Experimental.
-func Ec2Environment_IsConstruct(x interface{}) *bool {
-	_init_.Initialize()
-
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_cloud9.Ec2Environment",
-		"isConstruct",
-		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
-// Check whether the given construct is a Resource.
-// Experimental.
-func Ec2Environment_IsResource(construct awscdk.IConstruct) *bool {
-	_init_.Initialize()
-
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_cloud9.Ec2Environment",
-		"isResource",
-		[]interface{}{construct},
-		&returns,
-	)
-
-	return returns
-}
-
-// Apply the given removal policy to this resource.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
-func (e *jsiiProxy_Ec2Environment) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
-	_jsii_.InvokeVoid(
-		e,
-		"applyRemovalPolicy",
-		[]interface{}{policy},
-	)
-}
-
-// Experimental.
-func (e *jsiiProxy_Ec2Environment) GeneratePhysicalName() *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		e,
-		"generatePhysicalName",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
-//
-// Normally, this token will resolve to `arnAttr`, but if the resource is
-// referenced across environments, `arnComponents` will be used to synthesize
-// a concrete ARN with the resource's physical name. Make sure to reference
-// `this.physicalName` in `arnComponents`.
-// Experimental.
-func (e *jsiiProxy_Ec2Environment) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		e,
-		"getResourceArnAttribute",
-		[]interface{}{arnAttr, arnComponents},
-		&returns,
-	)
-
-	return returns
-}
-
-// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
-//
-// Normally, this token will resolve to `nameAttr`, but if the resource is
-// referenced across environments, it will be resolved to `this.physicalName`,
-// which will be a concrete name.
-// Experimental.
-func (e *jsiiProxy_Ec2Environment) GetResourceNameAttribute(nameAttr *string) *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		e,
-		"getResourceNameAttribute",
-		[]interface{}{nameAttr},
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (e *jsiiProxy_Ec2Environment) OnPrepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (e *jsiiProxy_Ec2Environment) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (e *jsiiProxy_Ec2Environment) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		e,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (e *jsiiProxy_Ec2Environment) Prepare() {
-	_jsii_.InvokeVoid(
-		e,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (e *jsiiProxy_Ec2Environment) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		e,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
-// Returns a string representation of this construct.
-// Experimental.
-func (e *jsiiProxy_Ec2Environment) ToString() *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		e,
-		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (e *jsiiProxy_Ec2Environment) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		e,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Properties for Ec2Environment.
-// Experimental.
-type Ec2EnvironmentProps struct {
-	// The VPC that AWS Cloud9 will use to communicate with the Amazon Elastic Compute Cloud (Amazon EC2) instance.
-	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
-	// The AWS CodeCommit repository to be cloned.
-	// Experimental.
-	ClonedRepositories *[]CloneRepository `json:"clonedRepositories"`
-	// Description of the environment.
-	// Experimental.
-	Description *string `json:"description"`
-	// Name of the environment.
-	// Experimental.
-	Ec2EnvironmentName *string `json:"ec2EnvironmentName"`
-	// The type of instance to connect to the environment.
-	// Experimental.
-	InstanceType awsec2.InstanceType `json:"instanceType"`
-	// The subnetSelection of the VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
-	// Experimental.
-	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection"`
-}
-
-// A Cloud9 Environment.
-// Experimental.
-type IEc2Environment interface {
-	awscdk.IResource
-	// The arn of the EnvironmentEc2.
-	// Experimental.
-	Ec2EnvironmentArn() *string
-	// The name of the EnvironmentEc2.
-	// Experimental.
-	Ec2EnvironmentName() *string
-}
-
-// The jsii proxy for IEc2Environment
-type jsiiProxy_IEc2Environment struct {
-	internal.Type__awscdkIResource
-}
-
-func (j *jsiiProxy_IEc2Environment) Ec2EnvironmentArn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"ec2EnvironmentArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IEc2Environment) Ec2EnvironmentName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"ec2EnvironmentName",
-		&returns,
-	)
-	return returns
 }
 

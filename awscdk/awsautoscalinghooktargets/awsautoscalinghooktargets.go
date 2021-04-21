@@ -1,16 +1,16 @@
 package awsautoscalinghooktargets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsautoscaling"
-	"github.com/aws/aws-cdk-go/awscdk/awsautoscalinghooktargets/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/awssns"
-	"github.com/aws/aws-cdk-go/awscdk/awssqs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscaling"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscalinghooktargets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Use a Lambda Function as a hook target.
@@ -19,7 +19,7 @@ import (
 // Experimental.
 type FunctionHook interface {
 	awsautoscaling.ILifecycleHookTarget
-	Bind(scope awscdk.Construct, lifecycleHook awsautoscaling.ILifecycleHook) *awsautoscaling.LifecycleHookTargetConfig
+	Bind(scope constructs.Construct, lifecycleHook awsautoscaling.ILifecycleHook) *awsautoscaling.LifecycleHookTargetConfig
 }
 
 // The jsii proxy struct for FunctionHook
@@ -34,7 +34,7 @@ func NewFunctionHook(fn awslambda.IFunction, encryptionKey awskms.IKey) Function
 	j := jsiiProxy_FunctionHook{}
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling_hooktargets.FunctionHook",
+		"aws-cdk-lib.aws_autoscaling_hooktargets.FunctionHook",
 		[]interface{}{fn, encryptionKey},
 		&j,
 	)
@@ -47,7 +47,7 @@ func NewFunctionHook_Override(f FunctionHook, fn awslambda.IFunction, encryption
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling_hooktargets.FunctionHook",
+		"aws-cdk-lib.aws_autoscaling_hooktargets.FunctionHook",
 		[]interface{}{fn, encryptionKey},
 		f,
 	)
@@ -55,7 +55,7 @@ func NewFunctionHook_Override(f FunctionHook, fn awslambda.IFunction, encryption
 
 // Called when this object is used as the target of a lifecycle hook.
 // Experimental.
-func (f *jsiiProxy_FunctionHook) Bind(scope awscdk.Construct, lifecycleHook awsautoscaling.ILifecycleHook) *awsautoscaling.LifecycleHookTargetConfig {
+func (f *jsiiProxy_FunctionHook) Bind(scope constructs.Construct, lifecycleHook awsautoscaling.ILifecycleHook) *awsautoscaling.LifecycleHookTargetConfig {
 	var returns *awsautoscaling.LifecycleHookTargetConfig
 
 	_jsii_.Invoke(
@@ -72,7 +72,7 @@ func (f *jsiiProxy_FunctionHook) Bind(scope awscdk.Construct, lifecycleHook awsa
 // Experimental.
 type QueueHook interface {
 	awsautoscaling.ILifecycleHookTarget
-	Bind(_scope awscdk.Construct, lifecycleHook awsautoscaling.ILifecycleHook) *awsautoscaling.LifecycleHookTargetConfig
+	Bind(_scope constructs.Construct, lifecycleHook awsautoscaling.ILifecycleHook) *awsautoscaling.LifecycleHookTargetConfig
 }
 
 // The jsii proxy struct for QueueHook
@@ -87,7 +87,7 @@ func NewQueueHook(queue awssqs.IQueue) QueueHook {
 	j := jsiiProxy_QueueHook{}
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling_hooktargets.QueueHook",
+		"aws-cdk-lib.aws_autoscaling_hooktargets.QueueHook",
 		[]interface{}{queue},
 		&j,
 	)
@@ -100,7 +100,7 @@ func NewQueueHook_Override(q QueueHook, queue awssqs.IQueue) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling_hooktargets.QueueHook",
+		"aws-cdk-lib.aws_autoscaling_hooktargets.QueueHook",
 		[]interface{}{queue},
 		q,
 	)
@@ -108,7 +108,7 @@ func NewQueueHook_Override(q QueueHook, queue awssqs.IQueue) {
 
 // Called when this object is used as the target of a lifecycle hook.
 // Experimental.
-func (q *jsiiProxy_QueueHook) Bind(_scope awscdk.Construct, lifecycleHook awsautoscaling.ILifecycleHook) *awsautoscaling.LifecycleHookTargetConfig {
+func (q *jsiiProxy_QueueHook) Bind(_scope constructs.Construct, lifecycleHook awsautoscaling.ILifecycleHook) *awsautoscaling.LifecycleHookTargetConfig {
 	var returns *awsautoscaling.LifecycleHookTargetConfig
 
 	_jsii_.Invoke(
@@ -125,7 +125,7 @@ func (q *jsiiProxy_QueueHook) Bind(_scope awscdk.Construct, lifecycleHook awsaut
 // Experimental.
 type TopicHook interface {
 	awsautoscaling.ILifecycleHookTarget
-	Bind(_scope awscdk.Construct, lifecycleHook awsautoscaling.ILifecycleHook) *awsautoscaling.LifecycleHookTargetConfig
+	Bind(_scope constructs.Construct, lifecycleHook awsautoscaling.ILifecycleHook) *awsautoscaling.LifecycleHookTargetConfig
 }
 
 // The jsii proxy struct for TopicHook
@@ -140,7 +140,7 @@ func NewTopicHook(topic awssns.ITopic) TopicHook {
 	j := jsiiProxy_TopicHook{}
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling_hooktargets.TopicHook",
+		"aws-cdk-lib.aws_autoscaling_hooktargets.TopicHook",
 		[]interface{}{topic},
 		&j,
 	)
@@ -153,7 +153,7 @@ func NewTopicHook_Override(t TopicHook, topic awssns.ITopic) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling_hooktargets.TopicHook",
+		"aws-cdk-lib.aws_autoscaling_hooktargets.TopicHook",
 		[]interface{}{topic},
 		t,
 	)
@@ -161,7 +161,7 @@ func NewTopicHook_Override(t TopicHook, topic awssns.ITopic) {
 
 // Called when this object is used as the target of a lifecycle hook.
 // Experimental.
-func (t *jsiiProxy_TopicHook) Bind(_scope awscdk.Construct, lifecycleHook awsautoscaling.ILifecycleHook) *awsautoscaling.LifecycleHookTargetConfig {
+func (t *jsiiProxy_TopicHook) Bind(_scope constructs.Construct, lifecycleHook awsautoscaling.ILifecycleHook) *awsautoscaling.LifecycleHookTargetConfig {
 	var returns *awsautoscaling.LifecycleHookTargetConfig
 
 	_jsii_.Invoke(
