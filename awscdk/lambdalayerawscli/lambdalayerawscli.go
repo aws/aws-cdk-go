@@ -1,13 +1,13 @@
 package lambdalayerawscli
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/v2/lambdalayerawscli/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/lambdalayerawscli/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // An AWS Lambda layer that includes the AWS CLI.
@@ -17,7 +17,7 @@ type AwsCliLayer interface {
 	CompatibleRuntimes() *[]awslambda.Runtime
 	Env() *awscdk.ResourceEnvironment
 	LayerVersionArn() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	AddPermission(id *string, permission *awslambda.LayerVersionPermission)
@@ -25,7 +25,13 @@ type AwsCliLayer interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for AwsCliLayer
@@ -63,8 +69,8 @@ func (j *jsiiProxy_AwsCliLayer) LayerVersionArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_AwsCliLayer) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_AwsCliLayer) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -101,7 +107,7 @@ func NewAwsCliLayer(scope constructs.Construct, id *string) AwsCliLayer {
 	j := jsiiProxy_AwsCliLayer{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.lambda_layer_awscli.AwsCliLayer",
+		"monocdk.lambda_layer_awscli.AwsCliLayer",
 		[]interface{}{scope, id},
 		&j,
 	)
@@ -114,7 +120,7 @@ func NewAwsCliLayer_Override(a AwsCliLayer, scope constructs.Construct, id *stri
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.lambda_layer_awscli.AwsCliLayer",
+		"monocdk.lambda_layer_awscli.AwsCliLayer",
 		[]interface{}{scope, id},
 		a,
 	)
@@ -130,7 +136,7 @@ func AwsCliLayer_FromLayerVersionArn(scope constructs.Construct, id *string, lay
 	var returns awslambda.ILayerVersion
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.lambda_layer_awscli.AwsCliLayer",
+		"monocdk.lambda_layer_awscli.AwsCliLayer",
 		"fromLayerVersionArn",
 		[]interface{}{scope, id, layerVersionArn},
 		&returns,
@@ -147,7 +153,7 @@ func AwsCliLayer_FromLayerVersionAttributes(scope constructs.Construct, id *stri
 	var returns awslambda.ILayerVersion
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.lambda_layer_awscli.AwsCliLayer",
+		"monocdk.lambda_layer_awscli.AwsCliLayer",
 		"fromLayerVersionAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -156,17 +162,15 @@ func AwsCliLayer_FromLayerVersionAttributes(scope constructs.Construct, id *stri
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func AwsCliLayer_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.lambda_layer_awscli.AwsCliLayer",
+		"monocdk.lambda_layer_awscli.AwsCliLayer",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -177,13 +181,13 @@ func AwsCliLayer_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func AwsCliLayer_IsResource(construct constructs.IConstruct) *bool {
+func AwsCliLayer_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.lambda_layer_awscli.AwsCliLayer",
+		"monocdk.lambda_layer_awscli.AwsCliLayer",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -280,6 +284,86 @@ func (a *jsiiProxy_AwsCliLayer) GetResourceNameAttribute(nameAttr *string) *stri
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_AwsCliLayer) OnPrepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_AwsCliLayer) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_AwsCliLayer) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_AwsCliLayer) Prepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_AwsCliLayer) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (a *jsiiProxy_AwsCliLayer) ToString() *string {
@@ -288,6 +372,26 @@ func (a *jsiiProxy_AwsCliLayer) ToString() *string {
 	_jsii_.Invoke(
 		a,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_AwsCliLayer) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

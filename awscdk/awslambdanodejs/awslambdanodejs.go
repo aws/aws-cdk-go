@@ -1,20 +1,20 @@
 package awslambdanodejs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodeguruprofiler"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambdanodejs/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awscodeguruprofiler"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/awslambdanodejs/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/awssqs"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // Bundling options.
@@ -257,8 +257,8 @@ type NodejsFunction interface {
 	IsBoundToVpc() *bool
 	LatestVersion() awslambda.IVersion
 	LogGroup() awslogs.ILogGroup
-	Node() constructs.Node
-	PermissionsNode() constructs.Node
+	Node() awscdk.ConstructNode
+	PermissionsNode() awscdk.ConstructNode
 	PhysicalName() *string
 	Role() awsiam.IRole
 	Runtime() awslambda.Runtime
@@ -269,6 +269,7 @@ type NodejsFunction interface {
 	AddLayers(layers ...awslambda.ILayerVersion)
 	AddPermission(id *string, permission *awslambda.Permission)
 	AddToRolePolicy(statement awsiam.PolicyStatement)
+	AddVersion(name *string, codeSha256 *string, description *string, provisionedExecutions *float64, asyncInvokeConfig *awslambda.EventInvokeConfigOptions) awslambda.Version
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	ConfigureAsyncInvoke(options *awslambda.EventInvokeConfigOptions)
 	GeneratePhysicalName() *string
@@ -280,7 +281,13 @@ type NodejsFunction interface {
 	MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for NodejsFunction
@@ -398,8 +405,8 @@ func (j *jsiiProxy_NodejsFunction) LogGroup() awslogs.ILogGroup {
 	return returns
 }
 
-func (j *jsiiProxy_NodejsFunction) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_NodejsFunction) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -408,8 +415,8 @@ func (j *jsiiProxy_NodejsFunction) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_NodejsFunction) PermissionsNode() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_NodejsFunction) PermissionsNode() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"permissionsNode",
@@ -460,13 +467,13 @@ func (j *jsiiProxy_NodejsFunction) Stack() awscdk.Stack {
 
 
 // Experimental.
-func NewNodejsFunction(scope constructs.Construct, id *string, props *NodejsFunctionProps) NodejsFunction {
+func NewNodejsFunction(scope awscdk.Construct, id *string, props *NodejsFunctionProps) NodejsFunction {
 	_init_.Initialize()
 
 	j := jsiiProxy_NodejsFunction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
+		"monocdk.aws_lambda_nodejs.NodejsFunction",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -475,11 +482,11 @@ func NewNodejsFunction(scope constructs.Construct, id *string, props *NodejsFunc
 }
 
 // Experimental.
-func NewNodejsFunction_Override(n NodejsFunction, scope constructs.Construct, id *string, props *NodejsFunctionProps) {
+func NewNodejsFunction_Override(n NodejsFunction, scope awscdk.Construct, id *string, props *NodejsFunctionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
+		"monocdk.aws_lambda_nodejs.NodejsFunction",
 		[]interface{}{scope, id, props},
 		n,
 	)
@@ -492,7 +499,7 @@ func NodejsFunction_FromFunctionArn(scope constructs.Construct, id *string, func
 	var returns awslambda.IFunction
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
+		"monocdk.aws_lambda_nodejs.NodejsFunction",
 		"fromFunctionArn",
 		[]interface{}{scope, id, functionArn},
 		&returns,
@@ -509,7 +516,7 @@ func NodejsFunction_FromFunctionAttributes(scope constructs.Construct, id *strin
 	var returns awslambda.IFunction
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
+		"monocdk.aws_lambda_nodejs.NodejsFunction",
 		"fromFunctionAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -518,17 +525,15 @@ func NodejsFunction_FromFunctionAttributes(scope constructs.Construct, id *strin
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func NodejsFunction_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
+		"monocdk.aws_lambda_nodejs.NodejsFunction",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -539,13 +544,13 @@ func NodejsFunction_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func NodejsFunction_IsResource(construct constructs.IConstruct) *bool {
+func NodejsFunction_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
+		"monocdk.aws_lambda_nodejs.NodejsFunction",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -562,7 +567,7 @@ func NodejsFunction_MetricAll(metricName *string, props *awscloudwatch.MetricOpt
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
+		"monocdk.aws_lambda_nodejs.NodejsFunction",
 		"metricAll",
 		[]interface{}{metricName, props},
 		&returns,
@@ -579,7 +584,7 @@ func NodejsFunction_MetricAllConcurrentExecutions(props *awscloudwatch.MetricOpt
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
+		"monocdk.aws_lambda_nodejs.NodejsFunction",
 		"metricAllConcurrentExecutions",
 		[]interface{}{props},
 		&returns,
@@ -596,7 +601,7 @@ func NodejsFunction_MetricAllDuration(props *awscloudwatch.MetricOptions) awsclo
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
+		"monocdk.aws_lambda_nodejs.NodejsFunction",
 		"metricAllDuration",
 		[]interface{}{props},
 		&returns,
@@ -613,7 +618,7 @@ func NodejsFunction_MetricAllErrors(props *awscloudwatch.MetricOptions) awscloud
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
+		"monocdk.aws_lambda_nodejs.NodejsFunction",
 		"metricAllErrors",
 		[]interface{}{props},
 		&returns,
@@ -630,7 +635,7 @@ func NodejsFunction_MetricAllInvocations(props *awscloudwatch.MetricOptions) aws
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
+		"monocdk.aws_lambda_nodejs.NodejsFunction",
 		"metricAllInvocations",
 		[]interface{}{props},
 		&returns,
@@ -647,7 +652,7 @@ func NodejsFunction_MetricAllThrottles(props *awscloudwatch.MetricOptions) awscl
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
+		"monocdk.aws_lambda_nodejs.NodejsFunction",
 		"metricAllThrottles",
 		[]interface{}{props},
 		&returns,
@@ -664,7 +669,7 @@ func NodejsFunction_MetricAllUnreservedConcurrentExecutions(props *awscloudwatch
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda_nodejs.NodejsFunction",
+		"monocdk.aws_lambda_nodejs.NodejsFunction",
 		"metricAllUnreservedConcurrentExecutions",
 		[]interface{}{props},
 		&returns,
@@ -758,6 +763,34 @@ func (n *jsiiProxy_NodejsFunction) AddToRolePolicy(statement awsiam.PolicyStatem
 		"addToRolePolicy",
 		[]interface{}{statement},
 	)
+}
+
+// Add a new version for this Lambda.
+//
+// If you want to deploy through CloudFormation and use aliases, you need to
+// add a new version (with a new name) to your Lambda every time you want to
+// deploy an update. An alias can then refer to the newly created Version.
+//
+// All versions should have distinct names, and you should not delete versions
+// as long as your Alias needs to refer to them.
+//
+// Returns: A new Version object.
+// Deprecated: This method will create an AWS::Lambda::Version resource which
+// snapshots the AWS Lambda function *at the time of its creation* and it
+// won't get updated when the function changes. Instead, use
+// `this.currentVersion` to obtain a reference to a version resource that gets
+// automatically recreated when the function configuration (or code) changes.
+func (n *jsiiProxy_NodejsFunction) AddVersion(name *string, codeSha256 *string, description *string, provisionedExecutions *float64, asyncInvokeConfig *awslambda.EventInvokeConfigOptions) awslambda.Version {
+	var returns awslambda.Version
+
+	_jsii_.Invoke(
+		n,
+		"addVersion",
+		[]interface{}{name, codeSha256, description, provisionedExecutions, asyncInvokeConfig},
+		&returns,
+	)
+
+	return returns
 }
 
 // Apply the given removal policy to this resource.
@@ -939,6 +972,86 @@ func (n *jsiiProxy_NodejsFunction) MetricThrottles(props *awscloudwatch.MetricOp
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (n *jsiiProxy_NodejsFunction) OnPrepare() {
+	_jsii_.InvokeVoid(
+		n,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (n *jsiiProxy_NodejsFunction) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		n,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (n *jsiiProxy_NodejsFunction) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		n,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (n *jsiiProxy_NodejsFunction) Prepare() {
+	_jsii_.InvokeVoid(
+		n,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (n *jsiiProxy_NodejsFunction) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		n,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (n *jsiiProxy_NodejsFunction) ToString() *string {
@@ -947,6 +1060,26 @@ func (n *jsiiProxy_NodejsFunction) ToString() *string {
 	_jsii_.Invoke(
 		n,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (n *jsiiProxy_NodejsFunction) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		n,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1089,6 +1222,14 @@ type NodejsFunctionProps struct {
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
 	// Experimental.
 	Role awsiam.IRole `json:"role"`
+	// What security group to associate with the Lambda's network interfaces. This property is being deprecated, consider using securityGroups instead.
+	//
+	// Only used if 'vpc' is supplied.
+	//
+	// Use securityGroups property instead.
+	// Function constructor will throw an error if both are specified.
+	// Deprecated: - This property is deprecated, use securityGroups instead
+	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.
