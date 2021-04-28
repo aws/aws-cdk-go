@@ -448,7 +448,6 @@ func (c *jsiiProxy_CfnApplication) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnApplication) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1060,7 +1059,6 @@ func (c *jsiiProxy_CfnConfigurationProfile) GetMetadata(key *string) interface{}
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnConfigurationProfile) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1687,7 +1685,6 @@ func (c *jsiiProxy_CfnDeployment) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnDeployment) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2327,7 +2324,6 @@ func (c *jsiiProxy_CfnDeploymentStrategy) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnDeploymentStrategy) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2909,7 +2905,6 @@ func (c *jsiiProxy_CfnEnvironment) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnEnvironment) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3512,7 +3507,6 @@ func (c *jsiiProxy_CfnHostedConfigurationVersion) GetMetadata(key *string) inter
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnHostedConfigurationVersion) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,

@@ -4468,7 +4468,12 @@ const (
 	S3Trigger_EVENTS S3Trigger = "EVENTS"
 )
 
-// CodePipeline action to connect to an existing ServiceCatalog product.
+// CodePipeline action to connect to an existing ServiceCatalog product. <<<<<<< HEAD:packages/@aws-cdk/aws-codepipeline-actions/lib/servicecatalog/deploy-action.ts.
+//
+// **Note**: this class is still experimental, and may have breaking changes in the future!
+//
+// =======
+// >>>>>>> master:packages/@aws-cdk/aws-codepipeline-actions/lib/servicecatalog/deploy-action-beta1.ts
 // Experimental.
 type ServiceCatalogDeployActionBeta1 interface {
 	Action

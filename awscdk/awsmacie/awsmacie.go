@@ -552,7 +552,6 @@ func (c *jsiiProxy_CfnCustomDataIdentifier) GetMetadata(key *string) interface{}
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnCustomDataIdentifier) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1156,7 +1155,6 @@ func (c *jsiiProxy_CfnFindingsFilter) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnFindingsFilter) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1702,7 +1700,6 @@ func (c *jsiiProxy_CfnSession) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnSession) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,

@@ -118,6 +118,8 @@ type AutoScalingGroup interface {
 	Env() *awscdk.ResourceEnvironment
 	GrantPrincipal() awsiam.IPrincipal
 	MaxInstanceLifetime() awscdk.Duration
+	NewInstancesProtectedFromScaleIn() *bool
+	SetNewInstancesProtectedFromScaleIn(val *bool)
 	Node() constructs.Node
 	OsType() awsec2.OperatingSystemType
 	PhysicalName() *string
@@ -131,12 +133,14 @@ type AutoScalingGroup interface {
 	AddUserData(commands ...*string)
 	ApplyCloudFormationInit(init awsec2.CloudFormationInit, options *ApplyCloudFormationInitOptions)
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	AreNewInstancesProtectedFromScaleIn() *bool
 	AttachToApplicationTargetGroup(targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
 	AttachToClassicLB(loadBalancer awselasticloadbalancing.LoadBalancer)
 	AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	ProtectNewInstancesFromScaleIn()
 	ScaleOnCpuUtilization(id *string, props *CpuUtilizationScalingProps) TargetTrackingScalingPolicy
 	ScaleOnIncomingBytes(id *string, props *NetworkUtilizationScalingProps) TargetTrackingScalingPolicy
 	ScaleOnMetric(id *string, props *BasicStepScalingPolicyProps) StepScalingPolicy
@@ -222,6 +226,16 @@ func (j *jsiiProxy_AutoScalingGroup) MaxInstanceLifetime() awscdk.Duration {
 	_jsii_.Get(
 		j,
 		"maxInstanceLifetime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AutoScalingGroup) NewInstancesProtectedFromScaleIn() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"newInstancesProtectedFromScaleIn",
 		&returns,
 	)
 	return returns
@@ -328,6 +342,14 @@ func (j *jsiiProxy_AutoScalingGroup) SetAlbTargetGroup(val awselasticloadbalanci
 	_jsii_.Set(
 		j,
 		"albTargetGroup",
+		val,
+	)
+}
+
+func (j *jsiiProxy_AutoScalingGroup) SetNewInstancesProtectedFromScaleIn(val *bool) {
+	_jsii_.Set(
+		j,
+		"newInstancesProtectedFromScaleIn",
 		val,
 	)
 }
@@ -472,6 +494,21 @@ func (a *jsiiProxy_AutoScalingGroup) ApplyRemovalPolicy(policy awscdk.RemovalPol
 	)
 }
 
+// Returns `true` if newly-launched instances are protected from scale-in.
+// Experimental.
+func (a *jsiiProxy_AutoScalingGroup) AreNewInstancesProtectedFromScaleIn() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		a,
+		"areNewInstancesProtectedFromScaleIn",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Attach to ELBv2 Application Target Group.
 // Experimental.
 func (a *jsiiProxy_AutoScalingGroup) AttachToApplicationTargetGroup(targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
@@ -563,6 +600,16 @@ func (a *jsiiProxy_AutoScalingGroup) GetResourceNameAttribute(nameAttr *string) 
 	)
 
 	return returns
+}
+
+// Ensures newly-launched instances are protected from scale-in.
+// Experimental.
+func (a *jsiiProxy_AutoScalingGroup) ProtectNewInstancesFromScaleIn() {
+	_jsii_.InvokeVoid(
+		a,
+		"protectNewInstancesFromScaleIn",
+		nil, // no parameters
+	)
 }
 
 // Scale out or in to achieve a target CPU utilization.
@@ -770,6 +817,18 @@ type AutoScalingGroupProps struct {
 	// Minimum number of instances in the fleet.
 	// Experimental.
 	MinCapacity *float64 `json:"minCapacity"`
+	// Whether newly-launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in.
+	//
+	// By default, Auto Scaling can terminate an instance at any time after launch
+	// when scaling in an Auto Scaling Group, subject to the group's termination
+	// policy. However, you may wish to protect newly-launched instances from
+	// being scaled in if they are going to run critical applications that should
+	// not be prematurely terminated.
+	//
+	// This flag must be enabled if the Auto Scaling Group will be associated with
+	// an ECS Capacity Provider with managed termination protection.
+	// Experimental.
+	NewInstancesProtectedFromScaleIn *bool `json:"newInstancesProtectedFromScaleIn"`
 	// Configure autoscaling group to send notifications about fleet changes to an SNS topic(s).
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-notificationconfigurations
 	//
@@ -2047,7 +2106,6 @@ func (c *jsiiProxy_CfnAutoScalingGroup) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnAutoScalingGroup) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3023,7 +3081,6 @@ func (c *jsiiProxy_CfnLaunchConfiguration) GetMetadata(key *string) interface{} 
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnLaunchConfiguration) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3715,7 +3772,6 @@ func (c *jsiiProxy_CfnLifecycleHook) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnLifecycleHook) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4390,7 +4446,6 @@ func (c *jsiiProxy_CfnScalingPolicy) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnScalingPolicy) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5056,7 +5111,6 @@ func (c *jsiiProxy_CfnScheduledAction) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnScheduledAction) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5235,6 +5289,18 @@ type CommonAutoScalingGroupProps struct {
 	// Minimum number of instances in the fleet.
 	// Experimental.
 	MinCapacity *float64 `json:"minCapacity"`
+	// Whether newly-launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in.
+	//
+	// By default, Auto Scaling can terminate an instance at any time after launch
+	// when scaling in an Auto Scaling Group, subject to the group's termination
+	// policy. However, you may wish to protect newly-launched instances from
+	// being scaled in if they are going to run critical applications that should
+	// not be prematurely terminated.
+	//
+	// This flag must be enabled if the Auto Scaling Group will be associated with
+	// an ECS Capacity Provider with managed termination protection.
+	// Experimental.
+	NewInstancesProtectedFromScaleIn *bool `json:"newInstancesProtectedFromScaleIn"`
 	// Configure autoscaling group to send notifications about fleet changes to an SNS topic(s).
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-notificationconfigurations
 	//

@@ -88,6 +88,9 @@ type AddApplicationTargetsProps struct {
 	// The protocol to use.
 	// Experimental.
 	Protocol ApplicationProtocol `json:"protocol"`
+	// The protocol version to use.
+	// Experimental.
+	ProtocolVersion ApplicationProtocolVersion `json:"protocolVersion"`
 	// The time period during which the load balancer sends a newly registered target a linearly increasing share of the traffic to the target group.
 	//
 	// The range is 30-900 seconds (15 minutes).
@@ -3730,7 +3733,6 @@ func (c *jsiiProxy_CfnListener) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnListener) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4338,7 +4340,6 @@ func (c *jsiiProxy_CfnListenerCertificate) GetMetadata(key *string) interface{} 
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnListenerCertificate) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4926,7 +4927,6 @@ func (c *jsiiProxy_CfnListenerRule) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnListenerRule) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5787,7 +5787,6 @@ func (c *jsiiProxy_CfnLoadBalancer) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnLoadBalancer) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6666,7 +6665,6 @@ func (c *jsiiProxy_CfnTargetGroup) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnTargetGroup) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,

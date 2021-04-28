@@ -981,7 +981,6 @@ func (c *jsiiProxy_CfnCluster) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnCluster) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1514,7 +1513,6 @@ func (c *jsiiProxy_CfnClusterParameterGroup) GetMetadata(key *string) interface{
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnClusterParameterGroup) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2081,7 +2079,6 @@ func (c *jsiiProxy_CfnClusterSecurityGroup) GetMetadata(key *string) interface{}
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnClusterSecurityGroup) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2616,7 +2613,6 @@ func (c *jsiiProxy_CfnClusterSecurityGroupIngress) GetMetadata(key *string) inte
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnClusterSecurityGroupIngress) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3142,7 +3138,6 @@ func (c *jsiiProxy_CfnClusterSubnetGroup) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnClusterSubnetGroup) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,

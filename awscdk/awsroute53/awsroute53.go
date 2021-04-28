@@ -1405,7 +1405,6 @@ func (c *jsiiProxy_CfnDNSSEC) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnDNSSEC) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1917,7 +1916,6 @@ func (c *jsiiProxy_CfnHealthCheck) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnHealthCheck) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2542,7 +2540,6 @@ func (c *jsiiProxy_CfnHostedZone) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnHostedZone) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3115,7 +3112,6 @@ func (c *jsiiProxy_CfnKeySigningKey) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnKeySigningKey) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3882,7 +3878,6 @@ func (c *jsiiProxy_CfnRecordSet) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnRecordSet) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4435,7 +4430,6 @@ func (c *jsiiProxy_CfnRecordSetGroup) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnRecordSetGroup) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4961,6 +4955,9 @@ type CrossAccountZoneDelegationRecordProps struct {
 	// The hosted zone id in the parent account.
 	// Experimental.
 	ParentHostedZoneId *string `json:"parentHostedZoneId"`
+	// The hosted zone name in the parent account.
+	// Experimental.
+	ParentHostedZoneName *string `json:"parentHostedZoneName"`
 	// The resource record cache time to live (TTL).
 	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
@@ -6764,6 +6761,9 @@ type PublicHostedZoneProps struct {
 	// A principal which is trusted to assume a role for zone delegation.
 	// Experimental.
 	CrossAccountZoneDelegationPrincipal awsiam.IPrincipal `json:"crossAccountZoneDelegationPrincipal"`
+	// The name of the role created for cross account delegation.
+	// Experimental.
+	CrossAccountZoneDelegationRoleName *string `json:"crossAccountZoneDelegationRoleName"`
 }
 
 // A record set.

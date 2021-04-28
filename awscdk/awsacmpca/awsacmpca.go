@@ -577,7 +577,6 @@ func (c *jsiiProxy_CfnCertificate) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnCertificate) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1341,7 +1340,6 @@ func (c *jsiiProxy_CfnCertificateAuthority) GetMetadata(key *string) interface{}
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnCertificateAuthority) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2014,7 +2012,6 @@ func (c *jsiiProxy_CfnCertificateAuthorityActivation) GetMetadata(key *string) i
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnCertificateAuthorityActivation) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,

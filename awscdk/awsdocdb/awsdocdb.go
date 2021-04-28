@@ -804,7 +804,6 @@ func (c *jsiiProxy_CfnDBCluster) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnDBCluster) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1350,7 +1349,6 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) GetMetadata(key *string) interfac
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnDBClusterParameterGroup) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2012,7 +2010,6 @@ func (c *jsiiProxy_CfnDBInstance) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnDBInstance) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2556,7 +2553,6 @@ func (c *jsiiProxy_CfnDBSubnetGroup) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnDBSubnetGroup) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3747,6 +3743,7 @@ type DatabaseSecret interface {
 	SecretName() *string
 	SecretValue() awscdk.SecretValue
 	Stack() awscdk.Stack
+	AddReplicaRegion(region *string, encryptionKey awskms.IKey)
 	AddRotationSchedule(id *string, options *awssecretsmanager.RotationScheduleOptions) awssecretsmanager.RotationSchedule
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
@@ -4012,6 +4009,16 @@ func DatabaseSecret_IsResource(construct constructs.IConstruct) *bool {
 	)
 
 	return returns
+}
+
+// Adds a replica region for the secret.
+// Experimental.
+func (d *jsiiProxy_DatabaseSecret) AddReplicaRegion(region *string, encryptionKey awskms.IKey) {
+	_jsii_.InvokeVoid(
+		d,
+		"addReplicaRegion",
+		[]interface{}{region, encryptionKey},
+	)
 }
 
 // Adds a rotation schedule to the secret.

@@ -468,7 +468,6 @@ func (c *jsiiProxy_CfnApplication) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnApplication) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1053,7 +1052,6 @@ func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2) GetMetadata(key *str
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1561,7 +1559,6 @@ func (c *jsiiProxy_CfnApplicationOutput) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnApplicationOutput) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2103,7 +2100,6 @@ func (c *jsiiProxy_CfnApplicationOutputV2) GetMetadata(key *string) interface{} 
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnApplicationOutputV2) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2651,7 +2647,6 @@ func (c *jsiiProxy_CfnApplicationReferenceDataSource) GetMetadata(key *string) i
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnApplicationReferenceDataSource) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3216,7 +3211,6 @@ func (c *jsiiProxy_CfnApplicationReferenceDataSourceV2) GetMetadata(key *string)
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnApplicationReferenceDataSourceV2) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3850,7 +3844,6 @@ func (c *jsiiProxy_CfnApplicationV2) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnApplicationV2) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,

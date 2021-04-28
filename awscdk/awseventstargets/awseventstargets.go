@@ -5,6 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodebuild"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
@@ -21,6 +22,124 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
 	"github.com/aws/constructs-go/constructs/v10"
 )
+
+// Use an API Gateway REST APIs as a target for Amazon EventBridge rules.
+// Experimental.
+type ApiGateway interface {
+	awsevents.IRuleTarget
+	RestApi() awsapigateway.RestApi
+	Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
+}
+
+// The jsii proxy struct for ApiGateway
+type jsiiProxy_ApiGateway struct {
+	internal.Type__awseventsIRuleTarget
+}
+
+func (j *jsiiProxy_ApiGateway) RestApi() awsapigateway.RestApi {
+	var returns awsapigateway.RestApi
+	_jsii_.Get(
+		j,
+		"restApi",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewApiGateway(restApi awsapigateway.RestApi, props *ApiGatewayProps) ApiGateway {
+	_init_.Initialize()
+
+	j := jsiiProxy_ApiGateway{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_events_targets.ApiGateway",
+		[]interface{}{restApi, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewApiGateway_Override(a ApiGateway, restApi awsapigateway.RestApi, props *ApiGatewayProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_events_targets.ApiGateway",
+		[]interface{}{restApi, props},
+		a,
+	)
+}
+
+// Returns a RuleTarget that can be used to trigger this API Gateway REST APIs as a result from an EventBridge event.
+// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/resource-based-policies-eventbridge.html#sqs-permissions
+//
+// Experimental.
+func (a *jsiiProxy_ApiGateway) Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
+	var returns *awsevents.RuleTargetConfig
+
+	_jsii_.Invoke(
+		a,
+		"bind",
+		[]interface{}{rule, _id},
+		&returns,
+	)
+
+	return returns
+}
+
+// Customize the API Gateway Event Target.
+// Experimental.
+type ApiGatewayProps struct {
+	// The SQS queue to be used as deadLetterQueue. Check out the [considerations for using a dead-letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html#dlq-considerations).
+	//
+	// The events not successfully delivered are automatically retried for a specified period of time,
+	// depending on the retry policy of the target.
+	// If an event is not delivered before all retry attempts are exhausted, it will be sent to the dead letter queue.
+	// Experimental.
+	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
+	// The maximum age of a request that Lambda sends to a function for processing.
+	//
+	// Minimum value of 60.
+	// Maximum value of 86400.
+	// Experimental.
+	MaxEventAge awscdk.Duration `json:"maxEventAge"`
+	// The maximum number of times to retry when the function returns an error.
+	//
+	// Minimum value of 0.
+	// Maximum value of 185.
+	// Experimental.
+	RetryAttempts *float64 `json:"retryAttempts"`
+	// The role to assume before invoking the target (i.e., the pipeline) when the given rule is triggered.
+	// Experimental.
+	EventRole awsiam.IRole `json:"eventRole"`
+	// The headers to be set when requesting API.
+	// Experimental.
+	HeaderParameters *map[string]*string `json:"headerParameters"`
+	// The method for api resource invoked by the rule.
+	// Experimental.
+	Method *string `json:"method"`
+	// The api resource invoked by the rule.
+	//
+	// We can use wildcards('*') to specify the path. In that case,
+	// an equal number of real values must be specified for pathParameterValues.
+	// Experimental.
+	Path *string `json:"path"`
+	// The path parameter values to be used to populate to wildcards("*") of requesting api path.
+	// Experimental.
+	PathParameterValues *[]*string `json:"pathParameterValues"`
+	// This will be the post request body send to the API.
+	// Experimental.
+	PostBody awsevents.RuleTargetInput `json:"postBody"`
+	// The query parameters to be set when requesting API.
+	// Experimental.
+	QueryStringParameters *map[string]*string `json:"queryStringParameters"`
+	// The deploy stage of api gateway invoked by the rule.
+	// Experimental.
+	Stage *string `json:"stage"`
+}
 
 // Use an AWS Lambda function that makes API calls as an event rule target.
 // Experimental.

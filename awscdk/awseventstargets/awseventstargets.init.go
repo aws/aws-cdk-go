@@ -8,6 +8,23 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_events_targets.ApiGateway",
+		reflect.TypeOf((*ApiGateway)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+			_jsii_.MemberProperty{JsiiProperty: "restApi", GoGetter: "RestApi"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ApiGateway{}
+			_jsii_.InitJsiiProxy(&j.Type__awseventsIRuleTarget)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_events_targets.ApiGatewayProps",
+		reflect.TypeOf((*ApiGatewayProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_events_targets.AwsApi",
 		reflect.TypeOf((*AwsApi)(nil)).Elem(),
 		[]_jsii_.Member{

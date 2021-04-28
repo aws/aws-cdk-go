@@ -465,7 +465,6 @@ func (c *jsiiProxy_CfnResourcePolicy) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnResourcePolicy) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1010,7 +1009,6 @@ func (c *jsiiProxy_CfnRotationSchedule) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnRotationSchedule) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1630,7 +1628,6 @@ func (c *jsiiProxy_CfnSecret) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnSecret) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2193,7 +2190,6 @@ func (c *jsiiProxy_CfnSecretTargetAttachment) GetMetadata(key *string) interface
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnSecretTargetAttachment) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3012,6 +3008,17 @@ type MultiUserHostedRotationOptions struct {
 	MasterSecret ISecret `json:"masterSecret"`
 }
 
+// Secret replica region.
+// Experimental.
+type ReplicaRegion struct {
+	// The name of the region.
+	// Experimental.
+	Region *string `json:"region"`
+	// The customer-managed encryption key to use for encrypting the secret value.
+	// Experimental.
+	EncryptionKey awskms.IKey `json:"encryptionKey"`
+}
+
 // Secret Resource Policy.
 // Experimental.
 type ResourcePolicy interface {
@@ -3513,6 +3520,7 @@ type Secret interface {
 	SecretName() *string
 	SecretValue() awscdk.SecretValue
 	Stack() awscdk.Stack
+	AddReplicaRegion(region *string, encryptionKey awskms.IKey)
 	AddRotationSchedule(id *string, options *RotationScheduleOptions) RotationSchedule
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
@@ -3781,6 +3789,16 @@ func Secret_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
+// Adds a replica region for the secret.
+// Experimental.
+func (s *jsiiProxy_Secret) AddReplicaRegion(region *string, encryptionKey awskms.IKey) {
+	_jsii_.InvokeVoid(
+		s,
+		"addReplicaRegion",
+		[]interface{}{region, encryptionKey},
+	)
+}
+
 // Adds a rotation schedule to the secret.
 // Experimental.
 func (s *jsiiProxy_Secret) AddRotationSchedule(id *string, options *RotationScheduleOptions) RotationSchedule {
@@ -4021,6 +4039,9 @@ type SecretProps struct {
 	// Policy to apply when the secret is removed from this stack.
 	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	// A list of regions where to replicate this secret.
+	// Experimental.
+	ReplicaRegions *[]*ReplicaRegion `json:"replicaRegions"`
 	// A name for the secret.
 	//
 	// Note that deleting secrets from SecretsManager does not happen immediately, but after a 7 to

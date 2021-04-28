@@ -310,6 +310,11 @@ type AwsSdkCall struct {
 	//
 	// Experimental.
 	ApiVersion *string `json:"apiVersion"`
+	// Used for running the SDK calls in underlying lambda with a different role Can be used primarily for cross-account requests to for example connect hostedzone with a shared vpc.
+	//
+	// Example for Route53 / associateVPCWithHostedZone
+	// Experimental.
+	AssumedRoleArn *string `json:"assumedRoleArn"`
 	// The regex pattern to use to catch API errors.
 	//
 	// The `code` property of the

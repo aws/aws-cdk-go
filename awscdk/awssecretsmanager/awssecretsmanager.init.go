@@ -303,6 +303,10 @@ func init() {
 		"aws-cdk-lib.aws_secretsmanager.MultiUserHostedRotationOptions",
 		reflect.TypeOf((*MultiUserHostedRotationOptions)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_secretsmanager.ReplicaRegion",
+		reflect.TypeOf((*ReplicaRegion)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_secretsmanager.ResourcePolicy",
 		reflect.TypeOf((*ResourcePolicy)(nil)).Elem(),
@@ -360,6 +364,7 @@ func init() {
 		"aws-cdk-lib.aws_secretsmanager.Secret",
 		reflect.TypeOf((*Secret)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addReplicaRegion", GoMethod: "AddReplicaRegion"},
 			_jsii_.MemberMethod{JsiiMethod: "addRotationSchedule", GoMethod: "AddRotationSchedule"},
 			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},

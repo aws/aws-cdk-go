@@ -792,7 +792,6 @@ func (c *jsiiProxy_CfnApiDestination) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnApiDestination) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1385,7 +1384,6 @@ func (c *jsiiProxy_CfnArchive) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnArchive) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1956,7 +1954,6 @@ func (c *jsiiProxy_CfnConnection) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnConnection) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2496,7 +2493,6 @@ func (c *jsiiProxy_CfnEventBus) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnEventBus) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3071,7 +3067,6 @@ func (c *jsiiProxy_CfnEventBusPolicy) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnEventBusPolicy) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3730,7 +3725,6 @@ func (c *jsiiProxy_CfnRule) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnRule) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5201,6 +5195,9 @@ type RuleTargetConfig struct {
 	// The Amazon ECS task definition and task count to use, if the event target is an Amazon ECS task.
 	// Experimental.
 	EcsParameters *CfnRule_EcsParametersProperty `json:"ecsParameters"`
+	// Parameters used when the rule invoke api gateway.
+	// Experimental.
+	HttpParameters *CfnRule_HttpParametersProperty `json:"httpParameters"`
 	// What input to send to the event target.
 	// Experimental.
 	Input RuleTargetInput `json:"input"`

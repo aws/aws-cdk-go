@@ -349,6 +349,9 @@ type ApplicationLoadBalancedEc2ServiceProps struct {
 	// specified if using HTTPS.
 	// Experimental.
 	Protocol awselasticloadbalancingv2.ApplicationProtocol `json:"protocol"`
+	// The protocol version to use.
+	// Experimental.
+	ProtocolVersion awselasticloadbalancingv2.ApplicationProtocolVersion `json:"protocolVersion"`
 	// Determines whether the Load Balancer will be internet-facing.
 	// Experimental.
 	PublicLoadBalancer *bool `json:"publicLoadBalancer"`
@@ -739,6 +742,9 @@ type ApplicationLoadBalancedFargateServiceProps struct {
 	// specified if using HTTPS.
 	// Experimental.
 	Protocol awselasticloadbalancingv2.ApplicationProtocol `json:"protocol"`
+	// The protocol version to use.
+	// Experimental.
+	ProtocolVersion awselasticloadbalancingv2.ApplicationProtocolVersion `json:"protocolVersion"`
 	// Determines whether the Load Balancer will be internet-facing.
 	// Experimental.
 	PublicLoadBalancer *bool `json:"publicLoadBalancer"`
@@ -1098,6 +1104,9 @@ type ApplicationLoadBalancedServiceBaseProps struct {
 	// specified if using HTTPS.
 	// Experimental.
 	Protocol awselasticloadbalancingv2.ApplicationProtocol `json:"protocol"`
+	// The protocol version to use.
+	// Experimental.
+	ProtocolVersion awselasticloadbalancingv2.ApplicationProtocolVersion `json:"protocolVersion"`
 	// Determines whether the Load Balancer will be internet-facing.
 	// Experimental.
 	PublicLoadBalancer *bool `json:"publicLoadBalancer"`

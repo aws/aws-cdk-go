@@ -158,6 +158,18 @@ type AddCapacityOptions struct {
 	// Minimum number of instances in the fleet.
 	// Experimental.
 	MinCapacity *float64 `json:"minCapacity"`
+	// Whether newly-launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in.
+	//
+	// By default, Auto Scaling can terminate an instance at any time after launch
+	// when scaling in an Auto Scaling Group, subject to the group's termination
+	// policy. However, you may wish to protect newly-launched instances from
+	// being scaled in if they are going to run critical applications that should
+	// not be prematurely terminated.
+	//
+	// This flag must be enabled if the Auto Scaling Group will be associated with
+	// an ECS Capacity Provider with managed termination protection.
+	// Experimental.
+	NewInstancesProtectedFromScaleIn *bool `json:"newInstancesProtectedFromScaleIn"`
 	// Configure autoscaling group to send notifications about fleet changes to an SNS topic(s).
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-notificationconfigurations
 	//
@@ -2121,7 +2133,6 @@ func (c *jsiiProxy_CfnCapacityProvider) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnCapacityProvider) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2728,7 +2739,6 @@ func (c *jsiiProxy_CfnCluster) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnCluster) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3286,7 +3296,6 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) GetMetadata(key *stri
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3836,7 +3845,6 @@ func (c *jsiiProxy_CfnPrimaryTaskSet) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnPrimaryTaskSet) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4743,7 +4751,6 @@ func (c *jsiiProxy_CfnService) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnService) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5628,7 +5635,6 @@ func (c *jsiiProxy_CfnTaskDefinition) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnTaskDefinition) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6640,7 +6646,6 @@ func (c *jsiiProxy_CfnTaskSet) GetMetadata(key *string) interface{} {
 }
 
 // Examines the CloudFormation resource and discloses attributes.
-// Experimental.
 func (c *jsiiProxy_CfnTaskSet) Inspect(inspector awscdk.TreeInspector) {
 	_jsii_.InvokeVoid(
 		c,

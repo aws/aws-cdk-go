@@ -4866,6 +4866,7 @@ func init() {
 			"MEMORY5_NVME_DRIVE": InstanceClass_MEMORY5_NVME_DRIVE,
 			"MEMORY5_NVME_DRIVE_HIGH_PERFORMANCE": InstanceClass_MEMORY5_NVME_DRIVE_HIGH_PERFORMANCE,
 			"MEMORY5_AMD": InstanceClass_MEMORY5_AMD,
+			"MEMORY5_AMD_NVME_DRIVE": InstanceClass_MEMORY5_AMD_NVME_DRIVE,
 			"MEMORY5_EBS_OPTIMIZED": InstanceClass_MEMORY5_EBS_OPTIMIZED,
 			"MEMORY6_GRAVITON": InstanceClass_MEMORY6_GRAVITON,
 			"MEMORY6_GRAVITON2_NVME_DRIVE": InstanceClass_MEMORY6_GRAVITON2_NVME_DRIVE,
@@ -5145,6 +5146,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ec2.NamedPackageOptions",
 		reflect.TypeOf((*NamedPackageOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_ec2.NatGatewayProps",
+		reflect.TypeOf((*NatGatewayProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ec2.NatInstanceImage",
