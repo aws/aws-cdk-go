@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_globalaccelerator_endpoints.ApplicationLoadBalancerEndpoint",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.ApplicationLoadBalancerEndpoint",
 		reflect.TypeOf((*ApplicationLoadBalancerEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "region", GoGetter: "Region"},
@@ -21,11 +21,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_globalaccelerator_endpoints.ApplicationLoadBalancerEndpointOptions",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.ApplicationLoadBalancerEndpointOptions",
 		reflect.TypeOf((*ApplicationLoadBalancerEndpointOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_globalaccelerator_endpoints.CfnEipEndpoint",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.CfnEipEndpoint",
 		reflect.TypeOf((*CfnEipEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "region", GoGetter: "Region"},
@@ -38,11 +38,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_globalaccelerator_endpoints.CfnEipEndpointProps",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.CfnEipEndpointProps",
 		reflect.TypeOf((*CfnEipEndpointProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_globalaccelerator_endpoints.InstanceEndpoint",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.InstanceEndpoint",
 		reflect.TypeOf((*InstanceEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "region", GoGetter: "Region"},
@@ -55,11 +55,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_globalaccelerator_endpoints.InstanceEndpointProps",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.InstanceEndpointProps",
 		reflect.TypeOf((*InstanceEndpointProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_globalaccelerator_endpoints.NetworkLoadBalancerEndpoint",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.NetworkLoadBalancerEndpoint",
 		reflect.TypeOf((*NetworkLoadBalancerEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "region", GoGetter: "Region"},
@@ -72,7 +72,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_globalaccelerator_endpoints.NetworkLoadBalancerEndpointProps",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.NetworkLoadBalancerEndpointProps",
 		reflect.TypeOf((*NetworkLoadBalancerEndpointProps)(nil)).Elem(),
 	)
 }

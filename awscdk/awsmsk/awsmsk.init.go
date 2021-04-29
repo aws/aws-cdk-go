@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_msk.CfnCluster",
+		"aws-cdk-lib.aws_msk.CfnCluster",
 		reflect.TypeOf((*CfnCluster)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -36,21 +36,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "numberOfBrokerNodes", GoGetter: "NumberOfBrokerNodes"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "openMonitoring", GoGetter: "OpenMonitoring"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -61,110 +55,87 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_msk.CfnCluster.BrokerLogsProperty",
+		"aws-cdk-lib.aws_msk.CfnCluster.BrokerLogsProperty",
 		reflect.TypeOf((*CfnCluster_BrokerLogsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_msk.CfnCluster.BrokerNodeGroupInfoProperty",
+		"aws-cdk-lib.aws_msk.CfnCluster.BrokerNodeGroupInfoProperty",
 		reflect.TypeOf((*CfnCluster_BrokerNodeGroupInfoProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_msk.CfnCluster.ClientAuthenticationProperty",
+		"aws-cdk-lib.aws_msk.CfnCluster.ClientAuthenticationProperty",
 		reflect.TypeOf((*CfnCluster_ClientAuthenticationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_msk.CfnCluster.CloudWatchLogsProperty",
+		"aws-cdk-lib.aws_msk.CfnCluster.CloudWatchLogsProperty",
 		reflect.TypeOf((*CfnCluster_CloudWatchLogsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_msk.CfnCluster.ConfigurationInfoProperty",
+		"aws-cdk-lib.aws_msk.CfnCluster.ConfigurationInfoProperty",
 		reflect.TypeOf((*CfnCluster_ConfigurationInfoProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_msk.CfnCluster.EBSStorageInfoProperty",
+		"aws-cdk-lib.aws_msk.CfnCluster.EBSStorageInfoProperty",
 		reflect.TypeOf((*CfnCluster_EBSStorageInfoProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_msk.CfnCluster.EncryptionAtRestProperty",
+		"aws-cdk-lib.aws_msk.CfnCluster.EncryptionAtRestProperty",
 		reflect.TypeOf((*CfnCluster_EncryptionAtRestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_msk.CfnCluster.EncryptionInTransitProperty",
+		"aws-cdk-lib.aws_msk.CfnCluster.EncryptionInTransitProperty",
 		reflect.TypeOf((*CfnCluster_EncryptionInTransitProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_msk.CfnCluster.EncryptionInfoProperty",
+		"aws-cdk-lib.aws_msk.CfnCluster.EncryptionInfoProperty",
 		reflect.TypeOf((*CfnCluster_EncryptionInfoProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_msk.CfnCluster.FirehoseProperty",
+		"aws-cdk-lib.aws_msk.CfnCluster.FirehoseProperty",
 		reflect.TypeOf((*CfnCluster_FirehoseProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_msk.CfnCluster.JmxExporterProperty",
+		"aws-cdk-lib.aws_msk.CfnCluster.JmxExporterProperty",
 		reflect.TypeOf((*CfnCluster_JmxExporterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_msk.CfnCluster.LoggingInfoProperty",
+		"aws-cdk-lib.aws_msk.CfnCluster.LoggingInfoProperty",
 		reflect.TypeOf((*CfnCluster_LoggingInfoProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_msk.CfnCluster.NodeExporterProperty",
+		"aws-cdk-lib.aws_msk.CfnCluster.NodeExporterProperty",
 		reflect.TypeOf((*CfnCluster_NodeExporterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_msk.CfnCluster.OpenMonitoringProperty",
+		"aws-cdk-lib.aws_msk.CfnCluster.OpenMonitoringProperty",
 		reflect.TypeOf((*CfnCluster_OpenMonitoringProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_msk.CfnCluster.PrometheusProperty",
+		"aws-cdk-lib.aws_msk.CfnCluster.PrometheusProperty",
 		reflect.TypeOf((*CfnCluster_PrometheusProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_msk.CfnCluster.S3Property",
+		"aws-cdk-lib.aws_msk.CfnCluster.S3Property",
 		reflect.TypeOf((*CfnCluster_S3Property)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_msk.CfnCluster.SaslProperty",
+		"aws-cdk-lib.aws_msk.CfnCluster.SaslProperty",
 		reflect.TypeOf((*CfnCluster_SaslProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_msk.CfnCluster.ScramProperty",
+		"aws-cdk-lib.aws_msk.CfnCluster.ScramProperty",
 		reflect.TypeOf((*CfnCluster_ScramProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_msk.CfnCluster.StorageInfoProperty",
+		"aws-cdk-lib.aws_msk.CfnCluster.StorageInfoProperty",
 		reflect.TypeOf((*CfnCluster_StorageInfoProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_msk.CfnCluster.TlsProperty",
+		"aws-cdk-lib.aws_msk.CfnCluster.TlsProperty",
 		reflect.TypeOf((*CfnCluster_TlsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_msk.CfnClusterProps",
+		"aws-cdk-lib.aws_msk.CfnClusterProps",
 		reflect.TypeOf((*CfnClusterProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"monocdk.aws_msk.Cluster",
-		reflect.TypeOf((*Cluster)(nil)).Elem(),
-		nil, // no members
-		func() interface{} {
-			return &jsiiProxy_Cluster{}
-		},
-	)
-	_jsii_.RegisterInterface(
-		"monocdk.aws_msk.ICluster",
-		reflect.TypeOf((*ICluster)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "clusterArn", GoGetter: "ClusterArn"},
-			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-		},
-		func() interface{} {
-			j := jsiiProxy_ICluster{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
-			return &j
-		},
 	)
 }

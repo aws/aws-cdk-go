@@ -3,18 +3,18 @@ package awsautoscaling
 import (
 	"time"
 
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsautoscaling/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancing"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awssns"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscaling/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancing"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // An adjustment.
@@ -120,7 +120,7 @@ type AutoScalingGroup interface {
 	MaxInstanceLifetime() awscdk.Duration
 	NewInstancesProtectedFromScaleIn() *bool
 	SetNewInstancesProtectedFromScaleIn(val *bool)
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	OsType() awsec2.OperatingSystemType
 	PhysicalName() *string
 	Role() awsiam.IRole
@@ -140,10 +140,6 @@ type AutoScalingGroup interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
 	ProtectNewInstancesFromScaleIn()
 	ScaleOnCpuUtilization(id *string, props *CpuUtilizationScalingProps) TargetTrackingScalingPolicy
 	ScaleOnIncomingBytes(id *string, props *NetworkUtilizationScalingProps) TargetTrackingScalingPolicy
@@ -152,9 +148,7 @@ type AutoScalingGroup interface {
 	ScaleOnRequestCount(id *string, props *RequestCountScalingProps) TargetTrackingScalingPolicy
 	ScaleOnSchedule(id *string, props *BasicScheduledActionProps) ScheduledAction
 	ScaleToTrackMetric(id *string, props *MetricTargetTrackingProps) TargetTrackingScalingPolicy
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for AutoScalingGroup
@@ -247,8 +241,8 @@ func (j *jsiiProxy_AutoScalingGroup) NewInstancesProtectedFromScaleIn() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_AutoScalingGroup) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_AutoScalingGroup) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -325,7 +319,7 @@ func NewAutoScalingGroup(scope constructs.Construct, id *string, props *AutoScal
 	j := jsiiProxy_AutoScalingGroup{}
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.AutoScalingGroup",
+		"aws-cdk-lib.aws_autoscaling.AutoScalingGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -338,7 +332,7 @@ func NewAutoScalingGroup_Override(a AutoScalingGroup, scope constructs.Construct
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.AutoScalingGroup",
+		"aws-cdk-lib.aws_autoscaling.AutoScalingGroup",
 		[]interface{}{scope, id, props},
 		a,
 	)
@@ -367,7 +361,7 @@ func AutoScalingGroup_FromAutoScalingGroupName(scope constructs.Construct, id *s
 	var returns IAutoScalingGroup
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.AutoScalingGroup",
+		"aws-cdk-lib.aws_autoscaling.AutoScalingGroup",
 		"fromAutoScalingGroupName",
 		[]interface{}{scope, id, autoScalingGroupName},
 		&returns,
@@ -376,15 +370,17 @@ func AutoScalingGroup_FromAutoScalingGroupName(scope constructs.Construct, id *s
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func AutoScalingGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.AutoScalingGroup",
+		"aws-cdk-lib.aws_autoscaling.AutoScalingGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -395,13 +391,13 @@ func AutoScalingGroup_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func AutoScalingGroup_IsResource(construct awscdk.IConstruct) *bool {
+func AutoScalingGroup_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.AutoScalingGroup",
+		"aws-cdk-lib.aws_autoscaling.AutoScalingGroup",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -606,73 +602,6 @@ func (a *jsiiProxy_AutoScalingGroup) GetResourceNameAttribute(nameAttr *string) 
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (a *jsiiProxy_AutoScalingGroup) OnPrepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (a *jsiiProxy_AutoScalingGroup) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (a *jsiiProxy_AutoScalingGroup) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (a *jsiiProxy_AutoScalingGroup) Prepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 // Ensures newly-launched instances are protected from scale-in.
 // Experimental.
 func (a *jsiiProxy_AutoScalingGroup) ProtectNewInstancesFromScaleIn() {
@@ -791,19 +720,6 @@ func (a *jsiiProxy_AutoScalingGroup) ScaleToTrackMetric(id *string, props *Metri
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (a *jsiiProxy_AutoScalingGroup) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (a *jsiiProxy_AutoScalingGroup) ToString() *string {
@@ -812,26 +728,6 @@ func (a *jsiiProxy_AutoScalingGroup) ToString() *string {
 	_jsii_.Invoke(
 		a,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (a *jsiiProxy_AutoScalingGroup) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -938,28 +834,6 @@ type AutoScalingGroupProps struct {
 	//
 	// Experimental.
 	Notifications *[]*NotificationConfiguration `json:"notifications"`
-	// SNS topic to send notifications about fleet changes.
-	// Deprecated: use `notifications`
-	NotificationsTopic awssns.ITopic `json:"notificationsTopic"`
-	// Configuration for replacing updates.
-	//
-	// Only used if updateType == UpdateType.ReplacingUpdate. Specifies how
-	// many instances must signal success for the update to succeed.
-	// Deprecated: Use `signals` instead
-	ReplacingUpdateMinSuccessfulInstancesPercent *float64 `json:"replacingUpdateMinSuccessfulInstancesPercent"`
-	// How many ResourceSignal calls CloudFormation expects before the resource is considered created.
-	// Deprecated: Use `signals` instead.
-	ResourceSignalCount *float64 `json:"resourceSignalCount"`
-	// The length of time to wait for the resourceSignalCount.
-	//
-	// The maximum value is 43200 (12 hours).
-	// Deprecated: Use `signals` instead.
-	ResourceSignalTimeout awscdk.Duration `json:"resourceSignalTimeout"`
-	// Configuration for rolling updates.
-	//
-	// Only used if updateType == UpdateType.RollingUpdate.
-	// Deprecated: Use `updatePolicy` instead
-	RollingUpdateConfiguration *RollingUpdateConfiguration `json:"rollingUpdateConfiguration"`
 	// Configure waiting for signals during deployment.
 	//
 	// Use this to pause the CloudFormation deployment to wait for the instances
@@ -994,15 +868,6 @@ type AutoScalingGroupProps struct {
 	// is done and only new instances are launched with the new config.
 	// Experimental.
 	UpdatePolicy UpdatePolicy `json:"updatePolicy"`
-	// What to do when an AutoScalingGroup's instance configuration is changed.
-	//
-	// This is applied when any of the settings on the ASG are changed that
-	// affect how the instances should be created (VPC, instance type, startup
-	// scripts, etc.). It indicates how the existing instances should be
-	// replaced with new instances matching the new config. By default, nothing
-	// is done and only new instances are launched with the new config.
-	// Deprecated: Use `updatePolicy` instead
-	UpdateType UpdateType `json:"updateType"`
 	// Where to place instances within the VPC.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
@@ -1240,12 +1105,6 @@ type BlockDevice struct {
 	//
 	// Experimental.
 	Volume BlockDeviceVolume `json:"volume"`
-	// If false, the device mapping will be suppressed.
-	//
-	// If set to false for the root device, the instance might fail the Amazon EC2 health check.
-	// Amazon EC2 Auto Scaling launches a replacement instance if the instance fails the health check.
-	// Deprecated: use `BlockDeviceVolume.noDevice()` as the volume to supress a mapping.
-	MappingEnabled *bool `json:"mappingEnabled"`
 }
 
 // Describes a block device mapping for an EC2 instance or Auto Scaling group.
@@ -1288,7 +1147,7 @@ func NewBlockDeviceVolume(ebsDevice *EbsDeviceProps, virtualName *string) BlockD
 	j := jsiiProxy_BlockDeviceVolume{}
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.BlockDeviceVolume",
+		"aws-cdk-lib.aws_autoscaling.BlockDeviceVolume",
 		[]interface{}{ebsDevice, virtualName},
 		&j,
 	)
@@ -1301,7 +1160,7 @@ func NewBlockDeviceVolume_Override(b BlockDeviceVolume, ebsDevice *EbsDeviceProp
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.BlockDeviceVolume",
+		"aws-cdk-lib.aws_autoscaling.BlockDeviceVolume",
 		[]interface{}{ebsDevice, virtualName},
 		b,
 	)
@@ -1315,7 +1174,7 @@ func BlockDeviceVolume_Ebs(volumeSize *float64, options *EbsDeviceOptions) Block
 	var returns BlockDeviceVolume
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.BlockDeviceVolume",
+		"aws-cdk-lib.aws_autoscaling.BlockDeviceVolume",
 		"ebs",
 		[]interface{}{volumeSize, options},
 		&returns,
@@ -1332,7 +1191,7 @@ func BlockDeviceVolume_EbsFromSnapshot(snapshotId *string, options *EbsDeviceSna
 	var returns BlockDeviceVolume
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.BlockDeviceVolume",
+		"aws-cdk-lib.aws_autoscaling.BlockDeviceVolume",
 		"ebsFromSnapshot",
 		[]interface{}{snapshotId, options},
 		&returns,
@@ -1351,7 +1210,7 @@ func BlockDeviceVolume_Ephemeral(volumeIndex *float64) BlockDeviceVolume {
 	var returns BlockDeviceVolume
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.BlockDeviceVolume",
+		"aws-cdk-lib.aws_autoscaling.BlockDeviceVolume",
 		"ephemeral",
 		[]interface{}{volumeIndex},
 		&returns,
@@ -1368,7 +1227,7 @@ func BlockDeviceVolume_NoDevice() BlockDeviceVolume {
 	var returns BlockDeviceVolume
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.BlockDeviceVolume",
+		"aws-cdk-lib.aws_autoscaling.BlockDeviceVolume",
 		"noDevice",
 		nil, // no parameters
 		&returns,
@@ -1422,7 +1281,7 @@ type CfnAutoScalingGroup interface {
 	SetMixedInstancesPolicy(val interface{})
 	NewInstancesProtectedFromScaleIn() interface{}
 	SetNewInstancesProtectedFromScaleIn(val interface{})
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	NotificationConfigurations() interface{}
 	SetNotificationConfigurations(val interface{})
 	PlacementGroup() *string
@@ -1449,16 +1308,10 @@ type CfnAutoScalingGroup interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1698,8 +1551,8 @@ func (j *jsiiProxy_CfnAutoScalingGroup) NewInstancesProtectedFromScaleIn() inter
 	return returns
 }
 
-func (j *jsiiProxy_CfnAutoScalingGroup) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnAutoScalingGroup) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1810,13 +1663,13 @@ func (j *jsiiProxy_CfnAutoScalingGroup) VpcZoneIdentifier() *[]*string {
 
 
 // Create a new `AWS::AutoScaling::AutoScalingGroup`.
-func NewCfnAutoScalingGroup(scope awscdk.Construct, id *string, props *CfnAutoScalingGroupProps) CfnAutoScalingGroup {
+func NewCfnAutoScalingGroup(scope constructs.Construct, id *string, props *CfnAutoScalingGroupProps) CfnAutoScalingGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAutoScalingGroup{}
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.CfnAutoScalingGroup",
+		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1825,11 +1678,11 @@ func NewCfnAutoScalingGroup(scope awscdk.Construct, id *string, props *CfnAutoSc
 }
 
 // Create a new `AWS::AutoScaling::AutoScalingGroup`.
-func NewCfnAutoScalingGroup_Override(c CfnAutoScalingGroup, scope awscdk.Construct, id *string, props *CfnAutoScalingGroupProps) {
+func NewCfnAutoScalingGroup_Override(c CfnAutoScalingGroup, scope constructs.Construct, id *string, props *CfnAutoScalingGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.CfnAutoScalingGroup",
+		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2040,7 +1893,7 @@ func CfnAutoScalingGroup_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.CfnAutoScalingGroup",
+		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2057,7 +1910,7 @@ func CfnAutoScalingGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.CfnAutoScalingGroup",
+		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2066,15 +1919,17 @@ func CfnAutoScalingGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnAutoScalingGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.CfnAutoScalingGroup",
+		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2087,7 +1942,7 @@ func CfnAutoScalingGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_autoscaling.CfnAutoScalingGroup",
+		"aws-cdk-lib.aws_autoscaling.CfnAutoScalingGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2259,56 +2114,6 @@ func (c *jsiiProxy_CfnAutoScalingGroup) Inspect(inspector awscdk.TreeInspector) 
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnAutoScalingGroup) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnAutoScalingGroup) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnAutoScalingGroup) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnAutoScalingGroup) OverrideLogicalId(newLogicalId *string) {
@@ -2316,23 +2121,6 @@ func (c *jsiiProxy_CfnAutoScalingGroup) OverrideLogicalId(newLogicalId *string) 
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnAutoScalingGroup) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -2367,19 +2155,6 @@ func (c *jsiiProxy_CfnAutoScalingGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnAutoScalingGroup) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -2390,26 +2165,6 @@ func (c *jsiiProxy_CfnAutoScalingGroup) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnAutoScalingGroup) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2604,7 +2359,7 @@ type CfnLaunchConfiguration interface {
 	LogicalId() *string
 	MetadataOptions() interface{}
 	SetMetadataOptions(val interface{})
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	PlacementTenancy() *string
 	SetPlacementTenancy(val *string)
 	RamDiskId() *string
@@ -2628,16 +2383,10 @@ type CfnLaunchConfiguration interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2837,8 +2586,8 @@ func (j *jsiiProxy_CfnLaunchConfiguration) MetadataOptions() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLaunchConfiguration) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnLaunchConfiguration) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2929,13 +2678,13 @@ func (j *jsiiProxy_CfnLaunchConfiguration) UserData() *string {
 
 
 // Create a new `AWS::AutoScaling::LaunchConfiguration`.
-func NewCfnLaunchConfiguration(scope awscdk.Construct, id *string, props *CfnLaunchConfigurationProps) CfnLaunchConfiguration {
+func NewCfnLaunchConfiguration(scope constructs.Construct, id *string, props *CfnLaunchConfigurationProps) CfnLaunchConfiguration {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnLaunchConfiguration{}
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.CfnLaunchConfiguration",
+		"aws-cdk-lib.aws_autoscaling.CfnLaunchConfiguration",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2944,11 +2693,11 @@ func NewCfnLaunchConfiguration(scope awscdk.Construct, id *string, props *CfnLau
 }
 
 // Create a new `AWS::AutoScaling::LaunchConfiguration`.
-func NewCfnLaunchConfiguration_Override(c CfnLaunchConfiguration, scope awscdk.Construct, id *string, props *CfnLaunchConfigurationProps) {
+func NewCfnLaunchConfiguration_Override(c CfnLaunchConfiguration, scope constructs.Construct, id *string, props *CfnLaunchConfigurationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.CfnLaunchConfiguration",
+		"aws-cdk-lib.aws_autoscaling.CfnLaunchConfiguration",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3119,7 +2868,7 @@ func CfnLaunchConfiguration_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.CfnLaunchConfiguration",
+		"aws-cdk-lib.aws_autoscaling.CfnLaunchConfiguration",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3136,7 +2885,7 @@ func CfnLaunchConfiguration_IsCfnResource(construct constructs.IConstruct) *bool
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.CfnLaunchConfiguration",
+		"aws-cdk-lib.aws_autoscaling.CfnLaunchConfiguration",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3145,15 +2894,17 @@ func CfnLaunchConfiguration_IsCfnResource(construct constructs.IConstruct) *bool
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnLaunchConfiguration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.CfnLaunchConfiguration",
+		"aws-cdk-lib.aws_autoscaling.CfnLaunchConfiguration",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3166,7 +2917,7 @@ func CfnLaunchConfiguration_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_autoscaling.CfnLaunchConfiguration",
+		"aws-cdk-lib.aws_autoscaling.CfnLaunchConfiguration",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3338,56 +3089,6 @@ func (c *jsiiProxy_CfnLaunchConfiguration) Inspect(inspector awscdk.TreeInspecto
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnLaunchConfiguration) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnLaunchConfiguration) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnLaunchConfiguration) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnLaunchConfiguration) OverrideLogicalId(newLogicalId *string) {
@@ -3395,23 +3096,6 @@ func (c *jsiiProxy_CfnLaunchConfiguration) OverrideLogicalId(newLogicalId *strin
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnLaunchConfiguration) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -3446,19 +3130,6 @@ func (c *jsiiProxy_CfnLaunchConfiguration) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnLaunchConfiguration) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -3469,26 +3140,6 @@ func (c *jsiiProxy_CfnLaunchConfiguration) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnLaunchConfiguration) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3601,7 +3252,7 @@ type CfnLifecycleHook interface {
 	LifecycleTransition() *string
 	SetLifecycleTransition(val *string)
 	LogicalId() *string
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	NotificationMetadata() *string
 	SetNotificationMetadata(val *string)
 	NotificationTargetArn() *string
@@ -3621,16 +3272,10 @@ type CfnLifecycleHook interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -3740,8 +3385,8 @@ func (j *jsiiProxy_CfnLifecycleHook) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLifecycleHook) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnLifecycleHook) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -3812,13 +3457,13 @@ func (j *jsiiProxy_CfnLifecycleHook) UpdatedProperites() *map[string]interface{}
 
 
 // Create a new `AWS::AutoScaling::LifecycleHook`.
-func NewCfnLifecycleHook(scope awscdk.Construct, id *string, props *CfnLifecycleHookProps) CfnLifecycleHook {
+func NewCfnLifecycleHook(scope constructs.Construct, id *string, props *CfnLifecycleHookProps) CfnLifecycleHook {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnLifecycleHook{}
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.CfnLifecycleHook",
+		"aws-cdk-lib.aws_autoscaling.CfnLifecycleHook",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3827,11 +3472,11 @@ func NewCfnLifecycleHook(scope awscdk.Construct, id *string, props *CfnLifecycle
 }
 
 // Create a new `AWS::AutoScaling::LifecycleHook`.
-func NewCfnLifecycleHook_Override(c CfnLifecycleHook, scope awscdk.Construct, id *string, props *CfnLifecycleHookProps) {
+func NewCfnLifecycleHook_Override(c CfnLifecycleHook, scope constructs.Construct, id *string, props *CfnLifecycleHookProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.CfnLifecycleHook",
+		"aws-cdk-lib.aws_autoscaling.CfnLifecycleHook",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3914,7 +3559,7 @@ func CfnLifecycleHook_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.CfnLifecycleHook",
+		"aws-cdk-lib.aws_autoscaling.CfnLifecycleHook",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3931,7 +3576,7 @@ func CfnLifecycleHook_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.CfnLifecycleHook",
+		"aws-cdk-lib.aws_autoscaling.CfnLifecycleHook",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3940,15 +3585,17 @@ func CfnLifecycleHook_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnLifecycleHook_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.CfnLifecycleHook",
+		"aws-cdk-lib.aws_autoscaling.CfnLifecycleHook",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3961,7 +3608,7 @@ func CfnLifecycleHook_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_autoscaling.CfnLifecycleHook",
+		"aws-cdk-lib.aws_autoscaling.CfnLifecycleHook",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -4133,56 +3780,6 @@ func (c *jsiiProxy_CfnLifecycleHook) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnLifecycleHook) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnLifecycleHook) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnLifecycleHook) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnLifecycleHook) OverrideLogicalId(newLogicalId *string) {
@@ -4190,23 +3787,6 @@ func (c *jsiiProxy_CfnLifecycleHook) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnLifecycleHook) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -4241,19 +3821,6 @@ func (c *jsiiProxy_CfnLifecycleHook) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnLifecycleHook) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -4264,26 +3831,6 @@ func (c *jsiiProxy_CfnLifecycleHook) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnLifecycleHook) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4341,7 +3888,7 @@ type CfnScalingPolicy interface {
 	SetMetricAggregationType(val *string)
 	MinAdjustmentMagnitude() *float64
 	SetMinAdjustmentMagnitude(val *float64)
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	PolicyType() *string
 	SetPolicyType(val *string)
 	Ref() *string
@@ -4363,16 +3910,10 @@ type CfnScalingPolicy interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -4492,8 +4033,8 @@ func (j *jsiiProxy_CfnScalingPolicy) MinAdjustmentMagnitude() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScalingPolicy) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnScalingPolicy) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -4574,13 +4115,13 @@ func (j *jsiiProxy_CfnScalingPolicy) UpdatedProperites() *map[string]interface{}
 
 
 // Create a new `AWS::AutoScaling::ScalingPolicy`.
-func NewCfnScalingPolicy(scope awscdk.Construct, id *string, props *CfnScalingPolicyProps) CfnScalingPolicy {
+func NewCfnScalingPolicy(scope constructs.Construct, id *string, props *CfnScalingPolicyProps) CfnScalingPolicy {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnScalingPolicy{}
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.CfnScalingPolicy",
+		"aws-cdk-lib.aws_autoscaling.CfnScalingPolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4589,11 +4130,11 @@ func NewCfnScalingPolicy(scope awscdk.Construct, id *string, props *CfnScalingPo
 }
 
 // Create a new `AWS::AutoScaling::ScalingPolicy`.
-func NewCfnScalingPolicy_Override(c CfnScalingPolicy, scope awscdk.Construct, id *string, props *CfnScalingPolicyProps) {
+func NewCfnScalingPolicy_Override(c CfnScalingPolicy, scope constructs.Construct, id *string, props *CfnScalingPolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.CfnScalingPolicy",
+		"aws-cdk-lib.aws_autoscaling.CfnScalingPolicy",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4692,7 +4233,7 @@ func CfnScalingPolicy_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.CfnScalingPolicy",
+		"aws-cdk-lib.aws_autoscaling.CfnScalingPolicy",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4709,7 +4250,7 @@ func CfnScalingPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.CfnScalingPolicy",
+		"aws-cdk-lib.aws_autoscaling.CfnScalingPolicy",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4718,15 +4259,17 @@ func CfnScalingPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnScalingPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.CfnScalingPolicy",
+		"aws-cdk-lib.aws_autoscaling.CfnScalingPolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4739,7 +4282,7 @@ func CfnScalingPolicy_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_autoscaling.CfnScalingPolicy",
+		"aws-cdk-lib.aws_autoscaling.CfnScalingPolicy",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -4911,56 +4454,6 @@ func (c *jsiiProxy_CfnScalingPolicy) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnScalingPolicy) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnScalingPolicy) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnScalingPolicy) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnScalingPolicy) OverrideLogicalId(newLogicalId *string) {
@@ -4968,23 +4461,6 @@ func (c *jsiiProxy_CfnScalingPolicy) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnScalingPolicy) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -5019,19 +4495,6 @@ func (c *jsiiProxy_CfnScalingPolicy) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnScalingPolicy) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -5042,26 +4505,6 @@ func (c *jsiiProxy_CfnScalingPolicy) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnScalingPolicy) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5168,7 +4611,7 @@ type CfnScheduledAction interface {
 	SetMaxSize(val *float64)
 	MinSize() *float64
 	SetMinSize(val *float64)
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Recurrence() *string
 	SetRecurrence(val *string)
 	Ref() *string
@@ -5186,16 +4629,10 @@ type CfnScheduledAction interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -5305,8 +4742,8 @@ func (j *jsiiProxy_CfnScheduledAction) MinSize() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnScheduledAction) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnScheduledAction) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -5367,13 +4804,13 @@ func (j *jsiiProxy_CfnScheduledAction) UpdatedProperites() *map[string]interface
 
 
 // Create a new `AWS::AutoScaling::ScheduledAction`.
-func NewCfnScheduledAction(scope awscdk.Construct, id *string, props *CfnScheduledActionProps) CfnScheduledAction {
+func NewCfnScheduledAction(scope constructs.Construct, id *string, props *CfnScheduledActionProps) CfnScheduledAction {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnScheduledAction{}
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.CfnScheduledAction",
+		"aws-cdk-lib.aws_autoscaling.CfnScheduledAction",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5382,11 +4819,11 @@ func NewCfnScheduledAction(scope awscdk.Construct, id *string, props *CfnSchedul
 }
 
 // Create a new `AWS::AutoScaling::ScheduledAction`.
-func NewCfnScheduledAction_Override(c CfnScheduledAction, scope awscdk.Construct, id *string, props *CfnScheduledActionProps) {
+func NewCfnScheduledAction_Override(c CfnScheduledAction, scope constructs.Construct, id *string, props *CfnScheduledActionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.CfnScheduledAction",
+		"aws-cdk-lib.aws_autoscaling.CfnScheduledAction",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -5461,7 +4898,7 @@ func CfnScheduledAction_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.CfnScheduledAction",
+		"aws-cdk-lib.aws_autoscaling.CfnScheduledAction",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -5478,7 +4915,7 @@ func CfnScheduledAction_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.CfnScheduledAction",
+		"aws-cdk-lib.aws_autoscaling.CfnScheduledAction",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -5487,15 +4924,17 @@ func CfnScheduledAction_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnScheduledAction_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.CfnScheduledAction",
+		"aws-cdk-lib.aws_autoscaling.CfnScheduledAction",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5508,7 +4947,7 @@ func CfnScheduledAction_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_autoscaling.CfnScheduledAction",
+		"aws-cdk-lib.aws_autoscaling.CfnScheduledAction",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -5680,56 +5119,6 @@ func (c *jsiiProxy_CfnScheduledAction) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnScheduledAction) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnScheduledAction) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnScheduledAction) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnScheduledAction) OverrideLogicalId(newLogicalId *string) {
@@ -5737,23 +5126,6 @@ func (c *jsiiProxy_CfnScheduledAction) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnScheduledAction) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -5788,19 +5160,6 @@ func (c *jsiiProxy_CfnScheduledAction) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnScheduledAction) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -5811,26 +5170,6 @@ func (c *jsiiProxy_CfnScheduledAction) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnScheduledAction) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5967,28 +5306,6 @@ type CommonAutoScalingGroupProps struct {
 	//
 	// Experimental.
 	Notifications *[]*NotificationConfiguration `json:"notifications"`
-	// SNS topic to send notifications about fleet changes.
-	// Deprecated: use `notifications`
-	NotificationsTopic awssns.ITopic `json:"notificationsTopic"`
-	// Configuration for replacing updates.
-	//
-	// Only used if updateType == UpdateType.ReplacingUpdate. Specifies how
-	// many instances must signal success for the update to succeed.
-	// Deprecated: Use `signals` instead
-	ReplacingUpdateMinSuccessfulInstancesPercent *float64 `json:"replacingUpdateMinSuccessfulInstancesPercent"`
-	// How many ResourceSignal calls CloudFormation expects before the resource is considered created.
-	// Deprecated: Use `signals` instead.
-	ResourceSignalCount *float64 `json:"resourceSignalCount"`
-	// The length of time to wait for the resourceSignalCount.
-	//
-	// The maximum value is 43200 (12 hours).
-	// Deprecated: Use `signals` instead.
-	ResourceSignalTimeout awscdk.Duration `json:"resourceSignalTimeout"`
-	// Configuration for rolling updates.
-	//
-	// Only used if updateType == UpdateType.RollingUpdate.
-	// Deprecated: Use `updatePolicy` instead
-	RollingUpdateConfiguration *RollingUpdateConfiguration `json:"rollingUpdateConfiguration"`
 	// Configure waiting for signals during deployment.
 	//
 	// Use this to pause the CloudFormation deployment to wait for the instances
@@ -6023,15 +5340,6 @@ type CommonAutoScalingGroupProps struct {
 	// is done and only new instances are launched with the new config.
 	// Experimental.
 	UpdatePolicy UpdatePolicy `json:"updatePolicy"`
-	// What to do when an AutoScalingGroup's instance configuration is changed.
-	//
-	// This is applied when any of the settings on the ASG are changed that
-	// affect how the instances should be created (VPC, instance type, startup
-	// scripts, etc.). It indicates how the existing instances should be
-	// replaced with new instances matching the new config. By default, nothing
-	// is done and only new instances are launched with the new config.
-	// Deprecated: Use `updatePolicy` instead
-	UpdateType UpdateType `json:"updateType"`
 	// Where to place instances within the VPC.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
@@ -6265,7 +5573,7 @@ func NewGroupMetric(name *string) GroupMetric {
 	j := jsiiProxy_GroupMetric{}
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.GroupMetric",
+		"aws-cdk-lib.aws_autoscaling.GroupMetric",
 		[]interface{}{name},
 		&j,
 	)
@@ -6278,7 +5586,7 @@ func NewGroupMetric_Override(g GroupMetric, name *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.GroupMetric",
+		"aws-cdk-lib.aws_autoscaling.GroupMetric",
 		[]interface{}{name},
 		g,
 	)
@@ -6288,7 +5596,7 @@ func GroupMetric_DESIRED_CAPACITY() GroupMetric {
 	_init_.Initialize()
 	var returns GroupMetric
 	_jsii_.StaticGet(
-		"monocdk.aws_autoscaling.GroupMetric",
+		"aws-cdk-lib.aws_autoscaling.GroupMetric",
 		"DESIRED_CAPACITY",
 		&returns,
 	)
@@ -6299,7 +5607,7 @@ func GroupMetric_IN_SERVICE_INSTANCES() GroupMetric {
 	_init_.Initialize()
 	var returns GroupMetric
 	_jsii_.StaticGet(
-		"monocdk.aws_autoscaling.GroupMetric",
+		"aws-cdk-lib.aws_autoscaling.GroupMetric",
 		"IN_SERVICE_INSTANCES",
 		&returns,
 	)
@@ -6310,7 +5618,7 @@ func GroupMetric_MAX_SIZE() GroupMetric {
 	_init_.Initialize()
 	var returns GroupMetric
 	_jsii_.StaticGet(
-		"monocdk.aws_autoscaling.GroupMetric",
+		"aws-cdk-lib.aws_autoscaling.GroupMetric",
 		"MAX_SIZE",
 		&returns,
 	)
@@ -6321,7 +5629,7 @@ func GroupMetric_MIN_SIZE() GroupMetric {
 	_init_.Initialize()
 	var returns GroupMetric
 	_jsii_.StaticGet(
-		"monocdk.aws_autoscaling.GroupMetric",
+		"aws-cdk-lib.aws_autoscaling.GroupMetric",
 		"MIN_SIZE",
 		&returns,
 	)
@@ -6332,7 +5640,7 @@ func GroupMetric_PENDING_INSTANCES() GroupMetric {
 	_init_.Initialize()
 	var returns GroupMetric
 	_jsii_.StaticGet(
-		"monocdk.aws_autoscaling.GroupMetric",
+		"aws-cdk-lib.aws_autoscaling.GroupMetric",
 		"PENDING_INSTANCES",
 		&returns,
 	)
@@ -6343,7 +5651,7 @@ func GroupMetric_STANDBY_INSTANCES() GroupMetric {
 	_init_.Initialize()
 	var returns GroupMetric
 	_jsii_.StaticGet(
-		"monocdk.aws_autoscaling.GroupMetric",
+		"aws-cdk-lib.aws_autoscaling.GroupMetric",
 		"STANDBY_INSTANCES",
 		&returns,
 	)
@@ -6354,7 +5662,7 @@ func GroupMetric_TERMINATING_INSTANCES() GroupMetric {
 	_init_.Initialize()
 	var returns GroupMetric
 	_jsii_.StaticGet(
-		"monocdk.aws_autoscaling.GroupMetric",
+		"aws-cdk-lib.aws_autoscaling.GroupMetric",
 		"TERMINATING_INSTANCES",
 		&returns,
 	)
@@ -6365,7 +5673,7 @@ func GroupMetric_TOTAL_INSTANCES() GroupMetric {
 	_init_.Initialize()
 	var returns GroupMetric
 	_jsii_.StaticGet(
-		"monocdk.aws_autoscaling.GroupMetric",
+		"aws-cdk-lib.aws_autoscaling.GroupMetric",
 		"TOTAL_INSTANCES",
 		&returns,
 	)
@@ -6394,7 +5702,7 @@ func NewGroupMetrics(metrics ...GroupMetric) GroupMetrics {
 	j := jsiiProxy_GroupMetrics{}
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.GroupMetrics",
+		"aws-cdk-lib.aws_autoscaling.GroupMetrics",
 		args,
 		&j,
 	)
@@ -6412,7 +5720,7 @@ func NewGroupMetrics_Override(g GroupMetrics, metrics ...GroupMetric) {
 	}
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.GroupMetrics",
+		"aws-cdk-lib.aws_autoscaling.GroupMetrics",
 		args,
 		g,
 	)
@@ -6426,7 +5734,7 @@ func GroupMetrics_All() GroupMetrics {
 	var returns GroupMetrics
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.GroupMetrics",
+		"aws-cdk-lib.aws_autoscaling.GroupMetrics",
 		"all",
 		nil, // no parameters
 		&returns,
@@ -6476,7 +5784,7 @@ func HealthCheck_Ec2(options *Ec2HealthCheckOptions) HealthCheck {
 	var returns HealthCheck
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.HealthCheck",
+		"aws-cdk-lib.aws_autoscaling.HealthCheck",
 		"ec2",
 		[]interface{}{options},
 		&returns,
@@ -6495,7 +5803,7 @@ func HealthCheck_Elb(options *ElbHealthCheckOptions) HealthCheck {
 	var returns HealthCheck
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.HealthCheck",
+		"aws-cdk-lib.aws_autoscaling.HealthCheck",
 		"elb",
 		[]interface{}{options},
 		&returns,
@@ -6709,8 +6017,8 @@ func (j *jsiiProxy_IAutoScalingGroup) GrantPrincipal() awsiam.IPrincipal {
 	return returns
 }
 
-func (j *jsiiProxy_IAutoScalingGroup) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_IAutoScalingGroup) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -6758,7 +6066,7 @@ func (j *jsiiProxy_ILifecycleHook) Role() awsiam.IRole {
 type ILifecycleHookTarget interface {
 	// Called when this object is used as the target of a lifecycle hook.
 	// Experimental.
-	Bind(scope awscdk.Construct, lifecycleHook ILifecycleHook) *LifecycleHookTargetConfig
+	Bind(scope constructs.Construct, lifecycleHook ILifecycleHook) *LifecycleHookTargetConfig
 }
 
 // The jsii proxy for ILifecycleHookTarget
@@ -6766,7 +6074,7 @@ type jsiiProxy_ILifecycleHookTarget struct {
 	_ byte // padding
 }
 
-func (i *jsiiProxy_ILifecycleHookTarget) Bind(scope awscdk.Construct, lifecycleHook ILifecycleHook) *LifecycleHookTargetConfig {
+func (i *jsiiProxy_ILifecycleHookTarget) Bind(scope constructs.Construct, lifecycleHook ILifecycleHook) *LifecycleHookTargetConfig {
 	var returns *LifecycleHookTargetConfig
 
 	_jsii_.Invoke(
@@ -6786,7 +6094,7 @@ type LifecycleHook interface {
 	ILifecycleHook
 	Env() *awscdk.ResourceEnvironment
 	LifecycleHookName() *string
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	PhysicalName() *string
 	Role() awsiam.IRole
 	Stack() awscdk.Stack
@@ -6794,13 +6102,7 @@ type LifecycleHook interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for LifecycleHook
@@ -6829,8 +6131,8 @@ func (j *jsiiProxy_LifecycleHook) LifecycleHookName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_LifecycleHook) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_LifecycleHook) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -6877,7 +6179,7 @@ func NewLifecycleHook(scope constructs.Construct, id *string, props *LifecycleHo
 	j := jsiiProxy_LifecycleHook{}
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.LifecycleHook",
+		"aws-cdk-lib.aws_autoscaling.LifecycleHook",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6890,21 +6192,23 @@ func NewLifecycleHook_Override(l LifecycleHook, scope constructs.Construct, id *
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.LifecycleHook",
+		"aws-cdk-lib.aws_autoscaling.LifecycleHook",
 		[]interface{}{scope, id, props},
 		l,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func LifecycleHook_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.LifecycleHook",
+		"aws-cdk-lib.aws_autoscaling.LifecycleHook",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6915,13 +6219,13 @@ func LifecycleHook_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func LifecycleHook_IsResource(construct awscdk.IConstruct) *bool {
+func LifecycleHook_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.LifecycleHook",
+		"aws-cdk-lib.aws_autoscaling.LifecycleHook",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -7001,86 +6305,6 @@ func (l *jsiiProxy_LifecycleHook) GetResourceNameAttribute(nameAttr *string) *st
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (l *jsiiProxy_LifecycleHook) OnPrepare() {
-	_jsii_.InvokeVoid(
-		l,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (l *jsiiProxy_LifecycleHook) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		l,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (l *jsiiProxy_LifecycleHook) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		l,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (l *jsiiProxy_LifecycleHook) Prepare() {
-	_jsii_.InvokeVoid(
-		l,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (l *jsiiProxy_LifecycleHook) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		l,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (l *jsiiProxy_LifecycleHook) ToString() *string {
@@ -7089,26 +6313,6 @@ func (l *jsiiProxy_LifecycleHook) ToString() *string {
 	_jsii_.Invoke(
 		l,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (l *jsiiProxy_LifecycleHook) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		l,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -7289,60 +6493,6 @@ type RequestCountScalingProps struct {
 	// Target average requests/minute on each instance.
 	// Experimental.
 	TargetRequestsPerMinute *float64 `json:"targetRequestsPerMinute"`
-	// Target average requests/seconds on each instance.
-	// Deprecated: Use 'targetRequestsPerMinute' instead
-	TargetRequestsPerSecond *float64 `json:"targetRequestsPerSecond"`
-}
-
-// Additional settings when a rolling update is selected.
-// Deprecated: use `UpdatePolicy.rollingUpdate()`
-type RollingUpdateConfiguration struct {
-	// The maximum number of instances that AWS CloudFormation updates at once.
-	// Deprecated: use `UpdatePolicy.rollingUpdate()`
-	MaxBatchSize *float64 `json:"maxBatchSize"`
-	// The minimum number of instances that must be in service before more instances are replaced.
-	//
-	// This number affects the speed of the replacement.
-	// Deprecated: use `UpdatePolicy.rollingUpdate()`
-	MinInstancesInService *float64 `json:"minInstancesInService"`
-	// The percentage of instances that must signal success for an update to succeed.
-	//
-	// If an instance doesn't send a signal within the time specified in the
-	// pauseTime property, AWS CloudFormation assumes that the instance wasn't
-	// updated.
-	//
-	// This number affects the success of the replacement.
-	//
-	// If you specify this property, you must also enable the
-	// waitOnResourceSignals and pauseTime properties.
-	// Deprecated: use `UpdatePolicy.rollingUpdate()`
-	MinSuccessfulInstancesPercent *float64 `json:"minSuccessfulInstancesPercent"`
-	// The pause time after making a change to a batch of instances.
-	//
-	// This is intended to give those instances time to start software applications.
-	//
-	// Specify PauseTime in the ISO8601 duration format (in the format
-	// PT#H#M#S, where each # is the number of hours, minutes, and seconds,
-	// respectively). The maximum PauseTime is one hour (PT1H).
-	// Deprecated: use `UpdatePolicy.rollingUpdate()`
-	PauseTime awscdk.Duration `json:"pauseTime"`
-	// Specifies the Auto Scaling processes to suspend during a stack update.
-	//
-	// Suspending processes prevents Auto Scaling from interfering with a stack
-	// update.
-	// Deprecated: use `UpdatePolicy.rollingUpdate()`
-	SuspendProcesses *[]ScalingProcess `json:"suspendProcesses"`
-	// Specifies whether the Auto Scaling group waits on signals from new instances during an update.
-	//
-	// AWS CloudFormation must receive a signal from each new instance within
-	// the specified PauseTime before continuing the update.
-	//
-	// To have instances wait for an Elastic Load Balancing health check before
-	// they signal success, add a health-check verification by using the
-	// cfn-init helper script. For an example, see the verify_instance_health
-	// command in the Auto Scaling rolling updates sample template.
-	// Deprecated: use `UpdatePolicy.rollingUpdate()`
-	WaitOnResourceSignals *bool `json:"waitOnResourceSignals"`
 }
 
 // Options for customizing the rolling update.
@@ -7409,7 +6559,7 @@ func NewScalingEvents(types ...ScalingEvent) ScalingEvents {
 	j := jsiiProxy_ScalingEvents{}
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.ScalingEvents",
+		"aws-cdk-lib.aws_autoscaling.ScalingEvents",
 		args,
 		&j,
 	)
@@ -7427,7 +6577,7 @@ func NewScalingEvents_Override(s ScalingEvents, types ...ScalingEvent) {
 	}
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.ScalingEvents",
+		"aws-cdk-lib.aws_autoscaling.ScalingEvents",
 		args,
 		s,
 	)
@@ -7437,7 +6587,7 @@ func ScalingEvents_ALL() ScalingEvents {
 	_init_.Initialize()
 	var returns ScalingEvents
 	_jsii_.StaticGet(
-		"monocdk.aws_autoscaling.ScalingEvents",
+		"aws-cdk-lib.aws_autoscaling.ScalingEvents",
 		"ALL",
 		&returns,
 	)
@@ -7448,7 +6598,7 @@ func ScalingEvents_ERRORS() ScalingEvents {
 	_init_.Initialize()
 	var returns ScalingEvents
 	_jsii_.StaticGet(
-		"monocdk.aws_autoscaling.ScalingEvents",
+		"aws-cdk-lib.aws_autoscaling.ScalingEvents",
 		"ERRORS",
 		&returns,
 	)
@@ -7459,7 +6609,7 @@ func ScalingEvents_LAUNCH_EVENTS() ScalingEvents {
 	_init_.Initialize()
 	var returns ScalingEvents
 	_jsii_.StaticGet(
-		"monocdk.aws_autoscaling.ScalingEvents",
+		"aws-cdk-lib.aws_autoscaling.ScalingEvents",
 		"LAUNCH_EVENTS",
 		&returns,
 	)
@@ -7534,7 +6684,7 @@ func NewSchedule_Override(s Schedule) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.Schedule",
+		"aws-cdk-lib.aws_autoscaling.Schedule",
 		nil, // no parameters
 		s,
 	)
@@ -7548,7 +6698,7 @@ func Schedule_Cron(options *CronOptions) Schedule {
 	var returns Schedule
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.Schedule",
+		"aws-cdk-lib.aws_autoscaling.Schedule",
 		"cron",
 		[]interface{}{options},
 		&returns,
@@ -7567,7 +6717,7 @@ func Schedule_Expression(expression *string) Schedule {
 	var returns Schedule
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.Schedule",
+		"aws-cdk-lib.aws_autoscaling.Schedule",
 		"expression",
 		[]interface{}{expression},
 		&returns,
@@ -7581,20 +6731,14 @@ func Schedule_Expression(expression *string) Schedule {
 type ScheduledAction interface {
 	awscdk.Resource
 	Env() *awscdk.ResourceEnvironment
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for ScheduledAction
@@ -7612,8 +6756,8 @@ func (j *jsiiProxy_ScheduledAction) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_ScheduledAction) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_ScheduledAction) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -7650,7 +6794,7 @@ func NewScheduledAction(scope constructs.Construct, id *string, props *Scheduled
 	j := jsiiProxy_ScheduledAction{}
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.ScheduledAction",
+		"aws-cdk-lib.aws_autoscaling.ScheduledAction",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7663,21 +6807,23 @@ func NewScheduledAction_Override(s ScheduledAction, scope constructs.Construct, 
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.ScheduledAction",
+		"aws-cdk-lib.aws_autoscaling.ScheduledAction",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func ScheduledAction_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.ScheduledAction",
+		"aws-cdk-lib.aws_autoscaling.ScheduledAction",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7688,13 +6834,13 @@ func ScheduledAction_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func ScheduledAction_IsResource(construct awscdk.IConstruct) *bool {
+func ScheduledAction_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.ScheduledAction",
+		"aws-cdk-lib.aws_autoscaling.ScheduledAction",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -7774,86 +6920,6 @@ func (s *jsiiProxy_ScheduledAction) GetResourceNameAttribute(nameAttr *string) *
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (s *jsiiProxy_ScheduledAction) OnPrepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (s *jsiiProxy_ScheduledAction) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (s *jsiiProxy_ScheduledAction) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (s *jsiiProxy_ScheduledAction) Prepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (s *jsiiProxy_ScheduledAction) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (s *jsiiProxy_ScheduledAction) ToString() *string {
@@ -7862,26 +6928,6 @@ func (s *jsiiProxy_ScheduledAction) ToString() *string {
 	_jsii_.Invoke(
 		s,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (s *jsiiProxy_ScheduledAction) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -7957,7 +7003,7 @@ func NewSignals_Override(s Signals) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.Signals",
+		"aws-cdk-lib.aws_autoscaling.Signals",
 		nil, // no parameters
 		s,
 	)
@@ -7976,7 +7022,7 @@ func Signals_WaitForAll(options *SignalsOptions) Signals {
 	var returns Signals
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.Signals",
+		"aws-cdk-lib.aws_autoscaling.Signals",
 		"waitForAll",
 		[]interface{}{options},
 		&returns,
@@ -7999,7 +7045,7 @@ func Signals_WaitForCount(count *float64, options *SignalsOptions) Signals {
 	var returns Signals
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.Signals",
+		"aws-cdk-lib.aws_autoscaling.Signals",
 		"waitForCount",
 		[]interface{}{count, options},
 		&returns,
@@ -8019,7 +7065,7 @@ func Signals_WaitForMinCapacity(options *SignalsOptions) Signals {
 	var returns Signals
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.Signals",
+		"aws-cdk-lib.aws_autoscaling.Signals",
 		"waitForMinCapacity",
 		[]interface{}{options},
 		&returns,
@@ -8084,26 +7130,20 @@ type SignalsOptions struct {
 // This Action must be used as the target of a CloudWatch alarm to take effect.
 // Experimental.
 type StepScalingAction interface {
-	awscdk.Construct
-	Node() awscdk.ConstructNode
+	constructs.Construct
+	Node() constructs.Node
 	ScalingPolicyArn() *string
 	AddAdjustment(adjustment *AdjustmentTier)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for StepScalingAction
 type jsiiProxy_StepScalingAction struct {
-	internal.Type__awscdkConstruct
+	internal.Type__constructsConstruct
 }
 
-func (j *jsiiProxy_StepScalingAction) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_StepScalingAction) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -8130,7 +7170,7 @@ func NewStepScalingAction(scope constructs.Construct, id *string, props *StepSca
 	j := jsiiProxy_StepScalingAction{}
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.StepScalingAction",
+		"aws-cdk-lib.aws_autoscaling.StepScalingAction",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -8143,21 +7183,23 @@ func NewStepScalingAction_Override(s StepScalingAction, scope constructs.Constru
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.StepScalingAction",
+		"aws-cdk-lib.aws_autoscaling.StepScalingAction",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func StepScalingAction_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.StepScalingAction",
+		"aws-cdk-lib.aws_autoscaling.StepScalingAction",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -8176,86 +7218,6 @@ func (s *jsiiProxy_StepScalingAction) AddAdjustment(adjustment *AdjustmentTier) 
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (s *jsiiProxy_StepScalingAction) OnPrepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (s *jsiiProxy_StepScalingAction) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (s *jsiiProxy_StepScalingAction) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (s *jsiiProxy_StepScalingAction) Prepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (s *jsiiProxy_StepScalingAction) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (s *jsiiProxy_StepScalingAction) ToString() *string {
@@ -8264,26 +7226,6 @@ func (s *jsiiProxy_StepScalingAction) ToString() *string {
 	_jsii_.Invoke(
 		s,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (s *jsiiProxy_StepScalingAction) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -8324,24 +7266,18 @@ type StepScalingActionProps struct {
 // Implemented using one or more CloudWatch alarms and Step Scaling Policies.
 // Experimental.
 type StepScalingPolicy interface {
-	awscdk.Construct
+	constructs.Construct
 	LowerAction() StepScalingAction
 	LowerAlarm() awscloudwatch.Alarm
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	UpperAction() StepScalingAction
 	UpperAlarm() awscloudwatch.Alarm
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for StepScalingPolicy
 type jsiiProxy_StepScalingPolicy struct {
-	internal.Type__awscdkConstruct
+	internal.Type__constructsConstruct
 }
 
 func (j *jsiiProxy_StepScalingPolicy) LowerAction() StepScalingAction {
@@ -8364,8 +7300,8 @@ func (j *jsiiProxy_StepScalingPolicy) LowerAlarm() awscloudwatch.Alarm {
 	return returns
 }
 
-func (j *jsiiProxy_StepScalingPolicy) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_StepScalingPolicy) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -8402,7 +7338,7 @@ func NewStepScalingPolicy(scope constructs.Construct, id *string, props *StepSca
 	j := jsiiProxy_StepScalingPolicy{}
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.StepScalingPolicy",
+		"aws-cdk-lib.aws_autoscaling.StepScalingPolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -8415,107 +7351,29 @@ func NewStepScalingPolicy_Override(s StepScalingPolicy, scope constructs.Constru
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.StepScalingPolicy",
+		"aws-cdk-lib.aws_autoscaling.StepScalingPolicy",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func StepScalingPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.StepScalingPolicy",
+		"aws-cdk-lib.aws_autoscaling.StepScalingPolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
 	)
 
 	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (s *jsiiProxy_StepScalingPolicy) OnPrepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (s *jsiiProxy_StepScalingPolicy) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (s *jsiiProxy_StepScalingPolicy) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (s *jsiiProxy_StepScalingPolicy) Prepare() {
-	_jsii_.InvokeVoid(
-		s,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (s *jsiiProxy_StepScalingPolicy) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		s,
-		"synthesize",
-		[]interface{}{session},
-	)
 }
 
 // Returns a string representation of this construct.
@@ -8526,26 +7384,6 @@ func (s *jsiiProxy_StepScalingPolicy) ToString() *string {
 	_jsii_.Invoke(
 		s,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (s *jsiiProxy_StepScalingPolicy) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		s,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -8596,25 +7434,19 @@ type StepScalingPolicyProps struct {
 
 // Experimental.
 type TargetTrackingScalingPolicy interface {
-	awscdk.Construct
-	Node() awscdk.ConstructNode
+	constructs.Construct
+	Node() constructs.Node
 	ScalingPolicyArn() *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for TargetTrackingScalingPolicy
 type jsiiProxy_TargetTrackingScalingPolicy struct {
-	internal.Type__awscdkConstruct
+	internal.Type__constructsConstruct
 }
 
-func (j *jsiiProxy_TargetTrackingScalingPolicy) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_TargetTrackingScalingPolicy) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -8641,7 +7473,7 @@ func NewTargetTrackingScalingPolicy(scope constructs.Construct, id *string, prop
 	j := jsiiProxy_TargetTrackingScalingPolicy{}
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.TargetTrackingScalingPolicy",
+		"aws-cdk-lib.aws_autoscaling.TargetTrackingScalingPolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -8654,107 +7486,29 @@ func NewTargetTrackingScalingPolicy_Override(t TargetTrackingScalingPolicy, scop
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.TargetTrackingScalingPolicy",
+		"aws-cdk-lib.aws_autoscaling.TargetTrackingScalingPolicy",
 		[]interface{}{scope, id, props},
 		t,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func TargetTrackingScalingPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.TargetTrackingScalingPolicy",
+		"aws-cdk-lib.aws_autoscaling.TargetTrackingScalingPolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
 	)
 
 	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (t *jsiiProxy_TargetTrackingScalingPolicy) OnPrepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (t *jsiiProxy_TargetTrackingScalingPolicy) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		t,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (t *jsiiProxy_TargetTrackingScalingPolicy) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (t *jsiiProxy_TargetTrackingScalingPolicy) Prepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (t *jsiiProxy_TargetTrackingScalingPolicy) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		t,
-		"synthesize",
-		[]interface{}{session},
-	)
 }
 
 // Returns a string representation of this construct.
@@ -8765,26 +7519,6 @@ func (t *jsiiProxy_TargetTrackingScalingPolicy) ToString() *string {
 	_jsii_.Invoke(
 		t,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (t *jsiiProxy_TargetTrackingScalingPolicy) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -8857,7 +7591,7 @@ func NewUpdatePolicy_Override(u UpdatePolicy) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_autoscaling.UpdatePolicy",
+		"aws-cdk-lib.aws_autoscaling.UpdatePolicy",
 		nil, // no parameters
 		u,
 	)
@@ -8871,7 +7605,7 @@ func UpdatePolicy_ReplacingUpdate() UpdatePolicy {
 	var returns UpdatePolicy
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.UpdatePolicy",
+		"aws-cdk-lib.aws_autoscaling.UpdatePolicy",
 		"replacingUpdate",
 		nil, // no parameters
 		&returns,
@@ -8888,7 +7622,7 @@ func UpdatePolicy_RollingUpdate(options *RollingUpdateOptions) UpdatePolicy {
 	var returns UpdatePolicy
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_autoscaling.UpdatePolicy",
+		"aws-cdk-lib.aws_autoscaling.UpdatePolicy",
 		"rollingUpdate",
 		[]interface{}{options},
 		&returns,
@@ -8896,14 +7630,4 @@ func UpdatePolicy_RollingUpdate(options *RollingUpdateOptions) UpdatePolicy {
 
 	return returns
 }
-
-// The type of update to perform on instances in this AutoScalingGroup.
-// Deprecated: Use UpdatePolicy instead
-type UpdateType string
-
-const (
-	UpdateType_NONE UpdateType = "NONE"
-	UpdateType_REPLACING_UPDATE UpdateType = "REPLACING_UPDATE"
-	UpdateType_ROLLING_UPDATE UpdateType = "ROLLING_UPDATE"
-)
 
