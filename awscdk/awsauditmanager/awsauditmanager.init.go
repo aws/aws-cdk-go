@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_auditmanager.CfnAssessment",
+		"monocdk.aws_auditmanager.CfnAssessment",
 		reflect.TypeOf((*CfnAssessment)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -37,7 +37,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "roles", GoGetter: "Roles"},
@@ -45,9 +49,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -58,31 +64,31 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_auditmanager.CfnAssessment.AWSAccountProperty",
+		"monocdk.aws_auditmanager.CfnAssessment.AWSAccountProperty",
 		reflect.TypeOf((*CfnAssessment_AWSAccountProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_auditmanager.CfnAssessment.AWSServiceProperty",
+		"monocdk.aws_auditmanager.CfnAssessment.AWSServiceProperty",
 		reflect.TypeOf((*CfnAssessment_AWSServiceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_auditmanager.CfnAssessment.AssessmentReportsDestinationProperty",
+		"monocdk.aws_auditmanager.CfnAssessment.AssessmentReportsDestinationProperty",
 		reflect.TypeOf((*CfnAssessment_AssessmentReportsDestinationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_auditmanager.CfnAssessment.DelegationProperty",
+		"monocdk.aws_auditmanager.CfnAssessment.DelegationProperty",
 		reflect.TypeOf((*CfnAssessment_DelegationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_auditmanager.CfnAssessment.RoleProperty",
+		"monocdk.aws_auditmanager.CfnAssessment.RoleProperty",
 		reflect.TypeOf((*CfnAssessment_RoleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_auditmanager.CfnAssessment.ScopeProperty",
+		"monocdk.aws_auditmanager.CfnAssessment.ScopeProperty",
 		reflect.TypeOf((*CfnAssessment_ScopeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_auditmanager.CfnAssessmentProps",
+		"monocdk.aws_auditmanager.CfnAssessmentProps",
 		reflect.TypeOf((*CfnAssessmentProps)(nil)).Elem(),
 	)
 }

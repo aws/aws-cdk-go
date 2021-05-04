@@ -1,12 +1,12 @@
 package awsivs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsivs/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsivs/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::IVS::Channel`.
@@ -27,7 +27,9 @@ type CfnChannel interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
+	RecordingConfigurationArn() *string
+	SetRecordingConfigurationArn(val *string)
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -44,10 +46,16 @@ type CfnChannel interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -167,11 +175,21 @@ func (j *jsiiProxy_CfnChannel) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnChannel) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnChannel) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnChannel) RecordingConfigurationArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"recordingConfigurationArn",
 		&returns,
 	)
 	return returns
@@ -229,13 +247,13 @@ func (j *jsiiProxy_CfnChannel) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::IVS::Channel`.
-func NewCfnChannel(scope constructs.Construct, id *string, props *CfnChannelProps) CfnChannel {
+func NewCfnChannel(scope awscdk.Construct, id *string, props *CfnChannelProps) CfnChannel {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnChannel{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ivs.CfnChannel",
+		"monocdk.aws_ivs.CfnChannel",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -244,11 +262,11 @@ func NewCfnChannel(scope constructs.Construct, id *string, props *CfnChannelProp
 }
 
 // Create a new `AWS::IVS::Channel`.
-func NewCfnChannel_Override(c CfnChannel, scope constructs.Construct, id *string, props *CfnChannelProps) {
+func NewCfnChannel_Override(c CfnChannel, scope awscdk.Construct, id *string, props *CfnChannelProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ivs.CfnChannel",
+		"monocdk.aws_ivs.CfnChannel",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -278,6 +296,14 @@ func (j *jsiiProxy_CfnChannel) SetName(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnChannel) SetRecordingConfigurationArn(val *string) {
+	_jsii_.Set(
+		j,
+		"recordingConfigurationArn",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnChannel) SetType(val *string) {
 	_jsii_.Set(
 		j,
@@ -299,7 +325,7 @@ func CfnChannel_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ivs.CfnChannel",
+		"monocdk.aws_ivs.CfnChannel",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -316,7 +342,7 @@ func CfnChannel_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ivs.CfnChannel",
+		"monocdk.aws_ivs.CfnChannel",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -325,17 +351,15 @@ func CfnChannel_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnChannel_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ivs.CfnChannel",
+		"monocdk.aws_ivs.CfnChannel",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -348,7 +372,7 @@ func CfnChannel_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ivs.CfnChannel",
+		"monocdk.aws_ivs.CfnChannel",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -520,6 +544,56 @@ func (c *jsiiProxy_CfnChannel) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnChannel) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnChannel) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnChannel) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnChannel) OverrideLogicalId(newLogicalId *string) {
@@ -527,6 +601,23 @@ func (c *jsiiProxy_CfnChannel) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnChannel) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -561,6 +652,19 @@ func (c *jsiiProxy_CfnChannel) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnChannel) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -571,6 +675,26 @@ func (c *jsiiProxy_CfnChannel) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnChannel) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -595,6 +719,8 @@ type CfnChannelProps struct {
 	LatencyMode *string `json:"latencyMode"`
 	// `AWS::IVS::Channel.Name`.
 	Name *string `json:"name"`
+	// `AWS::IVS::Channel.RecordingConfigurationArn`.
+	RecordingConfigurationArn *string `json:"recordingConfigurationArn"`
 	// `AWS::IVS::Channel.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::IVS::Channel.Type`.
@@ -614,7 +740,7 @@ type CfnPlaybackKeyPair interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PublicKeyMaterial() *string
 	SetPublicKeyMaterial(val *string)
 	Ref() *string
@@ -631,10 +757,16 @@ type CfnPlaybackKeyPair interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -724,8 +856,8 @@ func (j *jsiiProxy_CfnPlaybackKeyPair) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPlaybackKeyPair) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnPlaybackKeyPair) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -786,13 +918,13 @@ func (j *jsiiProxy_CfnPlaybackKeyPair) UpdatedProperites() *map[string]interface
 
 
 // Create a new `AWS::IVS::PlaybackKeyPair`.
-func NewCfnPlaybackKeyPair(scope constructs.Construct, id *string, props *CfnPlaybackKeyPairProps) CfnPlaybackKeyPair {
+func NewCfnPlaybackKeyPair(scope awscdk.Construct, id *string, props *CfnPlaybackKeyPairProps) CfnPlaybackKeyPair {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnPlaybackKeyPair{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ivs.CfnPlaybackKeyPair",
+		"monocdk.aws_ivs.CfnPlaybackKeyPair",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -801,11 +933,11 @@ func NewCfnPlaybackKeyPair(scope constructs.Construct, id *string, props *CfnPla
 }
 
 // Create a new `AWS::IVS::PlaybackKeyPair`.
-func NewCfnPlaybackKeyPair_Override(c CfnPlaybackKeyPair, scope constructs.Construct, id *string, props *CfnPlaybackKeyPairProps) {
+func NewCfnPlaybackKeyPair_Override(c CfnPlaybackKeyPair, scope awscdk.Construct, id *string, props *CfnPlaybackKeyPairProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ivs.CfnPlaybackKeyPair",
+		"monocdk.aws_ivs.CfnPlaybackKeyPair",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -840,7 +972,7 @@ func CfnPlaybackKeyPair_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ivs.CfnPlaybackKeyPair",
+		"monocdk.aws_ivs.CfnPlaybackKeyPair",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -857,7 +989,7 @@ func CfnPlaybackKeyPair_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ivs.CfnPlaybackKeyPair",
+		"monocdk.aws_ivs.CfnPlaybackKeyPair",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -866,17 +998,15 @@ func CfnPlaybackKeyPair_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnPlaybackKeyPair_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ivs.CfnPlaybackKeyPair",
+		"monocdk.aws_ivs.CfnPlaybackKeyPair",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -889,7 +1019,7 @@ func CfnPlaybackKeyPair_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ivs.CfnPlaybackKeyPair",
+		"monocdk.aws_ivs.CfnPlaybackKeyPair",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1061,6 +1191,56 @@ func (c *jsiiProxy_CfnPlaybackKeyPair) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnPlaybackKeyPair) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnPlaybackKeyPair) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnPlaybackKeyPair) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnPlaybackKeyPair) OverrideLogicalId(newLogicalId *string) {
@@ -1068,6 +1248,23 @@ func (c *jsiiProxy_CfnPlaybackKeyPair) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnPlaybackKeyPair) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1102,6 +1299,19 @@ func (c *jsiiProxy_CfnPlaybackKeyPair) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnPlaybackKeyPair) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -1112,6 +1322,26 @@ func (c *jsiiProxy_CfnPlaybackKeyPair) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnPlaybackKeyPair) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1138,20 +1368,22 @@ type CfnPlaybackKeyPairProps struct {
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
-// A CloudFormation `AWS::IVS::StreamKey`.
-type CfnStreamKey interface {
+// A CloudFormation `AWS::IVS::RecordingConfiguration`.
+type CfnRecordingConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	AttrArn() *string
-	AttrValue() *string
+	AttrState() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
-	ChannelArn() *string
-	SetChannelArn(val *string)
 	CreationStack() *[]*string
+	DestinationConfiguration() interface{}
+	SetDestinationConfiguration(val interface{})
 	LogicalId() *string
-	Node() constructs.Node
+	Name() *string
+	SetName(val *string)
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -1166,10 +1398,665 @@ type CfnStreamKey interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
+	ValidateProperties(_properties interface{})
+}
+
+// The jsii proxy struct for CfnRecordingConfiguration
+type jsiiProxy_CfnRecordingConfiguration struct {
+	internal.Type__awscdkCfnResource
+	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnRecordingConfiguration) AttrArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRecordingConfiguration) AttrState() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrState",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRecordingConfiguration) CfnOptions() awscdk.ICfnResourceOptions {
+	var returns awscdk.ICfnResourceOptions
+	_jsii_.Get(
+		j,
+		"cfnOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRecordingConfiguration) CfnProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"cfnProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRecordingConfiguration) CfnResourceType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRecordingConfiguration) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRecordingConfiguration) DestinationConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"destinationConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRecordingConfiguration) LogicalId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRecordingConfiguration) Name() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"name",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRecordingConfiguration) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRecordingConfiguration) Ref() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRecordingConfiguration) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRecordingConfiguration) Tags() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRecordingConfiguration) UpdatedProperites() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a new `AWS::IVS::RecordingConfiguration`.
+func NewCfnRecordingConfiguration(scope awscdk.Construct, id *string, props *CfnRecordingConfigurationProps) CfnRecordingConfiguration {
+	_init_.Initialize()
+
+	j := jsiiProxy_CfnRecordingConfiguration{}
+
+	_jsii_.Create(
+		"monocdk.aws_ivs.CfnRecordingConfiguration",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a new `AWS::IVS::RecordingConfiguration`.
+func NewCfnRecordingConfiguration_Override(c CfnRecordingConfiguration, scope awscdk.Construct, id *string, props *CfnRecordingConfigurationProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_ivs.CfnRecordingConfiguration",
+		[]interface{}{scope, id, props},
+		c,
+	)
+}
+
+func (j *jsiiProxy_CfnRecordingConfiguration) SetDestinationConfiguration(val interface{}) {
+	_jsii_.Set(
+		j,
+		"destinationConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRecordingConfiguration) SetName(val *string) {
+	_jsii_.Set(
+		j,
+		"name",
+		val,
+	)
+}
+
+// Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
+//
+// Uses duck-typing instead of `instanceof` to allow stack elements from different
+// versions of this library to be included in the same stack.
+//
+// Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
+func CfnRecordingConfiguration_IsCfnElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ivs.CfnRecordingConfiguration",
+		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a CfnResource.
+// Experimental.
+func CfnRecordingConfiguration_IsCfnResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ivs.CfnRecordingConfiguration",
+		"isCfnResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func CfnRecordingConfiguration_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ivs.CfnRecordingConfiguration",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnRecordingConfiguration_CFN_RESOURCE_TYPE_NAME() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"monocdk.aws_ivs.CfnRecordingConfiguration",
+		"CFN_RESOURCE_TYPE_NAME",
+		&returns,
+	)
+	return returns
+}
+
+// Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
+func (c *jsiiProxy_CfnRecordingConfiguration) AddDeletionOverride(path *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDeletionOverride",
+		[]interface{}{path},
+	)
+}
+
+// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+//
+// This can be used for resources across stacks (or nested stack) boundaries
+// and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
+func (c *jsiiProxy_CfnRecordingConfiguration) AddDependsOn(target awscdk.CfnResource) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDependsOn",
+		[]interface{}{target},
+	)
+}
+
+// Add a value to the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+// Experimental.
+func (c *jsiiProxy_CfnRecordingConfiguration) AddMetadata(key *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addMetadata",
+		[]interface{}{key, value},
+	)
+}
+
+// Adds an override to the synthesized CloudFormation resource.
+//
+// To add a
+// property override, either use `addPropertyOverride` or prefix `path` with
+// "Properties." (i.e. `Properties.TopicName`).
+//
+// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+// If there is an array as part of the nesting, specify the index in the path.
+//
+// To include a literal `.` in the property name, prefix with a `\`. In most
+// programming languages you will need to write this as `"\\."` because the
+// `\` itself will need to be escaped.
+//
+// For example,
+// ```typescript
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+// ```
+// would add the overrides
+// ```json
+// "Properties": {
+//    "GlobalSecondaryIndexes": [
+//      {
+//        "Projection": {
+//          "NonKeyAttributes": [ "myattribute" ]
+//          ...
+//        }
+//        ...
+//      },
+//      {
+//        "ProjectionType": "INCLUDE"
+//        ...
+//      },
+//    ]
+//    ...
+// }
+// ```
+// Experimental.
+func (c *jsiiProxy_CfnRecordingConfiguration) AddOverride(path *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addOverride",
+		[]interface{}{path, value},
+	)
+}
+
+// Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
+func (c *jsiiProxy_CfnRecordingConfiguration) AddPropertyDeletionOverride(propertyPath *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyDeletionOverride",
+		[]interface{}{propertyPath},
+	)
+}
+
+// Adds an override to a resource property.
+//
+// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
+func (c *jsiiProxy_CfnRecordingConfiguration) AddPropertyOverride(propertyPath *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyOverride",
+		[]interface{}{propertyPath, value},
+	)
+}
+
+// Sets the deletion policy of the resource based on the removal policy specified.
+// Experimental.
+func (c *jsiiProxy_CfnRecordingConfiguration) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	_jsii_.InvokeVoid(
+		c,
+		"applyRemovalPolicy",
+		[]interface{}{policy, options},
+	)
+}
+
+// Returns a token for an runtime attribute of this resource.
+//
+// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+// in case there is no generated attribute.
+// Experimental.
+func (c *jsiiProxy_CfnRecordingConfiguration) GetAtt(attributeName *string) awscdk.Reference {
+	var returns awscdk.Reference
+
+	_jsii_.Invoke(
+		c,
+		"getAtt",
+		[]interface{}{attributeName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Retrieve a value value from the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+// Experimental.
+func (c *jsiiProxy_CfnRecordingConfiguration) GetMetadata(key *string) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"getMetadata",
+		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
+// Examines the CloudFormation resource and discloses attributes.
+func (c *jsiiProxy_CfnRecordingConfiguration) Inspect(inspector awscdk.TreeInspector) {
+	_jsii_.InvokeVoid(
+		c,
+		"inspect",
+		[]interface{}{inspector},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnRecordingConfiguration) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnRecordingConfiguration) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnRecordingConfiguration) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
+func (c *jsiiProxy_CfnRecordingConfiguration) OverrideLogicalId(newLogicalId *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"overrideLogicalId",
+		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnRecordingConfiguration) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnRecordingConfiguration) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderProperties",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+//
+// Returns: `true` if the resource should be included or `false` is the resource
+// should be omitted.
+// Experimental.
+func (c *jsiiProxy_CfnRecordingConfiguration) ShouldSynthesize() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"shouldSynthesize",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnRecordingConfiguration) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+//
+// Returns: a string representation of this resource
+// Experimental.
+func (c *jsiiProxy_CfnRecordingConfiguration) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnRecordingConfiguration) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (c *jsiiProxy_CfnRecordingConfiguration) ValidateProperties(_properties interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"validateProperties",
+		[]interface{}{_properties},
+	)
+}
+
+type CfnRecordingConfiguration_DestinationConfigurationProperty struct {
+	// `CfnRecordingConfiguration.DestinationConfigurationProperty.S3`.
+	S3 interface{} `json:"s3"`
+}
+
+type CfnRecordingConfiguration_S3DestinationConfigurationProperty struct {
+	// `CfnRecordingConfiguration.S3DestinationConfigurationProperty.BucketName`.
+	BucketName *string `json:"bucketName"`
+}
+
+// Properties for defining a `AWS::IVS::RecordingConfiguration`.
+type CfnRecordingConfigurationProps struct {
+	// `AWS::IVS::RecordingConfiguration.DestinationConfiguration`.
+	DestinationConfiguration interface{} `json:"destinationConfiguration"`
+	// `AWS::IVS::RecordingConfiguration.Name`.
+	Name *string `json:"name"`
+	// `AWS::IVS::RecordingConfiguration.Tags`.
+	Tags *[]*awscdk.CfnTag `json:"tags"`
+}
+
+// A CloudFormation `AWS::IVS::StreamKey`.
+type CfnStreamKey interface {
+	awscdk.CfnResource
+	awscdk.IInspectable
+	AttrArn() *string
+	AttrValue() *string
+	CfnOptions() awscdk.ICfnResourceOptions
+	CfnProperties() *map[string]interface{}
+	CfnResourceType() *string
+	ChannelArn() *string
+	SetChannelArn(val *string)
+	CreationStack() *[]*string
+	LogicalId() *string
+	Node() awscdk.ConstructNode
+	Ref() *string
+	Stack() awscdk.Stack
+	Tags() awscdk.TagManager
+	UpdatedProperites() *map[string]interface{}
+	AddDeletionOverride(path *string)
+	AddDependsOn(target awscdk.CfnResource)
+	AddMetadata(key *string, value interface{})
+	AddOverride(path *string, value interface{})
+	AddPropertyDeletionOverride(propertyPath *string)
+	AddPropertyOverride(propertyPath *string, value interface{})
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	GetAtt(attributeName *string) awscdk.Reference
+	GetMetadata(key *string) interface{}
+	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	OverrideLogicalId(newLogicalId *string)
+	Prepare()
+	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1259,8 +2146,8 @@ func (j *jsiiProxy_CfnStreamKey) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStreamKey) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnStreamKey) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1311,13 +2198,13 @@ func (j *jsiiProxy_CfnStreamKey) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::IVS::StreamKey`.
-func NewCfnStreamKey(scope constructs.Construct, id *string, props *CfnStreamKeyProps) CfnStreamKey {
+func NewCfnStreamKey(scope awscdk.Construct, id *string, props *CfnStreamKeyProps) CfnStreamKey {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnStreamKey{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ivs.CfnStreamKey",
+		"monocdk.aws_ivs.CfnStreamKey",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1326,11 +2213,11 @@ func NewCfnStreamKey(scope constructs.Construct, id *string, props *CfnStreamKey
 }
 
 // Create a new `AWS::IVS::StreamKey`.
-func NewCfnStreamKey_Override(c CfnStreamKey, scope constructs.Construct, id *string, props *CfnStreamKeyProps) {
+func NewCfnStreamKey_Override(c CfnStreamKey, scope awscdk.Construct, id *string, props *CfnStreamKeyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ivs.CfnStreamKey",
+		"monocdk.aws_ivs.CfnStreamKey",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1357,7 +2244,7 @@ func CfnStreamKey_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ivs.CfnStreamKey",
+		"monocdk.aws_ivs.CfnStreamKey",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1374,7 +2261,7 @@ func CfnStreamKey_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ivs.CfnStreamKey",
+		"monocdk.aws_ivs.CfnStreamKey",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1383,17 +2270,15 @@ func CfnStreamKey_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnStreamKey_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ivs.CfnStreamKey",
+		"monocdk.aws_ivs.CfnStreamKey",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1406,7 +2291,7 @@ func CfnStreamKey_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ivs.CfnStreamKey",
+		"monocdk.aws_ivs.CfnStreamKey",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1578,6 +2463,56 @@ func (c *jsiiProxy_CfnStreamKey) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnStreamKey) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnStreamKey) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnStreamKey) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnStreamKey) OverrideLogicalId(newLogicalId *string) {
@@ -1585,6 +2520,23 @@ func (c *jsiiProxy_CfnStreamKey) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnStreamKey) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1619,6 +2571,19 @@ func (c *jsiiProxy_CfnStreamKey) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnStreamKey) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -1629,6 +2594,26 @@ func (c *jsiiProxy_CfnStreamKey) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnStreamKey) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1651,5 +2636,1218 @@ type CfnStreamKeyProps struct {
 	ChannelArn *string `json:"channelArn"`
 	// `AWS::IVS::StreamKey.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+}
+
+// A new IVS channel.
+// Experimental.
+type Channel interface {
+	awscdk.Resource
+	IChannel
+	ChannelArn() *string
+	ChannelIngestEndpoint() *string
+	ChannelPlaybackUrl() *string
+	Env() *awscdk.ResourceEnvironment
+	Node() awscdk.ConstructNode
+	PhysicalName() *string
+	Stack() awscdk.Stack
+	AddStreamKey(id *string) StreamKey
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	GeneratePhysicalName() *string
+	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
+}
+
+// The jsii proxy struct for Channel
+type jsiiProxy_Channel struct {
+	internal.Type__awscdkResource
+	jsiiProxy_IChannel
+}
+
+func (j *jsiiProxy_Channel) ChannelArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"channelArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Channel) ChannelIngestEndpoint() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"channelIngestEndpoint",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Channel) ChannelPlaybackUrl() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"channelPlaybackUrl",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Channel) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Channel) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Channel) PhysicalName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Channel) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewChannel(scope constructs.Construct, id *string, props *ChannelProps) Channel {
+	_init_.Initialize()
+
+	j := jsiiProxy_Channel{}
+
+	_jsii_.Create(
+		"monocdk.aws_ivs.Channel",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewChannel_Override(c Channel, scope constructs.Construct, id *string, props *ChannelProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_ivs.Channel",
+		[]interface{}{scope, id, props},
+		c,
+	)
+}
+
+// Import an existing channel.
+// Experimental.
+func Channel_FromChannelArn(scope constructs.Construct, id *string, channelArn *string) IChannel {
+	_init_.Initialize()
+
+	var returns IChannel
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ivs.Channel",
+		"fromChannelArn",
+		[]interface{}{scope, id, channelArn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func Channel_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ivs.Channel",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+// Experimental.
+func Channel_IsResource(construct awscdk.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ivs.Channel",
+		"isResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Adds a stream key for this IVS Channel.
+// Experimental.
+func (c *jsiiProxy_Channel) AddStreamKey(id *string) StreamKey {
+	var returns StreamKey
+
+	_jsii_.Invoke(
+		c,
+		"addStreamKey",
+		[]interface{}{id},
+		&returns,
+	)
+
+	return returns
+}
+
+// Apply the given removal policy to this resource.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
+func (c *jsiiProxy_Channel) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		c,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
+// Experimental.
+func (c *jsiiProxy_Channel) GeneratePhysicalName() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"generatePhysicalName",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+//
+// Normally, this token will resolve to `arnAttr`, but if the resource is
+// referenced across environments, `arnComponents` will be used to synthesize
+// a concrete ARN with the resource's physical name. Make sure to reference
+// `this.physicalName` in `arnComponents`.
+// Experimental.
+func (c *jsiiProxy_Channel) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"getResourceArnAttribute",
+		[]interface{}{arnAttr, arnComponents},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+//
+// Normally, this token will resolve to `nameAttr`, but if the resource is
+// referenced across environments, it will be resolved to `this.physicalName`,
+// which will be a concrete name.
+// Experimental.
+func (c *jsiiProxy_Channel) GetResourceNameAttribute(nameAttr *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"getResourceNameAttribute",
+		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_Channel) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_Channel) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_Channel) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_Channel) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_Channel) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+// Experimental.
+func (c *jsiiProxy_Channel) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_Channel) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Properties for creating a new Channel.
+// Experimental.
+type ChannelProps struct {
+	// Whether the channel is authorized.
+	//
+	// If you wish to make an authorized channel, you will need to ensure that
+	// a PlaybackKeyPair has been uploaded to your account as this is used to
+	// validate the signed JWT that is required for authorization
+	// Experimental.
+	Authorized *bool `json:"authorized"`
+	// Channel latency mode.
+	// Experimental.
+	LatencyMode LatencyMode `json:"latencyMode"`
+	// Channel name.
+	// Experimental.
+	Name *string `json:"name"`
+	// The channel type, which determines the allowable resolution and bitrate.
+	//
+	// If you exceed the allowable resolution or bitrate, the stream will disconnect immediately
+	// Experimental.
+	Type ChannelType `json:"type"`
+}
+
+// The channel type, which determines the allowable resolution and bitrate.
+//
+// If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
+// Experimental.
+type ChannelType string
+
+const (
+	ChannelType_STANDARD ChannelType = "STANDARD"
+	ChannelType_BASIC ChannelType = "BASIC"
+)
+
+// Represents an IVS Channel.
+// Experimental.
+type IChannel interface {
+	awscdk.IResource
+	// Adds a stream key for this IVS Channel.
+	// Experimental.
+	AddStreamKey(id *string) StreamKey
+	// The channel ARN.
+	//
+	// For example: arn:aws:ivs:us-west-2:123456789012:channel/abcdABCDefgh
+	// Experimental.
+	ChannelArn() *string
+}
+
+// The jsii proxy for IChannel
+type jsiiProxy_IChannel struct {
+	internal.Type__awscdkIResource
+}
+
+func (i *jsiiProxy_IChannel) AddStreamKey(id *string) StreamKey {
+	var returns StreamKey
+
+	_jsii_.Invoke(
+		i,
+		"addStreamKey",
+		[]interface{}{id},
+		&returns,
+	)
+
+	return returns
+}
+
+func (j *jsiiProxy_IChannel) ChannelArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"channelArn",
+		&returns,
+	)
+	return returns
+}
+
+// Represents an IVS Playback Key Pair.
+// Experimental.
+type IPlaybackKeyPair interface {
+	awscdk.IResource
+	// Key-pair ARN.
+	//
+	// For example: arn:aws:ivs:us-west-2:693991300569:playback-key/f99cde61-c2b0-4df3-8941-ca7d38acca1a
+	// Experimental.
+	PlaybackKeyPairArn() *string
+}
+
+// The jsii proxy for IPlaybackKeyPair
+type jsiiProxy_IPlaybackKeyPair struct {
+	internal.Type__awscdkIResource
+}
+
+func (j *jsiiProxy_IPlaybackKeyPair) PlaybackKeyPairArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"playbackKeyPairArn",
+		&returns,
+	)
+	return returns
+}
+
+// Represents an IVS Stream Key.
+// Experimental.
+type IStreamKey interface {
+	awscdk.IResource
+	// The stream-key ARN.
+	//
+	// For example: arn:aws:ivs:us-west-2:123456789012:stream-key/g1H2I3j4k5L6
+	// Experimental.
+	StreamKeyArn() *string
+}
+
+// The jsii proxy for IStreamKey
+type jsiiProxy_IStreamKey struct {
+	internal.Type__awscdkIResource
+}
+
+func (j *jsiiProxy_IStreamKey) StreamKeyArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"streamKeyArn",
+		&returns,
+	)
+	return returns
+}
+
+// Channel latency mode.
+// Experimental.
+type LatencyMode string
+
+const (
+	LatencyMode_LOW LatencyMode = "LOW"
+	LatencyMode_NORMAL LatencyMode = "NORMAL"
+)
+
+// A new IVS Playback Key Pair.
+// Experimental.
+type PlaybackKeyPair interface {
+	awscdk.Resource
+	IPlaybackKeyPair
+	Env() *awscdk.ResourceEnvironment
+	Node() awscdk.ConstructNode
+	PhysicalName() *string
+	PlaybackKeyPairArn() *string
+	PlaybackKeyPairFingerprint() *string
+	Stack() awscdk.Stack
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	GeneratePhysicalName() *string
+	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
+}
+
+// The jsii proxy struct for PlaybackKeyPair
+type jsiiProxy_PlaybackKeyPair struct {
+	internal.Type__awscdkResource
+	jsiiProxy_IPlaybackKeyPair
+}
+
+func (j *jsiiProxy_PlaybackKeyPair) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_PlaybackKeyPair) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_PlaybackKeyPair) PhysicalName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_PlaybackKeyPair) PlaybackKeyPairArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"playbackKeyPairArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_PlaybackKeyPair) PlaybackKeyPairFingerprint() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"playbackKeyPairFingerprint",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_PlaybackKeyPair) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewPlaybackKeyPair(scope constructs.Construct, id *string, props *PlaybackKeyPairProps) PlaybackKeyPair {
+	_init_.Initialize()
+
+	j := jsiiProxy_PlaybackKeyPair{}
+
+	_jsii_.Create(
+		"monocdk.aws_ivs.PlaybackKeyPair",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewPlaybackKeyPair_Override(p PlaybackKeyPair, scope constructs.Construct, id *string, props *PlaybackKeyPairProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_ivs.PlaybackKeyPair",
+		[]interface{}{scope, id, props},
+		p,
+	)
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func PlaybackKeyPair_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ivs.PlaybackKeyPair",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+// Experimental.
+func PlaybackKeyPair_IsResource(construct awscdk.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ivs.PlaybackKeyPair",
+		"isResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Apply the given removal policy to this resource.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
+func (p *jsiiProxy_PlaybackKeyPair) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		p,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
+// Experimental.
+func (p *jsiiProxy_PlaybackKeyPair) GeneratePhysicalName() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		p,
+		"generatePhysicalName",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+//
+// Normally, this token will resolve to `arnAttr`, but if the resource is
+// referenced across environments, `arnComponents` will be used to synthesize
+// a concrete ARN with the resource's physical name. Make sure to reference
+// `this.physicalName` in `arnComponents`.
+// Experimental.
+func (p *jsiiProxy_PlaybackKeyPair) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		p,
+		"getResourceArnAttribute",
+		[]interface{}{arnAttr, arnComponents},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+//
+// Normally, this token will resolve to `nameAttr`, but if the resource is
+// referenced across environments, it will be resolved to `this.physicalName`,
+// which will be a concrete name.
+// Experimental.
+func (p *jsiiProxy_PlaybackKeyPair) GetResourceNameAttribute(nameAttr *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		p,
+		"getResourceNameAttribute",
+		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (p *jsiiProxy_PlaybackKeyPair) OnPrepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (p *jsiiProxy_PlaybackKeyPair) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (p *jsiiProxy_PlaybackKeyPair) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (p *jsiiProxy_PlaybackKeyPair) Prepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (p *jsiiProxy_PlaybackKeyPair) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+// Experimental.
+func (p *jsiiProxy_PlaybackKeyPair) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		p,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (p *jsiiProxy_PlaybackKeyPair) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Properties for creating a new Playback Key Pair.
+// Experimental.
+type PlaybackKeyPairProps struct {
+	// The public portion of a customer-generated key pair.
+	// Experimental.
+	PublicKeyMaterial *string `json:"publicKeyMaterial"`
+	// An arbitrary string (a nickname) assigned to a playback key pair that helps the customer identify that resource.
+	//
+	// The value does not need to be unique.
+	// Experimental.
+	Name *string `json:"name"`
+}
+
+// A new IVS Stream Key.
+// Experimental.
+type StreamKey interface {
+	awscdk.Resource
+	IStreamKey
+	Env() *awscdk.ResourceEnvironment
+	Node() awscdk.ConstructNode
+	PhysicalName() *string
+	Stack() awscdk.Stack
+	StreamKeyArn() *string
+	StreamKeyValue() *string
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	GeneratePhysicalName() *string
+	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
+}
+
+// The jsii proxy struct for StreamKey
+type jsiiProxy_StreamKey struct {
+	internal.Type__awscdkResource
+	jsiiProxy_IStreamKey
+}
+
+func (j *jsiiProxy_StreamKey) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StreamKey) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StreamKey) PhysicalName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StreamKey) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StreamKey) StreamKeyArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"streamKeyArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StreamKey) StreamKeyValue() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"streamKeyValue",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewStreamKey(scope constructs.Construct, id *string, props *StreamKeyProps) StreamKey {
+	_init_.Initialize()
+
+	j := jsiiProxy_StreamKey{}
+
+	_jsii_.Create(
+		"monocdk.aws_ivs.StreamKey",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewStreamKey_Override(s StreamKey, scope constructs.Construct, id *string, props *StreamKeyProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_ivs.StreamKey",
+		[]interface{}{scope, id, props},
+		s,
+	)
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func StreamKey_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ivs.StreamKey",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+// Experimental.
+func StreamKey_IsResource(construct awscdk.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ivs.StreamKey",
+		"isResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Apply the given removal policy to this resource.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
+func (s *jsiiProxy_StreamKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		s,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
+// Experimental.
+func (s *jsiiProxy_StreamKey) GeneratePhysicalName() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		s,
+		"generatePhysicalName",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+//
+// Normally, this token will resolve to `arnAttr`, but if the resource is
+// referenced across environments, `arnComponents` will be used to synthesize
+// a concrete ARN with the resource's physical name. Make sure to reference
+// `this.physicalName` in `arnComponents`.
+// Experimental.
+func (s *jsiiProxy_StreamKey) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		s,
+		"getResourceArnAttribute",
+		[]interface{}{arnAttr, arnComponents},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+//
+// Normally, this token will resolve to `nameAttr`, but if the resource is
+// referenced across environments, it will be resolved to `this.physicalName`,
+// which will be a concrete name.
+// Experimental.
+func (s *jsiiProxy_StreamKey) GetResourceNameAttribute(nameAttr *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		s,
+		"getResourceNameAttribute",
+		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_StreamKey) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_StreamKey) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_StreamKey) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_StreamKey) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_StreamKey) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+// Experimental.
+func (s *jsiiProxy_StreamKey) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		s,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_StreamKey) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Properties for creating a new Stream Key.
+// Experimental.
+type StreamKeyProps struct {
+	// Channel ARN for the stream.
+	// Experimental.
+	Channel IChannel `json:"channel"`
 }
 

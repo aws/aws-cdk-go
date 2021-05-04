@@ -1,12 +1,12 @@
 package awsbudgets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsbudgets/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsbudgets/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::Budgets::Budget`.
@@ -20,7 +20,7 @@ type CfnBudget interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	NotificationsWithSubscribers() interface{}
 	SetNotificationsWithSubscribers(val interface{})
 	Ref() *string
@@ -36,10 +36,16 @@ type CfnBudget interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -109,8 +115,8 @@ func (j *jsiiProxy_CfnBudget) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBudget) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnBudget) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -161,13 +167,13 @@ func (j *jsiiProxy_CfnBudget) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Budgets::Budget`.
-func NewCfnBudget(scope constructs.Construct, id *string, props *CfnBudgetProps) CfnBudget {
+func NewCfnBudget(scope awscdk.Construct, id *string, props *CfnBudgetProps) CfnBudget {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnBudget{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_budgets.CfnBudget",
+		"monocdk.aws_budgets.CfnBudget",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -176,11 +182,11 @@ func NewCfnBudget(scope constructs.Construct, id *string, props *CfnBudgetProps)
 }
 
 // Create a new `AWS::Budgets::Budget`.
-func NewCfnBudget_Override(c CfnBudget, scope constructs.Construct, id *string, props *CfnBudgetProps) {
+func NewCfnBudget_Override(c CfnBudget, scope awscdk.Construct, id *string, props *CfnBudgetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_budgets.CfnBudget",
+		"monocdk.aws_budgets.CfnBudget",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -215,7 +221,7 @@ func CfnBudget_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_budgets.CfnBudget",
+		"monocdk.aws_budgets.CfnBudget",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -232,7 +238,7 @@ func CfnBudget_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_budgets.CfnBudget",
+		"monocdk.aws_budgets.CfnBudget",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -241,17 +247,15 @@ func CfnBudget_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnBudget_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_budgets.CfnBudget",
+		"monocdk.aws_budgets.CfnBudget",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -264,7 +268,7 @@ func CfnBudget_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_budgets.CfnBudget",
+		"monocdk.aws_budgets.CfnBudget",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -436,6 +440,56 @@ func (c *jsiiProxy_CfnBudget) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnBudget) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnBudget) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnBudget) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnBudget) OverrideLogicalId(newLogicalId *string) {
@@ -443,6 +497,23 @@ func (c *jsiiProxy_CfnBudget) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnBudget) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -477,6 +548,19 @@ func (c *jsiiProxy_CfnBudget) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnBudget) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -487,6 +571,26 @@ func (c *jsiiProxy_CfnBudget) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnBudget) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -592,5 +696,804 @@ type CfnBudgetProps struct {
 	Budget interface{} `json:"budget"`
 	// `AWS::Budgets::Budget.NotificationsWithSubscribers`.
 	NotificationsWithSubscribers interface{} `json:"notificationsWithSubscribers"`
+}
+
+// A CloudFormation `AWS::Budgets::BudgetsAction`.
+type CfnBudgetsAction interface {
+	awscdk.CfnResource
+	awscdk.IInspectable
+	ActionThreshold() interface{}
+	SetActionThreshold(val interface{})
+	ActionType() *string
+	SetActionType(val *string)
+	ApprovalModel() *string
+	SetApprovalModel(val *string)
+	AttrActionId() *string
+	BudgetName() *string
+	SetBudgetName(val *string)
+	CfnOptions() awscdk.ICfnResourceOptions
+	CfnProperties() *map[string]interface{}
+	CfnResourceType() *string
+	CreationStack() *[]*string
+	Definition() interface{}
+	SetDefinition(val interface{})
+	ExecutionRoleArn() *string
+	SetExecutionRoleArn(val *string)
+	LogicalId() *string
+	Node() awscdk.ConstructNode
+	NotificationType() *string
+	SetNotificationType(val *string)
+	Ref() *string
+	Stack() awscdk.Stack
+	Subscribers() interface{}
+	SetSubscribers(val interface{})
+	UpdatedProperites() *map[string]interface{}
+	AddDeletionOverride(path *string)
+	AddDependsOn(target awscdk.CfnResource)
+	AddMetadata(key *string, value interface{})
+	AddOverride(path *string, value interface{})
+	AddPropertyDeletionOverride(propertyPath *string)
+	AddPropertyOverride(propertyPath *string, value interface{})
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	GetAtt(attributeName *string) awscdk.Reference
+	GetMetadata(key *string) interface{}
+	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	OverrideLogicalId(newLogicalId *string)
+	Prepare()
+	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
+	ValidateProperties(_properties interface{})
+}
+
+// The jsii proxy struct for CfnBudgetsAction
+type jsiiProxy_CfnBudgetsAction struct {
+	internal.Type__awscdkCfnResource
+	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) ActionThreshold() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"actionThreshold",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) ActionType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"actionType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) ApprovalModel() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"approvalModel",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) AttrActionId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrActionId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) BudgetName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"budgetName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) CfnOptions() awscdk.ICfnResourceOptions {
+	var returns awscdk.ICfnResourceOptions
+	_jsii_.Get(
+		j,
+		"cfnOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) CfnProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"cfnProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) CfnResourceType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) Definition() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"definition",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) ExecutionRoleArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"executionRoleArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) LogicalId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) NotificationType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"notificationType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) Ref() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) Subscribers() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"subscribers",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) UpdatedProperites() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a new `AWS::Budgets::BudgetsAction`.
+func NewCfnBudgetsAction(scope awscdk.Construct, id *string, props *CfnBudgetsActionProps) CfnBudgetsAction {
+	_init_.Initialize()
+
+	j := jsiiProxy_CfnBudgetsAction{}
+
+	_jsii_.Create(
+		"monocdk.aws_budgets.CfnBudgetsAction",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a new `AWS::Budgets::BudgetsAction`.
+func NewCfnBudgetsAction_Override(c CfnBudgetsAction, scope awscdk.Construct, id *string, props *CfnBudgetsActionProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_budgets.CfnBudgetsAction",
+		[]interface{}{scope, id, props},
+		c,
+	)
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) SetActionThreshold(val interface{}) {
+	_jsii_.Set(
+		j,
+		"actionThreshold",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) SetActionType(val *string) {
+	_jsii_.Set(
+		j,
+		"actionType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) SetApprovalModel(val *string) {
+	_jsii_.Set(
+		j,
+		"approvalModel",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) SetBudgetName(val *string) {
+	_jsii_.Set(
+		j,
+		"budgetName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) SetDefinition(val interface{}) {
+	_jsii_.Set(
+		j,
+		"definition",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) SetExecutionRoleArn(val *string) {
+	_jsii_.Set(
+		j,
+		"executionRoleArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) SetNotificationType(val *string) {
+	_jsii_.Set(
+		j,
+		"notificationType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnBudgetsAction) SetSubscribers(val interface{}) {
+	_jsii_.Set(
+		j,
+		"subscribers",
+		val,
+	)
+}
+
+// Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
+//
+// Uses duck-typing instead of `instanceof` to allow stack elements from different
+// versions of this library to be included in the same stack.
+//
+// Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
+func CfnBudgetsAction_IsCfnElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_budgets.CfnBudgetsAction",
+		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a CfnResource.
+// Experimental.
+func CfnBudgetsAction_IsCfnResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_budgets.CfnBudgetsAction",
+		"isCfnResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func CfnBudgetsAction_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_budgets.CfnBudgetsAction",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnBudgetsAction_CFN_RESOURCE_TYPE_NAME() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"monocdk.aws_budgets.CfnBudgetsAction",
+		"CFN_RESOURCE_TYPE_NAME",
+		&returns,
+	)
+	return returns
+}
+
+// Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
+func (c *jsiiProxy_CfnBudgetsAction) AddDeletionOverride(path *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDeletionOverride",
+		[]interface{}{path},
+	)
+}
+
+// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+//
+// This can be used for resources across stacks (or nested stack) boundaries
+// and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
+func (c *jsiiProxy_CfnBudgetsAction) AddDependsOn(target awscdk.CfnResource) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDependsOn",
+		[]interface{}{target},
+	)
+}
+
+// Add a value to the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+// Experimental.
+func (c *jsiiProxy_CfnBudgetsAction) AddMetadata(key *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addMetadata",
+		[]interface{}{key, value},
+	)
+}
+
+// Adds an override to the synthesized CloudFormation resource.
+//
+// To add a
+// property override, either use `addPropertyOverride` or prefix `path` with
+// "Properties." (i.e. `Properties.TopicName`).
+//
+// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+// If there is an array as part of the nesting, specify the index in the path.
+//
+// To include a literal `.` in the property name, prefix with a `\`. In most
+// programming languages you will need to write this as `"\\."` because the
+// `\` itself will need to be escaped.
+//
+// For example,
+// ```typescript
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+// ```
+// would add the overrides
+// ```json
+// "Properties": {
+//    "GlobalSecondaryIndexes": [
+//      {
+//        "Projection": {
+//          "NonKeyAttributes": [ "myattribute" ]
+//          ...
+//        }
+//        ...
+//      },
+//      {
+//        "ProjectionType": "INCLUDE"
+//        ...
+//      },
+//    ]
+//    ...
+// }
+// ```
+// Experimental.
+func (c *jsiiProxy_CfnBudgetsAction) AddOverride(path *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addOverride",
+		[]interface{}{path, value},
+	)
+}
+
+// Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
+func (c *jsiiProxy_CfnBudgetsAction) AddPropertyDeletionOverride(propertyPath *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyDeletionOverride",
+		[]interface{}{propertyPath},
+	)
+}
+
+// Adds an override to a resource property.
+//
+// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
+func (c *jsiiProxy_CfnBudgetsAction) AddPropertyOverride(propertyPath *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyOverride",
+		[]interface{}{propertyPath, value},
+	)
+}
+
+// Sets the deletion policy of the resource based on the removal policy specified.
+// Experimental.
+func (c *jsiiProxy_CfnBudgetsAction) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	_jsii_.InvokeVoid(
+		c,
+		"applyRemovalPolicy",
+		[]interface{}{policy, options},
+	)
+}
+
+// Returns a token for an runtime attribute of this resource.
+//
+// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+// in case there is no generated attribute.
+// Experimental.
+func (c *jsiiProxy_CfnBudgetsAction) GetAtt(attributeName *string) awscdk.Reference {
+	var returns awscdk.Reference
+
+	_jsii_.Invoke(
+		c,
+		"getAtt",
+		[]interface{}{attributeName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Retrieve a value value from the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+// Experimental.
+func (c *jsiiProxy_CfnBudgetsAction) GetMetadata(key *string) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"getMetadata",
+		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
+// Examines the CloudFormation resource and discloses attributes.
+func (c *jsiiProxy_CfnBudgetsAction) Inspect(inspector awscdk.TreeInspector) {
+	_jsii_.InvokeVoid(
+		c,
+		"inspect",
+		[]interface{}{inspector},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnBudgetsAction) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnBudgetsAction) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnBudgetsAction) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
+func (c *jsiiProxy_CfnBudgetsAction) OverrideLogicalId(newLogicalId *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"overrideLogicalId",
+		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnBudgetsAction) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnBudgetsAction) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderProperties",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+//
+// Returns: `true` if the resource should be included or `false` is the resource
+// should be omitted.
+// Experimental.
+func (c *jsiiProxy_CfnBudgetsAction) ShouldSynthesize() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"shouldSynthesize",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnBudgetsAction) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+//
+// Returns: a string representation of this resource
+// Experimental.
+func (c *jsiiProxy_CfnBudgetsAction) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnBudgetsAction) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (c *jsiiProxy_CfnBudgetsAction) ValidateProperties(_properties interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"validateProperties",
+		[]interface{}{_properties},
+	)
+}
+
+type CfnBudgetsAction_ActionThresholdProperty struct {
+	// `CfnBudgetsAction.ActionThresholdProperty.Type`.
+	Type *string `json:"type"`
+	// `CfnBudgetsAction.ActionThresholdProperty.Value`.
+	Value *float64 `json:"value"`
+}
+
+type CfnBudgetsAction_DefinitionProperty struct {
+	// `CfnBudgetsAction.DefinitionProperty.IamActionDefinition`.
+	IamActionDefinition interface{} `json:"iamActionDefinition"`
+	// `CfnBudgetsAction.DefinitionProperty.ScpActionDefinition`.
+	ScpActionDefinition interface{} `json:"scpActionDefinition"`
+	// `CfnBudgetsAction.DefinitionProperty.SsmActionDefinition`.
+	SsmActionDefinition interface{} `json:"ssmActionDefinition"`
+}
+
+type CfnBudgetsAction_IamActionDefinitionProperty struct {
+	// `CfnBudgetsAction.IamActionDefinitionProperty.PolicyArn`.
+	PolicyArn *string `json:"policyArn"`
+	// `CfnBudgetsAction.IamActionDefinitionProperty.Groups`.
+	Groups *[]*string `json:"groups"`
+	// `CfnBudgetsAction.IamActionDefinitionProperty.Roles`.
+	Roles *[]*string `json:"roles"`
+	// `CfnBudgetsAction.IamActionDefinitionProperty.Users`.
+	Users *[]*string `json:"users"`
+}
+
+type CfnBudgetsAction_ScpActionDefinitionProperty struct {
+	// `CfnBudgetsAction.ScpActionDefinitionProperty.PolicyId`.
+	PolicyId *string `json:"policyId"`
+	// `CfnBudgetsAction.ScpActionDefinitionProperty.TargetIds`.
+	TargetIds *[]*string `json:"targetIds"`
+}
+
+type CfnBudgetsAction_SsmActionDefinitionProperty struct {
+	// `CfnBudgetsAction.SsmActionDefinitionProperty.InstanceIds`.
+	InstanceIds *[]*string `json:"instanceIds"`
+	// `CfnBudgetsAction.SsmActionDefinitionProperty.Region`.
+	Region *string `json:"region"`
+	// `CfnBudgetsAction.SsmActionDefinitionProperty.Subtype`.
+	Subtype *string `json:"subtype"`
+}
+
+type CfnBudgetsAction_SubscriberProperty struct {
+	// `CfnBudgetsAction.SubscriberProperty.Address`.
+	Address *string `json:"address"`
+	// `CfnBudgetsAction.SubscriberProperty.Type`.
+	Type *string `json:"type"`
+}
+
+// Properties for defining a `AWS::Budgets::BudgetsAction`.
+type CfnBudgetsActionProps struct {
+	// `AWS::Budgets::BudgetsAction.ActionThreshold`.
+	ActionThreshold interface{} `json:"actionThreshold"`
+	// `AWS::Budgets::BudgetsAction.ActionType`.
+	ActionType *string `json:"actionType"`
+	// `AWS::Budgets::BudgetsAction.BudgetName`.
+	BudgetName *string `json:"budgetName"`
+	// `AWS::Budgets::BudgetsAction.Definition`.
+	Definition interface{} `json:"definition"`
+	// `AWS::Budgets::BudgetsAction.ExecutionRoleArn`.
+	ExecutionRoleArn *string `json:"executionRoleArn"`
+	// `AWS::Budgets::BudgetsAction.NotificationType`.
+	NotificationType *string `json:"notificationType"`
+	// `AWS::Budgets::BudgetsAction.ApprovalModel`.
+	ApprovalModel *string `json:"approvalModel"`
+	// `AWS::Budgets::BudgetsAction.Subscribers`.
+	Subscribers interface{} `json:"subscribers"`
 }
 

@@ -1,12 +1,12 @@
 package awswafv2
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awswafv2/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awswafv2/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::WAFv2::IPSet`.
@@ -28,7 +28,7 @@ type CfnIPSet interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Scope() *string
 	SetScope(val *string)
@@ -45,10 +45,16 @@ type CfnIPSet interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -168,8 +174,8 @@ func (j *jsiiProxy_CfnIPSet) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIPSet) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnIPSet) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -230,13 +236,13 @@ func (j *jsiiProxy_CfnIPSet) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::WAFv2::IPSet`.
-func NewCfnIPSet(scope constructs.Construct, id *string, props *CfnIPSetProps) CfnIPSet {
+func NewCfnIPSet(scope awscdk.Construct, id *string, props *CfnIPSetProps) CfnIPSet {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnIPSet{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_wafv2.CfnIPSet",
+		"monocdk.aws_wafv2.CfnIPSet",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -245,11 +251,11 @@ func NewCfnIPSet(scope constructs.Construct, id *string, props *CfnIPSetProps) C
 }
 
 // Create a new `AWS::WAFv2::IPSet`.
-func NewCfnIPSet_Override(c CfnIPSet, scope constructs.Construct, id *string, props *CfnIPSetProps) {
+func NewCfnIPSet_Override(c CfnIPSet, scope awscdk.Construct, id *string, props *CfnIPSetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_wafv2.CfnIPSet",
+		"monocdk.aws_wafv2.CfnIPSet",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -308,7 +314,7 @@ func CfnIPSet_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnIPSet",
+		"monocdk.aws_wafv2.CfnIPSet",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -325,7 +331,7 @@ func CfnIPSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnIPSet",
+		"monocdk.aws_wafv2.CfnIPSet",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -334,17 +340,15 @@ func CfnIPSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnIPSet_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnIPSet",
+		"monocdk.aws_wafv2.CfnIPSet",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -357,7 +361,7 @@ func CfnIPSet_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_wafv2.CfnIPSet",
+		"monocdk.aws_wafv2.CfnIPSet",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -529,6 +533,56 @@ func (c *jsiiProxy_CfnIPSet) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnIPSet) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnIPSet) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnIPSet) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnIPSet) OverrideLogicalId(newLogicalId *string) {
@@ -536,6 +590,23 @@ func (c *jsiiProxy_CfnIPSet) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnIPSet) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -570,6 +641,19 @@ func (c *jsiiProxy_CfnIPSet) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnIPSet) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -580,6 +664,26 @@ func (c *jsiiProxy_CfnIPSet) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnIPSet) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -627,7 +731,7 @@ type CfnRegexPatternSet interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	RegularExpressionList() *[]*string
 	SetRegularExpressionList(val *[]*string)
@@ -646,10 +750,16 @@ type CfnRegexPatternSet interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -749,8 +859,8 @@ func (j *jsiiProxy_CfnRegexPatternSet) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRegexPatternSet) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnRegexPatternSet) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -821,13 +931,13 @@ func (j *jsiiProxy_CfnRegexPatternSet) UpdatedProperites() *map[string]interface
 
 
 // Create a new `AWS::WAFv2::RegexPatternSet`.
-func NewCfnRegexPatternSet(scope constructs.Construct, id *string, props *CfnRegexPatternSetProps) CfnRegexPatternSet {
+func NewCfnRegexPatternSet(scope awscdk.Construct, id *string, props *CfnRegexPatternSetProps) CfnRegexPatternSet {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnRegexPatternSet{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_wafv2.CfnRegexPatternSet",
+		"monocdk.aws_wafv2.CfnRegexPatternSet",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -836,11 +946,11 @@ func NewCfnRegexPatternSet(scope constructs.Construct, id *string, props *CfnReg
 }
 
 // Create a new `AWS::WAFv2::RegexPatternSet`.
-func NewCfnRegexPatternSet_Override(c CfnRegexPatternSet, scope constructs.Construct, id *string, props *CfnRegexPatternSetProps) {
+func NewCfnRegexPatternSet_Override(c CfnRegexPatternSet, scope awscdk.Construct, id *string, props *CfnRegexPatternSetProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_wafv2.CfnRegexPatternSet",
+		"monocdk.aws_wafv2.CfnRegexPatternSet",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -891,7 +1001,7 @@ func CfnRegexPatternSet_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnRegexPatternSet",
+		"monocdk.aws_wafv2.CfnRegexPatternSet",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -908,7 +1018,7 @@ func CfnRegexPatternSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnRegexPatternSet",
+		"monocdk.aws_wafv2.CfnRegexPatternSet",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -917,17 +1027,15 @@ func CfnRegexPatternSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnRegexPatternSet_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnRegexPatternSet",
+		"monocdk.aws_wafv2.CfnRegexPatternSet",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -940,7 +1048,7 @@ func CfnRegexPatternSet_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_wafv2.CfnRegexPatternSet",
+		"monocdk.aws_wafv2.CfnRegexPatternSet",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1112,6 +1220,56 @@ func (c *jsiiProxy_CfnRegexPatternSet) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnRegexPatternSet) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnRegexPatternSet) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnRegexPatternSet) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnRegexPatternSet) OverrideLogicalId(newLogicalId *string) {
@@ -1119,6 +1277,23 @@ func (c *jsiiProxy_CfnRegexPatternSet) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnRegexPatternSet) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1153,6 +1328,19 @@ func (c *jsiiProxy_CfnRegexPatternSet) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnRegexPatternSet) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -1163,6 +1351,26 @@ func (c *jsiiProxy_CfnRegexPatternSet) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnRegexPatternSet) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1198,19 +1406,24 @@ type CfnRuleGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	AttrArn() *string
+	AttrAvailableLabels() awscdk.IResolvable
+	AttrConsumedLabels() awscdk.IResolvable
 	AttrId() *string
+	AttrLabelNamespace() *string
 	Capacity() *float64
 	SetCapacity(val *float64)
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
 	CreationStack() *[]*string
+	CustomResponseBodies() interface{}
+	SetCustomResponseBodies(val interface{})
 	Description() *string
 	SetDescription(val *string)
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Rules() interface{}
 	SetRules(val interface{})
@@ -1231,10 +1444,16 @@ type CfnRuleGroup interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1254,11 +1473,41 @@ func (j *jsiiProxy_CfnRuleGroup) AttrArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRuleGroup) AttrAvailableLabels() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrAvailableLabels",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRuleGroup) AttrConsumedLabels() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrConsumedLabels",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRuleGroup) AttrId() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRuleGroup) AttrLabelNamespace() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLabelNamespace",
 		&returns,
 	)
 	return returns
@@ -1314,6 +1563,16 @@ func (j *jsiiProxy_CfnRuleGroup) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnRuleGroup) CustomResponseBodies() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"customResponseBodies",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnRuleGroup) Description() *string {
 	var returns *string
 	_jsii_.Get(
@@ -1344,8 +1603,8 @@ func (j *jsiiProxy_CfnRuleGroup) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRuleGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnRuleGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1426,13 +1685,13 @@ func (j *jsiiProxy_CfnRuleGroup) VisibilityConfig() interface{} {
 
 
 // Create a new `AWS::WAFv2::RuleGroup`.
-func NewCfnRuleGroup(scope constructs.Construct, id *string, props *CfnRuleGroupProps) CfnRuleGroup {
+func NewCfnRuleGroup(scope awscdk.Construct, id *string, props *CfnRuleGroupProps) CfnRuleGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnRuleGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_wafv2.CfnRuleGroup",
+		"monocdk.aws_wafv2.CfnRuleGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1441,11 +1700,11 @@ func NewCfnRuleGroup(scope constructs.Construct, id *string, props *CfnRuleGroup
 }
 
 // Create a new `AWS::WAFv2::RuleGroup`.
-func NewCfnRuleGroup_Override(c CfnRuleGroup, scope constructs.Construct, id *string, props *CfnRuleGroupProps) {
+func NewCfnRuleGroup_Override(c CfnRuleGroup, scope awscdk.Construct, id *string, props *CfnRuleGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_wafv2.CfnRuleGroup",
+		"monocdk.aws_wafv2.CfnRuleGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1455,6 +1714,14 @@ func (j *jsiiProxy_CfnRuleGroup) SetCapacity(val *float64) {
 	_jsii_.Set(
 		j,
 		"capacity",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnRuleGroup) SetCustomResponseBodies(val interface{}) {
+	_jsii_.Set(
+		j,
+		"customResponseBodies",
 		val,
 	)
 }
@@ -1512,7 +1779,7 @@ func CfnRuleGroup_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnRuleGroup",
+		"monocdk.aws_wafv2.CfnRuleGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1529,7 +1796,7 @@ func CfnRuleGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnRuleGroup",
+		"monocdk.aws_wafv2.CfnRuleGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1538,17 +1805,15 @@ func CfnRuleGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnRuleGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnRuleGroup",
+		"monocdk.aws_wafv2.CfnRuleGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1561,7 +1826,7 @@ func CfnRuleGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_wafv2.CfnRuleGroup",
+		"monocdk.aws_wafv2.CfnRuleGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1733,6 +1998,56 @@ func (c *jsiiProxy_CfnRuleGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnRuleGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnRuleGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnRuleGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnRuleGroup) OverrideLogicalId(newLogicalId *string) {
@@ -1740,6 +2055,23 @@ func (c *jsiiProxy_CfnRuleGroup) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnRuleGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1774,6 +2106,19 @@ func (c *jsiiProxy_CfnRuleGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnRuleGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -1791,6 +2136,26 @@ func (c *jsiiProxy_CfnRuleGroup) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnRuleGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 func (c *jsiiProxy_CfnRuleGroup) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
@@ -1800,13 +2165,8 @@ func (c *jsiiProxy_CfnRuleGroup) ValidateProperties(_properties interface{}) {
 	)
 }
 
-type CfnRuleGroup_AndStatementOneProperty struct {
-	// `CfnRuleGroup.AndStatementOneProperty.Statements`.
-	Statements interface{} `json:"statements"`
-}
-
-type CfnRuleGroup_AndStatementTwoProperty struct {
-	// `CfnRuleGroup.AndStatementTwoProperty.Statements`.
+type CfnRuleGroup_AndStatementProperty struct {
+	// `CfnRuleGroup.AndStatementProperty.Statements`.
 	Statements interface{} `json:"statements"`
 }
 
@@ -1823,11 +2183,20 @@ type CfnRuleGroup_ByteMatchStatementProperty struct {
 	SearchStringBase64 *string `json:"searchStringBase64"`
 }
 
+type CfnRuleGroup_CustomResponseBodyProperty struct {
+	// `CfnRuleGroup.CustomResponseBodyProperty.Content`.
+	Content *string `json:"content"`
+	// `CfnRuleGroup.CustomResponseBodyProperty.ContentType`.
+	ContentType *string `json:"contentType"`
+}
+
 type CfnRuleGroup_FieldToMatchProperty struct {
 	// `CfnRuleGroup.FieldToMatchProperty.AllQueryArguments`.
 	AllQueryArguments interface{} `json:"allQueryArguments"`
 	// `CfnRuleGroup.FieldToMatchProperty.Body`.
 	Body interface{} `json:"body"`
+	// `CfnRuleGroup.FieldToMatchProperty.JsonBody`.
+	JsonBody interface{} `json:"jsonBody"`
 	// `CfnRuleGroup.FieldToMatchProperty.Method`.
 	Method interface{} `json:"method"`
 	// `CfnRuleGroup.FieldToMatchProperty.QueryString`.
@@ -1930,45 +2299,57 @@ func (j *jsiiProxy_CfnRuleGroup_IPSetReferenceStatementProperty) IpSetForwardedI
 	return returns
 }
 
-type CfnRuleGroup_NotStatementOneProperty struct {
-	// `CfnRuleGroup.NotStatementOneProperty.Statement`.
+type CfnRuleGroup_JsonBodyProperty struct {
+	// `CfnRuleGroup.JsonBodyProperty.MatchPattern`.
+	MatchPattern interface{} `json:"matchPattern"`
+	// `CfnRuleGroup.JsonBodyProperty.MatchScope`.
+	MatchScope *string `json:"matchScope"`
+	// `CfnRuleGroup.JsonBodyProperty.InvalidFallbackBehavior`.
+	InvalidFallbackBehavior *string `json:"invalidFallbackBehavior"`
+}
+
+type CfnRuleGroup_JsonMatchPatternProperty struct {
+	// `CfnRuleGroup.JsonMatchPatternProperty.All`.
+	All interface{} `json:"all"`
+	// `CfnRuleGroup.JsonMatchPatternProperty.IncludedPaths`.
+	IncludedPaths *[]*string `json:"includedPaths"`
+}
+
+type CfnRuleGroup_LabelMatchStatementProperty struct {
+	// `CfnRuleGroup.LabelMatchStatementProperty.Key`.
+	Key *string `json:"key"`
+	// `CfnRuleGroup.LabelMatchStatementProperty.Scope`.
+	Scope *string `json:"scope"`
+}
+
+type CfnRuleGroup_LabelProperty struct {
+	// `CfnRuleGroup.LabelProperty.Name`.
+	Name *string `json:"name"`
+}
+
+type CfnRuleGroup_LabelSummaryProperty struct {
+	// `CfnRuleGroup.LabelSummaryProperty.Name`.
+	Name *string `json:"name"`
+}
+
+type CfnRuleGroup_NotStatementProperty struct {
+	// `CfnRuleGroup.NotStatementProperty.Statement`.
 	Statement interface{} `json:"statement"`
 }
 
-type CfnRuleGroup_NotStatementTwoProperty struct {
-	// `CfnRuleGroup.NotStatementTwoProperty.Statement`.
-	Statement interface{} `json:"statement"`
-}
-
-type CfnRuleGroup_OrStatementOneProperty struct {
-	// `CfnRuleGroup.OrStatementOneProperty.Statements`.
+type CfnRuleGroup_OrStatementProperty struct {
+	// `CfnRuleGroup.OrStatementProperty.Statements`.
 	Statements interface{} `json:"statements"`
 }
 
-type CfnRuleGroup_OrStatementTwoProperty struct {
-	// `CfnRuleGroup.OrStatementTwoProperty.Statements`.
-	Statements interface{} `json:"statements"`
-}
-
-type CfnRuleGroup_RateBasedStatementOneProperty struct {
-	// `CfnRuleGroup.RateBasedStatementOneProperty.AggregateKeyType`.
+type CfnRuleGroup_RateBasedStatementProperty struct {
+	// `CfnRuleGroup.RateBasedStatementProperty.AggregateKeyType`.
 	AggregateKeyType *string `json:"aggregateKeyType"`
-	// `CfnRuleGroup.RateBasedStatementOneProperty.Limit`.
+	// `CfnRuleGroup.RateBasedStatementProperty.Limit`.
 	Limit *float64 `json:"limit"`
-	// `CfnRuleGroup.RateBasedStatementOneProperty.ForwardedIPConfig`.
+	// `CfnRuleGroup.RateBasedStatementProperty.ForwardedIPConfig`.
 	ForwardedIpConfig interface{} `json:"forwardedIpConfig"`
-	// `CfnRuleGroup.RateBasedStatementOneProperty.ScopeDownStatement`.
-	ScopeDownStatement interface{} `json:"scopeDownStatement"`
-}
-
-type CfnRuleGroup_RateBasedStatementTwoProperty struct {
-	// `CfnRuleGroup.RateBasedStatementTwoProperty.AggregateKeyType`.
-	AggregateKeyType *string `json:"aggregateKeyType"`
-	// `CfnRuleGroup.RateBasedStatementTwoProperty.Limit`.
-	Limit *float64 `json:"limit"`
-	// `CfnRuleGroup.RateBasedStatementTwoProperty.ForwardedIPConfig`.
-	ForwardedIpConfig interface{} `json:"forwardedIpConfig"`
-	// `CfnRuleGroup.RateBasedStatementTwoProperty.ScopeDownStatement`.
+	// `CfnRuleGroup.RateBasedStatementProperty.ScopeDownStatement`.
 	ScopeDownStatement interface{} `json:"scopeDownStatement"`
 }
 
@@ -2001,6 +2382,8 @@ type CfnRuleGroup_RuleProperty struct {
 	VisibilityConfig interface{} `json:"visibilityConfig"`
 	// `CfnRuleGroup.RuleProperty.Action`.
 	Action interface{} `json:"action"`
+	// `CfnRuleGroup.RuleProperty.RuleLabels`.
+	RuleLabels interface{} `json:"ruleLabels"`
 }
 
 type CfnRuleGroup_SizeConstraintStatementProperty struct {
@@ -2021,70 +2404,30 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 	TextTransformations interface{} `json:"textTransformations"`
 }
 
-type CfnRuleGroup_StatementOneProperty struct {
-	// `CfnRuleGroup.StatementOneProperty.AndStatement`.
+type CfnRuleGroup_StatementProperty struct {
+	// `CfnRuleGroup.StatementProperty.AndStatement`.
 	AndStatement interface{} `json:"andStatement"`
-	// `CfnRuleGroup.StatementOneProperty.ByteMatchStatement`.
+	// `CfnRuleGroup.StatementProperty.ByteMatchStatement`.
 	ByteMatchStatement interface{} `json:"byteMatchStatement"`
-	// `CfnRuleGroup.StatementOneProperty.GeoMatchStatement`.
+	// `CfnRuleGroup.StatementProperty.GeoMatchStatement`.
 	GeoMatchStatement interface{} `json:"geoMatchStatement"`
-	// `CfnRuleGroup.StatementOneProperty.IPSetReferenceStatement`.
+	// `CfnRuleGroup.StatementProperty.IPSetReferenceStatement`.
 	IpSetReferenceStatement interface{} `json:"ipSetReferenceStatement"`
-	// `CfnRuleGroup.StatementOneProperty.NotStatement`.
+	// `CfnRuleGroup.StatementProperty.LabelMatchStatement`.
+	LabelMatchStatement interface{} `json:"labelMatchStatement"`
+	// `CfnRuleGroup.StatementProperty.NotStatement`.
 	NotStatement interface{} `json:"notStatement"`
-	// `CfnRuleGroup.StatementOneProperty.OrStatement`.
+	// `CfnRuleGroup.StatementProperty.OrStatement`.
 	OrStatement interface{} `json:"orStatement"`
-	// `CfnRuleGroup.StatementOneProperty.RateBasedStatement`.
+	// `CfnRuleGroup.StatementProperty.RateBasedStatement`.
 	RateBasedStatement interface{} `json:"rateBasedStatement"`
-	// `CfnRuleGroup.StatementOneProperty.RegexPatternSetReferenceStatement`.
+	// `CfnRuleGroup.StatementProperty.RegexPatternSetReferenceStatement`.
 	RegexPatternSetReferenceStatement interface{} `json:"regexPatternSetReferenceStatement"`
-	// `CfnRuleGroup.StatementOneProperty.SizeConstraintStatement`.
+	// `CfnRuleGroup.StatementProperty.SizeConstraintStatement`.
 	SizeConstraintStatement interface{} `json:"sizeConstraintStatement"`
-	// `CfnRuleGroup.StatementOneProperty.SqliMatchStatement`.
+	// `CfnRuleGroup.StatementProperty.SqliMatchStatement`.
 	SqliMatchStatement interface{} `json:"sqliMatchStatement"`
-	// `CfnRuleGroup.StatementOneProperty.XssMatchStatement`.
-	XssMatchStatement interface{} `json:"xssMatchStatement"`
-}
-
-type CfnRuleGroup_StatementThreeProperty struct {
-	// `CfnRuleGroup.StatementThreeProperty.ByteMatchStatement`.
-	ByteMatchStatement interface{} `json:"byteMatchStatement"`
-	// `CfnRuleGroup.StatementThreeProperty.GeoMatchStatement`.
-	GeoMatchStatement interface{} `json:"geoMatchStatement"`
-	// `CfnRuleGroup.StatementThreeProperty.IPSetReferenceStatement`.
-	IpSetReferenceStatement interface{} `json:"ipSetReferenceStatement"`
-	// `CfnRuleGroup.StatementThreeProperty.RegexPatternSetReferenceStatement`.
-	RegexPatternSetReferenceStatement interface{} `json:"regexPatternSetReferenceStatement"`
-	// `CfnRuleGroup.StatementThreeProperty.SizeConstraintStatement`.
-	SizeConstraintStatement interface{} `json:"sizeConstraintStatement"`
-	// `CfnRuleGroup.StatementThreeProperty.SqliMatchStatement`.
-	SqliMatchStatement interface{} `json:"sqliMatchStatement"`
-	// `CfnRuleGroup.StatementThreeProperty.XssMatchStatement`.
-	XssMatchStatement interface{} `json:"xssMatchStatement"`
-}
-
-type CfnRuleGroup_StatementTwoProperty struct {
-	// `CfnRuleGroup.StatementTwoProperty.AndStatement`.
-	AndStatement interface{} `json:"andStatement"`
-	// `CfnRuleGroup.StatementTwoProperty.ByteMatchStatement`.
-	ByteMatchStatement interface{} `json:"byteMatchStatement"`
-	// `CfnRuleGroup.StatementTwoProperty.GeoMatchStatement`.
-	GeoMatchStatement interface{} `json:"geoMatchStatement"`
-	// `CfnRuleGroup.StatementTwoProperty.IPSetReferenceStatement`.
-	IpSetReferenceStatement interface{} `json:"ipSetReferenceStatement"`
-	// `CfnRuleGroup.StatementTwoProperty.NotStatement`.
-	NotStatement interface{} `json:"notStatement"`
-	// `CfnRuleGroup.StatementTwoProperty.OrStatement`.
-	OrStatement interface{} `json:"orStatement"`
-	// `CfnRuleGroup.StatementTwoProperty.RateBasedStatement`.
-	RateBasedStatement interface{} `json:"rateBasedStatement"`
-	// `CfnRuleGroup.StatementTwoProperty.RegexPatternSetReferenceStatement`.
-	RegexPatternSetReferenceStatement interface{} `json:"regexPatternSetReferenceStatement"`
-	// `CfnRuleGroup.StatementTwoProperty.SizeConstraintStatement`.
-	SizeConstraintStatement interface{} `json:"sizeConstraintStatement"`
-	// `CfnRuleGroup.StatementTwoProperty.SqliMatchStatement`.
-	SqliMatchStatement interface{} `json:"sqliMatchStatement"`
-	// `CfnRuleGroup.StatementTwoProperty.XssMatchStatement`.
+	// `CfnRuleGroup.StatementProperty.XssMatchStatement`.
 	XssMatchStatement interface{} `json:"xssMatchStatement"`
 }
 
@@ -2119,6 +2462,8 @@ type CfnRuleGroupProps struct {
 	Scope *string `json:"scope"`
 	// `AWS::WAFv2::RuleGroup.VisibilityConfig`.
 	VisibilityConfig interface{} `json:"visibilityConfig"`
+	// `AWS::WAFv2::RuleGroup.CustomResponseBodies`.
+	CustomResponseBodies interface{} `json:"customResponseBodies"`
 	// `AWS::WAFv2::RuleGroup.Description`.
 	Description *string `json:"description"`
 	// `AWS::WAFv2::RuleGroup.Name`.
@@ -2136,10 +2481,13 @@ type CfnWebACL interface {
 	AttrArn() *string
 	AttrCapacity() *float64
 	AttrId() *string
+	AttrLabelNamespace() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
 	CreationStack() *[]*string
+	CustomResponseBodies() interface{}
+	SetCustomResponseBodies(val interface{})
 	DefaultAction() interface{}
 	SetDefaultAction(val interface{})
 	Description() *string
@@ -2147,7 +2495,7 @@ type CfnWebACL interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Rules() interface{}
 	SetRules(val interface{})
@@ -2168,10 +2516,16 @@ type CfnWebACL interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2206,6 +2560,16 @@ func (j *jsiiProxy_CfnWebACL) AttrId() *string {
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWebACL) AttrLabelNamespace() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLabelNamespace",
 		&returns,
 	)
 	return returns
@@ -2251,6 +2615,16 @@ func (j *jsiiProxy_CfnWebACL) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnWebACL) CustomResponseBodies() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"customResponseBodies",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnWebACL) DefaultAction() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -2291,8 +2665,8 @@ func (j *jsiiProxy_CfnWebACL) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWebACL) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnWebACL) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2373,13 +2747,13 @@ func (j *jsiiProxy_CfnWebACL) VisibilityConfig() interface{} {
 
 
 // Create a new `AWS::WAFv2::WebACL`.
-func NewCfnWebACL(scope constructs.Construct, id *string, props *CfnWebACLProps) CfnWebACL {
+func NewCfnWebACL(scope awscdk.Construct, id *string, props *CfnWebACLProps) CfnWebACL {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnWebACL{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_wafv2.CfnWebACL",
+		"monocdk.aws_wafv2.CfnWebACL",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2388,13 +2762,21 @@ func NewCfnWebACL(scope constructs.Construct, id *string, props *CfnWebACLProps)
 }
 
 // Create a new `AWS::WAFv2::WebACL`.
-func NewCfnWebACL_Override(c CfnWebACL, scope constructs.Construct, id *string, props *CfnWebACLProps) {
+func NewCfnWebACL_Override(c CfnWebACL, scope awscdk.Construct, id *string, props *CfnWebACLProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_wafv2.CfnWebACL",
+		"monocdk.aws_wafv2.CfnWebACL",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnWebACL) SetCustomResponseBodies(val interface{}) {
+	_jsii_.Set(
+		j,
+		"customResponseBodies",
+		val,
 	)
 }
 
@@ -2459,7 +2841,7 @@ func CfnWebACL_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnWebACL",
+		"monocdk.aws_wafv2.CfnWebACL",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2476,7 +2858,7 @@ func CfnWebACL_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnWebACL",
+		"monocdk.aws_wafv2.CfnWebACL",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2485,17 +2867,15 @@ func CfnWebACL_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnWebACL_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnWebACL",
+		"monocdk.aws_wafv2.CfnWebACL",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2508,7 +2888,7 @@ func CfnWebACL_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_wafv2.CfnWebACL",
+		"monocdk.aws_wafv2.CfnWebACL",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2680,6 +3060,56 @@ func (c *jsiiProxy_CfnWebACL) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnWebACL) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnWebACL) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnWebACL) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnWebACL) OverrideLogicalId(newLogicalId *string) {
@@ -2687,6 +3117,23 @@ func (c *jsiiProxy_CfnWebACL) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnWebACL) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2721,6 +3168,19 @@ func (c *jsiiProxy_CfnWebACL) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnWebACL) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -2738,6 +3198,26 @@ func (c *jsiiProxy_CfnWebACL) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnWebACL) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Experimental.
 func (c *jsiiProxy_CfnWebACL) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
@@ -2747,14 +3227,19 @@ func (c *jsiiProxy_CfnWebACL) ValidateProperties(_properties interface{}) {
 	)
 }
 
-type CfnWebACL_AndStatementOneProperty struct {
-	// `CfnWebACL.AndStatementOneProperty.Statements`.
+type CfnWebACL_AllowActionProperty struct {
+	// `CfnWebACL.AllowActionProperty.CustomRequestHandling`.
+	CustomRequestHandling interface{} `json:"customRequestHandling"`
+}
+
+type CfnWebACL_AndStatementProperty struct {
+	// `CfnWebACL.AndStatementProperty.Statements`.
 	Statements interface{} `json:"statements"`
 }
 
-type CfnWebACL_AndStatementTwoProperty struct {
-	// `CfnWebACL.AndStatementTwoProperty.Statements`.
-	Statements interface{} `json:"statements"`
+type CfnWebACL_BlockActionProperty struct {
+	// `CfnWebACL.BlockActionProperty.CustomResponse`.
+	CustomResponse interface{} `json:"customResponse"`
 }
 
 type CfnWebACL_ByteMatchStatementProperty struct {
@@ -2768,6 +3253,39 @@ type CfnWebACL_ByteMatchStatementProperty struct {
 	SearchString *string `json:"searchString"`
 	// `CfnWebACL.ByteMatchStatementProperty.SearchStringBase64`.
 	SearchStringBase64 *string `json:"searchStringBase64"`
+}
+
+type CfnWebACL_CountActionProperty struct {
+	// `CfnWebACL.CountActionProperty.CustomRequestHandling`.
+	CustomRequestHandling interface{} `json:"customRequestHandling"`
+}
+
+type CfnWebACL_CustomHTTPHeaderProperty struct {
+	// `CfnWebACL.CustomHTTPHeaderProperty.Name`.
+	Name *string `json:"name"`
+	// `CfnWebACL.CustomHTTPHeaderProperty.Value`.
+	Value *string `json:"value"`
+}
+
+type CfnWebACL_CustomRequestHandlingProperty struct {
+	// `CfnWebACL.CustomRequestHandlingProperty.InsertHeaders`.
+	InsertHeaders interface{} `json:"insertHeaders"`
+}
+
+type CfnWebACL_CustomResponseBodyProperty struct {
+	// `CfnWebACL.CustomResponseBodyProperty.Content`.
+	Content *string `json:"content"`
+	// `CfnWebACL.CustomResponseBodyProperty.ContentType`.
+	ContentType *string `json:"contentType"`
+}
+
+type CfnWebACL_CustomResponseProperty struct {
+	// `CfnWebACL.CustomResponseProperty.ResponseCode`.
+	ResponseCode *float64 `json:"responseCode"`
+	// `CfnWebACL.CustomResponseProperty.CustomResponseBodyKey`.
+	CustomResponseBodyKey *string `json:"customResponseBodyKey"`
+	// `CfnWebACL.CustomResponseProperty.ResponseHeaders`.
+	ResponseHeaders interface{} `json:"responseHeaders"`
 }
 
 type CfnWebACL_DefaultActionProperty struct {
@@ -2787,6 +3305,8 @@ type CfnWebACL_FieldToMatchProperty struct {
 	AllQueryArguments interface{} `json:"allQueryArguments"`
 	// `CfnWebACL.FieldToMatchProperty.Body`.
 	Body interface{} `json:"body"`
+	// `CfnWebACL.FieldToMatchProperty.JsonBody`.
+	JsonBody interface{} `json:"jsonBody"`
 	// `CfnWebACL.FieldToMatchProperty.Method`.
 	Method interface{} `json:"method"`
 	// `CfnWebACL.FieldToMatchProperty.QueryString`.
@@ -2889,6 +3409,34 @@ func (j *jsiiProxy_CfnWebACL_IPSetReferenceStatementProperty) IpSetForwardedIpCo
 	return returns
 }
 
+type CfnWebACL_JsonBodyProperty struct {
+	// `CfnWebACL.JsonBodyProperty.MatchPattern`.
+	MatchPattern interface{} `json:"matchPattern"`
+	// `CfnWebACL.JsonBodyProperty.MatchScope`.
+	MatchScope *string `json:"matchScope"`
+	// `CfnWebACL.JsonBodyProperty.InvalidFallbackBehavior`.
+	InvalidFallbackBehavior *string `json:"invalidFallbackBehavior"`
+}
+
+type CfnWebACL_JsonMatchPatternProperty struct {
+	// `CfnWebACL.JsonMatchPatternProperty.All`.
+	All interface{} `json:"all"`
+	// `CfnWebACL.JsonMatchPatternProperty.IncludedPaths`.
+	IncludedPaths *[]*string `json:"includedPaths"`
+}
+
+type CfnWebACL_LabelMatchStatementProperty struct {
+	// `CfnWebACL.LabelMatchStatementProperty.Key`.
+	Key *string `json:"key"`
+	// `CfnWebACL.LabelMatchStatementProperty.Scope`.
+	Scope *string `json:"scope"`
+}
+
+type CfnWebACL_LabelProperty struct {
+	// `CfnWebACL.LabelProperty.Name`.
+	Name *string `json:"name"`
+}
+
 type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 	// `CfnWebACL.ManagedRuleGroupStatementProperty.Name`.
 	Name *string `json:"name"`
@@ -2896,25 +3444,17 @@ type CfnWebACL_ManagedRuleGroupStatementProperty struct {
 	VendorName *string `json:"vendorName"`
 	// `CfnWebACL.ManagedRuleGroupStatementProperty.ExcludedRules`.
 	ExcludedRules interface{} `json:"excludedRules"`
+	// `CfnWebACL.ManagedRuleGroupStatementProperty.ScopeDownStatement`.
+	ScopeDownStatement interface{} `json:"scopeDownStatement"`
 }
 
-type CfnWebACL_NotStatementOneProperty struct {
-	// `CfnWebACL.NotStatementOneProperty.Statement`.
+type CfnWebACL_NotStatementProperty struct {
+	// `CfnWebACL.NotStatementProperty.Statement`.
 	Statement interface{} `json:"statement"`
 }
 
-type CfnWebACL_NotStatementTwoProperty struct {
-	// `CfnWebACL.NotStatementTwoProperty.Statement`.
-	Statement interface{} `json:"statement"`
-}
-
-type CfnWebACL_OrStatementOneProperty struct {
-	// `CfnWebACL.OrStatementOneProperty.Statements`.
-	Statements interface{} `json:"statements"`
-}
-
-type CfnWebACL_OrStatementTwoProperty struct {
-	// `CfnWebACL.OrStatementTwoProperty.Statements`.
+type CfnWebACL_OrStatementProperty struct {
+	// `CfnWebACL.OrStatementProperty.Statements`.
 	Statements interface{} `json:"statements"`
 }
 
@@ -2925,25 +3465,14 @@ type CfnWebACL_OverrideActionProperty struct {
 	None interface{} `json:"none"`
 }
 
-type CfnWebACL_RateBasedStatementOneProperty struct {
-	// `CfnWebACL.RateBasedStatementOneProperty.AggregateKeyType`.
+type CfnWebACL_RateBasedStatementProperty struct {
+	// `CfnWebACL.RateBasedStatementProperty.AggregateKeyType`.
 	AggregateKeyType *string `json:"aggregateKeyType"`
-	// `CfnWebACL.RateBasedStatementOneProperty.Limit`.
+	// `CfnWebACL.RateBasedStatementProperty.Limit`.
 	Limit *float64 `json:"limit"`
-	// `CfnWebACL.RateBasedStatementOneProperty.ForwardedIPConfig`.
+	// `CfnWebACL.RateBasedStatementProperty.ForwardedIPConfig`.
 	ForwardedIpConfig interface{} `json:"forwardedIpConfig"`
-	// `CfnWebACL.RateBasedStatementOneProperty.ScopeDownStatement`.
-	ScopeDownStatement interface{} `json:"scopeDownStatement"`
-}
-
-type CfnWebACL_RateBasedStatementTwoProperty struct {
-	// `CfnWebACL.RateBasedStatementTwoProperty.AggregateKeyType`.
-	AggregateKeyType *string `json:"aggregateKeyType"`
-	// `CfnWebACL.RateBasedStatementTwoProperty.Limit`.
-	Limit *float64 `json:"limit"`
-	// `CfnWebACL.RateBasedStatementTwoProperty.ForwardedIPConfig`.
-	ForwardedIpConfig interface{} `json:"forwardedIpConfig"`
-	// `CfnWebACL.RateBasedStatementTwoProperty.ScopeDownStatement`.
+	// `CfnWebACL.RateBasedStatementProperty.ScopeDownStatement`.
 	ScopeDownStatement interface{} `json:"scopeDownStatement"`
 }
 
@@ -2985,6 +3514,8 @@ type CfnWebACL_RuleProperty struct {
 	Action interface{} `json:"action"`
 	// `CfnWebACL.RuleProperty.OverrideAction`.
 	OverrideAction interface{} `json:"overrideAction"`
+	// `CfnWebACL.RuleProperty.RuleLabels`.
+	RuleLabels interface{} `json:"ruleLabels"`
 }
 
 type CfnWebACL_SizeConstraintStatementProperty struct {
@@ -3005,82 +3536,34 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 	TextTransformations interface{} `json:"textTransformations"`
 }
 
-type CfnWebACL_StatementOneProperty struct {
-	// `CfnWebACL.StatementOneProperty.AndStatement`.
+type CfnWebACL_StatementProperty struct {
+	// `CfnWebACL.StatementProperty.AndStatement`.
 	AndStatement interface{} `json:"andStatement"`
-	// `CfnWebACL.StatementOneProperty.ByteMatchStatement`.
+	// `CfnWebACL.StatementProperty.ByteMatchStatement`.
 	ByteMatchStatement interface{} `json:"byteMatchStatement"`
-	// `CfnWebACL.StatementOneProperty.GeoMatchStatement`.
+	// `CfnWebACL.StatementProperty.GeoMatchStatement`.
 	GeoMatchStatement interface{} `json:"geoMatchStatement"`
-	// `CfnWebACL.StatementOneProperty.IPSetReferenceStatement`.
+	// `CfnWebACL.StatementProperty.IPSetReferenceStatement`.
 	IpSetReferenceStatement interface{} `json:"ipSetReferenceStatement"`
-	// `CfnWebACL.StatementOneProperty.ManagedRuleGroupStatement`.
+	// `CfnWebACL.StatementProperty.LabelMatchStatement`.
+	LabelMatchStatement interface{} `json:"labelMatchStatement"`
+	// `CfnWebACL.StatementProperty.ManagedRuleGroupStatement`.
 	ManagedRuleGroupStatement interface{} `json:"managedRuleGroupStatement"`
-	// `CfnWebACL.StatementOneProperty.NotStatement`.
+	// `CfnWebACL.StatementProperty.NotStatement`.
 	NotStatement interface{} `json:"notStatement"`
-	// `CfnWebACL.StatementOneProperty.OrStatement`.
+	// `CfnWebACL.StatementProperty.OrStatement`.
 	OrStatement interface{} `json:"orStatement"`
-	// `CfnWebACL.StatementOneProperty.RateBasedStatement`.
+	// `CfnWebACL.StatementProperty.RateBasedStatement`.
 	RateBasedStatement interface{} `json:"rateBasedStatement"`
-	// `CfnWebACL.StatementOneProperty.RegexPatternSetReferenceStatement`.
+	// `CfnWebACL.StatementProperty.RegexPatternSetReferenceStatement`.
 	RegexPatternSetReferenceStatement interface{} `json:"regexPatternSetReferenceStatement"`
-	// `CfnWebACL.StatementOneProperty.RuleGroupReferenceStatement`.
+	// `CfnWebACL.StatementProperty.RuleGroupReferenceStatement`.
 	RuleGroupReferenceStatement interface{} `json:"ruleGroupReferenceStatement"`
-	// `CfnWebACL.StatementOneProperty.SizeConstraintStatement`.
+	// `CfnWebACL.StatementProperty.SizeConstraintStatement`.
 	SizeConstraintStatement interface{} `json:"sizeConstraintStatement"`
-	// `CfnWebACL.StatementOneProperty.SqliMatchStatement`.
+	// `CfnWebACL.StatementProperty.SqliMatchStatement`.
 	SqliMatchStatement interface{} `json:"sqliMatchStatement"`
-	// `CfnWebACL.StatementOneProperty.XssMatchStatement`.
-	XssMatchStatement interface{} `json:"xssMatchStatement"`
-}
-
-type CfnWebACL_StatementThreeProperty struct {
-	// `CfnWebACL.StatementThreeProperty.ByteMatchStatement`.
-	ByteMatchStatement interface{} `json:"byteMatchStatement"`
-	// `CfnWebACL.StatementThreeProperty.GeoMatchStatement`.
-	GeoMatchStatement interface{} `json:"geoMatchStatement"`
-	// `CfnWebACL.StatementThreeProperty.IPSetReferenceStatement`.
-	IpSetReferenceStatement interface{} `json:"ipSetReferenceStatement"`
-	// `CfnWebACL.StatementThreeProperty.ManagedRuleGroupStatement`.
-	ManagedRuleGroupStatement interface{} `json:"managedRuleGroupStatement"`
-	// `CfnWebACL.StatementThreeProperty.RegexPatternSetReferenceStatement`.
-	RegexPatternSetReferenceStatement interface{} `json:"regexPatternSetReferenceStatement"`
-	// `CfnWebACL.StatementThreeProperty.RuleGroupReferenceStatement`.
-	RuleGroupReferenceStatement interface{} `json:"ruleGroupReferenceStatement"`
-	// `CfnWebACL.StatementThreeProperty.SizeConstraintStatement`.
-	SizeConstraintStatement interface{} `json:"sizeConstraintStatement"`
-	// `CfnWebACL.StatementThreeProperty.SqliMatchStatement`.
-	SqliMatchStatement interface{} `json:"sqliMatchStatement"`
-	// `CfnWebACL.StatementThreeProperty.XssMatchStatement`.
-	XssMatchStatement interface{} `json:"xssMatchStatement"`
-}
-
-type CfnWebACL_StatementTwoProperty struct {
-	// `CfnWebACL.StatementTwoProperty.AndStatement`.
-	AndStatement interface{} `json:"andStatement"`
-	// `CfnWebACL.StatementTwoProperty.ByteMatchStatement`.
-	ByteMatchStatement interface{} `json:"byteMatchStatement"`
-	// `CfnWebACL.StatementTwoProperty.GeoMatchStatement`.
-	GeoMatchStatement interface{} `json:"geoMatchStatement"`
-	// `CfnWebACL.StatementTwoProperty.IPSetReferenceStatement`.
-	IpSetReferenceStatement interface{} `json:"ipSetReferenceStatement"`
-	// `CfnWebACL.StatementTwoProperty.ManagedRuleGroupStatement`.
-	ManagedRuleGroupStatement interface{} `json:"managedRuleGroupStatement"`
-	// `CfnWebACL.StatementTwoProperty.NotStatement`.
-	NotStatement interface{} `json:"notStatement"`
-	// `CfnWebACL.StatementTwoProperty.OrStatement`.
-	OrStatement interface{} `json:"orStatement"`
-	// `CfnWebACL.StatementTwoProperty.RateBasedStatement`.
-	RateBasedStatement interface{} `json:"rateBasedStatement"`
-	// `CfnWebACL.StatementTwoProperty.RegexPatternSetReferenceStatement`.
-	RegexPatternSetReferenceStatement interface{} `json:"regexPatternSetReferenceStatement"`
-	// `CfnWebACL.StatementTwoProperty.RuleGroupReferenceStatement`.
-	RuleGroupReferenceStatement interface{} `json:"ruleGroupReferenceStatement"`
-	// `CfnWebACL.StatementTwoProperty.SizeConstraintStatement`.
-	SizeConstraintStatement interface{} `json:"sizeConstraintStatement"`
-	// `CfnWebACL.StatementTwoProperty.SqliMatchStatement`.
-	SqliMatchStatement interface{} `json:"sqliMatchStatement"`
-	// `CfnWebACL.StatementTwoProperty.XssMatchStatement`.
+	// `CfnWebACL.StatementProperty.XssMatchStatement`.
 	XssMatchStatement interface{} `json:"xssMatchStatement"`
 }
 
@@ -3116,7 +3599,7 @@ type CfnWebACLAssociation interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	ResourceArn() *string
 	SetResourceArn(val *string)
@@ -3134,10 +3617,16 @@ type CfnWebACLAssociation interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -3197,8 +3686,8 @@ func (j *jsiiProxy_CfnWebACLAssociation) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWebACLAssociation) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnWebACLAssociation) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3259,13 +3748,13 @@ func (j *jsiiProxy_CfnWebACLAssociation) WebAclArn() *string {
 
 
 // Create a new `AWS::WAFv2::WebACLAssociation`.
-func NewCfnWebACLAssociation(scope constructs.Construct, id *string, props *CfnWebACLAssociationProps) CfnWebACLAssociation {
+func NewCfnWebACLAssociation(scope awscdk.Construct, id *string, props *CfnWebACLAssociationProps) CfnWebACLAssociation {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnWebACLAssociation{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_wafv2.CfnWebACLAssociation",
+		"monocdk.aws_wafv2.CfnWebACLAssociation",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3274,11 +3763,11 @@ func NewCfnWebACLAssociation(scope constructs.Construct, id *string, props *CfnW
 }
 
 // Create a new `AWS::WAFv2::WebACLAssociation`.
-func NewCfnWebACLAssociation_Override(c CfnWebACLAssociation, scope constructs.Construct, id *string, props *CfnWebACLAssociationProps) {
+func NewCfnWebACLAssociation_Override(c CfnWebACLAssociation, scope awscdk.Construct, id *string, props *CfnWebACLAssociationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_wafv2.CfnWebACLAssociation",
+		"monocdk.aws_wafv2.CfnWebACLAssociation",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3313,7 +3802,7 @@ func CfnWebACLAssociation_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnWebACLAssociation",
+		"monocdk.aws_wafv2.CfnWebACLAssociation",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3330,7 +3819,7 @@ func CfnWebACLAssociation_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnWebACLAssociation",
+		"monocdk.aws_wafv2.CfnWebACLAssociation",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3339,17 +3828,15 @@ func CfnWebACLAssociation_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnWebACLAssociation_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_wafv2.CfnWebACLAssociation",
+		"monocdk.aws_wafv2.CfnWebACLAssociation",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3362,7 +3849,7 @@ func CfnWebACLAssociation_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_wafv2.CfnWebACLAssociation",
+		"monocdk.aws_wafv2.CfnWebACLAssociation",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3534,6 +4021,56 @@ func (c *jsiiProxy_CfnWebACLAssociation) Inspect(inspector awscdk.TreeInspector)
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnWebACLAssociation) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnWebACLAssociation) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnWebACLAssociation) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnWebACLAssociation) OverrideLogicalId(newLogicalId *string) {
@@ -3541,6 +4078,23 @@ func (c *jsiiProxy_CfnWebACLAssociation) OverrideLogicalId(newLogicalId *string)
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnWebACLAssociation) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3575,6 +4129,19 @@ func (c *jsiiProxy_CfnWebACLAssociation) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnWebACLAssociation) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -3585,6 +4152,26 @@ func (c *jsiiProxy_CfnWebACLAssociation) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnWebACLAssociation) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3617,6 +4204,8 @@ type CfnWebACLProps struct {
 	Scope *string `json:"scope"`
 	// `AWS::WAFv2::WebACL.VisibilityConfig`.
 	VisibilityConfig interface{} `json:"visibilityConfig"`
+	// `AWS::WAFv2::WebACL.CustomResponseBodies`.
+	CustomResponseBodies interface{} `json:"customResponseBodies"`
 	// `AWS::WAFv2::WebACL.Description`.
 	Description *string `json:"description"`
 	// `AWS::WAFv2::WebACL.Name`.

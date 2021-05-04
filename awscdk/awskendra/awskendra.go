@@ -1,12 +1,12 @@
 package awskendra
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskendra/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awskendra/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::Kendra::DataSource`.
@@ -28,7 +28,7 @@ type CfnDataSource interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	RoleArn() *string
 	SetRoleArn(val *string)
@@ -49,10 +49,16 @@ type CfnDataSource interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -172,8 +178,8 @@ func (j *jsiiProxy_CfnDataSource) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDataSource) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDataSource) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -254,13 +260,13 @@ func (j *jsiiProxy_CfnDataSource) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Kendra::DataSource`.
-func NewCfnDataSource(scope constructs.Construct, id *string, props *CfnDataSourceProps) CfnDataSource {
+func NewCfnDataSource(scope awscdk.Construct, id *string, props *CfnDataSourceProps) CfnDataSource {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDataSource{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kendra.CfnDataSource",
+		"monocdk.aws_kendra.CfnDataSource",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -269,11 +275,11 @@ func NewCfnDataSource(scope constructs.Construct, id *string, props *CfnDataSour
 }
 
 // Create a new `AWS::Kendra::DataSource`.
-func NewCfnDataSource_Override(c CfnDataSource, scope constructs.Construct, id *string, props *CfnDataSourceProps) {
+func NewCfnDataSource_Override(c CfnDataSource, scope awscdk.Construct, id *string, props *CfnDataSourceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kendra.CfnDataSource",
+		"monocdk.aws_kendra.CfnDataSource",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -348,7 +354,7 @@ func CfnDataSource_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnDataSource",
+		"monocdk.aws_kendra.CfnDataSource",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -365,7 +371,7 @@ func CfnDataSource_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnDataSource",
+		"monocdk.aws_kendra.CfnDataSource",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -374,17 +380,15 @@ func CfnDataSource_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDataSource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnDataSource",
+		"monocdk.aws_kendra.CfnDataSource",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -397,7 +401,7 @@ func CfnDataSource_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_kendra.CfnDataSource",
+		"monocdk.aws_kendra.CfnDataSource",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -569,6 +573,56 @@ func (c *jsiiProxy_CfnDataSource) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnDataSource) OverrideLogicalId(newLogicalId *string) {
@@ -576,6 +630,23 @@ func (c *jsiiProxy_CfnDataSource) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -610,6 +681,19 @@ func (c *jsiiProxy_CfnDataSource) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -620,6 +704,26 @@ func (c *jsiiProxy_CfnDataSource) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -646,14 +750,9 @@ type CfnDataSource_AclConfigurationProperty struct {
 	AllowedGroupsColumnName *string `json:"allowedGroupsColumnName"`
 }
 
-type CfnDataSource_ChangeDetectingColumnsProperty struct {
-	// `CfnDataSource.ChangeDetectingColumnsProperty.ChangeDetectingColumns`.
-	ChangeDetectingColumns *[]*string `json:"changeDetectingColumns"`
-}
-
 type CfnDataSource_ColumnConfigurationProperty struct {
 	// `CfnDataSource.ColumnConfigurationProperty.ChangeDetectingColumns`.
-	ChangeDetectingColumns interface{} `json:"changeDetectingColumns"`
+	ChangeDetectingColumns *[]*string `json:"changeDetectingColumns"`
 	// `CfnDataSource.ColumnConfigurationProperty.DocumentDataColumnName`.
 	DocumentDataColumnName *string `json:"documentDataColumnName"`
 	// `CfnDataSource.ColumnConfigurationProperty.DocumentIdColumnName`.
@@ -671,11 +770,6 @@ type CfnDataSource_ConfluenceAttachmentConfigurationProperty struct {
 	CrawlAttachments interface{} `json:"crawlAttachments"`
 }
 
-type CfnDataSource_ConfluenceAttachmentFieldMappingsListProperty struct {
-	// `CfnDataSource.ConfluenceAttachmentFieldMappingsListProperty.ConfluenceAttachmentFieldMappingsList`.
-	ConfluenceAttachmentFieldMappingsList interface{} `json:"confluenceAttachmentFieldMappingsList"`
-}
-
 type CfnDataSource_ConfluenceAttachmentToIndexFieldMappingProperty struct {
 	// `CfnDataSource.ConfluenceAttachmentToIndexFieldMappingProperty.DataSourceFieldName`.
 	DataSourceFieldName *string `json:"dataSourceFieldName"`
@@ -688,11 +782,6 @@ type CfnDataSource_ConfluenceAttachmentToIndexFieldMappingProperty struct {
 type CfnDataSource_ConfluenceBlogConfigurationProperty struct {
 	// `CfnDataSource.ConfluenceBlogConfigurationProperty.BlogFieldMappings`.
 	BlogFieldMappings interface{} `json:"blogFieldMappings"`
-}
-
-type CfnDataSource_ConfluenceBlogFieldMappingsListProperty struct {
-	// `CfnDataSource.ConfluenceBlogFieldMappingsListProperty.ConfluenceBlogFieldMappingsList`.
-	ConfluenceBlogFieldMappingsList interface{} `json:"confluenceBlogFieldMappingsList"`
 }
 
 type CfnDataSource_ConfluenceBlogToIndexFieldMappingProperty struct {
@@ -716,9 +805,9 @@ type CfnDataSource_ConfluenceConfigurationProperty struct {
 	// `CfnDataSource.ConfluenceConfigurationProperty.BlogConfiguration`.
 	BlogConfiguration interface{} `json:"blogConfiguration"`
 	// `CfnDataSource.ConfluenceConfigurationProperty.ExclusionPatterns`.
-	ExclusionPatterns interface{} `json:"exclusionPatterns"`
+	ExclusionPatterns *[]*string `json:"exclusionPatterns"`
 	// `CfnDataSource.ConfluenceConfigurationProperty.InclusionPatterns`.
-	InclusionPatterns interface{} `json:"inclusionPatterns"`
+	InclusionPatterns *[]*string `json:"inclusionPatterns"`
 	// `CfnDataSource.ConfluenceConfigurationProperty.PageConfiguration`.
 	PageConfiguration interface{} `json:"pageConfiguration"`
 	// `CfnDataSource.ConfluenceConfigurationProperty.SpaceConfiguration`.
@@ -730,11 +819,6 @@ type CfnDataSource_ConfluenceConfigurationProperty struct {
 type CfnDataSource_ConfluencePageConfigurationProperty struct {
 	// `CfnDataSource.ConfluencePageConfigurationProperty.PageFieldMappings`.
 	PageFieldMappings interface{} `json:"pageFieldMappings"`
-}
-
-type CfnDataSource_ConfluencePageFieldMappingsListProperty struct {
-	// `CfnDataSource.ConfluencePageFieldMappingsListProperty.ConfluencePageFieldMappingsList`.
-	ConfluencePageFieldMappingsList interface{} `json:"confluencePageFieldMappingsList"`
 }
 
 type CfnDataSource_ConfluencePageToIndexFieldMappingProperty struct {
@@ -752,21 +836,11 @@ type CfnDataSource_ConfluenceSpaceConfigurationProperty struct {
 	// `CfnDataSource.ConfluenceSpaceConfigurationProperty.CrawlPersonalSpaces`.
 	CrawlPersonalSpaces interface{} `json:"crawlPersonalSpaces"`
 	// `CfnDataSource.ConfluenceSpaceConfigurationProperty.ExcludeSpaces`.
-	ExcludeSpaces interface{} `json:"excludeSpaces"`
+	ExcludeSpaces *[]*string `json:"excludeSpaces"`
 	// `CfnDataSource.ConfluenceSpaceConfigurationProperty.IncludeSpaces`.
-	IncludeSpaces interface{} `json:"includeSpaces"`
+	IncludeSpaces *[]*string `json:"includeSpaces"`
 	// `CfnDataSource.ConfluenceSpaceConfigurationProperty.SpaceFieldMappings`.
 	SpaceFieldMappings interface{} `json:"spaceFieldMappings"`
-}
-
-type CfnDataSource_ConfluenceSpaceFieldMappingsListProperty struct {
-	// `CfnDataSource.ConfluenceSpaceFieldMappingsListProperty.ConfluenceSpaceFieldMappingsList`.
-	ConfluenceSpaceFieldMappingsList interface{} `json:"confluenceSpaceFieldMappingsList"`
-}
-
-type CfnDataSource_ConfluenceSpaceListProperty struct {
-	// `CfnDataSource.ConfluenceSpaceListProperty.ConfluenceSpaceList`.
-	ConfluenceSpaceList *[]*string `json:"confluenceSpaceList"`
 }
 
 type CfnDataSource_ConfluenceSpaceToIndexFieldMappingProperty struct {
@@ -810,16 +884,6 @@ type CfnDataSource_DataSourceConfigurationProperty struct {
 	SharePointConfiguration interface{} `json:"sharePointConfiguration"`
 }
 
-type CfnDataSource_DataSourceInclusionsExclusionsStringsProperty struct {
-	// `CfnDataSource.DataSourceInclusionsExclusionsStringsProperty.DataSourceInclusionsExclusionsStrings`.
-	DataSourceInclusionsExclusionsStrings *[]*string `json:"dataSourceInclusionsExclusionsStrings"`
-}
-
-type CfnDataSource_DataSourceToIndexFieldMappingListProperty struct {
-	// `CfnDataSource.DataSourceToIndexFieldMappingListProperty.DataSourceToIndexFieldMappingList`.
-	DataSourceToIndexFieldMappingList interface{} `json:"dataSourceToIndexFieldMappingList"`
-}
-
 type CfnDataSource_DataSourceToIndexFieldMappingProperty struct {
 	// `CfnDataSource.DataSourceToIndexFieldMappingProperty.DataSourceFieldName`.
 	DataSourceFieldName *string `json:"dataSourceFieldName"`
@@ -856,36 +920,21 @@ type CfnDataSource_DocumentsMetadataConfigurationProperty struct {
 	S3Prefix *string `json:"s3Prefix"`
 }
 
-type CfnDataSource_ExcludeMimeTypesListProperty struct {
-	// `CfnDataSource.ExcludeMimeTypesListProperty.ExcludeMimeTypesList`.
-	ExcludeMimeTypesList *[]*string `json:"excludeMimeTypesList"`
-}
-
-type CfnDataSource_ExcludeSharedDrivesListProperty struct {
-	// `CfnDataSource.ExcludeSharedDrivesListProperty.ExcludeSharedDrivesList`.
-	ExcludeSharedDrivesList *[]*string `json:"excludeSharedDrivesList"`
-}
-
-type CfnDataSource_ExcludeUserAccountsListProperty struct {
-	// `CfnDataSource.ExcludeUserAccountsListProperty.ExcludeUserAccountsList`.
-	ExcludeUserAccountsList *[]*string `json:"excludeUserAccountsList"`
-}
-
 type CfnDataSource_GoogleDriveConfigurationProperty struct {
 	// `CfnDataSource.GoogleDriveConfigurationProperty.SecretArn`.
 	SecretArn *string `json:"secretArn"`
 	// `CfnDataSource.GoogleDriveConfigurationProperty.ExcludeMimeTypes`.
-	ExcludeMimeTypes interface{} `json:"excludeMimeTypes"`
+	ExcludeMimeTypes *[]*string `json:"excludeMimeTypes"`
 	// `CfnDataSource.GoogleDriveConfigurationProperty.ExcludeSharedDrives`.
-	ExcludeSharedDrives interface{} `json:"excludeSharedDrives"`
+	ExcludeSharedDrives *[]*string `json:"excludeSharedDrives"`
 	// `CfnDataSource.GoogleDriveConfigurationProperty.ExcludeUserAccounts`.
-	ExcludeUserAccounts interface{} `json:"excludeUserAccounts"`
+	ExcludeUserAccounts *[]*string `json:"excludeUserAccounts"`
 	// `CfnDataSource.GoogleDriveConfigurationProperty.ExclusionPatterns`.
-	ExclusionPatterns interface{} `json:"exclusionPatterns"`
+	ExclusionPatterns *[]*string `json:"exclusionPatterns"`
 	// `CfnDataSource.GoogleDriveConfigurationProperty.FieldMappings`.
 	FieldMappings interface{} `json:"fieldMappings"`
 	// `CfnDataSource.GoogleDriveConfigurationProperty.InclusionPatterns`.
-	InclusionPatterns interface{} `json:"inclusionPatterns"`
+	InclusionPatterns *[]*string `json:"inclusionPatterns"`
 }
 
 type CfnDataSource_OneDriveConfigurationProperty struct {
@@ -898,21 +947,16 @@ type CfnDataSource_OneDriveConfigurationProperty struct {
 	// `CfnDataSource.OneDriveConfigurationProperty.DisableLocalGroups`.
 	DisableLocalGroups interface{} `json:"disableLocalGroups"`
 	// `CfnDataSource.OneDriveConfigurationProperty.ExclusionPatterns`.
-	ExclusionPatterns interface{} `json:"exclusionPatterns"`
+	ExclusionPatterns *[]*string `json:"exclusionPatterns"`
 	// `CfnDataSource.OneDriveConfigurationProperty.FieldMappings`.
 	FieldMappings interface{} `json:"fieldMappings"`
 	// `CfnDataSource.OneDriveConfigurationProperty.InclusionPatterns`.
-	InclusionPatterns interface{} `json:"inclusionPatterns"`
-}
-
-type CfnDataSource_OneDriveUserListProperty struct {
-	// `CfnDataSource.OneDriveUserListProperty.OneDriveUserList`.
-	OneDriveUserList *[]*string `json:"oneDriveUserList"`
+	InclusionPatterns *[]*string `json:"inclusionPatterns"`
 }
 
 type CfnDataSource_OneDriveUsersProperty struct {
 	// `CfnDataSource.OneDriveUsersProperty.OneDriveUserList`.
-	OneDriveUserList interface{} `json:"oneDriveUserList"`
+	OneDriveUserList *[]*string `json:"oneDriveUserList"`
 	// `CfnDataSource.OneDriveUsersProperty.OneDriveUserS3Path`.
 	OneDriveUserS3Path interface{} `json:"oneDriveUserS3Path"`
 }
@@ -925,11 +969,11 @@ type CfnDataSource_S3DataSourceConfigurationProperty struct {
 	// `CfnDataSource.S3DataSourceConfigurationProperty.DocumentsMetadataConfiguration`.
 	DocumentsMetadataConfiguration interface{} `json:"documentsMetadataConfiguration"`
 	// `CfnDataSource.S3DataSourceConfigurationProperty.ExclusionPatterns`.
-	ExclusionPatterns interface{} `json:"exclusionPatterns"`
+	ExclusionPatterns *[]*string `json:"exclusionPatterns"`
 	// `CfnDataSource.S3DataSourceConfigurationProperty.InclusionPatterns`.
-	InclusionPatterns interface{} `json:"inclusionPatterns"`
+	InclusionPatterns *[]*string `json:"inclusionPatterns"`
 	// `CfnDataSource.S3DataSourceConfigurationProperty.InclusionPrefixes`.
-	InclusionPrefixes interface{} `json:"inclusionPrefixes"`
+	InclusionPrefixes *[]*string `json:"inclusionPrefixes"`
 }
 
 type CfnDataSource_S3PathProperty struct {
@@ -947,12 +991,7 @@ type CfnDataSource_SalesforceChatterFeedConfigurationProperty struct {
 	// `CfnDataSource.SalesforceChatterFeedConfigurationProperty.FieldMappings`.
 	FieldMappings interface{} `json:"fieldMappings"`
 	// `CfnDataSource.SalesforceChatterFeedConfigurationProperty.IncludeFilterTypes`.
-	IncludeFilterTypes interface{} `json:"includeFilterTypes"`
-}
-
-type CfnDataSource_SalesforceChatterFeedIncludeFilterTypesProperty struct {
-	// `CfnDataSource.SalesforceChatterFeedIncludeFilterTypesProperty.SalesforceChatterFeedIncludeFilterTypes`.
-	SalesforceChatterFeedIncludeFilterTypes *[]*string `json:"salesforceChatterFeedIncludeFilterTypes"`
+	IncludeFilterTypes *[]*string `json:"includeFilterTypes"`
 }
 
 type CfnDataSource_SalesforceConfigurationProperty struct {
@@ -965,20 +1004,15 @@ type CfnDataSource_SalesforceConfigurationProperty struct {
 	// `CfnDataSource.SalesforceConfigurationProperty.CrawlAttachments`.
 	CrawlAttachments interface{} `json:"crawlAttachments"`
 	// `CfnDataSource.SalesforceConfigurationProperty.ExcludeAttachmentFilePatterns`.
-	ExcludeAttachmentFilePatterns interface{} `json:"excludeAttachmentFilePatterns"`
+	ExcludeAttachmentFilePatterns *[]*string `json:"excludeAttachmentFilePatterns"`
 	// `CfnDataSource.SalesforceConfigurationProperty.IncludeAttachmentFilePatterns`.
-	IncludeAttachmentFilePatterns interface{} `json:"includeAttachmentFilePatterns"`
+	IncludeAttachmentFilePatterns *[]*string `json:"includeAttachmentFilePatterns"`
 	// `CfnDataSource.SalesforceConfigurationProperty.KnowledgeArticleConfiguration`.
 	KnowledgeArticleConfiguration interface{} `json:"knowledgeArticleConfiguration"`
 	// `CfnDataSource.SalesforceConfigurationProperty.StandardObjectAttachmentConfiguration`.
 	StandardObjectAttachmentConfiguration interface{} `json:"standardObjectAttachmentConfiguration"`
 	// `CfnDataSource.SalesforceConfigurationProperty.StandardObjectConfigurations`.
 	StandardObjectConfigurations interface{} `json:"standardObjectConfigurations"`
-}
-
-type CfnDataSource_SalesforceCustomKnowledgeArticleTypeConfigurationListProperty struct {
-	// `CfnDataSource.SalesforceCustomKnowledgeArticleTypeConfigurationListProperty.SalesforceCustomKnowledgeArticleTypeConfigurationList`.
-	SalesforceCustomKnowledgeArticleTypeConfigurationList interface{} `json:"salesforceCustomKnowledgeArticleTypeConfigurationList"`
 }
 
 type CfnDataSource_SalesforceCustomKnowledgeArticleTypeConfigurationProperty struct {
@@ -994,16 +1028,11 @@ type CfnDataSource_SalesforceCustomKnowledgeArticleTypeConfigurationProperty str
 
 type CfnDataSource_SalesforceKnowledgeArticleConfigurationProperty struct {
 	// `CfnDataSource.SalesforceKnowledgeArticleConfigurationProperty.IncludedStates`.
-	IncludedStates interface{} `json:"includedStates"`
+	IncludedStates *[]*string `json:"includedStates"`
 	// `CfnDataSource.SalesforceKnowledgeArticleConfigurationProperty.CustomKnowledgeArticleTypeConfigurations`.
 	CustomKnowledgeArticleTypeConfigurations interface{} `json:"customKnowledgeArticleTypeConfigurations"`
 	// `CfnDataSource.SalesforceKnowledgeArticleConfigurationProperty.StandardKnowledgeArticleTypeConfiguration`.
 	StandardKnowledgeArticleTypeConfiguration interface{} `json:"standardKnowledgeArticleTypeConfiguration"`
-}
-
-type CfnDataSource_SalesforceKnowledgeArticleStateListProperty struct {
-	// `CfnDataSource.SalesforceKnowledgeArticleStateListProperty.SalesforceKnowledgeArticleStateList`.
-	SalesforceKnowledgeArticleStateList *[]*string `json:"salesforceKnowledgeArticleStateList"`
 }
 
 type CfnDataSource_SalesforceStandardKnowledgeArticleTypeConfigurationProperty struct {
@@ -1020,11 +1049,6 @@ type CfnDataSource_SalesforceStandardObjectAttachmentConfigurationProperty struc
 	DocumentTitleFieldName *string `json:"documentTitleFieldName"`
 	// `CfnDataSource.SalesforceStandardObjectAttachmentConfigurationProperty.FieldMappings`.
 	FieldMappings interface{} `json:"fieldMappings"`
-}
-
-type CfnDataSource_SalesforceStandardObjectConfigurationListProperty struct {
-	// `CfnDataSource.SalesforceStandardObjectConfigurationListProperty.SalesforceStandardObjectConfigurationList`.
-	SalesforceStandardObjectConfigurationList interface{} `json:"salesforceStandardObjectConfigurationList"`
 }
 
 type CfnDataSource_SalesforceStandardObjectConfigurationProperty struct {
@@ -1059,11 +1083,11 @@ type CfnDataSource_ServiceNowKnowledgeArticleConfigurationProperty struct {
 	// `CfnDataSource.ServiceNowKnowledgeArticleConfigurationProperty.DocumentTitleFieldName`.
 	DocumentTitleFieldName *string `json:"documentTitleFieldName"`
 	// `CfnDataSource.ServiceNowKnowledgeArticleConfigurationProperty.ExcludeAttachmentFilePatterns`.
-	ExcludeAttachmentFilePatterns interface{} `json:"excludeAttachmentFilePatterns"`
+	ExcludeAttachmentFilePatterns *[]*string `json:"excludeAttachmentFilePatterns"`
 	// `CfnDataSource.ServiceNowKnowledgeArticleConfigurationProperty.FieldMappings`.
 	FieldMappings interface{} `json:"fieldMappings"`
 	// `CfnDataSource.ServiceNowKnowledgeArticleConfigurationProperty.IncludeAttachmentFilePatterns`.
-	IncludeAttachmentFilePatterns interface{} `json:"includeAttachmentFilePatterns"`
+	IncludeAttachmentFilePatterns *[]*string `json:"includeAttachmentFilePatterns"`
 }
 
 type CfnDataSource_ServiceNowServiceCatalogConfigurationProperty struct {
@@ -1074,11 +1098,11 @@ type CfnDataSource_ServiceNowServiceCatalogConfigurationProperty struct {
 	// `CfnDataSource.ServiceNowServiceCatalogConfigurationProperty.DocumentTitleFieldName`.
 	DocumentTitleFieldName *string `json:"documentTitleFieldName"`
 	// `CfnDataSource.ServiceNowServiceCatalogConfigurationProperty.ExcludeAttachmentFilePatterns`.
-	ExcludeAttachmentFilePatterns interface{} `json:"excludeAttachmentFilePatterns"`
+	ExcludeAttachmentFilePatterns *[]*string `json:"excludeAttachmentFilePatterns"`
 	// `CfnDataSource.ServiceNowServiceCatalogConfigurationProperty.FieldMappings`.
 	FieldMappings interface{} `json:"fieldMappings"`
 	// `CfnDataSource.ServiceNowServiceCatalogConfigurationProperty.IncludeAttachmentFilePatterns`.
-	IncludeAttachmentFilePatterns interface{} `json:"includeAttachmentFilePatterns"`
+	IncludeAttachmentFilePatterns *[]*string `json:"includeAttachmentFilePatterns"`
 }
 
 type CfnDataSource_SharePointConfigurationProperty struct {
@@ -1095,11 +1119,11 @@ type CfnDataSource_SharePointConfigurationProperty struct {
 	// `CfnDataSource.SharePointConfigurationProperty.DocumentTitleFieldName`.
 	DocumentTitleFieldName *string `json:"documentTitleFieldName"`
 	// `CfnDataSource.SharePointConfigurationProperty.ExclusionPatterns`.
-	ExclusionPatterns interface{} `json:"exclusionPatterns"`
+	ExclusionPatterns *[]*string `json:"exclusionPatterns"`
 	// `CfnDataSource.SharePointConfigurationProperty.FieldMappings`.
 	FieldMappings interface{} `json:"fieldMappings"`
 	// `CfnDataSource.SharePointConfigurationProperty.InclusionPatterns`.
-	InclusionPatterns interface{} `json:"inclusionPatterns"`
+	InclusionPatterns *[]*string `json:"inclusionPatterns"`
 	// `CfnDataSource.SharePointConfigurationProperty.UseChangeLog`.
 	UseChangeLog interface{} `json:"useChangeLog"`
 	// `CfnDataSource.SharePointConfigurationProperty.VpcConfiguration`.
@@ -1150,7 +1174,7 @@ type CfnFaq interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	RoleArn() *string
 	SetRoleArn(val *string)
@@ -1169,10 +1193,16 @@ type CfnFaq interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1292,8 +1322,8 @@ func (j *jsiiProxy_CfnFaq) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFaq) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnFaq) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1364,13 +1394,13 @@ func (j *jsiiProxy_CfnFaq) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Kendra::Faq`.
-func NewCfnFaq(scope constructs.Construct, id *string, props *CfnFaqProps) CfnFaq {
+func NewCfnFaq(scope awscdk.Construct, id *string, props *CfnFaqProps) CfnFaq {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnFaq{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kendra.CfnFaq",
+		"monocdk.aws_kendra.CfnFaq",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1379,11 +1409,11 @@ func NewCfnFaq(scope constructs.Construct, id *string, props *CfnFaqProps) CfnFa
 }
 
 // Create a new `AWS::Kendra::Faq`.
-func NewCfnFaq_Override(c CfnFaq, scope constructs.Construct, id *string, props *CfnFaqProps) {
+func NewCfnFaq_Override(c CfnFaq, scope awscdk.Construct, id *string, props *CfnFaqProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kendra.CfnFaq",
+		"monocdk.aws_kendra.CfnFaq",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1450,7 +1480,7 @@ func CfnFaq_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnFaq",
+		"monocdk.aws_kendra.CfnFaq",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1467,7 +1497,7 @@ func CfnFaq_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnFaq",
+		"monocdk.aws_kendra.CfnFaq",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1476,17 +1506,15 @@ func CfnFaq_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnFaq_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnFaq",
+		"monocdk.aws_kendra.CfnFaq",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1499,7 +1527,7 @@ func CfnFaq_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_kendra.CfnFaq",
+		"monocdk.aws_kendra.CfnFaq",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1671,6 +1699,56 @@ func (c *jsiiProxy_CfnFaq) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnFaq) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnFaq) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnFaq) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnFaq) OverrideLogicalId(newLogicalId *string) {
@@ -1678,6 +1756,23 @@ func (c *jsiiProxy_CfnFaq) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnFaq) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1712,6 +1807,19 @@ func (c *jsiiProxy_CfnFaq) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnFaq) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -1722,6 +1830,26 @@ func (c *jsiiProxy_CfnFaq) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnFaq) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1784,7 +1912,7 @@ type CfnIndex interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	RoleArn() *string
 	SetRoleArn(val *string)
@@ -1807,10 +1935,16 @@ type CfnIndex interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1940,8 +2074,8 @@ func (j *jsiiProxy_CfnIndex) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIndex) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnIndex) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2032,13 +2166,13 @@ func (j *jsiiProxy_CfnIndex) UserTokenConfigurations() interface{} {
 
 
 // Create a new `AWS::Kendra::Index`.
-func NewCfnIndex(scope constructs.Construct, id *string, props *CfnIndexProps) CfnIndex {
+func NewCfnIndex(scope awscdk.Construct, id *string, props *CfnIndexProps) CfnIndex {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnIndex{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kendra.CfnIndex",
+		"monocdk.aws_kendra.CfnIndex",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2047,11 +2181,11 @@ func NewCfnIndex(scope constructs.Construct, id *string, props *CfnIndexProps) C
 }
 
 // Create a new `AWS::Kendra::Index`.
-func NewCfnIndex_Override(c CfnIndex, scope constructs.Construct, id *string, props *CfnIndexProps) {
+func NewCfnIndex_Override(c CfnIndex, scope awscdk.Construct, id *string, props *CfnIndexProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_kendra.CfnIndex",
+		"monocdk.aws_kendra.CfnIndex",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2142,7 +2276,7 @@ func CfnIndex_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnIndex",
+		"monocdk.aws_kendra.CfnIndex",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2159,7 +2293,7 @@ func CfnIndex_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnIndex",
+		"monocdk.aws_kendra.CfnIndex",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2168,17 +2302,15 @@ func CfnIndex_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnIndex_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_kendra.CfnIndex",
+		"monocdk.aws_kendra.CfnIndex",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2191,7 +2323,7 @@ func CfnIndex_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_kendra.CfnIndex",
+		"monocdk.aws_kendra.CfnIndex",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2363,6 +2495,56 @@ func (c *jsiiProxy_CfnIndex) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnIndex) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnIndex) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnIndex) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnIndex) OverrideLogicalId(newLogicalId *string) {
@@ -2370,6 +2552,23 @@ func (c *jsiiProxy_CfnIndex) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnIndex) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2404,6 +2603,19 @@ func (c *jsiiProxy_CfnIndex) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnIndex) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -2414,6 +2626,26 @@ func (c *jsiiProxy_CfnIndex) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnIndex) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2513,11 +2745,6 @@ type CfnIndex_ValueImportanceItemProperty struct {
 	Key *string `json:"key"`
 	// `CfnIndex.ValueImportanceItemProperty.Value`.
 	Value *float64 `json:"value"`
-}
-
-type CfnIndex_ValueImportanceItemsProperty struct {
-	// `CfnIndex.ValueImportanceItemsProperty.ValueImportanceItems`.
-	ValueImportanceItems interface{} `json:"valueImportanceItems"`
 }
 
 // Properties for defining a `AWS::Kendra::Index`.

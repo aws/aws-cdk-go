@@ -1,12 +1,12 @@
 package awsmedialive
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsmedialive/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsmedialive/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::MediaLive::Channel`.
@@ -36,7 +36,7 @@ type CfnChannel interface {
 	SetLogLevel(val *string)
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	RoleArn() *string
 	SetRoleArn(val *string)
@@ -55,10 +55,16 @@ type CfnChannel interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -218,8 +224,8 @@ func (j *jsiiProxy_CfnChannel) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnChannel) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnChannel) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -290,13 +296,13 @@ func (j *jsiiProxy_CfnChannel) Vpc() interface{} {
 
 
 // Create a new `AWS::MediaLive::Channel`.
-func NewCfnChannel(scope constructs.Construct, id *string, props *CfnChannelProps) CfnChannel {
+func NewCfnChannel(scope awscdk.Construct, id *string, props *CfnChannelProps) CfnChannel {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnChannel{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_medialive.CfnChannel",
+		"monocdk.aws_medialive.CfnChannel",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -305,11 +311,11 @@ func NewCfnChannel(scope constructs.Construct, id *string, props *CfnChannelProp
 }
 
 // Create a new `AWS::MediaLive::Channel`.
-func NewCfnChannel_Override(c CfnChannel, scope constructs.Construct, id *string, props *CfnChannelProps) {
+func NewCfnChannel_Override(c CfnChannel, scope awscdk.Construct, id *string, props *CfnChannelProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_medialive.CfnChannel",
+		"monocdk.aws_medialive.CfnChannel",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -408,7 +414,7 @@ func CfnChannel_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_medialive.CfnChannel",
+		"monocdk.aws_medialive.CfnChannel",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -425,7 +431,7 @@ func CfnChannel_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_medialive.CfnChannel",
+		"monocdk.aws_medialive.CfnChannel",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -434,17 +440,15 @@ func CfnChannel_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnChannel_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_medialive.CfnChannel",
+		"monocdk.aws_medialive.CfnChannel",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -457,7 +461,7 @@ func CfnChannel_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_medialive.CfnChannel",
+		"monocdk.aws_medialive.CfnChannel",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -629,6 +633,56 @@ func (c *jsiiProxy_CfnChannel) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnChannel) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnChannel) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnChannel) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnChannel) OverrideLogicalId(newLogicalId *string) {
@@ -636,6 +690,23 @@ func (c *jsiiProxy_CfnChannel) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnChannel) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -670,6 +741,19 @@ func (c *jsiiProxy_CfnChannel) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnChannel) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -680,6 +764,26 @@ func (c *jsiiProxy_CfnChannel) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnChannel) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -739,6 +843,11 @@ type CfnChannel_AncillarySourceSettingsProperty struct {
 	SourceAncillaryChannelNumber *float64 `json:"sourceAncillaryChannelNumber"`
 }
 
+type CfnChannel_ArchiveCdnSettingsProperty struct {
+	// `CfnChannel.ArchiveCdnSettingsProperty.ArchiveS3Settings`.
+	ArchiveS3Settings interface{} `json:"archiveS3Settings"`
+}
+
 type CfnChannel_ArchiveContainerSettingsProperty struct {
 	// `CfnChannel.ArchiveContainerSettingsProperty.M2tsSettings`.
 	M2TsSettings interface{} `json:"m2TsSettings"`
@@ -747,6 +856,8 @@ type CfnChannel_ArchiveContainerSettingsProperty struct {
 }
 
 type CfnChannel_ArchiveGroupSettingsProperty struct {
+	// `CfnChannel.ArchiveGroupSettingsProperty.ArchiveCdnSettings`.
+	ArchiveCdnSettings interface{} `json:"archiveCdnSettings"`
 	// `CfnChannel.ArchiveGroupSettingsProperty.Destination`.
 	Destination interface{} `json:"destination"`
 	// `CfnChannel.ArchiveGroupSettingsProperty.RolloverInterval`.
@@ -760,6 +871,11 @@ type CfnChannel_ArchiveOutputSettingsProperty struct {
 	Extension *string `json:"extension"`
 	// `CfnChannel.ArchiveOutputSettingsProperty.NameModifier`.
 	NameModifier *string `json:"nameModifier"`
+}
+
+type CfnChannel_ArchiveS3SettingsProperty struct {
+	// `CfnChannel.ArchiveS3SettingsProperty.CannedAcl`.
+	CannedAcl *string `json:"cannedAcl"`
 }
 
 type CfnChannel_AribDestinationSettingsProperty struct {
@@ -1009,6 +1125,17 @@ type CfnChannel_CaptionLanguageMappingProperty struct {
 	LanguageDescription *string `json:"languageDescription"`
 }
 
+type CfnChannel_CaptionRectangleProperty struct {
+	// `CfnChannel.CaptionRectangleProperty.Height`.
+	Height *float64 `json:"height"`
+	// `CfnChannel.CaptionRectangleProperty.LeftOffset`.
+	LeftOffset *float64 `json:"leftOffset"`
+	// `CfnChannel.CaptionRectangleProperty.TopOffset`.
+	TopOffset *float64 `json:"topOffset"`
+	// `CfnChannel.CaptionRectangleProperty.Width`.
+	Width *float64 `json:"width"`
+}
+
 type CfnChannel_CaptionSelectorProperty struct {
 	// `CfnChannel.CaptionSelectorProperty.LanguageCode`.
 	LanguageCode *string `json:"languageCode"`
@@ -1154,6 +1281,8 @@ type CfnChannel_Eac3SettingsProperty struct {
 }
 
 type CfnChannel_EbuTtDDestinationSettingsProperty struct {
+	// `CfnChannel.EbuTtDDestinationSettingsProperty.CopyrightHolder`.
+	CopyrightHolder *string `json:"copyrightHolder"`
 	// `CfnChannel.EbuTtDDestinationSettingsProperty.FillLineGap`.
 	FillLineGap *string `json:"fillLineGap"`
 	// `CfnChannel.EbuTtDDestinationSettingsProperty.FontFamily`.
@@ -1194,6 +1323,8 @@ type CfnChannel_EncoderSettingsProperty struct {
 	FeatureActivations interface{} `json:"featureActivations"`
 	// `CfnChannel.EncoderSettingsProperty.GlobalConfiguration`.
 	GlobalConfiguration interface{} `json:"globalConfiguration"`
+	// `CfnChannel.EncoderSettingsProperty.MotionGraphicsConfiguration`.
+	MotionGraphicsConfiguration interface{} `json:"motionGraphicsConfiguration"`
 	// `CfnChannel.EncoderSettingsProperty.NielsenConfiguration`.
 	NielsenConfiguration interface{} `json:"nielsenConfiguration"`
 	// `CfnChannel.EncoderSettingsProperty.OutputGroups`.
@@ -1241,14 +1372,29 @@ type CfnChannel_Fmp4HlsSettingsProperty struct {
 	TimedMetadataBehavior *string `json:"timedMetadataBehavior"`
 }
 
+type CfnChannel_FrameCaptureCdnSettingsProperty struct {
+	// `CfnChannel.FrameCaptureCdnSettingsProperty.FrameCaptureS3Settings`.
+	FrameCaptureS3Settings interface{} `json:"frameCaptureS3Settings"`
+}
+
 type CfnChannel_FrameCaptureGroupSettingsProperty struct {
 	// `CfnChannel.FrameCaptureGroupSettingsProperty.Destination`.
 	Destination interface{} `json:"destination"`
+	// `CfnChannel.FrameCaptureGroupSettingsProperty.FrameCaptureCdnSettings`.
+	FrameCaptureCdnSettings interface{} `json:"frameCaptureCdnSettings"`
+}
+
+type CfnChannel_FrameCaptureHlsSettingsProperty struct {
 }
 
 type CfnChannel_FrameCaptureOutputSettingsProperty struct {
 	// `CfnChannel.FrameCaptureOutputSettingsProperty.NameModifier`.
 	NameModifier *string `json:"nameModifier"`
+}
+
+type CfnChannel_FrameCaptureS3SettingsProperty struct {
+	// `CfnChannel.FrameCaptureS3SettingsProperty.CannedAcl`.
+	CannedAcl *string `json:"cannedAcl"`
 }
 
 type CfnChannel_FrameCaptureSettingsProperty struct {
@@ -1491,6 +1637,8 @@ type CfnChannel_HlsCdnSettingsProperty struct {
 	HlsBasicPutSettings interface{} `json:"hlsBasicPutSettings"`
 	// `CfnChannel.HlsCdnSettingsProperty.HlsMediaStoreSettings`.
 	HlsMediaStoreSettings interface{} `json:"hlsMediaStoreSettings"`
+	// `CfnChannel.HlsCdnSettingsProperty.HlsS3Settings`.
+	HlsS3Settings interface{} `json:"hlsS3Settings"`
 	// `CfnChannel.HlsCdnSettingsProperty.HlsWebdavSettings`.
 	HlsWebdavSettings interface{} `json:"hlsWebdavSettings"`
 }
@@ -1617,11 +1765,18 @@ type CfnChannel_HlsOutputSettingsProperty struct {
 	SegmentModifier *string `json:"segmentModifier"`
 }
 
+type CfnChannel_HlsS3SettingsProperty struct {
+	// `CfnChannel.HlsS3SettingsProperty.CannedAcl`.
+	CannedAcl *string `json:"cannedAcl"`
+}
+
 type CfnChannel_HlsSettingsProperty struct {
 	// `CfnChannel.HlsSettingsProperty.AudioOnlyHlsSettings`.
 	AudioOnlyHlsSettings interface{} `json:"audioOnlyHlsSettings"`
 	// `CfnChannel.HlsSettingsProperty.Fmp4HlsSettings`.
 	Fmp4HlsSettings interface{} `json:"fmp4HlsSettings"`
+	// `CfnChannel.HlsSettingsProperty.FrameCaptureHlsSettings`.
+	FrameCaptureHlsSettings interface{} `json:"frameCaptureHlsSettings"`
 	// `CfnChannel.HlsSettingsProperty.StandardHlsSettings`.
 	StandardHlsSettings interface{} `json:"standardHlsSettings"`
 }
@@ -1637,6 +1792,9 @@ type CfnChannel_HlsWebdavSettingsProperty struct {
 	NumRetries *float64 `json:"numRetries"`
 	// `CfnChannel.HlsWebdavSettingsProperty.RestartDelay`.
 	RestartDelay *float64 `json:"restartDelay"`
+}
+
+type CfnChannel_HtmlMotionGraphicsSettingsProperty struct {
 }
 
 type CfnChannel_InputAttachmentProperty struct {
@@ -1866,6 +2024,18 @@ type CfnChannel_MediaPackageOutputDestinationSettingsProperty struct {
 }
 
 type CfnChannel_MediaPackageOutputSettingsProperty struct {
+}
+
+type CfnChannel_MotionGraphicsConfigurationProperty struct {
+	// `CfnChannel.MotionGraphicsConfigurationProperty.MotionGraphicsInsertion`.
+	MotionGraphicsInsertion *string `json:"motionGraphicsInsertion"`
+	// `CfnChannel.MotionGraphicsConfigurationProperty.MotionGraphicsSettings`.
+	MotionGraphicsSettings interface{} `json:"motionGraphicsSettings"`
+}
+
+type CfnChannel_MotionGraphicsSettingsProperty struct {
+	// `CfnChannel.MotionGraphicsSettingsProperty.HtmlMotionGraphicsSettings`.
+	HtmlMotionGraphicsSettings interface{} `json:"htmlMotionGraphicsSettings"`
 }
 
 type CfnChannel_Mp2SettingsProperty struct {
@@ -2190,6 +2360,8 @@ type CfnChannel_TeletextDestinationSettingsProperty struct {
 }
 
 type CfnChannel_TeletextSourceSettingsProperty struct {
+	// `CfnChannel.TeletextSourceSettingsProperty.OutputRectangle`.
+	OutputRectangle interface{} `json:"outputRectangle"`
 	// `CfnChannel.TeletextSourceSettingsProperty.PageNumber`.
 	PageNumber *string `json:"pageNumber"`
 }
@@ -2273,6 +2445,11 @@ type CfnChannel_VideoDescriptionProperty struct {
 	Width *float64 `json:"width"`
 }
 
+type CfnChannel_VideoSelectorColorSpaceSettingsProperty struct {
+	// `CfnChannel.VideoSelectorColorSpaceSettingsProperty.Hdr10Settings`.
+	Hdr10Settings interface{} `json:"hdr10Settings"`
+}
+
 type CfnChannel_VideoSelectorPidProperty struct {
 	// `CfnChannel.VideoSelectorPidProperty.Pid`.
 	Pid *float64 `json:"pid"`
@@ -2286,6 +2463,8 @@ type CfnChannel_VideoSelectorProgramIdProperty struct {
 type CfnChannel_VideoSelectorProperty struct {
 	// `CfnChannel.VideoSelectorProperty.ColorSpace`.
 	ColorSpace *string `json:"colorSpace"`
+	// `CfnChannel.VideoSelectorProperty.ColorSpaceSettings`.
+	ColorSpaceSettings interface{} `json:"colorSpaceSettings"`
 	// `CfnChannel.VideoSelectorProperty.ColorSpaceUsage`.
 	ColorSpaceUsage *string `json:"colorSpaceUsage"`
 	// `CfnChannel.VideoSelectorProperty.SelectorSettings`.
@@ -2368,7 +2547,7 @@ type CfnInput interface {
 	SetMediaConnectFlows(val interface{})
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	RoleArn() *string
 	SetRoleArn(val *string)
@@ -2391,10 +2570,16 @@ type CfnInput interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2534,8 +2719,8 @@ func (j *jsiiProxy_CfnInput) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInput) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnInput) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2626,13 +2811,13 @@ func (j *jsiiProxy_CfnInput) Vpc() interface{} {
 
 
 // Create a new `AWS::MediaLive::Input`.
-func NewCfnInput(scope constructs.Construct, id *string, props *CfnInputProps) CfnInput {
+func NewCfnInput(scope awscdk.Construct, id *string, props *CfnInputProps) CfnInput {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnInput{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_medialive.CfnInput",
+		"monocdk.aws_medialive.CfnInput",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2641,11 +2826,11 @@ func NewCfnInput(scope constructs.Construct, id *string, props *CfnInputProps) C
 }
 
 // Create a new `AWS::MediaLive::Input`.
-func NewCfnInput_Override(c CfnInput, scope constructs.Construct, id *string, props *CfnInputProps) {
+func NewCfnInput_Override(c CfnInput, scope awscdk.Construct, id *string, props *CfnInputProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_medialive.CfnInput",
+		"monocdk.aws_medialive.CfnInput",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2736,7 +2921,7 @@ func CfnInput_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_medialive.CfnInput",
+		"monocdk.aws_medialive.CfnInput",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2753,7 +2938,7 @@ func CfnInput_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_medialive.CfnInput",
+		"monocdk.aws_medialive.CfnInput",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2762,17 +2947,15 @@ func CfnInput_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnInput_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_medialive.CfnInput",
+		"monocdk.aws_medialive.CfnInput",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2785,7 +2968,7 @@ func CfnInput_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_medialive.CfnInput",
+		"monocdk.aws_medialive.CfnInput",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2957,6 +3140,56 @@ func (c *jsiiProxy_CfnInput) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnInput) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnInput) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnInput) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnInput) OverrideLogicalId(newLogicalId *string) {
@@ -2964,6 +3197,23 @@ func (c *jsiiProxy_CfnInput) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnInput) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2998,6 +3248,19 @@ func (c *jsiiProxy_CfnInput) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnInput) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -3008,6 +3271,26 @@ func (c *jsiiProxy_CfnInput) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnInput) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3094,7 +3377,7 @@ type CfnInputSecurityGroup interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -3111,10 +3394,16 @@ type CfnInputSecurityGroup interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -3184,8 +3473,8 @@ func (j *jsiiProxy_CfnInputSecurityGroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInputSecurityGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnInputSecurityGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3246,13 +3535,13 @@ func (j *jsiiProxy_CfnInputSecurityGroup) WhitelistRules() interface{} {
 
 
 // Create a new `AWS::MediaLive::InputSecurityGroup`.
-func NewCfnInputSecurityGroup(scope constructs.Construct, id *string, props *CfnInputSecurityGroupProps) CfnInputSecurityGroup {
+func NewCfnInputSecurityGroup(scope awscdk.Construct, id *string, props *CfnInputSecurityGroupProps) CfnInputSecurityGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnInputSecurityGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_medialive.CfnInputSecurityGroup",
+		"monocdk.aws_medialive.CfnInputSecurityGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3261,11 +3550,11 @@ func NewCfnInputSecurityGroup(scope constructs.Construct, id *string, props *Cfn
 }
 
 // Create a new `AWS::MediaLive::InputSecurityGroup`.
-func NewCfnInputSecurityGroup_Override(c CfnInputSecurityGroup, scope constructs.Construct, id *string, props *CfnInputSecurityGroupProps) {
+func NewCfnInputSecurityGroup_Override(c CfnInputSecurityGroup, scope awscdk.Construct, id *string, props *CfnInputSecurityGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_medialive.CfnInputSecurityGroup",
+		"monocdk.aws_medialive.CfnInputSecurityGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3292,7 +3581,7 @@ func CfnInputSecurityGroup_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_medialive.CfnInputSecurityGroup",
+		"monocdk.aws_medialive.CfnInputSecurityGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3309,7 +3598,7 @@ func CfnInputSecurityGroup_IsCfnResource(construct constructs.IConstruct) *bool 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_medialive.CfnInputSecurityGroup",
+		"monocdk.aws_medialive.CfnInputSecurityGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3318,17 +3607,15 @@ func CfnInputSecurityGroup_IsCfnResource(construct constructs.IConstruct) *bool 
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnInputSecurityGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_medialive.CfnInputSecurityGroup",
+		"monocdk.aws_medialive.CfnInputSecurityGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3341,7 +3628,7 @@ func CfnInputSecurityGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_medialive.CfnInputSecurityGroup",
+		"monocdk.aws_medialive.CfnInputSecurityGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3513,6 +3800,56 @@ func (c *jsiiProxy_CfnInputSecurityGroup) Inspect(inspector awscdk.TreeInspector
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnInputSecurityGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnInputSecurityGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnInputSecurityGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnInputSecurityGroup) OverrideLogicalId(newLogicalId *string) {
@@ -3520,6 +3857,23 @@ func (c *jsiiProxy_CfnInputSecurityGroup) OverrideLogicalId(newLogicalId *string
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnInputSecurityGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3554,6 +3908,19 @@ func (c *jsiiProxy_CfnInputSecurityGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnInputSecurityGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -3564,6 +3931,26 @@ func (c *jsiiProxy_CfnInputSecurityGroup) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnInputSecurityGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

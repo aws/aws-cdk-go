@@ -1,12 +1,12 @@
 package awsquicksight
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsquicksight/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsquicksight/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::QuickSight::Analysis`.
@@ -32,7 +32,7 @@ type CfnAnalysis interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Parameters() interface{}
 	SetParameters(val interface{})
 	Permissions() interface{}
@@ -55,10 +55,16 @@ type CfnAnalysis interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -218,8 +224,8 @@ func (j *jsiiProxy_CfnAnalysis) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAnalysis) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnAnalysis) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -310,13 +316,13 @@ func (j *jsiiProxy_CfnAnalysis) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::QuickSight::Analysis`.
-func NewCfnAnalysis(scope constructs.Construct, id *string, props *CfnAnalysisProps) CfnAnalysis {
+func NewCfnAnalysis(scope awscdk.Construct, id *string, props *CfnAnalysisProps) CfnAnalysis {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAnalysis{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis",
+		"monocdk.aws_quicksight.CfnAnalysis",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -325,11 +331,11 @@ func NewCfnAnalysis(scope constructs.Construct, id *string, props *CfnAnalysisPr
 }
 
 // Create a new `AWS::QuickSight::Analysis`.
-func NewCfnAnalysis_Override(c CfnAnalysis, scope constructs.Construct, id *string, props *CfnAnalysisProps) {
+func NewCfnAnalysis_Override(c CfnAnalysis, scope awscdk.Construct, id *string, props *CfnAnalysisProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis",
+		"monocdk.aws_quicksight.CfnAnalysis",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -412,7 +418,7 @@ func CfnAnalysis_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis",
+		"monocdk.aws_quicksight.CfnAnalysis",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -429,7 +435,7 @@ func CfnAnalysis_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis",
+		"monocdk.aws_quicksight.CfnAnalysis",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -438,17 +444,15 @@ func CfnAnalysis_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnAnalysis_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis",
+		"monocdk.aws_quicksight.CfnAnalysis",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -461,7 +465,7 @@ func CfnAnalysis_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_quicksight.CfnAnalysis",
+		"monocdk.aws_quicksight.CfnAnalysis",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -633,6 +637,56 @@ func (c *jsiiProxy_CfnAnalysis) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAnalysis) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAnalysis) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAnalysis) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnAnalysis) OverrideLogicalId(newLogicalId *string) {
@@ -640,6 +694,23 @@ func (c *jsiiProxy_CfnAnalysis) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAnalysis) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -674,6 +745,19 @@ func (c *jsiiProxy_CfnAnalysis) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAnalysis) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -684,6 +768,26 @@ func (c *jsiiProxy_CfnAnalysis) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAnalysis) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -822,7 +926,7 @@ type CfnDashboard interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Parameters() interface{}
 	SetParameters(val interface{})
 	Permissions() interface{}
@@ -847,10 +951,16 @@ type CfnDashboard interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -990,8 +1100,8 @@ func (j *jsiiProxy_CfnDashboard) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDashboard) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDashboard) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1092,13 +1202,13 @@ func (j *jsiiProxy_CfnDashboard) VersionDescription() *string {
 
 
 // Create a new `AWS::QuickSight::Dashboard`.
-func NewCfnDashboard(scope constructs.Construct, id *string, props *CfnDashboardProps) CfnDashboard {
+func NewCfnDashboard(scope awscdk.Construct, id *string, props *CfnDashboardProps) CfnDashboard {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDashboard{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard",
+		"monocdk.aws_quicksight.CfnDashboard",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1107,11 +1217,11 @@ func NewCfnDashboard(scope constructs.Construct, id *string, props *CfnDashboard
 }
 
 // Create a new `AWS::QuickSight::Dashboard`.
-func NewCfnDashboard_Override(c CfnDashboard, scope constructs.Construct, id *string, props *CfnDashboardProps) {
+func NewCfnDashboard_Override(c CfnDashboard, scope awscdk.Construct, id *string, props *CfnDashboardProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard",
+		"monocdk.aws_quicksight.CfnDashboard",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1202,7 +1312,7 @@ func CfnDashboard_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard",
+		"monocdk.aws_quicksight.CfnDashboard",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1219,7 +1329,7 @@ func CfnDashboard_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard",
+		"monocdk.aws_quicksight.CfnDashboard",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1228,17 +1338,15 @@ func CfnDashboard_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDashboard_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard",
+		"monocdk.aws_quicksight.CfnDashboard",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1251,7 +1359,7 @@ func CfnDashboard_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_quicksight.CfnDashboard",
+		"monocdk.aws_quicksight.CfnDashboard",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1423,6 +1531,56 @@ func (c *jsiiProxy_CfnDashboard) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDashboard) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDashboard) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDashboard) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnDashboard) OverrideLogicalId(newLogicalId *string) {
@@ -1430,6 +1588,23 @@ func (c *jsiiProxy_CfnDashboard) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDashboard) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1464,6 +1639,19 @@ func (c *jsiiProxy_CfnDashboard) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDashboard) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -1474,6 +1662,26 @@ func (c *jsiiProxy_CfnDashboard) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDashboard) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1603,6 +1811,2205 @@ type CfnDashboardProps struct {
 	VersionDescription *string `json:"versionDescription"`
 }
 
+// A CloudFormation `AWS::QuickSight::DataSet`.
+type CfnDataSet interface {
+	awscdk.CfnResource
+	awscdk.IInspectable
+	AttrArn() *string
+	AttrConsumedSpiceCapacityInBytes() awscdk.IResolvable
+	AttrCreatedTime() *string
+	AttrLastUpdatedTime() *string
+	AttrOutputColumns() awscdk.IResolvable
+	AwsAccountId() *string
+	SetAwsAccountId(val *string)
+	CfnOptions() awscdk.ICfnResourceOptions
+	CfnProperties() *map[string]interface{}
+	CfnResourceType() *string
+	ColumnGroups() interface{}
+	SetColumnGroups(val interface{})
+	ColumnLevelPermissionRules() interface{}
+	SetColumnLevelPermissionRules(val interface{})
+	CreationStack() *[]*string
+	DataSetId() *string
+	SetDataSetId(val *string)
+	FieldFolders() interface{}
+	SetFieldFolders(val interface{})
+	ImportMode() *string
+	SetImportMode(val *string)
+	IngestionWaitPolicy() interface{}
+	SetIngestionWaitPolicy(val interface{})
+	LogicalId() *string
+	LogicalTableMap() interface{}
+	SetLogicalTableMap(val interface{})
+	Name() *string
+	SetName(val *string)
+	Node() awscdk.ConstructNode
+	Permissions() interface{}
+	SetPermissions(val interface{})
+	PhysicalTableMap() interface{}
+	SetPhysicalTableMap(val interface{})
+	Ref() *string
+	RowLevelPermissionDataSet() interface{}
+	SetRowLevelPermissionDataSet(val interface{})
+	Stack() awscdk.Stack
+	Tags() awscdk.TagManager
+	UpdatedProperites() *map[string]interface{}
+	AddDeletionOverride(path *string)
+	AddDependsOn(target awscdk.CfnResource)
+	AddMetadata(key *string, value interface{})
+	AddOverride(path *string, value interface{})
+	AddPropertyDeletionOverride(propertyPath *string)
+	AddPropertyOverride(propertyPath *string, value interface{})
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	GetAtt(attributeName *string) awscdk.Reference
+	GetMetadata(key *string) interface{}
+	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	OverrideLogicalId(newLogicalId *string)
+	Prepare()
+	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
+	ValidateProperties(_properties interface{})
+}
+
+// The jsii proxy struct for CfnDataSet
+type jsiiProxy_CfnDataSet struct {
+	internal.Type__awscdkCfnResource
+	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnDataSet) AttrArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSet) AttrConsumedSpiceCapacityInBytes() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrConsumedSpiceCapacityInBytes",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSet) AttrCreatedTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCreatedTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSet) AttrLastUpdatedTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLastUpdatedTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSet) AttrOutputColumns() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrOutputColumns",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSet) AwsAccountId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"awsAccountId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSet) CfnOptions() awscdk.ICfnResourceOptions {
+	var returns awscdk.ICfnResourceOptions
+	_jsii_.Get(
+		j,
+		"cfnOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSet) CfnProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"cfnProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSet) CfnResourceType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSet) ColumnGroups() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"columnGroups",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSet) ColumnLevelPermissionRules() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"columnLevelPermissionRules",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSet) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSet) DataSetId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"dataSetId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSet) FieldFolders() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"fieldFolders",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSet) ImportMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"importMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSet) IngestionWaitPolicy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"ingestionWaitPolicy",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSet) LogicalId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSet) LogicalTableMap() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"logicalTableMap",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSet) Name() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"name",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSet) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSet) Permissions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"permissions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSet) PhysicalTableMap() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"physicalTableMap",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSet) Ref() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSet) RowLevelPermissionDataSet() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"rowLevelPermissionDataSet",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSet) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSet) Tags() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSet) UpdatedProperites() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a new `AWS::QuickSight::DataSet`.
+func NewCfnDataSet(scope awscdk.Construct, id *string, props *CfnDataSetProps) CfnDataSet {
+	_init_.Initialize()
+
+	j := jsiiProxy_CfnDataSet{}
+
+	_jsii_.Create(
+		"monocdk.aws_quicksight.CfnDataSet",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a new `AWS::QuickSight::DataSet`.
+func NewCfnDataSet_Override(c CfnDataSet, scope awscdk.Construct, id *string, props *CfnDataSetProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_quicksight.CfnDataSet",
+		[]interface{}{scope, id, props},
+		c,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSet) SetAwsAccountId(val *string) {
+	_jsii_.Set(
+		j,
+		"awsAccountId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSet) SetColumnGroups(val interface{}) {
+	_jsii_.Set(
+		j,
+		"columnGroups",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSet) SetColumnLevelPermissionRules(val interface{}) {
+	_jsii_.Set(
+		j,
+		"columnLevelPermissionRules",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSet) SetDataSetId(val *string) {
+	_jsii_.Set(
+		j,
+		"dataSetId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSet) SetFieldFolders(val interface{}) {
+	_jsii_.Set(
+		j,
+		"fieldFolders",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSet) SetImportMode(val *string) {
+	_jsii_.Set(
+		j,
+		"importMode",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSet) SetIngestionWaitPolicy(val interface{}) {
+	_jsii_.Set(
+		j,
+		"ingestionWaitPolicy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSet) SetLogicalTableMap(val interface{}) {
+	_jsii_.Set(
+		j,
+		"logicalTableMap",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSet) SetName(val *string) {
+	_jsii_.Set(
+		j,
+		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSet) SetPermissions(val interface{}) {
+	_jsii_.Set(
+		j,
+		"permissions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSet) SetPhysicalTableMap(val interface{}) {
+	_jsii_.Set(
+		j,
+		"physicalTableMap",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSet) SetRowLevelPermissionDataSet(val interface{}) {
+	_jsii_.Set(
+		j,
+		"rowLevelPermissionDataSet",
+		val,
+	)
+}
+
+// Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
+//
+// Uses duck-typing instead of `instanceof` to allow stack elements from different
+// versions of this library to be included in the same stack.
+//
+// Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
+func CfnDataSet_IsCfnElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_quicksight.CfnDataSet",
+		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a CfnResource.
+// Experimental.
+func CfnDataSet_IsCfnResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_quicksight.CfnDataSet",
+		"isCfnResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func CfnDataSet_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_quicksight.CfnDataSet",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnDataSet_CFN_RESOURCE_TYPE_NAME() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"monocdk.aws_quicksight.CfnDataSet",
+		"CFN_RESOURCE_TYPE_NAME",
+		&returns,
+	)
+	return returns
+}
+
+// Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
+func (c *jsiiProxy_CfnDataSet) AddDeletionOverride(path *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDeletionOverride",
+		[]interface{}{path},
+	)
+}
+
+// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+//
+// This can be used for resources across stacks (or nested stack) boundaries
+// and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
+func (c *jsiiProxy_CfnDataSet) AddDependsOn(target awscdk.CfnResource) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDependsOn",
+		[]interface{}{target},
+	)
+}
+
+// Add a value to the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+// Experimental.
+func (c *jsiiProxy_CfnDataSet) AddMetadata(key *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addMetadata",
+		[]interface{}{key, value},
+	)
+}
+
+// Adds an override to the synthesized CloudFormation resource.
+//
+// To add a
+// property override, either use `addPropertyOverride` or prefix `path` with
+// "Properties." (i.e. `Properties.TopicName`).
+//
+// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+// If there is an array as part of the nesting, specify the index in the path.
+//
+// To include a literal `.` in the property name, prefix with a `\`. In most
+// programming languages you will need to write this as `"\\."` because the
+// `\` itself will need to be escaped.
+//
+// For example,
+// ```typescript
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+// ```
+// would add the overrides
+// ```json
+// "Properties": {
+//    "GlobalSecondaryIndexes": [
+//      {
+//        "Projection": {
+//          "NonKeyAttributes": [ "myattribute" ]
+//          ...
+//        }
+//        ...
+//      },
+//      {
+//        "ProjectionType": "INCLUDE"
+//        ...
+//      },
+//    ]
+//    ...
+// }
+// ```
+// Experimental.
+func (c *jsiiProxy_CfnDataSet) AddOverride(path *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addOverride",
+		[]interface{}{path, value},
+	)
+}
+
+// Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
+func (c *jsiiProxy_CfnDataSet) AddPropertyDeletionOverride(propertyPath *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyDeletionOverride",
+		[]interface{}{propertyPath},
+	)
+}
+
+// Adds an override to a resource property.
+//
+// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
+func (c *jsiiProxy_CfnDataSet) AddPropertyOverride(propertyPath *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyOverride",
+		[]interface{}{propertyPath, value},
+	)
+}
+
+// Sets the deletion policy of the resource based on the removal policy specified.
+// Experimental.
+func (c *jsiiProxy_CfnDataSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	_jsii_.InvokeVoid(
+		c,
+		"applyRemovalPolicy",
+		[]interface{}{policy, options},
+	)
+}
+
+// Returns a token for an runtime attribute of this resource.
+//
+// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+// in case there is no generated attribute.
+// Experimental.
+func (c *jsiiProxy_CfnDataSet) GetAtt(attributeName *string) awscdk.Reference {
+	var returns awscdk.Reference
+
+	_jsii_.Invoke(
+		c,
+		"getAtt",
+		[]interface{}{attributeName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Retrieve a value value from the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+// Experimental.
+func (c *jsiiProxy_CfnDataSet) GetMetadata(key *string) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"getMetadata",
+		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
+// Examines the CloudFormation resource and discloses attributes.
+func (c *jsiiProxy_CfnDataSet) Inspect(inspector awscdk.TreeInspector) {
+	_jsii_.InvokeVoid(
+		c,
+		"inspect",
+		[]interface{}{inspector},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDataSet) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDataSet) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDataSet) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
+func (c *jsiiProxy_CfnDataSet) OverrideLogicalId(newLogicalId *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"overrideLogicalId",
+		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDataSet) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnDataSet) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderProperties",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+//
+// Returns: `true` if the resource should be included or `false` is the resource
+// should be omitted.
+// Experimental.
+func (c *jsiiProxy_CfnDataSet) ShouldSynthesize() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"shouldSynthesize",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDataSet) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+//
+// Returns: a string representation of this resource
+// Experimental.
+func (c *jsiiProxy_CfnDataSet) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDataSet) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (c *jsiiProxy_CfnDataSet) ValidateProperties(_properties interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"validateProperties",
+		[]interface{}{_properties},
+	)
+}
+
+type CfnDataSet_CalculatedColumnProperty struct {
+	// `CfnDataSet.CalculatedColumnProperty.ColumnId`.
+	ColumnId *string `json:"columnId"`
+	// `CfnDataSet.CalculatedColumnProperty.ColumnName`.
+	ColumnName *string `json:"columnName"`
+	// `CfnDataSet.CalculatedColumnProperty.Expression`.
+	Expression *string `json:"expression"`
+}
+
+type CfnDataSet_CastColumnTypeOperationProperty struct {
+	// `CfnDataSet.CastColumnTypeOperationProperty.ColumnName`.
+	ColumnName *string `json:"columnName"`
+	// `CfnDataSet.CastColumnTypeOperationProperty.NewColumnType`.
+	NewColumnType *string `json:"newColumnType"`
+	// `CfnDataSet.CastColumnTypeOperationProperty.Format`.
+	Format *string `json:"format"`
+}
+
+type CfnDataSet_ColumnDescriptionProperty struct {
+	// `CfnDataSet.ColumnDescriptionProperty.Text`.
+	Text *string `json:"text"`
+}
+
+type CfnDataSet_ColumnGroupProperty struct {
+	// `CfnDataSet.ColumnGroupProperty.GeoSpatialColumnGroup`.
+	GeoSpatialColumnGroup interface{} `json:"geoSpatialColumnGroup"`
+}
+
+type CfnDataSet_ColumnLevelPermissionRuleProperty struct {
+	// `CfnDataSet.ColumnLevelPermissionRuleProperty.ColumnNames`.
+	ColumnNames *[]*string `json:"columnNames"`
+	// `CfnDataSet.ColumnLevelPermissionRuleProperty.Principals`.
+	Principals *[]*string `json:"principals"`
+}
+
+type CfnDataSet_ColumnTagProperty struct {
+	// `CfnDataSet.ColumnTagProperty.ColumnDescription`.
+	ColumnDescription interface{} `json:"columnDescription"`
+	// `CfnDataSet.ColumnTagProperty.ColumnGeographicRole`.
+	ColumnGeographicRole *string `json:"columnGeographicRole"`
+}
+
+type CfnDataSet_CreateColumnsOperationProperty struct {
+	// `CfnDataSet.CreateColumnsOperationProperty.Columns`.
+	Columns interface{} `json:"columns"`
+}
+
+type CfnDataSet_CustomSqlProperty struct {
+	// `CfnDataSet.CustomSqlProperty.Columns`.
+	Columns interface{} `json:"columns"`
+	// `CfnDataSet.CustomSqlProperty.DataSourceArn`.
+	DataSourceArn *string `json:"dataSourceArn"`
+	// `CfnDataSet.CustomSqlProperty.Name`.
+	Name *string `json:"name"`
+	// `CfnDataSet.CustomSqlProperty.SqlQuery`.
+	SqlQuery *string `json:"sqlQuery"`
+}
+
+type CfnDataSet_FieldFolderProperty struct {
+	// `CfnDataSet.FieldFolderProperty.Columns`.
+	Columns *[]*string `json:"columns"`
+	// `CfnDataSet.FieldFolderProperty.Description`.
+	Description *string `json:"description"`
+}
+
+type CfnDataSet_FilterOperationProperty struct {
+	// `CfnDataSet.FilterOperationProperty.ConditionExpression`.
+	ConditionExpression *string `json:"conditionExpression"`
+}
+
+type CfnDataSet_GeoSpatialColumnGroupProperty struct {
+	// `CfnDataSet.GeoSpatialColumnGroupProperty.Columns`.
+	Columns *[]*string `json:"columns"`
+	// `CfnDataSet.GeoSpatialColumnGroupProperty.Name`.
+	Name *string `json:"name"`
+	// `CfnDataSet.GeoSpatialColumnGroupProperty.CountryCode`.
+	CountryCode *string `json:"countryCode"`
+}
+
+type CfnDataSet_IngestionWaitPolicyProperty struct {
+	// `CfnDataSet.IngestionWaitPolicyProperty.IngestionWaitTimeInHours`.
+	IngestionWaitTimeInHours *float64 `json:"ingestionWaitTimeInHours"`
+	// `CfnDataSet.IngestionWaitPolicyProperty.WaitForSpiceIngestion`.
+	WaitForSpiceIngestion interface{} `json:"waitForSpiceIngestion"`
+}
+
+type CfnDataSet_InputColumnProperty struct {
+	// `CfnDataSet.InputColumnProperty.Name`.
+	Name *string `json:"name"`
+	// `CfnDataSet.InputColumnProperty.Type`.
+	Type *string `json:"type"`
+}
+
+type CfnDataSet_JoinInstructionProperty struct {
+	// `CfnDataSet.JoinInstructionProperty.LeftOperand`.
+	LeftOperand *string `json:"leftOperand"`
+	// `CfnDataSet.JoinInstructionProperty.OnClause`.
+	OnClause *string `json:"onClause"`
+	// `CfnDataSet.JoinInstructionProperty.RightOperand`.
+	RightOperand *string `json:"rightOperand"`
+	// `CfnDataSet.JoinInstructionProperty.Type`.
+	Type *string `json:"type"`
+	// `CfnDataSet.JoinInstructionProperty.LeftJoinKeyProperties`.
+	LeftJoinKeyProperties interface{} `json:"leftJoinKeyProperties"`
+	// `CfnDataSet.JoinInstructionProperty.RightJoinKeyProperties`.
+	RightJoinKeyProperties interface{} `json:"rightJoinKeyProperties"`
+}
+
+type CfnDataSet_JoinKeyPropertiesProperty struct {
+	// `CfnDataSet.JoinKeyPropertiesProperty.UniqueKey`.
+	UniqueKey interface{} `json:"uniqueKey"`
+}
+
+type CfnDataSet_LogicalTableProperty struct {
+	// `CfnDataSet.LogicalTableProperty.Alias`.
+	Alias *string `json:"alias"`
+	// `CfnDataSet.LogicalTableProperty.Source`.
+	Source interface{} `json:"source"`
+	// `CfnDataSet.LogicalTableProperty.DataTransforms`.
+	DataTransforms interface{} `json:"dataTransforms"`
+}
+
+type CfnDataSet_LogicalTableSourceProperty struct {
+	// `CfnDataSet.LogicalTableSourceProperty.JoinInstruction`.
+	JoinInstruction interface{} `json:"joinInstruction"`
+	// `CfnDataSet.LogicalTableSourceProperty.PhysicalTableId`.
+	PhysicalTableId *string `json:"physicalTableId"`
+}
+
+type CfnDataSet_OutputColumnProperty struct {
+	// `CfnDataSet.OutputColumnProperty.Description`.
+	Description *string `json:"description"`
+	// `CfnDataSet.OutputColumnProperty.Name`.
+	Name *string `json:"name"`
+	// `CfnDataSet.OutputColumnProperty.Type`.
+	Type *string `json:"type"`
+}
+
+type CfnDataSet_PhysicalTableProperty struct {
+	// `CfnDataSet.PhysicalTableProperty.CustomSql`.
+	CustomSql interface{} `json:"customSql"`
+	// `CfnDataSet.PhysicalTableProperty.RelationalTable`.
+	RelationalTable interface{} `json:"relationalTable"`
+	// `CfnDataSet.PhysicalTableProperty.S3Source`.
+	S3Source interface{} `json:"s3Source"`
+}
+
+type CfnDataSet_ProjectOperationProperty struct {
+	// `CfnDataSet.ProjectOperationProperty.ProjectedColumns`.
+	ProjectedColumns *[]*string `json:"projectedColumns"`
+}
+
+type CfnDataSet_RelationalTableProperty struct {
+	// `CfnDataSet.RelationalTableProperty.DataSourceArn`.
+	DataSourceArn *string `json:"dataSourceArn"`
+	// `CfnDataSet.RelationalTableProperty.InputColumns`.
+	InputColumns interface{} `json:"inputColumns"`
+	// `CfnDataSet.RelationalTableProperty.Name`.
+	Name *string `json:"name"`
+	// `CfnDataSet.RelationalTableProperty.Catalog`.
+	Catalog *string `json:"catalog"`
+	// `CfnDataSet.RelationalTableProperty.Schema`.
+	Schema *string `json:"schema"`
+}
+
+type CfnDataSet_RenameColumnOperationProperty struct {
+	// `CfnDataSet.RenameColumnOperationProperty.ColumnName`.
+	ColumnName *string `json:"columnName"`
+	// `CfnDataSet.RenameColumnOperationProperty.NewColumnName`.
+	NewColumnName *string `json:"newColumnName"`
+}
+
+type CfnDataSet_ResourcePermissionProperty struct {
+	// `CfnDataSet.ResourcePermissionProperty.Actions`.
+	Actions *[]*string `json:"actions"`
+	// `CfnDataSet.ResourcePermissionProperty.Principal`.
+	Principal *string `json:"principal"`
+}
+
+type CfnDataSet_RowLevelPermissionDataSetProperty struct {
+	// `CfnDataSet.RowLevelPermissionDataSetProperty.Arn`.
+	Arn *string `json:"arn"`
+	// `CfnDataSet.RowLevelPermissionDataSetProperty.PermissionPolicy`.
+	PermissionPolicy *string `json:"permissionPolicy"`
+	// `CfnDataSet.RowLevelPermissionDataSetProperty.Namespace`.
+	Namespace *string `json:"namespace"`
+}
+
+type CfnDataSet_S3SourceProperty struct {
+	// `CfnDataSet.S3SourceProperty.DataSourceArn`.
+	DataSourceArn *string `json:"dataSourceArn"`
+	// `CfnDataSet.S3SourceProperty.InputColumns`.
+	InputColumns interface{} `json:"inputColumns"`
+	// `CfnDataSet.S3SourceProperty.UploadSettings`.
+	UploadSettings interface{} `json:"uploadSettings"`
+}
+
+type CfnDataSet_TagColumnOperationProperty struct {
+	// `CfnDataSet.TagColumnOperationProperty.ColumnName`.
+	ColumnName *string `json:"columnName"`
+	// `CfnDataSet.TagColumnOperationProperty.Tags`.
+	Tags *[]*CfnDataSet_ColumnTagProperty `json:"tags"`
+}
+
+type CfnDataSet_TransformOperationProperty struct {
+	// `CfnDataSet.TransformOperationProperty.CastColumnTypeOperation`.
+	CastColumnTypeOperation interface{} `json:"castColumnTypeOperation"`
+	// `CfnDataSet.TransformOperationProperty.CreateColumnsOperation`.
+	CreateColumnsOperation interface{} `json:"createColumnsOperation"`
+	// `CfnDataSet.TransformOperationProperty.FilterOperation`.
+	FilterOperation interface{} `json:"filterOperation"`
+	// `CfnDataSet.TransformOperationProperty.ProjectOperation`.
+	ProjectOperation interface{} `json:"projectOperation"`
+	// `CfnDataSet.TransformOperationProperty.RenameColumnOperation`.
+	RenameColumnOperation interface{} `json:"renameColumnOperation"`
+	// `CfnDataSet.TransformOperationProperty.TagColumnOperation`.
+	TagColumnOperation interface{} `json:"tagColumnOperation"`
+}
+
+type CfnDataSet_UploadSettingsProperty struct {
+	// `CfnDataSet.UploadSettingsProperty.ContainsHeader`.
+	ContainsHeader interface{} `json:"containsHeader"`
+	// `CfnDataSet.UploadSettingsProperty.Delimiter`.
+	Delimiter *string `json:"delimiter"`
+	// `CfnDataSet.UploadSettingsProperty.Format`.
+	Format *string `json:"format"`
+	// `CfnDataSet.UploadSettingsProperty.StartFromRow`.
+	StartFromRow *float64 `json:"startFromRow"`
+	// `CfnDataSet.UploadSettingsProperty.TextQualifier`.
+	TextQualifier *string `json:"textQualifier"`
+}
+
+// Properties for defining a `AWS::QuickSight::DataSet`.
+type CfnDataSetProps struct {
+	// `AWS::QuickSight::DataSet.AwsAccountId`.
+	AwsAccountId *string `json:"awsAccountId"`
+	// `AWS::QuickSight::DataSet.ColumnGroups`.
+	ColumnGroups interface{} `json:"columnGroups"`
+	// `AWS::QuickSight::DataSet.ColumnLevelPermissionRules`.
+	ColumnLevelPermissionRules interface{} `json:"columnLevelPermissionRules"`
+	// `AWS::QuickSight::DataSet.DataSetId`.
+	DataSetId *string `json:"dataSetId"`
+	// `AWS::QuickSight::DataSet.FieldFolders`.
+	FieldFolders interface{} `json:"fieldFolders"`
+	// `AWS::QuickSight::DataSet.ImportMode`.
+	ImportMode *string `json:"importMode"`
+	// `AWS::QuickSight::DataSet.IngestionWaitPolicy`.
+	IngestionWaitPolicy interface{} `json:"ingestionWaitPolicy"`
+	// `AWS::QuickSight::DataSet.LogicalTableMap`.
+	LogicalTableMap interface{} `json:"logicalTableMap"`
+	// `AWS::QuickSight::DataSet.Name`.
+	Name *string `json:"name"`
+	// `AWS::QuickSight::DataSet.Permissions`.
+	Permissions interface{} `json:"permissions"`
+	// `AWS::QuickSight::DataSet.PhysicalTableMap`.
+	PhysicalTableMap interface{} `json:"physicalTableMap"`
+	// `AWS::QuickSight::DataSet.RowLevelPermissionDataSet`.
+	RowLevelPermissionDataSet interface{} `json:"rowLevelPermissionDataSet"`
+	// `AWS::QuickSight::DataSet.Tags`.
+	Tags *[]*awscdk.CfnTag `json:"tags"`
+}
+
+// A CloudFormation `AWS::QuickSight::DataSource`.
+type CfnDataSource interface {
+	awscdk.CfnResource
+	awscdk.IInspectable
+	AlternateDataSourceParameters() interface{}
+	SetAlternateDataSourceParameters(val interface{})
+	AttrArn() *string
+	AttrCreatedTime() *string
+	AttrLastUpdatedTime() *string
+	AttrStatus() *string
+	AwsAccountId() *string
+	SetAwsAccountId(val *string)
+	CfnOptions() awscdk.ICfnResourceOptions
+	CfnProperties() *map[string]interface{}
+	CfnResourceType() *string
+	CreationStack() *[]*string
+	Credentials() interface{}
+	SetCredentials(val interface{})
+	DataSourceId() *string
+	SetDataSourceId(val *string)
+	DataSourceParameters() interface{}
+	SetDataSourceParameters(val interface{})
+	ErrorInfo() interface{}
+	SetErrorInfo(val interface{})
+	LogicalId() *string
+	Name() *string
+	SetName(val *string)
+	Node() awscdk.ConstructNode
+	Permissions() interface{}
+	SetPermissions(val interface{})
+	Ref() *string
+	SslProperties() interface{}
+	SetSslProperties(val interface{})
+	Stack() awscdk.Stack
+	Tags() awscdk.TagManager
+	Type() *string
+	SetType(val *string)
+	UpdatedProperites() *map[string]interface{}
+	VpcConnectionProperties() interface{}
+	SetVpcConnectionProperties(val interface{})
+	AddDeletionOverride(path *string)
+	AddDependsOn(target awscdk.CfnResource)
+	AddMetadata(key *string, value interface{})
+	AddOverride(path *string, value interface{})
+	AddPropertyDeletionOverride(propertyPath *string)
+	AddPropertyOverride(propertyPath *string, value interface{})
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	GetAtt(attributeName *string) awscdk.Reference
+	GetMetadata(key *string) interface{}
+	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	OverrideLogicalId(newLogicalId *string)
+	Prepare()
+	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
+	ValidateProperties(_properties interface{})
+}
+
+// The jsii proxy struct for CfnDataSource
+type jsiiProxy_CfnDataSource struct {
+	internal.Type__awscdkCfnResource
+	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnDataSource) AlternateDataSourceParameters() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"alternateDataSourceParameters",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) AttrArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) AttrCreatedTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCreatedTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) AttrLastUpdatedTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLastUpdatedTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) AttrStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) AwsAccountId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"awsAccountId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) CfnOptions() awscdk.ICfnResourceOptions {
+	var returns awscdk.ICfnResourceOptions
+	_jsii_.Get(
+		j,
+		"cfnOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) CfnProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"cfnProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) CfnResourceType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) Credentials() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"credentials",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) DataSourceId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"dataSourceId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) DataSourceParameters() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"dataSourceParameters",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) ErrorInfo() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"errorInfo",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) LogicalId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) Name() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"name",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) Permissions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"permissions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) Ref() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) SslProperties() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"sslProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) Tags() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) Type() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"type",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) UpdatedProperites() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataSource) VpcConnectionProperties() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"vpcConnectionProperties",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a new `AWS::QuickSight::DataSource`.
+func NewCfnDataSource(scope awscdk.Construct, id *string, props *CfnDataSourceProps) CfnDataSource {
+	_init_.Initialize()
+
+	j := jsiiProxy_CfnDataSource{}
+
+	_jsii_.Create(
+		"monocdk.aws_quicksight.CfnDataSource",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a new `AWS::QuickSight::DataSource`.
+func NewCfnDataSource_Override(c CfnDataSource, scope awscdk.Construct, id *string, props *CfnDataSourceProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_quicksight.CfnDataSource",
+		[]interface{}{scope, id, props},
+		c,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSource) SetAlternateDataSourceParameters(val interface{}) {
+	_jsii_.Set(
+		j,
+		"alternateDataSourceParameters",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSource) SetAwsAccountId(val *string) {
+	_jsii_.Set(
+		j,
+		"awsAccountId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSource) SetCredentials(val interface{}) {
+	_jsii_.Set(
+		j,
+		"credentials",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSource) SetDataSourceId(val *string) {
+	_jsii_.Set(
+		j,
+		"dataSourceId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSource) SetDataSourceParameters(val interface{}) {
+	_jsii_.Set(
+		j,
+		"dataSourceParameters",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSource) SetErrorInfo(val interface{}) {
+	_jsii_.Set(
+		j,
+		"errorInfo",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSource) SetName(val *string) {
+	_jsii_.Set(
+		j,
+		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSource) SetPermissions(val interface{}) {
+	_jsii_.Set(
+		j,
+		"permissions",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSource) SetSslProperties(val interface{}) {
+	_jsii_.Set(
+		j,
+		"sslProperties",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSource) SetType(val *string) {
+	_jsii_.Set(
+		j,
+		"type",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSource) SetVpcConnectionProperties(val interface{}) {
+	_jsii_.Set(
+		j,
+		"vpcConnectionProperties",
+		val,
+	)
+}
+
+// Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
+//
+// Uses duck-typing instead of `instanceof` to allow stack elements from different
+// versions of this library to be included in the same stack.
+//
+// Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
+func CfnDataSource_IsCfnElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_quicksight.CfnDataSource",
+		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a CfnResource.
+// Experimental.
+func CfnDataSource_IsCfnResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_quicksight.CfnDataSource",
+		"isCfnResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func CfnDataSource_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_quicksight.CfnDataSource",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnDataSource_CFN_RESOURCE_TYPE_NAME() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"monocdk.aws_quicksight.CfnDataSource",
+		"CFN_RESOURCE_TYPE_NAME",
+		&returns,
+	)
+	return returns
+}
+
+// Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) AddDeletionOverride(path *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDeletionOverride",
+		[]interface{}{path},
+	)
+}
+
+// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+//
+// This can be used for resources across stacks (or nested stack) boundaries
+// and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) AddDependsOn(target awscdk.CfnResource) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDependsOn",
+		[]interface{}{target},
+	)
+}
+
+// Add a value to the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) AddMetadata(key *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addMetadata",
+		[]interface{}{key, value},
+	)
+}
+
+// Adds an override to the synthesized CloudFormation resource.
+//
+// To add a
+// property override, either use `addPropertyOverride` or prefix `path` with
+// "Properties." (i.e. `Properties.TopicName`).
+//
+// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+// If there is an array as part of the nesting, specify the index in the path.
+//
+// To include a literal `.` in the property name, prefix with a `\`. In most
+// programming languages you will need to write this as `"\\."` because the
+// `\` itself will need to be escaped.
+//
+// For example,
+// ```typescript
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+// ```
+// would add the overrides
+// ```json
+// "Properties": {
+//    "GlobalSecondaryIndexes": [
+//      {
+//        "Projection": {
+//          "NonKeyAttributes": [ "myattribute" ]
+//          ...
+//        }
+//        ...
+//      },
+//      {
+//        "ProjectionType": "INCLUDE"
+//        ...
+//      },
+//    ]
+//    ...
+// }
+// ```
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) AddOverride(path *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addOverride",
+		[]interface{}{path, value},
+	)
+}
+
+// Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) AddPropertyDeletionOverride(propertyPath *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyDeletionOverride",
+		[]interface{}{propertyPath},
+	)
+}
+
+// Adds an override to a resource property.
+//
+// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) AddPropertyOverride(propertyPath *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyOverride",
+		[]interface{}{propertyPath, value},
+	)
+}
+
+// Sets the deletion policy of the resource based on the removal policy specified.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	_jsii_.InvokeVoid(
+		c,
+		"applyRemovalPolicy",
+		[]interface{}{policy, options},
+	)
+}
+
+// Returns a token for an runtime attribute of this resource.
+//
+// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+// in case there is no generated attribute.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) GetAtt(attributeName *string) awscdk.Reference {
+	var returns awscdk.Reference
+
+	_jsii_.Invoke(
+		c,
+		"getAtt",
+		[]interface{}{attributeName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Retrieve a value value from the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) GetMetadata(key *string) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"getMetadata",
+		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
+// Examines the CloudFormation resource and discloses attributes.
+func (c *jsiiProxy_CfnDataSource) Inspect(inspector awscdk.TreeInspector) {
+	_jsii_.InvokeVoid(
+		c,
+		"inspect",
+		[]interface{}{inspector},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) OverrideLogicalId(newLogicalId *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"overrideLogicalId",
+		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnDataSource) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderProperties",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+//
+// Returns: `true` if the resource should be included or `false` is the resource
+// should be omitted.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) ShouldSynthesize() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"shouldSynthesize",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+//
+// Returns: a string representation of this resource
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (c *jsiiProxy_CfnDataSource) ValidateProperties(_properties interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"validateProperties",
+		[]interface{}{_properties},
+	)
+}
+
+type CfnDataSource_AmazonElasticsearchParametersProperty struct {
+	// `CfnDataSource.AmazonElasticsearchParametersProperty.Domain`.
+	Domain *string `json:"domain"`
+}
+
+type CfnDataSource_AthenaParametersProperty struct {
+	// `CfnDataSource.AthenaParametersProperty.WorkGroup`.
+	WorkGroup *string `json:"workGroup"`
+}
+
+type CfnDataSource_AuroraParametersProperty struct {
+	// `CfnDataSource.AuroraParametersProperty.Database`.
+	Database *string `json:"database"`
+	// `CfnDataSource.AuroraParametersProperty.Host`.
+	Host *string `json:"host"`
+	// `CfnDataSource.AuroraParametersProperty.Port`.
+	Port *float64 `json:"port"`
+}
+
+type CfnDataSource_AuroraPostgreSqlParametersProperty struct {
+	// `CfnDataSource.AuroraPostgreSqlParametersProperty.Database`.
+	Database *string `json:"database"`
+	// `CfnDataSource.AuroraPostgreSqlParametersProperty.Host`.
+	Host *string `json:"host"`
+	// `CfnDataSource.AuroraPostgreSqlParametersProperty.Port`.
+	Port *float64 `json:"port"`
+}
+
+type CfnDataSource_CredentialPairProperty struct {
+	// `CfnDataSource.CredentialPairProperty.Password`.
+	Password *string `json:"password"`
+	// `CfnDataSource.CredentialPairProperty.Username`.
+	Username *string `json:"username"`
+	// `CfnDataSource.CredentialPairProperty.AlternateDataSourceParameters`.
+	AlternateDataSourceParameters interface{} `json:"alternateDataSourceParameters"`
+}
+
+type CfnDataSource_DataSourceCredentialsProperty struct {
+	// `CfnDataSource.DataSourceCredentialsProperty.CopySourceArn`.
+	CopySourceArn *string `json:"copySourceArn"`
+	// `CfnDataSource.DataSourceCredentialsProperty.CredentialPair`.
+	CredentialPair interface{} `json:"credentialPair"`
+}
+
+type CfnDataSource_DataSourceErrorInfoProperty struct {
+	// `CfnDataSource.DataSourceErrorInfoProperty.Message`.
+	Message *string `json:"message"`
+	// `CfnDataSource.DataSourceErrorInfoProperty.Type`.
+	Type *string `json:"type"`
+}
+
+type CfnDataSource_DataSourceParametersProperty struct {
+	// `CfnDataSource.DataSourceParametersProperty.AmazonElasticsearchParameters`.
+	AmazonElasticsearchParameters interface{} `json:"amazonElasticsearchParameters"`
+	// `CfnDataSource.DataSourceParametersProperty.AthenaParameters`.
+	AthenaParameters interface{} `json:"athenaParameters"`
+	// `CfnDataSource.DataSourceParametersProperty.AuroraParameters`.
+	AuroraParameters interface{} `json:"auroraParameters"`
+	// `CfnDataSource.DataSourceParametersProperty.AuroraPostgreSqlParameters`.
+	AuroraPostgreSqlParameters interface{} `json:"auroraPostgreSqlParameters"`
+	// `CfnDataSource.DataSourceParametersProperty.MariaDbParameters`.
+	MariaDbParameters interface{} `json:"mariaDbParameters"`
+	// `CfnDataSource.DataSourceParametersProperty.MySqlParameters`.
+	MySqlParameters interface{} `json:"mySqlParameters"`
+	// `CfnDataSource.DataSourceParametersProperty.OracleParameters`.
+	OracleParameters interface{} `json:"oracleParameters"`
+	// `CfnDataSource.DataSourceParametersProperty.PostgreSqlParameters`.
+	PostgreSqlParameters interface{} `json:"postgreSqlParameters"`
+	// `CfnDataSource.DataSourceParametersProperty.PrestoParameters`.
+	PrestoParameters interface{} `json:"prestoParameters"`
+	// `CfnDataSource.DataSourceParametersProperty.RdsParameters`.
+	RdsParameters interface{} `json:"rdsParameters"`
+	// `CfnDataSource.DataSourceParametersProperty.RedshiftParameters`.
+	RedshiftParameters interface{} `json:"redshiftParameters"`
+	// `CfnDataSource.DataSourceParametersProperty.S3Parameters`.
+	S3Parameters interface{} `json:"s3Parameters"`
+	// `CfnDataSource.DataSourceParametersProperty.SnowflakeParameters`.
+	SnowflakeParameters interface{} `json:"snowflakeParameters"`
+	// `CfnDataSource.DataSourceParametersProperty.SparkParameters`.
+	SparkParameters interface{} `json:"sparkParameters"`
+	// `CfnDataSource.DataSourceParametersProperty.SqlServerParameters`.
+	SqlServerParameters interface{} `json:"sqlServerParameters"`
+	// `CfnDataSource.DataSourceParametersProperty.TeradataParameters`.
+	TeradataParameters interface{} `json:"teradataParameters"`
+}
+
+type CfnDataSource_ManifestFileLocationProperty struct {
+	// `CfnDataSource.ManifestFileLocationProperty.Bucket`.
+	Bucket *string `json:"bucket"`
+	// `CfnDataSource.ManifestFileLocationProperty.Key`.
+	Key *string `json:"key"`
+}
+
+type CfnDataSource_MariaDbParametersProperty struct {
+	// `CfnDataSource.MariaDbParametersProperty.Database`.
+	Database *string `json:"database"`
+	// `CfnDataSource.MariaDbParametersProperty.Host`.
+	Host *string `json:"host"`
+	// `CfnDataSource.MariaDbParametersProperty.Port`.
+	Port *float64 `json:"port"`
+}
+
+type CfnDataSource_MySqlParametersProperty struct {
+	// `CfnDataSource.MySqlParametersProperty.Database`.
+	Database *string `json:"database"`
+	// `CfnDataSource.MySqlParametersProperty.Host`.
+	Host *string `json:"host"`
+	// `CfnDataSource.MySqlParametersProperty.Port`.
+	Port *float64 `json:"port"`
+}
+
+type CfnDataSource_OracleParametersProperty struct {
+	// `CfnDataSource.OracleParametersProperty.Database`.
+	Database *string `json:"database"`
+	// `CfnDataSource.OracleParametersProperty.Host`.
+	Host *string `json:"host"`
+	// `CfnDataSource.OracleParametersProperty.Port`.
+	Port *float64 `json:"port"`
+}
+
+type CfnDataSource_PostgreSqlParametersProperty struct {
+	// `CfnDataSource.PostgreSqlParametersProperty.Database`.
+	Database *string `json:"database"`
+	// `CfnDataSource.PostgreSqlParametersProperty.Host`.
+	Host *string `json:"host"`
+	// `CfnDataSource.PostgreSqlParametersProperty.Port`.
+	Port *float64 `json:"port"`
+}
+
+type CfnDataSource_PrestoParametersProperty struct {
+	// `CfnDataSource.PrestoParametersProperty.Catalog`.
+	Catalog *string `json:"catalog"`
+	// `CfnDataSource.PrestoParametersProperty.Host`.
+	Host *string `json:"host"`
+	// `CfnDataSource.PrestoParametersProperty.Port`.
+	Port *float64 `json:"port"`
+}
+
+type CfnDataSource_RdsParametersProperty struct {
+	// `CfnDataSource.RdsParametersProperty.Database`.
+	Database *string `json:"database"`
+	// `CfnDataSource.RdsParametersProperty.InstanceId`.
+	InstanceId *string `json:"instanceId"`
+}
+
+type CfnDataSource_RedshiftParametersProperty struct {
+	// `CfnDataSource.RedshiftParametersProperty.Database`.
+	Database *string `json:"database"`
+	// `CfnDataSource.RedshiftParametersProperty.ClusterId`.
+	ClusterId *string `json:"clusterId"`
+	// `CfnDataSource.RedshiftParametersProperty.Host`.
+	Host *string `json:"host"`
+	// `CfnDataSource.RedshiftParametersProperty.Port`.
+	Port *float64 `json:"port"`
+}
+
+type CfnDataSource_ResourcePermissionProperty struct {
+	// `CfnDataSource.ResourcePermissionProperty.Actions`.
+	Actions *[]*string `json:"actions"`
+	// `CfnDataSource.ResourcePermissionProperty.Principal`.
+	Principal *string `json:"principal"`
+}
+
+type CfnDataSource_S3ParametersProperty struct {
+	// `CfnDataSource.S3ParametersProperty.ManifestFileLocation`.
+	ManifestFileLocation interface{} `json:"manifestFileLocation"`
+}
+
+type CfnDataSource_SnowflakeParametersProperty struct {
+	// `CfnDataSource.SnowflakeParametersProperty.Database`.
+	Database *string `json:"database"`
+	// `CfnDataSource.SnowflakeParametersProperty.Host`.
+	Host *string `json:"host"`
+	// `CfnDataSource.SnowflakeParametersProperty.Warehouse`.
+	Warehouse *string `json:"warehouse"`
+}
+
+type CfnDataSource_SparkParametersProperty struct {
+	// `CfnDataSource.SparkParametersProperty.Host`.
+	Host *string `json:"host"`
+	// `CfnDataSource.SparkParametersProperty.Port`.
+	Port *float64 `json:"port"`
+}
+
+type CfnDataSource_SqlServerParametersProperty struct {
+	// `CfnDataSource.SqlServerParametersProperty.Database`.
+	Database *string `json:"database"`
+	// `CfnDataSource.SqlServerParametersProperty.Host`.
+	Host *string `json:"host"`
+	// `CfnDataSource.SqlServerParametersProperty.Port`.
+	Port *float64 `json:"port"`
+}
+
+type CfnDataSource_SslPropertiesProperty struct {
+	// `CfnDataSource.SslPropertiesProperty.DisableSsl`.
+	DisableSsl interface{} `json:"disableSsl"`
+}
+
+type CfnDataSource_TeradataParametersProperty struct {
+	// `CfnDataSource.TeradataParametersProperty.Database`.
+	Database *string `json:"database"`
+	// `CfnDataSource.TeradataParametersProperty.Host`.
+	Host *string `json:"host"`
+	// `CfnDataSource.TeradataParametersProperty.Port`.
+	Port *float64 `json:"port"`
+}
+
+type CfnDataSource_VpcConnectionPropertiesProperty struct {
+	// `CfnDataSource.VpcConnectionPropertiesProperty.VpcConnectionArn`.
+	VpcConnectionArn *string `json:"vpcConnectionArn"`
+}
+
+// Properties for defining a `AWS::QuickSight::DataSource`.
+type CfnDataSourceProps struct {
+	// `AWS::QuickSight::DataSource.AlternateDataSourceParameters`.
+	AlternateDataSourceParameters interface{} `json:"alternateDataSourceParameters"`
+	// `AWS::QuickSight::DataSource.AwsAccountId`.
+	AwsAccountId *string `json:"awsAccountId"`
+	// `AWS::QuickSight::DataSource.Credentials`.
+	Credentials interface{} `json:"credentials"`
+	// `AWS::QuickSight::DataSource.DataSourceId`.
+	DataSourceId *string `json:"dataSourceId"`
+	// `AWS::QuickSight::DataSource.DataSourceParameters`.
+	DataSourceParameters interface{} `json:"dataSourceParameters"`
+	// `AWS::QuickSight::DataSource.ErrorInfo`.
+	ErrorInfo interface{} `json:"errorInfo"`
+	// `AWS::QuickSight::DataSource.Name`.
+	Name *string `json:"name"`
+	// `AWS::QuickSight::DataSource.Permissions`.
+	Permissions interface{} `json:"permissions"`
+	// `AWS::QuickSight::DataSource.SslProperties`.
+	SslProperties interface{} `json:"sslProperties"`
+	// `AWS::QuickSight::DataSource.Tags`.
+	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::QuickSight::DataSource.Type`.
+	Type *string `json:"type"`
+	// `AWS::QuickSight::DataSource.VpcConnectionProperties`.
+	VpcConnectionProperties interface{} `json:"vpcConnectionProperties"`
+}
+
 // A CloudFormation `AWS::QuickSight::Template`.
 type CfnTemplate interface {
 	awscdk.CfnResource
@@ -1619,7 +4026,7 @@ type CfnTemplate interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Permissions() interface{}
 	SetPermissions(val interface{})
 	Ref() *string
@@ -1642,10 +4049,16 @@ type CfnTemplate interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1755,8 +4168,8 @@ func (j *jsiiProxy_CfnTemplate) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTemplate) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnTemplate) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1847,13 +4260,13 @@ func (j *jsiiProxy_CfnTemplate) VersionDescription() *string {
 
 
 // Create a new `AWS::QuickSight::Template`.
-func NewCfnTemplate(scope constructs.Construct, id *string, props *CfnTemplateProps) CfnTemplate {
+func NewCfnTemplate(scope awscdk.Construct, id *string, props *CfnTemplateProps) CfnTemplate {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnTemplate{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnTemplate",
+		"monocdk.aws_quicksight.CfnTemplate",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1862,11 +4275,11 @@ func NewCfnTemplate(scope constructs.Construct, id *string, props *CfnTemplatePr
 }
 
 // Create a new `AWS::QuickSight::Template`.
-func NewCfnTemplate_Override(c CfnTemplate, scope constructs.Construct, id *string, props *CfnTemplateProps) {
+func NewCfnTemplate_Override(c CfnTemplate, scope awscdk.Construct, id *string, props *CfnTemplateProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnTemplate",
+		"monocdk.aws_quicksight.CfnTemplate",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1933,7 +4346,7 @@ func CfnTemplate_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnTemplate",
+		"monocdk.aws_quicksight.CfnTemplate",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1950,7 +4363,7 @@ func CfnTemplate_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnTemplate",
+		"monocdk.aws_quicksight.CfnTemplate",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1959,17 +4372,15 @@ func CfnTemplate_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnTemplate_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnTemplate",
+		"monocdk.aws_quicksight.CfnTemplate",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1982,7 +4393,7 @@ func CfnTemplate_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_quicksight.CfnTemplate",
+		"monocdk.aws_quicksight.CfnTemplate",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2154,6 +4565,56 @@ func (c *jsiiProxy_CfnTemplate) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnTemplate) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnTemplate) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnTemplate) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnTemplate) OverrideLogicalId(newLogicalId *string) {
@@ -2161,6 +4622,23 @@ func (c *jsiiProxy_CfnTemplate) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnTemplate) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2195,6 +4673,19 @@ func (c *jsiiProxy_CfnTemplate) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnTemplate) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -2205,6 +4696,26 @@ func (c *jsiiProxy_CfnTemplate) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnTemplate) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2293,7 +4804,7 @@ type CfnTheme interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Permissions() interface{}
 	SetPermissions(val interface{})
 	Ref() *string
@@ -2314,10 +4825,16 @@ type CfnTheme interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2457,8 +4974,8 @@ func (j *jsiiProxy_CfnTheme) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTheme) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnTheme) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2539,13 +5056,13 @@ func (j *jsiiProxy_CfnTheme) VersionDescription() *string {
 
 
 // Create a new `AWS::QuickSight::Theme`.
-func NewCfnTheme(scope constructs.Construct, id *string, props *CfnThemeProps) CfnTheme {
+func NewCfnTheme(scope awscdk.Construct, id *string, props *CfnThemeProps) CfnTheme {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnTheme{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnTheme",
+		"monocdk.aws_quicksight.CfnTheme",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2554,11 +5071,11 @@ func NewCfnTheme(scope constructs.Construct, id *string, props *CfnThemeProps) C
 }
 
 // Create a new `AWS::QuickSight::Theme`.
-func NewCfnTheme_Override(c CfnTheme, scope constructs.Construct, id *string, props *CfnThemeProps) {
+func NewCfnTheme_Override(c CfnTheme, scope awscdk.Construct, id *string, props *CfnThemeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_quicksight.CfnTheme",
+		"monocdk.aws_quicksight.CfnTheme",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2633,7 +5150,7 @@ func CfnTheme_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnTheme",
+		"monocdk.aws_quicksight.CfnTheme",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2650,7 +5167,7 @@ func CfnTheme_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnTheme",
+		"monocdk.aws_quicksight.CfnTheme",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2659,17 +5176,15 @@ func CfnTheme_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnTheme_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_quicksight.CfnTheme",
+		"monocdk.aws_quicksight.CfnTheme",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2682,7 +5197,7 @@ func CfnTheme_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_quicksight.CfnTheme",
+		"monocdk.aws_quicksight.CfnTheme",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2854,6 +5369,56 @@ func (c *jsiiProxy_CfnTheme) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnTheme) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnTheme) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnTheme) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnTheme) OverrideLogicalId(newLogicalId *string) {
@@ -2861,6 +5426,23 @@ func (c *jsiiProxy_CfnTheme) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnTheme) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2895,6 +5477,19 @@ func (c *jsiiProxy_CfnTheme) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnTheme) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -2905,6 +5500,26 @@ func (c *jsiiProxy_CfnTheme) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnTheme) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
