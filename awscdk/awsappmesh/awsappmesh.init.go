@@ -989,6 +989,10 @@ func init() {
 		"monocdk.aws_appmesh.GrpcGatewayRouteSpecOptions",
 		reflect.TypeOf((*GrpcGatewayRouteSpecOptions)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_appmesh.GrpcHealthCheckOptions",
+		reflect.TypeOf((*GrpcHealthCheckOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"monocdk.aws_appmesh.GrpcRetryEvent",
 		reflect.TypeOf((*GrpcRetryEvent)(nil)).Elem(),
@@ -1020,9 +1024,23 @@ func init() {
 		"monocdk.aws_appmesh.GrpcVirtualNodeListenerOptions",
 		reflect.TypeOf((*GrpcVirtualNodeListenerOptions)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
+	_jsii_.RegisterClass(
 		"monocdk.aws_appmesh.HealthCheck",
 		reflect.TypeOf((*HealthCheck)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			return &jsiiProxy_HealthCheck{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_appmesh.HealthCheckBindOptions",
+		reflect.TypeOf((*HealthCheckBindOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_appmesh.HealthCheckConfig",
+		reflect.TypeOf((*HealthCheckConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_appmesh.Http2ConnectionPool",
@@ -1065,6 +1083,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_appmesh.HttpHeaderMatchConfig",
 		reflect.TypeOf((*HttpHeaderMatchConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_appmesh.HttpHealthCheckOptions",
+		reflect.TypeOf((*HttpHealthCheckOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"monocdk.aws_appmesh.HttpRetryEvent",
@@ -1377,6 +1399,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_appmesh.TcpConnectionPool",
 		reflect.TypeOf((*TcpConnectionPool)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_appmesh.TcpHealthCheckOptions",
+		reflect.TypeOf((*TcpHealthCheckOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"monocdk.aws_appmesh.TcpRetryEvent",

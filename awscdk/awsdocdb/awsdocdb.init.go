@@ -273,6 +273,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addRotationMultiUser", GoMethod: "AddRotationMultiUser"},
 			_jsii_.MemberMethod{JsiiMethod: "addRotationSingleUser", GoMethod: "AddRotationSingleUser"},
+			_jsii_.MemberMethod{JsiiMethod: "addSecurityGroups", GoMethod: "AddSecurityGroups"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "asSecretAttachmentTarget", GoMethod: "AsSecretAttachmentTarget"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterEndpoint", GoGetter: "ClusterEndpoint"},

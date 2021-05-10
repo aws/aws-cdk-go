@@ -1880,6 +1880,7 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "assembly", GoGetter: "Assembly"},
 			_jsii_.MemberProperty{JsiiProperty: "outdir", GoGetter: "Outdir"},
+			_jsii_.MemberProperty{JsiiProperty: "validateOnSynth", GoGetter: "ValidateOnSynth"},
 		},
 		func() interface{} {
 			return &jsiiProxy_ISynthesisSession{}

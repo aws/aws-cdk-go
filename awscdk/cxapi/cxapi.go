@@ -743,6 +743,7 @@ type CloudFormationStackArtifact interface {
 	TemplateFile() *string
 	TemplateFullPath() *string
 	TerminationProtection() *bool
+	ValidateOnSynth() *bool
 	FindMetadataByType(type_ *string) *[]*MetadataEntryResult
 }
 
@@ -976,6 +977,16 @@ func (j *jsiiProxy_CloudFormationStackArtifact) TerminationProtection() *bool {
 	_jsii_.Get(
 		j,
 		"terminationProtection",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CloudFormationStackArtifact) ValidateOnSynth() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"validateOnSynth",
 		&returns,
 	)
 	return returns

@@ -3436,6 +3436,7 @@ type DatabaseCluster interface {
 	Stack() awscdk.Stack
 	AddRotationMultiUser(id *string, options *RotationMultiUserOptions) awssecretsmanager.SecretRotation
 	AddRotationSingleUser(automaticallyAfter awscdk.Duration) awssecretsmanager.SecretRotation
+	AddSecurityGroups(securityGroups ...awsec2.ISecurityGroup)
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	AsSecretAttachmentTarget() *awssecretsmanager.SecretAttachmentTargetProps
 	GeneratePhysicalName() *string
@@ -3714,6 +3715,21 @@ func (d *jsiiProxy_DatabaseCluster) AddRotationSingleUser(automaticallyAfter aws
 	)
 
 	return returns
+}
+
+// Adds security groups to this cluster.
+// Experimental.
+func (d *jsiiProxy_DatabaseCluster) AddSecurityGroups(securityGroups ...awsec2.ISecurityGroup) {
+	args := []interface{}{}
+	for _, a := range securityGroups {
+		args = append(args, a)
+	}
+
+	_jsii_.InvokeVoid(
+		d,
+		"addSecurityGroups",
+		args,
+	)
 }
 
 // Apply the given removal policy to this resource.

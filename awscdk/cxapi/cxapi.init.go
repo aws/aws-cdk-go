@@ -123,6 +123,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "templateFile", GoGetter: "TemplateFile"},
 			_jsii_.MemberProperty{JsiiProperty: "templateFullPath", GoGetter: "TemplateFullPath"},
 			_jsii_.MemberProperty{JsiiProperty: "terminationProtection", GoGetter: "TerminationProtection"},
+			_jsii_.MemberProperty{JsiiProperty: "validateOnSynth", GoGetter: "ValidateOnSynth"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CloudFormationStackArtifact{}

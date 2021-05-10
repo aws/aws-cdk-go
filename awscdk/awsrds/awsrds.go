@@ -21536,6 +21536,17 @@ func MariaDbEngineVersion_VER_10_2_21() MariaDbEngineVersion {
 	return returns
 }
 
+func MariaDbEngineVersion_VER_10_2_32() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_2_32",
+		&returns,
+	)
+	return returns
+}
+
 func MariaDbEngineVersion_VER_10_3() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
@@ -24055,6 +24066,28 @@ func PostgresEngineVersion_VER_10_14() PostgresEngineVersion {
 	return returns
 }
 
+func PostgresEngineVersion_VER_10_15() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_10_15",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_10_16() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_10_16",
+		&returns,
+	)
+	return returns
+}
+
 func PostgresEngineVersion_VER_10_3() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
@@ -24138,6 +24171,28 @@ func PostgresEngineVersion_VER_11_1() PostgresEngineVersion {
 	_jsii_.StaticGet(
 		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_11_1",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_11_10() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_11_10",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_11_11() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_11_11",
 		&returns,
 	)
 	return returns
@@ -24275,6 +24330,17 @@ func PostgresEngineVersion_VER_12_5() PostgresEngineVersion {
 	return returns
 }
 
+func PostgresEngineVersion_VER_12_6() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_12_6",
+		&returns,
+	)
+	return returns
+}
+
 func PostgresEngineVersion_VER_13() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
@@ -24292,6 +24358,17 @@ func PostgresEngineVersion_VER_13_1() PostgresEngineVersion {
 	_jsii_.StaticGet(
 		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_13_1",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_13_2() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_13_2",
 		&returns,
 	)
 	return returns
@@ -24622,6 +24699,28 @@ func PostgresEngineVersion_VER_9_6_2() PostgresEngineVersion {
 	_jsii_.StaticGet(
 		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_9_6_2",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_20() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_20",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_21() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_21",
 		&returns,
 	)
 	return returns

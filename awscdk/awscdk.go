@@ -18271,6 +18271,12 @@ type ISynthesisSession interface {
 	// The output directory for this synthesis session.
 	// Experimental.
 	SetOutdir(o *string)
+	// Whether the stack should be validated after synthesis to check for error metadata.
+	// Experimental.
+	ValidateOnSynth() *bool
+	// Whether the stack should be validated after synthesis to check for error metadata.
+	// Experimental.
+	SetValidateOnSynth(v *bool)
 }
 
 // The jsii proxy for ISynthesisSession
@@ -18310,6 +18316,24 @@ func (j *jsiiProxy_ISynthesisSession) SetOutdir(val *string) {
 	_jsii_.Set(
 		j,
 		"outdir",
+		val,
+	)
+}
+
+func (j *jsiiProxy_ISynthesisSession) ValidateOnSynth() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"validateOnSynth",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ISynthesisSession) SetValidateOnSynth(val *bool) {
+	_jsii_.Set(
+		j,
+		"validateOnSynth",
 		val,
 	)
 }
@@ -22994,6 +23018,9 @@ type StageSynthesisOptions struct {
 	// Should we skip construct validation.
 	// Experimental.
 	SkipValidation *bool `json:"skipValidation"`
+	// Whether the stack should be validated after synthesis to check for error metadata.
+	// Experimental.
+	ValidateOnSynthesis *bool `json:"validateOnSynthesis"`
 }
 
 // Converts all fragments to strings and concats those.
@@ -23075,6 +23102,9 @@ type SynthesisOptions struct {
 	// Whether synthesis should skip the validation phase.
 	// Deprecated: use `app.synth()` or `stage.synth()` instead
 	SkipValidation *bool `json:"skipValidation"`
+	// Whether the stack should be validated after synthesis to check for error metadata.
+	// Deprecated: use `app.synth()` or `stage.synth()` instead
+	ValidateOnSynthesis *bool `json:"validateOnSynthesis"`
 }
 
 // Stack artifact options.

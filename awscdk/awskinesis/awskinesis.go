@@ -5,6 +5,7 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
 	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/awskinesis/internal"
 	"github.com/aws/aws-cdk-go/awscdk/awskms"
@@ -1378,6 +1379,147 @@ type IStream interface {
 	// contents of the stream will also be granted.
 	// Experimental.
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
+	// Return stream metric based from its metric name.
+	// Experimental.
+	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of records retrieved from the shard, measured over the specified time period.
+	//
+	// Minimum, Maximum, and
+	// Average statistics represent the records in a single GetRecords operation for the stream in the specified time
+	// period.
+	//
+	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
+	MetricGetRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of bytes retrieved from the Kinesis stream, measured over the specified time period.
+	//
+	// Minimum, Maximum,
+	// and Average statistics represent the bytes in a single GetRecords operation for the stream in the specified time
+	// period.
+	//
+	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
+	MetricGetRecordsBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The age of the last record in all GetRecords calls made against a Kinesis stream, measured over the specified time period.
+	//
+	// Age is the difference between the current time and when the last record of the GetRecords call was written
+	// to the stream. The Minimum and Maximum statistics can be used to track the progress of Kinesis consumer
+	// applications. A value of zero indicates that the records being read are completely caught up with the stream.
+	//
+	// The metric defaults to maximum over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
+	MetricGetRecordsIteratorAgeMilliseconds(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The time taken per GetRecords operation, measured over the specified time period.
+	//
+	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
+	MetricGetRecordsLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of successful GetRecords operations per stream, measured over the specified time period.
+	//
+	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
+	MetricGetRecordsSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of bytes successfully put to the Kinesis stream over the specified time period.
+	//
+	// This metric includes
+	// bytes from PutRecord and PutRecords operations. Minimum, Maximum, and Average statistics represent the bytes in a
+	// single put operation for the stream in the specified time period.
+	//
+	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
+	MetricIncomingBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of records successfully put to the Kinesis stream over the specified time period.
+	//
+	// This metric includes
+	// record counts from PutRecord and PutRecords operations. Minimum, Maximum, and Average statistics represent the
+	// records in a single put operation for the stream in the specified time period.
+	//
+	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
+	MetricIncomingRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of bytes put to the Kinesis stream using the PutRecord operation over the specified time period.
+	//
+	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
+	MetricPutRecordBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The time taken per PutRecord operation, measured over the specified time period.
+	//
+	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
+	MetricPutRecordLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of bytes put to the Kinesis stream using the PutRecords operation over the specified time period.
+	//
+	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
+	MetricPutRecordsBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of records rejected due to internal failures in a PutRecords operation per Kinesis data stream, measured over the specified time period.
+	//
+	// Occasional internal failures are to be expected and should be retried.
+	//
+	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
+	MetricPutRecordsFailedRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The time taken per PutRecords operation, measured over the specified time period.
+	//
+	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
+	MetricPutRecordsLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of PutRecords operations where at least one record succeeded, per Kinesis stream, measured over the specified time period.
+	//
+	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
+	MetricPutRecordsSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of successful records in a PutRecords operation per Kinesis data stream, measured over the specified time period.
+	//
+	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
+	MetricPutRecordsSuccessfulRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of records rejected due to throttling in a PutRecords operation per Kinesis data stream, measured over the specified time period.
+	//
+	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
+	MetricPutRecordsThrottledRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The total number of records sent in a PutRecords operation per Kinesis data stream, measured over the specified time period.
+	//
+	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
+	MetricPutRecordsTotalRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of successful PutRecord operations per Kinesis stream, measured over the specified time period.
+	//
+	// Average
+	// reflects the percentage of successful writes to a stream.
+	//
+	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
+	MetricPutRecordSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of GetRecords calls throttled for the stream over the specified time period.
+	//
+	// The most commonly used
+	// statistic for this metric is Average.
+	//
+	// When the Minimum statistic has a value of 1, all records were throttled for the stream during the specified time
+	// period.
+	//
+	// When the Maximum statistic has a value of 0 (zero), no records were throttled for the stream during the specified
+	// time period.
+	//
+	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties
+	// Experimental.
+	MetricReadProvisionedThroughputExceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The number of records rejected due to throttling for the stream over the specified time period.
+	//
+	// This metric
+	// includes throttling from PutRecord and PutRecords operations.
+	//
+	// When the Minimum statistic has a non-zero value, records were being throttled for the stream during the specified
+	// time period.
+	//
+	// When the Maximum statistic has a value of 0 (zero), no records were being throttled for the stream during the
+	// specified time period.
+	//
+	// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+	// Experimental.
+	MetricWriteProvisionedThroughputExceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Optional KMS encryption key associated with this stream.
 	// Experimental.
 	EncryptionKey() awskms.IKey
@@ -1451,6 +1593,266 @@ func (i *jsiiProxy_IStream) GrantWrite(grantee awsiam.IGrantable) awsiam.Grant {
 	return returns
 }
 
+func (i *jsiiProxy_IStream) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metric",
+		[]interface{}{metricName, props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IStream) MetricGetRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricGetRecords",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IStream) MetricGetRecordsBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricGetRecordsBytes",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IStream) MetricGetRecordsIteratorAgeMilliseconds(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricGetRecordsIteratorAgeMilliseconds",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IStream) MetricGetRecordsLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricGetRecordsLatency",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IStream) MetricGetRecordsSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricGetRecordsSuccess",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IStream) MetricIncomingBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricIncomingBytes",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IStream) MetricIncomingRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricIncomingRecords",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IStream) MetricPutRecordBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricPutRecordBytes",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IStream) MetricPutRecordLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricPutRecordLatency",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IStream) MetricPutRecordsBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricPutRecordsBytes",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IStream) MetricPutRecordsFailedRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricPutRecordsFailedRecords",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IStream) MetricPutRecordsLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricPutRecordsLatency",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IStream) MetricPutRecordsSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricPutRecordsSuccess",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IStream) MetricPutRecordsSuccessfulRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricPutRecordsSuccessfulRecords",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IStream) MetricPutRecordsThrottledRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricPutRecordsThrottledRecords",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IStream) MetricPutRecordsTotalRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricPutRecordsTotalRecords",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IStream) MetricPutRecordSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricPutRecordSuccess",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IStream) MetricReadProvisionedThroughputExceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricReadProvisionedThroughputExceeded",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IStream) MetricWriteProvisionedThroughputExceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricWriteProvisionedThroughputExceeded",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
 func (j *jsiiProxy_IStream) EncryptionKey() awskms.IKey {
 	var returns awskms.IKey
 	_jsii_.Get(
@@ -1503,6 +1905,26 @@ type Stream interface {
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	GrantReadWrite(grantee awsiam.IGrantable) awsiam.Grant
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
+	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricGetRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricGetRecordsBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricGetRecordsIteratorAgeMilliseconds(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricGetRecordsLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricGetRecordsSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricIncomingBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricIncomingRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricPutRecordBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricPutRecordLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricPutRecordsBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricPutRecordsFailedRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricPutRecordsLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricPutRecordsSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricPutRecordsSuccessfulRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricPutRecordsThrottledRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricPutRecordsTotalRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricPutRecordSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricReadProvisionedThroughputExceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricWriteProvisionedThroughputExceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	OnPrepare()
 	OnSynthesize(session constructs.ISynthesisSession)
 	OnValidate() *[]*string
@@ -1822,6 +2244,388 @@ func (s *jsiiProxy_Stream) GrantWrite(grantee awsiam.IGrantable) awsiam.Grant {
 		s,
 		"grantWrite",
 		[]interface{}{grantee},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return stream metric based from its metric name.
+// Experimental.
+func (s *jsiiProxy_Stream) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		s,
+		"metric",
+		[]interface{}{metricName, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The number of records retrieved from the shard, measured over the specified time period.
+//
+// Minimum, Maximum, and
+// Average statistics represent the records in a single GetRecords operation for the stream in the specified time
+// period.
+//
+// average
+// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+// Experimental.
+func (s *jsiiProxy_Stream) MetricGetRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		s,
+		"metricGetRecords",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The number of bytes retrieved from the Kinesis stream, measured over the specified time period.
+//
+// Minimum, Maximum,
+// and Average statistics represent the bytes in a single GetRecords operation for the stream in the specified time
+// period.
+//
+// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+// Experimental.
+func (s *jsiiProxy_Stream) MetricGetRecordsBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		s,
+		"metricGetRecordsBytes",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The age of the last record in all GetRecords calls made against a Kinesis stream, measured over the specified time period.
+//
+// Age is the difference between the current time and when the last record of the GetRecords call was written
+// to the stream. The Minimum and Maximum statistics can be used to track the progress of Kinesis consumer
+// applications. A value of zero indicates that the records being read are completely caught up with the stream.
+//
+// The metric defaults to maximum over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+// Experimental.
+func (s *jsiiProxy_Stream) MetricGetRecordsIteratorAgeMilliseconds(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		s,
+		"metricGetRecordsIteratorAgeMilliseconds",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The number of successful GetRecords operations per stream, measured over the specified time period.
+//
+// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+// Experimental.
+func (s *jsiiProxy_Stream) MetricGetRecordsLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		s,
+		"metricGetRecordsLatency",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The number of successful GetRecords operations per stream, measured over the specified time period.
+//
+// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+// Experimental.
+func (s *jsiiProxy_Stream) MetricGetRecordsSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		s,
+		"metricGetRecordsSuccess",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The number of bytes successfully put to the Kinesis stream over the specified time period.
+//
+// This metric includes
+// bytes from PutRecord and PutRecords operations. Minimum, Maximum, and Average statistics represent the bytes in a
+// single put operation for the stream in the specified time period.
+//
+// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+// Experimental.
+func (s *jsiiProxy_Stream) MetricIncomingBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		s,
+		"metricIncomingBytes",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The number of records successfully put to the Kinesis stream over the specified time period.
+//
+// This metric includes
+// record counts from PutRecord and PutRecords operations. Minimum, Maximum, and Average statistics represent the
+// records in a single put operation for the stream in the specified time period.
+//
+// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+// Experimental.
+func (s *jsiiProxy_Stream) MetricIncomingRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		s,
+		"metricIncomingRecords",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The number of bytes put to the Kinesis stream using the PutRecord operation over the specified time period.
+//
+// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+// Experimental.
+func (s *jsiiProxy_Stream) MetricPutRecordBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		s,
+		"metricPutRecordBytes",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The time taken per PutRecord operation, measured over the specified time period.
+//
+// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+// Experimental.
+func (s *jsiiProxy_Stream) MetricPutRecordLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		s,
+		"metricPutRecordLatency",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The number of bytes put to the Kinesis stream using the PutRecords operation over the specified time period.
+//
+// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+// Experimental.
+func (s *jsiiProxy_Stream) MetricPutRecordsBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		s,
+		"metricPutRecordsBytes",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The number of records rejected due to internal failures in a PutRecords operation per Kinesis data stream, measured over the specified time period.
+//
+// Occasional internal failures are to be expected and should be retried.
+//
+// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+// Experimental.
+func (s *jsiiProxy_Stream) MetricPutRecordsFailedRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		s,
+		"metricPutRecordsFailedRecords",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The time taken per PutRecords operation, measured over the specified time period.
+//
+// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+// Experimental.
+func (s *jsiiProxy_Stream) MetricPutRecordsLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		s,
+		"metricPutRecordsLatency",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The number of PutRecords operations where at least one record succeeded, per Kinesis stream, measured over the specified time period.
+//
+// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+// Experimental.
+func (s *jsiiProxy_Stream) MetricPutRecordsSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		s,
+		"metricPutRecordsSuccess",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The number of successful records in a PutRecords operation per Kinesis data stream, measured over the specified time period.
+//
+// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+// Experimental.
+func (s *jsiiProxy_Stream) MetricPutRecordsSuccessfulRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		s,
+		"metricPutRecordsSuccessfulRecords",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The number of records rejected due to throttling in a PutRecords operation per Kinesis data stream, measured over the specified time period.
+//
+// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+// Experimental.
+func (s *jsiiProxy_Stream) MetricPutRecordsThrottledRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		s,
+		"metricPutRecordsThrottledRecords",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The total number of records sent in a PutRecords operation per Kinesis data stream, measured over the specified time period.
+//
+// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+// Experimental.
+func (s *jsiiProxy_Stream) MetricPutRecordsTotalRecords(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		s,
+		"metricPutRecordsTotalRecords",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The number of successful PutRecord operations per Kinesis stream, measured over the specified time period.
+//
+// Average
+// reflects the percentage of successful writes to a stream.
+//
+// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+// Experimental.
+func (s *jsiiProxy_Stream) MetricPutRecordSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		s,
+		"metricPutRecordSuccess",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The number of GetRecords calls throttled for the stream over the specified time period.
+//
+// The most commonly used
+// statistic for this metric is Average.
+//
+// When the Minimum statistic has a value of 1, all records were throttled for the stream during the specified time
+// period.
+//
+// When the Maximum statistic has a value of 0 (zero), no records were throttled for the stream during the specified
+// time period.
+//
+// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties
+// Experimental.
+func (s *jsiiProxy_Stream) MetricReadProvisionedThroughputExceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		s,
+		"metricReadProvisionedThroughputExceeded",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The number of records rejected due to throttling for the stream over the specified time period.
+//
+// This metric
+// includes throttling from PutRecord and PutRecords operations.
+//
+// When the Minimum statistic has a non-zero value, records were being throttled for the stream during the specified
+// time period.
+//
+// When the Maximum statistic has a value of 0 (zero), no records were being throttled for the stream during the
+// specified time period.
+//
+// The metric defaults to average over 5 minutes, it can be changed by passing `statistic` and `period` properties.
+// Experimental.
+func (s *jsiiProxy_Stream) MetricWriteProvisionedThroughputExceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		s,
+		"metricWriteProvisionedThroughputExceeded",
+		[]interface{}{props},
 		&returns,
 	)
 

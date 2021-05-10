@@ -244,6 +244,28 @@ func init() {
 		"monocdk.aws_kms.KeyProps",
 		reflect.TypeOf((*KeyProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_kms.KeySpec",
+		reflect.TypeOf((*KeySpec)(nil)).Elem(),
+		map[string]interface{}{
+			"SYMMETRIC_DEFAULT": KeySpec_SYMMETRIC_DEFAULT,
+			"RSA_2048": KeySpec_RSA_2048,
+			"RSA_3072": KeySpec_RSA_3072,
+			"RSA_4096": KeySpec_RSA_4096,
+			"ECC_NIST_P256": KeySpec_ECC_NIST_P256,
+			"ECC_NIST_P384": KeySpec_ECC_NIST_P384,
+			"ECC_NIST_P521": KeySpec_ECC_NIST_P521,
+			"ECC_SECG_P256K1": KeySpec_ECC_SECG_P256K1,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_kms.KeyUsage",
+		reflect.TypeOf((*KeyUsage)(nil)).Elem(),
+		map[string]interface{}{
+			"ENCRYPT_DECRYPT": KeyUsage_ENCRYPT_DECRYPT,
+			"SIGN_VERIFY": KeyUsage_SIGN_VERIFY,
+		},
+	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_kms.ViaServicePrincipal",
 		reflect.TypeOf((*ViaServicePrincipal)(nil)).Elem(),

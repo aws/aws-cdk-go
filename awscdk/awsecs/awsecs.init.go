@@ -94,6 +94,14 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_ecs.AwsLogDriverMode",
+		reflect.TypeOf((*AwsLogDriverMode)(nil)).Elem(),
+		map[string]interface{}{
+			"BLOCKING": AwsLogDriverMode_BLOCKING,
+			"NON_BLOCKING": AwsLogDriverMode_NON_BLOCKING,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_ecs.AwsLogDriverProps",
 		reflect.TypeOf((*AwsLogDriverProps)(nil)).Elem(),

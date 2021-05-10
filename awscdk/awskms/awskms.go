@@ -2610,6 +2610,18 @@ type KeyProps struct {
 	// Indicates whether AWS KMS rotates the key.
 	// Experimental.
 	EnableKeyRotation *bool `json:"enableKeyRotation"`
+	// The cryptographic configuration of the key. The valid value depends on usage of the key.
+	//
+	// IMPORTANT: If you change this property of an existing key, the existing key is scheduled for deletion
+	// and a new key is created with the specified value.
+	// Experimental.
+	KeySpec KeySpec `json:"keySpec"`
+	// The cryptographic operations for which the key can be used.
+	//
+	// IMPORTANT: If you change this property of an existing key, the existing key is scheduled for deletion
+	// and a new key is created with the specified value.
+	// Experimental.
+	KeyUsage KeyUsage `json:"keyUsage"`
 	// Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack.
 	//
 	// When you remove a customer master key (CMK) from a CloudFormation stack, AWS KMS schedules the CMK for deletion
@@ -2649,6 +2661,30 @@ type KeyProps struct {
 	// Deprecated: redundant with the `@aws-cdk/aws-kms:defaultKeyPolicies` feature flag
 	TrustAccountIdentities *bool `json:"trustAccountIdentities"`
 }
+
+// The key spec, represents the cryptographic configuration of keys.
+// Experimental.
+type KeySpec string
+
+const (
+	KeySpec_SYMMETRIC_DEFAULT KeySpec = "SYMMETRIC_DEFAULT"
+	KeySpec_RSA_2048 KeySpec = "RSA_2048"
+	KeySpec_RSA_3072 KeySpec = "RSA_3072"
+	KeySpec_RSA_4096 KeySpec = "RSA_4096"
+	KeySpec_ECC_NIST_P256 KeySpec = "ECC_NIST_P256"
+	KeySpec_ECC_NIST_P384 KeySpec = "ECC_NIST_P384"
+	KeySpec_ECC_NIST_P521 KeySpec = "ECC_NIST_P521"
+	KeySpec_ECC_SECG_P256K1 KeySpec = "ECC_SECG_P256K1"
+)
+
+// The key usage, represents the cryptographic operations of keys.
+// Experimental.
+type KeyUsage string
+
+const (
+	KeyUsage_ENCRYPT_DECRYPT KeyUsage = "ENCRYPT_DECRYPT"
+	KeyUsage_SIGN_VERIFY KeyUsage = "SIGN_VERIFY"
+)
 
 // A principal to allow access to a key if it's being used through another AWS service.
 // Experimental.

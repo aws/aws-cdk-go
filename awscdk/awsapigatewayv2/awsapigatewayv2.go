@@ -13203,26 +13203,6 @@ type IApi interface {
 	// Return the given named metric for this Api Gateway.
 	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Metric for the number of client-side errors captured in a given period.
-	// Experimental.
-	MetricClientError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Metric for the total number API requests in a given period.
-	// Experimental.
-	MetricCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Metric for the amount of data processed in bytes.
-	// Experimental.
-	MetricDataProcessed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Metric for the time between when API Gateway relays a request to the backend and when it receives a response from the backend.
-	// Experimental.
-	MetricIntegrationLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// The time between when API Gateway receives a request from a client and when it returns a response to the client.
-	//
-	// The latency includes the integration latency and other API Gateway overhead.
-	// Experimental.
-	MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Metric for the number of server-side errors captured in a given period.
-	// Experimental.
-	MetricServerError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The default endpoint for an API.
 	// Experimental.
 	ApiEndpoint() *string
@@ -13243,84 +13223,6 @@ func (i *jsiiProxy_IApi) Metric(metricName *string, props *awscloudwatch.MetricO
 		i,
 		"metric",
 		[]interface{}{metricName, props},
-		&returns,
-	)
-
-	return returns
-}
-
-func (i *jsiiProxy_IApi) MetricClientError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		i,
-		"metricClientError",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
-func (i *jsiiProxy_IApi) MetricCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		i,
-		"metricCount",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
-func (i *jsiiProxy_IApi) MetricDataProcessed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		i,
-		"metricDataProcessed",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
-func (i *jsiiProxy_IApi) MetricIntegrationLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		i,
-		"metricIntegrationLatency",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
-func (i *jsiiProxy_IApi) MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		i,
-		"metricLatency",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
-func (i *jsiiProxy_IApi) MetricServerError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		i,
-		"metricServerError",
-		[]interface{}{props},
 		&returns,
 	)
 
@@ -13456,6 +13358,26 @@ type IHttpApi interface {
 	// Add a new VpcLink.
 	// Experimental.
 	AddVpcLink(options *VpcLinkProps) VpcLink
+	// Metric for the number of client-side errors captured in a given period.
+	// Experimental.
+	MetricClientError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Metric for the total number API requests in a given period.
+	// Experimental.
+	MetricCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Metric for the amount of data processed in bytes.
+	// Experimental.
+	MetricDataProcessed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Metric for the time between when API Gateway relays a request to the backend and when it receives a response from the backend.
+	// Experimental.
+	MetricIntegrationLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The time between when API Gateway receives a request from a client and when it returns a response to the client.
+	//
+	// The latency includes the integration latency and other API Gateway overhead.
+	// Experimental.
+	MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Metric for the number of server-side errors captured in a given period.
+	// Experimental.
+	MetricServerError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The identifier of this API Gateway HTTP API.
 	// Deprecated: - use apiId instead
 	HttpApiId() *string
@@ -13473,6 +13395,84 @@ func (i *jsiiProxy_IHttpApi) AddVpcLink(options *VpcLinkProps) VpcLink {
 		i,
 		"addVpcLink",
 		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IHttpApi) MetricClientError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricClientError",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IHttpApi) MetricCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricCount",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IHttpApi) MetricDataProcessed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricDataProcessed",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IHttpApi) MetricIntegrationLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricIntegrationLatency",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IHttpApi) MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricLatency",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IHttpApi) MetricServerError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricServerError",
+		[]interface{}{props},
 		&returns,
 	)
 
@@ -13617,6 +13617,26 @@ func (i *jsiiProxy_IHttpRouteIntegration) Bind(options *HttpRouteIntegrationBind
 // Experimental.
 type IHttpStage interface {
 	IStage
+	// Metric for the number of client-side errors captured in a given period.
+	// Experimental.
+	MetricClientError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Metric for the total number API requests in a given period.
+	// Experimental.
+	MetricCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Metric for the amount of data processed in bytes.
+	// Experimental.
+	MetricDataProcessed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Metric for the time between when API Gateway relays a request to the backend and when it receives a response from the backend.
+	// Experimental.
+	MetricIntegrationLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The time between when API Gateway receives a request from a client and when it returns a response to the client.
+	//
+	// The latency includes the integration latency and other API Gateway overhead.
+	// Experimental.
+	MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Metric for the number of server-side errors captured in a given period.
+	// Experimental.
+	MetricServerError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The API this stage is associated to.
 	// Experimental.
 	Api() IHttpApi
@@ -13625,6 +13645,84 @@ type IHttpStage interface {
 // The jsii proxy for IHttpStage
 type jsiiProxy_IHttpStage struct {
 	jsiiProxy_IStage
+}
+
+func (i *jsiiProxy_IHttpStage) MetricClientError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricClientError",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IHttpStage) MetricCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricCount",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IHttpStage) MetricDataProcessed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricDataProcessed",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IHttpStage) MetricIntegrationLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricIntegrationLatency",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IHttpStage) MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricLatency",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IHttpStage) MetricServerError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricServerError",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
 }
 
 func (j *jsiiProxy_IHttpStage) Api() IHttpApi {
@@ -13692,26 +13790,6 @@ type IStage interface {
 	// Return the given named metric for this HTTP Api Gateway Stage.
 	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Metric for the number of client-side errors captured in a given period.
-	// Experimental.
-	MetricClientError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Metric for the total number API requests in a given period.
-	// Experimental.
-	MetricCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Metric for the amount of data processed in bytes.
-	// Experimental.
-	MetricDataProcessed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Metric for the time between when API Gateway relays a request to the backend and when it receives a response from the backend.
-	// Experimental.
-	MetricIntegrationLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// The time between when API Gateway receives a request from a client and when it returns a response to the client.
-	//
-	// The latency includes the integration latency and other API Gateway overhead.
-	// Experimental.
-	MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Metric for the number of server-side errors captured in a given period.
-	// Experimental.
-	MetricServerError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The name of the stage;
 	//
 	// its primary identifier.
@@ -13734,84 +13812,6 @@ func (i *jsiiProxy_IStage) Metric(metricName *string, props *awscloudwatch.Metri
 		i,
 		"metric",
 		[]interface{}{metricName, props},
-		&returns,
-	)
-
-	return returns
-}
-
-func (i *jsiiProxy_IStage) MetricClientError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		i,
-		"metricClientError",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
-func (i *jsiiProxy_IStage) MetricCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		i,
-		"metricCount",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
-func (i *jsiiProxy_IStage) MetricDataProcessed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		i,
-		"metricDataProcessed",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
-func (i *jsiiProxy_IStage) MetricIntegrationLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		i,
-		"metricIntegrationLatency",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
-func (i *jsiiProxy_IStage) MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		i,
-		"metricLatency",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
-func (i *jsiiProxy_IStage) MetricServerError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		i,
-		"metricServerError",
-		[]interface{}{props},
 		&returns,
 	)
 
@@ -14516,12 +14516,6 @@ type WebSocketApi interface {
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	MetricClientError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	MetricCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	MetricDataProcessed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	MetricIntegrationLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	MetricServerError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	OnPrepare()
 	OnSynthesize(session constructs.ISynthesisSession)
 	OnValidate() *[]*string
@@ -14764,98 +14758,6 @@ func (w *jsiiProxy_WebSocketApi) Metric(metricName *string, props *awscloudwatch
 		w,
 		"metric",
 		[]interface{}{metricName, props},
-		&returns,
-	)
-
-	return returns
-}
-
-// Metric for the number of client-side errors captured in a given period.
-// Experimental.
-func (w *jsiiProxy_WebSocketApi) MetricClientError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		w,
-		"metricClientError",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
-// Metric for the total number API requests in a given period.
-// Experimental.
-func (w *jsiiProxy_WebSocketApi) MetricCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		w,
-		"metricCount",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
-// Metric for the amount of data processed in bytes.
-// Experimental.
-func (w *jsiiProxy_WebSocketApi) MetricDataProcessed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		w,
-		"metricDataProcessed",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
-// Metric for the time between when API Gateway relays a request to the backend and when it receives a response from the backend.
-// Experimental.
-func (w *jsiiProxy_WebSocketApi) MetricIntegrationLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		w,
-		"metricIntegrationLatency",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
-// The time between when API Gateway receives a request from a client and when it returns a response to the client.
-//
-// The latency includes the integration latency and other API Gateway overhead.
-// Experimental.
-func (w *jsiiProxy_WebSocketApi) MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		w,
-		"metricLatency",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
-// Metric for the number of server-side errors captured in a given period.
-// Experimental.
-func (w *jsiiProxy_WebSocketApi) MetricServerError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		w,
-		"metricServerError",
-		[]interface{}{props},
 		&returns,
 	)
 
@@ -15784,12 +15686,6 @@ type WebSocketStage interface {
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	MetricClientError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	MetricCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	MetricDataProcessed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	MetricIntegrationLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	MetricServerError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	OnPrepare()
 	OnSynthesize(session constructs.ISynthesisSession)
 	OnValidate() *[]*string
@@ -16044,98 +15940,6 @@ func (w *jsiiProxy_WebSocketStage) Metric(metricName *string, props *awscloudwat
 		w,
 		"metric",
 		[]interface{}{metricName, props},
-		&returns,
-	)
-
-	return returns
-}
-
-// Metric for the number of client-side errors captured in a given period.
-// Experimental.
-func (w *jsiiProxy_WebSocketStage) MetricClientError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		w,
-		"metricClientError",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
-// Metric for the total number API requests in a given period.
-// Experimental.
-func (w *jsiiProxy_WebSocketStage) MetricCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		w,
-		"metricCount",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
-// Metric for the amount of data processed in bytes.
-// Experimental.
-func (w *jsiiProxy_WebSocketStage) MetricDataProcessed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		w,
-		"metricDataProcessed",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
-// Metric for the time between when API Gateway relays a request to the backend and when it receives a response from the backend.
-// Experimental.
-func (w *jsiiProxy_WebSocketStage) MetricIntegrationLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		w,
-		"metricIntegrationLatency",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
-// The time between when API Gateway receives a request from a client and when it returns a response to the client.
-//
-// The latency includes the integration latency and other API Gateway overhead.
-// Experimental.
-func (w *jsiiProxy_WebSocketStage) MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		w,
-		"metricLatency",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
-// Metric for the number of server-side errors captured in a given period.
-// Experimental.
-func (w *jsiiProxy_WebSocketStage) MetricServerError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		w,
-		"metricServerError",
-		[]interface{}{props},
 		&returns,
 	)
 

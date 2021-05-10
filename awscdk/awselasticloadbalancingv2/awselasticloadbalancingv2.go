@@ -288,6 +288,9 @@ type AddNetworkTargetsProps struct {
 	// Health check configuration.
 	// Experimental.
 	HealthCheck *HealthCheck `json:"healthCheck"`
+	// Indicates whether client IP preservation is enabled.
+	// Experimental.
+	PreserveClientIp *bool `json:"preserveClientIp"`
 	// Protocol for target group, expects TCP, TLS, UDP, or TCP_UDP.
 	// Experimental.
 	Protocol Protocol `json:"protocol"`
@@ -11748,6 +11751,9 @@ type NetworkTargetGroupProps struct {
 	// The port on which the listener listens for requests.
 	// Experimental.
 	Port *float64 `json:"port"`
+	// Indicates whether client IP preservation is enabled.
+	// Experimental.
+	PreserveClientIp *bool `json:"preserveClientIp"`
 	// Protocol for target group, expects TCP, TLS, UDP, or TCP_UDP.
 	// Experimental.
 	Protocol Protocol `json:"protocol"`

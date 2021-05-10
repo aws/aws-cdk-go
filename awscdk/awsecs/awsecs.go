@@ -774,6 +774,15 @@ func (a *jsiiProxy_AwsLogDriver) Bind(scope awscdk.Construct, containerDefinitio
 	return returns
 }
 
+// awslogs provides two modes for delivering messages from the container to the log driver.
+// Experimental.
+type AwsLogDriverMode string
+
+const (
+	AwsLogDriverMode_BLOCKING AwsLogDriverMode = "BLOCKING"
+	AwsLogDriverMode_NON_BLOCKING AwsLogDriverMode = "NON_BLOCKING"
+)
+
 // Specifies the awslogs log driver configuration options.
 // Experimental.
 type AwsLogDriverProps struct {
@@ -800,6 +809,9 @@ type AwsLogDriverProps struct {
 	// The number of days log events are kept in CloudWatch Logs when the log group is automatically created by this construct.
 	// Experimental.
 	LogRetention awslogs.RetentionDays `json:"logRetention"`
+	// The delivery mode of log messages from the container to awslogs.
+	// Experimental.
+	Mode AwsLogDriverMode `json:"mode"`
 	// This option defines a multiline start pattern using a regular expression.
 	//
 	// A log message consists of a line that matches the pattern and any
@@ -1343,7 +1355,7 @@ func (b *jsiiProxy_BaseService) Metric(metricName *string, props *awscloudwatch.
 	return returns
 }
 
-// This method returns the CloudWatch metric for this clusters CPU utilization.
+// This method returns the CloudWatch metric for this service's CPU utilization.
 // Experimental.
 func (b *jsiiProxy_BaseService) MetricCpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
@@ -1358,7 +1370,7 @@ func (b *jsiiProxy_BaseService) MetricCpuUtilization(props *awscloudwatch.Metric
 	return returns
 }
 
-// This method returns the CloudWatch metric for this clusters memory utilization.
+// This method returns the CloudWatch metric for this service's memory utilization.
 // Experimental.
 func (b *jsiiProxy_BaseService) MetricMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
@@ -9993,7 +10005,7 @@ func (e *jsiiProxy_Ec2Service) Metric(metricName *string, props *awscloudwatch.M
 	return returns
 }
 
-// This method returns the CloudWatch metric for this clusters CPU utilization.
+// This method returns the CloudWatch metric for this service's CPU utilization.
 // Experimental.
 func (e *jsiiProxy_Ec2Service) MetricCpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
@@ -10008,7 +10020,7 @@ func (e *jsiiProxy_Ec2Service) MetricCpuUtilization(props *awscloudwatch.MetricO
 	return returns
 }
 
-// This method returns the CloudWatch metric for this clusters memory utilization.
+// This method returns the CloudWatch metric for this service's memory utilization.
 // Experimental.
 func (e *jsiiProxy_Ec2Service) MetricMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
@@ -11970,7 +11982,7 @@ func (f *jsiiProxy_FargateService) Metric(metricName *string, props *awscloudwat
 	return returns
 }
 
-// This method returns the CloudWatch metric for this clusters CPU utilization.
+// This method returns the CloudWatch metric for this service's CPU utilization.
 // Experimental.
 func (f *jsiiProxy_FargateService) MetricCpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
@@ -11985,7 +11997,7 @@ func (f *jsiiProxy_FargateService) MetricCpuUtilization(props *awscloudwatch.Met
 	return returns
 }
 
-// This method returns the CloudWatch metric for this clusters memory utilization.
+// This method returns the CloudWatch metric for this service's memory utilization.
 // Experimental.
 func (f *jsiiProxy_FargateService) MetricMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric

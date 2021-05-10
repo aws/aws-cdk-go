@@ -7376,6 +7376,8 @@ type DashboardProps struct {
 }
 
 // Metric dimension.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-dimension.html
+//
 // Experimental.
 type Dimension struct {
 	// Name of the dimension.
@@ -7750,10 +7752,10 @@ func (i *jsiiProxy_IAlarmRule) RenderAlarmRule() *string {
 // Experimental.
 type IMetric interface {
 	// Turn this metric object into an alarm configuration.
-	// Deprecated: Use `toMetricsConfig()` instead.
+	// Deprecated: Use `toMetricConfig()` instead.
 	ToAlarmConfig() *MetricAlarmConfig
 	// Turn this metric object into a graph configuration.
-	// Deprecated: Use `toMetricsConfig()` instead.
+	// Deprecated: Use `toMetricConfig()` instead.
 	ToGraphConfig() *MetricGraphConfig
 	// Inspect the details of the metric object.
 	// Experimental.

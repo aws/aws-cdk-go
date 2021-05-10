@@ -7,6 +7,10 @@ import (
 )
 
 func init() {
+	_jsii_.RegisterStruct(
+		"monocdk.aws_msk.BrokerLogging",
+		reflect.TypeOf((*BrokerLogging)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_msk.CfnCluster",
 		reflect.TypeOf((*CfnCluster)(nil)).Elem(),
@@ -145,26 +149,130 @@ func init() {
 		reflect.TypeOf((*CfnClusterProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"monocdk.aws_msk.ClientAuthentication",
+		reflect.TypeOf((*ClientAuthentication)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "saslProps", GoGetter: "SaslProps"},
+			_jsii_.MemberProperty{JsiiProperty: "tlsProps", GoGetter: "TlsProps"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ClientAuthentication{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_msk.ClientBrokerEncryption",
+		reflect.TypeOf((*ClientBrokerEncryption)(nil)).Elem(),
+		map[string]interface{}{
+			"TLS": ClientBrokerEncryption_TLS,
+			"TLS_PLAINTEXT": ClientBrokerEncryption_TLS_PLAINTEXT,
+			"PLAINTEXT": ClientBrokerEncryption_PLAINTEXT,
+		},
+	)
+	_jsii_.RegisterClass(
 		"monocdk.aws_msk.Cluster",
 		reflect.TypeOf((*Cluster)(nil)).Elem(),
-		nil, // no members
-		func() interface{} {
-			return &jsiiProxy_Cluster{}
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addUser", GoMethod: "AddUser"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "bootstrapBrokers", GoGetter: "BootstrapBrokers"},
+			_jsii_.MemberProperty{JsiiProperty: "bootstrapBrokersSaslScram", GoGetter: "BootstrapBrokersSaslScram"},
+			_jsii_.MemberProperty{JsiiProperty: "bootstrapBrokersTls", GoGetter: "BootstrapBrokersTls"},
+			_jsii_.MemberProperty{JsiiProperty: "clusterArn", GoGetter: "ClusterArn"},
+			_jsii_.MemberProperty{JsiiProperty: "clusterName", GoGetter: "ClusterName"},
+			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
+			_jsii_.MemberProperty{JsiiProperty: "saslScramAuthenticationKey", GoGetter: "SaslScramAuthenticationKey"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberProperty{JsiiProperty: "zookeeperConnectionString", GoGetter: "ZookeeperConnectionString"},
+			_jsii_.MemberProperty{JsiiProperty: "zookeeperConnectionStringTls", GoGetter: "ZookeeperConnectionStringTls"},
 		},
+		func() interface{} {
+			j := jsiiProxy_Cluster{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ICluster)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_msk.ClusterConfigurationInfo",
+		reflect.TypeOf((*ClusterConfigurationInfo)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_msk.ClusterMonitoringLevel",
+		reflect.TypeOf((*ClusterMonitoringLevel)(nil)).Elem(),
+		map[string]interface{}{
+			"DEFAULT": ClusterMonitoringLevel_DEFAULT,
+			"PER_BROKER": ClusterMonitoringLevel_PER_BROKER,
+			"PER_TOPIC_PER_BROKER": ClusterMonitoringLevel_PER_TOPIC_PER_BROKER,
+			"PER_TOPIC_PER_PARTITION": ClusterMonitoringLevel_PER_TOPIC_PER_PARTITION,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_msk.ClusterProps",
+		reflect.TypeOf((*ClusterProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_msk.EbsStorageInfo",
+		reflect.TypeOf((*EbsStorageInfo)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_msk.EncryptionInTransitConfig",
+		reflect.TypeOf((*EncryptionInTransitConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
 		"monocdk.aws_msk.ICluster",
 		reflect.TypeOf((*ICluster)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "clusterArn", GoGetter: "ClusterArn"},
+			_jsii_.MemberProperty{JsiiProperty: "clusterName", GoGetter: "ClusterName"},
+			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ICluster{}
+			_jsii_.InitJsiiProxy(&j.Type__awsec2IConnectable)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_msk.KafkaVersion",
+		reflect.TypeOf((*KafkaVersion)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "version", GoGetter: "Version"},
+		},
+		func() interface{} {
+			return &jsiiProxy_KafkaVersion{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_msk.MonitoringConfiguration",
+		reflect.TypeOf((*MonitoringConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_msk.S3LoggingConfiguration",
+		reflect.TypeOf((*S3LoggingConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_msk.SaslAuthProps",
+		reflect.TypeOf((*SaslAuthProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_msk.TlsAuthProps",
+		reflect.TypeOf((*TlsAuthProps)(nil)).Elem(),
 	)
 }

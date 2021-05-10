@@ -178,6 +178,9 @@ type AwsCloudFormationStackProperties struct {
 	// Whether to enable termination protection for this stack.
 	// Experimental.
 	TerminationProtection *bool `json:"terminationProtection"`
+	// Whether this stack should be validated by the CLI after synthesis.
+	// Experimental.
+	ValidateOnSynth *bool `json:"validateOnSynth"`
 }
 
 // Destination for assets that need to be uploaded to AWS.

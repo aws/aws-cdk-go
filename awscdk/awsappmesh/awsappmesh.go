@@ -6755,7 +6755,7 @@ type GrpcGatewayListenerOptions struct {
 	ConnectionPool *GrpcConnectionPool `json:"connectionPool"`
 	// The health check information for the listener.
 	// Experimental.
-	HealthCheck *HealthCheck `json:"healthCheck"`
+	HealthCheck HealthCheck `json:"healthCheck"`
 	// Port to listen for connections on.
 	// Experimental.
 	Port *float64 `json:"port"`
@@ -6781,6 +6781,23 @@ type GrpcGatewayRouteSpecOptions struct {
 	// The VirtualService this GatewayRoute directs traffic to.
 	// Experimental.
 	RouteTarget IVirtualService `json:"routeTarget"`
+}
+
+// Properties used to define GRPC Based healthchecks.
+// Experimental.
+type GrpcHealthCheckOptions struct {
+	// The number of consecutive successful health checks that must occur before declaring listener healthy.
+	// Experimental.
+	HealthyThreshold *float64 `json:"healthyThreshold"`
+	// The time period between each health check execution.
+	// Experimental.
+	Interval awscdk.Duration `json:"interval"`
+	// The amount of time to wait when receiving a response from the health check.
+	// Experimental.
+	Timeout awscdk.Duration `json:"timeout"`
+	// The number of consecutive failed health checks that must occur before declaring a listener unhealthy.
+	// Experimental.
+	UnhealthyThreshold *float64 `json:"unhealthyThreshold"`
 }
 
 // gRPC events.
@@ -6878,7 +6895,7 @@ type GrpcVirtualNodeListenerOptions struct {
 	ConnectionPool *GrpcConnectionPool `json:"connectionPool"`
 	// The health check information for the listener.
 	// Experimental.
-	HealthCheck *HealthCheck `json:"healthCheck"`
+	HealthCheck HealthCheck `json:"healthCheck"`
 	// Represents the configuration for enabling outlier detection.
 	// Experimental.
 	OutlierDetection *OutlierDetection `json:"outlierDetection"`
@@ -6893,35 +6910,131 @@ type GrpcVirtualNodeListenerOptions struct {
 	TlsCertificate TlsCertificate `json:"tlsCertificate"`
 }
 
-// Properties used to define healthchecks when creating virtual nodes.
-//
-// All values have a default if only specified as {} when creating.
-// If property not set, then no healthchecks will be defined.
+// Contains static factory methods for creating health checks for different protocols.
 // Experimental.
-type HealthCheck struct {
-	// Number of successful attempts before considering the node UP.
+type HealthCheck interface {
+	Bind(scope awscdk.Construct, options *HealthCheckBindOptions) *HealthCheckConfig
+}
+
+// The jsii proxy struct for HealthCheck
+type jsiiProxy_HealthCheck struct {
+	_ byte // padding
+}
+
+// Experimental.
+func NewHealthCheck_Override(h HealthCheck) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_appmesh.HealthCheck",
+		nil, // no parameters
+		h,
+	)
+}
+
+// Construct a GRPC health check.
+// Experimental.
+func HealthCheck_Grpc(options *GrpcHealthCheckOptions) HealthCheck {
+	_init_.Initialize()
+
+	var returns HealthCheck
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_appmesh.HealthCheck",
+		"grpc",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Construct a HTTP health check.
+// Experimental.
+func HealthCheck_Http(options *HttpHealthCheckOptions) HealthCheck {
+	_init_.Initialize()
+
+	var returns HealthCheck
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_appmesh.HealthCheck",
+		"http",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Construct a HTTP2 health check.
+// Experimental.
+func HealthCheck_Http2(options *HttpHealthCheckOptions) HealthCheck {
+	_init_.Initialize()
+
+	var returns HealthCheck
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_appmesh.HealthCheck",
+		"http2",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Construct a TCP health check.
+// Experimental.
+func HealthCheck_Tcp(options *TcpHealthCheckOptions) HealthCheck {
+	_init_.Initialize()
+
+	var returns HealthCheck
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_appmesh.HealthCheck",
+		"tcp",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Called when the AccessLog type is initialized.
+//
+// Can be used to enforce
+// mutual exclusivity with future properties
+// Experimental.
+func (h *jsiiProxy_HealthCheck) Bind(scope awscdk.Construct, options *HealthCheckBindOptions) *HealthCheckConfig {
+	var returns *HealthCheckConfig
+
+	_jsii_.Invoke(
+		h,
+		"bind",
+		[]interface{}{scope, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Options used for creating the Health Check object.
+// Experimental.
+type HealthCheckBindOptions struct {
+	// Port for Health Check interface.
 	// Experimental.
-	HealthyThreshold *float64 `json:"healthyThreshold"`
-	// Interval in milliseconds to re-check.
+	DefaultPort *float64 `json:"defaultPort"`
+}
+
+// All Properties for Health Checks for mesh endpoints.
+// Experimental.
+type HealthCheckConfig struct {
+	// VirtualGateway CFN configuration for Health Checks.
 	// Experimental.
-	Interval awscdk.Duration `json:"interval"`
-	// The path where the application expects any health-checks, this can also be the application path.
+	VirtualGatewayHealthCheck *CfnVirtualGateway_VirtualGatewayHealthCheckPolicyProperty `json:"virtualGatewayHealthCheck"`
+	// VirtualNode CFN configuration for Health Checks.
 	// Experimental.
-	Path *string `json:"path"`
-	// The TCP port number for the healthcheck.
-	// Experimental.
-	Port *float64 `json:"port"`
-	// The protocol to use for the healthcheck, for convinience a const enum has been defined.
-	//
-	// Protocol.HTTP or Protocol.TCP
-	// Experimental.
-	Protocol Protocol `json:"protocol"`
-	// Timeout in milli-seconds for the healthcheck to be considered a fail.
-	// Experimental.
-	Timeout awscdk.Duration `json:"timeout"`
-	// Number of failed attempts before considering the node DOWN.
-	// Experimental.
-	UnhealthyThreshold *float64 `json:"unhealthyThreshold"`
+	VirtualNodeHealthCheck *CfnVirtualNode_HealthCheckProperty `json:"virtualNodeHealthCheck"`
 }
 
 // Connection pool properties for HTTP2 listeners.
@@ -6940,7 +7053,7 @@ type Http2GatewayListenerOptions struct {
 	ConnectionPool *Http2ConnectionPool `json:"connectionPool"`
 	// The health check information for the listener.
 	// Experimental.
-	HealthCheck *HealthCheck `json:"healthCheck"`
+	HealthCheck HealthCheck `json:"healthCheck"`
 	// Port to listen for connections on.
 	// Experimental.
 	Port *float64 `json:"port"`
@@ -6957,7 +7070,7 @@ type Http2VirtualNodeListenerOptions struct {
 	ConnectionPool *Http2ConnectionPool `json:"connectionPool"`
 	// The health check information for the listener.
 	// Experimental.
-	HealthCheck *HealthCheck `json:"healthCheck"`
+	HealthCheck HealthCheck `json:"healthCheck"`
 	// Represents the configuration for enabling outlier detection.
 	// Experimental.
 	OutlierDetection *OutlierDetection `json:"outlierDetection"`
@@ -6991,7 +7104,7 @@ type HttpGatewayListenerOptions struct {
 	ConnectionPool *HttpConnectionPool `json:"connectionPool"`
 	// The health check information for the listener.
 	// Experimental.
-	HealthCheck *HealthCheck `json:"healthCheck"`
+	HealthCheck HealthCheck `json:"healthCheck"`
 	// Port to listen for connections on.
 	// Experimental.
 	Port *float64 `json:"port"`
@@ -7238,6 +7351,26 @@ type HttpHeaderMatchConfig struct {
 	HttpRouteHeader *CfnRoute_HttpRouteHeaderProperty `json:"httpRouteHeader"`
 }
 
+// Properties used to define HTTP Based healthchecks.
+// Experimental.
+type HttpHealthCheckOptions struct {
+	// The number of consecutive successful health checks that must occur before declaring listener healthy.
+	// Experimental.
+	HealthyThreshold *float64 `json:"healthyThreshold"`
+	// The time period between each health check execution.
+	// Experimental.
+	Interval awscdk.Duration `json:"interval"`
+	// The destination path for the health check request.
+	// Experimental.
+	Path *string `json:"path"`
+	// The amount of time to wait when receiving a response from the health check.
+	// Experimental.
+	Timeout awscdk.Duration `json:"timeout"`
+	// The number of consecutive failed health checks that must occur before declaring a listener unhealthy.
+	// Experimental.
+	UnhealthyThreshold *float64 `json:"unhealthyThreshold"`
+}
+
 // HTTP events on which to retry.
 // Experimental.
 type HttpRetryEvent string
@@ -7369,7 +7502,7 @@ type HttpVirtualNodeListenerOptions struct {
 	ConnectionPool *HttpConnectionPool `json:"connectionPool"`
 	// The health check information for the listener.
 	// Experimental.
-	HealthCheck *HealthCheck `json:"healthCheck"`
+	HealthCheck HealthCheck `json:"healthCheck"`
 	// Represents the configuration for enabling outlier detection.
 	// Experimental.
 	OutlierDetection *OutlierDetection `json:"outlierDetection"`
@@ -8267,7 +8400,7 @@ type OutlierDetection struct {
 }
 
 // Enum of supported AppMesh protocols.
-// Experimental.
+// Deprecated: not for use outside package
 type Protocol string
 
 const (
@@ -8932,6 +9065,23 @@ type TcpConnectionPool struct {
 	MaxConnections *float64 `json:"maxConnections"`
 }
 
+// Properties used to define TCP Based healthchecks.
+// Experimental.
+type TcpHealthCheckOptions struct {
+	// The number of consecutive successful health checks that must occur before declaring listener healthy.
+	// Experimental.
+	HealthyThreshold *float64 `json:"healthyThreshold"`
+	// The time period between each health check execution.
+	// Experimental.
+	Interval awscdk.Duration `json:"interval"`
+	// The amount of time to wait when receiving a response from the health check.
+	// Experimental.
+	Timeout awscdk.Duration `json:"timeout"`
+	// The number of consecutive failed health checks that must occur before declaring a listener unhealthy.
+	// Experimental.
+	UnhealthyThreshold *float64 `json:"unhealthyThreshold"`
+}
+
 // TCP events on which you may retry.
 // Experimental.
 type TcpRetryEvent string
@@ -8975,7 +9125,7 @@ type TcpVirtualNodeListenerOptions struct {
 	ConnectionPool *TcpConnectionPool `json:"connectionPool"`
 	// The health check information for the listener.
 	// Experimental.
-	HealthCheck *HealthCheck `json:"healthCheck"`
+	HealthCheck HealthCheck `json:"healthCheck"`
 	// Represents the configuration for enabling outlier detection.
 	// Experimental.
 	OutlierDetection *OutlierDetection `json:"outlierDetection"`
