@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
+		"monocdk.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
 		reflect.TypeOf((*AuthenticateCognitoAction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -23,7 +23,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_elasticloadbalancingv2_actions.AuthenticateCognitoActionProps",
+		"monocdk.aws_elasticloadbalancingv2_actions.AuthenticateCognitoActionProps",
 		reflect.TypeOf((*AuthenticateCognitoActionProps)(nil)).Elem(),
 	)
 }

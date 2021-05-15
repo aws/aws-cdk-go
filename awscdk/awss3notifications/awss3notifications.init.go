@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_s3_notifications.LambdaDestination",
+		"monocdk.aws_s3_notifications.LambdaDestination",
 		reflect.TypeOf((*LambdaDestination)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -20,7 +20,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_s3_notifications.SnsDestination",
+		"monocdk.aws_s3_notifications.SnsDestination",
 		reflect.TypeOf((*SnsDestination)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -32,7 +32,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_s3_notifications.SqsDestination",
+		"monocdk.aws_s3_notifications.SqsDestination",
 		reflect.TypeOf((*SqsDestination)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
