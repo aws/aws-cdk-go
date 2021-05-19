@@ -439,6 +439,18 @@ type CdkPipelineProps struct {
 	// Only used if 'vpc' is supplied.
 	// Experimental.
 	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection"`
+	// Whether the pipeline needs to build Docker images in the UpdatePipeline stage.
+	//
+	// If the UpdatePipeline stage tries to build a Docker image and this flag is not
+	// set to `true`, the build step will run in non-privileged mode and consequently
+	// will fail with a message like:
+	//
+	// > Cannot connect to the Docker daemon at unix:///var/run/docker.sock.
+	// > Is the docker daemon running?
+	//
+	// This flag has an effect only if `selfMutating` is also `true`.
+	// Experimental.
+	SupportDockerAssets *bool `json:"supportDockerAssets"`
 	// The CodePipeline action build and synthesis step of the CDK app.
 	// Experimental.
 	SynthAction awscodepipeline.IAction `json:"synthAction"`
@@ -2268,6 +2280,9 @@ type UpdatePipelineActionProps struct {
 	// Version of CDK CLI to 'npm install'.
 	// Experimental.
 	CdkCliVersion *string `json:"cdkCliVersion"`
+	// Whether the build step should run in privileged mode.
+	// Experimental.
+	Privileged *bool `json:"privileged"`
 	// Name of the CodeBuild project.
 	// Experimental.
 	ProjectName *string `json:"projectName"`

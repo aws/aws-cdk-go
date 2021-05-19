@@ -227,6 +227,7 @@ type AthenaGetQueryExecution interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -260,6 +261,7 @@ type AthenaGetQueryExecution interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -378,6 +380,16 @@ func (j *jsiiProxy_AthenaGetQueryExecution) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AthenaGetQueryExecution) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -964,6 +976,21 @@ func (a *jsiiProxy_AthenaGetQueryExecution) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (a *jsiiProxy_AthenaGetQueryExecution) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		a,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (a *jsiiProxy_AthenaGetQueryExecution) RenderRetryCatch() interface{} {
@@ -1088,6 +1115,14 @@ type AthenaGetQueryExecutionProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -1118,6 +1153,7 @@ type AthenaGetQueryResults interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -1151,6 +1187,7 @@ type AthenaGetQueryResults interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -1269,6 +1306,16 @@ func (j *jsiiProxy_AthenaGetQueryResults) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AthenaGetQueryResults) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -1855,6 +1902,21 @@ func (a *jsiiProxy_AthenaGetQueryResults) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (a *jsiiProxy_AthenaGetQueryResults) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		a,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (a *jsiiProxy_AthenaGetQueryResults) RenderRetryCatch() interface{} {
@@ -1979,6 +2041,14 @@ type AthenaGetQueryResultsProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -2015,6 +2085,7 @@ type AthenaStartQueryExecution interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -2048,6 +2119,7 @@ type AthenaStartQueryExecution interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -2166,6 +2238,16 @@ func (j *jsiiProxy_AthenaStartQueryExecution) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AthenaStartQueryExecution) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -2752,6 +2834,21 @@ func (a *jsiiProxy_AthenaStartQueryExecution) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (a *jsiiProxy_AthenaStartQueryExecution) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		a,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (a *jsiiProxy_AthenaStartQueryExecution) RenderRetryCatch() interface{} {
@@ -2876,6 +2973,14 @@ type AthenaStartQueryExecutionProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -2915,6 +3020,7 @@ type AthenaStopQueryExecution interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -2948,6 +3054,7 @@ type AthenaStopQueryExecution interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -3066,6 +3173,16 @@ func (j *jsiiProxy_AthenaStopQueryExecution) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AthenaStopQueryExecution) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -3652,6 +3769,21 @@ func (a *jsiiProxy_AthenaStopQueryExecution) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (a *jsiiProxy_AthenaStopQueryExecution) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		a,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (a *jsiiProxy_AthenaStopQueryExecution) RenderRetryCatch() interface{} {
@@ -3776,6 +3908,14 @@ type AthenaStopQueryExecutionProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -3868,6 +4008,7 @@ type BatchSubmitJob interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -3901,6 +4042,7 @@ type BatchSubmitJob interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -4019,6 +4161,16 @@ func (j *jsiiProxy_BatchSubmitJob) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_BatchSubmitJob) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -4605,6 +4757,21 @@ func (b *jsiiProxy_BatchSubmitJob) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (b *jsiiProxy_BatchSubmitJob) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		b,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (b *jsiiProxy_BatchSubmitJob) RenderRetryCatch() interface{} {
@@ -4729,6 +4896,14 @@ type BatchSubmitJobProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -4808,6 +4983,14 @@ type CallApiGatewayEndpointBaseProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -4852,6 +5035,7 @@ type CallApiGatewayHttpApiEndpoint interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StageName() *string
 	StartState() awsstepfunctions.State
 	StateId() *string
@@ -4887,6 +5071,7 @@ type CallApiGatewayHttpApiEndpoint interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -5025,6 +5210,16 @@ func (j *jsiiProxy_CallApiGatewayHttpApiEndpoint) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CallApiGatewayHttpApiEndpoint) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -5635,6 +5830,21 @@ func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) RenderRetryCatch() interface{} {
@@ -5759,6 +5969,14 @@ type CallApiGatewayHttpApiEndpointProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -5812,6 +6030,7 @@ type CallApiGatewayRestApiEndpoint interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StageName() *string
 	StartState() awsstepfunctions.State
 	StateId() *string
@@ -5847,6 +6066,7 @@ type CallApiGatewayRestApiEndpoint interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -5985,6 +6205,16 @@ func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -6595,6 +6825,21 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) RenderRetryCatch() interface{} {
@@ -6719,6 +6964,14 @@ type CallApiGatewayRestApiEndpointProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -6796,6 +7049,7 @@ type CodeBuildStartBuild interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -6829,6 +7083,7 @@ type CodeBuildStartBuild interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -6947,6 +7202,16 @@ func (j *jsiiProxy_CodeBuildStartBuild) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CodeBuildStartBuild) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -7533,6 +7798,21 @@ func (c *jsiiProxy_CodeBuildStartBuild) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (c *jsiiProxy_CodeBuildStartBuild) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (c *jsiiProxy_CodeBuildStartBuild) RenderRetryCatch() interface{} {
@@ -7657,6 +7937,14 @@ type CodeBuildStartBuildProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -8338,6 +8626,7 @@ type DynamoDeleteItem interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -8371,6 +8660,7 @@ type DynamoDeleteItem interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -8489,6 +8779,16 @@ func (j *jsiiProxy_DynamoDeleteItem) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DynamoDeleteItem) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -9075,6 +9375,21 @@ func (d *jsiiProxy_DynamoDeleteItem) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (d *jsiiProxy_DynamoDeleteItem) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		d,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (d *jsiiProxy_DynamoDeleteItem) RenderRetryCatch() interface{} {
@@ -9199,6 +9514,14 @@ type DynamoDeleteItemProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -9265,6 +9588,7 @@ type DynamoGetItem interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -9298,6 +9622,7 @@ type DynamoGetItem interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -9416,6 +9741,16 @@ func (j *jsiiProxy_DynamoGetItem) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DynamoGetItem) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -10002,6 +10337,21 @@ func (d *jsiiProxy_DynamoGetItem) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (d *jsiiProxy_DynamoGetItem) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		d,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (d *jsiiProxy_DynamoGetItem) RenderRetryCatch() interface{} {
@@ -10126,6 +10476,14 @@ type DynamoGetItemProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -10275,6 +10633,7 @@ type DynamoPutItem interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -10308,6 +10667,7 @@ type DynamoPutItem interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -10426,6 +10786,16 @@ func (j *jsiiProxy_DynamoPutItem) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DynamoPutItem) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -11012,6 +11382,21 @@ func (d *jsiiProxy_DynamoPutItem) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (d *jsiiProxy_DynamoPutItem) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		d,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (d *jsiiProxy_DynamoPutItem) RenderRetryCatch() interface{} {
@@ -11136,6 +11521,14 @@ type DynamoPutItemProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -11211,6 +11604,7 @@ type DynamoUpdateItem interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -11244,6 +11638,7 @@ type DynamoUpdateItem interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -11362,6 +11757,16 @@ func (j *jsiiProxy_DynamoUpdateItem) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DynamoUpdateItem) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -11948,6 +12353,21 @@ func (d *jsiiProxy_DynamoUpdateItem) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (d *jsiiProxy_DynamoUpdateItem) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		d,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (d *jsiiProxy_DynamoUpdateItem) RenderRetryCatch() interface{} {
@@ -12072,6 +12492,14 @@ type DynamoUpdateItemProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -12286,6 +12714,7 @@ type EcsRunTask interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -12319,6 +12748,7 @@ type EcsRunTask interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -12448,6 +12878,16 @@ func (j *jsiiProxy_EcsRunTask) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EcsRunTask) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -13034,6 +13474,21 @@ func (e *jsiiProxy_EcsRunTask) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (e *jsiiProxy_EcsRunTask) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EcsRunTask) RenderRetryCatch() interface{} {
@@ -13263,6 +13718,14 @@ type EcsRunTaskProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -13315,6 +13778,7 @@ type EksCall interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -13348,6 +13812,7 @@ type EksCall interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -13466,6 +13931,16 @@ func (j *jsiiProxy_EksCall) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EksCall) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -14052,6 +14527,21 @@ func (e *jsiiProxy_EksCall) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (e *jsiiProxy_EksCall) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EksCall) RenderRetryCatch() interface{} {
@@ -14176,6 +14666,14 @@ type EksCallProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -14217,6 +14715,7 @@ type EmrAddStep interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -14250,6 +14749,7 @@ type EmrAddStep interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -14368,6 +14868,16 @@ func (j *jsiiProxy_EmrAddStep) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrAddStep) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -14954,6 +15464,21 @@ func (e *jsiiProxy_EmrAddStep) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (e *jsiiProxy_EmrAddStep) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EmrAddStep) RenderRetryCatch() interface{} {
@@ -15078,6 +15603,14 @@ type EmrAddStepProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -15137,6 +15670,7 @@ type EmrCancelStep interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -15170,6 +15704,7 @@ type EmrCancelStep interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -15288,6 +15823,16 @@ func (j *jsiiProxy_EmrCancelStep) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrCancelStep) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -15874,6 +16419,21 @@ func (e *jsiiProxy_EmrCancelStep) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (e *jsiiProxy_EmrCancelStep) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EmrCancelStep) RenderRetryCatch() interface{} {
@@ -15998,6 +16558,14 @@ type EmrCancelStepProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -16032,6 +16600,7 @@ type EmrCreateCluster interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	ServiceRole() awsiam.IRole
 	StartState() awsstepfunctions.State
 	StateId() *string
@@ -16066,6 +16635,7 @@ type EmrCreateCluster interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -16204,6 +16774,16 @@ func (j *jsiiProxy_EmrCreateCluster) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrCreateCluster) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -16793,6 +17373,21 @@ func (e *jsiiProxy_EmrCreateCluster) RenderNextEnd() interface{} {
 	_jsii_.Invoke(
 		e,
 		"renderNextEnd",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (e *jsiiProxy_EmrCreateCluster) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderResultSelector",
 		nil, // no parameters
 		&returns,
 	)
@@ -17567,6 +18162,14 @@ type EmrCreateClusterProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -17647,6 +18250,7 @@ type EmrModifyInstanceFleetByName interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -17680,6 +18284,7 @@ type EmrModifyInstanceFleetByName interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -17798,6 +18403,16 @@ func (j *jsiiProxy_EmrModifyInstanceFleetByName) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrModifyInstanceFleetByName) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -18384,6 +18999,21 @@ func (e *jsiiProxy_EmrModifyInstanceFleetByName) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (e *jsiiProxy_EmrModifyInstanceFleetByName) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EmrModifyInstanceFleetByName) RenderRetryCatch() interface{} {
@@ -18508,6 +19138,14 @@ type EmrModifyInstanceFleetByNameProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -18546,6 +19184,7 @@ type EmrModifyInstanceGroupByName interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -18579,6 +19218,7 @@ type EmrModifyInstanceGroupByName interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -18697,6 +19337,16 @@ func (j *jsiiProxy_EmrModifyInstanceGroupByName) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrModifyInstanceGroupByName) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -19283,6 +19933,21 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (e *jsiiProxy_EmrModifyInstanceGroupByName) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) RenderRetryCatch() interface{} {
@@ -19463,6 +20128,14 @@ type EmrModifyInstanceGroupByNameProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -19498,6 +20171,7 @@ type EmrSetClusterTerminationProtection interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -19531,6 +20205,7 @@ type EmrSetClusterTerminationProtection interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -19649,6 +20324,16 @@ func (j *jsiiProxy_EmrSetClusterTerminationProtection) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrSetClusterTerminationProtection) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -20235,6 +20920,21 @@ func (e *jsiiProxy_EmrSetClusterTerminationProtection) RenderNextEnd() interface
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (e *jsiiProxy_EmrSetClusterTerminationProtection) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EmrSetClusterTerminationProtection) RenderRetryCatch() interface{} {
@@ -20359,6 +21059,14 @@ type EmrSetClusterTerminationProtectionProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -20387,6 +21095,7 @@ type EmrTerminateCluster interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -20420,6 +21129,7 @@ type EmrTerminateCluster interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -20538,6 +21248,16 @@ func (j *jsiiProxy_EmrTerminateCluster) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrTerminateCluster) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -21124,6 +21844,21 @@ func (e *jsiiProxy_EmrTerminateCluster) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (e *jsiiProxy_EmrTerminateCluster) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EmrTerminateCluster) RenderRetryCatch() interface{} {
@@ -21248,6 +21983,14 @@ type EmrTerminateClusterProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -21300,6 +22043,7 @@ type EvaluateExpression interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -21333,6 +22077,7 @@ type EvaluateExpression interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -21451,6 +22196,16 @@ func (j *jsiiProxy_EvaluateExpression) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EvaluateExpression) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -22037,6 +22792,21 @@ func (e *jsiiProxy_EvaluateExpression) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (e *jsiiProxy_EvaluateExpression) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EvaluateExpression) RenderRetryCatch() interface{} {
@@ -22161,6 +22931,14 @@ type EvaluateExpressionProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -22196,6 +22974,7 @@ type GlueDataBrewStartJobRun interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -22229,6 +23008,7 @@ type GlueDataBrewStartJobRun interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -22347,6 +23127,16 @@ func (j *jsiiProxy_GlueDataBrewStartJobRun) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_GlueDataBrewStartJobRun) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -22933,6 +23723,21 @@ func (g *jsiiProxy_GlueDataBrewStartJobRun) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (g *jsiiProxy_GlueDataBrewStartJobRun) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		g,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (g *jsiiProxy_GlueDataBrewStartJobRun) RenderRetryCatch() interface{} {
@@ -23057,6 +23862,14 @@ type GlueDataBrewStartJobRunProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -23087,6 +23900,7 @@ type GlueStartJobRun interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -23120,6 +23934,7 @@ type GlueStartJobRun interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -23238,6 +24053,16 @@ func (j *jsiiProxy_GlueStartJobRun) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_GlueStartJobRun) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -23824,6 +24649,21 @@ func (g *jsiiProxy_GlueStartJobRun) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (g *jsiiProxy_GlueStartJobRun) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		g,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (g *jsiiProxy_GlueStartJobRun) RenderRetryCatch() interface{} {
@@ -23948,6 +24788,14 @@ type GlueStartJobRunProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -24259,6 +25107,7 @@ type LambdaInvoke interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -24292,6 +25141,7 @@ type LambdaInvoke interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -24410,6 +25260,16 @@ func (j *jsiiProxy_LambdaInvoke) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_LambdaInvoke) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -24996,6 +25856,21 @@ func (l *jsiiProxy_LambdaInvoke) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (l *jsiiProxy_LambdaInvoke) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		l,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (l *jsiiProxy_LambdaInvoke) RenderRetryCatch() interface{} {
@@ -25120,6 +25995,14 @@ type LambdaInvokeProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -26046,6 +26929,7 @@ type SageMakerCreateEndpoint interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -26079,6 +26963,7 @@ type SageMakerCreateEndpoint interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -26197,6 +27082,16 @@ func (j *jsiiProxy_SageMakerCreateEndpoint) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SageMakerCreateEndpoint) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -26783,6 +27678,21 @@ func (s *jsiiProxy_SageMakerCreateEndpoint) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateEndpoint) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_SageMakerCreateEndpoint) RenderRetryCatch() interface{} {
@@ -26892,6 +27802,7 @@ type SageMakerCreateEndpointConfig interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -26925,6 +27836,7 @@ type SageMakerCreateEndpointConfig interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -27043,6 +27955,16 @@ func (j *jsiiProxy_SageMakerCreateEndpointConfig) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SageMakerCreateEndpointConfig) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -27629,6 +28551,21 @@ func (s *jsiiProxy_SageMakerCreateEndpointConfig) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateEndpointConfig) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_SageMakerCreateEndpointConfig) RenderRetryCatch() interface{} {
@@ -27755,6 +28692,14 @@ type SageMakerCreateEndpointConfigProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -27811,6 +28756,14 @@ type SageMakerCreateEndpointProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -27850,6 +28803,7 @@ type SageMakerCreateModel interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	Role() awsiam.IRole
 	StartState() awsstepfunctions.State
 	StateId() *string
@@ -27885,6 +28839,7 @@ type SageMakerCreateModel interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -28025,6 +28980,16 @@ func (j *jsiiProxy_SageMakerCreateModel) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SageMakerCreateModel) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -28631,6 +29596,21 @@ func (s *jsiiProxy_SageMakerCreateModel) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateModel) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_SageMakerCreateModel) RenderRetryCatch() interface{} {
@@ -28757,6 +29737,14 @@ type SageMakerCreateModelProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -28809,6 +29797,7 @@ type SageMakerCreateTrainingJob interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	Role() awsiam.IRole
 	StartState() awsstepfunctions.State
 	StateId() *string
@@ -28844,6 +29833,7 @@ type SageMakerCreateTrainingJob interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -28984,6 +29974,16 @@ func (j *jsiiProxy_SageMakerCreateTrainingJob) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SageMakerCreateTrainingJob) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -29590,6 +30590,21 @@ func (s *jsiiProxy_SageMakerCreateTrainingJob) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateTrainingJob) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_SageMakerCreateTrainingJob) RenderRetryCatch() interface{} {
@@ -29714,6 +30729,14 @@ type SageMakerCreateTrainingJobProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -29776,6 +30799,7 @@ type SageMakerCreateTransformJob interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	Role() awsiam.IRole
 	StartState() awsstepfunctions.State
 	StateId() *string
@@ -29810,6 +30834,7 @@ type SageMakerCreateTransformJob interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -29928,6 +30953,16 @@ func (j *jsiiProxy_SageMakerCreateTransformJob) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SageMakerCreateTransformJob) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -30524,6 +31559,21 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateTransformJob) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_SageMakerCreateTransformJob) RenderRetryCatch() interface{} {
@@ -30648,6 +31698,14 @@ type SageMakerCreateTransformJobProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -30708,6 +31766,7 @@ type SageMakerUpdateEndpoint interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -30741,6 +31800,7 @@ type SageMakerUpdateEndpoint interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -30859,6 +31919,16 @@ func (j *jsiiProxy_SageMakerUpdateEndpoint) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SageMakerUpdateEndpoint) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -31445,6 +32515,21 @@ func (s *jsiiProxy_SageMakerUpdateEndpoint) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (s *jsiiProxy_SageMakerUpdateEndpoint) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_SageMakerUpdateEndpoint) RenderRetryCatch() interface{} {
@@ -31571,6 +32656,14 @@ type SageMakerUpdateEndpointProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -31690,6 +32783,7 @@ type SnsPublish interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -31723,6 +32817,7 @@ type SnsPublish interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -31841,6 +32936,16 @@ func (j *jsiiProxy_SnsPublish) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SnsPublish) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -32427,6 +33532,21 @@ func (s *jsiiProxy_SnsPublish) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (s *jsiiProxy_SnsPublish) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_SnsPublish) RenderRetryCatch() interface{} {
@@ -32551,6 +33671,14 @@ type SnsPublishProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -32613,6 +33741,7 @@ type SqsSendMessage interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -32646,6 +33775,7 @@ type SqsSendMessage interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -32764,6 +33894,16 @@ func (j *jsiiProxy_SqsSendMessage) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SqsSendMessage) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -33350,6 +34490,21 @@ func (s *jsiiProxy_SqsSendMessage) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (s *jsiiProxy_SqsSendMessage) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_SqsSendMessage) RenderRetryCatch() interface{} {
@@ -33474,6 +34629,14 @@ type SqsSendMessageProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -33597,6 +34760,7 @@ type StepFunctionsInvokeActivity interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -33630,6 +34794,7 @@ type StepFunctionsInvokeActivity interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -33748,6 +34913,16 @@ func (j *jsiiProxy_StepFunctionsInvokeActivity) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StepFunctionsInvokeActivity) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -34334,6 +35509,21 @@ func (s *jsiiProxy_StepFunctionsInvokeActivity) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (s *jsiiProxy_StepFunctionsInvokeActivity) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_StepFunctionsInvokeActivity) RenderRetryCatch() interface{} {
@@ -34458,6 +35648,14 @@ type StepFunctionsInvokeActivityProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -34468,7 +35666,7 @@ type StepFunctionsInvokeActivityProps struct {
 
 // A Step Functions Task to call StartExecution on another state machine.
 //
-// It supports three service integration patterns: FIRE_AND_FORGET, SYNC and WAIT_FOR_TASK_TOKEN.
+// It supports three service integration patterns: REQUEST_RESPONSE, RUN_JOB, and WAIT_FOR_TASK_TOKEN.
 // Experimental.
 type StepFunctionsStartExecution interface {
 	awsstepfunctions.TaskStateBase
@@ -34485,6 +35683,7 @@ type StepFunctionsStartExecution interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -34518,6 +35717,7 @@ type StepFunctionsStartExecution interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -34636,6 +35836,16 @@ func (j *jsiiProxy_StepFunctionsStartExecution) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StepFunctionsStartExecution) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -35222,6 +36432,21 @@ func (s *jsiiProxy_StepFunctionsStartExecution) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (s *jsiiProxy_StepFunctionsStartExecution) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_StepFunctionsStartExecution) RenderRetryCatch() interface{} {
@@ -35346,6 +36571,14 @@ type StepFunctionsStartExecutionProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`

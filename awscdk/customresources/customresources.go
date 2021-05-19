@@ -434,8 +434,17 @@ type AwsSdkCall struct {
 	// response objects exceeding the hard limit of 4096 bytes.
 	//
 	// Example for ECS / updateService: 'service.deploymentConfiguration.maximumPercent'
-	// Experimental.
+	// Deprecated: use outputPaths instead
 	OutputPath *string `json:"outputPath"`
+	// Restrict the data returned by the custom resource to specific paths in the API response.
+	//
+	// Use this to limit the data returned by the custom
+	// resource if working with API calls that could potentially result in custom
+	// response objects exceeding the hard limit of 4096 bytes.
+	//
+	// Example for ECS / updateService: ['service.deploymentConfiguration.maximumPercent']
+	// Experimental.
+	OutputPaths *[]*string `json:"outputPaths"`
 	// The parameters for the service action.
 	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html
 	//

@@ -2217,6 +2217,7 @@ type Choice interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() State
 	StateId() *string
 	AddBranch(branch StateGraph)
@@ -2237,6 +2238,7 @@ type Choice interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -2356,6 +2358,16 @@ func (j *jsiiProxy_Choice) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Choice) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -2749,6 +2761,21 @@ func (c *jsiiProxy_Choice) RenderNextEnd() interface{} {
 	_jsii_.Invoke(
 		c,
 		"renderNextEnd",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (c *jsiiProxy_Choice) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderResultSelector",
 		nil, // no parameters
 		&returns,
 	)
@@ -3831,6 +3858,7 @@ type CustomState interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() State
 	StateId() *string
 	AddBranch(branch StateGraph)
@@ -3850,6 +3878,7 @@ type CustomState interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -3970,6 +3999,16 @@ func (j *jsiiProxy_CustomState) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CustomState) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -4350,6 +4389,21 @@ func (c *jsiiProxy_CustomState) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (c *jsiiProxy_CustomState) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (c *jsiiProxy_CustomState) RenderRetryCatch() interface{} {
@@ -4682,6 +4736,7 @@ type Fail interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() State
 	StateId() *string
 	AddBranch(branch StateGraph)
@@ -4700,6 +4755,7 @@ type Fail interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -4818,6 +4874,16 @@ func (j *jsiiProxy_Fail) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Fail) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -5176,6 +5242,21 @@ func (f *jsiiProxy_Fail) RenderNextEnd() interface{} {
 	_jsii_.Invoke(
 		f,
 		"renderNextEnd",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (f *jsiiProxy_Fail) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		f,
+		"renderResultSelector",
 		nil, // no parameters
 		&returns,
 	)
@@ -5983,6 +6064,7 @@ type Map interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() State
 	StateId() *string
 	AddBranch(branch StateGraph)
@@ -6005,6 +6087,7 @@ type Map interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -6124,6 +6207,16 @@ func (j *jsiiProxy_Map) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Map) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -6555,6 +6648,21 @@ func (m *jsiiProxy_Map) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (m *jsiiProxy_Map) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		m,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (m *jsiiProxy_Map) RenderRetryCatch() interface{} {
@@ -6675,6 +6783,14 @@ type MapProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 }
 
 // Define a Parallel state in the state machine.
@@ -6700,6 +6816,7 @@ type Parallel interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() State
 	StateId() *string
 	AddBranch(branch StateGraph)
@@ -6722,6 +6839,7 @@ type Parallel interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -6841,6 +6959,16 @@ func (j *jsiiProxy_Parallel) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Parallel) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -7277,6 +7405,21 @@ func (p *jsiiProxy_Parallel) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (p *jsiiProxy_Parallel) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		p,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (p *jsiiProxy_Parallel) RenderRetryCatch() interface{} {
@@ -7386,6 +7529,14 @@ type ParallelProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 }
 
 // Define a Pass in the state machine.
@@ -7408,6 +7559,7 @@ type Pass interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() State
 	StateId() *string
 	AddBranch(branch StateGraph)
@@ -7427,6 +7579,7 @@ type Pass interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -7546,6 +7699,16 @@ func (j *jsiiProxy_Pass) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Pass) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -7926,6 +8089,21 @@ func (p *jsiiProxy_Pass) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (p *jsiiProxy_Pass) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		p,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (p *jsiiProxy_Pass) RenderRetryCatch() interface{} {
@@ -8246,6 +8424,14 @@ type SingleStateOptions struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// String to prefix all stateIds in the state machine with.
 	// Experimental.
 	PrefixStates *string `json:"prefixStates"`
@@ -8272,6 +8458,7 @@ type State interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() State
 	StateId() *string
 	AddBranch(branch StateGraph)
@@ -8290,6 +8477,7 @@ type State interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -8409,6 +8597,16 @@ func (j *jsiiProxy_State) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_State) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -8752,6 +8950,21 @@ func (s *jsiiProxy_State) RenderNextEnd() interface{} {
 	_jsii_.Invoke(
 		s,
 		"renderNextEnd",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (s *jsiiProxy_State) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"renderResultSelector",
 		nil, // no parameters
 		&returns,
 	)
@@ -9965,6 +10178,14 @@ type StateProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 }
 
 // Metrics on the rate limiting performed on state machine execution.
@@ -10149,6 +10370,7 @@ type Succeed interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() State
 	StateId() *string
 	AddBranch(branch StateGraph)
@@ -10167,6 +10389,7 @@ type Succeed interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -10285,6 +10508,16 @@ func (j *jsiiProxy_Succeed) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Succeed) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -10650,6 +10883,21 @@ func (s *jsiiProxy_Succeed) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (s *jsiiProxy_Succeed) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_Succeed) RenderRetryCatch() interface{} {
@@ -10785,6 +11033,7 @@ type Task interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() State
 	StateId() *string
 	AddBranch(branch StateGraph)
@@ -10816,6 +11065,7 @@ type Task interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -10935,6 +11185,16 @@ func (j *jsiiProxy_Task) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Task) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -11501,6 +11761,21 @@ func (t *jsiiProxy_Task) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		t,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
 func (t *jsiiProxy_Task) RenderRetryCatch() interface{} {
@@ -11818,6 +12093,7 @@ type TaskStateBase interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() State
 	StateId() *string
 	TaskMetrics() *TaskMetricsConfig
@@ -11851,6 +12127,7 @@ type TaskStateBase interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -11970,6 +12247,16 @@ func (j *jsiiProxy_TaskStateBase) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_TaskStateBase) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -12541,6 +12828,21 @@ func (t *jsiiProxy_TaskStateBase) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (t *jsiiProxy_TaskStateBase) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		t,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (t *jsiiProxy_TaskStateBase) RenderRetryCatch() interface{} {
@@ -12665,6 +12967,14 @@ type TaskStateBaseProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -12690,6 +13000,7 @@ type Wait interface {
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() State
 	StateId() *string
 	AddBranch(branch StateGraph)
@@ -12709,6 +13020,7 @@ type Wait interface {
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
 	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
@@ -12828,6 +13140,16 @@ func (j *jsiiProxy_Wait) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Wait) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -13201,6 +13523,21 @@ func (w *jsiiProxy_Wait) RenderNextEnd() interface{} {
 	_jsii_.Invoke(
 		w,
 		"renderNextEnd",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (w *jsiiProxy_Wait) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		w,
+		"renderResultSelector",
 		nil, // no parameters
 		&returns,
 	)

@@ -418,6 +418,17 @@ type ApiMappingProps struct {
 	Stage IStage `json:"stage"`
 }
 
+// Payload format version for lambda authorizers.
+// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-lambda-authorizer.html
+//
+// Experimental.
+type AuthorizerPayloadVersion string
+
+const (
+	AuthorizerPayloadVersion_VERSION_1_0 AuthorizerPayloadVersion = "VERSION_1_0"
+	AuthorizerPayloadVersion_VERSION_2_0 AuthorizerPayloadVersion = "VERSION_2_0"
+)
+
 // Options used when configuring multiple routes, at once.
 //
 // The options here are the ones that would be configured for all being set up.
@@ -11658,8 +11669,13 @@ type HttpAuthorizerAttributes struct {
 	// Experimental.
 	AuthorizerId *string `json:"authorizerId"`
 	// Type of authorizer.
+	//
+	// Possible values are:
+	// - JWT - JSON Web Token Authorizer
+	// - CUSTOM - Lambda Authorizer
+	// - NONE - No Authorization
 	// Experimental.
-	AuthorizerType HttpAuthorizerType `json:"authorizerType"`
+	AuthorizerType *string `json:"authorizerType"`
 }
 
 // Properties to initialize an instance of `HttpAuthorizer`.
@@ -11679,6 +11695,16 @@ type HttpAuthorizerProps struct {
 	// Name of the authorizer.
 	// Experimental.
 	AuthorizerName *string `json:"authorizerName"`
+	// The authorizer's Uniform Resource Identifier (URI).
+	//
+	// For REQUEST authorizers, this must be a well-formed Lambda function URI.
+	// Experimental.
+	AuthorizerUri *string `json:"authorizerUri"`
+	// Specifies whether a Lambda authorizer returns a response in a simple format.
+	//
+	// If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
+	// Experimental.
+	EnableSimpleResponses *bool `json:"enableSimpleResponses"`
 	// A list of the intended recipients of the JWT.
 	//
 	// A valid JWT must provide an aud that matches at least one entry in this list.
@@ -11687,6 +11713,14 @@ type HttpAuthorizerProps struct {
 	// The base domain of the identity provider that issues JWT.
 	// Experimental.
 	JwtIssuer *string `json:"jwtIssuer"`
+	// Specifies the format of the payload sent to an HTTP API Lambda authorizer.
+	// Experimental.
+	PayloadFormatVersion AuthorizerPayloadVersion `json:"payloadFormatVersion"`
+	// How long APIGateway should cache the results.
+	//
+	// Max 1 hour.
+	// Experimental.
+	ResultsCacheTtl awscdk.Duration `json:"resultsCacheTtl"`
 }
 
 // Supported Authorizer types.
@@ -11696,7 +11730,6 @@ type HttpAuthorizerType string
 const (
 	HttpAuthorizerType_JWT HttpAuthorizerType = "JWT"
 	HttpAuthorizerType_LAMBDA HttpAuthorizerType = "LAMBDA"
-	HttpAuthorizerType_NONE HttpAuthorizerType = "NONE"
 )
 
 // Supported connection types.
@@ -12518,8 +12551,13 @@ type HttpRouteAuthorizerBindOptions struct {
 // Experimental.
 type HttpRouteAuthorizerConfig struct {
 	// The type of authorization.
+	//
+	// Possible values are:
+	// - JWT - JSON Web Token Authorizer
+	// - CUSTOM - Lambda Authorizer
+	// - NONE - No Authorization
 	// Experimental.
-	AuthorizationType HttpAuthorizerType `json:"authorizationType"`
+	AuthorizationType *string `json:"authorizationType"`
 	// The list of OIDC scopes to include in the authorization.
 	// Experimental.
 	AuthorizationScopes *[]*string `json:"authorizationScopes"`

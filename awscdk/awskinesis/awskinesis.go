@@ -2196,7 +2196,7 @@ func (s *jsiiProxy_Stream) Grant(grantee awsiam.IGrantable, actions ...*string) 
 	return returns
 }
 
-// Grant write permissions for this stream and its contents to an IAM principal (Role/Group/User).
+// Grant read permissions for this stream and its contents to an IAM principal (Role/Group/User).
 //
 // If an encryption key is used, permission to ues the key to decrypt the
 // contents of the stream will also be granted.
@@ -2232,9 +2232,9 @@ func (s *jsiiProxy_Stream) GrantReadWrite(grantee awsiam.IGrantable) awsiam.Gran
 	return returns
 }
 
-// Grant read permissions for this stream and its contents to an IAM principal (Role/Group/User).
+// Grant write permissions for this stream and its contents to an IAM principal (Role/Group/User).
 //
-// If an encryption key is used, permission to ues the key to decrypt the
+// If an encryption key is used, permission to ues the key to encrypt the
 // contents of the stream will also be granted.
 // Experimental.
 func (s *jsiiProxy_Stream) GrantWrite(grantee awsiam.IGrantable) awsiam.Grant {

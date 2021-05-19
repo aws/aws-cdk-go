@@ -48,6 +48,14 @@ func init() {
 		"monocdk.aws_apigatewayv2.ApiMappingProps",
 		reflect.TypeOf((*ApiMappingProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_apigatewayv2.AuthorizerPayloadVersion",
+		reflect.TypeOf((*AuthorizerPayloadVersion)(nil)).Elem(),
+		map[string]interface{}{
+			"VERSION_1_0": AuthorizerPayloadVersion_VERSION_1_0,
+			"VERSION_2_0": AuthorizerPayloadVersion_VERSION_2_0,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_apigatewayv2.BatchHttpRouteOptions",
 		reflect.TypeOf((*BatchHttpRouteOptions)(nil)).Elem(),
@@ -983,7 +991,6 @@ func init() {
 		map[string]interface{}{
 			"JWT": HttpAuthorizerType_JWT,
 			"LAMBDA": HttpAuthorizerType_LAMBDA,
-			"NONE": HttpAuthorizerType_NONE,
 		},
 	)
 	_jsii_.RegisterEnum(
