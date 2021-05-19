@@ -8,11 +8,11 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
-		"monocdk.aws_dynamodb.Attribute",
+		"aws-cdk-lib.aws_dynamodb.Attribute",
 		reflect.TypeOf((*Attribute)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_dynamodb.AttributeType",
+		"aws-cdk-lib.aws_dynamodb.AttributeType",
 		reflect.TypeOf((*AttributeType)(nil)).Elem(),
 		map[string]interface{}{
 			"BINARY": AttributeType_BINARY,
@@ -21,7 +21,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_dynamodb.BillingMode",
+		"aws-cdk-lib.aws_dynamodb.BillingMode",
 		reflect.TypeOf((*BillingMode)(nil)).Elem(),
 		map[string]interface{}{
 			"PAY_PER_REQUEST": BillingMode_PAY_PER_REQUEST,
@@ -29,7 +29,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_dynamodb.CfnTable",
+		"aws-cdk-lib.aws_dynamodb.CfnTable",
 		reflect.TypeOf((*CfnTable)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -57,12 +57,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "localSecondaryIndexes", GoGetter: "LocalSecondaryIndexes"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "pointInTimeRecoverySpecification", GoGetter: "PointInTimeRecoverySpecification"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "provisionedThroughput", GoGetter: "ProvisionedThroughput"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -70,13 +66,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "sseSpecification", GoGetter: "SseSpecification"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "streamSpecification", GoGetter: "StreamSpecification"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "timeToLiveSpecification", GoGetter: "TimeToLiveSpecification"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -87,67 +81,67 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_dynamodb.CfnTable.AttributeDefinitionProperty",
+		"aws-cdk-lib.aws_dynamodb.CfnTable.AttributeDefinitionProperty",
 		reflect.TypeOf((*CfnTable_AttributeDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_dynamodb.CfnTable.ContributorInsightsSpecificationProperty",
+		"aws-cdk-lib.aws_dynamodb.CfnTable.ContributorInsightsSpecificationProperty",
 		reflect.TypeOf((*CfnTable_ContributorInsightsSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_dynamodb.CfnTable.GlobalSecondaryIndexProperty",
+		"aws-cdk-lib.aws_dynamodb.CfnTable.GlobalSecondaryIndexProperty",
 		reflect.TypeOf((*CfnTable_GlobalSecondaryIndexProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_dynamodb.CfnTable.KeySchemaProperty",
+		"aws-cdk-lib.aws_dynamodb.CfnTable.KeySchemaProperty",
 		reflect.TypeOf((*CfnTable_KeySchemaProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_dynamodb.CfnTable.KinesisStreamSpecificationProperty",
+		"aws-cdk-lib.aws_dynamodb.CfnTable.KinesisStreamSpecificationProperty",
 		reflect.TypeOf((*CfnTable_KinesisStreamSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_dynamodb.CfnTable.LocalSecondaryIndexProperty",
+		"aws-cdk-lib.aws_dynamodb.CfnTable.LocalSecondaryIndexProperty",
 		reflect.TypeOf((*CfnTable_LocalSecondaryIndexProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_dynamodb.CfnTable.PointInTimeRecoverySpecificationProperty",
+		"aws-cdk-lib.aws_dynamodb.CfnTable.PointInTimeRecoverySpecificationProperty",
 		reflect.TypeOf((*CfnTable_PointInTimeRecoverySpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_dynamodb.CfnTable.ProjectionProperty",
+		"aws-cdk-lib.aws_dynamodb.CfnTable.ProjectionProperty",
 		reflect.TypeOf((*CfnTable_ProjectionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_dynamodb.CfnTable.ProvisionedThroughputProperty",
+		"aws-cdk-lib.aws_dynamodb.CfnTable.ProvisionedThroughputProperty",
 		reflect.TypeOf((*CfnTable_ProvisionedThroughputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_dynamodb.CfnTable.SSESpecificationProperty",
+		"aws-cdk-lib.aws_dynamodb.CfnTable.SSESpecificationProperty",
 		reflect.TypeOf((*CfnTable_SSESpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_dynamodb.CfnTable.StreamSpecificationProperty",
+		"aws-cdk-lib.aws_dynamodb.CfnTable.StreamSpecificationProperty",
 		reflect.TypeOf((*CfnTable_StreamSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_dynamodb.CfnTable.TimeToLiveSpecificationProperty",
+		"aws-cdk-lib.aws_dynamodb.CfnTable.TimeToLiveSpecificationProperty",
 		reflect.TypeOf((*CfnTable_TimeToLiveSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_dynamodb.CfnTableProps",
+		"aws-cdk-lib.aws_dynamodb.CfnTableProps",
 		reflect.TypeOf((*CfnTableProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_dynamodb.EnableScalingProps",
+		"aws-cdk-lib.aws_dynamodb.EnableScalingProps",
 		reflect.TypeOf((*EnableScalingProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_dynamodb.GlobalSecondaryIndexProps",
+		"aws-cdk-lib.aws_dynamodb.GlobalSecondaryIndexProps",
 		reflect.TypeOf((*GlobalSecondaryIndexProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_dynamodb.IScalableTableAttribute",
+		"aws-cdk-lib.aws_dynamodb.IScalableTableAttribute",
 		reflect.TypeOf((*IScalableTableAttribute)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "scaleOnSchedule", GoMethod: "ScaleOnSchedule"},
@@ -158,7 +152,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_dynamodb.ITable",
+		"aws-cdk-lib.aws_dynamodb.ITable",
 		reflect.TypeOf((*ITable)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "encryptionKey", GoGetter: "EncryptionKey"},
@@ -176,7 +170,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricConsumedReadCapacityUnits", GoMethod: "MetricConsumedReadCapacityUnits"},
 			_jsii_.MemberMethod{JsiiMethod: "metricConsumedWriteCapacityUnits", GoMethod: "MetricConsumedWriteCapacityUnits"},
 			_jsii_.MemberMethod{JsiiMethod: "metricSuccessfulRequestLatency", GoMethod: "MetricSuccessfulRequestLatency"},
-			_jsii_.MemberMethod{JsiiMethod: "metricSystemErrors", GoMethod: "MetricSystemErrors"},
 			_jsii_.MemberMethod{JsiiMethod: "metricSystemErrorsForOperations", GoMethod: "MetricSystemErrorsForOperations"},
 			_jsii_.MemberMethod{JsiiMethod: "metricThrottledRequests", GoMethod: "MetricThrottledRequests"},
 			_jsii_.MemberMethod{JsiiMethod: "metricUserErrors", GoMethod: "MetricUserErrors"},
@@ -193,11 +186,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_dynamodb.LocalSecondaryIndexProps",
+		"aws-cdk-lib.aws_dynamodb.LocalSecondaryIndexProps",
 		reflect.TypeOf((*LocalSecondaryIndexProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_dynamodb.Operation",
+		"aws-cdk-lib.aws_dynamodb.Operation",
 		reflect.TypeOf((*Operation)(nil)).Elem(),
 		map[string]interface{}{
 			"GET_ITEM": Operation_GET_ITEM,
@@ -212,7 +205,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_dynamodb.ProjectionType",
+		"aws-cdk-lib.aws_dynamodb.ProjectionType",
 		reflect.TypeOf((*ProjectionType)(nil)).Elem(),
 		map[string]interface{}{
 			"KEYS_ONLY": ProjectionType_KEYS_ONLY,
@@ -221,11 +214,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_dynamodb.SecondaryIndexProps",
+		"aws-cdk-lib.aws_dynamodb.SecondaryIndexProps",
 		reflect.TypeOf((*SecondaryIndexProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_dynamodb.StreamViewType",
+		"aws-cdk-lib.aws_dynamodb.StreamViewType",
 		reflect.TypeOf((*StreamViewType)(nil)).Elem(),
 		map[string]interface{}{
 			"NEW_IMAGE": StreamViewType_NEW_IMAGE,
@@ -235,11 +228,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_dynamodb.SystemErrorsForOperationsMetricOptions",
+		"aws-cdk-lib.aws_dynamodb.SystemErrorsForOperationsMetricOptions",
 		reflect.TypeOf((*SystemErrorsForOperationsMetricOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_dynamodb.Table",
+		"aws-cdk-lib.aws_dynamodb.Table",
 		reflect.TypeOf((*Table)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addGlobalSecondaryIndex", GoMethod: "AddGlobalSecondaryIndex"},
@@ -268,24 +261,17 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricConsumedReadCapacityUnits", GoMethod: "MetricConsumedReadCapacityUnits"},
 			_jsii_.MemberMethod{JsiiMethod: "metricConsumedWriteCapacityUnits", GoMethod: "MetricConsumedWriteCapacityUnits"},
 			_jsii_.MemberMethod{JsiiMethod: "metricSuccessfulRequestLatency", GoMethod: "MetricSuccessfulRequestLatency"},
-			_jsii_.MemberMethod{JsiiMethod: "metricSystemErrors", GoMethod: "MetricSystemErrors"},
 			_jsii_.MemberMethod{JsiiMethod: "metricSystemErrorsForOperations", GoMethod: "MetricSystemErrorsForOperations"},
 			_jsii_.MemberMethod{JsiiMethod: "metricThrottledRequests", GoMethod: "MetricThrottledRequests"},
 			_jsii_.MemberMethod{JsiiMethod: "metricUserErrors", GoMethod: "MetricUserErrors"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "regionalArns", GoGetter: "RegionalArns"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tableArn", GoGetter: "TableArn"},
 			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},
 			_jsii_.MemberProperty{JsiiProperty: "tableStreamArn", GoGetter: "TableStreamArn"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Table{}
@@ -295,11 +281,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_dynamodb.TableAttributes",
+		"aws-cdk-lib.aws_dynamodb.TableAttributes",
 		reflect.TypeOf((*TableAttributes)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_dynamodb.TableEncryption",
+		"aws-cdk-lib.aws_dynamodb.TableEncryption",
 		reflect.TypeOf((*TableEncryption)(nil)).Elem(),
 		map[string]interface{}{
 			"DEFAULT": TableEncryption_DEFAULT,
@@ -308,15 +294,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_dynamodb.TableOptions",
+		"aws-cdk-lib.aws_dynamodb.TableOptions",
 		reflect.TypeOf((*TableOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_dynamodb.TableProps",
+		"aws-cdk-lib.aws_dynamodb.TableProps",
 		reflect.TypeOf((*TableProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_dynamodb.UtilizationScalingProps",
+		"aws-cdk-lib.aws_dynamodb.UtilizationScalingProps",
 		reflect.TypeOf((*UtilizationScalingProps)(nil)).Elem(),
 	)
 }
