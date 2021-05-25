@@ -1,28 +1,28 @@
 package awsstepfunctionstasks
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodebuild"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecrassets"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awseks"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctionstasks/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsapigateway"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awscodebuild"
+	"github.com/aws/aws-cdk-go/awscdk/awsdynamodb"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsecr"
+	"github.com/aws/aws-cdk-go/awscdk/awsecrassets"
+	"github.com/aws/aws-cdk-go/awscdk/awsecs"
+	"github.com/aws/aws-cdk-go/awscdk/awseks"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/awssqs"
+	"github.com/aws/aws-cdk-go/awscdk/awsstepfunctions"
+	"github.com/aws/aws-cdk-go/awscdk/awsstepfunctionstasks/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // The generation of Elastic Inference (EI) instance.
@@ -57,7 +57,7 @@ func AcceleratorClass_Of(version *string) AcceleratorClass {
 	var returns AcceleratorClass
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AcceleratorClass",
+		"monocdk.aws_stepfunctions_tasks.AcceleratorClass",
 		"of",
 		[]interface{}{version},
 		&returns,
@@ -70,7 +70,7 @@ func AcceleratorClass_EIA1() AcceleratorClass {
 	_init_.Initialize()
 	var returns AcceleratorClass
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AcceleratorClass",
+		"monocdk.aws_stepfunctions_tasks.AcceleratorClass",
 		"EIA1",
 		&returns,
 	)
@@ -81,7 +81,7 @@ func AcceleratorClass_EIA2() AcceleratorClass {
 	_init_.Initialize()
 	var returns AcceleratorClass
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AcceleratorClass",
+		"monocdk.aws_stepfunctions_tasks.AcceleratorClass",
 		"EIA2",
 		&returns,
 	)
@@ -110,7 +110,7 @@ func NewAcceleratorType(instanceTypeIdentifier *string) AcceleratorType {
 	j := jsiiProxy_AcceleratorType{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AcceleratorType",
+		"monocdk.aws_stepfunctions_tasks.AcceleratorType",
 		[]interface{}{instanceTypeIdentifier},
 		&j,
 	)
@@ -123,7 +123,7 @@ func NewAcceleratorType_Override(a AcceleratorType, instanceTypeIdentifier *stri
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AcceleratorType",
+		"monocdk.aws_stepfunctions_tasks.AcceleratorType",
 		[]interface{}{instanceTypeIdentifier},
 		a,
 	)
@@ -139,7 +139,7 @@ func AcceleratorType_Of(acceleratorClass AcceleratorClass, instanceSize awsec2.I
 	var returns AcceleratorType
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AcceleratorType",
+		"monocdk.aws_stepfunctions_tasks.AcceleratorType",
 		"of",
 		[]interface{}{acceleratorClass, instanceSize},
 		&returns,
@@ -223,10 +223,11 @@ type AthenaGetQueryExecution interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -251,15 +252,21 @@ type AthenaGetQueryExecution interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -338,8 +345,8 @@ func (j *jsiiProxy_AthenaGetQueryExecution) Iteration() awsstepfunctions.StateGr
 	return returns
 }
 
-func (j *jsiiProxy_AthenaGetQueryExecution) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_AthenaGetQueryExecution) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -373,6 +380,16 @@ func (j *jsiiProxy_AthenaGetQueryExecution) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AthenaGetQueryExecution) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -426,7 +443,7 @@ func NewAthenaGetQueryExecution(scope constructs.Construct, id *string, props *A
 	j := jsiiProxy_AthenaGetQueryExecution{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryExecution",
+		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryExecution",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -439,7 +456,7 @@ func NewAthenaGetQueryExecution_Override(a AthenaGetQueryExecution, scope constr
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryExecution",
+		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryExecution",
 		[]interface{}{scope, id, props},
 		a,
 	)
@@ -469,7 +486,7 @@ func AthenaGetQueryExecution_FilterNextables(states *[]awsstepfunctions.State) *
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryExecution",
+		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryExecution",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -486,7 +503,7 @@ func AthenaGetQueryExecution_FindReachableEndStates(start awsstepfunctions.State
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryExecution",
+		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryExecution",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -505,7 +522,7 @@ func AthenaGetQueryExecution_FindReachableStates(start awsstepfunctions.State, o
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryExecution",
+		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryExecution",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -514,17 +531,15 @@ func AthenaGetQueryExecution_FindReachableStates(start awsstepfunctions.State, o
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func AthenaGetQueryExecution_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryExecution",
+		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryExecution",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -539,7 +554,7 @@ func AthenaGetQueryExecution_PrefixStates(root constructs.IConstruct, prefix *st
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryExecution",
+		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryExecution",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -819,6 +834,73 @@ func (a *jsiiProxy_AthenaGetQueryExecution) Next(next awsstepfunctions.IChainabl
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_AthenaGetQueryExecution) OnPrepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_AthenaGetQueryExecution) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_AthenaGetQueryExecution) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_AthenaGetQueryExecution) Prepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (a *jsiiProxy_AthenaGetQueryExecution) RenderBranches() interface{} {
@@ -894,6 +976,21 @@ func (a *jsiiProxy_AthenaGetQueryExecution) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (a *jsiiProxy_AthenaGetQueryExecution) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		a,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (a *jsiiProxy_AthenaGetQueryExecution) RenderRetryCatch() interface{} {
@@ -907,6 +1004,19 @@ func (a *jsiiProxy_AthenaGetQueryExecution) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_AthenaGetQueryExecution) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -939,14 +1049,19 @@ func (a *jsiiProxy_AthenaGetQueryExecution) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (a *jsiiProxy_AthenaGetQueryExecution) ValidateState() *[]*string {
+func (a *jsiiProxy_AthenaGetQueryExecution) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		a,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1000,6 +1115,14 @@ type AthenaGetQueryExecutionProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -1026,10 +1149,11 @@ type AthenaGetQueryResults interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -1054,15 +1178,21 @@ type AthenaGetQueryResults interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -1141,8 +1271,8 @@ func (j *jsiiProxy_AthenaGetQueryResults) Iteration() awsstepfunctions.StateGrap
 	return returns
 }
 
-func (j *jsiiProxy_AthenaGetQueryResults) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_AthenaGetQueryResults) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1176,6 +1306,16 @@ func (j *jsiiProxy_AthenaGetQueryResults) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AthenaGetQueryResults) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -1229,7 +1369,7 @@ func NewAthenaGetQueryResults(scope constructs.Construct, id *string, props *Ath
 	j := jsiiProxy_AthenaGetQueryResults{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryResults",
+		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryResults",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1242,7 +1382,7 @@ func NewAthenaGetQueryResults_Override(a AthenaGetQueryResults, scope constructs
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryResults",
+		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryResults",
 		[]interface{}{scope, id, props},
 		a,
 	)
@@ -1272,7 +1412,7 @@ func AthenaGetQueryResults_FilterNextables(states *[]awsstepfunctions.State) *[]
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryResults",
+		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryResults",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -1289,7 +1429,7 @@ func AthenaGetQueryResults_FindReachableEndStates(start awsstepfunctions.State, 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryResults",
+		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryResults",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -1308,7 +1448,7 @@ func AthenaGetQueryResults_FindReachableStates(start awsstepfunctions.State, opt
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryResults",
+		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryResults",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -1317,17 +1457,15 @@ func AthenaGetQueryResults_FindReachableStates(start awsstepfunctions.State, opt
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func AthenaGetQueryResults_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryResults",
+		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryResults",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1342,7 +1480,7 @@ func AthenaGetQueryResults_PrefixStates(root constructs.IConstruct, prefix *stri
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryResults",
+		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryResults",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -1622,6 +1760,73 @@ func (a *jsiiProxy_AthenaGetQueryResults) Next(next awsstepfunctions.IChainable)
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_AthenaGetQueryResults) OnPrepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_AthenaGetQueryResults) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_AthenaGetQueryResults) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_AthenaGetQueryResults) Prepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (a *jsiiProxy_AthenaGetQueryResults) RenderBranches() interface{} {
@@ -1697,6 +1902,21 @@ func (a *jsiiProxy_AthenaGetQueryResults) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (a *jsiiProxy_AthenaGetQueryResults) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		a,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (a *jsiiProxy_AthenaGetQueryResults) RenderRetryCatch() interface{} {
@@ -1710,6 +1930,19 @@ func (a *jsiiProxy_AthenaGetQueryResults) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_AthenaGetQueryResults) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -1742,14 +1975,19 @@ func (a *jsiiProxy_AthenaGetQueryResults) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (a *jsiiProxy_AthenaGetQueryResults) ValidateState() *[]*string {
+func (a *jsiiProxy_AthenaGetQueryResults) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		a,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1803,6 +2041,14 @@ type AthenaGetQueryResultsProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -1835,10 +2081,11 @@ type AthenaStartQueryExecution interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -1863,15 +2110,21 @@ type AthenaStartQueryExecution interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -1950,8 +2203,8 @@ func (j *jsiiProxy_AthenaStartQueryExecution) Iteration() awsstepfunctions.State
 	return returns
 }
 
-func (j *jsiiProxy_AthenaStartQueryExecution) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_AthenaStartQueryExecution) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1985,6 +2238,16 @@ func (j *jsiiProxy_AthenaStartQueryExecution) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AthenaStartQueryExecution) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -2038,7 +2301,7 @@ func NewAthenaStartQueryExecution(scope constructs.Construct, id *string, props 
 	j := jsiiProxy_AthenaStartQueryExecution{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStartQueryExecution",
+		"monocdk.aws_stepfunctions_tasks.AthenaStartQueryExecution",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2051,7 +2314,7 @@ func NewAthenaStartQueryExecution_Override(a AthenaStartQueryExecution, scope co
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStartQueryExecution",
+		"monocdk.aws_stepfunctions_tasks.AthenaStartQueryExecution",
 		[]interface{}{scope, id, props},
 		a,
 	)
@@ -2081,7 +2344,7 @@ func AthenaStartQueryExecution_FilterNextables(states *[]awsstepfunctions.State)
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStartQueryExecution",
+		"monocdk.aws_stepfunctions_tasks.AthenaStartQueryExecution",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -2098,7 +2361,7 @@ func AthenaStartQueryExecution_FindReachableEndStates(start awsstepfunctions.Sta
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStartQueryExecution",
+		"monocdk.aws_stepfunctions_tasks.AthenaStartQueryExecution",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -2117,7 +2380,7 @@ func AthenaStartQueryExecution_FindReachableStates(start awsstepfunctions.State,
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStartQueryExecution",
+		"monocdk.aws_stepfunctions_tasks.AthenaStartQueryExecution",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -2126,17 +2389,15 @@ func AthenaStartQueryExecution_FindReachableStates(start awsstepfunctions.State,
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func AthenaStartQueryExecution_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStartQueryExecution",
+		"monocdk.aws_stepfunctions_tasks.AthenaStartQueryExecution",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2151,7 +2412,7 @@ func AthenaStartQueryExecution_PrefixStates(root constructs.IConstruct, prefix *
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStartQueryExecution",
+		"monocdk.aws_stepfunctions_tasks.AthenaStartQueryExecution",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -2431,6 +2692,73 @@ func (a *jsiiProxy_AthenaStartQueryExecution) Next(next awsstepfunctions.IChaina
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_AthenaStartQueryExecution) OnPrepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_AthenaStartQueryExecution) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_AthenaStartQueryExecution) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_AthenaStartQueryExecution) Prepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (a *jsiiProxy_AthenaStartQueryExecution) RenderBranches() interface{} {
@@ -2506,6 +2834,21 @@ func (a *jsiiProxy_AthenaStartQueryExecution) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (a *jsiiProxy_AthenaStartQueryExecution) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		a,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (a *jsiiProxy_AthenaStartQueryExecution) RenderRetryCatch() interface{} {
@@ -2519,6 +2862,19 @@ func (a *jsiiProxy_AthenaStartQueryExecution) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_AthenaStartQueryExecution) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -2551,14 +2907,19 @@ func (a *jsiiProxy_AthenaStartQueryExecution) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (a *jsiiProxy_AthenaStartQueryExecution) ValidateState() *[]*string {
+func (a *jsiiProxy_AthenaStartQueryExecution) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		a,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2612,6 +2973,14 @@ type AthenaStartQueryExecutionProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -2647,10 +3016,11 @@ type AthenaStopQueryExecution interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -2675,15 +3045,21 @@ type AthenaStopQueryExecution interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -2762,8 +3138,8 @@ func (j *jsiiProxy_AthenaStopQueryExecution) Iteration() awsstepfunctions.StateG
 	return returns
 }
 
-func (j *jsiiProxy_AthenaStopQueryExecution) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_AthenaStopQueryExecution) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2797,6 +3173,16 @@ func (j *jsiiProxy_AthenaStopQueryExecution) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AthenaStopQueryExecution) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -2850,7 +3236,7 @@ func NewAthenaStopQueryExecution(scope constructs.Construct, id *string, props *
 	j := jsiiProxy_AthenaStopQueryExecution{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStopQueryExecution",
+		"monocdk.aws_stepfunctions_tasks.AthenaStopQueryExecution",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2863,7 +3249,7 @@ func NewAthenaStopQueryExecution_Override(a AthenaStopQueryExecution, scope cons
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStopQueryExecution",
+		"monocdk.aws_stepfunctions_tasks.AthenaStopQueryExecution",
 		[]interface{}{scope, id, props},
 		a,
 	)
@@ -2893,7 +3279,7 @@ func AthenaStopQueryExecution_FilterNextables(states *[]awsstepfunctions.State) 
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStopQueryExecution",
+		"monocdk.aws_stepfunctions_tasks.AthenaStopQueryExecution",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -2910,7 +3296,7 @@ func AthenaStopQueryExecution_FindReachableEndStates(start awsstepfunctions.Stat
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStopQueryExecution",
+		"monocdk.aws_stepfunctions_tasks.AthenaStopQueryExecution",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -2929,7 +3315,7 @@ func AthenaStopQueryExecution_FindReachableStates(start awsstepfunctions.State, 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStopQueryExecution",
+		"monocdk.aws_stepfunctions_tasks.AthenaStopQueryExecution",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -2938,17 +3324,15 @@ func AthenaStopQueryExecution_FindReachableStates(start awsstepfunctions.State, 
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func AthenaStopQueryExecution_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStopQueryExecution",
+		"monocdk.aws_stepfunctions_tasks.AthenaStopQueryExecution",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2963,7 +3347,7 @@ func AthenaStopQueryExecution_PrefixStates(root constructs.IConstruct, prefix *s
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStopQueryExecution",
+		"monocdk.aws_stepfunctions_tasks.AthenaStopQueryExecution",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -3243,6 +3627,73 @@ func (a *jsiiProxy_AthenaStopQueryExecution) Next(next awsstepfunctions.IChainab
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_AthenaStopQueryExecution) OnPrepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_AthenaStopQueryExecution) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_AthenaStopQueryExecution) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_AthenaStopQueryExecution) Prepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (a *jsiiProxy_AthenaStopQueryExecution) RenderBranches() interface{} {
@@ -3318,6 +3769,21 @@ func (a *jsiiProxy_AthenaStopQueryExecution) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (a *jsiiProxy_AthenaStopQueryExecution) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		a,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (a *jsiiProxy_AthenaStopQueryExecution) RenderRetryCatch() interface{} {
@@ -3331,6 +3797,19 @@ func (a *jsiiProxy_AthenaStopQueryExecution) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_AthenaStopQueryExecution) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -3363,14 +3842,19 @@ func (a *jsiiProxy_AthenaStopQueryExecution) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (a *jsiiProxy_AthenaStopQueryExecution) ValidateState() *[]*string {
+func (a *jsiiProxy_AthenaStopQueryExecution) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		a,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3424,6 +3908,14 @@ type AthenaStopQueryExecutionProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -3512,10 +4004,11 @@ type BatchSubmitJob interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -3540,15 +4033,21 @@ type BatchSubmitJob interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -3627,8 +4126,8 @@ func (j *jsiiProxy_BatchSubmitJob) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_BatchSubmitJob) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_BatchSubmitJob) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3662,6 +4161,16 @@ func (j *jsiiProxy_BatchSubmitJob) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_BatchSubmitJob) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -3715,7 +4224,7 @@ func NewBatchSubmitJob(scope constructs.Construct, id *string, props *BatchSubmi
 	j := jsiiProxy_BatchSubmitJob{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.BatchSubmitJob",
+		"monocdk.aws_stepfunctions_tasks.BatchSubmitJob",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3728,7 +4237,7 @@ func NewBatchSubmitJob_Override(b BatchSubmitJob, scope constructs.Construct, id
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.BatchSubmitJob",
+		"monocdk.aws_stepfunctions_tasks.BatchSubmitJob",
 		[]interface{}{scope, id, props},
 		b,
 	)
@@ -3758,7 +4267,7 @@ func BatchSubmitJob_FilterNextables(states *[]awsstepfunctions.State) *[]awsstep
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.BatchSubmitJob",
+		"monocdk.aws_stepfunctions_tasks.BatchSubmitJob",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -3775,7 +4284,7 @@ func BatchSubmitJob_FindReachableEndStates(start awsstepfunctions.State, options
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.BatchSubmitJob",
+		"monocdk.aws_stepfunctions_tasks.BatchSubmitJob",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -3794,7 +4303,7 @@ func BatchSubmitJob_FindReachableStates(start awsstepfunctions.State, options *a
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.BatchSubmitJob",
+		"monocdk.aws_stepfunctions_tasks.BatchSubmitJob",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -3803,17 +4312,15 @@ func BatchSubmitJob_FindReachableStates(start awsstepfunctions.State, options *a
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func BatchSubmitJob_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.BatchSubmitJob",
+		"monocdk.aws_stepfunctions_tasks.BatchSubmitJob",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3828,7 +4335,7 @@ func BatchSubmitJob_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.BatchSubmitJob",
+		"monocdk.aws_stepfunctions_tasks.BatchSubmitJob",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -4108,6 +4615,73 @@ func (b *jsiiProxy_BatchSubmitJob) Next(next awsstepfunctions.IChainable) awsste
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (b *jsiiProxy_BatchSubmitJob) OnPrepare() {
+	_jsii_.InvokeVoid(
+		b,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (b *jsiiProxy_BatchSubmitJob) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		b,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (b *jsiiProxy_BatchSubmitJob) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		b,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (b *jsiiProxy_BatchSubmitJob) Prepare() {
+	_jsii_.InvokeVoid(
+		b,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (b *jsiiProxy_BatchSubmitJob) RenderBranches() interface{} {
@@ -4183,6 +4757,21 @@ func (b *jsiiProxy_BatchSubmitJob) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (b *jsiiProxy_BatchSubmitJob) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		b,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (b *jsiiProxy_BatchSubmitJob) RenderRetryCatch() interface{} {
@@ -4196,6 +4785,19 @@ func (b *jsiiProxy_BatchSubmitJob) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (b *jsiiProxy_BatchSubmitJob) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		b,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -4228,14 +4830,19 @@ func (b *jsiiProxy_BatchSubmitJob) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (b *jsiiProxy_BatchSubmitJob) ValidateState() *[]*string {
+func (b *jsiiProxy_BatchSubmitJob) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		b,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4289,6 +4896,14 @@ type BatchSubmitJobProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -4368,6 +4983,14 @@ type CallApiGatewayEndpointBaseProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -4408,10 +5031,11 @@ type CallApiGatewayHttpApiEndpoint interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StageName() *string
 	StartState() awsstepfunctions.State
 	StateId() *string
@@ -4438,15 +5062,21 @@ type CallApiGatewayHttpApiEndpoint interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -4545,8 +5175,8 @@ func (j *jsiiProxy_CallApiGatewayHttpApiEndpoint) Iteration() awsstepfunctions.S
 	return returns
 }
 
-func (j *jsiiProxy_CallApiGatewayHttpApiEndpoint) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CallApiGatewayHttpApiEndpoint) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4580,6 +5210,16 @@ func (j *jsiiProxy_CallApiGatewayHttpApiEndpoint) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CallApiGatewayHttpApiEndpoint) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -4643,7 +5283,7 @@ func NewCallApiGatewayHttpApiEndpoint(scope constructs.Construct, id *string, pr
 	j := jsiiProxy_CallApiGatewayHttpApiEndpoint{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
+		"monocdk.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4656,7 +5296,7 @@ func NewCallApiGatewayHttpApiEndpoint_Override(c CallApiGatewayHttpApiEndpoint, 
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
+		"monocdk.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4686,7 +5326,7 @@ func CallApiGatewayHttpApiEndpoint_FilterNextables(states *[]awsstepfunctions.St
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
+		"monocdk.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -4703,7 +5343,7 @@ func CallApiGatewayHttpApiEndpoint_FindReachableEndStates(start awsstepfunctions
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
+		"monocdk.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -4722,7 +5362,7 @@ func CallApiGatewayHttpApiEndpoint_FindReachableStates(start awsstepfunctions.St
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
+		"monocdk.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -4731,17 +5371,15 @@ func CallApiGatewayHttpApiEndpoint_FindReachableStates(start awsstepfunctions.St
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CallApiGatewayHttpApiEndpoint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
+		"monocdk.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4756,7 +5394,7 @@ func CallApiGatewayHttpApiEndpoint_PrefixStates(root constructs.IConstruct, pref
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
+		"monocdk.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -5050,6 +5688,73 @@ func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) Next(next awsstepfunctions.ICh
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) RenderBranches() interface{} {
@@ -5125,6 +5830,21 @@ func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) RenderRetryCatch() interface{} {
@@ -5138,6 +5858,19 @@ func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) RenderRetryCatch() interface{}
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -5170,14 +5903,19 @@ func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) ValidateState() *[]*string {
+func (c *jsiiProxy_CallApiGatewayHttpApiEndpoint) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		c,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5231,6 +5969,14 @@ type CallApiGatewayHttpApiEndpointProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -5280,10 +6026,11 @@ type CallApiGatewayRestApiEndpoint interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StageName() *string
 	StartState() awsstepfunctions.State
 	StateId() *string
@@ -5310,15 +6057,21 @@ type CallApiGatewayRestApiEndpoint interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -5417,8 +6170,8 @@ func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) Iteration() awsstepfunctions.S
 	return returns
 }
 
-func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5452,6 +6205,16 @@ func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CallApiGatewayRestApiEndpoint) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -5515,7 +6278,7 @@ func NewCallApiGatewayRestApiEndpoint(scope constructs.Construct, id *string, pr
 	j := jsiiProxy_CallApiGatewayRestApiEndpoint{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
+		"monocdk.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5528,7 +6291,7 @@ func NewCallApiGatewayRestApiEndpoint_Override(c CallApiGatewayRestApiEndpoint, 
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
+		"monocdk.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -5558,7 +6321,7 @@ func CallApiGatewayRestApiEndpoint_FilterNextables(states *[]awsstepfunctions.St
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
+		"monocdk.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -5575,7 +6338,7 @@ func CallApiGatewayRestApiEndpoint_FindReachableEndStates(start awsstepfunctions
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
+		"monocdk.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -5594,7 +6357,7 @@ func CallApiGatewayRestApiEndpoint_FindReachableStates(start awsstepfunctions.St
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
+		"monocdk.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -5603,17 +6366,15 @@ func CallApiGatewayRestApiEndpoint_FindReachableStates(start awsstepfunctions.St
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CallApiGatewayRestApiEndpoint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
+		"monocdk.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5628,7 +6389,7 @@ func CallApiGatewayRestApiEndpoint_PrefixStates(root constructs.IConstruct, pref
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
+		"monocdk.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -5922,6 +6683,73 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) Next(next awsstepfunctions.ICh
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) RenderBranches() interface{} {
@@ -5997,6 +6825,21 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) RenderRetryCatch() interface{} {
@@ -6010,6 +6853,19 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) RenderRetryCatch() interface{}
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -6042,14 +6898,19 @@ func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) ValidateState() *[]*string {
+func (c *jsiiProxy_CallApiGatewayRestApiEndpoint) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		c,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -6103,6 +6964,14 @@ type CallApiGatewayRestApiEndpointProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -6176,10 +7045,11 @@ type CodeBuildStartBuild interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -6204,15 +7074,21 @@ type CodeBuildStartBuild interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -6291,8 +7167,8 @@ func (j *jsiiProxy_CodeBuildStartBuild) Iteration() awsstepfunctions.StateGraph 
 	return returns
 }
 
-func (j *jsiiProxy_CodeBuildStartBuild) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CodeBuildStartBuild) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -6326,6 +7202,16 @@ func (j *jsiiProxy_CodeBuildStartBuild) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CodeBuildStartBuild) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -6379,7 +7265,7 @@ func NewCodeBuildStartBuild(scope constructs.Construct, id *string, props *CodeB
 	j := jsiiProxy_CodeBuildStartBuild{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.CodeBuildStartBuild",
+		"monocdk.aws_stepfunctions_tasks.CodeBuildStartBuild",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6392,7 +7278,7 @@ func NewCodeBuildStartBuild_Override(c CodeBuildStartBuild, scope constructs.Con
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.CodeBuildStartBuild",
+		"monocdk.aws_stepfunctions_tasks.CodeBuildStartBuild",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -6422,7 +7308,7 @@ func CodeBuildStartBuild_FilterNextables(states *[]awsstepfunctions.State) *[]aw
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.CodeBuildStartBuild",
+		"monocdk.aws_stepfunctions_tasks.CodeBuildStartBuild",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -6439,7 +7325,7 @@ func CodeBuildStartBuild_FindReachableEndStates(start awsstepfunctions.State, op
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.CodeBuildStartBuild",
+		"monocdk.aws_stepfunctions_tasks.CodeBuildStartBuild",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -6458,7 +7344,7 @@ func CodeBuildStartBuild_FindReachableStates(start awsstepfunctions.State, optio
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.CodeBuildStartBuild",
+		"monocdk.aws_stepfunctions_tasks.CodeBuildStartBuild",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -6467,17 +7353,15 @@ func CodeBuildStartBuild_FindReachableStates(start awsstepfunctions.State, optio
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CodeBuildStartBuild_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.CodeBuildStartBuild",
+		"monocdk.aws_stepfunctions_tasks.CodeBuildStartBuild",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6492,7 +7376,7 @@ func CodeBuildStartBuild_PrefixStates(root constructs.IConstruct, prefix *string
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.CodeBuildStartBuild",
+		"monocdk.aws_stepfunctions_tasks.CodeBuildStartBuild",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -6772,6 +7656,73 @@ func (c *jsiiProxy_CodeBuildStartBuild) Next(next awsstepfunctions.IChainable) a
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CodeBuildStartBuild) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CodeBuildStartBuild) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CodeBuildStartBuild) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CodeBuildStartBuild) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (c *jsiiProxy_CodeBuildStartBuild) RenderBranches() interface{} {
@@ -6847,6 +7798,21 @@ func (c *jsiiProxy_CodeBuildStartBuild) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (c *jsiiProxy_CodeBuildStartBuild) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (c *jsiiProxy_CodeBuildStartBuild) RenderRetryCatch() interface{} {
@@ -6860,6 +7826,19 @@ func (c *jsiiProxy_CodeBuildStartBuild) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CodeBuildStartBuild) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -6892,14 +7871,19 @@ func (c *jsiiProxy_CodeBuildStartBuild) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (c *jsiiProxy_CodeBuildStartBuild) ValidateState() *[]*string {
+func (c *jsiiProxy_CodeBuildStartBuild) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		c,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -6953,6 +7937,14 @@ type CodeBuildStartBuildProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -7019,7 +8011,7 @@ func NewContainerDefinition(options *ContainerDefinitionOptions) ContainerDefini
 	j := jsiiProxy_ContainerDefinition{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.ContainerDefinition",
+		"monocdk.aws_stepfunctions_tasks.ContainerDefinition",
 		[]interface{}{options},
 		&j,
 	)
@@ -7032,7 +8024,7 @@ func NewContainerDefinition_Override(c ContainerDefinition, options *ContainerDe
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.ContainerDefinition",
+		"monocdk.aws_stepfunctions_tasks.ContainerDefinition",
 		[]interface{}{options},
 		c,
 	)
@@ -7179,7 +8171,7 @@ func NewDockerImage_Override(d DockerImage) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DockerImage",
+		"monocdk.aws_stepfunctions_tasks.DockerImage",
 		nil, // no parameters
 		d,
 	)
@@ -7193,7 +8185,7 @@ func DockerImage_FromAsset(scope constructs.Construct, id *string, props *awsecr
 	var returns DockerImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DockerImage",
+		"monocdk.aws_stepfunctions_tasks.DockerImage",
 		"fromAsset",
 		[]interface{}{scope, id, props},
 		&returns,
@@ -7210,7 +8202,7 @@ func DockerImage_FromEcrRepository(repository awsecr.IRepository, tag *string) D
 	var returns DockerImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DockerImage",
+		"monocdk.aws_stepfunctions_tasks.DockerImage",
 		"fromEcrRepository",
 		[]interface{}{repository, tag},
 		&returns,
@@ -7227,7 +8219,7 @@ func DockerImage_FromJsonExpression(expression *string, allowAnyEcrImagePull *bo
 	var returns DockerImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DockerImage",
+		"monocdk.aws_stepfunctions_tasks.DockerImage",
 		"fromJsonExpression",
 		[]interface{}{expression, allowAnyEcrImagePull},
 		&returns,
@@ -7246,7 +8238,7 @@ func DockerImage_FromRegistry(imageUri *string) DockerImage {
 	var returns DockerImage
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DockerImage",
+		"monocdk.aws_stepfunctions_tasks.DockerImage",
 		"fromRegistry",
 		[]interface{}{imageUri},
 		&returns,
@@ -7316,7 +8308,7 @@ func DynamoAttributeValue_BooleanFromJsonPath(value *string) DynamoAttributeValu
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"booleanFromJsonPath",
 		[]interface{}{value},
 		&returns,
@@ -7335,7 +8327,7 @@ func DynamoAttributeValue_FromBinary(value *string) DynamoAttributeValue {
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromBinary",
 		[]interface{}{value},
 		&returns,
@@ -7354,7 +8346,7 @@ func DynamoAttributeValue_FromBinarySet(value *[]*string) DynamoAttributeValue {
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromBinarySet",
 		[]interface{}{value},
 		&returns,
@@ -7373,7 +8365,7 @@ func DynamoAttributeValue_FromBoolean(value *bool) DynamoAttributeValue {
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromBoolean",
 		[]interface{}{value},
 		&returns,
@@ -7392,7 +8384,7 @@ func DynamoAttributeValue_FromList(value *[]DynamoAttributeValue) DynamoAttribut
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromList",
 		[]interface{}{value},
 		&returns,
@@ -7411,7 +8403,7 @@ func DynamoAttributeValue_FromMap(value *map[string]DynamoAttributeValue) Dynamo
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromMap",
 		[]interface{}{value},
 		&returns,
@@ -7430,7 +8422,7 @@ func DynamoAttributeValue_FromNull(value *bool) DynamoAttributeValue {
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromNull",
 		[]interface{}{value},
 		&returns,
@@ -7452,7 +8444,7 @@ func DynamoAttributeValue_FromNumber(value *float64) DynamoAttributeValue {
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromNumber",
 		[]interface{}{value},
 		&returns,
@@ -7474,7 +8466,7 @@ func DynamoAttributeValue_FromNumberSet(value *[]*float64) DynamoAttributeValue 
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromNumberSet",
 		[]interface{}{value},
 		&returns,
@@ -7497,7 +8489,7 @@ func DynamoAttributeValue_FromString(value *string) DynamoAttributeValue {
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromString",
 		[]interface{}{value},
 		&returns,
@@ -7516,7 +8508,7 @@ func DynamoAttributeValue_FromStringSet(value *[]*string) DynamoAttributeValue {
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"fromStringSet",
 		[]interface{}{value},
 		&returns,
@@ -7535,7 +8527,7 @@ func DynamoAttributeValue_MapFromJsonPath(value *string) DynamoAttributeValue {
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"mapFromJsonPath",
 		[]interface{}{value},
 		&returns,
@@ -7559,7 +8551,7 @@ func DynamoAttributeValue_NumberFromString(value *string) DynamoAttributeValue {
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"numberFromString",
 		[]interface{}{value},
 		&returns,
@@ -7583,7 +8575,7 @@ func DynamoAttributeValue_NumberSetFromStrings(value *[]*string) DynamoAttribute
 	var returns DynamoAttributeValue
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
 		"numberSetFromStrings",
 		[]interface{}{value},
 		&returns,
@@ -7630,10 +8622,11 @@ type DynamoDeleteItem interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -7658,15 +8651,21 @@ type DynamoDeleteItem interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -7745,8 +8744,8 @@ func (j *jsiiProxy_DynamoDeleteItem) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_DynamoDeleteItem) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_DynamoDeleteItem) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -7780,6 +8779,16 @@ func (j *jsiiProxy_DynamoDeleteItem) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DynamoDeleteItem) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -7833,7 +8842,7 @@ func NewDynamoDeleteItem(scope constructs.Construct, id *string, props *DynamoDe
 	j := jsiiProxy_DynamoDeleteItem{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoDeleteItem",
+		"monocdk.aws_stepfunctions_tasks.DynamoDeleteItem",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7846,7 +8855,7 @@ func NewDynamoDeleteItem_Override(d DynamoDeleteItem, scope constructs.Construct
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoDeleteItem",
+		"monocdk.aws_stepfunctions_tasks.DynamoDeleteItem",
 		[]interface{}{scope, id, props},
 		d,
 	)
@@ -7876,7 +8885,7 @@ func DynamoDeleteItem_FilterNextables(states *[]awsstepfunctions.State) *[]awsst
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoDeleteItem",
+		"monocdk.aws_stepfunctions_tasks.DynamoDeleteItem",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -7893,7 +8902,7 @@ func DynamoDeleteItem_FindReachableEndStates(start awsstepfunctions.State, optio
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoDeleteItem",
+		"monocdk.aws_stepfunctions_tasks.DynamoDeleteItem",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -7912,7 +8921,7 @@ func DynamoDeleteItem_FindReachableStates(start awsstepfunctions.State, options 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoDeleteItem",
+		"monocdk.aws_stepfunctions_tasks.DynamoDeleteItem",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -7921,17 +8930,15 @@ func DynamoDeleteItem_FindReachableStates(start awsstepfunctions.State, options 
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func DynamoDeleteItem_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoDeleteItem",
+		"monocdk.aws_stepfunctions_tasks.DynamoDeleteItem",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7946,7 +8953,7 @@ func DynamoDeleteItem_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoDeleteItem",
+		"monocdk.aws_stepfunctions_tasks.DynamoDeleteItem",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -8226,6 +9233,73 @@ func (d *jsiiProxy_DynamoDeleteItem) Next(next awsstepfunctions.IChainable) awss
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DynamoDeleteItem) OnPrepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DynamoDeleteItem) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (d *jsiiProxy_DynamoDeleteItem) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DynamoDeleteItem) Prepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (d *jsiiProxy_DynamoDeleteItem) RenderBranches() interface{} {
@@ -8301,6 +9375,21 @@ func (d *jsiiProxy_DynamoDeleteItem) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (d *jsiiProxy_DynamoDeleteItem) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		d,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (d *jsiiProxy_DynamoDeleteItem) RenderRetryCatch() interface{} {
@@ -8314,6 +9403,19 @@ func (d *jsiiProxy_DynamoDeleteItem) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DynamoDeleteItem) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -8346,14 +9448,19 @@ func (d *jsiiProxy_DynamoDeleteItem) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (d *jsiiProxy_DynamoDeleteItem) ValidateState() *[]*string {
+func (d *jsiiProxy_DynamoDeleteItem) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		d,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -8407,6 +9514,14 @@ type DynamoDeleteItemProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -8469,10 +9584,11 @@ type DynamoGetItem interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -8497,15 +9613,21 @@ type DynamoGetItem interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -8584,8 +9706,8 @@ func (j *jsiiProxy_DynamoGetItem) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_DynamoGetItem) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_DynamoGetItem) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -8619,6 +9741,16 @@ func (j *jsiiProxy_DynamoGetItem) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DynamoGetItem) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -8672,7 +9804,7 @@ func NewDynamoGetItem(scope constructs.Construct, id *string, props *DynamoGetIt
 	j := jsiiProxy_DynamoGetItem{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoGetItem",
+		"monocdk.aws_stepfunctions_tasks.DynamoGetItem",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -8685,7 +9817,7 @@ func NewDynamoGetItem_Override(d DynamoGetItem, scope constructs.Construct, id *
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoGetItem",
+		"monocdk.aws_stepfunctions_tasks.DynamoGetItem",
 		[]interface{}{scope, id, props},
 		d,
 	)
@@ -8715,7 +9847,7 @@ func DynamoGetItem_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepf
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoGetItem",
+		"monocdk.aws_stepfunctions_tasks.DynamoGetItem",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -8732,7 +9864,7 @@ func DynamoGetItem_FindReachableEndStates(start awsstepfunctions.State, options 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoGetItem",
+		"monocdk.aws_stepfunctions_tasks.DynamoGetItem",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -8751,7 +9883,7 @@ func DynamoGetItem_FindReachableStates(start awsstepfunctions.State, options *aw
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoGetItem",
+		"monocdk.aws_stepfunctions_tasks.DynamoGetItem",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -8760,17 +9892,15 @@ func DynamoGetItem_FindReachableStates(start awsstepfunctions.State, options *aw
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func DynamoGetItem_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoGetItem",
+		"monocdk.aws_stepfunctions_tasks.DynamoGetItem",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -8785,7 +9915,7 @@ func DynamoGetItem_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoGetItem",
+		"monocdk.aws_stepfunctions_tasks.DynamoGetItem",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -9065,6 +10195,73 @@ func (d *jsiiProxy_DynamoGetItem) Next(next awsstepfunctions.IChainable) awsstep
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DynamoGetItem) OnPrepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DynamoGetItem) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (d *jsiiProxy_DynamoGetItem) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DynamoGetItem) Prepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (d *jsiiProxy_DynamoGetItem) RenderBranches() interface{} {
@@ -9140,6 +10337,21 @@ func (d *jsiiProxy_DynamoGetItem) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (d *jsiiProxy_DynamoGetItem) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		d,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (d *jsiiProxy_DynamoGetItem) RenderRetryCatch() interface{} {
@@ -9153,6 +10365,19 @@ func (d *jsiiProxy_DynamoGetItem) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DynamoGetItem) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -9185,14 +10410,19 @@ func (d *jsiiProxy_DynamoGetItem) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (d *jsiiProxy_DynamoGetItem) ValidateState() *[]*string {
+func (d *jsiiProxy_DynamoGetItem) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		d,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -9246,6 +10476,14 @@ type DynamoGetItemProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -9314,7 +10552,7 @@ func NewDynamoProjectionExpression() DynamoProjectionExpression {
 	j := jsiiProxy_DynamoProjectionExpression{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoProjectionExpression",
+		"monocdk.aws_stepfunctions_tasks.DynamoProjectionExpression",
 		nil, // no parameters
 		&j,
 	)
@@ -9327,7 +10565,7 @@ func NewDynamoProjectionExpression_Override(d DynamoProjectionExpression) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoProjectionExpression",
+		"monocdk.aws_stepfunctions_tasks.DynamoProjectionExpression",
 		nil, // no parameters
 		d,
 	)
@@ -9391,10 +10629,11 @@ type DynamoPutItem interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -9419,15 +10658,21 @@ type DynamoPutItem interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -9506,8 +10751,8 @@ func (j *jsiiProxy_DynamoPutItem) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_DynamoPutItem) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_DynamoPutItem) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -9541,6 +10786,16 @@ func (j *jsiiProxy_DynamoPutItem) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DynamoPutItem) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -9594,7 +10849,7 @@ func NewDynamoPutItem(scope constructs.Construct, id *string, props *DynamoPutIt
 	j := jsiiProxy_DynamoPutItem{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoPutItem",
+		"monocdk.aws_stepfunctions_tasks.DynamoPutItem",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -9607,7 +10862,7 @@ func NewDynamoPutItem_Override(d DynamoPutItem, scope constructs.Construct, id *
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoPutItem",
+		"monocdk.aws_stepfunctions_tasks.DynamoPutItem",
 		[]interface{}{scope, id, props},
 		d,
 	)
@@ -9637,7 +10892,7 @@ func DynamoPutItem_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepf
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoPutItem",
+		"monocdk.aws_stepfunctions_tasks.DynamoPutItem",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -9654,7 +10909,7 @@ func DynamoPutItem_FindReachableEndStates(start awsstepfunctions.State, options 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoPutItem",
+		"monocdk.aws_stepfunctions_tasks.DynamoPutItem",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -9673,7 +10928,7 @@ func DynamoPutItem_FindReachableStates(start awsstepfunctions.State, options *aw
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoPutItem",
+		"monocdk.aws_stepfunctions_tasks.DynamoPutItem",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -9682,17 +10937,15 @@ func DynamoPutItem_FindReachableStates(start awsstepfunctions.State, options *aw
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func DynamoPutItem_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoPutItem",
+		"monocdk.aws_stepfunctions_tasks.DynamoPutItem",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -9707,7 +10960,7 @@ func DynamoPutItem_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoPutItem",
+		"monocdk.aws_stepfunctions_tasks.DynamoPutItem",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -9987,6 +11240,73 @@ func (d *jsiiProxy_DynamoPutItem) Next(next awsstepfunctions.IChainable) awsstep
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DynamoPutItem) OnPrepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DynamoPutItem) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (d *jsiiProxy_DynamoPutItem) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DynamoPutItem) Prepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (d *jsiiProxy_DynamoPutItem) RenderBranches() interface{} {
@@ -10062,6 +11382,21 @@ func (d *jsiiProxy_DynamoPutItem) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (d *jsiiProxy_DynamoPutItem) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		d,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (d *jsiiProxy_DynamoPutItem) RenderRetryCatch() interface{} {
@@ -10075,6 +11410,19 @@ func (d *jsiiProxy_DynamoPutItem) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DynamoPutItem) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -10107,14 +11455,19 @@ func (d *jsiiProxy_DynamoPutItem) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (d *jsiiProxy_DynamoPutItem) ValidateState() *[]*string {
+func (d *jsiiProxy_DynamoPutItem) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		d,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -10168,6 +11521,14 @@ type DynamoPutItemProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -10239,10 +11600,11 @@ type DynamoUpdateItem interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -10267,15 +11629,21 @@ type DynamoUpdateItem interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -10354,8 +11722,8 @@ func (j *jsiiProxy_DynamoUpdateItem) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_DynamoUpdateItem) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_DynamoUpdateItem) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -10389,6 +11757,16 @@ func (j *jsiiProxy_DynamoUpdateItem) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DynamoUpdateItem) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -10442,7 +11820,7 @@ func NewDynamoUpdateItem(scope constructs.Construct, id *string, props *DynamoUp
 	j := jsiiProxy_DynamoUpdateItem{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoUpdateItem",
+		"monocdk.aws_stepfunctions_tasks.DynamoUpdateItem",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -10455,7 +11833,7 @@ func NewDynamoUpdateItem_Override(d DynamoUpdateItem, scope constructs.Construct
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoUpdateItem",
+		"monocdk.aws_stepfunctions_tasks.DynamoUpdateItem",
 		[]interface{}{scope, id, props},
 		d,
 	)
@@ -10485,7 +11863,7 @@ func DynamoUpdateItem_FilterNextables(states *[]awsstepfunctions.State) *[]awsst
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoUpdateItem",
+		"monocdk.aws_stepfunctions_tasks.DynamoUpdateItem",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -10502,7 +11880,7 @@ func DynamoUpdateItem_FindReachableEndStates(start awsstepfunctions.State, optio
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoUpdateItem",
+		"monocdk.aws_stepfunctions_tasks.DynamoUpdateItem",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -10521,7 +11899,7 @@ func DynamoUpdateItem_FindReachableStates(start awsstepfunctions.State, options 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoUpdateItem",
+		"monocdk.aws_stepfunctions_tasks.DynamoUpdateItem",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -10530,17 +11908,15 @@ func DynamoUpdateItem_FindReachableStates(start awsstepfunctions.State, options 
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func DynamoUpdateItem_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoUpdateItem",
+		"monocdk.aws_stepfunctions_tasks.DynamoUpdateItem",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -10555,7 +11931,7 @@ func DynamoUpdateItem_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoUpdateItem",
+		"monocdk.aws_stepfunctions_tasks.DynamoUpdateItem",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -10835,6 +12211,73 @@ func (d *jsiiProxy_DynamoUpdateItem) Next(next awsstepfunctions.IChainable) awss
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DynamoUpdateItem) OnPrepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DynamoUpdateItem) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (d *jsiiProxy_DynamoUpdateItem) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DynamoUpdateItem) Prepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (d *jsiiProxy_DynamoUpdateItem) RenderBranches() interface{} {
@@ -10910,6 +12353,21 @@ func (d *jsiiProxy_DynamoUpdateItem) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (d *jsiiProxy_DynamoUpdateItem) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		d,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (d *jsiiProxy_DynamoUpdateItem) RenderRetryCatch() interface{} {
@@ -10923,6 +12381,19 @@ func (d *jsiiProxy_DynamoUpdateItem) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DynamoUpdateItem) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -10955,14 +12426,19 @@ func (d *jsiiProxy_DynamoUpdateItem) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (d *jsiiProxy_DynamoUpdateItem) ValidateState() *[]*string {
+func (d *jsiiProxy_DynamoUpdateItem) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		d,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -11016,6 +12492,14 @@ type DynamoUpdateItemProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -11091,7 +12575,7 @@ func NewEcsEc2LaunchTarget(options *EcsEc2LaunchTargetOptions) EcsEc2LaunchTarge
 	j := jsiiProxy_EcsEc2LaunchTarget{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EcsEc2LaunchTarget",
+		"monocdk.aws_stepfunctions_tasks.EcsEc2LaunchTarget",
 		[]interface{}{options},
 		&j,
 	)
@@ -11104,7 +12588,7 @@ func NewEcsEc2LaunchTarget_Override(e EcsEc2LaunchTarget, options *EcsEc2LaunchT
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EcsEc2LaunchTarget",
+		"monocdk.aws_stepfunctions_tasks.EcsEc2LaunchTarget",
 		[]interface{}{options},
 		e,
 	)
@@ -11157,7 +12641,7 @@ func NewEcsFargateLaunchTarget(options *EcsFargateLaunchTargetOptions) EcsFargat
 	j := jsiiProxy_EcsFargateLaunchTarget{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EcsFargateLaunchTarget",
+		"monocdk.aws_stepfunctions_tasks.EcsFargateLaunchTarget",
 		[]interface{}{options},
 		&j,
 	)
@@ -11170,7 +12654,7 @@ func NewEcsFargateLaunchTarget_Override(e EcsFargateLaunchTarget, options *EcsFa
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EcsFargateLaunchTarget",
+		"monocdk.aws_stepfunctions_tasks.EcsFargateLaunchTarget",
 		[]interface{}{options},
 		e,
 	)
@@ -11226,10 +12710,11 @@ type EcsRunTask interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -11254,15 +12739,21 @@ type EcsRunTask interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -11352,8 +12843,8 @@ func (j *jsiiProxy_EcsRunTask) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_EcsRunTask) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_EcsRunTask) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -11387,6 +12878,16 @@ func (j *jsiiProxy_EcsRunTask) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EcsRunTask) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -11440,7 +12941,7 @@ func NewEcsRunTask(scope constructs.Construct, id *string, props *EcsRunTaskProp
 	j := jsiiProxy_EcsRunTask{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EcsRunTask",
+		"monocdk.aws_stepfunctions_tasks.EcsRunTask",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -11453,7 +12954,7 @@ func NewEcsRunTask_Override(e EcsRunTask, scope constructs.Construct, id *string
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EcsRunTask",
+		"monocdk.aws_stepfunctions_tasks.EcsRunTask",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -11483,7 +12984,7 @@ func EcsRunTask_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunc
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EcsRunTask",
+		"monocdk.aws_stepfunctions_tasks.EcsRunTask",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -11500,7 +13001,7 @@ func EcsRunTask_FindReachableEndStates(start awsstepfunctions.State, options *aw
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EcsRunTask",
+		"monocdk.aws_stepfunctions_tasks.EcsRunTask",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -11519,7 +13020,7 @@ func EcsRunTask_FindReachableStates(start awsstepfunctions.State, options *awsst
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EcsRunTask",
+		"monocdk.aws_stepfunctions_tasks.EcsRunTask",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -11528,17 +13029,15 @@ func EcsRunTask_FindReachableStates(start awsstepfunctions.State, options *awsst
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func EcsRunTask_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EcsRunTask",
+		"monocdk.aws_stepfunctions_tasks.EcsRunTask",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -11553,7 +13052,7 @@ func EcsRunTask_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EcsRunTask",
+		"monocdk.aws_stepfunctions_tasks.EcsRunTask",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -11833,6 +13332,73 @@ func (e *jsiiProxy_EcsRunTask) Next(next awsstepfunctions.IChainable) awsstepfun
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (e *jsiiProxy_EcsRunTask) OnPrepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (e *jsiiProxy_EcsRunTask) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (e *jsiiProxy_EcsRunTask) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (e *jsiiProxy_EcsRunTask) Prepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EcsRunTask) RenderBranches() interface{} {
@@ -11908,6 +13474,21 @@ func (e *jsiiProxy_EcsRunTask) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (e *jsiiProxy_EcsRunTask) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EcsRunTask) RenderRetryCatch() interface{} {
@@ -11921,6 +13502,19 @@ func (e *jsiiProxy_EcsRunTask) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (e *jsiiProxy_EcsRunTask) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -11953,14 +13547,19 @@ func (e *jsiiProxy_EcsRunTask) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (e *jsiiProxy_EcsRunTask) ValidateState() *[]*string {
+func (e *jsiiProxy_EcsRunTask) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		e,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -11978,6 +13577,111 @@ func (e *jsiiProxy_EcsRunTask) WhenBoundToGraph(graph awsstepfunctions.StateGrap
 		"whenBoundToGraph",
 		[]interface{}{graph},
 	)
+}
+
+// A StepFunctions Task to run a Task on ECS or Fargate.
+// Deprecated: No replacement
+type EcsRunTaskBase interface {
+	awsec2.IConnectable
+	awsstepfunctions.IStepFunctionsTask
+	Connections() awsec2.Connections
+	Bind(task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig
+	ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, subnetSelection *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup)
+}
+
+// The jsii proxy struct for EcsRunTaskBase
+type jsiiProxy_EcsRunTaskBase struct {
+	internal.Type__awsec2IConnectable
+	internal.Type__awsstepfunctionsIStepFunctionsTask
+}
+
+func (j *jsiiProxy_EcsRunTaskBase) Connections() awsec2.Connections {
+	var returns awsec2.Connections
+	_jsii_.Get(
+		j,
+		"connections",
+		&returns,
+	)
+	return returns
+}
+
+
+// Deprecated: No replacement
+func NewEcsRunTaskBase(props *EcsRunTaskBaseProps) EcsRunTaskBase {
+	_init_.Initialize()
+
+	j := jsiiProxy_EcsRunTaskBase{}
+
+	_jsii_.Create(
+		"monocdk.aws_stepfunctions_tasks.EcsRunTaskBase",
+		[]interface{}{props},
+		&j,
+	)
+
+	return &j
+}
+
+// Deprecated: No replacement
+func NewEcsRunTaskBase_Override(e EcsRunTaskBase, props *EcsRunTaskBaseProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_stepfunctions_tasks.EcsRunTaskBase",
+		[]interface{}{props},
+		e,
+	)
+}
+
+// Called when the task object is used in a workflow.
+// Deprecated: No replacement
+func (e *jsiiProxy_EcsRunTaskBase) Bind(task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
+	var returns *awsstepfunctions.StepFunctionsTaskConfig
+
+	_jsii_.Invoke(
+		e,
+		"bind",
+		[]interface{}{task},
+		&returns,
+	)
+
+	return returns
+}
+
+// Deprecated: No replacement
+func (e *jsiiProxy_EcsRunTaskBase) ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, subnetSelection *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup) {
+	_jsii_.InvokeVoid(
+		e,
+		"configureAwsVpcNetworking",
+		[]interface{}{vpc, assignPublicIp, subnetSelection, securityGroup},
+	)
+}
+
+// Construction properties for the BaseRunTaskProps.
+// Deprecated: No replacement
+type EcsRunTaskBaseProps struct {
+	// The topic to run the task on.
+	// Deprecated: No replacement
+	Cluster awsecs.ICluster `json:"cluster"`
+	// Task Definition used for running tasks in the service.
+	//
+	// Note: this must be TaskDefinition, and not ITaskDefinition,
+	// as it requires properties that are not known for imported task definitions
+	// Deprecated: No replacement
+	TaskDefinition awsecs.TaskDefinition `json:"taskDefinition"`
+	// Container setting overrides.
+	//
+	// Key is the name of the container to override, value is the
+	// values you want to override.
+	// Deprecated: No replacement
+	ContainerOverrides *[]*ContainerOverride `json:"containerOverrides"`
+	// The service integration pattern indicates different ways to call RunTask in ECS.
+	//
+	// The valid value for Lambda is FIRE_AND_FORGET, SYNC and WAIT_FOR_TASK_TOKEN.
+	// Deprecated: No replacement
+	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `json:"integrationPattern"`
+	// Additional parameters to pass to the base task.
+	// Deprecated: No replacement
+	Parameters *map[string]interface{} `json:"parameters"`
 }
 
 // Properties for ECS Tasks.
@@ -12014,6 +13718,14 @@ type EcsRunTaskProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -12062,10 +13774,11 @@ type EksCall interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -12090,15 +13803,21 @@ type EksCall interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -12177,8 +13896,8 @@ func (j *jsiiProxy_EksCall) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_EksCall) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_EksCall) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -12212,6 +13931,16 @@ func (j *jsiiProxy_EksCall) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EksCall) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -12265,7 +13994,7 @@ func NewEksCall(scope constructs.Construct, id *string, props *EksCallProps) Eks
 	j := jsiiProxy_EksCall{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EksCall",
+		"monocdk.aws_stepfunctions_tasks.EksCall",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -12278,7 +14007,7 @@ func NewEksCall_Override(e EksCall, scope constructs.Construct, id *string, prop
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EksCall",
+		"monocdk.aws_stepfunctions_tasks.EksCall",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -12308,7 +14037,7 @@ func EksCall_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctio
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EksCall",
+		"monocdk.aws_stepfunctions_tasks.EksCall",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -12325,7 +14054,7 @@ func EksCall_FindReachableEndStates(start awsstepfunctions.State, options *awsst
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EksCall",
+		"monocdk.aws_stepfunctions_tasks.EksCall",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -12344,7 +14073,7 @@ func EksCall_FindReachableStates(start awsstepfunctions.State, options *awsstepf
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EksCall",
+		"monocdk.aws_stepfunctions_tasks.EksCall",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -12353,17 +14082,15 @@ func EksCall_FindReachableStates(start awsstepfunctions.State, options *awsstepf
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func EksCall_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EksCall",
+		"monocdk.aws_stepfunctions_tasks.EksCall",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -12378,7 +14105,7 @@ func EksCall_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EksCall",
+		"monocdk.aws_stepfunctions_tasks.EksCall",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -12658,6 +14385,73 @@ func (e *jsiiProxy_EksCall) Next(next awsstepfunctions.IChainable) awsstepfuncti
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (e *jsiiProxy_EksCall) OnPrepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (e *jsiiProxy_EksCall) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (e *jsiiProxy_EksCall) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (e *jsiiProxy_EksCall) Prepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EksCall) RenderBranches() interface{} {
@@ -12733,6 +14527,21 @@ func (e *jsiiProxy_EksCall) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (e *jsiiProxy_EksCall) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EksCall) RenderRetryCatch() interface{} {
@@ -12746,6 +14555,19 @@ func (e *jsiiProxy_EksCall) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (e *jsiiProxy_EksCall) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -12778,14 +14600,19 @@ func (e *jsiiProxy_EksCall) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (e *jsiiProxy_EksCall) ValidateState() *[]*string {
+func (e *jsiiProxy_EksCall) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		e,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -12839,6 +14666,14 @@ type EksCallProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -12876,10 +14711,11 @@ type EmrAddStep interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -12904,15 +14740,21 @@ type EmrAddStep interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -12991,8 +14833,8 @@ func (j *jsiiProxy_EmrAddStep) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_EmrAddStep) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_EmrAddStep) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -13026,6 +14868,16 @@ func (j *jsiiProxy_EmrAddStep) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrAddStep) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -13079,7 +14931,7 @@ func NewEmrAddStep(scope constructs.Construct, id *string, props *EmrAddStepProp
 	j := jsiiProxy_EmrAddStep{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrAddStep",
+		"monocdk.aws_stepfunctions_tasks.EmrAddStep",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -13092,7 +14944,7 @@ func NewEmrAddStep_Override(e EmrAddStep, scope constructs.Construct, id *string
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrAddStep",
+		"monocdk.aws_stepfunctions_tasks.EmrAddStep",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -13122,7 +14974,7 @@ func EmrAddStep_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunc
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrAddStep",
+		"monocdk.aws_stepfunctions_tasks.EmrAddStep",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -13139,7 +14991,7 @@ func EmrAddStep_FindReachableEndStates(start awsstepfunctions.State, options *aw
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrAddStep",
+		"monocdk.aws_stepfunctions_tasks.EmrAddStep",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -13158,7 +15010,7 @@ func EmrAddStep_FindReachableStates(start awsstepfunctions.State, options *awsst
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrAddStep",
+		"monocdk.aws_stepfunctions_tasks.EmrAddStep",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -13167,17 +15019,15 @@ func EmrAddStep_FindReachableStates(start awsstepfunctions.State, options *awsst
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func EmrAddStep_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrAddStep",
+		"monocdk.aws_stepfunctions_tasks.EmrAddStep",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -13192,7 +15042,7 @@ func EmrAddStep_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrAddStep",
+		"monocdk.aws_stepfunctions_tasks.EmrAddStep",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -13472,6 +15322,73 @@ func (e *jsiiProxy_EmrAddStep) Next(next awsstepfunctions.IChainable) awsstepfun
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (e *jsiiProxy_EmrAddStep) OnPrepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (e *jsiiProxy_EmrAddStep) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (e *jsiiProxy_EmrAddStep) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (e *jsiiProxy_EmrAddStep) Prepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EmrAddStep) RenderBranches() interface{} {
@@ -13547,6 +15464,21 @@ func (e *jsiiProxy_EmrAddStep) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (e *jsiiProxy_EmrAddStep) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EmrAddStep) RenderRetryCatch() interface{} {
@@ -13560,6 +15492,19 @@ func (e *jsiiProxy_EmrAddStep) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (e *jsiiProxy_EmrAddStep) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -13592,14 +15537,19 @@ func (e *jsiiProxy_EmrAddStep) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (e *jsiiProxy_EmrAddStep) ValidateState() *[]*string {
+func (e *jsiiProxy_EmrAddStep) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		e,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -13653,6 +15603,14 @@ type EmrAddStepProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -13708,10 +15666,11 @@ type EmrCancelStep interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -13736,15 +15695,21 @@ type EmrCancelStep interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -13823,8 +15788,8 @@ func (j *jsiiProxy_EmrCancelStep) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_EmrCancelStep) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_EmrCancelStep) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -13858,6 +15823,16 @@ func (j *jsiiProxy_EmrCancelStep) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrCancelStep) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -13911,7 +15886,7 @@ func NewEmrCancelStep(scope constructs.Construct, id *string, props *EmrCancelSt
 	j := jsiiProxy_EmrCancelStep{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCancelStep",
+		"monocdk.aws_stepfunctions_tasks.EmrCancelStep",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -13924,7 +15899,7 @@ func NewEmrCancelStep_Override(e EmrCancelStep, scope constructs.Construct, id *
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCancelStep",
+		"monocdk.aws_stepfunctions_tasks.EmrCancelStep",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -13954,7 +15929,7 @@ func EmrCancelStep_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepf
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCancelStep",
+		"monocdk.aws_stepfunctions_tasks.EmrCancelStep",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -13971,7 +15946,7 @@ func EmrCancelStep_FindReachableEndStates(start awsstepfunctions.State, options 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCancelStep",
+		"monocdk.aws_stepfunctions_tasks.EmrCancelStep",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -13990,7 +15965,7 @@ func EmrCancelStep_FindReachableStates(start awsstepfunctions.State, options *aw
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCancelStep",
+		"monocdk.aws_stepfunctions_tasks.EmrCancelStep",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -13999,17 +15974,15 @@ func EmrCancelStep_FindReachableStates(start awsstepfunctions.State, options *aw
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func EmrCancelStep_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCancelStep",
+		"monocdk.aws_stepfunctions_tasks.EmrCancelStep",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -14024,7 +15997,7 @@ func EmrCancelStep_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCancelStep",
+		"monocdk.aws_stepfunctions_tasks.EmrCancelStep",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -14304,6 +16277,73 @@ func (e *jsiiProxy_EmrCancelStep) Next(next awsstepfunctions.IChainable) awsstep
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (e *jsiiProxy_EmrCancelStep) OnPrepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (e *jsiiProxy_EmrCancelStep) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (e *jsiiProxy_EmrCancelStep) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (e *jsiiProxy_EmrCancelStep) Prepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EmrCancelStep) RenderBranches() interface{} {
@@ -14379,6 +16419,21 @@ func (e *jsiiProxy_EmrCancelStep) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (e *jsiiProxy_EmrCancelStep) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EmrCancelStep) RenderRetryCatch() interface{} {
@@ -14392,6 +16447,19 @@ func (e *jsiiProxy_EmrCancelStep) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (e *jsiiProxy_EmrCancelStep) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -14424,14 +16492,19 @@ func (e *jsiiProxy_EmrCancelStep) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (e *jsiiProxy_EmrCancelStep) ValidateState() *[]*string {
+func (e *jsiiProxy_EmrCancelStep) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		e,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -14485,6 +16558,14 @@ type EmrCancelStepProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -14515,10 +16596,11 @@ type EmrCreateCluster interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	ServiceRole() awsiam.IRole
 	StartState() awsstepfunctions.State
 	StateId() *string
@@ -14544,15 +16626,21 @@ type EmrCreateCluster interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -14651,8 +16739,8 @@ func (j *jsiiProxy_EmrCreateCluster) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_EmrCreateCluster) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_EmrCreateCluster) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -14686,6 +16774,16 @@ func (j *jsiiProxy_EmrCreateCluster) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrCreateCluster) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -14749,7 +16847,7 @@ func NewEmrCreateCluster(scope constructs.Construct, id *string, props *EmrCreat
 	j := jsiiProxy_EmrCreateCluster{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster",
+		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -14762,7 +16860,7 @@ func NewEmrCreateCluster_Override(e EmrCreateCluster, scope constructs.Construct
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster",
+		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -14792,7 +16890,7 @@ func EmrCreateCluster_FilterNextables(states *[]awsstepfunctions.State) *[]awsst
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster",
+		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -14809,7 +16907,7 @@ func EmrCreateCluster_FindReachableEndStates(start awsstepfunctions.State, optio
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster",
+		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -14828,7 +16926,7 @@ func EmrCreateCluster_FindReachableStates(start awsstepfunctions.State, options 
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster",
+		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -14837,17 +16935,15 @@ func EmrCreateCluster_FindReachableStates(start awsstepfunctions.State, options 
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func EmrCreateCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster",
+		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -14862,7 +16958,7 @@ func EmrCreateCluster_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster",
+		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -15142,6 +17238,73 @@ func (e *jsiiProxy_EmrCreateCluster) Next(next awsstepfunctions.IChainable) awss
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (e *jsiiProxy_EmrCreateCluster) OnPrepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (e *jsiiProxy_EmrCreateCluster) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (e *jsiiProxy_EmrCreateCluster) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (e *jsiiProxy_EmrCreateCluster) Prepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EmrCreateCluster) RenderBranches() interface{} {
@@ -15217,6 +17380,21 @@ func (e *jsiiProxy_EmrCreateCluster) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (e *jsiiProxy_EmrCreateCluster) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EmrCreateCluster) RenderRetryCatch() interface{} {
@@ -15230,6 +17408,19 @@ func (e *jsiiProxy_EmrCreateCluster) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (e *jsiiProxy_EmrCreateCluster) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -15262,14 +17453,19 @@ func (e *jsiiProxy_EmrCreateCluster) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (e *jsiiProxy_EmrCreateCluster) ValidateState() *[]*string {
+func (e *jsiiProxy_EmrCreateCluster) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		e,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -15966,6 +18162,14 @@ type EmrCreateClusterProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -16042,10 +18246,11 @@ type EmrModifyInstanceFleetByName interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -16070,15 +18275,21 @@ type EmrModifyInstanceFleetByName interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -16157,8 +18368,8 @@ func (j *jsiiProxy_EmrModifyInstanceFleetByName) Iteration() awsstepfunctions.St
 	return returns
 }
 
-func (j *jsiiProxy_EmrModifyInstanceFleetByName) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_EmrModifyInstanceFleetByName) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -16192,6 +18403,16 @@ func (j *jsiiProxy_EmrModifyInstanceFleetByName) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrModifyInstanceFleetByName) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -16245,7 +18466,7 @@ func NewEmrModifyInstanceFleetByName(scope constructs.Construct, id *string, pro
 	j := jsiiProxy_EmrModifyInstanceFleetByName{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
+		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -16258,7 +18479,7 @@ func NewEmrModifyInstanceFleetByName_Override(e EmrModifyInstanceFleetByName, sc
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
+		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -16288,7 +18509,7 @@ func EmrModifyInstanceFleetByName_FilterNextables(states *[]awsstepfunctions.Sta
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
+		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -16305,7 +18526,7 @@ func EmrModifyInstanceFleetByName_FindReachableEndStates(start awsstepfunctions.
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
+		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -16324,7 +18545,7 @@ func EmrModifyInstanceFleetByName_FindReachableStates(start awsstepfunctions.Sta
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
+		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -16333,17 +18554,15 @@ func EmrModifyInstanceFleetByName_FindReachableStates(start awsstepfunctions.Sta
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func EmrModifyInstanceFleetByName_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
+		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -16358,7 +18577,7 @@ func EmrModifyInstanceFleetByName_PrefixStates(root constructs.IConstruct, prefi
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
+		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -16638,6 +18857,73 @@ func (e *jsiiProxy_EmrModifyInstanceFleetByName) Next(next awsstepfunctions.ICha
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (e *jsiiProxy_EmrModifyInstanceFleetByName) OnPrepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (e *jsiiProxy_EmrModifyInstanceFleetByName) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (e *jsiiProxy_EmrModifyInstanceFleetByName) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (e *jsiiProxy_EmrModifyInstanceFleetByName) Prepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EmrModifyInstanceFleetByName) RenderBranches() interface{} {
@@ -16713,6 +18999,21 @@ func (e *jsiiProxy_EmrModifyInstanceFleetByName) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (e *jsiiProxy_EmrModifyInstanceFleetByName) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EmrModifyInstanceFleetByName) RenderRetryCatch() interface{} {
@@ -16726,6 +19027,19 @@ func (e *jsiiProxy_EmrModifyInstanceFleetByName) RenderRetryCatch() interface{} 
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (e *jsiiProxy_EmrModifyInstanceFleetByName) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -16758,14 +19072,19 @@ func (e *jsiiProxy_EmrModifyInstanceFleetByName) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (e *jsiiProxy_EmrModifyInstanceFleetByName) ValidateState() *[]*string {
+func (e *jsiiProxy_EmrModifyInstanceFleetByName) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		e,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -16819,6 +19138,14 @@ type EmrModifyInstanceFleetByNameProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -16853,10 +19180,11 @@ type EmrModifyInstanceGroupByName interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -16881,15 +19209,21 @@ type EmrModifyInstanceGroupByName interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -16968,8 +19302,8 @@ func (j *jsiiProxy_EmrModifyInstanceGroupByName) Iteration() awsstepfunctions.St
 	return returns
 }
 
-func (j *jsiiProxy_EmrModifyInstanceGroupByName) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_EmrModifyInstanceGroupByName) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -17003,6 +19337,16 @@ func (j *jsiiProxy_EmrModifyInstanceGroupByName) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrModifyInstanceGroupByName) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -17056,7 +19400,7 @@ func NewEmrModifyInstanceGroupByName(scope constructs.Construct, id *string, pro
 	j := jsiiProxy_EmrModifyInstanceGroupByName{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
+		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -17069,7 +19413,7 @@ func NewEmrModifyInstanceGroupByName_Override(e EmrModifyInstanceGroupByName, sc
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
+		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -17099,7 +19443,7 @@ func EmrModifyInstanceGroupByName_FilterNextables(states *[]awsstepfunctions.Sta
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
+		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -17116,7 +19460,7 @@ func EmrModifyInstanceGroupByName_FindReachableEndStates(start awsstepfunctions.
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
+		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -17135,7 +19479,7 @@ func EmrModifyInstanceGroupByName_FindReachableStates(start awsstepfunctions.Sta
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
+		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -17144,17 +19488,15 @@ func EmrModifyInstanceGroupByName_FindReachableStates(start awsstepfunctions.Sta
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func EmrModifyInstanceGroupByName_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
+		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -17169,7 +19511,7 @@ func EmrModifyInstanceGroupByName_PrefixStates(root constructs.IConstruct, prefi
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
+		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -17449,6 +19791,73 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) Next(next awsstepfunctions.ICha
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (e *jsiiProxy_EmrModifyInstanceGroupByName) OnPrepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (e *jsiiProxy_EmrModifyInstanceGroupByName) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (e *jsiiProxy_EmrModifyInstanceGroupByName) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (e *jsiiProxy_EmrModifyInstanceGroupByName) Prepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) RenderBranches() interface{} {
@@ -17524,6 +19933,21 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (e *jsiiProxy_EmrModifyInstanceGroupByName) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EmrModifyInstanceGroupByName) RenderRetryCatch() interface{} {
@@ -17537,6 +19961,19 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) RenderRetryCatch() interface{} 
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (e *jsiiProxy_EmrModifyInstanceGroupByName) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -17569,14 +20006,19 @@ func (e *jsiiProxy_EmrModifyInstanceGroupByName) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (e *jsiiProxy_EmrModifyInstanceGroupByName) ValidateState() *[]*string {
+func (e *jsiiProxy_EmrModifyInstanceGroupByName) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		e,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -17686,6 +20128,14 @@ type EmrModifyInstanceGroupByNameProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -17717,10 +20167,11 @@ type EmrSetClusterTerminationProtection interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -17745,15 +20196,21 @@ type EmrSetClusterTerminationProtection interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -17832,8 +20289,8 @@ func (j *jsiiProxy_EmrSetClusterTerminationProtection) Iteration() awsstepfuncti
 	return returns
 }
 
-func (j *jsiiProxy_EmrSetClusterTerminationProtection) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_EmrSetClusterTerminationProtection) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -17867,6 +20324,16 @@ func (j *jsiiProxy_EmrSetClusterTerminationProtection) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrSetClusterTerminationProtection) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -17920,7 +20387,7 @@ func NewEmrSetClusterTerminationProtection(scope constructs.Construct, id *strin
 	j := jsiiProxy_EmrSetClusterTerminationProtection{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
+		"monocdk.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -17933,7 +20400,7 @@ func NewEmrSetClusterTerminationProtection_Override(e EmrSetClusterTerminationPr
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
+		"monocdk.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -17963,7 +20430,7 @@ func EmrSetClusterTerminationProtection_FilterNextables(states *[]awsstepfunctio
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
+		"monocdk.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -17980,7 +20447,7 @@ func EmrSetClusterTerminationProtection_FindReachableEndStates(start awsstepfunc
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
+		"monocdk.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -17999,7 +20466,7 @@ func EmrSetClusterTerminationProtection_FindReachableStates(start awsstepfunctio
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
+		"monocdk.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -18008,17 +20475,15 @@ func EmrSetClusterTerminationProtection_FindReachableStates(start awsstepfunctio
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func EmrSetClusterTerminationProtection_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
+		"monocdk.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -18033,7 +20498,7 @@ func EmrSetClusterTerminationProtection_PrefixStates(root constructs.IConstruct,
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
+		"monocdk.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -18313,6 +20778,73 @@ func (e *jsiiProxy_EmrSetClusterTerminationProtection) Next(next awsstepfunction
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (e *jsiiProxy_EmrSetClusterTerminationProtection) OnPrepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (e *jsiiProxy_EmrSetClusterTerminationProtection) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (e *jsiiProxy_EmrSetClusterTerminationProtection) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (e *jsiiProxy_EmrSetClusterTerminationProtection) Prepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EmrSetClusterTerminationProtection) RenderBranches() interface{} {
@@ -18388,6 +20920,21 @@ func (e *jsiiProxy_EmrSetClusterTerminationProtection) RenderNextEnd() interface
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (e *jsiiProxy_EmrSetClusterTerminationProtection) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EmrSetClusterTerminationProtection) RenderRetryCatch() interface{} {
@@ -18401,6 +20948,19 @@ func (e *jsiiProxy_EmrSetClusterTerminationProtection) RenderRetryCatch() interf
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (e *jsiiProxy_EmrSetClusterTerminationProtection) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -18433,14 +20993,19 @@ func (e *jsiiProxy_EmrSetClusterTerminationProtection) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (e *jsiiProxy_EmrSetClusterTerminationProtection) ValidateState() *[]*string {
+func (e *jsiiProxy_EmrSetClusterTerminationProtection) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		e,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -18494,6 +21059,14 @@ type EmrSetClusterTerminationProtectionProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -18518,10 +21091,11 @@ type EmrTerminateCluster interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -18546,15 +21120,21 @@ type EmrTerminateCluster interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -18633,8 +21213,8 @@ func (j *jsiiProxy_EmrTerminateCluster) Iteration() awsstepfunctions.StateGraph 
 	return returns
 }
 
-func (j *jsiiProxy_EmrTerminateCluster) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_EmrTerminateCluster) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -18668,6 +21248,16 @@ func (j *jsiiProxy_EmrTerminateCluster) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrTerminateCluster) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -18721,7 +21311,7 @@ func NewEmrTerminateCluster(scope constructs.Construct, id *string, props *EmrTe
 	j := jsiiProxy_EmrTerminateCluster{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrTerminateCluster",
+		"monocdk.aws_stepfunctions_tasks.EmrTerminateCluster",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -18734,7 +21324,7 @@ func NewEmrTerminateCluster_Override(e EmrTerminateCluster, scope constructs.Con
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrTerminateCluster",
+		"monocdk.aws_stepfunctions_tasks.EmrTerminateCluster",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -18764,7 +21354,7 @@ func EmrTerminateCluster_FilterNextables(states *[]awsstepfunctions.State) *[]aw
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrTerminateCluster",
+		"monocdk.aws_stepfunctions_tasks.EmrTerminateCluster",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -18781,7 +21371,7 @@ func EmrTerminateCluster_FindReachableEndStates(start awsstepfunctions.State, op
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrTerminateCluster",
+		"monocdk.aws_stepfunctions_tasks.EmrTerminateCluster",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -18800,7 +21390,7 @@ func EmrTerminateCluster_FindReachableStates(start awsstepfunctions.State, optio
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrTerminateCluster",
+		"monocdk.aws_stepfunctions_tasks.EmrTerminateCluster",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -18809,17 +21399,15 @@ func EmrTerminateCluster_FindReachableStates(start awsstepfunctions.State, optio
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func EmrTerminateCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrTerminateCluster",
+		"monocdk.aws_stepfunctions_tasks.EmrTerminateCluster",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -18834,7 +21422,7 @@ func EmrTerminateCluster_PrefixStates(root constructs.IConstruct, prefix *string
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EmrTerminateCluster",
+		"monocdk.aws_stepfunctions_tasks.EmrTerminateCluster",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -19114,6 +21702,73 @@ func (e *jsiiProxy_EmrTerminateCluster) Next(next awsstepfunctions.IChainable) a
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (e *jsiiProxy_EmrTerminateCluster) OnPrepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (e *jsiiProxy_EmrTerminateCluster) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (e *jsiiProxy_EmrTerminateCluster) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (e *jsiiProxy_EmrTerminateCluster) Prepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EmrTerminateCluster) RenderBranches() interface{} {
@@ -19189,6 +21844,21 @@ func (e *jsiiProxy_EmrTerminateCluster) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (e *jsiiProxy_EmrTerminateCluster) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EmrTerminateCluster) RenderRetryCatch() interface{} {
@@ -19202,6 +21872,19 @@ func (e *jsiiProxy_EmrTerminateCluster) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (e *jsiiProxy_EmrTerminateCluster) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -19234,14 +21917,19 @@ func (e *jsiiProxy_EmrTerminateCluster) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (e *jsiiProxy_EmrTerminateCluster) ValidateState() *[]*string {
+func (e *jsiiProxy_EmrTerminateCluster) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		e,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -19295,6 +21983,14 @@ type EmrTerminateClusterProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -19343,10 +22039,11 @@ type EvaluateExpression interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -19371,15 +22068,21 @@ type EvaluateExpression interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -19458,8 +22161,8 @@ func (j *jsiiProxy_EvaluateExpression) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_EvaluateExpression) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_EvaluateExpression) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -19493,6 +22196,16 @@ func (j *jsiiProxy_EvaluateExpression) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EvaluateExpression) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -19546,7 +22259,7 @@ func NewEvaluateExpression(scope constructs.Construct, id *string, props *Evalua
 	j := jsiiProxy_EvaluateExpression{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EvaluateExpression",
+		"monocdk.aws_stepfunctions_tasks.EvaluateExpression",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -19559,7 +22272,7 @@ func NewEvaluateExpression_Override(e EvaluateExpression, scope constructs.Const
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EvaluateExpression",
+		"monocdk.aws_stepfunctions_tasks.EvaluateExpression",
 		[]interface{}{scope, id, props},
 		e,
 	)
@@ -19589,7 +22302,7 @@ func EvaluateExpression_FilterNextables(states *[]awsstepfunctions.State) *[]aws
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EvaluateExpression",
+		"monocdk.aws_stepfunctions_tasks.EvaluateExpression",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -19606,7 +22319,7 @@ func EvaluateExpression_FindReachableEndStates(start awsstepfunctions.State, opt
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EvaluateExpression",
+		"monocdk.aws_stepfunctions_tasks.EvaluateExpression",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -19625,7 +22338,7 @@ func EvaluateExpression_FindReachableStates(start awsstepfunctions.State, option
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EvaluateExpression",
+		"monocdk.aws_stepfunctions_tasks.EvaluateExpression",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -19634,17 +22347,15 @@ func EvaluateExpression_FindReachableStates(start awsstepfunctions.State, option
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func EvaluateExpression_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EvaluateExpression",
+		"monocdk.aws_stepfunctions_tasks.EvaluateExpression",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -19659,7 +22370,7 @@ func EvaluateExpression_PrefixStates(root constructs.IConstruct, prefix *string)
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EvaluateExpression",
+		"monocdk.aws_stepfunctions_tasks.EvaluateExpression",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -19939,6 +22650,73 @@ func (e *jsiiProxy_EvaluateExpression) Next(next awsstepfunctions.IChainable) aw
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (e *jsiiProxy_EvaluateExpression) OnPrepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (e *jsiiProxy_EvaluateExpression) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (e *jsiiProxy_EvaluateExpression) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (e *jsiiProxy_EvaluateExpression) Prepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EvaluateExpression) RenderBranches() interface{} {
@@ -20014,6 +22792,21 @@ func (e *jsiiProxy_EvaluateExpression) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (e *jsiiProxy_EvaluateExpression) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (e *jsiiProxy_EvaluateExpression) RenderRetryCatch() interface{} {
@@ -20027,6 +22820,19 @@ func (e *jsiiProxy_EvaluateExpression) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (e *jsiiProxy_EvaluateExpression) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -20059,14 +22865,19 @@ func (e *jsiiProxy_EvaluateExpression) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (e *jsiiProxy_EvaluateExpression) ValidateState() *[]*string {
+func (e *jsiiProxy_EvaluateExpression) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		e,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -20120,6 +22931,14 @@ type EvaluateExpressionProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -20151,10 +22970,11 @@ type GlueDataBrewStartJobRun interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -20179,15 +22999,21 @@ type GlueDataBrewStartJobRun interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -20266,8 +23092,8 @@ func (j *jsiiProxy_GlueDataBrewStartJobRun) Iteration() awsstepfunctions.StateGr
 	return returns
 }
 
-func (j *jsiiProxy_GlueDataBrewStartJobRun) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_GlueDataBrewStartJobRun) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -20301,6 +23127,16 @@ func (j *jsiiProxy_GlueDataBrewStartJobRun) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_GlueDataBrewStartJobRun) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -20354,7 +23190,7 @@ func NewGlueDataBrewStartJobRun(scope constructs.Construct, id *string, props *G
 	j := jsiiProxy_GlueDataBrewStartJobRun{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
+		"monocdk.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -20367,7 +23203,7 @@ func NewGlueDataBrewStartJobRun_Override(g GlueDataBrewStartJobRun, scope constr
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
+		"monocdk.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
 		[]interface{}{scope, id, props},
 		g,
 	)
@@ -20397,7 +23233,7 @@ func GlueDataBrewStartJobRun_FilterNextables(states *[]awsstepfunctions.State) *
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
+		"monocdk.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -20414,7 +23250,7 @@ func GlueDataBrewStartJobRun_FindReachableEndStates(start awsstepfunctions.State
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
+		"monocdk.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -20433,7 +23269,7 @@ func GlueDataBrewStartJobRun_FindReachableStates(start awsstepfunctions.State, o
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
+		"monocdk.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -20442,17 +23278,15 @@ func GlueDataBrewStartJobRun_FindReachableStates(start awsstepfunctions.State, o
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func GlueDataBrewStartJobRun_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
+		"monocdk.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -20467,7 +23301,7 @@ func GlueDataBrewStartJobRun_PrefixStates(root constructs.IConstruct, prefix *st
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
+		"monocdk.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -20747,6 +23581,73 @@ func (g *jsiiProxy_GlueDataBrewStartJobRun) Next(next awsstepfunctions.IChainabl
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (g *jsiiProxy_GlueDataBrewStartJobRun) OnPrepare() {
+	_jsii_.InvokeVoid(
+		g,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (g *jsiiProxy_GlueDataBrewStartJobRun) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		g,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (g *jsiiProxy_GlueDataBrewStartJobRun) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		g,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (g *jsiiProxy_GlueDataBrewStartJobRun) Prepare() {
+	_jsii_.InvokeVoid(
+		g,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (g *jsiiProxy_GlueDataBrewStartJobRun) RenderBranches() interface{} {
@@ -20822,6 +23723,21 @@ func (g *jsiiProxy_GlueDataBrewStartJobRun) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (g *jsiiProxy_GlueDataBrewStartJobRun) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		g,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (g *jsiiProxy_GlueDataBrewStartJobRun) RenderRetryCatch() interface{} {
@@ -20835,6 +23751,19 @@ func (g *jsiiProxy_GlueDataBrewStartJobRun) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (g *jsiiProxy_GlueDataBrewStartJobRun) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		g,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -20867,14 +23796,19 @@ func (g *jsiiProxy_GlueDataBrewStartJobRun) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (g *jsiiProxy_GlueDataBrewStartJobRun) ValidateState() *[]*string {
+func (g *jsiiProxy_GlueDataBrewStartJobRun) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		g,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -20928,6 +23862,14 @@ type GlueDataBrewStartJobRunProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -20954,10 +23896,11 @@ type GlueStartJobRun interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -20982,15 +23925,21 @@ type GlueStartJobRun interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -21069,8 +24018,8 @@ func (j *jsiiProxy_GlueStartJobRun) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_GlueStartJobRun) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_GlueStartJobRun) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -21104,6 +24053,16 @@ func (j *jsiiProxy_GlueStartJobRun) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_GlueStartJobRun) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -21157,7 +24116,7 @@ func NewGlueStartJobRun(scope constructs.Construct, id *string, props *GlueStart
 	j := jsiiProxy_GlueStartJobRun{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.GlueStartJobRun",
+		"monocdk.aws_stepfunctions_tasks.GlueStartJobRun",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -21170,7 +24129,7 @@ func NewGlueStartJobRun_Override(g GlueStartJobRun, scope constructs.Construct, 
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.GlueStartJobRun",
+		"monocdk.aws_stepfunctions_tasks.GlueStartJobRun",
 		[]interface{}{scope, id, props},
 		g,
 	)
@@ -21200,7 +24159,7 @@ func GlueStartJobRun_FilterNextables(states *[]awsstepfunctions.State) *[]awsste
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.GlueStartJobRun",
+		"monocdk.aws_stepfunctions_tasks.GlueStartJobRun",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -21217,7 +24176,7 @@ func GlueStartJobRun_FindReachableEndStates(start awsstepfunctions.State, option
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.GlueStartJobRun",
+		"monocdk.aws_stepfunctions_tasks.GlueStartJobRun",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -21236,7 +24195,7 @@ func GlueStartJobRun_FindReachableStates(start awsstepfunctions.State, options *
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.GlueStartJobRun",
+		"monocdk.aws_stepfunctions_tasks.GlueStartJobRun",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -21245,17 +24204,15 @@ func GlueStartJobRun_FindReachableStates(start awsstepfunctions.State, options *
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func GlueStartJobRun_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.GlueStartJobRun",
+		"monocdk.aws_stepfunctions_tasks.GlueStartJobRun",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -21270,7 +24227,7 @@ func GlueStartJobRun_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.GlueStartJobRun",
+		"monocdk.aws_stepfunctions_tasks.GlueStartJobRun",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -21550,6 +24507,73 @@ func (g *jsiiProxy_GlueStartJobRun) Next(next awsstepfunctions.IChainable) awsst
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (g *jsiiProxy_GlueStartJobRun) OnPrepare() {
+	_jsii_.InvokeVoid(
+		g,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (g *jsiiProxy_GlueStartJobRun) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		g,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (g *jsiiProxy_GlueStartJobRun) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		g,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (g *jsiiProxy_GlueStartJobRun) Prepare() {
+	_jsii_.InvokeVoid(
+		g,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (g *jsiiProxy_GlueStartJobRun) RenderBranches() interface{} {
@@ -21625,6 +24649,21 @@ func (g *jsiiProxy_GlueStartJobRun) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (g *jsiiProxy_GlueStartJobRun) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		g,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (g *jsiiProxy_GlueStartJobRun) RenderRetryCatch() interface{} {
@@ -21638,6 +24677,19 @@ func (g *jsiiProxy_GlueStartJobRun) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (g *jsiiProxy_GlueStartJobRun) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		g,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -21670,14 +24722,19 @@ func (g *jsiiProxy_GlueStartJobRun) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (g *jsiiProxy_GlueStartJobRun) ValidateState() *[]*string {
+func (g *jsiiProxy_GlueStartJobRun) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		g,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -21731,6 +24788,14 @@ type GlueStartJobRunProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -21860,6 +24925,148 @@ const (
 	InputMode_FILE InputMode = "FILE"
 )
 
+// Invocation type of a Lambda.
+// Deprecated: use `LambdaInvocationType`
+type InvocationType string
+
+const (
+	InvocationType_REQUEST_RESPONSE InvocationType = "REQUEST_RESPONSE"
+	InvocationType_EVENT InvocationType = "EVENT"
+	InvocationType_DRY_RUN InvocationType = "DRY_RUN"
+)
+
+// A Step Functions Task to invoke an Activity worker.
+//
+// An Activity can be used directly as a Resource.
+// Deprecated: use `StepFunctionsInvokeActivity`
+type InvokeActivity interface {
+	awsstepfunctions.IStepFunctionsTask
+	Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig
+}
+
+// The jsii proxy struct for InvokeActivity
+type jsiiProxy_InvokeActivity struct {
+	internal.Type__awsstepfunctionsIStepFunctionsTask
+}
+
+// Deprecated: use `StepFunctionsInvokeActivity`
+func NewInvokeActivity(activity awsstepfunctions.IActivity, props *InvokeActivityProps) InvokeActivity {
+	_init_.Initialize()
+
+	j := jsiiProxy_InvokeActivity{}
+
+	_jsii_.Create(
+		"monocdk.aws_stepfunctions_tasks.InvokeActivity",
+		[]interface{}{activity, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Deprecated: use `StepFunctionsInvokeActivity`
+func NewInvokeActivity_Override(i InvokeActivity, activity awsstepfunctions.IActivity, props *InvokeActivityProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_stepfunctions_tasks.InvokeActivity",
+		[]interface{}{activity, props},
+		i,
+	)
+}
+
+// Called when the task object is used in a workflow.
+// Deprecated: use `StepFunctionsInvokeActivity`
+func (i *jsiiProxy_InvokeActivity) Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
+	var returns *awsstepfunctions.StepFunctionsTaskConfig
+
+	_jsii_.Invoke(
+		i,
+		"bind",
+		[]interface{}{_task},
+		&returns,
+	)
+
+	return returns
+}
+
+// Properties for FunctionTask.
+// Deprecated: use `StepFunctionsInvokeActivity` and `StepFunctionsInvokeActivityProps`.
+type InvokeActivityProps struct {
+	// Maximum time between heart beats.
+	//
+	// If the time between heart beats takes longer than this, a 'Timeout' error is raised.
+	// Deprecated: use `StepFunctionsInvokeActivity` and `StepFunctionsInvokeActivityProps`.
+	Heartbeat awscdk.Duration `json:"heartbeat"`
+}
+
+// A Step Functions Task to invoke a Lambda function.
+//
+// The Lambda function Arn is defined as Resource in the state machine definition.
+//
+// OUTPUT: the output of this task is the return value of the Lambda Function.
+// Deprecated: Use `LambdaInvoke`
+type InvokeFunction interface {
+	awsstepfunctions.IStepFunctionsTask
+	Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig
+}
+
+// The jsii proxy struct for InvokeFunction
+type jsiiProxy_InvokeFunction struct {
+	internal.Type__awsstepfunctionsIStepFunctionsTask
+}
+
+// Deprecated: Use `LambdaInvoke`
+func NewInvokeFunction(lambdaFunction awslambda.IFunction, props *InvokeFunctionProps) InvokeFunction {
+	_init_.Initialize()
+
+	j := jsiiProxy_InvokeFunction{}
+
+	_jsii_.Create(
+		"monocdk.aws_stepfunctions_tasks.InvokeFunction",
+		[]interface{}{lambdaFunction, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Deprecated: Use `LambdaInvoke`
+func NewInvokeFunction_Override(i InvokeFunction, lambdaFunction awslambda.IFunction, props *InvokeFunctionProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_stepfunctions_tasks.InvokeFunction",
+		[]interface{}{lambdaFunction, props},
+		i,
+	)
+}
+
+// Called when the task object is used in a workflow.
+// Deprecated: Use `LambdaInvoke`
+func (i *jsiiProxy_InvokeFunction) Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
+	var returns *awsstepfunctions.StepFunctionsTaskConfig
+
+	_jsii_.Invoke(
+		i,
+		"bind",
+		[]interface{}{_task},
+		&returns,
+	)
+
+	return returns
+}
+
+// Properties for InvokeFunction.
+// Deprecated: use `LambdaInvoke`
+type InvokeFunctionProps struct {
+	// The JSON that you want to provide to your Lambda function as input.
+	//
+	// This parameter is named as payload to keep consistent with RunLambdaTask class.
+	// Deprecated: use `LambdaInvoke`
+	Payload *map[string]interface{} `json:"payload"`
+}
+
 // An object representing an AWS Batch job dependency.
 // Experimental.
 type JobDependency struct {
@@ -21896,10 +25103,11 @@ type LambdaInvoke interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -21924,15 +25132,21 @@ type LambdaInvoke interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -22011,8 +25225,8 @@ func (j *jsiiProxy_LambdaInvoke) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_LambdaInvoke) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_LambdaInvoke) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -22046,6 +25260,16 @@ func (j *jsiiProxy_LambdaInvoke) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_LambdaInvoke) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -22099,7 +25323,7 @@ func NewLambdaInvoke(scope constructs.Construct, id *string, props *LambdaInvoke
 	j := jsiiProxy_LambdaInvoke{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.LambdaInvoke",
+		"monocdk.aws_stepfunctions_tasks.LambdaInvoke",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -22112,7 +25336,7 @@ func NewLambdaInvoke_Override(l LambdaInvoke, scope constructs.Construct, id *st
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.LambdaInvoke",
+		"monocdk.aws_stepfunctions_tasks.LambdaInvoke",
 		[]interface{}{scope, id, props},
 		l,
 	)
@@ -22142,7 +25366,7 @@ func LambdaInvoke_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfu
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.LambdaInvoke",
+		"monocdk.aws_stepfunctions_tasks.LambdaInvoke",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -22159,7 +25383,7 @@ func LambdaInvoke_FindReachableEndStates(start awsstepfunctions.State, options *
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.LambdaInvoke",
+		"monocdk.aws_stepfunctions_tasks.LambdaInvoke",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -22178,7 +25402,7 @@ func LambdaInvoke_FindReachableStates(start awsstepfunctions.State, options *aws
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.LambdaInvoke",
+		"monocdk.aws_stepfunctions_tasks.LambdaInvoke",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -22187,17 +25411,15 @@ func LambdaInvoke_FindReachableStates(start awsstepfunctions.State, options *aws
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func LambdaInvoke_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.LambdaInvoke",
+		"monocdk.aws_stepfunctions_tasks.LambdaInvoke",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -22212,7 +25434,7 @@ func LambdaInvoke_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.LambdaInvoke",
+		"monocdk.aws_stepfunctions_tasks.LambdaInvoke",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -22492,6 +25714,73 @@ func (l *jsiiProxy_LambdaInvoke) Next(next awsstepfunctions.IChainable) awsstepf
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (l *jsiiProxy_LambdaInvoke) OnPrepare() {
+	_jsii_.InvokeVoid(
+		l,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (l *jsiiProxy_LambdaInvoke) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		l,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (l *jsiiProxy_LambdaInvoke) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		l,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (l *jsiiProxy_LambdaInvoke) Prepare() {
+	_jsii_.InvokeVoid(
+		l,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (l *jsiiProxy_LambdaInvoke) RenderBranches() interface{} {
@@ -22567,6 +25856,21 @@ func (l *jsiiProxy_LambdaInvoke) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (l *jsiiProxy_LambdaInvoke) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		l,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (l *jsiiProxy_LambdaInvoke) RenderRetryCatch() interface{} {
@@ -22580,6 +25884,19 @@ func (l *jsiiProxy_LambdaInvoke) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (l *jsiiProxy_LambdaInvoke) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		l,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -22612,14 +25929,19 @@ func (l *jsiiProxy_LambdaInvoke) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (l *jsiiProxy_LambdaInvoke) ValidateState() *[]*string {
+func (l *jsiiProxy_LambdaInvoke) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		l,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -22673,6 +25995,14 @@ type LambdaInvokeProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -22793,6 +26123,90 @@ type ProductionVariant struct {
 	InitialVariantWeight *float64 `json:"initialVariantWeight"`
 }
 
+// A Step Functions Task to publish messages to SNS topic.
+//
+// A Function can be used directly as a Resource, but this class mirrors
+// integration with other AWS services via a specific class instance.
+// Deprecated: Use `SnsPublish`
+type PublishToTopic interface {
+	awsstepfunctions.IStepFunctionsTask
+	Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig
+}
+
+// The jsii proxy struct for PublishToTopic
+type jsiiProxy_PublishToTopic struct {
+	internal.Type__awsstepfunctionsIStepFunctionsTask
+}
+
+// Deprecated: Use `SnsPublish`
+func NewPublishToTopic(topic awssns.ITopic, props *PublishToTopicProps) PublishToTopic {
+	_init_.Initialize()
+
+	j := jsiiProxy_PublishToTopic{}
+
+	_jsii_.Create(
+		"monocdk.aws_stepfunctions_tasks.PublishToTopic",
+		[]interface{}{topic, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Deprecated: Use `SnsPublish`
+func NewPublishToTopic_Override(p PublishToTopic, topic awssns.ITopic, props *PublishToTopicProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_stepfunctions_tasks.PublishToTopic",
+		[]interface{}{topic, props},
+		p,
+	)
+}
+
+// Called when the task object is used in a workflow.
+// Deprecated: Use `SnsPublish`
+func (p *jsiiProxy_PublishToTopic) Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
+	var returns *awsstepfunctions.StepFunctionsTaskConfig
+
+	_jsii_.Invoke(
+		p,
+		"bind",
+		[]interface{}{_task},
+		&returns,
+	)
+
+	return returns
+}
+
+// Properties for PublishTask.
+// Deprecated: Use `SnsPublish`
+type PublishToTopicProps struct {
+	// The text message to send to the topic.
+	// Deprecated: Use `SnsPublish`
+	Message awsstepfunctions.TaskInput `json:"message"`
+	// The service integration pattern indicates different ways to call Publish to SNS.
+	//
+	// The valid value is either FIRE_AND_FORGET or WAIT_FOR_TASK_TOKEN.
+	// Deprecated: Use `SnsPublish`
+	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `json:"integrationPattern"`
+	// If true, send a different message to every subscription type.
+	//
+	// If this is set to true, message must be a JSON object with a
+	// "default" key and a key for every subscription type (such as "sqs",
+	// "email", etc.) The values are strings representing the messages
+	// being sent to every subscription type.
+	// See: https://docs.aws.amazon.com/sns/latest/api/API_Publish.html#API_Publish_RequestParameters
+	//
+	// Deprecated: Use `SnsPublish`
+	MessagePerSubscriptionType *bool `json:"messagePerSubscriptionType"`
+	// Used as the "Subject" line when the message is delivered to email endpoints.
+	//
+	// Also included, if present, in the standard JSON messages delivered to other endpoints.
+	// Deprecated: Use `SnsPublish`
+	Subject *string `json:"subject"`
+}
+
 // Database and data catalog context in which the query execution occurs.
 // See: https://docs.aws.amazon.com/athena/latest/APIReference/API_QueryExecutionContext.html
 //
@@ -22846,6 +26260,523 @@ type ResultConfiguration struct {
 	//
 	// Experimental.
 	OutputLocation *awss3.Location `json:"outputLocation"`
+}
+
+// A Step Functions Task to run AWS Batch.
+// Deprecated: use `BatchSubmitJob`
+type RunBatchJob interface {
+	awsstepfunctions.IStepFunctionsTask
+	Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig
+}
+
+// The jsii proxy struct for RunBatchJob
+type jsiiProxy_RunBatchJob struct {
+	internal.Type__awsstepfunctionsIStepFunctionsTask
+}
+
+// Deprecated: use `BatchSubmitJob`
+func NewRunBatchJob(props *RunBatchJobProps) RunBatchJob {
+	_init_.Initialize()
+
+	j := jsiiProxy_RunBatchJob{}
+
+	_jsii_.Create(
+		"monocdk.aws_stepfunctions_tasks.RunBatchJob",
+		[]interface{}{props},
+		&j,
+	)
+
+	return &j
+}
+
+// Deprecated: use `BatchSubmitJob`
+func NewRunBatchJob_Override(r RunBatchJob, props *RunBatchJobProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_stepfunctions_tasks.RunBatchJob",
+		[]interface{}{props},
+		r,
+	)
+}
+
+// Called when the task object is used in a workflow.
+// Deprecated: use `BatchSubmitJob`
+func (r *jsiiProxy_RunBatchJob) Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
+	var returns *awsstepfunctions.StepFunctionsTaskConfig
+
+	_jsii_.Invoke(
+		r,
+		"bind",
+		[]interface{}{_task},
+		&returns,
+	)
+
+	return returns
+}
+
+// Properties for RunBatchJob.
+// Deprecated: use `BatchSubmitJob`
+type RunBatchJobProps struct {
+	// The arn of the job definition used by this job.
+	// Deprecated: use `BatchSubmitJob`
+	JobDefinitionArn *string `json:"jobDefinitionArn"`
+	// The name of the job.
+	//
+	// The first character must be alphanumeric, and up to 128 letters (uppercase and lowercase),
+	// numbers, hyphens, and underscores are allowed.
+	// Deprecated: use `BatchSubmitJob`
+	JobName *string `json:"jobName"`
+	// The arn of the job queue into which the job is submitted.
+	// Deprecated: use `BatchSubmitJob`
+	JobQueueArn *string `json:"jobQueueArn"`
+	// The array size can be between 2 and 10,000.
+	//
+	// If you specify array properties for a job, it becomes an array job.
+	// For more information, see Array Jobs in the AWS Batch User Guide.
+	// Deprecated: use `BatchSubmitJob`
+	ArraySize *float64 `json:"arraySize"`
+	// The number of times to move a job to the RUNNABLE status.
+	//
+	// You may specify between 1 and 10 attempts.
+	// If the value of attempts is greater than one,
+	// the job is retried on failure the same number of attempts as the value.
+	// Deprecated: use `BatchSubmitJob`
+	Attempts *float64 `json:"attempts"`
+	// A list of container overrides in JSON format that specify the name of a container in the specified job definition and the overrides it should receive.
+	// See: https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html#Batch-SubmitJob-request-containerOverrides
+	//
+	// Deprecated: use `BatchSubmitJob`
+	ContainerOverrides *ContainerOverrides `json:"containerOverrides"`
+	// A list of dependencies for the job.
+	//
+	// A job can depend upon a maximum of 20 jobs.
+	// See: https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html#Batch-SubmitJob-request-dependsOn
+	//
+	// Deprecated: use `BatchSubmitJob`
+	DependsOn *[]*JobDependency `json:"dependsOn"`
+	// The service integration pattern indicates different ways to call TerminateCluster.
+	//
+	// The valid value is either FIRE_AND_FORGET or SYNC.
+	// Deprecated: use `BatchSubmitJob`
+	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `json:"integrationPattern"`
+	// The payload to be passed as parametrs to the batch job.
+	// Deprecated: use `BatchSubmitJob`
+	Payload *map[string]interface{} `json:"payload"`
+	// The timeout configuration for this SubmitJob operation.
+	//
+	// The minimum value for the timeout is 60 seconds.
+	// See: https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html#Batch-SubmitJob-request-timeout
+	//
+	// Deprecated: use `BatchSubmitJob`
+	Timeout awscdk.Duration `json:"timeout"`
+}
+
+// Run an ECS/EC2 Task in a StepFunctions workflow.
+// Deprecated: - replaced by `EcsRunTask`
+type RunEcsEc2Task interface {
+	EcsRunTaskBase
+	Connections() awsec2.Connections
+	Bind(task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig
+	ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, subnetSelection *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup)
+}
+
+// The jsii proxy struct for RunEcsEc2Task
+type jsiiProxy_RunEcsEc2Task struct {
+	jsiiProxy_EcsRunTaskBase
+}
+
+func (j *jsiiProxy_RunEcsEc2Task) Connections() awsec2.Connections {
+	var returns awsec2.Connections
+	_jsii_.Get(
+		j,
+		"connections",
+		&returns,
+	)
+	return returns
+}
+
+
+// Deprecated: - replaced by `EcsRunTask`
+func NewRunEcsEc2Task(props *RunEcsEc2TaskProps) RunEcsEc2Task {
+	_init_.Initialize()
+
+	j := jsiiProxy_RunEcsEc2Task{}
+
+	_jsii_.Create(
+		"monocdk.aws_stepfunctions_tasks.RunEcsEc2Task",
+		[]interface{}{props},
+		&j,
+	)
+
+	return &j
+}
+
+// Deprecated: - replaced by `EcsRunTask`
+func NewRunEcsEc2Task_Override(r RunEcsEc2Task, props *RunEcsEc2TaskProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_stepfunctions_tasks.RunEcsEc2Task",
+		[]interface{}{props},
+		r,
+	)
+}
+
+// Called when the task object is used in a workflow.
+// Deprecated: - replaced by `EcsRunTask`
+func (r *jsiiProxy_RunEcsEc2Task) Bind(task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
+	var returns *awsstepfunctions.StepFunctionsTaskConfig
+
+	_jsii_.Invoke(
+		r,
+		"bind",
+		[]interface{}{task},
+		&returns,
+	)
+
+	return returns
+}
+
+// Deprecated: - replaced by `EcsRunTask`
+func (r *jsiiProxy_RunEcsEc2Task) ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, subnetSelection *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup) {
+	_jsii_.InvokeVoid(
+		r,
+		"configureAwsVpcNetworking",
+		[]interface{}{vpc, assignPublicIp, subnetSelection, securityGroup},
+	)
+}
+
+// Properties to run an ECS task on EC2 in StepFunctionsan ECS.
+// Deprecated: use `EcsRunTask` and `EcsRunTaskProps`
+type RunEcsEc2TaskProps struct {
+	// The topic to run the task on.
+	// Deprecated: use `EcsRunTask` and `EcsRunTaskProps`
+	Cluster awsecs.ICluster `json:"cluster"`
+	// Task Definition used for running tasks in the service.
+	//
+	// Note: this must be TaskDefinition, and not ITaskDefinition,
+	// as it requires properties that are not known for imported task definitions
+	// Deprecated: use `EcsRunTask` and `EcsRunTaskProps`
+	TaskDefinition awsecs.TaskDefinition `json:"taskDefinition"`
+	// Container setting overrides.
+	//
+	// Key is the name of the container to override, value is the
+	// values you want to override.
+	// Deprecated: use `EcsRunTask` and `EcsRunTaskProps`
+	ContainerOverrides *[]*ContainerOverride `json:"containerOverrides"`
+	// The service integration pattern indicates different ways to call RunTask in ECS.
+	//
+	// The valid value for Lambda is FIRE_AND_FORGET, SYNC and WAIT_FOR_TASK_TOKEN.
+	// Deprecated: use `EcsRunTask` and `EcsRunTaskProps`
+	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `json:"integrationPattern"`
+	// Placement constraints.
+	// Deprecated: use `EcsRunTask` and `EcsRunTaskProps`
+	PlacementConstraints *[]awsecs.PlacementConstraint `json:"placementConstraints"`
+	// Placement strategies.
+	// Deprecated: use `EcsRunTask` and `EcsRunTaskProps`
+	PlacementStrategies *[]awsecs.PlacementStrategy `json:"placementStrategies"`
+	// Existing security group to use for the task's ENIs.
+	//
+	// (Only applicable in case the TaskDefinition is configured for AwsVpc networking)
+	// Deprecated: use `EcsRunTask` and `EcsRunTaskProps`
+	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
+	// In what subnets to place the task's ENIs.
+	//
+	// (Only applicable in case the TaskDefinition is configured for AwsVpc networking)
+	// Deprecated: use `EcsRunTask` and `EcsRunTaskProps`
+	Subnets *awsec2.SubnetSelection `json:"subnets"`
+}
+
+// Start a service on an ECS cluster.
+// Deprecated: replaced by `EcsRunTask`
+type RunEcsFargateTask interface {
+	EcsRunTaskBase
+	Connections() awsec2.Connections
+	Bind(task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig
+	ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, subnetSelection *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup)
+}
+
+// The jsii proxy struct for RunEcsFargateTask
+type jsiiProxy_RunEcsFargateTask struct {
+	jsiiProxy_EcsRunTaskBase
+}
+
+func (j *jsiiProxy_RunEcsFargateTask) Connections() awsec2.Connections {
+	var returns awsec2.Connections
+	_jsii_.Get(
+		j,
+		"connections",
+		&returns,
+	)
+	return returns
+}
+
+
+// Deprecated: replaced by `EcsRunTask`
+func NewRunEcsFargateTask(props *RunEcsFargateTaskProps) RunEcsFargateTask {
+	_init_.Initialize()
+
+	j := jsiiProxy_RunEcsFargateTask{}
+
+	_jsii_.Create(
+		"monocdk.aws_stepfunctions_tasks.RunEcsFargateTask",
+		[]interface{}{props},
+		&j,
+	)
+
+	return &j
+}
+
+// Deprecated: replaced by `EcsRunTask`
+func NewRunEcsFargateTask_Override(r RunEcsFargateTask, props *RunEcsFargateTaskProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_stepfunctions_tasks.RunEcsFargateTask",
+		[]interface{}{props},
+		r,
+	)
+}
+
+// Called when the task object is used in a workflow.
+// Deprecated: replaced by `EcsRunTask`
+func (r *jsiiProxy_RunEcsFargateTask) Bind(task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
+	var returns *awsstepfunctions.StepFunctionsTaskConfig
+
+	_jsii_.Invoke(
+		r,
+		"bind",
+		[]interface{}{task},
+		&returns,
+	)
+
+	return returns
+}
+
+// Deprecated: replaced by `EcsRunTask`
+func (r *jsiiProxy_RunEcsFargateTask) ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, subnetSelection *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup) {
+	_jsii_.InvokeVoid(
+		r,
+		"configureAwsVpcNetworking",
+		[]interface{}{vpc, assignPublicIp, subnetSelection, securityGroup},
+	)
+}
+
+// Properties to define an ECS service.
+// Deprecated: replaced by `EcsRunTask` and `EcsRunTaskProps`
+type RunEcsFargateTaskProps struct {
+	// The topic to run the task on.
+	// Deprecated: replaced by `EcsRunTask` and `EcsRunTaskProps`
+	Cluster awsecs.ICluster `json:"cluster"`
+	// Task Definition used for running tasks in the service.
+	//
+	// Note: this must be TaskDefinition, and not ITaskDefinition,
+	// as it requires properties that are not known for imported task definitions
+	// Deprecated: replaced by `EcsRunTask` and `EcsRunTaskProps`
+	TaskDefinition awsecs.TaskDefinition `json:"taskDefinition"`
+	// Container setting overrides.
+	//
+	// Key is the name of the container to override, value is the
+	// values you want to override.
+	// Deprecated: replaced by `EcsRunTask` and `EcsRunTaskProps`
+	ContainerOverrides *[]*ContainerOverride `json:"containerOverrides"`
+	// The service integration pattern indicates different ways to call RunTask in ECS.
+	//
+	// The valid value for Lambda is FIRE_AND_FORGET, SYNC and WAIT_FOR_TASK_TOKEN.
+	// Deprecated: replaced by `EcsRunTask` and `EcsRunTaskProps`
+	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `json:"integrationPattern"`
+	// Assign public IP addresses to each task.
+	// Deprecated: replaced by `EcsRunTask` and `EcsRunTaskProps`
+	AssignPublicIp *bool `json:"assignPublicIp"`
+	// Fargate platform version to run this service on.
+	//
+	// Unless you have specific compatibility requirements, you don't need to
+	// specify this.
+	// Deprecated: replaced by `EcsRunTask` and `EcsRunTaskProps`
+	PlatformVersion awsecs.FargatePlatformVersion `json:"platformVersion"`
+	// Existing security group to use for the tasks.
+	// Deprecated: replaced by `EcsRunTask` and `EcsRunTaskProps`
+	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
+	// In what subnets to place the task's ENIs.
+	// Deprecated: replaced by `EcsRunTask` and `EcsRunTaskProps`
+	Subnets *awsec2.SubnetSelection `json:"subnets"`
+}
+
+// Invoke a Glue job as a Task.
+//
+// OUTPUT: the output of this task is a JobRun structure, for details consult
+// https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-runs.html#aws-glue-api-jobs-runs-JobRun
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-glue.html
+//
+// Deprecated: use `GlueStartJobRun`
+type RunGlueJobTask interface {
+	awsstepfunctions.IStepFunctionsTask
+	Bind(task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig
+}
+
+// The jsii proxy struct for RunGlueJobTask
+type jsiiProxy_RunGlueJobTask struct {
+	internal.Type__awsstepfunctionsIStepFunctionsTask
+}
+
+// Deprecated: use `GlueStartJobRun`
+func NewRunGlueJobTask(glueJobName *string, props *RunGlueJobTaskProps) RunGlueJobTask {
+	_init_.Initialize()
+
+	j := jsiiProxy_RunGlueJobTask{}
+
+	_jsii_.Create(
+		"monocdk.aws_stepfunctions_tasks.RunGlueJobTask",
+		[]interface{}{glueJobName, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Deprecated: use `GlueStartJobRun`
+func NewRunGlueJobTask_Override(r RunGlueJobTask, glueJobName *string, props *RunGlueJobTaskProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_stepfunctions_tasks.RunGlueJobTask",
+		[]interface{}{glueJobName, props},
+		r,
+	)
+}
+
+// Called when the task object is used in a workflow.
+// Deprecated: use `GlueStartJobRun`
+func (r *jsiiProxy_RunGlueJobTask) Bind(task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
+	var returns *awsstepfunctions.StepFunctionsTaskConfig
+
+	_jsii_.Invoke(
+		r,
+		"bind",
+		[]interface{}{task},
+		&returns,
+	)
+
+	return returns
+}
+
+// Properties for RunGlueJobTask.
+// Deprecated: use `GlueStartJobRun`
+type RunGlueJobTaskProps struct {
+	// The job arguments specifically for this run.
+	//
+	// For this job run, they replace the default arguments set in the job definition itself.
+	// Deprecated: use `GlueStartJobRun`
+	Arguments *map[string]*string `json:"arguments"`
+	// The service integration pattern indicates different ways to start the Glue job.
+	//
+	// The valid value for Glue is either FIRE_AND_FORGET or SYNC.
+	// Deprecated: use `GlueStartJobRun`
+	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `json:"integrationPattern"`
+	// After a job run starts, the number of minutes to wait before sending a job run delay notification.
+	//
+	// Must be at least 1 minute.
+	// Deprecated: use `GlueStartJobRun`
+	NotifyDelayAfter awscdk.Duration `json:"notifyDelayAfter"`
+	// The name of the SecurityConfiguration structure to be used with this job run.
+	//
+	// This must match the Glue API
+	// [single-line string pattern](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-common.html#aws-glue-api-regex-oneLine).
+	// Deprecated: use `GlueStartJobRun`
+	SecurityConfiguration *string `json:"securityConfiguration"`
+	// The job run timeout.
+	//
+	// This is the maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status.
+	// Must be at least 1 minute.
+	// Deprecated: use `GlueStartJobRun`
+	Timeout awscdk.Duration `json:"timeout"`
+}
+
+// Invoke a Lambda function as a Task.
+//
+// OUTPUT: the output of this task is either the return value of Lambda's
+// Invoke call, or whatever the Lambda Function posted back using
+// `SendTaskSuccess/SendTaskFailure` in `waitForTaskToken` mode.
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-lambda.html
+//
+// Deprecated: Use `LambdaInvoke`
+type RunLambdaTask interface {
+	awsstepfunctions.IStepFunctionsTask
+	Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig
+}
+
+// The jsii proxy struct for RunLambdaTask
+type jsiiProxy_RunLambdaTask struct {
+	internal.Type__awsstepfunctionsIStepFunctionsTask
+}
+
+// Deprecated: Use `LambdaInvoke`
+func NewRunLambdaTask(lambdaFunction awslambda.IFunction, props *RunLambdaTaskProps) RunLambdaTask {
+	_init_.Initialize()
+
+	j := jsiiProxy_RunLambdaTask{}
+
+	_jsii_.Create(
+		"monocdk.aws_stepfunctions_tasks.RunLambdaTask",
+		[]interface{}{lambdaFunction, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Deprecated: Use `LambdaInvoke`
+func NewRunLambdaTask_Override(r RunLambdaTask, lambdaFunction awslambda.IFunction, props *RunLambdaTaskProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_stepfunctions_tasks.RunLambdaTask",
+		[]interface{}{lambdaFunction, props},
+		r,
+	)
+}
+
+// Called when the task object is used in a workflow.
+// Deprecated: Use `LambdaInvoke`
+func (r *jsiiProxy_RunLambdaTask) Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
+	var returns *awsstepfunctions.StepFunctionsTaskConfig
+
+	_jsii_.Invoke(
+		r,
+		"bind",
+		[]interface{}{_task},
+		&returns,
+	)
+
+	return returns
+}
+
+// Properties for RunLambdaTask.
+// Deprecated: Use `LambdaInvoke`
+type RunLambdaTaskProps struct {
+	// Client context to pass to the function.
+	// Deprecated: Use `LambdaInvoke`
+	ClientContext *string `json:"clientContext"`
+	// The service integration pattern indicates different ways to invoke Lambda function.
+	//
+	// The valid value for Lambda is either FIRE_AND_FORGET or WAIT_FOR_TASK_TOKEN,
+	// it determines whether to pause the workflow until a task token is returned.
+	//
+	// If this is set to WAIT_FOR_TASK_TOKEN, the JsonPath.taskToken value must be included
+	// somewhere in the payload and the Lambda must call
+	// `SendTaskSuccess/SendTaskFailure` using that token.
+	// Deprecated: Use `LambdaInvoke`
+	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `json:"integrationPattern"`
+	// Invocation type of the Lambda function.
+	// Deprecated: Use `LambdaInvoke`
+	InvocationType InvocationType `json:"invocationType"`
+	// The JSON that you want to provide to your Lambda function as input.
+	// Deprecated: Use `LambdaInvoke`
+	Payload awsstepfunctions.TaskInput `json:"payload"`
+	// Version or alias of the function to be invoked.
+	// Deprecated: Use `LambdaInvoke`
+	Qualifier *string `json:"qualifier"`
 }
 
 // S3 Data Distribution Type.
@@ -22902,7 +26833,7 @@ func NewS3Location_Override(s S3Location) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.S3Location",
+		"monocdk.aws_stepfunctions_tasks.S3Location",
 		nil, // no parameters
 		s,
 	)
@@ -22916,7 +26847,7 @@ func S3Location_FromBucket(bucket awss3.IBucket, keyPrefix *string) S3Location {
 	var returns S3Location
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.S3Location",
+		"monocdk.aws_stepfunctions_tasks.S3Location",
 		"fromBucket",
 		[]interface{}{bucket, keyPrefix},
 		&returns,
@@ -22936,7 +26867,7 @@ func S3Location_FromJsonExpression(expression *string) S3Location {
 	var returns S3Location
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.S3Location",
+		"monocdk.aws_stepfunctions_tasks.S3Location",
 		"fromJsonExpression",
 		[]interface{}{expression},
 		&returns,
@@ -22994,10 +26925,11 @@ type SageMakerCreateEndpoint interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -23022,15 +26954,21 @@ type SageMakerCreateEndpoint interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -23109,8 +27047,8 @@ func (j *jsiiProxy_SageMakerCreateEndpoint) Iteration() awsstepfunctions.StateGr
 	return returns
 }
 
-func (j *jsiiProxy_SageMakerCreateEndpoint) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_SageMakerCreateEndpoint) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -23144,6 +27082,16 @@ func (j *jsiiProxy_SageMakerCreateEndpoint) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SageMakerCreateEndpoint) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -23197,7 +27145,7 @@ func NewSageMakerCreateEndpoint(scope constructs.Construct, id *string, props *S
 	j := jsiiProxy_SageMakerCreateEndpoint{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -23210,7 +27158,7 @@ func NewSageMakerCreateEndpoint_Override(s SageMakerCreateEndpoint, scope constr
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -23240,7 +27188,7 @@ func SageMakerCreateEndpoint_FilterNextables(states *[]awsstepfunctions.State) *
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -23257,7 +27205,7 @@ func SageMakerCreateEndpoint_FindReachableEndStates(start awsstepfunctions.State
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -23276,7 +27224,7 @@ func SageMakerCreateEndpoint_FindReachableStates(start awsstepfunctions.State, o
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -23285,17 +27233,15 @@ func SageMakerCreateEndpoint_FindReachableStates(start awsstepfunctions.State, o
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func SageMakerCreateEndpoint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -23310,7 +27256,7 @@ func SageMakerCreateEndpoint_PrefixStates(root constructs.IConstruct, prefix *st
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -23590,6 +27536,73 @@ func (s *jsiiProxy_SageMakerCreateEndpoint) Next(next awsstepfunctions.IChainabl
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateEndpoint) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateEndpoint) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateEndpoint) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateEndpoint) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_SageMakerCreateEndpoint) RenderBranches() interface{} {
@@ -23665,6 +27678,21 @@ func (s *jsiiProxy_SageMakerCreateEndpoint) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateEndpoint) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_SageMakerCreateEndpoint) RenderRetryCatch() interface{} {
@@ -23678,6 +27706,19 @@ func (s *jsiiProxy_SageMakerCreateEndpoint) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateEndpoint) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -23710,14 +27751,19 @@ func (s *jsiiProxy_SageMakerCreateEndpoint) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (s *jsiiProxy_SageMakerCreateEndpoint) ValidateState() *[]*string {
+func (s *jsiiProxy_SageMakerCreateEndpoint) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		s,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -23752,10 +27798,11 @@ type SageMakerCreateEndpointConfig interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -23780,15 +27827,21 @@ type SageMakerCreateEndpointConfig interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -23867,8 +27920,8 @@ func (j *jsiiProxy_SageMakerCreateEndpointConfig) Iteration() awsstepfunctions.S
 	return returns
 }
 
-func (j *jsiiProxy_SageMakerCreateEndpointConfig) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_SageMakerCreateEndpointConfig) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -23902,6 +27955,16 @@ func (j *jsiiProxy_SageMakerCreateEndpointConfig) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SageMakerCreateEndpointConfig) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -23955,7 +28018,7 @@ func NewSageMakerCreateEndpointConfig(scope constructs.Construct, id *string, pr
 	j := jsiiProxy_SageMakerCreateEndpointConfig{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -23968,7 +28031,7 @@ func NewSageMakerCreateEndpointConfig_Override(s SageMakerCreateEndpointConfig, 
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -23998,7 +28061,7 @@ func SageMakerCreateEndpointConfig_FilterNextables(states *[]awsstepfunctions.St
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -24015,7 +28078,7 @@ func SageMakerCreateEndpointConfig_FindReachableEndStates(start awsstepfunctions
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -24034,7 +28097,7 @@ func SageMakerCreateEndpointConfig_FindReachableStates(start awsstepfunctions.St
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -24043,17 +28106,15 @@ func SageMakerCreateEndpointConfig_FindReachableStates(start awsstepfunctions.St
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func SageMakerCreateEndpointConfig_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -24068,7 +28129,7 @@ func SageMakerCreateEndpointConfig_PrefixStates(root constructs.IConstruct, pref
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -24348,6 +28409,73 @@ func (s *jsiiProxy_SageMakerCreateEndpointConfig) Next(next awsstepfunctions.ICh
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateEndpointConfig) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateEndpointConfig) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateEndpointConfig) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateEndpointConfig) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_SageMakerCreateEndpointConfig) RenderBranches() interface{} {
@@ -24423,6 +28551,21 @@ func (s *jsiiProxy_SageMakerCreateEndpointConfig) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateEndpointConfig) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_SageMakerCreateEndpointConfig) RenderRetryCatch() interface{} {
@@ -24436,6 +28579,19 @@ func (s *jsiiProxy_SageMakerCreateEndpointConfig) RenderRetryCatch() interface{}
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateEndpointConfig) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -24468,14 +28624,19 @@ func (s *jsiiProxy_SageMakerCreateEndpointConfig) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (s *jsiiProxy_SageMakerCreateEndpointConfig) ValidateState() *[]*string {
+func (s *jsiiProxy_SageMakerCreateEndpointConfig) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		s,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -24531,6 +28692,14 @@ type SageMakerCreateEndpointConfigProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -24587,6 +28756,14 @@ type SageMakerCreateEndpointProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -24622,10 +28799,11 @@ type SageMakerCreateModel interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	Role() awsiam.IRole
 	StartState() awsstepfunctions.State
 	StateId() *string
@@ -24652,15 +28830,21 @@ type SageMakerCreateModel interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -24761,8 +28945,8 @@ func (j *jsiiProxy_SageMakerCreateModel) Iteration() awsstepfunctions.StateGraph
 	return returns
 }
 
-func (j *jsiiProxy_SageMakerCreateModel) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_SageMakerCreateModel) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -24796,6 +28980,16 @@ func (j *jsiiProxy_SageMakerCreateModel) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SageMakerCreateModel) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -24859,7 +29053,7 @@ func NewSageMakerCreateModel(scope constructs.Construct, id *string, props *Sage
 	j := jsiiProxy_SageMakerCreateModel{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateModel",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateModel",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -24872,7 +29066,7 @@ func NewSageMakerCreateModel_Override(s SageMakerCreateModel, scope constructs.C
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateModel",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateModel",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -24902,7 +29096,7 @@ func SageMakerCreateModel_FilterNextables(states *[]awsstepfunctions.State) *[]a
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateModel",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateModel",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -24919,7 +29113,7 @@ func SageMakerCreateModel_FindReachableEndStates(start awsstepfunctions.State, o
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateModel",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateModel",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -24938,7 +29132,7 @@ func SageMakerCreateModel_FindReachableStates(start awsstepfunctions.State, opti
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateModel",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateModel",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -24947,17 +29141,15 @@ func SageMakerCreateModel_FindReachableStates(start awsstepfunctions.State, opti
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func SageMakerCreateModel_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateModel",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateModel",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -24972,7 +29164,7 @@ func SageMakerCreateModel_PrefixStates(root constructs.IConstruct, prefix *strin
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateModel",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateModel",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -25262,6 +29454,73 @@ func (s *jsiiProxy_SageMakerCreateModel) Next(next awsstepfunctions.IChainable) 
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateModel) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateModel) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateModel) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateModel) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_SageMakerCreateModel) RenderBranches() interface{} {
@@ -25337,6 +29596,21 @@ func (s *jsiiProxy_SageMakerCreateModel) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateModel) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_SageMakerCreateModel) RenderRetryCatch() interface{} {
@@ -25350,6 +29624,19 @@ func (s *jsiiProxy_SageMakerCreateModel) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateModel) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -25382,14 +29669,19 @@ func (s *jsiiProxy_SageMakerCreateModel) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (s *jsiiProxy_SageMakerCreateModel) ValidateState() *[]*string {
+func (s *jsiiProxy_SageMakerCreateModel) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		s,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -25445,6 +29737,14 @@ type SageMakerCreateModelProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -25493,10 +29793,11 @@ type SageMakerCreateTrainingJob interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	Role() awsiam.IRole
 	StartState() awsstepfunctions.State
 	StateId() *string
@@ -25523,15 +29824,21 @@ type SageMakerCreateTrainingJob interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -25632,8 +29939,8 @@ func (j *jsiiProxy_SageMakerCreateTrainingJob) Iteration() awsstepfunctions.Stat
 	return returns
 }
 
-func (j *jsiiProxy_SageMakerCreateTrainingJob) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_SageMakerCreateTrainingJob) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -25667,6 +29974,16 @@ func (j *jsiiProxy_SageMakerCreateTrainingJob) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SageMakerCreateTrainingJob) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -25730,7 +30047,7 @@ func NewSageMakerCreateTrainingJob(scope constructs.Construct, id *string, props
 	j := jsiiProxy_SageMakerCreateTrainingJob{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -25743,7 +30060,7 @@ func NewSageMakerCreateTrainingJob_Override(s SageMakerCreateTrainingJob, scope 
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -25773,7 +30090,7 @@ func SageMakerCreateTrainingJob_FilterNextables(states *[]awsstepfunctions.State
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -25790,7 +30107,7 @@ func SageMakerCreateTrainingJob_FindReachableEndStates(start awsstepfunctions.St
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -25809,7 +30126,7 @@ func SageMakerCreateTrainingJob_FindReachableStates(start awsstepfunctions.State
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -25818,17 +30135,15 @@ func SageMakerCreateTrainingJob_FindReachableStates(start awsstepfunctions.State
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func SageMakerCreateTrainingJob_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -25843,7 +30158,7 @@ func SageMakerCreateTrainingJob_PrefixStates(root constructs.IConstruct, prefix 
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -26133,6 +30448,73 @@ func (s *jsiiProxy_SageMakerCreateTrainingJob) Next(next awsstepfunctions.IChain
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateTrainingJob) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateTrainingJob) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateTrainingJob) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateTrainingJob) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_SageMakerCreateTrainingJob) RenderBranches() interface{} {
@@ -26208,6 +30590,21 @@ func (s *jsiiProxy_SageMakerCreateTrainingJob) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateTrainingJob) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_SageMakerCreateTrainingJob) RenderRetryCatch() interface{} {
@@ -26221,6 +30618,19 @@ func (s *jsiiProxy_SageMakerCreateTrainingJob) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateTrainingJob) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -26253,14 +30663,19 @@ func (s *jsiiProxy_SageMakerCreateTrainingJob) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (s *jsiiProxy_SageMakerCreateTrainingJob) ValidateState() *[]*string {
+func (s *jsiiProxy_SageMakerCreateTrainingJob) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		s,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -26314,6 +30729,14 @@ type SageMakerCreateTrainingJobProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -26372,10 +30795,11 @@ type SageMakerCreateTransformJob interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	Role() awsiam.IRole
 	StartState() awsstepfunctions.State
 	StateId() *string
@@ -26401,15 +30825,21 @@ type SageMakerCreateTransformJob interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -26488,8 +30918,8 @@ func (j *jsiiProxy_SageMakerCreateTransformJob) Iteration() awsstepfunctions.Sta
 	return returns
 }
 
-func (j *jsiiProxy_SageMakerCreateTransformJob) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_SageMakerCreateTransformJob) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -26523,6 +30953,16 @@ func (j *jsiiProxy_SageMakerCreateTransformJob) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SageMakerCreateTransformJob) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -26586,7 +31026,7 @@ func NewSageMakerCreateTransformJob(scope constructs.Construct, id *string, prop
 	j := jsiiProxy_SageMakerCreateTransformJob{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -26599,7 +31039,7 @@ func NewSageMakerCreateTransformJob_Override(s SageMakerCreateTransformJob, scop
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -26629,7 +31069,7 @@ func SageMakerCreateTransformJob_FilterNextables(states *[]awsstepfunctions.Stat
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -26646,7 +31086,7 @@ func SageMakerCreateTransformJob_FindReachableEndStates(start awsstepfunctions.S
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -26665,7 +31105,7 @@ func SageMakerCreateTransformJob_FindReachableStates(start awsstepfunctions.Stat
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -26674,17 +31114,15 @@ func SageMakerCreateTransformJob_FindReachableStates(start awsstepfunctions.Stat
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func SageMakerCreateTransformJob_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -26699,7 +31137,7 @@ func SageMakerCreateTransformJob_PrefixStates(root constructs.IConstruct, prefix
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
+		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -26979,6 +31417,73 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) Next(next awsstepfunctions.IChai
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateTransformJob) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateTransformJob) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateTransformJob) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateTransformJob) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_SageMakerCreateTransformJob) RenderBranches() interface{} {
@@ -27054,6 +31559,21 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateTransformJob) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_SageMakerCreateTransformJob) RenderRetryCatch() interface{} {
@@ -27067,6 +31587,19 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_SageMakerCreateTransformJob) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -27099,14 +31632,19 @@ func (s *jsiiProxy_SageMakerCreateTransformJob) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (s *jsiiProxy_SageMakerCreateTransformJob) ValidateState() *[]*string {
+func (s *jsiiProxy_SageMakerCreateTransformJob) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		s,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -27160,6 +31698,14 @@ type SageMakerCreateTransformJobProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -27216,10 +31762,11 @@ type SageMakerUpdateEndpoint interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -27244,15 +31791,21 @@ type SageMakerUpdateEndpoint interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -27331,8 +31884,8 @@ func (j *jsiiProxy_SageMakerUpdateEndpoint) Iteration() awsstepfunctions.StateGr
 	return returns
 }
 
-func (j *jsiiProxy_SageMakerUpdateEndpoint) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_SageMakerUpdateEndpoint) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -27366,6 +31919,16 @@ func (j *jsiiProxy_SageMakerUpdateEndpoint) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SageMakerUpdateEndpoint) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -27419,7 +31982,7 @@ func NewSageMakerUpdateEndpoint(scope constructs.Construct, id *string, props *S
 	j := jsiiProxy_SageMakerUpdateEndpoint{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
+		"monocdk.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -27432,7 +31995,7 @@ func NewSageMakerUpdateEndpoint_Override(s SageMakerUpdateEndpoint, scope constr
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
+		"monocdk.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -27462,7 +32025,7 @@ func SageMakerUpdateEndpoint_FilterNextables(states *[]awsstepfunctions.State) *
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
+		"monocdk.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -27479,7 +32042,7 @@ func SageMakerUpdateEndpoint_FindReachableEndStates(start awsstepfunctions.State
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
+		"monocdk.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -27498,7 +32061,7 @@ func SageMakerUpdateEndpoint_FindReachableStates(start awsstepfunctions.State, o
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
+		"monocdk.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -27507,17 +32070,15 @@ func SageMakerUpdateEndpoint_FindReachableStates(start awsstepfunctions.State, o
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func SageMakerUpdateEndpoint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
+		"monocdk.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -27532,7 +32093,7 @@ func SageMakerUpdateEndpoint_PrefixStates(root constructs.IConstruct, prefix *st
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
+		"monocdk.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -27812,6 +32373,73 @@ func (s *jsiiProxy_SageMakerUpdateEndpoint) Next(next awsstepfunctions.IChainabl
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_SageMakerUpdateEndpoint) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_SageMakerUpdateEndpoint) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_SageMakerUpdateEndpoint) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_SageMakerUpdateEndpoint) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_SageMakerUpdateEndpoint) RenderBranches() interface{} {
@@ -27887,6 +32515,21 @@ func (s *jsiiProxy_SageMakerUpdateEndpoint) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (s *jsiiProxy_SageMakerUpdateEndpoint) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_SageMakerUpdateEndpoint) RenderRetryCatch() interface{} {
@@ -27900,6 +32543,19 @@ func (s *jsiiProxy_SageMakerUpdateEndpoint) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_SageMakerUpdateEndpoint) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -27932,14 +32588,19 @@ func (s *jsiiProxy_SageMakerUpdateEndpoint) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (s *jsiiProxy_SageMakerUpdateEndpoint) ValidateState() *[]*string {
+func (s *jsiiProxy_SageMakerUpdateEndpoint) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		s,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -27995,6 +32656,14 @@ type SageMakerUpdateEndpointProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -28004,6 +32673,89 @@ type SageMakerUpdateEndpointProps struct {
 	// The name of the endpoint whose configuration you want to update.
 	// Experimental.
 	EndpointName *string `json:"endpointName"`
+}
+
+// A StepFunctions Task to send messages to SQS queue.
+//
+// A Function can be used directly as a Resource, but this class mirrors
+// integration with other AWS services via a specific class instance.
+// Deprecated: Use `SqsSendMessage`
+type SendToQueue interface {
+	awsstepfunctions.IStepFunctionsTask
+	Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig
+}
+
+// The jsii proxy struct for SendToQueue
+type jsiiProxy_SendToQueue struct {
+	internal.Type__awsstepfunctionsIStepFunctionsTask
+}
+
+// Deprecated: Use `SqsSendMessage`
+func NewSendToQueue(queue awssqs.IQueue, props *SendToQueueProps) SendToQueue {
+	_init_.Initialize()
+
+	j := jsiiProxy_SendToQueue{}
+
+	_jsii_.Create(
+		"monocdk.aws_stepfunctions_tasks.SendToQueue",
+		[]interface{}{queue, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Deprecated: Use `SqsSendMessage`
+func NewSendToQueue_Override(s SendToQueue, queue awssqs.IQueue, props *SendToQueueProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_stepfunctions_tasks.SendToQueue",
+		[]interface{}{queue, props},
+		s,
+	)
+}
+
+// Called when the task object is used in a workflow.
+// Deprecated: Use `SqsSendMessage`
+func (s *jsiiProxy_SendToQueue) Bind(_task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
+	var returns *awsstepfunctions.StepFunctionsTaskConfig
+
+	_jsii_.Invoke(
+		s,
+		"bind",
+		[]interface{}{_task},
+		&returns,
+	)
+
+	return returns
+}
+
+// Properties for SendMessageTask.
+// Deprecated: Use `SqsSendMessage`
+type SendToQueueProps struct {
+	// The text message to send to the queue.
+	// Deprecated: Use `SqsSendMessage`
+	MessageBody awsstepfunctions.TaskInput `json:"messageBody"`
+	// The length of time, in seconds, for which to delay a specific message.
+	//
+	// Valid values are 0-900 seconds.
+	// Deprecated: Use `SqsSendMessage`
+	Delay awscdk.Duration `json:"delay"`
+	// The service integration pattern indicates different ways to call SendMessage to SQS.
+	//
+	// The valid value is either FIRE_AND_FORGET or WAIT_FOR_TASK_TOKEN.
+	// Deprecated: Use `SqsSendMessage`
+	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `json:"integrationPattern"`
+	// The token used for deduplication of sent messages.
+	// Deprecated: Use `SqsSendMessage`
+	MessageDeduplicationId *string `json:"messageDeduplicationId"`
+	// The tag that specifies that a message belongs to a specific message group.
+	//
+	// Required for FIFO queues. FIFO ordering applies to messages in the same message
+	// group.
+	// Deprecated: Use `SqsSendMessage`
+	MessageGroupId *string `json:"messageGroupId"`
 }
 
 // Configuration for a shuffle option for input data in a channel.
@@ -28027,10 +32779,11 @@ type SnsPublish interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -28055,15 +32808,21 @@ type SnsPublish interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -28142,8 +32901,8 @@ func (j *jsiiProxy_SnsPublish) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_SnsPublish) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_SnsPublish) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -28177,6 +32936,16 @@ func (j *jsiiProxy_SnsPublish) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SnsPublish) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -28230,7 +32999,7 @@ func NewSnsPublish(scope constructs.Construct, id *string, props *SnsPublishProp
 	j := jsiiProxy_SnsPublish{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SnsPublish",
+		"monocdk.aws_stepfunctions_tasks.SnsPublish",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -28243,7 +33012,7 @@ func NewSnsPublish_Override(s SnsPublish, scope constructs.Construct, id *string
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SnsPublish",
+		"monocdk.aws_stepfunctions_tasks.SnsPublish",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -28273,7 +33042,7 @@ func SnsPublish_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunc
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SnsPublish",
+		"monocdk.aws_stepfunctions_tasks.SnsPublish",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -28290,7 +33059,7 @@ func SnsPublish_FindReachableEndStates(start awsstepfunctions.State, options *aw
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SnsPublish",
+		"monocdk.aws_stepfunctions_tasks.SnsPublish",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -28309,7 +33078,7 @@ func SnsPublish_FindReachableStates(start awsstepfunctions.State, options *awsst
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SnsPublish",
+		"monocdk.aws_stepfunctions_tasks.SnsPublish",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -28318,17 +33087,15 @@ func SnsPublish_FindReachableStates(start awsstepfunctions.State, options *awsst
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func SnsPublish_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SnsPublish",
+		"monocdk.aws_stepfunctions_tasks.SnsPublish",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -28343,7 +33110,7 @@ func SnsPublish_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SnsPublish",
+		"monocdk.aws_stepfunctions_tasks.SnsPublish",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -28623,6 +33390,73 @@ func (s *jsiiProxy_SnsPublish) Next(next awsstepfunctions.IChainable) awsstepfun
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_SnsPublish) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_SnsPublish) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_SnsPublish) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_SnsPublish) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_SnsPublish) RenderBranches() interface{} {
@@ -28698,6 +33532,21 @@ func (s *jsiiProxy_SnsPublish) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (s *jsiiProxy_SnsPublish) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_SnsPublish) RenderRetryCatch() interface{} {
@@ -28711,6 +33560,19 @@ func (s *jsiiProxy_SnsPublish) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_SnsPublish) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -28743,14 +33605,19 @@ func (s *jsiiProxy_SnsPublish) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (s *jsiiProxy_SnsPublish) ValidateState() *[]*string {
+func (s *jsiiProxy_SnsPublish) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		s,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -28804,6 +33671,14 @@ type SnsPublishProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -28862,10 +33737,11 @@ type SqsSendMessage interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -28890,15 +33766,21 @@ type SqsSendMessage interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -28977,8 +33859,8 @@ func (j *jsiiProxy_SqsSendMessage) Iteration() awsstepfunctions.StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_SqsSendMessage) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_SqsSendMessage) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -29012,6 +33894,16 @@ func (j *jsiiProxy_SqsSendMessage) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SqsSendMessage) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -29065,7 +33957,7 @@ func NewSqsSendMessage(scope constructs.Construct, id *string, props *SqsSendMes
 	j := jsiiProxy_SqsSendMessage{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SqsSendMessage",
+		"monocdk.aws_stepfunctions_tasks.SqsSendMessage",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -29078,7 +33970,7 @@ func NewSqsSendMessage_Override(s SqsSendMessage, scope constructs.Construct, id
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SqsSendMessage",
+		"monocdk.aws_stepfunctions_tasks.SqsSendMessage",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -29108,7 +34000,7 @@ func SqsSendMessage_FilterNextables(states *[]awsstepfunctions.State) *[]awsstep
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SqsSendMessage",
+		"monocdk.aws_stepfunctions_tasks.SqsSendMessage",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -29125,7 +34017,7 @@ func SqsSendMessage_FindReachableEndStates(start awsstepfunctions.State, options
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SqsSendMessage",
+		"monocdk.aws_stepfunctions_tasks.SqsSendMessage",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -29144,7 +34036,7 @@ func SqsSendMessage_FindReachableStates(start awsstepfunctions.State, options *a
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SqsSendMessage",
+		"monocdk.aws_stepfunctions_tasks.SqsSendMessage",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -29153,17 +34045,15 @@ func SqsSendMessage_FindReachableStates(start awsstepfunctions.State, options *a
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func SqsSendMessage_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SqsSendMessage",
+		"monocdk.aws_stepfunctions_tasks.SqsSendMessage",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -29178,7 +34068,7 @@ func SqsSendMessage_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SqsSendMessage",
+		"monocdk.aws_stepfunctions_tasks.SqsSendMessage",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -29458,6 +34348,73 @@ func (s *jsiiProxy_SqsSendMessage) Next(next awsstepfunctions.IChainable) awsste
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_SqsSendMessage) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_SqsSendMessage) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_SqsSendMessage) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_SqsSendMessage) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_SqsSendMessage) RenderBranches() interface{} {
@@ -29533,6 +34490,21 @@ func (s *jsiiProxy_SqsSendMessage) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (s *jsiiProxy_SqsSendMessage) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_SqsSendMessage) RenderRetryCatch() interface{} {
@@ -29546,6 +34518,19 @@ func (s *jsiiProxy_SqsSendMessage) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_SqsSendMessage) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -29578,14 +34563,19 @@ func (s *jsiiProxy_SqsSendMessage) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (s *jsiiProxy_SqsSendMessage) ValidateState() *[]*string {
+func (s *jsiiProxy_SqsSendMessage) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		s,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -29639,6 +34629,14 @@ type SqsSendMessageProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -29668,6 +34666,81 @@ type SqsSendMessageProps struct {
 	MessageGroupId *string `json:"messageGroupId"`
 }
 
+// A Step Functions Task to call StartExecution on another state machine.
+//
+// It supports three service integration patterns: FIRE_AND_FORGET, SYNC and WAIT_FOR_TASK_TOKEN.
+// Deprecated: - use 'StepFunctionsStartExecution'
+type StartExecution interface {
+	awsstepfunctions.IStepFunctionsTask
+	Bind(task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig
+}
+
+// The jsii proxy struct for StartExecution
+type jsiiProxy_StartExecution struct {
+	internal.Type__awsstepfunctionsIStepFunctionsTask
+}
+
+// Deprecated: - use 'StepFunctionsStartExecution'
+func NewStartExecution(stateMachine awsstepfunctions.IStateMachine, props *StartExecutionProps) StartExecution {
+	_init_.Initialize()
+
+	j := jsiiProxy_StartExecution{}
+
+	_jsii_.Create(
+		"monocdk.aws_stepfunctions_tasks.StartExecution",
+		[]interface{}{stateMachine, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Deprecated: - use 'StepFunctionsStartExecution'
+func NewStartExecution_Override(s StartExecution, stateMachine awsstepfunctions.IStateMachine, props *StartExecutionProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_stepfunctions_tasks.StartExecution",
+		[]interface{}{stateMachine, props},
+		s,
+	)
+}
+
+// Called when the task object is used in a workflow.
+// Deprecated: - use 'StepFunctionsStartExecution'
+func (s *jsiiProxy_StartExecution) Bind(task awsstepfunctions.Task) *awsstepfunctions.StepFunctionsTaskConfig {
+	var returns *awsstepfunctions.StepFunctionsTaskConfig
+
+	_jsii_.Invoke(
+		s,
+		"bind",
+		[]interface{}{task},
+		&returns,
+	)
+
+	return returns
+}
+
+// Properties for StartExecution.
+// Deprecated: - use 'StepFunctionsStartExecution'
+type StartExecutionProps struct {
+	// The JSON input for the execution, same as that of StartExecution.
+	// See: https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html
+	//
+	// Deprecated: - use 'StepFunctionsStartExecution'
+	Input *map[string]interface{} `json:"input"`
+	// The service integration pattern indicates different ways to call StartExecution to Step Functions.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html
+	//
+	// Deprecated: - use 'StepFunctionsStartExecution'
+	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `json:"integrationPattern"`
+	// The name of the execution, same as that of StartExecution.
+	// See: https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html
+	//
+	// Deprecated: - use 'StepFunctionsStartExecution'
+	Name *string `json:"name"`
+}
+
 // A Step Functions Task to invoke an Activity worker.
 //
 // An Activity can be used directly as a Resource.
@@ -29683,10 +34756,11 @@ type StepFunctionsInvokeActivity interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -29711,15 +34785,21 @@ type StepFunctionsInvokeActivity interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -29798,8 +34878,8 @@ func (j *jsiiProxy_StepFunctionsInvokeActivity) Iteration() awsstepfunctions.Sta
 	return returns
 }
 
-func (j *jsiiProxy_StepFunctionsInvokeActivity) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_StepFunctionsInvokeActivity) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -29833,6 +34913,16 @@ func (j *jsiiProxy_StepFunctionsInvokeActivity) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StepFunctionsInvokeActivity) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -29886,7 +34976,7 @@ func NewStepFunctionsInvokeActivity(scope constructs.Construct, id *string, prop
 	j := jsiiProxy_StepFunctionsInvokeActivity{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
+		"monocdk.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -29899,7 +34989,7 @@ func NewStepFunctionsInvokeActivity_Override(s StepFunctionsInvokeActivity, scop
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
+		"monocdk.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -29929,7 +35019,7 @@ func StepFunctionsInvokeActivity_FilterNextables(states *[]awsstepfunctions.Stat
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
+		"monocdk.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -29946,7 +35036,7 @@ func StepFunctionsInvokeActivity_FindReachableEndStates(start awsstepfunctions.S
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
+		"monocdk.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -29965,7 +35055,7 @@ func StepFunctionsInvokeActivity_FindReachableStates(start awsstepfunctions.Stat
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
+		"monocdk.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -29974,17 +35064,15 @@ func StepFunctionsInvokeActivity_FindReachableStates(start awsstepfunctions.Stat
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func StepFunctionsInvokeActivity_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
+		"monocdk.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -29999,7 +35087,7 @@ func StepFunctionsInvokeActivity_PrefixStates(root constructs.IConstruct, prefix
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
+		"monocdk.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -30279,6 +35367,73 @@ func (s *jsiiProxy_StepFunctionsInvokeActivity) Next(next awsstepfunctions.IChai
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_StepFunctionsInvokeActivity) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_StepFunctionsInvokeActivity) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_StepFunctionsInvokeActivity) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_StepFunctionsInvokeActivity) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_StepFunctionsInvokeActivity) RenderBranches() interface{} {
@@ -30354,6 +35509,21 @@ func (s *jsiiProxy_StepFunctionsInvokeActivity) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (s *jsiiProxy_StepFunctionsInvokeActivity) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_StepFunctionsInvokeActivity) RenderRetryCatch() interface{} {
@@ -30367,6 +35537,19 @@ func (s *jsiiProxy_StepFunctionsInvokeActivity) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_StepFunctionsInvokeActivity) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -30399,14 +35582,19 @@ func (s *jsiiProxy_StepFunctionsInvokeActivity) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (s *jsiiProxy_StepFunctionsInvokeActivity) ValidateState() *[]*string {
+func (s *jsiiProxy_StepFunctionsInvokeActivity) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		s,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -30460,6 +35648,14 @@ type StepFunctionsInvokeActivityProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -30470,7 +35666,7 @@ type StepFunctionsInvokeActivityProps struct {
 
 // A Step Functions Task to call StartExecution on another state machine.
 //
-// It supports three service integration patterns: FIRE_AND_FORGET, SYNC and WAIT_FOR_TASK_TOKEN.
+// It supports three service integration patterns: REQUEST_RESPONSE, RUN_JOB, and WAIT_FOR_TASK_TOKEN.
 // Experimental.
 type StepFunctionsStartExecution interface {
 	awsstepfunctions.TaskStateBase
@@ -30483,10 +35679,11 @@ type StepFunctionsStartExecution interface {
 	InputPath() *string
 	Iteration() awsstepfunctions.StateGraph
 	SetIteration(val awsstepfunctions.StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
+	ResultSelector() *map[string]interface{}
 	StartState() awsstepfunctions.State
 	StateId() *string
 	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
@@ -30511,15 +35708,21 @@ type StepFunctionsStartExecution interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
 	RenderIterator() interface{}
 	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
 }
 
@@ -30598,8 +35801,8 @@ func (j *jsiiProxy_StepFunctionsStartExecution) Iteration() awsstepfunctions.Sta
 	return returns
 }
 
-func (j *jsiiProxy_StepFunctionsStartExecution) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_StepFunctionsStartExecution) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -30633,6 +35836,16 @@ func (j *jsiiProxy_StepFunctionsStartExecution) ResultPath() *string {
 	_jsii_.Get(
 		j,
 		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StepFunctionsStartExecution) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
 		&returns,
 	)
 	return returns
@@ -30686,7 +35899,7 @@ func NewStepFunctionsStartExecution(scope constructs.Construct, id *string, prop
 	j := jsiiProxy_StepFunctionsStartExecution{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsStartExecution",
+		"monocdk.aws_stepfunctions_tasks.StepFunctionsStartExecution",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -30699,7 +35912,7 @@ func NewStepFunctionsStartExecution_Override(s StepFunctionsStartExecution, scop
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsStartExecution",
+		"monocdk.aws_stepfunctions_tasks.StepFunctionsStartExecution",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -30729,7 +35942,7 @@ func StepFunctionsStartExecution_FilterNextables(states *[]awsstepfunctions.Stat
 	var returns *[]awsstepfunctions.INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsStartExecution",
+		"monocdk.aws_stepfunctions_tasks.StepFunctionsStartExecution",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -30746,7 +35959,7 @@ func StepFunctionsStartExecution_FindReachableEndStates(start awsstepfunctions.S
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsStartExecution",
+		"monocdk.aws_stepfunctions_tasks.StepFunctionsStartExecution",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -30765,7 +35978,7 @@ func StepFunctionsStartExecution_FindReachableStates(start awsstepfunctions.Stat
 	var returns *[]awsstepfunctions.State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsStartExecution",
+		"monocdk.aws_stepfunctions_tasks.StepFunctionsStartExecution",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -30774,17 +35987,15 @@ func StepFunctionsStartExecution_FindReachableStates(start awsstepfunctions.Stat
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func StepFunctionsStartExecution_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsStartExecution",
+		"monocdk.aws_stepfunctions_tasks.StepFunctionsStartExecution",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -30799,7 +36010,7 @@ func StepFunctionsStartExecution_PrefixStates(root constructs.IConstruct, prefix
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsStartExecution",
+		"monocdk.aws_stepfunctions_tasks.StepFunctionsStartExecution",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -31079,6 +36290,73 @@ func (s *jsiiProxy_StepFunctionsStartExecution) Next(next awsstepfunctions.IChai
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_StepFunctionsStartExecution) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_StepFunctionsStartExecution) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_StepFunctionsStartExecution) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_StepFunctionsStartExecution) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_StepFunctionsStartExecution) RenderBranches() interface{} {
@@ -31154,6 +36432,21 @@ func (s *jsiiProxy_StepFunctionsStartExecution) RenderNextEnd() interface{} {
 	return returns
 }
 
+// Render ResultSelector in ASL JSON format.
+// Experimental.
+func (s *jsiiProxy_StepFunctionsStartExecution) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		s,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Render error recovery options in ASL JSON format.
 // Experimental.
 func (s *jsiiProxy_StepFunctionsStartExecution) RenderRetryCatch() interface{} {
@@ -31167,6 +36460,19 @@ func (s *jsiiProxy_StepFunctionsStartExecution) RenderRetryCatch() interface{} {
 	)
 
 	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_StepFunctionsStartExecution) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Return the Amazon States Language object for this state.
@@ -31199,14 +36505,19 @@ func (s *jsiiProxy_StepFunctionsStartExecution) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (s *jsiiProxy_StepFunctionsStartExecution) ValidateState() *[]*string {
+func (s *jsiiProxy_StepFunctionsStartExecution) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		s,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -31260,6 +36571,14 @@ type StepFunctionsStartExecutionProps struct {
 	// input to become its output.
 	// Experimental.
 	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	// Experimental.
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
@@ -31293,12 +36612,12 @@ type StoppingCondition struct {
 type TaskEnvironmentVariable struct {
 	// Name for the environment variable.
 	//
-	// Exactly one of `name` and `namePath` must be specified.
+	// Use `JsonPath` class's static methods to specify name from a JSON path.
 	// Experimental.
 	Name *string `json:"name"`
 	// Value of the environment variable.
 	//
-	// Exactly one of `value` and `valuePath` must be specified.
+	// Use `JsonPath` class's static methods to specify value from a JSON path.
 	// Experimental.
 	Value *string `json:"value"`
 }
