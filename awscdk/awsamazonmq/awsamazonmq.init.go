@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_amazonmq.CfnBroker",
+		"aws-cdk-lib.aws_amazonmq.CfnBroker",
 		reflect.TypeOf((*CfnBroker)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -48,11 +48,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logs", GoGetter: "Logs"},
 			_jsii_.MemberProperty{JsiiProperty: "maintenanceWindowStartTime", GoGetter: "MaintenanceWindowStartTime"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "publiclyAccessible", GoGetter: "PubliclyAccessible"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -61,12 +57,10 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "storageType", GoGetter: "StorageType"},
 			_jsii_.MemberProperty{JsiiProperty: "subnetIds", GoGetter: "SubnetIds"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "users", GoGetter: "Users"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -77,39 +71,39 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amazonmq.CfnBroker.ConfigurationIdProperty",
+		"aws-cdk-lib.aws_amazonmq.CfnBroker.ConfigurationIdProperty",
 		reflect.TypeOf((*CfnBroker_ConfigurationIdProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amazonmq.CfnBroker.EncryptionOptionsProperty",
+		"aws-cdk-lib.aws_amazonmq.CfnBroker.EncryptionOptionsProperty",
 		reflect.TypeOf((*CfnBroker_EncryptionOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amazonmq.CfnBroker.LdapServerMetadataProperty",
+		"aws-cdk-lib.aws_amazonmq.CfnBroker.LdapServerMetadataProperty",
 		reflect.TypeOf((*CfnBroker_LdapServerMetadataProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amazonmq.CfnBroker.LogListProperty",
+		"aws-cdk-lib.aws_amazonmq.CfnBroker.LogListProperty",
 		reflect.TypeOf((*CfnBroker_LogListProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amazonmq.CfnBroker.MaintenanceWindowProperty",
+		"aws-cdk-lib.aws_amazonmq.CfnBroker.MaintenanceWindowProperty",
 		reflect.TypeOf((*CfnBroker_MaintenanceWindowProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amazonmq.CfnBroker.TagsEntryProperty",
+		"aws-cdk-lib.aws_amazonmq.CfnBroker.TagsEntryProperty",
 		reflect.TypeOf((*CfnBroker_TagsEntryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amazonmq.CfnBroker.UserProperty",
+		"aws-cdk-lib.aws_amazonmq.CfnBroker.UserProperty",
 		reflect.TypeOf((*CfnBroker_UserProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amazonmq.CfnBrokerProps",
+		"aws-cdk-lib.aws_amazonmq.CfnBrokerProps",
 		reflect.TypeOf((*CfnBrokerProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_amazonmq.CfnConfiguration",
+		"aws-cdk-lib.aws_amazonmq.CfnConfiguration",
 		reflect.TypeOf((*CfnConfiguration)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -137,20 +131,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -161,11 +149,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amazonmq.CfnConfiguration.TagsEntryProperty",
+		"aws-cdk-lib.aws_amazonmq.CfnConfiguration.TagsEntryProperty",
 		reflect.TypeOf((*CfnConfiguration_TagsEntryProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_amazonmq.CfnConfigurationAssociation",
+		"aws-cdk-lib.aws_amazonmq.CfnConfigurationAssociation",
 		reflect.TypeOf((*CfnConfigurationAssociation)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -186,19 +174,13 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -209,15 +191,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amazonmq.CfnConfigurationAssociation.ConfigurationIdProperty",
+		"aws-cdk-lib.aws_amazonmq.CfnConfigurationAssociation.ConfigurationIdProperty",
 		reflect.TypeOf((*CfnConfigurationAssociation_ConfigurationIdProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amazonmq.CfnConfigurationAssociationProps",
+		"aws-cdk-lib.aws_amazonmq.CfnConfigurationAssociationProps",
 		reflect.TypeOf((*CfnConfigurationAssociationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_amazonmq.CfnConfigurationProps",
+		"aws-cdk-lib.aws_amazonmq.CfnConfigurationProps",
 		reflect.TypeOf((*CfnConfigurationProps)(nil)).Elem(),
 	)
 }
