@@ -1,22 +1,21 @@
 package awscloudfrontorigins
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfrontorigins/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudfront"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudfrontorigins/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
 )
 
 // An Origin for an HTTP server or S3 bucket configured for website hosting.
 // Experimental.
 type HttpOrigin interface {
 	awscloudfront.OriginBase
-	Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
+	Bind(_scope awscdk.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
 	RenderCustomOriginConfig() *awscloudfront.CfnDistribution_CustomOriginConfigProperty
 	RenderS3OriginConfig() *awscloudfront.CfnDistribution_S3OriginConfigProperty
 }
@@ -33,7 +32,7 @@ func NewHttpOrigin(domainName *string, props *HttpOriginProps) HttpOrigin {
 	j := jsiiProxy_HttpOrigin{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudfront_origins.HttpOrigin",
+		"monocdk.aws_cloudfront_origins.HttpOrigin",
 		[]interface{}{domainName, props},
 		&j,
 	)
@@ -46,7 +45,7 @@ func NewHttpOrigin_Override(h HttpOrigin, domainName *string, props *HttpOriginP
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudfront_origins.HttpOrigin",
+		"monocdk.aws_cloudfront_origins.HttpOrigin",
 		[]interface{}{domainName, props},
 		h,
 	)
@@ -56,7 +55,7 @@ func NewHttpOrigin_Override(h HttpOrigin, domainName *string, props *HttpOriginP
 //
 // Can be used to grant permissions, create dependent resources, etc.
 // Experimental.
-func (h *jsiiProxy_HttpOrigin) Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
+func (h *jsiiProxy_HttpOrigin) Bind(_scope awscdk.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
 	var returns *awscloudfront.OriginBindConfig
 
 	_jsii_.Invoke(
@@ -146,7 +145,7 @@ type HttpOriginProps struct {
 // Experimental.
 type LoadBalancerV2Origin interface {
 	HttpOrigin
-	Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
+	Bind(_scope awscdk.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
 	RenderCustomOriginConfig() *awscloudfront.CfnDistribution_CustomOriginConfigProperty
 	RenderS3OriginConfig() *awscloudfront.CfnDistribution_S3OriginConfigProperty
 }
@@ -163,7 +162,7 @@ func NewLoadBalancerV2Origin(loadBalancer awselasticloadbalancingv2.ILoadBalance
 	j := jsiiProxy_LoadBalancerV2Origin{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudfront_origins.LoadBalancerV2Origin",
+		"monocdk.aws_cloudfront_origins.LoadBalancerV2Origin",
 		[]interface{}{loadBalancer, props},
 		&j,
 	)
@@ -176,7 +175,7 @@ func NewLoadBalancerV2Origin_Override(l LoadBalancerV2Origin, loadBalancer awsel
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudfront_origins.LoadBalancerV2Origin",
+		"monocdk.aws_cloudfront_origins.LoadBalancerV2Origin",
 		[]interface{}{loadBalancer, props},
 		l,
 	)
@@ -186,7 +185,7 @@ func NewLoadBalancerV2Origin_Override(l LoadBalancerV2Origin, loadBalancer awsel
 //
 // Can be used to grant permissions, create dependent resources, etc.
 // Experimental.
-func (l *jsiiProxy_LoadBalancerV2Origin) Bind(_scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
+func (l *jsiiProxy_LoadBalancerV2Origin) Bind(_scope awscdk.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
 	var returns *awscloudfront.OriginBindConfig
 
 	_jsii_.Invoke(
@@ -279,7 +278,7 @@ type LoadBalancerV2OriginProps struct {
 // Experimental.
 type OriginGroup interface {
 	awscloudfront.IOrigin
-	Bind(scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
+	Bind(scope awscdk.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
 }
 
 // The jsii proxy struct for OriginGroup
@@ -294,7 +293,7 @@ func NewOriginGroup(props *OriginGroupProps) OriginGroup {
 	j := jsiiProxy_OriginGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudfront_origins.OriginGroup",
+		"monocdk.aws_cloudfront_origins.OriginGroup",
 		[]interface{}{props},
 		&j,
 	)
@@ -307,7 +306,7 @@ func NewOriginGroup_Override(o OriginGroup, props *OriginGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudfront_origins.OriginGroup",
+		"monocdk.aws_cloudfront_origins.OriginGroup",
 		[]interface{}{props},
 		o,
 	)
@@ -315,7 +314,7 @@ func NewOriginGroup_Override(o OriginGroup, props *OriginGroupProps) {
 
 // The method called when a given Origin is added (for the first time) to a Distribution.
 // Experimental.
-func (o *jsiiProxy_OriginGroup) Bind(scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
+func (o *jsiiProxy_OriginGroup) Bind(scope awscdk.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
 	var returns *awscloudfront.OriginBindConfig
 
 	_jsii_.Invoke(
@@ -350,7 +349,7 @@ type OriginGroupProps struct {
 // Experimental.
 type S3Origin interface {
 	awscloudfront.IOrigin
-	Bind(scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
+	Bind(scope awscdk.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig
 }
 
 // The jsii proxy struct for S3Origin
@@ -365,7 +364,7 @@ func NewS3Origin(bucket awss3.IBucket, props *S3OriginProps) S3Origin {
 	j := jsiiProxy_S3Origin{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudfront_origins.S3Origin",
+		"monocdk.aws_cloudfront_origins.S3Origin",
 		[]interface{}{bucket, props},
 		&j,
 	)
@@ -378,7 +377,7 @@ func NewS3Origin_Override(s S3Origin, bucket awss3.IBucket, props *S3OriginProps
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudfront_origins.S3Origin",
+		"monocdk.aws_cloudfront_origins.S3Origin",
 		[]interface{}{bucket, props},
 		s,
 	)
@@ -386,7 +385,7 @@ func NewS3Origin_Override(s S3Origin, bucket awss3.IBucket, props *S3OriginProps
 
 // The method called when a given Origin is added (for the first time) to a Distribution.
 // Experimental.
-func (s *jsiiProxy_S3Origin) Bind(scope constructs.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
+func (s *jsiiProxy_S3Origin) Bind(scope awscdk.Construct, options *awscloudfront.OriginBindOptions) *awscloudfront.OriginBindConfig {
 	var returns *awscloudfront.OriginBindConfig
 
 	_jsii_.Invoke(
