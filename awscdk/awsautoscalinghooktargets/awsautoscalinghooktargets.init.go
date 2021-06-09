@@ -3,12 +3,12 @@ package awsautoscalinghooktargets
 import (
 	"reflect"
 
-	_jsii_ "github.com/aws/jsii-runtime-go"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_autoscaling_hooktargets.FunctionHook",
+		"aws-cdk-lib.aws_autoscaling_hooktargets.FunctionHook",
 		reflect.TypeOf((*FunctionHook)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -20,7 +20,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_autoscaling_hooktargets.QueueHook",
+		"aws-cdk-lib.aws_autoscaling_hooktargets.QueueHook",
 		reflect.TypeOf((*QueueHook)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -32,7 +32,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_autoscaling_hooktargets.TopicHook",
+		"aws-cdk-lib.aws_autoscaling_hooktargets.TopicHook",
 		reflect.TypeOf((*TopicHook)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},

@@ -3,12 +3,12 @@ package awselasticloadbalancingv2targets
 import (
 	"reflect"
 
-	_jsii_ "github.com/aws/jsii-runtime-go"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_elasticloadbalancingv2_targets.InstanceIdTarget",
+		"aws-cdk-lib.aws_elasticloadbalancingv2_targets.InstanceIdTarget",
 		reflect.TypeOf((*InstanceIdTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "attachToApplicationTargetGroup", GoMethod: "AttachToApplicationTargetGroup"},
@@ -22,7 +22,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_elasticloadbalancingv2_targets.InstanceTarget",
+		"aws-cdk-lib.aws_elasticloadbalancingv2_targets.InstanceTarget",
 		reflect.TypeOf((*InstanceTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "attachToApplicationTargetGroup", GoMethod: "AttachToApplicationTargetGroup"},
@@ -35,7 +35,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_elasticloadbalancingv2_targets.IpTarget",
+		"aws-cdk-lib.aws_elasticloadbalancingv2_targets.IpTarget",
 		reflect.TypeOf((*IpTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "attachToApplicationTargetGroup", GoMethod: "AttachToApplicationTargetGroup"},
@@ -49,7 +49,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_elasticloadbalancingv2_targets.LambdaTarget",
+		"aws-cdk-lib.aws_elasticloadbalancingv2_targets.LambdaTarget",
 		reflect.TypeOf((*LambdaTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "attachToApplicationTargetGroup", GoMethod: "AttachToApplicationTargetGroup"},

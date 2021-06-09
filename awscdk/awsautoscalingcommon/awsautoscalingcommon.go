@@ -1,7 +1,7 @@
 package awsautoscalingcommon
 
 import (
-	_jsii_ "github.com/aws/jsii-runtime-go"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
 // Experimental.

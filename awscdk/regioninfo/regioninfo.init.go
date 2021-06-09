@@ -3,12 +3,12 @@ package regioninfo
 import (
 	"reflect"
 
-	_jsii_ "github.com/aws/jsii-runtime-go"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.region_info.Default",
+		"aws-cdk-lib.region_info.Default",
 		reflect.TypeOf((*Default)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -16,7 +16,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.region_info.Fact",
+		"aws-cdk-lib.region_info.Fact",
 		reflect.TypeOf((*Fact)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -24,7 +24,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.region_info.FactName",
+		"aws-cdk-lib.region_info.FactName",
 		reflect.TypeOf((*FactName)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -32,7 +32,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.region_info.IFact",
+		"aws-cdk-lib.region_info.IFact",
 		reflect.TypeOf((*IFact)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
@@ -44,7 +44,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.region_info.RegionInfo",
+		"aws-cdk-lib.region_info.RegionInfo",
 		reflect.TypeOf((*RegionInfo)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "appMeshRepositoryAccount", GoGetter: "AppMeshRepositoryAccount"},

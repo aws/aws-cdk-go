@@ -3,12 +3,12 @@ package awss3notifications
 import (
 	"reflect"
 
-	_jsii_ "github.com/aws/jsii-runtime-go"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_s3_notifications.LambdaDestination",
+		"aws-cdk-lib.aws_s3_notifications.LambdaDestination",
 		reflect.TypeOf((*LambdaDestination)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -20,7 +20,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_s3_notifications.SnsDestination",
+		"aws-cdk-lib.aws_s3_notifications.SnsDestination",
 		reflect.TypeOf((*SnsDestination)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -32,7 +32,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_s3_notifications.SqsDestination",
+		"aws-cdk-lib.aws_s3_notifications.SqsDestination",
 		reflect.TypeOf((*SqsDestination)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},

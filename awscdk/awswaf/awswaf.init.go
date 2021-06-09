@@ -3,12 +3,12 @@ package awswaf
 import (
 	"reflect"
 
-	_jsii_ "github.com/aws/jsii-runtime-go"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_waf.CfnByteMatchSet",
+		"aws-cdk-lib.aws_waf.CfnByteMatchSet",
 		reflect.TypeOf((*CfnByteMatchSet)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -29,19 +29,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -52,19 +46,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_waf.CfnByteMatchSet.ByteMatchTupleProperty",
+		"aws-cdk-lib.aws_waf.CfnByteMatchSet.ByteMatchTupleProperty",
 		reflect.TypeOf((*CfnByteMatchSet_ByteMatchTupleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_waf.CfnByteMatchSet.FieldToMatchProperty",
+		"aws-cdk-lib.aws_waf.CfnByteMatchSet.FieldToMatchProperty",
 		reflect.TypeOf((*CfnByteMatchSet_FieldToMatchProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_waf.CfnByteMatchSetProps",
+		"aws-cdk-lib.aws_waf.CfnByteMatchSetProps",
 		reflect.TypeOf((*CfnByteMatchSetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_waf.CfnIPSet",
+		"aws-cdk-lib.aws_waf.CfnIPSet",
 		reflect.TypeOf((*CfnIPSet)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -85,19 +79,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -108,7 +96,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_waf.CfnIPSet.IPSetDescriptorProperty",
+		"aws-cdk-lib.aws_waf.CfnIPSet.IPSetDescriptorProperty",
 		reflect.TypeOf((*CfnIPSet_IPSetDescriptorProperty)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
@@ -119,11 +107,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_waf.CfnIPSetProps",
+		"aws-cdk-lib.aws_waf.CfnIPSetProps",
 		reflect.TypeOf((*CfnIPSetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_waf.CfnRule",
+		"aws-cdk-lib.aws_waf.CfnRule",
 		reflect.TypeOf((*CfnRule)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -144,20 +132,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "metricName", GoGetter: "MetricName"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "predicates", GoGetter: "Predicates"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -168,15 +150,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_waf.CfnRule.PredicateProperty",
+		"aws-cdk-lib.aws_waf.CfnRule.PredicateProperty",
 		reflect.TypeOf((*CfnRule_PredicateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_waf.CfnRuleProps",
+		"aws-cdk-lib.aws_waf.CfnRuleProps",
 		reflect.TypeOf((*CfnRuleProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_waf.CfnSizeConstraintSet",
+		"aws-cdk-lib.aws_waf.CfnSizeConstraintSet",
 		reflect.TypeOf((*CfnSizeConstraintSet)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -196,20 +178,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "sizeConstraints", GoGetter: "SizeConstraints"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -220,19 +196,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_waf.CfnSizeConstraintSet.FieldToMatchProperty",
+		"aws-cdk-lib.aws_waf.CfnSizeConstraintSet.FieldToMatchProperty",
 		reflect.TypeOf((*CfnSizeConstraintSet_FieldToMatchProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_waf.CfnSizeConstraintSet.SizeConstraintProperty",
+		"aws-cdk-lib.aws_waf.CfnSizeConstraintSet.SizeConstraintProperty",
 		reflect.TypeOf((*CfnSizeConstraintSet_SizeConstraintProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_waf.CfnSizeConstraintSetProps",
+		"aws-cdk-lib.aws_waf.CfnSizeConstraintSetProps",
 		reflect.TypeOf((*CfnSizeConstraintSetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_waf.CfnSqlInjectionMatchSet",
+		"aws-cdk-lib.aws_waf.CfnSqlInjectionMatchSet",
 		reflect.TypeOf((*CfnSqlInjectionMatchSet)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -252,20 +228,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "sqlInjectionMatchTuples", GoGetter: "SqlInjectionMatchTuples"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -276,19 +246,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_waf.CfnSqlInjectionMatchSet.FieldToMatchProperty",
+		"aws-cdk-lib.aws_waf.CfnSqlInjectionMatchSet.FieldToMatchProperty",
 		reflect.TypeOf((*CfnSqlInjectionMatchSet_FieldToMatchProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_waf.CfnSqlInjectionMatchSet.SqlInjectionMatchTupleProperty",
+		"aws-cdk-lib.aws_waf.CfnSqlInjectionMatchSet.SqlInjectionMatchTupleProperty",
 		reflect.TypeOf((*CfnSqlInjectionMatchSet_SqlInjectionMatchTupleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_waf.CfnSqlInjectionMatchSetProps",
+		"aws-cdk-lib.aws_waf.CfnSqlInjectionMatchSetProps",
 		reflect.TypeOf((*CfnSqlInjectionMatchSetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_waf.CfnWebACL",
+		"aws-cdk-lib.aws_waf.CfnWebACL",
 		reflect.TypeOf((*CfnWebACL)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -310,20 +280,14 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "metricName", GoGetter: "MetricName"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "rules", GoGetter: "Rules"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -334,19 +298,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_waf.CfnWebACL.ActivatedRuleProperty",
+		"aws-cdk-lib.aws_waf.CfnWebACL.ActivatedRuleProperty",
 		reflect.TypeOf((*CfnWebACL_ActivatedRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_waf.CfnWebACL.WafActionProperty",
+		"aws-cdk-lib.aws_waf.CfnWebACL.WafActionProperty",
 		reflect.TypeOf((*CfnWebACL_WafActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_waf.CfnWebACLProps",
+		"aws-cdk-lib.aws_waf.CfnWebACLProps",
 		reflect.TypeOf((*CfnWebACLProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_waf.CfnXssMatchSet",
+		"aws-cdk-lib.aws_waf.CfnXssMatchSet",
 		reflect.TypeOf((*CfnXssMatchSet)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -366,19 +330,13 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "xssMatchTuples", GoGetter: "XssMatchTuples"},
 		},
@@ -390,15 +348,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_waf.CfnXssMatchSet.FieldToMatchProperty",
+		"aws-cdk-lib.aws_waf.CfnXssMatchSet.FieldToMatchProperty",
 		reflect.TypeOf((*CfnXssMatchSet_FieldToMatchProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_waf.CfnXssMatchSet.XssMatchTupleProperty",
+		"aws-cdk-lib.aws_waf.CfnXssMatchSet.XssMatchTupleProperty",
 		reflect.TypeOf((*CfnXssMatchSet_XssMatchTupleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_waf.CfnXssMatchSetProps",
+		"aws-cdk-lib.aws_waf.CfnXssMatchSetProps",
 		reflect.TypeOf((*CfnXssMatchSetProps)(nil)).Elem(),
 	)
 }

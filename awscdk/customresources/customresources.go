@@ -1,17 +1,16 @@
 package customresources
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
-	_jsii_ "github.com/aws/jsii-runtime-go"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudformation"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/awslogs"
-	"github.com/aws/aws-cdk-go/awscdk/customresources/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/customresources/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Defines a custom resource that is materialized using specific AWS API calls.
@@ -20,24 +19,18 @@ import (
 // You can specify exactly which calls are invoked for the 'CREATE', 'UPDATE' and 'DELETE' life cycle events.
 // Experimental.
 type AwsCustomResource interface {
-	awscdk.Construct
+	constructs.Construct
 	awsiam.IGrantable
 	GrantPrincipal() awsiam.IPrincipal
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	GetResponseField(dataPath *string) *string
 	GetResponseFieldReference(dataPath *string) awscdk.Reference
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for AwsCustomResource
 type jsiiProxy_AwsCustomResource struct {
-	internal.Type__awscdkConstruct
+	internal.Type__constructsConstruct
 	internal.Type__awsiamIGrantable
 }
 
@@ -51,8 +44,8 @@ func (j *jsiiProxy_AwsCustomResource) GrantPrincipal() awsiam.IPrincipal {
 	return returns
 }
 
-func (j *jsiiProxy_AwsCustomResource) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_AwsCustomResource) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -69,7 +62,7 @@ func NewAwsCustomResource(scope constructs.Construct, id *string, props *AwsCust
 	j := jsiiProxy_AwsCustomResource{}
 
 	_jsii_.Create(
-		"monocdk.custom_resources.AwsCustomResource",
+		"aws-cdk-lib.custom_resources.AwsCustomResource",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -82,21 +75,23 @@ func NewAwsCustomResource_Override(a AwsCustomResource, scope constructs.Constru
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.custom_resources.AwsCustomResource",
+		"aws-cdk-lib.custom_resources.AwsCustomResource",
 		[]interface{}{scope, id, props},
 		a,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func AwsCustomResource_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.custom_resources.AwsCustomResource",
+		"aws-cdk-lib.custom_resources.AwsCustomResource",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -150,86 +145,6 @@ func (a *jsiiProxy_AwsCustomResource) GetResponseFieldReference(dataPath *string
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (a *jsiiProxy_AwsCustomResource) OnPrepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (a *jsiiProxy_AwsCustomResource) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (a *jsiiProxy_AwsCustomResource) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (a *jsiiProxy_AwsCustomResource) Prepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (a *jsiiProxy_AwsCustomResource) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (a *jsiiProxy_AwsCustomResource) ToString() *string {
@@ -238,26 +153,6 @@ func (a *jsiiProxy_AwsCustomResource) ToString() *string {
 	_jsii_.Invoke(
 		a,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (a *jsiiProxy_AwsCustomResource) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -308,7 +203,7 @@ func AwsCustomResourcePolicy_FromSdkCalls(options *SdkCallsPolicyOptions) AwsCus
 	var returns AwsCustomResourcePolicy
 
 	_jsii_.StaticInvoke(
-		"monocdk.custom_resources.AwsCustomResourcePolicy",
+		"aws-cdk-lib.custom_resources.AwsCustomResourcePolicy",
 		"fromSdkCalls",
 		[]interface{}{options},
 		&returns,
@@ -325,7 +220,7 @@ func AwsCustomResourcePolicy_FromStatements(statements *[]awsiam.PolicyStatement
 	var returns AwsCustomResourcePolicy
 
 	_jsii_.StaticInvoke(
-		"monocdk.custom_resources.AwsCustomResourcePolicy",
+		"aws-cdk-lib.custom_resources.AwsCustomResourcePolicy",
 		"fromStatements",
 		[]interface{}{statements},
 		&returns,
@@ -338,7 +233,7 @@ func AwsCustomResourcePolicy_ANY_RESOURCE() *[]*string {
 	_init_.Initialize()
 	var returns *[]*string
 	_jsii_.StaticGet(
-		"monocdk.custom_resources.AwsCustomResourcePolicy",
+		"aws-cdk-lib.custom_resources.AwsCustomResourcePolicy",
 		"ANY_RESOURCE",
 		&returns,
 	)
@@ -427,15 +322,6 @@ type AwsSdkCall struct {
 	// error will not be thrown.
 	// Experimental.
 	IgnoreErrorCodesMatching *string `json:"ignoreErrorCodesMatching"`
-	// Restrict the data returned by the custom resource to a specific path in the API response.
-	//
-	// Use this to limit the data returned by the custom
-	// resource if working with API calls that could potentially result in custom
-	// response objects exceeding the hard limit of 4096 bytes.
-	//
-	// Example for ECS / updateService: 'service.deploymentConfiguration.maximumPercent'
-	// Deprecated: use outputPaths instead
-	OutputPath *string `json:"outputPath"`
 	// Restrict the data returned by the custom resource to specific paths in the API response.
 	//
 	// Use this to limit the data returned by the custom
@@ -504,7 +390,7 @@ func PhysicalResourceId_FromResponse(responsePath *string) PhysicalResourceId {
 	var returns PhysicalResourceId
 
 	_jsii_.StaticInvoke(
-		"monocdk.custom_resources.PhysicalResourceId",
+		"aws-cdk-lib.custom_resources.PhysicalResourceId",
 		"fromResponse",
 		[]interface{}{responsePath},
 		&returns,
@@ -521,7 +407,7 @@ func PhysicalResourceId_Of(id *string) PhysicalResourceId {
 	var returns PhysicalResourceId
 
 	_jsii_.StaticInvoke(
-		"monocdk.custom_resources.PhysicalResourceId",
+		"aws-cdk-lib.custom_resources.PhysicalResourceId",
 		"of",
 		[]interface{}{id},
 		&returns,
@@ -563,7 +449,7 @@ func NewPhysicalResourceIdReference() PhysicalResourceIdReference {
 	j := jsiiProxy_PhysicalResourceIdReference{}
 
 	_jsii_.Create(
-		"monocdk.custom_resources.PhysicalResourceIdReference",
+		"aws-cdk-lib.custom_resources.PhysicalResourceIdReference",
 		nil, // no parameters
 		&j,
 	)
@@ -576,7 +462,7 @@ func NewPhysicalResourceIdReference_Override(p PhysicalResourceIdReference) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.custom_resources.PhysicalResourceIdReference",
+		"aws-cdk-lib.custom_resources.PhysicalResourceIdReference",
 		nil, // no parameters
 		p,
 	)
@@ -632,26 +518,17 @@ func (p *jsiiProxy_PhysicalResourceIdReference) ToString() *string {
 // Defines an AWS CloudFormation custom resource provider.
 // Experimental.
 type Provider interface {
-	awscdk.Construct
-	awscloudformation.ICustomResourceProvider
+	constructs.Construct
 	IsCompleteHandler() awslambda.IFunction
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	OnEventHandler() awslambda.IFunction
 	ServiceToken() *string
-	Bind(_scope awscdk.Construct) *awscloudformation.CustomResourceProviderConfig
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for Provider
 type jsiiProxy_Provider struct {
-	internal.Type__awscdkConstruct
-	internal.Type__awscloudformationICustomResourceProvider
+	internal.Type__constructsConstruct
 }
 
 func (j *jsiiProxy_Provider) IsCompleteHandler() awslambda.IFunction {
@@ -664,8 +541,8 @@ func (j *jsiiProxy_Provider) IsCompleteHandler() awslambda.IFunction {
 	return returns
 }
 
-func (j *jsiiProxy_Provider) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_Provider) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -702,7 +579,7 @@ func NewProvider(scope constructs.Construct, id *string, props *ProviderProps) P
 	j := jsiiProxy_Provider{}
 
 	_jsii_.Create(
-		"monocdk.custom_resources.Provider",
+		"aws-cdk-lib.custom_resources.Provider",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -715,122 +592,29 @@ func NewProvider_Override(p Provider, scope constructs.Construct, id *string, pr
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.custom_resources.Provider",
+		"aws-cdk-lib.custom_resources.Provider",
 		[]interface{}{scope, id, props},
 		p,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func Provider_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.custom_resources.Provider",
+		"aws-cdk-lib.custom_resources.Provider",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
 	)
 
 	return returns
-}
-
-// Called by `CustomResource` which uses this provider.
-// Deprecated: use `provider.serviceToken` instead
-func (p *jsiiProxy_Provider) Bind(_scope awscdk.Construct) *awscloudformation.CustomResourceProviderConfig {
-	var returns *awscloudformation.CustomResourceProviderConfig
-
-	_jsii_.Invoke(
-		p,
-		"bind",
-		[]interface{}{_scope},
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (p *jsiiProxy_Provider) OnPrepare() {
-	_jsii_.InvokeVoid(
-		p,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (p *jsiiProxy_Provider) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		p,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (p *jsiiProxy_Provider) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		p,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (p *jsiiProxy_Provider) Prepare() {
-	_jsii_.InvokeVoid(
-		p,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (p *jsiiProxy_Provider) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		p,
-		"synthesize",
-		[]interface{}{session},
-	)
 }
 
 // Returns a string representation of this construct.
@@ -841,26 +625,6 @@ func (p *jsiiProxy_Provider) ToString() *string {
 	_jsii_.Invoke(
 		p,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (p *jsiiProxy_Provider) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		p,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -901,6 +665,12 @@ type ProviderProps struct {
 	// `isComplete` returns `true`.
 	// Experimental.
 	QueryInterval awscdk.Duration `json:"queryInterval"`
+	// AWS Lambda execution role.
+	//
+	// The role that will be assumed by the AWS Lambda.
+	// Must be assumable by the 'lambda.amazonaws.com' service principal.
+	// Experimental.
+	Role awsiam.IRole `json:"role"`
 	// Security groups to attach to the provider functions.
 	//
 	// Only used if 'vpc' is supplied

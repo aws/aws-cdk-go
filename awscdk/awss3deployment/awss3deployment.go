@@ -1,42 +1,34 @@
 package awss3deployment
 
 import (
-	"time"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
-	_jsii_ "github.com/aws/jsii-runtime-go"
-
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudfront"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/awss3assets"
-	"github.com/aws/aws-cdk-go/awscdk/awss3deployment/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3deployment/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // `BucketDeployment` populates an S3 bucket with the contents of .zip files from other S3 buckets or from local disk.
 // Experimental.
 type BucketDeployment interface {
-	awscdk.Construct
-	Node() awscdk.ConstructNode
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
+	constructs.Construct
+	Node() constructs.Node
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for BucketDeployment
 type jsiiProxy_BucketDeployment struct {
-	internal.Type__awscdkConstruct
+	internal.Type__constructsConstruct
 }
 
-func (j *jsiiProxy_BucketDeployment) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_BucketDeployment) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -53,7 +45,7 @@ func NewBucketDeployment(scope constructs.Construct, id *string, props *BucketDe
 	j := jsiiProxy_BucketDeployment{}
 
 	_jsii_.Create(
-		"monocdk.aws_s3_deployment.BucketDeployment",
+		"aws-cdk-lib.aws_s3_deployment.BucketDeployment",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -66,107 +58,29 @@ func NewBucketDeployment_Override(b BucketDeployment, scope constructs.Construct
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_s3_deployment.BucketDeployment",
+		"aws-cdk-lib.aws_s3_deployment.BucketDeployment",
 		[]interface{}{scope, id, props},
 		b,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func BucketDeployment_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3_deployment.BucketDeployment",
+		"aws-cdk-lib.aws_s3_deployment.BucketDeployment",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
 	)
 
 	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (b *jsiiProxy_BucketDeployment) OnPrepare() {
-	_jsii_.InvokeVoid(
-		b,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (b *jsiiProxy_BucketDeployment) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		b,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (b *jsiiProxy_BucketDeployment) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		b,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (b *jsiiProxy_BucketDeployment) Prepare() {
-	_jsii_.InvokeVoid(
-		b,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (b *jsiiProxy_BucketDeployment) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		b,
-		"synthesize",
-		[]interface{}{session},
-	)
 }
 
 // Returns a string representation of this construct.
@@ -177,26 +91,6 @@ func (b *jsiiProxy_BucketDeployment) ToString() *string {
 	_jsii_.Invoke(
 		b,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (b *jsiiProxy_BucketDeployment) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		b,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -351,7 +245,7 @@ func CacheControl_FromString(s *string) CacheControl {
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3_deployment.CacheControl",
+		"aws-cdk-lib.aws_s3_deployment.CacheControl",
 		"fromString",
 		[]interface{}{s},
 		&returns,
@@ -368,7 +262,7 @@ func CacheControl_MaxAge(t awscdk.Duration) CacheControl {
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3_deployment.CacheControl",
+		"aws-cdk-lib.aws_s3_deployment.CacheControl",
 		"maxAge",
 		[]interface{}{t},
 		&returns,
@@ -385,7 +279,7 @@ func CacheControl_MustRevalidate() CacheControl {
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3_deployment.CacheControl",
+		"aws-cdk-lib.aws_s3_deployment.CacheControl",
 		"mustRevalidate",
 		nil, // no parameters
 		&returns,
@@ -402,7 +296,7 @@ func CacheControl_NoCache() CacheControl {
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3_deployment.CacheControl",
+		"aws-cdk-lib.aws_s3_deployment.CacheControl",
 		"noCache",
 		nil, // no parameters
 		&returns,
@@ -419,7 +313,7 @@ func CacheControl_NoTransform() CacheControl {
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3_deployment.CacheControl",
+		"aws-cdk-lib.aws_s3_deployment.CacheControl",
 		"noTransform",
 		nil, // no parameters
 		&returns,
@@ -436,7 +330,7 @@ func CacheControl_ProxyRevalidate() CacheControl {
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3_deployment.CacheControl",
+		"aws-cdk-lib.aws_s3_deployment.CacheControl",
 		"proxyRevalidate",
 		nil, // no parameters
 		&returns,
@@ -453,7 +347,7 @@ func CacheControl_SetPrivate() CacheControl {
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3_deployment.CacheControl",
+		"aws-cdk-lib.aws_s3_deployment.CacheControl",
 		"setPrivate",
 		nil, // no parameters
 		&returns,
@@ -470,7 +364,7 @@ func CacheControl_SetPublic() CacheControl {
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3_deployment.CacheControl",
+		"aws-cdk-lib.aws_s3_deployment.CacheControl",
 		"setPublic",
 		nil, // no parameters
 		&returns,
@@ -487,7 +381,7 @@ func CacheControl_SMaxAge(t awscdk.Duration) CacheControl {
 	var returns CacheControl
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3_deployment.CacheControl",
+		"aws-cdk-lib.aws_s3_deployment.CacheControl",
 		"sMaxAge",
 		[]interface{}{t},
 		&returns,
@@ -504,106 +398,12 @@ type DeploymentSourceContext struct {
 	HandlerRole awsiam.IRole `json:"handlerRole"`
 }
 
-// Used for HTTP expires header, which influences downstream caches.
-//
-// Does NOT influence deletion of the object.
-// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
-//
-// Deprecated: use core.Expiration
-type Expires interface {
-	Value() interface{}
-}
-
-// The jsii proxy struct for Expires
-type jsiiProxy_Expires struct {
-	_ byte // padding
-}
-
-func (j *jsiiProxy_Expires) Value() interface{} {
-	var returns interface{}
-	_jsii_.Get(
-		j,
-		"value",
-		&returns,
-	)
-	return returns
-}
-
-
-// Expire once the specified duration has passed since deployment time.
-// Deprecated: use core.Expiration
-func Expires_After(t awscdk.Duration) Expires {
-	_init_.Initialize()
-
-	var returns Expires
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_s3_deployment.Expires",
-		"after",
-		[]interface{}{t},
-		&returns,
-	)
-
-	return returns
-}
-
-// Expire at the specified date.
-// Deprecated: use core.Expiration
-func Expires_AtDate(d *time.Time) Expires {
-	_init_.Initialize()
-
-	var returns Expires
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_s3_deployment.Expires",
-		"atDate",
-		[]interface{}{d},
-		&returns,
-	)
-
-	return returns
-}
-
-// Expire at the specified timestamp.
-// Deprecated: use core.Expiration
-func Expires_AtTimestamp(t *float64) Expires {
-	_init_.Initialize()
-
-	var returns Expires
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_s3_deployment.Expires",
-		"atTimestamp",
-		[]interface{}{t},
-		&returns,
-	)
-
-	return returns
-}
-
-// Create an expiration date from a raw date string.
-// Deprecated: use core.Expiration
-func Expires_FromString(s *string) Expires {
-	_init_.Initialize()
-
-	var returns Expires
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_s3_deployment.Expires",
-		"fromString",
-		[]interface{}{s},
-		&returns,
-	)
-
-	return returns
-}
-
 // Represents a source for bucket deployments.
 // Experimental.
 type ISource interface {
 	// Binds the source to a bucket deployment.
 	// Experimental.
-	Bind(scope awscdk.Construct, context *DeploymentSourceContext) *SourceConfig
+	Bind(scope constructs.Construct, context *DeploymentSourceContext) *SourceConfig
 }
 
 // The jsii proxy for ISource
@@ -611,7 +411,7 @@ type jsiiProxy_ISource struct {
 	_ byte // padding
 }
 
-func (i *jsiiProxy_ISource) Bind(scope awscdk.Construct, context *DeploymentSourceContext) *SourceConfig {
+func (i *jsiiProxy_ISource) Bind(scope constructs.Construct, context *DeploymentSourceContext) *SourceConfig {
 	var returns *SourceConfig
 
 	_jsii_.Invoke(
@@ -659,7 +459,7 @@ func Source_Asset(path *string, options *awss3assets.AssetOptions) ISource {
 	var returns ISource
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3_deployment.Source",
+		"aws-cdk-lib.aws_s3_deployment.Source",
 		"asset",
 		[]interface{}{path, options},
 		&returns,
@@ -676,7 +476,7 @@ func Source_Bucket(bucket awss3.IBucket, zipObjectKey *string) ISource {
 	var returns ISource
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3_deployment.Source",
+		"aws-cdk-lib.aws_s3_deployment.Source",
 		"bucket",
 		[]interface{}{bucket, zipObjectKey},
 		&returns,
