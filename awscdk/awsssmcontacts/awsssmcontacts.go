@@ -658,6 +658,20 @@ func (c *jsiiProxy_CfnContact) ValidateProperties(_properties interface{}) {
 	)
 }
 
+type CfnContact_ChannelTargetInfoProperty struct {
+	// `CfnContact.ChannelTargetInfoProperty.ChannelId`.
+	ChannelId *string `json:"channelId"`
+	// `CfnContact.ChannelTargetInfoProperty.RetryIntervalInMinutes`.
+	RetryIntervalInMinutes *float64 `json:"retryIntervalInMinutes"`
+}
+
+type CfnContact_ContactTargetInfoProperty struct {
+	// `CfnContact.ContactTargetInfoProperty.ContactId`.
+	ContactId *string `json:"contactId"`
+	// `CfnContact.ContactTargetInfoProperty.IsEssential`.
+	IsEssential interface{} `json:"isEssential"`
+}
+
 type CfnContact_StageProperty struct {
 	// `CfnContact.StageProperty.DurationInMinutes`.
 	DurationInMinutes *float64 `json:"durationInMinutes"`

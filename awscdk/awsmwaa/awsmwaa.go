@@ -18,7 +18,7 @@ type CfnEnvironment interface {
 	AirflowVersion() *string
 	SetAirflowVersion(val *string)
 	AttrArn() *string
-	AttrCloudWatchLogGroupArn() *string
+	AttrLoggingConfigurationDagProcessingLogsCloudWatchLogGroupArn() *string
 	AttrWebserverUrl() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -122,11 +122,11 @@ func (j *jsiiProxy_CfnEnvironment) AttrArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironment) AttrCloudWatchLogGroupArn() *string {
+func (j *jsiiProxy_CfnEnvironment) AttrLoggingConfigurationDagProcessingLogsCloudWatchLogGroupArn() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrCloudWatchLogGroupArn",
+		"attrLoggingConfigurationDagProcessingLogsCloudWatchLogGroupArn",
 		&returns,
 	)
 	return returns

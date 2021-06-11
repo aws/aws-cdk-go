@@ -6899,6 +6899,7 @@ type CfnDHCPOptionsProps struct {
 type CfnEC2Fleet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrFleetId() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -6957,6 +6958,16 @@ type CfnEC2Fleet interface {
 type jsiiProxy_CfnEC2Fleet struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnEC2Fleet) AttrFleetId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrFleetId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnEC2Fleet) CfnOptions() awscdk.ICfnResourceOptions {
@@ -16782,6 +16793,8 @@ type CfnNatGateway interface {
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
+	ConnectivityType() *string
+	SetConnectivityType(val *string)
 	CreationStack() *[]*string
 	LogicalId() *string
 	Node() awscdk.ConstructNode
@@ -16855,6 +16868,16 @@ func (j *jsiiProxy_CfnNatGateway) CfnResourceType() *string {
 	_jsii_.Get(
 		j,
 		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNatGateway) ConnectivityType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"connectivityType",
 		&returns,
 	)
 	return returns
@@ -16971,6 +16994,14 @@ func (j *jsiiProxy_CfnNatGateway) SetAllocationId(val *string) {
 	_jsii_.Set(
 		j,
 		"allocationId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNatGateway) SetConnectivityType(val *string) {
+	_jsii_.Set(
+		j,
+		"connectivityType",
 		val,
 	)
 }
@@ -17384,10 +17415,12 @@ func (c *jsiiProxy_CfnNatGateway) ValidateProperties(_properties interface{}) {
 
 // Properties for defining a `AWS::EC2::NatGateway`.
 type CfnNatGatewayProps struct {
-	// `AWS::EC2::NatGateway.AllocationId`.
-	AllocationId *string `json:"allocationId"`
 	// `AWS::EC2::NatGateway.SubnetId`.
 	SubnetId *string `json:"subnetId"`
+	// `AWS::EC2::NatGateway.AllocationId`.
+	AllocationId *string `json:"allocationId"`
+	// `AWS::EC2::NatGateway.ConnectivityType`.
+	ConnectivityType *string `json:"connectivityType"`
 	// `AWS::EC2::NatGateway.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
@@ -27644,6 +27677,7 @@ type CfnSecurityGroupProps struct {
 type CfnSpotFleet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -27682,6 +27716,16 @@ type CfnSpotFleet interface {
 type jsiiProxy_CfnSpotFleet struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnSpotFleet) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnSpotFleet) CfnOptions() awscdk.ICfnResourceOptions {
@@ -28315,8 +28359,6 @@ type CfnSpotFleet_LaunchTemplateOverridesProperty struct {
 	AvailabilityZone *string `json:"availabilityZone"`
 	// `CfnSpotFleet.LaunchTemplateOverridesProperty.InstanceType`.
 	InstanceType *string `json:"instanceType"`
-	// `CfnSpotFleet.LaunchTemplateOverridesProperty.Priority`.
-	Priority *float64 `json:"priority"`
 	// `CfnSpotFleet.LaunchTemplateOverridesProperty.SpotPrice`.
 	SpotPrice *string `json:"spotPrice"`
 	// `CfnSpotFleet.LaunchTemplateOverridesProperty.SubnetId`.
@@ -33863,6 +33905,7 @@ type CfnTransitGateway interface {
 	awscdk.IInspectable
 	AmazonSideAsn() *float64
 	SetAmazonSideAsn(val *float64)
+	AttrId() *string
 	AutoAcceptSharedAttachments() *string
 	SetAutoAcceptSharedAttachments(val *string)
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -33921,6 +33964,16 @@ func (j *jsiiProxy_CfnTransitGateway) AmazonSideAsn() *float64 {
 	_jsii_.Get(
 		j,
 		"amazonSideAsn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransitGateway) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns

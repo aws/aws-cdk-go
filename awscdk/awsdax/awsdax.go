@@ -15,11 +15,14 @@ type CfnCluster interface {
 	awscdk.IInspectable
 	AttrArn() *string
 	AttrClusterDiscoveryEndpoint() *string
+	AttrClusterDiscoveryEndpointUrl() *string
 	AvailabilityZones() *[]*string
 	SetAvailabilityZones(val *[]*string)
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
+	ClusterEndpointEncryptionType() *string
+	SetClusterEndpointEncryptionType(val *string)
 	ClusterName() *string
 	SetClusterName(val *string)
 	CreationStack() *[]*string
@@ -98,6 +101,16 @@ func (j *jsiiProxy_CfnCluster) AttrClusterDiscoveryEndpoint() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) AttrClusterDiscoveryEndpointUrl() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrClusterDiscoveryEndpointUrl",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) AvailabilityZones() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -133,6 +146,16 @@ func (j *jsiiProxy_CfnCluster) CfnResourceType() *string {
 	_jsii_.Get(
 		j,
 		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) ClusterEndpointEncryptionType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"clusterEndpointEncryptionType",
 		&returns,
 	)
 	return returns
@@ -349,6 +372,14 @@ func (j *jsiiProxy_CfnCluster) SetAvailabilityZones(val *[]*string) {
 	_jsii_.Set(
 		j,
 		"availabilityZones",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster) SetClusterEndpointEncryptionType(val *string) {
+	_jsii_.Set(
+		j,
+		"clusterEndpointEncryptionType",
 		val,
 	)
 }
@@ -855,6 +886,8 @@ type CfnClusterProps struct {
 	ReplicationFactor *float64 `json:"replicationFactor"`
 	// `AWS::DAX::Cluster.AvailabilityZones`.
 	AvailabilityZones *[]*string `json:"availabilityZones"`
+	// `AWS::DAX::Cluster.ClusterEndpointEncryptionType`.
+	ClusterEndpointEncryptionType *string `json:"clusterEndpointEncryptionType"`
 	// `AWS::DAX::Cluster.ClusterName`.
 	ClusterName *string `json:"clusterName"`
 	// `AWS::DAX::Cluster.Description`.

@@ -19,7 +19,6 @@ type CfnAssessment interface {
 	AttrAssessmentId() *string
 	AttrCreationTime() awscdk.IResolvable
 	AttrDelegations() awscdk.IResolvable
-	AttrFrameworkId() *string
 	AwsAccount() interface{}
 	SetAwsAccount(val interface{})
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -118,16 +117,6 @@ func (j *jsiiProxy_CfnAssessment) AttrDelegations() awscdk.IResolvable {
 	_jsii_.Get(
 		j,
 		"attrDelegations",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnAssessment) AttrFrameworkId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrFrameworkId",
 		&returns,
 	)
 	return returns

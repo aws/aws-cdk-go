@@ -794,6 +794,8 @@ type CfnServer_EndpointDetailsProperty struct {
 }
 
 type CfnServer_IdentityProviderDetailsProperty struct {
+	// `CfnServer.IdentityProviderDetailsProperty.DirectoryId`.
+	DirectoryId *string `json:"directoryId"`
 	// `CfnServer.IdentityProviderDetailsProperty.InvocationRole`.
 	InvocationRole *string `json:"invocationRole"`
 	// `CfnServer.IdentityProviderDetailsProperty.Url`.

@@ -4496,7 +4496,7 @@ type CfnBucketProps struct {
 type CfnStorageLens interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	AttrStorageLensArn() *string
+	AttrStorageLensConfigurationStorageLensArn() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -4538,11 +4538,11 @@ type jsiiProxy_CfnStorageLens struct {
 	internal.Type__awscdkIInspectable
 }
 
-func (j *jsiiProxy_CfnStorageLens) AttrStorageLensArn() *string {
+func (j *jsiiProxy_CfnStorageLens) AttrStorageLensConfigurationStorageLensArn() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrStorageLensArn",
+		"attrStorageLensConfigurationStorageLensArn",
 		&returns,
 	)
 	return returns

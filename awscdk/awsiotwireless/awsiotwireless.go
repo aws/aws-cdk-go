@@ -2110,26 +2110,26 @@ type CfnServiceProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	AttrArn() *string
-	AttrChannelMask() *string
-	AttrDevStatusReqFreq() *float64
-	AttrDlBucketSize() *float64
-	AttrDlRate() *float64
-	AttrDlRatePolicy() *string
-	AttrDrMax() *float64
-	AttrDrMin() *float64
-	AttrHrAllowed() awscdk.IResolvable
 	AttrId() *string
+	AttrLoRaWanChannelMask() *string
+	AttrLoRaWanDevStatusReqFreq() *float64
+	AttrLoRaWanDlBucketSize() *float64
+	AttrLoRaWanDlRate() *float64
+	AttrLoRaWanDlRatePolicy() *string
+	AttrLoRaWanDrMax() *float64
+	AttrLoRaWanDrMin() *float64
+	AttrLoRaWanHrAllowed() awscdk.IResolvable
+	AttrLoRaWanMinGwDiversity() *float64
+	AttrLoRaWanNwkGeoLoc() awscdk.IResolvable
+	AttrLoRaWanPrAllowed() awscdk.IResolvable
+	AttrLoRaWanRaAllowed() awscdk.IResolvable
+	AttrLoRaWanReportDevStatusBattery() awscdk.IResolvable
+	AttrLoRaWanReportDevStatusMargin() awscdk.IResolvable
 	AttrLoRaWanResponse() awscdk.IResolvable
-	AttrMinGwDiversity() *float64
-	AttrNwkGeoLoc() awscdk.IResolvable
-	AttrPrAllowed() awscdk.IResolvable
-	AttrRaAllowed() awscdk.IResolvable
-	AttrReportDevStatusBattery() awscdk.IResolvable
-	AttrReportDevStatusMargin() awscdk.IResolvable
-	AttrTargetPer() *float64
-	AttrUlBucketSize() *float64
-	AttrUlRate() *float64
-	AttrUlRatePolicy() *string
+	AttrLoRaWanTargetPer() *float64
+	AttrLoRaWanUlBucketSize() *float64
+	AttrLoRaWanUlRate() *float64
+	AttrLoRaWanUlRatePolicy() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -2183,91 +2183,151 @@ func (j *jsiiProxy_CfnServiceProfile) AttrArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServiceProfile) AttrChannelMask() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrChannelMask",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnServiceProfile) AttrDevStatusReqFreq() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"attrDevStatusReqFreq",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnServiceProfile) AttrDlBucketSize() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"attrDlBucketSize",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnServiceProfile) AttrDlRate() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"attrDlRate",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnServiceProfile) AttrDlRatePolicy() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrDlRatePolicy",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnServiceProfile) AttrDrMax() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"attrDrMax",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnServiceProfile) AttrDrMin() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"attrDrMin",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnServiceProfile) AttrHrAllowed() awscdk.IResolvable {
-	var returns awscdk.IResolvable
-	_jsii_.Get(
-		j,
-		"attrHrAllowed",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CfnServiceProfile) AttrId() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServiceProfile) AttrLoRaWanChannelMask() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLoRaWanChannelMask",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServiceProfile) AttrLoRaWanDevStatusReqFreq() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"attrLoRaWanDevStatusReqFreq",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServiceProfile) AttrLoRaWanDlBucketSize() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"attrLoRaWanDlBucketSize",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServiceProfile) AttrLoRaWanDlRate() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"attrLoRaWanDlRate",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServiceProfile) AttrLoRaWanDlRatePolicy() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLoRaWanDlRatePolicy",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServiceProfile) AttrLoRaWanDrMax() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"attrLoRaWanDrMax",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServiceProfile) AttrLoRaWanDrMin() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"attrLoRaWanDrMin",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServiceProfile) AttrLoRaWanHrAllowed() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrLoRaWanHrAllowed",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServiceProfile) AttrLoRaWanMinGwDiversity() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"attrLoRaWanMinGwDiversity",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServiceProfile) AttrLoRaWanNwkGeoLoc() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrLoRaWanNwkGeoLoc",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServiceProfile) AttrLoRaWanPrAllowed() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrLoRaWanPrAllowed",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServiceProfile) AttrLoRaWanRaAllowed() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrLoRaWanRaAllowed",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServiceProfile) AttrLoRaWanReportDevStatusBattery() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrLoRaWanReportDevStatusBattery",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnServiceProfile) AttrLoRaWanReportDevStatusMargin() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrLoRaWanReportDevStatusMargin",
 		&returns,
 	)
 	return returns
@@ -2283,101 +2343,41 @@ func (j *jsiiProxy_CfnServiceProfile) AttrLoRaWanResponse() awscdk.IResolvable {
 	return returns
 }
 
-func (j *jsiiProxy_CfnServiceProfile) AttrMinGwDiversity() *float64 {
+func (j *jsiiProxy_CfnServiceProfile) AttrLoRaWanTargetPer() *float64 {
 	var returns *float64
 	_jsii_.Get(
 		j,
-		"attrMinGwDiversity",
+		"attrLoRaWanTargetPer",
 		&returns,
 	)
 	return returns
 }
 
-func (j *jsiiProxy_CfnServiceProfile) AttrNwkGeoLoc() awscdk.IResolvable {
-	var returns awscdk.IResolvable
-	_jsii_.Get(
-		j,
-		"attrNwkGeoLoc",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnServiceProfile) AttrPrAllowed() awscdk.IResolvable {
-	var returns awscdk.IResolvable
-	_jsii_.Get(
-		j,
-		"attrPrAllowed",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnServiceProfile) AttrRaAllowed() awscdk.IResolvable {
-	var returns awscdk.IResolvable
-	_jsii_.Get(
-		j,
-		"attrRaAllowed",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnServiceProfile) AttrReportDevStatusBattery() awscdk.IResolvable {
-	var returns awscdk.IResolvable
-	_jsii_.Get(
-		j,
-		"attrReportDevStatusBattery",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnServiceProfile) AttrReportDevStatusMargin() awscdk.IResolvable {
-	var returns awscdk.IResolvable
-	_jsii_.Get(
-		j,
-		"attrReportDevStatusMargin",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnServiceProfile) AttrTargetPer() *float64 {
+func (j *jsiiProxy_CfnServiceProfile) AttrLoRaWanUlBucketSize() *float64 {
 	var returns *float64
 	_jsii_.Get(
 		j,
-		"attrTargetPer",
+		"attrLoRaWanUlBucketSize",
 		&returns,
 	)
 	return returns
 }
 
-func (j *jsiiProxy_CfnServiceProfile) AttrUlBucketSize() *float64 {
+func (j *jsiiProxy_CfnServiceProfile) AttrLoRaWanUlRate() *float64 {
 	var returns *float64
 	_jsii_.Get(
 		j,
-		"attrUlBucketSize",
+		"attrLoRaWanUlRate",
 		&returns,
 	)
 	return returns
 }
 
-func (j *jsiiProxy_CfnServiceProfile) AttrUlRate() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"attrUlRate",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnServiceProfile) AttrUlRatePolicy() *string {
+func (j *jsiiProxy_CfnServiceProfile) AttrLoRaWanUlRatePolicy() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrUlRatePolicy",
+		"attrLoRaWanUlRatePolicy",
 		&returns,
 	)
 	return returns

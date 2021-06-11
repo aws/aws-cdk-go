@@ -392,6 +392,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrFunctionArn", GoGetter: "AttrFunctionArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrFunctionMetadataFunctionArn", GoGetter: "AttrFunctionMetadataFunctionArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrStage", GoGetter: "AttrStage"},
 			_jsii_.MemberProperty{JsiiProperty: "autoPublish", GoGetter: "AutoPublish"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},

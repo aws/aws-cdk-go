@@ -3986,6 +3986,8 @@ type CfnApplicationV2 interface {
 	SetApplicationConfiguration(val interface{})
 	ApplicationDescription() *string
 	SetApplicationDescription(val *string)
+	ApplicationMode() *string
+	SetApplicationMode(val *string)
 	ApplicationName() *string
 	SetApplicationName(val *string)
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -4046,6 +4048,16 @@ func (j *jsiiProxy_CfnApplicationV2) ApplicationDescription() *string {
 	_jsii_.Get(
 		j,
 		"applicationDescription",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplicationV2) ApplicationMode() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"applicationMode",
 		&returns,
 	)
 	return returns
@@ -4220,6 +4232,14 @@ func (j *jsiiProxy_CfnApplicationV2) SetApplicationDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"applicationDescription",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnApplicationV2) SetApplicationMode(val *string) {
+	_jsii_.Set(
+		j,
+		"applicationMode",
 		val,
 	)
 }
@@ -4665,6 +4685,8 @@ type CfnApplicationV2_ApplicationConfigurationProperty struct {
 	FlinkApplicationConfiguration interface{} `json:"flinkApplicationConfiguration"`
 	// `CfnApplicationV2.ApplicationConfigurationProperty.SqlApplicationConfiguration`.
 	SqlApplicationConfiguration interface{} `json:"sqlApplicationConfiguration"`
+	// `CfnApplicationV2.ApplicationConfigurationProperty.ZeppelinApplicationConfiguration`.
+	ZeppelinApplicationConfiguration interface{} `json:"zeppelinApplicationConfiguration"`
 }
 
 type CfnApplicationV2_ApplicationSnapshotConfigurationProperty struct {
@@ -4677,6 +4699,11 @@ type CfnApplicationV2_CSVMappingParametersProperty struct {
 	RecordColumnDelimiter *string `json:"recordColumnDelimiter"`
 	// `CfnApplicationV2.CSVMappingParametersProperty.RecordRowDelimiter`.
 	RecordRowDelimiter *string `json:"recordRowDelimiter"`
+}
+
+type CfnApplicationV2_CatalogConfigurationProperty struct {
+	// `CfnApplicationV2.CatalogConfigurationProperty.GlueDataCatalogConfiguration`.
+	GlueDataCatalogConfiguration interface{} `json:"glueDataCatalogConfiguration"`
 }
 
 type CfnApplicationV2_CheckpointConfigurationProperty struct {
@@ -4699,6 +4726,20 @@ type CfnApplicationV2_CodeContentProperty struct {
 	ZipFileContent *string `json:"zipFileContent"`
 }
 
+type CfnApplicationV2_CustomArtifactConfigurationProperty struct {
+	// `CfnApplicationV2.CustomArtifactConfigurationProperty.ArtifactType`.
+	ArtifactType *string `json:"artifactType"`
+	// `CfnApplicationV2.CustomArtifactConfigurationProperty.MavenReference`.
+	MavenReference interface{} `json:"mavenReference"`
+	// `CfnApplicationV2.CustomArtifactConfigurationProperty.S3ContentLocation`.
+	S3ContentLocation interface{} `json:"s3ContentLocation"`
+}
+
+type CfnApplicationV2_DeployAsApplicationConfigurationProperty struct {
+	// `CfnApplicationV2.DeployAsApplicationConfigurationProperty.S3ContentLocation`.
+	S3ContentLocation interface{} `json:"s3ContentLocation"`
+}
+
 type CfnApplicationV2_EnvironmentPropertiesProperty struct {
 	// `CfnApplicationV2.EnvironmentPropertiesProperty.PropertyGroups`.
 	PropertyGroups interface{} `json:"propertyGroups"`
@@ -4711,6 +4752,11 @@ type CfnApplicationV2_FlinkApplicationConfigurationProperty struct {
 	MonitoringConfiguration interface{} `json:"monitoringConfiguration"`
 	// `CfnApplicationV2.FlinkApplicationConfigurationProperty.ParallelismConfiguration`.
 	ParallelismConfiguration interface{} `json:"parallelismConfiguration"`
+}
+
+type CfnApplicationV2_GlueDataCatalogConfigurationProperty struct {
+	// `CfnApplicationV2.GlueDataCatalogConfigurationProperty.DatabaseARN`.
+	DatabaseArn *string `json:"databaseArn"`
 }
 
 type CfnApplicationV2_InputLambdaProcessorProperty struct {
@@ -4774,6 +4820,15 @@ type CfnApplicationV2_MappingParametersProperty struct {
 	JsonMappingParameters interface{} `json:"jsonMappingParameters"`
 }
 
+type CfnApplicationV2_MavenReferenceProperty struct {
+	// `CfnApplicationV2.MavenReferenceProperty.ArtifactId`.
+	ArtifactId *string `json:"artifactId"`
+	// `CfnApplicationV2.MavenReferenceProperty.GroupId`.
+	GroupId *string `json:"groupId"`
+	// `CfnApplicationV2.MavenReferenceProperty.Version`.
+	Version *string `json:"version"`
+}
+
 type CfnApplicationV2_MonitoringConfigurationProperty struct {
 	// `CfnApplicationV2.MonitoringConfigurationProperty.ConfigurationType`.
 	ConfigurationType *string `json:"configurationType"`
@@ -4817,6 +4872,13 @@ type CfnApplicationV2_RecordFormatProperty struct {
 	MappingParameters interface{} `json:"mappingParameters"`
 }
 
+type CfnApplicationV2_S3ContentBaseLocationProperty struct {
+	// `CfnApplicationV2.S3ContentBaseLocationProperty.BasePath`.
+	BasePath *string `json:"basePath"`
+	// `CfnApplicationV2.S3ContentBaseLocationProperty.BucketARN`.
+	BucketArn *string `json:"bucketArn"`
+}
+
 type CfnApplicationV2_S3ContentLocationProperty struct {
 	// `CfnApplicationV2.S3ContentLocationProperty.BucketARN`.
 	BucketArn *string `json:"bucketArn"`
@@ -4831,6 +4893,22 @@ type CfnApplicationV2_SqlApplicationConfigurationProperty struct {
 	Inputs interface{} `json:"inputs"`
 }
 
+type CfnApplicationV2_ZeppelinApplicationConfigurationProperty struct {
+	// `CfnApplicationV2.ZeppelinApplicationConfigurationProperty.CatalogConfiguration`.
+	CatalogConfiguration interface{} `json:"catalogConfiguration"`
+	// `CfnApplicationV2.ZeppelinApplicationConfigurationProperty.CustomArtifactsConfiguration`.
+	CustomArtifactsConfiguration interface{} `json:"customArtifactsConfiguration"`
+	// `CfnApplicationV2.ZeppelinApplicationConfigurationProperty.DeployAsApplicationConfiguration`.
+	DeployAsApplicationConfiguration interface{} `json:"deployAsApplicationConfiguration"`
+	// `CfnApplicationV2.ZeppelinApplicationConfigurationProperty.MonitoringConfiguration`.
+	MonitoringConfiguration interface{} `json:"monitoringConfiguration"`
+}
+
+type CfnApplicationV2_ZeppelinMonitoringConfigurationProperty struct {
+	// `CfnApplicationV2.ZeppelinMonitoringConfigurationProperty.LogLevel`.
+	LogLevel *string `json:"logLevel"`
+}
+
 // Properties for defining a `AWS::KinesisAnalyticsV2::Application`.
 type CfnApplicationV2Props struct {
 	// `AWS::KinesisAnalyticsV2::Application.RuntimeEnvironment`.
@@ -4841,6 +4919,8 @@ type CfnApplicationV2Props struct {
 	ApplicationConfiguration interface{} `json:"applicationConfiguration"`
 	// `AWS::KinesisAnalyticsV2::Application.ApplicationDescription`.
 	ApplicationDescription *string `json:"applicationDescription"`
+	// `AWS::KinesisAnalyticsV2::Application.ApplicationMode`.
+	ApplicationMode *string `json:"applicationMode"`
 	// `AWS::KinesisAnalyticsV2::Application.ApplicationName`.
 	ApplicationName *string `json:"applicationName"`
 	// `AWS::KinesisAnalyticsV2::Application.Tags`.

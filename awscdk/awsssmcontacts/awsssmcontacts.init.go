@@ -55,6 +55,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_ssmcontacts.CfnContact.ChannelTargetInfoProperty",
+		reflect.TypeOf((*CfnContact_ChannelTargetInfoProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ssmcontacts.CfnContact.ContactTargetInfoProperty",
+		reflect.TypeOf((*CfnContact_ContactTargetInfoProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_ssmcontacts.CfnContact.StageProperty",
 		reflect.TypeOf((*CfnContact_StageProperty)(nil)).Elem(),
 	)

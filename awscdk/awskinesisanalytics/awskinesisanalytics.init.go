@@ -465,6 +465,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberProperty{JsiiProperty: "applicationConfiguration", GoGetter: "ApplicationConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "applicationDescription", GoGetter: "ApplicationDescription"},
+			_jsii_.MemberProperty{JsiiProperty: "applicationMode", GoGetter: "ApplicationMode"},
 			_jsii_.MemberProperty{JsiiProperty: "applicationName", GoGetter: "ApplicationName"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
@@ -518,6 +519,10 @@ func init() {
 		reflect.TypeOf((*CfnApplicationV2_CSVMappingParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_kinesisanalytics.CfnApplicationV2.CatalogConfigurationProperty",
+		reflect.TypeOf((*CfnApplicationV2_CatalogConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_kinesisanalytics.CfnApplicationV2.CheckpointConfigurationProperty",
 		reflect.TypeOf((*CfnApplicationV2_CheckpointConfigurationProperty)(nil)).Elem(),
 	)
@@ -526,12 +531,24 @@ func init() {
 		reflect.TypeOf((*CfnApplicationV2_CodeContentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_kinesisanalytics.CfnApplicationV2.CustomArtifactConfigurationProperty",
+		reflect.TypeOf((*CfnApplicationV2_CustomArtifactConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_kinesisanalytics.CfnApplicationV2.DeployAsApplicationConfigurationProperty",
+		reflect.TypeOf((*CfnApplicationV2_DeployAsApplicationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_kinesisanalytics.CfnApplicationV2.EnvironmentPropertiesProperty",
 		reflect.TypeOf((*CfnApplicationV2_EnvironmentPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_kinesisanalytics.CfnApplicationV2.FlinkApplicationConfigurationProperty",
 		reflect.TypeOf((*CfnApplicationV2_FlinkApplicationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_kinesisanalytics.CfnApplicationV2.GlueDataCatalogConfigurationProperty",
+		reflect.TypeOf((*CfnApplicationV2_GlueDataCatalogConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_kinesisanalytics.CfnApplicationV2.InputLambdaProcessorProperty",
@@ -570,6 +587,10 @@ func init() {
 		reflect.TypeOf((*CfnApplicationV2_MappingParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_kinesisanalytics.CfnApplicationV2.MavenReferenceProperty",
+		reflect.TypeOf((*CfnApplicationV2_MavenReferenceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_kinesisanalytics.CfnApplicationV2.MonitoringConfigurationProperty",
 		reflect.TypeOf((*CfnApplicationV2_MonitoringConfigurationProperty)(nil)).Elem(),
 	)
@@ -590,12 +611,24 @@ func init() {
 		reflect.TypeOf((*CfnApplicationV2_RecordFormatProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_kinesisanalytics.CfnApplicationV2.S3ContentBaseLocationProperty",
+		reflect.TypeOf((*CfnApplicationV2_S3ContentBaseLocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_kinesisanalytics.CfnApplicationV2.S3ContentLocationProperty",
 		reflect.TypeOf((*CfnApplicationV2_S3ContentLocationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_kinesisanalytics.CfnApplicationV2.SqlApplicationConfigurationProperty",
 		reflect.TypeOf((*CfnApplicationV2_SqlApplicationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_kinesisanalytics.CfnApplicationV2.ZeppelinApplicationConfigurationProperty",
+		reflect.TypeOf((*CfnApplicationV2_ZeppelinApplicationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_kinesisanalytics.CfnApplicationV2.ZeppelinMonitoringConfigurationProperty",
+		reflect.TypeOf((*CfnApplicationV2_ZeppelinMonitoringConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_kinesisanalytics.CfnApplicationV2Props",

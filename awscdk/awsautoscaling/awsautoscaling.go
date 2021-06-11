@@ -1390,6 +1390,8 @@ type CfnAutoScalingGroup interface {
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
+	Context() *string
+	SetContext(val *string)
 	Cooldown() *string
 	SetCooldown(val *string)
 	CreationStack() *[]*string
@@ -1523,6 +1525,16 @@ func (j *jsiiProxy_CfnAutoScalingGroup) CfnResourceType() *string {
 	_jsii_.Get(
 		j,
 		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAutoScalingGroup) Context() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"context",
 		&returns,
 	)
 	return returns
@@ -1855,6 +1867,14 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetCapacityRebalance(val interface{}) {
 	_jsii_.Set(
 		j,
 		"capacityRebalance",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAutoScalingGroup) SetContext(val *string) {
+	_jsii_.Set(
+		j,
+		"context",
 		val,
 	)
 }
@@ -2525,6 +2545,8 @@ type CfnAutoScalingGroupProps struct {
 	AvailabilityZones *[]*string `json:"availabilityZones"`
 	// `AWS::AutoScaling::AutoScalingGroup.CapacityRebalance`.
 	CapacityRebalance interface{} `json:"capacityRebalance"`
+	// `AWS::AutoScaling::AutoScalingGroup.Context`.
+	Context *string `json:"context"`
 	// `AWS::AutoScaling::AutoScalingGroup.Cooldown`.
 	Cooldown *string `json:"cooldown"`
 	// `AWS::AutoScaling::AutoScalingGroup.DesiredCapacity`.

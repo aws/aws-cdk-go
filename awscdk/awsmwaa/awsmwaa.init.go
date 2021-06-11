@@ -21,7 +21,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "airflowVersion", GoGetter: "AirflowVersion"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
-			_jsii_.MemberProperty{JsiiProperty: "attrCloudWatchLogGroupArn", GoGetter: "AttrCloudWatchLogGroupArn"},
+			_jsii_.MemberProperty{JsiiProperty: "attrLoggingConfigurationDagProcessingLogsCloudWatchLogGroupArn", GoGetter: "AttrLoggingConfigurationDagProcessingLogsCloudWatchLogGroupArn"},
 			_jsii_.MemberProperty{JsiiProperty: "attrWebserverUrl", GoGetter: "AttrWebserverUrl"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},

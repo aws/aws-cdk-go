@@ -15,6 +15,7 @@ import (
 type CfnFileSystem interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrDnsName() *string
 	AttrLustreMountName() *string
 	BackupId() *string
 	SetBackupId(val *string)
@@ -71,6 +72,16 @@ type CfnFileSystem interface {
 type jsiiProxy_CfnFileSystem struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnFileSystem) AttrDnsName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrDnsName",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnFileSystem) AttrLustreMountName() *string {

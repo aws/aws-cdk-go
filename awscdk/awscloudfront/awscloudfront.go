@@ -3231,6 +3231,7 @@ type CfnFunction interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	AttrFunctionArn() *string
+	AttrFunctionMetadataFunctionArn() *string
 	AttrStage() *string
 	AutoPublish() interface{}
 	SetAutoPublish(val interface{})
@@ -3285,6 +3286,16 @@ func (j *jsiiProxy_CfnFunction) AttrFunctionArn() *string {
 	_jsii_.Get(
 		j,
 		"attrFunctionArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFunction) AttrFunctionMetadataFunctionArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrFunctionMetadataFunctionArn",
 		&returns,
 	)
 	return returns

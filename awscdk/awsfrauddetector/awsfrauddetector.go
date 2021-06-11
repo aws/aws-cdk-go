@@ -18,6 +18,9 @@ type CfnDetector interface {
 	AttrArn() *string
 	AttrCreatedTime() *string
 	AttrDetectorVersionId() *string
+	AttrEventTypeArn() *string
+	AttrEventTypeCreatedTime() *string
+	AttrEventTypeLastUpdatedTime() *string
 	AttrLastUpdatedTime() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -105,6 +108,36 @@ func (j *jsiiProxy_CfnDetector) AttrDetectorVersionId() *string {
 	_jsii_.Get(
 		j,
 		"attrDetectorVersionId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDetector) AttrEventTypeArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrEventTypeArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDetector) AttrEventTypeCreatedTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrEventTypeCreatedTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDetector) AttrEventTypeLastUpdatedTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrEventTypeLastUpdatedTime",
 		&returns,
 	)
 	return returns

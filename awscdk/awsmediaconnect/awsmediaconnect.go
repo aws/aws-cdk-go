@@ -15,8 +15,8 @@ type CfnFlow interface {
 	awscdk.IInspectable
 	AttrFlowArn() *string
 	AttrFlowAvailabilityZone() *string
-	AttrIngestIp() *string
-	AttrSourceArn() *string
+	AttrSourceIngestIp() *string
+	AttrSourceSourceArn() *string
 	AvailabilityZone() *string
 	SetAvailabilityZone(val *string)
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -83,21 +83,21 @@ func (j *jsiiProxy_CfnFlow) AttrFlowAvailabilityZone() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlow) AttrIngestIp() *string {
+func (j *jsiiProxy_CfnFlow) AttrSourceIngestIp() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrIngestIp",
+		"attrSourceIngestIp",
 		&returns,
 	)
 	return returns
 }
 
-func (j *jsiiProxy_CfnFlow) AttrSourceArn() *string {
+func (j *jsiiProxy_CfnFlow) AttrSourceSourceArn() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrSourceArn",
+		"attrSourceSourceArn",
 		&returns,
 	)
 	return returns

@@ -23,7 +23,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrAssessmentId", GoGetter: "AttrAssessmentId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrCreationTime", GoGetter: "AttrCreationTime"},
 			_jsii_.MemberProperty{JsiiProperty: "attrDelegations", GoGetter: "AttrDelegations"},
-			_jsii_.MemberProperty{JsiiProperty: "attrFrameworkId", GoGetter: "AttrFrameworkId"},
 			_jsii_.MemberProperty{JsiiProperty: "awsAccount", GoGetter: "AwsAccount"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},

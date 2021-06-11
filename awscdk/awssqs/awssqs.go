@@ -24,10 +24,14 @@ type CfnQueue interface {
 	ContentBasedDeduplication() interface{}
 	SetContentBasedDeduplication(val interface{})
 	CreationStack() *[]*string
+	DeduplicationScope() *string
+	SetDeduplicationScope(val *string)
 	DelaySeconds() *float64
 	SetDelaySeconds(val *float64)
 	FifoQueue() interface{}
 	SetFifoQueue(val interface{})
+	FifoThroughputLimit() *string
+	SetFifoThroughputLimit(val *string)
 	KmsDataKeyReusePeriodSeconds() *float64
 	SetKmsDataKeyReusePeriodSeconds(val *float64)
 	KmsMasterKeyId() *string
@@ -149,6 +153,16 @@ func (j *jsiiProxy_CfnQueue) CreationStack() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnQueue) DeduplicationScope() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"deduplicationScope",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnQueue) DelaySeconds() *float64 {
 	var returns *float64
 	_jsii_.Get(
@@ -164,6 +178,16 @@ func (j *jsiiProxy_CfnQueue) FifoQueue() interface{} {
 	_jsii_.Get(
 		j,
 		"fifoQueue",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnQueue) FifoThroughputLimit() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fifoThroughputLimit",
 		&returns,
 	)
 	return returns
@@ -344,6 +368,14 @@ func (j *jsiiProxy_CfnQueue) SetContentBasedDeduplication(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnQueue) SetDeduplicationScope(val *string) {
+	_jsii_.Set(
+		j,
+		"deduplicationScope",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnQueue) SetDelaySeconds(val *float64) {
 	_jsii_.Set(
 		j,
@@ -356,6 +388,14 @@ func (j *jsiiProxy_CfnQueue) SetFifoQueue(val interface{}) {
 	_jsii_.Set(
 		j,
 		"fifoQueue",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnQueue) SetFifoThroughputLimit(val *string) {
+	_jsii_.Set(
+		j,
+		"fifoThroughputLimit",
 		val,
 	)
 }
@@ -1433,10 +1473,14 @@ type CfnQueuePolicyProps struct {
 type CfnQueueProps struct {
 	// `AWS::SQS::Queue.ContentBasedDeduplication`.
 	ContentBasedDeduplication interface{} `json:"contentBasedDeduplication"`
+	// `AWS::SQS::Queue.DeduplicationScope`.
+	DeduplicationScope *string `json:"deduplicationScope"`
 	// `AWS::SQS::Queue.DelaySeconds`.
 	DelaySeconds *float64 `json:"delaySeconds"`
 	// `AWS::SQS::Queue.FifoQueue`.
 	FifoQueue interface{} `json:"fifoQueue"`
+	// `AWS::SQS::Queue.FifoThroughputLimit`.
+	FifoThroughputLimit *string `json:"fifoThroughputLimit"`
 	// `AWS::SQS::Queue.KmsDataKeyReusePeriodSeconds`.
 	KmsDataKeyReusePeriodSeconds *float64 `json:"kmsDataKeyReusePeriodSeconds"`
 	// `AWS::SQS::Queue.KmsMasterKeyId`.

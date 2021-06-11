@@ -1360,7 +1360,7 @@ type CfnWorkGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	AttrCreationTime() *string
-	AttrEffectiveEngineVersion() *string
+	AttrWorkGroupConfigurationEngineVersionEffectiveEngineVersion() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -1422,11 +1422,11 @@ func (j *jsiiProxy_CfnWorkGroup) AttrCreationTime() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkGroup) AttrEffectiveEngineVersion() *string {
+func (j *jsiiProxy_CfnWorkGroup) AttrWorkGroupConfigurationEngineVersionEffectiveEngineVersion() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrEffectiveEngineVersion",
+		"attrWorkGroupConfigurationEngineVersionEffectiveEngineVersion",
 		&returns,
 	)
 	return returns

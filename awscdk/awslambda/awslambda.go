@@ -4478,8 +4478,6 @@ type CfnFunction interface {
 	SetFunctionName(val *string)
 	Handler() *string
 	SetHandler(val *string)
-	Id() *string
-	SetId(val *string)
 	ImageConfig() interface{}
 	SetImageConfig(val interface{})
 	KmsKeyArn() *string
@@ -4662,16 +4660,6 @@ func (j *jsiiProxy_CfnFunction) Handler() *string {
 	_jsii_.Get(
 		j,
 		"handler",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnFunction) Id() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"id",
 		&returns,
 	)
 	return returns
@@ -4934,14 +4922,6 @@ func (j *jsiiProxy_CfnFunction) SetHandler(val *string) {
 	_jsii_.Set(
 		j,
 		"handler",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnFunction) SetId(val *string) {
-	_jsii_.Set(
-		j,
-		"id",
 		val,
 	)
 }
@@ -5504,8 +5484,6 @@ type CfnFunctionProps struct {
 	FunctionName *string `json:"functionName"`
 	// `AWS::Lambda::Function.Handler`.
 	Handler *string `json:"handler"`
-	// `AWS::Lambda::Function.Id`.
-	Id *string `json:"id"`
 	// `AWS::Lambda::Function.ImageConfig`.
 	ImageConfig interface{} `json:"imageConfig"`
 	// `AWS::Lambda::Function.KmsKeyArn`.
@@ -5537,8 +5515,6 @@ type CfnLayerVersion interface {
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
-	CompatibleArchitectures() *[]*string
-	SetCompatibleArchitectures(val *[]*string)
 	CompatibleRuntimes() *[]*string
 	SetCompatibleRuntimes(val *[]*string)
 	Content() interface{}
@@ -5609,16 +5585,6 @@ func (j *jsiiProxy_CfnLayerVersion) CfnResourceType() *string {
 	_jsii_.Get(
 		j,
 		"cfnResourceType",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnLayerVersion) CompatibleArchitectures() *[]*string {
-	var returns *[]*string
-	_jsii_.Get(
-		j,
-		"compatibleArchitectures",
 		&returns,
 	)
 	return returns
@@ -5758,14 +5724,6 @@ func NewCfnLayerVersion_Override(c CfnLayerVersion, scope awscdk.Construct, id *
 		"monocdk.aws_lambda.CfnLayerVersion",
 		[]interface{}{scope, id, props},
 		c,
-	)
-}
-
-func (j *jsiiProxy_CfnLayerVersion) SetCompatibleArchitectures(val *[]*string) {
-	_jsii_.Set(
-		j,
-		"compatibleArchitectures",
-		val,
 	)
 }
 
@@ -6871,8 +6829,6 @@ type CfnLayerVersionPermissionProps struct {
 type CfnLayerVersionProps struct {
 	// `AWS::Lambda::LayerVersion.Content`.
 	Content interface{} `json:"content"`
-	// `AWS::Lambda::LayerVersion.CompatibleArchitectures`.
-	CompatibleArchitectures *[]*string `json:"compatibleArchitectures"`
 	// `AWS::Lambda::LayerVersion.CompatibleRuntimes`.
 	CompatibleRuntimes *[]*string `json:"compatibleRuntimes"`
 	// `AWS::Lambda::LayerVersion.Description`.

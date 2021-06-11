@@ -3553,8 +3553,6 @@ type CfnAuthorizerProps struct {
 	ApiId *string `json:"apiId"`
 	// `AWS::ApiGatewayV2::Authorizer.AuthorizerType`.
 	AuthorizerType *string `json:"authorizerType"`
-	// `AWS::ApiGatewayV2::Authorizer.IdentitySource`.
-	IdentitySource *[]*string `json:"identitySource"`
 	// `AWS::ApiGatewayV2::Authorizer.Name`.
 	Name *string `json:"name"`
 	// `AWS::ApiGatewayV2::Authorizer.AuthorizerCredentialsArn`.
@@ -3567,6 +3565,8 @@ type CfnAuthorizerProps struct {
 	AuthorizerUri *string `json:"authorizerUri"`
 	// `AWS::ApiGatewayV2::Authorizer.EnableSimpleResponses`.
 	EnableSimpleResponses interface{} `json:"enableSimpleResponses"`
+	// `AWS::ApiGatewayV2::Authorizer.IdentitySource`.
+	IdentitySource *[]*string `json:"identitySource"`
 	// `AWS::ApiGatewayV2::Authorizer.IdentityValidationExpression`.
 	IdentityValidationExpression *string `json:"identityValidationExpression"`
 	// `AWS::ApiGatewayV2::Authorizer.JwtConfiguration`.

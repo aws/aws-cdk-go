@@ -24,6 +24,8 @@ type CfnResourceShare interface {
 	Name() *string
 	SetName(val *string)
 	Node() awscdk.ConstructNode
+	PermissionArns() *[]*string
+	SetPermissionArns(val *[]*string)
 	Principals() *[]*string
 	SetPrincipals(val *[]*string)
 	Ref() *string
@@ -151,6 +153,16 @@ func (j *jsiiProxy_CfnResourceShare) Node() awscdk.ConstructNode {
 	return returns
 }
 
+func (j *jsiiProxy_CfnResourceShare) PermissionArns() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"permissionArns",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnResourceShare) Principals() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -250,6 +262,14 @@ func (j *jsiiProxy_CfnResourceShare) SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnResourceShare) SetPermissionArns(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"permissionArns",
 		val,
 	)
 }
@@ -675,6 +695,8 @@ type CfnResourceShareProps struct {
 	Name *string `json:"name"`
 	// `AWS::RAM::ResourceShare.AllowExternalPrincipals`.
 	AllowExternalPrincipals interface{} `json:"allowExternalPrincipals"`
+	// `AWS::RAM::ResourceShare.PermissionArns`.
+	PermissionArns *[]*string `json:"permissionArns"`
 	// `AWS::RAM::ResourceShare.Principals`.
 	Principals *[]*string `json:"principals"`
 	// `AWS::RAM::ResourceShare.ResourceArns`.

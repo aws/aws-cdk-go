@@ -1384,6 +1384,7 @@ type CfnCodeRepository interface {
 	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
+	Tags() awscdk.TagManager
 	UpdatedProperites() *map[string]interface{}
 	AddDeletionOverride(path *string)
 	AddDependsOn(target awscdk.CfnResource)
@@ -1519,6 +1520,16 @@ func (j *jsiiProxy_CfnCodeRepository) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCodeRepository) Tags() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"tags",
 		&returns,
 	)
 	return returns
@@ -1991,6 +2002,8 @@ type CfnCodeRepositoryProps struct {
 	GitConfig interface{} `json:"gitConfig"`
 	// `AWS::SageMaker::CodeRepository.CodeRepositoryName`.
 	CodeRepositoryName *string `json:"codeRepositoryName"`
+	// `AWS::SageMaker::CodeRepository.Tags`.
+	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::SageMaker::DataQualityJobDefinition`.
