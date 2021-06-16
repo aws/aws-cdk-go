@@ -1,15 +1,15 @@
 package awslambdadestinations
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/awslambdadestinations/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awssns"
-	"github.com/aws/aws-cdk-go/awscdk/awssqs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambdadestinations/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Use an Event Bridge event bus as a Lambda destination.
@@ -18,7 +18,7 @@ import (
 // Experimental.
 type EventBridgeDestination interface {
 	awslambda.IDestination
-	Bind(_scope awscdk.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig
+	Bind(_scope constructs.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig
 }
 
 // The jsii proxy struct for EventBridgeDestination
@@ -33,7 +33,7 @@ func NewEventBridgeDestination(eventBus awsevents.IEventBus) EventBridgeDestinat
 	j := jsiiProxy_EventBridgeDestination{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_destinations.EventBridgeDestination",
+		"aws-cdk-lib.aws_lambda_destinations.EventBridgeDestination",
 		[]interface{}{eventBus},
 		&j,
 	)
@@ -46,7 +46,7 @@ func NewEventBridgeDestination_Override(e EventBridgeDestination, eventBus awsev
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_destinations.EventBridgeDestination",
+		"aws-cdk-lib.aws_lambda_destinations.EventBridgeDestination",
 		[]interface{}{eventBus},
 		e,
 	)
@@ -54,7 +54,7 @@ func NewEventBridgeDestination_Override(e EventBridgeDestination, eventBus awsev
 
 // Returns a destination configuration.
 // Experimental.
-func (e *jsiiProxy_EventBridgeDestination) Bind(_scope awscdk.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig {
+func (e *jsiiProxy_EventBridgeDestination) Bind(_scope constructs.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig {
 	var returns *awslambda.DestinationConfig
 
 	_jsii_.Invoke(
@@ -71,7 +71,7 @@ func (e *jsiiProxy_EventBridgeDestination) Bind(_scope awscdk.Construct, fn awsl
 // Experimental.
 type LambdaDestination interface {
 	awslambda.IDestination
-	Bind(scope awscdk.Construct, fn awslambda.IFunction, options *awslambda.DestinationOptions) *awslambda.DestinationConfig
+	Bind(scope constructs.Construct, fn awslambda.IFunction, options *awslambda.DestinationOptions) *awslambda.DestinationConfig
 }
 
 // The jsii proxy struct for LambdaDestination
@@ -86,7 +86,7 @@ func NewLambdaDestination(fn awslambda.IFunction, options *LambdaDestinationOpti
 	j := jsiiProxy_LambdaDestination{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_destinations.LambdaDestination",
+		"aws-cdk-lib.aws_lambda_destinations.LambdaDestination",
 		[]interface{}{fn, options},
 		&j,
 	)
@@ -99,7 +99,7 @@ func NewLambdaDestination_Override(l LambdaDestination, fn awslambda.IFunction, 
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_destinations.LambdaDestination",
+		"aws-cdk-lib.aws_lambda_destinations.LambdaDestination",
 		[]interface{}{fn, options},
 		l,
 	)
@@ -107,7 +107,7 @@ func NewLambdaDestination_Override(l LambdaDestination, fn awslambda.IFunction, 
 
 // Returns a destination configuration.
 // Experimental.
-func (l *jsiiProxy_LambdaDestination) Bind(scope awscdk.Construct, fn awslambda.IFunction, options *awslambda.DestinationOptions) *awslambda.DestinationConfig {
+func (l *jsiiProxy_LambdaDestination) Bind(scope constructs.Construct, fn awslambda.IFunction, options *awslambda.DestinationOptions) *awslambda.DestinationConfig {
 	var returns *awslambda.DestinationConfig
 
 	_jsii_.Invoke(
@@ -140,7 +140,7 @@ type LambdaDestinationOptions struct {
 // Experimental.
 type SnsDestination interface {
 	awslambda.IDestination
-	Bind(_scope awscdk.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig
+	Bind(_scope constructs.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig
 }
 
 // The jsii proxy struct for SnsDestination
@@ -155,7 +155,7 @@ func NewSnsDestination(topic awssns.ITopic) SnsDestination {
 	j := jsiiProxy_SnsDestination{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_destinations.SnsDestination",
+		"aws-cdk-lib.aws_lambda_destinations.SnsDestination",
 		[]interface{}{topic},
 		&j,
 	)
@@ -168,7 +168,7 @@ func NewSnsDestination_Override(s SnsDestination, topic awssns.ITopic) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_destinations.SnsDestination",
+		"aws-cdk-lib.aws_lambda_destinations.SnsDestination",
 		[]interface{}{topic},
 		s,
 	)
@@ -176,7 +176,7 @@ func NewSnsDestination_Override(s SnsDestination, topic awssns.ITopic) {
 
 // Returns a destination configuration.
 // Experimental.
-func (s *jsiiProxy_SnsDestination) Bind(_scope awscdk.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig {
+func (s *jsiiProxy_SnsDestination) Bind(_scope constructs.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig {
 	var returns *awslambda.DestinationConfig
 
 	_jsii_.Invoke(
@@ -193,7 +193,7 @@ func (s *jsiiProxy_SnsDestination) Bind(_scope awscdk.Construct, fn awslambda.IF
 // Experimental.
 type SqsDestination interface {
 	awslambda.IDestination
-	Bind(_scope awscdk.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig
+	Bind(_scope constructs.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig
 }
 
 // The jsii proxy struct for SqsDestination
@@ -208,7 +208,7 @@ func NewSqsDestination(queue awssqs.IQueue) SqsDestination {
 	j := jsiiProxy_SqsDestination{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_destinations.SqsDestination",
+		"aws-cdk-lib.aws_lambda_destinations.SqsDestination",
 		[]interface{}{queue},
 		&j,
 	)
@@ -221,7 +221,7 @@ func NewSqsDestination_Override(s SqsDestination, queue awssqs.IQueue) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_destinations.SqsDestination",
+		"aws-cdk-lib.aws_lambda_destinations.SqsDestination",
 		[]interface{}{queue},
 		s,
 	)
@@ -229,7 +229,7 @@ func NewSqsDestination_Override(s SqsDestination, queue awssqs.IQueue) {
 
 // Returns a destination configuration.
 // Experimental.
-func (s *jsiiProxy_SqsDestination) Bind(_scope awscdk.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig {
+func (s *jsiiProxy_SqsDestination) Bind(_scope constructs.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig {
 	var returns *awslambda.DestinationConfig
 
 	_jsii_.Invoke(
