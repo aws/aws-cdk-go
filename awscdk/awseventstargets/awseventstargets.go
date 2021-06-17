@@ -1,26 +1,25 @@
 package awseventstargets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodebuild"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisfirehose"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsapigateway"
+	"github.com/aws/aws-cdk-go/awscdk/awscodebuild"
+	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsecs"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/awseventstargets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awskinesis"
+	"github.com/aws/aws-cdk-go/awscdk/awskinesisfirehose"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/awssqs"
+	"github.com/aws/aws-cdk-go/awscdk/awsstepfunctions"
 )
 
 // Use an API Gateway REST APIs as a target for Amazon EventBridge rules.
@@ -54,7 +53,7 @@ func NewApiGateway(restApi awsapigateway.RestApi, props *ApiGatewayProps) ApiGat
 	j := jsiiProxy_ApiGateway{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.ApiGateway",
+		"monocdk.aws_events_targets.ApiGateway",
 		[]interface{}{restApi, props},
 		&j,
 	)
@@ -67,7 +66,7 @@ func NewApiGateway_Override(a ApiGateway, restApi awsapigateway.RestApi, props *
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.ApiGateway",
+		"monocdk.aws_events_targets.ApiGateway",
 		[]interface{}{restApi, props},
 		a,
 	)
@@ -160,7 +159,7 @@ func NewAwsApi(props *AwsApiProps) AwsApi {
 	j := jsiiProxy_AwsApi{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.AwsApi",
+		"monocdk.aws_events_targets.AwsApi",
 		[]interface{}{props},
 		&j,
 	)
@@ -173,7 +172,7 @@ func NewAwsApi_Override(a AwsApi, props *AwsApiProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.AwsApi",
+		"monocdk.aws_events_targets.AwsApi",
 		[]interface{}{props},
 		a,
 	)
@@ -282,13 +281,13 @@ type jsiiProxy_BatchJob struct {
 }
 
 // Experimental.
-func NewBatchJob(jobQueueArn *string, jobQueueScope constructs.IConstruct, jobDefinitionArn *string, jobDefinitionScope constructs.IConstruct, props *BatchJobProps) BatchJob {
+func NewBatchJob(jobQueueArn *string, jobQueueScope awscdk.IConstruct, jobDefinitionArn *string, jobDefinitionScope awscdk.IConstruct, props *BatchJobProps) BatchJob {
 	_init_.Initialize()
 
 	j := jsiiProxy_BatchJob{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.BatchJob",
+		"monocdk.aws_events_targets.BatchJob",
 		[]interface{}{jobQueueArn, jobQueueScope, jobDefinitionArn, jobDefinitionScope, props},
 		&j,
 	)
@@ -297,11 +296,11 @@ func NewBatchJob(jobQueueArn *string, jobQueueScope constructs.IConstruct, jobDe
 }
 
 // Experimental.
-func NewBatchJob_Override(b BatchJob, jobQueueArn *string, jobQueueScope constructs.IConstruct, jobDefinitionArn *string, jobDefinitionScope constructs.IConstruct, props *BatchJobProps) {
+func NewBatchJob_Override(b BatchJob, jobQueueArn *string, jobQueueScope awscdk.IConstruct, jobDefinitionArn *string, jobDefinitionScope awscdk.IConstruct, props *BatchJobProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.BatchJob",
+		"monocdk.aws_events_targets.BatchJob",
 		[]interface{}{jobQueueArn, jobQueueScope, jobDefinitionArn, jobDefinitionScope, props},
 		b,
 	)
@@ -364,7 +363,7 @@ func NewCloudWatchLogGroup(logGroup awslogs.ILogGroup, props *LogGroupProps) Clo
 	j := jsiiProxy_CloudWatchLogGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.CloudWatchLogGroup",
+		"monocdk.aws_events_targets.CloudWatchLogGroup",
 		[]interface{}{logGroup, props},
 		&j,
 	)
@@ -377,7 +376,7 @@ func NewCloudWatchLogGroup_Override(c CloudWatchLogGroup, logGroup awslogs.ILogG
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.CloudWatchLogGroup",
+		"monocdk.aws_events_targets.CloudWatchLogGroup",
 		[]interface{}{logGroup, props},
 		c,
 	)
@@ -417,7 +416,7 @@ func NewCodeBuildProject(project awscodebuild.IProject, props *CodeBuildProjectP
 	j := jsiiProxy_CodeBuildProject{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.CodeBuildProject",
+		"monocdk.aws_events_targets.CodeBuildProject",
 		[]interface{}{project, props},
 		&j,
 	)
@@ -430,7 +429,7 @@ func NewCodeBuildProject_Override(c CodeBuildProject, project awscodebuild.IProj
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.CodeBuildProject",
+		"monocdk.aws_events_targets.CodeBuildProject",
 		[]interface{}{project, props},
 		c,
 	)
@@ -502,7 +501,7 @@ func NewCodePipeline(pipeline awscodepipeline.IPipeline, options *CodePipelineTa
 	j := jsiiProxy_CodePipeline{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.CodePipeline",
+		"monocdk.aws_events_targets.CodePipeline",
 		[]interface{}{pipeline, options},
 		&j,
 	)
@@ -515,7 +514,7 @@ func NewCodePipeline_Override(c CodePipeline, pipeline awscodepipeline.IPipeline
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.CodePipeline",
+		"monocdk.aws_events_targets.CodePipeline",
 		[]interface{}{pipeline, options},
 		c,
 	)
@@ -591,6 +590,7 @@ type ContainerOverride struct {
 // Experimental.
 type EcsTask interface {
 	awsevents.IRuleTarget
+	SecurityGroup() awsec2.ISecurityGroup
 	SecurityGroups() *[]awsec2.ISecurityGroup
 	Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
 }
@@ -598,6 +598,16 @@ type EcsTask interface {
 // The jsii proxy struct for EcsTask
 type jsiiProxy_EcsTask struct {
 	internal.Type__awseventsIRuleTarget
+}
+
+func (j *jsiiProxy_EcsTask) SecurityGroup() awsec2.ISecurityGroup {
+	var returns awsec2.ISecurityGroup
+	_jsii_.Get(
+		j,
+		"securityGroup",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_EcsTask) SecurityGroups() *[]awsec2.ISecurityGroup {
@@ -618,7 +628,7 @@ func NewEcsTask(props *EcsTaskProps) EcsTask {
 	j := jsiiProxy_EcsTask{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.EcsTask",
+		"monocdk.aws_events_targets.EcsTask",
 		[]interface{}{props},
 		&j,
 	)
@@ -631,7 +641,7 @@ func NewEcsTask_Override(e EcsTask, props *EcsTaskProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.EcsTask",
+		"monocdk.aws_events_targets.EcsTask",
 		[]interface{}{props},
 		e,
 	)
@@ -677,6 +687,11 @@ type EcsTaskProps struct {
 	// Existing IAM role to run the ECS task.
 	// Experimental.
 	Role awsiam.IRole `json:"role"`
+	// Existing security group to use for the task's ENIs.
+	//
+	// (Only applicable in case the TaskDefinition is configured for AwsVpc networking)
+	// Deprecated: use securityGroups instead
+	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 	// Existing security groups to use for the task's ENIs.
 	//
 	// (Only applicable in case the TaskDefinition is configured for AwsVpc networking)
@@ -711,7 +726,7 @@ func NewEventBus(eventBus awsevents.IEventBus, props *EventBusProps) EventBus {
 	j := jsiiProxy_EventBus{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.EventBus",
+		"monocdk.aws_events_targets.EventBus",
 		[]interface{}{eventBus, props},
 		&j,
 	)
@@ -724,7 +739,7 @@ func NewEventBus_Override(e EventBus, eventBus awsevents.IEventBus, props *Event
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.EventBus",
+		"monocdk.aws_events_targets.EventBus",
 		[]interface{}{eventBus, props},
 		e,
 	)
@@ -774,7 +789,7 @@ func NewKinesisFirehoseStream(stream awskinesisfirehose.CfnDeliveryStream, props
 	j := jsiiProxy_KinesisFirehoseStream{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.KinesisFirehoseStream",
+		"monocdk.aws_events_targets.KinesisFirehoseStream",
 		[]interface{}{stream, props},
 		&j,
 	)
@@ -787,7 +802,7 @@ func NewKinesisFirehoseStream_Override(k KinesisFirehoseStream, stream awskinesi
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.KinesisFirehoseStream",
+		"monocdk.aws_events_targets.KinesisFirehoseStream",
 		[]interface{}{stream, props},
 		k,
 	)
@@ -840,7 +855,7 @@ func NewKinesisStream(stream awskinesis.IStream, props *KinesisStreamProps) Kine
 	j := jsiiProxy_KinesisStream{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.KinesisStream",
+		"monocdk.aws_events_targets.KinesisStream",
 		[]interface{}{stream, props},
 		&j,
 	)
@@ -853,7 +868,7 @@ func NewKinesisStream_Override(k KinesisStream, stream awskinesis.IStream, props
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.KinesisStream",
+		"monocdk.aws_events_targets.KinesisStream",
 		[]interface{}{stream, props},
 		k,
 	)
@@ -906,7 +921,7 @@ func NewLambdaFunction(handler awslambda.IFunction, props *LambdaFunctionProps) 
 	j := jsiiProxy_LambdaFunction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.LambdaFunction",
+		"monocdk.aws_events_targets.LambdaFunction",
 		[]interface{}{handler, props},
 		&j,
 	)
@@ -919,7 +934,7 @@ func NewLambdaFunction_Override(l LambdaFunction, handler awslambda.IFunction, p
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.LambdaFunction",
+		"monocdk.aws_events_targets.LambdaFunction",
 		[]interface{}{handler, props},
 		l,
 	)
@@ -1029,7 +1044,7 @@ func NewSfnStateMachine(machine awsstepfunctions.IStateMachine, props *SfnStateM
 	j := jsiiProxy_SfnStateMachine{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.SfnStateMachine",
+		"monocdk.aws_events_targets.SfnStateMachine",
 		[]interface{}{machine, props},
 		&j,
 	)
@@ -1042,7 +1057,7 @@ func NewSfnStateMachine_Override(s SfnStateMachine, machine awsstepfunctions.ISt
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.SfnStateMachine",
+		"monocdk.aws_events_targets.SfnStateMachine",
 		[]interface{}{machine, props},
 		s,
 	)
@@ -1129,7 +1144,7 @@ func NewSnsTopic(topic awssns.ITopic, props *SnsTopicProps) SnsTopic {
 	j := jsiiProxy_SnsTopic{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.SnsTopic",
+		"monocdk.aws_events_targets.SnsTopic",
 		[]interface{}{topic, props},
 		&j,
 	)
@@ -1142,7 +1157,7 @@ func NewSnsTopic_Override(s SnsTopic, topic awssns.ITopic, props *SnsTopicProps)
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.SnsTopic",
+		"monocdk.aws_events_targets.SnsTopic",
 		[]interface{}{topic, props},
 		s,
 	)
@@ -1207,7 +1222,7 @@ func NewSqsQueue(queue awssqs.IQueue, props *SqsQueueProps) SqsQueue {
 	j := jsiiProxy_SqsQueue{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.SqsQueue",
+		"monocdk.aws_events_targets.SqsQueue",
 		[]interface{}{queue, props},
 		&j,
 	)
@@ -1220,7 +1235,7 @@ func NewSqsQueue_Override(s SqsQueue, queue awssqs.IQueue, props *SqsQueueProps)
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.SqsQueue",
+		"monocdk.aws_events_targets.SqsQueue",
 		[]interface{}{queue, props},
 		s,
 	)
