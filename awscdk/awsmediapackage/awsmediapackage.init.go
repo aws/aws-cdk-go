@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_mediapackage.CfnAsset",
+		"aws-cdk-lib.aws_mediapackage.CfnAsset",
 		reflect.TypeOf((*CfnAsset)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -31,12 +31,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "packagingGroupId", GoGetter: "PackagingGroupId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "resourceId", GoGetter: "ResourceId"},
@@ -44,11 +40,9 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "sourceArn", GoGetter: "SourceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "sourceRoleArn", GoGetter: "SourceRoleArn"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -59,15 +53,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnAsset.EgressEndpointProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnAsset.EgressEndpointProperty",
 		reflect.TypeOf((*CfnAsset_EgressEndpointProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnAssetProps",
+		"aws-cdk-lib.aws_mediapackage.CfnAssetProps",
 		reflect.TypeOf((*CfnAssetProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_mediapackage.CfnChannel",
+		"aws-cdk-lib.aws_mediapackage.CfnChannel",
 		reflect.TypeOf((*CfnChannel)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -91,20 +85,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -115,15 +103,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnChannel.LogConfigurationProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnChannel.LogConfigurationProperty",
 		reflect.TypeOf((*CfnChannel_LogConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnChannelProps",
+		"aws-cdk-lib.aws_mediapackage.CfnChannelProps",
 		reflect.TypeOf((*CfnChannelProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_mediapackage.CfnOriginEndpoint",
+		"aws-cdk-lib.aws_mediapackage.CfnOriginEndpoint",
 		reflect.TypeOf((*CfnOriginEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -153,23 +141,17 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "manifestName", GoGetter: "ManifestName"},
 			_jsii_.MemberProperty{JsiiProperty: "mssPackage", GoGetter: "MssPackage"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "origination", GoGetter: "Origination"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "startoverWindowSeconds", GoGetter: "StartoverWindowSeconds"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "timeDelaySeconds", GoGetter: "TimeDelaySeconds"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "whitelist", GoGetter: "Whitelist"},
 		},
@@ -181,59 +163,59 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnOriginEndpoint.AuthorizationProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnOriginEndpoint.AuthorizationProperty",
 		reflect.TypeOf((*CfnOriginEndpoint_AuthorizationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnOriginEndpoint.CmafEncryptionProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnOriginEndpoint.CmafEncryptionProperty",
 		reflect.TypeOf((*CfnOriginEndpoint_CmafEncryptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnOriginEndpoint.CmafPackageProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnOriginEndpoint.CmafPackageProperty",
 		reflect.TypeOf((*CfnOriginEndpoint_CmafPackageProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnOriginEndpoint.DashEncryptionProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnOriginEndpoint.DashEncryptionProperty",
 		reflect.TypeOf((*CfnOriginEndpoint_DashEncryptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnOriginEndpoint.DashPackageProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnOriginEndpoint.DashPackageProperty",
 		reflect.TypeOf((*CfnOriginEndpoint_DashPackageProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnOriginEndpoint.HlsEncryptionProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnOriginEndpoint.HlsEncryptionProperty",
 		reflect.TypeOf((*CfnOriginEndpoint_HlsEncryptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnOriginEndpoint.HlsManifestProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnOriginEndpoint.HlsManifestProperty",
 		reflect.TypeOf((*CfnOriginEndpoint_HlsManifestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnOriginEndpoint.HlsPackageProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnOriginEndpoint.HlsPackageProperty",
 		reflect.TypeOf((*CfnOriginEndpoint_HlsPackageProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnOriginEndpoint.MssEncryptionProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnOriginEndpoint.MssEncryptionProperty",
 		reflect.TypeOf((*CfnOriginEndpoint_MssEncryptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnOriginEndpoint.MssPackageProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnOriginEndpoint.MssPackageProperty",
 		reflect.TypeOf((*CfnOriginEndpoint_MssPackageProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnOriginEndpoint.SpekeKeyProviderProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnOriginEndpoint.SpekeKeyProviderProperty",
 		reflect.TypeOf((*CfnOriginEndpoint_SpekeKeyProviderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnOriginEndpoint.StreamSelectionProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnOriginEndpoint.StreamSelectionProperty",
 		reflect.TypeOf((*CfnOriginEndpoint_StreamSelectionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnOriginEndpointProps",
+		"aws-cdk-lib.aws_mediapackage.CfnOriginEndpointProps",
 		reflect.TypeOf((*CfnOriginEndpointProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_mediapackage.CfnPackagingConfiguration",
+		"aws-cdk-lib.aws_mediapackage.CfnPackagingConfiguration",
 		reflect.TypeOf((*CfnPackagingConfiguration)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -258,21 +240,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "mssPackage", GoGetter: "MssPackage"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "packagingGroupId", GoGetter: "PackagingGroupId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -283,63 +259,63 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnPackagingConfiguration.CmafEncryptionProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnPackagingConfiguration.CmafEncryptionProperty",
 		reflect.TypeOf((*CfnPackagingConfiguration_CmafEncryptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnPackagingConfiguration.CmafPackageProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnPackagingConfiguration.CmafPackageProperty",
 		reflect.TypeOf((*CfnPackagingConfiguration_CmafPackageProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnPackagingConfiguration.DashEncryptionProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnPackagingConfiguration.DashEncryptionProperty",
 		reflect.TypeOf((*CfnPackagingConfiguration_DashEncryptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnPackagingConfiguration.DashManifestProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnPackagingConfiguration.DashManifestProperty",
 		reflect.TypeOf((*CfnPackagingConfiguration_DashManifestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnPackagingConfiguration.DashPackageProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnPackagingConfiguration.DashPackageProperty",
 		reflect.TypeOf((*CfnPackagingConfiguration_DashPackageProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnPackagingConfiguration.HlsEncryptionProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnPackagingConfiguration.HlsEncryptionProperty",
 		reflect.TypeOf((*CfnPackagingConfiguration_HlsEncryptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnPackagingConfiguration.HlsManifestProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnPackagingConfiguration.HlsManifestProperty",
 		reflect.TypeOf((*CfnPackagingConfiguration_HlsManifestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnPackagingConfiguration.HlsPackageProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnPackagingConfiguration.HlsPackageProperty",
 		reflect.TypeOf((*CfnPackagingConfiguration_HlsPackageProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnPackagingConfiguration.MssEncryptionProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnPackagingConfiguration.MssEncryptionProperty",
 		reflect.TypeOf((*CfnPackagingConfiguration_MssEncryptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnPackagingConfiguration.MssManifestProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnPackagingConfiguration.MssManifestProperty",
 		reflect.TypeOf((*CfnPackagingConfiguration_MssManifestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnPackagingConfiguration.MssPackageProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnPackagingConfiguration.MssPackageProperty",
 		reflect.TypeOf((*CfnPackagingConfiguration_MssPackageProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnPackagingConfiguration.SpekeKeyProviderProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnPackagingConfiguration.SpekeKeyProviderProperty",
 		reflect.TypeOf((*CfnPackagingConfiguration_SpekeKeyProviderProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnPackagingConfiguration.StreamSelectionProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnPackagingConfiguration.StreamSelectionProperty",
 		reflect.TypeOf((*CfnPackagingConfiguration_StreamSelectionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnPackagingConfigurationProps",
+		"aws-cdk-lib.aws_mediapackage.CfnPackagingConfigurationProps",
 		reflect.TypeOf((*CfnPackagingConfigurationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_mediapackage.CfnPackagingGroup",
+		"aws-cdk-lib.aws_mediapackage.CfnPackagingGroup",
 		reflect.TypeOf((*CfnPackagingGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -363,20 +339,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -387,15 +357,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnPackagingGroup.AuthorizationProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnPackagingGroup.AuthorizationProperty",
 		reflect.TypeOf((*CfnPackagingGroup_AuthorizationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnPackagingGroup.LogConfigurationProperty",
+		"aws-cdk-lib.aws_mediapackage.CfnPackagingGroup.LogConfigurationProperty",
 		reflect.TypeOf((*CfnPackagingGroup_LogConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mediapackage.CfnPackagingGroupProps",
+		"aws-cdk-lib.aws_mediapackage.CfnPackagingGroupProps",
 		reflect.TypeOf((*CfnPackagingGroupProps)(nil)).Elem(),
 	)
 }
