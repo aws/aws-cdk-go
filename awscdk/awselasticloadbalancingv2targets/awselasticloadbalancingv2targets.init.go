@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_elasticloadbalancingv2_targets.InstanceIdTarget",
+		"monocdk.aws_elasticloadbalancingv2_targets.InstanceIdTarget",
 		reflect.TypeOf((*InstanceIdTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "attachToApplicationTargetGroup", GoMethod: "AttachToApplicationTargetGroup"},
@@ -22,7 +22,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_elasticloadbalancingv2_targets.InstanceTarget",
+		"monocdk.aws_elasticloadbalancingv2_targets.InstanceTarget",
 		reflect.TypeOf((*InstanceTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "attachToApplicationTargetGroup", GoMethod: "AttachToApplicationTargetGroup"},
@@ -35,7 +35,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_elasticloadbalancingv2_targets.IpTarget",
+		"monocdk.aws_elasticloadbalancingv2_targets.IpTarget",
 		reflect.TypeOf((*IpTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "attachToApplicationTargetGroup", GoMethod: "AttachToApplicationTargetGroup"},
@@ -49,7 +49,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_elasticloadbalancingv2_targets.LambdaTarget",
+		"monocdk.aws_elasticloadbalancingv2_targets.LambdaTarget",
 		reflect.TypeOf((*LambdaTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "attachToApplicationTargetGroup", GoMethod: "AttachToApplicationTargetGroup"},

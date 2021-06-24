@@ -1,20 +1,20 @@
 package awsrds
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsrds/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/awsrds/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // Aurora capacity units (ACUs).
@@ -90,7 +90,7 @@ func AuroraEngineVersion_Of(auroraFullVersion *string, auroraMajorVersion *strin
 	var returns AuroraEngineVersion
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"of",
 		[]interface{}{auroraFullVersion, auroraMajorVersion},
 		&returns,
@@ -103,7 +103,7 @@ func AuroraEngineVersion_VER_1_17_9() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"VER_1_17_9",
 		&returns,
 	)
@@ -114,7 +114,7 @@ func AuroraEngineVersion_VER_1_19_0() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"VER_1_19_0",
 		&returns,
 	)
@@ -125,7 +125,7 @@ func AuroraEngineVersion_VER_1_19_1() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"VER_1_19_1",
 		&returns,
 	)
@@ -136,7 +136,7 @@ func AuroraEngineVersion_VER_1_19_2() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"VER_1_19_2",
 		&returns,
 	)
@@ -147,7 +147,7 @@ func AuroraEngineVersion_VER_1_19_5() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"VER_1_19_5",
 		&returns,
 	)
@@ -158,7 +158,7 @@ func AuroraEngineVersion_VER_1_19_6() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"VER_1_19_6",
 		&returns,
 	)
@@ -169,7 +169,7 @@ func AuroraEngineVersion_VER_1_20_0() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"VER_1_20_0",
 		&returns,
 	)
@@ -180,7 +180,7 @@ func AuroraEngineVersion_VER_1_20_1() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"VER_1_20_1",
 		&returns,
 	)
@@ -191,7 +191,7 @@ func AuroraEngineVersion_VER_1_21_0() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"VER_1_21_0",
 		&returns,
 	)
@@ -202,7 +202,7 @@ func AuroraEngineVersion_VER_1_22_0() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"VER_1_22_0",
 		&returns,
 	)
@@ -213,7 +213,7 @@ func AuroraEngineVersion_VER_1_22_1() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"VER_1_22_1",
 		&returns,
 	)
@@ -224,7 +224,7 @@ func AuroraEngineVersion_VER_1_22_1_3() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"VER_1_22_1_3",
 		&returns,
 	)
@@ -235,7 +235,7 @@ func AuroraEngineVersion_VER_1_22_2() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"VER_1_22_2",
 		&returns,
 	)
@@ -246,7 +246,7 @@ func AuroraEngineVersion_VER_10A() AuroraEngineVersion {
 	_init_.Initialize()
 	var returns AuroraEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraEngineVersion",
+		"monocdk.aws_rds.AuroraEngineVersion",
 		"VER_10A",
 		&returns,
 	)
@@ -304,7 +304,7 @@ func AuroraMysqlEngineVersion_Of(auroraMysqlFullVersion *string, auroraMysqlMajo
 	var returns AuroraMysqlEngineVersion
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"of",
 		[]interface{}{auroraMysqlFullVersion, auroraMysqlMajorVersion},
 		&returns,
@@ -317,7 +317,7 @@ func AuroraMysqlEngineVersion_VER_2_03_2() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_03_2",
 		&returns,
 	)
@@ -328,7 +328,7 @@ func AuroraMysqlEngineVersion_VER_2_03_3() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_03_3",
 		&returns,
 	)
@@ -339,7 +339,7 @@ func AuroraMysqlEngineVersion_VER_2_03_4() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_03_4",
 		&returns,
 	)
@@ -350,7 +350,7 @@ func AuroraMysqlEngineVersion_VER_2_04_0() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_04_0",
 		&returns,
 	)
@@ -361,7 +361,7 @@ func AuroraMysqlEngineVersion_VER_2_04_1() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_04_1",
 		&returns,
 	)
@@ -372,7 +372,7 @@ func AuroraMysqlEngineVersion_VER_2_04_2() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_04_2",
 		&returns,
 	)
@@ -383,7 +383,7 @@ func AuroraMysqlEngineVersion_VER_2_04_3() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_04_3",
 		&returns,
 	)
@@ -394,7 +394,7 @@ func AuroraMysqlEngineVersion_VER_2_04_4() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_04_4",
 		&returns,
 	)
@@ -405,7 +405,7 @@ func AuroraMysqlEngineVersion_VER_2_04_5() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_04_5",
 		&returns,
 	)
@@ -416,7 +416,7 @@ func AuroraMysqlEngineVersion_VER_2_04_6() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_04_6",
 		&returns,
 	)
@@ -427,7 +427,7 @@ func AuroraMysqlEngineVersion_VER_2_04_7() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_04_7",
 		&returns,
 	)
@@ -438,7 +438,7 @@ func AuroraMysqlEngineVersion_VER_2_04_8() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_04_8",
 		&returns,
 	)
@@ -449,7 +449,7 @@ func AuroraMysqlEngineVersion_VER_2_05_0() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_05_0",
 		&returns,
 	)
@@ -460,7 +460,7 @@ func AuroraMysqlEngineVersion_VER_2_06_0() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_06_0",
 		&returns,
 	)
@@ -471,7 +471,7 @@ func AuroraMysqlEngineVersion_VER_2_07_0() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_07_0",
 		&returns,
 	)
@@ -482,7 +482,7 @@ func AuroraMysqlEngineVersion_VER_2_07_1() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_07_1",
 		&returns,
 	)
@@ -493,7 +493,7 @@ func AuroraMysqlEngineVersion_VER_2_07_2() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_07_2",
 		&returns,
 	)
@@ -504,7 +504,7 @@ func AuroraMysqlEngineVersion_VER_2_08_0() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_08_0",
 		&returns,
 	)
@@ -515,7 +515,7 @@ func AuroraMysqlEngineVersion_VER_2_08_1() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_08_1",
 		&returns,
 	)
@@ -526,7 +526,7 @@ func AuroraMysqlEngineVersion_VER_2_08_2() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_08_2",
 		&returns,
 	)
@@ -537,7 +537,7 @@ func AuroraMysqlEngineVersion_VER_2_09_0() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_09_0",
 		&returns,
 	)
@@ -548,7 +548,7 @@ func AuroraMysqlEngineVersion_VER_2_09_1() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_09_1",
 		&returns,
 	)
@@ -559,7 +559,7 @@ func AuroraMysqlEngineVersion_VER_2_09_2() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_2_09_2",
 		&returns,
 	)
@@ -570,7 +570,7 @@ func AuroraMysqlEngineVersion_VER_5_7_12() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraMysqlEngineVersion",
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
 		"VER_5_7_12",
 		&returns,
 	)
@@ -639,7 +639,7 @@ func AuroraPostgresEngineVersion_Of(auroraPostgresFullVersion *string, auroraPos
 	var returns AuroraPostgresEngineVersion
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"of",
 		[]interface{}{auroraPostgresFullVersion, auroraPostgresMajorVersion, auroraPostgresFeatures},
 		&returns,
@@ -652,7 +652,7 @@ func AuroraPostgresEngineVersion_VER_10_11() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_10_11",
 		&returns,
 	)
@@ -663,7 +663,7 @@ func AuroraPostgresEngineVersion_VER_10_12() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_10_12",
 		&returns,
 	)
@@ -674,7 +674,7 @@ func AuroraPostgresEngineVersion_VER_10_13() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_10_13",
 		&returns,
 	)
@@ -685,7 +685,7 @@ func AuroraPostgresEngineVersion_VER_10_14() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_10_14",
 		&returns,
 	)
@@ -696,7 +696,7 @@ func AuroraPostgresEngineVersion_VER_10_4() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_10_4",
 		&returns,
 	)
@@ -707,7 +707,7 @@ func AuroraPostgresEngineVersion_VER_10_5() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_10_5",
 		&returns,
 	)
@@ -718,7 +718,7 @@ func AuroraPostgresEngineVersion_VER_10_6() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_10_6",
 		&returns,
 	)
@@ -729,7 +729,7 @@ func AuroraPostgresEngineVersion_VER_10_7() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_10_7",
 		&returns,
 	)
@@ -740,7 +740,7 @@ func AuroraPostgresEngineVersion_VER_11_4() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_11_4",
 		&returns,
 	)
@@ -751,7 +751,7 @@ func AuroraPostgresEngineVersion_VER_11_6() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_11_6",
 		&returns,
 	)
@@ -762,7 +762,7 @@ func AuroraPostgresEngineVersion_VER_11_7() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_11_7",
 		&returns,
 	)
@@ -773,7 +773,7 @@ func AuroraPostgresEngineVersion_VER_11_8() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_11_8",
 		&returns,
 	)
@@ -784,7 +784,7 @@ func AuroraPostgresEngineVersion_VER_11_9() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_11_9",
 		&returns,
 	)
@@ -795,7 +795,7 @@ func AuroraPostgresEngineVersion_VER_12_4() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_12_4",
 		&returns,
 	)
@@ -806,7 +806,7 @@ func AuroraPostgresEngineVersion_VER_9_6_11() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_9_6_11",
 		&returns,
 	)
@@ -817,7 +817,7 @@ func AuroraPostgresEngineVersion_VER_9_6_12() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_9_6_12",
 		&returns,
 	)
@@ -828,7 +828,7 @@ func AuroraPostgresEngineVersion_VER_9_6_16() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_9_6_16",
 		&returns,
 	)
@@ -839,7 +839,7 @@ func AuroraPostgresEngineVersion_VER_9_6_17() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_9_6_17",
 		&returns,
 	)
@@ -850,7 +850,7 @@ func AuroraPostgresEngineVersion_VER_9_6_18() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_9_6_18",
 		&returns,
 	)
@@ -861,7 +861,7 @@ func AuroraPostgresEngineVersion_VER_9_6_19() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_9_6_19",
 		&returns,
 	)
@@ -872,7 +872,7 @@ func AuroraPostgresEngineVersion_VER_9_6_8() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_9_6_8",
 		&returns,
 	)
@@ -883,7 +883,7 @@ func AuroraPostgresEngineVersion_VER_9_6_9() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.AuroraPostgresEngineVersion",
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_9_6_9",
 		&returns,
 	)
@@ -957,7 +957,7 @@ type CfnDBCluster interface {
 	SetMasterUsername(val *string)
 	MasterUserPassword() *string
 	SetMasterUserPassword(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Port() *float64
 	SetPort(val *float64)
 	PreferredBackupWindow() *string
@@ -996,10 +996,16 @@ type CfnDBCluster interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1279,8 +1285,8 @@ func (j *jsiiProxy_CfnDBCluster) MasterUserPassword() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBCluster) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDBCluster) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1451,13 +1457,13 @@ func (j *jsiiProxy_CfnDBCluster) VpcSecurityGroupIds() *[]*string {
 
 
 // Create a new `AWS::RDS::DBCluster`.
-func NewCfnDBCluster(scope constructs.Construct, id *string, props *CfnDBClusterProps) CfnDBCluster {
+func NewCfnDBCluster(scope awscdk.Construct, id *string, props *CfnDBClusterProps) CfnDBCluster {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDBCluster{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBCluster",
+		"monocdk.aws_rds.CfnDBCluster",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1466,11 +1472,11 @@ func NewCfnDBCluster(scope constructs.Construct, id *string, props *CfnDBCluster
 }
 
 // Create a new `AWS::RDS::DBCluster`.
-func NewCfnDBCluster_Override(c CfnDBCluster, scope constructs.Construct, id *string, props *CfnDBClusterProps) {
+func NewCfnDBCluster_Override(c CfnDBCluster, scope awscdk.Construct, id *string, props *CfnDBClusterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBCluster",
+		"monocdk.aws_rds.CfnDBCluster",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1737,7 +1743,7 @@ func CfnDBCluster_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBCluster",
+		"monocdk.aws_rds.CfnDBCluster",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1754,7 +1760,7 @@ func CfnDBCluster_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBCluster",
+		"monocdk.aws_rds.CfnDBCluster",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1763,17 +1769,15 @@ func CfnDBCluster_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDBCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBCluster",
+		"monocdk.aws_rds.CfnDBCluster",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1786,7 +1790,7 @@ func CfnDBCluster_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.CfnDBCluster",
+		"monocdk.aws_rds.CfnDBCluster",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1958,6 +1962,56 @@ func (c *jsiiProxy_CfnDBCluster) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDBCluster) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDBCluster) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDBCluster) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnDBCluster) OverrideLogicalId(newLogicalId *string) {
@@ -1965,6 +2019,23 @@ func (c *jsiiProxy_CfnDBCluster) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDBCluster) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1999,6 +2070,19 @@ func (c *jsiiProxy_CfnDBCluster) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDBCluster) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -2009,6 +2093,26 @@ func (c *jsiiProxy_CfnDBCluster) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDBCluster) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2056,7 +2160,7 @@ type CfnDBClusterParameterGroup interface {
 	Family() *string
 	SetFamily(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Parameters() interface{}
 	SetParameters(val interface{})
 	Ref() *string
@@ -2073,10 +2177,16 @@ type CfnDBClusterParameterGroup interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2156,8 +2266,8 @@ func (j *jsiiProxy_CfnDBClusterParameterGroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBClusterParameterGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDBClusterParameterGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2218,13 +2328,13 @@ func (j *jsiiProxy_CfnDBClusterParameterGroup) UpdatedProperites() *map[string]i
 
 
 // Create a new `AWS::RDS::DBClusterParameterGroup`.
-func NewCfnDBClusterParameterGroup(scope constructs.Construct, id *string, props *CfnDBClusterParameterGroupProps) CfnDBClusterParameterGroup {
+func NewCfnDBClusterParameterGroup(scope awscdk.Construct, id *string, props *CfnDBClusterParameterGroupProps) CfnDBClusterParameterGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDBClusterParameterGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBClusterParameterGroup",
+		"monocdk.aws_rds.CfnDBClusterParameterGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2233,11 +2343,11 @@ func NewCfnDBClusterParameterGroup(scope constructs.Construct, id *string, props
 }
 
 // Create a new `AWS::RDS::DBClusterParameterGroup`.
-func NewCfnDBClusterParameterGroup_Override(c CfnDBClusterParameterGroup, scope constructs.Construct, id *string, props *CfnDBClusterParameterGroupProps) {
+func NewCfnDBClusterParameterGroup_Override(c CfnDBClusterParameterGroup, scope awscdk.Construct, id *string, props *CfnDBClusterParameterGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBClusterParameterGroup",
+		"monocdk.aws_rds.CfnDBClusterParameterGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2280,7 +2390,7 @@ func CfnDBClusterParameterGroup_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBClusterParameterGroup",
+		"monocdk.aws_rds.CfnDBClusterParameterGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2297,7 +2407,7 @@ func CfnDBClusterParameterGroup_IsCfnResource(construct constructs.IConstruct) *
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBClusterParameterGroup",
+		"monocdk.aws_rds.CfnDBClusterParameterGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2306,17 +2416,15 @@ func CfnDBClusterParameterGroup_IsCfnResource(construct constructs.IConstruct) *
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDBClusterParameterGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBClusterParameterGroup",
+		"monocdk.aws_rds.CfnDBClusterParameterGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2329,7 +2437,7 @@ func CfnDBClusterParameterGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.CfnDBClusterParameterGroup",
+		"monocdk.aws_rds.CfnDBClusterParameterGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2501,6 +2609,56 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) Inspect(inspector awscdk.TreeInsp
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDBClusterParameterGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDBClusterParameterGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDBClusterParameterGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnDBClusterParameterGroup) OverrideLogicalId(newLogicalId *string) {
@@ -2508,6 +2666,23 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) OverrideLogicalId(newLogicalId *s
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDBClusterParameterGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2542,6 +2717,19 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDBClusterParameterGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -2552,6 +2740,26 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDBClusterParameterGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2729,7 +2937,7 @@ type CfnDBInstance interface {
 	SetMonitoringRoleArn(val *string)
 	MultiAz() interface{}
 	SetMultiAz(val interface{})
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OptionGroupName() *string
 	SetOptionGroupName(val *string)
 	PerformanceInsightsKmsKeyId() *string
@@ -2776,10 +2984,16 @@ type CfnDBInstance interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -3209,8 +3423,8 @@ func (j *jsiiProxy_CfnDBInstance) MultiAz() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBInstance) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDBInstance) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3421,13 +3635,13 @@ func (j *jsiiProxy_CfnDBInstance) VpcSecurityGroups() *[]*string {
 
 
 // Create a new `AWS::RDS::DBInstance`.
-func NewCfnDBInstance(scope constructs.Construct, id *string, props *CfnDBInstanceProps) CfnDBInstance {
+func NewCfnDBInstance(scope awscdk.Construct, id *string, props *CfnDBInstanceProps) CfnDBInstance {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDBInstance{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBInstance",
+		"monocdk.aws_rds.CfnDBInstance",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3436,11 +3650,11 @@ func NewCfnDBInstance(scope constructs.Construct, id *string, props *CfnDBInstan
 }
 
 // Create a new `AWS::RDS::DBInstance`.
-func NewCfnDBInstance_Override(c CfnDBInstance, scope constructs.Construct, id *string, props *CfnDBInstanceProps) {
+func NewCfnDBInstance_Override(c CfnDBInstance, scope awscdk.Construct, id *string, props *CfnDBInstanceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBInstance",
+		"monocdk.aws_rds.CfnDBInstance",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3867,7 +4081,7 @@ func CfnDBInstance_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBInstance",
+		"monocdk.aws_rds.CfnDBInstance",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3884,7 +4098,7 @@ func CfnDBInstance_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBInstance",
+		"monocdk.aws_rds.CfnDBInstance",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3893,17 +4107,15 @@ func CfnDBInstance_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDBInstance_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBInstance",
+		"monocdk.aws_rds.CfnDBInstance",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3916,7 +4128,7 @@ func CfnDBInstance_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.CfnDBInstance",
+		"monocdk.aws_rds.CfnDBInstance",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -4088,6 +4300,56 @@ func (c *jsiiProxy_CfnDBInstance) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDBInstance) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDBInstance) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDBInstance) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnDBInstance) OverrideLogicalId(newLogicalId *string) {
@@ -4095,6 +4357,23 @@ func (c *jsiiProxy_CfnDBInstance) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDBInstance) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -4129,6 +4408,19 @@ func (c *jsiiProxy_CfnDBInstance) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDBInstance) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -4139,6 +4431,26 @@ func (c *jsiiProxy_CfnDBInstance) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDBInstance) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4290,7 +4602,7 @@ type CfnDBParameterGroup interface {
 	Family() *string
 	SetFamily(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Parameters() interface{}
 	SetParameters(val interface{})
 	Ref() *string
@@ -4307,10 +4619,16 @@ type CfnDBParameterGroup interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -4390,8 +4708,8 @@ func (j *jsiiProxy_CfnDBParameterGroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBParameterGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDBParameterGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4452,13 +4770,13 @@ func (j *jsiiProxy_CfnDBParameterGroup) UpdatedProperites() *map[string]interfac
 
 
 // Create a new `AWS::RDS::DBParameterGroup`.
-func NewCfnDBParameterGroup(scope constructs.Construct, id *string, props *CfnDBParameterGroupProps) CfnDBParameterGroup {
+func NewCfnDBParameterGroup(scope awscdk.Construct, id *string, props *CfnDBParameterGroupProps) CfnDBParameterGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDBParameterGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBParameterGroup",
+		"monocdk.aws_rds.CfnDBParameterGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4467,11 +4785,11 @@ func NewCfnDBParameterGroup(scope constructs.Construct, id *string, props *CfnDB
 }
 
 // Create a new `AWS::RDS::DBParameterGroup`.
-func NewCfnDBParameterGroup_Override(c CfnDBParameterGroup, scope constructs.Construct, id *string, props *CfnDBParameterGroupProps) {
+func NewCfnDBParameterGroup_Override(c CfnDBParameterGroup, scope awscdk.Construct, id *string, props *CfnDBParameterGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBParameterGroup",
+		"monocdk.aws_rds.CfnDBParameterGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4514,7 +4832,7 @@ func CfnDBParameterGroup_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBParameterGroup",
+		"monocdk.aws_rds.CfnDBParameterGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4531,7 +4849,7 @@ func CfnDBParameterGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBParameterGroup",
+		"monocdk.aws_rds.CfnDBParameterGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4540,17 +4858,15 @@ func CfnDBParameterGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDBParameterGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBParameterGroup",
+		"monocdk.aws_rds.CfnDBParameterGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4563,7 +4879,7 @@ func CfnDBParameterGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.CfnDBParameterGroup",
+		"monocdk.aws_rds.CfnDBParameterGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -4735,6 +5051,56 @@ func (c *jsiiProxy_CfnDBParameterGroup) Inspect(inspector awscdk.TreeInspector) 
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDBParameterGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDBParameterGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDBParameterGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnDBParameterGroup) OverrideLogicalId(newLogicalId *string) {
@@ -4742,6 +5108,23 @@ func (c *jsiiProxy_CfnDBParameterGroup) OverrideLogicalId(newLogicalId *string) 
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDBParameterGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -4776,6 +5159,19 @@ func (c *jsiiProxy_CfnDBParameterGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDBParameterGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -4786,6 +5182,26 @@ func (c *jsiiProxy_CfnDBParameterGroup) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDBParameterGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4836,7 +5252,7 @@ type CfnDBProxy interface {
 	IdleClientTimeout() *float64
 	SetIdleClientTimeout(val *float64)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	RequireTls() interface{}
 	SetRequireTls(val interface{})
@@ -4860,10 +5276,16 @@ type CfnDBProxy interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -5003,8 +5425,8 @@ func (j *jsiiProxy_CfnDBProxy) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBProxy) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDBProxy) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5095,13 +5517,13 @@ func (j *jsiiProxy_CfnDBProxy) VpcSubnetIds() *[]*string {
 
 
 // Create a new `AWS::RDS::DBProxy`.
-func NewCfnDBProxy(scope constructs.Construct, id *string, props *CfnDBProxyProps) CfnDBProxy {
+func NewCfnDBProxy(scope awscdk.Construct, id *string, props *CfnDBProxyProps) CfnDBProxy {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDBProxy{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBProxy",
+		"monocdk.aws_rds.CfnDBProxy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5110,11 +5532,11 @@ func NewCfnDBProxy(scope constructs.Construct, id *string, props *CfnDBProxyProp
 }
 
 // Create a new `AWS::RDS::DBProxy`.
-func NewCfnDBProxy_Override(c CfnDBProxy, scope constructs.Construct, id *string, props *CfnDBProxyProps) {
+func NewCfnDBProxy_Override(c CfnDBProxy, scope awscdk.Construct, id *string, props *CfnDBProxyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBProxy",
+		"monocdk.aws_rds.CfnDBProxy",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -5213,7 +5635,7 @@ func CfnDBProxy_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBProxy",
+		"monocdk.aws_rds.CfnDBProxy",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -5230,7 +5652,7 @@ func CfnDBProxy_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBProxy",
+		"monocdk.aws_rds.CfnDBProxy",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -5239,17 +5661,15 @@ func CfnDBProxy_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDBProxy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBProxy",
+		"monocdk.aws_rds.CfnDBProxy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5262,7 +5682,7 @@ func CfnDBProxy_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.CfnDBProxy",
+		"monocdk.aws_rds.CfnDBProxy",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -5434,6 +5854,56 @@ func (c *jsiiProxy_CfnDBProxy) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDBProxy) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDBProxy) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDBProxy) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnDBProxy) OverrideLogicalId(newLogicalId *string) {
@@ -5441,6 +5911,23 @@ func (c *jsiiProxy_CfnDBProxy) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDBProxy) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -5475,6 +5962,19 @@ func (c *jsiiProxy_CfnDBProxy) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDBProxy) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -5485,6 +5985,26 @@ func (c *jsiiProxy_CfnDBProxy) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDBProxy) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5538,7 +6058,7 @@ type CfnDBProxyEndpoint interface {
 	DbProxyName() *string
 	SetDbProxyName(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() *[]*CfnDBProxyEndpoint_TagFormatProperty
@@ -5560,10 +6080,16 @@ type CfnDBProxyEndpoint interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -5683,8 +6209,8 @@ func (j *jsiiProxy_CfnDBProxyEndpoint) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBProxyEndpoint) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDBProxyEndpoint) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5765,13 +6291,13 @@ func (j *jsiiProxy_CfnDBProxyEndpoint) VpcSubnetIds() *[]*string {
 
 
 // Create a new `AWS::RDS::DBProxyEndpoint`.
-func NewCfnDBProxyEndpoint(scope constructs.Construct, id *string, props *CfnDBProxyEndpointProps) CfnDBProxyEndpoint {
+func NewCfnDBProxyEndpoint(scope awscdk.Construct, id *string, props *CfnDBProxyEndpointProps) CfnDBProxyEndpoint {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDBProxyEndpoint{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBProxyEndpoint",
+		"monocdk.aws_rds.CfnDBProxyEndpoint",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5780,11 +6306,11 @@ func NewCfnDBProxyEndpoint(scope constructs.Construct, id *string, props *CfnDBP
 }
 
 // Create a new `AWS::RDS::DBProxyEndpoint`.
-func NewCfnDBProxyEndpoint_Override(c CfnDBProxyEndpoint, scope constructs.Construct, id *string, props *CfnDBProxyEndpointProps) {
+func NewCfnDBProxyEndpoint_Override(c CfnDBProxyEndpoint, scope awscdk.Construct, id *string, props *CfnDBProxyEndpointProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBProxyEndpoint",
+		"monocdk.aws_rds.CfnDBProxyEndpoint",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -5851,7 +6377,7 @@ func CfnDBProxyEndpoint_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBProxyEndpoint",
+		"monocdk.aws_rds.CfnDBProxyEndpoint",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -5868,7 +6394,7 @@ func CfnDBProxyEndpoint_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBProxyEndpoint",
+		"monocdk.aws_rds.CfnDBProxyEndpoint",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -5877,17 +6403,15 @@ func CfnDBProxyEndpoint_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDBProxyEndpoint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBProxyEndpoint",
+		"monocdk.aws_rds.CfnDBProxyEndpoint",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5900,7 +6424,7 @@ func CfnDBProxyEndpoint_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.CfnDBProxyEndpoint",
+		"monocdk.aws_rds.CfnDBProxyEndpoint",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -6072,6 +6596,56 @@ func (c *jsiiProxy_CfnDBProxyEndpoint) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDBProxyEndpoint) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDBProxyEndpoint) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDBProxyEndpoint) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnDBProxyEndpoint) OverrideLogicalId(newLogicalId *string) {
@@ -6079,6 +6653,23 @@ func (c *jsiiProxy_CfnDBProxyEndpoint) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDBProxyEndpoint) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -6113,6 +6704,19 @@ func (c *jsiiProxy_CfnDBProxyEndpoint) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDBProxyEndpoint) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -6123,6 +6727,26 @@ func (c *jsiiProxy_CfnDBProxyEndpoint) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDBProxyEndpoint) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -6204,7 +6828,7 @@ type CfnDBProxyTargetGroup interface {
 	DbProxyName() *string
 	SetDbProxyName(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	TargetGroupName() *string
@@ -6220,10 +6844,16 @@ type CfnDBProxyTargetGroup interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -6333,8 +6963,8 @@ func (j *jsiiProxy_CfnDBProxyTargetGroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBProxyTargetGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDBProxyTargetGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -6385,13 +7015,13 @@ func (j *jsiiProxy_CfnDBProxyTargetGroup) UpdatedProperites() *map[string]interf
 
 
 // Create a new `AWS::RDS::DBProxyTargetGroup`.
-func NewCfnDBProxyTargetGroup(scope constructs.Construct, id *string, props *CfnDBProxyTargetGroupProps) CfnDBProxyTargetGroup {
+func NewCfnDBProxyTargetGroup(scope awscdk.Construct, id *string, props *CfnDBProxyTargetGroupProps) CfnDBProxyTargetGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDBProxyTargetGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBProxyTargetGroup",
+		"monocdk.aws_rds.CfnDBProxyTargetGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6400,11 +7030,11 @@ func NewCfnDBProxyTargetGroup(scope constructs.Construct, id *string, props *Cfn
 }
 
 // Create a new `AWS::RDS::DBProxyTargetGroup`.
-func NewCfnDBProxyTargetGroup_Override(c CfnDBProxyTargetGroup, scope constructs.Construct, id *string, props *CfnDBProxyTargetGroupProps) {
+func NewCfnDBProxyTargetGroup_Override(c CfnDBProxyTargetGroup, scope awscdk.Construct, id *string, props *CfnDBProxyTargetGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBProxyTargetGroup",
+		"monocdk.aws_rds.CfnDBProxyTargetGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -6463,7 +7093,7 @@ func CfnDBProxyTargetGroup_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBProxyTargetGroup",
+		"monocdk.aws_rds.CfnDBProxyTargetGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -6480,7 +7110,7 @@ func CfnDBProxyTargetGroup_IsCfnResource(construct constructs.IConstruct) *bool 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBProxyTargetGroup",
+		"monocdk.aws_rds.CfnDBProxyTargetGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -6489,17 +7119,15 @@ func CfnDBProxyTargetGroup_IsCfnResource(construct constructs.IConstruct) *bool 
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDBProxyTargetGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBProxyTargetGroup",
+		"monocdk.aws_rds.CfnDBProxyTargetGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6512,7 +7140,7 @@ func CfnDBProxyTargetGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.CfnDBProxyTargetGroup",
+		"monocdk.aws_rds.CfnDBProxyTargetGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -6684,6 +7312,56 @@ func (c *jsiiProxy_CfnDBProxyTargetGroup) Inspect(inspector awscdk.TreeInspector
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDBProxyTargetGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDBProxyTargetGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDBProxyTargetGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnDBProxyTargetGroup) OverrideLogicalId(newLogicalId *string) {
@@ -6691,6 +7369,23 @@ func (c *jsiiProxy_CfnDBProxyTargetGroup) OverrideLogicalId(newLogicalId *string
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDBProxyTargetGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -6725,6 +7420,19 @@ func (c *jsiiProxy_CfnDBProxyTargetGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDBProxyTargetGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -6735,6 +7443,26 @@ func (c *jsiiProxy_CfnDBProxyTargetGroup) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDBProxyTargetGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -6793,7 +7521,7 @@ type CfnDBSecurityGroup interface {
 	GroupDescription() *string
 	SetGroupDescription(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -6808,10 +7536,16 @@ type CfnDBSecurityGroup interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -6901,8 +7635,8 @@ func (j *jsiiProxy_CfnDBSecurityGroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBSecurityGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDBSecurityGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -6953,13 +7687,13 @@ func (j *jsiiProxy_CfnDBSecurityGroup) UpdatedProperites() *map[string]interface
 
 
 // Create a new `AWS::RDS::DBSecurityGroup`.
-func NewCfnDBSecurityGroup(scope constructs.Construct, id *string, props *CfnDBSecurityGroupProps) CfnDBSecurityGroup {
+func NewCfnDBSecurityGroup(scope awscdk.Construct, id *string, props *CfnDBSecurityGroupProps) CfnDBSecurityGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDBSecurityGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBSecurityGroup",
+		"monocdk.aws_rds.CfnDBSecurityGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6968,11 +7702,11 @@ func NewCfnDBSecurityGroup(scope constructs.Construct, id *string, props *CfnDBS
 }
 
 // Create a new `AWS::RDS::DBSecurityGroup`.
-func NewCfnDBSecurityGroup_Override(c CfnDBSecurityGroup, scope constructs.Construct, id *string, props *CfnDBSecurityGroupProps) {
+func NewCfnDBSecurityGroup_Override(c CfnDBSecurityGroup, scope awscdk.Construct, id *string, props *CfnDBSecurityGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBSecurityGroup",
+		"monocdk.aws_rds.CfnDBSecurityGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -7015,7 +7749,7 @@ func CfnDBSecurityGroup_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBSecurityGroup",
+		"monocdk.aws_rds.CfnDBSecurityGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -7032,7 +7766,7 @@ func CfnDBSecurityGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBSecurityGroup",
+		"monocdk.aws_rds.CfnDBSecurityGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -7041,17 +7775,15 @@ func CfnDBSecurityGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDBSecurityGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBSecurityGroup",
+		"monocdk.aws_rds.CfnDBSecurityGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7064,7 +7796,7 @@ func CfnDBSecurityGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.CfnDBSecurityGroup",
+		"monocdk.aws_rds.CfnDBSecurityGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -7236,6 +7968,56 @@ func (c *jsiiProxy_CfnDBSecurityGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDBSecurityGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDBSecurityGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDBSecurityGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnDBSecurityGroup) OverrideLogicalId(newLogicalId *string) {
@@ -7243,6 +8025,23 @@ func (c *jsiiProxy_CfnDBSecurityGroup) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDBSecurityGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -7277,6 +8076,19 @@ func (c *jsiiProxy_CfnDBSecurityGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDBSecurityGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -7287,6 +8099,26 @@ func (c *jsiiProxy_CfnDBSecurityGroup) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDBSecurityGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -7333,7 +8165,7 @@ type CfnDBSecurityGroupIngress interface {
 	Ec2SecurityGroupOwnerId() *string
 	SetEc2SecurityGroupOwnerId(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	UpdatedProperites() *map[string]interface{}
@@ -7347,10 +8179,16 @@ type CfnDBSecurityGroupIngress interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -7460,8 +8298,8 @@ func (j *jsiiProxy_CfnDBSecurityGroupIngress) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBSecurityGroupIngress) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDBSecurityGroupIngress) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -7502,13 +8340,13 @@ func (j *jsiiProxy_CfnDBSecurityGroupIngress) UpdatedProperites() *map[string]in
 
 
 // Create a new `AWS::RDS::DBSecurityGroupIngress`.
-func NewCfnDBSecurityGroupIngress(scope constructs.Construct, id *string, props *CfnDBSecurityGroupIngressProps) CfnDBSecurityGroupIngress {
+func NewCfnDBSecurityGroupIngress(scope awscdk.Construct, id *string, props *CfnDBSecurityGroupIngressProps) CfnDBSecurityGroupIngress {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDBSecurityGroupIngress{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBSecurityGroupIngress",
+		"monocdk.aws_rds.CfnDBSecurityGroupIngress",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7517,11 +8355,11 @@ func NewCfnDBSecurityGroupIngress(scope constructs.Construct, id *string, props 
 }
 
 // Create a new `AWS::RDS::DBSecurityGroupIngress`.
-func NewCfnDBSecurityGroupIngress_Override(c CfnDBSecurityGroupIngress, scope constructs.Construct, id *string, props *CfnDBSecurityGroupIngressProps) {
+func NewCfnDBSecurityGroupIngress_Override(c CfnDBSecurityGroupIngress, scope awscdk.Construct, id *string, props *CfnDBSecurityGroupIngressProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBSecurityGroupIngress",
+		"monocdk.aws_rds.CfnDBSecurityGroupIngress",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -7580,7 +8418,7 @@ func CfnDBSecurityGroupIngress_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBSecurityGroupIngress",
+		"monocdk.aws_rds.CfnDBSecurityGroupIngress",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -7597,7 +8435,7 @@ func CfnDBSecurityGroupIngress_IsCfnResource(construct constructs.IConstruct) *b
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBSecurityGroupIngress",
+		"monocdk.aws_rds.CfnDBSecurityGroupIngress",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -7606,17 +8444,15 @@ func CfnDBSecurityGroupIngress_IsCfnResource(construct constructs.IConstruct) *b
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDBSecurityGroupIngress_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBSecurityGroupIngress",
+		"monocdk.aws_rds.CfnDBSecurityGroupIngress",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7629,7 +8465,7 @@ func CfnDBSecurityGroupIngress_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.CfnDBSecurityGroupIngress",
+		"monocdk.aws_rds.CfnDBSecurityGroupIngress",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -7801,6 +8637,56 @@ func (c *jsiiProxy_CfnDBSecurityGroupIngress) Inspect(inspector awscdk.TreeInspe
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDBSecurityGroupIngress) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDBSecurityGroupIngress) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDBSecurityGroupIngress) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnDBSecurityGroupIngress) OverrideLogicalId(newLogicalId *string) {
@@ -7808,6 +8694,23 @@ func (c *jsiiProxy_CfnDBSecurityGroupIngress) OverrideLogicalId(newLogicalId *st
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDBSecurityGroupIngress) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -7842,6 +8745,19 @@ func (c *jsiiProxy_CfnDBSecurityGroupIngress) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDBSecurityGroupIngress) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -7852,6 +8768,26 @@ func (c *jsiiProxy_CfnDBSecurityGroupIngress) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDBSecurityGroupIngress) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -7907,7 +8843,7 @@ type CfnDBSubnetGroup interface {
 	DbSubnetGroupName() *string
 	SetDbSubnetGroupName(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	SubnetIds() *[]*string
@@ -7924,10 +8860,16 @@ type CfnDBSubnetGroup interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -8007,8 +8949,8 @@ func (j *jsiiProxy_CfnDBSubnetGroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDBSubnetGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDBSubnetGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -8069,13 +9011,13 @@ func (j *jsiiProxy_CfnDBSubnetGroup) UpdatedProperites() *map[string]interface{}
 
 
 // Create a new `AWS::RDS::DBSubnetGroup`.
-func NewCfnDBSubnetGroup(scope constructs.Construct, id *string, props *CfnDBSubnetGroupProps) CfnDBSubnetGroup {
+func NewCfnDBSubnetGroup(scope awscdk.Construct, id *string, props *CfnDBSubnetGroupProps) CfnDBSubnetGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDBSubnetGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBSubnetGroup",
+		"monocdk.aws_rds.CfnDBSubnetGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -8084,11 +9026,11 @@ func NewCfnDBSubnetGroup(scope constructs.Construct, id *string, props *CfnDBSub
 }
 
 // Create a new `AWS::RDS::DBSubnetGroup`.
-func NewCfnDBSubnetGroup_Override(c CfnDBSubnetGroup, scope constructs.Construct, id *string, props *CfnDBSubnetGroupProps) {
+func NewCfnDBSubnetGroup_Override(c CfnDBSubnetGroup, scope awscdk.Construct, id *string, props *CfnDBSubnetGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnDBSubnetGroup",
+		"monocdk.aws_rds.CfnDBSubnetGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -8131,7 +9073,7 @@ func CfnDBSubnetGroup_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBSubnetGroup",
+		"monocdk.aws_rds.CfnDBSubnetGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -8148,7 +9090,7 @@ func CfnDBSubnetGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBSubnetGroup",
+		"monocdk.aws_rds.CfnDBSubnetGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -8157,17 +9099,15 @@ func CfnDBSubnetGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDBSubnetGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnDBSubnetGroup",
+		"monocdk.aws_rds.CfnDBSubnetGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -8180,7 +9120,7 @@ func CfnDBSubnetGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.CfnDBSubnetGroup",
+		"monocdk.aws_rds.CfnDBSubnetGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -8352,6 +9292,56 @@ func (c *jsiiProxy_CfnDBSubnetGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDBSubnetGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDBSubnetGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDBSubnetGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnDBSubnetGroup) OverrideLogicalId(newLogicalId *string) {
@@ -8359,6 +9349,23 @@ func (c *jsiiProxy_CfnDBSubnetGroup) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDBSubnetGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -8393,6 +9400,19 @@ func (c *jsiiProxy_CfnDBSubnetGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDBSubnetGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -8403,6 +9423,26 @@ func (c *jsiiProxy_CfnDBSubnetGroup) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDBSubnetGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -8444,7 +9484,7 @@ type CfnEventSubscription interface {
 	EventCategories() *[]*string
 	SetEventCategories(val *[]*string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	SnsTopicArn() *string
 	SetSnsTopicArn(val *string)
@@ -8464,10 +9504,16 @@ type CfnEventSubscription interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -8547,8 +9593,8 @@ func (j *jsiiProxy_CfnEventSubscription) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEventSubscription) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnEventSubscription) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -8619,13 +9665,13 @@ func (j *jsiiProxy_CfnEventSubscription) UpdatedProperites() *map[string]interfa
 
 
 // Create a new `AWS::RDS::EventSubscription`.
-func NewCfnEventSubscription(scope constructs.Construct, id *string, props *CfnEventSubscriptionProps) CfnEventSubscription {
+func NewCfnEventSubscription(scope awscdk.Construct, id *string, props *CfnEventSubscriptionProps) CfnEventSubscription {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnEventSubscription{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnEventSubscription",
+		"monocdk.aws_rds.CfnEventSubscription",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -8634,11 +9680,11 @@ func NewCfnEventSubscription(scope constructs.Construct, id *string, props *CfnE
 }
 
 // Create a new `AWS::RDS::EventSubscription`.
-func NewCfnEventSubscription_Override(c CfnEventSubscription, scope constructs.Construct, id *string, props *CfnEventSubscriptionProps) {
+func NewCfnEventSubscription_Override(c CfnEventSubscription, scope awscdk.Construct, id *string, props *CfnEventSubscriptionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnEventSubscription",
+		"monocdk.aws_rds.CfnEventSubscription",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -8697,7 +9743,7 @@ func CfnEventSubscription_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnEventSubscription",
+		"monocdk.aws_rds.CfnEventSubscription",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -8714,7 +9760,7 @@ func CfnEventSubscription_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnEventSubscription",
+		"monocdk.aws_rds.CfnEventSubscription",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -8723,17 +9769,15 @@ func CfnEventSubscription_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnEventSubscription_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnEventSubscription",
+		"monocdk.aws_rds.CfnEventSubscription",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -8746,7 +9790,7 @@ func CfnEventSubscription_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.CfnEventSubscription",
+		"monocdk.aws_rds.CfnEventSubscription",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -8918,6 +9962,56 @@ func (c *jsiiProxy_CfnEventSubscription) Inspect(inspector awscdk.TreeInspector)
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnEventSubscription) OverrideLogicalId(newLogicalId *string) {
@@ -8925,6 +10019,23 @@ func (c *jsiiProxy_CfnEventSubscription) OverrideLogicalId(newLogicalId *string)
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -8959,6 +10070,19 @@ func (c *jsiiProxy_CfnEventSubscription) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -8969,6 +10093,26 @@ func (c *jsiiProxy_CfnEventSubscription) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -9016,7 +10160,7 @@ type CfnGlobalCluster interface {
 	GlobalClusterIdentifier() *string
 	SetGlobalClusterIdentifier(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	SourceDbClusterIdentifier() *string
 	SetSourceDbClusterIdentifier(val *string)
@@ -9034,10 +10178,16 @@ type CfnGlobalCluster interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -9137,8 +10287,8 @@ func (j *jsiiProxy_CfnGlobalCluster) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGlobalCluster) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnGlobalCluster) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -9199,13 +10349,13 @@ func (j *jsiiProxy_CfnGlobalCluster) UpdatedProperites() *map[string]interface{}
 
 
 // Create a new `AWS::RDS::GlobalCluster`.
-func NewCfnGlobalCluster(scope constructs.Construct, id *string, props *CfnGlobalClusterProps) CfnGlobalCluster {
+func NewCfnGlobalCluster(scope awscdk.Construct, id *string, props *CfnGlobalClusterProps) CfnGlobalCluster {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnGlobalCluster{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnGlobalCluster",
+		"monocdk.aws_rds.CfnGlobalCluster",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -9214,11 +10364,11 @@ func NewCfnGlobalCluster(scope constructs.Construct, id *string, props *CfnGloba
 }
 
 // Create a new `AWS::RDS::GlobalCluster`.
-func NewCfnGlobalCluster_Override(c CfnGlobalCluster, scope constructs.Construct, id *string, props *CfnGlobalClusterProps) {
+func NewCfnGlobalCluster_Override(c CfnGlobalCluster, scope awscdk.Construct, id *string, props *CfnGlobalClusterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnGlobalCluster",
+		"monocdk.aws_rds.CfnGlobalCluster",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -9285,7 +10435,7 @@ func CfnGlobalCluster_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnGlobalCluster",
+		"monocdk.aws_rds.CfnGlobalCluster",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -9302,7 +10452,7 @@ func CfnGlobalCluster_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnGlobalCluster",
+		"monocdk.aws_rds.CfnGlobalCluster",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -9311,17 +10461,15 @@ func CfnGlobalCluster_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnGlobalCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnGlobalCluster",
+		"monocdk.aws_rds.CfnGlobalCluster",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -9334,7 +10482,7 @@ func CfnGlobalCluster_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.CfnGlobalCluster",
+		"monocdk.aws_rds.CfnGlobalCluster",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -9506,6 +10654,56 @@ func (c *jsiiProxy_CfnGlobalCluster) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnGlobalCluster) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnGlobalCluster) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnGlobalCluster) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnGlobalCluster) OverrideLogicalId(newLogicalId *string) {
@@ -9513,6 +10711,23 @@ func (c *jsiiProxy_CfnGlobalCluster) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnGlobalCluster) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -9547,6 +10762,19 @@ func (c *jsiiProxy_CfnGlobalCluster) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnGlobalCluster) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -9557,6 +10785,26 @@ func (c *jsiiProxy_CfnGlobalCluster) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnGlobalCluster) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -9602,7 +10850,7 @@ type CfnOptionGroup interface {
 	LogicalId() *string
 	MajorEngineVersion() *string
 	SetMajorEngineVersion(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OptionConfigurations() interface{}
 	SetOptionConfigurations(val interface{})
 	OptionGroupDescription() *string
@@ -9621,10 +10869,16 @@ type CfnOptionGroup interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -9704,8 +10958,8 @@ func (j *jsiiProxy_CfnOptionGroup) MajorEngineVersion() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnOptionGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnOptionGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -9776,13 +11030,13 @@ func (j *jsiiProxy_CfnOptionGroup) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::RDS::OptionGroup`.
-func NewCfnOptionGroup(scope constructs.Construct, id *string, props *CfnOptionGroupProps) CfnOptionGroup {
+func NewCfnOptionGroup(scope awscdk.Construct, id *string, props *CfnOptionGroupProps) CfnOptionGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnOptionGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnOptionGroup",
+		"monocdk.aws_rds.CfnOptionGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -9791,11 +11045,11 @@ func NewCfnOptionGroup(scope constructs.Construct, id *string, props *CfnOptionG
 }
 
 // Create a new `AWS::RDS::OptionGroup`.
-func NewCfnOptionGroup_Override(c CfnOptionGroup, scope constructs.Construct, id *string, props *CfnOptionGroupProps) {
+func NewCfnOptionGroup_Override(c CfnOptionGroup, scope awscdk.Construct, id *string, props *CfnOptionGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.CfnOptionGroup",
+		"monocdk.aws_rds.CfnOptionGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -9846,7 +11100,7 @@ func CfnOptionGroup_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnOptionGroup",
+		"monocdk.aws_rds.CfnOptionGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -9863,7 +11117,7 @@ func CfnOptionGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnOptionGroup",
+		"monocdk.aws_rds.CfnOptionGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -9872,17 +11126,15 @@ func CfnOptionGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnOptionGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.CfnOptionGroup",
+		"monocdk.aws_rds.CfnOptionGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -9895,7 +11147,7 @@ func CfnOptionGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.CfnOptionGroup",
+		"monocdk.aws_rds.CfnOptionGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -10067,6 +11319,56 @@ func (c *jsiiProxy_CfnOptionGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnOptionGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnOptionGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnOptionGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnOptionGroup) OverrideLogicalId(newLogicalId *string) {
@@ -10074,6 +11376,23 @@ func (c *jsiiProxy_CfnOptionGroup) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnOptionGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -10108,6 +11427,19 @@ func (c *jsiiProxy_CfnOptionGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnOptionGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -10118,6 +11450,26 @@ func (c *jsiiProxy_CfnOptionGroup) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnOptionGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -10304,7 +11656,7 @@ func NewCredentials_Override(c Credentials) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.Credentials",
+		"monocdk.aws_rds.Credentials",
 		nil, // no parameters
 		c,
 	)
@@ -10318,7 +11670,7 @@ func Credentials_FromGeneratedSecret(username *string, options *CredentialsBaseO
 	var returns Credentials
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.Credentials",
+		"monocdk.aws_rds.Credentials",
 		"fromGeneratedSecret",
 		[]interface{}{username, options},
 		&returns,
@@ -10337,7 +11689,7 @@ func Credentials_FromPassword(username *string, password awscdk.SecretValue) Cre
 	var returns Credentials
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.Credentials",
+		"monocdk.aws_rds.Credentials",
 		"fromPassword",
 		[]interface{}{username, password},
 		&returns,
@@ -10363,9 +11715,30 @@ func Credentials_FromSecret(secret awssecretsmanager.ISecret, username *string) 
 	var returns Credentials
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.Credentials",
+		"monocdk.aws_rds.Credentials",
 		"fromSecret",
 		[]interface{}{secret, username},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates Credentials for the given username, and optional password and key.
+//
+// If no password is provided, one will be generated and stored in Secrets Manager.
+// Deprecated: use `fromGeneratedSecret()` or `fromPassword()` for new Clusters and Instances.
+// Note that switching from `fromUsername()` to `fromGeneratedSecret()` or `fromPassword()` for already deployed
+// Clusters or Instances will result in their replacement!
+func Credentials_FromUsername(username *string, options *CredentialsFromUsernameOptions) Credentials {
+	_init_.Initialize()
+
+	var returns Credentials
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_rds.Credentials",
+		"fromUsername",
+		[]interface{}{username, options},
 		&returns,
 	)
 
@@ -10388,6 +11761,27 @@ type CredentialsBaseOptions struct {
 	SecretName *string `json:"secretName"`
 }
 
+// Options for creating Credentials from a username.
+// Deprecated: supporting API `fromUsername()` has been deprecated. See deprecation notice of the API.
+type CredentialsFromUsernameOptions struct {
+	// KMS encryption key to encrypt the generated secret.
+	// Deprecated: supporting API `fromUsername()` has been deprecated. See deprecation notice of the API.
+	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	// The characters to exclude from the generated password.
+	//
+	// Has no effect if {@link password} has been provided.
+	// Deprecated: supporting API `fromUsername()` has been deprecated. See deprecation notice of the API.
+	ExcludeCharacters *string `json:"excludeCharacters"`
+	// The name of the secret.
+	// Deprecated: supporting API `fromUsername()` has been deprecated. See deprecation notice of the API.
+	SecretName *string `json:"secretName"`
+	// Password.
+	//
+	// Do not put passwords in your CDK code directly.
+	// Deprecated: supporting API `fromUsername()` has been deprecated. See deprecation notice of the API.
+	Password awscdk.SecretValue `json:"password"`
+}
+
 // Create a clustered database with a given number of instances.
 // Experimental.
 type DatabaseCluster interface {
@@ -10401,7 +11795,7 @@ type DatabaseCluster interface {
 	InstanceEndpoints() *[]Endpoint
 	InstanceIdentifiers() *[]*string
 	NewCfnProps() *CfnDBClusterProps
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Secret() awssecretsmanager.ISecret
 	SecurityGroups() *[]awsec2.ISecurityGroup
@@ -10430,7 +11824,13 @@ type DatabaseCluster interface {
 	MetricVolumeBytesUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricVolumeReadIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricVolumeWriteIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for DatabaseCluster
@@ -10528,8 +11928,8 @@ func (j *jsiiProxy_DatabaseCluster) NewCfnProps() *CfnDBClusterProps {
 	return returns
 }
 
-func (j *jsiiProxy_DatabaseCluster) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_DatabaseCluster) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -10596,7 +11996,7 @@ func NewDatabaseCluster(scope constructs.Construct, id *string, props *DatabaseC
 	j := jsiiProxy_DatabaseCluster{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseCluster",
+		"monocdk.aws_rds.DatabaseCluster",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -10609,7 +12009,7 @@ func NewDatabaseCluster_Override(d DatabaseCluster, scope constructs.Construct, 
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseCluster",
+		"monocdk.aws_rds.DatabaseCluster",
 		[]interface{}{scope, id, props},
 		d,
 	)
@@ -10623,7 +12023,7 @@ func DatabaseCluster_FromDatabaseClusterAttributes(scope constructs.Construct, i
 	var returns IDatabaseCluster
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseCluster",
+		"monocdk.aws_rds.DatabaseCluster",
 		"fromDatabaseClusterAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -10632,17 +12032,15 @@ func DatabaseCluster_FromDatabaseClusterAttributes(scope constructs.Construct, i
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func DatabaseCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseCluster",
+		"monocdk.aws_rds.DatabaseCluster",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -10653,13 +12051,13 @@ func DatabaseCluster_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func DatabaseCluster_IsResource(construct constructs.IConstruct) *bool {
+func DatabaseCluster_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseCluster",
+		"monocdk.aws_rds.DatabaseCluster",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -11052,6 +12450,86 @@ func (d *jsiiProxy_DatabaseCluster) MetricVolumeWriteIOPs(props *awscloudwatch.M
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DatabaseCluster) OnPrepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DatabaseCluster) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (d *jsiiProxy_DatabaseCluster) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DatabaseCluster) Prepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DatabaseCluster) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (d *jsiiProxy_DatabaseCluster) ToString() *string {
@@ -11060,6 +12538,26 @@ func (d *jsiiProxy_DatabaseCluster) ToString() *string {
 	_jsii_.Invoke(
 		d,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (d *jsiiProxy_DatabaseCluster) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -11109,7 +12607,7 @@ type DatabaseClusterBase interface {
 	Env() *awscdk.ResourceEnvironment
 	InstanceEndpoints() *[]Endpoint
 	InstanceIdentifiers() *[]*string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy
@@ -11133,7 +12631,13 @@ type DatabaseClusterBase interface {
 	MetricVolumeBytesUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricVolumeReadIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricVolumeWriteIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for DatabaseClusterBase
@@ -11222,8 +12726,8 @@ func (j *jsiiProxy_DatabaseClusterBase) InstanceIdentifiers() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_DatabaseClusterBase) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_DatabaseClusterBase) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -11258,23 +12762,21 @@ func NewDatabaseClusterBase_Override(d DatabaseClusterBase, scope constructs.Con
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseClusterBase",
+		"monocdk.aws_rds.DatabaseClusterBase",
 		[]interface{}{scope, id, props},
 		d,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func DatabaseClusterBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseClusterBase",
+		"monocdk.aws_rds.DatabaseClusterBase",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -11285,13 +12787,13 @@ func DatabaseClusterBase_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func DatabaseClusterBase_IsResource(construct constructs.IConstruct) *bool {
+func DatabaseClusterBase_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseClusterBase",
+		"monocdk.aws_rds.DatabaseClusterBase",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -11654,6 +13156,86 @@ func (d *jsiiProxy_DatabaseClusterBase) MetricVolumeWriteIOPs(props *awscloudwat
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DatabaseClusterBase) OnPrepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DatabaseClusterBase) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (d *jsiiProxy_DatabaseClusterBase) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DatabaseClusterBase) Prepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DatabaseClusterBase) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (d *jsiiProxy_DatabaseClusterBase) ToString() *string {
@@ -11662,6 +13244,26 @@ func (d *jsiiProxy_DatabaseClusterBase) ToString() *string {
 	_jsii_.Invoke(
 		d,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (d *jsiiProxy_DatabaseClusterBase) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -11689,7 +13291,7 @@ func NewDatabaseClusterEngine() DatabaseClusterEngine {
 	j := jsiiProxy_DatabaseClusterEngine{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseClusterEngine",
+		"monocdk.aws_rds.DatabaseClusterEngine",
 		nil, // no parameters
 		&j,
 	)
@@ -11702,7 +13304,7 @@ func NewDatabaseClusterEngine_Override(d DatabaseClusterEngine) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseClusterEngine",
+		"monocdk.aws_rds.DatabaseClusterEngine",
 		nil, // no parameters
 		d,
 	)
@@ -11716,7 +13318,7 @@ func DatabaseClusterEngine_Aurora(props *AuroraClusterEngineProps) IClusterEngin
 	var returns IClusterEngine
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseClusterEngine",
+		"monocdk.aws_rds.DatabaseClusterEngine",
 		"aurora",
 		[]interface{}{props},
 		&returns,
@@ -11733,7 +13335,7 @@ func DatabaseClusterEngine_AuroraMysql(props *AuroraMysqlClusterEngineProps) ICl
 	var returns IClusterEngine
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseClusterEngine",
+		"monocdk.aws_rds.DatabaseClusterEngine",
 		"auroraMysql",
 		[]interface{}{props},
 		&returns,
@@ -11750,7 +13352,7 @@ func DatabaseClusterEngine_AuroraPostgres(props *AuroraPostgresClusterEngineProp
 	var returns IClusterEngine
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseClusterEngine",
+		"monocdk.aws_rds.DatabaseClusterEngine",
 		"auroraPostgres",
 		[]interface{}{props},
 		&returns,
@@ -11763,7 +13365,7 @@ func DatabaseClusterEngine_AURORA() IClusterEngine {
 	_init_.Initialize()
 	var returns IClusterEngine
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.DatabaseClusterEngine",
+		"monocdk.aws_rds.DatabaseClusterEngine",
 		"AURORA",
 		&returns,
 	)
@@ -11774,7 +13376,7 @@ func DatabaseClusterEngine_AURORA_MYSQL() IClusterEngine {
 	_init_.Initialize()
 	var returns IClusterEngine
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.DatabaseClusterEngine",
+		"monocdk.aws_rds.DatabaseClusterEngine",
 		"AURORA_MYSQL",
 		&returns,
 	)
@@ -11785,7 +13387,7 @@ func DatabaseClusterEngine_AURORA_POSTGRESQL() IClusterEngine {
 	_init_.Initialize()
 	var returns IClusterEngine
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.DatabaseClusterEngine",
+		"monocdk.aws_rds.DatabaseClusterEngine",
 		"AURORA_POSTGRESQL",
 		&returns,
 	)
@@ -11805,7 +13407,7 @@ type DatabaseClusterFromSnapshot interface {
 	InstanceEndpoints() *[]Endpoint
 	InstanceIdentifiers() *[]*string
 	NewCfnProps() *CfnDBClusterProps
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	SecurityGroups() *[]awsec2.ISecurityGroup
 	Stack() awscdk.Stack
@@ -11831,7 +13433,13 @@ type DatabaseClusterFromSnapshot interface {
 	MetricVolumeBytesUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricVolumeReadIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricVolumeWriteIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for DatabaseClusterFromSnapshot
@@ -11929,8 +13537,8 @@ func (j *jsiiProxy_DatabaseClusterFromSnapshot) NewCfnProps() *CfnDBClusterProps
 	return returns
 }
 
-func (j *jsiiProxy_DatabaseClusterFromSnapshot) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_DatabaseClusterFromSnapshot) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -11987,7 +13595,7 @@ func NewDatabaseClusterFromSnapshot(scope constructs.Construct, id *string, prop
 	j := jsiiProxy_DatabaseClusterFromSnapshot{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseClusterFromSnapshot",
+		"monocdk.aws_rds.DatabaseClusterFromSnapshot",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -12000,23 +13608,21 @@ func NewDatabaseClusterFromSnapshot_Override(d DatabaseClusterFromSnapshot, scop
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseClusterFromSnapshot",
+		"monocdk.aws_rds.DatabaseClusterFromSnapshot",
 		[]interface{}{scope, id, props},
 		d,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func DatabaseClusterFromSnapshot_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseClusterFromSnapshot",
+		"monocdk.aws_rds.DatabaseClusterFromSnapshot",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -12027,13 +13633,13 @@ func DatabaseClusterFromSnapshot_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func DatabaseClusterFromSnapshot_IsResource(construct constructs.IConstruct) *bool {
+func DatabaseClusterFromSnapshot_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseClusterFromSnapshot",
+		"monocdk.aws_rds.DatabaseClusterFromSnapshot",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -12396,6 +14002,86 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricVolumeWriteIOPs(props *aws
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DatabaseClusterFromSnapshot) OnPrepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DatabaseClusterFromSnapshot) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (d *jsiiProxy_DatabaseClusterFromSnapshot) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DatabaseClusterFromSnapshot) Prepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DatabaseClusterFromSnapshot) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) ToString() *string {
@@ -12404,6 +14090,26 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) ToString() *string {
 	_jsii_.Invoke(
 		d,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (d *jsiiProxy_DatabaseClusterFromSnapshot) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -12677,7 +14383,7 @@ type DatabaseInstance interface {
 	InstanceIdentifier() *string
 	InstanceType() awsec2.InstanceType
 	NewCfnProps() *CfnDBInstanceProps
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Secret() awssecretsmanager.ISecret
 	SourceCfnProps() *CfnDBInstanceProps
@@ -12701,8 +14407,14 @@ type DatabaseInstance interface {
 	MetricReadIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricWriteIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	SetLogRetention()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for DatabaseInstance
@@ -12821,8 +14533,8 @@ func (j *jsiiProxy_DatabaseInstance) NewCfnProps() *CfnDBInstanceProps {
 	return returns
 }
 
-func (j *jsiiProxy_DatabaseInstance) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_DatabaseInstance) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -12899,7 +14611,7 @@ func NewDatabaseInstance(scope constructs.Construct, id *string, props *Database
 	j := jsiiProxy_DatabaseInstance{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseInstance",
+		"monocdk.aws_rds.DatabaseInstance",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -12912,7 +14624,7 @@ func NewDatabaseInstance_Override(d DatabaseInstance, scope constructs.Construct
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseInstance",
+		"monocdk.aws_rds.DatabaseInstance",
 		[]interface{}{scope, id, props},
 		d,
 	)
@@ -12934,7 +14646,7 @@ func DatabaseInstance_FromDatabaseInstanceAttributes(scope constructs.Construct,
 	var returns IDatabaseInstance
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstance",
+		"monocdk.aws_rds.DatabaseInstance",
 		"fromDatabaseInstanceAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -12943,17 +14655,15 @@ func DatabaseInstance_FromDatabaseInstanceAttributes(scope constructs.Construct,
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func DatabaseInstance_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstance",
+		"monocdk.aws_rds.DatabaseInstance",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -12964,13 +14674,13 @@ func DatabaseInstance_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func DatabaseInstance_IsResource(construct constructs.IConstruct) *bool {
+func DatabaseInstance_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstance",
+		"monocdk.aws_rds.DatabaseInstance",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -13260,12 +14970,92 @@ func (d *jsiiProxy_DatabaseInstance) OnEvent(id *string, options *awsevents.OnEv
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DatabaseInstance) OnPrepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DatabaseInstance) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (d *jsiiProxy_DatabaseInstance) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DatabaseInstance) Prepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (d *jsiiProxy_DatabaseInstance) SetLogRetention() {
 	_jsii_.InvokeVoid(
 		d,
 		"setLogRetention",
 		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DatabaseInstance) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"synthesize",
+		[]interface{}{session},
 	)
 }
 
@@ -13277,6 +15067,26 @@ func (d *jsiiProxy_DatabaseInstance) ToString() *string {
 	_jsii_.Invoke(
 		d,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (d *jsiiProxy_DatabaseInstance) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -13319,7 +15129,7 @@ type DatabaseInstanceBase interface {
 	InstanceArn() *string
 	InstanceEndpoint() Endpoint
 	InstanceIdentifier() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy
@@ -13337,7 +15147,13 @@ type DatabaseInstanceBase interface {
 	MetricReadIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricWriteIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for DatabaseInstanceBase
@@ -13436,8 +15252,8 @@ func (j *jsiiProxy_DatabaseInstanceBase) InstanceIdentifier() *string {
 	return returns
 }
 
-func (j *jsiiProxy_DatabaseInstanceBase) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_DatabaseInstanceBase) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -13472,7 +15288,7 @@ func NewDatabaseInstanceBase_Override(d DatabaseInstanceBase, scope constructs.C
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceBase",
+		"monocdk.aws_rds.DatabaseInstanceBase",
 		[]interface{}{scope, id, props},
 		d,
 	)
@@ -13494,7 +15310,7 @@ func DatabaseInstanceBase_FromDatabaseInstanceAttributes(scope constructs.Constr
 	var returns IDatabaseInstance
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceBase",
+		"monocdk.aws_rds.DatabaseInstanceBase",
 		"fromDatabaseInstanceAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -13503,17 +15319,15 @@ func DatabaseInstanceBase_FromDatabaseInstanceAttributes(scope constructs.Constr
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func DatabaseInstanceBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceBase",
+		"monocdk.aws_rds.DatabaseInstanceBase",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -13524,13 +15338,13 @@ func DatabaseInstanceBase_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func DatabaseInstanceBase_IsResource(construct constructs.IConstruct) *bool {
+func DatabaseInstanceBase_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceBase",
+		"monocdk.aws_rds.DatabaseInstanceBase",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -13790,6 +15604,86 @@ func (d *jsiiProxy_DatabaseInstanceBase) OnEvent(id *string, options *awsevents.
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DatabaseInstanceBase) OnPrepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DatabaseInstanceBase) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (d *jsiiProxy_DatabaseInstanceBase) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DatabaseInstanceBase) Prepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DatabaseInstanceBase) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (d *jsiiProxy_DatabaseInstanceBase) ToString() *string {
@@ -13798,6 +15692,26 @@ func (d *jsiiProxy_DatabaseInstanceBase) ToString() *string {
 	_jsii_.Invoke(
 		d,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (d *jsiiProxy_DatabaseInstanceBase) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -13825,7 +15739,7 @@ func NewDatabaseInstanceEngine() DatabaseInstanceEngine {
 	j := jsiiProxy_DatabaseInstanceEngine{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		nil, // no parameters
 		&j,
 	)
@@ -13838,7 +15752,7 @@ func NewDatabaseInstanceEngine_Override(d DatabaseInstanceEngine) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		nil, // no parameters
 		d,
 	)
@@ -13852,7 +15766,7 @@ func DatabaseInstanceEngine_MariaDb(props *MariaDbInstanceEngineProps) IInstance
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		"mariaDb",
 		[]interface{}{props},
 		&returns,
@@ -13869,7 +15783,7 @@ func DatabaseInstanceEngine_Mysql(props *MySqlInstanceEngineProps) IInstanceEngi
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		"mysql",
 		[]interface{}{props},
 		&returns,
@@ -13886,8 +15800,42 @@ func DatabaseInstanceEngine_OracleEe(props *OracleEeInstanceEngineProps) IInstan
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		"oracleEe",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new Oracle Standard Edition instance engine.
+// Deprecated: instances can no longer be created with this engine. See https://forums.aws.amazon.com/ann.jspa?annID=7341
+func DatabaseInstanceEngine_OracleSe(props *OracleSeInstanceEngineProps) IInstanceEngine {
+	_init_.Initialize()
+
+	var returns IInstanceEngine
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_rds.DatabaseInstanceEngine",
+		"oracleSe",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates a new Oracle Standard Edition 1 instance engine.
+// Deprecated: instances can no longer be created with this engine. See https://forums.aws.amazon.com/ann.jspa?annID=7341
+func DatabaseInstanceEngine_OracleSe1(props *OracleSe1InstanceEngineProps) IInstanceEngine {
+	_init_.Initialize()
+
+	var returns IInstanceEngine
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_rds.DatabaseInstanceEngine",
+		"oracleSe1",
 		[]interface{}{props},
 		&returns,
 	)
@@ -13903,7 +15851,7 @@ func DatabaseInstanceEngine_OracleSe2(props *OracleSe2InstanceEngineProps) IInst
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		"oracleSe2",
 		[]interface{}{props},
 		&returns,
@@ -13920,7 +15868,7 @@ func DatabaseInstanceEngine_Postgres(props *PostgresInstanceEngineProps) IInstan
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		"postgres",
 		[]interface{}{props},
 		&returns,
@@ -13937,7 +15885,7 @@ func DatabaseInstanceEngine_SqlServerEe(props *SqlServerEeInstanceEngineProps) I
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		"sqlServerEe",
 		[]interface{}{props},
 		&returns,
@@ -13954,7 +15902,7 @@ func DatabaseInstanceEngine_SqlServerEx(props *SqlServerExInstanceEngineProps) I
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		"sqlServerEx",
 		[]interface{}{props},
 		&returns,
@@ -13971,7 +15919,7 @@ func DatabaseInstanceEngine_SqlServerSe(props *SqlServerSeInstanceEngineProps) I
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		"sqlServerSe",
 		[]interface{}{props},
 		&returns,
@@ -13988,12 +15936,133 @@ func DatabaseInstanceEngine_SqlServerWeb(props *SqlServerWebInstanceEngineProps)
 	var returns IInstanceEngine
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"monocdk.aws_rds.DatabaseInstanceEngine",
 		"sqlServerWeb",
 		[]interface{}{props},
 		&returns,
 	)
 
+	return returns
+}
+
+func DatabaseInstanceEngine_MARIADB() IInstanceEngine {
+	_init_.Initialize()
+	var returns IInstanceEngine
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.DatabaseInstanceEngine",
+		"MARIADB",
+		&returns,
+	)
+	return returns
+}
+
+func DatabaseInstanceEngine_MYSQL() IInstanceEngine {
+	_init_.Initialize()
+	var returns IInstanceEngine
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.DatabaseInstanceEngine",
+		"MYSQL",
+		&returns,
+	)
+	return returns
+}
+
+func DatabaseInstanceEngine_ORACLE_EE() IInstanceEngine {
+	_init_.Initialize()
+	var returns IInstanceEngine
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.DatabaseInstanceEngine",
+		"ORACLE_EE",
+		&returns,
+	)
+	return returns
+}
+
+func DatabaseInstanceEngine_ORACLE_SE() IInstanceEngine {
+	_init_.Initialize()
+	var returns IInstanceEngine
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.DatabaseInstanceEngine",
+		"ORACLE_SE",
+		&returns,
+	)
+	return returns
+}
+
+func DatabaseInstanceEngine_ORACLE_SE1() IInstanceEngine {
+	_init_.Initialize()
+	var returns IInstanceEngine
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.DatabaseInstanceEngine",
+		"ORACLE_SE1",
+		&returns,
+	)
+	return returns
+}
+
+func DatabaseInstanceEngine_ORACLE_SE2() IInstanceEngine {
+	_init_.Initialize()
+	var returns IInstanceEngine
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.DatabaseInstanceEngine",
+		"ORACLE_SE2",
+		&returns,
+	)
+	return returns
+}
+
+func DatabaseInstanceEngine_POSTGRES() IInstanceEngine {
+	_init_.Initialize()
+	var returns IInstanceEngine
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.DatabaseInstanceEngine",
+		"POSTGRES",
+		&returns,
+	)
+	return returns
+}
+
+func DatabaseInstanceEngine_SQL_SERVER_EE() IInstanceEngine {
+	_init_.Initialize()
+	var returns IInstanceEngine
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.DatabaseInstanceEngine",
+		"SQL_SERVER_EE",
+		&returns,
+	)
+	return returns
+}
+
+func DatabaseInstanceEngine_SQL_SERVER_EX() IInstanceEngine {
+	_init_.Initialize()
+	var returns IInstanceEngine
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.DatabaseInstanceEngine",
+		"SQL_SERVER_EX",
+		&returns,
+	)
+	return returns
+}
+
+func DatabaseInstanceEngine_SQL_SERVER_SE() IInstanceEngine {
+	_init_.Initialize()
+	var returns IInstanceEngine
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.DatabaseInstanceEngine",
+		"SQL_SERVER_SE",
+		&returns,
+	)
+	return returns
+}
+
+func DatabaseInstanceEngine_SQL_SERVER_WEB() IInstanceEngine {
+	_init_.Initialize()
+	var returns IInstanceEngine
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.DatabaseInstanceEngine",
+		"SQL_SERVER_WEB",
+		&returns,
+	)
 	return returns
 }
 
@@ -14014,7 +16083,7 @@ type DatabaseInstanceFromSnapshot interface {
 	InstanceIdentifier() *string
 	InstanceType() awsec2.InstanceType
 	NewCfnProps() *CfnDBInstanceProps
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Secret() awssecretsmanager.ISecret
 	SourceCfnProps() *CfnDBInstanceProps
@@ -14038,8 +16107,14 @@ type DatabaseInstanceFromSnapshot interface {
 	MetricReadIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricWriteIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	SetLogRetention()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for DatabaseInstanceFromSnapshot
@@ -14158,8 +16233,8 @@ func (j *jsiiProxy_DatabaseInstanceFromSnapshot) NewCfnProps() *CfnDBInstancePro
 	return returns
 }
 
-func (j *jsiiProxy_DatabaseInstanceFromSnapshot) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_DatabaseInstanceFromSnapshot) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -14236,7 +16311,7 @@ func NewDatabaseInstanceFromSnapshot(scope constructs.Construct, id *string, pro
 	j := jsiiProxy_DatabaseInstanceFromSnapshot{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceFromSnapshot",
+		"monocdk.aws_rds.DatabaseInstanceFromSnapshot",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -14249,7 +16324,7 @@ func NewDatabaseInstanceFromSnapshot_Override(d DatabaseInstanceFromSnapshot, sc
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceFromSnapshot",
+		"monocdk.aws_rds.DatabaseInstanceFromSnapshot",
 		[]interface{}{scope, id, props},
 		d,
 	)
@@ -14271,7 +16346,7 @@ func DatabaseInstanceFromSnapshot_FromDatabaseInstanceAttributes(scope construct
 	var returns IDatabaseInstance
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceFromSnapshot",
+		"monocdk.aws_rds.DatabaseInstanceFromSnapshot",
 		"fromDatabaseInstanceAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -14280,17 +16355,15 @@ func DatabaseInstanceFromSnapshot_FromDatabaseInstanceAttributes(scope construct
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func DatabaseInstanceFromSnapshot_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceFromSnapshot",
+		"monocdk.aws_rds.DatabaseInstanceFromSnapshot",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -14301,13 +16374,13 @@ func DatabaseInstanceFromSnapshot_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func DatabaseInstanceFromSnapshot_IsResource(construct constructs.IConstruct) *bool {
+func DatabaseInstanceFromSnapshot_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceFromSnapshot",
+		"monocdk.aws_rds.DatabaseInstanceFromSnapshot",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -14597,12 +16670,92 @@ func (d *jsiiProxy_DatabaseInstanceFromSnapshot) OnEvent(id *string, options *aw
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DatabaseInstanceFromSnapshot) OnPrepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DatabaseInstanceFromSnapshot) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (d *jsiiProxy_DatabaseInstanceFromSnapshot) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DatabaseInstanceFromSnapshot) Prepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (d *jsiiProxy_DatabaseInstanceFromSnapshot) SetLogRetention() {
 	_jsii_.InvokeVoid(
 		d,
 		"setLogRetention",
 		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DatabaseInstanceFromSnapshot) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"synthesize",
+		[]interface{}{session},
 	)
 }
 
@@ -14614,6 +16767,26 @@ func (d *jsiiProxy_DatabaseInstanceFromSnapshot) ToString() *string {
 	_jsii_.Invoke(
 		d,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (d *jsiiProxy_DatabaseInstanceFromSnapshot) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -14795,6 +16968,9 @@ type DatabaseInstanceFromSnapshotProps struct {
 	// Existing subnet group for the instance.
 	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup"`
+	// The type of subnets to add to the created DB subnet group.
+	// Deprecated: use `vpcSubnets`
+	VpcPlacement *awsec2.SubnetSelection `json:"vpcPlacement"`
 	// The type of subnets to add to the created DB subnet group.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
@@ -15013,6 +17189,9 @@ type DatabaseInstanceNewProps struct {
 	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup"`
 	// The type of subnets to add to the created DB subnet group.
+	// Deprecated: use `vpcSubnets`
+	VpcPlacement *awsec2.SubnetSelection `json:"vpcPlacement"`
+	// The type of subnets to add to the created DB subnet group.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 }
@@ -15192,6 +17371,9 @@ type DatabaseInstanceProps struct {
 	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup"`
 	// The type of subnets to add to the created DB subnet group.
+	// Deprecated: use `vpcSubnets`
+	VpcPlacement *awsec2.SubnetSelection `json:"vpcPlacement"`
+	// The type of subnets to add to the created DB subnet group.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 	// The database engine.
@@ -15251,7 +17433,7 @@ type DatabaseInstanceReadReplica interface {
 	InstanceIdentifier() *string
 	InstanceType() awsec2.InstanceType
 	NewCfnProps() *CfnDBInstanceProps
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	Vpc() awsec2.IVpc
@@ -15271,8 +17453,14 @@ type DatabaseInstanceReadReplica interface {
 	MetricReadIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricWriteIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	SetLogRetention()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for DatabaseInstanceReadReplica
@@ -15391,8 +17579,8 @@ func (j *jsiiProxy_DatabaseInstanceReadReplica) NewCfnProps() *CfnDBInstanceProp
 	return returns
 }
 
-func (j *jsiiProxy_DatabaseInstanceReadReplica) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_DatabaseInstanceReadReplica) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -15449,7 +17637,7 @@ func NewDatabaseInstanceReadReplica(scope constructs.Construct, id *string, prop
 	j := jsiiProxy_DatabaseInstanceReadReplica{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceReadReplica",
+		"monocdk.aws_rds.DatabaseInstanceReadReplica",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -15462,7 +17650,7 @@ func NewDatabaseInstanceReadReplica_Override(d DatabaseInstanceReadReplica, scop
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceReadReplica",
+		"monocdk.aws_rds.DatabaseInstanceReadReplica",
 		[]interface{}{scope, id, props},
 		d,
 	)
@@ -15484,7 +17672,7 @@ func DatabaseInstanceReadReplica_FromDatabaseInstanceAttributes(scope constructs
 	var returns IDatabaseInstance
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceReadReplica",
+		"monocdk.aws_rds.DatabaseInstanceReadReplica",
 		"fromDatabaseInstanceAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -15493,17 +17681,15 @@ func DatabaseInstanceReadReplica_FromDatabaseInstanceAttributes(scope constructs
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func DatabaseInstanceReadReplica_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceReadReplica",
+		"monocdk.aws_rds.DatabaseInstanceReadReplica",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -15514,13 +17700,13 @@ func DatabaseInstanceReadReplica_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func DatabaseInstanceReadReplica_IsResource(construct constructs.IConstruct) *bool {
+func DatabaseInstanceReadReplica_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseInstanceReadReplica",
+		"monocdk.aws_rds.DatabaseInstanceReadReplica",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -15780,12 +17966,92 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) OnEvent(id *string, options *aws
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DatabaseInstanceReadReplica) OnPrepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DatabaseInstanceReadReplica) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (d *jsiiProxy_DatabaseInstanceReadReplica) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DatabaseInstanceReadReplica) Prepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Experimental.
 func (d *jsiiProxy_DatabaseInstanceReadReplica) SetLogRetention() {
 	_jsii_.InvokeVoid(
 		d,
 		"setLogRetention",
 		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DatabaseInstanceReadReplica) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"synthesize",
+		[]interface{}{session},
 	)
 }
 
@@ -15797,6 +18063,26 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) ToString() *string {
 	_jsii_.Invoke(
 		d,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (d *jsiiProxy_DatabaseInstanceReadReplica) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -15978,6 +18264,9 @@ type DatabaseInstanceReadReplicaProps struct {
 	// Existing subnet group for the instance.
 	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup"`
+	// The type of subnets to add to the created DB subnet group.
+	// Deprecated: use `vpcSubnets`
+	VpcPlacement *awsec2.SubnetSelection `json:"vpcPlacement"`
 	// The type of subnets to add to the created DB subnet group.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
@@ -16173,6 +18462,9 @@ type DatabaseInstanceSourceProps struct {
 	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup"`
 	// The type of subnets to add to the created DB subnet group.
+	// Deprecated: use `vpcSubnets`
+	VpcPlacement *awsec2.SubnetSelection `json:"vpcPlacement"`
+	// The type of subnets to add to the created DB subnet group.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 	// The database engine.
@@ -16215,7 +18507,7 @@ type DatabaseProxy interface {
 	DbProxyName() *string
 	Endpoint() *string
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
@@ -16224,7 +18516,13 @@ type DatabaseProxy interface {
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
 	GrantConnect(grantee awsiam.IGrantable, dbUser *string) awsiam.Grant
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for DatabaseProxy
@@ -16285,8 +18583,8 @@ func (j *jsiiProxy_DatabaseProxy) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_DatabaseProxy) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_DatabaseProxy) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -16323,7 +18621,7 @@ func NewDatabaseProxy(scope constructs.Construct, id *string, props *DatabasePro
 	j := jsiiProxy_DatabaseProxy{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseProxy",
+		"monocdk.aws_rds.DatabaseProxy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -16336,7 +18634,7 @@ func NewDatabaseProxy_Override(d DatabaseProxy, scope constructs.Construct, id *
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseProxy",
+		"monocdk.aws_rds.DatabaseProxy",
 		[]interface{}{scope, id, props},
 		d,
 	)
@@ -16350,7 +18648,7 @@ func DatabaseProxy_FromDatabaseProxyAttributes(scope constructs.Construct, id *s
 	var returns IDatabaseProxy
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseProxy",
+		"monocdk.aws_rds.DatabaseProxy",
 		"fromDatabaseProxyAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -16359,17 +18657,15 @@ func DatabaseProxy_FromDatabaseProxyAttributes(scope constructs.Construct, id *s
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func DatabaseProxy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseProxy",
+		"monocdk.aws_rds.DatabaseProxy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -16380,13 +18676,13 @@ func DatabaseProxy_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func DatabaseProxy_IsResource(construct constructs.IConstruct) *bool {
+func DatabaseProxy_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseProxy",
+		"monocdk.aws_rds.DatabaseProxy",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -16496,6 +18792,86 @@ func (d *jsiiProxy_DatabaseProxy) GrantConnect(grantee awsiam.IGrantable, dbUser
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DatabaseProxy) OnPrepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DatabaseProxy) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (d *jsiiProxy_DatabaseProxy) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DatabaseProxy) Prepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DatabaseProxy) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (d *jsiiProxy_DatabaseProxy) ToString() *string {
@@ -16504,6 +18880,26 @@ func (d *jsiiProxy_DatabaseProxy) ToString() *string {
 	_jsii_.Invoke(
 		d,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (d *jsiiProxy_DatabaseProxy) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -16725,7 +19121,7 @@ type DatabaseSecret interface {
 	AutoCreatePolicy() *bool
 	EncryptionKey() awskms.IKey
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	SecretArn() *string
 	SecretFullArn() *string
@@ -16734,6 +19130,7 @@ type DatabaseSecret interface {
 	Stack() awscdk.Stack
 	AddReplicaRegion(region *string, encryptionKey awskms.IKey)
 	AddRotationSchedule(id *string, options *awssecretsmanager.RotationScheduleOptions) awssecretsmanager.RotationSchedule
+	AddTargetAttachment(id *string, options *awssecretsmanager.AttachedSecretOptions) awssecretsmanager.SecretTargetAttachment
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	Attach(target awssecretsmanager.ISecretAttachmentTarget) awssecretsmanager.ISecret
@@ -16743,8 +19140,14 @@ type DatabaseSecret interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	GrantRead(grantee awsiam.IGrantable, versionStages *[]*string) awsiam.Grant
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	SecretValueFromJson(jsonField *string) awscdk.SecretValue
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for DatabaseSecret
@@ -16792,8 +19195,8 @@ func (j *jsiiProxy_DatabaseSecret) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_DatabaseSecret) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_DatabaseSecret) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -16870,7 +19273,7 @@ func NewDatabaseSecret(scope constructs.Construct, id *string, props *DatabaseSe
 	j := jsiiProxy_DatabaseSecret{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseSecret",
+		"monocdk.aws_rds.DatabaseSecret",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -16883,10 +19286,26 @@ func NewDatabaseSecret_Override(d DatabaseSecret, scope constructs.Construct, id
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.DatabaseSecret",
+		"monocdk.aws_rds.DatabaseSecret",
 		[]interface{}{scope, id, props},
 		d,
 	)
+}
+
+// Deprecated: use `fromSecretCompleteArn` or `fromSecretPartialArn`
+func DatabaseSecret_FromSecretArn(scope constructs.Construct, id *string, secretArn *string) awssecretsmanager.ISecret {
+	_init_.Initialize()
+
+	var returns awssecretsmanager.ISecret
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_rds.DatabaseSecret",
+		"fromSecretArn",
+		[]interface{}{scope, id, secretArn},
+		&returns,
+	)
+
+	return returns
 }
 
 // Import an existing secret into the Stack.
@@ -16897,7 +19316,7 @@ func DatabaseSecret_FromSecretAttributes(scope constructs.Construct, id *string,
 	var returns awssecretsmanager.ISecret
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseSecret",
+		"monocdk.aws_rds.DatabaseSecret",
 		"fromSecretAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -16916,9 +19335,29 @@ func DatabaseSecret_FromSecretCompleteArn(scope constructs.Construct, id *string
 	var returns awssecretsmanager.ISecret
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseSecret",
+		"monocdk.aws_rds.DatabaseSecret",
 		"fromSecretCompleteArn",
 		[]interface{}{scope, id, secretCompleteArn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Imports a secret by secret name;
+//
+// the ARN of the Secret will be set to the secret name.
+// A secret with this name must exist in the same account & region.
+// Deprecated: use `fromSecretNameV2`
+func DatabaseSecret_FromSecretName(scope constructs.Construct, id *string, secretName *string) awssecretsmanager.ISecret {
+	_init_.Initialize()
+
+	var returns awssecretsmanager.ISecret
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_rds.DatabaseSecret",
+		"fromSecretName",
+		[]interface{}{scope, id, secretName},
 		&returns,
 	)
 
@@ -16936,7 +19375,7 @@ func DatabaseSecret_FromSecretNameV2(scope constructs.Construct, id *string, sec
 	var returns awssecretsmanager.ISecret
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseSecret",
+		"monocdk.aws_rds.DatabaseSecret",
 		"fromSecretNameV2",
 		[]interface{}{scope, id, secretName},
 		&returns,
@@ -16955,7 +19394,7 @@ func DatabaseSecret_FromSecretPartialArn(scope constructs.Construct, id *string,
 	var returns awssecretsmanager.ISecret
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseSecret",
+		"monocdk.aws_rds.DatabaseSecret",
 		"fromSecretPartialArn",
 		[]interface{}{scope, id, secretPartialArn},
 		&returns,
@@ -16964,17 +19403,15 @@ func DatabaseSecret_FromSecretPartialArn(scope constructs.Construct, id *string,
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func DatabaseSecret_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseSecret",
+		"monocdk.aws_rds.DatabaseSecret",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -16985,13 +19422,13 @@ func DatabaseSecret_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func DatabaseSecret_IsResource(construct constructs.IConstruct) *bool {
+func DatabaseSecret_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.DatabaseSecret",
+		"monocdk.aws_rds.DatabaseSecret",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -17018,6 +19455,23 @@ func (d *jsiiProxy_DatabaseSecret) AddRotationSchedule(id *string, options *awss
 	_jsii_.Invoke(
 		d,
 		"addRotationSchedule",
+		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Adds a target attachment to the secret.
+//
+// Returns: an AttachedSecret
+// Deprecated: use `attach()` instead
+func (d *jsiiProxy_DatabaseSecret) AddTargetAttachment(id *string, options *awssecretsmanager.AttachedSecretOptions) awssecretsmanager.SecretTargetAttachment {
+	var returns awssecretsmanager.SecretTargetAttachment
+
+	_jsii_.Invoke(
+		d,
+		"addTargetAttachment",
 		[]interface{}{id, options},
 		&returns,
 	)
@@ -17172,6 +19626,73 @@ func (d *jsiiProxy_DatabaseSecret) GrantWrite(grantee awsiam.IGrantable) awsiam.
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DatabaseSecret) OnPrepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DatabaseSecret) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (d *jsiiProxy_DatabaseSecret) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DatabaseSecret) Prepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Interpret the secret as a JSON object and return a field's value from it as a `SecretValue`.
 // Experimental.
 func (d *jsiiProxy_DatabaseSecret) SecretValueFromJson(jsonField *string) awscdk.SecretValue {
@@ -17187,6 +19708,19 @@ func (d *jsiiProxy_DatabaseSecret) SecretValueFromJson(jsonField *string) awscdk
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DatabaseSecret) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (d *jsiiProxy_DatabaseSecret) ToString() *string {
@@ -17195,6 +19729,24 @@ func (d *jsiiProxy_DatabaseSecret) ToString() *string {
 	_jsii_.Invoke(
 		d,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+// Experimental.
+func (d *jsiiProxy_DatabaseSecret) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -17283,7 +19835,7 @@ func NewEndpoint(address *string, port *float64) Endpoint {
 	j := jsiiProxy_Endpoint{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.Endpoint",
+		"monocdk.aws_rds.Endpoint",
 		[]interface{}{address, port},
 		&j,
 	)
@@ -17296,7 +19848,7 @@ func NewEndpoint_Override(e Endpoint, address *string, port *float64) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.Endpoint",
+		"monocdk.aws_rds.Endpoint",
 		[]interface{}{address, port},
 		e,
 	)
@@ -17319,7 +19871,7 @@ type IClusterEngine interface {
 	IEngine
 	// Method called when the engine is used to create a new cluster.
 	// Experimental.
-	BindToCluster(scope constructs.Construct, options *ClusterEngineBindOptions) *ClusterEngineConfig
+	BindToCluster(scope awscdk.Construct, options *ClusterEngineBindOptions) *ClusterEngineConfig
 	// The application used by this engine to perform rotation for a multi-user scenario.
 	// Experimental.
 	MultiUserRotationApplication() awssecretsmanager.SecretRotationApplication
@@ -17336,7 +19888,7 @@ type jsiiProxy_IClusterEngine struct {
 	jsiiProxy_IEngine
 }
 
-func (i *jsiiProxy_IClusterEngine) BindToCluster(scope constructs.Construct, options *ClusterEngineBindOptions) *ClusterEngineConfig {
+func (i *jsiiProxy_IClusterEngine) BindToCluster(scope awscdk.Construct, options *ClusterEngineBindOptions) *ClusterEngineConfig {
 	var returns *ClusterEngineConfig
 
 	_jsii_.Invoke(
@@ -17791,8 +20343,8 @@ func (j *jsiiProxy_IDatabaseCluster) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IDatabaseCluster) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_IDatabaseCluster) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -18115,8 +20667,8 @@ func (j *jsiiProxy_IDatabaseInstance) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IDatabaseInstance) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_IDatabaseInstance) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -18297,7 +20849,7 @@ type IInstanceEngine interface {
 	IEngine
 	// Method called when the engine is used to create a new instance.
 	// Experimental.
-	BindToInstance(scope constructs.Construct, options *InstanceEngineBindOptions) *InstanceEngineConfig
+	BindToInstance(scope awscdk.Construct, options *InstanceEngineBindOptions) *InstanceEngineConfig
 	// The application used by this engine to perform rotation for a multi-user scenario.
 	// Experimental.
 	MultiUserRotationApplication() awssecretsmanager.SecretRotationApplication
@@ -18311,7 +20863,7 @@ type jsiiProxy_IInstanceEngine struct {
 	jsiiProxy_IEngine
 }
 
-func (i *jsiiProxy_IInstanceEngine) BindToInstance(scope constructs.Construct, options *InstanceEngineBindOptions) *InstanceEngineConfig {
+func (i *jsiiProxy_IInstanceEngine) BindToInstance(scope awscdk.Construct, options *InstanceEngineBindOptions) *InstanceEngineConfig {
 	var returns *InstanceEngineConfig
 
 	_jsii_.Invoke(
@@ -18573,8 +21125,8 @@ func (j *jsiiProxy_IServerlessCluster) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_IServerlessCluster) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_IServerlessCluster) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -18755,7 +21307,7 @@ func MariaDbEngineVersion_Of(mariaDbFullVersion *string, mariaDbMajorVersion *st
 	var returns MariaDbEngineVersion
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"of",
 		[]interface{}{mariaDbFullVersion, mariaDbMajorVersion},
 		&returns,
@@ -18764,11 +21316,176 @@ func MariaDbEngineVersion_Of(mariaDbFullVersion *string, mariaDbMajorVersion *st
 	return returns
 }
 
+func MariaDbEngineVersion_VER_10_0() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_0",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_0_17() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_0_17",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_0_24() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_0_24",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_0_28() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_0_28",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_0_31() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_0_31",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_0_32() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_0_32",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_0_34() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_0_34",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_0_35() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_0_35",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_1() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_1",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_1_14() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_1_14",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_1_19() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_1_19",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_1_23() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_1_23",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_1_26() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_1_26",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_1_31() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_1_31",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_1_34() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_1_34",
+		&returns,
+	)
+	return returns
+}
+
 func MariaDbEngineVersion_VER_10_2() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_2",
 		&returns,
 	)
@@ -18779,7 +21496,7 @@ func MariaDbEngineVersion_VER_10_2_11() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_2_11",
 		&returns,
 	)
@@ -18790,7 +21507,7 @@ func MariaDbEngineVersion_VER_10_2_12() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_2_12",
 		&returns,
 	)
@@ -18801,7 +21518,7 @@ func MariaDbEngineVersion_VER_10_2_15() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_2_15",
 		&returns,
 	)
@@ -18812,7 +21529,7 @@ func MariaDbEngineVersion_VER_10_2_21() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_2_21",
 		&returns,
 	)
@@ -18823,7 +21540,7 @@ func MariaDbEngineVersion_VER_10_2_32() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_2_32",
 		&returns,
 	)
@@ -18834,7 +21551,7 @@ func MariaDbEngineVersion_VER_10_3() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_3",
 		&returns,
 	)
@@ -18845,7 +21562,7 @@ func MariaDbEngineVersion_VER_10_3_13() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_3_13",
 		&returns,
 	)
@@ -18856,7 +21573,7 @@ func MariaDbEngineVersion_VER_10_3_20() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_3_20",
 		&returns,
 	)
@@ -18867,7 +21584,7 @@ func MariaDbEngineVersion_VER_10_3_23() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_3_23",
 		&returns,
 	)
@@ -18878,7 +21595,7 @@ func MariaDbEngineVersion_VER_10_3_8() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_3_8",
 		&returns,
 	)
@@ -18889,7 +21606,7 @@ func MariaDbEngineVersion_VER_10_4() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_4",
 		&returns,
 	)
@@ -18900,7 +21617,7 @@ func MariaDbEngineVersion_VER_10_4_13() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_4_13",
 		&returns,
 	)
@@ -18911,7 +21628,7 @@ func MariaDbEngineVersion_VER_10_4_8() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_4_8",
 		&returns,
 	)
@@ -18922,7 +21639,7 @@ func MariaDbEngineVersion_VER_10_5() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_5",
 		&returns,
 	)
@@ -18933,7 +21650,7 @@ func MariaDbEngineVersion_VER_10_5_8() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MariaDbEngineVersion",
+		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_5_8",
 		&returns,
 	)
@@ -19001,7 +21718,7 @@ func MysqlEngineVersion_Of(mysqlFullVersion *string, mysqlMajorVersion *string) 
 	var returns MysqlEngineVersion
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"of",
 		[]interface{}{mysqlFullVersion, mysqlMajorVersion},
 		&returns,
@@ -19010,11 +21727,220 @@ func MysqlEngineVersion_Of(mysqlFullVersion *string, mysqlMajorVersion *string) 
 	return returns
 }
 
+func MysqlEngineVersion_VER_5_5() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_5",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_5_46() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_5_46",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_5_53() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_5_53",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_5_57() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_5_57",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_5_59() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_5_59",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_5_61() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_5_61",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_6() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_6",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_6_34() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_6_34",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_6_35() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_6_35",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_6_37() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_6_37",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_6_39() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_6_39",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_6_40() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_6_40",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_6_41() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_6_41",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_6_43() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_6_43",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_6_44() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_6_44",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_6_46() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_6_46",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_6_48() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_6_48",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_6_49() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_6_49",
+		&returns,
+	)
+	return returns
+}
+
+func MysqlEngineVersion_VER_5_6_51() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_5_6_51",
+		&returns,
+	)
+	return returns
+}
+
 func MysqlEngineVersion_VER_5_7() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7",
 		&returns,
 	)
@@ -19025,7 +21951,7 @@ func MysqlEngineVersion_VER_5_7_16() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_16",
 		&returns,
 	)
@@ -19036,7 +21962,7 @@ func MysqlEngineVersion_VER_5_7_17() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_17",
 		&returns,
 	)
@@ -19047,7 +21973,7 @@ func MysqlEngineVersion_VER_5_7_19() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_19",
 		&returns,
 	)
@@ -19058,7 +21984,7 @@ func MysqlEngineVersion_VER_5_7_21() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_21",
 		&returns,
 	)
@@ -19069,7 +21995,7 @@ func MysqlEngineVersion_VER_5_7_22() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_22",
 		&returns,
 	)
@@ -19080,7 +22006,7 @@ func MysqlEngineVersion_VER_5_7_23() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_23",
 		&returns,
 	)
@@ -19091,7 +22017,7 @@ func MysqlEngineVersion_VER_5_7_24() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_24",
 		&returns,
 	)
@@ -19102,7 +22028,7 @@ func MysqlEngineVersion_VER_5_7_25() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_25",
 		&returns,
 	)
@@ -19113,7 +22039,7 @@ func MysqlEngineVersion_VER_5_7_26() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_26",
 		&returns,
 	)
@@ -19124,7 +22050,7 @@ func MysqlEngineVersion_VER_5_7_28() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_28",
 		&returns,
 	)
@@ -19135,7 +22061,7 @@ func MysqlEngineVersion_VER_5_7_30() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_30",
 		&returns,
 	)
@@ -19146,7 +22072,7 @@ func MysqlEngineVersion_VER_5_7_31() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_31",
 		&returns,
 	)
@@ -19157,7 +22083,7 @@ func MysqlEngineVersion_VER_5_7_33() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_5_7_33",
 		&returns,
 	)
@@ -19168,7 +22094,7 @@ func MysqlEngineVersion_VER_8_0() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_8_0",
 		&returns,
 	)
@@ -19179,7 +22105,7 @@ func MysqlEngineVersion_VER_8_0_11() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_8_0_11",
 		&returns,
 	)
@@ -19190,7 +22116,7 @@ func MysqlEngineVersion_VER_8_0_13() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_8_0_13",
 		&returns,
 	)
@@ -19201,7 +22127,7 @@ func MysqlEngineVersion_VER_8_0_15() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_8_0_15",
 		&returns,
 	)
@@ -19212,7 +22138,7 @@ func MysqlEngineVersion_VER_8_0_16() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_8_0_16",
 		&returns,
 	)
@@ -19223,7 +22149,7 @@ func MysqlEngineVersion_VER_8_0_17() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_8_0_17",
 		&returns,
 	)
@@ -19234,7 +22160,7 @@ func MysqlEngineVersion_VER_8_0_19() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_8_0_19",
 		&returns,
 	)
@@ -19245,7 +22171,7 @@ func MysqlEngineVersion_VER_8_0_20() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_8_0_20",
 		&returns,
 	)
@@ -19256,7 +22182,7 @@ func MysqlEngineVersion_VER_8_0_21() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_8_0_21",
 		&returns,
 	)
@@ -19267,7 +22193,7 @@ func MysqlEngineVersion_VER_8_0_23() MysqlEngineVersion {
 	_init_.Initialize()
 	var returns MysqlEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.MysqlEngineVersion",
+		"monocdk.aws_rds.MysqlEngineVersion",
 		"VER_8_0_23",
 		&returns,
 	)
@@ -19311,7 +22237,7 @@ type OptionGroup interface {
 	awscdk.Resource
 	IOptionGroup
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OptionConnections() *map[string]awsec2.Connections
 	OptionGroupName() *string
 	PhysicalName() *string
@@ -19321,7 +22247,13 @@ type OptionGroup interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for OptionGroup
@@ -19340,8 +22272,8 @@ func (j *jsiiProxy_OptionGroup) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_OptionGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_OptionGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -19398,7 +22330,7 @@ func NewOptionGroup(scope constructs.Construct, id *string, props *OptionGroupPr
 	j := jsiiProxy_OptionGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.OptionGroup",
+		"monocdk.aws_rds.OptionGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -19411,7 +22343,7 @@ func NewOptionGroup_Override(o OptionGroup, scope constructs.Construct, id *stri
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.OptionGroup",
+		"monocdk.aws_rds.OptionGroup",
 		[]interface{}{scope, id, props},
 		o,
 	)
@@ -19425,7 +22357,7 @@ func OptionGroup_FromOptionGroupName(scope constructs.Construct, id *string, opt
 	var returns IOptionGroup
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.OptionGroup",
+		"monocdk.aws_rds.OptionGroup",
 		"fromOptionGroupName",
 		[]interface{}{scope, id, optionGroupName},
 		&returns,
@@ -19434,17 +22366,15 @@ func OptionGroup_FromOptionGroupName(scope constructs.Construct, id *string, opt
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func OptionGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.OptionGroup",
+		"monocdk.aws_rds.OptionGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -19455,13 +22385,13 @@ func OptionGroup_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func OptionGroup_IsResource(construct constructs.IConstruct) *bool {
+func OptionGroup_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.OptionGroup",
+		"monocdk.aws_rds.OptionGroup",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -19558,6 +22488,86 @@ func (o *jsiiProxy_OptionGroup) GetResourceNameAttribute(nameAttr *string) *stri
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (o *jsiiProxy_OptionGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		o,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (o *jsiiProxy_OptionGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		o,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (o *jsiiProxy_OptionGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		o,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (o *jsiiProxy_OptionGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		o,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (o *jsiiProxy_OptionGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		o,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (o *jsiiProxy_OptionGroup) ToString() *string {
@@ -19566,6 +22576,26 @@ func (o *jsiiProxy_OptionGroup) ToString() *string {
 	_jsii_.Invoke(
 		o,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (o *jsiiProxy_OptionGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		o,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -19638,7 +22668,7 @@ func OracleEngineVersion_Of(oracleFullVersion *string, oracleMajorVersion *strin
 	var returns OracleEngineVersion
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"of",
 		[]interface{}{oracleFullVersion, oracleMajorVersion},
 		&returns,
@@ -19651,7 +22681,7 @@ func OracleEngineVersion_VER_12_1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1",
 		&returns,
 	)
@@ -19662,7 +22692,7 @@ func OracleEngineVersion_VER_12_1_0_2_V1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V1",
 		&returns,
 	)
@@ -19673,7 +22703,7 @@ func OracleEngineVersion_VER_12_1_0_2_V10() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V10",
 		&returns,
 	)
@@ -19684,7 +22714,7 @@ func OracleEngineVersion_VER_12_1_0_2_V11() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V11",
 		&returns,
 	)
@@ -19695,7 +22725,7 @@ func OracleEngineVersion_VER_12_1_0_2_V12() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V12",
 		&returns,
 	)
@@ -19706,7 +22736,7 @@ func OracleEngineVersion_VER_12_1_0_2_V13() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V13",
 		&returns,
 	)
@@ -19717,7 +22747,7 @@ func OracleEngineVersion_VER_12_1_0_2_V14() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V14",
 		&returns,
 	)
@@ -19728,7 +22758,7 @@ func OracleEngineVersion_VER_12_1_0_2_V15() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V15",
 		&returns,
 	)
@@ -19739,7 +22769,7 @@ func OracleEngineVersion_VER_12_1_0_2_V16() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V16",
 		&returns,
 	)
@@ -19750,7 +22780,7 @@ func OracleEngineVersion_VER_12_1_0_2_V17() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V17",
 		&returns,
 	)
@@ -19761,7 +22791,7 @@ func OracleEngineVersion_VER_12_1_0_2_V18() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V18",
 		&returns,
 	)
@@ -19772,7 +22802,7 @@ func OracleEngineVersion_VER_12_1_0_2_V19() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V19",
 		&returns,
 	)
@@ -19783,7 +22813,7 @@ func OracleEngineVersion_VER_12_1_0_2_V2() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V2",
 		&returns,
 	)
@@ -19794,7 +22824,7 @@ func OracleEngineVersion_VER_12_1_0_2_V20() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V20",
 		&returns,
 	)
@@ -19805,7 +22835,7 @@ func OracleEngineVersion_VER_12_1_0_2_V21() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V21",
 		&returns,
 	)
@@ -19816,7 +22846,7 @@ func OracleEngineVersion_VER_12_1_0_2_V3() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V3",
 		&returns,
 	)
@@ -19827,7 +22857,7 @@ func OracleEngineVersion_VER_12_1_0_2_V4() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V4",
 		&returns,
 	)
@@ -19838,7 +22868,7 @@ func OracleEngineVersion_VER_12_1_0_2_V5() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V5",
 		&returns,
 	)
@@ -19849,7 +22879,7 @@ func OracleEngineVersion_VER_12_1_0_2_V6() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V6",
 		&returns,
 	)
@@ -19860,7 +22890,7 @@ func OracleEngineVersion_VER_12_1_0_2_V7() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V7",
 		&returns,
 	)
@@ -19871,7 +22901,7 @@ func OracleEngineVersion_VER_12_1_0_2_V8() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V8",
 		&returns,
 	)
@@ -19882,7 +22912,7 @@ func OracleEngineVersion_VER_12_1_0_2_V9() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_1_0_2_V9",
 		&returns,
 	)
@@ -19893,7 +22923,7 @@ func OracleEngineVersion_VER_12_2() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_2",
 		&returns,
 	)
@@ -19904,7 +22934,7 @@ func OracleEngineVersion_VER_12_2_0_1_2018_10_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2018_10_R1",
 		&returns,
 	)
@@ -19915,7 +22945,7 @@ func OracleEngineVersion_VER_12_2_0_1_2019_01_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2019_01_R1",
 		&returns,
 	)
@@ -19926,7 +22956,7 @@ func OracleEngineVersion_VER_12_2_0_1_2019_04_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2019_04_R1",
 		&returns,
 	)
@@ -19937,7 +22967,7 @@ func OracleEngineVersion_VER_12_2_0_1_2019_07_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2019_07_R1",
 		&returns,
 	)
@@ -19948,7 +22978,7 @@ func OracleEngineVersion_VER_12_2_0_1_2019_10_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2019_10_R1",
 		&returns,
 	)
@@ -19959,7 +22989,7 @@ func OracleEngineVersion_VER_12_2_0_1_2020_01_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2020_01_R1",
 		&returns,
 	)
@@ -19970,7 +23000,7 @@ func OracleEngineVersion_VER_12_2_0_1_2020_04_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2020_04_R1",
 		&returns,
 	)
@@ -19981,7 +23011,7 @@ func OracleEngineVersion_VER_12_2_0_1_2020_07_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_12_2_0_1_2020_07_R1",
 		&returns,
 	)
@@ -19992,7 +23022,7 @@ func OracleEngineVersion_VER_18() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_18",
 		&returns,
 	)
@@ -20003,7 +23033,7 @@ func OracleEngineVersion_VER_18_0_0_0_2019_07_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_18_0_0_0_2019_07_R1",
 		&returns,
 	)
@@ -20014,7 +23044,7 @@ func OracleEngineVersion_VER_18_0_0_0_2019_10_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_18_0_0_0_2019_10_R1",
 		&returns,
 	)
@@ -20025,7 +23055,7 @@ func OracleEngineVersion_VER_18_0_0_0_2020_01_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_18_0_0_0_2020_01_R1",
 		&returns,
 	)
@@ -20036,7 +23066,7 @@ func OracleEngineVersion_VER_18_0_0_0_2020_04_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_18_0_0_0_2020_04_R1",
 		&returns,
 	)
@@ -20047,7 +23077,7 @@ func OracleEngineVersion_VER_18_0_0_0_2020_07_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_18_0_0_0_2020_07_R1",
 		&returns,
 	)
@@ -20058,7 +23088,7 @@ func OracleEngineVersion_VER_19() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_19",
 		&returns,
 	)
@@ -20069,7 +23099,7 @@ func OracleEngineVersion_VER_19_0_0_0_2019_07_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_19_0_0_0_2019_07_R1",
 		&returns,
 	)
@@ -20080,7 +23110,7 @@ func OracleEngineVersion_VER_19_0_0_0_2019_10_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_19_0_0_0_2019_10_R1",
 		&returns,
 	)
@@ -20091,7 +23121,7 @@ func OracleEngineVersion_VER_19_0_0_0_2020_01_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_19_0_0_0_2020_01_R1",
 		&returns,
 	)
@@ -20102,7 +23132,7 @@ func OracleEngineVersion_VER_19_0_0_0_2020_04_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_19_0_0_0_2020_04_R1",
 		&returns,
 	)
@@ -20113,11 +23143,340 @@ func OracleEngineVersion_VER_19_0_0_0_2020_07_R1() OracleEngineVersion {
 	_init_.Initialize()
 	var returns OracleEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.OracleEngineVersion",
+		"monocdk.aws_rds.OracleEngineVersion",
 		"VER_19_0_0_0_2020_07_R1",
 		&returns,
 	)
 	return returns
+}
+
+// The versions for the legacy Oracle instance engines (those returned by {@link DatabaseInstanceEngine.oracleSe} and {@link DatabaseInstanceEngine.oracleSe1}). Note: RDS will stop allowing creating new databases with this version in August 2020.
+// Deprecated: instances can no longer be created with these engine versions. See https://forums.aws.amazon.com/ann.jspa?annID=7341
+type OracleLegacyEngineVersion interface {
+	OracleLegacyFullVersion() *string
+	OracleLegacyMajorVersion() *string
+}
+
+// The jsii proxy struct for OracleLegacyEngineVersion
+type jsiiProxy_OracleLegacyEngineVersion struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_OracleLegacyEngineVersion) OracleLegacyFullVersion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"oracleLegacyFullVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_OracleLegacyEngineVersion) OracleLegacyMajorVersion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"oracleLegacyMajorVersion",
+		&returns,
+	)
+	return returns
+}
+
+
+func OracleLegacyEngineVersion_VER_11_2() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_2_V2() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_2_V2",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V1() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V1",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V10() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V10",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V11() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V11",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V12() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V12",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V13() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V13",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V14() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V14",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V15() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V15",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V16() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V16",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V17() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V17",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V18() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V18",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V19() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V19",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V20() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V20",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V21() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V21",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V22() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V22",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V23() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V23",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V24() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V24",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V25() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V25",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V3() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V3",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V4() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V4",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V5() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V5",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V6() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V6",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V7() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V7",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V8() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V8",
+		&returns,
+	)
+	return returns
+}
+
+func OracleLegacyEngineVersion_VER_11_2_0_4_V9() OracleLegacyEngineVersion {
+	_init_.Initialize()
+	var returns OracleLegacyEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.OracleLegacyEngineVersion",
+		"VER_11_2_0_4_V9",
+		&returns,
+	)
+	return returns
+}
+
+// Properties for Oracle Standard Edition 1 instance engines.
+//
+// Used in {@link DatabaseInstanceEngine.oracleSe1}.
+// Deprecated: instances can no longer be created with this engine. See https://forums.aws.amazon.com/ann.jspa?annID=7341
+type OracleSe1InstanceEngineProps struct {
+	// The exact version of the engine to use.
+	// Deprecated: instances can no longer be created with this engine. See https://forums.aws.amazon.com/ann.jspa?annID=7341
+	Version OracleLegacyEngineVersion `json:"version"`
 }
 
 // Properties for Oracle Standard Edition 2 instance engines.
@@ -20130,6 +23489,16 @@ type OracleSe2InstanceEngineProps struct {
 	Version OracleEngineVersion `json:"version"`
 }
 
+// Properties for Oracle Standard Edition instance engines.
+//
+// Used in {@link DatabaseInstanceEngine.oracleSe}.
+// Deprecated: instances can no longer be created with this engine. See https://forums.aws.amazon.com/ann.jspa?annID=7341
+type OracleSeInstanceEngineProps struct {
+	// The exact version of the engine to use.
+	// Deprecated: instances can no longer be created with this engine. See https://forums.aws.amazon.com/ann.jspa?annID=7341
+	Version OracleLegacyEngineVersion `json:"version"`
+}
+
 // A parameter group.
 //
 // Represents both a cluster parameter group,
@@ -20139,7 +23508,7 @@ type ParameterGroup interface {
 	awscdk.Resource
 	IParameterGroup
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	AddParameter(key *string, value *string) *bool
@@ -20149,7 +23518,13 @@ type ParameterGroup interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ParameterGroup
@@ -20168,8 +23543,8 @@ func (j *jsiiProxy_ParameterGroup) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_ParameterGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ParameterGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -20206,7 +23581,7 @@ func NewParameterGroup(scope constructs.Construct, id *string, props *ParameterG
 	j := jsiiProxy_ParameterGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.ParameterGroup",
+		"monocdk.aws_rds.ParameterGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -20219,7 +23594,7 @@ func NewParameterGroup_Override(p ParameterGroup, scope constructs.Construct, id
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.ParameterGroup",
+		"monocdk.aws_rds.ParameterGroup",
 		[]interface{}{scope, id, props},
 		p,
 	)
@@ -20233,7 +23608,7 @@ func ParameterGroup_FromParameterGroupName(scope constructs.Construct, id *strin
 	var returns IParameterGroup
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.ParameterGroup",
+		"monocdk.aws_rds.ParameterGroup",
 		"fromParameterGroupName",
 		[]interface{}{scope, id, parameterGroupName},
 		&returns,
@@ -20242,17 +23617,15 @@ func ParameterGroup_FromParameterGroupName(scope constructs.Construct, id *strin
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func ParameterGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.ParameterGroup",
+		"monocdk.aws_rds.ParameterGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -20263,13 +23636,13 @@ func ParameterGroup_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func ParameterGroup_IsResource(construct constructs.IConstruct) *bool {
+func ParameterGroup_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.ParameterGroup",
+		"monocdk.aws_rds.ParameterGroup",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -20394,6 +23767,86 @@ func (p *jsiiProxy_ParameterGroup) GetResourceNameAttribute(nameAttr *string) *s
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (p *jsiiProxy_ParameterGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (p *jsiiProxy_ParameterGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (p *jsiiProxy_ParameterGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (p *jsiiProxy_ParameterGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (p *jsiiProxy_ParameterGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (p *jsiiProxy_ParameterGroup) ToString() *string {
@@ -20402,6 +23855,26 @@ func (p *jsiiProxy_ParameterGroup) ToString() *string {
 	_jsii_.Invoke(
 		p,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (p *jsiiProxy_ParameterGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -20507,7 +23980,7 @@ func PostgresEngineVersion_Of(postgresFullVersion *string, postgresMajorVersion 
 	var returns PostgresEngineVersion
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"of",
 		[]interface{}{postgresFullVersion, postgresMajorVersion, postgresFeatures},
 		&returns,
@@ -20520,7 +23993,7 @@ func PostgresEngineVersion_VER_10() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10",
 		&returns,
 	)
@@ -20531,7 +24004,7 @@ func PostgresEngineVersion_VER_10_1() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_1",
 		&returns,
 	)
@@ -20542,7 +24015,7 @@ func PostgresEngineVersion_VER_10_10() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_10",
 		&returns,
 	)
@@ -20553,7 +24026,7 @@ func PostgresEngineVersion_VER_10_11() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_11",
 		&returns,
 	)
@@ -20564,7 +24037,7 @@ func PostgresEngineVersion_VER_10_12() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_12",
 		&returns,
 	)
@@ -20575,7 +24048,7 @@ func PostgresEngineVersion_VER_10_13() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_13",
 		&returns,
 	)
@@ -20586,7 +24059,7 @@ func PostgresEngineVersion_VER_10_14() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_14",
 		&returns,
 	)
@@ -20597,7 +24070,7 @@ func PostgresEngineVersion_VER_10_15() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_15",
 		&returns,
 	)
@@ -20608,7 +24081,7 @@ func PostgresEngineVersion_VER_10_16() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_16",
 		&returns,
 	)
@@ -20619,7 +24092,7 @@ func PostgresEngineVersion_VER_10_3() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_3",
 		&returns,
 	)
@@ -20630,7 +24103,7 @@ func PostgresEngineVersion_VER_10_4() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_4",
 		&returns,
 	)
@@ -20641,7 +24114,7 @@ func PostgresEngineVersion_VER_10_5() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_5",
 		&returns,
 	)
@@ -20652,7 +24125,7 @@ func PostgresEngineVersion_VER_10_6() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_6",
 		&returns,
 	)
@@ -20663,7 +24136,7 @@ func PostgresEngineVersion_VER_10_7() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_7",
 		&returns,
 	)
@@ -20674,7 +24147,7 @@ func PostgresEngineVersion_VER_10_9() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_10_9",
 		&returns,
 	)
@@ -20685,7 +24158,7 @@ func PostgresEngineVersion_VER_11() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_11",
 		&returns,
 	)
@@ -20696,7 +24169,7 @@ func PostgresEngineVersion_VER_11_1() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_11_1",
 		&returns,
 	)
@@ -20707,7 +24180,7 @@ func PostgresEngineVersion_VER_11_10() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_11_10",
 		&returns,
 	)
@@ -20718,7 +24191,7 @@ func PostgresEngineVersion_VER_11_11() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_11_11",
 		&returns,
 	)
@@ -20729,7 +24202,7 @@ func PostgresEngineVersion_VER_11_2() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_11_2",
 		&returns,
 	)
@@ -20740,7 +24213,7 @@ func PostgresEngineVersion_VER_11_4() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_11_4",
 		&returns,
 	)
@@ -20751,7 +24224,7 @@ func PostgresEngineVersion_VER_11_5() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_11_5",
 		&returns,
 	)
@@ -20762,7 +24235,7 @@ func PostgresEngineVersion_VER_11_6() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_11_6",
 		&returns,
 	)
@@ -20773,7 +24246,7 @@ func PostgresEngineVersion_VER_11_7() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_11_7",
 		&returns,
 	)
@@ -20784,7 +24257,7 @@ func PostgresEngineVersion_VER_11_8() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_11_8",
 		&returns,
 	)
@@ -20795,7 +24268,7 @@ func PostgresEngineVersion_VER_11_9() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_11_9",
 		&returns,
 	)
@@ -20806,7 +24279,7 @@ func PostgresEngineVersion_VER_12() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_12",
 		&returns,
 	)
@@ -20817,7 +24290,7 @@ func PostgresEngineVersion_VER_12_2() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_12_2",
 		&returns,
 	)
@@ -20828,7 +24301,7 @@ func PostgresEngineVersion_VER_12_3() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_12_3",
 		&returns,
 	)
@@ -20839,7 +24312,7 @@ func PostgresEngineVersion_VER_12_4() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_12_4",
 		&returns,
 	)
@@ -20850,7 +24323,7 @@ func PostgresEngineVersion_VER_12_5() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_12_5",
 		&returns,
 	)
@@ -20861,7 +24334,7 @@ func PostgresEngineVersion_VER_12_6() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_12_6",
 		&returns,
 	)
@@ -20872,7 +24345,7 @@ func PostgresEngineVersion_VER_13() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_13",
 		&returns,
 	)
@@ -20883,7 +24356,7 @@ func PostgresEngineVersion_VER_13_1() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_13_1",
 		&returns,
 	)
@@ -20894,8 +24367,415 @@ func PostgresEngineVersion_VER_13_2() PostgresEngineVersion {
 	_init_.Initialize()
 	var returns PostgresEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.PostgresEngineVersion",
+		"monocdk.aws_rds.PostgresEngineVersion",
 		"VER_13_2",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_10() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_10",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_12() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_12",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_13() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_13",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_14() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_14",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_15() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_15",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_16() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_16",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_18() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_18",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_19() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_19",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_2() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_2",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_20() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_20",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_21() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_21",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_22() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_22",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_23() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_23",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_4() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_4",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_6() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_6",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_7() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_7",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_5_9() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_5_9",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_1() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_1",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_10() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_10",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_11() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_11",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_12() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_12",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_14() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_14",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_15() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_15",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_16() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_16",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_17() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_17",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_18() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_18",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_19() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_19",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_2() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_2",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_20() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_20",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_21() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_21",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_3() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_3",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_5() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_5",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_6() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_6",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_8() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_8",
+		&returns,
+	)
+	return returns
+}
+
+func PostgresEngineVersion_VER_9_6_9() PostgresEngineVersion {
+	_init_.Initialize()
+	var returns PostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.PostgresEngineVersion",
+		"VER_9_6_9",
 		&returns,
 	)
 	return returns
@@ -20944,7 +24824,7 @@ func ProxyTarget_FromCluster(cluster IDatabaseCluster) ProxyTarget {
 	var returns ProxyTarget
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.ProxyTarget",
+		"monocdk.aws_rds.ProxyTarget",
 		"fromCluster",
 		[]interface{}{cluster},
 		&returns,
@@ -20961,7 +24841,7 @@ func ProxyTarget_FromInstance(instance IDatabaseInstance) ProxyTarget {
 	var returns ProxyTarget
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.ProxyTarget",
+		"monocdk.aws_rds.ProxyTarget",
 		"fromInstance",
 		[]interface{}{instance},
 		&returns,
@@ -21054,7 +24934,7 @@ type ServerlessCluster interface {
 	EnableDataApi() *bool
 	SetEnableDataApi(val *bool)
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Secret() awssecretsmanager.ISecret
 	Stack() awscdk.Stack
@@ -21066,7 +24946,13 @@ type ServerlessCluster interface {
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
 	GrantDataApiAccess(grantee awsiam.IGrantable) awsiam.Grant
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ServerlessCluster
@@ -21145,8 +25031,8 @@ func (j *jsiiProxy_ServerlessCluster) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_ServerlessCluster) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ServerlessCluster) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -21193,7 +25079,7 @@ func NewServerlessCluster(scope constructs.Construct, id *string, props *Serverl
 	j := jsiiProxy_ServerlessCluster{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.ServerlessCluster",
+		"monocdk.aws_rds.ServerlessCluster",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -21206,7 +25092,7 @@ func NewServerlessCluster_Override(s ServerlessCluster, scope constructs.Constru
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.ServerlessCluster",
+		"monocdk.aws_rds.ServerlessCluster",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -21228,7 +25114,7 @@ func ServerlessCluster_FromServerlessClusterAttributes(scope constructs.Construc
 	var returns IServerlessCluster
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.ServerlessCluster",
+		"monocdk.aws_rds.ServerlessCluster",
 		"fromServerlessClusterAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -21237,17 +25123,15 @@ func ServerlessCluster_FromServerlessClusterAttributes(scope constructs.Construc
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func ServerlessCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.ServerlessCluster",
+		"monocdk.aws_rds.ServerlessCluster",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -21258,13 +25142,13 @@ func ServerlessCluster_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func ServerlessCluster_IsResource(construct constructs.IConstruct) *bool {
+func ServerlessCluster_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.ServerlessCluster",
+		"monocdk.aws_rds.ServerlessCluster",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -21404,6 +25288,86 @@ func (s *jsiiProxy_ServerlessCluster) GrantDataApiAccess(grantee awsiam.IGrantab
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_ServerlessCluster) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_ServerlessCluster) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_ServerlessCluster) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_ServerlessCluster) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_ServerlessCluster) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (s *jsiiProxy_ServerlessCluster) ToString() *string {
@@ -21412,6 +25376,26 @@ func (s *jsiiProxy_ServerlessCluster) ToString() *string {
 	_jsii_.Invoke(
 		s,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_ServerlessCluster) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -21552,7 +25536,7 @@ func SessionPinningFilter_Of(filterName *string) SessionPinningFilter {
 	var returns SessionPinningFilter
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.SessionPinningFilter",
+		"monocdk.aws_rds.SessionPinningFilter",
 		"of",
 		[]interface{}{filterName},
 		&returns,
@@ -21565,7 +25549,7 @@ func SessionPinningFilter_EXCLUDE_VARIABLE_SETS() SessionPinningFilter {
 	_init_.Initialize()
 	var returns SessionPinningFilter
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SessionPinningFilter",
+		"monocdk.aws_rds.SessionPinningFilter",
 		"EXCLUDE_VARIABLE_SETS",
 		&returns,
 	)
@@ -21665,10 +25649,31 @@ func NewSnapshotCredentials_Override(s SnapshotCredentials) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.SnapshotCredentials",
+		"monocdk.aws_rds.SnapshotCredentials",
 		nil, // no parameters
 		s,
 	)
+}
+
+// Generate a new password for the snapshot, using the existing username and an optional encryption key.
+//
+// Note - The username must match the existing master username of the snapshot.
+// Deprecated: use `fromGeneratedSecret()` for new Clusters and Instances.
+// Note that switching from `fromGeneratedPassword()` to `fromGeneratedSecret()` for already deployed
+// Clusters or Instances will update their master password.
+func SnapshotCredentials_FromGeneratedPassword(username *string, options *SnapshotCredentialsFromGeneratedPasswordOptions) SnapshotCredentials {
+	_init_.Initialize()
+
+	var returns SnapshotCredentials
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_rds.SnapshotCredentials",
+		"fromGeneratedPassword",
+		[]interface{}{username, options},
+		&returns,
+	)
+
+	return returns
 }
 
 // Generate a new password for the snapshot, using the existing username and an optional encryption key.
@@ -21683,7 +25688,7 @@ func SnapshotCredentials_FromGeneratedSecret(username *string, options *Snapshot
 	var returns SnapshotCredentials
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.SnapshotCredentials",
+		"monocdk.aws_rds.SnapshotCredentials",
 		"fromGeneratedSecret",
 		[]interface{}{username, options},
 		&returns,
@@ -21700,7 +25705,7 @@ func SnapshotCredentials_FromPassword(password awscdk.SecretValue) SnapshotCrede
 	var returns SnapshotCredentials
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.SnapshotCredentials",
+		"monocdk.aws_rds.SnapshotCredentials",
 		"fromPassword",
 		[]interface{}{password},
 		&returns,
@@ -21725,7 +25730,7 @@ func SnapshotCredentials_FromSecret(secret awssecretsmanager.Secret) SnapshotCre
 	var returns SnapshotCredentials
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.SnapshotCredentials",
+		"monocdk.aws_rds.SnapshotCredentials",
 		"fromSecret",
 		[]interface{}{secret},
 		&returns,
@@ -21796,7 +25801,7 @@ func SqlServerEngineVersion_Of(sqlServerFullVersion *string, sqlServerMajorVersi
 	var returns SqlServerEngineVersion
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"of",
 		[]interface{}{sqlServerFullVersion, sqlServerMajorVersion},
 		&returns,
@@ -21809,7 +25814,7 @@ func SqlServerEngineVersion_VER_11() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_11",
 		&returns,
 	)
@@ -21820,7 +25825,7 @@ func SqlServerEngineVersion_VER_11_00_5058_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_11_00_5058_0_V1",
 		&returns,
 	)
@@ -21831,7 +25836,7 @@ func SqlServerEngineVersion_VER_11_00_6020_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_11_00_6020_0_V1",
 		&returns,
 	)
@@ -21842,7 +25847,7 @@ func SqlServerEngineVersion_VER_11_00_6594_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_11_00_6594_0_V1",
 		&returns,
 	)
@@ -21853,7 +25858,7 @@ func SqlServerEngineVersion_VER_11_00_7462_6_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_11_00_7462_6_V1",
 		&returns,
 	)
@@ -21864,7 +25869,7 @@ func SqlServerEngineVersion_VER_11_00_7493_4_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_11_00_7493_4_V1",
 		&returns,
 	)
@@ -21875,7 +25880,7 @@ func SqlServerEngineVersion_VER_12() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_12",
 		&returns,
 	)
@@ -21886,7 +25891,7 @@ func SqlServerEngineVersion_VER_12_00_5000_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_12_00_5000_0_V1",
 		&returns,
 	)
@@ -21897,7 +25902,7 @@ func SqlServerEngineVersion_VER_12_00_5546_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_12_00_5546_0_V1",
 		&returns,
 	)
@@ -21908,7 +25913,7 @@ func SqlServerEngineVersion_VER_12_00_5571_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_12_00_5571_0_V1",
 		&returns,
 	)
@@ -21919,7 +25924,7 @@ func SqlServerEngineVersion_VER_12_00_6293_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_12_00_6293_0_V1",
 		&returns,
 	)
@@ -21930,7 +25935,7 @@ func SqlServerEngineVersion_VER_12_00_6329_1_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_12_00_6329_1_V1",
 		&returns,
 	)
@@ -21941,7 +25946,7 @@ func SqlServerEngineVersion_VER_13() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_13",
 		&returns,
 	)
@@ -21952,7 +25957,7 @@ func SqlServerEngineVersion_VER_13_00_2164_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_13_00_2164_0_V1",
 		&returns,
 	)
@@ -21963,7 +25968,7 @@ func SqlServerEngineVersion_VER_13_00_4422_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_13_00_4422_0_V1",
 		&returns,
 	)
@@ -21974,7 +25979,7 @@ func SqlServerEngineVersion_VER_13_00_4451_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_13_00_4451_0_V1",
 		&returns,
 	)
@@ -21985,7 +25990,7 @@ func SqlServerEngineVersion_VER_13_00_4466_4_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_13_00_4466_4_V1",
 		&returns,
 	)
@@ -21996,7 +26001,7 @@ func SqlServerEngineVersion_VER_13_00_4522_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_13_00_4522_0_V1",
 		&returns,
 	)
@@ -22007,7 +26012,7 @@ func SqlServerEngineVersion_VER_13_00_5216_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_13_00_5216_0_V1",
 		&returns,
 	)
@@ -22018,7 +26023,7 @@ func SqlServerEngineVersion_VER_13_00_5292_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_13_00_5292_0_V1",
 		&returns,
 	)
@@ -22029,7 +26034,7 @@ func SqlServerEngineVersion_VER_13_00_5366_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_13_00_5366_0_V1",
 		&returns,
 	)
@@ -22040,7 +26045,7 @@ func SqlServerEngineVersion_VER_13_00_5426_0_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_13_00_5426_0_V1",
 		&returns,
 	)
@@ -22051,7 +26056,7 @@ func SqlServerEngineVersion_VER_13_00_5598_27_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_13_00_5598_27_V1",
 		&returns,
 	)
@@ -22062,7 +26067,7 @@ func SqlServerEngineVersion_VER_13_00_5820_21_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_13_00_5820_21_V1",
 		&returns,
 	)
@@ -22073,7 +26078,7 @@ func SqlServerEngineVersion_VER_14() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_14",
 		&returns,
 	)
@@ -22084,7 +26089,7 @@ func SqlServerEngineVersion_VER_14_00_1000_169_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_14_00_1000_169_V1",
 		&returns,
 	)
@@ -22095,7 +26100,7 @@ func SqlServerEngineVersion_VER_14_00_3015_40_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_14_00_3015_40_V1",
 		&returns,
 	)
@@ -22106,7 +26111,7 @@ func SqlServerEngineVersion_VER_14_00_3035_2_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_14_00_3035_2_V1",
 		&returns,
 	)
@@ -22117,7 +26122,7 @@ func SqlServerEngineVersion_VER_14_00_3049_1_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_14_00_3049_1_V1",
 		&returns,
 	)
@@ -22128,7 +26133,7 @@ func SqlServerEngineVersion_VER_14_00_3192_2_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_14_00_3192_2_V1",
 		&returns,
 	)
@@ -22139,7 +26144,7 @@ func SqlServerEngineVersion_VER_14_00_3223_3_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_14_00_3223_3_V1",
 		&returns,
 	)
@@ -22150,7 +26155,7 @@ func SqlServerEngineVersion_VER_14_00_3281_6_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_14_00_3281_6_V1",
 		&returns,
 	)
@@ -22161,7 +26166,7 @@ func SqlServerEngineVersion_VER_14_00_3294_2_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_14_00_3294_2_V1",
 		&returns,
 	)
@@ -22172,7 +26177,7 @@ func SqlServerEngineVersion_VER_15() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_15",
 		&returns,
 	)
@@ -22183,7 +26188,7 @@ func SqlServerEngineVersion_VER_15_00_4043_16_V1() SqlServerEngineVersion {
 	_init_.Initialize()
 	var returns SqlServerEngineVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_rds.SqlServerEngineVersion",
+		"monocdk.aws_rds.SqlServerEngineVersion",
 		"VER_15_00_4043_16_V1",
 		&returns,
 	)
@@ -22236,7 +26241,7 @@ type SubnetGroup interface {
 	awscdk.Resource
 	ISubnetGroup
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	SubnetGroupName() *string
@@ -22244,7 +26249,13 @@ type SubnetGroup interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for SubnetGroup
@@ -22263,8 +26274,8 @@ func (j *jsiiProxy_SubnetGroup) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_SubnetGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_SubnetGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -22311,7 +26322,7 @@ func NewSubnetGroup(scope constructs.Construct, id *string, props *SubnetGroupPr
 	j := jsiiProxy_SubnetGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.SubnetGroup",
+		"monocdk.aws_rds.SubnetGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -22324,7 +26335,7 @@ func NewSubnetGroup_Override(s SubnetGroup, scope constructs.Construct, id *stri
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_rds.SubnetGroup",
+		"monocdk.aws_rds.SubnetGroup",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -22338,7 +26349,7 @@ func SubnetGroup_FromSubnetGroupName(scope constructs.Construct, id *string, sub
 	var returns ISubnetGroup
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.SubnetGroup",
+		"monocdk.aws_rds.SubnetGroup",
 		"fromSubnetGroupName",
 		[]interface{}{scope, id, subnetGroupName},
 		&returns,
@@ -22347,17 +26358,15 @@ func SubnetGroup_FromSubnetGroupName(scope constructs.Construct, id *string, sub
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func SubnetGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.SubnetGroup",
+		"monocdk.aws_rds.SubnetGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -22368,13 +26377,13 @@ func SubnetGroup_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func SubnetGroup_IsResource(construct constructs.IConstruct) *bool {
+func SubnetGroup_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_rds.SubnetGroup",
+		"monocdk.aws_rds.SubnetGroup",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -22454,6 +26463,86 @@ func (s *jsiiProxy_SubnetGroup) GetResourceNameAttribute(nameAttr *string) *stri
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_SubnetGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_SubnetGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_SubnetGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_SubnetGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_SubnetGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (s *jsiiProxy_SubnetGroup) ToString() *string {
@@ -22462,6 +26551,26 @@ func (s *jsiiProxy_SubnetGroup) ToString() *string {
 	_jsii_.Invoke(
 		s,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_SubnetGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
