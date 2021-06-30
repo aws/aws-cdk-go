@@ -3,15 +3,15 @@ package awss3
 import (
 	"time"
 
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/awss3/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Experimental.
@@ -79,7 +79,7 @@ func NewBlockPublicAccess(options *BlockPublicAccessOptions) BlockPublicAccess {
 	j := jsiiProxy_BlockPublicAccess{}
 
 	_jsii_.Create(
-		"monocdk.aws_s3.BlockPublicAccess",
+		"aws-cdk-lib.aws_s3.BlockPublicAccess",
 		[]interface{}{options},
 		&j,
 	)
@@ -92,7 +92,7 @@ func NewBlockPublicAccess_Override(b BlockPublicAccess, options *BlockPublicAcce
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_s3.BlockPublicAccess",
+		"aws-cdk-lib.aws_s3.BlockPublicAccess",
 		[]interface{}{options},
 		b,
 	)
@@ -134,7 +134,7 @@ func BlockPublicAccess_BLOCK_ACLS() BlockPublicAccess {
 	_init_.Initialize()
 	var returns BlockPublicAccess
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.BlockPublicAccess",
+		"aws-cdk-lib.aws_s3.BlockPublicAccess",
 		"BLOCK_ACLS",
 		&returns,
 	)
@@ -145,7 +145,7 @@ func BlockPublicAccess_BLOCK_ALL() BlockPublicAccess {
 	_init_.Initialize()
 	var returns BlockPublicAccess
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.BlockPublicAccess",
+		"aws-cdk-lib.aws_s3.BlockPublicAccess",
 		"BLOCK_ALL",
 		&returns,
 	)
@@ -182,7 +182,8 @@ type BlockPublicAccessOptions struct {
 // BucketResource.
 // Experimental.
 type Bucket interface {
-	BucketBase
+	awscdk.Resource
+	IBucket
 	AutoCreatePolicy() *bool
 	SetAutoCreatePolicy(val *bool)
 	BucketArn() *string
@@ -197,7 +198,7 @@ type Bucket interface {
 	EncryptionKey() awskms.IKey
 	Env() *awscdk.ResourceEnvironment
 	IsWebsite() *bool
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	PhysicalName() *string
 	Policy() BucketPolicy
 	SetPolicy(val BucketPolicy)
@@ -225,21 +226,16 @@ type Bucket interface {
 	OnCloudTrailEvent(id *string, options *OnCloudTrailBucketEventOptions) awsevents.Rule
 	OnCloudTrailPutObject(id *string, options *OnCloudTrailBucketEventOptions) awsevents.Rule
 	OnCloudTrailWriteObject(id *string, options *OnCloudTrailBucketEventOptions) awsevents.Rule
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
 	S3UrlForObject(key *string) *string
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
 	UrlForObject(key *string) *string
-	Validate() *[]*string
 	VirtualHostedUrlForObject(key *string, options *VirtualHostedStyleUrlOptions) *string
 }
 
 // The jsii proxy struct for Bucket
 type jsiiProxy_Bucket struct {
-	jsiiProxy_BucketBase
+	internal.Type__awscdkResource
+	jsiiProxy_IBucket
 }
 
 func (j *jsiiProxy_Bucket) AutoCreatePolicy() *bool {
@@ -362,8 +358,8 @@ func (j *jsiiProxy_Bucket) IsWebsite() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_Bucket) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_Bucket) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -410,7 +406,7 @@ func NewBucket(scope constructs.Construct, id *string, props *BucketProps) Bucke
 	j := jsiiProxy_Bucket{}
 
 	_jsii_.Create(
-		"monocdk.aws_s3.Bucket",
+		"aws-cdk-lib.aws_s3.Bucket",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -423,7 +419,7 @@ func NewBucket_Override(b Bucket, scope constructs.Construct, id *string, props 
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_s3.Bucket",
+		"aws-cdk-lib.aws_s3.Bucket",
 		[]interface{}{scope, id, props},
 		b,
 	)
@@ -460,7 +456,7 @@ func Bucket_FromBucketArn(scope constructs.Construct, id *string, bucketArn *str
 	var returns IBucket
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.Bucket",
+		"aws-cdk-lib.aws_s3.Bucket",
 		"fromBucketArn",
 		[]interface{}{scope, id, bucketArn},
 		&returns,
@@ -477,7 +473,7 @@ func Bucket_FromBucketAttributes(scope constructs.Construct, id *string, attrs *
 	var returns IBucket
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.Bucket",
+		"aws-cdk-lib.aws_s3.Bucket",
 		"fromBucketAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -493,7 +489,7 @@ func Bucket_FromBucketName(scope constructs.Construct, id *string, bucketName *s
 	var returns IBucket
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.Bucket",
+		"aws-cdk-lib.aws_s3.Bucket",
 		"fromBucketName",
 		[]interface{}{scope, id, bucketName},
 		&returns,
@@ -502,15 +498,17 @@ func Bucket_FromBucketName(scope constructs.Construct, id *string, bucketName *s
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func Bucket_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.Bucket",
+		"aws-cdk-lib.aws_s3.Bucket",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -521,13 +519,13 @@ func Bucket_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func Bucket_IsResource(construct awscdk.IConstruct) *bool {
+func Bucket_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.Bucket",
+		"aws-cdk-lib.aws_s3.Bucket",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -961,73 +959,6 @@ func (b *jsiiProxy_Bucket) OnCloudTrailWriteObject(id *string, options *OnCloudT
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (b *jsiiProxy_Bucket) OnPrepare() {
-	_jsii_.InvokeVoid(
-		b,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (b *jsiiProxy_Bucket) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		b,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (b *jsiiProxy_Bucket) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		b,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (b *jsiiProxy_Bucket) Prepare() {
-	_jsii_.InvokeVoid(
-		b,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 // The S3 URL of an S3 object.
 //
 // For example:
@@ -1048,19 +979,6 @@ func (b *jsiiProxy_Bucket) S3UrlForObject(key *string) *string {
 	)
 
 	return returns
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (b *jsiiProxy_Bucket) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		b,
-		"synthesize",
-		[]interface{}{session},
-	)
 }
 
 // Returns a string representation of this construct.
@@ -1095,24 +1013,6 @@ func (b *jsiiProxy_Bucket) UrlForObject(key *string) *string {
 		b,
 		"urlForObject",
 		[]interface{}{key},
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-// Experimental.
-func (b *jsiiProxy_Bucket) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		b,
-		"validate",
-		nil, // no parameters
 		&returns,
 	)
 
@@ -1211,876 +1111,6 @@ type BucketAttributes struct {
 	Region *string `json:"region"`
 }
 
-// Represents an S3 Bucket.
-//
-// Buckets can be either defined within this stack:
-//
-//    new Bucket(this, 'MyBucket', { props });
-//
-// Or imported from an existing bucket:
-//
-//    Bucket.import(this, 'MyImportedBucket', { bucketArn: ... });
-//
-// You can also export a bucket and import it into another stack:
-//
-//    const ref = myBucket.export();
-//    Bucket.import(this, 'MyImportedBucket', ref);
-// Experimental.
-type BucketBase interface {
-	awscdk.Resource
-	IBucket
-	AutoCreatePolicy() *bool
-	SetAutoCreatePolicy(val *bool)
-	BucketArn() *string
-	BucketDomainName() *string
-	BucketDualStackDomainName() *string
-	BucketName() *string
-	BucketRegionalDomainName() *string
-	BucketWebsiteDomainName() *string
-	BucketWebsiteUrl() *string
-	DisallowPublicAccess() *bool
-	SetDisallowPublicAccess(val *bool)
-	EncryptionKey() awskms.IKey
-	Env() *awscdk.ResourceEnvironment
-	IsWebsite() *bool
-	Node() awscdk.ConstructNode
-	PhysicalName() *string
-	Policy() BucketPolicy
-	SetPolicy(val BucketPolicy)
-	Stack() awscdk.Stack
-	AddEventNotification(event EventType, dest IBucketNotificationDestination, filters ...*NotificationKeyFilter)
-	AddObjectCreatedNotification(dest IBucketNotificationDestination, filters ...*NotificationKeyFilter)
-	AddObjectRemovedNotification(dest IBucketNotificationDestination, filters ...*NotificationKeyFilter)
-	AddToResourcePolicy(permission awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
-	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	ArnForObjects(keyPattern *string) *string
-	GeneratePhysicalName() *string
-	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
-	GetResourceNameAttribute(nameAttr *string) *string
-	GrantDelete(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
-	GrantPublicAccess(keyPrefix *string, allowedActions ...*string) awsiam.Grant
-	GrantPut(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
-	GrantPutAcl(identity awsiam.IGrantable, objectsKeyPattern *string) awsiam.Grant
-	GrantRead(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
-	GrantReadWrite(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
-	GrantWrite(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant
-	OnCloudTrailEvent(id *string, options *OnCloudTrailBucketEventOptions) awsevents.Rule
-	OnCloudTrailPutObject(id *string, options *OnCloudTrailBucketEventOptions) awsevents.Rule
-	OnCloudTrailWriteObject(id *string, options *OnCloudTrailBucketEventOptions) awsevents.Rule
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	S3UrlForObject(key *string) *string
-	Synthesize(session awscdk.ISynthesisSession)
-	ToString() *string
-	UrlForObject(key *string) *string
-	Validate() *[]*string
-	VirtualHostedUrlForObject(key *string, options *VirtualHostedStyleUrlOptions) *string
-}
-
-// The jsii proxy struct for BucketBase
-type jsiiProxy_BucketBase struct {
-	internal.Type__awscdkResource
-	jsiiProxy_IBucket
-}
-
-func (j *jsiiProxy_BucketBase) AutoCreatePolicy() *bool {
-	var returns *bool
-	_jsii_.Get(
-		j,
-		"autoCreatePolicy",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_BucketBase) BucketArn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"bucketArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_BucketBase) BucketDomainName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"bucketDomainName",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_BucketBase) BucketDualStackDomainName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"bucketDualStackDomainName",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_BucketBase) BucketName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"bucketName",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_BucketBase) BucketRegionalDomainName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"bucketRegionalDomainName",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_BucketBase) BucketWebsiteDomainName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"bucketWebsiteDomainName",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_BucketBase) BucketWebsiteUrl() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"bucketWebsiteUrl",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_BucketBase) DisallowPublicAccess() *bool {
-	var returns *bool
-	_jsii_.Get(
-		j,
-		"disallowPublicAccess",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_BucketBase) EncryptionKey() awskms.IKey {
-	var returns awskms.IKey
-	_jsii_.Get(
-		j,
-		"encryptionKey",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_BucketBase) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
-	_jsii_.Get(
-		j,
-		"env",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_BucketBase) IsWebsite() *bool {
-	var returns *bool
-	_jsii_.Get(
-		j,
-		"isWebsite",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_BucketBase) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
-	_jsii_.Get(
-		j,
-		"node",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_BucketBase) PhysicalName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"physicalName",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_BucketBase) Policy() BucketPolicy {
-	var returns BucketPolicy
-	_jsii_.Get(
-		j,
-		"policy",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_BucketBase) Stack() awscdk.Stack {
-	var returns awscdk.Stack
-	_jsii_.Get(
-		j,
-		"stack",
-		&returns,
-	)
-	return returns
-}
-
-
-// Experimental.
-func NewBucketBase_Override(b BucketBase, scope constructs.Construct, id *string, props *awscdk.ResourceProps) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"monocdk.aws_s3.BucketBase",
-		[]interface{}{scope, id, props},
-		b,
-	)
-}
-
-func (j *jsiiProxy_BucketBase) SetAutoCreatePolicy(val *bool) {
-	_jsii_.Set(
-		j,
-		"autoCreatePolicy",
-		val,
-	)
-}
-
-func (j *jsiiProxy_BucketBase) SetDisallowPublicAccess(val *bool) {
-	_jsii_.Set(
-		j,
-		"disallowPublicAccess",
-		val,
-	)
-}
-
-func (j *jsiiProxy_BucketBase) SetPolicy(val BucketPolicy) {
-	_jsii_.Set(
-		j,
-		"policy",
-		val,
-	)
-}
-
-// Return whether the given object is a Construct.
-// Experimental.
-func BucketBase_IsConstruct(x interface{}) *bool {
-	_init_.Initialize()
-
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.BucketBase",
-		"isConstruct",
-		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
-// Check whether the given construct is a Resource.
-// Experimental.
-func BucketBase_IsResource(construct awscdk.IConstruct) *bool {
-	_init_.Initialize()
-
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.BucketBase",
-		"isResource",
-		[]interface{}{construct},
-		&returns,
-	)
-
-	return returns
-}
-
-// Adds a bucket notification event destination.
-//
-// TODO: EXAMPLE
-//
-// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html
-//
-// Experimental.
-func (b *jsiiProxy_BucketBase) AddEventNotification(event EventType, dest IBucketNotificationDestination, filters ...*NotificationKeyFilter) {
-	args := []interface{}{event, dest}
-	for _, a := range filters {
-		args = append(args, a)
-	}
-
-	_jsii_.InvokeVoid(
-		b,
-		"addEventNotification",
-		args,
-	)
-}
-
-// Subscribes a destination to receive notifications when an object is created in the bucket.
-//
-// This is identical to calling
-// `onEvent(EventType.ObjectCreated)`.
-// Experimental.
-func (b *jsiiProxy_BucketBase) AddObjectCreatedNotification(dest IBucketNotificationDestination, filters ...*NotificationKeyFilter) {
-	args := []interface{}{dest}
-	for _, a := range filters {
-		args = append(args, a)
-	}
-
-	_jsii_.InvokeVoid(
-		b,
-		"addObjectCreatedNotification",
-		args,
-	)
-}
-
-// Subscribes a destination to receive notifications when an object is removed from the bucket.
-//
-// This is identical to calling
-// `onEvent(EventType.ObjectRemoved)`.
-// Experimental.
-func (b *jsiiProxy_BucketBase) AddObjectRemovedNotification(dest IBucketNotificationDestination, filters ...*NotificationKeyFilter) {
-	args := []interface{}{dest}
-	for _, a := range filters {
-		args = append(args, a)
-	}
-
-	_jsii_.InvokeVoid(
-		b,
-		"addObjectRemovedNotification",
-		args,
-	)
-}
-
-// Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or it's contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
-// Experimental.
-func (b *jsiiProxy_BucketBase) AddToResourcePolicy(permission awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
-	var returns *awsiam.AddToResourcePolicyResult
-
-	_jsii_.Invoke(
-		b,
-		"addToResourcePolicy",
-		[]interface{}{permission},
-		&returns,
-	)
-
-	return returns
-}
-
-// Apply the given removal policy to this resource.
-//
-// The Removal Policy controls what happens to this resource when it stops
-// being managed by CloudFormation, either because you've removed it from the
-// CDK application or because you've made a change that requires the resource
-// to be replaced.
-//
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
-// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
-func (b *jsiiProxy_BucketBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
-	_jsii_.InvokeVoid(
-		b,
-		"applyRemovalPolicy",
-		[]interface{}{policy},
-	)
-}
-
-// Returns an ARN that represents all objects within the bucket that match the key pattern specified.
-//
-// To represent all keys, specify ``"*"``.
-//
-// If you need to specify a keyPattern with multiple components, concatenate them into a single string, e.g.:
-//
-//    arnForObjects(`home/${team}/${user}/*`)
-// Experimental.
-func (b *jsiiProxy_BucketBase) ArnForObjects(keyPattern *string) *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		b,
-		"arnForObjects",
-		[]interface{}{keyPattern},
-		&returns,
-	)
-
-	return returns
-}
-
-// Experimental.
-func (b *jsiiProxy_BucketBase) GeneratePhysicalName() *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		b,
-		"generatePhysicalName",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
-//
-// Normally, this token will resolve to `arnAttr`, but if the resource is
-// referenced across environments, `arnComponents` will be used to synthesize
-// a concrete ARN with the resource's physical name. Make sure to reference
-// `this.physicalName` in `arnComponents`.
-// Experimental.
-func (b *jsiiProxy_BucketBase) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		b,
-		"getResourceArnAttribute",
-		[]interface{}{arnAttr, arnComponents},
-		&returns,
-	)
-
-	return returns
-}
-
-// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
-//
-// Normally, this token will resolve to `nameAttr`, but if the resource is
-// referenced across environments, it will be resolved to `this.physicalName`,
-// which will be a concrete name.
-// Experimental.
-func (b *jsiiProxy_BucketBase) GetResourceNameAttribute(nameAttr *string) *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		b,
-		"getResourceNameAttribute",
-		[]interface{}{nameAttr},
-		&returns,
-	)
-
-	return returns
-}
-
-// Grants s3:DeleteObject* permission to an IAM principal for objects in this bucket.
-// Experimental.
-func (b *jsiiProxy_BucketBase) GrantDelete(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant {
-	var returns awsiam.Grant
-
-	_jsii_.Invoke(
-		b,
-		"grantDelete",
-		[]interface{}{identity, objectsKeyPattern},
-		&returns,
-	)
-
-	return returns
-}
-
-// Allows unrestricted access to objects from this bucket.
-//
-// IMPORTANT: This permission allows anyone to perform actions on S3 objects
-// in this bucket, which is useful for when you configure your bucket as a
-// website and want everyone to be able to read objects in the bucket without
-// needing to authenticate.
-//
-// Without arguments, this method will grant read ("s3:GetObject") access to
-// all objects ("*") in the bucket.
-//
-// The method returns the `iam.Grant` object, which can then be modified
-// as needed. For example, you can add a condition that will restrict access only
-// to an IPv4 range like this:
-//
-//      const grant = bucket.grantPublicAccess();
-//      grant.resourceStatement!.addCondition(‘IpAddress’, { “aws:SourceIp”: “54.240.143.0/24” });
-// Experimental.
-func (b *jsiiProxy_BucketBase) GrantPublicAccess(keyPrefix *string, allowedActions ...*string) awsiam.Grant {
-	args := []interface{}{keyPrefix}
-	for _, a := range allowedActions {
-		args = append(args, a)
-	}
-
-	var returns awsiam.Grant
-
-	_jsii_.Invoke(
-		b,
-		"grantPublicAccess",
-		args,
-		&returns,
-	)
-
-	return returns
-}
-
-// Grants s3:PutObject* and s3:Abort* permissions for this bucket to an IAM principal.
-//
-// If encryption is used, permission to use the key to encrypt the contents
-// of written files will also be granted to the same principal.
-// Experimental.
-func (b *jsiiProxy_BucketBase) GrantPut(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant {
-	var returns awsiam.Grant
-
-	_jsii_.Invoke(
-		b,
-		"grantPut",
-		[]interface{}{identity, objectsKeyPattern},
-		&returns,
-	)
-
-	return returns
-}
-
-// Grant the given IAM identity permissions to modify the ACLs of objects in the given Bucket.
-//
-// If your application has the '@aws-cdk/aws-s3:grantWriteWithoutAcl' feature flag set,
-// calling {@link grantWrite} or {@link grantReadWrite} no longer grants permissions to modify the ACLs of the objects;
-// in this case, if you need to modify object ACLs, call this method explicitly.
-// Experimental.
-func (b *jsiiProxy_BucketBase) GrantPutAcl(identity awsiam.IGrantable, objectsKeyPattern *string) awsiam.Grant {
-	var returns awsiam.Grant
-
-	_jsii_.Invoke(
-		b,
-		"grantPutAcl",
-		[]interface{}{identity, objectsKeyPattern},
-		&returns,
-	)
-
-	return returns
-}
-
-// Grant read permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
-//
-// If encryption is used, permission to use the key to decrypt the contents
-// of the bucket will also be granted to the same principal.
-// Experimental.
-func (b *jsiiProxy_BucketBase) GrantRead(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant {
-	var returns awsiam.Grant
-
-	_jsii_.Invoke(
-		b,
-		"grantRead",
-		[]interface{}{identity, objectsKeyPattern},
-		&returns,
-	)
-
-	return returns
-}
-
-// Grants read/write permissions for this bucket and it's contents to an IAM principal (Role/Group/User).
-//
-// If an encryption key is used, permission to use the key for
-// encrypt/decrypt will also be granted.
-//
-// Before CDK version 1.85.0, this method granted the `s3:PutObject*` permission that included `s3:PutObjectAcl`,
-// which could be used to grant read/write object access to IAM principals in other accounts.
-// If you want to get rid of that behavior, update your CDK version to 1.85.0 or later,
-// and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
-// in the `context` key of your cdk.json file.
-// If you've already updated, but still need the principal to have permissions to modify the ACLs,
-// use the {@link grantPutAcl} method.
-// Experimental.
-func (b *jsiiProxy_BucketBase) GrantReadWrite(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant {
-	var returns awsiam.Grant
-
-	_jsii_.Invoke(
-		b,
-		"grantReadWrite",
-		[]interface{}{identity, objectsKeyPattern},
-		&returns,
-	)
-
-	return returns
-}
-
-// Grant write permissions to this bucket to an IAM principal.
-//
-// If encryption is used, permission to use the key to encrypt the contents
-// of written files will also be granted to the same principal.
-//
-// Before CDK version 1.85.0, this method granted the `s3:PutObject*` permission that included `s3:PutObjectAcl`,
-// which could be used to grant read/write object access to IAM principals in other accounts.
-// If you want to get rid of that behavior, update your CDK version to 1.85.0 or later,
-// and make sure the `@aws-cdk/aws-s3:grantWriteWithoutAcl` feature flag is set to `true`
-// in the `context` key of your cdk.json file.
-// If you've already updated, but still need the principal to have permissions to modify the ACLs,
-// use the {@link grantPutAcl} method.
-// Experimental.
-func (b *jsiiProxy_BucketBase) GrantWrite(identity awsiam.IGrantable, objectsKeyPattern interface{}) awsiam.Grant {
-	var returns awsiam.Grant
-
-	_jsii_.Invoke(
-		b,
-		"grantWrite",
-		[]interface{}{identity, objectsKeyPattern},
-		&returns,
-	)
-
-	return returns
-}
-
-// Define a CloudWatch event that triggers when something happens to this repository.
-//
-// Requires that there exists at least one CloudTrail Trail in your account
-// that captures the event. This method will not create the Trail.
-// Experimental.
-func (b *jsiiProxy_BucketBase) OnCloudTrailEvent(id *string, options *OnCloudTrailBucketEventOptions) awsevents.Rule {
-	var returns awsevents.Rule
-
-	_jsii_.Invoke(
-		b,
-		"onCloudTrailEvent",
-		[]interface{}{id, options},
-		&returns,
-	)
-
-	return returns
-}
-
-// Defines an AWS CloudWatch event that triggers when an object is uploaded to the specified paths (keys) in this bucket using the PutObject API call.
-//
-// Note that some tools like `aws s3 cp` will automatically use either
-// PutObject or the multipart upload API depending on the file size,
-// so using `onCloudTrailWriteObject` may be preferable.
-//
-// Requires that there exists at least one CloudTrail Trail in your account
-// that captures the event. This method will not create the Trail.
-// Experimental.
-func (b *jsiiProxy_BucketBase) OnCloudTrailPutObject(id *string, options *OnCloudTrailBucketEventOptions) awsevents.Rule {
-	var returns awsevents.Rule
-
-	_jsii_.Invoke(
-		b,
-		"onCloudTrailPutObject",
-		[]interface{}{id, options},
-		&returns,
-	)
-
-	return returns
-}
-
-// Defines an AWS CloudWatch event that triggers when an object at the specified paths (keys) in this bucket are written to.
-//
-// This includes
-// the events PutObject, CopyObject, and CompleteMultipartUpload.
-//
-// Note that some tools like `aws s3 cp` will automatically use either
-// PutObject or the multipart upload API depending on the file size,
-// so using this method may be preferable to `onCloudTrailPutObject`.
-//
-// Requires that there exists at least one CloudTrail Trail in your account
-// that captures the event. This method will not create the Trail.
-// Experimental.
-func (b *jsiiProxy_BucketBase) OnCloudTrailWriteObject(id *string, options *OnCloudTrailBucketEventOptions) awsevents.Rule {
-	var returns awsevents.Rule
-
-	_jsii_.Invoke(
-		b,
-		"onCloudTrailWriteObject",
-		[]interface{}{id, options},
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (b *jsiiProxy_BucketBase) OnPrepare() {
-	_jsii_.InvokeVoid(
-		b,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (b *jsiiProxy_BucketBase) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		b,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (b *jsiiProxy_BucketBase) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		b,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (b *jsiiProxy_BucketBase) Prepare() {
-	_jsii_.InvokeVoid(
-		b,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// The S3 URL of an S3 object.
-//
-// For example:
-//
-// Returns: an ObjectS3Url token
-//
-// TODO: EXAMPLE
-//
-// Experimental.
-func (b *jsiiProxy_BucketBase) S3UrlForObject(key *string) *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		b,
-		"s3UrlForObject",
-		[]interface{}{key},
-		&returns,
-	)
-
-	return returns
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (b *jsiiProxy_BucketBase) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		b,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
-// Returns a string representation of this construct.
-// Experimental.
-func (b *jsiiProxy_BucketBase) ToString() *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		b,
-		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// The https URL of an S3 object.
-//
-// Specify `regional: false` at the options
-// for non-regional URLs. For example:
-//
-// Returns: an ObjectS3Url token
-//
-// TODO: EXAMPLE
-//
-// Experimental.
-func (b *jsiiProxy_BucketBase) UrlForObject(key *string) *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		b,
-		"urlForObject",
-		[]interface{}{key},
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-// Experimental.
-func (b *jsiiProxy_BucketBase) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		b,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// The virtual hosted-style URL of an S3 object.
-//
-// Specify `regional: false` at
-// the options for non-regional URL. For example:
-//
-// Returns: an ObjectS3Url token
-//
-// TODO: EXAMPLE
-//
-// Experimental.
-func (b *jsiiProxy_BucketBase) VirtualHostedUrlForObject(key *string, options *VirtualHostedStyleUrlOptions) *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		b,
-		"virtualHostedUrlForObject",
-		[]interface{}{key, options},
-		&returns,
-	)
-
-	return returns
-}
-
 // What kind of server-side encryption to apply to this bucket.
 // Experimental.
 type BucketEncryption string
@@ -2119,7 +1149,7 @@ type BucketNotificationDestinationConfig struct {
 	Type BucketNotificationDestinationType `json:"type"`
 	// Any additional dependencies that should be resolved before the bucket notification can be configured (for example, the SNS Topic Policy resource).
 	// Experimental.
-	Dependencies *[]awscdk.IDependable `json:"dependencies"`
+	Dependencies *[]constructs.IDependable `json:"dependencies"`
 }
 
 // Supported types of notification destinations.
@@ -2138,20 +1168,14 @@ type BucketPolicy interface {
 	awscdk.Resource
 	Document() awsiam.PolicyDocument
 	Env() *awscdk.ResourceEnvironment
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(removalPolicy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for BucketPolicy
@@ -2179,8 +1203,8 @@ func (j *jsiiProxy_BucketPolicy) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_BucketPolicy) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_BucketPolicy) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2217,7 +1241,7 @@ func NewBucketPolicy(scope constructs.Construct, id *string, props *BucketPolicy
 	j := jsiiProxy_BucketPolicy{}
 
 	_jsii_.Create(
-		"monocdk.aws_s3.BucketPolicy",
+		"aws-cdk-lib.aws_s3.BucketPolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2230,21 +1254,23 @@ func NewBucketPolicy_Override(b BucketPolicy, scope constructs.Construct, id *st
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_s3.BucketPolicy",
+		"aws-cdk-lib.aws_s3.BucketPolicy",
 		[]interface{}{scope, id, props},
 		b,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func BucketPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.BucketPolicy",
+		"aws-cdk-lib.aws_s3.BucketPolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2255,13 +1281,13 @@ func BucketPolicy_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func BucketPolicy_IsResource(construct awscdk.IConstruct) *bool {
+func BucketPolicy_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.BucketPolicy",
+		"aws-cdk-lib.aws_s3.BucketPolicy",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -2333,86 +1359,6 @@ func (b *jsiiProxy_BucketPolicy) GetResourceNameAttribute(nameAttr *string) *str
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (b *jsiiProxy_BucketPolicy) OnPrepare() {
-	_jsii_.InvokeVoid(
-		b,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (b *jsiiProxy_BucketPolicy) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		b,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (b *jsiiProxy_BucketPolicy) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		b,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (b *jsiiProxy_BucketPolicy) Prepare() {
-	_jsii_.InvokeVoid(
-		b,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (b *jsiiProxy_BucketPolicy) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		b,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (b *jsiiProxy_BucketPolicy) ToString() *string {
@@ -2421,26 +1367,6 @@ func (b *jsiiProxy_BucketPolicy) ToString() *string {
 	_jsii_.Invoke(
 		b,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (b *jsiiProxy_BucketPolicy) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		b,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2573,7 +1499,7 @@ type CfnAccessPoint interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Policy() interface{}
 	SetPolicy(val interface{})
 	PublicAccessBlockConfiguration() interface{}
@@ -2593,16 +1519,10 @@ type CfnAccessPoint interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2692,8 +1612,8 @@ func (j *jsiiProxy_CfnAccessPoint) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAccessPoint) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnAccessPoint) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2764,13 +1684,13 @@ func (j *jsiiProxy_CfnAccessPoint) VpcConfiguration() interface{} {
 
 
 // Create a new `AWS::S3::AccessPoint`.
-func NewCfnAccessPoint(scope awscdk.Construct, id *string, props *CfnAccessPointProps) CfnAccessPoint {
+func NewCfnAccessPoint(scope constructs.Construct, id *string, props *CfnAccessPointProps) CfnAccessPoint {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAccessPoint{}
 
 	_jsii_.Create(
-		"monocdk.aws_s3.CfnAccessPoint",
+		"aws-cdk-lib.aws_s3.CfnAccessPoint",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2779,11 +1699,11 @@ func NewCfnAccessPoint(scope awscdk.Construct, id *string, props *CfnAccessPoint
 }
 
 // Create a new `AWS::S3::AccessPoint`.
-func NewCfnAccessPoint_Override(c CfnAccessPoint, scope awscdk.Construct, id *string, props *CfnAccessPointProps) {
+func NewCfnAccessPoint_Override(c CfnAccessPoint, scope constructs.Construct, id *string, props *CfnAccessPointProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_s3.CfnAccessPoint",
+		"aws-cdk-lib.aws_s3.CfnAccessPoint",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2842,7 +1762,7 @@ func CfnAccessPoint_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnAccessPoint",
+		"aws-cdk-lib.aws_s3.CfnAccessPoint",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2859,7 +1779,7 @@ func CfnAccessPoint_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnAccessPoint",
+		"aws-cdk-lib.aws_s3.CfnAccessPoint",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2868,15 +1788,17 @@ func CfnAccessPoint_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnAccessPoint_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnAccessPoint",
+		"aws-cdk-lib.aws_s3.CfnAccessPoint",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2889,7 +1811,7 @@ func CfnAccessPoint_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.CfnAccessPoint",
+		"aws-cdk-lib.aws_s3.CfnAccessPoint",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3061,56 +1983,6 @@ func (c *jsiiProxy_CfnAccessPoint) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnAccessPoint) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnAccessPoint) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnAccessPoint) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnAccessPoint) OverrideLogicalId(newLogicalId *string) {
@@ -3118,23 +1990,6 @@ func (c *jsiiProxy_CfnAccessPoint) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnAccessPoint) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -3169,19 +2024,6 @@ func (c *jsiiProxy_CfnAccessPoint) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnAccessPoint) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -3192,26 +2034,6 @@ func (c *jsiiProxy_CfnAccessPoint) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnAccessPoint) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3294,7 +2116,7 @@ type CfnBucket interface {
 	LogicalId() *string
 	MetricsConfigurations() interface{}
 	SetMetricsConfigurations(val interface{})
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	NotificationConfiguration() interface{}
 	SetNotificationConfiguration(val interface{})
 	ObjectLockConfiguration() interface{}
@@ -3325,16 +2147,10 @@ type CfnBucket interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -3554,8 +2370,8 @@ func (j *jsiiProxy_CfnBucket) MetricsConfigurations() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBucket) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnBucket) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -3686,13 +2502,13 @@ func (j *jsiiProxy_CfnBucket) WebsiteConfiguration() interface{} {
 
 
 // Create a new `AWS::S3::Bucket`.
-func NewCfnBucket(scope awscdk.Construct, id *string, props *CfnBucketProps) CfnBucket {
+func NewCfnBucket(scope constructs.Construct, id *string, props *CfnBucketProps) CfnBucket {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnBucket{}
 
 	_jsii_.Create(
-		"monocdk.aws_s3.CfnBucket",
+		"aws-cdk-lib.aws_s3.CfnBucket",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3701,11 +2517,11 @@ func NewCfnBucket(scope awscdk.Construct, id *string, props *CfnBucketProps) Cfn
 }
 
 // Create a new `AWS::S3::Bucket`.
-func NewCfnBucket_Override(c CfnBucket, scope awscdk.Construct, id *string, props *CfnBucketProps) {
+func NewCfnBucket_Override(c CfnBucket, scope constructs.Construct, id *string, props *CfnBucketProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_s3.CfnBucket",
+		"aws-cdk-lib.aws_s3.CfnBucket",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3876,7 +2692,7 @@ func CfnBucket_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnBucket",
+		"aws-cdk-lib.aws_s3.CfnBucket",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3893,7 +2709,7 @@ func CfnBucket_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnBucket",
+		"aws-cdk-lib.aws_s3.CfnBucket",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3902,15 +2718,17 @@ func CfnBucket_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnBucket_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnBucket",
+		"aws-cdk-lib.aws_s3.CfnBucket",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3923,7 +2741,7 @@ func CfnBucket_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.CfnBucket",
+		"aws-cdk-lib.aws_s3.CfnBucket",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -4095,56 +2913,6 @@ func (c *jsiiProxy_CfnBucket) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnBucket) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnBucket) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnBucket) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnBucket) OverrideLogicalId(newLogicalId *string) {
@@ -4152,23 +2920,6 @@ func (c *jsiiProxy_CfnBucket) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnBucket) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -4203,19 +2954,6 @@ func (c *jsiiProxy_CfnBucket) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnBucket) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -4226,26 +2964,6 @@ func (c *jsiiProxy_CfnBucket) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnBucket) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4721,7 +3439,7 @@ type CfnBucketPolicy interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	PolicyDocument() interface{}
 	SetPolicyDocument(val interface{})
 	Ref() *string
@@ -4737,16 +3455,10 @@ type CfnBucketPolicy interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -4816,8 +3528,8 @@ func (j *jsiiProxy_CfnBucketPolicy) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnBucketPolicy) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnBucketPolicy) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -4868,13 +3580,13 @@ func (j *jsiiProxy_CfnBucketPolicy) UpdatedProperites() *map[string]interface{} 
 
 
 // Create a new `AWS::S3::BucketPolicy`.
-func NewCfnBucketPolicy(scope awscdk.Construct, id *string, props *CfnBucketPolicyProps) CfnBucketPolicy {
+func NewCfnBucketPolicy(scope constructs.Construct, id *string, props *CfnBucketPolicyProps) CfnBucketPolicy {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnBucketPolicy{}
 
 	_jsii_.Create(
-		"monocdk.aws_s3.CfnBucketPolicy",
+		"aws-cdk-lib.aws_s3.CfnBucketPolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4883,11 +3595,11 @@ func NewCfnBucketPolicy(scope awscdk.Construct, id *string, props *CfnBucketPoli
 }
 
 // Create a new `AWS::S3::BucketPolicy`.
-func NewCfnBucketPolicy_Override(c CfnBucketPolicy, scope awscdk.Construct, id *string, props *CfnBucketPolicyProps) {
+func NewCfnBucketPolicy_Override(c CfnBucketPolicy, scope constructs.Construct, id *string, props *CfnBucketPolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_s3.CfnBucketPolicy",
+		"aws-cdk-lib.aws_s3.CfnBucketPolicy",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4922,7 +3634,7 @@ func CfnBucketPolicy_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnBucketPolicy",
+		"aws-cdk-lib.aws_s3.CfnBucketPolicy",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4939,7 +3651,7 @@ func CfnBucketPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnBucketPolicy",
+		"aws-cdk-lib.aws_s3.CfnBucketPolicy",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4948,15 +3660,17 @@ func CfnBucketPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnBucketPolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnBucketPolicy",
+		"aws-cdk-lib.aws_s3.CfnBucketPolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4969,7 +3683,7 @@ func CfnBucketPolicy_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.CfnBucketPolicy",
+		"aws-cdk-lib.aws_s3.CfnBucketPolicy",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -5141,56 +3855,6 @@ func (c *jsiiProxy_CfnBucketPolicy) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnBucketPolicy) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnBucketPolicy) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnBucketPolicy) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnBucketPolicy) OverrideLogicalId(newLogicalId *string) {
@@ -5198,23 +3862,6 @@ func (c *jsiiProxy_CfnBucketPolicy) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnBucketPolicy) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -5249,19 +3896,6 @@ func (c *jsiiProxy_CfnBucketPolicy) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnBucketPolicy) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -5272,26 +3906,6 @@ func (c *jsiiProxy_CfnBucketPolicy) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnBucketPolicy) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5364,13 +3978,13 @@ type CfnBucketProps struct {
 type CfnStorageLens interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
-	AttrStorageLensConfigurationStorageLensArn() *string
+	AttrStorageLensArn() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Ref() *string
 	Stack() awscdk.Stack
 	StorageLensConfiguration() interface{}
@@ -5387,16 +4001,10 @@ type CfnStorageLens interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -5406,11 +4014,11 @@ type jsiiProxy_CfnStorageLens struct {
 	internal.Type__awscdkIInspectable
 }
 
-func (j *jsiiProxy_CfnStorageLens) AttrStorageLensConfigurationStorageLensArn() *string {
+func (j *jsiiProxy_CfnStorageLens) AttrStorageLensArn() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
-		"attrStorageLensConfigurationStorageLensArn",
+		"attrStorageLensArn",
 		&returns,
 	)
 	return returns
@@ -5466,8 +4074,8 @@ func (j *jsiiProxy_CfnStorageLens) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStorageLens) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnStorageLens) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -5528,13 +4136,13 @@ func (j *jsiiProxy_CfnStorageLens) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::S3::StorageLens`.
-func NewCfnStorageLens(scope awscdk.Construct, id *string, props *CfnStorageLensProps) CfnStorageLens {
+func NewCfnStorageLens(scope constructs.Construct, id *string, props *CfnStorageLensProps) CfnStorageLens {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnStorageLens{}
 
 	_jsii_.Create(
-		"monocdk.aws_s3.CfnStorageLens",
+		"aws-cdk-lib.aws_s3.CfnStorageLens",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5543,11 +4151,11 @@ func NewCfnStorageLens(scope awscdk.Construct, id *string, props *CfnStorageLens
 }
 
 // Create a new `AWS::S3::StorageLens`.
-func NewCfnStorageLens_Override(c CfnStorageLens, scope awscdk.Construct, id *string, props *CfnStorageLensProps) {
+func NewCfnStorageLens_Override(c CfnStorageLens, scope constructs.Construct, id *string, props *CfnStorageLensProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_s3.CfnStorageLens",
+		"aws-cdk-lib.aws_s3.CfnStorageLens",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -5574,7 +4182,7 @@ func CfnStorageLens_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnStorageLens",
+		"aws-cdk-lib.aws_s3.CfnStorageLens",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -5591,7 +4199,7 @@ func CfnStorageLens_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnStorageLens",
+		"aws-cdk-lib.aws_s3.CfnStorageLens",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -5600,15 +4208,17 @@ func CfnStorageLens_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnStorageLens_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.CfnStorageLens",
+		"aws-cdk-lib.aws_s3.CfnStorageLens",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5621,7 +4231,7 @@ func CfnStorageLens_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.CfnStorageLens",
+		"aws-cdk-lib.aws_s3.CfnStorageLens",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -5793,56 +4403,6 @@ func (c *jsiiProxy_CfnStorageLens) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnStorageLens) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnStorageLens) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnStorageLens) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnStorageLens) OverrideLogicalId(newLogicalId *string) {
@@ -5850,23 +4410,6 @@ func (c *jsiiProxy_CfnStorageLens) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnStorageLens) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -5901,19 +4444,6 @@ func (c *jsiiProxy_CfnStorageLens) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnStorageLens) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -5924,26 +4454,6 @@ func (c *jsiiProxy_CfnStorageLens) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnStorageLens) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -6122,26 +4632,6 @@ const (
 // Experimental.
 type IBucket interface {
 	awscdk.IResource
-	// Adds a bucket notification event destination.
-	//
-	// TODO: EXAMPLE
-	//
-	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html
-	//
-	// Experimental.
-	AddEventNotification(event EventType, dest IBucketNotificationDestination, filters ...*NotificationKeyFilter)
-	// Subscribes a destination to receive notifications when an object is created in the bucket.
-	//
-	// This is identical to calling
-	// `onEvent(EventType.ObjectCreated)`.
-	// Experimental.
-	AddObjectCreatedNotification(dest IBucketNotificationDestination, filters ...*NotificationKeyFilter)
-	// Subscribes a destination to receive notifications when an object is removed from the bucket.
-	//
-	// This is identical to calling
-	// `onEvent(EventType.ObjectRemoved)`.
-	// Experimental.
-	AddObjectRemovedNotification(dest IBucketNotificationDestination, filters ...*NotificationKeyFilter)
 	// Adds a statement to the resource policy for a principal (i.e. account/role/service) to perform actions on this bucket and/or it's contents. Use `bucketArn` and `arnForObjects(keys)` to obtain ARNs for this bucket or objects.
 	// Experimental.
 	AddToResourcePolicy(permission awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
@@ -6324,45 +4814,6 @@ type IBucket interface {
 // The jsii proxy for IBucket
 type jsiiProxy_IBucket struct {
 	internal.Type__awscdkIResource
-}
-
-func (i *jsiiProxy_IBucket) AddEventNotification(event EventType, dest IBucketNotificationDestination, filters ...*NotificationKeyFilter) {
-	args := []interface{}{event, dest}
-	for _, a := range filters {
-		args = append(args, a)
-	}
-
-	_jsii_.InvokeVoid(
-		i,
-		"addEventNotification",
-		args,
-	)
-}
-
-func (i *jsiiProxy_IBucket) AddObjectCreatedNotification(dest IBucketNotificationDestination, filters ...*NotificationKeyFilter) {
-	args := []interface{}{dest}
-	for _, a := range filters {
-		args = append(args, a)
-	}
-
-	_jsii_.InvokeVoid(
-		i,
-		"addObjectCreatedNotification",
-		args,
-	)
-}
-
-func (i *jsiiProxy_IBucket) AddObjectRemovedNotification(dest IBucketNotificationDestination, filters ...*NotificationKeyFilter) {
-	args := []interface{}{dest}
-	for _, a := range filters {
-		args = append(args, a)
-	}
-
-	_jsii_.InvokeVoid(
-		i,
-		"addObjectRemovedNotification",
-		args,
-	)
 }
 
 func (i *jsiiProxy_IBucket) AddToResourcePolicy(permission awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
@@ -6682,7 +5133,7 @@ type IBucketNotificationDestination interface {
 	// pair and the result will be cached, so there is no need to implement
 	// idempotency in each destination.
 	// Experimental.
-	Bind(scope awscdk.Construct, bucket IBucket) *BucketNotificationDestinationConfig
+	Bind(scope constructs.Construct, bucket IBucket) *BucketNotificationDestinationConfig
 }
 
 // The jsii proxy for IBucketNotificationDestination
@@ -6690,7 +5141,7 @@ type jsiiProxy_IBucketNotificationDestination struct {
 	_ byte // padding
 }
 
-func (i *jsiiProxy_IBucketNotificationDestination) Bind(scope awscdk.Construct, bucket IBucket) *BucketNotificationDestinationConfig {
+func (i *jsiiProxy_IBucketNotificationDestination) Bind(scope constructs.Construct, bucket IBucket) *BucketNotificationDestinationConfig {
 	var returns *BucketNotificationDestinationConfig
 
 	_jsii_.Invoke(
@@ -6984,7 +5435,7 @@ func ReplaceKey_PrefixWith(keyReplacement *string) ReplaceKey {
 	var returns ReplaceKey
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.ReplaceKey",
+		"aws-cdk-lib.aws_s3.ReplaceKey",
 		"prefixWith",
 		[]interface{}{keyReplacement},
 		&returns,
@@ -7001,7 +5452,7 @@ func ReplaceKey_With(keyReplacement *string) ReplaceKey {
 	var returns ReplaceKey
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3.ReplaceKey",
+		"aws-cdk-lib.aws_s3.ReplaceKey",
 		"with",
 		[]interface{}{keyReplacement},
 		&returns,
@@ -7078,7 +5529,7 @@ func NewStorageClass(value *string) StorageClass {
 	j := jsiiProxy_StorageClass{}
 
 	_jsii_.Create(
-		"monocdk.aws_s3.StorageClass",
+		"aws-cdk-lib.aws_s3.StorageClass",
 		[]interface{}{value},
 		&j,
 	)
@@ -7091,7 +5542,7 @@ func NewStorageClass_Override(s StorageClass, value *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_s3.StorageClass",
+		"aws-cdk-lib.aws_s3.StorageClass",
 		[]interface{}{value},
 		s,
 	)
@@ -7101,7 +5552,7 @@ func StorageClass_DEEP_ARCHIVE() StorageClass {
 	_init_.Initialize()
 	var returns StorageClass
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.StorageClass",
+		"aws-cdk-lib.aws_s3.StorageClass",
 		"DEEP_ARCHIVE",
 		&returns,
 	)
@@ -7112,7 +5563,7 @@ func StorageClass_GLACIER() StorageClass {
 	_init_.Initialize()
 	var returns StorageClass
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.StorageClass",
+		"aws-cdk-lib.aws_s3.StorageClass",
 		"GLACIER",
 		&returns,
 	)
@@ -7123,7 +5574,7 @@ func StorageClass_INFREQUENT_ACCESS() StorageClass {
 	_init_.Initialize()
 	var returns StorageClass
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.StorageClass",
+		"aws-cdk-lib.aws_s3.StorageClass",
 		"INFREQUENT_ACCESS",
 		&returns,
 	)
@@ -7134,7 +5585,7 @@ func StorageClass_INTELLIGENT_TIERING() StorageClass {
 	_init_.Initialize()
 	var returns StorageClass
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.StorageClass",
+		"aws-cdk-lib.aws_s3.StorageClass",
 		"INTELLIGENT_TIERING",
 		&returns,
 	)
@@ -7145,7 +5596,7 @@ func StorageClass_ONE_ZONE_INFREQUENT_ACCESS() StorageClass {
 	_init_.Initialize()
 	var returns StorageClass
 	_jsii_.StaticGet(
-		"monocdk.aws_s3.StorageClass",
+		"aws-cdk-lib.aws_s3.StorageClass",
 		"ONE_ZONE_INFREQUENT_ACCESS",
 		&returns,
 	)

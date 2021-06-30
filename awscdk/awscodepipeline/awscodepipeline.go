@@ -1,16 +1,15 @@
 package awscodepipeline
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awscodestarnotifications"
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Low-level class for generic CodePipeline Actions implementing the {@link IAction} interface.
@@ -23,8 +22,8 @@ type Action interface {
 	IAction
 	ActionProperties() *ActionProperties
 	ProvidedActionProperties() *ActionProperties
-	Bind(scope awscdk.Construct, stage IStage, options *ActionBindOptions) *ActionConfig
-	Bound(scope awscdk.Construct, stage IStage, options *ActionBindOptions) *ActionConfig
+	Bind(scope constructs.Construct, stage IStage, options *ActionBindOptions) *ActionConfig
+	Bound(scope constructs.Construct, stage IStage, options *ActionBindOptions) *ActionConfig
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
 	VariableExpression(variableName *string) *string
 }
@@ -60,7 +59,7 @@ func NewAction_Override(a Action) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline.Action",
+		"aws-cdk-lib.aws_codepipeline.Action",
 		nil, // no parameters
 		a,
 	)
@@ -68,7 +67,7 @@ func NewAction_Override(a Action) {
 
 // The callback invoked when this Action is added to a Pipeline.
 // Experimental.
-func (a *jsiiProxy_Action) Bind(scope awscdk.Construct, stage IStage, options *ActionBindOptions) *ActionConfig {
+func (a *jsiiProxy_Action) Bind(scope constructs.Construct, stage IStage, options *ActionBindOptions) *ActionConfig {
 	var returns *ActionConfig
 
 	_jsii_.Invoke(
@@ -83,7 +82,7 @@ func (a *jsiiProxy_Action) Bind(scope awscdk.Construct, stage IStage, options *A
 
 // This is a renamed version of the {@link IAction.bind} method.
 // Experimental.
-func (a *jsiiProxy_Action) Bound(scope awscdk.Construct, stage IStage, options *ActionBindOptions) *ActionConfig {
+func (a *jsiiProxy_Action) Bound(scope constructs.Construct, stage IStage, options *ActionBindOptions) *ActionConfig {
 	var returns *ActionConfig
 
 	_jsii_.Invoke(
@@ -306,7 +305,7 @@ func NewArtifact(artifactName *string) Artifact {
 	j := jsiiProxy_Artifact{}
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline.Artifact",
+		"aws-cdk-lib.aws_codepipeline.Artifact",
 		[]interface{}{artifactName},
 		&j,
 	)
@@ -319,7 +318,7 @@ func NewArtifact_Override(a Artifact, artifactName *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline.Artifact",
+		"aws-cdk-lib.aws_codepipeline.Artifact",
 		[]interface{}{artifactName},
 		a,
 	)
@@ -335,7 +334,7 @@ func Artifact_Artifact(name *string) Artifact {
 	var returns Artifact
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline.Artifact",
+		"aws-cdk-lib.aws_codepipeline.Artifact",
 		"artifact",
 		[]interface{}{name},
 		&returns,
@@ -476,7 +475,7 @@ func NewArtifactPath(artifact Artifact, fileName *string) ArtifactPath {
 	j := jsiiProxy_ArtifactPath{}
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline.ArtifactPath",
+		"aws-cdk-lib.aws_codepipeline.ArtifactPath",
 		[]interface{}{artifact, fileName},
 		&j,
 	)
@@ -489,7 +488,7 @@ func NewArtifactPath_Override(a ArtifactPath, artifact Artifact, fileName *strin
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline.ArtifactPath",
+		"aws-cdk-lib.aws_codepipeline.ArtifactPath",
 		[]interface{}{artifact, fileName},
 		a,
 	)
@@ -502,7 +501,7 @@ func ArtifactPath_ArtifactPath(artifactName *string, fileName *string) ArtifactP
 	var returns ArtifactPath
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline.ArtifactPath",
+		"aws-cdk-lib.aws_codepipeline.ArtifactPath",
 		"artifactPath",
 		[]interface{}{artifactName, fileName},
 		&returns,
@@ -526,7 +525,7 @@ type CfnCustomActionType interface {
 	InputArtifactDetails() interface{}
 	SetInputArtifactDetails(val interface{})
 	LogicalId() *string
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	OutputArtifactDetails() interface{}
 	SetOutputArtifactDetails(val interface{})
 	Provider() *string
@@ -549,16 +548,10 @@ type CfnCustomActionType interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -648,8 +641,8 @@ func (j *jsiiProxy_CfnCustomActionType) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCustomActionType) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnCustomActionType) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -740,13 +733,13 @@ func (j *jsiiProxy_CfnCustomActionType) Version() *string {
 
 
 // Create a new `AWS::CodePipeline::CustomActionType`.
-func NewCfnCustomActionType(scope awscdk.Construct, id *string, props *CfnCustomActionTypeProps) CfnCustomActionType {
+func NewCfnCustomActionType(scope constructs.Construct, id *string, props *CfnCustomActionTypeProps) CfnCustomActionType {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnCustomActionType{}
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline.CfnCustomActionType",
+		"aws-cdk-lib.aws_codepipeline.CfnCustomActionType",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -755,11 +748,11 @@ func NewCfnCustomActionType(scope awscdk.Construct, id *string, props *CfnCustom
 }
 
 // Create a new `AWS::CodePipeline::CustomActionType`.
-func NewCfnCustomActionType_Override(c CfnCustomActionType, scope awscdk.Construct, id *string, props *CfnCustomActionTypeProps) {
+func NewCfnCustomActionType_Override(c CfnCustomActionType, scope constructs.Construct, id *string, props *CfnCustomActionTypeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline.CfnCustomActionType",
+		"aws-cdk-lib.aws_codepipeline.CfnCustomActionType",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -834,7 +827,7 @@ func CfnCustomActionType_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline.CfnCustomActionType",
+		"aws-cdk-lib.aws_codepipeline.CfnCustomActionType",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -851,7 +844,7 @@ func CfnCustomActionType_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline.CfnCustomActionType",
+		"aws-cdk-lib.aws_codepipeline.CfnCustomActionType",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -860,15 +853,17 @@ func CfnCustomActionType_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnCustomActionType_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline.CfnCustomActionType",
+		"aws-cdk-lib.aws_codepipeline.CfnCustomActionType",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -881,7 +876,7 @@ func CfnCustomActionType_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_codepipeline.CfnCustomActionType",
+		"aws-cdk-lib.aws_codepipeline.CfnCustomActionType",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1053,56 +1048,6 @@ func (c *jsiiProxy_CfnCustomActionType) Inspect(inspector awscdk.TreeInspector) 
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnCustomActionType) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnCustomActionType) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnCustomActionType) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnCustomActionType) OverrideLogicalId(newLogicalId *string) {
@@ -1110,23 +1055,6 @@ func (c *jsiiProxy_CfnCustomActionType) OverrideLogicalId(newLogicalId *string) 
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnCustomActionType) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1161,19 +1089,6 @@ func (c *jsiiProxy_CfnCustomActionType) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnCustomActionType) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -1184,26 +1099,6 @@ func (c *jsiiProxy_CfnCustomActionType) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnCustomActionType) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1293,7 +1188,7 @@ type CfnPipeline interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Ref() *string
 	RestartExecutionOnUpdate() interface{}
 	SetRestartExecutionOnUpdate(val interface{})
@@ -1314,16 +1209,10 @@ type CfnPipeline interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1433,8 +1322,8 @@ func (j *jsiiProxy_CfnPipeline) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnPipeline) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnPipeline) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1515,13 +1404,13 @@ func (j *jsiiProxy_CfnPipeline) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::CodePipeline::Pipeline`.
-func NewCfnPipeline(scope awscdk.Construct, id *string, props *CfnPipelineProps) CfnPipeline {
+func NewCfnPipeline(scope constructs.Construct, id *string, props *CfnPipelineProps) CfnPipeline {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnPipeline{}
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline.CfnPipeline",
+		"aws-cdk-lib.aws_codepipeline.CfnPipeline",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1530,11 +1419,11 @@ func NewCfnPipeline(scope awscdk.Construct, id *string, props *CfnPipelineProps)
 }
 
 // Create a new `AWS::CodePipeline::Pipeline`.
-func NewCfnPipeline_Override(c CfnPipeline, scope awscdk.Construct, id *string, props *CfnPipelineProps) {
+func NewCfnPipeline_Override(c CfnPipeline, scope constructs.Construct, id *string, props *CfnPipelineProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline.CfnPipeline",
+		"aws-cdk-lib.aws_codepipeline.CfnPipeline",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1609,7 +1498,7 @@ func CfnPipeline_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline.CfnPipeline",
+		"aws-cdk-lib.aws_codepipeline.CfnPipeline",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1626,7 +1515,7 @@ func CfnPipeline_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline.CfnPipeline",
+		"aws-cdk-lib.aws_codepipeline.CfnPipeline",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1635,15 +1524,17 @@ func CfnPipeline_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnPipeline_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline.CfnPipeline",
+		"aws-cdk-lib.aws_codepipeline.CfnPipeline",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1656,7 +1547,7 @@ func CfnPipeline_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_codepipeline.CfnPipeline",
+		"aws-cdk-lib.aws_codepipeline.CfnPipeline",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1828,56 +1719,6 @@ func (c *jsiiProxy_CfnPipeline) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnPipeline) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnPipeline) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnPipeline) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnPipeline) OverrideLogicalId(newLogicalId *string) {
@@ -1885,23 +1726,6 @@ func (c *jsiiProxy_CfnPipeline) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnPipeline) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1936,19 +1760,6 @@ func (c *jsiiProxy_CfnPipeline) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnPipeline) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -1959,26 +1770,6 @@ func (c *jsiiProxy_CfnPipeline) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnPipeline) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2121,7 +1912,7 @@ type CfnWebhook interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Ref() *string
 	RegisterWithThirdParty() interface{}
 	SetRegisterWithThirdParty(val interface{})
@@ -2143,16 +1934,10 @@ type CfnWebhook interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2262,8 +2047,8 @@ func (j *jsiiProxy_CfnWebhook) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWebhook) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnWebhook) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2344,13 +2129,13 @@ func (j *jsiiProxy_CfnWebhook) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::CodePipeline::Webhook`.
-func NewCfnWebhook(scope awscdk.Construct, id *string, props *CfnWebhookProps) CfnWebhook {
+func NewCfnWebhook(scope constructs.Construct, id *string, props *CfnWebhookProps) CfnWebhook {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnWebhook{}
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline.CfnWebhook",
+		"aws-cdk-lib.aws_codepipeline.CfnWebhook",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2359,11 +2144,11 @@ func NewCfnWebhook(scope awscdk.Construct, id *string, props *CfnWebhookProps) C
 }
 
 // Create a new `AWS::CodePipeline::Webhook`.
-func NewCfnWebhook_Override(c CfnWebhook, scope awscdk.Construct, id *string, props *CfnWebhookProps) {
+func NewCfnWebhook_Override(c CfnWebhook, scope constructs.Construct, id *string, props *CfnWebhookProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline.CfnWebhook",
+		"aws-cdk-lib.aws_codepipeline.CfnWebhook",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2446,7 +2231,7 @@ func CfnWebhook_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline.CfnWebhook",
+		"aws-cdk-lib.aws_codepipeline.CfnWebhook",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2463,7 +2248,7 @@ func CfnWebhook_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline.CfnWebhook",
+		"aws-cdk-lib.aws_codepipeline.CfnWebhook",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2472,15 +2257,17 @@ func CfnWebhook_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnWebhook_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline.CfnWebhook",
+		"aws-cdk-lib.aws_codepipeline.CfnWebhook",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2493,7 +2280,7 @@ func CfnWebhook_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_codepipeline.CfnWebhook",
+		"aws-cdk-lib.aws_codepipeline.CfnWebhook",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2665,56 +2452,6 @@ func (c *jsiiProxy_CfnWebhook) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnWebhook) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnWebhook) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnWebhook) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnWebhook) OverrideLogicalId(newLogicalId *string) {
@@ -2722,23 +2459,6 @@ func (c *jsiiProxy_CfnWebhook) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnWebhook) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -2773,19 +2493,6 @@ func (c *jsiiProxy_CfnWebhook) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnWebhook) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -2796,26 +2503,6 @@ func (c *jsiiProxy_CfnWebhook) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnWebhook) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2950,7 +2637,7 @@ func NewGlobalVariables() GlobalVariables {
 	j := jsiiProxy_GlobalVariables{}
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline.GlobalVariables",
+		"aws-cdk-lib.aws_codepipeline.GlobalVariables",
 		nil, // no parameters
 		&j,
 	)
@@ -2963,7 +2650,7 @@ func NewGlobalVariables_Override(g GlobalVariables) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline.GlobalVariables",
+		"aws-cdk-lib.aws_codepipeline.GlobalVariables",
 		nil, // no parameters
 		g,
 	)
@@ -2973,7 +2660,7 @@ func GlobalVariables_ExecutionId() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_codepipeline.GlobalVariables",
+		"aws-cdk-lib.aws_codepipeline.GlobalVariables",
 		"executionId",
 		&returns,
 	)
@@ -2989,7 +2676,7 @@ func GlobalVariables_ExecutionId() *string {
 type IAction interface {
 	// The callback invoked when this Action is added to a Pipeline.
 	// Experimental.
-	Bind(scope awscdk.Construct, stage IStage, options *ActionBindOptions) *ActionConfig
+	Bind(scope constructs.Construct, stage IStage, options *ActionBindOptions) *ActionConfig
 	// Creates an Event that will be triggered whenever the state of this Action changes.
 	// Experimental.
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
@@ -3005,7 +2692,7 @@ type jsiiProxy_IAction struct {
 	_ byte // padding
 }
 
-func (i *jsiiProxy_IAction) Bind(scope awscdk.Construct, stage IStage, options *ActionBindOptions) *ActionConfig {
+func (i *jsiiProxy_IAction) Bind(scope constructs.Construct, stage IStage, options *ActionBindOptions) *ActionConfig {
 	var returns *ActionConfig
 
 	_jsii_.Invoke(
@@ -3047,37 +2734,7 @@ func (j *jsiiProxy_IAction) ActionProperties() *ActionProperties {
 // so this interface can be used as a Target for CloudWatch Events.
 // Experimental.
 type IPipeline interface {
-	awscodestarnotifications.INotificationRuleSource
 	awscdk.IResource
-	// Defines a CodeStar notification rule triggered when the pipeline events emitted by you specified, it very similar to `onEvent` API.
-	//
-	// You can also use the methods `notifyOnExecutionStateChange`, `notifyOnAnyStageStateChange`,
-	// `notifyOnAnyActionStateChange` and `notifyOnAnyManualApprovalStateChange`
-	// to define rules for these specific event emitted.
-	//
-	// Returns: CodeStar notification rule associated with this build project.
-	// Experimental.
-	NotifyOn(id *string, target awscodestarnotifications.INotificationRuleTarget, options *PipelineNotifyOnOptions) awscodestarnotifications.INotificationRule
-	// Define an notification rule triggered by the set of the "Action execution" events emitted from this pipeline.
-	// See: https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#events-ref-pipeline
-	//
-	// Experimental.
-	NotifyOnAnyActionStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
-	// Define an notification rule triggered by the set of the "Manual approval" events emitted from this pipeline.
-	// See: https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#events-ref-pipeline
-	//
-	// Experimental.
-	NotifyOnAnyManualApprovalStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
-	// Define an notification rule triggered by the set of the "Stage execution" events emitted from this pipeline.
-	// See: https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#events-ref-pipeline
-	//
-	// Experimental.
-	NotifyOnAnyStageStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
-	// Define an notification rule triggered by the set of the "Pipeline execution" events emitted from this pipeline.
-	// See: https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#events-ref-pipeline
-	//
-	// Experimental.
-	NotifyOnExecutionStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	// Define an event rule triggered by this CodePipeline.
 	// Experimental.
 	OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
@@ -3094,73 +2751,7 @@ type IPipeline interface {
 
 // The jsii proxy for IPipeline
 type jsiiProxy_IPipeline struct {
-	internal.Type__awscodestarnotificationsINotificationRuleSource
 	internal.Type__awscdkIResource
-}
-
-func (i *jsiiProxy_IPipeline) NotifyOn(id *string, target awscodestarnotifications.INotificationRuleTarget, options *PipelineNotifyOnOptions) awscodestarnotifications.INotificationRule {
-	var returns awscodestarnotifications.INotificationRule
-
-	_jsii_.Invoke(
-		i,
-		"notifyOn",
-		[]interface{}{id, target, options},
-		&returns,
-	)
-
-	return returns
-}
-
-func (i *jsiiProxy_IPipeline) NotifyOnAnyActionStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
-	var returns awscodestarnotifications.INotificationRule
-
-	_jsii_.Invoke(
-		i,
-		"notifyOnAnyActionStateChange",
-		[]interface{}{id, target, options},
-		&returns,
-	)
-
-	return returns
-}
-
-func (i *jsiiProxy_IPipeline) NotifyOnAnyManualApprovalStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
-	var returns awscodestarnotifications.INotificationRule
-
-	_jsii_.Invoke(
-		i,
-		"notifyOnAnyManualApprovalStateChange",
-		[]interface{}{id, target, options},
-		&returns,
-	)
-
-	return returns
-}
-
-func (i *jsiiProxy_IPipeline) NotifyOnAnyStageStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
-	var returns awscodestarnotifications.INotificationRule
-
-	_jsii_.Invoke(
-		i,
-		"notifyOnAnyStageStateChange",
-		[]interface{}{id, target, options},
-		&returns,
-	)
-
-	return returns
-}
-
-func (i *jsiiProxy_IPipeline) NotifyOnExecutionStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
-	var returns awscodestarnotifications.INotificationRule
-
-	_jsii_.Invoke(
-		i,
-		"notifyOnExecutionStateChange",
-		[]interface{}{id, target, options},
-		&returns,
-	)
-
-	return returns
 }
 
 func (i *jsiiProxy_IPipeline) OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
@@ -3189,19 +2780,6 @@ func (i *jsiiProxy_IPipeline) OnStateChange(id *string, options *awsevents.OnEve
 	return returns
 }
 
-func (i *jsiiProxy_IPipeline) BindAsNotificationRuleSource(scope constructs.Construct) *awscodestarnotifications.NotificationRuleSourceConfig {
-	var returns *awscodestarnotifications.NotificationRuleSourceConfig
-
-	_jsii_.Invoke(
-		i,
-		"bindAsNotificationRuleSource",
-		[]interface{}{scope},
-		&returns,
-	)
-
-	return returns
-}
-
 func (j *jsiiProxy_IPipeline) PipelineArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -3217,36 +2795,6 @@ func (j *jsiiProxy_IPipeline) PipelineName() *string {
 	_jsii_.Get(
 		j,
 		"pipelineName",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IPipeline) Env() *awscdk.ResourceEnvironment {
-	var returns *awscdk.ResourceEnvironment
-	_jsii_.Get(
-		j,
-		"env",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IPipeline) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
-	_jsii_.Get(
-		j,
-		"node",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IPipeline) Stack() awscdk.Stack {
-	var returns awscdk.Stack
-	_jsii_.Get(
-		j,
-		"stack",
 		&returns,
 	)
 	return returns
@@ -3336,7 +2884,7 @@ type Pipeline interface {
 	ArtifactBucket() awss3.IBucket
 	CrossRegionSupport() *map[string]*CrossRegionSupport
 	Env() *awscdk.ResourceEnvironment
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	PhysicalName() *string
 	PipelineArn() *string
 	PipelineName() *string
@@ -3348,25 +2896,13 @@ type Pipeline interface {
 	AddStage(props *StageOptions) IStage
 	AddToRolePolicy(statement awsiam.PolicyStatement)
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	BindAsNotificationRuleSource(_scope constructs.Construct) *awscodestarnotifications.NotificationRuleSourceConfig
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
-	NotifyOn(id *string, target awscodestarnotifications.INotificationRuleTarget, options *PipelineNotifyOnOptions) awscodestarnotifications.INotificationRule
-	NotifyOnAnyActionStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
-	NotifyOnAnyManualApprovalStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
-	NotifyOnAnyStageStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
-	NotifyOnExecutionStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
-	OnPrepare()
 	OnStateChange(id *string, options *awsevents.OnEventOptions) awsevents.Rule
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
 	Stage(stageName *string) IStage
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for Pipeline
@@ -3405,8 +2941,8 @@ func (j *jsiiProxy_Pipeline) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_Pipeline) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_Pipeline) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -3503,7 +3039,7 @@ func NewPipeline(scope constructs.Construct, id *string, props *PipelineProps) P
 	j := jsiiProxy_Pipeline{}
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline.Pipeline",
+		"aws-cdk-lib.aws_codepipeline.Pipeline",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3516,7 +3052,7 @@ func NewPipeline_Override(p Pipeline, scope constructs.Construct, id *string, pr
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codepipeline.Pipeline",
+		"aws-cdk-lib.aws_codepipeline.Pipeline",
 		[]interface{}{scope, id, props},
 		p,
 	)
@@ -3530,7 +3066,7 @@ func Pipeline_FromPipelineArn(scope constructs.Construct, id *string, pipelineAr
 	var returns IPipeline
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline.Pipeline",
+		"aws-cdk-lib.aws_codepipeline.Pipeline",
 		"fromPipelineArn",
 		[]interface{}{scope, id, pipelineArn},
 		&returns,
@@ -3539,15 +3075,17 @@ func Pipeline_FromPipelineArn(scope constructs.Construct, id *string, pipelineAr
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func Pipeline_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline.Pipeline",
+		"aws-cdk-lib.aws_codepipeline.Pipeline",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3558,13 +3096,13 @@ func Pipeline_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func Pipeline_IsResource(construct awscdk.IConstruct) *bool {
+func Pipeline_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codepipeline.Pipeline",
+		"aws-cdk-lib.aws_codepipeline.Pipeline",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -3616,21 +3154,6 @@ func (p *jsiiProxy_Pipeline) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 		"applyRemovalPolicy",
 		[]interface{}{policy},
 	)
-}
-
-// Returns a source configuration for notification rule.
-// Experimental.
-func (p *jsiiProxy_Pipeline) BindAsNotificationRuleSource(_scope constructs.Construct) *awscodestarnotifications.NotificationRuleSourceConfig {
-	var returns *awscodestarnotifications.NotificationRuleSourceConfig
-
-	_jsii_.Invoke(
-		p,
-		"bindAsNotificationRuleSource",
-		[]interface{}{_scope},
-		&returns,
-	)
-
-	return returns
 }
 
 // Experimental.
@@ -3686,85 +3209,6 @@ func (p *jsiiProxy_Pipeline) GetResourceNameAttribute(nameAttr *string) *string 
 	return returns
 }
 
-// Defines a CodeStar notification rule triggered when the pipeline events emitted by you specified, it very similar to `onEvent` API.
-//
-// You can also use the methods `notifyOnExecutionStateChange`, `notifyOnAnyStageStateChange`,
-// `notifyOnAnyActionStateChange` and `notifyOnAnyManualApprovalStateChange`
-// to define rules for these specific event emitted.
-// Experimental.
-func (p *jsiiProxy_Pipeline) NotifyOn(id *string, target awscodestarnotifications.INotificationRuleTarget, options *PipelineNotifyOnOptions) awscodestarnotifications.INotificationRule {
-	var returns awscodestarnotifications.INotificationRule
-
-	_jsii_.Invoke(
-		p,
-		"notifyOn",
-		[]interface{}{id, target, options},
-		&returns,
-	)
-
-	return returns
-}
-
-// Define an notification rule triggered by the set of the "Action execution" events emitted from this pipeline.
-// Experimental.
-func (p *jsiiProxy_Pipeline) NotifyOnAnyActionStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
-	var returns awscodestarnotifications.INotificationRule
-
-	_jsii_.Invoke(
-		p,
-		"notifyOnAnyActionStateChange",
-		[]interface{}{id, target, options},
-		&returns,
-	)
-
-	return returns
-}
-
-// Define an notification rule triggered by the set of the "Manual approval" events emitted from this pipeline.
-// Experimental.
-func (p *jsiiProxy_Pipeline) NotifyOnAnyManualApprovalStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
-	var returns awscodestarnotifications.INotificationRule
-
-	_jsii_.Invoke(
-		p,
-		"notifyOnAnyManualApprovalStateChange",
-		[]interface{}{id, target, options},
-		&returns,
-	)
-
-	return returns
-}
-
-// Define an notification rule triggered by the set of the "Stage execution" events emitted from this pipeline.
-// Experimental.
-func (p *jsiiProxy_Pipeline) NotifyOnAnyStageStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
-	var returns awscodestarnotifications.INotificationRule
-
-	_jsii_.Invoke(
-		p,
-		"notifyOnAnyStageStateChange",
-		[]interface{}{id, target, options},
-		&returns,
-	)
-
-	return returns
-}
-
-// Define an notification rule triggered by the set of the "Pipeline execution" events emitted from this pipeline.
-// Experimental.
-func (p *jsiiProxy_Pipeline) NotifyOnExecutionStateChange(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
-	var returns awscodestarnotifications.INotificationRule
-
-	_jsii_.Invoke(
-		p,
-		"notifyOnExecutionStateChange",
-		[]interface{}{id, target, options},
-		&returns,
-	)
-
-	return returns
-}
-
 // Defines an event rule triggered by this CodePipeline.
 // Experimental.
 func (p *jsiiProxy_Pipeline) OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
@@ -3778,23 +3222,6 @@ func (p *jsiiProxy_Pipeline) OnEvent(id *string, options *awsevents.OnEventOptio
 	)
 
 	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (p *jsiiProxy_Pipeline) OnPrepare() {
-	_jsii_.InvokeVoid(
-		p,
-		"onPrepare",
-		nil, // no parameters
-	)
 }
 
 // Defines an event rule triggered by the "CodePipeline Pipeline Execution State Change" event emitted from this pipeline.
@@ -3812,56 +3239,6 @@ func (p *jsiiProxy_Pipeline) OnStateChange(id *string, options *awsevents.OnEven
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (p *jsiiProxy_Pipeline) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		p,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (p *jsiiProxy_Pipeline) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		p,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (p *jsiiProxy_Pipeline) Prepare() {
-	_jsii_.InvokeVoid(
-		p,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 // Access one of the pipeline's stages by stage name.
 // Experimental.
 func (p *jsiiProxy_Pipeline) Stage(stageName *string) IStage {
@@ -3877,19 +3254,6 @@ func (p *jsiiProxy_Pipeline) Stage(stageName *string) IStage {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (p *jsiiProxy_Pipeline) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		p,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (p *jsiiProxy_Pipeline) ToString() *string {
@@ -3903,80 +3267,6 @@ func (p *jsiiProxy_Pipeline) ToString() *string {
 	)
 
 	return returns
-}
-
-// Validate the pipeline structure.
-//
-// Validation happens according to the rules documented at
-//
-// https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html#pipeline-requirements
-// Experimental.
-func (p *jsiiProxy_Pipeline) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		p,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// The list of event types for AWS Codepipeline Pipeline.
-// See: https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#events-ref-pipeline
-//
-// Experimental.
-type PipelineNotificationEvents string
-
-const (
-	PipelineNotificationEvents_PIPELINE_EXECUTION_FAILED PipelineNotificationEvents = "PIPELINE_EXECUTION_FAILED"
-	PipelineNotificationEvents_PIPELINE_EXECUTION_CANCELED PipelineNotificationEvents = "PIPELINE_EXECUTION_CANCELED"
-	PipelineNotificationEvents_PIPELINE_EXECUTION_STARTED PipelineNotificationEvents = "PIPELINE_EXECUTION_STARTED"
-	PipelineNotificationEvents_PIPELINE_EXECUTION_RESUMED PipelineNotificationEvents = "PIPELINE_EXECUTION_RESUMED"
-	PipelineNotificationEvents_PIPELINE_EXECUTION_SUCCEEDED PipelineNotificationEvents = "PIPELINE_EXECUTION_SUCCEEDED"
-	PipelineNotificationEvents_PIPELINE_EXECUTION_SUPERSEDED PipelineNotificationEvents = "PIPELINE_EXECUTION_SUPERSEDED"
-	PipelineNotificationEvents_STAGE_EXECUTION_STARTED PipelineNotificationEvents = "STAGE_EXECUTION_STARTED"
-	PipelineNotificationEvents_STAGE_EXECUTION_SUCCEEDED PipelineNotificationEvents = "STAGE_EXECUTION_SUCCEEDED"
-	PipelineNotificationEvents_STAGE_EXECUTION_RESUMED PipelineNotificationEvents = "STAGE_EXECUTION_RESUMED"
-	PipelineNotificationEvents_STAGE_EXECUTION_CANCELED PipelineNotificationEvents = "STAGE_EXECUTION_CANCELED"
-	PipelineNotificationEvents_STAGE_EXECUTION_FAILED PipelineNotificationEvents = "STAGE_EXECUTION_FAILED"
-	PipelineNotificationEvents_ACTION_EXECUTION_SUCCEEDED PipelineNotificationEvents = "ACTION_EXECUTION_SUCCEEDED"
-	PipelineNotificationEvents_ACTION_EXECUTION_FAILED PipelineNotificationEvents = "ACTION_EXECUTION_FAILED"
-	PipelineNotificationEvents_ACTION_EXECUTION_CANCELED PipelineNotificationEvents = "ACTION_EXECUTION_CANCELED"
-	PipelineNotificationEvents_ACTION_EXECUTION_STARTED PipelineNotificationEvents = "ACTION_EXECUTION_STARTED"
-	PipelineNotificationEvents_MANUAL_APPROVAL_FAILED PipelineNotificationEvents = "MANUAL_APPROVAL_FAILED"
-	PipelineNotificationEvents_MANUAL_APPROVAL_NEEDED PipelineNotificationEvents = "MANUAL_APPROVAL_NEEDED"
-	PipelineNotificationEvents_MANUAL_APPROVAL_SUCCEEDED PipelineNotificationEvents = "MANUAL_APPROVAL_SUCCEEDED"
-)
-
-// Additional options to pass to the notification rule.
-// Experimental.
-type PipelineNotifyOnOptions struct {
-	// The level of detail to include in the notifications for this resource.
-	//
-	// BASIC will include only the contents of the event as it would appear in AWS CloudWatch.
-	// FULL will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.
-	// Experimental.
-	DetailType awscodestarnotifications.DetailType `json:"detailType"`
-	// The status of the notification rule.
-	//
-	// If the enabled is set to DISABLED, notifications aren't sent for the notification rule.
-	// Experimental.
-	Enabled *bool `json:"enabled"`
-	// The name for the notification rule.
-	//
-	// Notification rule names must be unique in your AWS account.
-	// Experimental.
-	NotificationRuleName *string `json:"notificationRuleName"`
-	// A list of event types associated with this notification rule for CodePipeline Pipeline.
-	//
-	// For a complete list of event types and IDs, see Notification concepts in the Developer Tools Console User Guide.
-	// See: https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#concepts-api
-	//
-	// Experimental.
-	Events *[]PipelineNotificationEvents `json:"events"`
 }
 
 // Experimental.
