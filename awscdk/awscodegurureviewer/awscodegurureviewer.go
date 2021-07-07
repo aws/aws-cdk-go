@@ -1,12 +1,12 @@
 package awscodegurureviewer
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscodegurureviewer/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodegurureviewer/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::CodeGuruReviewer::RepositoryAssociation`.
@@ -14,8 +14,6 @@ type CfnRepositoryAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	AttrAssociationArn() *string
-	BucketName() *string
-	SetBucketName(val *string)
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -25,7 +23,7 @@ type CfnRepositoryAssociation interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Owner() *string
 	SetOwner(val *string)
 	Ref() *string
@@ -44,16 +42,10 @@ type CfnRepositoryAssociation interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -68,16 +60,6 @@ func (j *jsiiProxy_CfnRepositoryAssociation) AttrAssociationArn() *string {
 	_jsii_.Get(
 		j,
 		"attrAssociationArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnRepositoryAssociation) BucketName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"bucketName",
 		&returns,
 	)
 	return returns
@@ -153,8 +135,8 @@ func (j *jsiiProxy_CfnRepositoryAssociation) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRepositoryAssociation) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnRepositoryAssociation) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -225,13 +207,13 @@ func (j *jsiiProxy_CfnRepositoryAssociation) UpdatedProperites() *map[string]int
 
 
 // Create a new `AWS::CodeGuruReviewer::RepositoryAssociation`.
-func NewCfnRepositoryAssociation(scope awscdk.Construct, id *string, props *CfnRepositoryAssociationProps) CfnRepositoryAssociation {
+func NewCfnRepositoryAssociation(scope constructs.Construct, id *string, props *CfnRepositoryAssociationProps) CfnRepositoryAssociation {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnRepositoryAssociation{}
 
 	_jsii_.Create(
-		"monocdk.aws_codegurureviewer.CfnRepositoryAssociation",
+		"aws-cdk-lib.aws_codegurureviewer.CfnRepositoryAssociation",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -240,21 +222,13 @@ func NewCfnRepositoryAssociation(scope awscdk.Construct, id *string, props *CfnR
 }
 
 // Create a new `AWS::CodeGuruReviewer::RepositoryAssociation`.
-func NewCfnRepositoryAssociation_Override(c CfnRepositoryAssociation, scope awscdk.Construct, id *string, props *CfnRepositoryAssociationProps) {
+func NewCfnRepositoryAssociation_Override(c CfnRepositoryAssociation, scope constructs.Construct, id *string, props *CfnRepositoryAssociationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_codegurureviewer.CfnRepositoryAssociation",
+		"aws-cdk-lib.aws_codegurureviewer.CfnRepositoryAssociation",
 		[]interface{}{scope, id, props},
 		c,
-	)
-}
-
-func (j *jsiiProxy_CfnRepositoryAssociation) SetBucketName(val *string) {
-	_jsii_.Set(
-		j,
-		"bucketName",
-		val,
 	)
 }
 
@@ -303,7 +277,7 @@ func CfnRepositoryAssociation_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codegurureviewer.CfnRepositoryAssociation",
+		"aws-cdk-lib.aws_codegurureviewer.CfnRepositoryAssociation",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -320,7 +294,7 @@ func CfnRepositoryAssociation_IsCfnResource(construct constructs.IConstruct) *bo
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codegurureviewer.CfnRepositoryAssociation",
+		"aws-cdk-lib.aws_codegurureviewer.CfnRepositoryAssociation",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -329,15 +303,17 @@ func CfnRepositoryAssociation_IsCfnResource(construct constructs.IConstruct) *bo
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnRepositoryAssociation_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_codegurureviewer.CfnRepositoryAssociation",
+		"aws-cdk-lib.aws_codegurureviewer.CfnRepositoryAssociation",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -350,7 +326,7 @@ func CfnRepositoryAssociation_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_codegurureviewer.CfnRepositoryAssociation",
+		"aws-cdk-lib.aws_codegurureviewer.CfnRepositoryAssociation",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -522,56 +498,6 @@ func (c *jsiiProxy_CfnRepositoryAssociation) Inspect(inspector awscdk.TreeInspec
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnRepositoryAssociation) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnRepositoryAssociation) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnRepositoryAssociation) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnRepositoryAssociation) OverrideLogicalId(newLogicalId *string) {
@@ -579,23 +505,6 @@ func (c *jsiiProxy_CfnRepositoryAssociation) OverrideLogicalId(newLogicalId *str
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnRepositoryAssociation) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -630,19 +539,6 @@ func (c *jsiiProxy_CfnRepositoryAssociation) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnRepositoryAssociation) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -653,26 +549,6 @@ func (c *jsiiProxy_CfnRepositoryAssociation) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnRepositoryAssociation) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -695,8 +571,6 @@ type CfnRepositoryAssociationProps struct {
 	Name *string `json:"name"`
 	// `AWS::CodeGuruReviewer::RepositoryAssociation.Type`.
 	Type *string `json:"type"`
-	// `AWS::CodeGuruReviewer::RepositoryAssociation.BucketName`.
-	BucketName *string `json:"bucketName"`
 	// `AWS::CodeGuruReviewer::RepositoryAssociation.ConnectionArn`.
 	ConnectionArn *string `json:"connectionArn"`
 	// `AWS::CodeGuruReviewer::RepositoryAssociation.Owner`.
