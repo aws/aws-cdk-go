@@ -873,6 +873,26 @@ func AssetImage_FromRegistry(name *string, props *RepositoryImageProps) Reposito
 	return returns
 }
 
+// Use an existing tarball for this container image.
+//
+// Use this method if the container image has already been created by another process (e.g. jib)
+// and you want to add it as a container image asset.
+// Experimental.
+func AssetImage_FromTarball(tarballFile *string) ContainerImage {
+	_init_.Initialize()
+
+	var returns ContainerImage
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ecs.AssetImage",
+		"fromTarball",
+		[]interface{}{tarballFile},
+		&returns,
+	)
+
+	return returns
+}
+
 // Called when the image is used by a ContainerDefinition.
 // Experimental.
 func (a *jsiiProxy_AssetImage) Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig {
@@ -9654,6 +9674,26 @@ func ContainerImage_FromRegistry(name *string, props *RepositoryImageProps) Repo
 	return returns
 }
 
+// Use an existing tarball for this container image.
+//
+// Use this method if the container image has already been created by another process (e.g. jib)
+// and you want to add it as a container image asset.
+// Experimental.
+func ContainerImage_FromTarball(tarballFile *string) ContainerImage {
+	_init_.Initialize()
+
+	var returns ContainerImage
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ecs.ContainerImage",
+		"fromTarball",
+		[]interface{}{tarballFile},
+		&returns,
+	)
+
+	return returns
+}
+
 // Called when the image is used by a ContainerDefinition.
 // Experimental.
 func (c *jsiiProxy_ContainerImage) Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig {
@@ -11500,6 +11540,26 @@ func EcrImage_FromRegistry(name *string, props *RepositoryImageProps) Repository
 		"monocdk.aws_ecs.EcrImage",
 		"fromRegistry",
 		[]interface{}{name, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Use an existing tarball for this container image.
+//
+// Use this method if the container image has already been created by another process (e.g. jib)
+// and you want to add it as a container image asset.
+// Experimental.
+func EcrImage_FromTarball(tarballFile *string) ContainerImage {
+	_init_.Initialize()
+
+	var returns ContainerImage
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ecs.EcrImage",
+		"fromTarball",
+		[]interface{}{tarballFile},
 		&returns,
 	)
 
@@ -16543,6 +16603,26 @@ func RepositoryImage_FromRegistry(name *string, props *RepositoryImageProps) Rep
 	return returns
 }
 
+// Use an existing tarball for this container image.
+//
+// Use this method if the container image has already been created by another process (e.g. jib)
+// and you want to add it as a container image asset.
+// Experimental.
+func RepositoryImage_FromTarball(tarballFile *string) ContainerImage {
+	_init_.Initialize()
+
+	var returns ContainerImage
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ecs.RepositoryImage",
+		"fromTarball",
+		[]interface{}{tarballFile},
+		&returns,
+	)
+
+	return returns
+}
+
 // Called when the image is used by a ContainerDefinition.
 // Experimental.
 func (r *jsiiProxy_RepositoryImage) Bind(scope awscdk.Construct, containerDefinition ContainerDefinition) *ContainerImageConfig {
@@ -17239,9 +17319,6 @@ type SplunkLogDriverProps struct {
 	// log tag format.
 	// Experimental.
 	Tag *string `json:"tag"`
-	// Splunk HTTP Event Collector token.
-	// Experimental.
-	Token awscdk.SecretValue `json:"token"`
 	// Path to your Splunk Enterprise, self-service Splunk Cloud instance, or Splunk Cloud managed cluster (including port and scheme used by HTTP Event Collector) in one of the following formats: https://your_splunk_instance:8088 or https://input-prd-p-XXXXXXX.cloud.splunk.com:8088 or https://http-inputs-XXXXXXXX.splunkcloud.com.
 	// Experimental.
 	Url *string `json:"url"`
@@ -17271,12 +17348,28 @@ type SplunkLogDriverProps struct {
 	// Ignore server certificate validation.
 	// Experimental.
 	InsecureSkipVerify *string `json:"insecureSkipVerify"`
+	// Splunk HTTP Event Collector token (Secret).
+	//
+	// The splunk-token is added to the SecretOptions property of the Log Driver Configuration. So the secret value will not be
+	// resolved or viewable as plain text.
+	//
+	// Please provide at least one of `token` or `secretToken`.
+	// Experimental.
+	SecretToken Secret `json:"secretToken"`
 	// Event source.
 	// Experimental.
 	Source *string `json:"source"`
 	// Event source type.
 	// Experimental.
 	SourceType *string `json:"sourceType"`
+	// Splunk HTTP Event Collector token.
+	//
+	// The splunk-token is added to the Options property of the Log Driver Configuration. So the secret value will be resolved and
+	// viewable in plain text in the console.
+	//
+	// Please provide at least one of `token` or `secretToken`.
+	// Deprecated: Use {@link SplunkLogDriverProps.secretToken} instead.
+	Token awscdk.SecretValue `json:"token"`
 	// Verify on start, that docker can connect to Splunk server.
 	// Experimental.
 	VerifyConnection *bool `json:"verifyConnection"`
@@ -17574,6 +17667,26 @@ func TagParameterContainerImage_FromRegistry(name *string, props *RepositoryImag
 		"monocdk.aws_ecs.TagParameterContainerImage",
 		"fromRegistry",
 		[]interface{}{name, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Use an existing tarball for this container image.
+//
+// Use this method if the container image has already been created by another process (e.g. jib)
+// and you want to add it as a container image asset.
+// Experimental.
+func TagParameterContainerImage_FromTarball(tarballFile *string) ContainerImage {
+	_init_.Initialize()
+
+	var returns ContainerImage
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ecs.TagParameterContainerImage",
+		"fromTarball",
+		[]interface{}{tarballFile},
 		&returns,
 	)
 

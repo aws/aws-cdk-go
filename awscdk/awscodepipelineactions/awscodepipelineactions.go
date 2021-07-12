@@ -2129,6 +2129,12 @@ type CodeBuildActionProps struct {
 	// Whether to check for the presence of any secrets in the environment variables of the default type, BuildEnvironmentVariableType.PLAINTEXT. Since using a secret for the value of that kind of variable would result in it being displayed in plain text in the AWS Console, the construct will throw an exception if it detects a secret was passed there. Pass this property as false if you want to skip this validation, and keep using a secret in a plain text environment variable.
 	// Experimental.
 	CheckSecretsInPlainTextEnvVariables *bool `json:"checkSecretsInPlainTextEnvVariables"`
+	// Combine the build artifacts for a batch builds.
+	//
+	// Enabling this will combine the build artifacts into the same location for batch builds.
+	// If `executeBatchBuild` is not set to `true`, this property is ignored.
+	// Experimental.
+	CombineBatchBuildArtifacts *bool `json:"combineBatchBuildArtifacts"`
 	// The environment variables to pass to the CodeBuild project when this action executes.
 	//
 	// If a variable with the same name was set both on the project level, and here,
