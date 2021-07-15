@@ -134,6 +134,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "dataCatalogOutputs", GoGetter: "DataCatalogOutputs"},
 			_jsii_.MemberProperty{JsiiProperty: "datasetName", GoGetter: "DatasetName"},
 			_jsii_.MemberProperty{JsiiProperty: "encryptionKeyArn", GoGetter: "EncryptionKeyArn"},
 			_jsii_.MemberProperty{JsiiProperty: "encryptionMode", GoGetter: "EncryptionMode"},
@@ -182,6 +183,14 @@ func init() {
 		reflect.TypeOf((*CfnJob_CsvOutputOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_databrew.CfnJob.DataCatalogOutputProperty",
+		reflect.TypeOf((*CfnJob_DataCatalogOutputProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_databrew.CfnJob.DatabaseTableOutputOptionsProperty",
+		reflect.TypeOf((*CfnJob_DatabaseTableOutputOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_databrew.CfnJob.JobSampleProperty",
 		reflect.TypeOf((*CfnJob_JobSampleProperty)(nil)).Elem(),
 	)
@@ -204,6 +213,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_databrew.CfnJob.S3LocationProperty",
 		reflect.TypeOf((*CfnJob_S3LocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_databrew.CfnJob.S3TableOutputOptionsProperty",
+		reflect.TypeOf((*CfnJob_S3TableOutputOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_databrew.CfnJobProps",

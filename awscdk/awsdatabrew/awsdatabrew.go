@@ -829,6 +829,8 @@ type CfnJob interface {
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
 	CreationStack() *[]*string
+	DataCatalogOutputs() interface{}
+	SetDataCatalogOutputs(val interface{})
 	DatasetName() *string
 	SetDatasetName(val *string)
 	EncryptionKeyArn() *string
@@ -929,6 +931,16 @@ func (j *jsiiProxy_CfnJob) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnJob) DataCatalogOutputs() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"dataCatalogOutputs",
 		&returns,
 	)
 	return returns
@@ -1168,6 +1180,14 @@ func NewCfnJob_Override(c CfnJob, scope awscdk.Construct, id *string, props *Cfn
 		"monocdk.aws_databrew.CfnJob",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnJob) SetDataCatalogOutputs(val interface{}) {
+	_jsii_.Set(
+		j,
+		"dataCatalogOutputs",
+		val,
 	)
 }
 
@@ -1695,6 +1715,28 @@ type CfnJob_CsvOutputOptionsProperty struct {
 	Delimiter *string `json:"delimiter"`
 }
 
+type CfnJob_DataCatalogOutputProperty struct {
+	// `CfnJob.DataCatalogOutputProperty.DatabaseName`.
+	DatabaseName *string `json:"databaseName"`
+	// `CfnJob.DataCatalogOutputProperty.TableName`.
+	TableName *string `json:"tableName"`
+	// `CfnJob.DataCatalogOutputProperty.CatalogId`.
+	CatalogId *string `json:"catalogId"`
+	// `CfnJob.DataCatalogOutputProperty.DatabaseOptions`.
+	DatabaseOptions interface{} `json:"databaseOptions"`
+	// `CfnJob.DataCatalogOutputProperty.Overwrite`.
+	Overwrite interface{} `json:"overwrite"`
+	// `CfnJob.DataCatalogOutputProperty.S3Options`.
+	S3Options interface{} `json:"s3Options"`
+}
+
+type CfnJob_DatabaseTableOutputOptionsProperty struct {
+	// `CfnJob.DatabaseTableOutputOptionsProperty.TableName`.
+	TableName *string `json:"tableName"`
+	// `CfnJob.DatabaseTableOutputOptionsProperty.TempDirectory`.
+	TempDirectory interface{} `json:"tempDirectory"`
+}
+
 type CfnJob_JobSampleProperty struct {
 	// `CfnJob.JobSampleProperty.Mode`.
 	Mode *string `json:"mode"`
@@ -1743,6 +1785,11 @@ type CfnJob_S3LocationProperty struct {
 	Key *string `json:"key"`
 }
 
+type CfnJob_S3TableOutputOptionsProperty struct {
+	// `CfnJob.S3TableOutputOptionsProperty.Location`.
+	Location interface{} `json:"location"`
+}
+
 // Properties for defining a `AWS::DataBrew::Job`.
 type CfnJobProps struct {
 	// `AWS::DataBrew::Job.Name`.
@@ -1751,6 +1798,8 @@ type CfnJobProps struct {
 	RoleArn *string `json:"roleArn"`
 	// `AWS::DataBrew::Job.Type`.
 	Type *string `json:"type"`
+	// `AWS::DataBrew::Job.DataCatalogOutputs`.
+	DataCatalogOutputs interface{} `json:"dataCatalogOutputs"`
 	// `AWS::DataBrew::Job.DatasetName`.
 	DatasetName *string `json:"datasetName"`
 	// `AWS::DataBrew::Job.EncryptionKeyArn`.

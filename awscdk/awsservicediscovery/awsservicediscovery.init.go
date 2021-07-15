@@ -182,6 +182,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
+			_jsii_.MemberProperty{JsiiProperty: "properties", GoGetter: "Properties"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
@@ -200,6 +201,18 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_servicediscovery.CfnPrivateDnsNamespace.PrivateDnsPropertiesMutableProperty",
+		reflect.TypeOf((*CfnPrivateDnsNamespace_PrivateDnsPropertiesMutableProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_servicediscovery.CfnPrivateDnsNamespace.PropertiesProperty",
+		reflect.TypeOf((*CfnPrivateDnsNamespace_PropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_servicediscovery.CfnPrivateDnsNamespace.SOAProperty",
+		reflect.TypeOf((*CfnPrivateDnsNamespace_SOAProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_servicediscovery.CfnPrivateDnsNamespaceProps",
@@ -234,6 +247,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
+			_jsii_.MemberProperty{JsiiProperty: "properties", GoGetter: "Properties"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
@@ -251,6 +265,18 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_servicediscovery.CfnPublicDnsNamespace.PropertiesProperty",
+		reflect.TypeOf((*CfnPublicDnsNamespace_PropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_servicediscovery.CfnPublicDnsNamespace.PublicDnsPropertiesMutableProperty",
+		reflect.TypeOf((*CfnPublicDnsNamespace_PublicDnsPropertiesMutableProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_servicediscovery.CfnPublicDnsNamespace.SOAProperty",
+		reflect.TypeOf((*CfnPublicDnsNamespace_SOAProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_servicediscovery.CfnPublicDnsNamespaceProps",

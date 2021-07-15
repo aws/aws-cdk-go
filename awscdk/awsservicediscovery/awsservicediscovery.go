@@ -1725,6 +1725,8 @@ type CfnPrivateDnsNamespace interface {
 	Name() *string
 	SetName(val *string)
 	Node() awscdk.ConstructNode
+	Properties() interface{}
+	SetProperties(val interface{})
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -1860,6 +1862,16 @@ func (j *jsiiProxy_CfnPrivateDnsNamespace) Node() awscdk.ConstructNode {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPrivateDnsNamespace) Properties() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"properties",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPrivateDnsNamespace) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -1949,6 +1961,14 @@ func (j *jsiiProxy_CfnPrivateDnsNamespace) SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPrivateDnsNamespace) SetProperties(val interface{}) {
+	_jsii_.Set(
+		j,
+		"properties",
 		val,
 	)
 }
@@ -2360,6 +2380,21 @@ func (c *jsiiProxy_CfnPrivateDnsNamespace) ValidateProperties(_properties interf
 	)
 }
 
+type CfnPrivateDnsNamespace_PrivateDnsPropertiesMutableProperty struct {
+	// `CfnPrivateDnsNamespace.PrivateDnsPropertiesMutableProperty.SOA`.
+	Soa interface{} `json:"soa"`
+}
+
+type CfnPrivateDnsNamespace_PropertiesProperty struct {
+	// `CfnPrivateDnsNamespace.PropertiesProperty.DnsProperties`.
+	DnsProperties interface{} `json:"dnsProperties"`
+}
+
+type CfnPrivateDnsNamespace_SOAProperty struct {
+	// `CfnPrivateDnsNamespace.SOAProperty.TTL`.
+	Ttl *float64 `json:"ttl"`
+}
+
 // Properties for defining a `AWS::ServiceDiscovery::PrivateDnsNamespace`.
 type CfnPrivateDnsNamespaceProps struct {
 	// `AWS::ServiceDiscovery::PrivateDnsNamespace.Name`.
@@ -2368,6 +2403,8 @@ type CfnPrivateDnsNamespaceProps struct {
 	Vpc *string `json:"vpc"`
 	// `AWS::ServiceDiscovery::PrivateDnsNamespace.Description`.
 	Description *string `json:"description"`
+	// `AWS::ServiceDiscovery::PrivateDnsNamespace.Properties`.
+	Properties interface{} `json:"properties"`
 	// `AWS::ServiceDiscovery::PrivateDnsNamespace.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
@@ -2388,6 +2425,8 @@ type CfnPublicDnsNamespace interface {
 	Name() *string
 	SetName(val *string)
 	Node() awscdk.ConstructNode
+	Properties() interface{}
+	SetProperties(val interface{})
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -2521,6 +2560,16 @@ func (j *jsiiProxy_CfnPublicDnsNamespace) Node() awscdk.ConstructNode {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPublicDnsNamespace) Properties() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"properties",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPublicDnsNamespace) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -2600,6 +2649,14 @@ func (j *jsiiProxy_CfnPublicDnsNamespace) SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPublicDnsNamespace) SetProperties(val interface{}) {
+	_jsii_.Set(
+		j,
+		"properties",
 		val,
 	)
 }
@@ -3003,12 +3060,29 @@ func (c *jsiiProxy_CfnPublicDnsNamespace) ValidateProperties(_properties interfa
 	)
 }
 
+type CfnPublicDnsNamespace_PropertiesProperty struct {
+	// `CfnPublicDnsNamespace.PropertiesProperty.DnsProperties`.
+	DnsProperties interface{} `json:"dnsProperties"`
+}
+
+type CfnPublicDnsNamespace_PublicDnsPropertiesMutableProperty struct {
+	// `CfnPublicDnsNamespace.PublicDnsPropertiesMutableProperty.SOA`.
+	Soa interface{} `json:"soa"`
+}
+
+type CfnPublicDnsNamespace_SOAProperty struct {
+	// `CfnPublicDnsNamespace.SOAProperty.TTL`.
+	Ttl *float64 `json:"ttl"`
+}
+
 // Properties for defining a `AWS::ServiceDiscovery::PublicDnsNamespace`.
 type CfnPublicDnsNamespaceProps struct {
 	// `AWS::ServiceDiscovery::PublicDnsNamespace.Name`.
 	Name *string `json:"name"`
 	// `AWS::ServiceDiscovery::PublicDnsNamespace.Description`.
 	Description *string `json:"description"`
+	// `AWS::ServiceDiscovery::PublicDnsNamespace.Properties`.
+	Properties interface{} `json:"properties"`
 	// `AWS::ServiceDiscovery::PublicDnsNamespace.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }

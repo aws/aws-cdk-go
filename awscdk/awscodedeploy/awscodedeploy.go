@@ -45,6 +45,7 @@ type CfnApplication interface {
 	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
+	Tags() awscdk.TagManager
 	UpdatedProperites() *map[string]interface{}
 	AddDeletionOverride(path *string)
 	AddDependsOn(target awscdk.CfnResource)
@@ -170,6 +171,16 @@ func (j *jsiiProxy_CfnApplication) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnApplication) Tags() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"tags",
 		&returns,
 	)
 	return returns
@@ -633,6 +644,8 @@ type CfnApplicationProps struct {
 	ApplicationName *string `json:"applicationName"`
 	// `AWS::CodeDeploy::Application.ComputePlatform`.
 	ComputePlatform *string `json:"computePlatform"`
+	// `AWS::CodeDeploy::Application.Tags`.
+	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::CodeDeploy::DeploymentConfig`.
@@ -642,6 +655,8 @@ type CfnDeploymentConfig interface {
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
+	ComputePlatform() *string
+	SetComputePlatform(val *string)
 	CreationStack() *[]*string
 	DeploymentConfigName() *string
 	SetDeploymentConfigName(val *string)
@@ -651,6 +666,8 @@ type CfnDeploymentConfig interface {
 	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
+	TrafficRoutingConfig() interface{}
+	SetTrafficRoutingConfig(val interface{})
 	UpdatedProperites() *map[string]interface{}
 	AddDeletionOverride(path *string)
 	AddDependsOn(target awscdk.CfnResource)
@@ -706,6 +723,16 @@ func (j *jsiiProxy_CfnDeploymentConfig) CfnResourceType() *string {
 	_jsii_.Get(
 		j,
 		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDeploymentConfig) ComputePlatform() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"computePlatform",
 		&returns,
 	)
 	return returns
@@ -781,6 +808,16 @@ func (j *jsiiProxy_CfnDeploymentConfig) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDeploymentConfig) TrafficRoutingConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"trafficRoutingConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDeploymentConfig) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -818,6 +855,14 @@ func NewCfnDeploymentConfig_Override(c CfnDeploymentConfig, scope awscdk.Constru
 	)
 }
 
+func (j *jsiiProxy_CfnDeploymentConfig) SetComputePlatform(val *string) {
+	_jsii_.Set(
+		j,
+		"computePlatform",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnDeploymentConfig) SetDeploymentConfigName(val *string) {
 	_jsii_.Set(
 		j,
@@ -830,6 +875,14 @@ func (j *jsiiProxy_CfnDeploymentConfig) SetMinimumHealthyHosts(val interface{}) 
 	_jsii_.Set(
 		j,
 		"minimumHealthyHosts",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDeploymentConfig) SetTrafficRoutingConfig(val interface{}) {
+	_jsii_.Set(
+		j,
+		"trafficRoutingConfig",
 		val,
 	)
 }
@@ -1240,12 +1293,39 @@ type CfnDeploymentConfig_MinimumHealthyHostsProperty struct {
 	Value *float64 `json:"value"`
 }
 
+type CfnDeploymentConfig_TimeBasedCanaryProperty struct {
+	// `CfnDeploymentConfig.TimeBasedCanaryProperty.CanaryInterval`.
+	CanaryInterval *float64 `json:"canaryInterval"`
+	// `CfnDeploymentConfig.TimeBasedCanaryProperty.CanaryPercentage`.
+	CanaryPercentage *float64 `json:"canaryPercentage"`
+}
+
+type CfnDeploymentConfig_TimeBasedLinearProperty struct {
+	// `CfnDeploymentConfig.TimeBasedLinearProperty.LinearInterval`.
+	LinearInterval *float64 `json:"linearInterval"`
+	// `CfnDeploymentConfig.TimeBasedLinearProperty.LinearPercentage`.
+	LinearPercentage *float64 `json:"linearPercentage"`
+}
+
+type CfnDeploymentConfig_TrafficRoutingConfigProperty struct {
+	// `CfnDeploymentConfig.TrafficRoutingConfigProperty.Type`.
+	Type *string `json:"type"`
+	// `CfnDeploymentConfig.TrafficRoutingConfigProperty.TimeBasedCanary`.
+	TimeBasedCanary interface{} `json:"timeBasedCanary"`
+	// `CfnDeploymentConfig.TrafficRoutingConfigProperty.TimeBasedLinear`.
+	TimeBasedLinear interface{} `json:"timeBasedLinear"`
+}
+
 // Properties for defining a `AWS::CodeDeploy::DeploymentConfig`.
 type CfnDeploymentConfigProps struct {
+	// `AWS::CodeDeploy::DeploymentConfig.ComputePlatform`.
+	ComputePlatform *string `json:"computePlatform"`
 	// `AWS::CodeDeploy::DeploymentConfig.DeploymentConfigName`.
 	DeploymentConfigName *string `json:"deploymentConfigName"`
 	// `AWS::CodeDeploy::DeploymentConfig.MinimumHealthyHosts`.
 	MinimumHealthyHosts interface{} `json:"minimumHealthyHosts"`
+	// `AWS::CodeDeploy::DeploymentConfig.TrafficRoutingConfig`.
+	TrafficRoutingConfig interface{} `json:"trafficRoutingConfig"`
 }
 
 // A CloudFormation `AWS::CodeDeploy::DeploymentGroup`.
@@ -1260,6 +1340,8 @@ type CfnDeploymentGroup interface {
 	SetAutoRollbackConfiguration(val interface{})
 	AutoScalingGroups() *[]*string
 	SetAutoScalingGroups(val *[]*string)
+	BlueGreenDeploymentConfiguration() interface{}
+	SetBlueGreenDeploymentConfiguration(val interface{})
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -1276,6 +1358,8 @@ type CfnDeploymentGroup interface {
 	SetEc2TagFilters(val interface{})
 	Ec2TagSet() interface{}
 	SetEc2TagSet(val interface{})
+	EcsServices() interface{}
+	SetEcsServices(val interface{})
 	LoadBalancerInfo() interface{}
 	SetLoadBalancerInfo(val interface{})
 	LogicalId() *string
@@ -1355,6 +1439,16 @@ func (j *jsiiProxy_CfnDeploymentGroup) AutoScalingGroups() *[]*string {
 	_jsii_.Get(
 		j,
 		"autoScalingGroups",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDeploymentGroup) BlueGreenDeploymentConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"blueGreenDeploymentConfiguration",
 		&returns,
 	)
 	return returns
@@ -1455,6 +1549,16 @@ func (j *jsiiProxy_CfnDeploymentGroup) Ec2TagSet() interface{} {
 	_jsii_.Get(
 		j,
 		"ec2TagSet",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDeploymentGroup) EcsServices() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"ecsServices",
 		&returns,
 	)
 	return returns
@@ -1619,6 +1723,14 @@ func (j *jsiiProxy_CfnDeploymentGroup) SetAutoScalingGroups(val *[]*string) {
 	)
 }
 
+func (j *jsiiProxy_CfnDeploymentGroup) SetBlueGreenDeploymentConfiguration(val interface{}) {
+	_jsii_.Set(
+		j,
+		"blueGreenDeploymentConfiguration",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnDeploymentGroup) SetDeployment(val interface{}) {
 	_jsii_.Set(
 		j,
@@ -1663,6 +1775,14 @@ func (j *jsiiProxy_CfnDeploymentGroup) SetEc2TagSet(val interface{}) {
 	_jsii_.Set(
 		j,
 		"ec2TagSet",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDeploymentGroup) SetEcsServices(val interface{}) {
+	_jsii_.Set(
+		j,
+		"ecsServices",
 		val,
 	)
 }
@@ -2127,6 +2247,22 @@ type CfnDeploymentGroup_AutoRollbackConfigurationProperty struct {
 	Events *[]*string `json:"events"`
 }
 
+type CfnDeploymentGroup_BlueGreenDeploymentConfigurationProperty struct {
+	// `CfnDeploymentGroup.BlueGreenDeploymentConfigurationProperty.DeploymentReadyOption`.
+	DeploymentReadyOption interface{} `json:"deploymentReadyOption"`
+	// `CfnDeploymentGroup.BlueGreenDeploymentConfigurationProperty.GreenFleetProvisioningOption`.
+	GreenFleetProvisioningOption interface{} `json:"greenFleetProvisioningOption"`
+	// `CfnDeploymentGroup.BlueGreenDeploymentConfigurationProperty.TerminateBlueInstancesOnDeploymentSuccess`.
+	TerminateBlueInstancesOnDeploymentSuccess interface{} `json:"terminateBlueInstancesOnDeploymentSuccess"`
+}
+
+type CfnDeploymentGroup_BlueInstanceTerminationOptionProperty struct {
+	// `CfnDeploymentGroup.BlueInstanceTerminationOptionProperty.Action`.
+	Action *string `json:"action"`
+	// `CfnDeploymentGroup.BlueInstanceTerminationOptionProperty.TerminationWaitTimeInMinutes`.
+	TerminationWaitTimeInMinutes *float64 `json:"terminationWaitTimeInMinutes"`
+}
+
 type CfnDeploymentGroup_DeploymentProperty struct {
 	// `CfnDeploymentGroup.DeploymentProperty.Revision`.
 	Revision interface{} `json:"revision"`
@@ -2134,6 +2270,13 @@ type CfnDeploymentGroup_DeploymentProperty struct {
 	Description *string `json:"description"`
 	// `CfnDeploymentGroup.DeploymentProperty.IgnoreApplicationStopFailures`.
 	IgnoreApplicationStopFailures interface{} `json:"ignoreApplicationStopFailures"`
+}
+
+type CfnDeploymentGroup_DeploymentReadyOptionProperty struct {
+	// `CfnDeploymentGroup.DeploymentReadyOptionProperty.ActionOnTimeout`.
+	ActionOnTimeout *string `json:"actionOnTimeout"`
+	// `CfnDeploymentGroup.DeploymentReadyOptionProperty.WaitTimeInMinutes`.
+	WaitTimeInMinutes *float64 `json:"waitTimeInMinutes"`
 }
 
 type CfnDeploymentGroup_DeploymentStyleProperty struct {
@@ -2162,6 +2305,13 @@ type CfnDeploymentGroup_EC2TagSetProperty struct {
 	Ec2TagSetList interface{} `json:"ec2TagSetList"`
 }
 
+type CfnDeploymentGroup_ECSServiceProperty struct {
+	// `CfnDeploymentGroup.ECSServiceProperty.ClusterName`.
+	ClusterName *string `json:"clusterName"`
+	// `CfnDeploymentGroup.ECSServiceProperty.ServiceName`.
+	ServiceName *string `json:"serviceName"`
+}
+
 type CfnDeploymentGroup_ELBInfoProperty struct {
 	// `CfnDeploymentGroup.ELBInfoProperty.Name`.
 	Name *string `json:"name"`
@@ -2172,6 +2322,11 @@ type CfnDeploymentGroup_GitHubLocationProperty struct {
 	CommitId *string `json:"commitId"`
 	// `CfnDeploymentGroup.GitHubLocationProperty.Repository`.
 	Repository *string `json:"repository"`
+}
+
+type CfnDeploymentGroup_GreenFleetProvisioningOptionProperty struct {
+	// `CfnDeploymentGroup.GreenFleetProvisioningOptionProperty.Action`.
+	Action *string `json:"action"`
 }
 
 type CfnDeploymentGroup_LoadBalancerInfoProperty struct {
@@ -2248,6 +2403,8 @@ type CfnDeploymentGroupProps struct {
 	AutoRollbackConfiguration interface{} `json:"autoRollbackConfiguration"`
 	// `AWS::CodeDeploy::DeploymentGroup.AutoScalingGroups`.
 	AutoScalingGroups *[]*string `json:"autoScalingGroups"`
+	// `AWS::CodeDeploy::DeploymentGroup.BlueGreenDeploymentConfiguration`.
+	BlueGreenDeploymentConfiguration interface{} `json:"blueGreenDeploymentConfiguration"`
 	// `AWS::CodeDeploy::DeploymentGroup.Deployment`.
 	Deployment interface{} `json:"deployment"`
 	// `AWS::CodeDeploy::DeploymentGroup.DeploymentConfigName`.
@@ -2260,6 +2417,8 @@ type CfnDeploymentGroupProps struct {
 	Ec2TagFilters interface{} `json:"ec2TagFilters"`
 	// `AWS::CodeDeploy::DeploymentGroup.Ec2TagSet`.
 	Ec2TagSet interface{} `json:"ec2TagSet"`
+	// `AWS::CodeDeploy::DeploymentGroup.ECSServices`.
+	EcsServices interface{} `json:"ecsServices"`
 	// `AWS::CodeDeploy::DeploymentGroup.LoadBalancerInfo`.
 	LoadBalancerInfo interface{} `json:"loadBalancerInfo"`
 	// `AWS::CodeDeploy::DeploymentGroup.OnPremisesInstanceTagFilters`.

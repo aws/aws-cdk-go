@@ -11,16 +11,6 @@ import (
 	"github.com/aws/constructs-go/constructs/v3"
 )
 
-// The language code.
-// Experimental.
-type AcceptLanguage string
-
-const (
-	AcceptLanguage_EN AcceptLanguage = "EN"
-	AcceptLanguage_JP AcceptLanguage = "JP"
-	AcceptLanguage_ZH AcceptLanguage = "ZH"
-)
-
 // A CloudFormation `AWS::ServiceCatalog::AcceptedPortfolioShare`.
 type CfnAcceptedPortfolioShare interface {
 	awscdk.CfnResource
@@ -11350,15 +11340,17 @@ type CloudFormationProductProps struct {
 	// The configuration of the product version.
 	// Experimental.
 	ProductVersions *[]*CloudFormationProductVersion `json:"productVersions"`
-	// The language code.
-	// Experimental.
-	AcceptLanguage AcceptLanguage `json:"acceptLanguage"`
 	// The description of the product.
 	// Experimental.
 	Description *string `json:"description"`
 	// The distributor of the product.
 	// Experimental.
 	Distributor *string `json:"distributor"`
+	// The language code.
+	//
+	// Controls language for logging and errors.
+	// Experimental.
+	MessageLanguage MessageLanguage `json:"messageLanguage"`
 	// Whether to give provisioning artifacts a new unique identifier when the product attributes or provisioning artifacts is updated.
 	// Experimental.
 	ReplaceProductVersionIds *bool `json:"replaceProductVersionIds"`
@@ -11471,10 +11463,29 @@ type CloudFormationTemplateConfig struct {
 	HttpUrl *string `json:"httpUrl"`
 }
 
+// Properties for governance mechanisms and constraints.
+// Experimental.
+type CommonConstraintOptions struct {
+	// The description of the constraint.
+	// Experimental.
+	Description *string `json:"description"`
+	// The language code.
+	//
+	// Configures the language for error messages from service catalog.
+	// Experimental.
+	MessageLanguage MessageLanguage `json:"messageLanguage"`
+}
+
 // A Service Catalog portfolio.
 // Experimental.
 type IPortfolio interface {
 	awscdk.IResource
+	// Associate portfolio with the given product.
+	// Experimental.
+	AddProduct(product IProduct)
+	// Add a Resource Update Constraint.
+	// Experimental.
+	ConstrainTagUpdates(product IProduct, options *TagUpdateConstraintOptions)
 	// Associate portfolio with an IAM Group.
 	// Experimental.
 	GiveAccessToGroup(group awsiam.IGroup)
@@ -11498,6 +11509,22 @@ type IPortfolio interface {
 // The jsii proxy for IPortfolio
 type jsiiProxy_IPortfolio struct {
 	internal.Type__awscdkIResource
+}
+
+func (i *jsiiProxy_IPortfolio) AddProduct(product IProduct) {
+	_jsii_.InvokeVoid(
+		i,
+		"addProduct",
+		[]interface{}{product},
+	)
+}
+
+func (i *jsiiProxy_IPortfolio) ConstrainTagUpdates(product IProduct, options *TagUpdateConstraintOptions) {
+	_jsii_.InvokeVoid(
+		i,
+		"constrainTagUpdates",
+		[]interface{}{product, options},
+	)
 }
 
 func (i *jsiiProxy_IPortfolio) GiveAccessToGroup(group awsiam.IGroup) {
@@ -11589,6 +11616,19 @@ func (j *jsiiProxy_IProduct) ProductId() *string {
 	return returns
 }
 
+// The language code.
+//
+// Used for error and logging messages for end users.
+// The default behavior if not specified is English.
+// Experimental.
+type MessageLanguage string
+
+const (
+	MessageLanguage_EN MessageLanguage = "EN"
+	MessageLanguage_JP MessageLanguage = "JP"
+	MessageLanguage_ZH MessageLanguage = "ZH"
+)
+
 // A Service Catalog portfolio.
 // Experimental.
 type Portfolio interface {
@@ -11600,7 +11640,9 @@ type Portfolio interface {
 	PortfolioArn() *string
 	PortfolioId() *string
 	Stack() awscdk.Stack
+	AddProduct(product IProduct)
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	ConstrainTagUpdates(product IProduct, options *TagUpdateConstraintOptions)
 	GeneratePhysicalName() *string
 	GenerateUniqueHash(value *string) *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
@@ -11762,6 +11804,16 @@ func Portfolio_IsResource(construct awscdk.IConstruct) *bool {
 	return returns
 }
 
+// Associate portfolio with the given product.
+// Experimental.
+func (p *jsiiProxy_Portfolio) AddProduct(product IProduct) {
+	_jsii_.InvokeVoid(
+		p,
+		"addProduct",
+		[]interface{}{product},
+	)
+}
+
 // Apply the given removal policy to this resource.
 //
 // The Removal Policy controls what happens to this resource when it stops
@@ -11777,6 +11829,16 @@ func (p *jsiiProxy_Portfolio) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 		p,
 		"applyRemovalPolicy",
 		[]interface{}{policy},
+	)
+}
+
+// Add a Resource Update Constraint.
+// Experimental.
+func (p *jsiiProxy_Portfolio) ConstrainTagUpdates(product IProduct, options *TagUpdateConstraintOptions) {
+	_jsii_.InvokeVoid(
+		p,
+		"constrainTagUpdates",
+		[]interface{}{product, options},
 	)
 }
 
@@ -12012,20 +12074,25 @@ type PortfolioProps struct {
 	// The provider name.
 	// Experimental.
 	ProviderName *string `json:"providerName"`
-	// The accept language.
-	// Experimental.
-	AcceptLanguage AcceptLanguage `json:"acceptLanguage"`
 	// Description for portfolio.
 	// Experimental.
 	Description *string `json:"description"`
+	// The message language.
+	//
+	// Controls language for
+	// status logging and errors.
+	// Experimental.
+	MessageLanguage MessageLanguage `json:"messageLanguage"`
 }
 
 // Options for portfolio share.
 // Experimental.
 type PortfolioShareOptions struct {
-	// The accept language of the share.
+	// The message language of the share.
+	//
+	// Controls status and error message language for share.
 	// Experimental.
-	AcceptLanguage AcceptLanguage `json:"acceptLanguage"`
+	MessageLanguage MessageLanguage `json:"messageLanguage"`
 	// Whether to share tagOptions as a part of the portfolio share.
 	// Experimental.
 	ShareTagOptions *bool `json:"shareTagOptions"`
@@ -12368,5 +12435,21 @@ func (p *jsiiProxy_Product) Validate() *[]*string {
 	)
 
 	return returns
+}
+
+// Properties for ResourceUpdateConstraint.
+// Experimental.
+type TagUpdateConstraintOptions struct {
+	// The description of the constraint.
+	// Experimental.
+	Description *string `json:"description"`
+	// The language code.
+	//
+	// Configures the language for error messages from service catalog.
+	// Experimental.
+	MessageLanguage MessageLanguage `json:"messageLanguage"`
+	// Toggle for if users should be allowed to change/update tags on provisioned products.
+	// Experimental.
+	Allow *bool `json:"allow"`
 }
 

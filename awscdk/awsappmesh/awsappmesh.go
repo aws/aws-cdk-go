@@ -6627,6 +6627,85 @@ type GatewayRouteBaseProps struct {
 	GatewayRouteName *string `json:"gatewayRouteName"`
 }
 
+// Used to generate host name matching methods.
+// Experimental.
+type GatewayRouteHostnameMatch interface {
+	Bind(scope awscdk.Construct) *GatewayRouteHostnameMatchConfig
+}
+
+// The jsii proxy struct for GatewayRouteHostnameMatch
+type jsiiProxy_GatewayRouteHostnameMatch struct {
+	_ byte // padding
+}
+
+// Experimental.
+func NewGatewayRouteHostnameMatch_Override(g GatewayRouteHostnameMatch) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_appmesh.GatewayRouteHostnameMatch",
+		nil, // no parameters
+		g,
+	)
+}
+
+// The value of the host name with the given name must end with the specified characters.
+// Experimental.
+func GatewayRouteHostnameMatch_EndsWith(suffix *string) GatewayRouteHostnameMatch {
+	_init_.Initialize()
+
+	var returns GatewayRouteHostnameMatch
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_appmesh.GatewayRouteHostnameMatch",
+		"endsWith",
+		[]interface{}{suffix},
+		&returns,
+	)
+
+	return returns
+}
+
+// The value of the host name must match the specified value exactly.
+// Experimental.
+func GatewayRouteHostnameMatch_Exactly(name *string) GatewayRouteHostnameMatch {
+	_init_.Initialize()
+
+	var returns GatewayRouteHostnameMatch
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_appmesh.GatewayRouteHostnameMatch",
+		"exactly",
+		[]interface{}{name},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns the gateway route host name match configuration.
+// Experimental.
+func (g *jsiiProxy_GatewayRouteHostnameMatch) Bind(scope awscdk.Construct) *GatewayRouteHostnameMatchConfig {
+	var returns *GatewayRouteHostnameMatchConfig
+
+	_jsii_.Invoke(
+		g,
+		"bind",
+		[]interface{}{scope},
+		&returns,
+	)
+
+	return returns
+}
+
+// Configuration for gateway route host name match.
+// Experimental.
+type GatewayRouteHostnameMatchConfig struct {
+	// GatewayRoute CFN configuration for host name match.
+	// Experimental.
+	HostnameMatch *CfnGatewayRoute_GatewayRouteHostnameMatchProperty `json:"hostnameMatch"`
+}
+
 // Properties to define a new GatewayRoute.
 // Experimental.
 type GatewayRouteProps struct {
@@ -6663,7 +6742,7 @@ func NewGatewayRouteSpec_Override(g GatewayRouteSpec) {
 	)
 }
 
-// Creates an GRPC Based GatewayRoute.
+// Creates an gRPC Based GatewayRoute.
 // Experimental.
 func GatewayRouteSpec_Grpc(options *GrpcGatewayRouteSpecOptions) GatewayRouteSpec {
 	_init_.Initialize()
@@ -6774,12 +6853,25 @@ type GrpcGatewayListenerOptions struct {
 // The criterion for determining a request match for this GatewayRoute.
 // Experimental.
 type GrpcGatewayRouteMatch struct {
-	// The fully qualified domain name for the service to match from the request.
+	// Create host name based gRPC gateway route match.
+	// Experimental.
+	Hostname GatewayRouteHostnameMatch `json:"hostname"`
+	// Create metadata based gRPC gateway route match.
+	//
+	// All specified metadata must match for the route to match.
+	// Experimental.
+	Metadata *[]HeaderMatch `json:"metadata"`
+	// When `true`, rewrites the original request received at the Virtual Gateway to the destination Virtual Service name.
+	//
+	// When `false`, retains the original hostname from the request.
+	// Experimental.
+	RewriteRequestHostname *bool `json:"rewriteRequestHostname"`
+	// Create service name based gRPC gateway route match.
 	// Experimental.
 	ServiceName *string `json:"serviceName"`
 }
 
-// Properties specific for a GRPC GatewayRoute.
+// Properties specific for a gRPC GatewayRoute.
 // Experimental.
 type GrpcGatewayRouteSpecOptions struct {
 	// The criterion for determining a request match for this GatewayRoute.
@@ -6850,10 +6942,22 @@ type GrpcRetryPolicy struct {
 	GrpcRetryEvents *[]GrpcRetryEvent `json:"grpcRetryEvents"`
 }
 
-// The criterion for determining a request match for this GatewayRoute.
+// The criterion for determining a request match for this Route.
+//
+// At least one match type must be selected.
 // Experimental.
 type GrpcRouteMatch struct {
-	// The fully qualified domain name for the service to match from the request.
+	// Create metadata based gRPC route match.
+	//
+	// All specified metadata must match for the route to match.
+	// Experimental.
+	Metadata *[]HeaderMatch `json:"metadata"`
+	// The method name to match from the request.
+	//
+	// If the method name is specified, service name must be also provided.
+	// Experimental.
+	MethodName *string `json:"methodName"`
+	// Create service name based gRPC route match.
 	// Experimental.
 	ServiceName *string `json:"serviceName"`
 }
@@ -7338,13 +7442,138 @@ type HttpGatewayListenerOptions struct {
 // The criterion for determining a request match for this GatewayRoute.
 // Experimental.
 type HttpGatewayRouteMatch struct {
-	// Specifies the path to match requests with.
+	// Specifies the client request headers to match on.
 	//
-	// This parameter must always start with /, which by itself matches all requests to the virtual service name.
-	// You can also match for path-based routing of requests. For example, if your virtual service name is my-service.local
-	// and you want the route to match requests to my-service.local/metrics, your prefix should be /metrics.
+	// All specified headers
+	// must match for the gateway route to match.
 	// Experimental.
-	PrefixPath *string `json:"prefixPath"`
+	Headers *[]HeaderMatch `json:"headers"`
+	// The gateway route host name to be matched on.
+	// Experimental.
+	Hostname GatewayRouteHostnameMatch `json:"hostname"`
+	// The method to match on.
+	// Experimental.
+	Method HttpRouteMethod `json:"method"`
+	// Specify how to match requests based on the 'path' part of their URL.
+	// Experimental.
+	Path HttpGatewayRoutePathMatch `json:"path"`
+	// The query parameters to match on.
+	//
+	// All specified query parameters must match for the route to match.
+	// Experimental.
+	QueryParameters *[]QueryParameterMatch `json:"queryParameters"`
+	// When `true`, rewrites the original request received at the Virtual Gateway to the destination Virtual Service name.
+	//
+	// When `false`, retains the original hostname from the request.
+	// Experimental.
+	RewriteRequestHostname *bool `json:"rewriteRequestHostname"`
+}
+
+// Defines HTTP gateway route matching based on the URL path of the request.
+// Experimental.
+type HttpGatewayRoutePathMatch interface {
+	Bind(scope awscdk.Construct) *HttpGatewayRoutePathMatchConfig
+}
+
+// The jsii proxy struct for HttpGatewayRoutePathMatch
+type jsiiProxy_HttpGatewayRoutePathMatch struct {
+	_ byte // padding
+}
+
+// Experimental.
+func NewHttpGatewayRoutePathMatch_Override(h HttpGatewayRoutePathMatch) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_appmesh.HttpGatewayRoutePathMatch",
+		nil, // no parameters
+		h,
+	)
+}
+
+// The value of the path must match the specified value exactly.
+//
+// The provided `path` must start with the '/' character.
+// Experimental.
+func HttpGatewayRoutePathMatch_Exactly(path *string, rewriteTo *string) HttpGatewayRoutePathMatch {
+	_init_.Initialize()
+
+	var returns HttpGatewayRoutePathMatch
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_appmesh.HttpGatewayRoutePathMatch",
+		"exactly",
+		[]interface{}{path, rewriteTo},
+		&returns,
+	)
+
+	return returns
+}
+
+// The value of the path must match the specified regex.
+// Experimental.
+func HttpGatewayRoutePathMatch_Regex(regex *string, rewriteTo *string) HttpGatewayRoutePathMatch {
+	_init_.Initialize()
+
+	var returns HttpGatewayRoutePathMatch
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_appmesh.HttpGatewayRoutePathMatch",
+		"regex",
+		[]interface{}{regex, rewriteTo},
+		&returns,
+	)
+
+	return returns
+}
+
+// The value of the path must match the specified prefix.
+// Experimental.
+func HttpGatewayRoutePathMatch_StartsWith(prefix *string, rewriteTo *string) HttpGatewayRoutePathMatch {
+	_init_.Initialize()
+
+	var returns HttpGatewayRoutePathMatch
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_appmesh.HttpGatewayRoutePathMatch",
+		"startsWith",
+		[]interface{}{prefix, rewriteTo},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns the gateway route path match configuration.
+// Experimental.
+func (h *jsiiProxy_HttpGatewayRoutePathMatch) Bind(scope awscdk.Construct) *HttpGatewayRoutePathMatchConfig {
+	var returns *HttpGatewayRoutePathMatchConfig
+
+	_jsii_.Invoke(
+		h,
+		"bind",
+		[]interface{}{scope},
+		&returns,
+	)
+
+	return returns
+}
+
+// The type returned from the `bind()` method in {@link HttpGatewayRoutePathMatch}.
+// Experimental.
+type HttpGatewayRoutePathMatchConfig struct {
+	// Gateway route configuration for matching on the prefix of the URL path of the request.
+	// Experimental.
+	PrefixPathMatch *string `json:"prefixPathMatch"`
+	// Gateway route configuration for rewriting the prefix of the URL path of the request.
+	// Experimental.
+	PrefixPathRewrite *CfnGatewayRoute_HttpGatewayRoutePrefixRewriteProperty `json:"prefixPathRewrite"`
+	// Gateway route configuration for matching on the complete URL path of the request.
+	// Experimental.
+	WholePathMatch *CfnGatewayRoute_HttpPathMatchProperty `json:"wholePathMatch"`
+	// Gateway route configuration for rewriting the complete URL path of the request..
+	// Experimental.
+	WholePathRewrite *CfnGatewayRoute_HttpGatewayRoutePathRewriteProperty `json:"wholePathRewrite"`
 }
 
 // Properties specific for HTTP Based GatewayRoutes.
@@ -7354,6 +7583,8 @@ type HttpGatewayRouteSpecOptions struct {
 	// Experimental.
 	RouteTarget IVirtualService `json:"routeTarget"`
 	// The criterion for determining a request match for this GatewayRoute.
+	//
+	// When path match is defined, this may optionally determine the path rewrite configuration.
 	// Experimental.
 	Match *HttpGatewayRouteMatch `json:"match"`
 }
@@ -7414,16 +7645,9 @@ type HttpRetryPolicy struct {
 	TcpRetryEvents *[]TcpRetryEvent `json:"tcpRetryEvents"`
 }
 
-// The criterion for determining a request match for this GatewayRoute.
+// The criterion for determining a request match for this Route.
 // Experimental.
 type HttpRouteMatch struct {
-	// Specifies the path to match requests with.
-	//
-	// This parameter must always start with /, which by itself matches all requests to the virtual service name.
-	// You can also match for path-based routing of requests. For example, if your virtual service name is my-service.local
-	// and you want the route to match requests to my-service.local/metrics, your prefix should be /metrics.
-	// Experimental.
-	PrefixPath *string `json:"prefixPath"`
 	// Specifies the client request headers to match on.
 	//
 	// All specified headers
@@ -7433,11 +7657,19 @@ type HttpRouteMatch struct {
 	// The HTTP client request method to match on.
 	// Experimental.
 	Method HttpRouteMethod `json:"method"`
+	// Specifies how is the request matched based on the path part of its URL.
+	// Experimental.
+	Path HttpRoutePathMatch `json:"path"`
 	// The client request protocol to match on.
 	//
 	// Applicable only for HTTP2 routes.
 	// Experimental.
 	Protocol HttpRouteProtocol `json:"protocol"`
+	// The query parameters to match on.
+	//
+	// All specified query parameters must match for the route to match.
+	// Experimental.
+	QueryParameters *[]QueryParameterMatch `json:"queryParameters"`
 }
 
 // Supported values for matching routes based on the HTTP request method.
@@ -7455,6 +7687,107 @@ const (
 	HttpRouteMethod_TRACE HttpRouteMethod = "TRACE"
 	HttpRouteMethod_PATCH HttpRouteMethod = "PATCH"
 )
+
+// Defines HTTP route matching based on the URL path of the request.
+// Experimental.
+type HttpRoutePathMatch interface {
+	Bind(scope awscdk.Construct) *HttpRoutePathMatchConfig
+}
+
+// The jsii proxy struct for HttpRoutePathMatch
+type jsiiProxy_HttpRoutePathMatch struct {
+	_ byte // padding
+}
+
+// Experimental.
+func NewHttpRoutePathMatch_Override(h HttpRoutePathMatch) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_appmesh.HttpRoutePathMatch",
+		nil, // no parameters
+		h,
+	)
+}
+
+// The value of the path must match the specified value exactly.
+//
+// The provided `path` must start with the '/' character.
+// Experimental.
+func HttpRoutePathMatch_Exactly(path *string) HttpRoutePathMatch {
+	_init_.Initialize()
+
+	var returns HttpRoutePathMatch
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_appmesh.HttpRoutePathMatch",
+		"exactly",
+		[]interface{}{path},
+		&returns,
+	)
+
+	return returns
+}
+
+// The value of the path must match the specified regex.
+// Experimental.
+func HttpRoutePathMatch_Regex(regex *string) HttpRoutePathMatch {
+	_init_.Initialize()
+
+	var returns HttpRoutePathMatch
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_appmesh.HttpRoutePathMatch",
+		"regex",
+		[]interface{}{regex},
+		&returns,
+	)
+
+	return returns
+}
+
+// The value of the path must match the specified prefix.
+// Experimental.
+func HttpRoutePathMatch_StartsWith(prefix *string) HttpRoutePathMatch {
+	_init_.Initialize()
+
+	var returns HttpRoutePathMatch
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_appmesh.HttpRoutePathMatch",
+		"startsWith",
+		[]interface{}{prefix},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns the route path match configuration.
+// Experimental.
+func (h *jsiiProxy_HttpRoutePathMatch) Bind(scope awscdk.Construct) *HttpRoutePathMatchConfig {
+	var returns *HttpRoutePathMatchConfig
+
+	_jsii_.Invoke(
+		h,
+		"bind",
+		[]interface{}{scope},
+		&returns,
+	)
+
+	return returns
+}
+
+// The type returned from the `bind()` method in {@link HttpRoutePathMatch}.
+// Experimental.
+type HttpRoutePathMatchConfig struct {
+	// Route configuration for matching on the prefix of the URL path of the request.
+	// Experimental.
+	PrefixPathMatch *string `json:"prefixPathMatch"`
+	// Route configuration for matching on the complete URL path of the request.
+	// Experimental.
+	WholePathMatch *CfnRoute_HttpPathMatchProperty `json:"wholePathMatch"`
+}
 
 // Supported :scheme options for HTTP2.
 // Experimental.
@@ -8689,6 +9022,68 @@ const (
 	Protocol_GRPC Protocol = "GRPC"
 )
 
+// Used to generate query parameter matching methods.
+// Experimental.
+type QueryParameterMatch interface {
+	Bind(scope awscdk.Construct) *QueryParameterMatchConfig
+}
+
+// The jsii proxy struct for QueryParameterMatch
+type jsiiProxy_QueryParameterMatch struct {
+	_ byte // padding
+}
+
+// Experimental.
+func NewQueryParameterMatch_Override(q QueryParameterMatch) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_appmesh.QueryParameterMatch",
+		nil, // no parameters
+		q,
+	)
+}
+
+// The value of the query parameter with the given name in the request must match the specified value exactly.
+// Experimental.
+func QueryParameterMatch_ValueIs(queryParameterName *string, queryParameterValue *string) QueryParameterMatch {
+	_init_.Initialize()
+
+	var returns QueryParameterMatch
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_appmesh.QueryParameterMatch",
+		"valueIs",
+		[]interface{}{queryParameterName, queryParameterValue},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns the query parameter match configuration.
+// Experimental.
+func (q *jsiiProxy_QueryParameterMatch) Bind(scope awscdk.Construct) *QueryParameterMatchConfig {
+	var returns *QueryParameterMatchConfig
+
+	_jsii_.Invoke(
+		q,
+		"bind",
+		[]interface{}{scope},
+		&returns,
+	)
+
+	return returns
+}
+
+// Configuration for `QueryParameterMatch`.
+// Experimental.
+type QueryParameterMatchConfig struct {
+	// Route CFN configuration for route query parameter match.
+	// Experimental.
+	QueryParameterMatch *CfnRoute_QueryParameterProperty `json:"queryParameterMatch"`
+}
+
 // Route represents a new or existing route attached to a VirtualRouter and Mesh.
 // See: https://docs.aws.amazon.com/app-mesh/latest/userguide/routes.html
 //
@@ -9202,7 +9597,7 @@ func RouteSpec_Tcp(options *TcpRouteSpecOptions) RouteSpec {
 	return returns
 }
 
-// Called when the GatewayRouteSpec type is initialized.
+// Called when the RouteSpec type is initialized.
 //
 // Can be used to enforce
 // mutual exclusivity with future properties
@@ -9220,7 +9615,7 @@ func (r *jsiiProxy_RouteSpec) Bind(scope awscdk.Construct) *RouteSpecConfig {
 	return returns
 }
 
-// All Properties for GatewayRoute Specs.
+// All Properties for Route Specs.
 // Experimental.
 type RouteSpecConfig struct {
 	// The spec for a grpc route.

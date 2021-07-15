@@ -7,15 +7,6 @@ import (
 )
 
 func init() {
-	_jsii_.RegisterEnum(
-		"monocdk.aws_servicecatalog.AcceptLanguage",
-		reflect.TypeOf((*AcceptLanguage)(nil)).Elem(),
-		map[string]interface{}{
-			"EN": AcceptLanguage_EN,
-			"JP": AcceptLanguage_JP,
-			"ZH": AcceptLanguage_ZH,
-		},
-	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_servicecatalog.CfnAcceptedPortfolioShare",
 		reflect.TypeOf((*CfnAcceptedPortfolioShare)(nil)).Elem(),
@@ -911,10 +902,16 @@ func init() {
 		"monocdk.aws_servicecatalog.CloudFormationTemplateConfig",
 		reflect.TypeOf((*CloudFormationTemplateConfig)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_servicecatalog.CommonConstraintOptions",
+		reflect.TypeOf((*CommonConstraintOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterInterface(
 		"monocdk.aws_servicecatalog.IPortfolio",
 		reflect.TypeOf((*IPortfolio)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addProduct", GoMethod: "AddProduct"},
+			_jsii_.MemberMethod{JsiiMethod: "constrainTagUpdates", GoMethod: "ConstrainTagUpdates"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "giveAccessToGroup", GoMethod: "GiveAccessToGroup"},
 			_jsii_.MemberMethod{JsiiMethod: "giveAccessToRole", GoMethod: "GiveAccessToRole"},
@@ -947,11 +944,22 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_servicecatalog.MessageLanguage",
+		reflect.TypeOf((*MessageLanguage)(nil)).Elem(),
+		map[string]interface{}{
+			"EN": MessageLanguage_EN,
+			"JP": MessageLanguage_JP,
+			"ZH": MessageLanguage_ZH,
+		},
+	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_servicecatalog.Portfolio",
 		reflect.TypeOf((*Portfolio)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addProduct", GoMethod: "AddProduct"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "constrainTagUpdates", GoMethod: "ConstrainTagUpdates"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "generateUniqueHash", GoMethod: "GenerateUniqueHash"},
@@ -1017,5 +1025,9 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IProduct)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_servicecatalog.TagUpdateConstraintOptions",
+		reflect.TypeOf((*TagUpdateConstraintOptions)(nil)).Elem(),
 	)
 }

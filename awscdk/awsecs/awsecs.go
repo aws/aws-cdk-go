@@ -11930,6 +11930,1488 @@ const (
 	ExecuteCommandLogging_OVERRIDE ExecuteCommandLogging = "OVERRIDE"
 )
 
+// This creates a service using the External launch type on an ECS cluster.
+// Experimental.
+type ExternalService interface {
+	BaseService
+	IExternalService
+	CloudmapService() awsservicediscovery.Service
+	SetCloudmapService(val awsservicediscovery.Service)
+	CloudMapService() awsservicediscovery.IService
+	Cluster() ICluster
+	Connections() awsec2.Connections
+	Env() *awscdk.ResourceEnvironment
+	LoadBalancers() *[]*CfnService_LoadBalancerProperty
+	SetLoadBalancers(val *[]*CfnService_LoadBalancerProperty)
+	NetworkConfiguration() *CfnService_NetworkConfigurationProperty
+	SetNetworkConfiguration(val *CfnService_NetworkConfigurationProperty)
+	Node() awscdk.ConstructNode
+	PhysicalName() *string
+	ServiceArn() *string
+	ServiceName() *string
+	ServiceRegistries() *[]*CfnService_ServiceRegistryProperty
+	SetServiceRegistries(val *[]*CfnService_ServiceRegistryProperty)
+	Stack() awscdk.Stack
+	TaskDefinition() TaskDefinition
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	AssociateCloudMapService(_options *AssociateCloudMapServiceOptions)
+	AttachToApplicationTargetGroup(_targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
+	AttachToClassicLB(loadBalancer awselasticloadbalancing.LoadBalancer)
+	AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
+	AutoScaleTaskCount(_props *awsapplicationautoscaling.EnableScalingProps) ScalableTaskCount
+	ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup)
+	ConfigureAwsVpcNetworkingWithSecurityGroups(_vpc awsec2.IVpc, _assignPublicIp *bool, _vpcSubnets *awsec2.SubnetSelection, _securityGroups *[]awsec2.ISecurityGroup)
+	EnableCloudMap(_options *CloudMapOptions) awsservicediscovery.Service
+	GeneratePhysicalName() *string
+	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	GetResourceNameAttribute(nameAttr *string) *string
+	LoadBalancerTarget(_options *LoadBalancerTargetOptions) IEcsLoadBalancerTarget
+	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricCpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	RegisterLoadBalancerTargets(_targets ...*EcsTarget)
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
+}
+
+// The jsii proxy struct for ExternalService
+type jsiiProxy_ExternalService struct {
+	jsiiProxy_BaseService
+	jsiiProxy_IExternalService
+}
+
+func (j *jsiiProxy_ExternalService) CloudmapService() awsservicediscovery.Service {
+	var returns awsservicediscovery.Service
+	_jsii_.Get(
+		j,
+		"cloudmapService",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalService) CloudMapService() awsservicediscovery.IService {
+	var returns awsservicediscovery.IService
+	_jsii_.Get(
+		j,
+		"cloudMapService",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalService) Cluster() ICluster {
+	var returns ICluster
+	_jsii_.Get(
+		j,
+		"cluster",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalService) Connections() awsec2.Connections {
+	var returns awsec2.Connections
+	_jsii_.Get(
+		j,
+		"connections",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalService) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalService) LoadBalancers() *[]*CfnService_LoadBalancerProperty {
+	var returns *[]*CfnService_LoadBalancerProperty
+	_jsii_.Get(
+		j,
+		"loadBalancers",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalService) NetworkConfiguration() *CfnService_NetworkConfigurationProperty {
+	var returns *CfnService_NetworkConfigurationProperty
+	_jsii_.Get(
+		j,
+		"networkConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalService) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalService) PhysicalName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalService) ServiceArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"serviceArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalService) ServiceName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"serviceName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalService) ServiceRegistries() *[]*CfnService_ServiceRegistryProperty {
+	var returns *[]*CfnService_ServiceRegistryProperty
+	_jsii_.Get(
+		j,
+		"serviceRegistries",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalService) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalService) TaskDefinition() TaskDefinition {
+	var returns TaskDefinition
+	_jsii_.Get(
+		j,
+		"taskDefinition",
+		&returns,
+	)
+	return returns
+}
+
+
+// Constructs a new instance of the ExternalService class.
+// Experimental.
+func NewExternalService(scope constructs.Construct, id *string, props *ExternalServiceProps) ExternalService {
+	_init_.Initialize()
+
+	j := jsiiProxy_ExternalService{}
+
+	_jsii_.Create(
+		"monocdk.aws_ecs.ExternalService",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Constructs a new instance of the ExternalService class.
+// Experimental.
+func NewExternalService_Override(e ExternalService, scope constructs.Construct, id *string, props *ExternalServiceProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_ecs.ExternalService",
+		[]interface{}{scope, id, props},
+		e,
+	)
+}
+
+func (j *jsiiProxy_ExternalService) SetCloudmapService(val awsservicediscovery.Service) {
+	_jsii_.Set(
+		j,
+		"cloudmapService",
+		val,
+	)
+}
+
+func (j *jsiiProxy_ExternalService) SetLoadBalancers(val *[]*CfnService_LoadBalancerProperty) {
+	_jsii_.Set(
+		j,
+		"loadBalancers",
+		val,
+	)
+}
+
+func (j *jsiiProxy_ExternalService) SetNetworkConfiguration(val *CfnService_NetworkConfigurationProperty) {
+	_jsii_.Set(
+		j,
+		"networkConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_ExternalService) SetServiceRegistries(val *[]*CfnService_ServiceRegistryProperty) {
+	_jsii_.Set(
+		j,
+		"serviceRegistries",
+		val,
+	)
+}
+
+// Imports from the specified service ARN.
+// Experimental.
+func ExternalService_FromExternalServiceArn(scope constructs.Construct, id *string, externalServiceArn *string) IExternalService {
+	_init_.Initialize()
+
+	var returns IExternalService
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ecs.ExternalService",
+		"fromExternalServiceArn",
+		[]interface{}{scope, id, externalServiceArn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Imports from the specified service attrributes.
+// Experimental.
+func ExternalService_FromExternalServiceAttributes(scope constructs.Construct, id *string, attrs *ExternalServiceAttributes) IBaseService {
+	_init_.Initialize()
+
+	var returns IBaseService
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ecs.ExternalService",
+		"fromExternalServiceAttributes",
+		[]interface{}{scope, id, attrs},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func ExternalService_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ecs.ExternalService",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+// Experimental.
+func ExternalService_IsResource(construct awscdk.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ecs.ExternalService",
+		"isResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Apply the given removal policy to this resource.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
+func (e *jsiiProxy_ExternalService) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		e,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
+// Overriden method to throw error as `associateCloudMapService` is not supported for external service.
+// Experimental.
+func (e *jsiiProxy_ExternalService) AssociateCloudMapService(_options *AssociateCloudMapServiceOptions) {
+	_jsii_.InvokeVoid(
+		e,
+		"associateCloudMapService",
+		[]interface{}{_options},
+	)
+}
+
+// Overriden method to throw error as `attachToApplicationTargetGroup` is not supported for external service.
+// Experimental.
+func (e *jsiiProxy_ExternalService) AttachToApplicationTargetGroup(_targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
+	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
+
+	_jsii_.Invoke(
+		e,
+		"attachToApplicationTargetGroup",
+		[]interface{}{_targetGroup},
+		&returns,
+	)
+
+	return returns
+}
+
+// Registers the service as a target of a Classic Load Balancer (CLB).
+//
+// Don't call this. Call `loadBalancer.addTarget()` instead.
+// Experimental.
+func (e *jsiiProxy_ExternalService) AttachToClassicLB(loadBalancer awselasticloadbalancing.LoadBalancer) {
+	_jsii_.InvokeVoid(
+		e,
+		"attachToClassicLB",
+		[]interface{}{loadBalancer},
+	)
+}
+
+// This method is called to attach this service to a Network Load Balancer.
+//
+// Don't call this function directly. Instead, call `listener.addTargets()`
+// to add this service to a load balancer.
+// Experimental.
+func (e *jsiiProxy_ExternalService) AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
+	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
+
+	_jsii_.Invoke(
+		e,
+		"attachToNetworkTargetGroup",
+		[]interface{}{targetGroup},
+		&returns,
+	)
+
+	return returns
+}
+
+// Overriden method to throw error as `autoScaleTaskCount` is not supported for external service.
+// Experimental.
+func (e *jsiiProxy_ExternalService) AutoScaleTaskCount(_props *awsapplicationautoscaling.EnableScalingProps) ScalableTaskCount {
+	var returns ScalableTaskCount
+
+	_jsii_.Invoke(
+		e,
+		"autoScaleTaskCount",
+		[]interface{}{_props},
+		&returns,
+	)
+
+	return returns
+}
+
+// This method is called to create a networkConfiguration.
+// Deprecated: use configureAwsVpcNetworkingWithSecurityGroups instead.
+func (e *jsiiProxy_ExternalService) ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup) {
+	_jsii_.InvokeVoid(
+		e,
+		"configureAwsVpcNetworking",
+		[]interface{}{vpc, assignPublicIp, vpcSubnets, securityGroup},
+	)
+}
+
+// Overriden method to throw error as `configureAwsVpcNetworkingWithSecurityGroups` is not supported for external service.
+// Experimental.
+func (e *jsiiProxy_ExternalService) ConfigureAwsVpcNetworkingWithSecurityGroups(_vpc awsec2.IVpc, _assignPublicIp *bool, _vpcSubnets *awsec2.SubnetSelection, _securityGroups *[]awsec2.ISecurityGroup) {
+	_jsii_.InvokeVoid(
+		e,
+		"configureAwsVpcNetworkingWithSecurityGroups",
+		[]interface{}{_vpc, _assignPublicIp, _vpcSubnets, _securityGroups},
+	)
+}
+
+// Overriden method to throw error as `enableCloudMap` is not supported for external service.
+// Experimental.
+func (e *jsiiProxy_ExternalService) EnableCloudMap(_options *CloudMapOptions) awsservicediscovery.Service {
+	var returns awsservicediscovery.Service
+
+	_jsii_.Invoke(
+		e,
+		"enableCloudMap",
+		[]interface{}{_options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (e *jsiiProxy_ExternalService) GeneratePhysicalName() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		e,
+		"generatePhysicalName",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+//
+// Normally, this token will resolve to `arnAttr`, but if the resource is
+// referenced across environments, `arnComponents` will be used to synthesize
+// a concrete ARN with the resource's physical name. Make sure to reference
+// `this.physicalName` in `arnComponents`.
+// Experimental.
+func (e *jsiiProxy_ExternalService) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		e,
+		"getResourceArnAttribute",
+		[]interface{}{arnAttr, arnComponents},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+//
+// Normally, this token will resolve to `nameAttr`, but if the resource is
+// referenced across environments, it will be resolved to `this.physicalName`,
+// which will be a concrete name.
+// Experimental.
+func (e *jsiiProxy_ExternalService) GetResourceNameAttribute(nameAttr *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		e,
+		"getResourceNameAttribute",
+		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+// Overriden method to throw error as `loadBalancerTarget` is not supported for external service.
+// Experimental.
+func (e *jsiiProxy_ExternalService) LoadBalancerTarget(_options *LoadBalancerTargetOptions) IEcsLoadBalancerTarget {
+	var returns IEcsLoadBalancerTarget
+
+	_jsii_.Invoke(
+		e,
+		"loadBalancerTarget",
+		[]interface{}{_options},
+		&returns,
+	)
+
+	return returns
+}
+
+// This method returns the specified CloudWatch metric name for this service.
+// Experimental.
+func (e *jsiiProxy_ExternalService) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metric",
+		[]interface{}{metricName, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// This method returns the CloudWatch metric for this service's CPU utilization.
+// Experimental.
+func (e *jsiiProxy_ExternalService) MetricCpuUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricCpuUtilization",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// This method returns the CloudWatch metric for this service's memory utilization.
+// Experimental.
+func (e *jsiiProxy_ExternalService) MetricMemoryUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricMemoryUtilization",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (e *jsiiProxy_ExternalService) OnPrepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (e *jsiiProxy_ExternalService) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (e *jsiiProxy_ExternalService) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (e *jsiiProxy_ExternalService) Prepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Overriden method to throw error as `registerLoadBalancerTargets` is not supported for external service.
+// Experimental.
+func (e *jsiiProxy_ExternalService) RegisterLoadBalancerTargets(_targets ...*EcsTarget) {
+	args := []interface{}{}
+	for _, a := range _targets {
+		args = append(args, a)
+	}
+
+	_jsii_.InvokeVoid(
+		e,
+		"registerLoadBalancerTargets",
+		args,
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (e *jsiiProxy_ExternalService) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+// Experimental.
+func (e *jsiiProxy_ExternalService) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		e,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (e *jsiiProxy_ExternalService) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// The properties to import from the service using the External launch type.
+// Experimental.
+type ExternalServiceAttributes struct {
+	// The cluster that hosts the service.
+	// Experimental.
+	Cluster ICluster `json:"cluster"`
+	// The service ARN.
+	// Experimental.
+	ServiceArn *string `json:"serviceArn"`
+	// The name of the service.
+	// Experimental.
+	ServiceName *string `json:"serviceName"`
+}
+
+// The properties for defining a service using the External launch type.
+// Experimental.
+type ExternalServiceProps struct {
+	// The name of the cluster that hosts the service.
+	// Experimental.
+	Cluster ICluster `json:"cluster"`
+	// A list of Capacity Provider strategies used to place a service.
+	// Experimental.
+	CapacityProviderStrategies *[]*CapacityProviderStrategy `json:"capacityProviderStrategies"`
+	// Whether to enable the deployment circuit breaker.
+	//
+	// If this property is defined, circuit breaker will be implicitly
+	// enabled.
+	// Experimental.
+	CircuitBreaker *DeploymentCircuitBreaker `json:"circuitBreaker"`
+	// The options for configuring an Amazon ECS service to use service discovery.
+	// Experimental.
+	CloudMapOptions *CloudMapOptions `json:"cloudMapOptions"`
+	// Specifies which deployment controller to use for the service.
+	//
+	// For more information, see
+	// [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
+	// Experimental.
+	DeploymentController *DeploymentController `json:"deploymentController"`
+	// The desired number of instantiations of the task definition to keep running on the service.
+	// Experimental.
+	DesiredCount *float64 `json:"desiredCount"`
+	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
+	//
+	// For more information, see
+	// [Tagging Your Amazon ECS Resources](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html)
+	// Experimental.
+	EnableECSManagedTags *bool `json:"enableECSManagedTags"`
+	// Whether to enable the ability to execute into a container.
+	// Experimental.
+	EnableExecuteCommand *bool `json:"enableExecuteCommand"`
+	// The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started.
+	// Experimental.
+	HealthCheckGracePeriod awscdk.Duration `json:"healthCheckGracePeriod"`
+	// The maximum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that can run in a service during a deployment.
+	// Experimental.
+	MaxHealthyPercent *float64 `json:"maxHealthyPercent"`
+	// The minimum number of tasks, specified as a percentage of the Amazon ECS service's DesiredCount value, that must continue to run and remain healthy during a deployment.
+	// Experimental.
+	MinHealthyPercent *float64 `json:"minHealthyPercent"`
+	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
+	//
+	// Valid values are: PropagatedTagSource.SERVICE, PropagatedTagSource.TASK_DEFINITION or PropagatedTagSource.NONE
+	// Experimental.
+	PropagateTags PropagatedTagSource `json:"propagateTags"`
+	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
+	//
+	// Tags can only be propagated to the tasks within the service during service creation.
+	// Deprecated: Use `propagateTags` instead.
+	PropagateTaskTagsFrom PropagatedTagSource `json:"propagateTaskTagsFrom"`
+	// The name of the service.
+	// Experimental.
+	ServiceName *string `json:"serviceName"`
+	// The task definition to use for tasks in the service.
+	//
+	// [disable-awslint:ref-via-interface]
+	// Experimental.
+	TaskDefinition TaskDefinition `json:"taskDefinition"`
+	// The security groups to associate with the service.
+	//
+	// If you do not specify a security group, the default security group for the VPC is used.
+	// Experimental.
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+}
+
+// The details of a task definition run on an External cluster.
+// Experimental.
+type ExternalTaskDefinition interface {
+	TaskDefinition
+	IExternalTaskDefinition
+	Compatibility() Compatibility
+	Containers() *[]ContainerDefinition
+	DefaultContainer() ContainerDefinition
+	SetDefaultContainer(val ContainerDefinition)
+	Env() *awscdk.ResourceEnvironment
+	ExecutionRole() awsiam.IRole
+	Family() *string
+	InferenceAccelerators() *[]*InferenceAccelerator
+	IsEc2Compatible() *bool
+	IsExternalCompatible() *bool
+	IsFargateCompatible() *bool
+	NetworkMode() NetworkMode
+	Node() awscdk.ConstructNode
+	PhysicalName() *string
+	ReferencesSecretJsonField() *bool
+	Stack() awscdk.Stack
+	TaskDefinitionArn() *string
+	TaskRole() awsiam.IRole
+	AddContainer(id *string, props *ContainerDefinitionOptions) ContainerDefinition
+	AddExtension(extension ITaskDefinitionExtension)
+	AddFirelensLogRouter(id *string, props *FirelensLogRouterDefinitionOptions) FirelensLogRouter
+	AddInferenceAccelerator(_inferenceAccelerator *InferenceAccelerator)
+	AddPlacementConstraint(constraint PlacementConstraint)
+	AddToExecutionRolePolicy(statement awsiam.PolicyStatement)
+	AddToTaskRolePolicy(statement awsiam.PolicyStatement)
+	AddVolume(_volume *Volume)
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	FindContainer(containerName *string) ContainerDefinition
+	GeneratePhysicalName() *string
+	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	GetResourceNameAttribute(nameAttr *string) *string
+	ObtainExecutionRole() awsiam.IRole
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
+}
+
+// The jsii proxy struct for ExternalTaskDefinition
+type jsiiProxy_ExternalTaskDefinition struct {
+	jsiiProxy_TaskDefinition
+	jsiiProxy_IExternalTaskDefinition
+}
+
+func (j *jsiiProxy_ExternalTaskDefinition) Compatibility() Compatibility {
+	var returns Compatibility
+	_jsii_.Get(
+		j,
+		"compatibility",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalTaskDefinition) Containers() *[]ContainerDefinition {
+	var returns *[]ContainerDefinition
+	_jsii_.Get(
+		j,
+		"containers",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalTaskDefinition) DefaultContainer() ContainerDefinition {
+	var returns ContainerDefinition
+	_jsii_.Get(
+		j,
+		"defaultContainer",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalTaskDefinition) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalTaskDefinition) ExecutionRole() awsiam.IRole {
+	var returns awsiam.IRole
+	_jsii_.Get(
+		j,
+		"executionRole",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalTaskDefinition) Family() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"family",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalTaskDefinition) InferenceAccelerators() *[]*InferenceAccelerator {
+	var returns *[]*InferenceAccelerator
+	_jsii_.Get(
+		j,
+		"inferenceAccelerators",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalTaskDefinition) IsEc2Compatible() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"isEc2Compatible",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalTaskDefinition) IsExternalCompatible() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"isExternalCompatible",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalTaskDefinition) IsFargateCompatible() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"isFargateCompatible",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalTaskDefinition) NetworkMode() NetworkMode {
+	var returns NetworkMode
+	_jsii_.Get(
+		j,
+		"networkMode",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalTaskDefinition) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalTaskDefinition) PhysicalName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalTaskDefinition) ReferencesSecretJsonField() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"referencesSecretJsonField",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalTaskDefinition) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalTaskDefinition) TaskDefinitionArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"taskDefinitionArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ExternalTaskDefinition) TaskRole() awsiam.IRole {
+	var returns awsiam.IRole
+	_jsii_.Get(
+		j,
+		"taskRole",
+		&returns,
+	)
+	return returns
+}
+
+
+// Constructs a new instance of the ExternalTaskDefinition class.
+// Experimental.
+func NewExternalTaskDefinition(scope constructs.Construct, id *string, props *ExternalTaskDefinitionProps) ExternalTaskDefinition {
+	_init_.Initialize()
+
+	j := jsiiProxy_ExternalTaskDefinition{}
+
+	_jsii_.Create(
+		"monocdk.aws_ecs.ExternalTaskDefinition",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Constructs a new instance of the ExternalTaskDefinition class.
+// Experimental.
+func NewExternalTaskDefinition_Override(e ExternalTaskDefinition, scope constructs.Construct, id *string, props *ExternalTaskDefinitionProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_ecs.ExternalTaskDefinition",
+		[]interface{}{scope, id, props},
+		e,
+	)
+}
+
+func (j *jsiiProxy_ExternalTaskDefinition) SetDefaultContainer(val ContainerDefinition) {
+	_jsii_.Set(
+		j,
+		"defaultContainer",
+		val,
+	)
+}
+
+// Imports a task definition from the specified task definition ARN.
+// Experimental.
+func ExternalTaskDefinition_FromEc2TaskDefinitionArn(scope constructs.Construct, id *string, externalTaskDefinitionArn *string) IExternalTaskDefinition {
+	_init_.Initialize()
+
+	var returns IExternalTaskDefinition
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ecs.ExternalTaskDefinition",
+		"fromEc2TaskDefinitionArn",
+		[]interface{}{scope, id, externalTaskDefinitionArn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Imports an existing External task definition from its attributes.
+// Experimental.
+func ExternalTaskDefinition_FromExternalTaskDefinitionAttributes(scope constructs.Construct, id *string, attrs *ExternalTaskDefinitionAttributes) IExternalTaskDefinition {
+	_init_.Initialize()
+
+	var returns IExternalTaskDefinition
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ecs.ExternalTaskDefinition",
+		"fromExternalTaskDefinitionAttributes",
+		[]interface{}{scope, id, attrs},
+		&returns,
+	)
+
+	return returns
+}
+
+// Imports a task definition from the specified task definition ARN.
+//
+// The task will have a compatibility of EC2+Fargate.
+// Experimental.
+func ExternalTaskDefinition_FromTaskDefinitionArn(scope constructs.Construct, id *string, taskDefinitionArn *string) ITaskDefinition {
+	_init_.Initialize()
+
+	var returns ITaskDefinition
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ecs.ExternalTaskDefinition",
+		"fromTaskDefinitionArn",
+		[]interface{}{scope, id, taskDefinitionArn},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create a task definition from a task definition reference.
+// Experimental.
+func ExternalTaskDefinition_FromTaskDefinitionAttributes(scope constructs.Construct, id *string, attrs *TaskDefinitionAttributes) ITaskDefinition {
+	_init_.Initialize()
+
+	var returns ITaskDefinition
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ecs.ExternalTaskDefinition",
+		"fromTaskDefinitionAttributes",
+		[]interface{}{scope, id, attrs},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func ExternalTaskDefinition_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ecs.ExternalTaskDefinition",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+// Experimental.
+func ExternalTaskDefinition_IsResource(construct awscdk.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ecs.ExternalTaskDefinition",
+		"isResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Adds a new container to the task definition.
+// Experimental.
+func (e *jsiiProxy_ExternalTaskDefinition) AddContainer(id *string, props *ContainerDefinitionOptions) ContainerDefinition {
+	var returns ContainerDefinition
+
+	_jsii_.Invoke(
+		e,
+		"addContainer",
+		[]interface{}{id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Adds the specified extension to the task definition.
+//
+// Extension can be used to apply a packaged modification to
+// a task definition.
+// Experimental.
+func (e *jsiiProxy_ExternalTaskDefinition) AddExtension(extension ITaskDefinitionExtension) {
+	_jsii_.InvokeVoid(
+		e,
+		"addExtension",
+		[]interface{}{extension},
+	)
+}
+
+// Adds a firelens log router to the task definition.
+// Experimental.
+func (e *jsiiProxy_ExternalTaskDefinition) AddFirelensLogRouter(id *string, props *FirelensLogRouterDefinitionOptions) FirelensLogRouter {
+	var returns FirelensLogRouter
+
+	_jsii_.Invoke(
+		e,
+		"addFirelensLogRouter",
+		[]interface{}{id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Overriden method to throw error as interface accelerators are not supported for external tasks.
+// Experimental.
+func (e *jsiiProxy_ExternalTaskDefinition) AddInferenceAccelerator(_inferenceAccelerator *InferenceAccelerator) {
+	_jsii_.InvokeVoid(
+		e,
+		"addInferenceAccelerator",
+		[]interface{}{_inferenceAccelerator},
+	)
+}
+
+// Adds the specified placement constraint to the task definition.
+// Experimental.
+func (e *jsiiProxy_ExternalTaskDefinition) AddPlacementConstraint(constraint PlacementConstraint) {
+	_jsii_.InvokeVoid(
+		e,
+		"addPlacementConstraint",
+		[]interface{}{constraint},
+	)
+}
+
+// Adds a policy statement to the task execution IAM role.
+// Experimental.
+func (e *jsiiProxy_ExternalTaskDefinition) AddToExecutionRolePolicy(statement awsiam.PolicyStatement) {
+	_jsii_.InvokeVoid(
+		e,
+		"addToExecutionRolePolicy",
+		[]interface{}{statement},
+	)
+}
+
+// Adds a policy statement to the task IAM role.
+// Experimental.
+func (e *jsiiProxy_ExternalTaskDefinition) AddToTaskRolePolicy(statement awsiam.PolicyStatement) {
+	_jsii_.InvokeVoid(
+		e,
+		"addToTaskRolePolicy",
+		[]interface{}{statement},
+	)
+}
+
+// Overridden method to throw error, as volumes are not supported for external task definitions.
+// Experimental.
+func (e *jsiiProxy_ExternalTaskDefinition) AddVolume(_volume *Volume) {
+	_jsii_.InvokeVoid(
+		e,
+		"addVolume",
+		[]interface{}{_volume},
+	)
+}
+
+// Apply the given removal policy to this resource.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
+func (e *jsiiProxy_ExternalTaskDefinition) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		e,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
+// Returns the container that match the provided containerName.
+// Experimental.
+func (e *jsiiProxy_ExternalTaskDefinition) FindContainer(containerName *string) ContainerDefinition {
+	var returns ContainerDefinition
+
+	_jsii_.Invoke(
+		e,
+		"findContainer",
+		[]interface{}{containerName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (e *jsiiProxy_ExternalTaskDefinition) GeneratePhysicalName() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		e,
+		"generatePhysicalName",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+//
+// Normally, this token will resolve to `arnAttr`, but if the resource is
+// referenced across environments, `arnComponents` will be used to synthesize
+// a concrete ARN with the resource's physical name. Make sure to reference
+// `this.physicalName` in `arnComponents`.
+// Experimental.
+func (e *jsiiProxy_ExternalTaskDefinition) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		e,
+		"getResourceArnAttribute",
+		[]interface{}{arnAttr, arnComponents},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+//
+// Normally, this token will resolve to `nameAttr`, but if the resource is
+// referenced across environments, it will be resolved to `this.physicalName`,
+// which will be a concrete name.
+// Experimental.
+func (e *jsiiProxy_ExternalTaskDefinition) GetResourceNameAttribute(nameAttr *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		e,
+		"getResourceNameAttribute",
+		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates the task execution IAM role if it doesn't already exist.
+// Experimental.
+func (e *jsiiProxy_ExternalTaskDefinition) ObtainExecutionRole() awsiam.IRole {
+	var returns awsiam.IRole
+
+	_jsii_.Invoke(
+		e,
+		"obtainExecutionRole",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (e *jsiiProxy_ExternalTaskDefinition) OnPrepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (e *jsiiProxy_ExternalTaskDefinition) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (e *jsiiProxy_ExternalTaskDefinition) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (e *jsiiProxy_ExternalTaskDefinition) Prepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (e *jsiiProxy_ExternalTaskDefinition) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+// Experimental.
+func (e *jsiiProxy_ExternalTaskDefinition) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		e,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validates the task definition.
+// Experimental.
+func (e *jsiiProxy_ExternalTaskDefinition) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Attributes used to import an existing External task definition.
+// Experimental.
+type ExternalTaskDefinitionAttributes struct {
+	// The arn of the task definition.
+	// Experimental.
+	TaskDefinitionArn *string `json:"taskDefinitionArn"`
+	// The networking mode to use for the containers in the task.
+	// Experimental.
+	NetworkMode NetworkMode `json:"networkMode"`
+	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
+	// Experimental.
+	TaskRole awsiam.IRole `json:"taskRole"`
+}
+
+// The properties for a task definition run on an External cluster.
+// Experimental.
+type ExternalTaskDefinitionProps struct {
+	// The name of the IAM task execution role that grants the ECS agent to call AWS APIs on your behalf.
+	//
+	// The role will be used to retrieve container images from ECR and create CloudWatch log groups.
+	// Experimental.
+	ExecutionRole awsiam.IRole `json:"executionRole"`
+	// The name of a family that this task definition is registered to.
+	//
+	// A family groups multiple versions of a task definition.
+	// Experimental.
+	Family *string `json:"family"`
+	// The configuration details for the App Mesh proxy.
+	// Experimental.
+	ProxyConfiguration ProxyConfiguration `json:"proxyConfiguration"`
+	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
+	// Experimental.
+	TaskRole awsiam.IRole `json:"taskRole"`
+	// The list of volume definitions for the task.
+	//
+	// For more information, see
+	// [Task Definition Parameter Volumes](https://docs.aws.amazon.com/AmazonECS/latest/developerguide//task_definition_parameters.html#volumes).
+	// Experimental.
+	Volumes *[]*Volume `json:"volumes"`
+}
+
 // The platform version on which to run your service.
 // See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html
 //
@@ -14960,6 +16442,28 @@ type jsiiProxy_IEcsLoadBalancerTarget struct {
 	internal.Type__awselasticloadbalancingv2IApplicationLoadBalancerTarget
 	internal.Type__awselasticloadbalancingILoadBalancerTarget
 	internal.Type__awselasticloadbalancingv2INetworkLoadBalancerTarget
+}
+
+// The interface for a service using the External launch type on an ECS cluster.
+// Experimental.
+type IExternalService interface {
+	IService
+}
+
+// The jsii proxy for IExternalService
+type jsiiProxy_IExternalService struct {
+	jsiiProxy_IService
+}
+
+// The interface of a task definition run on an External cluster.
+// Experimental.
+type IExternalTaskDefinition interface {
+	ITaskDefinition
+}
+
+// The jsii proxy for IExternalTaskDefinition
+type jsiiProxy_IExternalTaskDefinition struct {
+	jsiiProxy_ITaskDefinition
 }
 
 // The interface for a service using the Fargate launch type on an ECS cluster.

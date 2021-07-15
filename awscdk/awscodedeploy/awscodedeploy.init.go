@@ -43,6 +43,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
@@ -73,6 +74,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "computePlatform", GoGetter: "ComputePlatform"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "deploymentConfigName", GoGetter: "DeploymentConfigName"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
@@ -92,6 +94,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "trafficRoutingConfig", GoGetter: "TrafficRoutingConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
@@ -106,6 +109,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_codedeploy.CfnDeploymentConfig.MinimumHealthyHostsProperty",
 		reflect.TypeOf((*CfnDeploymentConfig_MinimumHealthyHostsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_codedeploy.CfnDeploymentConfig.TimeBasedCanaryProperty",
+		reflect.TypeOf((*CfnDeploymentConfig_TimeBasedCanaryProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_codedeploy.CfnDeploymentConfig.TimeBasedLinearProperty",
+		reflect.TypeOf((*CfnDeploymentConfig_TimeBasedLinearProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_codedeploy.CfnDeploymentConfig.TrafficRoutingConfigProperty",
+		reflect.TypeOf((*CfnDeploymentConfig_TrafficRoutingConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_codedeploy.CfnDeploymentConfigProps",
@@ -126,6 +141,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "autoRollbackConfiguration", GoGetter: "AutoRollbackConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "autoScalingGroups", GoGetter: "AutoScalingGroups"},
+			_jsii_.MemberProperty{JsiiProperty: "blueGreenDeploymentConfiguration", GoGetter: "BlueGreenDeploymentConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -136,6 +152,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "deploymentStyle", GoGetter: "DeploymentStyle"},
 			_jsii_.MemberProperty{JsiiProperty: "ec2TagFilters", GoGetter: "Ec2TagFilters"},
 			_jsii_.MemberProperty{JsiiProperty: "ec2TagSet", GoGetter: "Ec2TagSet"},
+			_jsii_.MemberProperty{JsiiProperty: "ecsServices", GoGetter: "EcsServices"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
@@ -181,8 +198,20 @@ func init() {
 		reflect.TypeOf((*CfnDeploymentGroup_AutoRollbackConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_codedeploy.CfnDeploymentGroup.BlueGreenDeploymentConfigurationProperty",
+		reflect.TypeOf((*CfnDeploymentGroup_BlueGreenDeploymentConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_codedeploy.CfnDeploymentGroup.BlueInstanceTerminationOptionProperty",
+		reflect.TypeOf((*CfnDeploymentGroup_BlueInstanceTerminationOptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_codedeploy.CfnDeploymentGroup.DeploymentProperty",
 		reflect.TypeOf((*CfnDeploymentGroup_DeploymentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_codedeploy.CfnDeploymentGroup.DeploymentReadyOptionProperty",
+		reflect.TypeOf((*CfnDeploymentGroup_DeploymentReadyOptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_codedeploy.CfnDeploymentGroup.DeploymentStyleProperty",
@@ -201,12 +230,20 @@ func init() {
 		reflect.TypeOf((*CfnDeploymentGroup_EC2TagSetProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_codedeploy.CfnDeploymentGroup.ECSServiceProperty",
+		reflect.TypeOf((*CfnDeploymentGroup_ECSServiceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_codedeploy.CfnDeploymentGroup.ELBInfoProperty",
 		reflect.TypeOf((*CfnDeploymentGroup_ELBInfoProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_codedeploy.CfnDeploymentGroup.GitHubLocationProperty",
 		reflect.TypeOf((*CfnDeploymentGroup_GitHubLocationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_codedeploy.CfnDeploymentGroup.GreenFleetProvisioningOptionProperty",
+		reflect.TypeOf((*CfnDeploymentGroup_GreenFleetProvisioningOptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_codedeploy.CfnDeploymentGroup.LoadBalancerInfoProperty",

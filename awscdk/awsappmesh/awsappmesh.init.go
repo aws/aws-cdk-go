@@ -993,6 +993,20 @@ func init() {
 		"monocdk.aws_appmesh.GatewayRouteBaseProps",
 		reflect.TypeOf((*GatewayRouteBaseProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_appmesh.GatewayRouteHostnameMatch",
+		reflect.TypeOf((*GatewayRouteHostnameMatch)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			return &jsiiProxy_GatewayRouteHostnameMatch{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_appmesh.GatewayRouteHostnameMatchConfig",
+		reflect.TypeOf((*GatewayRouteHostnameMatchConfig)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_appmesh.GatewayRouteProps",
 		reflect.TypeOf((*GatewayRouteProps)(nil)).Elem(),
@@ -1118,6 +1132,20 @@ func init() {
 		"monocdk.aws_appmesh.HttpGatewayRouteMatch",
 		reflect.TypeOf((*HttpGatewayRouteMatch)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_appmesh.HttpGatewayRoutePathMatch",
+		reflect.TypeOf((*HttpGatewayRoutePathMatch)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			return &jsiiProxy_HttpGatewayRoutePathMatch{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_appmesh.HttpGatewayRoutePathMatchConfig",
+		reflect.TypeOf((*HttpGatewayRoutePathMatchConfig)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_appmesh.HttpGatewayRouteSpecOptions",
 		reflect.TypeOf((*HttpGatewayRouteSpecOptions)(nil)).Elem(),
@@ -1158,6 +1186,20 @@ func init() {
 			"TRACE": HttpRouteMethod_TRACE,
 			"PATCH": HttpRouteMethod_PATCH,
 		},
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_appmesh.HttpRoutePathMatch",
+		reflect.TypeOf((*HttpRoutePathMatch)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			return &jsiiProxy_HttpRoutePathMatch{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_appmesh.HttpRoutePathMatchConfig",
+		reflect.TypeOf((*HttpRoutePathMatchConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"monocdk.aws_appmesh.HttpRouteProtocol",
@@ -1395,6 +1437,20 @@ func init() {
 			"HTTP2": Protocol_HTTP2,
 			"GRPC": Protocol_GRPC,
 		},
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_appmesh.QueryParameterMatch",
+		reflect.TypeOf((*QueryParameterMatch)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			return &jsiiProxy_QueryParameterMatch{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_appmesh.QueryParameterMatchConfig",
+		reflect.TypeOf((*QueryParameterMatchConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_appmesh.Route",

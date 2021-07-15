@@ -1285,6 +1285,122 @@ func init() {
 			"OVERRIDE": ExecuteCommandLogging_OVERRIDE,
 		},
 	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_ecs.ExternalService",
+		reflect.TypeOf((*ExternalService)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "associateCloudMapService", GoMethod: "AssociateCloudMapService"},
+			_jsii_.MemberMethod{JsiiMethod: "attachToApplicationTargetGroup", GoMethod: "AttachToApplicationTargetGroup"},
+			_jsii_.MemberMethod{JsiiMethod: "attachToClassicLB", GoMethod: "AttachToClassicLB"},
+			_jsii_.MemberMethod{JsiiMethod: "attachToNetworkTargetGroup", GoMethod: "AttachToNetworkTargetGroup"},
+			_jsii_.MemberMethod{JsiiMethod: "autoScaleTaskCount", GoMethod: "AutoScaleTaskCount"},
+			_jsii_.MemberProperty{JsiiProperty: "cloudmapService", GoGetter: "CloudmapService"},
+			_jsii_.MemberProperty{JsiiProperty: "cloudMapService", GoGetter: "CloudMapService"},
+			_jsii_.MemberProperty{JsiiProperty: "cluster", GoGetter: "Cluster"},
+			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworking", GoMethod: "ConfigureAwsVpcNetworking"},
+			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworkingWithSecurityGroups", GoMethod: "ConfigureAwsVpcNetworkingWithSecurityGroups"},
+			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
+			_jsii_.MemberMethod{JsiiMethod: "enableCloudMap", GoMethod: "EnableCloudMap"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "loadBalancers", GoGetter: "LoadBalancers"},
+			_jsii_.MemberMethod{JsiiMethod: "loadBalancerTarget", GoMethod: "LoadBalancerTarget"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricCpuUtilization", GoMethod: "MetricCpuUtilization"},
+			_jsii_.MemberMethod{JsiiMethod: "metricMemoryUtilization", GoMethod: "MetricMemoryUtilization"},
+			_jsii_.MemberProperty{JsiiProperty: "networkConfiguration", GoGetter: "NetworkConfiguration"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
+			_jsii_.MemberMethod{JsiiMethod: "registerLoadBalancerTargets", GoMethod: "RegisterLoadBalancerTargets"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceArn", GoGetter: "ServiceArn"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceName", GoGetter: "ServiceName"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceRegistries", GoGetter: "ServiceRegistries"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "taskDefinition", GoGetter: "TaskDefinition"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ExternalService{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_BaseService)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IExternalService)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ecs.ExternalServiceAttributes",
+		reflect.TypeOf((*ExternalServiceAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ecs.ExternalServiceProps",
+		reflect.TypeOf((*ExternalServiceProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_ecs.ExternalTaskDefinition",
+		reflect.TypeOf((*ExternalTaskDefinition)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addContainer", GoMethod: "AddContainer"},
+			_jsii_.MemberMethod{JsiiMethod: "addExtension", GoMethod: "AddExtension"},
+			_jsii_.MemberMethod{JsiiMethod: "addFirelensLogRouter", GoMethod: "AddFirelensLogRouter"},
+			_jsii_.MemberMethod{JsiiMethod: "addInferenceAccelerator", GoMethod: "AddInferenceAccelerator"},
+			_jsii_.MemberMethod{JsiiMethod: "addPlacementConstraint", GoMethod: "AddPlacementConstraint"},
+			_jsii_.MemberMethod{JsiiMethod: "addToExecutionRolePolicy", GoMethod: "AddToExecutionRolePolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "addToTaskRolePolicy", GoMethod: "AddToTaskRolePolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "addVolume", GoMethod: "AddVolume"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "compatibility", GoGetter: "Compatibility"},
+			_jsii_.MemberProperty{JsiiProperty: "containers", GoGetter: "Containers"},
+			_jsii_.MemberProperty{JsiiProperty: "defaultContainer", GoGetter: "DefaultContainer"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "executionRole", GoGetter: "ExecutionRole"},
+			_jsii_.MemberProperty{JsiiProperty: "family", GoGetter: "Family"},
+			_jsii_.MemberMethod{JsiiMethod: "findContainer", GoMethod: "FindContainer"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "inferenceAccelerators", GoGetter: "InferenceAccelerators"},
+			_jsii_.MemberProperty{JsiiProperty: "isEc2Compatible", GoGetter: "IsEc2Compatible"},
+			_jsii_.MemberProperty{JsiiProperty: "isExternalCompatible", GoGetter: "IsExternalCompatible"},
+			_jsii_.MemberProperty{JsiiProperty: "isFargateCompatible", GoGetter: "IsFargateCompatible"},
+			_jsii_.MemberProperty{JsiiProperty: "networkMode", GoGetter: "NetworkMode"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "obtainExecutionRole", GoMethod: "ObtainExecutionRole"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
+			_jsii_.MemberProperty{JsiiProperty: "referencesSecretJsonField", GoGetter: "ReferencesSecretJsonField"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "taskDefinitionArn", GoGetter: "TaskDefinitionArn"},
+			_jsii_.MemberProperty{JsiiProperty: "taskRole", GoGetter: "TaskRole"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ExternalTaskDefinition{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_TaskDefinition)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IExternalTaskDefinition)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ecs.ExternalTaskDefinitionAttributes",
+		reflect.TypeOf((*ExternalTaskDefinitionAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ecs.ExternalTaskDefinitionProps",
+		reflect.TypeOf((*ExternalTaskDefinitionProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"monocdk.aws_ecs.FargatePlatformVersion",
 		reflect.TypeOf((*FargatePlatformVersion)(nil)).Elem(),
@@ -1647,6 +1763,44 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awselasticloadbalancingv2IApplicationLoadBalancerTarget)
 			_jsii_.InitJsiiProxy(&j.Type__awselasticloadbalancingILoadBalancerTarget)
 			_jsii_.InitJsiiProxy(&j.Type__awselasticloadbalancingv2INetworkLoadBalancerTarget)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"monocdk.aws_ecs.IExternalService",
+		reflect.TypeOf((*IExternalService)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceArn", GoGetter: "ServiceArn"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceName", GoGetter: "ServiceName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IExternalService{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IService)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"monocdk.aws_ecs.IExternalTaskDefinition",
+		reflect.TypeOf((*IExternalTaskDefinition)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "compatibility", GoGetter: "Compatibility"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "executionRole", GoGetter: "ExecutionRole"},
+			_jsii_.MemberProperty{JsiiProperty: "isEc2Compatible", GoGetter: "IsEc2Compatible"},
+			_jsii_.MemberProperty{JsiiProperty: "isExternalCompatible", GoGetter: "IsExternalCompatible"},
+			_jsii_.MemberProperty{JsiiProperty: "isFargateCompatible", GoGetter: "IsFargateCompatible"},
+			_jsii_.MemberProperty{JsiiProperty: "networkMode", GoGetter: "NetworkMode"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberProperty{JsiiProperty: "taskDefinitionArn", GoGetter: "TaskDefinitionArn"},
+			_jsii_.MemberProperty{JsiiProperty: "taskRole", GoGetter: "TaskRole"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IExternalTaskDefinition{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITaskDefinition)
 			return &j
 		},
 	)
