@@ -1,15 +1,15 @@
 package awslogs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/awslogs/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::Logs::Destination`.
@@ -26,7 +26,7 @@ type CfnDestination interface {
 	DestinationPolicy() *string
 	SetDestinationPolicy(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	RoleArn() *string
 	SetRoleArn(val *string)
@@ -44,10 +44,16 @@ type CfnDestination interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -137,8 +143,8 @@ func (j *jsiiProxy_CfnDestination) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnDestination) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnDestination) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -199,13 +205,13 @@ func (j *jsiiProxy_CfnDestination) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Logs::Destination`.
-func NewCfnDestination(scope constructs.Construct, id *string, props *CfnDestinationProps) CfnDestination {
+func NewCfnDestination(scope awscdk.Construct, id *string, props *CfnDestinationProps) CfnDestination {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnDestination{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.CfnDestination",
+		"monocdk.aws_logs.CfnDestination",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -214,11 +220,11 @@ func NewCfnDestination(scope constructs.Construct, id *string, props *CfnDestina
 }
 
 // Create a new `AWS::Logs::Destination`.
-func NewCfnDestination_Override(c CfnDestination, scope constructs.Construct, id *string, props *CfnDestinationProps) {
+func NewCfnDestination_Override(c CfnDestination, scope awscdk.Construct, id *string, props *CfnDestinationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.CfnDestination",
+		"monocdk.aws_logs.CfnDestination",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -269,7 +275,7 @@ func CfnDestination_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.CfnDestination",
+		"monocdk.aws_logs.CfnDestination",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -286,7 +292,7 @@ func CfnDestination_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.CfnDestination",
+		"monocdk.aws_logs.CfnDestination",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -295,17 +301,15 @@ func CfnDestination_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnDestination_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.CfnDestination",
+		"monocdk.aws_logs.CfnDestination",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -318,7 +322,7 @@ func CfnDestination_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_logs.CfnDestination",
+		"monocdk.aws_logs.CfnDestination",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -490,6 +494,56 @@ func (c *jsiiProxy_CfnDestination) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDestination) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDestination) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDestination) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnDestination) OverrideLogicalId(newLogicalId *string) {
@@ -497,6 +551,23 @@ func (c *jsiiProxy_CfnDestination) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnDestination) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -531,6 +602,19 @@ func (c *jsiiProxy_CfnDestination) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnDestination) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -541,6 +625,26 @@ func (c *jsiiProxy_CfnDestination) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnDestination) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -583,7 +687,7 @@ type CfnLogGroup interface {
 	LogGroupName() *string
 	SetLogGroupName(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	RetentionInDays() *float64
 	SetRetentionInDays(val *float64)
@@ -599,10 +703,16 @@ type CfnLogGroup interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -692,8 +802,8 @@ func (j *jsiiProxy_CfnLogGroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLogGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnLogGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -744,13 +854,13 @@ func (j *jsiiProxy_CfnLogGroup) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Logs::LogGroup`.
-func NewCfnLogGroup(scope constructs.Construct, id *string, props *CfnLogGroupProps) CfnLogGroup {
+func NewCfnLogGroup(scope awscdk.Construct, id *string, props *CfnLogGroupProps) CfnLogGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnLogGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.CfnLogGroup",
+		"monocdk.aws_logs.CfnLogGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -759,11 +869,11 @@ func NewCfnLogGroup(scope constructs.Construct, id *string, props *CfnLogGroupPr
 }
 
 // Create a new `AWS::Logs::LogGroup`.
-func NewCfnLogGroup_Override(c CfnLogGroup, scope constructs.Construct, id *string, props *CfnLogGroupProps) {
+func NewCfnLogGroup_Override(c CfnLogGroup, scope awscdk.Construct, id *string, props *CfnLogGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.CfnLogGroup",
+		"monocdk.aws_logs.CfnLogGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -806,7 +916,7 @@ func CfnLogGroup_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.CfnLogGroup",
+		"monocdk.aws_logs.CfnLogGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -823,7 +933,7 @@ func CfnLogGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.CfnLogGroup",
+		"monocdk.aws_logs.CfnLogGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -832,17 +942,15 @@ func CfnLogGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnLogGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.CfnLogGroup",
+		"monocdk.aws_logs.CfnLogGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -855,7 +963,7 @@ func CfnLogGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_logs.CfnLogGroup",
+		"monocdk.aws_logs.CfnLogGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1027,6 +1135,56 @@ func (c *jsiiProxy_CfnLogGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnLogGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnLogGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnLogGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnLogGroup) OverrideLogicalId(newLogicalId *string) {
@@ -1034,6 +1192,23 @@ func (c *jsiiProxy_CfnLogGroup) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnLogGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1068,6 +1243,19 @@ func (c *jsiiProxy_CfnLogGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnLogGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -1078,6 +1266,26 @@ func (c *jsiiProxy_CfnLogGroup) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnLogGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1117,7 +1325,7 @@ type CfnLogStream interface {
 	LogicalId() *string
 	LogStreamName() *string
 	SetLogStreamName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	UpdatedProperites() *map[string]interface{}
@@ -1131,10 +1339,16 @@ type CfnLogStream interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1214,8 +1428,8 @@ func (j *jsiiProxy_CfnLogStream) LogStreamName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnLogStream) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnLogStream) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1256,13 +1470,13 @@ func (j *jsiiProxy_CfnLogStream) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::Logs::LogStream`.
-func NewCfnLogStream(scope constructs.Construct, id *string, props *CfnLogStreamProps) CfnLogStream {
+func NewCfnLogStream(scope awscdk.Construct, id *string, props *CfnLogStreamProps) CfnLogStream {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnLogStream{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.CfnLogStream",
+		"monocdk.aws_logs.CfnLogStream",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1271,11 +1485,11 @@ func NewCfnLogStream(scope constructs.Construct, id *string, props *CfnLogStream
 }
 
 // Create a new `AWS::Logs::LogStream`.
-func NewCfnLogStream_Override(c CfnLogStream, scope constructs.Construct, id *string, props *CfnLogStreamProps) {
+func NewCfnLogStream_Override(c CfnLogStream, scope awscdk.Construct, id *string, props *CfnLogStreamProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.CfnLogStream",
+		"monocdk.aws_logs.CfnLogStream",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1310,7 +1524,7 @@ func CfnLogStream_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.CfnLogStream",
+		"monocdk.aws_logs.CfnLogStream",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1327,7 +1541,7 @@ func CfnLogStream_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.CfnLogStream",
+		"monocdk.aws_logs.CfnLogStream",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1336,17 +1550,15 @@ func CfnLogStream_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnLogStream_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.CfnLogStream",
+		"monocdk.aws_logs.CfnLogStream",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1359,7 +1571,7 @@ func CfnLogStream_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_logs.CfnLogStream",
+		"monocdk.aws_logs.CfnLogStream",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1531,6 +1743,56 @@ func (c *jsiiProxy_CfnLogStream) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnLogStream) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnLogStream) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnLogStream) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnLogStream) OverrideLogicalId(newLogicalId *string) {
@@ -1538,6 +1800,23 @@ func (c *jsiiProxy_CfnLogStream) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnLogStream) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1572,6 +1851,19 @@ func (c *jsiiProxy_CfnLogStream) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnLogStream) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -1582,6 +1874,26 @@ func (c *jsiiProxy_CfnLogStream) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnLogStream) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1621,7 +1933,7 @@ type CfnMetricFilter interface {
 	LogicalId() *string
 	MetricTransformations() interface{}
 	SetMetricTransformations(val interface{})
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	UpdatedProperites() *map[string]interface{}
@@ -1635,10 +1947,16 @@ type CfnMetricFilter interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1728,8 +2046,8 @@ func (j *jsiiProxy_CfnMetricFilter) MetricTransformations() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMetricFilter) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnMetricFilter) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1770,13 +2088,13 @@ func (j *jsiiProxy_CfnMetricFilter) UpdatedProperites() *map[string]interface{} 
 
 
 // Create a new `AWS::Logs::MetricFilter`.
-func NewCfnMetricFilter(scope constructs.Construct, id *string, props *CfnMetricFilterProps) CfnMetricFilter {
+func NewCfnMetricFilter(scope awscdk.Construct, id *string, props *CfnMetricFilterProps) CfnMetricFilter {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnMetricFilter{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.CfnMetricFilter",
+		"monocdk.aws_logs.CfnMetricFilter",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1785,11 +2103,11 @@ func NewCfnMetricFilter(scope constructs.Construct, id *string, props *CfnMetric
 }
 
 // Create a new `AWS::Logs::MetricFilter`.
-func NewCfnMetricFilter_Override(c CfnMetricFilter, scope constructs.Construct, id *string, props *CfnMetricFilterProps) {
+func NewCfnMetricFilter_Override(c CfnMetricFilter, scope awscdk.Construct, id *string, props *CfnMetricFilterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.CfnMetricFilter",
+		"monocdk.aws_logs.CfnMetricFilter",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1832,7 +2150,7 @@ func CfnMetricFilter_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.CfnMetricFilter",
+		"monocdk.aws_logs.CfnMetricFilter",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1849,7 +2167,7 @@ func CfnMetricFilter_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.CfnMetricFilter",
+		"monocdk.aws_logs.CfnMetricFilter",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1858,17 +2176,15 @@ func CfnMetricFilter_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnMetricFilter_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.CfnMetricFilter",
+		"monocdk.aws_logs.CfnMetricFilter",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1881,7 +2197,7 @@ func CfnMetricFilter_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_logs.CfnMetricFilter",
+		"monocdk.aws_logs.CfnMetricFilter",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2053,6 +2369,56 @@ func (c *jsiiProxy_CfnMetricFilter) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnMetricFilter) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnMetricFilter) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnMetricFilter) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnMetricFilter) OverrideLogicalId(newLogicalId *string) {
@@ -2060,6 +2426,23 @@ func (c *jsiiProxy_CfnMetricFilter) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnMetricFilter) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2094,6 +2477,19 @@ func (c *jsiiProxy_CfnMetricFilter) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnMetricFilter) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -2104,6 +2500,26 @@ func (c *jsiiProxy_CfnMetricFilter) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnMetricFilter) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2155,7 +2571,7 @@ type CfnQueryDefinition interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	QueryString() *string
 	SetQueryString(val *string)
 	Ref() *string
@@ -2171,10 +2587,16 @@ type CfnQueryDefinition interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2264,8 +2686,8 @@ func (j *jsiiProxy_CfnQueryDefinition) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnQueryDefinition) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnQueryDefinition) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2316,13 +2738,13 @@ func (j *jsiiProxy_CfnQueryDefinition) UpdatedProperites() *map[string]interface
 
 
 // Create a new `AWS::Logs::QueryDefinition`.
-func NewCfnQueryDefinition(scope constructs.Construct, id *string, props *CfnQueryDefinitionProps) CfnQueryDefinition {
+func NewCfnQueryDefinition(scope awscdk.Construct, id *string, props *CfnQueryDefinitionProps) CfnQueryDefinition {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnQueryDefinition{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.CfnQueryDefinition",
+		"monocdk.aws_logs.CfnQueryDefinition",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2331,11 +2753,11 @@ func NewCfnQueryDefinition(scope constructs.Construct, id *string, props *CfnQue
 }
 
 // Create a new `AWS::Logs::QueryDefinition`.
-func NewCfnQueryDefinition_Override(c CfnQueryDefinition, scope constructs.Construct, id *string, props *CfnQueryDefinitionProps) {
+func NewCfnQueryDefinition_Override(c CfnQueryDefinition, scope awscdk.Construct, id *string, props *CfnQueryDefinitionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.CfnQueryDefinition",
+		"monocdk.aws_logs.CfnQueryDefinition",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2378,7 +2800,7 @@ func CfnQueryDefinition_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.CfnQueryDefinition",
+		"monocdk.aws_logs.CfnQueryDefinition",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2395,7 +2817,7 @@ func CfnQueryDefinition_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.CfnQueryDefinition",
+		"monocdk.aws_logs.CfnQueryDefinition",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2404,17 +2826,15 @@ func CfnQueryDefinition_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnQueryDefinition_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.CfnQueryDefinition",
+		"monocdk.aws_logs.CfnQueryDefinition",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2427,7 +2847,7 @@ func CfnQueryDefinition_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_logs.CfnQueryDefinition",
+		"monocdk.aws_logs.CfnQueryDefinition",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2599,6 +3019,56 @@ func (c *jsiiProxy_CfnQueryDefinition) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnQueryDefinition) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnQueryDefinition) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnQueryDefinition) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnQueryDefinition) OverrideLogicalId(newLogicalId *string) {
@@ -2606,6 +3076,23 @@ func (c *jsiiProxy_CfnQueryDefinition) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnQueryDefinition) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2640,6 +3127,19 @@ func (c *jsiiProxy_CfnQueryDefinition) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnQueryDefinition) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -2650,6 +3150,26 @@ func (c *jsiiProxy_CfnQueryDefinition) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnQueryDefinition) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2676,6 +3196,612 @@ type CfnQueryDefinitionProps struct {
 	LogGroupNames *[]*string `json:"logGroupNames"`
 }
 
+// A CloudFormation `AWS::Logs::ResourcePolicy`.
+type CfnResourcePolicy interface {
+	awscdk.CfnResource
+	awscdk.IInspectable
+	CfnOptions() awscdk.ICfnResourceOptions
+	CfnProperties() *map[string]interface{}
+	CfnResourceType() *string
+	CreationStack() *[]*string
+	LogicalId() *string
+	Node() awscdk.ConstructNode
+	PolicyDocument() *string
+	SetPolicyDocument(val *string)
+	PolicyName() *string
+	SetPolicyName(val *string)
+	Ref() *string
+	Stack() awscdk.Stack
+	UpdatedProperites() *map[string]interface{}
+	AddDeletionOverride(path *string)
+	AddDependsOn(target awscdk.CfnResource)
+	AddMetadata(key *string, value interface{})
+	AddOverride(path *string, value interface{})
+	AddPropertyDeletionOverride(propertyPath *string)
+	AddPropertyOverride(propertyPath *string, value interface{})
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	GetAtt(attributeName *string) awscdk.Reference
+	GetMetadata(key *string) interface{}
+	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	OverrideLogicalId(newLogicalId *string)
+	Prepare()
+	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
+	ValidateProperties(_properties interface{})
+}
+
+// The jsii proxy struct for CfnResourcePolicy
+type jsiiProxy_CfnResourcePolicy struct {
+	internal.Type__awscdkCfnResource
+	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnResourcePolicy) CfnOptions() awscdk.ICfnResourceOptions {
+	var returns awscdk.ICfnResourceOptions
+	_jsii_.Get(
+		j,
+		"cfnOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResourcePolicy) CfnProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"cfnProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResourcePolicy) CfnResourceType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResourcePolicy) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResourcePolicy) LogicalId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResourcePolicy) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResourcePolicy) PolicyDocument() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"policyDocument",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResourcePolicy) PolicyName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"policyName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResourcePolicy) Ref() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResourcePolicy) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnResourcePolicy) UpdatedProperites() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a new `AWS::Logs::ResourcePolicy`.
+func NewCfnResourcePolicy(scope awscdk.Construct, id *string, props *CfnResourcePolicyProps) CfnResourcePolicy {
+	_init_.Initialize()
+
+	j := jsiiProxy_CfnResourcePolicy{}
+
+	_jsii_.Create(
+		"monocdk.aws_logs.CfnResourcePolicy",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a new `AWS::Logs::ResourcePolicy`.
+func NewCfnResourcePolicy_Override(c CfnResourcePolicy, scope awscdk.Construct, id *string, props *CfnResourcePolicyProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_logs.CfnResourcePolicy",
+		[]interface{}{scope, id, props},
+		c,
+	)
+}
+
+func (j *jsiiProxy_CfnResourcePolicy) SetPolicyDocument(val *string) {
+	_jsii_.Set(
+		j,
+		"policyDocument",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnResourcePolicy) SetPolicyName(val *string) {
+	_jsii_.Set(
+		j,
+		"policyName",
+		val,
+	)
+}
+
+// Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
+//
+// Uses duck-typing instead of `instanceof` to allow stack elements from different
+// versions of this library to be included in the same stack.
+//
+// Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
+func CfnResourcePolicy_IsCfnElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_logs.CfnResourcePolicy",
+		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a CfnResource.
+// Experimental.
+func CfnResourcePolicy_IsCfnResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_logs.CfnResourcePolicy",
+		"isCfnResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func CfnResourcePolicy_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_logs.CfnResourcePolicy",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnResourcePolicy_CFN_RESOURCE_TYPE_NAME() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"monocdk.aws_logs.CfnResourcePolicy",
+		"CFN_RESOURCE_TYPE_NAME",
+		&returns,
+	)
+	return returns
+}
+
+// Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
+func (c *jsiiProxy_CfnResourcePolicy) AddDeletionOverride(path *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDeletionOverride",
+		[]interface{}{path},
+	)
+}
+
+// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+//
+// This can be used for resources across stacks (or nested stack) boundaries
+// and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
+func (c *jsiiProxy_CfnResourcePolicy) AddDependsOn(target awscdk.CfnResource) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDependsOn",
+		[]interface{}{target},
+	)
+}
+
+// Add a value to the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+// Experimental.
+func (c *jsiiProxy_CfnResourcePolicy) AddMetadata(key *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addMetadata",
+		[]interface{}{key, value},
+	)
+}
+
+// Adds an override to the synthesized CloudFormation resource.
+//
+// To add a
+// property override, either use `addPropertyOverride` or prefix `path` with
+// "Properties." (i.e. `Properties.TopicName`).
+//
+// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+// If there is an array as part of the nesting, specify the index in the path.
+//
+// To include a literal `.` in the property name, prefix with a `\`. In most
+// programming languages you will need to write this as `"\\."` because the
+// `\` itself will need to be escaped.
+//
+// For example,
+// ```typescript
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+// ```
+// would add the overrides
+// ```json
+// "Properties": {
+//    "GlobalSecondaryIndexes": [
+//      {
+//        "Projection": {
+//          "NonKeyAttributes": [ "myattribute" ]
+//          ...
+//        }
+//        ...
+//      },
+//      {
+//        "ProjectionType": "INCLUDE"
+//        ...
+//      },
+//    ]
+//    ...
+// }
+// ```
+// Experimental.
+func (c *jsiiProxy_CfnResourcePolicy) AddOverride(path *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addOverride",
+		[]interface{}{path, value},
+	)
+}
+
+// Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
+func (c *jsiiProxy_CfnResourcePolicy) AddPropertyDeletionOverride(propertyPath *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyDeletionOverride",
+		[]interface{}{propertyPath},
+	)
+}
+
+// Adds an override to a resource property.
+//
+// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
+func (c *jsiiProxy_CfnResourcePolicy) AddPropertyOverride(propertyPath *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyOverride",
+		[]interface{}{propertyPath, value},
+	)
+}
+
+// Sets the deletion policy of the resource based on the removal policy specified.
+// Experimental.
+func (c *jsiiProxy_CfnResourcePolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	_jsii_.InvokeVoid(
+		c,
+		"applyRemovalPolicy",
+		[]interface{}{policy, options},
+	)
+}
+
+// Returns a token for an runtime attribute of this resource.
+//
+// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+// in case there is no generated attribute.
+// Experimental.
+func (c *jsiiProxy_CfnResourcePolicy) GetAtt(attributeName *string) awscdk.Reference {
+	var returns awscdk.Reference
+
+	_jsii_.Invoke(
+		c,
+		"getAtt",
+		[]interface{}{attributeName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Retrieve a value value from the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+// Experimental.
+func (c *jsiiProxy_CfnResourcePolicy) GetMetadata(key *string) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"getMetadata",
+		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
+// Examines the CloudFormation resource and discloses attributes.
+func (c *jsiiProxy_CfnResourcePolicy) Inspect(inspector awscdk.TreeInspector) {
+	_jsii_.InvokeVoid(
+		c,
+		"inspect",
+		[]interface{}{inspector},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnResourcePolicy) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnResourcePolicy) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnResourcePolicy) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
+func (c *jsiiProxy_CfnResourcePolicy) OverrideLogicalId(newLogicalId *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"overrideLogicalId",
+		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnResourcePolicy) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnResourcePolicy) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderProperties",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+//
+// Returns: `true` if the resource should be included or `false` is the resource
+// should be omitted.
+// Experimental.
+func (c *jsiiProxy_CfnResourcePolicy) ShouldSynthesize() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"shouldSynthesize",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnResourcePolicy) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+//
+// Returns: a string representation of this resource
+// Experimental.
+func (c *jsiiProxy_CfnResourcePolicy) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnResourcePolicy) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (c *jsiiProxy_CfnResourcePolicy) ValidateProperties(_properties interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"validateProperties",
+		[]interface{}{_properties},
+	)
+}
+
+// Properties for defining a `AWS::Logs::ResourcePolicy`.
+type CfnResourcePolicyProps struct {
+	// `AWS::Logs::ResourcePolicy.PolicyDocument`.
+	PolicyDocument *string `json:"policyDocument"`
+	// `AWS::Logs::ResourcePolicy.PolicyName`.
+	PolicyName *string `json:"policyName"`
+}
+
 // A CloudFormation `AWS::Logs::SubscriptionFilter`.
 type CfnSubscriptionFilter interface {
 	awscdk.CfnResource
@@ -2691,7 +3817,7 @@ type CfnSubscriptionFilter interface {
 	LogGroupName() *string
 	SetLogGroupName(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	RoleArn() *string
 	SetRoleArn(val *string)
@@ -2707,10 +3833,16 @@ type CfnSubscriptionFilter interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2800,8 +3932,8 @@ func (j *jsiiProxy_CfnSubscriptionFilter) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSubscriptionFilter) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnSubscriptionFilter) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2852,13 +3984,13 @@ func (j *jsiiProxy_CfnSubscriptionFilter) UpdatedProperites() *map[string]interf
 
 
 // Create a new `AWS::Logs::SubscriptionFilter`.
-func NewCfnSubscriptionFilter(scope constructs.Construct, id *string, props *CfnSubscriptionFilterProps) CfnSubscriptionFilter {
+func NewCfnSubscriptionFilter(scope awscdk.Construct, id *string, props *CfnSubscriptionFilterProps) CfnSubscriptionFilter {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnSubscriptionFilter{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.CfnSubscriptionFilter",
+		"monocdk.aws_logs.CfnSubscriptionFilter",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2867,11 +3999,11 @@ func NewCfnSubscriptionFilter(scope constructs.Construct, id *string, props *Cfn
 }
 
 // Create a new `AWS::Logs::SubscriptionFilter`.
-func NewCfnSubscriptionFilter_Override(c CfnSubscriptionFilter, scope constructs.Construct, id *string, props *CfnSubscriptionFilterProps) {
+func NewCfnSubscriptionFilter_Override(c CfnSubscriptionFilter, scope awscdk.Construct, id *string, props *CfnSubscriptionFilterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.CfnSubscriptionFilter",
+		"monocdk.aws_logs.CfnSubscriptionFilter",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2922,7 +4054,7 @@ func CfnSubscriptionFilter_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.CfnSubscriptionFilter",
+		"monocdk.aws_logs.CfnSubscriptionFilter",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2939,7 +4071,7 @@ func CfnSubscriptionFilter_IsCfnResource(construct constructs.IConstruct) *bool 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.CfnSubscriptionFilter",
+		"monocdk.aws_logs.CfnSubscriptionFilter",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2948,17 +4080,15 @@ func CfnSubscriptionFilter_IsCfnResource(construct constructs.IConstruct) *bool 
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnSubscriptionFilter_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.CfnSubscriptionFilter",
+		"monocdk.aws_logs.CfnSubscriptionFilter",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2971,7 +4101,7 @@ func CfnSubscriptionFilter_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_logs.CfnSubscriptionFilter",
+		"monocdk.aws_logs.CfnSubscriptionFilter",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3143,6 +4273,56 @@ func (c *jsiiProxy_CfnSubscriptionFilter) Inspect(inspector awscdk.TreeInspector
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnSubscriptionFilter) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnSubscriptionFilter) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnSubscriptionFilter) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnSubscriptionFilter) OverrideLogicalId(newLogicalId *string) {
@@ -3150,6 +4330,23 @@ func (c *jsiiProxy_CfnSubscriptionFilter) OverrideLogicalId(newLogicalId *string
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnSubscriptionFilter) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3184,6 +4381,19 @@ func (c *jsiiProxy_CfnSubscriptionFilter) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnSubscriptionFilter) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -3194,6 +4404,26 @@ func (c *jsiiProxy_CfnSubscriptionFilter) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnSubscriptionFilter) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3255,17 +4485,23 @@ type CrossAccountDestination interface {
 	DestinationArn() *string
 	DestinationName() *string
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	PolicyDocument() awsiam.PolicyDocument
 	Stack() awscdk.Stack
 	AddToPolicy(statement awsiam.PolicyStatement)
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
-	Bind(_scope constructs.Construct, _sourceLogGroup ILogGroup) *LogSubscriptionDestinationConfig
+	Bind(_scope awscdk.Construct, _sourceLogGroup ILogGroup) *LogSubscriptionDestinationConfig
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for CrossAccountDestination
@@ -3304,8 +4540,8 @@ func (j *jsiiProxy_CrossAccountDestination) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_CrossAccountDestination) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CrossAccountDestination) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3352,7 +4588,7 @@ func NewCrossAccountDestination(scope constructs.Construct, id *string, props *C
 	j := jsiiProxy_CrossAccountDestination{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.CrossAccountDestination",
+		"monocdk.aws_logs.CrossAccountDestination",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3365,23 +4601,21 @@ func NewCrossAccountDestination_Override(c CrossAccountDestination, scope constr
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.CrossAccountDestination",
+		"monocdk.aws_logs.CrossAccountDestination",
 		[]interface{}{scope, id, props},
 		c,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CrossAccountDestination_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.CrossAccountDestination",
+		"monocdk.aws_logs.CrossAccountDestination",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3392,13 +4626,13 @@ func CrossAccountDestination_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func CrossAccountDestination_IsResource(construct constructs.IConstruct) *bool {
+func CrossAccountDestination_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.CrossAccountDestination",
+		"monocdk.aws_logs.CrossAccountDestination",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -3443,7 +4677,7 @@ func (c *jsiiProxy_CrossAccountDestination) ApplyRemovalPolicy(policy awscdk.Rem
 // The destination may reconfigure its own permissions in response to this
 // function call.
 // Experimental.
-func (c *jsiiProxy_CrossAccountDestination) Bind(_scope constructs.Construct, _sourceLogGroup ILogGroup) *LogSubscriptionDestinationConfig {
+func (c *jsiiProxy_CrossAccountDestination) Bind(_scope awscdk.Construct, _sourceLogGroup ILogGroup) *LogSubscriptionDestinationConfig {
 	var returns *LogSubscriptionDestinationConfig
 
 	_jsii_.Invoke(
@@ -3509,6 +4743,86 @@ func (c *jsiiProxy_CrossAccountDestination) GetResourceNameAttribute(nameAttr *s
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CrossAccountDestination) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CrossAccountDestination) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CrossAccountDestination) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CrossAccountDestination) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CrossAccountDestination) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (c *jsiiProxy_CrossAccountDestination) ToString() *string {
@@ -3517,6 +4831,26 @@ func (c *jsiiProxy_CrossAccountDestination) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CrossAccountDestination) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3557,7 +4891,7 @@ func NewFilterPattern() FilterPattern {
 	j := jsiiProxy_FilterPattern{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		nil, // no parameters
 		&j,
 	)
@@ -3570,7 +4904,7 @@ func NewFilterPattern_Override(f FilterPattern) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		nil, // no parameters
 		f,
 	)
@@ -3589,7 +4923,7 @@ func FilterPattern_All(patterns ...JsonPattern) JsonPattern {
 	var returns JsonPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		"all",
 		args,
 		&returns,
@@ -3606,7 +4940,7 @@ func FilterPattern_AllEvents() IFilterPattern {
 	var returns IFilterPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		"allEvents",
 		nil, // no parameters
 		&returns,
@@ -3628,7 +4962,7 @@ func FilterPattern_AllTerms(terms ...*string) IFilterPattern {
 	var returns IFilterPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		"allTerms",
 		args,
 		&returns,
@@ -3650,7 +4984,7 @@ func FilterPattern_Any(patterns ...JsonPattern) JsonPattern {
 	var returns JsonPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		"any",
 		args,
 		&returns,
@@ -3672,7 +5006,7 @@ func FilterPattern_AnyTerm(terms ...*string) IFilterPattern {
 	var returns IFilterPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		"anyTerm",
 		args,
 		&returns,
@@ -3696,7 +5030,7 @@ func FilterPattern_AnyTermGroup(termGroups ...*[]*string) IFilterPattern {
 	var returns IFilterPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		"anyTermGroup",
 		args,
 		&returns,
@@ -3713,7 +5047,7 @@ func FilterPattern_BooleanValue(jsonField *string, value *bool) JsonPattern {
 	var returns JsonPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		"booleanValue",
 		[]interface{}{jsonField, value},
 		&returns,
@@ -3732,7 +5066,7 @@ func FilterPattern_Exists(jsonField *string) JsonPattern {
 	var returns JsonPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		"exists",
 		[]interface{}{jsonField},
 		&returns,
@@ -3749,7 +5083,7 @@ func FilterPattern_IsNull(jsonField *string) JsonPattern {
 	var returns JsonPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		"isNull",
 		[]interface{}{jsonField},
 		&returns,
@@ -3769,7 +5103,7 @@ func FilterPattern_Literal(logPatternString *string) IFilterPattern {
 	var returns IFilterPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		"literal",
 		[]interface{}{logPatternString},
 		&returns,
@@ -3786,7 +5120,7 @@ func FilterPattern_NotExists(jsonField *string) JsonPattern {
 	var returns JsonPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		"notExists",
 		[]interface{}{jsonField},
 		&returns,
@@ -3814,7 +5148,7 @@ func FilterPattern_NumberValue(jsonField *string, comparison *string, value *flo
 	var returns JsonPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		"numberValue",
 		[]interface{}{jsonField, comparison, value},
 		&returns,
@@ -3844,7 +5178,7 @@ func FilterPattern_SpaceDelimited(columns ...*string) SpaceDelimitedTextPattern 
 	var returns SpaceDelimitedTextPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		"spaceDelimited",
 		args,
 		&returns,
@@ -3872,7 +5206,7 @@ func FilterPattern_StringValue(jsonField *string, comparison *string, value *str
 	var returns JsonPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.FilterPattern",
+		"monocdk.aws_logs.FilterPattern",
 		"stringValue",
 		[]interface{}{jsonField, comparison, value},
 		&returns,
@@ -4099,7 +5433,7 @@ type ILogSubscriptionDestination interface {
 	// The destination may reconfigure its own permissions in response to this
 	// function call.
 	// Experimental.
-	Bind(scope constructs.Construct, sourceLogGroup ILogGroup) *LogSubscriptionDestinationConfig
+	Bind(scope awscdk.Construct, sourceLogGroup ILogGroup) *LogSubscriptionDestinationConfig
 }
 
 // The jsii proxy for ILogSubscriptionDestination
@@ -4107,7 +5441,7 @@ type jsiiProxy_ILogSubscriptionDestination struct {
 	_ byte // padding
 }
 
-func (i *jsiiProxy_ILogSubscriptionDestination) Bind(scope constructs.Construct, sourceLogGroup ILogGroup) *LogSubscriptionDestinationConfig {
+func (i *jsiiProxy_ILogSubscriptionDestination) Bind(scope awscdk.Construct, sourceLogGroup ILogGroup) *LogSubscriptionDestinationConfig {
 	var returns *LogSubscriptionDestinationConfig
 
 	_jsii_.Invoke(
@@ -4159,7 +5493,7 @@ func NewJsonPattern_Override(j JsonPattern, jsonPatternString *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.JsonPattern",
+		"monocdk.aws_logs.JsonPattern",
 		[]interface{}{jsonPatternString},
 		j,
 	)
@@ -4173,7 +5507,7 @@ type LogGroup interface {
 	Env() *awscdk.ResourceEnvironment
 	LogGroupArn() *string
 	LogGroupName() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	AddMetricFilter(id *string, props *MetricFilterOptions) MetricFilter
@@ -4187,7 +5521,13 @@ type LogGroup interface {
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
 	LogGroupPhysicalName() *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for LogGroup
@@ -4226,8 +5566,8 @@ func (j *jsiiProxy_LogGroup) LogGroupName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_LogGroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_LogGroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4264,7 +5604,7 @@ func NewLogGroup(scope constructs.Construct, id *string, props *LogGroupProps) L
 	j := jsiiProxy_LogGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.LogGroup",
+		"monocdk.aws_logs.LogGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4277,7 +5617,7 @@ func NewLogGroup_Override(l LogGroup, scope constructs.Construct, id *string, pr
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.LogGroup",
+		"monocdk.aws_logs.LogGroup",
 		[]interface{}{scope, id, props},
 		l,
 	)
@@ -4291,7 +5631,7 @@ func LogGroup_FromLogGroupArn(scope constructs.Construct, id *string, logGroupAr
 	var returns ILogGroup
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.LogGroup",
+		"monocdk.aws_logs.LogGroup",
 		"fromLogGroupArn",
 		[]interface{}{scope, id, logGroupArn},
 		&returns,
@@ -4308,7 +5648,7 @@ func LogGroup_FromLogGroupName(scope constructs.Construct, id *string, logGroupN
 	var returns ILogGroup
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.LogGroup",
+		"monocdk.aws_logs.LogGroup",
 		"fromLogGroupName",
 		[]interface{}{scope, id, logGroupName},
 		&returns,
@@ -4317,17 +5657,15 @@ func LogGroup_FromLogGroupName(scope constructs.Construct, id *string, logGroupN
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func LogGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.LogGroup",
+		"monocdk.aws_logs.LogGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4338,13 +5676,13 @@ func LogGroup_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func LogGroup_IsResource(construct constructs.IConstruct) *bool {
+func LogGroup_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.LogGroup",
+		"monocdk.aws_logs.LogGroup",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -4544,6 +5882,86 @@ func (l *jsiiProxy_LogGroup) LogGroupPhysicalName() *string {
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (l *jsiiProxy_LogGroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		l,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (l *jsiiProxy_LogGroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		l,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (l *jsiiProxy_LogGroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		l,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (l *jsiiProxy_LogGroup) Prepare() {
+	_jsii_.InvokeVoid(
+		l,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (l *jsiiProxy_LogGroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		l,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (l *jsiiProxy_LogGroup) ToString() *string {
@@ -4552,6 +5970,26 @@ func (l *jsiiProxy_LogGroup) ToString() *string {
 	_jsii_.Invoke(
 		l,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (l *jsiiProxy_LogGroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		l,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4591,15 +6029,21 @@ type LogGroupProps struct {
 // specifying `logGroupRegion`
 // Experimental.
 type LogRetention interface {
-	constructs.Construct
+	awscdk.Construct
 	LogGroupArn() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for LogRetention
 type jsiiProxy_LogRetention struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 }
 
 func (j *jsiiProxy_LogRetention) LogGroupArn() *string {
@@ -4612,8 +6056,8 @@ func (j *jsiiProxy_LogRetention) LogGroupArn() *string {
 	return returns
 }
 
-func (j *jsiiProxy_LogRetention) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_LogRetention) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4630,7 +6074,7 @@ func NewLogRetention(scope constructs.Construct, id *string, props *LogRetention
 	j := jsiiProxy_LogRetention{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.LogRetention",
+		"monocdk.aws_logs.LogRetention",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4643,29 +6087,107 @@ func NewLogRetention_Override(l LogRetention, scope constructs.Construct, id *st
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.LogRetention",
+		"monocdk.aws_logs.LogRetention",
 		[]interface{}{scope, id, props},
 		l,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func LogRetention_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.LogRetention",
+		"monocdk.aws_logs.LogRetention",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
 	)
 
 	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (l *jsiiProxy_LogRetention) OnPrepare() {
+	_jsii_.InvokeVoid(
+		l,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (l *jsiiProxy_LogRetention) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		l,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (l *jsiiProxy_LogRetention) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		l,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (l *jsiiProxy_LogRetention) Prepare() {
+	_jsii_.InvokeVoid(
+		l,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (l *jsiiProxy_LogRetention) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		l,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Returns a string representation of this construct.
@@ -4676,6 +6198,26 @@ func (l *jsiiProxy_LogRetention) ToString() *string {
 	_jsii_.Invoke(
 		l,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (l *jsiiProxy_LogRetention) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		l,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4721,14 +6263,20 @@ type LogStream interface {
 	ILogStream
 	Env() *awscdk.ResourceEnvironment
 	LogStreamName() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for LogStream
@@ -4757,8 +6305,8 @@ func (j *jsiiProxy_LogStream) LogStreamName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_LogStream) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_LogStream) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4795,7 +6343,7 @@ func NewLogStream(scope constructs.Construct, id *string, props *LogStreamProps)
 	j := jsiiProxy_LogStream{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.LogStream",
+		"monocdk.aws_logs.LogStream",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4808,7 +6356,7 @@ func NewLogStream_Override(l LogStream, scope constructs.Construct, id *string, 
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.LogStream",
+		"monocdk.aws_logs.LogStream",
 		[]interface{}{scope, id, props},
 		l,
 	)
@@ -4822,7 +6370,7 @@ func LogStream_FromLogStreamName(scope constructs.Construct, id *string, logStre
 	var returns ILogStream
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.LogStream",
+		"monocdk.aws_logs.LogStream",
 		"fromLogStreamName",
 		[]interface{}{scope, id, logStreamName},
 		&returns,
@@ -4831,17 +6379,15 @@ func LogStream_FromLogStreamName(scope constructs.Construct, id *string, logStre
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func LogStream_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.LogStream",
+		"monocdk.aws_logs.LogStream",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4852,13 +6398,13 @@ func LogStream_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func LogStream_IsResource(construct constructs.IConstruct) *bool {
+func LogStream_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.LogStream",
+		"monocdk.aws_logs.LogStream",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -4938,6 +6484,86 @@ func (l *jsiiProxy_LogStream) GetResourceNameAttribute(nameAttr *string) *string
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (l *jsiiProxy_LogStream) OnPrepare() {
+	_jsii_.InvokeVoid(
+		l,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (l *jsiiProxy_LogStream) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		l,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (l *jsiiProxy_LogStream) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		l,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (l *jsiiProxy_LogStream) Prepare() {
+	_jsii_.InvokeVoid(
+		l,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (l *jsiiProxy_LogStream) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		l,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (l *jsiiProxy_LogStream) ToString() *string {
@@ -4946,6 +6572,26 @@ func (l *jsiiProxy_LogStream) ToString() *string {
 	_jsii_.Invoke(
 		l,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (l *jsiiProxy_LogStream) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		l,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4991,7 +6637,7 @@ type LogSubscriptionDestinationConfig struct {
 type MetricFilter interface {
 	awscdk.Resource
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
@@ -4999,7 +6645,13 @@ type MetricFilter interface {
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
 	Metric(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for MetricFilter
@@ -5017,8 +6669,8 @@ func (j *jsiiProxy_MetricFilter) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_MetricFilter) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_MetricFilter) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5055,7 +6707,7 @@ func NewMetricFilter(scope constructs.Construct, id *string, props *MetricFilter
 	j := jsiiProxy_MetricFilter{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.MetricFilter",
+		"monocdk.aws_logs.MetricFilter",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5068,23 +6720,21 @@ func NewMetricFilter_Override(m MetricFilter, scope constructs.Construct, id *st
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.MetricFilter",
+		"monocdk.aws_logs.MetricFilter",
 		[]interface{}{scope, id, props},
 		m,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func MetricFilter_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.MetricFilter",
+		"monocdk.aws_logs.MetricFilter",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5095,13 +6745,13 @@ func MetricFilter_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func MetricFilter_IsResource(construct constructs.IConstruct) *bool {
+func MetricFilter_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.MetricFilter",
+		"monocdk.aws_logs.MetricFilter",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -5196,6 +6846,86 @@ func (m *jsiiProxy_MetricFilter) Metric(props *awscloudwatch.MetricOptions) awsc
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (m *jsiiProxy_MetricFilter) OnPrepare() {
+	_jsii_.InvokeVoid(
+		m,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (m *jsiiProxy_MetricFilter) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		m,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (m *jsiiProxy_MetricFilter) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		m,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (m *jsiiProxy_MetricFilter) Prepare() {
+	_jsii_.InvokeVoid(
+		m,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (m *jsiiProxy_MetricFilter) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		m,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (m *jsiiProxy_MetricFilter) ToString() *string {
@@ -5204,6 +6934,26 @@ func (m *jsiiProxy_MetricFilter) ToString() *string {
 	_jsii_.Invoke(
 		m,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (m *jsiiProxy_MetricFilter) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		m,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5331,7 +7081,7 @@ func NewSpaceDelimitedTextPattern(columns *[]*string, restrictions *map[string]*
 	j := jsiiProxy_SpaceDelimitedTextPattern{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.SpaceDelimitedTextPattern",
+		"monocdk.aws_logs.SpaceDelimitedTextPattern",
 		[]interface{}{columns, restrictions},
 		&j,
 	)
@@ -5344,7 +7094,7 @@ func NewSpaceDelimitedTextPattern_Override(s SpaceDelimitedTextPattern, columns 
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.SpaceDelimitedTextPattern",
+		"monocdk.aws_logs.SpaceDelimitedTextPattern",
 		[]interface{}{columns, restrictions},
 		s,
 	)
@@ -5364,7 +7114,7 @@ func SpaceDelimitedTextPattern_Construct(columns *[]*string) SpaceDelimitedTextP
 	var returns SpaceDelimitedTextPattern
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.SpaceDelimitedTextPattern",
+		"monocdk.aws_logs.SpaceDelimitedTextPattern",
 		"construct",
 		[]interface{}{columns},
 		&returns,
@@ -5418,14 +7168,20 @@ type StreamOptions struct {
 type SubscriptionFilter interface {
 	awscdk.Resource
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for SubscriptionFilter
@@ -5443,8 +7199,8 @@ func (j *jsiiProxy_SubscriptionFilter) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_SubscriptionFilter) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_SubscriptionFilter) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5481,7 +7237,7 @@ func NewSubscriptionFilter(scope constructs.Construct, id *string, props *Subscr
 	j := jsiiProxy_SubscriptionFilter{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.SubscriptionFilter",
+		"monocdk.aws_logs.SubscriptionFilter",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5494,23 +7250,21 @@ func NewSubscriptionFilter_Override(s SubscriptionFilter, scope constructs.Const
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs.SubscriptionFilter",
+		"monocdk.aws_logs.SubscriptionFilter",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func SubscriptionFilter_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.SubscriptionFilter",
+		"monocdk.aws_logs.SubscriptionFilter",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5521,13 +7275,13 @@ func SubscriptionFilter_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func SubscriptionFilter_IsResource(construct constructs.IConstruct) *bool {
+func SubscriptionFilter_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_logs.SubscriptionFilter",
+		"monocdk.aws_logs.SubscriptionFilter",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -5607,6 +7361,86 @@ func (s *jsiiProxy_SubscriptionFilter) GetResourceNameAttribute(nameAttr *string
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_SubscriptionFilter) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_SubscriptionFilter) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_SubscriptionFilter) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_SubscriptionFilter) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_SubscriptionFilter) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (s *jsiiProxy_SubscriptionFilter) ToString() *string {
@@ -5615,6 +7449,26 @@ func (s *jsiiProxy_SubscriptionFilter) ToString() *string {
 	_jsii_.Invoke(
 		s,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_SubscriptionFilter) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
