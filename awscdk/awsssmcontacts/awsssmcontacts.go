@@ -1,12 +1,12 @@
 package awsssmcontacts
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsssmcontacts/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsssmcontacts/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::SSMContacts::Contact`.
@@ -23,7 +23,7 @@ type CfnContact interface {
 	DisplayName() *string
 	SetDisplayName(val *string)
 	LogicalId() *string
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Plan() interface{}
 	SetPlan(val interface{})
 	Ref() *string
@@ -41,16 +41,10 @@ type CfnContact interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -140,8 +134,8 @@ func (j *jsiiProxy_CfnContact) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContact) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnContact) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -202,13 +196,13 @@ func (j *jsiiProxy_CfnContact) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::SSMContacts::Contact`.
-func NewCfnContact(scope awscdk.Construct, id *string, props *CfnContactProps) CfnContact {
+func NewCfnContact(scope constructs.Construct, id *string, props *CfnContactProps) CfnContact {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnContact{}
 
 	_jsii_.Create(
-		"monocdk.aws_ssmcontacts.CfnContact",
+		"aws-cdk-lib.aws_ssmcontacts.CfnContact",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -217,11 +211,11 @@ func NewCfnContact(scope awscdk.Construct, id *string, props *CfnContactProps) C
 }
 
 // Create a new `AWS::SSMContacts::Contact`.
-func NewCfnContact_Override(c CfnContact, scope awscdk.Construct, id *string, props *CfnContactProps) {
+func NewCfnContact_Override(c CfnContact, scope constructs.Construct, id *string, props *CfnContactProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ssmcontacts.CfnContact",
+		"aws-cdk-lib.aws_ssmcontacts.CfnContact",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -272,7 +266,7 @@ func CfnContact_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ssmcontacts.CfnContact",
+		"aws-cdk-lib.aws_ssmcontacts.CfnContact",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -289,7 +283,7 @@ func CfnContact_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ssmcontacts.CfnContact",
+		"aws-cdk-lib.aws_ssmcontacts.CfnContact",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -298,15 +292,17 @@ func CfnContact_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnContact_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ssmcontacts.CfnContact",
+		"aws-cdk-lib.aws_ssmcontacts.CfnContact",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -319,7 +315,7 @@ func CfnContact_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_ssmcontacts.CfnContact",
+		"aws-cdk-lib.aws_ssmcontacts.CfnContact",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -491,56 +487,6 @@ func (c *jsiiProxy_CfnContact) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnContact) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnContact) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnContact) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnContact) OverrideLogicalId(newLogicalId *string) {
@@ -548,23 +494,6 @@ func (c *jsiiProxy_CfnContact) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnContact) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -599,19 +528,6 @@ func (c *jsiiProxy_CfnContact) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnContact) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -622,26 +538,6 @@ func (c *jsiiProxy_CfnContact) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnContact) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -706,7 +602,7 @@ type CfnContactChannel interface {
 	DeferActivation() interface{}
 	SetDeferActivation(val interface{})
 	LogicalId() *string
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Ref() *string
 	Stack() awscdk.Stack
 	UpdatedProperites() *map[string]interface{}
@@ -720,16 +616,10 @@ type CfnContactChannel interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -849,8 +739,8 @@ func (j *jsiiProxy_CfnContactChannel) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnContactChannel) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnContactChannel) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -891,13 +781,13 @@ func (j *jsiiProxy_CfnContactChannel) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::SSMContacts::ContactChannel`.
-func NewCfnContactChannel(scope awscdk.Construct, id *string, props *CfnContactChannelProps) CfnContactChannel {
+func NewCfnContactChannel(scope constructs.Construct, id *string, props *CfnContactChannelProps) CfnContactChannel {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnContactChannel{}
 
 	_jsii_.Create(
-		"monocdk.aws_ssmcontacts.CfnContactChannel",
+		"aws-cdk-lib.aws_ssmcontacts.CfnContactChannel",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -906,11 +796,11 @@ func NewCfnContactChannel(scope awscdk.Construct, id *string, props *CfnContactC
 }
 
 // Create a new `AWS::SSMContacts::ContactChannel`.
-func NewCfnContactChannel_Override(c CfnContactChannel, scope awscdk.Construct, id *string, props *CfnContactChannelProps) {
+func NewCfnContactChannel_Override(c CfnContactChannel, scope constructs.Construct, id *string, props *CfnContactChannelProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_ssmcontacts.CfnContactChannel",
+		"aws-cdk-lib.aws_ssmcontacts.CfnContactChannel",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -969,7 +859,7 @@ func CfnContactChannel_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ssmcontacts.CfnContactChannel",
+		"aws-cdk-lib.aws_ssmcontacts.CfnContactChannel",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -986,7 +876,7 @@ func CfnContactChannel_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ssmcontacts.CfnContactChannel",
+		"aws-cdk-lib.aws_ssmcontacts.CfnContactChannel",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -995,15 +885,17 @@ func CfnContactChannel_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnContactChannel_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_ssmcontacts.CfnContactChannel",
+		"aws-cdk-lib.aws_ssmcontacts.CfnContactChannel",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1016,7 +908,7 @@ func CfnContactChannel_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_ssmcontacts.CfnContactChannel",
+		"aws-cdk-lib.aws_ssmcontacts.CfnContactChannel",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1188,56 +1080,6 @@ func (c *jsiiProxy_CfnContactChannel) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnContactChannel) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnContactChannel) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnContactChannel) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnContactChannel) OverrideLogicalId(newLogicalId *string) {
@@ -1245,23 +1087,6 @@ func (c *jsiiProxy_CfnContactChannel) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnContactChannel) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1296,19 +1121,6 @@ func (c *jsiiProxy_CfnContactChannel) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnContactChannel) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -1319,26 +1131,6 @@ func (c *jsiiProxy_CfnContactChannel) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnContactChannel) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

@@ -1,13 +1,13 @@
 package awselasticloadbalancingv2targets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2targets/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2targets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 )
 
 // An EC2 instance that is the target for load balancing.
@@ -36,7 +36,7 @@ func NewInstanceIdTarget(instanceId *string, port *float64) InstanceIdTarget {
 	j := jsiiProxy_InstanceIdTarget{}
 
 	_jsii_.Create(
-		"monocdk.aws_elasticloadbalancingv2_targets.InstanceIdTarget",
+		"aws-cdk-lib.aws_elasticloadbalancingv2_targets.InstanceIdTarget",
 		[]interface{}{instanceId, port},
 		&j,
 	)
@@ -50,7 +50,7 @@ func NewInstanceIdTarget_Override(i InstanceIdTarget, instanceId *string, port *
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_elasticloadbalancingv2_targets.InstanceIdTarget",
+		"aws-cdk-lib.aws_elasticloadbalancingv2_targets.InstanceIdTarget",
 		[]interface{}{instanceId, port},
 		i,
 	)
@@ -112,7 +112,7 @@ func NewInstanceTarget(instance awsec2.Instance, port *float64) InstanceTarget {
 	j := jsiiProxy_InstanceTarget{}
 
 	_jsii_.Create(
-		"monocdk.aws_elasticloadbalancingv2_targets.InstanceTarget",
+		"aws-cdk-lib.aws_elasticloadbalancingv2_targets.InstanceTarget",
 		[]interface{}{instance, port},
 		&j,
 	)
@@ -126,7 +126,7 @@ func NewInstanceTarget_Override(i InstanceTarget, instance awsec2.Instance, port
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_elasticloadbalancingv2_targets.InstanceTarget",
+		"aws-cdk-lib.aws_elasticloadbalancingv2_targets.InstanceTarget",
 		[]interface{}{instance, port},
 		i,
 	)
@@ -214,7 +214,7 @@ func NewIpTarget(ipAddress *string, port *float64, availabilityZone *string) IpT
 	j := jsiiProxy_IpTarget{}
 
 	_jsii_.Create(
-		"monocdk.aws_elasticloadbalancingv2_targets.IpTarget",
+		"aws-cdk-lib.aws_elasticloadbalancingv2_targets.IpTarget",
 		[]interface{}{ipAddress, port, availabilityZone},
 		&j,
 	)
@@ -243,7 +243,7 @@ func NewIpTarget_Override(i IpTarget, ipAddress *string, port *float64, availabi
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_elasticloadbalancingv2_targets.IpTarget",
+		"aws-cdk-lib.aws_elasticloadbalancingv2_targets.IpTarget",
 		[]interface{}{ipAddress, port, availabilityZone},
 		i,
 	)
@@ -305,7 +305,7 @@ func NewLambdaTarget(fn awslambda.IFunction) LambdaTarget {
 	j := jsiiProxy_LambdaTarget{}
 
 	_jsii_.Create(
-		"monocdk.aws_elasticloadbalancingv2_targets.LambdaTarget",
+		"aws-cdk-lib.aws_elasticloadbalancingv2_targets.LambdaTarget",
 		[]interface{}{fn},
 		&j,
 	)
@@ -319,7 +319,7 @@ func NewLambdaTarget_Override(l LambdaTarget, fn awslambda.IFunction) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_elasticloadbalancingv2_targets.LambdaTarget",
+		"aws-cdk-lib.aws_elasticloadbalancingv2_targets.LambdaTarget",
 		[]interface{}{fn},
 		l,
 	)
