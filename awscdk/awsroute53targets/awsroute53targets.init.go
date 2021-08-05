@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_route53_targets.ApiGateway",
+		"monocdk.aws_route53_targets.ApiGateway",
 		reflect.TypeOf((*ApiGateway)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -20,7 +20,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_route53_targets.ApiGatewayDomain",
+		"monocdk.aws_route53_targets.ApiGatewayDomain",
 		reflect.TypeOf((*ApiGatewayDomain)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -32,7 +32,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_route53_targets.ApiGatewayv2DomainProperties",
+		"monocdk.aws_route53_targets.ApiGatewayv2DomainProperties",
 		reflect.TypeOf((*ApiGatewayv2DomainProperties)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -44,7 +44,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_route53_targets.BucketWebsiteTarget",
+		"monocdk.aws_route53_targets.BucketWebsiteTarget",
 		reflect.TypeOf((*BucketWebsiteTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -56,7 +56,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_route53_targets.ClassicLoadBalancerTarget",
+		"monocdk.aws_route53_targets.ClassicLoadBalancerTarget",
 		reflect.TypeOf((*ClassicLoadBalancerTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -68,7 +68,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_route53_targets.CloudFrontTarget",
+		"monocdk.aws_route53_targets.CloudFrontTarget",
 		reflect.TypeOf((*CloudFrontTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -80,7 +80,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_route53_targets.GlobalAcceleratorDomainTarget",
+		"monocdk.aws_route53_targets.GlobalAcceleratorDomainTarget",
 		reflect.TypeOf((*GlobalAcceleratorDomainTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -92,7 +92,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_route53_targets.GlobalAcceleratorTarget",
+		"monocdk.aws_route53_targets.GlobalAcceleratorTarget",
 		reflect.TypeOf((*GlobalAcceleratorTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -104,7 +104,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_route53_targets.InterfaceVpcEndpointTarget",
+		"monocdk.aws_route53_targets.InterfaceVpcEndpointTarget",
 		reflect.TypeOf((*InterfaceVpcEndpointTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -116,7 +116,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_route53_targets.LoadBalancerTarget",
+		"monocdk.aws_route53_targets.LoadBalancerTarget",
 		reflect.TypeOf((*LoadBalancerTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -128,7 +128,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_route53_targets.Route53RecordTarget",
+		"monocdk.aws_route53_targets.Route53RecordTarget",
 		reflect.TypeOf((*Route53RecordTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -140,7 +140,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_route53_targets.UserPoolDomainTarget",
+		"monocdk.aws_route53_targets.UserPoolDomainTarget",
 		reflect.TypeOf((*UserPoolDomainTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},

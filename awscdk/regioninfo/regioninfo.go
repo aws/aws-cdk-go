@@ -1,7 +1,7 @@
 package regioninfo
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -28,7 +28,7 @@ func Default_ServicePrincipal(service *string, region *string, urlSuffix *string
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.region_info.Default",
+		"monocdk.region_info.Default",
 		"servicePrincipal",
 		[]interface{}{service, region, urlSuffix},
 		&returns,
@@ -41,7 +41,7 @@ func Default_VPC_ENDPOINT_SERVICE_NAME_PREFIX() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.region_info.Default",
+		"monocdk.region_info.Default",
 		"VPC_ENDPOINT_SERVICE_NAME_PREFIX",
 		&returns,
 	)
@@ -68,7 +68,7 @@ func Fact_Find(region *string, name *string) *string {
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.region_info.Fact",
+		"monocdk.region_info.Fact",
 		"find",
 		[]interface{}{region, name},
 		&returns,
@@ -83,7 +83,7 @@ func Fact_Register(fact IFact, allowReplacing *bool) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.region_info.Fact",
+		"monocdk.region_info.Fact",
 		"register",
 		[]interface{}{fact, allowReplacing},
 	)
@@ -100,7 +100,7 @@ func Fact_RequireFact(region *string, name *string) *string {
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.region_info.Fact",
+		"monocdk.region_info.Fact",
 		"requireFact",
 		[]interface{}{region, name},
 		&returns,
@@ -115,7 +115,7 @@ func Fact_Unregister(region *string, name *string, value *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.region_info.Fact",
+		"monocdk.region_info.Fact",
 		"unregister",
 		[]interface{}{region, name, value},
 	)
@@ -125,7 +125,7 @@ func Fact_Regions() *[]*string {
 	_init_.Initialize()
 	var returns *[]*string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.region_info.Fact",
+		"monocdk.region_info.Fact",
 		"regions",
 		&returns,
 	)
@@ -149,7 +149,7 @@ func NewFactName() FactName {
 	j := jsiiProxy_FactName{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.region_info.FactName",
+		"monocdk.region_info.FactName",
 		nil, // no parameters
 		&j,
 	)
@@ -162,10 +162,27 @@ func NewFactName_Override(f FactName) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.region_info.FactName",
+		"monocdk.region_info.FactName",
 		nil, // no parameters
 		f,
 	)
+}
+
+// The ARN of CloudWatch Lambda Insights for a version (e.g. 1.0.98.0).
+// Experimental.
+func FactName_CloudwatchLambdaInsightsVersion(version *string) *string {
+	_init_.Initialize()
+
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"monocdk.region_info.FactName",
+		"cloudwatchLambdaInsightsVersion",
+		[]interface{}{version},
+		&returns,
+	)
+
+	return returns
 }
 
 // The name of the regional service principal for a given service.
@@ -176,7 +193,7 @@ func FactName_ServicePrincipal(service *string) *string {
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.region_info.FactName",
+		"monocdk.region_info.FactName",
 		"servicePrincipal",
 		[]interface{}{service},
 		&returns,
@@ -189,7 +206,7 @@ func FactName_APPMESH_ECR_ACCOUNT() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.region_info.FactName",
+		"monocdk.region_info.FactName",
 		"APPMESH_ECR_ACCOUNT",
 		&returns,
 	)
@@ -200,7 +217,7 @@ func FactName_CDK_METADATA_RESOURCE_AVAILABLE() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.region_info.FactName",
+		"monocdk.region_info.FactName",
 		"CDK_METADATA_RESOURCE_AVAILABLE",
 		&returns,
 	)
@@ -211,7 +228,7 @@ func FactName_DLC_REPOSITORY_ACCOUNT() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.region_info.FactName",
+		"monocdk.region_info.FactName",
 		"DLC_REPOSITORY_ACCOUNT",
 		&returns,
 	)
@@ -222,7 +239,7 @@ func FactName_DOMAIN_SUFFIX() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.region_info.FactName",
+		"monocdk.region_info.FactName",
 		"DOMAIN_SUFFIX",
 		&returns,
 	)
@@ -233,8 +250,19 @@ func FactName_ELBV2_ACCOUNT() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.region_info.FactName",
+		"monocdk.region_info.FactName",
 		"ELBV2_ACCOUNT",
+		&returns,
+	)
+	return returns
+}
+
+func FactName_FIREHOSE_CIDR_BLOCK() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"monocdk.region_info.FactName",
+		"FIREHOSE_CIDR_BLOCK",
 		&returns,
 	)
 	return returns
@@ -244,7 +272,7 @@ func FactName_PARTITION() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.region_info.FactName",
+		"monocdk.region_info.FactName",
 		"PARTITION",
 		&returns,
 	)
@@ -255,7 +283,7 @@ func FactName_S3_STATIC_WEBSITE_ENDPOINT() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.region_info.FactName",
+		"monocdk.region_info.FactName",
 		"S3_STATIC_WEBSITE_ENDPOINT",
 		&returns,
 	)
@@ -266,7 +294,7 @@ func FactName_S3_STATIC_WEBSITE_ZONE_53_HOSTED_ZONE_ID() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.region_info.FactName",
+		"monocdk.region_info.FactName",
 		"S3_STATIC_WEBSITE_ZONE_53_HOSTED_ZONE_ID",
 		&returns,
 	)
@@ -277,7 +305,7 @@ func FactName_VPC_ENDPOINT_SERVICE_NAME_PREFIX() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.region_info.FactName",
+		"monocdk.region_info.FactName",
 		"VPC_ENDPOINT_SERVICE_NAME_PREFIX",
 		&returns,
 	)
@@ -343,11 +371,13 @@ type RegionInfo interface {
 	DlcRepositoryAccount() *string
 	DomainSuffix() *string
 	Elbv2Account() *string
+	FirehoseCidrBlock() *string
 	Name() *string
 	Partition() *string
 	S3StaticWebsiteEndpoint() *string
 	S3StaticWebsiteHostedZoneId() *string
 	VpcEndpointServiceNamePrefix() *string
+	CloudwatchLambdaInsightsArn(insightsVersion *string) *string
 	ServicePrincipal(service *string) *string
 }
 
@@ -401,6 +431,16 @@ func (j *jsiiProxy_RegionInfo) Elbv2Account() *string {
 	_jsii_.Get(
 		j,
 		"elbv2Account",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_RegionInfo) FirehoseCidrBlock() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"firehoseCidrBlock",
 		&returns,
 	)
 	return returns
@@ -465,7 +505,7 @@ func RegionInfo_Get(name *string) RegionInfo {
 	var returns RegionInfo
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.region_info.RegionInfo",
+		"monocdk.region_info.RegionInfo",
 		"get",
 		[]interface{}{name},
 		&returns,
@@ -485,7 +525,7 @@ func RegionInfo_RegionMap(factName *string) *map[string]*string {
 	var returns *map[string]*string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.region_info.RegionInfo",
+		"monocdk.region_info.RegionInfo",
 		"regionMap",
 		[]interface{}{factName},
 		&returns,
@@ -498,10 +538,25 @@ func RegionInfo_Regions() *[]RegionInfo {
 	_init_.Initialize()
 	var returns *[]RegionInfo
 	_jsii_.StaticGet(
-		"aws-cdk-lib.region_info.RegionInfo",
+		"monocdk.region_info.RegionInfo",
 		"regions",
 		&returns,
 	)
+	return returns
+}
+
+// The ARN of the CloudWatch Lambda Insights extension, for the given version.
+// Experimental.
+func (r *jsiiProxy_RegionInfo) CloudwatchLambdaInsightsArn(insightsVersion *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		r,
+		"cloudwatchLambdaInsightsArn",
+		[]interface{}{insightsVersion},
+		&returns,
+	)
+
 	return returns
 }
 
