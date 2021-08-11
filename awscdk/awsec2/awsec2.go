@@ -52265,8 +52265,11 @@ type ClientVpnAuthorizationRuleProps struct {
 	// Experimental.
 	GroupId *string `json:"groupId"`
 	// The client VPN endpoint to which to add the rule.
-	// Experimental.
+	// Deprecated: Use `clientVpnEndpoint` instead
 	ClientVpnEndoint IClientVpnEndpoint `json:"clientVpnEndoint"`
+	// The client VPN endpoint to which to add the rule.
+	// Experimental.
+	ClientVpnEndpoint IClientVpnEndpoint `json:"clientVpnEndpoint"`
 }
 
 // A client VPN connnection.
@@ -53188,8 +53191,11 @@ type ClientVpnRouteProps struct {
 	// Experimental.
 	Description *string `json:"description"`
 	// The client VPN endpoint to which to add the route.
-	// Experimental.
+	// Deprecated: Use `clientVpnEndpoint` instead
 	ClientVpnEndoint IClientVpnEndpoint `json:"clientVpnEndoint"`
+	// The client VPN endpoint to which to add the route.
+	// Experimental.
+	ClientVpnEndpoint IClientVpnEndpoint `json:"clientVpnEndpoint"`
 }
 
 // Target for a client VPN route.

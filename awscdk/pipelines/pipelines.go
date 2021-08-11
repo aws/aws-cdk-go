@@ -1967,6 +1967,9 @@ type CodePipelineProps struct {
 	// Additional customizations to apply to the self mutation CodeBuild projects.
 	// Experimental.
 	SelfMutationCodeBuildDefaults *CodeBuildOptions `json:"selfMutationCodeBuildDefaults"`
+	// Additional customizations to apply to the synthesize CodeBuild projects.
+	// Experimental.
+	SynthCodeBuildDefaults *CodeBuildOptions `json:"synthCodeBuildDefaults"`
 }
 
 // CodePipeline source steps.

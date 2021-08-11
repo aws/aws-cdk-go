@@ -1362,6 +1362,14 @@ func init() {
 		reflect.TypeOf((*TargetGroupImportProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
+		"monocdk.aws_elasticloadbalancingv2.TargetGroupLoadBalancingAlgorithmType",
+		reflect.TypeOf((*TargetGroupLoadBalancingAlgorithmType)(nil)).Elem(),
+		map[string]interface{}{
+			"ROUND_ROBIN": TargetGroupLoadBalancingAlgorithmType_ROUND_ROBIN,
+			"LEAST_OUTSTANDING_REQUESTS": TargetGroupLoadBalancingAlgorithmType_LEAST_OUTSTANDING_REQUESTS,
+		},
+	)
+	_jsii_.RegisterEnum(
 		"monocdk.aws_elasticloadbalancingv2.TargetType",
 		reflect.TypeOf((*TargetType)(nil)).Elem(),
 		map[string]interface{}{

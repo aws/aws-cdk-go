@@ -8731,7 +8731,7 @@ type CommonTaskDefinitionAttributes struct {
 // [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html).
 // Experimental.
 type CommonTaskDefinitionProps struct {
-	// The name of the IAM task execution role that grants the ECS agent to call AWS APIs on your behalf.
+	// The name of the IAM task execution role that grants the ECS agent permission to call AWS APIs on your behalf.
 	//
 	// The role will be used to retrieve container images from ECR and create CloudWatch log groups.
 	// Experimental.
@@ -11372,7 +11372,7 @@ type Ec2TaskDefinitionAttributes struct {
 // The properties for a task definition run on an EC2 cluster.
 // Experimental.
 type Ec2TaskDefinitionProps struct {
-	// The name of the IAM task execution role that grants the ECS agent to call AWS APIs on your behalf.
+	// The name of the IAM task execution role that grants the ECS agent permission to call AWS APIs on your behalf.
 	//
 	// The role will be used to retrieve container images from ECR and create CloudWatch log groups.
 	// Experimental.
@@ -13388,7 +13388,7 @@ type ExternalTaskDefinitionAttributes struct {
 // The properties for a task definition run on an External cluster.
 // Experimental.
 type ExternalTaskDefinitionProps struct {
-	// The name of the IAM task execution role that grants the ECS agent to call AWS APIs on your behalf.
+	// The name of the IAM task execution role that grants the ECS agent permission to call AWS APIs on your behalf.
 	//
 	// The role will be used to retrieve container images from ECR and create CloudWatch log groups.
 	// Experimental.
@@ -14925,7 +14925,7 @@ type FargateTaskDefinitionAttributes struct {
 // The properties for a task definition.
 // Experimental.
 type FargateTaskDefinitionProps struct {
-	// The name of the IAM task execution role that grants the ECS agent to call AWS APIs on your behalf.
+	// The name of the IAM task execution role that grants the ECS agent permission to call AWS APIs on your behalf.
 	//
 	// The role will be used to retrieve container images from ECR and create CloudWatch log groups.
 	// Experimental.
@@ -19865,7 +19865,7 @@ type TaskDefinitionAttributes struct {
 // The properties for task definitions.
 // Experimental.
 type TaskDefinitionProps struct {
-	// The name of the IAM task execution role that grants the ECS agent to call AWS APIs on your behalf.
+	// The name of the IAM task execution role that grants the ECS agent permission to call AWS APIs on your behalf.
 	//
 	// The role will be used to retrieve container images from ECR and create CloudWatch log groups.
 	// Experimental.

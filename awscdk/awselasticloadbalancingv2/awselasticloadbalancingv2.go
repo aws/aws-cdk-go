@@ -163,6 +163,9 @@ type AddApplicationTargetsProps struct {
 	// Health check configuration.
 	// Experimental.
 	HealthCheck *HealthCheck `json:"healthCheck"`
+	// The load balancing algorithm to select targets for routing requests.
+	// Experimental.
+	LoadBalancingAlgorithmType TargetGroupLoadBalancingAlgorithmType `json:"loadBalancingAlgorithmType"`
 	// The port on which the listener listens for requests.
 	// Experimental.
 	Port *float64 `json:"port"`
@@ -3268,6 +3271,9 @@ type ApplicationTargetGroupProps struct {
 	// only if `TargetType` is `Ip` or `InstanceId`
 	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
+	// The load balancing algorithm to select targets for routing requests.
+	// Experimental.
+	LoadBalancingAlgorithmType TargetGroupLoadBalancingAlgorithmType `json:"loadBalancingAlgorithmType"`
 	// The port on which the listener listens for requests.
 	// Experimental.
 	Port *float64 `json:"port"`
@@ -12320,6 +12326,15 @@ type TargetGroupImportProps struct {
 	// Deprecated: Use TargetGroupAttributes instead
 	LoadBalancerArns *string `json:"loadBalancerArns"`
 }
+
+// Load balancing algorithmm type for target groups.
+// Experimental.
+type TargetGroupLoadBalancingAlgorithmType string
+
+const (
+	TargetGroupLoadBalancingAlgorithmType_ROUND_ROBIN TargetGroupLoadBalancingAlgorithmType = "ROUND_ROBIN"
+	TargetGroupLoadBalancingAlgorithmType_LEAST_OUTSTANDING_REQUESTS TargetGroupLoadBalancingAlgorithmType = "LEAST_OUTSTANDING_REQUESTS"
+)
 
 // How to interpret the load balancing target identifiers.
 // Experimental.

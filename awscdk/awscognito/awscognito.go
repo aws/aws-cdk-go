@@ -11725,6 +11725,11 @@ type UserPoolClientOptions struct {
 	// Turns off all OAuth interactions for this client.
 	// Experimental.
 	DisableOAuth *bool `json:"disableOAuth"`
+	// Enable token revocation for this client.
+	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html#enable-token-revocation
+	//
+	// Experimental.
+	EnableTokenRevocation *bool `json:"enableTokenRevocation"`
 	// Whether to generate a client secret.
 	// Experimental.
 	GenerateSecret *bool `json:"generateSecret"`
@@ -11788,6 +11793,11 @@ type UserPoolClientProps struct {
 	// Turns off all OAuth interactions for this client.
 	// Experimental.
 	DisableOAuth *bool `json:"disableOAuth"`
+	// Enable token revocation for this client.
+	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html#enable-token-revocation
+	//
+	// Experimental.
+	EnableTokenRevocation *bool `json:"enableTokenRevocation"`
 	// Whether to generate a client secret.
 	// Experimental.
 	GenerateSecret *bool `json:"generateSecret"`
