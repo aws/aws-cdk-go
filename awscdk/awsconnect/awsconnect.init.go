@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_connect.CfnQuickConnect",
+		"aws-cdk-lib.aws_connect.CfnQuickConnect",
 		reflect.TypeOf((*CfnQuickConnect)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -31,21 +31,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "quickConnectConfig", GoGetter: "QuickConnectConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -56,23 +50,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_connect.CfnQuickConnect.PhoneNumberQuickConnectConfigProperty",
+		"aws-cdk-lib.aws_connect.CfnQuickConnect.PhoneNumberQuickConnectConfigProperty",
 		reflect.TypeOf((*CfnQuickConnect_PhoneNumberQuickConnectConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_connect.CfnQuickConnect.QueueQuickConnectConfigProperty",
+		"aws-cdk-lib.aws_connect.CfnQuickConnect.QueueQuickConnectConfigProperty",
 		reflect.TypeOf((*CfnQuickConnect_QueueQuickConnectConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_connect.CfnQuickConnect.QuickConnectConfigProperty",
+		"aws-cdk-lib.aws_connect.CfnQuickConnect.QuickConnectConfigProperty",
 		reflect.TypeOf((*CfnQuickConnect_QuickConnectConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_connect.CfnQuickConnect.UserQuickConnectConfigProperty",
+		"aws-cdk-lib.aws_connect.CfnQuickConnect.UserQuickConnectConfigProperty",
 		reflect.TypeOf((*CfnQuickConnect_UserQuickConnectConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_connect.CfnQuickConnectProps",
+		"aws-cdk-lib.aws_connect.CfnQuickConnectProps",
 		reflect.TypeOf((*CfnQuickConnectProps)(nil)).Elem(),
 	)
 }
