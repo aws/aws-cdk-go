@@ -4006,6 +4006,17 @@ func Errors_BRANCH_FAILED() *string {
 	return returns
 }
 
+func Errors_HEARTBEAT_TIMEOUT() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_stepfunctions.Errors",
+		"HEARTBEAT_TIMEOUT",
+		&returns,
+	)
+	return returns
+}
+
 func Errors_NO_CHOICE_MATCHED() *string {
 	_init_.Initialize()
 	var returns *string

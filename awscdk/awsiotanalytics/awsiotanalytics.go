@@ -1934,6 +1934,13 @@ type CfnDatastore_CustomerManagedS3Property struct {
 	KeyPrefix *string `json:"keyPrefix"`
 }
 
+type CfnDatastore_CustomerManagedS3StorageProperty struct {
+	// `CfnDatastore.CustomerManagedS3StorageProperty.Bucket`.
+	Bucket *string `json:"bucket"`
+	// `CfnDatastore.CustomerManagedS3StorageProperty.KeyPrefix`.
+	KeyPrefix *string `json:"keyPrefix"`
+}
+
 type CfnDatastore_DatastorePartitionProperty struct {
 	// `CfnDatastore.DatastorePartitionProperty.Partition`.
 	Partition interface{} `json:"partition"`
@@ -1949,6 +1956,8 @@ type CfnDatastore_DatastorePartitionsProperty struct {
 type CfnDatastore_DatastoreStorageProperty struct {
 	// `CfnDatastore.DatastoreStorageProperty.CustomerManagedS3`.
 	CustomerManagedS3 interface{} `json:"customerManagedS3"`
+	// `CfnDatastore.DatastoreStorageProperty.IotSiteWiseMultiLayerStorage`.
+	IotSiteWiseMultiLayerStorage interface{} `json:"iotSiteWiseMultiLayerStorage"`
 	// `CfnDatastore.DatastoreStorageProperty.ServiceManagedS3`.
 	ServiceManagedS3 interface{} `json:"serviceManagedS3"`
 }
@@ -1958,6 +1967,11 @@ type CfnDatastore_FileFormatConfigurationProperty struct {
 	JsonConfiguration interface{} `json:"jsonConfiguration"`
 	// `CfnDatastore.FileFormatConfigurationProperty.ParquetConfiguration`.
 	ParquetConfiguration interface{} `json:"parquetConfiguration"`
+}
+
+type CfnDatastore_IotSiteWiseMultiLayerStorageProperty struct {
+	// `CfnDatastore.IotSiteWiseMultiLayerStorageProperty.CustomerManagedS3Storage`.
+	CustomerManagedS3Storage interface{} `json:"customerManagedS3Storage"`
 }
 
 type CfnDatastore_JsonConfigurationProperty struct {

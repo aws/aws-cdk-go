@@ -848,6 +848,11 @@ type CfnDomain_CognitoOptionsProperty struct {
 	UserPoolId *string `json:"userPoolId"`
 }
 
+type CfnDomain_ColdStorageOptionsProperty struct {
+	// `CfnDomain.ColdStorageOptionsProperty.Enabled`.
+	Enabled interface{} `json:"enabled"`
+}
+
 type CfnDomain_DomainEndpointOptionsProperty struct {
 	// `CfnDomain.DomainEndpointOptionsProperty.CustomEndpoint`.
 	CustomEndpoint *string `json:"customEndpoint"`
@@ -873,6 +878,8 @@ type CfnDomain_EBSOptionsProperty struct {
 }
 
 type CfnDomain_ElasticsearchClusterConfigProperty struct {
+	// `CfnDomain.ElasticsearchClusterConfigProperty.ColdStorageOptions`.
+	ColdStorageOptions interface{} `json:"coldStorageOptions"`
 	// `CfnDomain.ElasticsearchClusterConfigProperty.DedicatedMasterCount`.
 	DedicatedMasterCount *float64 `json:"dedicatedMasterCount"`
 	// `CfnDomain.ElasticsearchClusterConfigProperty.DedicatedMasterEnabled`.

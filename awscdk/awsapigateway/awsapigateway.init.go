@@ -597,6 +597,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "mutualTlsAuthentication", GoGetter: "MutualTlsAuthentication"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "ownershipVerificationCertificateArn", GoGetter: "OwnershipVerificationCertificateArn"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberProperty{JsiiProperty: "regionalCertificateArn", GoGetter: "RegionalCertificateArn"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},

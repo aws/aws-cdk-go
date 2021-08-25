@@ -153,6 +153,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "queuedTimeoutInMinutes", GoGetter: "QueuedTimeoutInMinutes"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "resourceAccessRole", GoGetter: "ResourceAccessRole"},
 			_jsii_.MemberProperty{JsiiProperty: "secondaryArtifacts", GoGetter: "SecondaryArtifacts"},
 			_jsii_.MemberProperty{JsiiProperty: "secondarySources", GoGetter: "SecondarySources"},
 			_jsii_.MemberProperty{JsiiProperty: "secondarySourceVersions", GoGetter: "SecondarySourceVersions"},
@@ -167,6 +168,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "triggers", GoGetter: "Triggers"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "visibility", GoGetter: "Visibility"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcConfig", GoGetter: "VpcConfig"},
 		},
 		func() interface{} {

@@ -254,6 +254,10 @@ func init() {
 		reflect.TypeOf((*CfnDatastore_CustomerManagedS3Property)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iotanalytics.CfnDatastore.CustomerManagedS3StorageProperty",
+		reflect.TypeOf((*CfnDatastore_CustomerManagedS3StorageProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iotanalytics.CfnDatastore.DatastorePartitionProperty",
 		reflect.TypeOf((*CfnDatastore_DatastorePartitionProperty)(nil)).Elem(),
 	)
@@ -268,6 +272,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iotanalytics.CfnDatastore.FileFormatConfigurationProperty",
 		reflect.TypeOf((*CfnDatastore_FileFormatConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_iotanalytics.CfnDatastore.IotSiteWiseMultiLayerStorageProperty",
+		reflect.TypeOf((*CfnDatastore_IotSiteWiseMultiLayerStorageProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_iotanalytics.CfnDatastore.JsonConfigurationProperty",

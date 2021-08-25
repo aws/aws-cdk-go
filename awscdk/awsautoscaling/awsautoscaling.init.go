@@ -365,6 +365,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "policyType", GoGetter: "PolicyType"},
+			_jsii_.MemberProperty{JsiiProperty: "predictiveScalingConfiguration", GoGetter: "PredictiveScalingConfiguration"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "scalingAdjustment", GoGetter: "ScalingAdjustment"},
@@ -394,6 +395,26 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.CfnScalingPolicy.PredefinedMetricSpecificationProperty",
 		reflect.TypeOf((*CfnScalingPolicy_PredefinedMetricSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_autoscaling.CfnScalingPolicy.PredictiveScalingConfigurationProperty",
+		reflect.TypeOf((*CfnScalingPolicy_PredictiveScalingConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_autoscaling.CfnScalingPolicy.PredictiveScalingMetricSpecificationProperty",
+		reflect.TypeOf((*CfnScalingPolicy_PredictiveScalingMetricSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_autoscaling.CfnScalingPolicy.PredictiveScalingPredefinedLoadMetricProperty",
+		reflect.TypeOf((*CfnScalingPolicy_PredictiveScalingPredefinedLoadMetricProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_autoscaling.CfnScalingPolicy.PredictiveScalingPredefinedMetricPairProperty",
+		reflect.TypeOf((*CfnScalingPolicy_PredictiveScalingPredefinedMetricPairProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_autoscaling.CfnScalingPolicy.PredictiveScalingPredefinedScalingMetricProperty",
+		reflect.TypeOf((*CfnScalingPolicy_PredictiveScalingPredefinedScalingMetricProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.CfnScalingPolicy.StepAdjustmentProperty",

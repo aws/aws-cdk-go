@@ -77,6 +77,10 @@ func init() {
 		reflect.TypeOf((*CfnDomain_CognitoOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_elasticsearch.CfnDomain.ColdStorageOptionsProperty",
+		reflect.TypeOf((*CfnDomain_ColdStorageOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticsearch.CfnDomain.DomainEndpointOptionsProperty",
 		reflect.TypeOf((*CfnDomain_DomainEndpointOptionsProperty)(nil)).Elem(),
 	)

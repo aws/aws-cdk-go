@@ -2287,6 +2287,7 @@ type BucketProps struct {
 type CfnAccessPoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrAlias() *string
 	AttrArn() *string
 	AttrName() *string
 	AttrNetworkOrigin() *string
@@ -2332,6 +2333,16 @@ type CfnAccessPoint interface {
 type jsiiProxy_CfnAccessPoint struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnAccessPoint) AttrAlias() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrAlias",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnAccessPoint) AttrArn() *string {

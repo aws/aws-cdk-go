@@ -31,7 +31,15 @@ type AddAutoScalingGroupCapacityOptions struct {
 	// Specifies whether the containers can access the container instance role.
 	// Experimental.
 	CanContainersAccessInstanceRole *bool `json:"canContainersAccessInstanceRole"`
-	// Specify the machine image type.
+	// What type of machine image this is.
+	//
+	// Depending on the setting, different UserData will automatically be added
+	// to the `AutoScalingGroup` to configure it properly for use with ECS.
+	//
+	// If you create an `AutoScalingGroup` yourself and are adding it via
+	// `addAutoScalingGroup()`, you must specify this value. If you are adding an
+	// `autoScalingGroup` via `addCapacity`, this value will be determined
+	// from the `machineImage` you pass.
 	// Experimental.
 	MachineImageType MachineImageType `json:"machineImageType"`
 	// Specify whether to enable Automated Draining for Spot Instances running Amazon ECS Services.
@@ -50,7 +58,15 @@ type AddCapacityOptions struct {
 	// Specifies whether the containers can access the container instance role.
 	// Experimental.
 	CanContainersAccessInstanceRole *bool `json:"canContainersAccessInstanceRole"`
-	// Specify the machine image type.
+	// What type of machine image this is.
+	//
+	// Depending on the setting, different UserData will automatically be added
+	// to the `AutoScalingGroup` to configure it properly for use with ECS.
+	//
+	// If you create an `AutoScalingGroup` yourself and are adding it via
+	// `addAutoScalingGroup()`, you must specify this value. If you are adding an
+	// `autoScalingGroup` via `addCapacity`, this value will be determined
+	// from the `machineImage` you pass.
 	// Experimental.
 	MachineImageType MachineImageType `json:"machineImageType"`
 	// Specify whether to enable Automated Draining for Spot Instances running Amazon ECS Services.
@@ -457,7 +473,15 @@ type AsgCapacityProviderProps struct {
 	// Specifies whether the containers can access the container instance role.
 	// Experimental.
 	CanContainersAccessInstanceRole *bool `json:"canContainersAccessInstanceRole"`
-	// Specify the machine image type.
+	// What type of machine image this is.
+	//
+	// Depending on the setting, different UserData will automatically be added
+	// to the `AutoScalingGroup` to configure it properly for use with ECS.
+	//
+	// If you create an `AutoScalingGroup` yourself and are adding it via
+	// `addAutoScalingGroup()`, you must specify this value. If you are adding an
+	// `autoScalingGroup` via `addCapacity`, this value will be determined
+	// from the `machineImage` you pass.
 	// Experimental.
 	MachineImageType MachineImageType `json:"machineImageType"`
 	// Specify whether to enable Automated Draining for Spot Instances running Amazon ECS Services.
@@ -1717,6 +1741,9 @@ func (b *jsiiProxy_BottleRocketImage) GetImage(scope constructs.Construct) *awse
 // Properties for BottleRocketImage.
 // Experimental.
 type BottleRocketImageProps struct {
+	// The CPU architecture.
+	// Experimental.
+	Architecture awsec2.InstanceArchitecture `json:"architecture"`
 	// The Amazon ECS variant to use.
 	//
 	// Only `aws-ecs-1` is currently available

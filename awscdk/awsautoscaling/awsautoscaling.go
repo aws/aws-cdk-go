@@ -3915,6 +3915,8 @@ type CfnScalingPolicy interface {
 	Node() constructs.Node
 	PolicyType() *string
 	SetPolicyType(val *string)
+	PredictiveScalingConfiguration() interface{}
+	SetPredictiveScalingConfiguration(val interface{})
 	Ref() *string
 	ScalingAdjustment() *float64
 	SetScalingAdjustment(val *float64)
@@ -4077,6 +4079,16 @@ func (j *jsiiProxy_CfnScalingPolicy) PolicyType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnScalingPolicy) PredictiveScalingConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"predictiveScalingConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnScalingPolicy) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -4216,6 +4228,14 @@ func (j *jsiiProxy_CfnScalingPolicy) SetPolicyType(val *string) {
 	_jsii_.Set(
 		j,
 		"policyType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnScalingPolicy) SetPredictiveScalingConfiguration(val interface{}) {
+	_jsii_.Set(
+		j,
+		"predictiveScalingConfiguration",
 		val,
 	)
 }
@@ -4572,6 +4592,51 @@ type CfnScalingPolicy_PredefinedMetricSpecificationProperty struct {
 	ResourceLabel *string `json:"resourceLabel"`
 }
 
+type CfnScalingPolicy_PredictiveScalingConfigurationProperty struct {
+	// `CfnScalingPolicy.PredictiveScalingConfigurationProperty.MetricSpecifications`.
+	MetricSpecifications interface{} `json:"metricSpecifications"`
+	// `CfnScalingPolicy.PredictiveScalingConfigurationProperty.MaxCapacityBreachBehavior`.
+	MaxCapacityBreachBehavior *string `json:"maxCapacityBreachBehavior"`
+	// `CfnScalingPolicy.PredictiveScalingConfigurationProperty.MaxCapacityBuffer`.
+	MaxCapacityBuffer *float64 `json:"maxCapacityBuffer"`
+	// `CfnScalingPolicy.PredictiveScalingConfigurationProperty.Mode`.
+	Mode *string `json:"mode"`
+	// `CfnScalingPolicy.PredictiveScalingConfigurationProperty.SchedulingBufferTime`.
+	SchedulingBufferTime *float64 `json:"schedulingBufferTime"`
+}
+
+type CfnScalingPolicy_PredictiveScalingMetricSpecificationProperty struct {
+	// `CfnScalingPolicy.PredictiveScalingMetricSpecificationProperty.TargetValue`.
+	TargetValue *float64 `json:"targetValue"`
+	// `CfnScalingPolicy.PredictiveScalingMetricSpecificationProperty.PredefinedLoadMetricSpecification`.
+	PredefinedLoadMetricSpecification interface{} `json:"predefinedLoadMetricSpecification"`
+	// `CfnScalingPolicy.PredictiveScalingMetricSpecificationProperty.PredefinedMetricPairSpecification`.
+	PredefinedMetricPairSpecification interface{} `json:"predefinedMetricPairSpecification"`
+	// `CfnScalingPolicy.PredictiveScalingMetricSpecificationProperty.PredefinedScalingMetricSpecification`.
+	PredefinedScalingMetricSpecification interface{} `json:"predefinedScalingMetricSpecification"`
+}
+
+type CfnScalingPolicy_PredictiveScalingPredefinedLoadMetricProperty struct {
+	// `CfnScalingPolicy.PredictiveScalingPredefinedLoadMetricProperty.PredefinedMetricType`.
+	PredefinedMetricType *string `json:"predefinedMetricType"`
+	// `CfnScalingPolicy.PredictiveScalingPredefinedLoadMetricProperty.ResourceLabel`.
+	ResourceLabel *string `json:"resourceLabel"`
+}
+
+type CfnScalingPolicy_PredictiveScalingPredefinedMetricPairProperty struct {
+	// `CfnScalingPolicy.PredictiveScalingPredefinedMetricPairProperty.PredefinedMetricType`.
+	PredefinedMetricType *string `json:"predefinedMetricType"`
+	// `CfnScalingPolicy.PredictiveScalingPredefinedMetricPairProperty.ResourceLabel`.
+	ResourceLabel *string `json:"resourceLabel"`
+}
+
+type CfnScalingPolicy_PredictiveScalingPredefinedScalingMetricProperty struct {
+	// `CfnScalingPolicy.PredictiveScalingPredefinedScalingMetricProperty.PredefinedMetricType`.
+	PredefinedMetricType *string `json:"predefinedMetricType"`
+	// `CfnScalingPolicy.PredictiveScalingPredefinedScalingMetricProperty.ResourceLabel`.
+	ResourceLabel *string `json:"resourceLabel"`
+}
+
 type CfnScalingPolicy_StepAdjustmentProperty struct {
 	// `CfnScalingPolicy.StepAdjustmentProperty.ScalingAdjustment`.
 	ScalingAdjustment *float64 `json:"scalingAdjustment"`
@@ -4608,6 +4673,8 @@ type CfnScalingPolicyProps struct {
 	MinAdjustmentMagnitude *float64 `json:"minAdjustmentMagnitude"`
 	// `AWS::AutoScaling::ScalingPolicy.PolicyType`.
 	PolicyType *string `json:"policyType"`
+	// `AWS::AutoScaling::ScalingPolicy.PredictiveScalingConfiguration`.
+	PredictiveScalingConfiguration interface{} `json:"predictiveScalingConfiguration"`
 	// `AWS::AutoScaling::ScalingPolicy.ScalingAdjustment`.
 	ScalingAdjustment *float64 `json:"scalingAdjustment"`
 	// `AWS::AutoScaling::ScalingPolicy.StepAdjustments`.

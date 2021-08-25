@@ -206,6 +206,8 @@ type DockerImageAssetProps struct {
 	// Experimental.
 	Target *string `json:"target"`
 	// The directory where the Dockerfile is stored.
+	//
+	// Any directory inside with a name that matches the CDK output folder (cdk.out by default) will be excluded from the asset
 	// Experimental.
 	Directory *string `json:"directory"`
 }

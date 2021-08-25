@@ -5381,6 +5381,7 @@ type CfnCustomerGatewayProps struct {
 type CfnDHCPOptions interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrDhcpOptionsId() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -5422,6 +5423,16 @@ type CfnDHCPOptions interface {
 type jsiiProxy_CfnDHCPOptions struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnDHCPOptions) AttrDhcpOptionsId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrDhcpOptionsId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnDHCPOptions) CfnOptions() awscdk.ICfnResourceOptions {
@@ -7918,6 +7929,7 @@ type CfnEIPProps struct {
 type CfnEgressOnlyInternetGateway interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -7950,6 +7962,16 @@ type CfnEgressOnlyInternetGateway interface {
 type jsiiProxy_CfnEgressOnlyInternetGateway struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnEgressOnlyInternetGateway) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnEgressOnlyInternetGateway) CfnOptions() awscdk.ICfnResourceOptions {

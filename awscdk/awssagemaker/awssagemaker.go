@@ -4945,6 +4945,8 @@ type CfnEndpoint_VariantPropertyProperty struct {
 type CfnEndpointConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AsyncInferenceConfig() interface{}
+	SetAsyncInferenceConfig(val interface{})
 	AttrEndpointConfigName() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -4985,6 +4987,16 @@ type CfnEndpointConfig interface {
 type jsiiProxy_CfnEndpointConfig struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnEndpointConfig) AsyncInferenceConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"asyncInferenceConfig",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnEndpointConfig) AttrEndpointConfigName() *string {
@@ -5161,6 +5173,14 @@ func NewCfnEndpointConfig_Override(c CfnEndpointConfig, scope constructs.Constru
 		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnEndpointConfig) SetAsyncInferenceConfig(val interface{}) {
+	_jsii_.Set(
+		j,
+		"asyncInferenceConfig",
+		val,
 	)
 }
 
@@ -5497,6 +5517,34 @@ func (c *jsiiProxy_CfnEndpointConfig) ValidateProperties(_properties interface{}
 	)
 }
 
+type CfnEndpointConfig_AsyncInferenceClientConfigProperty struct {
+	// `CfnEndpointConfig.AsyncInferenceClientConfigProperty.MaxConcurrentInvocationsPerInstance`.
+	MaxConcurrentInvocationsPerInstance *float64 `json:"maxConcurrentInvocationsPerInstance"`
+}
+
+type CfnEndpointConfig_AsyncInferenceConfigProperty struct {
+	// `CfnEndpointConfig.AsyncInferenceConfigProperty.OutputConfig`.
+	OutputConfig interface{} `json:"outputConfig"`
+	// `CfnEndpointConfig.AsyncInferenceConfigProperty.ClientConfig`.
+	ClientConfig interface{} `json:"clientConfig"`
+}
+
+type CfnEndpointConfig_AsyncInferenceNotificationConfigProperty struct {
+	// `CfnEndpointConfig.AsyncInferenceNotificationConfigProperty.ErrorTopic`.
+	ErrorTopic *string `json:"errorTopic"`
+	// `CfnEndpointConfig.AsyncInferenceNotificationConfigProperty.SuccessTopic`.
+	SuccessTopic *string `json:"successTopic"`
+}
+
+type CfnEndpointConfig_AsyncInferenceOutputConfigProperty struct {
+	// `CfnEndpointConfig.AsyncInferenceOutputConfigProperty.S3OutputPath`.
+	S3OutputPath *string `json:"s3OutputPath"`
+	// `CfnEndpointConfig.AsyncInferenceOutputConfigProperty.KmsKeyId`.
+	KmsKeyId *string `json:"kmsKeyId"`
+	// `CfnEndpointConfig.AsyncInferenceOutputConfigProperty.NotificationConfig`.
+	NotificationConfig interface{} `json:"notificationConfig"`
+}
+
 type CfnEndpointConfig_CaptureContentTypeHeaderProperty struct {
 	// `CfnEndpointConfig.CaptureContentTypeHeaderProperty.CsvContentTypes`.
 	CsvContentTypes *[]*string `json:"csvContentTypes"`
@@ -5543,6 +5591,8 @@ type CfnEndpointConfig_ProductionVariantProperty struct {
 type CfnEndpointConfigProps struct {
 	// `AWS::SageMaker::EndpointConfig.ProductionVariants`.
 	ProductionVariants interface{} `json:"productionVariants"`
+	// `AWS::SageMaker::EndpointConfig.AsyncInferenceConfig`.
+	AsyncInferenceConfig interface{} `json:"asyncInferenceConfig"`
 	// `AWS::SageMaker::EndpointConfig.DataCaptureConfig`.
 	DataCaptureConfig interface{} `json:"dataCaptureConfig"`
 	// `AWS::SageMaker::EndpointConfig.EndpointConfigName`.

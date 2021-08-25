@@ -710,6 +710,8 @@ type CfnProject interface {
 	QueuedTimeoutInMinutes() *float64
 	SetQueuedTimeoutInMinutes(val *float64)
 	Ref() *string
+	ResourceAccessRole() *string
+	SetResourceAccessRole(val *string)
 	SecondaryArtifacts() interface{}
 	SetSecondaryArtifacts(val interface{})
 	SecondarySources() interface{}
@@ -729,6 +731,8 @@ type CfnProject interface {
 	Triggers() interface{}
 	SetTriggers(val interface{})
 	UpdatedProperites() *map[string]interface{}
+	Visibility() *string
+	SetVisibility(val *string)
 	VpcConfig() interface{}
 	SetVpcConfig(val interface{})
 	AddDeletionOverride(path *string)
@@ -954,6 +958,16 @@ func (j *jsiiProxy_CfnProject) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnProject) ResourceAccessRole() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"resourceAccessRole",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnProject) SecondaryArtifacts() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -1059,6 +1073,16 @@ func (j *jsiiProxy_CfnProject) UpdatedProperites() *map[string]interface{} {
 	_jsii_.Get(
 		j,
 		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnProject) Visibility() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"visibility",
 		&returns,
 	)
 	return returns
@@ -1197,6 +1221,14 @@ func (j *jsiiProxy_CfnProject) SetQueuedTimeoutInMinutes(val *float64) {
 	)
 }
 
+func (j *jsiiProxy_CfnProject) SetResourceAccessRole(val *string) {
+	_jsii_.Set(
+		j,
+		"resourceAccessRole",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnProject) SetSecondaryArtifacts(val interface{}) {
 	_jsii_.Set(
 		j,
@@ -1257,6 +1289,14 @@ func (j *jsiiProxy_CfnProject) SetTriggers(val interface{}) {
 	_jsii_.Set(
 		j,
 		"triggers",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnProject) SetVisibility(val *string) {
+	_jsii_.Set(
+		j,
+		"visibility",
 		val,
 	)
 }
@@ -1797,6 +1837,8 @@ type CfnProjectProps struct {
 	Name *string `json:"name"`
 	// `AWS::CodeBuild::Project.QueuedTimeoutInMinutes`.
 	QueuedTimeoutInMinutes *float64 `json:"queuedTimeoutInMinutes"`
+	// `AWS::CodeBuild::Project.ResourceAccessRole`.
+	ResourceAccessRole *string `json:"resourceAccessRole"`
 	// `AWS::CodeBuild::Project.SecondaryArtifacts`.
 	SecondaryArtifacts interface{} `json:"secondaryArtifacts"`
 	// `AWS::CodeBuild::Project.SecondarySources`.
@@ -1811,6 +1853,8 @@ type CfnProjectProps struct {
 	TimeoutInMinutes *float64 `json:"timeoutInMinutes"`
 	// `AWS::CodeBuild::Project.Triggers`.
 	Triggers interface{} `json:"triggers"`
+	// `AWS::CodeBuild::Project.Visibility`.
+	Visibility *string `json:"visibility"`
 	// `AWS::CodeBuild::Project.VpcConfig`.
 	VpcConfig interface{} `json:"vpcConfig"`
 }

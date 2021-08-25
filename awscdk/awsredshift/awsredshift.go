@@ -15,6 +15,8 @@ type CfnCluster interface {
 	awscdk.IInspectable
 	AllowVersionUpgrade() interface{}
 	SetAllowVersionUpgrade(val interface{})
+	AquaConfigurationStatus() *string
+	SetAquaConfigurationStatus(val *string)
 	AttrEndpointAddress() *string
 	AttrEndpointPort() *string
 	AttrId() *string
@@ -22,9 +24,15 @@ type CfnCluster interface {
 	SetAutomatedSnapshotRetentionPeriod(val *float64)
 	AvailabilityZone() *string
 	SetAvailabilityZone(val *string)
+	AvailabilityZoneRelocation() interface{}
+	SetAvailabilityZoneRelocation(val interface{})
+	AvailabilityZoneRelocationStatus() *string
+	SetAvailabilityZoneRelocationStatus(val *string)
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
+	Classic() interface{}
+	SetClassic(val interface{})
 	ClusterIdentifier() *string
 	SetClusterIdentifier(val *string)
 	ClusterParameterGroupName() *string
@@ -40,12 +48,26 @@ type CfnCluster interface {
 	CreationStack() *[]*string
 	DbName() *string
 	SetDbName(val *string)
+	DeferMaintenance() interface{}
+	SetDeferMaintenance(val interface{})
+	DeferMaintenanceDuration() *float64
+	SetDeferMaintenanceDuration(val *float64)
+	DeferMaintenanceEndTime() *string
+	SetDeferMaintenanceEndTime(val *string)
+	DeferMaintenanceIdentifier() *string
+	SetDeferMaintenanceIdentifier(val *string)
+	DeferMaintenanceStartTime() *string
+	SetDeferMaintenanceStartTime(val *string)
+	DestinationRegion() *string
+	SetDestinationRegion(val *string)
 	ElasticIp() *string
 	SetElasticIp(val *string)
 	Encrypted() interface{}
 	SetEncrypted(val interface{})
 	Endpoint() interface{}
 	SetEndpoint(val interface{})
+	EnhancedVpcRouting() interface{}
+	SetEnhancedVpcRouting(val interface{})
 	HsmClientCertificateIdentifier() *string
 	SetHsmClientCertificateIdentifier(val *string)
 	HsmConfigurationIdentifier() *string
@@ -57,6 +79,10 @@ type CfnCluster interface {
 	LoggingProperties() interface{}
 	SetLoggingProperties(val interface{})
 	LogicalId() *string
+	MaintenanceTrackName() *string
+	SetMaintenanceTrackName(val *string)
+	ManualSnapshotRetentionPeriod() *float64
+	SetManualSnapshotRetentionPeriod(val *float64)
 	MasterUsername() *string
 	SetMasterUsername(val *string)
 	MasterUserPassword() *string
@@ -75,8 +101,20 @@ type CfnCluster interface {
 	PubliclyAccessible() interface{}
 	SetPubliclyAccessible(val interface{})
 	Ref() *string
+	ResourceAction() *string
+	SetResourceAction(val *string)
+	RevisionTarget() *string
+	SetRevisionTarget(val *string)
+	RotateEncryptionKey() interface{}
+	SetRotateEncryptionKey(val interface{})
 	SnapshotClusterIdentifier() *string
 	SetSnapshotClusterIdentifier(val *string)
+	SnapshotCopyGrantName() *string
+	SetSnapshotCopyGrantName(val *string)
+	SnapshotCopyManual() interface{}
+	SetSnapshotCopyManual(val interface{})
+	SnapshotCopyRetentionPeriod() *float64
+	SetSnapshotCopyRetentionPeriod(val *float64)
 	SnapshotIdentifier() *string
 	SetSnapshotIdentifier(val *string)
 	Stack() awscdk.Stack
@@ -112,6 +150,16 @@ func (j *jsiiProxy_CfnCluster) AllowVersionUpgrade() interface{} {
 	_jsii_.Get(
 		j,
 		"allowVersionUpgrade",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) AquaConfigurationStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"aquaConfigurationStatus",
 		&returns,
 	)
 	return returns
@@ -167,6 +215,26 @@ func (j *jsiiProxy_CfnCluster) AvailabilityZone() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) AvailabilityZoneRelocation() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"availabilityZoneRelocation",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) AvailabilityZoneRelocationStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"availabilityZoneRelocationStatus",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) CfnOptions() awscdk.ICfnResourceOptions {
 	var returns awscdk.ICfnResourceOptions
 	_jsii_.Get(
@@ -192,6 +260,16 @@ func (j *jsiiProxy_CfnCluster) CfnResourceType() *string {
 	_jsii_.Get(
 		j,
 		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) Classic() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"classic",
 		&returns,
 	)
 	return returns
@@ -277,6 +355,66 @@ func (j *jsiiProxy_CfnCluster) DbName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) DeferMaintenance() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"deferMaintenance",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) DeferMaintenanceDuration() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"deferMaintenanceDuration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) DeferMaintenanceEndTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"deferMaintenanceEndTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) DeferMaintenanceIdentifier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"deferMaintenanceIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) DeferMaintenanceStartTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"deferMaintenanceStartTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) DestinationRegion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"destinationRegion",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) ElasticIp() *string {
 	var returns *string
 	_jsii_.Get(
@@ -302,6 +440,16 @@ func (j *jsiiProxy_CfnCluster) Endpoint() interface{} {
 	_jsii_.Get(
 		j,
 		"endpoint",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) EnhancedVpcRouting() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"enhancedVpcRouting",
 		&returns,
 	)
 	return returns
@@ -362,6 +510,26 @@ func (j *jsiiProxy_CfnCluster) LogicalId() *string {
 	_jsii_.Get(
 		j,
 		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) MaintenanceTrackName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"maintenanceTrackName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) ManualSnapshotRetentionPeriod() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"manualSnapshotRetentionPeriod",
 		&returns,
 	)
 	return returns
@@ -467,11 +635,71 @@ func (j *jsiiProxy_CfnCluster) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) ResourceAction() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"resourceAction",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) RevisionTarget() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"revisionTarget",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) RotateEncryptionKey() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"rotateEncryptionKey",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) SnapshotClusterIdentifier() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"snapshotClusterIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) SnapshotCopyGrantName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"snapshotCopyGrantName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) SnapshotCopyManual() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"snapshotCopyManual",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) SnapshotCopyRetentionPeriod() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"snapshotCopyRetentionPeriod",
 		&returns,
 	)
 	return returns
@@ -562,6 +790,14 @@ func (j *jsiiProxy_CfnCluster) SetAllowVersionUpgrade(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnCluster) SetAquaConfigurationStatus(val *string) {
+	_jsii_.Set(
+		j,
+		"aquaConfigurationStatus",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnCluster) SetAutomatedSnapshotRetentionPeriod(val *float64) {
 	_jsii_.Set(
 		j,
@@ -574,6 +810,30 @@ func (j *jsiiProxy_CfnCluster) SetAvailabilityZone(val *string) {
 	_jsii_.Set(
 		j,
 		"availabilityZone",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster) SetAvailabilityZoneRelocation(val interface{}) {
+	_jsii_.Set(
+		j,
+		"availabilityZoneRelocation",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster) SetAvailabilityZoneRelocationStatus(val *string) {
+	_jsii_.Set(
+		j,
+		"availabilityZoneRelocationStatus",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster) SetClassic(val interface{}) {
+	_jsii_.Set(
+		j,
+		"classic",
 		val,
 	)
 }
@@ -634,6 +894,54 @@ func (j *jsiiProxy_CfnCluster) SetDbName(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnCluster) SetDeferMaintenance(val interface{}) {
+	_jsii_.Set(
+		j,
+		"deferMaintenance",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster) SetDeferMaintenanceDuration(val *float64) {
+	_jsii_.Set(
+		j,
+		"deferMaintenanceDuration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster) SetDeferMaintenanceEndTime(val *string) {
+	_jsii_.Set(
+		j,
+		"deferMaintenanceEndTime",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster) SetDeferMaintenanceIdentifier(val *string) {
+	_jsii_.Set(
+		j,
+		"deferMaintenanceIdentifier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster) SetDeferMaintenanceStartTime(val *string) {
+	_jsii_.Set(
+		j,
+		"deferMaintenanceStartTime",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster) SetDestinationRegion(val *string) {
+	_jsii_.Set(
+		j,
+		"destinationRegion",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnCluster) SetElasticIp(val *string) {
 	_jsii_.Set(
 		j,
@@ -654,6 +962,14 @@ func (j *jsiiProxy_CfnCluster) SetEndpoint(val interface{}) {
 	_jsii_.Set(
 		j,
 		"endpoint",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster) SetEnhancedVpcRouting(val interface{}) {
+	_jsii_.Set(
+		j,
+		"enhancedVpcRouting",
 		val,
 	)
 }
@@ -694,6 +1010,22 @@ func (j *jsiiProxy_CfnCluster) SetLoggingProperties(val interface{}) {
 	_jsii_.Set(
 		j,
 		"loggingProperties",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster) SetMaintenanceTrackName(val *string) {
+	_jsii_.Set(
+		j,
+		"maintenanceTrackName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster) SetManualSnapshotRetentionPeriod(val *float64) {
+	_jsii_.Set(
+		j,
+		"manualSnapshotRetentionPeriod",
 		val,
 	)
 }
@@ -762,10 +1094,58 @@ func (j *jsiiProxy_CfnCluster) SetPubliclyAccessible(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnCluster) SetResourceAction(val *string) {
+	_jsii_.Set(
+		j,
+		"resourceAction",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster) SetRevisionTarget(val *string) {
+	_jsii_.Set(
+		j,
+		"revisionTarget",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster) SetRotateEncryptionKey(val interface{}) {
+	_jsii_.Set(
+		j,
+		"rotateEncryptionKey",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnCluster) SetSnapshotClusterIdentifier(val *string) {
 	_jsii_.Set(
 		j,
 		"snapshotClusterIdentifier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster) SetSnapshotCopyGrantName(val *string) {
+	_jsii_.Set(
+		j,
+		"snapshotCopyGrantName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster) SetSnapshotCopyManual(val interface{}) {
+	_jsii_.Set(
+		j,
+		"snapshotCopyManual",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster) SetSnapshotCopyRetentionPeriod(val *float64) {
+	_jsii_.Set(
+		j,
+		"snapshotCopyRetentionPeriod",
 		val,
 	)
 }
@@ -1659,10 +2039,18 @@ type CfnClusterProps struct {
 	NodeType *string `json:"nodeType"`
 	// `AWS::Redshift::Cluster.AllowVersionUpgrade`.
 	AllowVersionUpgrade interface{} `json:"allowVersionUpgrade"`
+	// `AWS::Redshift::Cluster.AquaConfigurationStatus`.
+	AquaConfigurationStatus *string `json:"aquaConfigurationStatus"`
 	// `AWS::Redshift::Cluster.AutomatedSnapshotRetentionPeriod`.
 	AutomatedSnapshotRetentionPeriod *float64 `json:"automatedSnapshotRetentionPeriod"`
 	// `AWS::Redshift::Cluster.AvailabilityZone`.
 	AvailabilityZone *string `json:"availabilityZone"`
+	// `AWS::Redshift::Cluster.AvailabilityZoneRelocation`.
+	AvailabilityZoneRelocation interface{} `json:"availabilityZoneRelocation"`
+	// `AWS::Redshift::Cluster.AvailabilityZoneRelocationStatus`.
+	AvailabilityZoneRelocationStatus *string `json:"availabilityZoneRelocationStatus"`
+	// `AWS::Redshift::Cluster.Classic`.
+	Classic interface{} `json:"classic"`
 	// `AWS::Redshift::Cluster.ClusterIdentifier`.
 	ClusterIdentifier *string `json:"clusterIdentifier"`
 	// `AWS::Redshift::Cluster.ClusterParameterGroupName`.
@@ -1673,12 +2061,26 @@ type CfnClusterProps struct {
 	ClusterSubnetGroupName *string `json:"clusterSubnetGroupName"`
 	// `AWS::Redshift::Cluster.ClusterVersion`.
 	ClusterVersion *string `json:"clusterVersion"`
+	// `AWS::Redshift::Cluster.DeferMaintenance`.
+	DeferMaintenance interface{} `json:"deferMaintenance"`
+	// `AWS::Redshift::Cluster.DeferMaintenanceDuration`.
+	DeferMaintenanceDuration *float64 `json:"deferMaintenanceDuration"`
+	// `AWS::Redshift::Cluster.DeferMaintenanceEndTime`.
+	DeferMaintenanceEndTime *string `json:"deferMaintenanceEndTime"`
+	// `AWS::Redshift::Cluster.DeferMaintenanceIdentifier`.
+	DeferMaintenanceIdentifier *string `json:"deferMaintenanceIdentifier"`
+	// `AWS::Redshift::Cluster.DeferMaintenanceStartTime`.
+	DeferMaintenanceStartTime *string `json:"deferMaintenanceStartTime"`
+	// `AWS::Redshift::Cluster.DestinationRegion`.
+	DestinationRegion *string `json:"destinationRegion"`
 	// `AWS::Redshift::Cluster.ElasticIp`.
 	ElasticIp *string `json:"elasticIp"`
 	// `AWS::Redshift::Cluster.Encrypted`.
 	Encrypted interface{} `json:"encrypted"`
 	// `AWS::Redshift::Cluster.Endpoint`.
 	Endpoint interface{} `json:"endpoint"`
+	// `AWS::Redshift::Cluster.EnhancedVpcRouting`.
+	EnhancedVpcRouting interface{} `json:"enhancedVpcRouting"`
 	// `AWS::Redshift::Cluster.HsmClientCertificateIdentifier`.
 	HsmClientCertificateIdentifier *string `json:"hsmClientCertificateIdentifier"`
 	// `AWS::Redshift::Cluster.HsmConfigurationIdentifier`.
@@ -1689,6 +2091,10 @@ type CfnClusterProps struct {
 	KmsKeyId *string `json:"kmsKeyId"`
 	// `AWS::Redshift::Cluster.LoggingProperties`.
 	LoggingProperties interface{} `json:"loggingProperties"`
+	// `AWS::Redshift::Cluster.MaintenanceTrackName`.
+	MaintenanceTrackName *string `json:"maintenanceTrackName"`
+	// `AWS::Redshift::Cluster.ManualSnapshotRetentionPeriod`.
+	ManualSnapshotRetentionPeriod *float64 `json:"manualSnapshotRetentionPeriod"`
 	// `AWS::Redshift::Cluster.NumberOfNodes`.
 	NumberOfNodes *float64 `json:"numberOfNodes"`
 	// `AWS::Redshift::Cluster.OwnerAccount`.
@@ -1699,8 +2105,20 @@ type CfnClusterProps struct {
 	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
 	// `AWS::Redshift::Cluster.PubliclyAccessible`.
 	PubliclyAccessible interface{} `json:"publiclyAccessible"`
+	// `AWS::Redshift::Cluster.ResourceAction`.
+	ResourceAction *string `json:"resourceAction"`
+	// `AWS::Redshift::Cluster.RevisionTarget`.
+	RevisionTarget *string `json:"revisionTarget"`
+	// `AWS::Redshift::Cluster.RotateEncryptionKey`.
+	RotateEncryptionKey interface{} `json:"rotateEncryptionKey"`
 	// `AWS::Redshift::Cluster.SnapshotClusterIdentifier`.
 	SnapshotClusterIdentifier *string `json:"snapshotClusterIdentifier"`
+	// `AWS::Redshift::Cluster.SnapshotCopyGrantName`.
+	SnapshotCopyGrantName *string `json:"snapshotCopyGrantName"`
+	// `AWS::Redshift::Cluster.SnapshotCopyManual`.
+	SnapshotCopyManual interface{} `json:"snapshotCopyManual"`
+	// `AWS::Redshift::Cluster.SnapshotCopyRetentionPeriod`.
+	SnapshotCopyRetentionPeriod *float64 `json:"snapshotCopyRetentionPeriod"`
 	// `AWS::Redshift::Cluster.SnapshotIdentifier`.
 	SnapshotIdentifier *string `json:"snapshotIdentifier"`
 	// `AWS::Redshift::Cluster.Tags`.

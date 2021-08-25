@@ -529,6 +529,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "asyncInferenceConfig", GoGetter: "AsyncInferenceConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "attrEndpointConfigName", GoGetter: "AttrEndpointConfigName"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
@@ -559,6 +560,22 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.AsyncInferenceClientConfigProperty",
+		reflect.TypeOf((*CfnEndpointConfig_AsyncInferenceClientConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.AsyncInferenceConfigProperty",
+		reflect.TypeOf((*CfnEndpointConfig_AsyncInferenceConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.AsyncInferenceNotificationConfigProperty",
+		reflect.TypeOf((*CfnEndpointConfig_AsyncInferenceNotificationConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.AsyncInferenceOutputConfigProperty",
+		reflect.TypeOf((*CfnEndpointConfig_AsyncInferenceOutputConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_sagemaker.CfnEndpointConfig.CaptureContentTypeHeaderProperty",

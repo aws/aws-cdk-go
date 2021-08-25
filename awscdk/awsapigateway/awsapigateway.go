@@ -6846,6 +6846,8 @@ type CfnDomainName interface {
 	MutualTlsAuthentication() interface{}
 	SetMutualTlsAuthentication(val interface{})
 	Node() constructs.Node
+	OwnershipVerificationCertificateArn() *string
+	SetOwnershipVerificationCertificateArn(val *string)
 	Ref() *string
 	RegionalCertificateArn() *string
 	SetRegionalCertificateArn(val *string)
@@ -7017,6 +7019,16 @@ func (j *jsiiProxy_CfnDomainName) Node() constructs.Node {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDomainName) OwnershipVerificationCertificateArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ownershipVerificationCertificateArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDomainName) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -7132,6 +7144,14 @@ func (j *jsiiProxy_CfnDomainName) SetMutualTlsAuthentication(val interface{}) {
 	_jsii_.Set(
 		j,
 		"mutualTlsAuthentication",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDomainName) SetOwnershipVerificationCertificateArn(val *string) {
+	_jsii_.Set(
+		j,
+		"ownershipVerificationCertificateArn",
 		val,
 	)
 }
@@ -7475,6 +7495,8 @@ type CfnDomainNameProps struct {
 	EndpointConfiguration interface{} `json:"endpointConfiguration"`
 	// `AWS::ApiGateway::DomainName.MutualTlsAuthentication`.
 	MutualTlsAuthentication interface{} `json:"mutualTlsAuthentication"`
+	// `AWS::ApiGateway::DomainName.OwnershipVerificationCertificateArn`.
+	OwnershipVerificationCertificateArn *string `json:"ownershipVerificationCertificateArn"`
 	// `AWS::ApiGateway::DomainName.RegionalCertificateArn`.
 	RegionalCertificateArn *string `json:"regionalCertificateArn"`
 	// `AWS::ApiGateway::DomainName.SecurityPolicy`.

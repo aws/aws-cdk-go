@@ -3805,6 +3805,8 @@ type CfnDomainName_DomainNameConfigurationProperty struct {
 	CertificateName *string `json:"certificateName"`
 	// `CfnDomainName.DomainNameConfigurationProperty.EndpointType`.
 	EndpointType *string `json:"endpointType"`
+	// `CfnDomainName.DomainNameConfigurationProperty.OwnershipVerificationCertificateArn`.
+	OwnershipVerificationCertificateArn *string `json:"ownershipVerificationCertificateArn"`
 	// `CfnDomainName.DomainNameConfigurationProperty.SecurityPolicy`.
 	SecurityPolicy *string `json:"securityPolicy"`
 }
