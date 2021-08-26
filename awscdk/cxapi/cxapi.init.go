@@ -8,11 +8,11 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.cx_api.AssemblyBuildOptions",
+		"monocdk.cx_api.AssemblyBuildOptions",
 		reflect.TypeOf((*AssemblyBuildOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.cx_api.AssetManifestArtifact",
+		"monocdk.cx_api.AssetManifestArtifact",
 		reflect.TypeOf((*AssetManifestArtifact)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "assembly", GoGetter: "Assembly"},
@@ -33,11 +33,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.cx_api.AwsCloudFormationStackProperties",
+		"monocdk.cx_api.AwsCloudFormationStackProperties",
 		reflect.TypeOf((*AwsCloudFormationStackProperties)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.cx_api.CloudArtifact",
+		"monocdk.cx_api.CloudArtifact",
 		reflect.TypeOf((*CloudArtifact)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "assembly", GoGetter: "Assembly"},
@@ -53,13 +53,14 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.cx_api.CloudAssembly",
+		"monocdk.cx_api.CloudAssembly",
 		reflect.TypeOf((*CloudAssembly)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "artifacts", GoGetter: "Artifacts"},
 			_jsii_.MemberProperty{JsiiProperty: "directory", GoGetter: "Directory"},
 			_jsii_.MemberMethod{JsiiMethod: "getNestedAssembly", GoMethod: "GetNestedAssembly"},
 			_jsii_.MemberMethod{JsiiMethod: "getNestedAssemblyArtifact", GoMethod: "GetNestedAssemblyArtifact"},
+			_jsii_.MemberMethod{JsiiMethod: "getStack", GoMethod: "GetStack"},
 			_jsii_.MemberMethod{JsiiMethod: "getStackArtifact", GoMethod: "GetStackArtifact"},
 			_jsii_.MemberMethod{JsiiMethod: "getStackByName", GoMethod: "GetStackByName"},
 			_jsii_.MemberProperty{JsiiProperty: "manifest", GoGetter: "Manifest"},
@@ -76,7 +77,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.cx_api.CloudAssemblyBuilder",
+		"monocdk.cx_api.CloudAssemblyBuilder",
 		reflect.TypeOf((*CloudAssemblyBuilder)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addArtifact", GoMethod: "AddArtifact"},
@@ -91,11 +92,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.cx_api.CloudAssemblyBuilderProps",
+		"monocdk.cx_api.CloudAssemblyBuilderProps",
 		reflect.TypeOf((*CloudAssemblyBuilderProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.cx_api.CloudFormationStackArtifact",
+		"monocdk.cx_api.CloudFormationStackArtifact",
 		reflect.TypeOf((*CloudFormationStackArtifact)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "assembly", GoGetter: "Assembly"},
@@ -112,6 +113,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
 			_jsii_.MemberProperty{JsiiProperty: "manifest", GoGetter: "Manifest"},
 			_jsii_.MemberProperty{JsiiProperty: "messages", GoGetter: "Messages"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "originalName", GoGetter: "OriginalName"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "requiresBootstrapStackVersion", GoGetter: "RequiresBootstrapStackVersion"},
@@ -131,19 +133,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.cx_api.EndpointServiceAvailabilityZonesContextQuery",
+		"monocdk.cx_api.EndpointServiceAvailabilityZonesContextQuery",
 		reflect.TypeOf((*EndpointServiceAvailabilityZonesContextQuery)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.cx_api.Environment",
+		"monocdk.cx_api.Environment",
 		reflect.TypeOf((*Environment)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.cx_api.EnvironmentPlaceholderValues",
+		"monocdk.cx_api.EnvironmentPlaceholderValues",
 		reflect.TypeOf((*EnvironmentPlaceholderValues)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.cx_api.EnvironmentPlaceholders",
+		"monocdk.cx_api.EnvironmentPlaceholders",
 		reflect.TypeOf((*EnvironmentPlaceholders)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -151,7 +153,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.cx_api.EnvironmentUtils",
+		"monocdk.cx_api.EnvironmentUtils",
 		reflect.TypeOf((*EnvironmentUtils)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -159,7 +161,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.cx_api.IEnvironmentPlaceholderProvider",
+		"monocdk.cx_api.IEnvironmentPlaceholderProvider",
 		reflect.TypeOf((*IEnvironmentPlaceholderProvider)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "accountId", GoMethod: "AccountId"},
@@ -171,11 +173,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.cx_api.LoadBalancerContextResponse",
+		"monocdk.cx_api.LoadBalancerContextResponse",
 		reflect.TypeOf((*LoadBalancerContextResponse)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.cx_api.LoadBalancerIpAddressType",
+		"monocdk.cx_api.LoadBalancerIpAddressType",
 		reflect.TypeOf((*LoadBalancerIpAddressType)(nil)).Elem(),
 		map[string]interface{}{
 			"IPV4": LoadBalancerIpAddressType_IPV4,
@@ -183,15 +185,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.cx_api.LoadBalancerListenerContextResponse",
+		"monocdk.cx_api.LoadBalancerListenerContextResponse",
 		reflect.TypeOf((*LoadBalancerListenerContextResponse)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.cx_api.MetadataEntryResult",
+		"monocdk.cx_api.MetadataEntry",
+		reflect.TypeOf((*MetadataEntry)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.cx_api.MetadataEntryResult",
 		reflect.TypeOf((*MetadataEntryResult)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"monocdk.cx_api.MissingContext",
+		reflect.TypeOf((*MissingContext)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.cx_api.NestedCloudAssemblyArtifact",
+		"monocdk.cx_api.NestedCloudAssemblyArtifact",
 		reflect.TypeOf((*NestedCloudAssemblyArtifact)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "assembly", GoGetter: "Assembly"},
@@ -213,15 +223,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.cx_api.SecurityGroupContextResponse",
+		"monocdk.cx_api.RuntimeInfo",
+		reflect.TypeOf((*RuntimeInfo)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.cx_api.SecurityGroupContextResponse",
 		reflect.TypeOf((*SecurityGroupContextResponse)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.cx_api.SynthesisMessage",
+		"monocdk.cx_api.SynthesisMessage",
 		reflect.TypeOf((*SynthesisMessage)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.cx_api.SynthesisMessageLevel",
+		"monocdk.cx_api.SynthesisMessageLevel",
 		reflect.TypeOf((*SynthesisMessageLevel)(nil)).Elem(),
 		map[string]interface{}{
 			"INFO": SynthesisMessageLevel_INFO,
@@ -230,7 +244,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.cx_api.TreeCloudArtifact",
+		"monocdk.cx_api.TreeCloudArtifact",
 		reflect.TypeOf((*TreeCloudArtifact)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "assembly", GoGetter: "Assembly"},
@@ -249,19 +263,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.cx_api.VpcContextResponse",
+		"monocdk.cx_api.VpcContextResponse",
 		reflect.TypeOf((*VpcContextResponse)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.cx_api.VpcSubnet",
+		"monocdk.cx_api.VpcSubnet",
 		reflect.TypeOf((*VpcSubnet)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.cx_api.VpcSubnetGroup",
+		"monocdk.cx_api.VpcSubnetGroup",
 		reflect.TypeOf((*VpcSubnetGroup)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"aws-cdk-lib.cx_api.VpcSubnetGroupType",
+		"monocdk.cx_api.VpcSubnetGroupType",
 		reflect.TypeOf((*VpcSubnetGroupType)(nil)).Elem(),
 		map[string]interface{}{
 			"PUBLIC": VpcSubnetGroupType_PUBLIC,

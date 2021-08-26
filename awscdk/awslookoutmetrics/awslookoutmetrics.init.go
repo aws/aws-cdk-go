@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_lookoutmetrics.CfnAlert",
+		"monocdk.aws_lookoutmetrics.CfnAlert",
 		reflect.TypeOf((*CfnAlert)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "action", GoGetter: "Action"},
@@ -33,13 +33,19 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -50,23 +56,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lookoutmetrics.CfnAlert.ActionProperty",
+		"monocdk.aws_lookoutmetrics.CfnAlert.ActionProperty",
 		reflect.TypeOf((*CfnAlert_ActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lookoutmetrics.CfnAlert.LambdaConfigurationProperty",
+		"monocdk.aws_lookoutmetrics.CfnAlert.LambdaConfigurationProperty",
 		reflect.TypeOf((*CfnAlert_LambdaConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lookoutmetrics.CfnAlert.SNSConfigurationProperty",
+		"monocdk.aws_lookoutmetrics.CfnAlert.SNSConfigurationProperty",
 		reflect.TypeOf((*CfnAlert_SNSConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lookoutmetrics.CfnAlertProps",
+		"monocdk.aws_lookoutmetrics.CfnAlertProps",
 		reflect.TypeOf((*CfnAlertProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_lookoutmetrics.CfnAnomalyDetector",
+		"monocdk.aws_lookoutmetrics.CfnAnomalyDetector",
 		reflect.TypeOf((*CfnAnomalyDetector)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -91,13 +97,19 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "metricSetList", GoGetter: "MetricSetList"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -108,63 +120,63 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lookoutmetrics.CfnAnomalyDetector.AnomalyDetectorConfigProperty",
+		"monocdk.aws_lookoutmetrics.CfnAnomalyDetector.AnomalyDetectorConfigProperty",
 		reflect.TypeOf((*CfnAnomalyDetector_AnomalyDetectorConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lookoutmetrics.CfnAnomalyDetector.AppFlowConfigProperty",
+		"monocdk.aws_lookoutmetrics.CfnAnomalyDetector.AppFlowConfigProperty",
 		reflect.TypeOf((*CfnAnomalyDetector_AppFlowConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lookoutmetrics.CfnAnomalyDetector.CloudwatchConfigProperty",
+		"monocdk.aws_lookoutmetrics.CfnAnomalyDetector.CloudwatchConfigProperty",
 		reflect.TypeOf((*CfnAnomalyDetector_CloudwatchConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lookoutmetrics.CfnAnomalyDetector.CsvFormatDescriptorProperty",
+		"monocdk.aws_lookoutmetrics.CfnAnomalyDetector.CsvFormatDescriptorProperty",
 		reflect.TypeOf((*CfnAnomalyDetector_CsvFormatDescriptorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lookoutmetrics.CfnAnomalyDetector.FileFormatDescriptorProperty",
+		"monocdk.aws_lookoutmetrics.CfnAnomalyDetector.FileFormatDescriptorProperty",
 		reflect.TypeOf((*CfnAnomalyDetector_FileFormatDescriptorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lookoutmetrics.CfnAnomalyDetector.JsonFormatDescriptorProperty",
+		"monocdk.aws_lookoutmetrics.CfnAnomalyDetector.JsonFormatDescriptorProperty",
 		reflect.TypeOf((*CfnAnomalyDetector_JsonFormatDescriptorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lookoutmetrics.CfnAnomalyDetector.MetricProperty",
+		"monocdk.aws_lookoutmetrics.CfnAnomalyDetector.MetricProperty",
 		reflect.TypeOf((*CfnAnomalyDetector_MetricProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lookoutmetrics.CfnAnomalyDetector.MetricSetProperty",
+		"monocdk.aws_lookoutmetrics.CfnAnomalyDetector.MetricSetProperty",
 		reflect.TypeOf((*CfnAnomalyDetector_MetricSetProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lookoutmetrics.CfnAnomalyDetector.MetricSourceProperty",
+		"monocdk.aws_lookoutmetrics.CfnAnomalyDetector.MetricSourceProperty",
 		reflect.TypeOf((*CfnAnomalyDetector_MetricSourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lookoutmetrics.CfnAnomalyDetector.RDSSourceConfigProperty",
+		"monocdk.aws_lookoutmetrics.CfnAnomalyDetector.RDSSourceConfigProperty",
 		reflect.TypeOf((*CfnAnomalyDetector_RDSSourceConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lookoutmetrics.CfnAnomalyDetector.RedshiftSourceConfigProperty",
+		"monocdk.aws_lookoutmetrics.CfnAnomalyDetector.RedshiftSourceConfigProperty",
 		reflect.TypeOf((*CfnAnomalyDetector_RedshiftSourceConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lookoutmetrics.CfnAnomalyDetector.S3SourceConfigProperty",
+		"monocdk.aws_lookoutmetrics.CfnAnomalyDetector.S3SourceConfigProperty",
 		reflect.TypeOf((*CfnAnomalyDetector_S3SourceConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lookoutmetrics.CfnAnomalyDetector.TimestampColumnProperty",
+		"monocdk.aws_lookoutmetrics.CfnAnomalyDetector.TimestampColumnProperty",
 		reflect.TypeOf((*CfnAnomalyDetector_TimestampColumnProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lookoutmetrics.CfnAnomalyDetector.VpcConfigurationProperty",
+		"monocdk.aws_lookoutmetrics.CfnAnomalyDetector.VpcConfigurationProperty",
 		reflect.TypeOf((*CfnAnomalyDetector_VpcConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lookoutmetrics.CfnAnomalyDetectorProps",
+		"monocdk.aws_lookoutmetrics.CfnAnomalyDetectorProps",
 		reflect.TypeOf((*CfnAnomalyDetectorProps)(nil)).Elem(),
 	)
 }
