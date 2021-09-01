@@ -1,15 +1,15 @@
 package awssqs
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/awssqs/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::SQS::Queue`.
@@ -41,7 +41,7 @@ type CfnQueue interface {
 	SetMaximumMessageSize(val *float64)
 	MessageRetentionPeriod() *float64
 	SetMessageRetentionPeriod(val *float64)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	QueueName() *string
 	SetQueueName(val *string)
 	ReceiveMessageWaitTimeSeconds() *float64
@@ -64,10 +64,16 @@ type CfnQueue interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -237,8 +243,8 @@ func (j *jsiiProxy_CfnQueue) MessageRetentionPeriod() *float64 {
 	return returns
 }
 
-func (j *jsiiProxy_CfnQueue) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnQueue) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -329,13 +335,13 @@ func (j *jsiiProxy_CfnQueue) VisibilityTimeout() *float64 {
 
 
 // Create a new `AWS::SQS::Queue`.
-func NewCfnQueue(scope constructs.Construct, id *string, props *CfnQueueProps) CfnQueue {
+func NewCfnQueue(scope awscdk.Construct, id *string, props *CfnQueueProps) CfnQueue {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnQueue{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sqs.CfnQueue",
+		"monocdk.aws_sqs.CfnQueue",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -344,11 +350,11 @@ func NewCfnQueue(scope constructs.Construct, id *string, props *CfnQueueProps) C
 }
 
 // Create a new `AWS::SQS::Queue`.
-func NewCfnQueue_Override(c CfnQueue, scope constructs.Construct, id *string, props *CfnQueueProps) {
+func NewCfnQueue_Override(c CfnQueue, scope awscdk.Construct, id *string, props *CfnQueueProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sqs.CfnQueue",
+		"monocdk.aws_sqs.CfnQueue",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -471,7 +477,7 @@ func CfnQueue_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sqs.CfnQueue",
+		"monocdk.aws_sqs.CfnQueue",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -488,7 +494,7 @@ func CfnQueue_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sqs.CfnQueue",
+		"monocdk.aws_sqs.CfnQueue",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -497,17 +503,15 @@ func CfnQueue_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnQueue_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sqs.CfnQueue",
+		"monocdk.aws_sqs.CfnQueue",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -520,7 +524,7 @@ func CfnQueue_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_sqs.CfnQueue",
+		"monocdk.aws_sqs.CfnQueue",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -692,6 +696,56 @@ func (c *jsiiProxy_CfnQueue) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnQueue) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnQueue) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnQueue) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnQueue) OverrideLogicalId(newLogicalId *string) {
@@ -699,6 +753,23 @@ func (c *jsiiProxy_CfnQueue) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnQueue) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -733,6 +804,19 @@ func (c *jsiiProxy_CfnQueue) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnQueue) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -743,6 +827,26 @@ func (c *jsiiProxy_CfnQueue) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnQueue) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -768,7 +872,7 @@ type CfnQueuePolicy interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PolicyDocument() interface{}
 	SetPolicyDocument(val interface{})
 	Queues() *[]*string
@@ -786,10 +890,16 @@ type CfnQueuePolicy interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -849,8 +959,8 @@ func (j *jsiiProxy_CfnQueuePolicy) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnQueuePolicy) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnQueuePolicy) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -911,13 +1021,13 @@ func (j *jsiiProxy_CfnQueuePolicy) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::SQS::QueuePolicy`.
-func NewCfnQueuePolicy(scope constructs.Construct, id *string, props *CfnQueuePolicyProps) CfnQueuePolicy {
+func NewCfnQueuePolicy(scope awscdk.Construct, id *string, props *CfnQueuePolicyProps) CfnQueuePolicy {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnQueuePolicy{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sqs.CfnQueuePolicy",
+		"monocdk.aws_sqs.CfnQueuePolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -926,11 +1036,11 @@ func NewCfnQueuePolicy(scope constructs.Construct, id *string, props *CfnQueuePo
 }
 
 // Create a new `AWS::SQS::QueuePolicy`.
-func NewCfnQueuePolicy_Override(c CfnQueuePolicy, scope constructs.Construct, id *string, props *CfnQueuePolicyProps) {
+func NewCfnQueuePolicy_Override(c CfnQueuePolicy, scope awscdk.Construct, id *string, props *CfnQueuePolicyProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sqs.CfnQueuePolicy",
+		"monocdk.aws_sqs.CfnQueuePolicy",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -965,7 +1075,7 @@ func CfnQueuePolicy_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sqs.CfnQueuePolicy",
+		"monocdk.aws_sqs.CfnQueuePolicy",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -982,7 +1092,7 @@ func CfnQueuePolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sqs.CfnQueuePolicy",
+		"monocdk.aws_sqs.CfnQueuePolicy",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -991,17 +1101,15 @@ func CfnQueuePolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnQueuePolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sqs.CfnQueuePolicy",
+		"monocdk.aws_sqs.CfnQueuePolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1014,7 +1122,7 @@ func CfnQueuePolicy_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_sqs.CfnQueuePolicy",
+		"monocdk.aws_sqs.CfnQueuePolicy",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1186,6 +1294,56 @@ func (c *jsiiProxy_CfnQueuePolicy) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnQueuePolicy) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnQueuePolicy) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnQueuePolicy) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnQueuePolicy) OverrideLogicalId(newLogicalId *string) {
@@ -1193,6 +1351,23 @@ func (c *jsiiProxy_CfnQueuePolicy) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnQueuePolicy) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1227,6 +1402,19 @@ func (c *jsiiProxy_CfnQueuePolicy) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnQueuePolicy) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -1237,6 +1425,26 @@ func (c *jsiiProxy_CfnQueuePolicy) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnQueuePolicy) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1695,7 +1903,7 @@ type Queue interface {
 	EncryptionMasterKey() awskms.IKey
 	Env() *awscdk.ResourceEnvironment
 	Fifo() *bool
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	QueueArn() *string
 	QueueName() *string
@@ -1720,7 +1928,13 @@ type Queue interface {
 	MetricNumberOfMessagesReceived(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricNumberOfMessagesSent(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricSentMessageSize(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for Queue
@@ -1768,8 +1982,8 @@ func (j *jsiiProxy_Queue) Fifo() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_Queue) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Queue) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1836,7 +2050,7 @@ func NewQueue(scope constructs.Construct, id *string, props *QueueProps) Queue {
 	j := jsiiProxy_Queue{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sqs.Queue",
+		"monocdk.aws_sqs.Queue",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1849,7 +2063,7 @@ func NewQueue_Override(q Queue, scope constructs.Construct, id *string, props *Q
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sqs.Queue",
+		"monocdk.aws_sqs.Queue",
 		[]interface{}{scope, id, props},
 		q,
 	)
@@ -1863,7 +2077,7 @@ func Queue_FromQueueArn(scope constructs.Construct, id *string, queueArn *string
 	var returns IQueue
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sqs.Queue",
+		"monocdk.aws_sqs.Queue",
 		"fromQueueArn",
 		[]interface{}{scope, id, queueArn},
 		&returns,
@@ -1880,7 +2094,7 @@ func Queue_FromQueueAttributes(scope constructs.Construct, id *string, attrs *Qu
 	var returns IQueue
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sqs.Queue",
+		"monocdk.aws_sqs.Queue",
 		"fromQueueAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -1889,17 +2103,15 @@ func Queue_FromQueueAttributes(scope constructs.Construct, id *string, attrs *Qu
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func Queue_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sqs.Queue",
+		"monocdk.aws_sqs.Queue",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1910,13 +2122,13 @@ func Queue_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func Queue_IsResource(construct constructs.IConstruct) *bool {
+func Queue_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sqs.Queue",
+		"monocdk.aws_sqs.Queue",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -2268,6 +2480,86 @@ func (q *jsiiProxy_Queue) MetricSentMessageSize(props *awscloudwatch.MetricOptio
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (q *jsiiProxy_Queue) OnPrepare() {
+	_jsii_.InvokeVoid(
+		q,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (q *jsiiProxy_Queue) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		q,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (q *jsiiProxy_Queue) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		q,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (q *jsiiProxy_Queue) Prepare() {
+	_jsii_.InvokeVoid(
+		q,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (q *jsiiProxy_Queue) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		q,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (q *jsiiProxy_Queue) ToString() *string {
@@ -2276,6 +2568,24 @@ func (q *jsiiProxy_Queue) ToString() *string {
 	_jsii_.Invoke(
 		q,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+// Experimental.
+func (q *jsiiProxy_Queue) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		q,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2316,7 +2626,7 @@ type QueueBase interface {
 	EncryptionMasterKey() awskms.IKey
 	Env() *awscdk.ResourceEnvironment
 	Fifo() *bool
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	QueueArn() *string
 	QueueName() *string
@@ -2341,7 +2651,13 @@ type QueueBase interface {
 	MetricNumberOfMessagesReceived(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricNumberOfMessagesSent(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricSentMessageSize(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for QueueBase
@@ -2390,8 +2706,8 @@ func (j *jsiiProxy_QueueBase) Fifo() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_QueueBase) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_QueueBase) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2456,23 +2772,21 @@ func NewQueueBase_Override(q QueueBase, scope constructs.Construct, id *string, 
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sqs.QueueBase",
+		"monocdk.aws_sqs.QueueBase",
 		[]interface{}{scope, id, props},
 		q,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func QueueBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sqs.QueueBase",
+		"monocdk.aws_sqs.QueueBase",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2483,13 +2797,13 @@ func QueueBase_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func QueueBase_IsResource(construct constructs.IConstruct) *bool {
+func QueueBase_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sqs.QueueBase",
+		"monocdk.aws_sqs.QueueBase",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -2841,6 +3155,86 @@ func (q *jsiiProxy_QueueBase) MetricSentMessageSize(props *awscloudwatch.MetricO
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (q *jsiiProxy_QueueBase) OnPrepare() {
+	_jsii_.InvokeVoid(
+		q,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (q *jsiiProxy_QueueBase) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		q,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (q *jsiiProxy_QueueBase) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		q,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (q *jsiiProxy_QueueBase) Prepare() {
+	_jsii_.InvokeVoid(
+		q,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (q *jsiiProxy_QueueBase) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		q,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (q *jsiiProxy_QueueBase) ToString() *string {
@@ -2849,6 +3243,24 @@ func (q *jsiiProxy_QueueBase) ToString() *string {
 	_jsii_.Invoke(
 		q,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+// Experimental.
+func (q *jsiiProxy_QueueBase) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		q,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2872,14 +3284,20 @@ type QueuePolicy interface {
 	awscdk.Resource
 	Document() awsiam.PolicyDocument
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for QueuePolicy
@@ -2907,8 +3325,8 @@ func (j *jsiiProxy_QueuePolicy) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_QueuePolicy) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_QueuePolicy) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2945,7 +3363,7 @@ func NewQueuePolicy(scope constructs.Construct, id *string, props *QueuePolicyPr
 	j := jsiiProxy_QueuePolicy{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sqs.QueuePolicy",
+		"monocdk.aws_sqs.QueuePolicy",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2958,23 +3376,21 @@ func NewQueuePolicy_Override(q QueuePolicy, scope constructs.Construct, id *stri
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sqs.QueuePolicy",
+		"monocdk.aws_sqs.QueuePolicy",
 		[]interface{}{scope, id, props},
 		q,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func QueuePolicy_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sqs.QueuePolicy",
+		"monocdk.aws_sqs.QueuePolicy",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2985,13 +3401,13 @@ func QueuePolicy_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func QueuePolicy_IsResource(construct constructs.IConstruct) *bool {
+func QueuePolicy_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_sqs.QueuePolicy",
+		"monocdk.aws_sqs.QueuePolicy",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -3071,6 +3487,86 @@ func (q *jsiiProxy_QueuePolicy) GetResourceNameAttribute(nameAttr *string) *stri
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (q *jsiiProxy_QueuePolicy) OnPrepare() {
+	_jsii_.InvokeVoid(
+		q,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (q *jsiiProxy_QueuePolicy) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		q,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (q *jsiiProxy_QueuePolicy) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		q,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (q *jsiiProxy_QueuePolicy) Prepare() {
+	_jsii_.InvokeVoid(
+		q,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (q *jsiiProxy_QueuePolicy) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		q,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (q *jsiiProxy_QueuePolicy) ToString() *string {
@@ -3079,6 +3575,26 @@ func (q *jsiiProxy_QueuePolicy) ToString() *string {
 	_jsii_.Invoke(
 		q,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (q *jsiiProxy_QueuePolicy) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		q,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

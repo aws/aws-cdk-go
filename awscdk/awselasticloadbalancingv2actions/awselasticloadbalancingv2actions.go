@@ -1,14 +1,13 @@
 package awselasticloadbalancingv2actions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2actions/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscognito"
+	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
+	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2actions/internal"
 )
 
 // A Listener Action to authenticate with Cognito.
@@ -16,7 +15,7 @@ import (
 type AuthenticateCognitoAction interface {
 	awselasticloadbalancingv2.ListenerAction
 	Next() awselasticloadbalancingv2.ListenerAction
-	Bind(scope constructs.Construct, listener awselasticloadbalancingv2.IApplicationListener, associatingConstruct constructs.IConstruct)
+	Bind(scope awscdk.Construct, listener awselasticloadbalancingv2.IApplicationListener, associatingConstruct awscdk.IConstruct)
 	RenderActions() *[]*awselasticloadbalancingv2.CfnListener_ActionProperty
 	Renumber(actions *[]*awselasticloadbalancingv2.CfnListener_ActionProperty) *[]*awselasticloadbalancingv2.CfnListener_ActionProperty
 }
@@ -45,7 +44,7 @@ func NewAuthenticateCognitoAction(options *AuthenticateCognitoActionProps) Authe
 	j := jsiiProxy_AuthenticateCognitoAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
+		"monocdk.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
 		[]interface{}{options},
 		&j,
 	)
@@ -59,7 +58,7 @@ func NewAuthenticateCognitoAction_Override(a AuthenticateCognitoAction, options 
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
+		"monocdk.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
 		[]interface{}{options},
 		a,
 	)
@@ -75,7 +74,7 @@ func AuthenticateCognitoAction_AuthenticateOidc(options *awselasticloadbalancing
 	var returns awselasticloadbalancingv2.ListenerAction
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
+		"monocdk.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
 		"authenticateOidc",
 		[]interface{}{options},
 		&returns,
@@ -94,7 +93,7 @@ func AuthenticateCognitoAction_FixedResponse(statusCode *float64, options *awsel
 	var returns awselasticloadbalancingv2.ListenerAction
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
+		"monocdk.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
 		"fixedResponse",
 		[]interface{}{statusCode, options},
 		&returns,
@@ -113,7 +112,7 @@ func AuthenticateCognitoAction_Forward(targetGroups *[]awselasticloadbalancingv2
 	var returns awselasticloadbalancingv2.ListenerAction
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
+		"monocdk.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
 		"forward",
 		[]interface{}{targetGroups, options},
 		&returns,
@@ -148,7 +147,7 @@ func AuthenticateCognitoAction_Redirect(options *awselasticloadbalancingv2.Redir
 	var returns awselasticloadbalancingv2.ListenerAction
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
+		"monocdk.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
 		"redirect",
 		[]interface{}{options},
 		&returns,
@@ -167,7 +166,7 @@ func AuthenticateCognitoAction_WeightedForward(targetGroups *[]*awselasticloadba
 	var returns awselasticloadbalancingv2.ListenerAction
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
+		"monocdk.aws_elasticloadbalancingv2_actions.AuthenticateCognitoAction",
 		"weightedForward",
 		[]interface{}{targetGroups, options},
 		&returns,
@@ -178,7 +177,7 @@ func AuthenticateCognitoAction_WeightedForward(targetGroups *[]*awselasticloadba
 
 // Called when the action is being used in a listener.
 // Experimental.
-func (a *jsiiProxy_AuthenticateCognitoAction) Bind(scope constructs.Construct, listener awselasticloadbalancingv2.IApplicationListener, associatingConstruct constructs.IConstruct) {
+func (a *jsiiProxy_AuthenticateCognitoAction) Bind(scope awscdk.Construct, listener awselasticloadbalancingv2.IApplicationListener, associatingConstruct awscdk.IConstruct) {
 	_jsii_.InvokeVoid(
 		a,
 		"bind",
