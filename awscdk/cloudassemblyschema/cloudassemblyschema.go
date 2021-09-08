@@ -1,7 +1,7 @@
 package cloudassemblyschema
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -227,6 +227,10 @@ type ContainerImageAssetMetadataEntry struct {
 	// Path to the Dockerfile (relative to the directory).
 	// Experimental.
 	File *string `json:"file"`
+	// ECR Repository name and repo digest (separated by "@sha256:") where this image is stored.
+	// Deprecated: specify `repositoryName` and `imageTag` instead, and then you
+	// know where the image will go.
+	ImageNameParameter *string `json:"imageNameParameter"`
 	// The docker image tag to use for tagging pushed images.
 	//
 	// This field is
@@ -260,6 +264,7 @@ const (
 	ContextProvider_LOAD_BALANCER_PROVIDER ContextProvider = "LOAD_BALANCER_PROVIDER"
 	ContextProvider_LOAD_BALANCER_LISTENER_PROVIDER ContextProvider = "LOAD_BALANCER_LISTENER_PROVIDER"
 	ContextProvider_SECURITY_GROUP_PROVIDER ContextProvider = "SECURITY_GROUP_PROVIDER"
+	ContextProvider_KEY_PROVIDER ContextProvider = "KEY_PROVIDER"
 )
 
 // A file asset.
@@ -448,6 +453,23 @@ type HostedZoneContextQuery struct {
 	VpcId *string `json:"vpcId"`
 }
 
+// Query input for looking up a KMS Key.
+// Experimental.
+type KeyContextQuery struct {
+	// Query account.
+	// Experimental.
+	Account *string `json:"account"`
+	// Alias name used to search the Key.
+	// Experimental.
+	AliasName *string `json:"aliasName"`
+	// Query region.
+	// Experimental.
+	Region *string `json:"region"`
+	// The ARN of the role that should be used to look up the missing values.
+	// Experimental.
+	LookupRoleArn *string `json:"lookupRoleArn"`
+}
+
 // Query input for looking up a load balancer.
 // Experimental.
 type LoadBalancerContextQuery struct {
@@ -549,6 +571,23 @@ type jsiiProxy_Manifest struct {
 	_ byte // padding
 }
 
+// Deprecated.
+// Deprecated: use `loadAssemblyManifest()`
+func Manifest_Load(filePath *string) *AssemblyManifest {
+	_init_.Initialize()
+
+	var returns *AssemblyManifest
+
+	_jsii_.StaticInvoke(
+		"monocdk.cloud_assembly_schema.Manifest",
+		"load",
+		[]interface{}{filePath},
+		&returns,
+	)
+
+	return returns
+}
+
 // Load and validates the cloud assembly manifest from file.
 // Experimental.
 func Manifest_LoadAssemblyManifest(filePath *string) *AssemblyManifest {
@@ -557,7 +596,7 @@ func Manifest_LoadAssemblyManifest(filePath *string) *AssemblyManifest {
 	var returns *AssemblyManifest
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.cloud_assembly_schema.Manifest",
+		"monocdk.cloud_assembly_schema.Manifest",
 		"loadAssemblyManifest",
 		[]interface{}{filePath},
 		&returns,
@@ -574,7 +613,7 @@ func Manifest_LoadAssetManifest(filePath *string) *AssetManifest {
 	var returns *AssetManifest
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.cloud_assembly_schema.Manifest",
+		"monocdk.cloud_assembly_schema.Manifest",
 		"loadAssetManifest",
 		[]interface{}{filePath},
 		&returns,
@@ -583,13 +622,25 @@ func Manifest_LoadAssetManifest(filePath *string) *AssetManifest {
 	return returns
 }
 
+// Deprecated.
+// Deprecated: use `saveAssemblyManifest()`
+func Manifest_Save(manifest *AssemblyManifest, filePath *string) {
+	_init_.Initialize()
+
+	_jsii_.StaticInvokeVoid(
+		"monocdk.cloud_assembly_schema.Manifest",
+		"save",
+		[]interface{}{manifest, filePath},
+	)
+}
+
 // Validates and saves the cloud assembly manifest to file.
 // Experimental.
 func Manifest_SaveAssemblyManifest(manifest *AssemblyManifest, filePath *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.cloud_assembly_schema.Manifest",
+		"monocdk.cloud_assembly_schema.Manifest",
 		"saveAssemblyManifest",
 		[]interface{}{manifest, filePath},
 	)
@@ -601,7 +652,7 @@ func Manifest_SaveAssetManifest(manifest *AssetManifest, filePath *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.cloud_assembly_schema.Manifest",
+		"monocdk.cloud_assembly_schema.Manifest",
 		"saveAssetManifest",
 		[]interface{}{manifest, filePath},
 	)
@@ -615,7 +666,7 @@ func Manifest_Version() *string {
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.cloud_assembly_schema.Manifest",
+		"monocdk.cloud_assembly_schema.Manifest",
 		"version",
 		nil, // no parameters
 		&returns,
