@@ -2039,6 +2039,7 @@ type CfnFileSystemProps struct {
 type CfnMountTarget interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	AttrIpAddress() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -2084,6 +2085,16 @@ type CfnMountTarget interface {
 type jsiiProxy_CfnMountTarget struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnMountTarget) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnMountTarget) AttrIpAddress() *string {

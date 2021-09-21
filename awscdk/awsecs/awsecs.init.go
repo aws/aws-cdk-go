@@ -1241,6 +1241,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_ecs.EcsOptimizedImageOptions",
+		reflect.TypeOf((*EcsOptimizedImageOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_ecs.EcsTarget",
 		reflect.TypeOf((*EcsTarget)(nil)).Elem(),
 	)

@@ -22,6 +22,7 @@ type CfnCluster interface {
 	SetAllowVersionUpgrade(val interface{})
 	AquaConfigurationStatus() *string
 	SetAquaConfigurationStatus(val *string)
+	AttrDeferMaintenanceIdentifier() *string
 	AttrEndpointAddress() *string
 	AttrEndpointPort() *string
 	AttrId() *string
@@ -59,8 +60,6 @@ type CfnCluster interface {
 	SetDeferMaintenanceDuration(val *float64)
 	DeferMaintenanceEndTime() *string
 	SetDeferMaintenanceEndTime(val *string)
-	DeferMaintenanceIdentifier() *string
-	SetDeferMaintenanceIdentifier(val *string)
 	DeferMaintenanceStartTime() *string
 	SetDeferMaintenanceStartTime(val *string)
 	DestinationRegion() *string
@@ -171,6 +170,16 @@ func (j *jsiiProxy_CfnCluster) AquaConfigurationStatus() *string {
 	_jsii_.Get(
 		j,
 		"aquaConfigurationStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) AttrDeferMaintenanceIdentifier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrDeferMaintenanceIdentifier",
 		&returns,
 	)
 	return returns
@@ -391,16 +400,6 @@ func (j *jsiiProxy_CfnCluster) DeferMaintenanceEndTime() *string {
 	_jsii_.Get(
 		j,
 		"deferMaintenanceEndTime",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnCluster) DeferMaintenanceIdentifier() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"deferMaintenanceIdentifier",
 		&returns,
 	)
 	return returns
@@ -925,14 +924,6 @@ func (j *jsiiProxy_CfnCluster) SetDeferMaintenanceEndTime(val *string) {
 	_jsii_.Set(
 		j,
 		"deferMaintenanceEndTime",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnCluster) SetDeferMaintenanceIdentifier(val *string) {
-	_jsii_.Set(
-		j,
-		"deferMaintenanceIdentifier",
 		val,
 	)
 }
@@ -2280,8 +2271,6 @@ type CfnClusterProps struct {
 	DeferMaintenanceDuration *float64 `json:"deferMaintenanceDuration"`
 	// `AWS::Redshift::Cluster.DeferMaintenanceEndTime`.
 	DeferMaintenanceEndTime *string `json:"deferMaintenanceEndTime"`
-	// `AWS::Redshift::Cluster.DeferMaintenanceIdentifier`.
-	DeferMaintenanceIdentifier *string `json:"deferMaintenanceIdentifier"`
 	// `AWS::Redshift::Cluster.DeferMaintenanceStartTime`.
 	DeferMaintenanceStartTime *string `json:"deferMaintenanceStartTime"`
 	// `AWS::Redshift::Cluster.DestinationRegion`.
@@ -5447,6 +5436,33 @@ const (
 	ClusterType_MULTI_NODE ClusterType = "MULTI_NODE"
 )
 
+// A column in a Redshift table.
+// Experimental.
+type Column struct {
+	// The data type of the column.
+	// Experimental.
+	DataType *string `json:"dataType"`
+	// The name of the column.
+	// Experimental.
+	Name *string `json:"name"`
+}
+
+// Properties for accessing a Redshift database.
+// Experimental.
+type DatabaseOptions struct {
+	// The cluster containing the database.
+	// Experimental.
+	Cluster ICluster `json:"cluster"`
+	// The name of the database.
+	// Experimental.
+	DatabaseName *string `json:"databaseName"`
+	// The secret containing credentials to a Redshift user with administrator privileges.
+	//
+	// Secret JSON schema: `{ username: string; password: string }`.
+	// Experimental.
+	AdminUser awssecretsmanager.ISecret `json:"adminUser"`
+}
+
 // A database secret.
 // Experimental.
 type DatabaseSecret interface {
@@ -6315,6 +6331,164 @@ func (j *jsiiProxy_IClusterSubnetGroup) ClusterSubnetGroupName() *string {
 	return returns
 }
 
+// Represents a table in a Redshift database.
+// Experimental.
+type ITable interface {
+	awscdk.IConstruct
+	// Grant a user privilege to access this table.
+	// Experimental.
+	Grant(user IUser, actions ...TableAction)
+	// The cluster where the table is located.
+	// Experimental.
+	Cluster() ICluster
+	// The name of the database where the table is located.
+	// Experimental.
+	DatabaseName() *string
+	// The columns of the table.
+	// Experimental.
+	TableColumns() *[]*Column
+	// Name of the table.
+	// Experimental.
+	TableName() *string
+}
+
+// The jsii proxy for ITable
+type jsiiProxy_ITable struct {
+	internal.Type__awscdkIConstruct
+}
+
+func (i *jsiiProxy_ITable) Grant(user IUser, actions ...TableAction) {
+	args := []interface{}{user}
+	for _, a := range actions {
+		args = append(args, a)
+	}
+
+	_jsii_.InvokeVoid(
+		i,
+		"grant",
+		args,
+	)
+}
+
+func (j *jsiiProxy_ITable) Cluster() ICluster {
+	var returns ICluster
+	_jsii_.Get(
+		j,
+		"cluster",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ITable) DatabaseName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"databaseName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ITable) TableColumns() *[]*Column {
+	var returns *[]*Column
+	_jsii_.Get(
+		j,
+		"tableColumns",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ITable) TableName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"tableName",
+		&returns,
+	)
+	return returns
+}
+
+// Represents a user in a Redshift database.
+// Experimental.
+type IUser interface {
+	awscdk.IConstruct
+	// Grant this user privilege to access a table.
+	// Experimental.
+	AddTablePrivileges(table ITable, actions ...TableAction)
+	// The cluster where the table is located.
+	// Experimental.
+	Cluster() ICluster
+	// The name of the database where the table is located.
+	// Experimental.
+	DatabaseName() *string
+	// The password of the user.
+	// Experimental.
+	Password() awscdk.SecretValue
+	// The name of the user.
+	// Experimental.
+	Username() *string
+}
+
+// The jsii proxy for IUser
+type jsiiProxy_IUser struct {
+	internal.Type__awscdkIConstruct
+}
+
+func (i *jsiiProxy_IUser) AddTablePrivileges(table ITable, actions ...TableAction) {
+	args := []interface{}{table}
+	for _, a := range actions {
+		args = append(args, a)
+	}
+
+	_jsii_.InvokeVoid(
+		i,
+		"addTablePrivileges",
+		args,
+	)
+}
+
+func (j *jsiiProxy_IUser) Cluster() ICluster {
+	var returns ICluster
+	_jsii_.Get(
+		j,
+		"cluster",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IUser) DatabaseName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"databaseName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IUser) Password() awscdk.SecretValue {
+	var returns awscdk.SecretValue
+	_jsii_.Get(
+		j,
+		"password",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IUser) Username() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"username",
+		&returns,
+	)
+	return returns
+}
+
 // Username and password combination.
 // Experimental.
 type Login struct {
@@ -6369,5 +6543,708 @@ type RotationMultiUserOptions struct {
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
 	// Experimental.
 	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter"`
+}
+
+// A table in a Redshift cluster.
+// Experimental.
+type Table interface {
+	awscdk.Construct
+	ITable
+	Cluster() ICluster
+	DatabaseName() *string
+	Node() awscdk.ConstructNode
+	TableColumns() *[]*Column
+	TableName() *string
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	Grant(user IUser, actions ...TableAction)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
+}
+
+// The jsii proxy struct for Table
+type jsiiProxy_Table struct {
+	internal.Type__awscdkConstruct
+	jsiiProxy_ITable
+}
+
+func (j *jsiiProxy_Table) Cluster() ICluster {
+	var returns ICluster
+	_jsii_.Get(
+		j,
+		"cluster",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Table) DatabaseName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"databaseName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Table) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Table) TableColumns() *[]*Column {
+	var returns *[]*Column
+	_jsii_.Get(
+		j,
+		"tableColumns",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Table) TableName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"tableName",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewTable(scope constructs.Construct, id *string, props *TableProps) Table {
+	_init_.Initialize()
+
+	j := jsiiProxy_Table{}
+
+	_jsii_.Create(
+		"monocdk.aws_redshift.Table",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewTable_Override(t Table, scope constructs.Construct, id *string, props *TableProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_redshift.Table",
+		[]interface{}{scope, id, props},
+		t,
+	)
+}
+
+// Specify a Redshift table using a table name and schema that already exists.
+// Experimental.
+func Table_FromTableAttributes(scope constructs.Construct, id *string, attrs *TableAttributes) ITable {
+	_init_.Initialize()
+
+	var returns ITable
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_redshift.Table",
+		"fromTableAttributes",
+		[]interface{}{scope, id, attrs},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func Table_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_redshift.Table",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Apply the given removal policy to this resource.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be destroyed (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+//
+// This resource is retained by default.
+// Experimental.
+func (t *jsiiProxy_Table) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		t,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
+// Grant a user privilege to access this table.
+// Experimental.
+func (t *jsiiProxy_Table) Grant(user IUser, actions ...TableAction) {
+	args := []interface{}{user}
+	for _, a := range actions {
+		args = append(args, a)
+	}
+
+	_jsii_.InvokeVoid(
+		t,
+		"grant",
+		args,
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (t *jsiiProxy_Table) OnPrepare() {
+	_jsii_.InvokeVoid(
+		t,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (t *jsiiProxy_Table) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		t,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (t *jsiiProxy_Table) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		t,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (t *jsiiProxy_Table) Prepare() {
+	_jsii_.InvokeVoid(
+		t,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (t *jsiiProxy_Table) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		t,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+// Experimental.
+func (t *jsiiProxy_Table) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		t,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (t *jsiiProxy_Table) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		t,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// An action that a Redshift user can be granted privilege to perform on a table.
+// Experimental.
+type TableAction string
+
+const (
+	TableAction_SELECT TableAction = "SELECT"
+	TableAction_INSERT TableAction = "INSERT"
+	TableAction_UPDATE TableAction = "UPDATE"
+	TableAction_DELETE TableAction = "DELETE"
+	TableAction_DROP TableAction = "DROP"
+	TableAction_REFERENCES TableAction = "REFERENCES"
+	TableAction_ALL TableAction = "ALL"
+)
+
+// A full specification of a Redshift table that can be used to import it fluently into the CDK application.
+// Experimental.
+type TableAttributes struct {
+	// The cluster where the table is located.
+	// Experimental.
+	Cluster ICluster `json:"cluster"`
+	// The name of the database where the table is located.
+	// Experimental.
+	DatabaseName *string `json:"databaseName"`
+	// The columns of the table.
+	// Experimental.
+	TableColumns *[]*Column `json:"tableColumns"`
+	// Name of the table.
+	// Experimental.
+	TableName *string `json:"tableName"`
+}
+
+// Properties for configuring a Redshift table.
+// Experimental.
+type TableProps struct {
+	// The cluster containing the database.
+	// Experimental.
+	Cluster ICluster `json:"cluster"`
+	// The name of the database.
+	// Experimental.
+	DatabaseName *string `json:"databaseName"`
+	// The secret containing credentials to a Redshift user with administrator privileges.
+	//
+	// Secret JSON schema: `{ username: string; password: string }`.
+	// Experimental.
+	AdminUser awssecretsmanager.ISecret `json:"adminUser"`
+	// The columns of the table.
+	// Experimental.
+	TableColumns *[]*Column `json:"tableColumns"`
+	// The policy to apply when this resource is removed from the application.
+	// Experimental.
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	// The name of the table.
+	// Experimental.
+	TableName *string `json:"tableName"`
+}
+
+// A user in a Redshift cluster.
+// Experimental.
+type User interface {
+	awscdk.Construct
+	IUser
+	Cluster() ICluster
+	DatabaseName() *string
+	DatabaseProps() *DatabaseOptions
+	SetDatabaseProps(val *DatabaseOptions)
+	Node() awscdk.ConstructNode
+	Password() awscdk.SecretValue
+	Username() *string
+	AddTablePrivileges(table ITable, actions ...TableAction)
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
+}
+
+// The jsii proxy struct for User
+type jsiiProxy_User struct {
+	internal.Type__awscdkConstruct
+	jsiiProxy_IUser
+}
+
+func (j *jsiiProxy_User) Cluster() ICluster {
+	var returns ICluster
+	_jsii_.Get(
+		j,
+		"cluster",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_User) DatabaseName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"databaseName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_User) DatabaseProps() *DatabaseOptions {
+	var returns *DatabaseOptions
+	_jsii_.Get(
+		j,
+		"databaseProps",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_User) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_User) Password() awscdk.SecretValue {
+	var returns awscdk.SecretValue
+	_jsii_.Get(
+		j,
+		"password",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_User) Username() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"username",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewUser(scope constructs.Construct, id *string, props *UserProps) User {
+	_init_.Initialize()
+
+	j := jsiiProxy_User{}
+
+	_jsii_.Create(
+		"monocdk.aws_redshift.User",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewUser_Override(u User, scope constructs.Construct, id *string, props *UserProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_redshift.User",
+		[]interface{}{scope, id, props},
+		u,
+	)
+}
+
+func (j *jsiiProxy_User) SetDatabaseProps(val *DatabaseOptions) {
+	_jsii_.Set(
+		j,
+		"databaseProps",
+		val,
+	)
+}
+
+// Specify a Redshift user using credentials that already exist.
+// Experimental.
+func User_FromUserAttributes(scope constructs.Construct, id *string, attrs *UserAttributes) IUser {
+	_init_.Initialize()
+
+	var returns IUser
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_redshift.User",
+		"fromUserAttributes",
+		[]interface{}{scope, id, attrs},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func User_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_redshift.User",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Grant this user privilege to access a table.
+// Experimental.
+func (u *jsiiProxy_User) AddTablePrivileges(table ITable, actions ...TableAction) {
+	args := []interface{}{table}
+	for _, a := range actions {
+		args = append(args, a)
+	}
+
+	_jsii_.InvokeVoid(
+		u,
+		"addTablePrivileges",
+		args,
+	)
+}
+
+// Apply the given removal policy to this resource.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be destroyed (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+//
+// This resource is destroyed by default.
+// Experimental.
+func (u *jsiiProxy_User) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		u,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (u *jsiiProxy_User) OnPrepare() {
+	_jsii_.InvokeVoid(
+		u,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (u *jsiiProxy_User) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		u,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (u *jsiiProxy_User) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		u,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (u *jsiiProxy_User) Prepare() {
+	_jsii_.InvokeVoid(
+		u,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (u *jsiiProxy_User) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		u,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+// Experimental.
+func (u *jsiiProxy_User) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		u,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (u *jsiiProxy_User) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		u,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// A full specification of a Redshift user that can be used to import it fluently into the CDK application.
+// Experimental.
+type UserAttributes struct {
+	// The cluster containing the database.
+	// Experimental.
+	Cluster ICluster `json:"cluster"`
+	// The name of the database.
+	// Experimental.
+	DatabaseName *string `json:"databaseName"`
+	// The secret containing credentials to a Redshift user with administrator privileges.
+	//
+	// Secret JSON schema: `{ username: string; password: string }`.
+	// Experimental.
+	AdminUser awssecretsmanager.ISecret `json:"adminUser"`
+	// The password of the user.
+	//
+	// Do not put passwords in CDK code directly.
+	// Experimental.
+	Password awscdk.SecretValue `json:"password"`
+	// The name of the user.
+	// Experimental.
+	Username *string `json:"username"`
+}
+
+// Properties for configuring a Redshift user.
+// Experimental.
+type UserProps struct {
+	// The cluster containing the database.
+	// Experimental.
+	Cluster ICluster `json:"cluster"`
+	// The name of the database.
+	// Experimental.
+	DatabaseName *string `json:"databaseName"`
+	// The secret containing credentials to a Redshift user with administrator privileges.
+	//
+	// Secret JSON schema: `{ username: string; password: string }`.
+	// Experimental.
+	AdminUser awssecretsmanager.ISecret `json:"adminUser"`
+	// KMS key to encrypt the generated secret.
+	// Experimental.
+	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	// The policy to apply when this resource is removed from the application.
+	// Experimental.
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	// The name of the user.
+	//
+	// For valid values, see: https://docs.aws.amazon.com/redshift/latest/dg/r_names.html
+	// Experimental.
+	Username *string `json:"username"`
 }
 

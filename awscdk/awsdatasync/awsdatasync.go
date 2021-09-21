@@ -5049,6 +5049,8 @@ type CfnTask interface {
 	SetDestinationLocationArn(val *string)
 	Excludes() interface{}
 	SetExcludes(val interface{})
+	Includes() interface{}
+	SetIncludes(val interface{})
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
@@ -5222,6 +5224,16 @@ func (j *jsiiProxy_CfnTask) Excludes() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTask) Includes() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"includes",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTask) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -5369,6 +5381,14 @@ func (j *jsiiProxy_CfnTask) SetExcludes(val interface{}) {
 	_jsii_.Set(
 		j,
 		"excludes",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTask) SetIncludes(val interface{}) {
+	_jsii_.Set(
+		j,
+		"includes",
 		val,
 	)
 }
@@ -5857,6 +5877,8 @@ type CfnTaskProps struct {
 	CloudWatchLogGroupArn *string `json:"cloudWatchLogGroupArn"`
 	// `AWS::DataSync::Task.Excludes`.
 	Excludes interface{} `json:"excludes"`
+	// `AWS::DataSync::Task.Includes`.
+	Includes interface{} `json:"includes"`
 	// `AWS::DataSync::Task.Name`.
 	Name *string `json:"name"`
 	// `AWS::DataSync::Task.Options`.

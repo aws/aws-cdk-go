@@ -35,9 +35,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "includeGlobalServiceEvents", GoGetter: "IncludeGlobalServiceEvents"},
+			_jsii_.MemberProperty{JsiiProperty: "insightSelectors", GoGetter: "InsightSelectors"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "isLogging", GoGetter: "IsLogging"},
 			_jsii_.MemberProperty{JsiiProperty: "isMultiRegionTrail", GoGetter: "IsMultiRegionTrail"},
+			_jsii_.MemberProperty{JsiiProperty: "isOrganizationTrail", GoGetter: "IsOrganizationTrail"},
 			_jsii_.MemberProperty{JsiiProperty: "kmsKeyId", GoGetter: "KmsKeyId"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -75,6 +77,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_cloudtrail.CfnTrail.EventSelectorProperty",
 		reflect.TypeOf((*CfnTrail_EventSelectorProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_cloudtrail.CfnTrail.InsightSelectorProperty",
+		reflect.TypeOf((*CfnTrail_InsightSelectorProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_cloudtrail.CfnTrailProps",

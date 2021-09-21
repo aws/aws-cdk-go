@@ -11,3 +11,5 @@ type Type__awssecretsmanagerSecret = awssecretsmanager.Secret
 type Type__awsec2IConnectable = awsec2.IConnectable
 type Type__awscdkIResource = awscdk.IResource
 type Type__awssecretsmanagerISecretAttachmentTarget = awssecretsmanager.ISecretAttachmentTarget
+type Type__awscdkIConstruct = awscdk.IConstruct
+type Type__awscdkConstruct = awscdk.Construct

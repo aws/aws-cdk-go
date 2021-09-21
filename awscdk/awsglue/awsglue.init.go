@@ -8,6 +8,18 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
+		"monocdk.aws_glue.AssetCode",
+		reflect.TypeOf((*AssetCode)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AssetCode{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_Code)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"monocdk.aws_glue.CfnClassifier",
 		reflect.TypeOf((*CfnClassifier)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1157,6 +1169,20 @@ func init() {
 			"KMS": CloudWatchEncryptionMode_KMS,
 		},
 	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_glue.Code",
+		reflect.TypeOf((*Code)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Code{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_glue.CodeConfig",
+		reflect.TypeOf((*CodeConfig)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_glue.Column",
 		reflect.TypeOf((*Column)(nil)).Elem(),
@@ -1209,6 +1235,10 @@ func init() {
 		func() interface{} {
 			return &jsiiProxy_ConnectionType{}
 		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_glue.ContinuousLoggingProps",
+		reflect.TypeOf((*ContinuousLoggingProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_glue.DataFormat",
@@ -1263,6 +1293,16 @@ func init() {
 		"monocdk.aws_glue.DatabaseProps",
 		reflect.TypeOf((*DatabaseProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_glue.GlueVersion",
+		reflect.TypeOf((*GlueVersion)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+		},
+		func() interface{} {
+			return &jsiiProxy_GlueVersion{}
+		},
+	)
 	_jsii_.RegisterInterface(
 		"monocdk.aws_glue.IConnection",
 		reflect.TypeOf((*IConnection)(nil)).Elem(),
@@ -1293,6 +1333,33 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_IDatabase{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"monocdk.aws_glue.IJob",
+		reflect.TypeOf((*IJob)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "jobArn", GoGetter: "JobArn"},
+			_jsii_.MemberProperty{JsiiProperty: "jobName", GoGetter: "JobName"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricFailure", GoMethod: "MetricFailure"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSuccess", GoMethod: "MetricSuccess"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTimeout", GoMethod: "MetricTimeout"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onEvent", GoMethod: "OnEvent"},
+			_jsii_.MemberMethod{JsiiMethod: "onFailure", GoMethod: "OnFailure"},
+			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
+			_jsii_.MemberMethod{JsiiMethod: "onSuccess", GoMethod: "OnSuccess"},
+			_jsii_.MemberMethod{JsiiMethod: "onTimeout", GoMethod: "OnTimeout"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IJob{}
+			_jsii_.InitJsiiProxy(&j.Type__awsiamIGrantable)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
 		},
@@ -1338,6 +1405,51 @@ func init() {
 			return &jsiiProxy_InputFormat{}
 		},
 	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_glue.Job",
+		reflect.TypeOf((*Job)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "jobArn", GoGetter: "JobArn"},
+			_jsii_.MemberProperty{JsiiProperty: "jobName", GoGetter: "JobName"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricFailure", GoMethod: "MetricFailure"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSuccess", GoMethod: "MetricSuccess"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTimeout", GoMethod: "MetricTimeout"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onEvent", GoMethod: "OnEvent"},
+			_jsii_.MemberMethod{JsiiMethod: "onFailure", GoMethod: "OnFailure"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
+			_jsii_.MemberMethod{JsiiMethod: "onSuccess", GoMethod: "OnSuccess"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onTimeout", GoMethod: "OnTimeout"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
+			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
+			_jsii_.MemberProperty{JsiiProperty: "sparkUILoggingLocation", GoGetter: "SparkUILoggingLocation"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+		},
+		func() interface{} {
+			j := jsiiProxy_Job{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IJob)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_glue.JobAttributes",
+		reflect.TypeOf((*JobAttributes)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_glue.JobBookmarksEncryption",
 		reflect.TypeOf((*JobBookmarksEncryption)(nil)).Elem(),
@@ -1347,6 +1459,63 @@ func init() {
 		reflect.TypeOf((*JobBookmarksEncryptionMode)(nil)).Elem(),
 		map[string]interface{}{
 			"CLIENT_SIDE_KMS": JobBookmarksEncryptionMode_CLIENT_SIDE_KMS,
+		},
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_glue.JobExecutable",
+		reflect.TypeOf((*JobExecutable)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			return &jsiiProxy_JobExecutable{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_glue.JobExecutableConfig",
+		reflect.TypeOf((*JobExecutableConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_glue.JobLanguage",
+		reflect.TypeOf((*JobLanguage)(nil)).Elem(),
+		map[string]interface{}{
+			"SCALA": JobLanguage_SCALA,
+			"PYTHON": JobLanguage_PYTHON,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_glue.JobProps",
+		reflect.TypeOf((*JobProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_glue.JobState",
+		reflect.TypeOf((*JobState)(nil)).Elem(),
+		map[string]interface{}{
+			"SUCCEEDED": JobState_SUCCEEDED,
+			"FAILED": JobState_FAILED,
+			"TIMEOUT": JobState_TIMEOUT,
+			"STARTING": JobState_STARTING,
+			"RUNNING": JobState_RUNNING,
+			"STOPPING": JobState_STOPPING,
+			"STOPPED": JobState_STOPPED,
+		},
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_glue.JobType",
+		reflect.TypeOf((*JobType)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+		},
+		func() interface{} {
+			return &jsiiProxy_JobType{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_glue.MetricType",
+		reflect.TypeOf((*MetricType)(nil)).Elem(),
+		map[string]interface{}{
+			"GAUGE": MetricType_GAUGE,
+			"COUNT": MetricType_COUNT,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -1360,6 +1529,34 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_glue.PythonShellExecutableProps",
+		reflect.TypeOf((*PythonShellExecutableProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_glue.PythonSparkJobExecutableProps",
+		reflect.TypeOf((*PythonSparkJobExecutableProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_glue.PythonVersion",
+		reflect.TypeOf((*PythonVersion)(nil)).Elem(),
+		map[string]interface{}{
+			"TWO": PythonVersion_TWO,
+			"THREE": PythonVersion_THREE,
+		},
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_glue.S3Code",
+		reflect.TypeOf((*S3Code)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_S3Code{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_Code)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_glue.S3Encryption",
 		reflect.TypeOf((*S3Encryption)(nil)).Elem(),
 	)
@@ -1370,6 +1567,10 @@ func init() {
 			"S3_MANAGED": S3EncryptionMode_S3_MANAGED,
 			"KMS": S3EncryptionMode_KMS,
 		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_glue.ScalaJobExecutableProps",
+		reflect.TypeOf((*ScalaJobExecutableProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_glue.Schema",
@@ -1423,6 +1624,14 @@ func init() {
 		func() interface{} {
 			return &jsiiProxy_SerializationLibrary{}
 		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_glue.SparkUILoggingLocation",
+		reflect.TypeOf((*SparkUILoggingLocation)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_glue.SparkUIProps",
+		reflect.TypeOf((*SparkUIProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_glue.Table",
@@ -1487,5 +1696,15 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_glue.Type",
 		reflect.TypeOf((*Type)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_glue.WorkerType",
+		reflect.TypeOf((*WorkerType)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+		},
+		func() interface{} {
+			return &jsiiProxy_WorkerType{}
+		},
 	)
 }

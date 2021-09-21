@@ -46,10 +46,14 @@ type CfnTrail interface {
 	SetEventSelectors(val interface{})
 	IncludeGlobalServiceEvents() interface{}
 	SetIncludeGlobalServiceEvents(val interface{})
+	InsightSelectors() interface{}
+	SetInsightSelectors(val interface{})
 	IsLogging() interface{}
 	SetIsLogging(val interface{})
 	IsMultiRegionTrail() interface{}
 	SetIsMultiRegionTrail(val interface{})
+	IsOrganizationTrail() interface{}
+	SetIsOrganizationTrail(val interface{})
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	LogicalId() *string
@@ -205,6 +209,16 @@ func (j *jsiiProxy_CfnTrail) IncludeGlobalServiceEvents() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTrail) InsightSelectors() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"insightSelectors",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTrail) IsLogging() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -220,6 +234,16 @@ func (j *jsiiProxy_CfnTrail) IsMultiRegionTrail() interface{} {
 	_jsii_.Get(
 		j,
 		"isMultiRegionTrail",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTrail) IsOrganizationTrail() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"isOrganizationTrail",
 		&returns,
 	)
 	return returns
@@ -402,6 +426,14 @@ func (j *jsiiProxy_CfnTrail) SetIncludeGlobalServiceEvents(val interface{}) {
 	)
 }
 
+func (j *jsiiProxy_CfnTrail) SetInsightSelectors(val interface{}) {
+	_jsii_.Set(
+		j,
+		"insightSelectors",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnTrail) SetIsLogging(val interface{}) {
 	_jsii_.Set(
 		j,
@@ -414,6 +446,14 @@ func (j *jsiiProxy_CfnTrail) SetIsMultiRegionTrail(val interface{}) {
 	_jsii_.Set(
 		j,
 		"isMultiRegionTrail",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTrail) SetIsOrganizationTrail(val interface{}) {
+	_jsii_.Set(
+		j,
+		"isOrganizationTrail",
 		val,
 	)
 }
@@ -867,10 +907,17 @@ type CfnTrail_DataResourceProperty struct {
 type CfnTrail_EventSelectorProperty struct {
 	// `CfnTrail.EventSelectorProperty.DataResources`.
 	DataResources interface{} `json:"dataResources"`
+	// `CfnTrail.EventSelectorProperty.ExcludeManagementEventSources`.
+	ExcludeManagementEventSources *[]*string `json:"excludeManagementEventSources"`
 	// `CfnTrail.EventSelectorProperty.IncludeManagementEvents`.
 	IncludeManagementEvents interface{} `json:"includeManagementEvents"`
 	// `CfnTrail.EventSelectorProperty.ReadWriteType`.
 	ReadWriteType *string `json:"readWriteType"`
+}
+
+type CfnTrail_InsightSelectorProperty struct {
+	// `CfnTrail.InsightSelectorProperty.InsightType`.
+	InsightType *string `json:"insightType"`
 }
 
 // Properties for defining a `AWS::CloudTrail::Trail`.
@@ -889,8 +936,12 @@ type CfnTrailProps struct {
 	EventSelectors interface{} `json:"eventSelectors"`
 	// `AWS::CloudTrail::Trail.IncludeGlobalServiceEvents`.
 	IncludeGlobalServiceEvents interface{} `json:"includeGlobalServiceEvents"`
+	// `AWS::CloudTrail::Trail.InsightSelectors`.
+	InsightSelectors interface{} `json:"insightSelectors"`
 	// `AWS::CloudTrail::Trail.IsMultiRegionTrail`.
 	IsMultiRegionTrail interface{} `json:"isMultiRegionTrail"`
+	// `AWS::CloudTrail::Trail.IsOrganizationTrail`.
+	IsOrganizationTrail interface{} `json:"isOrganizationTrail"`
 	// `AWS::CloudTrail::Trail.KMSKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
 	// `AWS::CloudTrail::Trail.S3KeyPrefix`.

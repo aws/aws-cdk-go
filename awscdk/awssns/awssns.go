@@ -2953,6 +2953,11 @@ type SubscriptionOptions struct {
 	// The region where the topic resides, in the case of cross-region subscriptions.
 	// Experimental.
 	Region *string `json:"region"`
+	// Arn of role allowing access to firehose delivery stream.
+	//
+	// Required for a firehose subscription protocol.
+	// Experimental.
+	SubscriptionRoleArn *string `json:"subscriptionRoleArn"`
 }
 
 // Properties for creating a new subscription.
@@ -2984,6 +2989,11 @@ type SubscriptionProps struct {
 	// The region where the topic resides, in the case of cross-region subscriptions.
 	// Experimental.
 	Region *string `json:"region"`
+	// Arn of role allowing access to firehose delivery stream.
+	//
+	// Required for a firehose subscription protocol.
+	// Experimental.
+	SubscriptionRoleArn *string `json:"subscriptionRoleArn"`
 	// The topic to subscribe to.
 	// Experimental.
 	Topic ITopic `json:"topic"`
@@ -3002,6 +3012,7 @@ const (
 	SubscriptionProtocol_SQS SubscriptionProtocol = "SQS"
 	SubscriptionProtocol_APPLICATION SubscriptionProtocol = "APPLICATION"
 	SubscriptionProtocol_LAMBDA SubscriptionProtocol = "LAMBDA"
+	SubscriptionProtocol_FIREHOSE SubscriptionProtocol = "FIREHOSE"
 )
 
 // A new SNS topic.
@@ -4566,6 +4577,11 @@ type TopicSubscriptionConfig struct {
 	// The region where the topic resides, in the case of cross-region subscriptions.
 	// Experimental.
 	Region *string `json:"region"`
+	// Arn of role allowing access to firehose delivery stream.
+	//
+	// Required for a firehose subscription protocol.
+	// Experimental.
+	SubscriptionRoleArn *string `json:"subscriptionRoleArn"`
 	// The id of the SNS subscription resource created under `scope`.
 	//
 	// In most

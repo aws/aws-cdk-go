@@ -46,6 +46,8 @@ type CfnQueue interface {
 	SetQueueName(val *string)
 	ReceiveMessageWaitTimeSeconds() *float64
 	SetReceiveMessageWaitTimeSeconds(val *float64)
+	RedriveAllowPolicy() interface{}
+	SetRedriveAllowPolicy(val interface{})
 	RedrivePolicy() interface{}
 	SetRedrivePolicy(val interface{})
 	Ref() *string
@@ -273,6 +275,16 @@ func (j *jsiiProxy_CfnQueue) ReceiveMessageWaitTimeSeconds() *float64 {
 	return returns
 }
 
+func (j *jsiiProxy_CfnQueue) RedriveAllowPolicy() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"redriveAllowPolicy",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnQueue) RedrivePolicy() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -444,6 +456,14 @@ func (j *jsiiProxy_CfnQueue) SetReceiveMessageWaitTimeSeconds(val *float64) {
 	_jsii_.Set(
 		j,
 		"receiveMessageWaitTimeSeconds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnQueue) SetRedriveAllowPolicy(val interface{}) {
+	_jsii_.Set(
+		j,
+		"redriveAllowPolicy",
 		val,
 	)
 }
@@ -1493,6 +1513,8 @@ type CfnQueueProps struct {
 	QueueName *string `json:"queueName"`
 	// `AWS::SQS::Queue.ReceiveMessageWaitTimeSeconds`.
 	ReceiveMessageWaitTimeSeconds *float64 `json:"receiveMessageWaitTimeSeconds"`
+	// `AWS::SQS::Queue.RedriveAllowPolicy`.
+	RedriveAllowPolicy interface{} `json:"redriveAllowPolicy"`
 	// `AWS::SQS::Queue.RedrivePolicy`.
 	RedrivePolicy interface{} `json:"redrivePolicy"`
 	// `AWS::SQS::Queue.Tags`.

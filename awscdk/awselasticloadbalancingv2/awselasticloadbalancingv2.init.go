@@ -753,6 +753,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "healthCheckTimeoutSeconds", GoGetter: "HealthCheckTimeoutSeconds"},
 			_jsii_.MemberProperty{JsiiProperty: "healthyThresholdCount", GoGetter: "HealthyThresholdCount"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "ipAddressType", GoGetter: "IpAddressType"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "matcher", GoGetter: "Matcher"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},

@@ -845,6 +845,13 @@ type CfnDeliveryStream_DeserializerProperty struct {
 	OpenXJsonSerDe interface{} `json:"openXJsonSerDe"`
 }
 
+type CfnDeliveryStream_DynamicPartitioningConfigurationProperty struct {
+	// `CfnDeliveryStream.DynamicPartitioningConfigurationProperty.Enabled`.
+	Enabled interface{} `json:"enabled"`
+	// `CfnDeliveryStream.DynamicPartitioningConfigurationProperty.RetryOptions`.
+	RetryOptions interface{} `json:"retryOptions"`
+}
+
 type CfnDeliveryStream_ElasticsearchBufferingHintsProperty struct {
 	// `CfnDeliveryStream.ElasticsearchBufferingHintsProperty.IntervalInSeconds`.
 	IntervalInSeconds *float64 `json:"intervalInSeconds"`
@@ -906,6 +913,8 @@ type CfnDeliveryStream_ExtendedS3DestinationConfigurationProperty struct {
 	CompressionFormat *string `json:"compressionFormat"`
 	// `CfnDeliveryStream.ExtendedS3DestinationConfigurationProperty.DataFormatConversionConfiguration`.
 	DataFormatConversionConfiguration interface{} `json:"dataFormatConversionConfiguration"`
+	// `CfnDeliveryStream.ExtendedS3DestinationConfigurationProperty.DynamicPartitioningConfiguration`.
+	DynamicPartitioningConfiguration interface{} `json:"dynamicPartitioningConfiguration"`
 	// `CfnDeliveryStream.ExtendedS3DestinationConfigurationProperty.EncryptionConfiguration`.
 	EncryptionConfiguration interface{} `json:"encryptionConfiguration"`
 	// `CfnDeliveryStream.ExtendedS3DestinationConfigurationProperty.ErrorOutputPrefix`.

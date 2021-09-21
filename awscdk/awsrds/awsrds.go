@@ -566,6 +566,17 @@ func AuroraMysqlEngineVersion_VER_2_09_2() AuroraMysqlEngineVersion {
 	return returns
 }
 
+func AuroraMysqlEngineVersion_VER_2_10_0() AuroraMysqlEngineVersion {
+	_init_.Initialize()
+	var returns AuroraMysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
+		"VER_2_10_0",
+		&returns,
+	)
+	return returns
+}
+
 func AuroraMysqlEngineVersion_VER_5_7_12() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
@@ -830,6 +841,17 @@ func AuroraPostgresEngineVersion_VER_12_6() AuroraPostgresEngineVersion {
 	_jsii_.StaticGet(
 		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_12_6",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraPostgresEngineVersion_VER_13_3() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
+		"VER_13_3",
 		&returns,
 	)
 	return returns
@@ -11624,6 +11646,7 @@ type Credentials interface {
 	EncryptionKey() awskms.IKey
 	ExcludeCharacters() *string
 	Password() awscdk.SecretValue
+	ReplicaRegions() *[]*awssecretsmanager.ReplicaRegion
 	Secret() awssecretsmanager.ISecret
 	SecretName() *string
 	Username() *string
@@ -11660,6 +11683,16 @@ func (j *jsiiProxy_Credentials) Password() awscdk.SecretValue {
 	_jsii_.Get(
 		j,
 		"password",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Credentials) ReplicaRegions() *[]*awssecretsmanager.ReplicaRegion {
+	var returns *[]*awssecretsmanager.ReplicaRegion
+	_jsii_.Get(
+		j,
+		"replicaRegions",
 		&returns,
 	)
 	return returns
@@ -11811,6 +11844,9 @@ type CredentialsBaseOptions struct {
 	// Has no effect if {@link password} has been provided.
 	// Experimental.
 	ExcludeCharacters *string `json:"excludeCharacters"`
+	// A list of regions where to replicate this secret.
+	// Experimental.
+	ReplicaRegions *[]*awssecretsmanager.ReplicaRegion `json:"replicaRegions"`
 	// The name of the secret.
 	// Experimental.
 	SecretName *string `json:"secretName"`
@@ -11827,6 +11863,9 @@ type CredentialsFromUsernameOptions struct {
 	// Has no effect if {@link password} has been provided.
 	// Deprecated: supporting API `fromUsername()` has been deprecated. See deprecation notice of the API.
 	ExcludeCharacters *string `json:"excludeCharacters"`
+	// A list of regions where to replicate this secret.
+	// Deprecated: supporting API `fromUsername()` has been deprecated. See deprecation notice of the API.
+	ReplicaRegions *[]*awssecretsmanager.ReplicaRegion `json:"replicaRegions"`
 	// The name of the secret.
 	// Deprecated: supporting API `fromUsername()` has been deprecated. See deprecation notice of the API.
 	SecretName *string `json:"secretName"`
@@ -19835,6 +19874,9 @@ type DatabaseSecretProps struct {
 	// cluster or instance consuming this secret will have its credentials updated.
 	// Experimental.
 	ReplaceOnPasswordCriteriaChanges *bool `json:"replaceOnPasswordCriteriaChanges"`
+	// A list of regions where to replicate this secret.
+	// Experimental.
+	ReplicaRegions *[]*awssecretsmanager.ReplicaRegion `json:"replicaRegions"`
 	// A name for the secret.
 	// Experimental.
 	SecretName *string `json:"secretName"`
@@ -21627,6 +21669,17 @@ func MariaDbEngineVersion_VER_10_2_39() MariaDbEngineVersion {
 	return returns
 }
 
+func MariaDbEngineVersion_VER_10_2_40() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_2_40",
+		&returns,
+	)
+	return returns
+}
+
 func MariaDbEngineVersion_VER_10_3() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
@@ -21682,6 +21735,17 @@ func MariaDbEngineVersion_VER_10_3_28() MariaDbEngineVersion {
 	return returns
 }
 
+func MariaDbEngineVersion_VER_10_3_31() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_3_31",
+		&returns,
+	)
+	return returns
+}
+
 func MariaDbEngineVersion_VER_10_3_8() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
@@ -21726,6 +21790,17 @@ func MariaDbEngineVersion_VER_10_4_18() MariaDbEngineVersion {
 	return returns
 }
 
+func MariaDbEngineVersion_VER_10_4_21() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_4_21",
+		&returns,
+	)
+	return returns
+}
+
 func MariaDbEngineVersion_VER_10_4_8() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
@@ -21743,6 +21818,17 @@ func MariaDbEngineVersion_VER_10_5() MariaDbEngineVersion {
 	_jsii_.StaticGet(
 		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_5",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_5_12() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_5_12",
 		&returns,
 	)
 	return returns
@@ -25889,6 +25975,7 @@ type SnapshotCredentials interface {
 	GeneratePassword() *bool
 	Password() awscdk.SecretValue
 	ReplaceOnPasswordCriteriaChanges() *bool
+	ReplicaRegions() *[]*awssecretsmanager.ReplicaRegion
 	Secret() awssecretsmanager.Secret
 	Username() *string
 }
@@ -25943,6 +26030,16 @@ func (j *jsiiProxy_SnapshotCredentials) ReplaceOnPasswordCriteriaChanges() *bool
 	_jsii_.Get(
 		j,
 		"replaceOnPasswordCriteriaChanges",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SnapshotCredentials) ReplicaRegions() *[]*awssecretsmanager.ReplicaRegion {
+	var returns *[]*awssecretsmanager.ReplicaRegion
+	_jsii_.Get(
+		j,
+		"replicaRegions",
 		&returns,
 	)
 	return returns
@@ -26073,6 +26170,9 @@ type SnapshotCredentialsFromGeneratedPasswordOptions struct {
 	// The characters to exclude from the generated password.
 	// Experimental.
 	ExcludeCharacters *string `json:"excludeCharacters"`
+	// A list of regions where to replicate this secret.
+	// Experimental.
+	ReplicaRegions *[]*awssecretsmanager.ReplicaRegion `json:"replicaRegions"`
 }
 
 // Properties for SQL Server Enterprise Edition instance engines.

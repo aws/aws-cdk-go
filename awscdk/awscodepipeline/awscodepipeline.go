@@ -4004,6 +4004,12 @@ type PipelineProps struct {
 	// the construct will automatically create a Stack containing an S3 Bucket in that region.
 	// Experimental.
 	CrossRegionReplicationBuckets *map[string]awss3.IBucket `json:"crossRegionReplicationBuckets"`
+	// Enable KMS key rotation for the generated KMS keys.
+	//
+	// By default KMS key rotation is disabled, but will add an additional $1/month
+	// for each year the key exists when enabled.
+	// Experimental.
+	EnableKeyRotation *bool `json:"enableKeyRotation"`
 	// Name of the pipeline.
 	// Experimental.
 	PipelineName *string `json:"pipelineName"`

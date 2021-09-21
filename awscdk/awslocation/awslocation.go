@@ -13,6 +13,7 @@ import (
 type CfnGeofenceCollection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrArn() *string
 	AttrCollectionArn() *string
 	AttrCreateTime() *string
 	AttrUpdateTime() *string
@@ -62,6 +63,16 @@ type CfnGeofenceCollection interface {
 type jsiiProxy_CfnGeofenceCollection struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnGeofenceCollection) AttrArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrArn",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnGeofenceCollection) AttrCollectionArn() *string {
@@ -2149,6 +2160,7 @@ type CfnPlaceIndexProps struct {
 type CfnRouteCalculator interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrArn() *string
 	AttrCalculatorArn() *string
 	AttrCreateTime() *string
 	AttrUpdateTime() *string
@@ -2196,6 +2208,16 @@ type CfnRouteCalculator interface {
 type jsiiProxy_CfnRouteCalculator struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnRouteCalculator) AttrArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrArn",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnRouteCalculator) AttrCalculatorArn() *string {
@@ -2832,6 +2854,7 @@ type CfnRouteCalculatorProps struct {
 type CfnTracker interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrArn() *string
 	AttrCreateTime() *string
 	AttrTrackerArn() *string
 	AttrUpdateTime() *string
@@ -2881,6 +2904,16 @@ type CfnTracker interface {
 type jsiiProxy_CfnTracker struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnTracker) AttrArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrArn",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnTracker) AttrCreateTime() *string {

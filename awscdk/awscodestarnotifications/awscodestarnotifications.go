@@ -13,6 +13,7 @@ import (
 type CfnNotificationRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrArn() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -62,6 +63,16 @@ type CfnNotificationRule interface {
 type jsiiProxy_CfnNotificationRule struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnNotificationRule) AttrArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrArn",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnNotificationRule) CfnOptions() awscdk.ICfnResourceOptions {

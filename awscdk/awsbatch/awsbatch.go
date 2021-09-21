@@ -2803,13 +2803,15 @@ type ComputeEnvironmentProps struct {
 	ServiceRole awsiam.IRole `json:"serviceRole"`
 }
 
-// Property to specify if the compute environment uses On-Demand or SpotFleet compute resources.
+// Property to specify if the compute environment uses On-Demand, SpotFleet, Fargate, or Fargate Spot compute resources.
 // Experimental.
 type ComputeResourceType string
 
 const (
 	ComputeResourceType_ON_DEMAND ComputeResourceType = "ON_DEMAND"
 	ComputeResourceType_SPOT ComputeResourceType = "SPOT"
+	ComputeResourceType_FARGATE ComputeResourceType = "FARGATE"
+	ComputeResourceType_FARGATE_SPOT ComputeResourceType = "FARGATE_SPOT"
 )
 
 // Properties for defining the structure of the batch compute cluster.
@@ -2904,7 +2906,7 @@ type ComputeResources struct {
 	// For more information, see Amazon EC2 Spot Fleet Role in the AWS Batch User Guide.
 	// Experimental.
 	SpotFleetRole awsiam.IRole `json:"spotFleetRole"`
-	// The type of compute environment: ON_DEMAND or SPOT.
+	// The type of compute environment: ON_DEMAND, SPOT, FARGATE, or FARGATE_SPOT.
 	// Experimental.
 	Type ComputeResourceType `json:"type"`
 	// The VPC subnets into which the compute resources are launched.
@@ -3695,6 +3697,9 @@ type JobDefinitionContainer struct {
 	// The image used to start a container.
 	// Experimental.
 	Image awsecs.ContainerImage `json:"image"`
+	// Whether or not to assign a public IP to the job.
+	// Experimental.
+	AssignPublicIp *bool `json:"assignPublicIp"`
 	// The command that is passed to the container.
 	//
 	// If you provide a shell command as a single string, you have to quote command-line arguments.
@@ -3703,6 +3708,11 @@ type JobDefinitionContainer struct {
 	// The environment variables to pass to the container.
 	// Experimental.
 	Environment *map[string]*string `json:"environment"`
+	// The IAM role that AWS Batch can assume.
+	//
+	// Required when using Fargate.
+	// Experimental.
+	ExecutionRole awsiam.IRole `json:"executionRole"`
 	// The number of physical GPUs to reserve for the container.
 	//
 	// The number of GPUs reserved for all
@@ -3730,12 +3740,15 @@ type JobDefinitionContainer struct {
 	// The hard limit (in MiB) of memory to present to the container.
 	//
 	// If your container attempts to exceed
-	// the memory specified here, the container is killed. You must specify at least 4 MiB of memory for a job.
+	// the memory specified here, the container is killed. You must specify at least 4 MiB of memory for EC2 and 512 MiB for Fargate.
 	// Experimental.
 	MemoryLimitMiB *float64 `json:"memoryLimitMiB"`
 	// The mount points for data volumes in your container.
 	// Experimental.
 	MountPoints *[]*awsecs.MountPoint `json:"mountPoints"`
+	// Fargate platform version.
+	// Experimental.
+	PlatformVersion awsecs.FargatePlatformVersion `json:"platformVersion"`
 	// When this parameter is true, the container is given elevated privileges on the host container instance (similar to the root user).
 	// Experimental.
 	Privileged *bool `json:"privileged"`
@@ -3751,7 +3764,7 @@ type JobDefinitionContainer struct {
 	// The number of vCPUs reserved for the container.
 	//
 	// Each vCPU is equivalent to
-	// 1,024 CPU shares. You must specify at least one vCPU.
+	// 1,024 CPU shares. You must specify at least one vCPU for EC2 and 0.25 for Fargate.
 	// Experimental.
 	Vcpus *float64 `json:"vcpus"`
 	// A list of data volumes used in a job.
@@ -3781,6 +3794,9 @@ type JobDefinitionProps struct {
 	// format, and programmatically change values in the command at submission time.
 	// Experimental.
 	Parameters *map[string]*string `json:"parameters"`
+	// The platform capabilities required by the job definition.
+	// Experimental.
+	PlatformCapabilities *[]PlatformCapabilities `json:"platformCapabilities"`
 	// The number of times to move a job to the RUNNABLE status.
 	//
 	// You may specify between 1 and
@@ -4233,5 +4249,14 @@ const (
 	LogDriver_JSON_FILE LogDriver = "JSON_FILE"
 	LogDriver_SPLUNK LogDriver = "SPLUNK"
 	LogDriver_SYSLOG LogDriver = "SYSLOG"
+)
+
+// Platform capabilities.
+// Experimental.
+type PlatformCapabilities string
+
+const (
+	PlatformCapabilities_EC2 PlatformCapabilities = "EC2"
+	PlatformCapabilities_FARGATE PlatformCapabilities = "FARGATE"
 )
 

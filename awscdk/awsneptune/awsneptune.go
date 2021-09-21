@@ -5882,6 +5882,17 @@ func EngineVersion_V1_0_4_1() EngineVersion {
 	return returns
 }
 
+func EngineVersion_V1_0_5_0() EngineVersion {
+	_init_.Initialize()
+	var returns EngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_neptune.EngineVersion",
+		"V1_0_5_0",
+		&returns,
+	)
+	return returns
+}
+
 // A parameter group.
 // Experimental.
 type IClusterParameterGroup interface {

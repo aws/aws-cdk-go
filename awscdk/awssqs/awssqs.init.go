@@ -45,6 +45,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "queueName", GoGetter: "QueueName"},
 			_jsii_.MemberProperty{JsiiProperty: "receiveMessageWaitTimeSeconds", GoGetter: "ReceiveMessageWaitTimeSeconds"},
+			_jsii_.MemberProperty{JsiiProperty: "redriveAllowPolicy", GoGetter: "RedriveAllowPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "redrivePolicy", GoGetter: "RedrivePolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},

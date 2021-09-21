@@ -2833,9 +2833,6 @@ type CfnDataQualityJobDefinition_EndpointInputProperty struct {
 	S3InputMode *string `json:"s3InputMode"`
 }
 
-type CfnDataQualityJobDefinition_EnvironmentProperty struct {
-}
-
 type CfnDataQualityJobDefinition_MonitoringOutputConfigProperty struct {
 	// `CfnDataQualityJobDefinition.MonitoringOutputConfigProperty.MonitoringOutputs`.
 	MonitoringOutputs interface{} `json:"monitoringOutputs"`
@@ -10215,9 +10212,6 @@ type CfnModelBiasJobDefinition_EndpointInputProperty struct {
 	StartTimeOffset *string `json:"startTimeOffset"`
 }
 
-type CfnModelBiasJobDefinition_EnvironmentProperty struct {
-}
-
 type CfnModelBiasJobDefinition_ModelBiasAppSpecificationProperty struct {
 	// `CfnModelBiasJobDefinition.ModelBiasAppSpecificationProperty.ConfigUri`.
 	ConfigUri *string `json:"configUri"`
@@ -11119,9 +11113,6 @@ type CfnModelExplainabilityJobDefinition_EndpointInputProperty struct {
 	S3DataDistributionType *string `json:"s3DataDistributionType"`
 	// `CfnModelExplainabilityJobDefinition.EndpointInputProperty.S3InputMode`.
 	S3InputMode *string `json:"s3InputMode"`
-}
-
-type CfnModelExplainabilityJobDefinition_EnvironmentProperty struct {
 }
 
 type CfnModelExplainabilityJobDefinition_ModelExplainabilityAppSpecificationProperty struct {
@@ -12718,9 +12709,6 @@ type CfnModelQualityJobDefinition_EndpointInputProperty struct {
 	StartTimeOffset *string `json:"startTimeOffset"`
 }
 
-type CfnModelQualityJobDefinition_EnvironmentProperty struct {
-}
-
 type CfnModelQualityJobDefinition_ModelQualityAppSpecificationProperty struct {
 	// `CfnModelQualityJobDefinition.ModelQualityAppSpecificationProperty.ImageUri`.
 	ImageUri *string `json:"imageUri"`
@@ -13582,9 +13570,6 @@ type CfnMonitoringSchedule_EndpointInputProperty struct {
 	S3DataDistributionType *string `json:"s3DataDistributionType"`
 	// `CfnMonitoringSchedule.EndpointInputProperty.S3InputMode`.
 	S3InputMode *string `json:"s3InputMode"`
-}
-
-type CfnMonitoringSchedule_EnvironmentProperty struct {
 }
 
 type CfnMonitoringSchedule_MonitoringAppSpecificationProperty struct {

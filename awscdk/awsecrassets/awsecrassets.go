@@ -611,7 +611,11 @@ func (t *jsiiProxy_TarballImageAsset) Validate() *[]*string {
 // Options for TarballImageAsset.
 // Experimental.
 type TarballImageAssetProps struct {
-	// Path to the tarball.
+	// Absolute path to the tarball.
+	//
+	// It is recommended to to use the script running directory (e.g. `__dirname`
+	// in Node.js projects or dirname of `__file__` in Python) if your tarball
+	// is located as a resource inside your project.
 	// Experimental.
 	TarballFile *string `json:"tarballFile"`
 }

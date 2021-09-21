@@ -328,7 +328,15 @@ type BucketDeploymentProps struct {
 	//
 	// Experimental.
 	StorageClass StorageClass `json:"storageClass"`
+	// Mount an EFS file system.
+	//
+	// Enable this if your assets are large and you encounter disk space errors.
+	// Enabling this option will require a VPC to be specified.
+	// Experimental.
+	UseEfs *bool `json:"useEfs"`
 	// The VPC network to place the deployment lambda handler in.
+	//
+	// This is required if `useEfs` is set.
 	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// Where in the VPC to place the deployment lambda handler.

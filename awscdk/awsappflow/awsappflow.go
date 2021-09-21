@@ -1885,6 +1885,8 @@ type CfnFlow_ScheduledTriggerPropertiesProperty struct {
 	DataPullMode *string `json:"dataPullMode"`
 	// `CfnFlow.ScheduledTriggerPropertiesProperty.ScheduleEndTime`.
 	ScheduleEndTime *float64 `json:"scheduleEndTime"`
+	// `CfnFlow.ScheduledTriggerPropertiesProperty.ScheduleOffset`.
+	ScheduleOffset *float64 `json:"scheduleOffset"`
 	// `CfnFlow.ScheduledTriggerPropertiesProperty.ScheduleStartTime`.
 	ScheduleStartTime *float64 `json:"scheduleStartTime"`
 	// `CfnFlow.ScheduledTriggerPropertiesProperty.TimeZone`.
@@ -2012,6 +2014,14 @@ type CfnFlow_UpsolverS3OutputFormatConfigProperty struct {
 type CfnFlow_VeevaSourcePropertiesProperty struct {
 	// `CfnFlow.VeevaSourcePropertiesProperty.Object`.
 	Object *string `json:"object"`
+	// `CfnFlow.VeevaSourcePropertiesProperty.DocumentType`.
+	DocumentType *string `json:"documentType"`
+	// `CfnFlow.VeevaSourcePropertiesProperty.IncludeAllVersions`.
+	IncludeAllVersions interface{} `json:"includeAllVersions"`
+	// `CfnFlow.VeevaSourcePropertiesProperty.IncludeRenditions`.
+	IncludeRenditions interface{} `json:"includeRenditions"`
+	// `CfnFlow.VeevaSourcePropertiesProperty.IncludeSourceFiles`.
+	IncludeSourceFiles interface{} `json:"includeSourceFiles"`
 }
 
 type CfnFlow_ZendeskDestinationPropertiesProperty struct {

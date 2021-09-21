@@ -8,6 +8,24 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
+		"monocdk.assertions.Capture",
+		reflect.TypeOf((*Capture)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "asArray", GoMethod: "AsArray"},
+			_jsii_.MemberMethod{JsiiMethod: "asBoolean", GoMethod: "AsBoolean"},
+			_jsii_.MemberMethod{JsiiMethod: "asNumber", GoMethod: "AsNumber"},
+			_jsii_.MemberMethod{JsiiMethod: "asObject", GoMethod: "AsObject"},
+			_jsii_.MemberMethod{JsiiMethod: "asString", GoMethod: "AsString"},
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberMethod{JsiiMethod: "test", GoMethod: "Test"},
+		},
+		func() interface{} {
+			j := jsiiProxy_Capture{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_Matcher)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"monocdk.assertions.Match",
 		reflect.TypeOf((*Match)(nil)).Elem(),
 		nil, // no members

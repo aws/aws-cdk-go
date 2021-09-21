@@ -614,7 +614,7 @@ type CfnFleetProps struct {
 	// `AWS::RoboMaker::Fleet.Name`.
 	Name *string `json:"name"`
 	// `AWS::RoboMaker::Fleet.Tags`.
-	Tags interface{} `json:"tags"`
+	Tags *map[string]*string `json:"tags"`
 }
 
 // A CloudFormation `AWS::RoboMaker::Robot`.
@@ -623,6 +623,7 @@ type CfnRobot interface {
 	awscdk.IInspectable
 	Architecture() *string
 	SetArchitecture(val *string)
+	AttrArn() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -673,6 +674,16 @@ func (j *jsiiProxy_CfnRobot) Architecture() *string {
 	_jsii_.Get(
 		j,
 		"architecture",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRobot) AttrArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrArn",
 		&returns,
 	)
 	return returns
@@ -1973,6 +1984,8 @@ type CfnRobotApplicationVersion interface {
 	awscdk.IInspectable
 	Application() *string
 	SetApplication(val *string)
+	AttrApplicationVersion() *string
+	AttrArn() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -2018,6 +2031,26 @@ func (j *jsiiProxy_CfnRobotApplicationVersion) Application() *string {
 	_jsii_.Get(
 		j,
 		"application",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRobotApplicationVersion) AttrApplicationVersion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrApplicationVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnRobotApplicationVersion) AttrArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrArn",
 		&returns,
 	)
 	return returns
@@ -2584,7 +2617,7 @@ type CfnRobotProps struct {
 	// `AWS::RoboMaker::Robot.Name`.
 	Name *string `json:"name"`
 	// `AWS::RoboMaker::Robot.Tags`.
-	Tags interface{} `json:"tags"`
+	Tags *map[string]*string `json:"tags"`
 }
 
 // A CloudFormation `AWS::RoboMaker::SimulationApplication`.
@@ -2599,6 +2632,8 @@ type CfnSimulationApplication interface {
 	CreationStack() *[]*string
 	CurrentRevisionId() *string
 	SetCurrentRevisionId(val *string)
+	Environment() *string
+	SetEnvironment(val *string)
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
@@ -2709,6 +2744,16 @@ func (j *jsiiProxy_CfnSimulationApplication) CurrentRevisionId() *string {
 	_jsii_.Get(
 		j,
 		"currentRevisionId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSimulationApplication) Environment() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"environment",
 		&returns,
 	)
 	return returns
@@ -2855,6 +2900,14 @@ func (j *jsiiProxy_CfnSimulationApplication) SetCurrentRevisionId(val *string) {
 	_jsii_.Set(
 		j,
 		"currentRevisionId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnSimulationApplication) SetEnvironment(val *string) {
+	_jsii_.Set(
+		j,
+		"environment",
 		val,
 	)
 }
@@ -3330,20 +3383,22 @@ type CfnSimulationApplication_SourceConfigProperty struct {
 
 // Properties for defining a `AWS::RoboMaker::SimulationApplication`.
 type CfnSimulationApplicationProps struct {
-	// `AWS::RoboMaker::SimulationApplication.RenderingEngine`.
-	RenderingEngine interface{} `json:"renderingEngine"`
 	// `AWS::RoboMaker::SimulationApplication.RobotSoftwareSuite`.
 	RobotSoftwareSuite interface{} `json:"robotSoftwareSuite"`
 	// `AWS::RoboMaker::SimulationApplication.SimulationSoftwareSuite`.
 	SimulationSoftwareSuite interface{} `json:"simulationSoftwareSuite"`
-	// `AWS::RoboMaker::SimulationApplication.Sources`.
-	Sources interface{} `json:"sources"`
 	// `AWS::RoboMaker::SimulationApplication.CurrentRevisionId`.
 	CurrentRevisionId *string `json:"currentRevisionId"`
+	// `AWS::RoboMaker::SimulationApplication.Environment`.
+	Environment *string `json:"environment"`
 	// `AWS::RoboMaker::SimulationApplication.Name`.
 	Name *string `json:"name"`
+	// `AWS::RoboMaker::SimulationApplication.RenderingEngine`.
+	RenderingEngine interface{} `json:"renderingEngine"`
+	// `AWS::RoboMaker::SimulationApplication.Sources`.
+	Sources interface{} `json:"sources"`
 	// `AWS::RoboMaker::SimulationApplication.Tags`.
-	Tags interface{} `json:"tags"`
+	Tags *map[string]*string `json:"tags"`
 }
 
 // A CloudFormation `AWS::RoboMaker::SimulationApplicationVersion`.
@@ -3352,6 +3407,8 @@ type CfnSimulationApplicationVersion interface {
 	awscdk.IInspectable
 	Application() *string
 	SetApplication(val *string)
+	AttrApplicationVersion() *string
+	AttrArn() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -3397,6 +3454,26 @@ func (j *jsiiProxy_CfnSimulationApplicationVersion) Application() *string {
 	_jsii_.Get(
 		j,
 		"application",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSimulationApplicationVersion) AttrApplicationVersion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrApplicationVersion",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSimulationApplicationVersion) AttrArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrArn",
 		&returns,
 	)
 	return returns

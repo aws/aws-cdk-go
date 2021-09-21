@@ -86,6 +86,10 @@ func init() {
 		reflect.TypeOf((*CfnDeliveryStream_DeserializerProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_kinesisfirehose.CfnDeliveryStream.DynamicPartitioningConfigurationProperty",
+		reflect.TypeOf((*CfnDeliveryStream_DynamicPartitioningConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_kinesisfirehose.CfnDeliveryStream.ElasticsearchBufferingHintsProperty",
 		reflect.TypeOf((*CfnDeliveryStream_ElasticsearchBufferingHintsProperty)(nil)).Elem(),
 	)

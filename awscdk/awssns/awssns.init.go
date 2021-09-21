@@ -278,6 +278,7 @@ func init() {
 			"SQS": SubscriptionProtocol_SQS,
 			"APPLICATION": SubscriptionProtocol_APPLICATION,
 			"LAMBDA": SubscriptionProtocol_LAMBDA,
+			"FIREHOSE": SubscriptionProtocol_FIREHOSE,
 		},
 	)
 	_jsii_.RegisterClass(

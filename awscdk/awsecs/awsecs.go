@@ -266,8 +266,24 @@ type AddCapacityOptions struct {
 	InstanceType awsec2.InstanceType `json:"instanceType"`
 	// The ECS-optimized AMI variant to use.
 	//
-	// For more information, see
-	// [Amazon ECS-optimized AMIs](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html).
+	// The default is to use an ECS-optimized AMI of Amazon Linux 2 which is
+	// automatically updated to the latest version on every deployment. This will
+	// replace the instances in the AutoScalingGroup. Make sure you have not disabled
+	// task draining, to avoid downtime when the AMI updates.
+	//
+	// To use an image that does not update on every deployment, pass:
+	//
+	// ```ts
+	// {
+	//    machineImage: EcsOptimizedImage.amazonLinux2(AmiHardwareType.STANDARD, {
+	//      cachedInContext: true,
+	//    }),
+	// }
+	// ```
+	//
+	// For more information, see [Amazon ECS-optimized
+	// AMIs](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html).
+	//
 	// You must define either `machineImage` or `machineImageType`, not both.
 	// Experimental.
 	MachineImage awsec2.IMachineImage `json:"machineImage"`
@@ -2045,6 +2061,23 @@ type BottleRocketImageProps struct {
 	// The CPU architecture.
 	// Experimental.
 	Architecture awsec2.InstanceArchitecture `json:"architecture"`
+	// Whether the AMI ID is cached to be stable between deployments.
+	//
+	// By default, the newest image is used on each deployment. This will cause
+	// instances to be replaced whenever a new version is released, and may cause
+	// downtime if there aren't enough running instances in the AutoScalingGroup
+	// to reschedule the tasks on.
+	//
+	// If set to true, the AMI ID will be cached in `cdk.context.json` and the
+	// same value will be used on future runs. Your instances will not be replaced
+	// but your AMI version will grow old over time. To refresh the AMI lookup,
+	// you will have to evict the value from the cache using the `cdk context`
+	// command. See https://docs.aws.amazon.com/cdk/latest/guide/context.html for
+	// more information.
+	//
+	// Can not be set to `true` in environment-agnostic stacks.
+	// Experimental.
+	CachedInContext *bool `json:"cachedInContext"`
 	// The Amazon ECS variant to use.
 	//
 	// Only `aws-ecs-1` is currently available
@@ -11677,6 +11710,23 @@ func (e *jsiiProxy_EcsOptimizedAmi) GetImage(scope awscdk.Construct) *awsec2.Mac
 // The properties that define which ECS-optimized AMI is used.
 // Deprecated: see {@link EcsOptimizedImage}
 type EcsOptimizedAmiProps struct {
+	// Whether the AMI ID is cached to be stable between deployments.
+	//
+	// By default, the newest image is used on each deployment. This will cause
+	// instances to be replaced whenever a new version is released, and may cause
+	// downtime if there aren't enough running instances in the AutoScalingGroup
+	// to reschedule the tasks on.
+	//
+	// If set to true, the AMI ID will be cached in `cdk.context.json` and the
+	// same value will be used on future runs. Your instances will not be replaced
+	// but your AMI version will grow old over time. To refresh the AMI lookup,
+	// you will have to evict the value from the cache using the `cdk context`
+	// command. See https://docs.aws.amazon.com/cdk/latest/guide/context.html for
+	// more information.
+	//
+	// Can not be set to `true` in environment-agnostic stacks.
+	// Deprecated: see {@link EcsOptimizedImage}
+	CachedInContext *bool `json:"cachedInContext"`
 	// The Amazon Linux generation to use.
 	// Deprecated: see {@link EcsOptimizedImage}
 	Generation awsec2.AmazonLinuxGeneration `json:"generation"`
@@ -11702,7 +11752,7 @@ type jsiiProxy_EcsOptimizedImage struct {
 
 // Construct an Amazon Linux AMI image from the latest ECS Optimized AMI published in SSM.
 // Experimental.
-func EcsOptimizedImage_AmazonLinux() EcsOptimizedImage {
+func EcsOptimizedImage_AmazonLinux(options *EcsOptimizedImageOptions) EcsOptimizedImage {
 	_init_.Initialize()
 
 	var returns EcsOptimizedImage
@@ -11710,7 +11760,7 @@ func EcsOptimizedImage_AmazonLinux() EcsOptimizedImage {
 	_jsii_.StaticInvoke(
 		"monocdk.aws_ecs.EcsOptimizedImage",
 		"amazonLinux",
-		nil, // no parameters
+		[]interface{}{options},
 		&returns,
 	)
 
@@ -11719,7 +11769,7 @@ func EcsOptimizedImage_AmazonLinux() EcsOptimizedImage {
 
 // Construct an Amazon Linux 2 image from the latest ECS Optimized AMI published in SSM.
 // Experimental.
-func EcsOptimizedImage_AmazonLinux2(hardwareType AmiHardwareType) EcsOptimizedImage {
+func EcsOptimizedImage_AmazonLinux2(hardwareType AmiHardwareType, options *EcsOptimizedImageOptions) EcsOptimizedImage {
 	_init_.Initialize()
 
 	var returns EcsOptimizedImage
@@ -11727,7 +11777,7 @@ func EcsOptimizedImage_AmazonLinux2(hardwareType AmiHardwareType) EcsOptimizedIm
 	_jsii_.StaticInvoke(
 		"monocdk.aws_ecs.EcsOptimizedImage",
 		"amazonLinux2",
-		[]interface{}{hardwareType},
+		[]interface{}{hardwareType, options},
 		&returns,
 	)
 
@@ -11736,7 +11786,7 @@ func EcsOptimizedImage_AmazonLinux2(hardwareType AmiHardwareType) EcsOptimizedIm
 
 // Construct a Windows image from the latest ECS Optimized AMI published in SSM.
 // Experimental.
-func EcsOptimizedImage_Windows(windowsVersion WindowsOptimizedVersion) EcsOptimizedImage {
+func EcsOptimizedImage_Windows(windowsVersion WindowsOptimizedVersion, options *EcsOptimizedImageOptions) EcsOptimizedImage {
 	_init_.Initialize()
 
 	var returns EcsOptimizedImage
@@ -11744,7 +11794,7 @@ func EcsOptimizedImage_Windows(windowsVersion WindowsOptimizedVersion) EcsOptimi
 	_jsii_.StaticInvoke(
 		"monocdk.aws_ecs.EcsOptimizedImage",
 		"windows",
-		[]interface{}{windowsVersion},
+		[]interface{}{windowsVersion, options},
 		&returns,
 	)
 
@@ -11764,6 +11814,28 @@ func (e *jsiiProxy_EcsOptimizedImage) GetImage(scope awscdk.Construct) *awsec2.M
 	)
 
 	return returns
+}
+
+// Additional configuration properties for EcsOptimizedImage factory functions.
+// Experimental.
+type EcsOptimizedImageOptions struct {
+	// Whether the AMI ID is cached to be stable between deployments.
+	//
+	// By default, the newest image is used on each deployment. This will cause
+	// instances to be replaced whenever a new version is released, and may cause
+	// downtime if there aren't enough running instances in the AutoScalingGroup
+	// to reschedule the tasks on.
+	//
+	// If set to true, the AMI ID will be cached in `cdk.context.json` and the
+	// same value will be used on future runs. Your instances will not be replaced
+	// but your AMI version will grow old over time. To refresh the AMI lookup,
+	// you will have to evict the value from the cache using the `cdk context`
+	// command. See https://docs.aws.amazon.com/cdk/latest/guide/context.html for
+	// more information.
+	//
+	// Can not be set to `true` in environment-agnostic stacks.
+	// Experimental.
+	CachedInContext *bool `json:"cachedInContext"`
 }
 
 // Experimental.

@@ -54,6 +54,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "workflowDetails", GoGetter: "WorkflowDetails"},
 		},
 		func() interface{} {
 			j := jsiiProxy_CfnServer{}
@@ -73,6 +74,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_transfer.CfnServer.ProtocolDetailsProperty",
 		reflect.TypeOf((*CfnServer_ProtocolDetailsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_transfer.CfnServer.WorkflowDetailProperty",
+		reflect.TypeOf((*CfnServer_WorkflowDetailProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_transfer.CfnServer.WorkflowDetailsProperty",
+		reflect.TypeOf((*CfnServer_WorkflowDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_transfer.CfnServerProps",

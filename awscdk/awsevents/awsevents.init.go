@@ -376,6 +376,10 @@ func init() {
 		reflect.TypeOf((*CfnRule_BatchRetryStrategyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_events.CfnRule.CapacityProviderStrategyItemProperty",
+		reflect.TypeOf((*CfnRule_CapacityProviderStrategyItemProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_events.CfnRule.DeadLetterConfigProperty",
 		reflect.TypeOf((*CfnRule_DeadLetterConfigProperty)(nil)).Elem(),
 	)
@@ -400,6 +404,14 @@ func init() {
 		reflect.TypeOf((*CfnRule_NetworkConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_events.CfnRule.PlacementConstraintProperty",
+		reflect.TypeOf((*CfnRule_PlacementConstraintProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_events.CfnRule.PlacementStrategyProperty",
+		reflect.TypeOf((*CfnRule_PlacementStrategyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_events.CfnRule.RedshiftDataParametersProperty",
 		reflect.TypeOf((*CfnRule_RedshiftDataParametersProperty)(nil)).Elem(),
 	)
@@ -418,6 +430,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_events.CfnRule.SqsParametersProperty",
 		reflect.TypeOf((*CfnRule_SqsParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_events.CfnRule.TagProperty",
+		reflect.TypeOf((*CfnRule_TagProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_events.CfnRule.TargetProperty",

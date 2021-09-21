@@ -13,12 +13,15 @@ import (
 type CfnDiscoverer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrCrossAccount() awscdk.IResolvable
 	AttrDiscovererArn() *string
 	AttrDiscovererId() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
 	CreationStack() *[]*string
+	CrossAccount() interface{}
+	SetCrossAccount(val interface{})
 	Description() *string
 	SetDescription(val *string)
 	LogicalId() *string
@@ -56,6 +59,16 @@ type CfnDiscoverer interface {
 type jsiiProxy_CfnDiscoverer struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnDiscoverer) AttrCrossAccount() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrCrossAccount",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnDiscoverer) AttrDiscovererArn() *string {
@@ -113,6 +126,16 @@ func (j *jsiiProxy_CfnDiscoverer) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDiscoverer) CrossAccount() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"crossAccount",
 		&returns,
 	)
 	return returns
@@ -222,6 +245,14 @@ func NewCfnDiscoverer_Override(c CfnDiscoverer, scope awscdk.Construct, id *stri
 		"monocdk.aws_eventschemas.CfnDiscoverer",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnDiscoverer) SetCrossAccount(val interface{}) {
+	_jsii_.Set(
+		j,
+		"crossAccount",
+		val,
 	)
 }
 
@@ -651,6 +682,8 @@ type CfnDiscoverer_TagsEntryProperty struct {
 type CfnDiscovererProps struct {
 	// `AWS::EventSchemas::Discoverer.SourceArn`.
 	SourceArn *string `json:"sourceArn"`
+	// `AWS::EventSchemas::Discoverer.CrossAccount`.
+	CrossAccount interface{} `json:"crossAccount"`
 	// `AWS::EventSchemas::Discoverer.Description`.
 	Description *string `json:"description"`
 	// `AWS::EventSchemas::Discoverer.Tags`.

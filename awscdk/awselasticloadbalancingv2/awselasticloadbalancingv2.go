@@ -7465,6 +7465,8 @@ type CfnTargetGroup interface {
 	SetHealthCheckTimeoutSeconds(val *float64)
 	HealthyThresholdCount() *float64
 	SetHealthyThresholdCount(val *float64)
+	IpAddressType() *string
+	SetIpAddressType(val *string)
 	LogicalId() *string
 	Matcher() interface{}
 	SetMatcher(val interface{})
@@ -7655,6 +7657,16 @@ func (j *jsiiProxy_CfnTargetGroup) HealthyThresholdCount() *float64 {
 	_jsii_.Get(
 		j,
 		"healthyThresholdCount",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTargetGroup) IpAddressType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ipAddressType",
 		&returns,
 	)
 	return returns
@@ -7899,6 +7911,14 @@ func (j *jsiiProxy_CfnTargetGroup) SetHealthyThresholdCount(val *float64) {
 	_jsii_.Set(
 		j,
 		"healthyThresholdCount",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTargetGroup) SetIpAddressType(val *string) {
+	_jsii_.Set(
+		j,
+		"ipAddressType",
 		val,
 	)
 }
@@ -8421,6 +8441,8 @@ type CfnTargetGroupProps struct {
 	HealthCheckTimeoutSeconds *float64 `json:"healthCheckTimeoutSeconds"`
 	// `AWS::ElasticLoadBalancingV2::TargetGroup.HealthyThresholdCount`.
 	HealthyThresholdCount *float64 `json:"healthyThresholdCount"`
+	// `AWS::ElasticLoadBalancingV2::TargetGroup.IpAddressType`.
+	IpAddressType *string `json:"ipAddressType"`
 	// `AWS::ElasticLoadBalancingV2::TargetGroup.Matcher`.
 	Matcher interface{} `json:"matcher"`
 	// `AWS::ElasticLoadBalancingV2::TargetGroup.Name`.

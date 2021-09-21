@@ -4558,6 +4558,15 @@ type CfnRule_BatchRetryStrategyProperty struct {
 	Attempts *float64 `json:"attempts"`
 }
 
+type CfnRule_CapacityProviderStrategyItemProperty struct {
+	// `CfnRule.CapacityProviderStrategyItemProperty.CapacityProvider`.
+	CapacityProvider *string `json:"capacityProvider"`
+	// `CfnRule.CapacityProviderStrategyItemProperty.Base`.
+	Base *float64 `json:"base"`
+	// `CfnRule.CapacityProviderStrategyItemProperty.Weight`.
+	Weight *float64 `json:"weight"`
+}
+
 type CfnRule_DeadLetterConfigProperty struct {
 	// `CfnRule.DeadLetterConfigProperty.Arn`.
 	Arn *string `json:"arn"`
@@ -4566,14 +4575,30 @@ type CfnRule_DeadLetterConfigProperty struct {
 type CfnRule_EcsParametersProperty struct {
 	// `CfnRule.EcsParametersProperty.TaskDefinitionArn`.
 	TaskDefinitionArn *string `json:"taskDefinitionArn"`
+	// `CfnRule.EcsParametersProperty.CapacityProviderStrategy`.
+	CapacityProviderStrategy interface{} `json:"capacityProviderStrategy"`
+	// `CfnRule.EcsParametersProperty.EnableECSManagedTags`.
+	EnableEcsManagedTags interface{} `json:"enableEcsManagedTags"`
+	// `CfnRule.EcsParametersProperty.EnableExecuteCommand`.
+	EnableExecuteCommand interface{} `json:"enableExecuteCommand"`
 	// `CfnRule.EcsParametersProperty.Group`.
 	Group *string `json:"group"`
 	// `CfnRule.EcsParametersProperty.LaunchType`.
 	LaunchType *string `json:"launchType"`
 	// `CfnRule.EcsParametersProperty.NetworkConfiguration`.
 	NetworkConfiguration interface{} `json:"networkConfiguration"`
+	// `CfnRule.EcsParametersProperty.PlacementConstraints`.
+	PlacementConstraints interface{} `json:"placementConstraints"`
+	// `CfnRule.EcsParametersProperty.PlacementStrategies`.
+	PlacementStrategies interface{} `json:"placementStrategies"`
 	// `CfnRule.EcsParametersProperty.PlatformVersion`.
 	PlatformVersion *string `json:"platformVersion"`
+	// `CfnRule.EcsParametersProperty.PropagateTags`.
+	PropagateTags *string `json:"propagateTags"`
+	// `CfnRule.EcsParametersProperty.ReferenceId`.
+	ReferenceId *string `json:"referenceId"`
+	// `CfnRule.EcsParametersProperty.TagList`.
+	TagList interface{} `json:"tagList"`
 	// `CfnRule.EcsParametersProperty.TaskCount`.
 	TaskCount *float64 `json:"taskCount"`
 }
@@ -4602,6 +4627,20 @@ type CfnRule_KinesisParametersProperty struct {
 type CfnRule_NetworkConfigurationProperty struct {
 	// `CfnRule.NetworkConfigurationProperty.AwsVpcConfiguration`.
 	AwsVpcConfiguration interface{} `json:"awsVpcConfiguration"`
+}
+
+type CfnRule_PlacementConstraintProperty struct {
+	// `CfnRule.PlacementConstraintProperty.Expression`.
+	Expression *string `json:"expression"`
+	// `CfnRule.PlacementConstraintProperty.Type`.
+	Type *string `json:"type"`
+}
+
+type CfnRule_PlacementStrategyProperty struct {
+	// `CfnRule.PlacementStrategyProperty.Field`.
+	Field *string `json:"field"`
+	// `CfnRule.PlacementStrategyProperty.Type`.
+	Type *string `json:"type"`
 }
 
 type CfnRule_RedshiftDataParametersProperty struct {
@@ -4641,6 +4680,13 @@ type CfnRule_RunCommandTargetProperty struct {
 type CfnRule_SqsParametersProperty struct {
 	// `CfnRule.SqsParametersProperty.MessageGroupId`.
 	MessageGroupId *string `json:"messageGroupId"`
+}
+
+type CfnRule_TagProperty struct {
+	// `CfnRule.TagProperty.Key`.
+	Key *string `json:"key"`
+	// `CfnRule.TagProperty.Value`.
+	Value *string `json:"value"`
 }
 
 type CfnRule_TargetProperty struct {

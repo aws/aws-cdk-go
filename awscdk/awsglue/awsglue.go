@@ -5,13 +5,104 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/awsglue/internal"
 	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awss3assets"
 	"github.com/aws/constructs-go/constructs/v3"
 )
+
+// Job Code from a local file.
+// Experimental.
+type AssetCode interface {
+	Code
+	Bind(scope constructs.Construct, grantable awsiam.IGrantable) *CodeConfig
+}
+
+// The jsii proxy struct for AssetCode
+type jsiiProxy_AssetCode struct {
+	jsiiProxy_Code
+}
+
+// Experimental.
+func NewAssetCode(path *string, options *awss3assets.AssetOptions) AssetCode {
+	_init_.Initialize()
+
+	j := jsiiProxy_AssetCode{}
+
+	_jsii_.Create(
+		"monocdk.aws_glue.AssetCode",
+		[]interface{}{path, options},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewAssetCode_Override(a AssetCode, path *string, options *awss3assets.AssetOptions) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_glue.AssetCode",
+		[]interface{}{path, options},
+		a,
+	)
+}
+
+// Job code from a local disk path.
+// Experimental.
+func AssetCode_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
+	_init_.Initialize()
+
+	var returns AssetCode
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_glue.AssetCode",
+		"fromAsset",
+		[]interface{}{path, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Job code as an S3 object.
+// Experimental.
+func AssetCode_FromBucket(bucket awss3.IBucket, key *string) S3Code {
+	_init_.Initialize()
+
+	var returns S3Code
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_glue.AssetCode",
+		"fromBucket",
+		[]interface{}{bucket, key},
+		&returns,
+	)
+
+	return returns
+}
+
+// Called when the Job is initialized to allow this object to bind.
+// Experimental.
+func (a *jsiiProxy_AssetCode) Bind(scope constructs.Construct, grantable awsiam.IGrantable) *CodeConfig {
+	var returns *CodeConfig
+
+	_jsii_.Invoke(
+		a,
+		"bind",
+		[]interface{}{scope, grantable},
+		&returns,
+	)
+
+	return returns
+}
 
 // A CloudFormation `AWS::Glue::Classifier`.
 type CfnClassifier interface {
@@ -12581,6 +12672,85 @@ const (
 	CloudWatchEncryptionMode_KMS CloudWatchEncryptionMode = "KMS"
 )
 
+// Represents a Glue Job's Code assets (an asset can be a scripts, a jar, a python file or any other file).
+// Experimental.
+type Code interface {
+	Bind(scope constructs.Construct, grantable awsiam.IGrantable) *CodeConfig
+}
+
+// The jsii proxy struct for Code
+type jsiiProxy_Code struct {
+	_ byte // padding
+}
+
+// Experimental.
+func NewCode_Override(c Code) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_glue.Code",
+		nil, // no parameters
+		c,
+	)
+}
+
+// Job code from a local disk path.
+// Experimental.
+func Code_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
+	_init_.Initialize()
+
+	var returns AssetCode
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_glue.Code",
+		"fromAsset",
+		[]interface{}{path, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Job code as an S3 object.
+// Experimental.
+func Code_FromBucket(bucket awss3.IBucket, key *string) S3Code {
+	_init_.Initialize()
+
+	var returns S3Code
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_glue.Code",
+		"fromBucket",
+		[]interface{}{bucket, key},
+		&returns,
+	)
+
+	return returns
+}
+
+// Called when the Job is initialized to allow this object to bind.
+// Experimental.
+func (c *jsiiProxy_Code) Bind(scope constructs.Construct, grantable awsiam.IGrantable) *CodeConfig {
+	var returns *CodeConfig
+
+	_jsii_.Invoke(
+		c,
+		"bind",
+		[]interface{}{scope, grantable},
+		&returns,
+	)
+
+	return returns
+}
+
+// Result of binding `Code` into a `Job`.
+// Experimental.
+type CodeConfig struct {
+	// The location of the code in S3.
+	// Experimental.
+	S3Location *awss3.Location `json:"s3Location"`
+}
+
 // A column of a table.
 // Experimental.
 type Column struct {
@@ -13147,6 +13317,30 @@ func (c *jsiiProxy_ConnectionType) ToString() *string {
 	)
 
 	return returns
+}
+
+// Properties for enabling Continuous Logging for Glue Jobs.
+// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+//
+// Experimental.
+type ContinuousLoggingProps struct {
+	// Enable continouous logging.
+	// Experimental.
+	Enabled *bool `json:"enabled"`
+	// Apply the provided conversion pattern.
+	//
+	// This is a Log4j Conversion Pattern to customize driver and executor logs.
+	// Experimental.
+	ConversionPattern *string `json:"conversionPattern"`
+	// Specify a custom CloudWatch log group name.
+	// Experimental.
+	LogGroup awslogs.ILogGroup `json:"logGroup"`
+	// Specify a custom CloudWatch log stream prefix.
+	// Experimental.
+	LogStreamPrefix *string `json:"logStreamPrefix"`
+	// Filter out non-useful Apache Spark driver/executor and Apache Hadoop YARN heartbeat log messages.
+	// Experimental.
+	Quiet *bool `json:"quiet"`
 }
 
 // Defines the input/output formats and ser/de for a single DataFormat.
@@ -13744,6 +13938,94 @@ type DatabaseProps struct {
 	LocationUri *string `json:"locationUri"`
 }
 
+// AWS Glue version determines the versions of Apache Spark and Python that are available to the job.
+// See: https://docs.aws.amazon.com/glue/latest/dg/add-job.html.
+//
+// If you need to use a GlueVersion that doesn't exist as a static member, you
+// can instantiate a `GlueVersion` object, e.g: `GlueVersion.of('1.5')`.
+//
+// Experimental.
+type GlueVersion interface {
+	Name() *string
+}
+
+// The jsii proxy struct for GlueVersion
+type jsiiProxy_GlueVersion struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_GlueVersion) Name() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"name",
+		&returns,
+	)
+	return returns
+}
+
+
+// Custom Glue version.
+// Experimental.
+func GlueVersion_Of(version *string) GlueVersion {
+	_init_.Initialize()
+
+	var returns GlueVersion
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_glue.GlueVersion",
+		"of",
+		[]interface{}{version},
+		&returns,
+	)
+
+	return returns
+}
+
+func GlueVersion_V0_9() GlueVersion {
+	_init_.Initialize()
+	var returns GlueVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_glue.GlueVersion",
+		"V0_9",
+		&returns,
+	)
+	return returns
+}
+
+func GlueVersion_V1_0() GlueVersion {
+	_init_.Initialize()
+	var returns GlueVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_glue.GlueVersion",
+		"V1_0",
+		&returns,
+	)
+	return returns
+}
+
+func GlueVersion_V2_0() GlueVersion {
+	_init_.Initialize()
+	var returns GlueVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_glue.GlueVersion",
+		"V2_0",
+		&returns,
+	)
+	return returns
+}
+
+func GlueVersion_V3_0() GlueVersion {
+	_init_.Initialize()
+	var returns GlueVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_glue.GlueVersion",
+		"V3_0",
+		&returns,
+	)
+	return returns
+}
+
 // Interface representing a created or an imported {@link Connection}.
 // Experimental.
 type IConnection interface {
@@ -13838,6 +14120,241 @@ func (j *jsiiProxy_IDatabase) DatabaseName() *string {
 	_jsii_.Get(
 		j,
 		"databaseName",
+		&returns,
+	)
+	return returns
+}
+
+// Interface representing a created or an imported {@link Job}.
+// Experimental.
+type IJob interface {
+	awsiam.IGrantable
+	awscdk.IResource
+	// Create a CloudWatch metric.
+	// See: https://docs.aws.amazon.com/glue/latest/dg/monitoring-awsglue-with-cloudwatch-metrics.html
+	//
+	// Experimental.
+	Metric(metricName *string, type_ MetricType, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Create a CloudWatch Metric indicating job failure.
+	// Experimental.
+	MetricFailure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Create a CloudWatch Metric indicating job success.
+	// Experimental.
+	MetricSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Create a CloudWatch Metric indicating job timeout.
+	// Experimental.
+	MetricTimeout(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// Defines a CloudWatch event rule triggered when something happens with this job.
+	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/EventTypes.html#glue-event-types
+	//
+	// Experimental.
+	OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	// Defines a CloudWatch event rule triggered when this job moves to the FAILED state.
+	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/EventTypes.html#glue-event-types
+	//
+	// Experimental.
+	OnFailure(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	// Defines a CloudWatch event rule triggered when this job moves to the input jobState.
+	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/EventTypes.html#glue-event-types
+	//
+	// Experimental.
+	OnStateChange(id *string, jobState JobState, options *awsevents.OnEventOptions) awsevents.Rule
+	// Defines a CloudWatch event rule triggered when this job moves to the SUCCEEDED state.
+	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/EventTypes.html#glue-event-types
+	//
+	// Experimental.
+	OnSuccess(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	// Defines a CloudWatch event rule triggered when this job moves to the TIMEOUT state.
+	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/EventTypes.html#glue-event-types
+	//
+	// Experimental.
+	OnTimeout(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	// The ARN of the job.
+	// Experimental.
+	JobArn() *string
+	// The name of the job.
+	// Experimental.
+	JobName() *string
+}
+
+// The jsii proxy for IJob
+type jsiiProxy_IJob struct {
+	internal.Type__awsiamIGrantable
+	internal.Type__awscdkIResource
+}
+
+func (i *jsiiProxy_IJob) Metric(metricName *string, type_ MetricType, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metric",
+		[]interface{}{metricName, type_, props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IJob) MetricFailure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricFailure",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IJob) MetricSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricSuccess",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IJob) MetricTimeout(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		i,
+		"metricTimeout",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IJob) OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	var returns awsevents.Rule
+
+	_jsii_.Invoke(
+		i,
+		"onEvent",
+		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IJob) OnFailure(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	var returns awsevents.Rule
+
+	_jsii_.Invoke(
+		i,
+		"onFailure",
+		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IJob) OnStateChange(id *string, jobState JobState, options *awsevents.OnEventOptions) awsevents.Rule {
+	var returns awsevents.Rule
+
+	_jsii_.Invoke(
+		i,
+		"onStateChange",
+		[]interface{}{id, jobState, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IJob) OnSuccess(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	var returns awsevents.Rule
+
+	_jsii_.Invoke(
+		i,
+		"onSuccess",
+		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IJob) OnTimeout(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	var returns awsevents.Rule
+
+	_jsii_.Invoke(
+		i,
+		"onTimeout",
+		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (j *jsiiProxy_IJob) JobArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"jobArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IJob) JobName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"jobName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IJob) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IJob) GrantPrincipal() awsiam.IPrincipal {
+	var returns awsiam.IPrincipal
+	_jsii_.Get(
+		j,
+		"grantPrincipal",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IJob) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IJob) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
 		&returns,
 	)
 	return returns
@@ -14004,6 +14521,558 @@ func InputFormat_TEXT() InputFormat {
 	return returns
 }
 
+// A Glue Job.
+// Experimental.
+type Job interface {
+	awscdk.Resource
+	IJob
+	Env() *awscdk.ResourceEnvironment
+	GrantPrincipal() awsiam.IPrincipal
+	JobArn() *string
+	JobName() *string
+	Node() awscdk.ConstructNode
+	PhysicalName() *string
+	Role() awsiam.IRole
+	SparkUILoggingLocation() *SparkUILoggingLocation
+	Stack() awscdk.Stack
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	GeneratePhysicalName() *string
+	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	GetResourceNameAttribute(nameAttr *string) *string
+	Metric(metricName *string, type_ MetricType, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricFailure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricTimeout(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	OnFailure(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	OnPrepare()
+	OnStateChange(id *string, jobState JobState, options *awsevents.OnEventOptions) awsevents.Rule
+	OnSuccess(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnTimeout(id *string, options *awsevents.OnEventOptions) awsevents.Rule
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
+}
+
+// The jsii proxy struct for Job
+type jsiiProxy_Job struct {
+	internal.Type__awscdkResource
+	jsiiProxy_IJob
+}
+
+func (j *jsiiProxy_Job) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Job) GrantPrincipal() awsiam.IPrincipal {
+	var returns awsiam.IPrincipal
+	_jsii_.Get(
+		j,
+		"grantPrincipal",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Job) JobArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"jobArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Job) JobName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"jobName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Job) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Job) PhysicalName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Job) Role() awsiam.IRole {
+	var returns awsiam.IRole
+	_jsii_.Get(
+		j,
+		"role",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Job) SparkUILoggingLocation() *SparkUILoggingLocation {
+	var returns *SparkUILoggingLocation
+	_jsii_.Get(
+		j,
+		"sparkUILoggingLocation",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Job) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewJob(scope constructs.Construct, id *string, props *JobProps) Job {
+	_init_.Initialize()
+
+	j := jsiiProxy_Job{}
+
+	_jsii_.Create(
+		"monocdk.aws_glue.Job",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewJob_Override(j Job, scope constructs.Construct, id *string, props *JobProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_glue.Job",
+		[]interface{}{scope, id, props},
+		j,
+	)
+}
+
+// Creates a Glue Job.
+// Experimental.
+func Job_FromJobAttributes(scope constructs.Construct, id *string, attrs *JobAttributes) IJob {
+	_init_.Initialize()
+
+	var returns IJob
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_glue.Job",
+		"fromJobAttributes",
+		[]interface{}{scope, id, attrs},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func Job_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_glue.Job",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+// Experimental.
+func Job_IsResource(construct awscdk.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_glue.Job",
+		"isResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Apply the given removal policy to this resource.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
+func (j *jsiiProxy_Job) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		j,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
+// Experimental.
+func (j *jsiiProxy_Job) GeneratePhysicalName() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		j,
+		"generatePhysicalName",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+//
+// Normally, this token will resolve to `arnAttr`, but if the resource is
+// referenced across environments, `arnComponents` will be used to synthesize
+// a concrete ARN with the resource's physical name. Make sure to reference
+// `this.physicalName` in `arnComponents`.
+// Experimental.
+func (j *jsiiProxy_Job) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		j,
+		"getResourceArnAttribute",
+		[]interface{}{arnAttr, arnComponents},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+//
+// Normally, this token will resolve to `nameAttr`, but if the resource is
+// referenced across environments, it will be resolved to `this.physicalName`,
+// which will be a concrete name.
+// Experimental.
+func (j *jsiiProxy_Job) GetResourceNameAttribute(nameAttr *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		j,
+		"getResourceNameAttribute",
+		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create a CloudWatch metric.
+// See: https://docs.aws.amazon.com/glue/latest/dg/monitoring-awsglue-with-cloudwatch-metrics.html
+//
+// Experimental.
+func (j *jsiiProxy_Job) Metric(metricName *string, type_ MetricType, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		j,
+		"metric",
+		[]interface{}{metricName, type_, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return a CloudWatch Metric indicating job failure.
+//
+// This metric is based on the Rule returned by no-args onFailure() call.
+// Experimental.
+func (j *jsiiProxy_Job) MetricFailure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		j,
+		"metricFailure",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return a CloudWatch Metric indicating job success.
+//
+// This metric is based on the Rule returned by no-args onSuccess() call.
+// Experimental.
+func (j *jsiiProxy_Job) MetricSuccess(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		j,
+		"metricSuccess",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return a CloudWatch Metric indicating job timeout.
+//
+// This metric is based on the Rule returned by no-args onTimeout() call.
+// Experimental.
+func (j *jsiiProxy_Job) MetricTimeout(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		j,
+		"metricTimeout",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create a CloudWatch Event Rule for this Glue Job when it's in a given state.
+// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/EventTypes.html#glue-event-types
+//
+// Experimental.
+func (j *jsiiProxy_Job) OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	var returns awsevents.Rule
+
+	_jsii_.Invoke(
+		j,
+		"onEvent",
+		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return a CloudWatch Event Rule matching FAILED state.
+// Experimental.
+func (j *jsiiProxy_Job) OnFailure(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	var returns awsevents.Rule
+
+	_jsii_.Invoke(
+		j,
+		"onFailure",
+		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (j *jsiiProxy_Job) OnPrepare() {
+	_jsii_.InvokeVoid(
+		j,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Create a CloudWatch Event Rule for the transition into the input jobState.
+// Experimental.
+func (j *jsiiProxy_Job) OnStateChange(id *string, jobState JobState, options *awsevents.OnEventOptions) awsevents.Rule {
+	var returns awsevents.Rule
+
+	_jsii_.Invoke(
+		j,
+		"onStateChange",
+		[]interface{}{id, jobState, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create a CloudWatch Event Rule matching JobState.SUCCEEDED.
+// Experimental.
+func (j *jsiiProxy_Job) OnSuccess(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	var returns awsevents.Rule
+
+	_jsii_.Invoke(
+		j,
+		"onSuccess",
+		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (j *jsiiProxy_Job) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		j,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Return a CloudWatch Event Rule matching TIMEOUT state.
+// Experimental.
+func (j *jsiiProxy_Job) OnTimeout(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
+	var returns awsevents.Rule
+
+	_jsii_.Invoke(
+		j,
+		"onTimeout",
+		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (j *jsiiProxy_Job) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		j,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (j *jsiiProxy_Job) Prepare() {
+	_jsii_.InvokeVoid(
+		j,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (j *jsiiProxy_Job) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		j,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+// Experimental.
+func (j *jsiiProxy_Job) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		j,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (j *jsiiProxy_Job) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		j,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Attributes for importing {@link Job}.
+// Experimental.
+type JobAttributes struct {
+	// The name of the job.
+	// Experimental.
+	JobName *string `json:"jobName"`
+	// The IAM role assumed by Glue to run this job.
+	// Experimental.
+	Role awsiam.IRole `json:"role"`
+}
+
 // Job bookmarks encryption configuration.
 // Experimental.
 type JobBookmarksEncryption struct {
@@ -14023,6 +15092,373 @@ type JobBookmarksEncryptionMode string
 
 const (
 	JobBookmarksEncryptionMode_CLIENT_SIDE_KMS JobBookmarksEncryptionMode = "CLIENT_SIDE_KMS"
+)
+
+// The executable properties related to the Glue job's GlueVersion, JobType and code.
+// Experimental.
+type JobExecutable interface {
+	Bind() *JobExecutableConfig
+}
+
+// The jsii proxy struct for JobExecutable
+type jsiiProxy_JobExecutable struct {
+	_ byte // padding
+}
+
+// Create a custom JobExecutable.
+// Experimental.
+func JobExecutable_Of(config *JobExecutableConfig) JobExecutable {
+	_init_.Initialize()
+
+	var returns JobExecutable
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_glue.JobExecutable",
+		"of",
+		[]interface{}{config},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create Python executable props for Apache Spark ETL job.
+// Experimental.
+func JobExecutable_PythonEtl(props *PythonSparkJobExecutableProps) JobExecutable {
+	_init_.Initialize()
+
+	var returns JobExecutable
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_glue.JobExecutable",
+		"pythonEtl",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create Python executable props for python shell jobs.
+// Experimental.
+func JobExecutable_PythonShell(props *PythonShellExecutableProps) JobExecutable {
+	_init_.Initialize()
+
+	var returns JobExecutable
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_glue.JobExecutable",
+		"pythonShell",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create Python executable props for Apache Spark Streaming job.
+// Experimental.
+func JobExecutable_PythonStreaming(props *PythonSparkJobExecutableProps) JobExecutable {
+	_init_.Initialize()
+
+	var returns JobExecutable
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_glue.JobExecutable",
+		"pythonStreaming",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create Scala executable props for Apache Spark ETL job.
+// Experimental.
+func JobExecutable_ScalaEtl(props *ScalaJobExecutableProps) JobExecutable {
+	_init_.Initialize()
+
+	var returns JobExecutable
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_glue.JobExecutable",
+		"scalaEtl",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create Scala executable props for Apache Spark Streaming job.
+// Experimental.
+func JobExecutable_ScalaStreaming(props *ScalaJobExecutableProps) JobExecutable {
+	_init_.Initialize()
+
+	var returns JobExecutable
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_glue.JobExecutable",
+		"scalaStreaming",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Called during Job initialization to get JobExecutableConfig.
+// Experimental.
+func (j *jsiiProxy_JobExecutable) Bind() *JobExecutableConfig {
+	var returns *JobExecutableConfig
+
+	_jsii_.Invoke(
+		j,
+		"bind",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Result of binding a `JobExecutable` into a `Job`.
+// Experimental.
+type JobExecutableConfig struct {
+	// Glue version.
+	// See: https://docs.aws.amazon.com/glue/latest/dg/release-notes.html
+	//
+	// Experimental.
+	GlueVersion GlueVersion `json:"glueVersion"`
+	// The language of the job (Scala or Python).
+	// See: `--job-language` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Experimental.
+	Language JobLanguage `json:"language"`
+	// The script that is executed by a job.
+	// Experimental.
+	Script Code `json:"script"`
+	// Specify the type of the job whether it's an Apache Spark ETL or streaming one or if it's a Python shell job.
+	// Experimental.
+	Type JobType `json:"type"`
+	// The Scala class that serves as the entry point for the job.
+	//
+	// This applies only if your the job langauage is Scala.
+	// See: `--class` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Experimental.
+	ClassName *string `json:"className"`
+	// Additional files, such as configuration files that AWS Glue copies to the working directory of your script before executing it.
+	// See: `--extra-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Experimental.
+	ExtraFiles *[]Code `json:"extraFiles"`
+	// Additional Java .jar files that AWS Glue adds to the Java classpath before executing your script.
+	// See: `--extra-jars` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Experimental.
+	ExtraJars *[]Code `json:"extraJars"`
+	// Setting this value to true prioritizes the customer's extra JAR files in the classpath.
+	// See: `--user-jars-first` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Experimental.
+	ExtraJarsFirst *bool `json:"extraJarsFirst"`
+	// Additional Python files that AWS Glue adds to the Python path before executing your script.
+	// See: `--extra-py-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Experimental.
+	ExtraPythonFiles *[]Code `json:"extraPythonFiles"`
+	// The Python version to use.
+	// Experimental.
+	PythonVersion PythonVersion `json:"pythonVersion"`
+}
+
+// Runtime language of the Glue job.
+// Experimental.
+type JobLanguage string
+
+const (
+	JobLanguage_SCALA JobLanguage = "SCALA"
+	JobLanguage_PYTHON JobLanguage = "PYTHON"
+)
+
+// Construction properties for {@link Job}.
+// Experimental.
+type JobProps struct {
+	// The job's executable properties.
+	// Experimental.
+	Executable JobExecutable `json:"executable"`
+	// The {@link Connection}s used for this job.
+	//
+	// Connections are used to connect to other AWS Service or resources within a VPC.
+	// Experimental.
+	Connections *[]IConnection `json:"connections"`
+	// Enables continuous logging with the specified props.
+	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Experimental.
+	ContinuousLogging *ContinuousLoggingProps `json:"continuousLogging"`
+	// The default arguments for this job, specified as name-value pairs.
+	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html for a list of reserved parameters
+	//
+	// Experimental.
+	DefaultArguments *map[string]*string `json:"defaultArguments"`
+	// The description of the job.
+	// Experimental.
+	Description *string `json:"description"`
+	// Enables the collection of metrics for job profiling.
+	// See: `--enable-metrics` at https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Experimental.
+	EnableProfilingMetrics *bool `json:"enableProfilingMetrics"`
+	// The name of the job.
+	// Experimental.
+	JobName *string `json:"jobName"`
+	// The number of AWS Glue data processing units (DPUs) that can be allocated when this job runs.
+	//
+	// Cannot be used for Glue version 2.0 and later - workerType and workerCount should be used instead.
+	// Experimental.
+	MaxCapacity *float64 `json:"maxCapacity"`
+	// The maximum number of concurrent runs allowed for the job.
+	//
+	// An error is returned when this threshold is reached. The maximum value you can specify is controlled by a service limit.
+	// Experimental.
+	MaxConcurrentRuns *float64 `json:"maxConcurrentRuns"`
+	// The maximum number of times to retry this job after a job run fails.
+	// Experimental.
+	MaxRetries *float64 `json:"maxRetries"`
+	// The number of minutes to wait after a job run starts, before sending a job run delay notification.
+	// Experimental.
+	NotifyDelayAfter awscdk.Duration `json:"notifyDelayAfter"`
+	// The IAM role assumed by Glue to run this job.
+	//
+	// If providing a custom role, it needs to trust the Glue service principal (glue.amazonaws.com) and be granted sufficient permissions.
+	// See: https://docs.aws.amazon.com/glue/latest/dg/getting-started-access.html
+	//
+	// Experimental.
+	Role awsiam.IRole `json:"role"`
+	// The {@link SecurityConfiguration} to use for this job.
+	// Experimental.
+	SecurityConfiguration ISecurityConfiguration `json:"securityConfiguration"`
+	// Enables the Spark UI debugging and monitoring with the specified props.
+	// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Experimental.
+	SparkUI *SparkUIProps `json:"sparkUI"`
+	// The tags to add to the resources on which the job runs.
+	// Experimental.
+	Tags *map[string]*string `json:"tags"`
+	// The maximum time that a job run can consume resources before it is terminated and enters TIMEOUT status.
+	// Experimental.
+	Timeout awscdk.Duration `json:"timeout"`
+	// The number of workers of a defined {@link WorkerType} that are allocated when a job runs.
+	// Experimental.
+	WorkerCount *float64 `json:"workerCount"`
+	// The type of predefined worker that is allocated when a job runs.
+	// Experimental.
+	WorkerType WorkerType `json:"workerType"`
+}
+
+// Job states emitted by Glue to CloudWatch Events.
+// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/EventTypes.html#glue-event-types for more information.
+//
+// Experimental.
+type JobState string
+
+const (
+	JobState_SUCCEEDED JobState = "SUCCEEDED"
+	JobState_FAILED JobState = "FAILED"
+	JobState_TIMEOUT JobState = "TIMEOUT"
+	JobState_STARTING JobState = "STARTING"
+	JobState_RUNNING JobState = "RUNNING"
+	JobState_STOPPING JobState = "STOPPING"
+	JobState_STOPPED JobState = "STOPPED"
+)
+
+// The job type.
+//
+// If you need to use a JobType that doesn't exist as a static member, you
+// can instantiate a `JobType` object, e.g: `JobType.of('other name')`.
+// Experimental.
+type JobType interface {
+	Name() *string
+}
+
+// The jsii proxy struct for JobType
+type jsiiProxy_JobType struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_JobType) Name() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"name",
+		&returns,
+	)
+	return returns
+}
+
+
+// Custom type name.
+// Experimental.
+func JobType_Of(name *string) JobType {
+	_init_.Initialize()
+
+	var returns JobType
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_glue.JobType",
+		"of",
+		[]interface{}{name},
+		&returns,
+	)
+
+	return returns
+}
+
+func JobType_ETL() JobType {
+	_init_.Initialize()
+	var returns JobType
+	_jsii_.StaticGet(
+		"monocdk.aws_glue.JobType",
+		"ETL",
+		&returns,
+	)
+	return returns
+}
+
+func JobType_PYTHON_SHELL() JobType {
+	_init_.Initialize()
+	var returns JobType
+	_jsii_.StaticGet(
+		"monocdk.aws_glue.JobType",
+		"PYTHON_SHELL",
+		&returns,
+	)
+	return returns
+}
+
+func JobType_STREAMING() JobType {
+	_init_.Initialize()
+	var returns JobType
+	_jsii_.StaticGet(
+		"monocdk.aws_glue.JobType",
+		"STREAMING",
+		&returns,
+	)
+	return returns
+}
+
+// The Glue CloudWatch metric type.
+// See: https://docs.aws.amazon.com/glue/latest/dg/monitoring-awsglue-with-cloudwatch-metrics.html
+//
+// Experimental.
+type MetricType string
+
+const (
+	MetricType_GAUGE MetricType = "GAUGE"
+	MetricType_COUNT MetricType = "COUNT"
 )
 
 // Absolute class name of the Hadoop `OutputFormat` to use when writing table files.
@@ -14117,6 +15553,172 @@ func OutputFormat_PARQUET() OutputFormat {
 	return returns
 }
 
+// Props for creating a Python shell job executable.
+// Experimental.
+type PythonShellExecutableProps struct {
+	// Glue version.
+	// See: https://docs.aws.amazon.com/glue/latest/dg/release-notes.html
+	//
+	// Experimental.
+	GlueVersion GlueVersion `json:"glueVersion"`
+	// The Python version to use.
+	// Experimental.
+	PythonVersion PythonVersion `json:"pythonVersion"`
+	// The script that executes a job.
+	// Experimental.
+	Script Code `json:"script"`
+	// Additional files, such as configuration files that AWS Glue copies to the working directory of your script before executing it.
+	//
+	// Only individual files are supported, directories are not supported.
+	// See: `--extra-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Experimental.
+	ExtraFiles *[]Code `json:"extraFiles"`
+	// Additional Python files that AWS Glue adds to the Python path before executing your script.
+	//
+	// Only individual files are supported, directories are not supported.
+	// See: `--extra-py-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Experimental.
+	ExtraPythonFiles *[]Code `json:"extraPythonFiles"`
+}
+
+// Props for creating a Python Spark (ETL or Streaming) job executable.
+// Experimental.
+type PythonSparkJobExecutableProps struct {
+	// Glue version.
+	// See: https://docs.aws.amazon.com/glue/latest/dg/release-notes.html
+	//
+	// Experimental.
+	GlueVersion GlueVersion `json:"glueVersion"`
+	// The Python version to use.
+	// Experimental.
+	PythonVersion PythonVersion `json:"pythonVersion"`
+	// The script that executes a job.
+	// Experimental.
+	Script Code `json:"script"`
+	// Additional files, such as configuration files that AWS Glue copies to the working directory of your script before executing it.
+	//
+	// Only individual files are supported, directories are not supported.
+	// See: `--extra-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Experimental.
+	ExtraFiles *[]Code `json:"extraFiles"`
+	// Additional Java .jar files that AWS Glue adds to the Java classpath before executing your script. Only individual files are supported, directories are not supported.
+	// See: `--extra-jars` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Experimental.
+	ExtraJars *[]Code `json:"extraJars"`
+	// Setting this value to true prioritizes the customer's extra JAR files in the classpath.
+	// See: `--user-jars-first` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Experimental.
+	ExtraJarsFirst *bool `json:"extraJarsFirst"`
+	// Additional Python files that AWS Glue adds to the Python path before executing your script.
+	//
+	// Only individual files are supported, directories are not supported.
+	// See: `--extra-py-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Experimental.
+	ExtraPythonFiles *[]Code `json:"extraPythonFiles"`
+}
+
+// Python version.
+// Experimental.
+type PythonVersion string
+
+const (
+	PythonVersion_TWO PythonVersion = "TWO"
+	PythonVersion_THREE PythonVersion = "THREE"
+)
+
+// Glue job Code from an S3 bucket.
+// Experimental.
+type S3Code interface {
+	Code
+	Bind(_scope constructs.Construct, grantable awsiam.IGrantable) *CodeConfig
+}
+
+// The jsii proxy struct for S3Code
+type jsiiProxy_S3Code struct {
+	jsiiProxy_Code
+}
+
+// Experimental.
+func NewS3Code(bucket awss3.IBucket, key *string) S3Code {
+	_init_.Initialize()
+
+	j := jsiiProxy_S3Code{}
+
+	_jsii_.Create(
+		"monocdk.aws_glue.S3Code",
+		[]interface{}{bucket, key},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewS3Code_Override(s S3Code, bucket awss3.IBucket, key *string) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_glue.S3Code",
+		[]interface{}{bucket, key},
+		s,
+	)
+}
+
+// Job code from a local disk path.
+// Experimental.
+func S3Code_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
+	_init_.Initialize()
+
+	var returns AssetCode
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_glue.S3Code",
+		"fromAsset",
+		[]interface{}{path, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Job code as an S3 object.
+// Experimental.
+func S3Code_FromBucket(bucket awss3.IBucket, key *string) S3Code {
+	_init_.Initialize()
+
+	var returns S3Code
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_glue.S3Code",
+		"fromBucket",
+		[]interface{}{bucket, key},
+		&returns,
+	)
+
+	return returns
+}
+
+// Called when the Job is initialized to allow this object to bind.
+// Experimental.
+func (s *jsiiProxy_S3Code) Bind(_scope constructs.Construct, grantable awsiam.IGrantable) *CodeConfig {
+	var returns *CodeConfig
+
+	_jsii_.Invoke(
+		s,
+		"bind",
+		[]interface{}{_scope, grantable},
+		&returns,
+	)
+
+	return returns
+}
+
 // S3 encryption configuration.
 // Experimental.
 type S3Encryption struct {
@@ -14138,6 +15740,41 @@ const (
 	S3EncryptionMode_S3_MANAGED S3EncryptionMode = "S3_MANAGED"
 	S3EncryptionMode_KMS S3EncryptionMode = "KMS"
 )
+
+// Props for creating a Scala Spark (ETL or Streaming) job executable.
+// Experimental.
+type ScalaJobExecutableProps struct {
+	// The fully qualified Scala class name that serves as the entry point for the job.
+	// See: `--class` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Experimental.
+	ClassName *string `json:"className"`
+	// Glue version.
+	// See: https://docs.aws.amazon.com/glue/latest/dg/release-notes.html
+	//
+	// Experimental.
+	GlueVersion GlueVersion `json:"glueVersion"`
+	// The script that executes a job.
+	// Experimental.
+	Script Code `json:"script"`
+	// Additional files, such as configuration files that AWS Glue copies to the working directory of your script before executing it.
+	//
+	// Only individual files are supported, directories are not supported.
+	// See: `--extra-files` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Experimental.
+	ExtraFiles *[]Code `json:"extraFiles"`
+	// Additional Java .jar files that AWS Glue adds to the Java classpath before executing your script. Only individual files are supported, directories are not supported.
+	// See: `--extra-jars` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Experimental.
+	ExtraJars *[]Code `json:"extraJars"`
+	// Setting this value to true prioritizes the customer's extra JAR files in the classpath.
+	// See: `--user-jars-first` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Experimental.
+	ExtraJarsFirst *bool `json:"extraJarsFirst"`
+}
 
 // See: https://docs.aws.amazon.com/athena/latest/ug/data-types.html
 //
@@ -14960,6 +16597,35 @@ func SerializationLibrary_REGEXP() SerializationLibrary {
 	return returns
 }
 
+// The Spark UI logging location.
+// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+//
+// Experimental.
+type SparkUILoggingLocation struct {
+	// The bucket where the Glue job stores the logs.
+	// Experimental.
+	Bucket awss3.IBucket `json:"bucket"`
+	// The path inside the bucket (objects prefix) where the Glue job stores the logs.
+	// Experimental.
+	Prefix *string `json:"prefix"`
+}
+
+// Properties for enabling Spark UI monitoring feature for Spark-based Glue jobs.
+// See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+//
+// Experimental.
+type SparkUIProps struct {
+	// Enable Spark UI.
+	// Experimental.
+	Enabled *bool `json:"enabled"`
+	// The bucket where the Glue job stores the logs.
+	// Experimental.
+	Bucket awss3.IBucket `json:"bucket"`
+	// The path inside the bucket (objects prefix) where the Glue job stores the logs.
+	// Experimental.
+	Prefix *string `json:"prefix"`
+}
+
 // A Glue table.
 // Experimental.
 type Table interface {
@@ -15555,5 +17221,80 @@ type Type struct {
 	// Indicates whether this type is a primitive data type.
 	// Experimental.
 	IsPrimitive *bool `json:"isPrimitive"`
+}
+
+// The type of predefined worker that is allocated when a job runs.
+//
+// If you need to use a WorkerType that doesn't exist as a static member, you
+// can instantiate a `WorkerType` object, e.g: `WorkerType.of('other type')`.
+// Experimental.
+type WorkerType interface {
+	Name() *string
+}
+
+// The jsii proxy struct for WorkerType
+type jsiiProxy_WorkerType struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_WorkerType) Name() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"name",
+		&returns,
+	)
+	return returns
+}
+
+
+// Custom worker type.
+// Experimental.
+func WorkerType_Of(workerType *string) WorkerType {
+	_init_.Initialize()
+
+	var returns WorkerType
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_glue.WorkerType",
+		"of",
+		[]interface{}{workerType},
+		&returns,
+	)
+
+	return returns
+}
+
+func WorkerType_G_1X() WorkerType {
+	_init_.Initialize()
+	var returns WorkerType
+	_jsii_.StaticGet(
+		"monocdk.aws_glue.WorkerType",
+		"G_1X",
+		&returns,
+	)
+	return returns
+}
+
+func WorkerType_G_2X() WorkerType {
+	_init_.Initialize()
+	var returns WorkerType
+	_jsii_.StaticGet(
+		"monocdk.aws_glue.WorkerType",
+		"G_2X",
+		&returns,
+	)
+	return returns
+}
+
+func WorkerType_STANDARD() WorkerType {
+	_init_.Initialize()
+	var returns WorkerType
+	_jsii_.StaticGet(
+		"monocdk.aws_glue.WorkerType",
+		"STANDARD",
+		&returns,
+	)
+	return returns
 }
 

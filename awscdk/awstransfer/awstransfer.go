@@ -45,6 +45,8 @@ type CfnServer interface {
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
 	UpdatedProperites() *map[string]interface{}
+	WorkflowDetails() interface{}
+	SetWorkflowDetails(val interface{})
 	AddDeletionOverride(path *string)
 	AddDependsOn(target awscdk.CfnResource)
 	AddMetadata(key *string, value interface{})
@@ -294,6 +296,16 @@ func (j *jsiiProxy_CfnServer) UpdatedProperites() *map[string]interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnServer) WorkflowDetails() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"workflowDetails",
+		&returns,
+	)
+	return returns
+}
+
 
 // Create a new `AWS::Transfer::Server`.
 func NewCfnServer(scope awscdk.Construct, id *string, props *CfnServerProps) CfnServer {
@@ -397,6 +409,14 @@ func (j *jsiiProxy_CfnServer) SetSecurityPolicyName(val *string) {
 	_jsii_.Set(
 		j,
 		"securityPolicyName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnServer) SetWorkflowDetails(val interface{}) {
+	_jsii_.Set(
+		j,
+		"workflowDetails",
 		val,
 	)
 }
@@ -827,6 +847,18 @@ type CfnServer_ProtocolDetailsProperty struct {
 	PassiveIp *string `json:"passiveIp"`
 }
 
+type CfnServer_WorkflowDetailProperty struct {
+	// `CfnServer.WorkflowDetailProperty.ExecutionRole`.
+	ExecutionRole *string `json:"executionRole"`
+	// `CfnServer.WorkflowDetailProperty.WorkflowId`.
+	WorkflowId *string `json:"workflowId"`
+}
+
+type CfnServer_WorkflowDetailsProperty struct {
+	// `CfnServer.WorkflowDetailsProperty.OnUpload`.
+	OnUpload interface{} `json:"onUpload"`
+}
+
 // Properties for defining a `AWS::Transfer::Server`.
 type CfnServerProps struct {
 	// `AWS::Transfer::Server.Certificate`.
@@ -851,6 +883,8 @@ type CfnServerProps struct {
 	SecurityPolicyName *string `json:"securityPolicyName"`
 	// `AWS::Transfer::Server.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::Transfer::Server.WorkflowDetails`.
+	WorkflowDetails interface{} `json:"workflowDetails"`
 }
 
 // A CloudFormation `AWS::Transfer::User`.

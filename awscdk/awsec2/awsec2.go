@@ -418,6 +418,7 @@ const (
 // Experimental.
 type AmazonLinuxImage interface {
 	GenericSSMParameterImage
+	ParameterName() *string
 	GetImage(scope awscdk.Construct) *MachineImageConfig
 }
 
@@ -425,6 +426,17 @@ type AmazonLinuxImage interface {
 type jsiiProxy_AmazonLinuxImage struct {
 	jsiiProxy_GenericSSMParameterImage
 }
+
+func (j *jsiiProxy_AmazonLinuxImage) ParameterName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"parameterName",
+		&returns,
+	)
+	return returns
+}
+
 
 // Experimental.
 func NewAmazonLinuxImage(props *AmazonLinuxImageProps) AmazonLinuxImage {
@@ -452,6 +464,23 @@ func NewAmazonLinuxImage_Override(a AmazonLinuxImage, props *AmazonLinuxImagePro
 	)
 }
 
+// Return the SSM parameter name that will contain the Amazon Linux image with the given attributes.
+// Experimental.
+func AmazonLinuxImage_SsmParameterName(props *AmazonLinuxImageProps) *string {
+	_init_.Initialize()
+
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ec2.AmazonLinuxImage",
+		"ssmParameterName",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
 // Return the image to use in the given context.
 // Experimental.
 func (a *jsiiProxy_AmazonLinuxImage) GetImage(scope awscdk.Construct) *MachineImageConfig {
@@ -470,6 +499,23 @@ func (a *jsiiProxy_AmazonLinuxImage) GetImage(scope awscdk.Construct) *MachineIm
 // Amazon Linux image properties.
 // Experimental.
 type AmazonLinuxImageProps struct {
+	// Whether the AMI ID is cached to be stable between deployments.
+	//
+	// By default, the newest image is used on each deployment. This will cause
+	// instances to be replaced whenever a new version is released, and may cause
+	// downtime if there aren't enough running instances in the AutoScalingGroup
+	// to reschedule the tasks on.
+	//
+	// If set to true, the AMI ID will be cached in `cdk.context.json` and the
+	// same value will be used on future runs. Your instances will not be replaced
+	// but your AMI version will grow old over time. To refresh the AMI lookup,
+	// you will have to evict the value from the cache using the `cdk context`
+	// command. See https://docs.aws.amazon.com/cdk/latest/guide/context.html for
+	// more information.
+	//
+	// Can not be set to `true` in environment-agnostic stacks.
+	// Experimental.
+	CachedInContext *bool `json:"cachedInContext"`
 	// CPU Type.
 	// Experimental.
 	CpuType AmazonLinuxCpuType `json:"cpuType"`
@@ -42015,6 +42061,724 @@ type CfnTransitGatewayRouteTableProps struct {
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
+// A CloudFormation `AWS::EC2::TransitGatewayVpcAttachment`.
+type CfnTransitGatewayVpcAttachment interface {
+	awscdk.CfnResource
+	awscdk.IInspectable
+	AddSubnetIds() *[]*string
+	SetAddSubnetIds(val *[]*string)
+	AttrId() *string
+	CfnOptions() awscdk.ICfnResourceOptions
+	CfnProperties() *map[string]interface{}
+	CfnResourceType() *string
+	CreationStack() *[]*string
+	LogicalId() *string
+	Node() awscdk.ConstructNode
+	Options() interface{}
+	SetOptions(val interface{})
+	Ref() *string
+	RemoveSubnetIds() *[]*string
+	SetRemoveSubnetIds(val *[]*string)
+	Stack() awscdk.Stack
+	SubnetIds() *[]*string
+	SetSubnetIds(val *[]*string)
+	Tags() awscdk.TagManager
+	TransitGatewayId() *string
+	SetTransitGatewayId(val *string)
+	UpdatedProperites() *map[string]interface{}
+	VpcId() *string
+	SetVpcId(val *string)
+	AddDeletionOverride(path *string)
+	AddDependsOn(target awscdk.CfnResource)
+	AddMetadata(key *string, value interface{})
+	AddOverride(path *string, value interface{})
+	AddPropertyDeletionOverride(propertyPath *string)
+	AddPropertyOverride(propertyPath *string, value interface{})
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	GetAtt(attributeName *string) awscdk.Reference
+	GetMetadata(key *string) interface{}
+	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	OverrideLogicalId(newLogicalId *string)
+	Prepare()
+	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
+	ValidateProperties(_properties interface{})
+}
+
+// The jsii proxy struct for CfnTransitGatewayVpcAttachment
+type jsiiProxy_CfnTransitGatewayVpcAttachment struct {
+	internal.Type__awscdkCfnResource
+	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) AddSubnetIds() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"addSubnetIds",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) CfnOptions() awscdk.ICfnResourceOptions {
+	var returns awscdk.ICfnResourceOptions
+	_jsii_.Get(
+		j,
+		"cfnOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) CfnProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"cfnProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) CfnResourceType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) LogicalId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) Options() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"options",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) Ref() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) RemoveSubnetIds() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"removeSubnetIds",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) SubnetIds() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"subnetIds",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) Tags() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) TransitGatewayId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"transitGatewayId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) UpdatedProperites() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) VpcId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"vpcId",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a new `AWS::EC2::TransitGatewayVpcAttachment`.
+func NewCfnTransitGatewayVpcAttachment(scope awscdk.Construct, id *string, props *CfnTransitGatewayVpcAttachmentProps) CfnTransitGatewayVpcAttachment {
+	_init_.Initialize()
+
+	j := jsiiProxy_CfnTransitGatewayVpcAttachment{}
+
+	_jsii_.Create(
+		"monocdk.aws_ec2.CfnTransitGatewayVpcAttachment",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a new `AWS::EC2::TransitGatewayVpcAttachment`.
+func NewCfnTransitGatewayVpcAttachment_Override(c CfnTransitGatewayVpcAttachment, scope awscdk.Construct, id *string, props *CfnTransitGatewayVpcAttachmentProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_ec2.CfnTransitGatewayVpcAttachment",
+		[]interface{}{scope, id, props},
+		c,
+	)
+}
+
+func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) SetAddSubnetIds(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"addSubnetIds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) SetOptions(val interface{}) {
+	_jsii_.Set(
+		j,
+		"options",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) SetRemoveSubnetIds(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"removeSubnetIds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) SetSubnetIds(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"subnetIds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) SetTransitGatewayId(val *string) {
+	_jsii_.Set(
+		j,
+		"transitGatewayId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTransitGatewayVpcAttachment) SetVpcId(val *string) {
+	_jsii_.Set(
+		j,
+		"vpcId",
+		val,
+	)
+}
+
+// Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
+//
+// Uses duck-typing instead of `instanceof` to allow stack elements from different
+// versions of this library to be included in the same stack.
+//
+// Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
+func CfnTransitGatewayVpcAttachment_IsCfnElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ec2.CfnTransitGatewayVpcAttachment",
+		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a CfnResource.
+// Experimental.
+func CfnTransitGatewayVpcAttachment_IsCfnResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ec2.CfnTransitGatewayVpcAttachment",
+		"isCfnResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func CfnTransitGatewayVpcAttachment_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ec2.CfnTransitGatewayVpcAttachment",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnTransitGatewayVpcAttachment_CFN_RESOURCE_TYPE_NAME() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"monocdk.aws_ec2.CfnTransitGatewayVpcAttachment",
+		"CFN_RESOURCE_TYPE_NAME",
+		&returns,
+	)
+	return returns
+}
+
+// Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
+func (c *jsiiProxy_CfnTransitGatewayVpcAttachment) AddDeletionOverride(path *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDeletionOverride",
+		[]interface{}{path},
+	)
+}
+
+// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+//
+// This can be used for resources across stacks (or nested stack) boundaries
+// and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
+func (c *jsiiProxy_CfnTransitGatewayVpcAttachment) AddDependsOn(target awscdk.CfnResource) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDependsOn",
+		[]interface{}{target},
+	)
+}
+
+// Add a value to the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+// Experimental.
+func (c *jsiiProxy_CfnTransitGatewayVpcAttachment) AddMetadata(key *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addMetadata",
+		[]interface{}{key, value},
+	)
+}
+
+// Adds an override to the synthesized CloudFormation resource.
+//
+// To add a
+// property override, either use `addPropertyOverride` or prefix `path` with
+// "Properties." (i.e. `Properties.TopicName`).
+//
+// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+// If there is an array as part of the nesting, specify the index in the path.
+//
+// To include a literal `.` in the property name, prefix with a `\`. In most
+// programming languages you will need to write this as `"\\."` because the
+// `\` itself will need to be escaped.
+//
+// For example,
+// ```typescript
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+// ```
+// would add the overrides
+// ```json
+// "Properties": {
+//    "GlobalSecondaryIndexes": [
+//      {
+//        "Projection": {
+//          "NonKeyAttributes": [ "myattribute" ]
+//          ...
+//        }
+//        ...
+//      },
+//      {
+//        "ProjectionType": "INCLUDE"
+//        ...
+//      },
+//    ]
+//    ...
+// }
+// ```
+// Experimental.
+func (c *jsiiProxy_CfnTransitGatewayVpcAttachment) AddOverride(path *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addOverride",
+		[]interface{}{path, value},
+	)
+}
+
+// Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
+func (c *jsiiProxy_CfnTransitGatewayVpcAttachment) AddPropertyDeletionOverride(propertyPath *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyDeletionOverride",
+		[]interface{}{propertyPath},
+	)
+}
+
+// Adds an override to a resource property.
+//
+// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
+func (c *jsiiProxy_CfnTransitGatewayVpcAttachment) AddPropertyOverride(propertyPath *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyOverride",
+		[]interface{}{propertyPath, value},
+	)
+}
+
+// Sets the deletion policy of the resource based on the removal policy specified.
+// Experimental.
+func (c *jsiiProxy_CfnTransitGatewayVpcAttachment) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	_jsii_.InvokeVoid(
+		c,
+		"applyRemovalPolicy",
+		[]interface{}{policy, options},
+	)
+}
+
+// Returns a token for an runtime attribute of this resource.
+//
+// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+// in case there is no generated attribute.
+// Experimental.
+func (c *jsiiProxy_CfnTransitGatewayVpcAttachment) GetAtt(attributeName *string) awscdk.Reference {
+	var returns awscdk.Reference
+
+	_jsii_.Invoke(
+		c,
+		"getAtt",
+		[]interface{}{attributeName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Retrieve a value value from the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+// Experimental.
+func (c *jsiiProxy_CfnTransitGatewayVpcAttachment) GetMetadata(key *string) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"getMetadata",
+		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
+// Examines the CloudFormation resource and discloses attributes.
+func (c *jsiiProxy_CfnTransitGatewayVpcAttachment) Inspect(inspector awscdk.TreeInspector) {
+	_jsii_.InvokeVoid(
+		c,
+		"inspect",
+		[]interface{}{inspector},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnTransitGatewayVpcAttachment) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnTransitGatewayVpcAttachment) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnTransitGatewayVpcAttachment) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
+func (c *jsiiProxy_CfnTransitGatewayVpcAttachment) OverrideLogicalId(newLogicalId *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"overrideLogicalId",
+		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnTransitGatewayVpcAttachment) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnTransitGatewayVpcAttachment) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderProperties",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+//
+// Returns: `true` if the resource should be included or `false` is the resource
+// should be omitted.
+// Experimental.
+func (c *jsiiProxy_CfnTransitGatewayVpcAttachment) ShouldSynthesize() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"shouldSynthesize",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnTransitGatewayVpcAttachment) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+//
+// Returns: a string representation of this resource
+// Experimental.
+func (c *jsiiProxy_CfnTransitGatewayVpcAttachment) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnTransitGatewayVpcAttachment) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (c *jsiiProxy_CfnTransitGatewayVpcAttachment) ValidateProperties(_properties interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"validateProperties",
+		[]interface{}{_properties},
+	)
+}
+
+// Properties for defining a `AWS::EC2::TransitGatewayVpcAttachment`.
+type CfnTransitGatewayVpcAttachmentProps struct {
+	// `AWS::EC2::TransitGatewayVpcAttachment.AddSubnetIds`.
+	AddSubnetIds *[]*string `json:"addSubnetIds"`
+	// `AWS::EC2::TransitGatewayVpcAttachment.Options`.
+	Options interface{} `json:"options"`
+	// `AWS::EC2::TransitGatewayVpcAttachment.RemoveSubnetIds`.
+	RemoveSubnetIds *[]*string `json:"removeSubnetIds"`
+	// `AWS::EC2::TransitGatewayVpcAttachment.SubnetIds`.
+	SubnetIds *[]*string `json:"subnetIds"`
+	// `AWS::EC2::TransitGatewayVpcAttachment.Tags`.
+	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::EC2::TransitGatewayVpcAttachment.TransitGatewayId`.
+	TransitGatewayId *string `json:"transitGatewayId"`
+	// `AWS::EC2::TransitGatewayVpcAttachment.VpcId`.
+	VpcId *string `json:"vpcId"`
+}
+
 // A CloudFormation `AWS::EC2::VPC`.
 type CfnVPC interface {
 	awscdk.CfnResource
@@ -55231,9 +55995,10 @@ type GenericLinuxImageProps struct {
 // on the instance if you are using this image.
 //
 // The AMI ID is selected using the values published to the SSM parameter store.
-// Experimental.
+// Deprecated: Use `MachineImage.fromSsmParameter()` instead
 type GenericSSMParameterImage interface {
 	IMachineImage
+	ParameterName() *string
 	GetImage(scope awscdk.Construct) *MachineImageConfig
 }
 
@@ -55242,7 +56007,18 @@ type jsiiProxy_GenericSSMParameterImage struct {
 	jsiiProxy_IMachineImage
 }
 
-// Experimental.
+func (j *jsiiProxy_GenericSSMParameterImage) ParameterName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"parameterName",
+		&returns,
+	)
+	return returns
+}
+
+
+// Deprecated: Use `MachineImage.fromSsmParameter()` instead
 func NewGenericSSMParameterImage(parameterName *string, os OperatingSystemType, userData UserData) GenericSSMParameterImage {
 	_init_.Initialize()
 
@@ -55257,7 +56033,7 @@ func NewGenericSSMParameterImage(parameterName *string, os OperatingSystemType, 
 	return &j
 }
 
-// Experimental.
+// Deprecated: Use `MachineImage.fromSsmParameter()` instead
 func NewGenericSSMParameterImage_Override(g GenericSSMParameterImage, parameterName *string, os OperatingSystemType, userData UserData) {
 	_init_.Initialize()
 
@@ -55269,7 +56045,7 @@ func NewGenericSSMParameterImage_Override(g GenericSSMParameterImage, parameterN
 }
 
 // Return the image to use in the given context.
-// Experimental.
+// Deprecated: Use `MachineImage.fromSsmParameter()` instead
 func (g *jsiiProxy_GenericSSMParameterImage) GetImage(scope awscdk.Construct) *MachineImageConfig {
 	var returns *MachineImageConfig
 
@@ -60930,13 +61706,38 @@ func NewMachineImage_Override(m MachineImage) {
 	)
 }
 
+// An image specified in SSM parameter store.
+//
+// By default, the SSM parameter is refreshed at every deployment,
+// causing your instances to be replaced whenever a new version of the AMI
+// is released.
+//
+// Pass `{ cachedInContext: true }` to keep the AMI ID stable. If you do, you
+// will have to remember to periodically invalidate the context to refresh
+// to the newest AMI ID.
+// Experimental.
+func MachineImage_FromSsmParameter(parameterName *string, options *SsmParameterImageOptions) IMachineImage {
+	_init_.Initialize()
+
+	var returns IMachineImage
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ec2.MachineImage",
+		"fromSsmParameter",
+		[]interface{}{parameterName, options},
+		&returns,
+	)
+
+	return returns
+}
+
 // An image specified in SSM parameter store that is automatically kept up-to-date.
 //
 // This Machine Image automatically updates to the latest version on every
 // deployment. Be aware this will cause your instances to be replaced when a
 // new version of the image becomes available. Do not store stateful information
 // on the instance if you are using this image.
-// Experimental.
+// Deprecated: Use `MachineImage.fromSsmParameter()` instead
 func MachineImage_FromSSMParameter(parameterName *string, os OperatingSystemType, userData UserData) IMachineImage {
 	_init_.Initialize()
 
@@ -61040,6 +61841,8 @@ func MachineImage_LatestWindows(version WindowsVersion, props *WindowsImageProps
 // will be used on future runs. To refresh the AMI lookup, you will have to
 // evict the value from the cache using the `cdk context` command. See
 // https://docs.aws.amazon.com/cdk/latest/guide/context.html for more information.
+//
+// This function can not be used in environment-agnostic stacks.
 // Experimental.
 func MachineImage_Lookup(props *LookupMachineImageProps) IMachineImage {
 	_init_.Initialize()
@@ -65071,6 +65874,34 @@ const (
 	SpotRequestType_ONE_TIME SpotRequestType = "ONE_TIME"
 	SpotRequestType_PERSISTENT SpotRequestType = "PERSISTENT"
 )
+
+// Properties for GenericSsmParameterImage.
+// Experimental.
+type SsmParameterImageOptions struct {
+	// Whether the AMI ID is cached to be stable between deployments.
+	//
+	// By default, the newest image is used on each deployment. This will cause
+	// instances to be replaced whenever a new version is released, and may cause
+	// downtime if there aren't enough running instances in the AutoScalingGroup
+	// to reschedule the tasks on.
+	//
+	// If set to true, the AMI ID will be cached in `cdk.context.json` and the
+	// same value will be used on future runs. Your instances will not be replaced
+	// but your AMI version will grow old over time. To refresh the AMI lookup,
+	// you will have to evict the value from the cache using the `cdk context`
+	// command. See https://docs.aws.amazon.com/cdk/latest/guide/context.html for
+	// more information.
+	//
+	// Can not be set to `true` in environment-agnostic stacks.
+	// Experimental.
+	CachedInContext *bool `json:"cachedInContext"`
+	// Operating system.
+	// Experimental.
+	Os OperatingSystemType `json:"os"`
+	// Custom UserData.
+	// Experimental.
+	UserData UserData `json:"userData"`
+}
 
 // Represents a new VPC subnet resource.
 // Experimental.
@@ -69686,6 +70517,7 @@ type VpnTunnelOption struct {
 // Experimental.
 type WindowsImage interface {
 	GenericSSMParameterImage
+	ParameterName() *string
 	GetImage(scope awscdk.Construct) *MachineImageConfig
 }
 
@@ -69693,6 +70525,17 @@ type WindowsImage interface {
 type jsiiProxy_WindowsImage struct {
 	jsiiProxy_GenericSSMParameterImage
 }
+
+func (j *jsiiProxy_WindowsImage) ParameterName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"parameterName",
+		&returns,
+	)
+	return returns
+}
+
 
 // Experimental.
 func NewWindowsImage(version WindowsVersion, props *WindowsImageProps) WindowsImage {
@@ -69721,7 +70564,7 @@ func NewWindowsImage_Override(w WindowsImage, version WindowsVersion, props *Win
 }
 
 // Return the image to use in the given context.
-// Experimental.
+// Deprecated.
 func (w *jsiiProxy_WindowsImage) GetImage(scope awscdk.Construct) *MachineImageConfig {
 	var returns *MachineImageConfig
 

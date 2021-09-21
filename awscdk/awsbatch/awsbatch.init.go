@@ -314,6 +314,8 @@ func init() {
 		map[string]interface{}{
 			"ON_DEMAND": ComputeResourceType_ON_DEMAND,
 			"SPOT": ComputeResourceType_SPOT,
+			"FARGATE": ComputeResourceType_FARGATE,
+			"FARGATE_SPOT": ComputeResourceType_FARGATE_SPOT,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -497,6 +499,14 @@ func init() {
 			"JSON_FILE": LogDriver_JSON_FILE,
 			"SPLUNK": LogDriver_SPLUNK,
 			"SYSLOG": LogDriver_SYSLOG,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_batch.PlatformCapabilities",
+		reflect.TypeOf((*PlatformCapabilities)(nil)).Elem(),
+		map[string]interface{}{
+			"EC2": PlatformCapabilities_EC2,
+			"FARGATE": PlatformCapabilities_FARGATE,
 		},
 	)
 }

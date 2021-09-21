@@ -1406,6 +1406,13 @@ type AssetImageCodeProps struct {
 	//
 	// Experimental.
 	Entrypoint *[]*string `json:"entrypoint"`
+	// Specify or override the WORKDIR on the specified Docker image or Dockerfile.
+	//
+	// A WORKDIR allows you to configure the working directory the container will use.
+	// See: https://docs.docker.com/engine/reference/builder/#workdir
+	//
+	// Experimental.
+	WorkingDirectory *string `json:"workingDirectory"`
 }
 
 // Properties for enabling Lambda autoscaling.
@@ -8850,6 +8857,13 @@ type CodeImageConfig struct {
 	//
 	// Experimental.
 	Entrypoint *[]*string `json:"entrypoint"`
+	// Specify or override the WORKDIR on the specified Docker image or Dockerfile.
+	//
+	// A WORKDIR allows you to configure the working directory the container will use.
+	// See: https://docs.docker.com/engine/reference/builder/#workdir
+	//
+	// Experimental.
+	WorkingDirectory *string `json:"workingDirectory"`
 }
 
 // Defines a Code Signing Config.
@@ -10674,6 +10688,13 @@ type EcrImageCodeProps struct {
 	// The image tag to use when pulling the image from ECR.
 	// Experimental.
 	Tag *string `json:"tag"`
+	// Specify or override the WORKDIR on the specified Docker image or Dockerfile.
+	//
+	// A WORKDIR allows you to configure the working directory the container will use.
+	// See: https://docs.docker.com/engine/reference/builder/#workdir
+	//
+	// Experimental.
+	WorkingDirectory *string `json:"workingDirectory"`
 }
 
 // Environment variables options.

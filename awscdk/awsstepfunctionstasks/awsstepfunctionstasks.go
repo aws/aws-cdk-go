@@ -37598,6 +37598,15 @@ type StepFunctionsStartExecutionProps struct {
 	// The Step Functions state machine to start the execution on.
 	// Experimental.
 	StateMachine awsstepfunctions.IStateMachine `json:"stateMachine"`
+	// Pass the execution ID from the context object to the execution input.
+	//
+	// This allows the Step Functions UI to link child executions from parent executions, making it easier to trace execution flow across state machines.
+	//
+	// If you set this property to `true`, the `input` property must be an object (provided by `sfn.TaskInput.fromObject`) or omitted entirely.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/concepts-nested-workflows.html#nested-execution-startid
+	//
+	// Experimental.
+	AssociateWithParent *bool `json:"associateWithParent"`
 	// The JSON input for the execution, same as that of StartExecution.
 	// See: https://docs.aws.amazon.com/step-functions/latest/apireference/API_StartExecution.html
 	//

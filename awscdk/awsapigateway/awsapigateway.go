@@ -2571,6 +2571,7 @@ type BasePathMappingProps struct {
 type CfnAccount interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -2609,6 +2610,16 @@ type CfnAccount interface {
 type jsiiProxy_CfnAccount struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnAccount) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnAccount) CfnOptions() awscdk.ICfnResourceOptions {
@@ -22823,6 +22834,7 @@ type CfnUsagePlan interface {
 	awscdk.IInspectable
 	ApiStages() interface{}
 	SetApiStages(val interface{})
+	AttrId() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -22875,6 +22887,16 @@ func (j *jsiiProxy_CfnUsagePlan) ApiStages() interface{} {
 	_jsii_.Get(
 		j,
 		"apiStages",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnUsagePlan) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns

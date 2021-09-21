@@ -14,8 +14,6 @@ type CfnCustomDataIdentifier interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
 	AttrArn() *string
-	AttrCreatedAt() *string
-	AttrDeleted() awscdk.IResolvable
 	AttrId() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -72,26 +70,6 @@ func (j *jsiiProxy_CfnCustomDataIdentifier) AttrArn() *string {
 	_jsii_.Get(
 		j,
 		"attrArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnCustomDataIdentifier) AttrCreatedAt() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrCreatedAt",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnCustomDataIdentifier) AttrDeleted() awscdk.IResolvable {
-	var returns awscdk.IResolvable
-	_jsii_.Get(
-		j,
-		"attrDeleted",
 		&returns,
 	)
 	return returns

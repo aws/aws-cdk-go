@@ -20,6 +20,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "allowVersionUpgrade", GoGetter: "AllowVersionUpgrade"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "aquaConfigurationStatus", GoGetter: "AquaConfigurationStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "attrDeferMaintenanceIdentifier", GoGetter: "AttrDeferMaintenanceIdentifier"},
 			_jsii_.MemberProperty{JsiiProperty: "attrEndpointAddress", GoGetter: "AttrEndpointAddress"},
 			_jsii_.MemberProperty{JsiiProperty: "attrEndpointPort", GoGetter: "AttrEndpointPort"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
@@ -42,7 +43,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "deferMaintenance", GoGetter: "DeferMaintenance"},
 			_jsii_.MemberProperty{JsiiProperty: "deferMaintenanceDuration", GoGetter: "DeferMaintenanceDuration"},
 			_jsii_.MemberProperty{JsiiProperty: "deferMaintenanceEndTime", GoGetter: "DeferMaintenanceEndTime"},
-			_jsii_.MemberProperty{JsiiProperty: "deferMaintenanceIdentifier", GoGetter: "DeferMaintenanceIdentifier"},
 			_jsii_.MemberProperty{JsiiProperty: "deferMaintenanceStartTime", GoGetter: "DeferMaintenanceStartTime"},
 			_jsii_.MemberProperty{JsiiProperty: "destinationRegion", GoGetter: "DestinationRegion"},
 			_jsii_.MemberProperty{JsiiProperty: "elasticIp", GoGetter: "ElasticIp"},
@@ -428,6 +428,14 @@ func init() {
 			"MULTI_NODE": ClusterType_MULTI_NODE,
 		},
 	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_redshift.Column",
+		reflect.TypeOf((*Column)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_redshift.DatabaseOptions",
+		reflect.TypeOf((*DatabaseOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_redshift.DatabaseSecret",
 		reflect.TypeOf((*DatabaseSecret)(nil)).Elem(),
@@ -536,6 +544,40 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterInterface(
+		"monocdk.aws_redshift.ITable",
+		reflect.TypeOf((*ITable)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "cluster", GoGetter: "Cluster"},
+			_jsii_.MemberProperty{JsiiProperty: "databaseName", GoGetter: "DatabaseName"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "tableColumns", GoGetter: "TableColumns"},
+			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ITable{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIConstruct)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"monocdk.aws_redshift.IUser",
+		reflect.TypeOf((*IUser)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addTablePrivileges", GoMethod: "AddTablePrivileges"},
+			_jsii_.MemberProperty{JsiiProperty: "cluster", GoGetter: "Cluster"},
+			_jsii_.MemberProperty{JsiiProperty: "databaseName", GoGetter: "DatabaseName"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "password", GoGetter: "Password"},
+			_jsii_.MemberProperty{JsiiProperty: "username", GoGetter: "Username"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IUser{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIConstruct)
+			return &j
+		},
+	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_redshift.Login",
 		reflect.TypeOf((*Login)(nil)).Elem(),
@@ -558,5 +600,87 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_redshift.RotationMultiUserOptions",
 		reflect.TypeOf((*RotationMultiUserOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_redshift.Table",
+		reflect.TypeOf((*Table)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "cluster", GoGetter: "Cluster"},
+			_jsii_.MemberProperty{JsiiProperty: "databaseName", GoGetter: "DatabaseName"},
+			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "tableColumns", GoGetter: "TableColumns"},
+			_jsii_.MemberProperty{JsiiProperty: "tableName", GoGetter: "TableName"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+		},
+		func() interface{} {
+			j := jsiiProxy_Table{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkConstruct)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITable)
+			return &j
+		},
+	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_redshift.TableAction",
+		reflect.TypeOf((*TableAction)(nil)).Elem(),
+		map[string]interface{}{
+			"SELECT": TableAction_SELECT,
+			"INSERT": TableAction_INSERT,
+			"UPDATE": TableAction_UPDATE,
+			"DELETE": TableAction_DELETE,
+			"DROP": TableAction_DROP,
+			"REFERENCES": TableAction_REFERENCES,
+			"ALL": TableAction_ALL,
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_redshift.TableAttributes",
+		reflect.TypeOf((*TableAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_redshift.TableProps",
+		reflect.TypeOf((*TableProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_redshift.User",
+		reflect.TypeOf((*User)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addTablePrivileges", GoMethod: "AddTablePrivileges"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "cluster", GoGetter: "Cluster"},
+			_jsii_.MemberProperty{JsiiProperty: "databaseName", GoGetter: "DatabaseName"},
+			_jsii_.MemberProperty{JsiiProperty: "databaseProps", GoGetter: "DatabaseProps"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberProperty{JsiiProperty: "password", GoGetter: "Password"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "username", GoGetter: "Username"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+		},
+		func() interface{} {
+			j := jsiiProxy_User{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkConstruct)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IUser)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_redshift.UserAttributes",
+		reflect.TypeOf((*UserAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_redshift.UserProps",
+		reflect.TypeOf((*UserProps)(nil)).Elem(),
 	)
 }

@@ -259,10 +259,6 @@ func init() {
 		reflect.TypeOf((*CfnDataQualityJobDefinition_EndpointInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.EnvironmentProperty",
-		reflect.TypeOf((*CfnDataQualityJobDefinition_EnvironmentProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnDataQualityJobDefinition.MonitoringOutputConfigProperty",
 		reflect.TypeOf((*CfnDataQualityJobDefinition_MonitoringOutputConfigProperty)(nil)).Elem(),
 	)
@@ -960,10 +956,6 @@ func init() {
 		reflect.TypeOf((*CfnModelBiasJobDefinition_EndpointInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelBiasJobDefinition.EnvironmentProperty",
-		reflect.TypeOf((*CfnModelBiasJobDefinition_EnvironmentProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnModelBiasJobDefinition.ModelBiasAppSpecificationProperty",
 		reflect.TypeOf((*CfnModelBiasJobDefinition_ModelBiasAppSpecificationProperty)(nil)).Elem(),
 	)
@@ -1076,10 +1068,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinition.EndpointInputProperty",
 		reflect.TypeOf((*CfnModelExplainabilityJobDefinition_EndpointInputProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinition.EnvironmentProperty",
-		reflect.TypeOf((*CfnModelExplainabilityJobDefinition_EnvironmentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnModelExplainabilityJobDefinition.ModelExplainabilityAppSpecificationProperty",
@@ -1249,10 +1237,6 @@ func init() {
 		reflect.TypeOf((*CfnModelQualityJobDefinition_EndpointInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnModelQualityJobDefinition.EnvironmentProperty",
-		reflect.TypeOf((*CfnModelQualityJobDefinition_EnvironmentProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnModelQualityJobDefinition.ModelQualityAppSpecificationProperty",
 		reflect.TypeOf((*CfnModelQualityJobDefinition_ModelQualityAppSpecificationProperty)(nil)).Elem(),
 	)
@@ -1367,10 +1351,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnMonitoringSchedule.EndpointInputProperty",
 		reflect.TypeOf((*CfnMonitoringSchedule_EndpointInputProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"monocdk.aws_sagemaker.CfnMonitoringSchedule.EnvironmentProperty",
-		reflect.TypeOf((*CfnMonitoringSchedule_EnvironmentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_sagemaker.CfnMonitoringSchedule.MonitoringAppSpecificationProperty",

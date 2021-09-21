@@ -4323,6 +4323,10 @@ type CfnStudio interface {
 	SetDescription(val *string)
 	EngineSecurityGroupId() *string
 	SetEngineSecurityGroupId(val *string)
+	IdpAuthUrl() *string
+	SetIdpAuthUrl(val *string)
+	IdpRelayStateParameterName() *string
+	SetIdpRelayStateParameterName(val *string)
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
@@ -4475,6 +4479,26 @@ func (j *jsiiProxy_CfnStudio) EngineSecurityGroupId() *string {
 	_jsii_.Get(
 		j,
 		"engineSecurityGroupId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStudio) IdpAuthUrl() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"idpAuthUrl",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnStudio) IdpRelayStateParameterName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"idpRelayStateParameterName",
 		&returns,
 	)
 	return returns
@@ -4655,6 +4679,22 @@ func (j *jsiiProxy_CfnStudio) SetEngineSecurityGroupId(val *string) {
 	_jsii_.Set(
 		j,
 		"engineSecurityGroupId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStudio) SetIdpAuthUrl(val *string) {
+	_jsii_.Set(
+		j,
+		"idpAuthUrl",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStudio) SetIdpRelayStateParameterName(val *string) {
+	_jsii_.Set(
+		j,
+		"idpRelayStateParameterName",
 		val,
 	)
 }
@@ -5120,16 +5160,20 @@ type CfnStudioProps struct {
 	ServiceRole *string `json:"serviceRole"`
 	// `AWS::EMR::Studio.SubnetIds`.
 	SubnetIds *[]*string `json:"subnetIds"`
-	// `AWS::EMR::Studio.UserRole`.
-	UserRole *string `json:"userRole"`
 	// `AWS::EMR::Studio.VpcId`.
 	VpcId *string `json:"vpcId"`
 	// `AWS::EMR::Studio.WorkspaceSecurityGroupId`.
 	WorkspaceSecurityGroupId *string `json:"workspaceSecurityGroupId"`
 	// `AWS::EMR::Studio.Description`.
 	Description *string `json:"description"`
+	// `AWS::EMR::Studio.IdpAuthUrl`.
+	IdpAuthUrl *string `json:"idpAuthUrl"`
+	// `AWS::EMR::Studio.IdpRelayStateParameterName`.
+	IdpRelayStateParameterName *string `json:"idpRelayStateParameterName"`
 	// `AWS::EMR::Studio.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::EMR::Studio.UserRole`.
+	UserRole *string `json:"userRole"`
 }
 
 // A CloudFormation `AWS::EMR::StudioSessionMapping`.
