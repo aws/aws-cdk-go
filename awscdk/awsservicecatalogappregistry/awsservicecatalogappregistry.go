@@ -187,7 +187,7 @@ func Application_IsResource(construct awscdk.IConstruct) *bool {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (a *jsiiProxy_Application) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -589,7 +589,7 @@ func AttributeGroup_IsResource(construct awscdk.IConstruct) *bool {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (a *jsiiProxy_AttributeGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -1191,6 +1191,14 @@ func (c *jsiiProxy_CfnApplication) AddPropertyOverride(propertyPath *string, val
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnApplication) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -1852,6 +1860,14 @@ func (c *jsiiProxy_CfnAttributeGroup) AddPropertyOverride(propertyPath *string, 
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnAttributeGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -2483,6 +2499,14 @@ func (c *jsiiProxy_CfnAttributeGroupAssociation) AddPropertyOverride(propertyPat
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnAttributeGroupAssociation) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -3154,6 +3178,14 @@ func (c *jsiiProxy_CfnResourceAssociation) AddPropertyOverride(propertyPath *str
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnResourceAssociation) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(

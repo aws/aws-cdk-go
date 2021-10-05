@@ -156,7 +156,7 @@ func ARecord_IsResource(construct awscdk.IConstruct) *bool {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (a *jsiiProxy_ARecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -500,7 +500,7 @@ func AaaaRecord_IsResource(construct awscdk.IConstruct) *bool {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (a *jsiiProxy_AaaaRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -979,7 +979,7 @@ func CaaAmazonRecord_IsResource(construct awscdk.IConstruct) *bool {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CaaAmazonRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -1320,7 +1320,7 @@ func CaaRecord_IsResource(construct awscdk.IConstruct) *bool {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CaaRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -1897,6 +1897,14 @@ func (c *jsiiProxy_CfnDNSSEC) AddPropertyOverride(propertyPath *string, value in
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnDNSSEC) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -2512,6 +2520,14 @@ func (c *jsiiProxy_CfnHealthCheck) AddPropertyOverride(propertyPath *string, val
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnHealthCheck) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -3240,6 +3256,14 @@ func (c *jsiiProxy_CfnHostedZone) AddPropertyOverride(propertyPath *string, valu
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnHostedZone) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -3916,6 +3940,14 @@ func (c *jsiiProxy_CfnKeySigningKey) AddPropertyOverride(propertyPath *string, v
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnKeySigningKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -4786,6 +4818,14 @@ func (c *jsiiProxy_CfnRecordSet) AddPropertyOverride(propertyPath *string, value
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnRecordSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -5442,6 +5482,14 @@ func (c *jsiiProxy_CfnRecordSetGroup) AddPropertyOverride(propertyPath *string, 
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnRecordSetGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -5908,7 +5956,7 @@ func CnameRecord_IsResource(construct awscdk.IConstruct) *bool {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CnameRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -6480,7 +6528,7 @@ func DsRecord_IsResource(construct awscdk.IConstruct) *bool {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (d *jsiiProxy_DsRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -6942,7 +6990,7 @@ func (h *jsiiProxy_HostedZone) AddVpc(vpc awsec2.IVpc) {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (h *jsiiProxy_HostedZone) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -7456,7 +7504,7 @@ func MxRecord_IsResource(construct awscdk.IConstruct) *bool {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (m *jsiiProxy_MxRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -7811,7 +7859,7 @@ func NsRecord_IsResource(construct awscdk.IConstruct) *bool {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (n *jsiiProxy_NsRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -8293,7 +8341,7 @@ func (p *jsiiProxy_PrivateHostedZone) AddVpc(vpc awsec2.IVpc) {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (p *jsiiProxy_PrivateHostedZone) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -8797,7 +8845,7 @@ func (p *jsiiProxy_PublicHostedZone) AddVpc(_vpc awsec2.IVpc) {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (p *jsiiProxy_PublicHostedZone) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -9149,7 +9197,7 @@ func RecordSet_IsResource(construct awscdk.IConstruct) *bool {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (r *jsiiProxy_RecordSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -9653,7 +9701,7 @@ func SrvRecord_IsResource(construct awscdk.IConstruct) *bool {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (s *jsiiProxy_SrvRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -10014,7 +10062,7 @@ func TxtRecord_IsResource(construct awscdk.IConstruct) *bool {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (t *jsiiProxy_TxtRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -10577,7 +10625,7 @@ func ZoneDelegationRecord_IsResource(construct awscdk.IConstruct) *bool {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (z *jsiiProxy_ZoneDelegationRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

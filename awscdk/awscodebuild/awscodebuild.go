@@ -270,7 +270,7 @@ func BitBucketSourceCredentials_IsResource(construct awscdk.IConstruct) *bool {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (b *jsiiProxy_BitBucketSourceCredentials) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -1594,6 +1594,14 @@ func (c *jsiiProxy_CfnProject) AddPropertyOverride(propertyPath *string, value i
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnProject) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -2503,6 +2511,14 @@ func (c *jsiiProxy_CfnReportGroup) AddPropertyOverride(propertyPath *string, val
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnReportGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -3177,6 +3193,14 @@ func (c *jsiiProxy_CfnSourceCredential) AddPropertyOverride(propertyPath *string
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnSourceCredential) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -4122,7 +4146,7 @@ func GitHubEnterpriseSourceCredentials_IsResource(construct awscdk.IConstruct) *
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (g *jsiiProxy_GitHubEnterpriseSourceCredentials) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -4496,7 +4520,7 @@ func GitHubSourceCredentials_IsResource(construct awscdk.IConstruct) *bool {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (g *jsiiProxy_GitHubSourceCredentials) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -6872,7 +6896,7 @@ func (p *jsiiProxy_PipelineProject) AddToRolePolicy(statement awsiam.PolicyState
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (p *jsiiProxy_PipelineProject) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -7773,7 +7797,7 @@ func (p *jsiiProxy_Project) AddToRolePolicy(statement awsiam.PolicyStatement) {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (p *jsiiProxy_Project) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -8619,7 +8643,7 @@ func ReportGroup_IsResource(construct awscdk.IConstruct) *bool {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (r *jsiiProxy_ReportGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -9439,7 +9463,7 @@ func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) AddStatements(statement ...awsia
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

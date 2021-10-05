@@ -18243,6 +18243,12 @@ type EmrCreateClusterProps struct {
 	// The IAM role that will be assumed by the Amazon EMR service to access AWS resources on your behalf.
 	// Experimental.
 	ServiceRole awsiam.IRole `json:"serviceRole"`
+	// Specifies the step concurrency level to allow multiple steps to run in parallel.
+	//
+	// Requires EMR release label 5.28.0 or above.
+	// Must be in range [1, 256].
+	// Experimental.
+	StepConcurrencyLevel *float64 `json:"stepConcurrencyLevel"`
 	// A list of tags to associate with a cluster and propagate to Amazon EC2 instances.
 	// Experimental.
 	Tags *map[string]*string `json:"tags"`

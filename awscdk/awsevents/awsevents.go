@@ -166,7 +166,7 @@ func Archive_IsResource(construct awscdk.IConstruct) *bool {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (a *jsiiProxy_Archive) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -851,6 +851,14 @@ func (c *jsiiProxy_CfnApiDestination) AddPropertyOverride(propertyPath *string, 
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnApiDestination) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -1547,6 +1555,14 @@ func (c *jsiiProxy_CfnArchive) AddPropertyOverride(propertyPath *string, value i
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnArchive) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -2221,6 +2237,14 @@ func (c *jsiiProxy_CfnConnection) AddPropertyOverride(propertyPath *string, valu
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnConnection) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -2864,6 +2888,14 @@ func (c *jsiiProxy_CfnEventBus) AddPropertyOverride(propertyPath *string, value 
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnEventBus) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -3542,6 +3574,14 @@ func (c *jsiiProxy_CfnEventBusPolicy) AddPropertyOverride(propertyPath *string, 
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnEventBusPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -4304,6 +4344,14 @@ func (c *jsiiProxy_CfnRule) AddPropertyOverride(propertyPath *string, value inte
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnRule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -5037,7 +5085,7 @@ func EventBus_IsResource(construct awscdk.IConstruct) *bool {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (e *jsiiProxy_EventBus) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -5457,10 +5505,14 @@ func (e *jsiiProxy_EventField) ToString() *string {
 
 // Events in Amazon CloudWatch Events are represented as JSON objects. For more information about JSON objects, see RFC 7159.
 //
+// **Important**: this class can only be used with a `Rule` class. In particular,
+// do not use it with `CfnRule` class: your pattern will not be rendered
+// correctly. In a `CfnRule` class, write the pattern as you normally would when
+// directly writing CloudFormation.
+//
 // Rules use event patterns to select events and route them to targets. A
 // pattern either matches an event or it doesn't. Event patterns are represented
-// as JSON objects with a structure that is similar to that of events, for
-// example:
+// as JSON objects with a structure that is similar to that of events.
 //
 // It is important to remember the following about event pattern matching:
 //
@@ -5956,7 +6008,7 @@ func (r *jsiiProxy_Rule) AddTarget(target IRuleTarget) {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (r *jsiiProxy_Rule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

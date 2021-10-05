@@ -310,7 +310,7 @@ func (a *jsiiProxy_Alarm) AddOkAction(actions ...IAlarmAction) {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (a *jsiiProxy_Alarm) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -798,7 +798,7 @@ func (a *jsiiProxy_AlarmBase) AddOkAction(actions ...IAlarmAction) {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (a *jsiiProxy_AlarmBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -2274,6 +2274,14 @@ func (c *jsiiProxy_CfnAlarm) AddPropertyOverride(propertyPath *string, value int
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnAlarm) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -3022,6 +3030,14 @@ func (c *jsiiProxy_CfnAnomalyDetector) AddPropertyOverride(propertyPath *string,
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnAnomalyDetector) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -3766,6 +3782,14 @@ func (c *jsiiProxy_CfnCompositeAlarm) AddPropertyOverride(propertyPath *string, 
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnCompositeAlarm) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -4382,6 +4406,14 @@ func (c *jsiiProxy_CfnDashboard) AddPropertyOverride(propertyPath *string, value
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnDashboard) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -5041,6 +5073,14 @@ func (c *jsiiProxy_CfnInsightRule) AddPropertyOverride(propertyPath *string, val
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnInsightRule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -5786,6 +5826,14 @@ func (c *jsiiProxy_CfnMetricStream) AddPropertyOverride(propertyPath *string, va
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnMetricStream) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -6625,7 +6673,7 @@ func (c *jsiiProxy_CompositeAlarm) AddOkAction(actions ...IAlarmAction) {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CompositeAlarm) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -7165,7 +7213,7 @@ func (d *jsiiProxy_Dashboard) AddWidgets(widgets ...IWidget) {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (d *jsiiProxy_Dashboard) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -8081,6 +8129,10 @@ type LogQueryWidgetProps struct {
 // It makes sense to embed this in here, so that compound constructs can attach
 // that metadata to metrics they expose.
 //
+// MathExpression can also be used for search expressions. In this case,
+// it also optionally accepts a searchRegion and searchAccount property for cross-environment
+// search expressions.
+//
 // This class does not represent a resource, so hence is not a construct. Instead,
 // MathExpression is an abstraction that makes it easy to specify metrics for use in both
 // alarms and graphs.
@@ -8091,6 +8143,8 @@ type MathExpression interface {
 	Expression() *string
 	Label() *string
 	Period() awscdk.Duration
+	SearchAccount() *string
+	SearchRegion() *string
 	UsingMetrics() *map[string]IMetric
 	CreateAlarm(scope awscdk.Construct, id *string, props *CreateAlarmOptions) Alarm
 	ToAlarmConfig() *MetricAlarmConfig
@@ -8140,6 +8194,26 @@ func (j *jsiiProxy_MathExpression) Period() awscdk.Duration {
 	_jsii_.Get(
 		j,
 		"period",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_MathExpression) SearchAccount() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"searchAccount",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_MathExpression) SearchRegion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"searchRegion",
 		&returns,
 	)
 	return returns
@@ -8292,6 +8366,18 @@ type MathExpressionOptions struct {
 	// math expression.
 	// Experimental.
 	Period awscdk.Duration `json:"period"`
+	// Account to evaluate search expressions within.
+	//
+	// Specifying a searchAccount has no effect to the account used
+	// for metrics within the expression (passed via usingMetrics).
+	// Experimental.
+	SearchAccount *string `json:"searchAccount"`
+	// Region to evaluate search expressions within.
+	//
+	// Specifying a searchRegion has no effect to the region used
+	// for metrics within the expression (passed via usingMetrics).
+	// Experimental.
+	SearchRegion *string `json:"searchRegion"`
 }
 
 // Properties for a MathExpression.
@@ -8309,7 +8395,22 @@ type MathExpressionProps struct {
 	// math expression.
 	// Experimental.
 	Period awscdk.Duration `json:"period"`
+	// Account to evaluate search expressions within.
+	//
+	// Specifying a searchAccount has no effect to the account used
+	// for metrics within the expression (passed via usingMetrics).
+	// Experimental.
+	SearchAccount *string `json:"searchAccount"`
+	// Region to evaluate search expressions within.
+	//
+	// Specifying a searchRegion has no effect to the region used
+	// for metrics within the expression (passed via usingMetrics).
+	// Experimental.
+	SearchRegion *string `json:"searchRegion"`
 	// The expression defining the metric.
+	//
+	// When an expression contains a SEARCH function, it cannot be used
+	// within an Alarm.
 	// Experimental.
 	Expression *string `json:"expression"`
 	// The metrics used in the expression, in a map.
@@ -8677,6 +8778,12 @@ type MetricExpressionConfig struct {
 	// Metrics used in the math expression.
 	// Experimental.
 	UsingMetrics *map[string]IMetric `json:"usingMetrics"`
+	// Account to evaluate search expressions within.
+	// Experimental.
+	SearchAccount *string `json:"searchAccount"`
+	// Region to evaluate search expressions within.
+	// Experimental.
+	SearchRegion *string `json:"searchRegion"`
 }
 
 // Properties used to construct the Metric identifying part of a Graph.

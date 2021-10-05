@@ -1012,6 +1012,10 @@ func init() {
 		reflect.TypeOf((*CfnTopicRule_LambdaActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_iot.CfnTopicRule.OpenSearchActionProperty",
+		reflect.TypeOf((*CfnTopicRule_OpenSearchActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_iot.CfnTopicRule.PutAssetPropertyValueEntryProperty",
 		reflect.TypeOf((*CfnTopicRule_PutAssetPropertyValueEntryProperty)(nil)).Elem(),
 	)

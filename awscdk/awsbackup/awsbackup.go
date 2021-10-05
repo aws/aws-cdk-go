@@ -309,7 +309,7 @@ func (b *jsiiProxy_BackupPlan) AddSelection(id *string, options *BackupSelection
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (b *jsiiProxy_BackupPlan) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -1022,7 +1022,7 @@ func BackupSelection_IsResource(construct awscdk.IConstruct) *bool {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (b *jsiiProxy_BackupSelection) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -1265,7 +1265,9 @@ type BackupVault interface {
 	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
+	AddToAccessPolicy(statement awsiam.PolicyStatement)
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	BlockRecoveryPointDeletion()
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
@@ -1440,6 +1442,16 @@ func BackupVault_IsResource(construct awscdk.IConstruct) *bool {
 	return returns
 }
 
+// Adds a statement to the vault access policy.
+// Experimental.
+func (b *jsiiProxy_BackupVault) AddToAccessPolicy(statement awsiam.PolicyStatement) {
+	_jsii_.InvokeVoid(
+		b,
+		"addToAccessPolicy",
+		[]interface{}{statement},
+	)
+}
+
 // Apply the given removal policy to this resource.
 //
 // The Removal Policy controls what happens to this resource when it stops
@@ -1447,7 +1459,7 @@ func BackupVault_IsResource(construct awscdk.IConstruct) *bool {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (b *jsiiProxy_BackupVault) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -1455,6 +1467,16 @@ func (b *jsiiProxy_BackupVault) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) 
 		b,
 		"applyRemovalPolicy",
 		[]interface{}{policy},
+	)
+}
+
+// Adds a statement to the vault access policy that prevents anyone from deleting a recovery point.
+// Experimental.
+func (b *jsiiProxy_BackupVault) BlockRecoveryPointDeletion() {
+	_jsii_.InvokeVoid(
+		b,
+		"blockRecoveryPointDeletion",
+		nil, // no parameters
 	)
 }
 
@@ -2112,6 +2134,14 @@ func (c *jsiiProxy_CfnBackupPlan) AddPropertyOverride(propertyPath *string, valu
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnBackupPlan) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -2802,6 +2832,14 @@ func (c *jsiiProxy_CfnBackupSelection) AddPropertyOverride(propertyPath *string,
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnBackupSelection) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -3072,6 +3110,8 @@ type CfnBackupVault interface {
 	CreationStack() *[]*string
 	EncryptionKeyArn() *string
 	SetEncryptionKeyArn(val *string)
+	LockConfiguration() interface{}
+	SetLockConfiguration(val interface{})
 	LogicalId() *string
 	Node() awscdk.ConstructNode
 	Notifications() interface{}
@@ -3208,6 +3248,16 @@ func (j *jsiiProxy_CfnBackupVault) EncryptionKeyArn() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnBackupVault) LockConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"lockConfiguration",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnBackupVault) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -3323,6 +3373,14 @@ func (j *jsiiProxy_CfnBackupVault) SetEncryptionKeyArn(val *string) {
 	_jsii_.Set(
 		j,
 		"encryptionKeyArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnBackupVault) SetLockConfiguration(val interface{}) {
+	_jsii_.Set(
+		j,
+		"lockConfiguration",
 		val,
 	)
 }
@@ -3510,6 +3568,14 @@ func (c *jsiiProxy_CfnBackupVault) AddPropertyOverride(propertyPath *string, val
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnBackupVault) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -3734,6 +3800,15 @@ func (c *jsiiProxy_CfnBackupVault) ValidateProperties(_properties interface{}) {
 	)
 }
 
+type CfnBackupVault_LockConfigurationTypeProperty struct {
+	// `CfnBackupVault.LockConfigurationTypeProperty.changeableForDays`.
+	ChangeableForDays *float64 `json:"changeableForDays"`
+	// `CfnBackupVault.LockConfigurationTypeProperty.maxRetentionDays`.
+	MaxRetentionDays *float64 `json:"maxRetentionDays"`
+	// `CfnBackupVault.LockConfigurationTypeProperty.minRetentionDays`.
+	MinRetentionDays *float64 `json:"minRetentionDays"`
+}
+
 type CfnBackupVault_NotificationObjectTypeProperty struct {
 	// `CfnBackupVault.NotificationObjectTypeProperty.BackupVaultEvents`.
 	BackupVaultEvents *[]*string `json:"backupVaultEvents"`
@@ -3751,6 +3826,8 @@ type CfnBackupVaultProps struct {
 	BackupVaultTags interface{} `json:"backupVaultTags"`
 	// `AWS::Backup::BackupVault.EncryptionKeyArn`.
 	EncryptionKeyArn *string `json:"encryptionKeyArn"`
+	// `AWS::Backup::BackupVault.LockConfiguration`.
+	LockConfiguration interface{} `json:"lockConfiguration"`
 	// `AWS::Backup::BackupVault.Notifications`.
 	Notifications interface{} `json:"notifications"`
 }

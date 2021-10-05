@@ -573,6 +573,14 @@ func (c *jsiiProxy_CfnCluster) AddPropertyOverride(propertyPath *string, value i
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -824,6 +832,8 @@ type CfnCluster_ClientAuthenticationProperty struct {
 	Sasl interface{} `json:"sasl"`
 	// `CfnCluster.ClientAuthenticationProperty.Tls`.
 	Tls interface{} `json:"tls"`
+	// `CfnCluster.ClientAuthenticationProperty.Unauthenticated`.
+	Unauthenticated interface{} `json:"unauthenticated"`
 }
 
 type CfnCluster_CloudWatchLogsProperty struct {
@@ -932,6 +942,13 @@ type CfnCluster_StorageInfoProperty struct {
 type CfnCluster_TlsProperty struct {
 	// `CfnCluster.TlsProperty.CertificateAuthorityArnList`.
 	CertificateAuthorityArnList *[]*string `json:"certificateAuthorityArnList"`
+	// `CfnCluster.TlsProperty.Enabled`.
+	Enabled interface{} `json:"enabled"`
+}
+
+type CfnCluster_UnauthenticatedProperty struct {
+	// `CfnCluster.UnauthenticatedProperty.Enabled`.
+	Enabled interface{} `json:"enabled"`
 }
 
 // Properties for defining a `AWS::MSK::Cluster`.
@@ -1310,7 +1327,7 @@ func (c *jsiiProxy_Cluster) AddUser(usernames ...*string) {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_Cluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

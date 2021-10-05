@@ -363,7 +363,7 @@ func (e *jsiiProxy_EdgeFunction) AddToRolePolicy(statement awsiam.PolicyStatemen
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (e *jsiiProxy_EdgeFunction) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

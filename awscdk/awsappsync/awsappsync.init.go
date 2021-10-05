@@ -317,6 +317,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
 			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberProperty{JsiiProperty: "openSearchServiceConfig", GoGetter: "OpenSearchServiceConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
@@ -366,6 +367,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_appsync.CfnDataSource.LambdaConfigProperty",
 		reflect.TypeOf((*CfnDataSource_LambdaConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_appsync.CfnDataSource.OpenSearchServiceConfigProperty",
+		reflect.TypeOf((*CfnDataSource_OpenSearchServiceConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_appsync.CfnDataSource.RdsHttpEndpointConfigProperty",

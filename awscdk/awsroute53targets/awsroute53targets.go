@@ -33,7 +33,7 @@ type jsiiProxy_ApiGateway struct {
 }
 
 // Experimental.
-func NewApiGateway(api awsapigateway.RestApi) ApiGateway {
+func NewApiGateway(api awsapigateway.RestApiBase) ApiGateway {
 	_init_.Initialize()
 
 	j := jsiiProxy_ApiGateway{}
@@ -48,7 +48,7 @@ func NewApiGateway(api awsapigateway.RestApi) ApiGateway {
 }
 
 // Experimental.
-func NewApiGateway_Override(a ApiGateway, api awsapigateway.RestApi) {
+func NewApiGateway_Override(a ApiGateway, api awsapigateway.RestApiBase) {
 	_init_.Initialize()
 
 	_jsii_.Create(

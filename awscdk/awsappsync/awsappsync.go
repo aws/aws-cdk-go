@@ -250,7 +250,7 @@ func AppsyncFunction_IsResource(construct awscdk.IConstruct) *bool {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (a *jsiiProxy_AppsyncFunction) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -1803,6 +1803,14 @@ func (c *jsiiProxy_CfnApiCache) AddPropertyOverride(propertyPath *string, value 
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnApiCache) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -2479,6 +2487,14 @@ func (c *jsiiProxy_CfnApiKey) AddPropertyOverride(propertyPath *string, value in
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnApiKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -2741,6 +2757,8 @@ type CfnDataSource interface {
 	Name() *string
 	SetName(val *string)
 	Node() awscdk.ConstructNode
+	OpenSearchServiceConfig() interface{}
+	SetOpenSearchServiceConfig(val interface{})
 	Ref() *string
 	RelationalDatabaseConfig() interface{}
 	SetRelationalDatabaseConfig(val interface{})
@@ -2929,6 +2947,16 @@ func (j *jsiiProxy_CfnDataSource) Node() awscdk.ConstructNode {
 	return returns
 }
 
+func (j *jsiiProxy_CfnDataSource) OpenSearchServiceConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"openSearchServiceConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnDataSource) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -3068,6 +3096,14 @@ func (j *jsiiProxy_CfnDataSource) SetName(val *string) {
 	_jsii_.Set(
 		j,
 		"name",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnDataSource) SetOpenSearchServiceConfig(val interface{}) {
+	_jsii_.Set(
+		j,
+		"openSearchServiceConfig",
 		val,
 	)
 }
@@ -3271,6 +3307,14 @@ func (c *jsiiProxy_CfnDataSource) AddPropertyOverride(propertyPath *string, valu
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnDataSource) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -3550,6 +3594,13 @@ type CfnDataSource_LambdaConfigProperty struct {
 	LambdaFunctionArn *string `json:"lambdaFunctionArn"`
 }
 
+type CfnDataSource_OpenSearchServiceConfigProperty struct {
+	// `CfnDataSource.OpenSearchServiceConfigProperty.AwsRegion`.
+	AwsRegion *string `json:"awsRegion"`
+	// `CfnDataSource.OpenSearchServiceConfigProperty.Endpoint`.
+	Endpoint *string `json:"endpoint"`
+}
+
 type CfnDataSource_RdsHttpEndpointConfigProperty struct {
 	// `CfnDataSource.RdsHttpEndpointConfigProperty.AwsRegion`.
 	AwsRegion *string `json:"awsRegion"`
@@ -3588,6 +3639,8 @@ type CfnDataSourceProps struct {
 	HttpConfig interface{} `json:"httpConfig"`
 	// `AWS::AppSync::DataSource.LambdaConfig`.
 	LambdaConfig interface{} `json:"lambdaConfig"`
+	// `AWS::AppSync::DataSource.OpenSearchServiceConfig`.
+	OpenSearchServiceConfig interface{} `json:"openSearchServiceConfig"`
 	// `AWS::AppSync::DataSource.RelationalDatabaseConfig`.
 	RelationalDatabaseConfig interface{} `json:"relationalDatabaseConfig"`
 	// `AWS::AppSync::DataSource.ServiceRoleArn`.
@@ -4172,6 +4225,14 @@ func (c *jsiiProxy_CfnFunctionConfiguration) AddPropertyOverride(propertyPath *s
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnFunctionConfiguration) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -4972,6 +5033,14 @@ func (c *jsiiProxy_CfnGraphQLApi) AddPropertyOverride(propertyPath *string, valu
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnGraphQLApi) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -5672,6 +5741,14 @@ func (c *jsiiProxy_CfnGraphQLSchema) AddPropertyOverride(propertyPath *string, v
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnGraphQLSchema) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -6513,6 +6590,14 @@ func (c *jsiiProxy_CfnResolver) AddPropertyOverride(propertyPath *string, value 
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnResolver) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -8690,7 +8775,7 @@ func (g *jsiiProxy_GraphqlApi) AddType(type_ IIntermediateType) IIntermediateTyp
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (g *jsiiProxy_GraphqlApi) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -9234,7 +9319,7 @@ func (g *jsiiProxy_GraphqlApiBase) AddSchemaDependency(construct awscdk.CfnResou
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (g *jsiiProxy_GraphqlApiBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {

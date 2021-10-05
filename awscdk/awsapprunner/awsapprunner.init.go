@@ -7,6 +7,22 @@ import (
 )
 
 func init() {
+	_jsii_.RegisterStruct(
+		"monocdk.aws_apprunner.AssetProps",
+		reflect.TypeOf((*AssetProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_apprunner.AssetSource",
+		reflect.TypeOf((*AssetSource)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AssetSource{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_Source)
+			return &j
+		},
+	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_apprunner.CfnService",
 		reflect.TypeOf((*CfnService)(nil)).Elem(),
@@ -111,5 +127,202 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_apprunner.CfnServiceProps",
 		reflect.TypeOf((*CfnServiceProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_apprunner.CodeConfiguration",
+		reflect.TypeOf((*CodeConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_apprunner.CodeConfigurationValues",
+		reflect.TypeOf((*CodeConfigurationValues)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_apprunner.CodeRepositoryProps",
+		reflect.TypeOf((*CodeRepositoryProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_apprunner.ConfigurationSourceType",
+		reflect.TypeOf((*ConfigurationSourceType)(nil)).Elem(),
+		map[string]interface{}{
+			"REPOSITORY": ConfigurationSourceType_REPOSITORY,
+			"API": ConfigurationSourceType_API,
+		},
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_apprunner.Cpu",
+		reflect.TypeOf((*Cpu)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "unit", GoGetter: "Unit"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Cpu{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_apprunner.EcrProps",
+		reflect.TypeOf((*EcrProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_apprunner.EcrPublicProps",
+		reflect.TypeOf((*EcrPublicProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_apprunner.EcrPublicSource",
+		reflect.TypeOf((*EcrPublicSource)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_EcrPublicSource{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_Source)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_apprunner.EcrSource",
+		reflect.TypeOf((*EcrSource)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_EcrSource{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_Source)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_apprunner.GitHubConnection",
+		reflect.TypeOf((*GitHubConnection)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "connectionArn", GoGetter: "ConnectionArn"},
+		},
+		func() interface{} {
+			return &jsiiProxy_GitHubConnection{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_apprunner.GithubRepositoryProps",
+		reflect.TypeOf((*GithubRepositoryProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_apprunner.GithubSource",
+		reflect.TypeOf((*GithubSource)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_GithubSource{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_Source)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"monocdk.aws_apprunner.IService",
+		reflect.TypeOf((*IService)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceArn", GoGetter: "ServiceArn"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceName", GoGetter: "ServiceName"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IService{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_apprunner.ImageConfiguration",
+		reflect.TypeOf((*ImageConfiguration)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_apprunner.ImageRepository",
+		reflect.TypeOf((*ImageRepository)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_apprunner.ImageRepositoryType",
+		reflect.TypeOf((*ImageRepositoryType)(nil)).Elem(),
+		map[string]interface{}{
+			"ECR_PUBLIC": ImageRepositoryType_ECR_PUBLIC,
+			"ECR": ImageRepositoryType_ECR,
+		},
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_apprunner.Memory",
+		reflect.TypeOf((*Memory)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "unit", GoGetter: "Unit"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Memory{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_apprunner.Runtime",
+		reflect.TypeOf((*Runtime)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Runtime{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_apprunner.Service",
+		reflect.TypeOf((*Service)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceArn", GoGetter: "ServiceArn"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceId", GoGetter: "ServiceId"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceName", GoGetter: "ServiceName"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceStatus", GoGetter: "ServiceStatus"},
+			_jsii_.MemberProperty{JsiiProperty: "serviceUrl", GoGetter: "ServiceUrl"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+		},
+		func() interface{} {
+			j := jsiiProxy_Service{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_apprunner.ServiceAttributes",
+		reflect.TypeOf((*ServiceAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_apprunner.ServiceProps",
+		reflect.TypeOf((*ServiceProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_apprunner.Source",
+		reflect.TypeOf((*Source)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Source{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_apprunner.SourceCodeVersion",
+		reflect.TypeOf((*SourceCodeVersion)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_apprunner.SourceConfig",
+		reflect.TypeOf((*SourceConfig)(nil)).Elem(),
 	)
 }

@@ -793,6 +793,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "expression", GoGetter: "Expression"},
 			_jsii_.MemberProperty{JsiiProperty: "label", GoGetter: "Label"},
 			_jsii_.MemberProperty{JsiiProperty: "period", GoGetter: "Period"},
+			_jsii_.MemberProperty{JsiiProperty: "searchAccount", GoGetter: "SearchAccount"},
+			_jsii_.MemberProperty{JsiiProperty: "searchRegion", GoGetter: "SearchRegion"},
 			_jsii_.MemberMethod{JsiiMethod: "toAlarmConfig", GoMethod: "ToAlarmConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "toGraphConfig", GoMethod: "ToGraphConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "toMetricConfig", GoMethod: "ToMetricConfig"},

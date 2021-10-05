@@ -149,6 +149,10 @@ func init() {
 		reflect.TypeOf((*CfnCluster_TlsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_msk.CfnCluster.UnauthenticatedProperty",
+		reflect.TypeOf((*CfnCluster_UnauthenticatedProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_msk.CfnClusterProps",
 		reflect.TypeOf((*CfnClusterProps)(nil)).Elem(),
 	)

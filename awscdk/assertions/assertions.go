@@ -581,7 +581,7 @@ type Template interface {
 	HasResource(type_ *string, props interface{})
 	HasResourceProperties(type_ *string, props interface{})
 	ResourceCountIs(type_ *string, count *float64)
-	TemplateMatches(expected *map[string]interface{})
+	TemplateMatches(expected interface{})
 	ToJSON() *map[string]interface{}
 }
 
@@ -750,7 +750,7 @@ func (t *jsiiProxy_Template) ResourceCountIs(type_ *string, count *float64) {
 
 // Assert that the CloudFormation template matches the given value.
 // Experimental.
-func (t *jsiiProxy_Template) TemplateMatches(expected *map[string]interface{}) {
+func (t *jsiiProxy_Template) TemplateMatches(expected interface{}) {
 	_jsii_.InvokeVoid(
 		t,
 		"templateMatches",

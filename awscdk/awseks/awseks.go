@@ -991,6 +991,14 @@ func (c *jsiiProxy_CfnAddon) AddPropertyOverride(propertyPath *string, value int
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnAddon) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -1751,6 +1759,14 @@ func (c *jsiiProxy_CfnCluster) AddPropertyOverride(propertyPath *string, value i
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -2471,6 +2487,14 @@ func (c *jsiiProxy_CfnFargateProfile) AddPropertyOverride(propertyPath *string, 
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnFargateProfile) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -3443,6 +3467,14 @@ func (c *jsiiProxy_CfnNodegroup) AddPropertyOverride(propertyPath *string, value
 }
 
 // Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_CfnNodegroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
@@ -3778,6 +3810,7 @@ type Cluster interface {
 	KubectlRole() awsiam.IRole
 	KubectlSecurityGroup() awsec2.ISecurityGroup
 	Node() awscdk.ConstructNode
+	OnEventLayer() awslambda.ILayerVersion
 	OpenIdConnectProvider() awsiam.IOpenIdConnectProvider
 	PhysicalName() *string
 	Prune() *bool
@@ -4027,6 +4060,16 @@ func (j *jsiiProxy_Cluster) Node() awscdk.ConstructNode {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Cluster) OnEventLayer() awslambda.ILayerVersion {
+	var returns awslambda.ILayerVersion
+	_jsii_.Get(
+		j,
+		"onEventLayer",
 		&returns,
 	)
 	return returns
@@ -4315,7 +4358,7 @@ func (c *jsiiProxy_Cluster) AddServiceAccount(id *string, options *ServiceAccoun
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (c *jsiiProxy_Cluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -4585,6 +4628,16 @@ type ClusterAttributes struct {
 	// endpoint is expected to be accessible publicly.
 	// Experimental.
 	KubectlSecurityGroupId *string `json:"kubectlSecurityGroupId"`
+	// An AWS Lambda Layer which includes the NPM dependency `proxy-agent`.
+	//
+	// This layer
+	// is used by the onEvent handler to route AWS SDK requests through a proxy.
+	//
+	// The handler expects the layer to include the following node_modules:
+	//
+	//     proxy-agent
+	// Experimental.
+	OnEventLayer awslambda.ILayerVersion `json:"onEventLayer"`
 	// An Open ID Connect provider for this cluster that can be used to configure service accounts.
 	//
 	// You can either import an existing provider using `iam.OpenIdConnectProvider.fromProviderArn`,
@@ -4691,6 +4744,27 @@ type ClusterOptions struct {
 	//
 	// Experimental.
 	MastersRole awsiam.IRole `json:"mastersRole"`
+	// An AWS Lambda Layer which includes the NPM dependency `proxy-agent`.
+	//
+	// By default, the provider will use the layer included in the
+	// "aws-lambda-layer-node-proxy-agent" SAR application which is available in all
+	// commercial regions.
+	//
+	// To deploy the layer locally, visit
+	// https://github.com/aws-samples/aws-lambda-layer-node-proxy-agent/blob/master/cdk/README.md
+	// for instructions on how to prepare the .zip file and then define it in your
+	// app as follows:
+	//
+	// ```ts
+	// const layer = new lambda.LayerVersion(this, 'node-proxy-agent-layer', {
+	//    code: lambda.Code.fromAsset(`${__dirname}/layer.zip`)),
+	//    compatibleRuntimes: [lambda.Runtime.NODEJS_14_X]
+	// })
+	// ```
+	// See: https://github.com/aws-samples/aws-lambda-layer-node-proxy-agent
+	//
+	// Experimental.
+	OnEventLayer awslambda.ILayerVersion `json:"onEventLayer"`
 	// Determines whether a CloudFormation output with the ARN of the "masters" IAM role will be synthesized (if `mastersRole` is specified).
 	// Experimental.
 	OutputMastersRoleArn *bool `json:"outputMastersRoleArn"`
@@ -4794,6 +4868,27 @@ type ClusterProps struct {
 	//
 	// Experimental.
 	MastersRole awsiam.IRole `json:"mastersRole"`
+	// An AWS Lambda Layer which includes the NPM dependency `proxy-agent`.
+	//
+	// By default, the provider will use the layer included in the
+	// "aws-lambda-layer-node-proxy-agent" SAR application which is available in all
+	// commercial regions.
+	//
+	// To deploy the layer locally, visit
+	// https://github.com/aws-samples/aws-lambda-layer-node-proxy-agent/blob/master/cdk/README.md
+	// for instructions on how to prepare the .zip file and then define it in your
+	// app as follows:
+	//
+	// ```ts
+	// const layer = new lambda.LayerVersion(this, 'node-proxy-agent-layer', {
+	//    code: lambda.Code.fromAsset(`${__dirname}/layer.zip`)),
+	//    compatibleRuntimes: [lambda.Runtime.NODEJS_14_X]
+	// })
+	// ```
+	// See: https://github.com/aws-samples/aws-lambda-layer-node-proxy-agent
+	//
+	// Experimental.
+	OnEventLayer awslambda.ILayerVersion `json:"onEventLayer"`
 	// Determines whether a CloudFormation output with the ARN of the "masters" IAM role will be synthesized (if `mastersRole` is specified).
 	// Experimental.
 	OutputMastersRoleArn *bool `json:"outputMastersRoleArn"`
@@ -5064,6 +5159,7 @@ type FargateCluster interface {
 	KubectlRole() awsiam.IRole
 	KubectlSecurityGroup() awsec2.ISecurityGroup
 	Node() awscdk.ConstructNode
+	OnEventLayer() awslambda.ILayerVersion
 	OpenIdConnectProvider() awsiam.IOpenIdConnectProvider
 	PhysicalName() *string
 	Prune() *bool
@@ -5312,6 +5408,16 @@ func (j *jsiiProxy_FargateCluster) Node() awscdk.ConstructNode {
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FargateCluster) OnEventLayer() awslambda.ILayerVersion {
+	var returns awslambda.ILayerVersion
+	_jsii_.Get(
+		j,
+		"onEventLayer",
 		&returns,
 	)
 	return returns
@@ -5598,7 +5704,7 @@ func (f *jsiiProxy_FargateCluster) AddServiceAccount(id *string, options *Servic
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (f *jsiiProxy_FargateCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -5902,6 +6008,27 @@ type FargateClusterProps struct {
 	//
 	// Experimental.
 	MastersRole awsiam.IRole `json:"mastersRole"`
+	// An AWS Lambda Layer which includes the NPM dependency `proxy-agent`.
+	//
+	// By default, the provider will use the layer included in the
+	// "aws-lambda-layer-node-proxy-agent" SAR application which is available in all
+	// commercial regions.
+	//
+	// To deploy the layer locally, visit
+	// https://github.com/aws-samples/aws-lambda-layer-node-proxy-agent/blob/master/cdk/README.md
+	// for instructions on how to prepare the .zip file and then define it in your
+	// app as follows:
+	//
+	// ```ts
+	// const layer = new lambda.LayerVersion(this, 'node-proxy-agent-layer', {
+	//    code: lambda.Code.fromAsset(`${__dirname}/layer.zip`)),
+	//    compatibleRuntimes: [lambda.Runtime.NODEJS_14_X]
+	// })
+	// ```
+	// See: https://github.com/aws-samples/aws-lambda-layer-node-proxy-agent
+	//
+	// Experimental.
+	OnEventLayer awslambda.ILayerVersion `json:"onEventLayer"`
 	// Determines whether a CloudFormation output with the ARN of the "masters" IAM role will be synthesized (if `mastersRole` is specified).
 	// Experimental.
 	OutputMastersRoleArn *bool `json:"outputMastersRoleArn"`
@@ -6203,6 +6330,8 @@ type FargateProfileOptions struct {
 	// At this time, pods running
 	// on Fargate are not assigned public IP addresses, so only private subnets
 	// (with no direct route to an Internet Gateway) are allowed.
+	//
+	// You must specify the VPC to customize the subnet selection
 	// Experimental.
 	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection"`
 	// The VPC from which to select subnets to launch your pods into.
@@ -6242,6 +6371,8 @@ type FargateProfileProps struct {
 	// At this time, pods running
 	// on Fargate are not assigned public IP addresses, so only private subnets
 	// (with no direct route to an Internet Gateway) are allowed.
+	//
+	// You must specify the VPC to customize the subnet selection
 	// Experimental.
 	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection"`
 	// The VPC from which to select subnets to launch your pods into.
@@ -6560,6 +6691,24 @@ type ICluster interface {
 	// Creates a new service account with corresponding IAM Role (IRSA).
 	// Experimental.
 	AddServiceAccount(id *string, options *ServiceAccountOptions) ServiceAccount
+	// Connect capacity in the form of an existing AutoScalingGroup to the EKS cluster.
+	//
+	// The AutoScalingGroup must be running an EKS-optimized AMI containing the
+	// /etc/eks/bootstrap.sh script. This method will configure Security Groups,
+	// add the right policies to the instance role, apply the right tags, and add
+	// the required user data to the instance's launch configuration.
+	//
+	// Spot instances will be labeled `lifecycle=Ec2Spot` and tainted with `PreferNoSchedule`.
+	// If kubectl is enabled, the
+	// [spot interrupt handler](https://github.com/awslabs/ec2-spot-labs/tree/master/ec2-spot-eks-solution/spot-termination-handler)
+	// daemon will be installed on all spot instances to handle
+	// [EC2 Spot Instance Termination Notices](https://aws.amazon.com/blogs/aws/new-ec2-spot-instance-termination-notices/).
+	//
+	// Prefer to use `addAutoScalingGroupCapacity` if possible.
+	// See: https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html
+	//
+	// Experimental.
+	ConnectAutoScalingGroupCapacity(autoScalingGroup awsautoscaling.AutoScalingGroup, options *AutoScalingGroupOptions)
 	// The unique ARN assigned to the service by AWS in the form of arn:aws:eks:.
 	// Experimental.
 	ClusterArn() *string
@@ -6609,6 +6758,11 @@ type ICluster interface {
 	// publicly.
 	// Experimental.
 	KubectlSecurityGroup() awsec2.ISecurityGroup
+	// An AWS Lambda layer that includes the NPM dependency `proxy-agent`.
+	//
+	// If not defined, a default layer will be used.
+	// Experimental.
+	OnEventLayer() awslambda.ILayerVersion
 	// The Open ID Connect Provider of the cluster used to configure Service Accounts.
 	// Experimental.
 	OpenIdConnectProvider() awsiam.IOpenIdConnectProvider
@@ -6686,6 +6840,14 @@ func (i *jsiiProxy_ICluster) AddServiceAccount(id *string, options *ServiceAccou
 	)
 
 	return returns
+}
+
+func (i *jsiiProxy_ICluster) ConnectAutoScalingGroupCapacity(autoScalingGroup awsautoscaling.AutoScalingGroup, options *AutoScalingGroupOptions) {
+	_jsii_.InvokeVoid(
+		i,
+		"connectAutoScalingGroupCapacity",
+		[]interface{}{autoScalingGroup, options},
+	)
 }
 
 func (j *jsiiProxy_ICluster) ClusterArn() *string {
@@ -6813,6 +6975,16 @@ func (j *jsiiProxy_ICluster) KubectlSecurityGroup() awsec2.ISecurityGroup {
 	_jsii_.Get(
 		j,
 		"kubectlSecurityGroup",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ICluster) OnEventLayer() awslambda.ILayerVersion {
+	var returns awslambda.ILayerVersion
+	_jsii_.Get(
+		j,
+		"onEventLayer",
 		&returns,
 	)
 	return returns
@@ -8006,7 +8178,7 @@ func Nodegroup_IsResource(construct awscdk.IConstruct) *bool {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (n *jsiiProxy_Nodegroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
@@ -8595,7 +8767,7 @@ func OpenIdConnectProvider_IsResource(construct awscdk.IConstruct) *bool {
 // CDK application or because you've made a change that requires the resource
 // to be replaced.
 //
-// The resource can be deleted (`RemovalPolicy.DELETE`), or left in your AWS
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 // Experimental.
 func (o *jsiiProxy_OpenIdConnectProvider) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
