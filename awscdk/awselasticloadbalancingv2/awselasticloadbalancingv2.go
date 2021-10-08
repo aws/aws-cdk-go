@@ -12442,6 +12442,7 @@ const (
 	TargetType_INSTANCE TargetType = "INSTANCE"
 	TargetType_IP TargetType = "IP"
 	TargetType_LAMBDA TargetType = "LAMBDA"
+	TargetType_ALB TargetType = "ALB"
 )
 
 // What to do with unauthenticated requests.

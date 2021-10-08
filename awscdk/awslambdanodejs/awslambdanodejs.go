@@ -1143,6 +1143,9 @@ type NodejsFunctionProps struct {
 	AllowPublicSubnet *bool `json:"allowPublicSubnet"`
 	// The system architectures compatible with this lambda function.
 	// Experimental.
+	Architecture awslambda.Architecture `json:"architecture"`
+	// DEPRECATED.
+	// Deprecated: use `architecture`
 	Architectures *[]awslambda.Architecture `json:"architectures"`
 	// Code signing config associated with this function.
 	// Experimental.

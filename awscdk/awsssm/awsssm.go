@@ -3260,6 +3260,8 @@ type CfnMaintenanceWindowTask interface {
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
 	CreationStack() *[]*string
+	CutoffBehavior() *string
+	SetCutoffBehavior(val *string)
 	Description() *string
 	SetDescription(val *string)
 	LoggingInfo() interface{}
@@ -3355,6 +3357,16 @@ func (j *jsiiProxy_CfnMaintenanceWindowTask) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnMaintenanceWindowTask) CutoffBehavior() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cutoffBehavior",
 		&returns,
 	)
 	return returns
@@ -3564,6 +3576,14 @@ func NewCfnMaintenanceWindowTask_Override(c CfnMaintenanceWindowTask, scope awsc
 		"monocdk.aws_ssm.CfnMaintenanceWindowTask",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnMaintenanceWindowTask) SetCutoffBehavior(val *string) {
+	_jsii_.Set(
+		j,
+		"cutoffBehavior",
+		val,
 	)
 }
 
@@ -4168,6 +4188,8 @@ type CfnMaintenanceWindowTaskProps struct {
 	TaskType *string `json:"taskType"`
 	// `AWS::SSM::MaintenanceWindowTask.WindowId`.
 	WindowId *string `json:"windowId"`
+	// `AWS::SSM::MaintenanceWindowTask.CutoffBehavior`.
+	CutoffBehavior *string `json:"cutoffBehavior"`
 	// `AWS::SSM::MaintenanceWindowTask.Description`.
 	Description *string `json:"description"`
 	// `AWS::SSM::MaintenanceWindowTask.LoggingInfo`.

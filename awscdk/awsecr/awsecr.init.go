@@ -171,6 +171,10 @@ func init() {
 		reflect.TypeOf((*CfnReplicationConfiguration_ReplicationRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_ecr.CfnReplicationConfiguration.RepositoryFilterProperty",
+		reflect.TypeOf((*CfnReplicationConfiguration_RepositoryFilterProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_ecr.CfnReplicationConfigurationProps",
 		reflect.TypeOf((*CfnReplicationConfigurationProps)(nil)).Elem(),
 	)

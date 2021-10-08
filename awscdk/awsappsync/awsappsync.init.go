@@ -103,6 +103,7 @@ func init() {
 			"IAM": AuthorizationType_IAM,
 			"USER_POOL": AuthorizationType_USER_POOL,
 			"OIDC": AuthorizationType_OIDC,
+			"LAMBDA": AuthorizationType_LAMBDA,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -1087,6 +1088,10 @@ func init() {
 		func() interface{} {
 			return &jsiiProxy_KeyCondition{}
 		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_appsync.LambdaAuthorizerConfig",
+		reflect.TypeOf((*LambdaAuthorizerConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_appsync.LambdaDataSource",

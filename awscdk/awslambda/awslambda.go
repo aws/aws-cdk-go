@@ -11,6 +11,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/awscodeguruprofiler"
 	"github.com/aws/aws-cdk-go/awscdk/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/awsecr"
+	"github.com/aws/aws-cdk-go/awscdk/awsecrassets"
 	"github.com/aws/aws-cdk-go/awscdk/awsefs"
 	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/awskms"
@@ -1442,6 +1443,9 @@ type AssetImageCodeProps struct {
 	// Path to the Dockerfile (relative to the directory).
 	// Experimental.
 	File *string `json:"file"`
+	// Options to control which parameters are used to invalidate the asset hash.
+	// Experimental.
+	Invalidation *awsecrassets.DockerImageAssetInvalidationOptions `json:"invalidation"`
 	// ECR repository name.
 	//
 	// Specify this property if you need to statically address the image, e.g.
@@ -10427,6 +10431,9 @@ type DockerImageFunctionProps struct {
 	AllowPublicSubnet *bool `json:"allowPublicSubnet"`
 	// The system architectures compatible with this lambda function.
 	// Experimental.
+	Architecture Architecture `json:"architecture"`
+	// DEPRECATED.
+	// Deprecated: use `architecture`
 	Architectures *[]Architecture `json:"architectures"`
 	// Code signing config associated with this function.
 	// Experimental.
@@ -13389,6 +13396,9 @@ type FunctionOptions struct {
 	AllowPublicSubnet *bool `json:"allowPublicSubnet"`
 	// The system architectures compatible with this lambda function.
 	// Experimental.
+	Architecture Architecture `json:"architecture"`
+	// DEPRECATED.
+	// Deprecated: use `architecture`
 	Architectures *[]Architecture `json:"architectures"`
 	// Code signing config associated with this function.
 	// Experimental.
@@ -13566,6 +13576,9 @@ type FunctionProps struct {
 	AllowPublicSubnet *bool `json:"allowPublicSubnet"`
 	// The system architectures compatible with this lambda function.
 	// Experimental.
+	Architecture Architecture `json:"architecture"`
+	// DEPRECATED.
+	// Deprecated: use `architecture`
 	Architectures *[]Architecture `json:"architectures"`
 	// Code signing config associated with this function.
 	// Experimental.
@@ -17516,6 +17529,9 @@ type SingletonFunctionProps struct {
 	AllowPublicSubnet *bool `json:"allowPublicSubnet"`
 	// The system architectures compatible with this lambda function.
 	// Experimental.
+	Architecture Architecture `json:"architecture"`
+	// DEPRECATED.
+	// Deprecated: use `architecture`
 	Architectures *[]Architecture `json:"architectures"`
 	// Code signing config associated with this function.
 	// Experimental.

@@ -1910,6 +1910,15 @@ type CfnReplicationConfiguration_ReplicationDestinationProperty struct {
 type CfnReplicationConfiguration_ReplicationRuleProperty struct {
 	// `CfnReplicationConfiguration.ReplicationRuleProperty.Destinations`.
 	Destinations interface{} `json:"destinations"`
+	// `CfnReplicationConfiguration.ReplicationRuleProperty.RepositoryFilters`.
+	RepositoryFilters interface{} `json:"repositoryFilters"`
+}
+
+type CfnReplicationConfiguration_RepositoryFilterProperty struct {
+	// `CfnReplicationConfiguration.RepositoryFilterProperty.Filter`.
+	Filter *string `json:"filter"`
+	// `CfnReplicationConfiguration.RepositoryFilterProperty.FilterType`.
+	FilterType *string `json:"filterType"`
 }
 
 // Properties for defining a `AWS::ECR::ReplicationConfiguration`.

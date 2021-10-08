@@ -686,6 +686,9 @@ type AuthorizationMode struct {
 	// If authorizationType is `AuthorizationType.API_KEY`, this option can be configured.
 	// Experimental.
 	ApiKeyConfig *ApiKeyConfig `json:"apiKeyConfig"`
+	// If authorizationType is `AuthorizationType.LAMBDA`, this option is required.
+	// Experimental.
+	LambdaAuthorizerConfig *LambdaAuthorizerConfig `json:"lambdaAuthorizerConfig"`
 	// If authorizationType is `AuthorizationType.OIDC`, this option is required.
 	// Experimental.
 	OpenIdConnectConfig *OpenIdConnectConfig `json:"openIdConnectConfig"`
@@ -703,6 +706,7 @@ const (
 	AuthorizationType_IAM AuthorizationType = "IAM"
 	AuthorizationType_USER_POOL AuthorizationType = "USER_POOL"
 	AuthorizationType_OIDC AuthorizationType = "OIDC"
+	AuthorizationType_LAMBDA AuthorizationType = "LAMBDA"
 )
 
 // The authorization config in case the HTTP endpoint requires authorization.
@@ -11302,6 +11306,32 @@ func (k *jsiiProxy_KeyCondition) RenderTemplate() *string {
 	)
 
 	return returns
+}
+
+// Configuration for Lambda authorization in AppSync.
+//
+// Note that you can only have a single AWS Lambda function configured to authorize your API.
+// Experimental.
+type LambdaAuthorizerConfig struct {
+	// The authorizer lambda function.
+	//
+	// Note: This Lambda function must have the following resource-based policy assigned to it.
+	// When configuring Lambda authorizers in the console, this is done for you.
+	// To do so with the AWS CLI, run the following:
+	//
+	// `aws lambda add-permission --function-name "arn:aws:lambda:us-east-2:111122223333:function:my-function" --statement-id "appsync" --principal appsync.amazonaws.com --action lambda:InvokeFunction`
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-lambdaauthorizerconfig.html
+	//
+	// Experimental.
+	Handler awslambda.IFunction `json:"handler"`
+	// How long the results are cached.
+	//
+	// Disable caching by setting this to 0.
+	// Experimental.
+	ResultsCacheTtl awscdk.Duration `json:"resultsCacheTtl"`
+	// A regular expression for validation of tokens before the Lambda function is called.
+	// Experimental.
+	ValidationRegex *string `json:"validationRegex"`
 }
 
 // An AppSync datasource backed by a Lambda function.

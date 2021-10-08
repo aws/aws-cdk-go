@@ -144,6 +144,10 @@ func init() {
 		reflect.TypeOf((*CfnDataSource_OneDriveUsersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_kendra.CfnDataSource.ProxyConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_ProxyConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_kendra.CfnDataSource.S3DataSourceConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_S3DataSourceConfigurationProperty)(nil)).Elem(),
 	)
@@ -198,6 +202,34 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_kendra.CfnDataSource.SqlConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_SqlConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_kendra.CfnDataSource.WebCrawlerAuthenticationConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_WebCrawlerAuthenticationConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_kendra.CfnDataSource.WebCrawlerBasicAuthenticationProperty",
+		reflect.TypeOf((*CfnDataSource_WebCrawlerBasicAuthenticationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_kendra.CfnDataSource.WebCrawlerConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_WebCrawlerConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_kendra.CfnDataSource.WebCrawlerSeedUrlConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_WebCrawlerSeedUrlConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_kendra.CfnDataSource.WebCrawlerSiteMapsConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_WebCrawlerSiteMapsConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_kendra.CfnDataSource.WebCrawlerUrlsProperty",
+		reflect.TypeOf((*CfnDataSource_WebCrawlerUrlsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_kendra.CfnDataSource.WorkDocsConfigurationProperty",
+		reflect.TypeOf((*CfnDataSource_WorkDocsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_kendra.CfnDataSourceProps",

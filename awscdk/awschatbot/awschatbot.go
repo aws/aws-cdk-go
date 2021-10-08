@@ -884,6 +884,7 @@ type SlackChannelConfiguration interface {
 	SlackChannelConfigurationArn() *string
 	SlackChannelConfigurationName() *string
 	Stack() awscdk.Stack
+	AddNotificationTopic(notificationTopic awssns.ITopic)
 	AddToRolePolicy(statement awsiam.PolicyStatement)
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	BindAsNotificationRuleTarget(_scope constructs.Construct) *awscodestarnotifications.NotificationRuleTargetConfig
@@ -1081,6 +1082,16 @@ func SlackChannelConfiguration_MetricAll(metricName *string, props *awscloudwatc
 	)
 
 	return returns
+}
+
+// Adds a SNS topic that deliver notifications to AWS Chatbot.
+// Experimental.
+func (s *jsiiProxy_SlackChannelConfiguration) AddNotificationTopic(notificationTopic awssns.ITopic) {
+	_jsii_.InvokeVoid(
+		s,
+		"addNotificationTopic",
+		[]interface{}{notificationTopic},
+	)
 }
 
 // Adds extra permission to iam-role of Slack channel configuration.

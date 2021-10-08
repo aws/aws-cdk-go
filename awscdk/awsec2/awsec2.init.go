@@ -1338,6 +1338,18 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnLaunchTemplate.AcceleratorCountProperty",
+		reflect.TypeOf((*CfnLaunchTemplate_AcceleratorCountProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnLaunchTemplate.AcceleratorTotalMemoryMiBProperty",
+		reflect.TypeOf((*CfnLaunchTemplate_AcceleratorTotalMemoryMiBProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnLaunchTemplate.BaselineEbsBandwidthMbpsProperty",
+		reflect.TypeOf((*CfnLaunchTemplate_BaselineEbsBandwidthMbpsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_ec2.CfnLaunchTemplate.BlockDeviceMappingProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_BlockDeviceMappingProperty)(nil)).Elem(),
 	)
@@ -1402,12 +1414,24 @@ func init() {
 		reflect.TypeOf((*CfnLaunchTemplate_LicenseSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnLaunchTemplate.MemoryGiBPerVCpuProperty",
+		reflect.TypeOf((*CfnLaunchTemplate_MemoryGiBPerVCpuProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnLaunchTemplate.MemoryMiBProperty",
+		reflect.TypeOf((*CfnLaunchTemplate_MemoryMiBProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_ec2.CfnLaunchTemplate.MetadataOptionsProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_MetadataOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_ec2.CfnLaunchTemplate.MonitoringProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_MonitoringProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnLaunchTemplate.NetworkInterfaceCountProperty",
+		reflect.TypeOf((*CfnLaunchTemplate_NetworkInterfaceCountProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_ec2.CfnLaunchTemplate.NetworkInterfaceProperty",
@@ -1428,6 +1452,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_ec2.CfnLaunchTemplate.TagSpecificationProperty",
 		reflect.TypeOf((*CfnLaunchTemplate_TagSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnLaunchTemplate.TotalLocalStorageGBProperty",
+		reflect.TypeOf((*CfnLaunchTemplate_TotalLocalStorageGBProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnLaunchTemplate.VCpuCountProperty",
+		reflect.TypeOf((*CfnLaunchTemplate_VCpuCountProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_ec2.CfnLaunchTemplateProps",
@@ -5528,6 +5560,7 @@ func init() {
 			"BURSTABLE4_GRAVITON": InstanceClass_BURSTABLE4_GRAVITON,
 			"MEMORY_INTENSIVE_1": InstanceClass_MEMORY_INTENSIVE_1,
 			"MEMORY_INTENSIVE_1_EXTENDED": InstanceClass_MEMORY_INTENSIVE_1_EXTENDED,
+			"MEMORY_INTENSIVE_2_GRAVITON2_NVME_DRIVE": InstanceClass_MEMORY_INTENSIVE_2_GRAVITON2_NVME_DRIVE,
 			"FPGA1": InstanceClass_FPGA1,
 			"GRAPHICS3": InstanceClass_GRAPHICS3,
 			"GRAPHICS4_NVME_DRIVE_HIGH_PERFORMANCE": InstanceClass_GRAPHICS4_NVME_DRIVE_HIGH_PERFORMANCE,

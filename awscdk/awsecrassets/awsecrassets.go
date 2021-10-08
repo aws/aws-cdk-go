@@ -265,6 +265,26 @@ func (d *jsiiProxy_DockerImageAsset) Validate() *[]*string {
 	return returns
 }
 
+// Options to control invalidation of `DockerImageAsset` asset hashes.
+// Experimental.
+type DockerImageAssetInvalidationOptions struct {
+	// Use `buildArgs` while calculating the asset hash.
+	// Experimental.
+	BuildArgs *bool `json:"buildArgs"`
+	// Use `extraHash` while calculating the asset hash.
+	// Experimental.
+	ExtraHash *bool `json:"extraHash"`
+	// Use `file` while calculating the asset hash.
+	// Experimental.
+	File *bool `json:"file"`
+	// Use `repositoryName` while calculating the asset hash.
+	// Experimental.
+	RepositoryName *bool `json:"repositoryName"`
+	// Use `target` while calculating the asset hash.
+	// Experimental.
+	Target *bool `json:"target"`
+}
+
 // Options for DockerImageAsset.
 // Experimental.
 type DockerImageAssetOptions struct {
@@ -293,6 +313,9 @@ type DockerImageAssetOptions struct {
 	// Path to the Dockerfile (relative to the directory).
 	// Experimental.
 	File *string `json:"file"`
+	// Options to control which parameters are used to invalidate the asset hash.
+	// Experimental.
+	Invalidation *DockerImageAssetInvalidationOptions `json:"invalidation"`
 	// ECR repository name.
 	//
 	// Specify this property if you need to statically address the image, e.g.
@@ -335,6 +358,9 @@ type DockerImageAssetProps struct {
 	// Path to the Dockerfile (relative to the directory).
 	// Experimental.
 	File *string `json:"file"`
+	// Options to control which parameters are used to invalidate the asset hash.
+	// Experimental.
+	Invalidation *DockerImageAssetInvalidationOptions `json:"invalidation"`
 	// ECR repository name.
 	//
 	// Specify this property if you need to statically address the image, e.g.

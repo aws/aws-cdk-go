@@ -1388,6 +1388,7 @@ func init() {
 			"INSTANCE": TargetType_INSTANCE,
 			"IP": TargetType_IP,
 			"LAMBDA": TargetType_LAMBDA,
+			"ALB": TargetType_ALB,
 		},
 	)
 	_jsii_.RegisterEnum(

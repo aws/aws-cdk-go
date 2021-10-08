@@ -15482,6 +15482,27 @@ func (c *jsiiProxy_CfnLaunchTemplate) ValidateProperties(_properties interface{}
 	)
 }
 
+type CfnLaunchTemplate_AcceleratorCountProperty struct {
+	// `CfnLaunchTemplate.AcceleratorCountProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnLaunchTemplate.AcceleratorCountProperty.Min`.
+	Min *float64 `json:"min"`
+}
+
+type CfnLaunchTemplate_AcceleratorTotalMemoryMiBProperty struct {
+	// `CfnLaunchTemplate.AcceleratorTotalMemoryMiBProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnLaunchTemplate.AcceleratorTotalMemoryMiBProperty.Min`.
+	Min *float64 `json:"min"`
+}
+
+type CfnLaunchTemplate_BaselineEbsBandwidthMbpsProperty struct {
+	// `CfnLaunchTemplate.BaselineEbsBandwidthMbpsProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnLaunchTemplate.BaselineEbsBandwidthMbpsProperty.Min`.
+	Min *float64 `json:"min"`
+}
+
 type CfnLaunchTemplate_BlockDeviceMappingProperty struct {
 	// `CfnLaunchTemplate.BlockDeviceMappingProperty.DeviceName`.
 	DeviceName *string `json:"deviceName"`
@@ -15648,9 +15669,25 @@ type CfnLaunchTemplate_LicenseSpecificationProperty struct {
 	LicenseConfigurationArn *string `json:"licenseConfigurationArn"`
 }
 
+type CfnLaunchTemplate_MemoryGiBPerVCpuProperty struct {
+	// `CfnLaunchTemplate.MemoryGiBPerVCpuProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnLaunchTemplate.MemoryGiBPerVCpuProperty.Min`.
+	Min *float64 `json:"min"`
+}
+
+type CfnLaunchTemplate_MemoryMiBProperty struct {
+	// `CfnLaunchTemplate.MemoryMiBProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnLaunchTemplate.MemoryMiBProperty.Min`.
+	Min *float64 `json:"min"`
+}
+
 type CfnLaunchTemplate_MetadataOptionsProperty struct {
 	// `CfnLaunchTemplate.MetadataOptionsProperty.HttpEndpoint`.
 	HttpEndpoint *string `json:"httpEndpoint"`
+	// `CfnLaunchTemplate.MetadataOptionsProperty.HttpProtocolIpv6`.
+	HttpProtocolIpv6 *string `json:"httpProtocolIpv6"`
 	// `CfnLaunchTemplate.MetadataOptionsProperty.HttpPutResponseHopLimit`.
 	HttpPutResponseHopLimit *float64 `json:"httpPutResponseHopLimit"`
 	// `CfnLaunchTemplate.MetadataOptionsProperty.HttpTokens`.
@@ -15660,6 +15697,13 @@ type CfnLaunchTemplate_MetadataOptionsProperty struct {
 type CfnLaunchTemplate_MonitoringProperty struct {
 	// `CfnLaunchTemplate.MonitoringProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
+}
+
+type CfnLaunchTemplate_NetworkInterfaceCountProperty struct {
+	// `CfnLaunchTemplate.NetworkInterfaceCountProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnLaunchTemplate.NetworkInterfaceCountProperty.Min`.
+	Min *float64 `json:"min"`
 }
 
 type CfnLaunchTemplate_NetworkInterfaceProperty struct {
@@ -15739,6 +15783,20 @@ type CfnLaunchTemplate_TagSpecificationProperty struct {
 	ResourceType *string `json:"resourceType"`
 	// `CfnLaunchTemplate.TagSpecificationProperty.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+}
+
+type CfnLaunchTemplate_TotalLocalStorageGBProperty struct {
+	// `CfnLaunchTemplate.TotalLocalStorageGBProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnLaunchTemplate.TotalLocalStorageGBProperty.Min`.
+	Min *float64 `json:"min"`
+}
+
+type CfnLaunchTemplate_VCpuCountProperty struct {
+	// `CfnLaunchTemplate.VCpuCountProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnLaunchTemplate.VCpuCountProperty.Min`.
+	Min *float64 `json:"min"`
 }
 
 // Properties for defining a `AWS::EC2::LaunchTemplate`.
@@ -56584,7 +56642,7 @@ type GenericLinuxImageProps struct {
 // on the instance if you are using this image.
 //
 // The AMI ID is selected using the values published to the SSM parameter store.
-// Deprecated: Use `MachineImage.fromSsmParameter()` instead
+// Experimental.
 type GenericSSMParameterImage interface {
 	IMachineImage
 	ParameterName() *string
@@ -56607,7 +56665,7 @@ func (j *jsiiProxy_GenericSSMParameterImage) ParameterName() *string {
 }
 
 
-// Deprecated: Use `MachineImage.fromSsmParameter()` instead
+// Experimental.
 func NewGenericSSMParameterImage(parameterName *string, os OperatingSystemType, userData UserData) GenericSSMParameterImage {
 	_init_.Initialize()
 
@@ -56622,7 +56680,7 @@ func NewGenericSSMParameterImage(parameterName *string, os OperatingSystemType, 
 	return &j
 }
 
-// Deprecated: Use `MachineImage.fromSsmParameter()` instead
+// Experimental.
 func NewGenericSSMParameterImage_Override(g GenericSSMParameterImage, parameterName *string, os OperatingSystemType, userData UserData) {
 	_init_.Initialize()
 
@@ -56634,7 +56692,7 @@ func NewGenericSSMParameterImage_Override(g GenericSSMParameterImage, parameterN
 }
 
 // Return the image to use in the given context.
-// Deprecated: Use `MachineImage.fromSsmParameter()` instead
+// Experimental.
 func (g *jsiiProxy_GenericSSMParameterImage) GetImage(scope awscdk.Construct) *MachineImageConfig {
 	var returns *MachineImageConfig
 
@@ -60058,6 +60116,7 @@ const (
 	InstanceClass_BURSTABLE4_GRAVITON InstanceClass = "BURSTABLE4_GRAVITON"
 	InstanceClass_MEMORY_INTENSIVE_1 InstanceClass = "MEMORY_INTENSIVE_1"
 	InstanceClass_MEMORY_INTENSIVE_1_EXTENDED InstanceClass = "MEMORY_INTENSIVE_1_EXTENDED"
+	InstanceClass_MEMORY_INTENSIVE_2_GRAVITON2_NVME_DRIVE InstanceClass = "MEMORY_INTENSIVE_2_GRAVITON2_NVME_DRIVE"
 	InstanceClass_FPGA1 InstanceClass = "FPGA1"
 	InstanceClass_GRAPHICS3 InstanceClass = "GRAPHICS3"
 	InstanceClass_GRAPHICS4_NVME_DRIVE_HIGH_PERFORMANCE InstanceClass = "GRAPHICS4_NVME_DRIVE_HIGH_PERFORMANCE"
@@ -71153,7 +71212,7 @@ func NewWindowsImage_Override(w WindowsImage, version WindowsVersion, props *Win
 }
 
 // Return the image to use in the given context.
-// Deprecated.
+// Experimental.
 func (w *jsiiProxy_WindowsImage) GetImage(scope awscdk.Construct) *MachineImageConfig {
 	var returns *MachineImageConfig
 

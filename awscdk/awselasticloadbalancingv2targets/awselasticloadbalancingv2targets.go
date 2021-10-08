@@ -10,6 +10,120 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/awslambda"
 )
 
+// A single Application Load Balancer as the target for load balancing.
+// Experimental.
+type AlbArnTarget interface {
+	awselasticloadbalancingv2.INetworkLoadBalancerTarget
+	AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
+}
+
+// The jsii proxy struct for AlbArnTarget
+type jsiiProxy_AlbArnTarget struct {
+	internal.Type__awselasticloadbalancingv2INetworkLoadBalancerTarget
+}
+
+// Create a new alb target.
+// Experimental.
+func NewAlbArnTarget(albArn *string, port *float64) AlbArnTarget {
+	_init_.Initialize()
+
+	j := jsiiProxy_AlbArnTarget{}
+
+	_jsii_.Create(
+		"monocdk.aws_elasticloadbalancingv2_targets.AlbArnTarget",
+		[]interface{}{albArn, port},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a new alb target.
+// Experimental.
+func NewAlbArnTarget_Override(a AlbArnTarget, albArn *string, port *float64) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_elasticloadbalancingv2_targets.AlbArnTarget",
+		[]interface{}{albArn, port},
+		a,
+	)
+}
+
+// Register this alb target with a load balancer.
+//
+// Don't call this, it is called automatically when you add the target to a
+// load balancer.
+// Experimental.
+func (a *jsiiProxy_AlbArnTarget) AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
+	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
+
+	_jsii_.Invoke(
+		a,
+		"attachToNetworkTargetGroup",
+		[]interface{}{targetGroup},
+		&returns,
+	)
+
+	return returns
+}
+
+// A single Application Load Balancer as the target for load balancing.
+// Experimental.
+type AlbTarget interface {
+	AlbArnTarget
+	AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
+}
+
+// The jsii proxy struct for AlbTarget
+type jsiiProxy_AlbTarget struct {
+	jsiiProxy_AlbArnTarget
+}
+
+// Experimental.
+func NewAlbTarget(alb awselasticloadbalancingv2.ApplicationLoadBalancer, port *float64) AlbTarget {
+	_init_.Initialize()
+
+	j := jsiiProxy_AlbTarget{}
+
+	_jsii_.Create(
+		"monocdk.aws_elasticloadbalancingv2_targets.AlbTarget",
+		[]interface{}{alb, port},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewAlbTarget_Override(a AlbTarget, alb awselasticloadbalancingv2.ApplicationLoadBalancer, port *float64) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_elasticloadbalancingv2_targets.AlbTarget",
+		[]interface{}{alb, port},
+		a,
+	)
+}
+
+// Register this alb target with a load balancer.
+//
+// Don't call this, it is called automatically when you add the target to a
+// load balancer.
+// Experimental.
+func (a *jsiiProxy_AlbTarget) AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
+	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
+
+	_jsii_.Invoke(
+		a,
+		"attachToNetworkTargetGroup",
+		[]interface{}{targetGroup},
+		&returns,
+	)
+
+	return returns
+}
+
 // An EC2 instance that is the target for load balancing.
 //
 // If you register a target of this type, you are responsible for making

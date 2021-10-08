@@ -976,6 +976,9 @@ type AssetImageProps struct {
 	// Path to the Dockerfile (relative to the directory).
 	// Experimental.
 	File *string `json:"file"`
+	// Options to control which parameters are used to invalidate the asset hash.
+	// Experimental.
+	Invalidation *awsecrassets.DockerImageAssetInvalidationOptions `json:"invalidation"`
 	// ECR repository name.
 	//
 	// Specify this property if you need to statically address the image, e.g.

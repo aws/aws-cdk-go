@@ -19,6 +19,8 @@ import (
 type CfnDeliveryStream interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AmazonopensearchserviceDestinationConfiguration() interface{}
+	SetAmazonopensearchserviceDestinationConfiguration(val interface{})
 	AttrArn() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -77,6 +79,16 @@ type CfnDeliveryStream interface {
 type jsiiProxy_CfnDeliveryStream struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnDeliveryStream) AmazonopensearchserviceDestinationConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"amazonopensearchserviceDestinationConfiguration",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnDeliveryStream) AttrArn() *string {
@@ -313,6 +325,14 @@ func NewCfnDeliveryStream_Override(c CfnDeliveryStream, scope awscdk.Construct, 
 		"monocdk.aws_kinesisfirehose.CfnDeliveryStream",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnDeliveryStream) SetAmazonopensearchserviceDestinationConfiguration(val interface{}) {
+	_jsii_.Set(
+		j,
+		"amazonopensearchserviceDestinationConfiguration",
+		val,
 	)
 }
 
@@ -803,6 +823,47 @@ func (c *jsiiProxy_CfnDeliveryStream) ValidateProperties(_properties interface{}
 	)
 }
 
+type CfnDeliveryStream_AmazonopensearchserviceBufferingHintsProperty struct {
+	// `CfnDeliveryStream.AmazonopensearchserviceBufferingHintsProperty.IntervalInSeconds`.
+	IntervalInSeconds *float64 `json:"intervalInSeconds"`
+	// `CfnDeliveryStream.AmazonopensearchserviceBufferingHintsProperty.SizeInMBs`.
+	SizeInMBs *float64 `json:"sizeInMBs"`
+}
+
+type CfnDeliveryStream_AmazonopensearchserviceDestinationConfigurationProperty struct {
+	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.IndexName`.
+	IndexName *string `json:"indexName"`
+	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.RoleARN`.
+	RoleArn *string `json:"roleArn"`
+	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.S3Configuration`.
+	S3Configuration interface{} `json:"s3Configuration"`
+	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.BufferingHints`.
+	BufferingHints interface{} `json:"bufferingHints"`
+	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.CloudWatchLoggingOptions`.
+	CloudWatchLoggingOptions interface{} `json:"cloudWatchLoggingOptions"`
+	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.ClusterEndpoint`.
+	ClusterEndpoint *string `json:"clusterEndpoint"`
+	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.DomainARN`.
+	DomainArn *string `json:"domainArn"`
+	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.IndexRotationPeriod`.
+	IndexRotationPeriod *string `json:"indexRotationPeriod"`
+	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.ProcessingConfiguration`.
+	ProcessingConfiguration interface{} `json:"processingConfiguration"`
+	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.RetryOptions`.
+	RetryOptions interface{} `json:"retryOptions"`
+	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.S3BackupMode`.
+	S3BackupMode *string `json:"s3BackupMode"`
+	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.TypeName`.
+	TypeName *string `json:"typeName"`
+	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.VpcConfiguration`.
+	VpcConfiguration interface{} `json:"vpcConfiguration"`
+}
+
+type CfnDeliveryStream_AmazonopensearchserviceRetryOptionsProperty struct {
+	// `CfnDeliveryStream.AmazonopensearchserviceRetryOptionsProperty.DurationInSeconds`.
+	DurationInSeconds *float64 `json:"durationInSeconds"`
+}
+
 type CfnDeliveryStream_BufferingHintsProperty struct {
 	// `CfnDeliveryStream.BufferingHintsProperty.IntervalInSeconds`.
 	IntervalInSeconds *float64 `json:"intervalInSeconds"`
@@ -1189,6 +1250,8 @@ type CfnDeliveryStream_VpcConfigurationProperty struct {
 
 // Properties for defining a `AWS::KinesisFirehose::DeliveryStream`.
 type CfnDeliveryStreamProps struct {
+	// `AWS::KinesisFirehose::DeliveryStream.AmazonopensearchserviceDestinationConfiguration`.
+	AmazonopensearchserviceDestinationConfiguration interface{} `json:"amazonopensearchserviceDestinationConfiguration"`
 	// `AWS::KinesisFirehose::DeliveryStream.DeliveryStreamEncryptionConfigurationInput`.
 	DeliveryStreamEncryptionConfigurationInput interface{} `json:"deliveryStreamEncryptionConfigurationInput"`
 	// `AWS::KinesisFirehose::DeliveryStream.DeliveryStreamName`.

@@ -32,6 +32,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_ecr_assets.DockerImageAssetInvalidationOptions",
+		reflect.TypeOf((*DockerImageAssetInvalidationOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_ecr_assets.DockerImageAssetOptions",
 		reflect.TypeOf((*DockerImageAssetOptions)(nil)).Elem(),
 	)

@@ -208,14 +208,14 @@ func NewMatch_Override(m Match) {
 
 // Use this matcher in the place of a field's value, if the field must not be present.
 // Experimental.
-func Match_AbsentProperty() *string {
+func Match_Absent() Matcher {
 	_init_.Initialize()
 
-	var returns *string
+	var returns Matcher
 
 	_jsii_.StaticInvoke(
 		"monocdk.assertions.Match",
-		"absentProperty",
+		"absent",
 		nil, // no parameters
 		&returns,
 	)

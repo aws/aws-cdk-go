@@ -96,6 +96,7 @@ func init() {
 		"monocdk.aws_chatbot.SlackChannelConfiguration",
 		reflect.TypeOf((*SlackChannelConfiguration)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addNotificationTopic", GoMethod: "AddNotificationTopic"},
 			_jsii_.MemberMethod{JsiiMethod: "addToRolePolicy", GoMethod: "AddToRolePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "bindAsNotificationRuleTarget", GoMethod: "BindAsNotificationRuleTarget"},

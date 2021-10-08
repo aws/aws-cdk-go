@@ -413,7 +413,14 @@ type AddToResourcePolicyResult struct {
 	PolicyDependable awscdk.IDependable `json:"policyDependable"`
 }
 
-// A principal representing all identities in all accounts.
+// A principal representing all AWS identities in all accounts.
+//
+// Some services behave differently when you specify `Principal: '*'`
+// or `Principal: { AWS: "*" }` in their resource policy.
+//
+// `AnyPrincipal` renders to `Principal: { AWS: "*" }`. This is correct
+// most of the time, but in cases where you need the other principal,
+// use `StarPrincipal` instead.
 // Experimental.
 type AnyPrincipal interface {
 	ArnPrincipal
@@ -15063,6 +15070,15 @@ func (p *jsiiProxy_PrincipalBase) WithConditions(conditions *map[string]interfac
 //
 // This consists of the JSON used in the "Principal" field, and optionally a
 // set of "Condition"s that need to be applied to the policy.
+//
+// Generally, a principal looks like:
+//
+//      { '<TYPE>': ['ID', 'ID', ...] }
+//
+// And this is also the type of the field `principalJson`.  However, there is a
+// special type of principal that is just the string '*', which is treated
+// differently by some services. To represent that principal, `principalJson`
+// should contain `{ 'LiteralString': ['*'] }`.
 // Experimental.
 type PrincipalPolicyFragment interface {
 	Conditions() *map[string]interface{}
@@ -16949,6 +16965,181 @@ type ServicePrincipalOpts struct {
 	// The region in which the service is operating.
 	// Experimental.
 	Region *string `json:"region"`
+}
+
+// A principal that uses a literal '*' in the IAM JSON language.
+//
+// Some services behave differently when you specify `Principal: "*"`
+// or `Principal: { AWS: "*" }` in their resource policy.
+//
+// `StarPrincipal` renders to `Principal: *`. Most of the time, you
+// should use `AnyPrincipal` instead.
+// Experimental.
+type StarPrincipal interface {
+	PrincipalBase
+	AssumeRoleAction() *string
+	GrantPrincipal() IPrincipal
+	PolicyFragment() PrincipalPolicyFragment
+	PrincipalAccount() *string
+	AddToPolicy(statement PolicyStatement) *bool
+	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
+	ToJSON() *map[string]*[]*string
+	ToString() *string
+	WithConditions(conditions *map[string]interface{}) IPrincipal
+}
+
+// The jsii proxy struct for StarPrincipal
+type jsiiProxy_StarPrincipal struct {
+	jsiiProxy_PrincipalBase
+}
+
+func (j *jsiiProxy_StarPrincipal) AssumeRoleAction() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"assumeRoleAction",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StarPrincipal) GrantPrincipal() IPrincipal {
+	var returns IPrincipal
+	_jsii_.Get(
+		j,
+		"grantPrincipal",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StarPrincipal) PolicyFragment() PrincipalPolicyFragment {
+	var returns PrincipalPolicyFragment
+	_jsii_.Get(
+		j,
+		"policyFragment",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StarPrincipal) PrincipalAccount() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"principalAccount",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewStarPrincipal() StarPrincipal {
+	_init_.Initialize()
+
+	j := jsiiProxy_StarPrincipal{}
+
+	_jsii_.Create(
+		"monocdk.aws_iam.StarPrincipal",
+		nil, // no parameters
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewStarPrincipal_Override(s StarPrincipal) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_iam.StarPrincipal",
+		nil, // no parameters
+		s,
+	)
+}
+
+// Add to the policy of this principal.
+// Experimental.
+func (s *jsiiProxy_StarPrincipal) AddToPolicy(statement PolicyStatement) *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		s,
+		"addToPolicy",
+		[]interface{}{statement},
+		&returns,
+	)
+
+	return returns
+}
+
+// Add to the policy of this principal.
+// Experimental.
+func (s *jsiiProxy_StarPrincipal) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
+	var returns *AddToPrincipalPolicyResult
+
+	_jsii_.Invoke(
+		s,
+		"addToPrincipalPolicy",
+		[]interface{}{_statement},
+		&returns,
+	)
+
+	return returns
+}
+
+// JSON-ify the principal.
+//
+// Used when JSON.stringify() is called
+// Experimental.
+func (s *jsiiProxy_StarPrincipal) ToJSON() *map[string]*[]*string {
+	var returns *map[string]*[]*string
+
+	_jsii_.Invoke(
+		s,
+		"toJSON",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns a string representation of an object.
+// Experimental.
+func (s *jsiiProxy_StarPrincipal) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		s,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns a new PrincipalWithConditions using this principal as the base, with the passed conditions added.
+//
+// When there is a value for the same operator and key in both the principal and the
+// conditions parameter, the value from the conditions parameter will be used.
+//
+// Returns: a new PrincipalWithConditions object.
+// Experimental.
+func (s *jsiiProxy_StarPrincipal) WithConditions(conditions *map[string]interface{}) IPrincipal {
+	var returns IPrincipal
+
+	_jsii_.Invoke(
+		s,
+		"withConditions",
+		[]interface{}{conditions},
+		&returns,
+	)
+
+	return returns
 }
 
 // A principal for use in resources that need to have a role but it's unknown.

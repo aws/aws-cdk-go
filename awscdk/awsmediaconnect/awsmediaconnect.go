@@ -17,6 +17,7 @@ type CfnFlow interface {
 	AttrFlowAvailabilityZone() *string
 	AttrSourceIngestIp() *string
 	AttrSourceSourceArn() *string
+	AttrSourceSourceIngestPort() *string
 	AvailabilityZone() *string
 	SetAvailabilityZone(val *string)
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -98,6 +99,16 @@ func (j *jsiiProxy_CfnFlow) AttrSourceSourceArn() *string {
 	_jsii_.Get(
 		j,
 		"attrSourceSourceArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlow) AttrSourceSourceIngestPort() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrSourceSourceIngestPort",
 		&returns,
 	)
 	return returns
@@ -700,10 +711,10 @@ func (c *jsiiProxy_CfnFlow) ValidateProperties(_properties interface{}) {
 }
 
 type CfnFlow_EncryptionProperty struct {
-	// `CfnFlow.EncryptionProperty.Algorithm`.
-	Algorithm *string `json:"algorithm"`
 	// `CfnFlow.EncryptionProperty.RoleArn`.
 	RoleArn *string `json:"roleArn"`
+	// `CfnFlow.EncryptionProperty.Algorithm`.
+	Algorithm *string `json:"algorithm"`
 	// `CfnFlow.EncryptionProperty.ConstantInitializationVector`.
 	ConstantInitializationVector *string `json:"constantInitializationVector"`
 	// `CfnFlow.EncryptionProperty.DeviceId`.
@@ -742,12 +753,16 @@ type CfnFlow_SourceProperty struct {
 	MaxBitrate *float64 `json:"maxBitrate"`
 	// `CfnFlow.SourceProperty.MaxLatency`.
 	MaxLatency *float64 `json:"maxLatency"`
+	// `CfnFlow.SourceProperty.MinLatency`.
+	MinLatency *float64 `json:"minLatency"`
 	// `CfnFlow.SourceProperty.Name`.
 	Name *string `json:"name"`
 	// `CfnFlow.SourceProperty.Protocol`.
 	Protocol *string `json:"protocol"`
 	// `CfnFlow.SourceProperty.SourceArn`.
 	SourceArn *string `json:"sourceArn"`
+	// `CfnFlow.SourceProperty.SourceIngestPort`.
+	SourceIngestPort *string `json:"sourceIngestPort"`
 	// `CfnFlow.SourceProperty.StreamId`.
 	StreamId *string `json:"streamId"`
 	// `CfnFlow.SourceProperty.VpcInterfaceName`.
@@ -1534,6 +1549,8 @@ type CfnFlowOutput interface {
 	LogicalId() *string
 	MaxLatency() *float64
 	SetMaxLatency(val *float64)
+	MinLatency() *float64
+	SetMinLatency(val *float64)
 	Name() *string
 	SetName(val *string)
 	Node() awscdk.ConstructNode
@@ -1696,6 +1713,16 @@ func (j *jsiiProxy_CfnFlowOutput) MaxLatency() *float64 {
 	_jsii_.Get(
 		j,
 		"maxLatency",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlowOutput) MinLatency() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"minLatency",
 		&returns,
 	)
 	return returns
@@ -1882,6 +1909,14 @@ func (j *jsiiProxy_CfnFlowOutput) SetMaxLatency(val *float64) {
 	_jsii_.Set(
 		j,
 		"maxLatency",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFlowOutput) SetMinLatency(val *float64) {
+	_jsii_.Set(
+		j,
+		"minLatency",
 		val,
 	)
 }
@@ -2350,12 +2385,12 @@ func (c *jsiiProxy_CfnFlowOutput) ValidateProperties(_properties interface{}) {
 }
 
 type CfnFlowOutput_EncryptionProperty struct {
-	// `CfnFlowOutput.EncryptionProperty.Algorithm`.
-	Algorithm *string `json:"algorithm"`
 	// `CfnFlowOutput.EncryptionProperty.RoleArn`.
 	RoleArn *string `json:"roleArn"`
 	// `CfnFlowOutput.EncryptionProperty.SecretArn`.
 	SecretArn *string `json:"secretArn"`
+	// `CfnFlowOutput.EncryptionProperty.Algorithm`.
+	Algorithm *string `json:"algorithm"`
 	// `CfnFlowOutput.EncryptionProperty.KeyType`.
 	KeyType *string `json:"keyType"`
 }
@@ -2381,6 +2416,8 @@ type CfnFlowOutputProps struct {
 	Encryption interface{} `json:"encryption"`
 	// `AWS::MediaConnect::FlowOutput.MaxLatency`.
 	MaxLatency *float64 `json:"maxLatency"`
+	// `AWS::MediaConnect::FlowOutput.MinLatency`.
+	MinLatency *float64 `json:"minLatency"`
 	// `AWS::MediaConnect::FlowOutput.Name`.
 	Name *string `json:"name"`
 	// `AWS::MediaConnect::FlowOutput.Port`.
@@ -2413,6 +2450,7 @@ type CfnFlowSource interface {
 	awscdk.IInspectable
 	AttrIngestIp() *string
 	AttrSourceArn() *string
+	AttrSourceIngestPort() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -2490,6 +2528,16 @@ func (j *jsiiProxy_CfnFlowSource) AttrSourceArn() *string {
 	_jsii_.Get(
 		j,
 		"attrSourceArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFlowSource) AttrSourceIngestPort() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrSourceIngestPort",
 		&returns,
 	)
 	return returns

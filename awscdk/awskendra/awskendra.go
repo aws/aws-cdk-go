@@ -890,6 +890,10 @@ type CfnDataSource_DataSourceConfigurationProperty struct {
 	ServiceNowConfiguration interface{} `json:"serviceNowConfiguration"`
 	// `CfnDataSource.DataSourceConfigurationProperty.SharePointConfiguration`.
 	SharePointConfiguration interface{} `json:"sharePointConfiguration"`
+	// `CfnDataSource.DataSourceConfigurationProperty.WebCrawlerConfiguration`.
+	WebCrawlerConfiguration interface{} `json:"webCrawlerConfiguration"`
+	// `CfnDataSource.DataSourceConfigurationProperty.WorkDocsConfiguration`.
+	WorkDocsConfiguration interface{} `json:"workDocsConfiguration"`
 }
 
 type CfnDataSource_DataSourceToIndexFieldMappingProperty struct {
@@ -967,6 +971,15 @@ type CfnDataSource_OneDriveUsersProperty struct {
 	OneDriveUserList *[]*string `json:"oneDriveUserList"`
 	// `CfnDataSource.OneDriveUsersProperty.OneDriveUserS3Path`.
 	OneDriveUserS3Path interface{} `json:"oneDriveUserS3Path"`
+}
+
+type CfnDataSource_ProxyConfigurationProperty struct {
+	// `CfnDataSource.ProxyConfigurationProperty.Host`.
+	Host *string `json:"host"`
+	// `CfnDataSource.ProxyConfigurationProperty.Port`.
+	Port *float64 `json:"port"`
+	// `CfnDataSource.ProxyConfigurationProperty.Credentials`.
+	Credentials *string `json:"credentials"`
 }
 
 type CfnDataSource_S3DataSourceConfigurationProperty struct {
@@ -1077,6 +1090,8 @@ type CfnDataSource_ServiceNowConfigurationProperty struct {
 	SecretArn *string `json:"secretArn"`
 	// `CfnDataSource.ServiceNowConfigurationProperty.ServiceNowBuildVersion`.
 	ServiceNowBuildVersion *string `json:"serviceNowBuildVersion"`
+	// `CfnDataSource.ServiceNowConfigurationProperty.AuthenticationType`.
+	AuthenticationType *string `json:"authenticationType"`
 	// `CfnDataSource.ServiceNowConfigurationProperty.KnowledgeArticleConfiguration`.
 	KnowledgeArticleConfiguration interface{} `json:"knowledgeArticleConfiguration"`
 	// `CfnDataSource.ServiceNowConfigurationProperty.ServiceCatalogConfiguration`.
@@ -1094,6 +1109,8 @@ type CfnDataSource_ServiceNowKnowledgeArticleConfigurationProperty struct {
 	ExcludeAttachmentFilePatterns *[]*string `json:"excludeAttachmentFilePatterns"`
 	// `CfnDataSource.ServiceNowKnowledgeArticleConfigurationProperty.FieldMappings`.
 	FieldMappings interface{} `json:"fieldMappings"`
+	// `CfnDataSource.ServiceNowKnowledgeArticleConfigurationProperty.FilterQuery`.
+	FilterQuery *string `json:"filterQuery"`
 	// `CfnDataSource.ServiceNowKnowledgeArticleConfigurationProperty.IncludeAttachmentFilePatterns`.
 	IncludeAttachmentFilePatterns *[]*string `json:"includeAttachmentFilePatterns"`
 }
@@ -1132,6 +1149,8 @@ type CfnDataSource_SharePointConfigurationProperty struct {
 	FieldMappings interface{} `json:"fieldMappings"`
 	// `CfnDataSource.SharePointConfigurationProperty.InclusionPatterns`.
 	InclusionPatterns *[]*string `json:"inclusionPatterns"`
+	// `CfnDataSource.SharePointConfigurationProperty.SslCertificateS3Path`.
+	SslCertificateS3Path interface{} `json:"sslCertificateS3Path"`
 	// `CfnDataSource.SharePointConfigurationProperty.UseChangeLog`.
 	UseChangeLog interface{} `json:"useChangeLog"`
 	// `CfnDataSource.SharePointConfigurationProperty.VpcConfiguration`.
@@ -1141,6 +1160,75 @@ type CfnDataSource_SharePointConfigurationProperty struct {
 type CfnDataSource_SqlConfigurationProperty struct {
 	// `CfnDataSource.SqlConfigurationProperty.QueryIdentifiersEnclosingOption`.
 	QueryIdentifiersEnclosingOption *string `json:"queryIdentifiersEnclosingOption"`
+}
+
+type CfnDataSource_WebCrawlerAuthenticationConfigurationProperty struct {
+	// `CfnDataSource.WebCrawlerAuthenticationConfigurationProperty.BasicAuthentication`.
+	BasicAuthentication interface{} `json:"basicAuthentication"`
+}
+
+type CfnDataSource_WebCrawlerBasicAuthenticationProperty struct {
+	// `CfnDataSource.WebCrawlerBasicAuthenticationProperty.Credentials`.
+	Credentials *string `json:"credentials"`
+	// `CfnDataSource.WebCrawlerBasicAuthenticationProperty.Host`.
+	Host *string `json:"host"`
+	// `CfnDataSource.WebCrawlerBasicAuthenticationProperty.Port`.
+	Port *float64 `json:"port"`
+}
+
+type CfnDataSource_WebCrawlerConfigurationProperty struct {
+	// `CfnDataSource.WebCrawlerConfigurationProperty.Urls`.
+	Urls interface{} `json:"urls"`
+	// `CfnDataSource.WebCrawlerConfigurationProperty.AuthenticationConfiguration`.
+	AuthenticationConfiguration interface{} `json:"authenticationConfiguration"`
+	// `CfnDataSource.WebCrawlerConfigurationProperty.CrawlDepth`.
+	CrawlDepth *float64 `json:"crawlDepth"`
+	// `CfnDataSource.WebCrawlerConfigurationProperty.MaxContentSizePerPageInMegaBytes`.
+	MaxContentSizePerPageInMegaBytes *float64 `json:"maxContentSizePerPageInMegaBytes"`
+	// `CfnDataSource.WebCrawlerConfigurationProperty.MaxLinksPerPage`.
+	MaxLinksPerPage *float64 `json:"maxLinksPerPage"`
+	// `CfnDataSource.WebCrawlerConfigurationProperty.MaxUrlsPerMinuteCrawlRate`.
+	MaxUrlsPerMinuteCrawlRate *float64 `json:"maxUrlsPerMinuteCrawlRate"`
+	// `CfnDataSource.WebCrawlerConfigurationProperty.ProxyConfiguration`.
+	ProxyConfiguration interface{} `json:"proxyConfiguration"`
+	// `CfnDataSource.WebCrawlerConfigurationProperty.UrlExclusionPatterns`.
+	UrlExclusionPatterns *[]*string `json:"urlExclusionPatterns"`
+	// `CfnDataSource.WebCrawlerConfigurationProperty.UrlInclusionPatterns`.
+	UrlInclusionPatterns *[]*string `json:"urlInclusionPatterns"`
+}
+
+type CfnDataSource_WebCrawlerSeedUrlConfigurationProperty struct {
+	// `CfnDataSource.WebCrawlerSeedUrlConfigurationProperty.SeedUrls`.
+	SeedUrls *[]*string `json:"seedUrls"`
+	// `CfnDataSource.WebCrawlerSeedUrlConfigurationProperty.WebCrawlerMode`.
+	WebCrawlerMode *string `json:"webCrawlerMode"`
+}
+
+type CfnDataSource_WebCrawlerSiteMapsConfigurationProperty struct {
+	// `CfnDataSource.WebCrawlerSiteMapsConfigurationProperty.SiteMaps`.
+	SiteMaps *[]*string `json:"siteMaps"`
+}
+
+type CfnDataSource_WebCrawlerUrlsProperty struct {
+	// `CfnDataSource.WebCrawlerUrlsProperty.SeedUrlConfiguration`.
+	SeedUrlConfiguration interface{} `json:"seedUrlConfiguration"`
+	// `CfnDataSource.WebCrawlerUrlsProperty.SiteMapsConfiguration`.
+	SiteMapsConfiguration interface{} `json:"siteMapsConfiguration"`
+}
+
+type CfnDataSource_WorkDocsConfigurationProperty struct {
+	// `CfnDataSource.WorkDocsConfigurationProperty.OrganizationId`.
+	OrganizationId *string `json:"organizationId"`
+	// `CfnDataSource.WorkDocsConfigurationProperty.CrawlComments`.
+	CrawlComments interface{} `json:"crawlComments"`
+	// `CfnDataSource.WorkDocsConfigurationProperty.ExclusionPatterns`.
+	ExclusionPatterns *[]*string `json:"exclusionPatterns"`
+	// `CfnDataSource.WorkDocsConfigurationProperty.FieldMappings`.
+	FieldMappings interface{} `json:"fieldMappings"`
+	// `CfnDataSource.WorkDocsConfigurationProperty.InclusionPatterns`.
+	InclusionPatterns *[]*string `json:"inclusionPatterns"`
+	// `CfnDataSource.WorkDocsConfigurationProperty.UseChangeLog`.
+	UseChangeLog interface{} `json:"useChangeLog"`
 }
 
 // Properties for defining a `AWS::Kendra::DataSource`.

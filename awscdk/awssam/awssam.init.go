@@ -296,6 +296,10 @@ func init() {
 		reflect.TypeOf((*CfnFunction_EventInvokeConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_sam.CfnFunction.EventInvokeDestinationConfigProperty",
+		reflect.TypeOf((*CfnFunction_EventInvokeDestinationConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_sam.CfnFunction.EventSourceProperty",
 		reflect.TypeOf((*CfnFunction_EventSourceProperty)(nil)).Elem(),
 	)

@@ -3093,8 +3093,6 @@ type CfnFunction_DeploymentPreferenceProperty struct {
 type CfnFunction_DestinationConfigProperty struct {
 	// `CfnFunction.DestinationConfigProperty.OnFailure`.
 	OnFailure interface{} `json:"onFailure"`
-	// `CfnFunction.DestinationConfigProperty.OnSuccess`.
-	OnSuccess interface{} `json:"onSuccess"`
 }
 
 type CfnFunction_DestinationProperty struct {
@@ -3153,6 +3151,13 @@ type CfnFunction_EventInvokeConfigProperty struct {
 	MaximumEventAgeInSeconds *float64 `json:"maximumEventAgeInSeconds"`
 	// `CfnFunction.EventInvokeConfigProperty.MaximumRetryAttempts`.
 	MaximumRetryAttempts *float64 `json:"maximumRetryAttempts"`
+}
+
+type CfnFunction_EventInvokeDestinationConfigProperty struct {
+	// `CfnFunction.EventInvokeDestinationConfigProperty.OnFailure`.
+	OnFailure interface{} `json:"onFailure"`
+	// `CfnFunction.EventInvokeDestinationConfigProperty.OnSuccess`.
+	OnSuccess interface{} `json:"onSuccess"`
 }
 
 type CfnFunction_EventSourceProperty struct {

@@ -1648,6 +1648,26 @@ func init() {
 		reflect.TypeOf((*ServicePrincipalOpts)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"monocdk.aws_iam.StarPrincipal",
+		reflect.TypeOf((*StarPrincipal)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
+			_jsii_.MemberProperty{JsiiProperty: "principalAccount", GoGetter: "PrincipalAccount"},
+			_jsii_.MemberMethod{JsiiMethod: "toJSON", GoMethod: "ToJSON"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "withConditions", GoMethod: "WithConditions"},
+		},
+		func() interface{} {
+			j := jsiiProxy_StarPrincipal{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_PrincipalBase)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"monocdk.aws_iam.UnknownPrincipal",
 		reflect.TypeOf((*UnknownPrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
