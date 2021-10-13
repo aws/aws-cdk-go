@@ -1,20 +1,20 @@
 package awslambdaeventsources
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsapigateway"
-	"github.com/aws/aws-cdk-go/awscdk/awsdynamodb"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awskinesis"
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/awslambdaeventsources/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
-	"github.com/aws/aws-cdk-go/awscdk/awssns"
-	"github.com/aws/aws-cdk-go/awscdk/awssqs"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambdaeventsources/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
 )
 
 // Experimental.
@@ -35,7 +35,7 @@ func NewApiEventSource(method *string, path *string, options *awsapigateway.Meth
 	j := jsiiProxy_ApiEventSource{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.ApiEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.ApiEventSource",
 		[]interface{}{method, path, options},
 		&j,
 	)
@@ -48,7 +48,7 @@ func NewApiEventSource_Override(a ApiEventSource, method *string, path *string, 
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.ApiEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.ApiEventSource",
 		[]interface{}{method, path, options},
 		a,
 	)
@@ -71,6 +71,7 @@ type AuthenticationMethod string
 const (
 	AuthenticationMethod_SASL_SCRAM_512_AUTH AuthenticationMethod = "SASL_SCRAM_512_AUTH"
 	AuthenticationMethod_SASL_SCRAM_256_AUTH AuthenticationMethod = "SASL_SCRAM_256_AUTH"
+	AuthenticationMethod_BASIC_AUTH AuthenticationMethod = "BASIC_AUTH"
 )
 
 // Use an Amazon DynamoDB stream as an event source for AWS Lambda.
@@ -116,7 +117,7 @@ func NewDynamoEventSource(table awsdynamodb.ITable, props *DynamoEventSourceProp
 	j := jsiiProxy_DynamoEventSource{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.DynamoEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.DynamoEventSource",
 		[]interface{}{table, props},
 		&j,
 	)
@@ -129,7 +130,7 @@ func NewDynamoEventSource_Override(d DynamoEventSource, table awsdynamodb.ITable
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.DynamoEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.DynamoEventSource",
 		[]interface{}{table, props},
 		d,
 	)
@@ -336,7 +337,7 @@ func NewKinesisEventSource(stream awskinesis.IStream, props *KinesisEventSourceP
 	j := jsiiProxy_KinesisEventSource{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.KinesisEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.KinesisEventSource",
 		[]interface{}{stream, props},
 		&j,
 	)
@@ -349,7 +350,7 @@ func NewKinesisEventSource_Override(k KinesisEventSource, stream awskinesis.IStr
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.KinesisEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.KinesisEventSource",
 		[]interface{}{stream, props},
 		k,
 	)
@@ -469,7 +470,7 @@ func NewManagedKafkaEventSource(props *ManagedKafkaEventSourceProps) ManagedKafk
 	j := jsiiProxy_ManagedKafkaEventSource{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.ManagedKafkaEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.ManagedKafkaEventSource",
 		[]interface{}{props},
 		&j,
 	)
@@ -482,7 +483,7 @@ func NewManagedKafkaEventSource_Override(m ManagedKafkaEventSource, props *Manag
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.ManagedKafkaEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.ManagedKafkaEventSource",
 		[]interface{}{props},
 		m,
 	)
@@ -611,7 +612,7 @@ func NewS3EventSource(bucket awss3.Bucket, props *S3EventSourceProps) S3EventSou
 	j := jsiiProxy_S3EventSource{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.S3EventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.S3EventSource",
 		[]interface{}{bucket, props},
 		&j,
 	)
@@ -624,7 +625,7 @@ func NewS3EventSource_Override(s S3EventSource, bucket awss3.Bucket, props *S3Ev
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.S3EventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.S3EventSource",
 		[]interface{}{bucket, props},
 		s,
 	)
@@ -686,7 +687,7 @@ func NewSelfManagedKafkaEventSource(props *SelfManagedKafkaEventSourceProps) Sel
 	j := jsiiProxy_SelfManagedKafkaEventSource{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.SelfManagedKafkaEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.SelfManagedKafkaEventSource",
 		[]interface{}{props},
 		&j,
 	)
@@ -699,7 +700,7 @@ func NewSelfManagedKafkaEventSource_Override(s SelfManagedKafkaEventSource, prop
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.SelfManagedKafkaEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.SelfManagedKafkaEventSource",
 		[]interface{}{props},
 		s,
 	)
@@ -832,7 +833,7 @@ func NewSnsDlq(topic awssns.ITopic) SnsDlq {
 	j := jsiiProxy_SnsDlq{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.SnsDlq",
+		"aws-cdk-lib.aws_lambda_event_sources.SnsDlq",
 		[]interface{}{topic},
 		&j,
 	)
@@ -845,7 +846,7 @@ func NewSnsDlq_Override(s SnsDlq, topic awssns.ITopic) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.SnsDlq",
+		"aws-cdk-lib.aws_lambda_event_sources.SnsDlq",
 		[]interface{}{topic},
 		s,
 	)
@@ -897,7 +898,7 @@ func NewSnsEventSource(topic awssns.ITopic, props *SnsEventSourceProps) SnsEvent
 	j := jsiiProxy_SnsEventSource{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.SnsEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.SnsEventSource",
 		[]interface{}{topic, props},
 		&j,
 	)
@@ -910,7 +911,7 @@ func NewSnsEventSource_Override(s SnsEventSource, topic awssns.ITopic, props *Sn
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.SnsEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.SnsEventSource",
 		[]interface{}{topic, props},
 		s,
 	)
@@ -958,7 +959,7 @@ func NewSqsDlq(queue awssqs.IQueue) SqsDlq {
 	j := jsiiProxy_SqsDlq{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.SqsDlq",
+		"aws-cdk-lib.aws_lambda_event_sources.SqsDlq",
 		[]interface{}{queue},
 		&j,
 	)
@@ -971,7 +972,7 @@ func NewSqsDlq_Override(s SqsDlq, queue awssqs.IQueue) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.SqsDlq",
+		"aws-cdk-lib.aws_lambda_event_sources.SqsDlq",
 		[]interface{}{queue},
 		s,
 	)
@@ -1034,7 +1035,7 @@ func NewSqsEventSource(queue awssqs.IQueue, props *SqsEventSourceProps) SqsEvent
 	j := jsiiProxy_SqsEventSource{}
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.SqsEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.SqsEventSource",
 		[]interface{}{queue, props},
 		&j,
 	)
@@ -1047,7 +1048,7 @@ func NewSqsEventSource_Override(s SqsEventSource, queue awssqs.IQueue, props *Sq
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.SqsEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.SqsEventSource",
 		[]interface{}{queue, props},
 		s,
 	)
@@ -1114,7 +1115,7 @@ func NewStreamEventSource_Override(s StreamEventSource, props *StreamEventSource
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_lambda_event_sources.StreamEventSource",
+		"aws-cdk-lib.aws_lambda_event_sources.StreamEventSource",
 		[]interface{}{props},
 		s,
 	)

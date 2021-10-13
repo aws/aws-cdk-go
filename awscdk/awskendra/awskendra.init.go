@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_kendra.CfnDataSource",
+		"aws-cdk-lib.aws_kendra.CfnDataSource",
 		reflect.TypeOf((*CfnDataSource)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -33,23 +33,17 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberProperty{JsiiProperty: "schedule", GoGetter: "Schedule"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -60,183 +54,183 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.AccessControlListConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.AccessControlListConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_AccessControlListConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.AclConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.AclConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_AclConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.ColumnConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.ColumnConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_ColumnConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.ConfluenceAttachmentConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.ConfluenceAttachmentConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_ConfluenceAttachmentConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.ConfluenceAttachmentToIndexFieldMappingProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.ConfluenceAttachmentToIndexFieldMappingProperty",
 		reflect.TypeOf((*CfnDataSource_ConfluenceAttachmentToIndexFieldMappingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.ConfluenceBlogConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.ConfluenceBlogConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_ConfluenceBlogConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.ConfluenceBlogToIndexFieldMappingProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.ConfluenceBlogToIndexFieldMappingProperty",
 		reflect.TypeOf((*CfnDataSource_ConfluenceBlogToIndexFieldMappingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.ConfluenceConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.ConfluenceConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_ConfluenceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.ConfluencePageConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.ConfluencePageConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_ConfluencePageConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.ConfluencePageToIndexFieldMappingProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.ConfluencePageToIndexFieldMappingProperty",
 		reflect.TypeOf((*CfnDataSource_ConfluencePageToIndexFieldMappingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.ConfluenceSpaceConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.ConfluenceSpaceConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_ConfluenceSpaceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.ConfluenceSpaceToIndexFieldMappingProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.ConfluenceSpaceToIndexFieldMappingProperty",
 		reflect.TypeOf((*CfnDataSource_ConfluenceSpaceToIndexFieldMappingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.ConnectionConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.ConnectionConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_ConnectionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.DataSourceConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.DataSourceConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_DataSourceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.DataSourceToIndexFieldMappingProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.DataSourceToIndexFieldMappingProperty",
 		reflect.TypeOf((*CfnDataSource_DataSourceToIndexFieldMappingProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.DataSourceVpcConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.DataSourceVpcConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_DataSourceVpcConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.DatabaseConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.DatabaseConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_DatabaseConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.DocumentsMetadataConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.DocumentsMetadataConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_DocumentsMetadataConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.GoogleDriveConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.GoogleDriveConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_GoogleDriveConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.OneDriveConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.OneDriveConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_OneDriveConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.OneDriveUsersProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.OneDriveUsersProperty",
 		reflect.TypeOf((*CfnDataSource_OneDriveUsersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.ProxyConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.ProxyConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_ProxyConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.S3DataSourceConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.S3DataSourceConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_S3DataSourceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.S3PathProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.S3PathProperty",
 		reflect.TypeOf((*CfnDataSource_S3PathProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.SalesforceChatterFeedConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.SalesforceChatterFeedConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_SalesforceChatterFeedConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.SalesforceConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.SalesforceConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_SalesforceConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.SalesforceCustomKnowledgeArticleTypeConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.SalesforceCustomKnowledgeArticleTypeConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_SalesforceCustomKnowledgeArticleTypeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.SalesforceKnowledgeArticleConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.SalesforceKnowledgeArticleConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_SalesforceKnowledgeArticleConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.SalesforceStandardKnowledgeArticleTypeConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.SalesforceStandardKnowledgeArticleTypeConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_SalesforceStandardKnowledgeArticleTypeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.SalesforceStandardObjectAttachmentConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.SalesforceStandardObjectAttachmentConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_SalesforceStandardObjectAttachmentConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.SalesforceStandardObjectConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.SalesforceStandardObjectConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_SalesforceStandardObjectConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.ServiceNowConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.ServiceNowConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_ServiceNowConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.ServiceNowKnowledgeArticleConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.ServiceNowKnowledgeArticleConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_ServiceNowKnowledgeArticleConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.ServiceNowServiceCatalogConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.ServiceNowServiceCatalogConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_ServiceNowServiceCatalogConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.SharePointConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.SharePointConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_SharePointConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.SqlConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.SqlConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_SqlConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.WebCrawlerAuthenticationConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.WebCrawlerAuthenticationConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_WebCrawlerAuthenticationConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.WebCrawlerBasicAuthenticationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.WebCrawlerBasicAuthenticationProperty",
 		reflect.TypeOf((*CfnDataSource_WebCrawlerBasicAuthenticationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.WebCrawlerConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.WebCrawlerConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_WebCrawlerConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.WebCrawlerSeedUrlConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.WebCrawlerSeedUrlConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_WebCrawlerSeedUrlConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.WebCrawlerSiteMapsConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.WebCrawlerSiteMapsConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_WebCrawlerSiteMapsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.WebCrawlerUrlsProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.WebCrawlerUrlsProperty",
 		reflect.TypeOf((*CfnDataSource_WebCrawlerUrlsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSource.WorkDocsConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnDataSource.WorkDocsConfigurationProperty",
 		reflect.TypeOf((*CfnDataSource_WorkDocsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnDataSourceProps",
+		"aws-cdk-lib.aws_kendra.CfnDataSourceProps",
 		reflect.TypeOf((*CfnDataSourceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_kendra.CfnFaq",
+		"aws-cdk-lib.aws_kendra.CfnFaq",
 		reflect.TypeOf((*CfnFaq)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -261,22 +255,16 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberProperty{JsiiProperty: "s3Path", GoGetter: "S3Path"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -287,15 +275,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnFaq.S3PathProperty",
+		"aws-cdk-lib.aws_kendra.CfnFaq.S3PathProperty",
 		reflect.TypeOf((*CfnFaq_S3PathProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnFaqProps",
+		"aws-cdk-lib.aws_kendra.CfnFaqProps",
 		reflect.TypeOf((*CfnFaqProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_kendra.CfnIndex",
+		"aws-cdk-lib.aws_kendra.CfnIndex",
 		reflect.TypeOf((*CfnIndex)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -321,24 +309,18 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberProperty{JsiiProperty: "serverSideEncryptionConfiguration", GoGetter: "ServerSideEncryptionConfiguration"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "userContextPolicy", GoGetter: "UserContextPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "userTokenConfigurations", GoGetter: "UserTokenConfigurations"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -349,43 +331,43 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnIndex.CapacityUnitsConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnIndex.CapacityUnitsConfigurationProperty",
 		reflect.TypeOf((*CfnIndex_CapacityUnitsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnIndex.DocumentMetadataConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnIndex.DocumentMetadataConfigurationProperty",
 		reflect.TypeOf((*CfnIndex_DocumentMetadataConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnIndex.JsonTokenTypeConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnIndex.JsonTokenTypeConfigurationProperty",
 		reflect.TypeOf((*CfnIndex_JsonTokenTypeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnIndex.JwtTokenTypeConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnIndex.JwtTokenTypeConfigurationProperty",
 		reflect.TypeOf((*CfnIndex_JwtTokenTypeConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnIndex.RelevanceProperty",
+		"aws-cdk-lib.aws_kendra.CfnIndex.RelevanceProperty",
 		reflect.TypeOf((*CfnIndex_RelevanceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnIndex.SearchProperty",
+		"aws-cdk-lib.aws_kendra.CfnIndex.SearchProperty",
 		reflect.TypeOf((*CfnIndex_SearchProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnIndex.ServerSideEncryptionConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnIndex.ServerSideEncryptionConfigurationProperty",
 		reflect.TypeOf((*CfnIndex_ServerSideEncryptionConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnIndex.UserTokenConfigurationProperty",
+		"aws-cdk-lib.aws_kendra.CfnIndex.UserTokenConfigurationProperty",
 		reflect.TypeOf((*CfnIndex_UserTokenConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnIndex.ValueImportanceItemProperty",
+		"aws-cdk-lib.aws_kendra.CfnIndex.ValueImportanceItemProperty",
 		reflect.TypeOf((*CfnIndex_ValueImportanceItemProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_kendra.CfnIndexProps",
+		"aws-cdk-lib.aws_kendra.CfnIndexProps",
 		reflect.TypeOf((*CfnIndexProps)(nil)).Elem(),
 	)
 }
