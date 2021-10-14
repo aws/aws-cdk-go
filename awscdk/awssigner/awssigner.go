@@ -1,12 +1,12 @@
 package awssigner
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssigner/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awssigner/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::Signer::ProfilePermission`.
@@ -20,7 +20,7 @@ type CfnProfilePermission interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Principal() *string
 	SetPrincipal(val *string)
 	ProfileName() *string
@@ -42,10 +42,16 @@ type CfnProfilePermission interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -115,8 +121,8 @@ func (j *jsiiProxy_CfnProfilePermission) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnProfilePermission) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnProfilePermission) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -197,13 +203,13 @@ func (j *jsiiProxy_CfnProfilePermission) UpdatedProperites() *map[string]interfa
 
 
 // Create a new `AWS::Signer::ProfilePermission`.
-func NewCfnProfilePermission(scope constructs.Construct, id *string, props *CfnProfilePermissionProps) CfnProfilePermission {
+func NewCfnProfilePermission(scope awscdk.Construct, id *string, props *CfnProfilePermissionProps) CfnProfilePermission {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnProfilePermission{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_signer.CfnProfilePermission",
+		"monocdk.aws_signer.CfnProfilePermission",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -212,11 +218,11 @@ func NewCfnProfilePermission(scope constructs.Construct, id *string, props *CfnP
 }
 
 // Create a new `AWS::Signer::ProfilePermission`.
-func NewCfnProfilePermission_Override(c CfnProfilePermission, scope constructs.Construct, id *string, props *CfnProfilePermissionProps) {
+func NewCfnProfilePermission_Override(c CfnProfilePermission, scope awscdk.Construct, id *string, props *CfnProfilePermissionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_signer.CfnProfilePermission",
+		"monocdk.aws_signer.CfnProfilePermission",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -275,7 +281,7 @@ func CfnProfilePermission_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_signer.CfnProfilePermission",
+		"monocdk.aws_signer.CfnProfilePermission",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -292,7 +298,7 @@ func CfnProfilePermission_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_signer.CfnProfilePermission",
+		"monocdk.aws_signer.CfnProfilePermission",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -301,17 +307,15 @@ func CfnProfilePermission_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnProfilePermission_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_signer.CfnProfilePermission",
+		"monocdk.aws_signer.CfnProfilePermission",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -324,7 +328,7 @@ func CfnProfilePermission_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_signer.CfnProfilePermission",
+		"monocdk.aws_signer.CfnProfilePermission",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -504,6 +508,56 @@ func (c *jsiiProxy_CfnProfilePermission) Inspect(inspector awscdk.TreeInspector)
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnProfilePermission) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnProfilePermission) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnProfilePermission) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnProfilePermission) OverrideLogicalId(newLogicalId *string) {
@@ -511,6 +565,23 @@ func (c *jsiiProxy_CfnProfilePermission) OverrideLogicalId(newLogicalId *string)
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnProfilePermission) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -545,6 +616,19 @@ func (c *jsiiProxy_CfnProfilePermission) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnProfilePermission) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -555,6 +639,26 @@ func (c *jsiiProxy_CfnProfilePermission) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnProfilePermission) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -598,7 +702,7 @@ type CfnSigningProfile interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PlatformId() *string
 	SetPlatformId(val *string)
 	Ref() *string
@@ -617,10 +721,16 @@ type CfnSigningProfile interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -720,8 +830,8 @@ func (j *jsiiProxy_CfnSigningProfile) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSigningProfile) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnSigningProfile) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -792,13 +902,13 @@ func (j *jsiiProxy_CfnSigningProfile) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::Signer::SigningProfile`.
-func NewCfnSigningProfile(scope constructs.Construct, id *string, props *CfnSigningProfileProps) CfnSigningProfile {
+func NewCfnSigningProfile(scope awscdk.Construct, id *string, props *CfnSigningProfileProps) CfnSigningProfile {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnSigningProfile{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_signer.CfnSigningProfile",
+		"monocdk.aws_signer.CfnSigningProfile",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -807,11 +917,11 @@ func NewCfnSigningProfile(scope constructs.Construct, id *string, props *CfnSign
 }
 
 // Create a new `AWS::Signer::SigningProfile`.
-func NewCfnSigningProfile_Override(c CfnSigningProfile, scope constructs.Construct, id *string, props *CfnSigningProfileProps) {
+func NewCfnSigningProfile_Override(c CfnSigningProfile, scope awscdk.Construct, id *string, props *CfnSigningProfileProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_signer.CfnSigningProfile",
+		"monocdk.aws_signer.CfnSigningProfile",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -846,7 +956,7 @@ func CfnSigningProfile_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_signer.CfnSigningProfile",
+		"monocdk.aws_signer.CfnSigningProfile",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -863,7 +973,7 @@ func CfnSigningProfile_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_signer.CfnSigningProfile",
+		"monocdk.aws_signer.CfnSigningProfile",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -872,17 +982,15 @@ func CfnSigningProfile_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnSigningProfile_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_signer.CfnSigningProfile",
+		"monocdk.aws_signer.CfnSigningProfile",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -895,7 +1003,7 @@ func CfnSigningProfile_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_signer.CfnSigningProfile",
+		"monocdk.aws_signer.CfnSigningProfile",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1075,6 +1183,56 @@ func (c *jsiiProxy_CfnSigningProfile) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnSigningProfile) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnSigningProfile) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnSigningProfile) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnSigningProfile) OverrideLogicalId(newLogicalId *string) {
@@ -1082,6 +1240,23 @@ func (c *jsiiProxy_CfnSigningProfile) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnSigningProfile) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1116,6 +1291,19 @@ func (c *jsiiProxy_CfnSigningProfile) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnSigningProfile) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -1126,6 +1314,26 @@ func (c *jsiiProxy_CfnSigningProfile) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnSigningProfile) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1250,7 +1458,7 @@ func Platform_AMAZON_FREE_RTOS_DEFAULT() Platform {
 	_init_.Initialize()
 	var returns Platform
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_signer.Platform",
+		"monocdk.aws_signer.Platform",
 		"AMAZON_FREE_RTOS_DEFAULT",
 		&returns,
 	)
@@ -1261,7 +1469,7 @@ func Platform_AMAZON_FREE_RTOS_TI_CC3220SF() Platform {
 	_init_.Initialize()
 	var returns Platform
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_signer.Platform",
+		"monocdk.aws_signer.Platform",
 		"AMAZON_FREE_RTOS_TI_CC3220SF",
 		&returns,
 	)
@@ -1272,7 +1480,7 @@ func Platform_AWS_IOT_DEVICE_MANAGEMENT_SHA256_ECDSA() Platform {
 	_init_.Initialize()
 	var returns Platform
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_signer.Platform",
+		"monocdk.aws_signer.Platform",
 		"AWS_IOT_DEVICE_MANAGEMENT_SHA256_ECDSA",
 		&returns,
 	)
@@ -1283,7 +1491,7 @@ func Platform_AWS_LAMBDA_SHA384_ECDSA() Platform {
 	_init_.Initialize()
 	var returns Platform
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_signer.Platform",
+		"monocdk.aws_signer.Platform",
 		"AWS_LAMBDA_SHA384_ECDSA",
 		&returns,
 	)
@@ -1296,7 +1504,7 @@ type SigningProfile interface {
 	awscdk.Resource
 	ISigningProfile
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	SigningProfileArn() *string
 	SigningProfileName() *string
@@ -1307,7 +1515,13 @@ type SigningProfile interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for SigningProfile
@@ -1326,8 +1540,8 @@ func (j *jsiiProxy_SigningProfile) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_SigningProfile) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_SigningProfile) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1404,7 +1618,7 @@ func NewSigningProfile(scope constructs.Construct, id *string, props *SigningPro
 	j := jsiiProxy_SigningProfile{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_signer.SigningProfile",
+		"monocdk.aws_signer.SigningProfile",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1417,7 +1631,7 @@ func NewSigningProfile_Override(s SigningProfile, scope constructs.Construct, id
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_signer.SigningProfile",
+		"monocdk.aws_signer.SigningProfile",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -1431,7 +1645,7 @@ func SigningProfile_FromSigningProfileAttributes(scope constructs.Construct, id 
 	var returns ISigningProfile
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_signer.SigningProfile",
+		"monocdk.aws_signer.SigningProfile",
 		"fromSigningProfileAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -1440,17 +1654,15 @@ func SigningProfile_FromSigningProfileAttributes(scope constructs.Construct, id 
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func SigningProfile_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_signer.SigningProfile",
+		"monocdk.aws_signer.SigningProfile",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1461,13 +1673,13 @@ func SigningProfile_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func SigningProfile_IsResource(construct constructs.IConstruct) *bool {
+func SigningProfile_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_signer.SigningProfile",
+		"monocdk.aws_signer.SigningProfile",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -1547,6 +1759,86 @@ func (s *jsiiProxy_SigningProfile) GetResourceNameAttribute(nameAttr *string) *s
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_SigningProfile) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_SigningProfile) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_SigningProfile) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_SigningProfile) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_SigningProfile) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (s *jsiiProxy_SigningProfile) ToString() *string {
@@ -1555,6 +1847,26 @@ func (s *jsiiProxy_SigningProfile) ToString() *string {
 	_jsii_.Invoke(
 		s,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_SigningProfile) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

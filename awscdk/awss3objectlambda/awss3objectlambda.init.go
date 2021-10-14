@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_s3objectlambda.CfnAccessPoint",
+		"monocdk.aws_s3objectlambda.CfnAccessPoint",
 		reflect.TypeOf((*CfnAccessPoint)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -31,13 +31,19 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "objectLambdaConfiguration", GoGetter: "ObjectLambdaConfiguration"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -48,15 +54,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3objectlambda.CfnAccessPoint.ObjectLambdaConfigurationProperty",
+		"monocdk.aws_s3objectlambda.CfnAccessPoint.ObjectLambdaConfigurationProperty",
 		reflect.TypeOf((*CfnAccessPoint_ObjectLambdaConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3objectlambda.CfnAccessPoint.TransformationConfigurationProperty",
+		"monocdk.aws_s3objectlambda.CfnAccessPoint.TransformationConfigurationProperty",
 		reflect.TypeOf((*CfnAccessPoint_TransformationConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_s3objectlambda.CfnAccessPointPolicy",
+		"monocdk.aws_s3objectlambda.CfnAccessPointPolicy",
 		reflect.TypeOf((*CfnAccessPointPolicy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -76,14 +82,20 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "objectLambdaAccessPoint", GoGetter: "ObjectLambdaAccessPoint"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "policyDocument", GoGetter: "PolicyDocument"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -94,11 +106,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3objectlambda.CfnAccessPointPolicyProps",
+		"monocdk.aws_s3objectlambda.CfnAccessPointPolicyProps",
 		reflect.TypeOf((*CfnAccessPointPolicyProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_s3objectlambda.CfnAccessPointProps",
+		"monocdk.aws_s3objectlambda.CfnAccessPointProps",
 		reflect.TypeOf((*CfnAccessPointProps)(nil)).Elem(),
 	)
 }
