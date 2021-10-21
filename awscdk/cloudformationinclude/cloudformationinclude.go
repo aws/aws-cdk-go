@@ -1,12 +1,12 @@
 package cloudformationinclude
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/cloudformationinclude/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/cloudformationinclude/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // Construct to import an existing CloudFormation template file into a CDK application.
@@ -18,7 +18,7 @@ type CfnInclude interface {
 	awscdk.CfnElement
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Stack() awscdk.Stack
 	GetCondition(conditionName *string) awscdk.CfnCondition
 	GetHook(hookLogicalId *string) awscdk.CfnHook
@@ -29,8 +29,14 @@ type CfnInclude interface {
 	GetResource(logicalId *string) awscdk.CfnResource
 	GetRule(ruleName *string) awscdk.CfnRule
 	LoadNestedStack(logicalId *string, nestedStackProps *CfnIncludeProps) *IncludedNestedStack
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for CfnInclude
@@ -58,8 +64,8 @@ func (j *jsiiProxy_CfnInclude) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnInclude) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnInclude) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -86,7 +92,7 @@ func NewCfnInclude(scope constructs.Construct, id *string, props *CfnIncludeProp
 	j := jsiiProxy_CfnInclude{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.cloudformation_include.CfnInclude",
+		"monocdk.cloudformation_include.CfnInclude",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -99,7 +105,7 @@ func NewCfnInclude_Override(c CfnInclude, scope constructs.Construct, id *string
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.cloudformation_include.CfnInclude",
+		"monocdk.cloudformation_include.CfnInclude",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -118,7 +124,7 @@ func CfnInclude_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.cloudformation_include.CfnInclude",
+		"monocdk.cloudformation_include.CfnInclude",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -127,17 +133,15 @@ func CfnInclude_IsCfnElement(x interface{}) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnInclude_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.cloudformation_include.CfnInclude",
+		"monocdk.cloudformation_include.CfnInclude",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -334,6 +338,56 @@ func (c *jsiiProxy_CfnInclude) LoadNestedStack(logicalId *string, nestedStackPro
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnInclude) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnInclude) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnInclude) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnInclude) OverrideLogicalId(newLogicalId *string) {
@@ -341,6 +395,36 @@ func (c *jsiiProxy_CfnInclude) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnInclude) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnInclude) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
 	)
 }
 
@@ -352,6 +436,26 @@ func (c *jsiiProxy_CfnInclude) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnInclude) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

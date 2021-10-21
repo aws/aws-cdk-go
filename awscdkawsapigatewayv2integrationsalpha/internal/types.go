@@ -1,6 +1,0 @@
-package internal
-import (
-	"github.com/aws/aws-cdk-go/awscdkawsapigatewayv2alpha/v2"
-)
-type Type__awscdkawsapigatewayv2alphaIHttpRouteIntegration = awscdkawsapigatewayv2alpha.IHttpRouteIntegration
-type Type__awscdkawsapigatewayv2alphaIWebSocketRouteIntegration = awscdkawsapigatewayv2alpha.IWebSocketRouteIntegration
