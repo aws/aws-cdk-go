@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_codestarnotifications.CfnNotificationRule",
+		"aws-cdk-lib.aws_codestarnotifications.CfnNotificationRule",
 		reflect.TypeOf((*CfnNotificationRule)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -31,23 +31,17 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "resource", GoGetter: "Resource"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "status", GoGetter: "Status"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "targets", GoGetter: "Targets"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -58,15 +52,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codestarnotifications.CfnNotificationRule.TargetProperty",
+		"aws-cdk-lib.aws_codestarnotifications.CfnNotificationRule.TargetProperty",
 		reflect.TypeOf((*CfnNotificationRule_TargetProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codestarnotifications.CfnNotificationRuleProps",
+		"aws-cdk-lib.aws_codestarnotifications.CfnNotificationRuleProps",
 		reflect.TypeOf((*CfnNotificationRuleProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_codestarnotifications.DetailType",
+		"aws-cdk-lib.aws_codestarnotifications.DetailType",
 		reflect.TypeOf((*DetailType)(nil)).Elem(),
 		map[string]interface{}{
 			"BASIC": DetailType_BASIC,
@@ -74,7 +68,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_codestarnotifications.INotificationRule",
+		"aws-cdk-lib.aws_codestarnotifications.INotificationRule",
 		reflect.TypeOf((*INotificationRule)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addTarget", GoMethod: "AddTarget"},
@@ -90,7 +84,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_codestarnotifications.INotificationRuleSource",
+		"aws-cdk-lib.aws_codestarnotifications.INotificationRuleSource",
 		reflect.TypeOf((*INotificationRuleSource)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bindAsNotificationRuleSource", GoMethod: "BindAsNotificationRuleSource"},
@@ -100,7 +94,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_codestarnotifications.INotificationRuleTarget",
+		"aws-cdk-lib.aws_codestarnotifications.INotificationRuleTarget",
 		reflect.TypeOf((*INotificationRuleTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bindAsNotificationRuleTarget", GoMethod: "BindAsNotificationRuleTarget"},
@@ -110,7 +104,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_codestarnotifications.NotificationRule",
+		"aws-cdk-lib.aws_codestarnotifications.NotificationRule",
 		reflect.TypeOf((*NotificationRule)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addTarget", GoMethod: "AddTarget"},
@@ -121,15 +115,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "notificationRuleArn", GoGetter: "NotificationRuleArn"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_NotificationRule{}
@@ -139,19 +127,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codestarnotifications.NotificationRuleOptions",
+		"aws-cdk-lib.aws_codestarnotifications.NotificationRuleOptions",
 		reflect.TypeOf((*NotificationRuleOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codestarnotifications.NotificationRuleProps",
+		"aws-cdk-lib.aws_codestarnotifications.NotificationRuleProps",
 		reflect.TypeOf((*NotificationRuleProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codestarnotifications.NotificationRuleSourceConfig",
+		"aws-cdk-lib.aws_codestarnotifications.NotificationRuleSourceConfig",
 		reflect.TypeOf((*NotificationRuleSourceConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codestarnotifications.NotificationRuleTargetConfig",
+		"aws-cdk-lib.aws_codestarnotifications.NotificationRuleTargetConfig",
 		reflect.TypeOf((*NotificationRuleTargetConfig)(nil)).Elem(),
 	)
 }

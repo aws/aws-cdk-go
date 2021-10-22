@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_iotevents.CfnDetectorModel",
+		"aws-cdk-lib.aws_iotevents.CfnDetectorModel",
 		reflect.TypeOf((*CfnDetectorModel)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -32,21 +32,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "key", GoGetter: "Key"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "roleArn", GoGetter: "RoleArn"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -57,111 +51,111 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnDetectorModel.ActionProperty",
+		"aws-cdk-lib.aws_iotevents.CfnDetectorModel.ActionProperty",
 		reflect.TypeOf((*CfnDetectorModel_ActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnDetectorModel.AssetPropertyTimestampProperty",
+		"aws-cdk-lib.aws_iotevents.CfnDetectorModel.AssetPropertyTimestampProperty",
 		reflect.TypeOf((*CfnDetectorModel_AssetPropertyTimestampProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnDetectorModel.AssetPropertyValueProperty",
+		"aws-cdk-lib.aws_iotevents.CfnDetectorModel.AssetPropertyValueProperty",
 		reflect.TypeOf((*CfnDetectorModel_AssetPropertyValueProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnDetectorModel.AssetPropertyVariantProperty",
+		"aws-cdk-lib.aws_iotevents.CfnDetectorModel.AssetPropertyVariantProperty",
 		reflect.TypeOf((*CfnDetectorModel_AssetPropertyVariantProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnDetectorModel.ClearTimerProperty",
+		"aws-cdk-lib.aws_iotevents.CfnDetectorModel.ClearTimerProperty",
 		reflect.TypeOf((*CfnDetectorModel_ClearTimerProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnDetectorModel.DetectorModelDefinitionProperty",
+		"aws-cdk-lib.aws_iotevents.CfnDetectorModel.DetectorModelDefinitionProperty",
 		reflect.TypeOf((*CfnDetectorModel_DetectorModelDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnDetectorModel.DynamoDBProperty",
+		"aws-cdk-lib.aws_iotevents.CfnDetectorModel.DynamoDBProperty",
 		reflect.TypeOf((*CfnDetectorModel_DynamoDBProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnDetectorModel.DynamoDBv2Property",
+		"aws-cdk-lib.aws_iotevents.CfnDetectorModel.DynamoDBv2Property",
 		reflect.TypeOf((*CfnDetectorModel_DynamoDBv2Property)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnDetectorModel.EventProperty",
+		"aws-cdk-lib.aws_iotevents.CfnDetectorModel.EventProperty",
 		reflect.TypeOf((*CfnDetectorModel_EventProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnDetectorModel.FirehoseProperty",
+		"aws-cdk-lib.aws_iotevents.CfnDetectorModel.FirehoseProperty",
 		reflect.TypeOf((*CfnDetectorModel_FirehoseProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnDetectorModel.IotEventsProperty",
+		"aws-cdk-lib.aws_iotevents.CfnDetectorModel.IotEventsProperty",
 		reflect.TypeOf((*CfnDetectorModel_IotEventsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnDetectorModel.IotSiteWiseProperty",
+		"aws-cdk-lib.aws_iotevents.CfnDetectorModel.IotSiteWiseProperty",
 		reflect.TypeOf((*CfnDetectorModel_IotSiteWiseProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnDetectorModel.IotTopicPublishProperty",
+		"aws-cdk-lib.aws_iotevents.CfnDetectorModel.IotTopicPublishProperty",
 		reflect.TypeOf((*CfnDetectorModel_IotTopicPublishProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnDetectorModel.LambdaProperty",
+		"aws-cdk-lib.aws_iotevents.CfnDetectorModel.LambdaProperty",
 		reflect.TypeOf((*CfnDetectorModel_LambdaProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnDetectorModel.OnEnterProperty",
+		"aws-cdk-lib.aws_iotevents.CfnDetectorModel.OnEnterProperty",
 		reflect.TypeOf((*CfnDetectorModel_OnEnterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnDetectorModel.OnExitProperty",
+		"aws-cdk-lib.aws_iotevents.CfnDetectorModel.OnExitProperty",
 		reflect.TypeOf((*CfnDetectorModel_OnExitProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnDetectorModel.OnInputProperty",
+		"aws-cdk-lib.aws_iotevents.CfnDetectorModel.OnInputProperty",
 		reflect.TypeOf((*CfnDetectorModel_OnInputProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnDetectorModel.PayloadProperty",
+		"aws-cdk-lib.aws_iotevents.CfnDetectorModel.PayloadProperty",
 		reflect.TypeOf((*CfnDetectorModel_PayloadProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnDetectorModel.ResetTimerProperty",
+		"aws-cdk-lib.aws_iotevents.CfnDetectorModel.ResetTimerProperty",
 		reflect.TypeOf((*CfnDetectorModel_ResetTimerProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnDetectorModel.SetTimerProperty",
+		"aws-cdk-lib.aws_iotevents.CfnDetectorModel.SetTimerProperty",
 		reflect.TypeOf((*CfnDetectorModel_SetTimerProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnDetectorModel.SetVariableProperty",
+		"aws-cdk-lib.aws_iotevents.CfnDetectorModel.SetVariableProperty",
 		reflect.TypeOf((*CfnDetectorModel_SetVariableProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnDetectorModel.SnsProperty",
+		"aws-cdk-lib.aws_iotevents.CfnDetectorModel.SnsProperty",
 		reflect.TypeOf((*CfnDetectorModel_SnsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnDetectorModel.SqsProperty",
+		"aws-cdk-lib.aws_iotevents.CfnDetectorModel.SqsProperty",
 		reflect.TypeOf((*CfnDetectorModel_SqsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnDetectorModel.StateProperty",
+		"aws-cdk-lib.aws_iotevents.CfnDetectorModel.StateProperty",
 		reflect.TypeOf((*CfnDetectorModel_StateProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnDetectorModel.TransitionEventProperty",
+		"aws-cdk-lib.aws_iotevents.CfnDetectorModel.TransitionEventProperty",
 		reflect.TypeOf((*CfnDetectorModel_TransitionEventProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnDetectorModelProps",
+		"aws-cdk-lib.aws_iotevents.CfnDetectorModelProps",
 		reflect.TypeOf((*CfnDetectorModelProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_iotevents.CfnInput",
+		"aws-cdk-lib.aws_iotevents.CfnInput",
 		reflect.TypeOf((*CfnInput)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -183,20 +177,14 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -207,15 +195,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnInput.AttributeProperty",
+		"aws-cdk-lib.aws_iotevents.CfnInput.AttributeProperty",
 		reflect.TypeOf((*CfnInput_AttributeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnInput.InputDefinitionProperty",
+		"aws-cdk-lib.aws_iotevents.CfnInput.InputDefinitionProperty",
 		reflect.TypeOf((*CfnInput_InputDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_iotevents.CfnInputProps",
+		"aws-cdk-lib.aws_iotevents.CfnInputProps",
 		reflect.TypeOf((*CfnInputProps)(nil)).Elem(),
 	)
 }
