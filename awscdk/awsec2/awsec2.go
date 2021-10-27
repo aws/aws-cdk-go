@@ -49701,6 +49701,9 @@ type IVpc interface {
 	// List of public subnets in this VPC.
 	// Experimental.
 	PublicSubnets() *[]ISubnet
+	// ARN for this VPC.
+	// Experimental.
+	VpcArn() *string
 	// CIDR range for this VPC.
 	// Experimental.
 	VpcCidrBlock() *string
@@ -49848,6 +49851,16 @@ func (j *jsiiProxy_IVpc) PublicSubnets() *[]ISubnet {
 	_jsii_.Get(
 		j,
 		"publicSubnets",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_IVpc) VpcArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"vpcArn",
 		&returns,
 	)
 	return returns
@@ -51757,6 +51770,7 @@ const (
 	InstanceClass_BURSTABLE4_GRAVITON InstanceClass = "BURSTABLE4_GRAVITON"
 	InstanceClass_MEMORY_INTENSIVE_1 InstanceClass = "MEMORY_INTENSIVE_1"
 	InstanceClass_MEMORY_INTENSIVE_1_EXTENDED InstanceClass = "MEMORY_INTENSIVE_1_EXTENDED"
+	InstanceClass_MEMORY_INTENSIVE_2_GRAVITON2 InstanceClass = "MEMORY_INTENSIVE_2_GRAVITON2"
 	InstanceClass_MEMORY_INTENSIVE_2_GRAVITON2_NVME_DRIVE InstanceClass = "MEMORY_INTENSIVE_2_GRAVITON2_NVME_DRIVE"
 	InstanceClass_FPGA1 InstanceClass = "FPGA1"
 	InstanceClass_GRAPHICS3 InstanceClass = "GRAPHICS3"
@@ -57015,6 +57029,9 @@ type S3DownloadOptions struct {
 	// The name of the local file.
 	// Experimental.
 	LocalFile *string `json:"localFile"`
+	// The region of the S3 Bucket (needed for access via VPC Gateway).
+	// Experimental.
+	Region *string `json:"region"`
 }
 
 // Creates an Amazon EC2 security group within a VPC.
@@ -59236,6 +59253,7 @@ type Vpc interface {
 	PrivateSubnets() *[]ISubnet
 	PublicSubnets() *[]ISubnet
 	Stack() awscdk.Stack
+	VpcArn() *string
 	VpcCidrBlock() *string
 	VpcCidrBlockAssociations() *[]*string
 	VpcDefaultNetworkAcl() *string
@@ -59389,6 +59407,16 @@ func (j *jsiiProxy_Vpc) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Vpc) VpcArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"vpcArn",
 		&returns,
 	)
 	return returns
@@ -60438,6 +60466,9 @@ type VpcLookupOptions struct {
 	// Whether to match the default VPC.
 	// Experimental.
 	IsDefault *bool `json:"isDefault"`
+	// Optional to override inferred region.
+	// Experimental.
+	Region *string `json:"region"`
 	// Optional tag for subnet group name.
 	//
 	// If not provided, we'll look at the aws-cdk:subnet-name tag.

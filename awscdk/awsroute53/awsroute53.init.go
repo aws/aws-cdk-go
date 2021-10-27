@@ -871,6 +871,7 @@ func init() {
 		"aws-cdk-lib.aws_route53.VpcEndpointServiceDomainName",
 		reflect.TypeOf((*VpcEndpointServiceDomainName)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "domainName", GoGetter: "DomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},

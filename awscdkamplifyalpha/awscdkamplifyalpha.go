@@ -414,6 +414,11 @@ type AppProps struct {
 	//
 	// Experimental.
 	BuildSpec awscodebuild.BuildSpec `json:"buildSpec"`
+	// The custom HTTP response headers for an Amplify app.
+	// See: https://docs.aws.amazon.com/amplify/latest/userguide/custom-headers.html
+	//
+	// Experimental.
+	CustomResponseHeaders *[]*CustomResponseHeader `json:"customResponseHeaders"`
 	// Custom rewrite/redirect rules for the application.
 	// Experimental.
 	CustomRules *[]CustomRule `json:"customRules"`
@@ -997,6 +1002,17 @@ type CodeCommitSourceCodeProviderProps struct {
 	// The CodeCommit repository.
 	// Experimental.
 	Repository awscodecommit.IRepository `json:"repository"`
+}
+
+// Custom response header of an Amplify App.
+// Experimental.
+type CustomResponseHeader struct {
+	// The map of custom headers to be applied.
+	// Experimental.
+	Headers *map[string]*string `json:"headers"`
+	// These custom headers will be applied to all URL file paths that match this pattern.
+	// Experimental.
+	Pattern *string `json:"pattern"`
 }
 
 // Custom rewrite/redirect rule for an Amplify App.

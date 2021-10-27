@@ -916,6 +916,17 @@ func Runtime_SYNTHETICS_NODEJS_PUPPETEER_3_2() Runtime {
 	return returns
 }
 
+func Runtime_SYNTHETICS_NODEJS_PUPPETEER_3_3() Runtime {
+	_init_.Initialize()
+	var returns Runtime
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-synthetics-alpha.Runtime",
+		"SYNTHETICS_NODEJS_PUPPETEER_3_3",
+		&returns,
+	)
+	return returns
+}
+
 func Runtime_SYNTHETICS_PYTHON_SELENIUM_1_0() Runtime {
 	_init_.Initialize()
 	var returns Runtime

@@ -113,6 +113,10 @@ func init() {
 		"@aws-cdk/aws-amplify-alpha.CodeCommitSourceCodeProviderProps",
 		reflect.TypeOf((*CodeCommitSourceCodeProviderProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-amplify-alpha.CustomResponseHeader",
+		reflect.TypeOf((*CustomResponseHeader)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-amplify-alpha.CustomRule",
 		reflect.TypeOf((*CustomRule)(nil)).Elem(),

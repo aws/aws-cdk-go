@@ -14938,8 +14938,6 @@ type DatabaseInstanceFromSnapshotProps struct {
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// S3 buckets that you want to load data into.
 	//
-	// This feature is only supported by the Microsoft SQL Server and Oracle engines.
-	//
 	// This property must not be used if `s3ExportRole` is used.
 	//
 	// For Microsoft SQL Server:
@@ -14948,8 +14946,6 @@ type DatabaseInstanceFromSnapshotProps struct {
 	// Experimental.
 	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 export.
-	//
-	// This feature is only supported by the Microsoft SQL Server and Oracle engines.
 	//
 	// This property must not be used if `s3ExportBuckets` is used.
 	//
@@ -15155,8 +15151,6 @@ type DatabaseInstanceNewProps struct {
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// S3 buckets that you want to load data into.
 	//
-	// This feature is only supported by the Microsoft SQL Server and Oracle engines.
-	//
 	// This property must not be used if `s3ExportRole` is used.
 	//
 	// For Microsoft SQL Server:
@@ -15165,8 +15159,6 @@ type DatabaseInstanceNewProps struct {
 	// Experimental.
 	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 export.
-	//
-	// This feature is only supported by the Microsoft SQL Server and Oracle engines.
 	//
 	// This property must not be used if `s3ExportBuckets` is used.
 	//
@@ -15334,8 +15326,6 @@ type DatabaseInstanceProps struct {
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// S3 buckets that you want to load data into.
 	//
-	// This feature is only supported by the Microsoft SQL Server and Oracle engines.
-	//
 	// This property must not be used if `s3ExportRole` is used.
 	//
 	// For Microsoft SQL Server:
@@ -15344,8 +15334,6 @@ type DatabaseInstanceProps struct {
 	// Experimental.
 	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 export.
-	//
-	// This feature is only supported by the Microsoft SQL Server and Oracle engines.
 	//
 	// This property must not be used if `s3ExportBuckets` is used.
 	//
@@ -16121,8 +16109,6 @@ type DatabaseInstanceReadReplicaProps struct {
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// S3 buckets that you want to load data into.
 	//
-	// This feature is only supported by the Microsoft SQL Server and Oracle engines.
-	//
 	// This property must not be used if `s3ExportRole` is used.
 	//
 	// For Microsoft SQL Server:
@@ -16131,8 +16117,6 @@ type DatabaseInstanceReadReplicaProps struct {
 	// Experimental.
 	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 export.
-	//
-	// This feature is only supported by the Microsoft SQL Server and Oracle engines.
 	//
 	// This property must not be used if `s3ExportBuckets` is used.
 	//
@@ -16315,8 +16299,6 @@ type DatabaseInstanceSourceProps struct {
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// S3 buckets that you want to load data into.
 	//
-	// This feature is only supported by the Microsoft SQL Server and Oracle engines.
-	//
 	// This property must not be used if `s3ExportRole` is used.
 	//
 	// For Microsoft SQL Server:
@@ -16325,8 +16307,6 @@ type DatabaseInstanceSourceProps struct {
 	// Experimental.
 	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 export.
-	//
-	// This feature is only supported by the Microsoft SQL Server and Oracle engines.
 	//
 	// This property must not be used if `s3ExportBuckets` is used.
 	//

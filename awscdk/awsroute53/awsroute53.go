@@ -7960,6 +7960,8 @@ type TxtRecordProps struct {
 // Experimental.
 type VpcEndpointServiceDomainName interface {
 	constructs.Construct
+	DomainName() *string
+	SetDomainName(val *string)
 	Node() constructs.Node
 	ToString() *string
 }
@@ -7967,6 +7969,16 @@ type VpcEndpointServiceDomainName interface {
 // The jsii proxy struct for VpcEndpointServiceDomainName
 type jsiiProxy_VpcEndpointServiceDomainName struct {
 	internal.Type__constructsConstruct
+}
+
+func (j *jsiiProxy_VpcEndpointServiceDomainName) DomainName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"domainName",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_VpcEndpointServiceDomainName) Node() constructs.Node {
@@ -8003,6 +8015,14 @@ func NewVpcEndpointServiceDomainName_Override(v VpcEndpointServiceDomainName, sc
 		"aws-cdk-lib.aws_route53.VpcEndpointServiceDomainName",
 		[]interface{}{scope, id, props},
 		v,
+	)
+}
+
+func (j *jsiiProxy_VpcEndpointServiceDomainName) SetDomainName(val *string) {
+	_jsii_.Set(
+		j,
+		"domainName",
+		val,
 	)
 }
 

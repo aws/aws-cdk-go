@@ -25482,8 +25482,12 @@ type ResourceConfig struct {
 	InstanceCount *float64 `json:"instanceCount"`
 	// ML compute instance type.
 	//
-	// TODO: EXAMPLE
+	// To provide an instance type from the task input, supply an instance type in the following way
+	// where the value in the task input is an EC2 instance type prepended with "ml.":
 	//
+	// ```ts
+	// new ec2.InstanceType(sfn.JsonPath.stringAt('$.path.to.instanceType'));
+	// ```
 	// See: https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ResourceConfig.html#sagemaker-Type-ResourceConfig-InstanceType
 	//
 	// Experimental.

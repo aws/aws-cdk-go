@@ -561,6 +561,17 @@ func CachePolicy_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
+func CachePolicy_AMPLIFY() ICachePolicy {
+	_init_.Initialize()
+	var returns ICachePolicy
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_cloudfront.CachePolicy",
+		"AMPLIFY",
+		&returns,
+	)
+	return returns
+}
+
 func CachePolicy_CACHING_DISABLED() ICachePolicy {
 	_init_.Initialize()
 	var returns ICachePolicy

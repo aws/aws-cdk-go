@@ -10,12 +10,12 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
-//go:embed aws-cdk-aws-iot-actions-alpha-2.0.0-alpha.3.tgz
+//go:embed aws-cdk-aws-iot-actions-alpha-2.0.0-alpha.4.tgz
 var tarball []byte
 
 // Initialize loads the necessary packages in the @jsii/kernel to support the enclosing module.
 // The implementation is idempotent (and hence safe to be called over and over).
 func Initialize() {
 	// Load this library into the kernel
-	_jsii_.Load("@aws-cdk/aws-iot-actions-alpha", "2.0.0-alpha.3", tarball)
+	_jsii_.Load("@aws-cdk/aws-iot-actions-alpha", "2.0.0-alpha.4", tarball)
 }
