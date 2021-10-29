@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.region_info.Default",
+		"monocdk.region_info.Default",
 		reflect.TypeOf((*Default)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -16,7 +16,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.region_info.Fact",
+		"monocdk.region_info.Fact",
 		reflect.TypeOf((*Fact)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -24,7 +24,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.region_info.FactName",
+		"monocdk.region_info.FactName",
 		reflect.TypeOf((*FactName)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -32,7 +32,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.region_info.IFact",
+		"monocdk.region_info.IFact",
 		reflect.TypeOf((*IFact)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
@@ -44,7 +44,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.region_info.RegionInfo",
+		"monocdk.region_info.RegionInfo",
 		reflect.TypeOf((*RegionInfo)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "appMeshRepositoryAccount", GoGetter: "AppMeshRepositoryAccount"},
@@ -52,6 +52,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "cloudwatchLambdaInsightsArn", GoMethod: "CloudwatchLambdaInsightsArn"},
 			_jsii_.MemberProperty{JsiiProperty: "dlcRepositoryAccount", GoGetter: "DlcRepositoryAccount"},
 			_jsii_.MemberProperty{JsiiProperty: "domainSuffix", GoGetter: "DomainSuffix"},
+			_jsii_.MemberProperty{JsiiProperty: "ebsEnvEndpointHostedZoneId", GoGetter: "EbsEnvEndpointHostedZoneId"},
 			_jsii_.MemberProperty{JsiiProperty: "elbv2Account", GoGetter: "Elbv2Account"},
 			_jsii_.MemberProperty{JsiiProperty: "firehoseCidrBlock", GoGetter: "FirehoseCidrBlock"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},

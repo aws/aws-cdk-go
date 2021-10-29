@@ -1,24 +1,79 @@
 package pipelines
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodebuild"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodecommit"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipelineactions"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
-	"github.com/aws/aws-cdk-go/awscdk/v2/cxapi"
-	"github.com/aws/aws-cdk-go/awscdk/v2/pipelines/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscodebuild"
+	"github.com/aws/aws-cdk-go/awscdk/awscodecommit"
+	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/awscodepipelineactions"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsecr"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
+	"github.com/aws/aws-cdk-go/awscdk/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/cxapi"
+	"github.com/aws/aws-cdk-go/awscdk/pipelines/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
+
+// Options for addManualApproval.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+type AddManualApprovalOptions struct {
+	// The name of the manual approval action.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	ActionName *string `json:"actionName"`
+	// The runOrder for this action.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	RunOrder *float64 `json:"runOrder"`
+}
+
+// Additional options for adding a stack deployment.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+type AddStackOptions struct {
+	// Base runorder.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	ExecuteRunOrder *float64 `json:"executeRunOrder"`
+	// Base runorder.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	RunOrder *float64 `json:"runOrder"`
+}
+
+// Options for adding an application stage to a pipeline.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+type AddStageOptions struct {
+	// Runs a `cdk diff --security-only --fail` to pause the pipeline if there are any security changes.
+	//
+	// If the stage is configured with `confirmBroadeningPermissions` enabled, you can use this
+	// property to override the stage configuration. For example, Pipeline Stage
+	// "Prod" has confirmBroadeningPermissions enabled, with applications "A", "B", "C". All three
+	// applications will run a security check, but if we want to disable the one for "C",
+	// we run `stage.addApplication(C, { confirmBroadeningPermissions: false })` to override the pipeline
+	// stage behavior.
+	//
+	// Adds 1 to the run order space.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	ConfirmBroadeningPermissions *bool `json:"confirmBroadeningPermissions"`
+	// Optional SNS topic to send notifications to when the security check registers changes within the application.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SecurityNotificationTopic awssns.ITopic `json:"securityNotificationTopic"`
+	// Add room for extra actions.
+	//
+	// You can use this to make extra room in the runOrder sequence between the
+	// changeset 'prepare' and 'execute' actions and insert your own actions there.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	ExtraRunOrderSpace *float64 `json:"extraRunOrderSpace"`
+	// Add manual approvals before executing change sets.
+	//
+	// This gives humans the opportunity to confirm the change set looks alright
+	// before deploying it.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	ManualApprovals *bool `json:"manualApprovals"`
+}
 
 // Options to pass to `addStage`.
 // Experimental.
@@ -32,6 +87,17 @@ type AddStageOpts struct {
 	// Instructions for stack level steps.
 	// Experimental.
 	StackSteps *[]*StackSteps `json:"stackSteps"`
+}
+
+// Specification of an additional artifact to generate.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+type AdditionalArtifact struct {
+	// Artifact to represent the build directory in the pipeline.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Artifact awscodepipeline.Artifact `json:"artifact"`
+	// Directory to be packaged.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Directory *string `json:"directory"`
 }
 
 // Translate FileSets to CodePipeline Artifacts.
@@ -52,7 +118,7 @@ func NewArtifactMap() ArtifactMap {
 	j := jsiiProxy_ArtifactMap{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.pipelines.ArtifactMap",
+		"monocdk.pipelines.ArtifactMap",
 		nil, // no parameters
 		&j,
 	)
@@ -65,7 +131,7 @@ func NewArtifactMap_Override(a ArtifactMap) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.pipelines.ArtifactMap",
+		"monocdk.pipelines.ArtifactMap",
 		nil, // no parameters
 		a,
 	)
@@ -86,6 +152,26 @@ func (a *jsiiProxy_ArtifactMap) ToCodePipeline(x FileSet) awscodepipeline.Artifa
 	return returns
 }
 
+// Instructions to publish certain assets.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+type AssetPublishingCommand struct {
+	// Asset identifier.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	AssetId *string `json:"assetId"`
+	// Asset manifest path.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	AssetManifestPath *string `json:"assetManifestPath"`
+	// ARN of the IAM Role used to publish this asset.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	AssetPublishingRoleArn *string `json:"assetPublishingRoleArn"`
+	// Asset selector to pass to `cdk-assets`.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	AssetSelector *string `json:"assetSelector"`
+	// Type of asset to publish.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	AssetType AssetType `json:"assetType"`
+}
+
 // Type of the asset that is being published.
 // Experimental.
 type AssetType string
@@ -94,6 +180,766 @@ const (
 	AssetType_FILE AssetType = "FILE"
 	AssetType_DOCKER_IMAGE AssetType = "DOCKER_IMAGE"
 )
+
+// Base options for a pipelines stage.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+type BaseStageOptions struct {
+	// Runs a `cdk diff --security-only --fail` to pause the pipeline if there are any security changes.
+	//
+	// If the stage is configured with `confirmBroadeningPermissions` enabled, you can use this
+	// property to override the stage configuration. For example, Pipeline Stage
+	// "Prod" has confirmBroadeningPermissions enabled, with applications "A", "B", "C". All three
+	// applications will run a security check, but if we want to disable the one for "C",
+	// we run `stage.addApplication(C, { confirmBroadeningPermissions: false })` to override the pipeline
+	// stage behavior.
+	//
+	// Adds 1 to the run order space.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	ConfirmBroadeningPermissions *bool `json:"confirmBroadeningPermissions"`
+	// Optional SNS topic to send notifications to when the security check registers changes within the application.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SecurityNotificationTopic awssns.ITopic `json:"securityNotificationTopic"`
+}
+
+// A Pipeline to deploy CDK apps.
+//
+// Defines an AWS CodePipeline-based Pipeline to deploy CDK applications.
+//
+// Automatically manages the following:
+//
+// - Stack dependency order.
+// - Asset publishing.
+// - Keeping the pipeline up-to-date as the CDK apps change.
+// - Using stack outputs later on in the pipeline.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+type CdkPipeline interface {
+	awscdk.Construct
+	CodePipeline() awscodepipeline.Pipeline
+	Node() awscdk.ConstructNode
+	AddApplicationStage(appStage awscdk.Stage, options *AddStageOptions) CdkStage
+	AddStage(stageName *string, options *BaseStageOptions) CdkStage
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	StackOutput(cfnOutput awscdk.CfnOutput) StackOutput
+	Stage(stageName *string) awscodepipeline.IStage
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
+}
+
+// The jsii proxy struct for CdkPipeline
+type jsiiProxy_CdkPipeline struct {
+	internal.Type__awscdkConstruct
+}
+
+func (j *jsiiProxy_CdkPipeline) CodePipeline() awscodepipeline.Pipeline {
+	var returns awscodepipeline.Pipeline
+	_jsii_.Get(
+		j,
+		"codePipeline",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CdkPipeline) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func NewCdkPipeline(scope constructs.Construct, id *string, props *CdkPipelineProps) CdkPipeline {
+	_init_.Initialize()
+
+	j := jsiiProxy_CdkPipeline{}
+
+	_jsii_.Create(
+		"monocdk.pipelines.CdkPipeline",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func NewCdkPipeline_Override(c CdkPipeline, scope constructs.Construct, id *string, props *CdkPipelineProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.pipelines.CdkPipeline",
+		[]interface{}{scope, id, props},
+		c,
+	)
+}
+
+// Return whether the given object is a Construct.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func CdkPipeline_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.pipelines.CdkPipeline",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Add pipeline stage that will deploy the given application stage.
+//
+// The application construct should subclass `Stage` and can contain any
+// number of `Stacks` inside it that may have dependency relationships
+// on one another.
+//
+// All stacks in the application will be deployed in the appropriate order,
+// and all assets found in the application will be added to the asset
+// publishing stage.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (c *jsiiProxy_CdkPipeline) AddApplicationStage(appStage awscdk.Stage, options *AddStageOptions) CdkStage {
+	var returns CdkStage
+
+	_jsii_.Invoke(
+		c,
+		"addApplicationStage",
+		[]interface{}{appStage, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Add a new, empty stage to the pipeline.
+//
+// Prefer to use `addApplicationStage` if you are intended to deploy a CDK
+// application, but you can use this method if you want to add other kinds of
+// Actions to a pipeline.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (c *jsiiProxy_CdkPipeline) AddStage(stageName *string, options *BaseStageOptions) CdkStage {
+	var returns CdkStage
+
+	_jsii_.Invoke(
+		c,
+		"addStage",
+		[]interface{}{stageName, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (c *jsiiProxy_CdkPipeline) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (c *jsiiProxy_CdkPipeline) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (c *jsiiProxy_CdkPipeline) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (c *jsiiProxy_CdkPipeline) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Get the StackOutput object that holds this CfnOutput's value in this pipeline.
+//
+// `StackOutput` can be used in validation actions later in the pipeline.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (c *jsiiProxy_CdkPipeline) StackOutput(cfnOutput awscdk.CfnOutput) StackOutput {
+	var returns StackOutput
+
+	_jsii_.Invoke(
+		c,
+		"stackOutput",
+		[]interface{}{cfnOutput},
+		&returns,
+	)
+
+	return returns
+}
+
+// Access one of the pipeline's stages by stage name.
+//
+// You can use this to add more Actions to a stage.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (c *jsiiProxy_CdkPipeline) Stage(stageName *string) awscodepipeline.IStage {
+	var returns awscodepipeline.IStage
+
+	_jsii_.Invoke(
+		c,
+		"stage",
+		[]interface{}{stageName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (c *jsiiProxy_CdkPipeline) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (c *jsiiProxy_CdkPipeline) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate that we don't have any stacks violating dependency order in the pipeline.
+//
+// Our own convenience methods will never generate a pipeline that does that (although
+// this is a nice verification), but a user can also add the stacks by hand.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (c *jsiiProxy_CdkPipeline) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Properties for a CdkPipeline.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+type CdkPipelineProps struct {
+	// The artifact you have defined to be the artifact to hold the cloudAssemblyArtifact for the synth action.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CloudAssemblyArtifact awscodepipeline.Artifact `json:"cloudAssemblyArtifact"`
+	// Custom BuildSpec that is merged with generated one (for asset publishing actions).
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	AssetBuildSpec awscodebuild.BuildSpec `json:"assetBuildSpec"`
+	// Additional commands to run before installing cdk-assets during the asset publishing step Use this to setup proxies or npm mirrors.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	AssetPreInstallCommands *[]*string `json:"assetPreInstallCommands"`
+	// CDK CLI version to use in pipeline.
+	//
+	// Some Actions in the pipeline will download and run a version of the CDK
+	// CLI. Specify the version here.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CdkCliVersion *string `json:"cdkCliVersion"`
+	// Existing CodePipeline to add deployment stages to.
+	//
+	// Use this if you want more control over the CodePipeline that gets created.
+	// You can choose to not pass this value, in which case a new CodePipeline is
+	// created with default settings.
+	//
+	// If you pass an existing CodePipeline, it should have been created
+	// with `restartExecutionOnUpdate: true`.
+	//
+	// [disable-awslint:ref-via-interface]
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CodePipeline awscodepipeline.Pipeline `json:"codePipeline"`
+	// Create KMS keys for cross-account deployments.
+	//
+	// This controls whether the pipeline is enabled for cross-account deployments.
+	//
+	// Can only be set if `codePipeline` is not set.
+	//
+	// By default cross-account deployments are enabled, but this feature requires
+	// that KMS Customer Master Keys are created which have a cost of $1/month.
+	//
+	// If you do not need cross-account deployments, you can set this to `false` to
+	// not create those keys and save on that cost (the artifact bucket will be
+	// encrypted with an AWS-managed key). However, cross-account deployments will
+	// no longer be possible.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CrossAccountKeys *bool `json:"crossAccountKeys"`
+	// A list of credentials used to authenticate to Docker registries.
+	//
+	// Specify any credentials necessary within the pipeline to build, synth, update, or publish assets.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	DockerCredentials *[]DockerCredential `json:"dockerCredentials"`
+	// Enables KMS key rotation for cross-account keys.
+	//
+	// Cannot be set if `crossAccountKeys` was set to `false`.
+	//
+	// Key rotation costs $1/month when enabled.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	EnableKeyRotation *bool `json:"enableKeyRotation"`
+	// Name of the pipeline.
+	//
+	// Can only be set if `codePipeline` is not set.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	PipelineName *string `json:"pipelineName"`
+	// Whether the pipeline will update itself.
+	//
+	// This needs to be set to `true` to allow the pipeline to reconfigure
+	// itself when assets or stages are being added to it, and `true` is the
+	// recommended setting.
+	//
+	// You can temporarily set this to `false` while you are iterating
+	// on the pipeline itself and prefer to deploy changes using `cdk deploy`.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SelfMutating *bool `json:"selfMutating"`
+	// Custom BuildSpec that is merged with generated one (for self-mutation stage).
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SelfMutationBuildSpec awscodebuild.BuildSpec `json:"selfMutationBuildSpec"`
+	// Whether this pipeline creates one asset upload action per asset type or one asset upload per asset.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SinglePublisherPerType *bool `json:"singlePublisherPerType"`
+	// The CodePipeline action used to retrieve the CDK app's source.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SourceAction awscodepipeline.IAction `json:"sourceAction"`
+	// Which subnets to use.
+	//
+	// Only used if 'vpc' is supplied.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection"`
+	// Whether the pipeline needs to build Docker images in the UpdatePipeline stage.
+	//
+	// If the UpdatePipeline stage tries to build a Docker image and this flag is not
+	// set to `true`, the build step will run in non-privileged mode and consequently
+	// will fail with a message like:
+	//
+	// > Cannot connect to the Docker daemon at unix:///var/run/docker.sock.
+	// > Is the docker daemon running?
+	//
+	// This flag has an effect only if `selfMutating` is also `true`.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SupportDockerAssets *bool `json:"supportDockerAssets"`
+	// The CodePipeline action build and synthesis step of the CDK app.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SynthAction awscodepipeline.IAction `json:"synthAction"`
+	// The VPC where to execute the CdkPipeline actions.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Vpc awsec2.IVpc `json:"vpc"`
+}
+
+// Options for the 'fromStackArtifact' operation.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+type CdkStackActionFromArtifactOptions struct {
+	// The CodePipeline artifact that holds the Cloud Assembly.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CloudAssemblyInput awscodepipeline.Artifact `json:"cloudAssemblyInput"`
+	// Base name of the action.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	BaseActionName *string `json:"baseActionName"`
+	// Name of the change set to create and deploy.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	ChangeSetName *string `json:"changeSetName"`
+	// Run order for the Execute action.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	ExecuteRunOrder *float64 `json:"executeRunOrder"`
+	// Artifact to write Stack Outputs to.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Output awscodepipeline.Artifact `json:"output"`
+	// Filename in output to write Stack outputs to.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	OutputFileName *string `json:"outputFileName"`
+	// Run order for the Prepare action.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	PrepareRunOrder *float64 `json:"prepareRunOrder"`
+	// The name of the stack that should be created/updated.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	StackName *string `json:"stackName"`
+}
+
+// Stage in a CdkPipeline.
+//
+// You don't need to instantiate this class directly. Use
+// `cdkPipeline.addStage()` instead.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+type CdkStage interface {
+	awscdk.Construct
+	Node() awscdk.ConstructNode
+	AddActions(actions ...awscodepipeline.IAction)
+	AddApplication(appStage awscdk.Stage, options *AddStageOptions)
+	AddManualApprovalAction(options *AddManualApprovalOptions)
+	AddStackArtifactDeployment(stackArtifact cxapi.CloudFormationStackArtifact, options *AddStackOptions)
+	DeploysStack(artifactId *string) *bool
+	NextSequentialRunOrder(count *float64) *float64
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
+}
+
+// The jsii proxy struct for CdkStage
+type jsiiProxy_CdkStage struct {
+	internal.Type__awscdkConstruct
+}
+
+func (j *jsiiProxy_CdkStage) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func NewCdkStage(scope constructs.Construct, id *string, props *CdkStageProps) CdkStage {
+	_init_.Initialize()
+
+	j := jsiiProxy_CdkStage{}
+
+	_jsii_.Create(
+		"monocdk.pipelines.CdkStage",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func NewCdkStage_Override(c CdkStage, scope constructs.Construct, id *string, props *CdkStageProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.pipelines.CdkStage",
+		[]interface{}{scope, id, props},
+		c,
+	)
+}
+
+// Return whether the given object is a Construct.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func CdkStage_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.pipelines.CdkStage",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Add one or more CodePipeline Actions.
+//
+// You need to make sure it is created with the right runOrder. Call `nextSequentialRunOrder()`
+// for every action to get actions to execute in sequence.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (c *jsiiProxy_CdkStage) AddActions(actions ...awscodepipeline.IAction) {
+	args := []interface{}{}
+	for _, a := range actions {
+		args = append(args, a)
+	}
+
+	_jsii_.InvokeVoid(
+		c,
+		"addActions",
+		args,
+	)
+}
+
+// Add all stacks in the application Stage to this stage.
+//
+// The application construct should subclass `Stage` and can contain any
+// number of `Stacks` inside it that may have dependency relationships
+// on one another.
+//
+// All stacks in the application will be deployed in the appropriate order,
+// and all assets found in the application will be added to the asset
+// publishing stage.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (c *jsiiProxy_CdkStage) AddApplication(appStage awscdk.Stage, options *AddStageOptions) {
+	_jsii_.InvokeVoid(
+		c,
+		"addApplication",
+		[]interface{}{appStage, options},
+	)
+}
+
+// Add a manual approval action.
+//
+// If you need more flexibility than what this method offers,
+// use `addAction` with a `ManualApprovalAction`.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (c *jsiiProxy_CdkStage) AddManualApprovalAction(options *AddManualApprovalOptions) {
+	_jsii_.InvokeVoid(
+		c,
+		"addManualApprovalAction",
+		[]interface{}{options},
+	)
+}
+
+// Add a deployment action based on a stack artifact.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (c *jsiiProxy_CdkStage) AddStackArtifactDeployment(stackArtifact cxapi.CloudFormationStackArtifact, options *AddStackOptions) {
+	_jsii_.InvokeVoid(
+		c,
+		"addStackArtifactDeployment",
+		[]interface{}{stackArtifact, options},
+	)
+}
+
+// Whether this Stage contains an action to deploy the given stack, identified by its artifact ID.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (c *jsiiProxy_CdkStage) DeploysStack(artifactId *string) *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"deploysStack",
+		[]interface{}{artifactId},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return the runOrder number necessary to run the next Action in sequence with the rest.
+//
+// FIXME: This is here because Actions are immutable and can't be reordered
+// after creation, nor is there a way to specify relative priorities, which
+// is a limitation that we should take away in the base library.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (c *jsiiProxy_CdkStage) NextSequentialRunOrder(count *float64) *float64 {
+	var returns *float64
+
+	_jsii_.Invoke(
+		c,
+		"nextSequentialRunOrder",
+		[]interface{}{count},
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (c *jsiiProxy_CdkStage) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (c *jsiiProxy_CdkStage) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (c *jsiiProxy_CdkStage) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (c *jsiiProxy_CdkStage) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (c *jsiiProxy_CdkStage) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (c *jsiiProxy_CdkStage) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (c *jsiiProxy_CdkStage) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Construction properties for a CdkStage.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+type CdkStageProps struct {
+	// The CodePipeline Artifact with the Cloud Assembly.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CloudAssemblyArtifact awscodepipeline.Artifact `json:"cloudAssemblyArtifact"`
+	// Features the Stage needs from its environment.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Host IStageHost `json:"host"`
+	// The underlying Pipeline Stage associated with thisCdkStage.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	PipelineStage awscodepipeline.IStage `json:"pipelineStage"`
+	// Name of the stage that should be created.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	StageName *string `json:"stageName"`
+	// Run a security check before every application prepare/deploy actions.
+	//
+	// Note: Stage level security check can be overriden per application as follows:
+	//    `stage.addApplication(app, { confirmBroadeningPermissions: false })`
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	ConfirmBroadeningPermissions *bool `json:"confirmBroadeningPermissions"`
+	// Optional SNS topic to send notifications to when any security check registers changes within a application.
+	//
+	// Note: The Stage Notification Topic can be overriden per application as follows:
+	//    `stage.addApplication(app, { securityNotificationTopic: newTopic })`
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SecurityNotificationTopic awssns.ITopic `json:"securityNotificationTopic"`
+}
 
 // Options for customizing a single CodeBuild project.
 // Experimental.
@@ -380,7 +1226,7 @@ func NewCodeBuildStep(id *string, props *CodeBuildStepProps) CodeBuildStep {
 	j := jsiiProxy_CodeBuildStep{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.pipelines.CodeBuildStep",
+		"monocdk.pipelines.CodeBuildStep",
 		[]interface{}{id, props},
 		&j,
 	)
@@ -393,7 +1239,7 @@ func NewCodeBuildStep_Override(c CodeBuildStep, id *string, props *CodeBuildStep
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.pipelines.CodeBuildStep",
+		"monocdk.pipelines.CodeBuildStep",
 		[]interface{}{id, props},
 		c,
 	)
@@ -612,7 +1458,7 @@ type CodeCommitSourceOptions struct {
 type CodePipeline interface {
 	PipelineBase
 	CloudAssemblyFileSet() FileSet
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Pipeline() awscodepipeline.Pipeline
 	Synth() IFileSetProducer
 	SynthProject() awscodebuild.IProject
@@ -621,7 +1467,13 @@ type CodePipeline interface {
 	AddWave(id *string, options *WaveOptions) Wave
 	BuildPipeline()
 	DoBuildPipeline()
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for CodePipeline
@@ -639,8 +1491,8 @@ func (j *jsiiProxy_CodePipeline) CloudAssemblyFileSet() FileSet {
 	return returns
 }
 
-func (j *jsiiProxy_CodePipeline) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CodePipeline) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -697,7 +1549,7 @@ func NewCodePipeline(scope constructs.Construct, id *string, props *CodePipeline
 	j := jsiiProxy_CodePipeline{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.pipelines.CodePipeline",
+		"monocdk.pipelines.CodePipeline",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -710,23 +1562,21 @@ func NewCodePipeline_Override(c CodePipeline, scope constructs.Construct, id *st
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.pipelines.CodePipeline",
+		"monocdk.pipelines.CodePipeline",
 		[]interface{}{scope, id, props},
 		c,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CodePipeline_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.pipelines.CodePipeline",
+		"monocdk.pipelines.CodePipeline",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -803,6 +1653,86 @@ func (c *jsiiProxy_CodePipeline) DoBuildPipeline() {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CodePipeline) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CodePipeline) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CodePipeline) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CodePipeline) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CodePipeline) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (c *jsiiProxy_CodePipeline) ToString() *string {
@@ -811,6 +1741,26 @@ func (c *jsiiProxy_CodePipeline) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CodePipeline) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -887,7 +1837,7 @@ func CodePipelineFileSet_FromArtifact(artifact awscodepipeline.Artifact) CodePip
 	var returns CodePipelineFileSet
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.pipelines.CodePipelineFileSet",
+		"monocdk.pipelines.CodePipelineFileSet",
 		"fromArtifact",
 		[]interface{}{artifact},
 		&returns,
@@ -1127,7 +2077,7 @@ func NewCodePipelineSource_Override(c CodePipelineSource, id *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.pipelines.CodePipelineSource",
+		"monocdk.pipelines.CodePipelineSource",
 		[]interface{}{id},
 		c,
 	)
@@ -1141,7 +2091,7 @@ func CodePipelineSource_CodeCommit(repository awscodecommit.IRepository, branch 
 	var returns CodePipelineSource
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.pipelines.CodePipelineSource",
+		"monocdk.pipelines.CodePipelineSource",
 		"codeCommit",
 		[]interface{}{repository, branch, props},
 		&returns,
@@ -1177,7 +2127,7 @@ func CodePipelineSource_Connection(repoString *string, branch *string, props *Co
 	var returns CodePipelineSource
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.pipelines.CodePipelineSource",
+		"monocdk.pipelines.CodePipelineSource",
 		"connection",
 		[]interface{}{repoString, branch, props},
 		&returns,
@@ -1212,7 +2162,7 @@ func CodePipelineSource_GitHub(repoString *string, branch *string, props *GitHub
 	var returns CodePipelineSource
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.pipelines.CodePipelineSource",
+		"monocdk.pipelines.CodePipelineSource",
 		"gitHub",
 		[]interface{}{repoString, branch, props},
 		&returns,
@@ -1229,7 +2179,7 @@ func CodePipelineSource_S3(bucket awss3.IBucket, objectKey *string, props *S3Sou
 	var returns CodePipelineSource
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.pipelines.CodePipelineSource",
+		"monocdk.pipelines.CodePipelineSource",
 		"s3",
 		[]interface{}{bucket, objectKey, props},
 		&returns,
@@ -1386,7 +2336,7 @@ func NewConfirmPermissionsBroadening(id *string, props *PermissionsBroadeningChe
 	j := jsiiProxy_ConfirmPermissionsBroadening{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.pipelines.ConfirmPermissionsBroadening",
+		"monocdk.pipelines.ConfirmPermissionsBroadening",
 		[]interface{}{id, props},
 		&j,
 	)
@@ -1399,7 +2349,7 @@ func NewConfirmPermissionsBroadening_Override(c ConfirmPermissionsBroadening, id
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.pipelines.ConfirmPermissionsBroadening",
+		"monocdk.pipelines.ConfirmPermissionsBroadening",
 		[]interface{}{id, props},
 		c,
 	)
@@ -1486,6 +2436,247 @@ type ConnectionSourceOptions struct {
 	TriggerOnPush *bool `json:"triggerOnPush"`
 }
 
+// Action to deploy a CDK Stack.
+//
+// Adds two CodePipeline Actions to the pipeline: one to create a ChangeSet
+// and one to execute it.
+//
+// You do not need to instantiate this action yourself -- it will automatically
+// be added by the pipeline when you add stack artifacts or entire stages.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+type DeployCdkStackAction interface {
+	awscodepipeline.IAction
+	ActionProperties() *awscodepipeline.ActionProperties
+	DependencyStackArtifactIds() *[]*string
+	ExecuteRunOrder() *float64
+	PrepareRunOrder() *float64
+	StackArtifactId() *string
+	StackName() *string
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+}
+
+// The jsii proxy struct for DeployCdkStackAction
+type jsiiProxy_DeployCdkStackAction struct {
+	internal.Type__awscodepipelineIAction
+}
+
+func (j *jsiiProxy_DeployCdkStackAction) ActionProperties() *awscodepipeline.ActionProperties {
+	var returns *awscodepipeline.ActionProperties
+	_jsii_.Get(
+		j,
+		"actionProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DeployCdkStackAction) DependencyStackArtifactIds() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"dependencyStackArtifactIds",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DeployCdkStackAction) ExecuteRunOrder() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"executeRunOrder",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DeployCdkStackAction) PrepareRunOrder() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"prepareRunOrder",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DeployCdkStackAction) StackArtifactId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"stackArtifactId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DeployCdkStackAction) StackName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"stackName",
+		&returns,
+	)
+	return returns
+}
+
+
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func NewDeployCdkStackAction(props *DeployCdkStackActionProps) DeployCdkStackAction {
+	_init_.Initialize()
+
+	j := jsiiProxy_DeployCdkStackAction{}
+
+	_jsii_.Create(
+		"monocdk.pipelines.DeployCdkStackAction",
+		[]interface{}{props},
+		&j,
+	)
+
+	return &j
+}
+
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func NewDeployCdkStackAction_Override(d DeployCdkStackAction, props *DeployCdkStackActionProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.pipelines.DeployCdkStackAction",
+		[]interface{}{props},
+		d,
+	)
+}
+
+// Construct a DeployCdkStackAction from a Stack artifact.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func DeployCdkStackAction_FromStackArtifact(scope constructs.Construct, artifact cxapi.CloudFormationStackArtifact, options *CdkStackActionFromArtifactOptions) DeployCdkStackAction {
+	_init_.Initialize()
+
+	var returns DeployCdkStackAction
+
+	_jsii_.StaticInvoke(
+		"monocdk.pipelines.DeployCdkStackAction",
+		"fromStackArtifact",
+		[]interface{}{scope, artifact, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Exists to implement IAction.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (d *jsiiProxy_DeployCdkStackAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	var returns *awscodepipeline.ActionConfig
+
+	_jsii_.Invoke(
+		d,
+		"bind",
+		[]interface{}{scope, stage, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Exists to implement IAction.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (d *jsiiProxy_DeployCdkStackAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	var returns awsevents.Rule
+
+	_jsii_.Invoke(
+		d,
+		"onStateChange",
+		[]interface{}{name, target, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Customization options for a DeployCdkStackAction.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+type DeployCdkStackActionOptions struct {
+	// The CodePipeline artifact that holds the Cloud Assembly.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CloudAssemblyInput awscodepipeline.Artifact `json:"cloudAssemblyInput"`
+	// Base name of the action.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	BaseActionName *string `json:"baseActionName"`
+	// Name of the change set to create and deploy.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	ChangeSetName *string `json:"changeSetName"`
+	// Run order for the Execute action.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	ExecuteRunOrder *float64 `json:"executeRunOrder"`
+	// Artifact to write Stack Outputs to.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Output awscodepipeline.Artifact `json:"output"`
+	// Filename in output to write Stack outputs to.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	OutputFileName *string `json:"outputFileName"`
+	// Run order for the Prepare action.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	PrepareRunOrder *float64 `json:"prepareRunOrder"`
+}
+
+// Properties for a DeployCdkStackAction.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+type DeployCdkStackActionProps struct {
+	// The CodePipeline artifact that holds the Cloud Assembly.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CloudAssemblyInput awscodepipeline.Artifact `json:"cloudAssemblyInput"`
+	// Base name of the action.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	BaseActionName *string `json:"baseActionName"`
+	// Name of the change set to create and deploy.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	ChangeSetName *string `json:"changeSetName"`
+	// Run order for the Execute action.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	ExecuteRunOrder *float64 `json:"executeRunOrder"`
+	// Artifact to write Stack Outputs to.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Output awscodepipeline.Artifact `json:"output"`
+	// Filename in output to write Stack outputs to.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	OutputFileName *string `json:"outputFileName"`
+	// Run order for the Prepare action.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	PrepareRunOrder *float64 `json:"prepareRunOrder"`
+	// Role for the action to assume.
+	//
+	// This controls the account to deploy into
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	ActionRole awsiam.IRole `json:"actionRole"`
+	// The name of the stack that should be created/updated.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	StackName *string `json:"stackName"`
+	// Relative path of template in the input artifact.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	TemplatePath *string `json:"templatePath"`
+	// Role to execute CloudFormation under.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CloudFormationExecutionRole awsiam.IRole `json:"cloudFormationExecutionRole"`
+	// Artifact ID for the stacks this stack depends on.
+	//
+	// Used for pipeline order checking.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	DependencyStackArtifactIds *[]*string `json:"dependencyStackArtifactIds"`
+	// Region to deploy into.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Region *string `json:"region"`
+	// Artifact ID for the stack deployed here.
+	//
+	// Used for pipeline order checking.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	StackArtifactId *string `json:"stackArtifactId"`
+	// Template configuration path relative to the input artifact.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	TemplateConfigurationPath *string `json:"templateConfigurationPath"`
+}
+
 // Represents credentials used to access a Docker registry.
 // Experimental.
 type DockerCredential interface {
@@ -1514,7 +2705,7 @@ func NewDockerCredential_Override(d DockerCredential, usages *[]DockerCredential
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.pipelines.DockerCredential",
+		"monocdk.pipelines.DockerCredential",
 		[]interface{}{usages},
 		d,
 	)
@@ -1528,7 +2719,7 @@ func DockerCredential_CustomRegistry(registryDomain *string, secret awssecretsma
 	var returns DockerCredential
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.pipelines.DockerCredential",
+		"monocdk.pipelines.DockerCredential",
 		"customRegistry",
 		[]interface{}{registryDomain, secret, opts},
 		&returns,
@@ -1547,7 +2738,7 @@ func DockerCredential_DockerHub(secret awssecretsmanager.ISecret, opts *External
 	var returns DockerCredential
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.pipelines.DockerCredential",
+		"monocdk.pipelines.DockerCredential",
 		"dockerHub",
 		[]interface{}{secret, opts},
 		&returns,
@@ -1570,7 +2761,7 @@ func DockerCredential_Ecr(repositories *[]awsecr.IRepository, opts *EcrDockerCre
 	var returns DockerCredential
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.pipelines.DockerCredential",
+		"monocdk.pipelines.DockerCredential",
 		"ecr",
 		[]interface{}{repositories, opts},
 		&returns,
@@ -1686,7 +2877,7 @@ func NewFileSet(id *string, producer Step) FileSet {
 	j := jsiiProxy_FileSet{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.pipelines.FileSet",
+		"monocdk.pipelines.FileSet",
 		[]interface{}{id, producer},
 		&j,
 	)
@@ -1699,7 +2890,7 @@ func NewFileSet_Override(f FileSet, id *string, producer Step) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.pipelines.FileSet",
+		"monocdk.pipelines.FileSet",
 		[]interface{}{id, producer},
 		f,
 	)
@@ -1741,6 +2932,26 @@ type FileSetLocation struct {
 	// The FileSet object.
 	// Experimental.
 	FileSet FileSet `json:"fileSet"`
+}
+
+// Options for CdkDeployAction.fromStackArtifact.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+type FromStackArtifactOptions struct {
+	// The CodePipeline artifact that holds the Cloud Assembly.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CloudAssemblyInput awscodepipeline.Artifact `json:"cloudAssemblyInput"`
+	// Run order for the Execute action.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	ExecuteRunOrder *float64 `json:"executeRunOrder"`
+	// Artifact to write Stack Outputs to.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Output awscodepipeline.Artifact `json:"output"`
+	// Filename in output to write Stack outputs to.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	OutputFileName *string `json:"outputFileName"`
+	// Run order for the 2 actions that will be created.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	PrepareRunOrder *float64 `json:"prepareRunOrder"`
 }
 
 // Options for GitHub sources.
@@ -1830,6 +3041,43 @@ func (j *jsiiProxy_IFileSetProducer) PrimaryOutput() FileSet {
 		"primaryOutput",
 		&returns,
 	)
+	return returns
+}
+
+// Features that the Stage needs from its environment.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+type IStageHost interface {
+	// Make sure all the assets from the given manifest are published.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	PublishAsset(command *AssetPublishingCommand)
+	// Return the Artifact the given stack has to emit its outputs into, if any.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	StackOutputArtifact(stackArtifactId *string) awscodepipeline.Artifact
+}
+
+// The jsii proxy for IStageHost
+type jsiiProxy_IStageHost struct {
+	_ byte // padding
+}
+
+func (i *jsiiProxy_IStageHost) PublishAsset(command *AssetPublishingCommand) {
+	_jsii_.InvokeVoid(
+		i,
+		"publishAsset",
+		[]interface{}{command},
+	)
+}
+
+func (i *jsiiProxy_IStageHost) StackOutputArtifact(stackArtifactId *string) awscodepipeline.Artifact {
+	var returns awscodepipeline.Artifact
+
+	_jsii_.Invoke(
+		i,
+		"stackOutputArtifact",
+		[]interface{}{stackArtifactId},
+		&returns,
+	)
+
 	return returns
 }
 
@@ -1927,7 +3175,7 @@ func NewManualApprovalStep(id *string, props *ManualApprovalStepProps) ManualApp
 	j := jsiiProxy_ManualApprovalStep{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.pipelines.ManualApprovalStep",
+		"monocdk.pipelines.ManualApprovalStep",
 		[]interface{}{id, props},
 		&j,
 	)
@@ -1940,7 +3188,7 @@ func NewManualApprovalStep_Override(m ManualApprovalStep, id *string, props *Man
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.pipelines.ManualApprovalStep",
+		"monocdk.pipelines.ManualApprovalStep",
 		[]interface{}{id, props},
 		m,
 	)
@@ -2017,21 +3265,27 @@ type PermissionsBroadeningCheckProps struct {
 // happens first).
 // Experimental.
 type PipelineBase interface {
-	constructs.Construct
+	awscdk.Construct
 	CloudAssemblyFileSet() FileSet
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Synth() IFileSetProducer
 	Waves() *[]Wave
 	AddStage(stage awscdk.Stage, options *AddStageOpts) StageDeployment
 	AddWave(id *string, options *WaveOptions) Wave
 	BuildPipeline()
 	DoBuildPipeline()
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for PipelineBase
 type jsiiProxy_PipelineBase struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 }
 
 func (j *jsiiProxy_PipelineBase) CloudAssemblyFileSet() FileSet {
@@ -2044,8 +3298,8 @@ func (j *jsiiProxy_PipelineBase) CloudAssemblyFileSet() FileSet {
 	return returns
 }
 
-func (j *jsiiProxy_PipelineBase) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_PipelineBase) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2080,23 +3334,21 @@ func NewPipelineBase_Override(p PipelineBase, scope constructs.Construct, id *st
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.pipelines.PipelineBase",
+		"monocdk.pipelines.PipelineBase",
 		[]interface{}{scope, id, props},
 		p,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func PipelineBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.pipelines.PipelineBase",
+		"monocdk.pipelines.PipelineBase",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2173,6 +3425,86 @@ func (p *jsiiProxy_PipelineBase) DoBuildPipeline() {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (p *jsiiProxy_PipelineBase) OnPrepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (p *jsiiProxy_PipelineBase) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (p *jsiiProxy_PipelineBase) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (p *jsiiProxy_PipelineBase) Prepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (p *jsiiProxy_PipelineBase) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (p *jsiiProxy_PipelineBase) ToString() *string {
@@ -2181,6 +3513,26 @@ func (p *jsiiProxy_PipelineBase) ToString() *string {
 	_jsii_.Invoke(
 		p,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (p *jsiiProxy_PipelineBase) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2239,6 +3591,303 @@ type ProduceActionOptions struct {
 	FallbackArtifact awscodepipeline.Artifact `json:"fallbackArtifact"`
 }
 
+// Action to publish an asset in the pipeline.
+//
+// Creates a CodeBuild project which will use the CDK CLI
+// to prepare and publish the asset.
+//
+// You do not need to instantiate this action -- it will automatically
+// be added by the pipeline when you add stacks that use assets.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+type PublishAssetsAction interface {
+	awscdk.Construct
+	awscodepipeline.IAction
+	ActionProperties() *awscodepipeline.ActionProperties
+	Node() awscdk.ConstructNode
+	AddPublishCommand(relativeManifestPath *string, assetSelector *string)
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	OnPrepare()
+	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
+}
+
+// The jsii proxy struct for PublishAssetsAction
+type jsiiProxy_PublishAssetsAction struct {
+	internal.Type__awscdkConstruct
+	internal.Type__awscodepipelineIAction
+}
+
+func (j *jsiiProxy_PublishAssetsAction) ActionProperties() *awscodepipeline.ActionProperties {
+	var returns *awscodepipeline.ActionProperties
+	_jsii_.Get(
+		j,
+		"actionProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_PublishAssetsAction) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func NewPublishAssetsAction(scope constructs.Construct, id *string, props *PublishAssetsActionProps) PublishAssetsAction {
+	_init_.Initialize()
+
+	j := jsiiProxy_PublishAssetsAction{}
+
+	_jsii_.Create(
+		"monocdk.pipelines.PublishAssetsAction",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func NewPublishAssetsAction_Override(p PublishAssetsAction, scope constructs.Construct, id *string, props *PublishAssetsActionProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.pipelines.PublishAssetsAction",
+		[]interface{}{scope, id, props},
+		p,
+	)
+}
+
+// Return whether the given object is a Construct.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func PublishAssetsAction_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.pipelines.PublishAssetsAction",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Add a single publishing command.
+//
+// Manifest path should be relative to the root Cloud Assembly.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (p *jsiiProxy_PublishAssetsAction) AddPublishCommand(relativeManifestPath *string, assetSelector *string) {
+	_jsii_.InvokeVoid(
+		p,
+		"addPublishCommand",
+		[]interface{}{relativeManifestPath, assetSelector},
+	)
+}
+
+// Exists to implement IAction.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (p *jsiiProxy_PublishAssetsAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	var returns *awscodepipeline.ActionConfig
+
+	_jsii_.Invoke(
+		p,
+		"bind",
+		[]interface{}{scope, stage, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (p *jsiiProxy_PublishAssetsAction) OnPrepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Exists to implement IAction.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (p *jsiiProxy_PublishAssetsAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	var returns awsevents.Rule
+
+	_jsii_.Invoke(
+		p,
+		"onStateChange",
+		[]interface{}{name, target, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (p *jsiiProxy_PublishAssetsAction) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (p *jsiiProxy_PublishAssetsAction) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (p *jsiiProxy_PublishAssetsAction) Prepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (p *jsiiProxy_PublishAssetsAction) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (p *jsiiProxy_PublishAssetsAction) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		p,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (p *jsiiProxy_PublishAssetsAction) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Props for a PublishAssetsAction.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+type PublishAssetsActionProps struct {
+	// Name of publishing action.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	ActionName *string `json:"actionName"`
+	// AssetType we're publishing.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	AssetType AssetType `json:"assetType"`
+	// The CodePipeline artifact that holds the Cloud Assembly.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CloudAssemblyInput awscodepipeline.Artifact `json:"cloudAssemblyInput"`
+	// Custom BuildSpec that is merged with generated one.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	BuildSpec awscodebuild.BuildSpec `json:"buildSpec"`
+	// Version of CDK CLI to 'npm install'.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CdkCliVersion *string `json:"cdkCliVersion"`
+	// Use a file buildspec written to the cloud assembly instead of an inline buildspec.
+	//
+	// This prevents size limitation errors as inline specs have a max length of 25600 characters
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CreateBuildspecFile *bool `json:"createBuildspecFile"`
+	// Any Dependable construct that the CodeBuild project needs to take a dependency on.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Dependable awscdk.IDependable `json:"dependable"`
+	// Additional commands to run before installing cdk-assert Use this to setup proxies or npm mirrors.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	PreInstallCommands *[]*string `json:"preInstallCommands"`
+	// Name of the CodeBuild project.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	ProjectName *string `json:"projectName"`
+	// Role to use for CodePipeline and CodeBuild to build and publish the assets.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Role awsiam.IRole `json:"role"`
+	// Which subnets to use.
+	//
+	// Only used if 'vpc' is supplied.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection"`
+	// The VPC where to execute the PublishAssetsAction.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Vpc awsec2.IVpc `json:"vpc"`
+}
+
 // Options for S3 sources.
 // Experimental.
 type S3SourceOptions struct {
@@ -2253,6 +3902,176 @@ type S3SourceOptions struct {
 	//
 	// Experimental.
 	Trigger awscodepipelineactions.S3Trigger `json:"trigger"`
+}
+
+// Validate a revision using shell commands.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+type ShellScriptAction interface {
+	awscodepipeline.IAction
+	awsiam.IGrantable
+	ActionProperties() *awscodepipeline.ActionProperties
+	GrantPrincipal() awsiam.IPrincipal
+	Project() awscodebuild.IProject
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+}
+
+// The jsii proxy struct for ShellScriptAction
+type jsiiProxy_ShellScriptAction struct {
+	internal.Type__awscodepipelineIAction
+	internal.Type__awsiamIGrantable
+}
+
+func (j *jsiiProxy_ShellScriptAction) ActionProperties() *awscodepipeline.ActionProperties {
+	var returns *awscodepipeline.ActionProperties
+	_jsii_.Get(
+		j,
+		"actionProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ShellScriptAction) GrantPrincipal() awsiam.IPrincipal {
+	var returns awsiam.IPrincipal
+	_jsii_.Get(
+		j,
+		"grantPrincipal",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ShellScriptAction) Project() awscodebuild.IProject {
+	var returns awscodebuild.IProject
+	_jsii_.Get(
+		j,
+		"project",
+		&returns,
+	)
+	return returns
+}
+
+
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func NewShellScriptAction(props *ShellScriptActionProps) ShellScriptAction {
+	_init_.Initialize()
+
+	j := jsiiProxy_ShellScriptAction{}
+
+	_jsii_.Create(
+		"monocdk.pipelines.ShellScriptAction",
+		[]interface{}{props},
+		&j,
+	)
+
+	return &j
+}
+
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func NewShellScriptAction_Override(s ShellScriptAction, props *ShellScriptActionProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.pipelines.ShellScriptAction",
+		[]interface{}{props},
+		s,
+	)
+}
+
+// Exists to implement IAction.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (s *jsiiProxy_ShellScriptAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	var returns *awscodepipeline.ActionConfig
+
+	_jsii_.Invoke(
+		s,
+		"bind",
+		[]interface{}{scope, stage, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Exists to implement IAction.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (s *jsiiProxy_ShellScriptAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	var returns awsevents.Rule
+
+	_jsii_.Invoke(
+		s,
+		"onStateChange",
+		[]interface{}{name, target, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Properties for ShellScriptAction.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+type ShellScriptActionProps struct {
+	// Name of the validation action in the pipeline.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	ActionName *string `json:"actionName"`
+	// Commands to run.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Commands *[]*string `json:"commands"`
+	// Additional artifacts to use as input for the CodeBuild project.
+	//
+	// You can use these files to load more complex test sets into the
+	// shellscript build environment.
+	//
+	// The files artifact given here will be unpacked into the current
+	// working directory, the other ones will be unpacked into directories
+	// which are available through the environment variables
+	// $CODEBUILD_SRC_DIR_<artifactName>.
+	//
+	// The CodeBuild job must have at least one input artifact, so you
+	// must provide either at least one additional artifact here or one
+	// stack output using `useOutput`.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	AdditionalArtifacts *[]awscodepipeline.Artifact `json:"additionalArtifacts"`
+	// Bash options to set at the start of the script.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	BashOptions *string `json:"bashOptions"`
+	// The CodeBuild environment where scripts are executed.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Environment *awscodebuild.BuildEnvironment `json:"environment"`
+	// Environment variables to send into build.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	EnvironmentVariables *map[string]*awscodebuild.BuildEnvironmentVariable `json:"environmentVariables"`
+	// Additional policy statements to add to the execution role.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	RolePolicyStatements *[]awsiam.PolicyStatement `json:"rolePolicyStatements"`
+	// RunOrder for this action.
+	//
+	// Use this to sequence the shell script after the deployments.
+	//
+	// The default value is 100 so you don't have to supply the value if you just
+	// want to run this after the application stacks have been deployed, and you
+	// don't have more than 100 stacks.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	RunOrder *float64 `json:"runOrder"`
+	// Which security group to associate with the script's project network interfaces.
+	//
+	// If no security group is identified, one will be created automatically.
+	//
+	// Only used if 'vpc' is supplied.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	// Which subnets to use.
+	//
+	// Only used if 'vpc' is supplied.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection"`
+	// Stack outputs to make available as environment variables.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	UseOutputs *map[string]StackOutput `json:"useOutputs"`
+	// The VPC where to execute the specified script.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Vpc awsec2.IVpc `json:"vpc"`
 }
 
 // Run shell script commands in the pipeline.
@@ -2400,7 +4219,7 @@ func NewShellStep(id *string, props *ShellStepProps) ShellStep {
 	j := jsiiProxy_ShellStep{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.pipelines.ShellStep",
+		"monocdk.pipelines.ShellStep",
 		[]interface{}{id, props},
 		&j,
 	)
@@ -2413,7 +4232,7 @@ func NewShellStep_Override(s ShellStep, id *string, props *ShellStepProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.pipelines.ShellStep",
+		"monocdk.pipelines.ShellStep",
 		[]interface{}{id, props},
 		s,
 	)
@@ -2555,6 +4374,310 @@ type ShellStepProps struct {
 	// will be treated as the primary output of this Step.
 	// Experimental.
 	PrimaryOutputDirectory *string `json:"primaryOutputDirectory"`
+}
+
+// A standard synth with a generated buildspec.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+type SimpleSynthAction interface {
+	awscodepipeline.IAction
+	awsiam.IGrantable
+	ActionProperties() *awscodepipeline.ActionProperties
+	GrantPrincipal() awsiam.IPrincipal
+	Project() awscodebuild.IProject
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+}
+
+// The jsii proxy struct for SimpleSynthAction
+type jsiiProxy_SimpleSynthAction struct {
+	internal.Type__awscodepipelineIAction
+	internal.Type__awsiamIGrantable
+}
+
+func (j *jsiiProxy_SimpleSynthAction) ActionProperties() *awscodepipeline.ActionProperties {
+	var returns *awscodepipeline.ActionProperties
+	_jsii_.Get(
+		j,
+		"actionProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SimpleSynthAction) GrantPrincipal() awsiam.IPrincipal {
+	var returns awsiam.IPrincipal
+	_jsii_.Get(
+		j,
+		"grantPrincipal",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_SimpleSynthAction) Project() awscodebuild.IProject {
+	var returns awscodebuild.IProject
+	_jsii_.Get(
+		j,
+		"project",
+		&returns,
+	)
+	return returns
+}
+
+
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func NewSimpleSynthAction(props *SimpleSynthActionProps) SimpleSynthAction {
+	_init_.Initialize()
+
+	j := jsiiProxy_SimpleSynthAction{}
+
+	_jsii_.Create(
+		"monocdk.pipelines.SimpleSynthAction",
+		[]interface{}{props},
+		&j,
+	)
+
+	return &j
+}
+
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func NewSimpleSynthAction_Override(s SimpleSynthAction, props *SimpleSynthActionProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.pipelines.SimpleSynthAction",
+		[]interface{}{props},
+		s,
+	)
+}
+
+// Create a standard NPM synth action.
+//
+// Uses `npm ci` to install dependencies and `npx cdk synth` to synthesize.
+//
+// If you need a build step, add `buildCommand: 'npm run build'`.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func SimpleSynthAction_StandardNpmSynth(options *StandardNpmSynthOptions) SimpleSynthAction {
+	_init_.Initialize()
+
+	var returns SimpleSynthAction
+
+	_jsii_.StaticInvoke(
+		"monocdk.pipelines.SimpleSynthAction",
+		"standardNpmSynth",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create a standard Yarn synth action.
+//
+// Uses `yarn install --frozen-lockfile` to install dependencies and `npx cdk synth` to synthesize.
+//
+// If you need a build step, add `buildCommand: 'yarn build'`.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func SimpleSynthAction_StandardYarnSynth(options *StandardYarnSynthOptions) SimpleSynthAction {
+	_init_.Initialize()
+
+	var returns SimpleSynthAction
+
+	_jsii_.StaticInvoke(
+		"monocdk.pipelines.SimpleSynthAction",
+		"standardYarnSynth",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Exists to implement IAction.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (s *jsiiProxy_SimpleSynthAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	var returns *awscodepipeline.ActionConfig
+
+	_jsii_.Invoke(
+		s,
+		"bind",
+		[]interface{}{scope, stage, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Exists to implement IAction.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (s *jsiiProxy_SimpleSynthAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	var returns awsevents.Rule
+
+	_jsii_.Invoke(
+		s,
+		"onStateChange",
+		[]interface{}{name, target, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Construction props for SimpleSynthAction.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+type SimpleSynthActionProps struct {
+	// The artifact where the CloudAssembly should be emitted.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CloudAssemblyArtifact awscodepipeline.Artifact `json:"cloudAssemblyArtifact"`
+	// The source artifact of the CodePipeline.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SourceArtifact awscodepipeline.Artifact `json:"sourceArtifact"`
+	// Name of the build action.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	ActionName *string `json:"actionName"`
+	// Produce additional output artifacts after the build based on the given directories.
+	//
+	// Can be used to produce additional artifacts during the build step,
+	// separate from the cloud assembly, which can be used further on in the
+	// pipeline.
+	//
+	// Directories are evaluated with respect to `subdirectory`.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	AdditionalArtifacts *[]*AdditionalArtifact `json:"additionalArtifacts"`
+	// custom BuildSpec that is merged with the generated one.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	BuildSpec awscodebuild.BuildSpec `json:"buildSpec"`
+	// Environment variables to copy over from parent env.
+	//
+	// These are environment variables that are being used by the build.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CopyEnvironmentVariables *[]*string `json:"copyEnvironmentVariables"`
+	// Build environment to use for CodeBuild job.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Environment *awscodebuild.BuildEnvironment `json:"environment"`
+	// Environment variables to send into build.
+	//
+	// NOTE: You may run into the 1000-character limit for the Action configuration if you have a large
+	// number of variables or if their names or values are very long.
+	// If you do, pass them to the underlying CodeBuild project directly in `environment` instead.
+	// However, you will not be able to use CodePipeline Variables in this case.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	EnvironmentVariables *map[string]*awscodebuild.BuildEnvironmentVariable `json:"environmentVariables"`
+	// Name of the CodeBuild project.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	ProjectName *string `json:"projectName"`
+	// Policy statements to add to role used during the synth.
+	//
+	// Can be used to add acces to a CodeArtifact repository etc.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	RolePolicyStatements *[]awsiam.PolicyStatement `json:"rolePolicyStatements"`
+	// Directory inside the source where package.json and cdk.json are located.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Subdirectory *string `json:"subdirectory"`
+	// Which subnets to use.
+	//
+	// Only used if 'vpc' is supplied.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection"`
+	// The VPC where to execute the SimpleSynth.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Vpc awsec2.IVpc `json:"vpc"`
+	// The synth command.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SynthCommand *string `json:"synthCommand"`
+	// The build command.
+	//
+	// If your programming language requires a compilation step, put the
+	// compilation command here.
+	// Deprecated: Use `buildCommands` instead
+	BuildCommand *string `json:"buildCommand"`
+	// The build commands.
+	//
+	// If your programming language requires a compilation step, put the
+	// compilation command here.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	BuildCommands *[]*string `json:"buildCommands"`
+	// The install command.
+	//
+	// If not provided by the build image or another dependency
+	// management tool, at least install the CDK CLI here using
+	// `npm install -g aws-cdk`.
+	// Deprecated: Use `installCommands` instead
+	InstallCommand *string `json:"installCommand"`
+	// Install commands.
+	//
+	// If not provided by the build image or another dependency
+	// management tool, at least install the CDK CLI here using
+	// `npm install -g aws-cdk`.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	InstallCommands *[]*string `json:"installCommands"`
+	// Test commands.
+	//
+	// These commands are run after the build commands but before the
+	// synth command.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	TestCommands *[]*string `json:"testCommands"`
+}
+
+// Configuration options for a SimpleSynth.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+type SimpleSynthOptions struct {
+	// The artifact where the CloudAssembly should be emitted.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CloudAssemblyArtifact awscodepipeline.Artifact `json:"cloudAssemblyArtifact"`
+	// The source artifact of the CodePipeline.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SourceArtifact awscodepipeline.Artifact `json:"sourceArtifact"`
+	// Name of the build action.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	ActionName *string `json:"actionName"`
+	// Produce additional output artifacts after the build based on the given directories.
+	//
+	// Can be used to produce additional artifacts during the build step,
+	// separate from the cloud assembly, which can be used further on in the
+	// pipeline.
+	//
+	// Directories are evaluated with respect to `subdirectory`.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	AdditionalArtifacts *[]*AdditionalArtifact `json:"additionalArtifacts"`
+	// custom BuildSpec that is merged with the generated one.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	BuildSpec awscodebuild.BuildSpec `json:"buildSpec"`
+	// Environment variables to copy over from parent env.
+	//
+	// These are environment variables that are being used by the build.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CopyEnvironmentVariables *[]*string `json:"copyEnvironmentVariables"`
+	// Build environment to use for CodeBuild job.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Environment *awscodebuild.BuildEnvironment `json:"environment"`
+	// Environment variables to send into build.
+	//
+	// NOTE: You may run into the 1000-character limit for the Action configuration if you have a large
+	// number of variables or if their names or values are very long.
+	// If you do, pass them to the underlying CodeBuild project directly in `environment` instead.
+	// However, you will not be able to use CodePipeline Variables in this case.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	EnvironmentVariables *map[string]*awscodebuild.BuildEnvironmentVariable `json:"environmentVariables"`
+	// Name of the CodeBuild project.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	ProjectName *string `json:"projectName"`
+	// Policy statements to add to role used during the synth.
+	//
+	// Can be used to add acces to a CodeArtifact repository etc.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	RolePolicyStatements *[]awsiam.PolicyStatement `json:"rolePolicyStatements"`
+	// Directory inside the source where package.json and cdk.json are located.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Subdirectory *string `json:"subdirectory"`
+	// Which subnets to use.
+	//
+	// Only used if 'vpc' is supplied.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection"`
+	// The VPC where to execute the SimpleSynth.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Vpc awsec2.IVpc `json:"vpc"`
 }
 
 // An asset used by a Stack.
@@ -2784,7 +4907,7 @@ func StackDeployment_FromArtifact(stackArtifact cxapi.CloudFormationStackArtifac
 	var returns StackDeployment
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.pipelines.StackDeployment",
+		"monocdk.pipelines.StackDeployment",
 		"fromArtifact",
 		[]interface{}{stackArtifact},
 		&returns,
@@ -2851,6 +4974,67 @@ type StackDeploymentProps struct {
 	TemplateS3Uri *string `json:"templateS3Uri"`
 }
 
+// A single output of a Stack.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+type StackOutput interface {
+	ArtifactFile() awscodepipeline.ArtifactPath
+	OutputName() *string
+}
+
+// The jsii proxy struct for StackOutput
+type jsiiProxy_StackOutput struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_StackOutput) ArtifactFile() awscodepipeline.ArtifactPath {
+	var returns awscodepipeline.ArtifactPath
+	_jsii_.Get(
+		j,
+		"artifactFile",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StackOutput) OutputName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"outputName",
+		&returns,
+	)
+	return returns
+}
+
+
+// Build a StackOutput from a known artifact and an output name.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func NewStackOutput(artifactFile awscodepipeline.ArtifactPath, outputName *string) StackOutput {
+	_init_.Initialize()
+
+	j := jsiiProxy_StackOutput{}
+
+	_jsii_.Create(
+		"monocdk.pipelines.StackOutput",
+		[]interface{}{artifactFile, outputName},
+		&j,
+	)
+
+	return &j
+}
+
+// Build a StackOutput from a known artifact and an output name.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func NewStackOutput_Override(s StackOutput, artifactFile awscodepipeline.ArtifactPath, outputName *string) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.pipelines.StackOutput",
+		[]interface{}{artifactFile, outputName},
+		s,
+	)
+}
+
 // A Reference to a Stack Output.
 // Experimental.
 type StackOutputReference interface {
@@ -2893,7 +5077,7 @@ func StackOutputReference_FromCfnOutput(output awscdk.CfnOutput) StackOutputRefe
 	var returns StackOutputReference
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.pipelines.StackOutputReference",
+		"monocdk.pipelines.StackOutputReference",
 		"fromCfnOutput",
 		[]interface{}{output},
 		&returns,
@@ -3016,7 +5200,7 @@ func StageDeployment_FromStage(stage awscdk.Stage, props *StageDeploymentProps) 
 	var returns StageDeployment
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.pipelines.StageDeployment",
+		"monocdk.pipelines.StageDeployment",
 		"fromStage",
 		[]interface{}{stage, props},
 		&returns,
@@ -3070,6 +5254,168 @@ type StageDeploymentProps struct {
 	// Stage name to use in the pipeline.
 	// Experimental.
 	StageName *string `json:"stageName"`
+}
+
+// Options for a convention-based synth using NPM.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+type StandardNpmSynthOptions struct {
+	// The artifact where the CloudAssembly should be emitted.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CloudAssemblyArtifact awscodepipeline.Artifact `json:"cloudAssemblyArtifact"`
+	// The source artifact of the CodePipeline.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SourceArtifact awscodepipeline.Artifact `json:"sourceArtifact"`
+	// Name of the build action.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	ActionName *string `json:"actionName"`
+	// Produce additional output artifacts after the build based on the given directories.
+	//
+	// Can be used to produce additional artifacts during the build step,
+	// separate from the cloud assembly, which can be used further on in the
+	// pipeline.
+	//
+	// Directories are evaluated with respect to `subdirectory`.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	AdditionalArtifacts *[]*AdditionalArtifact `json:"additionalArtifacts"`
+	// custom BuildSpec that is merged with the generated one.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	BuildSpec awscodebuild.BuildSpec `json:"buildSpec"`
+	// Environment variables to copy over from parent env.
+	//
+	// These are environment variables that are being used by the build.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CopyEnvironmentVariables *[]*string `json:"copyEnvironmentVariables"`
+	// Build environment to use for CodeBuild job.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Environment *awscodebuild.BuildEnvironment `json:"environment"`
+	// Environment variables to send into build.
+	//
+	// NOTE: You may run into the 1000-character limit for the Action configuration if you have a large
+	// number of variables or if their names or values are very long.
+	// If you do, pass them to the underlying CodeBuild project directly in `environment` instead.
+	// However, you will not be able to use CodePipeline Variables in this case.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	EnvironmentVariables *map[string]*awscodebuild.BuildEnvironmentVariable `json:"environmentVariables"`
+	// Name of the CodeBuild project.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	ProjectName *string `json:"projectName"`
+	// Policy statements to add to role used during the synth.
+	//
+	// Can be used to add acces to a CodeArtifact repository etc.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	RolePolicyStatements *[]awsiam.PolicyStatement `json:"rolePolicyStatements"`
+	// Directory inside the source where package.json and cdk.json are located.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Subdirectory *string `json:"subdirectory"`
+	// Which subnets to use.
+	//
+	// Only used if 'vpc' is supplied.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection"`
+	// The VPC where to execute the SimpleSynth.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Vpc awsec2.IVpc `json:"vpc"`
+	// The build command.
+	//
+	// By default, we assume NPM projects are either written in JavaScript or are
+	// using `ts-node`, so don't need a build command.
+	//
+	// Otherwise, put the build command here, for example `npm run build`.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	BuildCommand *string `json:"buildCommand"`
+	// The install command.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	InstallCommand *string `json:"installCommand"`
+	// The synth command.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SynthCommand *string `json:"synthCommand"`
+	// Test commands.
+	//
+	// These commands are run after the build commands but before the
+	// synth command.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	TestCommands *[]*string `json:"testCommands"`
+}
+
+// Options for a convention-based synth using Yarn.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+type StandardYarnSynthOptions struct {
+	// The artifact where the CloudAssembly should be emitted.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CloudAssemblyArtifact awscodepipeline.Artifact `json:"cloudAssemblyArtifact"`
+	// The source artifact of the CodePipeline.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SourceArtifact awscodepipeline.Artifact `json:"sourceArtifact"`
+	// Name of the build action.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	ActionName *string `json:"actionName"`
+	// Produce additional output artifacts after the build based on the given directories.
+	//
+	// Can be used to produce additional artifacts during the build step,
+	// separate from the cloud assembly, which can be used further on in the
+	// pipeline.
+	//
+	// Directories are evaluated with respect to `subdirectory`.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	AdditionalArtifacts *[]*AdditionalArtifact `json:"additionalArtifacts"`
+	// custom BuildSpec that is merged with the generated one.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	BuildSpec awscodebuild.BuildSpec `json:"buildSpec"`
+	// Environment variables to copy over from parent env.
+	//
+	// These are environment variables that are being used by the build.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CopyEnvironmentVariables *[]*string `json:"copyEnvironmentVariables"`
+	// Build environment to use for CodeBuild job.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Environment *awscodebuild.BuildEnvironment `json:"environment"`
+	// Environment variables to send into build.
+	//
+	// NOTE: You may run into the 1000-character limit for the Action configuration if you have a large
+	// number of variables or if their names or values are very long.
+	// If you do, pass them to the underlying CodeBuild project directly in `environment` instead.
+	// However, you will not be able to use CodePipeline Variables in this case.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	EnvironmentVariables *map[string]*awscodebuild.BuildEnvironmentVariable `json:"environmentVariables"`
+	// Name of the CodeBuild project.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	ProjectName *string `json:"projectName"`
+	// Policy statements to add to role used during the synth.
+	//
+	// Can be used to add acces to a CodeArtifact repository etc.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	RolePolicyStatements *[]awsiam.PolicyStatement `json:"rolePolicyStatements"`
+	// Directory inside the source where package.json and cdk.json are located.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Subdirectory *string `json:"subdirectory"`
+	// Which subnets to use.
+	//
+	// Only used if 'vpc' is supplied.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection"`
+	// The VPC where to execute the SimpleSynth.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Vpc awsec2.IVpc `json:"vpc"`
+	// The build command.
+	//
+	// By default, we assume NPM projects are either written in JavaScript or are
+	// using `ts-node`, so don't need a build command.
+	//
+	// Otherwise, put the build command here, for example `npm run build`.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	BuildCommand *string `json:"buildCommand"`
+	// The install command.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	InstallCommand *string `json:"installCommand"`
+	// The synth command.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SynthCommand *string `json:"synthCommand"`
+	// Test commands.
+	//
+	// These commands are run after the build commands but before the
+	// synth command.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	TestCommands *[]*string `json:"testCommands"`
 }
 
 // A generic Step which can be added to a Pipeline.
@@ -3153,7 +5499,7 @@ func NewStep_Override(s Step, id *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.pipelines.Step",
+		"monocdk.pipelines.Step",
 		[]interface{}{id},
 		s,
 	)
@@ -3194,6 +5540,274 @@ func (s *jsiiProxy_Step) ToString() *string {
 	)
 
 	return returns
+}
+
+// Action to self-mutate the pipeline.
+//
+// Creates a CodeBuild project which will use the CDK CLI
+// to deploy the pipeline stack.
+//
+// You do not need to instantiate this action -- it will automatically
+// be added by the pipeline.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+type UpdatePipelineAction interface {
+	awscdk.Construct
+	awscodepipeline.IAction
+	ActionProperties() *awscodepipeline.ActionProperties
+	Node() awscdk.ConstructNode
+	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	OnPrepare()
+	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
+}
+
+// The jsii proxy struct for UpdatePipelineAction
+type jsiiProxy_UpdatePipelineAction struct {
+	internal.Type__awscdkConstruct
+	internal.Type__awscodepipelineIAction
+}
+
+func (j *jsiiProxy_UpdatePipelineAction) ActionProperties() *awscodepipeline.ActionProperties {
+	var returns *awscodepipeline.ActionProperties
+	_jsii_.Get(
+		j,
+		"actionProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_UpdatePipelineAction) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func NewUpdatePipelineAction(scope constructs.Construct, id *string, props *UpdatePipelineActionProps) UpdatePipelineAction {
+	_init_.Initialize()
+
+	j := jsiiProxy_UpdatePipelineAction{}
+
+	_jsii_.Create(
+		"monocdk.pipelines.UpdatePipelineAction",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func NewUpdatePipelineAction_Override(u UpdatePipelineAction, scope constructs.Construct, id *string, props *UpdatePipelineActionProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.pipelines.UpdatePipelineAction",
+		[]interface{}{scope, id, props},
+		u,
+	)
+}
+
+// Return whether the given object is a Construct.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func UpdatePipelineAction_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.pipelines.UpdatePipelineAction",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Exists to implement IAction.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (u *jsiiProxy_UpdatePipelineAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+	var returns *awscodepipeline.ActionConfig
+
+	_jsii_.Invoke(
+		u,
+		"bind",
+		[]interface{}{scope, stage, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (u *jsiiProxy_UpdatePipelineAction) OnPrepare() {
+	_jsii_.InvokeVoid(
+		u,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Exists to implement IAction.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (u *jsiiProxy_UpdatePipelineAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
+	var returns awsevents.Rule
+
+	_jsii_.Invoke(
+		u,
+		"onStateChange",
+		[]interface{}{name, target, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (u *jsiiProxy_UpdatePipelineAction) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		u,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (u *jsiiProxy_UpdatePipelineAction) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		u,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (u *jsiiProxy_UpdatePipelineAction) Prepare() {
+	_jsii_.InvokeVoid(
+		u,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (u *jsiiProxy_UpdatePipelineAction) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		u,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (u *jsiiProxy_UpdatePipelineAction) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		u,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+func (u *jsiiProxy_UpdatePipelineAction) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		u,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Props for the UpdatePipelineAction.
+// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+type UpdatePipelineActionProps struct {
+	// The CodePipeline artifact that holds the Cloud Assembly.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CloudAssemblyInput awscodepipeline.Artifact `json:"cloudAssemblyInput"`
+	// Hierarchical id of the pipeline stack.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	PipelineStackHierarchicalId *string `json:"pipelineStackHierarchicalId"`
+	// Custom BuildSpec that is merged with generated one.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	BuildSpec awscodebuild.BuildSpec `json:"buildSpec"`
+	// Version of CDK CLI to 'npm install'.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CdkCliVersion *string `json:"cdkCliVersion"`
+	// Docker registries and associated credentials necessary during the pipeline self-update stage.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	DockerCredentials *[]DockerCredential `json:"dockerCredentials"`
+	// Name of the pipeline stack.
+	// Deprecated: - Use `pipelineStackHierarchicalId` instead.
+	PipelineStackName *string `json:"pipelineStackName"`
+	// Whether the build step should run in privileged mode.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Privileged *bool `json:"privileged"`
+	// Name of the CodeBuild project.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	ProjectName *string `json:"projectName"`
 }
 
 // Multiple stages that are deployed in parallel.
@@ -3261,7 +5875,7 @@ func NewWave(id *string, props *WaveProps) Wave {
 	j := jsiiProxy_Wave{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.pipelines.Wave",
+		"monocdk.pipelines.Wave",
 		[]interface{}{id, props},
 		&j,
 	)
@@ -3274,7 +5888,7 @@ func NewWave_Override(w Wave, id *string, props *WaveProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.pipelines.Wave",
+		"monocdk.pipelines.Wave",
 		[]interface{}{id, props},
 		w,
 	)

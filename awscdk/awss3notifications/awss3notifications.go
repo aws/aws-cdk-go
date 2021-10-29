@@ -1,22 +1,22 @@
 package awss3notifications
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3notifications/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awss3notifications/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/awssqs"
 )
 
 // Use a Lambda function as a bucket notification destination.
 // Experimental.
 type LambdaDestination interface {
 	awss3.IBucketNotificationDestination
-	Bind(_scope constructs.Construct, bucket awss3.IBucket) *awss3.BucketNotificationDestinationConfig
+	Bind(_scope awscdk.Construct, bucket awss3.IBucket) *awss3.BucketNotificationDestinationConfig
 }
 
 // The jsii proxy struct for LambdaDestination
@@ -31,7 +31,7 @@ func NewLambdaDestination(fn awslambda.IFunction) LambdaDestination {
 	j := jsiiProxy_LambdaDestination{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_s3_notifications.LambdaDestination",
+		"monocdk.aws_s3_notifications.LambdaDestination",
 		[]interface{}{fn},
 		&j,
 	)
@@ -44,7 +44,7 @@ func NewLambdaDestination_Override(l LambdaDestination, fn awslambda.IFunction) 
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_s3_notifications.LambdaDestination",
+		"monocdk.aws_s3_notifications.LambdaDestination",
 		[]interface{}{fn},
 		l,
 	)
@@ -56,7 +56,7 @@ func NewLambdaDestination_Override(l LambdaDestination, fn awslambda.IFunction) 
 // pair and the result will be cached, so there is no need to implement
 // idempotency in each destination.
 // Experimental.
-func (l *jsiiProxy_LambdaDestination) Bind(_scope constructs.Construct, bucket awss3.IBucket) *awss3.BucketNotificationDestinationConfig {
+func (l *jsiiProxy_LambdaDestination) Bind(_scope awscdk.Construct, bucket awss3.IBucket) *awss3.BucketNotificationDestinationConfig {
 	var returns *awss3.BucketNotificationDestinationConfig
 
 	_jsii_.Invoke(
@@ -73,7 +73,7 @@ func (l *jsiiProxy_LambdaDestination) Bind(_scope constructs.Construct, bucket a
 // Experimental.
 type SnsDestination interface {
 	awss3.IBucketNotificationDestination
-	Bind(_scope constructs.Construct, bucket awss3.IBucket) *awss3.BucketNotificationDestinationConfig
+	Bind(_scope awscdk.Construct, bucket awss3.IBucket) *awss3.BucketNotificationDestinationConfig
 }
 
 // The jsii proxy struct for SnsDestination
@@ -88,7 +88,7 @@ func NewSnsDestination(topic awssns.ITopic) SnsDestination {
 	j := jsiiProxy_SnsDestination{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_s3_notifications.SnsDestination",
+		"monocdk.aws_s3_notifications.SnsDestination",
 		[]interface{}{topic},
 		&j,
 	)
@@ -101,7 +101,7 @@ func NewSnsDestination_Override(s SnsDestination, topic awssns.ITopic) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_s3_notifications.SnsDestination",
+		"monocdk.aws_s3_notifications.SnsDestination",
 		[]interface{}{topic},
 		s,
 	)
@@ -113,7 +113,7 @@ func NewSnsDestination_Override(s SnsDestination, topic awssns.ITopic) {
 // pair and the result will be cached, so there is no need to implement
 // idempotency in each destination.
 // Experimental.
-func (s *jsiiProxy_SnsDestination) Bind(_scope constructs.Construct, bucket awss3.IBucket) *awss3.BucketNotificationDestinationConfig {
+func (s *jsiiProxy_SnsDestination) Bind(_scope awscdk.Construct, bucket awss3.IBucket) *awss3.BucketNotificationDestinationConfig {
 	var returns *awss3.BucketNotificationDestinationConfig
 
 	_jsii_.Invoke(
@@ -130,7 +130,7 @@ func (s *jsiiProxy_SnsDestination) Bind(_scope constructs.Construct, bucket awss
 // Experimental.
 type SqsDestination interface {
 	awss3.IBucketNotificationDestination
-	Bind(_scope constructs.Construct, bucket awss3.IBucket) *awss3.BucketNotificationDestinationConfig
+	Bind(_scope awscdk.Construct, bucket awss3.IBucket) *awss3.BucketNotificationDestinationConfig
 }
 
 // The jsii proxy struct for SqsDestination
@@ -145,7 +145,7 @@ func NewSqsDestination(queue awssqs.IQueue) SqsDestination {
 	j := jsiiProxy_SqsDestination{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_s3_notifications.SqsDestination",
+		"monocdk.aws_s3_notifications.SqsDestination",
 		[]interface{}{queue},
 		&j,
 	)
@@ -158,7 +158,7 @@ func NewSqsDestination_Override(s SqsDestination, queue awssqs.IQueue) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_s3_notifications.SqsDestination",
+		"monocdk.aws_s3_notifications.SqsDestination",
 		[]interface{}{queue},
 		s,
 	)
@@ -168,7 +168,7 @@ func NewSqsDestination_Override(s SqsDestination, queue awssqs.IQueue) {
 //
 // Use `bucket.onEvent(event, queue)` to subscribe.
 // Experimental.
-func (s *jsiiProxy_SqsDestination) Bind(_scope constructs.Construct, bucket awss3.IBucket) *awss3.BucketNotificationDestinationConfig {
+func (s *jsiiProxy_SqsDestination) Bind(_scope awscdk.Construct, bucket awss3.IBucket) *awss3.BucketNotificationDestinationConfig {
 	var returns *awss3.BucketNotificationDestinationConfig
 
 	_jsii_.Invoke(

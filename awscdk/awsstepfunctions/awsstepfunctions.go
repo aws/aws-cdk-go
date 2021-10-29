@@ -1,15 +1,15 @@
 package awsstepfunctions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/awsstepfunctions/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // Define a new Step Functions Activity.
@@ -20,7 +20,7 @@ type Activity interface {
 	ActivityArn() *string
 	ActivityName() *string
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
@@ -38,7 +38,13 @@ type Activity interface {
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for Activity
@@ -77,8 +83,8 @@ func (j *jsiiProxy_Activity) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_Activity) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Activity) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -115,7 +121,7 @@ func NewActivity(scope constructs.Construct, id *string, props *ActivityProps) A
 	j := jsiiProxy_Activity{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.Activity",
+		"monocdk.aws_stepfunctions.Activity",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -128,7 +134,7 @@ func NewActivity_Override(a Activity, scope constructs.Construct, id *string, pr
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.Activity",
+		"monocdk.aws_stepfunctions.Activity",
 		[]interface{}{scope, id, props},
 		a,
 	)
@@ -142,7 +148,7 @@ func Activity_FromActivityArn(scope constructs.Construct, id *string, activityAr
 	var returns IActivity
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Activity",
+		"monocdk.aws_stepfunctions.Activity",
 		"fromActivityArn",
 		[]interface{}{scope, id, activityArn},
 		&returns,
@@ -159,7 +165,7 @@ func Activity_FromActivityName(scope constructs.Construct, id *string, activityN
 	var returns IActivity
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Activity",
+		"monocdk.aws_stepfunctions.Activity",
 		"fromActivityName",
 		[]interface{}{scope, id, activityName},
 		&returns,
@@ -168,17 +174,15 @@ func Activity_FromActivityName(scope constructs.Construct, id *string, activityN
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func Activity_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Activity",
+		"monocdk.aws_stepfunctions.Activity",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -189,13 +193,13 @@ func Activity_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func Activity_IsResource(construct constructs.IConstruct) *bool {
+func Activity_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Activity",
+		"monocdk.aws_stepfunctions.Activity",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -445,6 +449,86 @@ func (a *jsiiProxy_Activity) MetricTimedOut(props *awscloudwatch.MetricOptions) 
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_Activity) OnPrepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_Activity) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_Activity) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_Activity) Prepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_Activity) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (a *jsiiProxy_Activity) ToString() *string {
@@ -453,6 +537,26 @@ func (a *jsiiProxy_Activity) ToString() *string {
 	_jsii_.Invoke(
 		a,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_Activity) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -514,7 +618,7 @@ type CfnActivity interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -529,10 +633,16 @@ type CfnActivity interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -612,8 +722,8 @@ func (j *jsiiProxy_CfnActivity) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnActivity) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnActivity) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -664,13 +774,13 @@ func (j *jsiiProxy_CfnActivity) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::StepFunctions::Activity`.
-func NewCfnActivity(scope constructs.Construct, id *string, props *CfnActivityProps) CfnActivity {
+func NewCfnActivity(scope awscdk.Construct, id *string, props *CfnActivityProps) CfnActivity {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnActivity{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.CfnActivity",
+		"monocdk.aws_stepfunctions.CfnActivity",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -679,11 +789,11 @@ func NewCfnActivity(scope constructs.Construct, id *string, props *CfnActivityPr
 }
 
 // Create a new `AWS::StepFunctions::Activity`.
-func NewCfnActivity_Override(c CfnActivity, scope constructs.Construct, id *string, props *CfnActivityProps) {
+func NewCfnActivity_Override(c CfnActivity, scope awscdk.Construct, id *string, props *CfnActivityProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.CfnActivity",
+		"monocdk.aws_stepfunctions.CfnActivity",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -710,7 +820,7 @@ func CfnActivity_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.CfnActivity",
+		"monocdk.aws_stepfunctions.CfnActivity",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -727,7 +837,7 @@ func CfnActivity_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.CfnActivity",
+		"monocdk.aws_stepfunctions.CfnActivity",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -736,17 +846,15 @@ func CfnActivity_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnActivity_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.CfnActivity",
+		"monocdk.aws_stepfunctions.CfnActivity",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -759,7 +867,7 @@ func CfnActivity_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions.CfnActivity",
+		"monocdk.aws_stepfunctions.CfnActivity",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -939,6 +1047,56 @@ func (c *jsiiProxy_CfnActivity) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnActivity) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnActivity) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnActivity) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnActivity) OverrideLogicalId(newLogicalId *string) {
@@ -946,6 +1104,23 @@ func (c *jsiiProxy_CfnActivity) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnActivity) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -980,6 +1155,19 @@ func (c *jsiiProxy_CfnActivity) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnActivity) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -990,6 +1178,26 @@ func (c *jsiiProxy_CfnActivity) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnActivity) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1042,7 +1250,7 @@ type CfnStateMachine interface {
 	LoggingConfiguration() interface{}
 	SetLoggingConfiguration(val interface{})
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	RoleArn() *string
 	SetRoleArn(val *string)
@@ -1065,10 +1273,16 @@ type CfnStateMachine interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1198,8 +1412,8 @@ func (j *jsiiProxy_CfnStateMachine) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnStateMachine) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnStateMachine) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1290,13 +1504,13 @@ func (j *jsiiProxy_CfnStateMachine) UpdatedProperites() *map[string]interface{} 
 
 
 // Create a new `AWS::StepFunctions::StateMachine`.
-func NewCfnStateMachine(scope constructs.Construct, id *string, props *CfnStateMachineProps) CfnStateMachine {
+func NewCfnStateMachine(scope awscdk.Construct, id *string, props *CfnStateMachineProps) CfnStateMachine {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnStateMachine{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.CfnStateMachine",
+		"monocdk.aws_stepfunctions.CfnStateMachine",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1305,11 +1519,11 @@ func NewCfnStateMachine(scope constructs.Construct, id *string, props *CfnStateM
 }
 
 // Create a new `AWS::StepFunctions::StateMachine`.
-func NewCfnStateMachine_Override(c CfnStateMachine, scope constructs.Construct, id *string, props *CfnStateMachineProps) {
+func NewCfnStateMachine_Override(c CfnStateMachine, scope awscdk.Construct, id *string, props *CfnStateMachineProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.CfnStateMachine",
+		"monocdk.aws_stepfunctions.CfnStateMachine",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1400,7 +1614,7 @@ func CfnStateMachine_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.CfnStateMachine",
+		"monocdk.aws_stepfunctions.CfnStateMachine",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1417,7 +1631,7 @@ func CfnStateMachine_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.CfnStateMachine",
+		"monocdk.aws_stepfunctions.CfnStateMachine",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1426,17 +1640,15 @@ func CfnStateMachine_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnStateMachine_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.CfnStateMachine",
+		"monocdk.aws_stepfunctions.CfnStateMachine",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1449,7 +1661,7 @@ func CfnStateMachine_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions.CfnStateMachine",
+		"monocdk.aws_stepfunctions.CfnStateMachine",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1629,6 +1841,56 @@ func (c *jsiiProxy_CfnStateMachine) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnStateMachine) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnStateMachine) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnStateMachine) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnStateMachine) OverrideLogicalId(newLogicalId *string) {
@@ -1636,6 +1898,23 @@ func (c *jsiiProxy_CfnStateMachine) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnStateMachine) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1670,6 +1949,19 @@ func (c *jsiiProxy_CfnStateMachine) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnStateMachine) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -1680,6 +1972,26 @@ func (c *jsiiProxy_CfnStateMachine) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnStateMachine) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1821,7 +2133,7 @@ func Chain_Custom(startState State, endStates *[]INextable, lastAdded IChainable
 	var returns Chain
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Chain",
+		"monocdk.aws_stepfunctions.Chain",
 		"custom",
 		[]interface{}{startState, endStates, lastAdded},
 		&returns,
@@ -1838,7 +2150,7 @@ func Chain_Sequence(start IChainable, next IChainable) Chain {
 	var returns Chain
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Chain",
+		"monocdk.aws_stepfunctions.Chain",
 		"sequence",
 		[]interface{}{start, next},
 		&returns,
@@ -1855,7 +2167,7 @@ func Chain_Start(state IChainable) Chain {
 	var returns Chain
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Chain",
+		"monocdk.aws_stepfunctions.Chain",
 		"start",
 		[]interface{}{state},
 		&returns,
@@ -1917,7 +2229,7 @@ type Choice interface {
 	InputPath() *string
 	Iteration() StateGraph
 	SetIteration(val StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
@@ -1932,7 +2244,11 @@ type Choice interface {
 	BindToGraph(graph StateGraph)
 	MakeDefault(def State)
 	MakeNext(next State)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	Otherwise(def IChainable) Choice
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
@@ -1940,9 +2256,10 @@ type Choice interface {
 	RenderNextEnd() interface{}
 	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	When(condition Condition, next IChainable) Choice
 	WhenBoundToGraph(graph StateGraph)
 }
@@ -2022,8 +2339,8 @@ func (j *jsiiProxy_Choice) Iteration() StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_Choice) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Choice) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2100,7 +2417,7 @@ func NewChoice(scope constructs.Construct, id *string, props *ChoiceProps) Choic
 	j := jsiiProxy_Choice{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.Choice",
+		"monocdk.aws_stepfunctions.Choice",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2113,7 +2430,7 @@ func NewChoice_Override(c Choice, scope constructs.Construct, id *string, props 
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.Choice",
+		"monocdk.aws_stepfunctions.Choice",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2143,7 +2460,7 @@ func Choice_FilterNextables(states *[]State) *[]INextable {
 	var returns *[]INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Choice",
+		"monocdk.aws_stepfunctions.Choice",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -2160,7 +2477,7 @@ func Choice_FindReachableEndStates(start State, options *FindStateOptions) *[]St
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Choice",
+		"monocdk.aws_stepfunctions.Choice",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -2179,7 +2496,7 @@ func Choice_FindReachableStates(start State, options *FindStateOptions) *[]State
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Choice",
+		"monocdk.aws_stepfunctions.Choice",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -2188,17 +2505,15 @@ func Choice_FindReachableStates(start State, options *FindStateOptions) *[]State
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func Choice_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Choice",
+		"monocdk.aws_stepfunctions.Choice",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2213,7 +2528,7 @@ func Choice_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions.Choice",
+		"monocdk.aws_stepfunctions.Choice",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -2309,6 +2624,56 @@ func (c *jsiiProxy_Choice) MakeNext(next State) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_Choice) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_Choice) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_Choice) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // If none of the given conditions match, continue execution with the given state.
 //
 // If no conditions match and no otherwise() has been given, an execution
@@ -2325,6 +2690,23 @@ func (c *jsiiProxy_Choice) Otherwise(def IChainable) Choice {
 	)
 
 	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_Choice) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
 }
 
 // Render parallel branches in ASL JSON format.
@@ -2432,6 +2814,19 @@ func (c *jsiiProxy_Choice) RenderRetryCatch() interface{} {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_Choice) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Return the Amazon States Language object for this state.
 // Experimental.
 func (c *jsiiProxy_Choice) ToStateJson() *map[string]interface{} {
@@ -2462,14 +2857,19 @@ func (c *jsiiProxy_Choice) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (c *jsiiProxy_Choice) ValidateState() *[]*string {
+func (c *jsiiProxy_Choice) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		c,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2540,7 +2940,7 @@ func NewCondition_Override(c Condition) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		nil, // no parameters
 		c,
 	)
@@ -2559,7 +2959,7 @@ func Condition_And(conditions ...Condition) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"and",
 		args,
 		&returns,
@@ -2576,7 +2976,7 @@ func Condition_BooleanEquals(variable *string, value *bool) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"booleanEquals",
 		[]interface{}{variable, value},
 		&returns,
@@ -2593,7 +2993,7 @@ func Condition_BooleanEqualsJsonPath(variable *string, value *string) Condition 
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"booleanEqualsJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -2610,7 +3010,7 @@ func Condition_IsBoolean(variable *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"isBoolean",
 		[]interface{}{variable},
 		&returns,
@@ -2627,7 +3027,7 @@ func Condition_IsNotBoolean(variable *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"isNotBoolean",
 		[]interface{}{variable},
 		&returns,
@@ -2644,7 +3044,7 @@ func Condition_IsNotNull(variable *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"isNotNull",
 		[]interface{}{variable},
 		&returns,
@@ -2661,7 +3061,7 @@ func Condition_IsNotNumeric(variable *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"isNotNumeric",
 		[]interface{}{variable},
 		&returns,
@@ -2678,7 +3078,7 @@ func Condition_IsNotPresent(variable *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"isNotPresent",
 		[]interface{}{variable},
 		&returns,
@@ -2695,7 +3095,7 @@ func Condition_IsNotString(variable *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"isNotString",
 		[]interface{}{variable},
 		&returns,
@@ -2712,7 +3112,7 @@ func Condition_IsNotTimestamp(variable *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"isNotTimestamp",
 		[]interface{}{variable},
 		&returns,
@@ -2729,7 +3129,7 @@ func Condition_IsNull(variable *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"isNull",
 		[]interface{}{variable},
 		&returns,
@@ -2746,7 +3146,7 @@ func Condition_IsNumeric(variable *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"isNumeric",
 		[]interface{}{variable},
 		&returns,
@@ -2763,7 +3163,7 @@ func Condition_IsPresent(variable *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"isPresent",
 		[]interface{}{variable},
 		&returns,
@@ -2780,7 +3180,7 @@ func Condition_IsString(variable *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"isString",
 		[]interface{}{variable},
 		&returns,
@@ -2797,7 +3197,7 @@ func Condition_IsTimestamp(variable *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"isTimestamp",
 		[]interface{}{variable},
 		&returns,
@@ -2814,7 +3214,7 @@ func Condition_Not(condition Condition) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"not",
 		[]interface{}{condition},
 		&returns,
@@ -2831,7 +3231,7 @@ func Condition_NumberEquals(variable *string, value *float64) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"numberEquals",
 		[]interface{}{variable, value},
 		&returns,
@@ -2848,7 +3248,7 @@ func Condition_NumberEqualsJsonPath(variable *string, value *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"numberEqualsJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -2865,7 +3265,7 @@ func Condition_NumberGreaterThan(variable *string, value *float64) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"numberGreaterThan",
 		[]interface{}{variable, value},
 		&returns,
@@ -2882,7 +3282,7 @@ func Condition_NumberGreaterThanEquals(variable *string, value *float64) Conditi
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"numberGreaterThanEquals",
 		[]interface{}{variable, value},
 		&returns,
@@ -2899,7 +3299,7 @@ func Condition_NumberGreaterThanEqualsJsonPath(variable *string, value *string) 
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"numberGreaterThanEqualsJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -2916,7 +3316,7 @@ func Condition_NumberGreaterThanJsonPath(variable *string, value *string) Condit
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"numberGreaterThanJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -2933,7 +3333,7 @@ func Condition_NumberLessThan(variable *string, value *float64) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"numberLessThan",
 		[]interface{}{variable, value},
 		&returns,
@@ -2950,7 +3350,7 @@ func Condition_NumberLessThanEquals(variable *string, value *float64) Condition 
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"numberLessThanEquals",
 		[]interface{}{variable, value},
 		&returns,
@@ -2967,7 +3367,7 @@ func Condition_NumberLessThanEqualsJsonPath(variable *string, value *string) Con
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"numberLessThanEqualsJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -2984,7 +3384,7 @@ func Condition_NumberLessThanJsonPath(variable *string, value *string) Condition
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"numberLessThanJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -3006,7 +3406,7 @@ func Condition_Or(conditions ...Condition) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"or",
 		args,
 		&returns,
@@ -3023,7 +3423,7 @@ func Condition_StringEquals(variable *string, value *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"stringEquals",
 		[]interface{}{variable, value},
 		&returns,
@@ -3040,7 +3440,7 @@ func Condition_StringEqualsJsonPath(variable *string, value *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"stringEqualsJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -3057,7 +3457,7 @@ func Condition_StringGreaterThan(variable *string, value *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"stringGreaterThan",
 		[]interface{}{variable, value},
 		&returns,
@@ -3074,7 +3474,7 @@ func Condition_StringGreaterThanEquals(variable *string, value *string) Conditio
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"stringGreaterThanEquals",
 		[]interface{}{variable, value},
 		&returns,
@@ -3091,7 +3491,7 @@ func Condition_StringGreaterThanEqualsJsonPath(variable *string, value *string) 
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"stringGreaterThanEqualsJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -3108,7 +3508,7 @@ func Condition_StringGreaterThanJsonPath(variable *string, value *string) Condit
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"stringGreaterThanJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -3125,7 +3525,7 @@ func Condition_StringLessThan(variable *string, value *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"stringLessThan",
 		[]interface{}{variable, value},
 		&returns,
@@ -3142,7 +3542,7 @@ func Condition_StringLessThanEquals(variable *string, value *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"stringLessThanEquals",
 		[]interface{}{variable, value},
 		&returns,
@@ -3159,7 +3559,7 @@ func Condition_StringLessThanEqualsJsonPath(variable *string, value *string) Con
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"stringLessThanEqualsJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -3176,7 +3576,7 @@ func Condition_StringLessThanJsonPath(variable *string, value *string) Condition
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"stringLessThanJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -3193,7 +3593,7 @@ func Condition_StringMatches(variable *string, value *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"stringMatches",
 		[]interface{}{variable, value},
 		&returns,
@@ -3210,7 +3610,7 @@ func Condition_TimestampEquals(variable *string, value *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"timestampEquals",
 		[]interface{}{variable, value},
 		&returns,
@@ -3227,7 +3627,7 @@ func Condition_TimestampEqualsJsonPath(variable *string, value *string) Conditio
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"timestampEqualsJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -3244,7 +3644,7 @@ func Condition_TimestampGreaterThan(variable *string, value *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"timestampGreaterThan",
 		[]interface{}{variable, value},
 		&returns,
@@ -3261,7 +3661,7 @@ func Condition_TimestampGreaterThanEquals(variable *string, value *string) Condi
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"timestampGreaterThanEquals",
 		[]interface{}{variable, value},
 		&returns,
@@ -3278,7 +3678,7 @@ func Condition_TimestampGreaterThanEqualsJsonPath(variable *string, value *strin
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"timestampGreaterThanEqualsJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -3295,7 +3695,7 @@ func Condition_TimestampGreaterThanJsonPath(variable *string, value *string) Con
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"timestampGreaterThanJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -3312,7 +3712,7 @@ func Condition_TimestampLessThan(variable *string, value *string) Condition {
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"timestampLessThan",
 		[]interface{}{variable, value},
 		&returns,
@@ -3329,7 +3729,7 @@ func Condition_TimestampLessThanEquals(variable *string, value *string) Conditio
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"timestampLessThanEquals",
 		[]interface{}{variable, value},
 		&returns,
@@ -3346,7 +3746,7 @@ func Condition_TimestampLessThanEqualsJsonPath(variable *string, value *string) 
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"timestampLessThanEqualsJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -3363,7 +3763,7 @@ func Condition_TimestampLessThanJsonPath(variable *string, value *string) Condit
 	var returns Condition
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Condition",
+		"monocdk.aws_stepfunctions.Condition",
 		"timestampLessThanJsonPath",
 		[]interface{}{variable, value},
 		&returns,
@@ -3387,6 +3787,74 @@ func (c *jsiiProxy_Condition) RenderCondition() interface{} {
 	return returns
 }
 
+// Extract a field from the State Machine Context data.
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#wait-token-contextobject
+//
+// Deprecated: replaced by `JsonPath`
+type Context interface {
+}
+
+// The jsii proxy struct for Context
+type jsiiProxy_Context struct {
+	_ byte // padding
+}
+
+// Instead of using a literal number, get the value from a JSON path.
+// Deprecated: replaced by `JsonPath`
+func Context_NumberAt(path *string) *float64 {
+	_init_.Initialize()
+
+	var returns *float64
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_stepfunctions.Context",
+		"numberAt",
+		[]interface{}{path},
+		&returns,
+	)
+
+	return returns
+}
+
+// Instead of using a literal string, get the value from a JSON path.
+// Deprecated: replaced by `JsonPath`
+func Context_StringAt(path *string) *string {
+	_init_.Initialize()
+
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_stepfunctions.Context",
+		"stringAt",
+		[]interface{}{path},
+		&returns,
+	)
+
+	return returns
+}
+
+func Context_EntireContext() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"monocdk.aws_stepfunctions.Context",
+		"entireContext",
+		&returns,
+	)
+	return returns
+}
+
+func Context_TaskToken() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"monocdk.aws_stepfunctions.Context",
+		"taskToken",
+		&returns,
+	)
+	return returns
+}
+
 // State defined by supplying Amazon States Language (ASL) in the state machine.
 // Experimental.
 type CustomState interface {
@@ -3402,7 +3870,7 @@ type CustomState interface {
 	InputPath() *string
 	Iteration() StateGraph
 	SetIteration(val StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
@@ -3417,6 +3885,10 @@ type CustomState interface {
 	MakeDefault(def State)
 	MakeNext(next State)
 	Next(next IChainable) Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
@@ -3424,9 +3896,10 @@ type CustomState interface {
 	RenderNextEnd() interface{}
 	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph StateGraph)
 }
 
@@ -3507,8 +3980,8 @@ func (j *jsiiProxy_CustomState) Iteration() StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_CustomState) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CustomState) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3585,7 +4058,7 @@ func NewCustomState(scope constructs.Construct, id *string, props *CustomStatePr
 	j := jsiiProxy_CustomState{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.CustomState",
+		"monocdk.aws_stepfunctions.CustomState",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3598,7 +4071,7 @@ func NewCustomState_Override(c CustomState, scope constructs.Construct, id *stri
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.CustomState",
+		"monocdk.aws_stepfunctions.CustomState",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3628,7 +4101,7 @@ func CustomState_FilterNextables(states *[]State) *[]INextable {
 	var returns *[]INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.CustomState",
+		"monocdk.aws_stepfunctions.CustomState",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -3645,7 +4118,7 @@ func CustomState_FindReachableEndStates(start State, options *FindStateOptions) 
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.CustomState",
+		"monocdk.aws_stepfunctions.CustomState",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -3664,7 +4137,7 @@ func CustomState_FindReachableStates(start State, options *FindStateOptions) *[]
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.CustomState",
+		"monocdk.aws_stepfunctions.CustomState",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -3673,17 +4146,15 @@ func CustomState_FindReachableStates(start State, options *FindStateOptions) *[]
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CustomState_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.CustomState",
+		"monocdk.aws_stepfunctions.CustomState",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3698,7 +4169,7 @@ func CustomState_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions.CustomState",
+		"monocdk.aws_stepfunctions.CustomState",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -3790,6 +4261,73 @@ func (c *jsiiProxy_CustomState) Next(next IChainable) Chain {
 	)
 
 	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CustomState) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CustomState) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CustomState) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CustomState) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
 }
 
 // Render parallel branches in ASL JSON format.
@@ -3897,6 +4435,19 @@ func (c *jsiiProxy_CustomState) RenderRetryCatch() interface{} {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CustomState) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns the Amazon States Language object for this state.
 // Experimental.
 func (c *jsiiProxy_CustomState) ToStateJson() *map[string]interface{} {
@@ -3927,14 +4478,19 @@ func (c *jsiiProxy_CustomState) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (c *jsiiProxy_CustomState) ValidateState() *[]*string {
+func (c *jsiiProxy_CustomState) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		c,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3964,6 +4520,95 @@ type CustomStateProps struct {
 	StateJson *map[string]interface{} `json:"stateJson"`
 }
 
+// Extract a field from the State Machine data that gets passed around between states.
+// Deprecated: replaced by `JsonPath`
+type Data interface {
+}
+
+// The jsii proxy struct for Data
+type jsiiProxy_Data struct {
+	_ byte // padding
+}
+
+// Determines if the indicated string is an encoded JSON path.
+// Deprecated: replaced by `JsonPath`
+func Data_IsJsonPathString(value *string) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_stepfunctions.Data",
+		"isJsonPathString",
+		[]interface{}{value},
+		&returns,
+	)
+
+	return returns
+}
+
+// Instead of using a literal string list, get the value from a JSON path.
+// Deprecated: replaced by `JsonPath`
+func Data_ListAt(path *string) *[]*string {
+	_init_.Initialize()
+
+	var returns *[]*string
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_stepfunctions.Data",
+		"listAt",
+		[]interface{}{path},
+		&returns,
+	)
+
+	return returns
+}
+
+// Instead of using a literal number, get the value from a JSON path.
+// Deprecated: replaced by `JsonPath`
+func Data_NumberAt(path *string) *float64 {
+	_init_.Initialize()
+
+	var returns *float64
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_stepfunctions.Data",
+		"numberAt",
+		[]interface{}{path},
+		&returns,
+	)
+
+	return returns
+}
+
+// Instead of using a literal string, get the value from a JSON path.
+// Deprecated: replaced by `JsonPath`
+func Data_StringAt(path *string) *string {
+	_init_.Initialize()
+
+	var returns *string
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_stepfunctions.Data",
+		"stringAt",
+		[]interface{}{path},
+		&returns,
+	)
+
+	return returns
+}
+
+func Data_EntirePayload() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"monocdk.aws_stepfunctions.Data",
+		"entirePayload",
+		&returns,
+	)
+	return returns
+}
+
 // Predefined error strings Error names in Amazon States Language - https://states-language.net/spec.html#appendix-a Error handling in Step Functions - https://docs.aws.amazon.com/step-functions/latest/dg/concepts-error-handling.html.
 // Experimental.
 type Errors interface {
@@ -3981,7 +4626,7 @@ func NewErrors() Errors {
 	j := jsiiProxy_Errors{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.Errors",
+		"monocdk.aws_stepfunctions.Errors",
 		nil, // no parameters
 		&j,
 	)
@@ -3994,7 +4639,7 @@ func NewErrors_Override(e Errors) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.Errors",
+		"monocdk.aws_stepfunctions.Errors",
 		nil, // no parameters
 		e,
 	)
@@ -4004,7 +4649,7 @@ func Errors_ALL() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions.Errors",
+		"monocdk.aws_stepfunctions.Errors",
 		"ALL",
 		&returns,
 	)
@@ -4015,7 +4660,7 @@ func Errors_BRANCH_FAILED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions.Errors",
+		"monocdk.aws_stepfunctions.Errors",
 		"BRANCH_FAILED",
 		&returns,
 	)
@@ -4026,7 +4671,7 @@ func Errors_HEARTBEAT_TIMEOUT() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions.Errors",
+		"monocdk.aws_stepfunctions.Errors",
 		"HEARTBEAT_TIMEOUT",
 		&returns,
 	)
@@ -4037,7 +4682,7 @@ func Errors_NO_CHOICE_MATCHED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions.Errors",
+		"monocdk.aws_stepfunctions.Errors",
 		"NO_CHOICE_MATCHED",
 		&returns,
 	)
@@ -4048,7 +4693,7 @@ func Errors_PARAMETER_PATH_FAILURE() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions.Errors",
+		"monocdk.aws_stepfunctions.Errors",
 		"PARAMETER_PATH_FAILURE",
 		&returns,
 	)
@@ -4059,7 +4704,7 @@ func Errors_PERMISSIONS() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions.Errors",
+		"monocdk.aws_stepfunctions.Errors",
 		"PERMISSIONS",
 		&returns,
 	)
@@ -4070,7 +4715,7 @@ func Errors_RESULT_PATH_MATCH_FAILURE() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions.Errors",
+		"monocdk.aws_stepfunctions.Errors",
 		"RESULT_PATH_MATCH_FAILURE",
 		&returns,
 	)
@@ -4081,7 +4726,7 @@ func Errors_TASKS_FAILED() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions.Errors",
+		"monocdk.aws_stepfunctions.Errors",
 		"TASKS_FAILED",
 		&returns,
 	)
@@ -4092,7 +4737,7 @@ func Errors_TIMEOUT() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions.Errors",
+		"monocdk.aws_stepfunctions.Errors",
 		"TIMEOUT",
 		&returns,
 	)
@@ -4114,7 +4759,7 @@ type Fail interface {
 	InputPath() *string
 	Iteration() StateGraph
 	SetIteration(val StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
@@ -4128,6 +4773,10 @@ type Fail interface {
 	BindToGraph(graph StateGraph)
 	MakeDefault(def State)
 	MakeNext(next State)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
@@ -4135,9 +4784,10 @@ type Fail interface {
 	RenderNextEnd() interface{}
 	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph StateGraph)
 }
 
@@ -4216,8 +4866,8 @@ func (j *jsiiProxy_Fail) Iteration() StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_Fail) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Fail) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -4294,7 +4944,7 @@ func NewFail(scope constructs.Construct, id *string, props *FailProps) Fail {
 	j := jsiiProxy_Fail{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.Fail",
+		"monocdk.aws_stepfunctions.Fail",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4307,7 +4957,7 @@ func NewFail_Override(f Fail, scope constructs.Construct, id *string, props *Fai
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.Fail",
+		"monocdk.aws_stepfunctions.Fail",
 		[]interface{}{scope, id, props},
 		f,
 	)
@@ -4337,7 +4987,7 @@ func Fail_FilterNextables(states *[]State) *[]INextable {
 	var returns *[]INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Fail",
+		"monocdk.aws_stepfunctions.Fail",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -4354,7 +5004,7 @@ func Fail_FindReachableEndStates(start State, options *FindStateOptions) *[]Stat
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Fail",
+		"monocdk.aws_stepfunctions.Fail",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -4373,7 +5023,7 @@ func Fail_FindReachableStates(start State, options *FindStateOptions) *[]State {
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Fail",
+		"monocdk.aws_stepfunctions.Fail",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -4382,17 +5032,15 @@ func Fail_FindReachableStates(start State, options *FindStateOptions) *[]State {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func Fail_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Fail",
+		"monocdk.aws_stepfunctions.Fail",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4407,7 +5055,7 @@ func Fail_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions.Fail",
+		"monocdk.aws_stepfunctions.Fail",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -4483,6 +5131,73 @@ func (f *jsiiProxy_Fail) MakeNext(next State) {
 		f,
 		"makeNext",
 		[]interface{}{next},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (f *jsiiProxy_Fail) OnPrepare() {
+	_jsii_.InvokeVoid(
+		f,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (f *jsiiProxy_Fail) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		f,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (f *jsiiProxy_Fail) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		f,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (f *jsiiProxy_Fail) Prepare() {
+	_jsii_.InvokeVoid(
+		f,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -4591,6 +5306,19 @@ func (f *jsiiProxy_Fail) RenderRetryCatch() interface{} {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (f *jsiiProxy_Fail) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		f,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Return the Amazon States Language object for this state.
 // Experimental.
 func (f *jsiiProxy_Fail) ToStateJson() *map[string]interface{} {
@@ -4621,14 +5349,19 @@ func (f *jsiiProxy_Fail) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (f *jsiiProxy_Fail) ValidateState() *[]*string {
+func (f *jsiiProxy_Fail) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		f,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4683,7 +5416,7 @@ func FieldUtils_ContainsTaskToken(obj *map[string]interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.FieldUtils",
+		"monocdk.aws_stepfunctions.FieldUtils",
 		"containsTaskToken",
 		[]interface{}{obj},
 		&returns,
@@ -4700,7 +5433,7 @@ func FieldUtils_FindReferencedPaths(obj *map[string]interface{}) *[]*string {
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.FieldUtils",
+		"monocdk.aws_stepfunctions.FieldUtils",
 		"findReferencedPaths",
 		[]interface{}{obj},
 		&returns,
@@ -4717,7 +5450,7 @@ func FieldUtils_RenderObject(obj *map[string]interface{}) *map[string]interface{
 	var returns *map[string]interface{}
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.FieldUtils",
+		"monocdk.aws_stepfunctions.FieldUtils",
 		"renderObject",
 		[]interface{}{obj},
 		&returns,
@@ -5112,8 +5845,8 @@ func (j *jsiiProxy_IStateMachine) GrantPrincipal() awsiam.IPrincipal {
 	return returns
 }
 
-func (j *jsiiProxy_IStateMachine) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_IStateMachine) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5129,6 +5862,32 @@ func (j *jsiiProxy_IStateMachine) Stack() awscdk.Stack {
 		"stack",
 		&returns,
 	)
+	return returns
+}
+
+// Interface for resources that can be used as tasks.
+// Deprecated: replaced by `TaskStateBase`.
+type IStepFunctionsTask interface {
+	// Called when the task object is used in a workflow.
+	// Deprecated: replaced by `TaskStateBase`.
+	Bind(task Task) *StepFunctionsTaskConfig
+}
+
+// The jsii proxy for IStepFunctionsTask
+type jsiiProxy_IStepFunctionsTask struct {
+	_ byte // padding
+}
+
+func (i *jsiiProxy_IStepFunctionsTask) Bind(task Task) *StepFunctionsTaskConfig {
+	var returns *StepFunctionsTaskConfig
+
+	_jsii_.Invoke(
+		i,
+		"bind",
+		[]interface{}{task},
+		&returns,
+	)
+
 	return returns
 }
 
@@ -5175,7 +5934,7 @@ func JsonPath_IsEncodedJsonPath(value *string) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"monocdk.aws_stepfunctions.JsonPath",
 		"isEncodedJsonPath",
 		[]interface{}{value},
 		&returns,
@@ -5192,7 +5951,7 @@ func JsonPath_ListAt(path *string) *[]*string {
 	var returns *[]*string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"monocdk.aws_stepfunctions.JsonPath",
 		"listAt",
 		[]interface{}{path},
 		&returns,
@@ -5209,7 +5968,7 @@ func JsonPath_NumberAt(path *string) *float64 {
 	var returns *float64
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"monocdk.aws_stepfunctions.JsonPath",
 		"numberAt",
 		[]interface{}{path},
 		&returns,
@@ -5226,7 +5985,7 @@ func JsonPath_StringAt(path *string) *string {
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"monocdk.aws_stepfunctions.JsonPath",
 		"stringAt",
 		[]interface{}{path},
 		&returns,
@@ -5239,7 +5998,7 @@ func JsonPath_DISCARD() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"monocdk.aws_stepfunctions.JsonPath",
 		"DISCARD",
 		&returns,
 	)
@@ -5250,7 +6009,7 @@ func JsonPath_EntireContext() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"monocdk.aws_stepfunctions.JsonPath",
 		"entireContext",
 		&returns,
 	)
@@ -5261,7 +6020,7 @@ func JsonPath_EntirePayload() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"monocdk.aws_stepfunctions.JsonPath",
 		"entirePayload",
 		&returns,
 	)
@@ -5272,7 +6031,7 @@ func JsonPath_TaskToken() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_stepfunctions.JsonPath",
+		"monocdk.aws_stepfunctions.JsonPath",
 		"taskToken",
 		&returns,
 	)
@@ -5328,7 +6087,7 @@ type Map interface {
 	InputPath() *string
 	Iteration() StateGraph
 	SetIteration(val StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
@@ -5346,6 +6105,10 @@ type Map interface {
 	MakeDefault(def State)
 	MakeNext(next State)
 	Next(next IChainable) Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
@@ -5353,9 +6116,10 @@ type Map interface {
 	RenderNextEnd() interface{}
 	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph StateGraph)
 }
 
@@ -5435,8 +6199,8 @@ func (j *jsiiProxy_Map) Iteration() StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_Map) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Map) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5513,7 +6277,7 @@ func NewMap(scope constructs.Construct, id *string, props *MapProps) Map {
 	j := jsiiProxy_Map{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.Map",
+		"monocdk.aws_stepfunctions.Map",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5526,7 +6290,7 @@ func NewMap_Override(m Map, scope constructs.Construct, id *string, props *MapPr
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.Map",
+		"monocdk.aws_stepfunctions.Map",
 		[]interface{}{scope, id, props},
 		m,
 	)
@@ -5556,7 +6320,7 @@ func Map_FilterNextables(states *[]State) *[]INextable {
 	var returns *[]INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Map",
+		"monocdk.aws_stepfunctions.Map",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -5573,7 +6337,7 @@ func Map_FindReachableEndStates(start State, options *FindStateOptions) *[]State
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Map",
+		"monocdk.aws_stepfunctions.Map",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -5592,7 +6356,7 @@ func Map_FindReachableStates(start State, options *FindStateOptions) *[]State {
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Map",
+		"monocdk.aws_stepfunctions.Map",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -5601,17 +6365,15 @@ func Map_FindReachableStates(start State, options *FindStateOptions) *[]State {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func Map_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Map",
+		"monocdk.aws_stepfunctions.Map",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5626,7 +6388,7 @@ func Map_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions.Map",
+		"monocdk.aws_stepfunctions.Map",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -5771,6 +6533,73 @@ func (m *jsiiProxy_Map) Next(next IChainable) Chain {
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (m *jsiiProxy_Map) OnPrepare() {
+	_jsii_.InvokeVoid(
+		m,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (m *jsiiProxy_Map) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		m,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (m *jsiiProxy_Map) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		m,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (m *jsiiProxy_Map) Prepare() {
+	_jsii_.InvokeVoid(
+		m,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (m *jsiiProxy_Map) RenderBranches() interface{} {
@@ -5876,6 +6705,19 @@ func (m *jsiiProxy_Map) RenderRetryCatch() interface{} {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (m *jsiiProxy_Map) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		m,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Return the Amazon States Language object for this state.
 // Experimental.
 func (m *jsiiProxy_Map) ToStateJson() *map[string]interface{} {
@@ -5908,12 +6750,12 @@ func (m *jsiiProxy_Map) ToString() *string {
 
 // Validate this state.
 // Experimental.
-func (m *jsiiProxy_Map) ValidateState() *[]*string {
+func (m *jsiiProxy_Map) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		m,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5997,7 +6839,7 @@ type Parallel interface {
 	InputPath() *string
 	Iteration() StateGraph
 	SetIteration(val StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
@@ -6015,6 +6857,10 @@ type Parallel interface {
 	MakeDefault(def State)
 	MakeNext(next State)
 	Next(next IChainable) Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
@@ -6022,9 +6868,10 @@ type Parallel interface {
 	RenderNextEnd() interface{}
 	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph StateGraph)
 }
 
@@ -6104,8 +6951,8 @@ func (j *jsiiProxy_Parallel) Iteration() StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_Parallel) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Parallel) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -6182,7 +7029,7 @@ func NewParallel(scope constructs.Construct, id *string, props *ParallelProps) P
 	j := jsiiProxy_Parallel{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.Parallel",
+		"monocdk.aws_stepfunctions.Parallel",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6195,7 +7042,7 @@ func NewParallel_Override(p Parallel, scope constructs.Construct, id *string, pr
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.Parallel",
+		"monocdk.aws_stepfunctions.Parallel",
 		[]interface{}{scope, id, props},
 		p,
 	)
@@ -6225,7 +7072,7 @@ func Parallel_FilterNextables(states *[]State) *[]INextable {
 	var returns *[]INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Parallel",
+		"monocdk.aws_stepfunctions.Parallel",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -6242,7 +7089,7 @@ func Parallel_FindReachableEndStates(start State, options *FindStateOptions) *[]
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Parallel",
+		"monocdk.aws_stepfunctions.Parallel",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -6261,7 +7108,7 @@ func Parallel_FindReachableStates(start State, options *FindStateOptions) *[]Sta
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Parallel",
+		"monocdk.aws_stepfunctions.Parallel",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -6270,17 +7117,15 @@ func Parallel_FindReachableStates(start State, options *FindStateOptions) *[]Sta
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func Parallel_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Parallel",
+		"monocdk.aws_stepfunctions.Parallel",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6295,7 +7140,7 @@ func Parallel_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions.Parallel",
+		"monocdk.aws_stepfunctions.Parallel",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -6445,6 +7290,73 @@ func (p *jsiiProxy_Parallel) Next(next IChainable) Chain {
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (p *jsiiProxy_Parallel) OnPrepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (p *jsiiProxy_Parallel) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (p *jsiiProxy_Parallel) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (p *jsiiProxy_Parallel) Prepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (p *jsiiProxy_Parallel) RenderBranches() interface{} {
@@ -6550,6 +7462,19 @@ func (p *jsiiProxy_Parallel) RenderRetryCatch() interface{} {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (p *jsiiProxy_Parallel) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Return the Amazon States Language object for this state.
 // Experimental.
 func (p *jsiiProxy_Parallel) ToStateJson() *map[string]interface{} {
@@ -6582,12 +7507,12 @@ func (p *jsiiProxy_Parallel) ToString() *string {
 
 // Validate this state.
 // Experimental.
-func (p *jsiiProxy_Parallel) ValidateState() *[]*string {
+func (p *jsiiProxy_Parallel) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		p,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -6657,7 +7582,7 @@ type Pass interface {
 	InputPath() *string
 	Iteration() StateGraph
 	SetIteration(val StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
@@ -6672,6 +7597,10 @@ type Pass interface {
 	MakeDefault(def State)
 	MakeNext(next State)
 	Next(next IChainable) Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
@@ -6679,9 +7608,10 @@ type Pass interface {
 	RenderNextEnd() interface{}
 	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph StateGraph)
 }
 
@@ -6761,8 +7691,8 @@ func (j *jsiiProxy_Pass) Iteration() StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_Pass) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Pass) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -6839,7 +7769,7 @@ func NewPass(scope constructs.Construct, id *string, props *PassProps) Pass {
 	j := jsiiProxy_Pass{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.Pass",
+		"monocdk.aws_stepfunctions.Pass",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6852,7 +7782,7 @@ func NewPass_Override(p Pass, scope constructs.Construct, id *string, props *Pas
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.Pass",
+		"monocdk.aws_stepfunctions.Pass",
 		[]interface{}{scope, id, props},
 		p,
 	)
@@ -6882,7 +7812,7 @@ func Pass_FilterNextables(states *[]State) *[]INextable {
 	var returns *[]INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Pass",
+		"monocdk.aws_stepfunctions.Pass",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -6899,7 +7829,7 @@ func Pass_FindReachableEndStates(start State, options *FindStateOptions) *[]Stat
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Pass",
+		"monocdk.aws_stepfunctions.Pass",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -6918,7 +7848,7 @@ func Pass_FindReachableStates(start State, options *FindStateOptions) *[]State {
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Pass",
+		"monocdk.aws_stepfunctions.Pass",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -6927,17 +7857,15 @@ func Pass_FindReachableStates(start State, options *FindStateOptions) *[]State {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func Pass_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Pass",
+		"monocdk.aws_stepfunctions.Pass",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6952,7 +7880,7 @@ func Pass_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions.Pass",
+		"monocdk.aws_stepfunctions.Pass",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -7044,6 +7972,73 @@ func (p *jsiiProxy_Pass) Next(next IChainable) Chain {
 	)
 
 	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (p *jsiiProxy_Pass) OnPrepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (p *jsiiProxy_Pass) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (p *jsiiProxy_Pass) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (p *jsiiProxy_Pass) Prepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"prepare",
+		nil, // no parameters
+	)
 }
 
 // Render parallel branches in ASL JSON format.
@@ -7151,6 +8146,19 @@ func (p *jsiiProxy_Pass) RenderRetryCatch() interface{} {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (p *jsiiProxy_Pass) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Return the Amazon States Language object for this state.
 // Experimental.
 func (p *jsiiProxy_Pass) ToStateJson() *map[string]interface{} {
@@ -7181,14 +8189,19 @@ func (p *jsiiProxy_Pass) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (p *jsiiProxy_Pass) ValidateState() *[]*string {
+func (p *jsiiProxy_Pass) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		p,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -7273,7 +8286,7 @@ func NewResult(value interface{}) Result {
 	j := jsiiProxy_Result{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.Result",
+		"monocdk.aws_stepfunctions.Result",
 		[]interface{}{value},
 		&j,
 	)
@@ -7286,7 +8299,7 @@ func NewResult_Override(r Result, value interface{}) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.Result",
+		"monocdk.aws_stepfunctions.Result",
 		[]interface{}{value},
 		r,
 	)
@@ -7300,7 +8313,7 @@ func Result_FromArray(value *[]interface{}) Result {
 	var returns Result
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Result",
+		"monocdk.aws_stepfunctions.Result",
 		"fromArray",
 		[]interface{}{value},
 		&returns,
@@ -7317,7 +8330,7 @@ func Result_FromBoolean(value *bool) Result {
 	var returns Result
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Result",
+		"monocdk.aws_stepfunctions.Result",
 		"fromBoolean",
 		[]interface{}{value},
 		&returns,
@@ -7334,7 +8347,7 @@ func Result_FromNumber(value *float64) Result {
 	var returns Result
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Result",
+		"monocdk.aws_stepfunctions.Result",
 		"fromNumber",
 		[]interface{}{value},
 		&returns,
@@ -7351,7 +8364,7 @@ func Result_FromObject(value *map[string]interface{}) Result {
 	var returns Result
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Result",
+		"monocdk.aws_stepfunctions.Result",
 		"fromObject",
 		[]interface{}{value},
 		&returns,
@@ -7368,7 +8381,7 @@ func Result_FromString(value *string) Result {
 	var returns Result
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Result",
+		"monocdk.aws_stepfunctions.Result",
 		"fromString",
 		[]interface{}{value},
 		&returns,
@@ -7457,7 +8470,7 @@ type SingleStateOptions struct {
 // Base class for all other state classes.
 // Experimental.
 type State interface {
-	constructs.Construct
+	awscdk.Construct
 	IChainable
 	Branches() *[]StateGraph
 	Comment() *string
@@ -7468,7 +8481,7 @@ type State interface {
 	InputPath() *string
 	Iteration() StateGraph
 	SetIteration(val StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
@@ -7482,6 +8495,10 @@ type State interface {
 	BindToGraph(graph StateGraph)
 	MakeDefault(def State)
 	MakeNext(next State)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
@@ -7489,15 +8506,16 @@ type State interface {
 	RenderNextEnd() interface{}
 	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph StateGraph)
 }
 
 // The jsii proxy struct for State
 type jsiiProxy_State struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 	jsiiProxy_IChainable
 }
 
@@ -7571,8 +8589,8 @@ func (j *jsiiProxy_State) Iteration() StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_State) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_State) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -7647,7 +8665,7 @@ func NewState_Override(s State, scope constructs.Construct, id *string, props *S
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.State",
+		"monocdk.aws_stepfunctions.State",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -7677,7 +8695,7 @@ func State_FilterNextables(states *[]State) *[]INextable {
 	var returns *[]INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.State",
+		"monocdk.aws_stepfunctions.State",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -7694,7 +8712,7 @@ func State_FindReachableEndStates(start State, options *FindStateOptions) *[]Sta
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.State",
+		"monocdk.aws_stepfunctions.State",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -7713,7 +8731,7 @@ func State_FindReachableStates(start State, options *FindStateOptions) *[]State 
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.State",
+		"monocdk.aws_stepfunctions.State",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -7722,17 +8740,15 @@ func State_FindReachableStates(start State, options *FindStateOptions) *[]State 
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func State_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.State",
+		"monocdk.aws_stepfunctions.State",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7747,7 +8763,7 @@ func State_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions.State",
+		"monocdk.aws_stepfunctions.State",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -7823,6 +8839,73 @@ func (s *jsiiProxy_State) MakeNext(next State) {
 		s,
 		"makeNext",
 		[]interface{}{next},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_State) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_State) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_State) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_State) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -7931,6 +9014,19 @@ func (s *jsiiProxy_State) RenderRetryCatch() interface{} {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_State) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Render the state as JSON.
 // Experimental.
 func (s *jsiiProxy_State) ToStateJson() *map[string]interface{} {
@@ -7961,14 +9057,19 @@ func (s *jsiiProxy_State) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (s *jsiiProxy_State) ValidateState() *[]*string {
+func (s *jsiiProxy_State) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		s,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -8064,7 +9165,7 @@ func NewStateGraph(startState State, graphDescription *string) StateGraph {
 	j := jsiiProxy_StateGraph{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.StateGraph",
+		"monocdk.aws_stepfunctions.StateGraph",
 		[]interface{}{startState, graphDescription},
 		&j,
 	)
@@ -8077,7 +9178,7 @@ func NewStateGraph_Override(s StateGraph, startState State, graphDescription *st
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.StateGraph",
+		"monocdk.aws_stepfunctions.StateGraph",
 		[]interface{}{startState, graphDescription},
 		s,
 	)
@@ -8162,7 +9263,7 @@ type StateMachine interface {
 	IStateMachine
 	Env() *awscdk.ResourceEnvironment
 	GrantPrincipal() awsiam.IPrincipal
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Role() awsiam.IRole
 	Stack() awscdk.Stack
@@ -8187,7 +9288,13 @@ type StateMachine interface {
 	MetricThrottled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for StateMachine
@@ -8216,8 +9323,8 @@ func (j *jsiiProxy_StateMachine) GrantPrincipal() awsiam.IPrincipal {
 	return returns
 }
 
-func (j *jsiiProxy_StateMachine) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_StateMachine) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -8294,7 +9401,7 @@ func NewStateMachine(scope constructs.Construct, id *string, props *StateMachine
 	j := jsiiProxy_StateMachine{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.StateMachine",
+		"monocdk.aws_stepfunctions.StateMachine",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -8307,7 +9414,7 @@ func NewStateMachine_Override(s StateMachine, scope constructs.Construct, id *st
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.StateMachine",
+		"monocdk.aws_stepfunctions.StateMachine",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -8321,7 +9428,7 @@ func StateMachine_FromStateMachineArn(scope constructs.Construct, id *string, st
 	var returns IStateMachine
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.StateMachine",
+		"monocdk.aws_stepfunctions.StateMachine",
 		"fromStateMachineArn",
 		[]interface{}{scope, id, stateMachineArn},
 		&returns,
@@ -8330,17 +9437,15 @@ func StateMachine_FromStateMachineArn(scope constructs.Construct, id *string, st
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func StateMachine_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.StateMachine",
+		"monocdk.aws_stepfunctions.StateMachine",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -8351,13 +9456,13 @@ func StateMachine_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func StateMachine_IsResource(construct constructs.IConstruct) *bool {
+func StateMachine_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.StateMachine",
+		"monocdk.aws_stepfunctions.StateMachine",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -8652,6 +9757,86 @@ func (s *jsiiProxy_StateMachine) MetricTimedOut(props *awscloudwatch.MetricOptio
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_StateMachine) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_StateMachine) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_StateMachine) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_StateMachine) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_StateMachine) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (s *jsiiProxy_StateMachine) ToString() *string {
@@ -8667,24 +9852,50 @@ func (s *jsiiProxy_StateMachine) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_StateMachine) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Base class for reusable state machine fragments.
 // Experimental.
 type StateMachineFragment interface {
-	constructs.Construct
+	awscdk.Construct
 	IChainable
 	EndStates() *[]INextable
 	Id() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	StartState() State
 	Next(next IChainable) Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	PrefixStates(prefix *string) StateMachineFragment
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToSingleState(options *SingleStateOptions) Parallel
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for StateMachineFragment
 type jsiiProxy_StateMachineFragment struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 	jsiiProxy_IChainable
 }
 
@@ -8708,8 +9919,8 @@ func (j *jsiiProxy_StateMachineFragment) Id() *string {
 	return returns
 }
 
-func (j *jsiiProxy_StateMachineFragment) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_StateMachineFragment) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -8729,29 +9940,26 @@ func (j *jsiiProxy_StateMachineFragment) StartState() State {
 }
 
 
-// Creates a new construct node.
 // Experimental.
 func NewStateMachineFragment_Override(s StateMachineFragment, scope constructs.Construct, id *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.StateMachineFragment",
+		"monocdk.aws_stepfunctions.StateMachineFragment",
 		[]interface{}{scope, id},
 		s,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func StateMachineFragment_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.StateMachineFragment",
+		"monocdk.aws_stepfunctions.StateMachineFragment",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -8775,6 +9983,56 @@ func (s *jsiiProxy_StateMachineFragment) Next(next IChainable) Chain {
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_StateMachineFragment) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_StateMachineFragment) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_StateMachineFragment) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Prefix the IDs of all states in this state machine fragment.
 //
 // Use this to avoid multiple copies of the state machine all having the
@@ -8791,6 +10049,36 @@ func (s *jsiiProxy_StateMachineFragment) PrefixStates(prefix *string) StateMachi
 	)
 
 	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_StateMachineFragment) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_StateMachineFragment) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Wrap all states in this state machine fragment up into a single state.
@@ -8824,6 +10112,26 @@ func (s *jsiiProxy_StateMachineFragment) ToString() *string {
 	_jsii_.Invoke(
 		s,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_StateMachineFragment) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -8926,7 +10234,7 @@ func NewStateTransitionMetric() StateTransitionMetric {
 	j := jsiiProxy_StateTransitionMetric{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.StateTransitionMetric",
+		"monocdk.aws_stepfunctions.StateTransitionMetric",
 		nil, // no parameters
 		&j,
 	)
@@ -8939,7 +10247,7 @@ func NewStateTransitionMetric_Override(s StateTransitionMetric) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.StateTransitionMetric",
+		"monocdk.aws_stepfunctions.StateTransitionMetric",
 		nil, // no parameters
 		s,
 	)
@@ -8953,7 +10261,7 @@ func StateTransitionMetric_Metric(metricName *string, props *awscloudwatch.Metri
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.StateTransitionMetric",
+		"monocdk.aws_stepfunctions.StateTransitionMetric",
 		"metric",
 		[]interface{}{metricName, props},
 		&returns,
@@ -8970,7 +10278,7 @@ func StateTransitionMetric_MetricConsumedCapacity(props *awscloudwatch.MetricOpt
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.StateTransitionMetric",
+		"monocdk.aws_stepfunctions.StateTransitionMetric",
 		"metricConsumedCapacity",
 		[]interface{}{props},
 		&returns,
@@ -8987,7 +10295,7 @@ func StateTransitionMetric_MetricProvisionedBucketSize(props *awscloudwatch.Metr
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.StateTransitionMetric",
+		"monocdk.aws_stepfunctions.StateTransitionMetric",
 		"metricProvisionedBucketSize",
 		[]interface{}{props},
 		&returns,
@@ -9004,7 +10312,7 @@ func StateTransitionMetric_MetricProvisionedRefillRate(props *awscloudwatch.Metr
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.StateTransitionMetric",
+		"monocdk.aws_stepfunctions.StateTransitionMetric",
 		"metricProvisionedRefillRate",
 		[]interface{}{props},
 		&returns,
@@ -9021,13 +10329,53 @@ func StateTransitionMetric_MetricThrottledEvents(props *awscloudwatch.MetricOpti
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.StateTransitionMetric",
+		"monocdk.aws_stepfunctions.StateTransitionMetric",
 		"metricThrottledEvents",
 		[]interface{}{props},
 		&returns,
 	)
 
 	return returns
+}
+
+// Properties that define what kind of task should be created.
+// Deprecated: used by `IStepFunctionsTask`. `IStepFunctionsTask` is deprecated and replaced by `TaskStateBase`.
+type StepFunctionsTaskConfig struct {
+	// The resource that represents the work to be executed.
+	//
+	// Either the ARN of a Lambda Function or Activity, or a special
+	// ARN.
+	// Deprecated: used by `IStepFunctionsTask`. `IStepFunctionsTask` is deprecated and replaced by `TaskStateBase`.
+	ResourceArn *string `json:"resourceArn"`
+	// Maximum time between heart beats.
+	//
+	// If the time between heart beats takes longer than this, a 'Timeout' error is raised.
+	//
+	// This is only relevant when using an Activity type as resource.
+	// Deprecated: used by `IStepFunctionsTask`. `IStepFunctionsTask` is deprecated and replaced by `TaskStateBase`.
+	Heartbeat awscdk.Duration `json:"heartbeat"`
+	// The dimensions to attach to metrics.
+	// Deprecated: used by `IStepFunctionsTask`. `IStepFunctionsTask` is deprecated and replaced by `TaskStateBase`.
+	MetricDimensions *map[string]interface{} `json:"metricDimensions"`
+	// Prefix for plural metric names of activity actions.
+	// Deprecated: used by `IStepFunctionsTask`. `IStepFunctionsTask` is deprecated and replaced by `TaskStateBase`.
+	MetricPrefixPlural *string `json:"metricPrefixPlural"`
+	// Prefix for singular metric names of activity actions.
+	// Deprecated: used by `IStepFunctionsTask`. `IStepFunctionsTask` is deprecated and replaced by `TaskStateBase`.
+	MetricPrefixSingular *string `json:"metricPrefixSingular"`
+	// Parameters pass a collection of key-value pairs, either static values or JSONPath expressions that select from the input.
+	//
+	// The meaning of these parameters is task-dependent.
+	//
+	// Its values will be merged with the `parameters` property which is configured directly
+	// on the Task state.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-parameters
+	//
+	// Deprecated: used by `IStepFunctionsTask`. `IStepFunctionsTask` is deprecated and replaced by `TaskStateBase`.
+	Parameters *map[string]interface{} `json:"parameters"`
+	// Additional policy statements to add to the execution role.
+	// Deprecated: used by `IStepFunctionsTask`. `IStepFunctionsTask` is deprecated and replaced by `TaskStateBase`.
+	PolicyStatements *[]awsiam.PolicyStatement `json:"policyStatements"`
 }
 
 // Define a Succeed state in the state machine.
@@ -9045,7 +10393,7 @@ type Succeed interface {
 	InputPath() *string
 	Iteration() StateGraph
 	SetIteration(val StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
@@ -9059,6 +10407,10 @@ type Succeed interface {
 	BindToGraph(graph StateGraph)
 	MakeDefault(def State)
 	MakeNext(next State)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
@@ -9066,9 +10418,10 @@ type Succeed interface {
 	RenderNextEnd() interface{}
 	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph StateGraph)
 }
 
@@ -9147,8 +10500,8 @@ func (j *jsiiProxy_Succeed) Iteration() StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_Succeed) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Succeed) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -9225,7 +10578,7 @@ func NewSucceed(scope constructs.Construct, id *string, props *SucceedProps) Suc
 	j := jsiiProxy_Succeed{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.Succeed",
+		"monocdk.aws_stepfunctions.Succeed",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -9238,7 +10591,7 @@ func NewSucceed_Override(s Succeed, scope constructs.Construct, id *string, prop
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.Succeed",
+		"monocdk.aws_stepfunctions.Succeed",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -9268,7 +10621,7 @@ func Succeed_FilterNextables(states *[]State) *[]INextable {
 	var returns *[]INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Succeed",
+		"monocdk.aws_stepfunctions.Succeed",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -9285,7 +10638,7 @@ func Succeed_FindReachableEndStates(start State, options *FindStateOptions) *[]S
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Succeed",
+		"monocdk.aws_stepfunctions.Succeed",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -9304,7 +10657,7 @@ func Succeed_FindReachableStates(start State, options *FindStateOptions) *[]Stat
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Succeed",
+		"monocdk.aws_stepfunctions.Succeed",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -9313,17 +10666,15 @@ func Succeed_FindReachableStates(start State, options *FindStateOptions) *[]Stat
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func Succeed_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Succeed",
+		"monocdk.aws_stepfunctions.Succeed",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -9338,7 +10689,7 @@ func Succeed_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions.Succeed",
+		"monocdk.aws_stepfunctions.Succeed",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -9414,6 +10765,73 @@ func (s *jsiiProxy_Succeed) MakeNext(next State) {
 		s,
 		"makeNext",
 		[]interface{}{next},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_Succeed) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_Succeed) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_Succeed) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_Succeed) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -9522,6 +10940,19 @@ func (s *jsiiProxy_Succeed) RenderRetryCatch() interface{} {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_Succeed) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Return the Amazon States Language object for this state.
 // Experimental.
 func (s *jsiiProxy_Succeed) ToStateJson() *map[string]interface{} {
@@ -9552,14 +10983,19 @@ func (s *jsiiProxy_Succeed) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (s *jsiiProxy_Succeed) ValidateState() *[]*string {
+func (s *jsiiProxy_Succeed) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		s,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -9599,6 +11035,864 @@ type SucceedProps struct {
 	OutputPath *string `json:"outputPath"`
 }
 
+// Define a Task state in the state machine.
+//
+// Reaching a Task state causes some work to be executed, represented by the
+// Task's resource property. Task constructs represent a generic Amazon
+// States Language Task.
+//
+// For some resource types, more specific subclasses of Task may be available
+// which are more convenient to use.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+type Task interface {
+	State
+	INextable
+	Branches() *[]StateGraph
+	Comment() *string
+	DefaultChoice() State
+	SetDefaultChoice(val State)
+	EndStates() *[]INextable
+	Id() *string
+	InputPath() *string
+	Iteration() StateGraph
+	SetIteration(val StateGraph)
+	Node() awscdk.ConstructNode
+	OutputPath() *string
+	Parameters() *map[string]interface{}
+	ResultPath() *string
+	ResultSelector() *map[string]interface{}
+	StartState() State
+	StateId() *string
+	AddBranch(branch StateGraph)
+	AddCatch(handler IChainable, props *CatchProps) Task
+	AddChoice(condition Condition, next State)
+	AddIterator(iteration StateGraph)
+	AddPrefix(x *string)
+	AddRetry(props *RetryProps) Task
+	BindToGraph(graph StateGraph)
+	MakeDefault(def State)
+	MakeNext(next State)
+	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	Next(next IChainable) Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	RenderBranches() interface{}
+	RenderChoices() interface{}
+	RenderInputOutput() interface{}
+	RenderIterator() interface{}
+	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
+	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
+	ToStateJson() *map[string]interface{}
+	ToString() *string
+	Validate() *[]*string
+	WhenBoundToGraph(graph StateGraph)
+}
+
+// The jsii proxy struct for Task
+type jsiiProxy_Task struct {
+	jsiiProxy_State
+	jsiiProxy_INextable
+}
+
+func (j *jsiiProxy_Task) Branches() *[]StateGraph {
+	var returns *[]StateGraph
+	_jsii_.Get(
+		j,
+		"branches",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Task) Comment() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"comment",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Task) DefaultChoice() State {
+	var returns State
+	_jsii_.Get(
+		j,
+		"defaultChoice",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Task) EndStates() *[]INextable {
+	var returns *[]INextable
+	_jsii_.Get(
+		j,
+		"endStates",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Task) Id() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"id",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Task) InputPath() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"inputPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Task) Iteration() StateGraph {
+	var returns StateGraph
+	_jsii_.Get(
+		j,
+		"iteration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Task) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Task) OutputPath() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"outputPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Task) Parameters() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"parameters",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Task) ResultPath() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Task) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Task) StartState() State {
+	var returns State
+	_jsii_.Get(
+		j,
+		"startState",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Task) StateId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"stateId",
+		&returns,
+	)
+	return returns
+}
+
+
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func NewTask(scope constructs.Construct, id *string, props *TaskProps) Task {
+	_init_.Initialize()
+
+	j := jsiiProxy_Task{}
+
+	_jsii_.Create(
+		"monocdk.aws_stepfunctions.Task",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func NewTask_Override(t Task, scope constructs.Construct, id *string, props *TaskProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_stepfunctions.Task",
+		[]interface{}{scope, id, props},
+		t,
+	)
+}
+
+func (j *jsiiProxy_Task) SetDefaultChoice(val State) {
+	_jsii_.Set(
+		j,
+		"defaultChoice",
+		val,
+	)
+}
+
+func (j *jsiiProxy_Task) SetIteration(val StateGraph) {
+	_jsii_.Set(
+		j,
+		"iteration",
+		val,
+	)
+}
+
+// Return only the states that allow chaining from an array of states.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func Task_FilterNextables(states *[]State) *[]INextable {
+	_init_.Initialize()
+
+	var returns *[]INextable
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_stepfunctions.Task",
+		"filterNextables",
+		[]interface{}{states},
+		&returns,
+	)
+
+	return returns
+}
+
+// Find the set of end states states reachable through transitions from the given start state.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func Task_FindReachableEndStates(start State, options *FindStateOptions) *[]State {
+	_init_.Initialize()
+
+	var returns *[]State
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_stepfunctions.Task",
+		"findReachableEndStates",
+		[]interface{}{start, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Find the set of states reachable through transitions from the given start state.
+//
+// This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func Task_FindReachableStates(start State, options *FindStateOptions) *[]State {
+	_init_.Initialize()
+
+	var returns *[]State
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_stepfunctions.Task",
+		"findReachableStates",
+		[]interface{}{start, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Construct.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func Task_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_stepfunctions.Task",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Add a prefix to the stateId of all States found in a construct tree.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func Task_PrefixStates(root constructs.IConstruct, prefix *string) {
+	_init_.Initialize()
+
+	_jsii_.StaticInvokeVoid(
+		"monocdk.aws_stepfunctions.Task",
+		"prefixStates",
+		[]interface{}{root, prefix},
+	)
+}
+
+// Add a paralle branch to this state.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) AddBranch(branch StateGraph) {
+	_jsii_.InvokeVoid(
+		t,
+		"addBranch",
+		[]interface{}{branch},
+	)
+}
+
+// Add a recovery handler for this state.
+//
+// When a particular error occurs, execution will continue at the error
+// handler instead of failing the state machine execution.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) AddCatch(handler IChainable, props *CatchProps) Task {
+	var returns Task
+
+	_jsii_.Invoke(
+		t,
+		"addCatch",
+		[]interface{}{handler, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Add a choice branch to this state.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) AddChoice(condition Condition, next State) {
+	_jsii_.InvokeVoid(
+		t,
+		"addChoice",
+		[]interface{}{condition, next},
+	)
+}
+
+// Add a map iterator to this state.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) AddIterator(iteration StateGraph) {
+	_jsii_.InvokeVoid(
+		t,
+		"addIterator",
+		[]interface{}{iteration},
+	)
+}
+
+// Add a prefix to the stateId of this state.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) AddPrefix(x *string) {
+	_jsii_.InvokeVoid(
+		t,
+		"addPrefix",
+		[]interface{}{x},
+	)
+}
+
+// Add retry configuration for this state.
+//
+// This controls if and how the execution will be retried if a particular
+// error occurs.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) AddRetry(props *RetryProps) Task {
+	var returns Task
+
+	_jsii_.Invoke(
+		t,
+		"addRetry",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Register this state as part of the given graph.
+//
+// Don't call this. It will be called automatically when you work
+// with states normally.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) BindToGraph(graph StateGraph) {
+	_jsii_.InvokeVoid(
+		t,
+		"bindToGraph",
+		[]interface{}{graph},
+	)
+}
+
+// Make the indicated state the default choice transition of this state.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) MakeDefault(def State) {
+	_jsii_.InvokeVoid(
+		t,
+		"makeDefault",
+		[]interface{}{def},
+	)
+}
+
+// Make the indicated state the default transition of this state.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) MakeNext(next State) {
+	_jsii_.InvokeVoid(
+		t,
+		"makeNext",
+		[]interface{}{next},
+	)
+}
+
+// Return the given named metric for this Task.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		t,
+		"metric",
+		[]interface{}{metricName, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of times this activity fails.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		t,
+		"metricFailed",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of times the heartbeat times out for this activity.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		t,
+		"metricHeartbeatTimedOut",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The interval, in milliseconds, between the time the Task starts and the time it closes.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		t,
+		"metricRunTime",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of times this activity is scheduled.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		t,
+		"metricScheduled",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The interval, in milliseconds, for which the activity stays in the schedule state.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		t,
+		"metricScheduleTime",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of times this activity is started.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		t,
+		"metricStarted",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of times this activity succeeds.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		t,
+		"metricSucceeded",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		t,
+		"metricTime",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of times this activity times out.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		t,
+		"metricTimedOut",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Continue normal execution with the given state.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) Next(next IChainable) Chain {
+	var returns Chain
+
+	_jsii_.Invoke(
+		t,
+		"next",
+		[]interface{}{next},
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) OnPrepare() {
+	_jsii_.InvokeVoid(
+		t,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		t,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		t,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) Prepare() {
+	_jsii_.InvokeVoid(
+		t,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Render parallel branches in ASL JSON format.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) RenderBranches() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		t,
+		"renderBranches",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render the choices in ASL JSON format.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) RenderChoices() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		t,
+		"renderChoices",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render InputPath/Parameters/OutputPath in ASL JSON format.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) RenderInputOutput() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		t,
+		"renderInputOutput",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render map iterator in ASL JSON format.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) RenderIterator() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		t,
+		"renderIterator",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render the default next state in ASL JSON format.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) RenderNextEnd() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		t,
+		"renderNextEnd",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render ResultSelector in ASL JSON format.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		t,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render error recovery options in ASL JSON format.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) RenderRetryCatch() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		t,
+		"renderRetryCatch",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		t,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Return the Amazon States Language object for this state.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) ToStateJson() *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		t,
+		"toStateJson",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns a string representation of this construct.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		t,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		t,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Called whenever this state is bound to a graph.
+//
+// Can be overridden by subclasses.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+func (t *jsiiProxy_Task) WhenBoundToGraph(graph StateGraph) {
+	_jsii_.InvokeVoid(
+		t,
+		"whenBoundToGraph",
+		[]interface{}{graph},
+	)
+}
+
 // Type union for task classes that accept multiple types of payload.
 // Experimental.
 type TaskInput interface {
@@ -9632,6 +11926,48 @@ func (j *jsiiProxy_TaskInput) Value() interface{} {
 }
 
 
+// Use a part of the task context as task input.
+//
+// Use this when you want to use a subobject or string from
+// the current task context as complete payload
+// to a task.
+// Deprecated: Use `fromJsonPathAt`.
+func TaskInput_FromContextAt(path *string) TaskInput {
+	_init_.Initialize()
+
+	var returns TaskInput
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_stepfunctions.TaskInput",
+		"fromContextAt",
+		[]interface{}{path},
+		&returns,
+	)
+
+	return returns
+}
+
+// Use a part of the execution data as task input.
+//
+// Use this when you want to use a subobject or string from
+// the current state machine execution as complete payload
+// to a task.
+// Deprecated: Use `fromJsonPathAt`.
+func TaskInput_FromDataAt(path *string) TaskInput {
+	_init_.Initialize()
+
+	var returns TaskInput
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_stepfunctions.TaskInput",
+		"fromDataAt",
+		[]interface{}{path},
+		&returns,
+	)
+
+	return returns
+}
+
 // Use a part of the execution data or task context as task input.
 //
 // Use this when you want to use a subobject or string from
@@ -9644,7 +11980,7 @@ func TaskInput_FromJsonPathAt(path *string) TaskInput {
 	var returns TaskInput
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.TaskInput",
+		"monocdk.aws_stepfunctions.TaskInput",
 		"fromJsonPathAt",
 		[]interface{}{path},
 		&returns,
@@ -9663,7 +11999,7 @@ func TaskInput_FromObject(obj *map[string]interface{}) TaskInput {
 	var returns TaskInput
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.TaskInput",
+		"monocdk.aws_stepfunctions.TaskInput",
 		"fromObject",
 		[]interface{}{obj},
 		&returns,
@@ -9682,7 +12018,7 @@ func TaskInput_FromText(text *string) TaskInput {
 	var returns TaskInput
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.TaskInput",
+		"monocdk.aws_stepfunctions.TaskInput",
 		"fromText",
 		[]interface{}{text},
 		&returns,
@@ -9703,6 +12039,59 @@ type TaskMetricsConfig struct {
 	// Prefix for singular metric names of activity actions.
 	// Experimental.
 	MetricPrefixSingular *string `json:"metricPrefixSingular"`
+}
+
+// Props that are common to all tasks.
+// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+type TaskProps struct {
+	// Actual task to be invoked in this workflow.
+	// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+	Task IStepFunctionsTask `json:"task"`
+	// An optional description for this state.
+	// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+	Comment *string `json:"comment"`
+	// JSONPath expression to select part of the state to be the input to this state.
+	//
+	// May also be the special value JsonPath.DISCARD, which will cause the effective
+	// input to be the empty object {}.
+	// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+	InputPath *string `json:"inputPath"`
+	// JSONPath expression to select part of the state to be the output to this state.
+	//
+	// May also be the special value JsonPath.DISCARD, which will cause the effective
+	// output to be the empty object {}.
+	// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+	OutputPath *string `json:"outputPath"`
+	// Parameters to invoke the task with.
+	//
+	// It is not recommended to use this field. The object that is passed in
+	// the `task` property will take care of returning the right values for the
+	// `Parameters` field in the Step Functions definition.
+	//
+	// The various classes that implement `IStepFunctionsTask` will take a
+	// properties which make sense for the task type. For example, for
+	// `InvokeFunction` the field that populates the `parameters` field will be
+	// called `payload`, and for the `PublishToTopic` the `parameters` field
+	// will be populated via a combination of the referenced topic, subject and
+	// message.
+	//
+	// If passed anyway, the keys in this map will override the parameters
+	// returned by the task object.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-parameters
+	//
+	// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+	Parameters *map[string]interface{} `json:"parameters"`
+	// JSONPath expression to indicate where to inject the state's output.
+	//
+	// May also be the special value JsonPath.DISCARD, which will cause the state's
+	// input to become its output.
+	// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+	ResultPath *string `json:"resultPath"`
+	// Maximum run time of this state.
+	//
+	// If the state takes longer than this amount of time to complete, a 'Timeout' error is raised.
+	// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+	Timeout awscdk.Duration `json:"timeout"`
 }
 
 // Define a Task state in the state machine.
@@ -9726,7 +12115,7 @@ type TaskStateBase interface {
 	InputPath() *string
 	Iteration() StateGraph
 	SetIteration(val StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
@@ -9755,6 +12144,10 @@ type TaskStateBase interface {
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	Next(next IChainable) Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
@@ -9762,9 +12155,10 @@ type TaskStateBase interface {
 	RenderNextEnd() interface{}
 	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph StateGraph)
 }
 
@@ -9844,8 +12238,8 @@ func (j *jsiiProxy_TaskStateBase) Iteration() StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_TaskStateBase) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_TaskStateBase) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -9940,7 +12334,7 @@ func NewTaskStateBase_Override(t TaskStateBase, scope constructs.Construct, id *
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.TaskStateBase",
+		"monocdk.aws_stepfunctions.TaskStateBase",
 		[]interface{}{scope, id, props},
 		t,
 	)
@@ -9970,7 +12364,7 @@ func TaskStateBase_FilterNextables(states *[]State) *[]INextable {
 	var returns *[]INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.TaskStateBase",
+		"monocdk.aws_stepfunctions.TaskStateBase",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -9987,7 +12381,7 @@ func TaskStateBase_FindReachableEndStates(start State, options *FindStateOptions
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.TaskStateBase",
+		"monocdk.aws_stepfunctions.TaskStateBase",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -10006,7 +12400,7 @@ func TaskStateBase_FindReachableStates(start State, options *FindStateOptions) *
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.TaskStateBase",
+		"monocdk.aws_stepfunctions.TaskStateBase",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -10015,17 +12409,15 @@ func TaskStateBase_FindReachableStates(start State, options *FindStateOptions) *
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func TaskStateBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.TaskStateBase",
+		"monocdk.aws_stepfunctions.TaskStateBase",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -10040,7 +12432,7 @@ func TaskStateBase_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions.TaskStateBase",
+		"monocdk.aws_stepfunctions.TaskStateBase",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -10320,6 +12712,73 @@ func (t *jsiiProxy_TaskStateBase) Next(next IChainable) Chain {
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (t *jsiiProxy_TaskStateBase) OnPrepare() {
+	_jsii_.InvokeVoid(
+		t,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (t *jsiiProxy_TaskStateBase) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		t,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (t *jsiiProxy_TaskStateBase) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		t,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (t *jsiiProxy_TaskStateBase) Prepare() {
+	_jsii_.InvokeVoid(
+		t,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
 // Render parallel branches in ASL JSON format.
 // Experimental.
 func (t *jsiiProxy_TaskStateBase) RenderBranches() interface{} {
@@ -10425,6 +12884,19 @@ func (t *jsiiProxy_TaskStateBase) RenderRetryCatch() interface{} {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (t *jsiiProxy_TaskStateBase) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		t,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Return the Amazon States Language object for this state.
 // Experimental.
 func (t *jsiiProxy_TaskStateBase) ToStateJson() *map[string]interface{} {
@@ -10455,14 +12927,19 @@ func (t *jsiiProxy_TaskStateBase) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (t *jsiiProxy_TaskStateBase) ValidateState() *[]*string {
+func (t *jsiiProxy_TaskStateBase) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		t,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -10545,7 +13022,7 @@ type Wait interface {
 	InputPath() *string
 	Iteration() StateGraph
 	SetIteration(val StateGraph)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OutputPath() *string
 	Parameters() *map[string]interface{}
 	ResultPath() *string
@@ -10560,6 +13037,10 @@ type Wait interface {
 	MakeDefault(def State)
 	MakeNext(next State)
 	Next(next IChainable) Chain
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
 	RenderBranches() interface{}
 	RenderChoices() interface{}
 	RenderInputOutput() interface{}
@@ -10567,9 +13048,10 @@ type Wait interface {
 	RenderNextEnd() interface{}
 	RenderResultSelector() interface{}
 	RenderRetryCatch() interface{}
+	Synthesize(session awscdk.ISynthesisSession)
 	ToStateJson() *map[string]interface{}
 	ToString() *string
-	ValidateState() *[]*string
+	Validate() *[]*string
 	WhenBoundToGraph(graph StateGraph)
 }
 
@@ -10649,8 +13131,8 @@ func (j *jsiiProxy_Wait) Iteration() StateGraph {
 	return returns
 }
 
-func (j *jsiiProxy_Wait) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Wait) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -10727,7 +13209,7 @@ func NewWait(scope constructs.Construct, id *string, props *WaitProps) Wait {
 	j := jsiiProxy_Wait{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.Wait",
+		"monocdk.aws_stepfunctions.Wait",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -10740,7 +13222,7 @@ func NewWait_Override(w Wait, scope constructs.Construct, id *string, props *Wai
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_stepfunctions.Wait",
+		"monocdk.aws_stepfunctions.Wait",
 		[]interface{}{scope, id, props},
 		w,
 	)
@@ -10770,7 +13252,7 @@ func Wait_FilterNextables(states *[]State) *[]INextable {
 	var returns *[]INextable
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Wait",
+		"monocdk.aws_stepfunctions.Wait",
 		"filterNextables",
 		[]interface{}{states},
 		&returns,
@@ -10787,7 +13269,7 @@ func Wait_FindReachableEndStates(start State, options *FindStateOptions) *[]Stat
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Wait",
+		"monocdk.aws_stepfunctions.Wait",
 		"findReachableEndStates",
 		[]interface{}{start, options},
 		&returns,
@@ -10806,7 +13288,7 @@ func Wait_FindReachableStates(start State, options *FindStateOptions) *[]State {
 	var returns *[]State
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Wait",
+		"monocdk.aws_stepfunctions.Wait",
 		"findReachableStates",
 		[]interface{}{start, options},
 		&returns,
@@ -10815,17 +13297,15 @@ func Wait_FindReachableStates(start State, options *FindStateOptions) *[]State {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func Wait_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.Wait",
+		"monocdk.aws_stepfunctions.Wait",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -10840,7 +13320,7 @@ func Wait_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.aws_stepfunctions.Wait",
+		"monocdk.aws_stepfunctions.Wait",
 		"prefixStates",
 		[]interface{}{root, prefix},
 	)
@@ -10932,6 +13412,73 @@ func (w *jsiiProxy_Wait) Next(next IChainable) Chain {
 	)
 
 	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (w *jsiiProxy_Wait) OnPrepare() {
+	_jsii_.InvokeVoid(
+		w,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (w *jsiiProxy_Wait) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		w,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (w *jsiiProxy_Wait) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		w,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (w *jsiiProxy_Wait) Prepare() {
+	_jsii_.InvokeVoid(
+		w,
+		"prepare",
+		nil, // no parameters
+	)
 }
 
 // Render parallel branches in ASL JSON format.
@@ -11039,6 +13586,19 @@ func (w *jsiiProxy_Wait) RenderRetryCatch() interface{} {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (w *jsiiProxy_Wait) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		w,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Return the Amazon States Language object for this state.
 // Experimental.
 func (w *jsiiProxy_Wait) ToStateJson() *map[string]interface{} {
@@ -11069,14 +13629,19 @@ func (w *jsiiProxy_Wait) ToString() *string {
 	return returns
 }
 
-// Allows the state to validate itself.
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
-func (w *jsiiProxy_Wait) ValidateState() *[]*string {
+func (w *jsiiProxy_Wait) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(
 		w,
-		"validateState",
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -11127,7 +13692,7 @@ func WaitTime_Duration(duration awscdk.Duration) WaitTime {
 	var returns WaitTime
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.WaitTime",
+		"monocdk.aws_stepfunctions.WaitTime",
 		"duration",
 		[]interface{}{duration},
 		&returns,
@@ -11147,7 +13712,7 @@ func WaitTime_SecondsPath(path *string) WaitTime {
 	var returns WaitTime
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.WaitTime",
+		"monocdk.aws_stepfunctions.WaitTime",
 		"secondsPath",
 		[]interface{}{path},
 		&returns,
@@ -11167,7 +13732,7 @@ func WaitTime_Timestamp(timestamp *string) WaitTime {
 	var returns WaitTime
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.WaitTime",
+		"monocdk.aws_stepfunctions.WaitTime",
 		"timestamp",
 		[]interface{}{timestamp},
 		&returns,
@@ -11187,7 +13752,7 @@ func WaitTime_TimestampPath(path *string) WaitTime {
 	var returns WaitTime
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_stepfunctions.WaitTime",
+		"monocdk.aws_stepfunctions.WaitTime",
 		"timestampPath",
 		[]interface{}{path},
 		&returns,
