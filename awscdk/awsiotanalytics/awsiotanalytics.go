@@ -13,6 +13,7 @@ import (
 type CfnChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -56,6 +57,16 @@ type CfnChannel interface {
 type jsiiProxy_CfnChannel struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnChannel) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnChannel) CfnOptions() awscdk.ICfnResourceOptions {
@@ -690,6 +701,7 @@ type CfnDataset interface {
 	awscdk.IInspectable
 	Actions() interface{}
 	SetActions(val interface{})
+	AttrId() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -746,6 +758,16 @@ func (j *jsiiProxy_CfnDataset) Actions() interface{} {
 	_jsii_.Get(
 		j,
 		"actions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnDataset) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
 		&returns,
 	)
 	return returns
@@ -1561,10 +1583,10 @@ type CfnDataset_VersioningConfigurationProperty struct {
 type CfnDatasetProps struct {
 	// `AWS::IoTAnalytics::Dataset.Actions`.
 	Actions interface{} `json:"actions"`
-	// `AWS::IoTAnalytics::Dataset.ContentDeliveryRules`.
-	ContentDeliveryRules interface{} `json:"contentDeliveryRules"`
 	// `AWS::IoTAnalytics::Dataset.DatasetName`.
 	DatasetName *string `json:"datasetName"`
+	// `AWS::IoTAnalytics::Dataset.ContentDeliveryRules`.
+	ContentDeliveryRules interface{} `json:"contentDeliveryRules"`
 	// `AWS::IoTAnalytics::Dataset.LateDataRules`.
 	LateDataRules interface{} `json:"lateDataRules"`
 	// `AWS::IoTAnalytics::Dataset.RetentionPeriod`.
@@ -1581,6 +1603,7 @@ type CfnDatasetProps struct {
 type CfnDatastore interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -1628,6 +1651,16 @@ type CfnDatastore interface {
 type jsiiProxy_CfnDatastore struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnDatastore) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnDatastore) CfnOptions() awscdk.ICfnResourceOptions {
@@ -2365,6 +2398,7 @@ type CfnDatastoreProps struct {
 type CfnPipeline interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -2406,6 +2440,16 @@ type CfnPipeline interface {
 type jsiiProxy_CfnPipeline struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnPipeline) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnPipeline) CfnOptions() awscdk.ICfnResourceOptions {
@@ -3031,12 +3075,12 @@ type CfnPipeline_DeviceRegistryEnrichProperty struct {
 	Attribute *string `json:"attribute"`
 	// `CfnPipeline.DeviceRegistryEnrichProperty.Name`.
 	Name *string `json:"name"`
-	// `CfnPipeline.DeviceRegistryEnrichProperty.Next`.
-	Next *string `json:"next"`
 	// `CfnPipeline.DeviceRegistryEnrichProperty.RoleArn`.
 	RoleArn *string `json:"roleArn"`
 	// `CfnPipeline.DeviceRegistryEnrichProperty.ThingName`.
 	ThingName *string `json:"thingName"`
+	// `CfnPipeline.DeviceRegistryEnrichProperty.Next`.
+	Next *string `json:"next"`
 }
 
 type CfnPipeline_DeviceShadowEnrichProperty struct {
@@ -3044,12 +3088,12 @@ type CfnPipeline_DeviceShadowEnrichProperty struct {
 	Attribute *string `json:"attribute"`
 	// `CfnPipeline.DeviceShadowEnrichProperty.Name`.
 	Name *string `json:"name"`
-	// `CfnPipeline.DeviceShadowEnrichProperty.Next`.
-	Next *string `json:"next"`
 	// `CfnPipeline.DeviceShadowEnrichProperty.RoleArn`.
 	RoleArn *string `json:"roleArn"`
 	// `CfnPipeline.DeviceShadowEnrichProperty.ThingName`.
 	ThingName *string `json:"thingName"`
+	// `CfnPipeline.DeviceShadowEnrichProperty.Next`.
+	Next *string `json:"next"`
 }
 
 type CfnPipeline_FilterProperty struct {

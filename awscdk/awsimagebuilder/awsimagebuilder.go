@@ -1729,6 +1729,8 @@ type CfnContainerRecipe_EbsInstanceBlockDeviceSpecificationProperty struct {
 	KmsKeyId *string `json:"kmsKeyId"`
 	// `CfnContainerRecipe.EbsInstanceBlockDeviceSpecificationProperty.SnapshotId`.
 	SnapshotId *string `json:"snapshotId"`
+	// `CfnContainerRecipe.EbsInstanceBlockDeviceSpecificationProperty.Throughput`.
+	Throughput *float64 `json:"throughput"`
 	// `CfnContainerRecipe.EbsInstanceBlockDeviceSpecificationProperty.VolumeSize`.
 	VolumeSize *float64 `json:"volumeSize"`
 	// `CfnContainerRecipe.EbsInstanceBlockDeviceSpecificationProperty.VolumeType`.
@@ -4872,6 +4874,8 @@ type CfnImageRecipe_EbsInstanceBlockDeviceSpecificationProperty struct {
 	KmsKeyId *string `json:"kmsKeyId"`
 	// `CfnImageRecipe.EbsInstanceBlockDeviceSpecificationProperty.SnapshotId`.
 	SnapshotId *string `json:"snapshotId"`
+	// `CfnImageRecipe.EbsInstanceBlockDeviceSpecificationProperty.Throughput`.
+	Throughput *float64 `json:"throughput"`
 	// `CfnImageRecipe.EbsInstanceBlockDeviceSpecificationProperty.VolumeSize`.
 	VolumeSize *float64 `json:"volumeSize"`
 	// `CfnImageRecipe.EbsInstanceBlockDeviceSpecificationProperty.VolumeType`.
@@ -4928,6 +4932,8 @@ type CfnInfrastructureConfiguration interface {
 	CreationStack() *[]*string
 	Description() *string
 	SetDescription(val *string)
+	InstanceMetadataOptions() interface{}
+	SetInstanceMetadataOptions(val interface{})
 	InstanceProfileName() *string
 	SetInstanceProfileName(val *string)
 	InstanceTypes() *[]*string
@@ -5048,6 +5054,16 @@ func (j *jsiiProxy_CfnInfrastructureConfiguration) Description() *string {
 	_jsii_.Get(
 		j,
 		"description",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnInfrastructureConfiguration) InstanceMetadataOptions() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"instanceMetadataOptions",
 		&returns,
 	)
 	return returns
@@ -5244,6 +5260,14 @@ func (j *jsiiProxy_CfnInfrastructureConfiguration) SetDescription(val *string) {
 	_jsii_.Set(
 		j,
 		"description",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnInfrastructureConfiguration) SetInstanceMetadataOptions(val interface{}) {
+	_jsii_.Set(
+		j,
+		"instanceMetadataOptions",
 		val,
 	)
 }
@@ -5735,6 +5759,13 @@ func (c *jsiiProxy_CfnInfrastructureConfiguration) ValidateProperties(_propertie
 	)
 }
 
+type CfnInfrastructureConfiguration_InstanceMetadataOptionsProperty struct {
+	// `CfnInfrastructureConfiguration.InstanceMetadataOptionsProperty.HttpPutResponseHopLimit`.
+	HttpPutResponseHopLimit *float64 `json:"httpPutResponseHopLimit"`
+	// `CfnInfrastructureConfiguration.InstanceMetadataOptionsProperty.HttpTokens`.
+	HttpTokens *string `json:"httpTokens"`
+}
+
 type CfnInfrastructureConfiguration_LoggingProperty struct {
 	// `CfnInfrastructureConfiguration.LoggingProperty.S3Logs`.
 	S3Logs interface{} `json:"s3Logs"`
@@ -5755,6 +5786,8 @@ type CfnInfrastructureConfigurationProps struct {
 	Name *string `json:"name"`
 	// `AWS::ImageBuilder::InfrastructureConfiguration.Description`.
 	Description *string `json:"description"`
+	// `AWS::ImageBuilder::InfrastructureConfiguration.InstanceMetadataOptions`.
+	InstanceMetadataOptions interface{} `json:"instanceMetadataOptions"`
 	// `AWS::ImageBuilder::InfrastructureConfiguration.InstanceTypes`.
 	InstanceTypes *[]*string `json:"instanceTypes"`
 	// `AWS::ImageBuilder::InfrastructureConfiguration.KeyPair`.

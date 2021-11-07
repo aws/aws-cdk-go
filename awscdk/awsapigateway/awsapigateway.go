@@ -5645,6 +5645,7 @@ type CfnApiV2Props struct {
 type CfnAuthorizer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrAuthorizerId() *string
 	AuthorizerCredentials() *string
 	SetAuthorizerCredentials(val *string)
 	AuthorizerResultTtlInSeconds() *float64
@@ -5701,6 +5702,16 @@ type CfnAuthorizer interface {
 type jsiiProxy_CfnAuthorizer struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnAuthorizer) AttrAuthorizerId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrAuthorizerId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnAuthorizer) AuthorizerCredentials() *string {
@@ -6409,6 +6420,8 @@ func (c *jsiiProxy_CfnAuthorizer) ValidateProperties(_properties interface{}) {
 
 // Properties for defining a `AWS::ApiGateway::Authorizer`.
 type CfnAuthorizerProps struct {
+	// `AWS::ApiGateway::Authorizer.Name`.
+	Name *string `json:"name"`
 	// `AWS::ApiGateway::Authorizer.RestApiId`.
 	RestApiId *string `json:"restApiId"`
 	// `AWS::ApiGateway::Authorizer.Type`.
@@ -6425,8 +6438,6 @@ type CfnAuthorizerProps struct {
 	IdentitySource *string `json:"identitySource"`
 	// `AWS::ApiGateway::Authorizer.IdentityValidationExpression`.
 	IdentityValidationExpression *string `json:"identityValidationExpression"`
-	// `AWS::ApiGateway::Authorizer.Name`.
-	Name *string `json:"name"`
 	// `AWS::ApiGateway::Authorizer.ProviderARNs`.
 	ProviderArns *[]*string `json:"providerArns"`
 }
@@ -24450,6 +24461,7 @@ type CfnVpcLink interface {
 	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
+	Tags() awscdk.TagManager
 	TargetArns() *[]*string
 	SetTargetArns(val *[]*string)
 	UpdatedProperites() *map[string]interface{}
@@ -24577,6 +24589,16 @@ func (j *jsiiProxy_CfnVpcLink) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnVpcLink) Tags() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"tags",
 		&returns,
 	)
 	return returns
@@ -25068,6 +25090,8 @@ type CfnVpcLinkProps struct {
 	TargetArns *[]*string `json:"targetArns"`
 	// `AWS::ApiGateway::VpcLink.Description`.
 	Description *string `json:"description"`
+	// `AWS::ApiGateway::VpcLink.Tags`.
+	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // Cognito user pools based custom authorizer.

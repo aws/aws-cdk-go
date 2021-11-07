@@ -4235,6 +4235,3097 @@ type CfnClusterSubnetGroupProps struct {
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
+// A CloudFormation `AWS::Redshift::EndpointAccess`.
+type CfnEndpointAccess interface {
+	awscdk.CfnResource
+	awscdk.IInspectable
+	AttrAddress() *string
+	AttrEndpointCreateTime() *string
+	AttrEndpointStatus() *string
+	AttrPort() *float64
+	AttrVpcSecurityGroups() awscdk.IResolvable
+	CfnOptions() awscdk.ICfnResourceOptions
+	CfnProperties() *map[string]interface{}
+	CfnResourceType() *string
+	ClusterIdentifier() *string
+	SetClusterIdentifier(val *string)
+	CreationStack() *[]*string
+	EndpointName() *string
+	SetEndpointName(val *string)
+	LogicalId() *string
+	Node() awscdk.ConstructNode
+	Ref() *string
+	ResourceOwner() *string
+	SetResourceOwner(val *string)
+	Stack() awscdk.Stack
+	SubnetGroupName() *string
+	SetSubnetGroupName(val *string)
+	UpdatedProperites() *map[string]interface{}
+	VpcSecurityGroupIds() *[]*string
+	SetVpcSecurityGroupIds(val *[]*string)
+	AddDeletionOverride(path *string)
+	AddDependsOn(target awscdk.CfnResource)
+	AddMetadata(key *string, value interface{})
+	AddOverride(path *string, value interface{})
+	AddPropertyDeletionOverride(propertyPath *string)
+	AddPropertyOverride(propertyPath *string, value interface{})
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	GetAtt(attributeName *string) awscdk.Reference
+	GetMetadata(key *string) interface{}
+	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	OverrideLogicalId(newLogicalId *string)
+	Prepare()
+	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
+	ValidateProperties(_properties interface{})
+}
+
+// The jsii proxy struct for CfnEndpointAccess
+type jsiiProxy_CfnEndpointAccess struct {
+	internal.Type__awscdkCfnResource
+	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnEndpointAccess) AttrAddress() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrAddress",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAccess) AttrEndpointCreateTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrEndpointCreateTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAccess) AttrEndpointStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrEndpointStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAccess) AttrPort() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"attrPort",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAccess) AttrVpcSecurityGroups() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrVpcSecurityGroups",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAccess) CfnOptions() awscdk.ICfnResourceOptions {
+	var returns awscdk.ICfnResourceOptions
+	_jsii_.Get(
+		j,
+		"cfnOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAccess) CfnProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"cfnProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAccess) CfnResourceType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAccess) ClusterIdentifier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"clusterIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAccess) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAccess) EndpointName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"endpointName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAccess) LogicalId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAccess) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAccess) Ref() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAccess) ResourceOwner() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"resourceOwner",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAccess) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAccess) SubnetGroupName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"subnetGroupName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAccess) UpdatedProperites() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAccess) VpcSecurityGroupIds() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"vpcSecurityGroupIds",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a new `AWS::Redshift::EndpointAccess`.
+func NewCfnEndpointAccess(scope awscdk.Construct, id *string, props *CfnEndpointAccessProps) CfnEndpointAccess {
+	_init_.Initialize()
+
+	j := jsiiProxy_CfnEndpointAccess{}
+
+	_jsii_.Create(
+		"monocdk.aws_redshift.CfnEndpointAccess",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a new `AWS::Redshift::EndpointAccess`.
+func NewCfnEndpointAccess_Override(c CfnEndpointAccess, scope awscdk.Construct, id *string, props *CfnEndpointAccessProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_redshift.CfnEndpointAccess",
+		[]interface{}{scope, id, props},
+		c,
+	)
+}
+
+func (j *jsiiProxy_CfnEndpointAccess) SetClusterIdentifier(val *string) {
+	_jsii_.Set(
+		j,
+		"clusterIdentifier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEndpointAccess) SetEndpointName(val *string) {
+	_jsii_.Set(
+		j,
+		"endpointName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEndpointAccess) SetResourceOwner(val *string) {
+	_jsii_.Set(
+		j,
+		"resourceOwner",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEndpointAccess) SetSubnetGroupName(val *string) {
+	_jsii_.Set(
+		j,
+		"subnetGroupName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEndpointAccess) SetVpcSecurityGroupIds(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"vpcSecurityGroupIds",
+		val,
+	)
+}
+
+// Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
+//
+// Uses duck-typing instead of `instanceof` to allow stack elements from different
+// versions of this library to be included in the same stack.
+//
+// Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
+func CfnEndpointAccess_IsCfnElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_redshift.CfnEndpointAccess",
+		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a CfnResource.
+// Experimental.
+func CfnEndpointAccess_IsCfnResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_redshift.CfnEndpointAccess",
+		"isCfnResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func CfnEndpointAccess_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_redshift.CfnEndpointAccess",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnEndpointAccess_CFN_RESOURCE_TYPE_NAME() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"monocdk.aws_redshift.CfnEndpointAccess",
+		"CFN_RESOURCE_TYPE_NAME",
+		&returns,
+	)
+	return returns
+}
+
+// Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAccess) AddDeletionOverride(path *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDeletionOverride",
+		[]interface{}{path},
+	)
+}
+
+// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+//
+// This can be used for resources across stacks (or nested stack) boundaries
+// and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAccess) AddDependsOn(target awscdk.CfnResource) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDependsOn",
+		[]interface{}{target},
+	)
+}
+
+// Add a value to the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAccess) AddMetadata(key *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addMetadata",
+		[]interface{}{key, value},
+	)
+}
+
+// Adds an override to the synthesized CloudFormation resource.
+//
+// To add a
+// property override, either use `addPropertyOverride` or prefix `path` with
+// "Properties." (i.e. `Properties.TopicName`).
+//
+// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+// If there is an array as part of the nesting, specify the index in the path.
+//
+// To include a literal `.` in the property name, prefix with a `\`. In most
+// programming languages you will need to write this as `"\\."` because the
+// `\` itself will need to be escaped.
+//
+// For example,
+// ```typescript
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+// ```
+// would add the overrides
+// ```json
+// "Properties": {
+//    "GlobalSecondaryIndexes": [
+//      {
+//        "Projection": {
+//          "NonKeyAttributes": [ "myattribute" ]
+//          ...
+//        }
+//        ...
+//      },
+//      {
+//        "ProjectionType": "INCLUDE"
+//        ...
+//      },
+//    ]
+//    ...
+// }
+// ```
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAccess) AddOverride(path *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addOverride",
+		[]interface{}{path, value},
+	)
+}
+
+// Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAccess) AddPropertyDeletionOverride(propertyPath *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyDeletionOverride",
+		[]interface{}{propertyPath},
+	)
+}
+
+// Adds an override to a resource property.
+//
+// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAccess) AddPropertyOverride(propertyPath *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyOverride",
+		[]interface{}{propertyPath, value},
+	)
+}
+
+// Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAccess) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	_jsii_.InvokeVoid(
+		c,
+		"applyRemovalPolicy",
+		[]interface{}{policy, options},
+	)
+}
+
+// Returns a token for an runtime attribute of this resource.
+//
+// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+// in case there is no generated attribute.
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAccess) GetAtt(attributeName *string) awscdk.Reference {
+	var returns awscdk.Reference
+
+	_jsii_.Invoke(
+		c,
+		"getAtt",
+		[]interface{}{attributeName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Retrieve a value value from the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAccess) GetMetadata(key *string) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"getMetadata",
+		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
+// Examines the CloudFormation resource and discloses attributes.
+func (c *jsiiProxy_CfnEndpointAccess) Inspect(inspector awscdk.TreeInspector) {
+	_jsii_.InvokeVoid(
+		c,
+		"inspect",
+		[]interface{}{inspector},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAccess) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAccess) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAccess) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAccess) OverrideLogicalId(newLogicalId *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"overrideLogicalId",
+		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAccess) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnEndpointAccess) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderProperties",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+//
+// Returns: `true` if the resource should be included or `false` is the resource
+// should be omitted.
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAccess) ShouldSynthesize() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"shouldSynthesize",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAccess) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+//
+// Returns: a string representation of this resource
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAccess) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAccess) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAccess) ValidateProperties(_properties interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"validateProperties",
+		[]interface{}{_properties},
+	)
+}
+
+type CfnEndpointAccess_VpcSecurityGroupProperty struct {
+	// `CfnEndpointAccess.VpcSecurityGroupProperty.Status`.
+	Status *string `json:"status"`
+	// `CfnEndpointAccess.VpcSecurityGroupProperty.VpcSecurityGroupId`.
+	VpcSecurityGroupId *string `json:"vpcSecurityGroupId"`
+}
+
+// Properties for defining a `AWS::Redshift::EndpointAccess`.
+type CfnEndpointAccessProps struct {
+	// `AWS::Redshift::EndpointAccess.EndpointName`.
+	EndpointName *string `json:"endpointName"`
+	// `AWS::Redshift::EndpointAccess.VpcSecurityGroupIds`.
+	VpcSecurityGroupIds *[]*string `json:"vpcSecurityGroupIds"`
+	// `AWS::Redshift::EndpointAccess.ClusterIdentifier`.
+	ClusterIdentifier *string `json:"clusterIdentifier"`
+	// `AWS::Redshift::EndpointAccess.ResourceOwner`.
+	ResourceOwner *string `json:"resourceOwner"`
+	// `AWS::Redshift::EndpointAccess.SubnetGroupName`.
+	SubnetGroupName *string `json:"subnetGroupName"`
+}
+
+// A CloudFormation `AWS::Redshift::EndpointAuthorization`.
+type CfnEndpointAuthorization interface {
+	awscdk.CfnResource
+	awscdk.IInspectable
+	Account() *string
+	SetAccount(val *string)
+	AttrAllowedAllVpCs() awscdk.IResolvable
+	AttrAllowedVpCs() *[]*string
+	AttrAuthorizeTime() *string
+	AttrClusterStatus() *string
+	AttrEndpointCount() *float64
+	AttrGrantee() *string
+	AttrGrantor() *string
+	AttrStatus() *string
+	CfnOptions() awscdk.ICfnResourceOptions
+	CfnProperties() *map[string]interface{}
+	CfnResourceType() *string
+	ClusterIdentifier() *string
+	SetClusterIdentifier(val *string)
+	CreationStack() *[]*string
+	Force() interface{}
+	SetForce(val interface{})
+	LogicalId() *string
+	Node() awscdk.ConstructNode
+	Ref() *string
+	Stack() awscdk.Stack
+	UpdatedProperites() *map[string]interface{}
+	VpcIds() *[]*string
+	SetVpcIds(val *[]*string)
+	AddDeletionOverride(path *string)
+	AddDependsOn(target awscdk.CfnResource)
+	AddMetadata(key *string, value interface{})
+	AddOverride(path *string, value interface{})
+	AddPropertyDeletionOverride(propertyPath *string)
+	AddPropertyOverride(propertyPath *string, value interface{})
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	GetAtt(attributeName *string) awscdk.Reference
+	GetMetadata(key *string) interface{}
+	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	OverrideLogicalId(newLogicalId *string)
+	Prepare()
+	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
+	ValidateProperties(_properties interface{})
+}
+
+// The jsii proxy struct for CfnEndpointAuthorization
+type jsiiProxy_CfnEndpointAuthorization struct {
+	internal.Type__awscdkCfnResource
+	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnEndpointAuthorization) Account() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"account",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAuthorization) AttrAllowedAllVpCs() awscdk.IResolvable {
+	var returns awscdk.IResolvable
+	_jsii_.Get(
+		j,
+		"attrAllowedAllVpCs",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAuthorization) AttrAllowedVpCs() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrAllowedVpCs",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAuthorization) AttrAuthorizeTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrAuthorizeTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAuthorization) AttrClusterStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrClusterStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAuthorization) AttrEndpointCount() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"attrEndpointCount",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAuthorization) AttrGrantee() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrGrantee",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAuthorization) AttrGrantor() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrGrantor",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAuthorization) AttrStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAuthorization) CfnOptions() awscdk.ICfnResourceOptions {
+	var returns awscdk.ICfnResourceOptions
+	_jsii_.Get(
+		j,
+		"cfnOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAuthorization) CfnProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"cfnProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAuthorization) CfnResourceType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAuthorization) ClusterIdentifier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"clusterIdentifier",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAuthorization) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAuthorization) Force() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"force",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAuthorization) LogicalId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAuthorization) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAuthorization) Ref() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAuthorization) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAuthorization) UpdatedProperites() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEndpointAuthorization) VpcIds() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"vpcIds",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a new `AWS::Redshift::EndpointAuthorization`.
+func NewCfnEndpointAuthorization(scope awscdk.Construct, id *string, props *CfnEndpointAuthorizationProps) CfnEndpointAuthorization {
+	_init_.Initialize()
+
+	j := jsiiProxy_CfnEndpointAuthorization{}
+
+	_jsii_.Create(
+		"monocdk.aws_redshift.CfnEndpointAuthorization",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a new `AWS::Redshift::EndpointAuthorization`.
+func NewCfnEndpointAuthorization_Override(c CfnEndpointAuthorization, scope awscdk.Construct, id *string, props *CfnEndpointAuthorizationProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_redshift.CfnEndpointAuthorization",
+		[]interface{}{scope, id, props},
+		c,
+	)
+}
+
+func (j *jsiiProxy_CfnEndpointAuthorization) SetAccount(val *string) {
+	_jsii_.Set(
+		j,
+		"account",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEndpointAuthorization) SetClusterIdentifier(val *string) {
+	_jsii_.Set(
+		j,
+		"clusterIdentifier",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEndpointAuthorization) SetForce(val interface{}) {
+	_jsii_.Set(
+		j,
+		"force",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEndpointAuthorization) SetVpcIds(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"vpcIds",
+		val,
+	)
+}
+
+// Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
+//
+// Uses duck-typing instead of `instanceof` to allow stack elements from different
+// versions of this library to be included in the same stack.
+//
+// Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
+func CfnEndpointAuthorization_IsCfnElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_redshift.CfnEndpointAuthorization",
+		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a CfnResource.
+// Experimental.
+func CfnEndpointAuthorization_IsCfnResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_redshift.CfnEndpointAuthorization",
+		"isCfnResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func CfnEndpointAuthorization_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_redshift.CfnEndpointAuthorization",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnEndpointAuthorization_CFN_RESOURCE_TYPE_NAME() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"monocdk.aws_redshift.CfnEndpointAuthorization",
+		"CFN_RESOURCE_TYPE_NAME",
+		&returns,
+	)
+	return returns
+}
+
+// Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAuthorization) AddDeletionOverride(path *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDeletionOverride",
+		[]interface{}{path},
+	)
+}
+
+// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+//
+// This can be used for resources across stacks (or nested stack) boundaries
+// and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAuthorization) AddDependsOn(target awscdk.CfnResource) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDependsOn",
+		[]interface{}{target},
+	)
+}
+
+// Add a value to the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAuthorization) AddMetadata(key *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addMetadata",
+		[]interface{}{key, value},
+	)
+}
+
+// Adds an override to the synthesized CloudFormation resource.
+//
+// To add a
+// property override, either use `addPropertyOverride` or prefix `path` with
+// "Properties." (i.e. `Properties.TopicName`).
+//
+// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+// If there is an array as part of the nesting, specify the index in the path.
+//
+// To include a literal `.` in the property name, prefix with a `\`. In most
+// programming languages you will need to write this as `"\\."` because the
+// `\` itself will need to be escaped.
+//
+// For example,
+// ```typescript
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+// ```
+// would add the overrides
+// ```json
+// "Properties": {
+//    "GlobalSecondaryIndexes": [
+//      {
+//        "Projection": {
+//          "NonKeyAttributes": [ "myattribute" ]
+//          ...
+//        }
+//        ...
+//      },
+//      {
+//        "ProjectionType": "INCLUDE"
+//        ...
+//      },
+//    ]
+//    ...
+// }
+// ```
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAuthorization) AddOverride(path *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addOverride",
+		[]interface{}{path, value},
+	)
+}
+
+// Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAuthorization) AddPropertyDeletionOverride(propertyPath *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyDeletionOverride",
+		[]interface{}{propertyPath},
+	)
+}
+
+// Adds an override to a resource property.
+//
+// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAuthorization) AddPropertyOverride(propertyPath *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyOverride",
+		[]interface{}{propertyPath, value},
+	)
+}
+
+// Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAuthorization) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	_jsii_.InvokeVoid(
+		c,
+		"applyRemovalPolicy",
+		[]interface{}{policy, options},
+	)
+}
+
+// Returns a token for an runtime attribute of this resource.
+//
+// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+// in case there is no generated attribute.
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAuthorization) GetAtt(attributeName *string) awscdk.Reference {
+	var returns awscdk.Reference
+
+	_jsii_.Invoke(
+		c,
+		"getAtt",
+		[]interface{}{attributeName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Retrieve a value value from the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAuthorization) GetMetadata(key *string) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"getMetadata",
+		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
+// Examines the CloudFormation resource and discloses attributes.
+func (c *jsiiProxy_CfnEndpointAuthorization) Inspect(inspector awscdk.TreeInspector) {
+	_jsii_.InvokeVoid(
+		c,
+		"inspect",
+		[]interface{}{inspector},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAuthorization) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAuthorization) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAuthorization) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAuthorization) OverrideLogicalId(newLogicalId *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"overrideLogicalId",
+		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAuthorization) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnEndpointAuthorization) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderProperties",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+//
+// Returns: `true` if the resource should be included or `false` is the resource
+// should be omitted.
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAuthorization) ShouldSynthesize() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"shouldSynthesize",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAuthorization) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+//
+// Returns: a string representation of this resource
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAuthorization) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAuthorization) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (c *jsiiProxy_CfnEndpointAuthorization) ValidateProperties(_properties interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"validateProperties",
+		[]interface{}{_properties},
+	)
+}
+
+// Properties for defining a `AWS::Redshift::EndpointAuthorization`.
+type CfnEndpointAuthorizationProps struct {
+	// `AWS::Redshift::EndpointAuthorization.Account`.
+	Account *string `json:"account"`
+	// `AWS::Redshift::EndpointAuthorization.ClusterIdentifier`.
+	ClusterIdentifier *string `json:"clusterIdentifier"`
+	// `AWS::Redshift::EndpointAuthorization.Force`.
+	Force interface{} `json:"force"`
+	// `AWS::Redshift::EndpointAuthorization.VpcIds`.
+	VpcIds *[]*string `json:"vpcIds"`
+}
+
+// A CloudFormation `AWS::Redshift::EventSubscription`.
+type CfnEventSubscription interface {
+	awscdk.CfnResource
+	awscdk.IInspectable
+	AttrCustomerAwsId() *string
+	AttrCustSubscriptionId() *string
+	AttrEventCategoriesList() *[]*string
+	AttrSourceIdsList() *[]*string
+	AttrStatus() *string
+	AttrSubscriptionCreationTime() *string
+	CfnOptions() awscdk.ICfnResourceOptions
+	CfnProperties() *map[string]interface{}
+	CfnResourceType() *string
+	CreationStack() *[]*string
+	Enabled() interface{}
+	SetEnabled(val interface{})
+	EventCategories() *[]*string
+	SetEventCategories(val *[]*string)
+	LogicalId() *string
+	Node() awscdk.ConstructNode
+	Ref() *string
+	Severity() *string
+	SetSeverity(val *string)
+	SnsTopicArn() *string
+	SetSnsTopicArn(val *string)
+	SourceIds() *[]*string
+	SetSourceIds(val *[]*string)
+	SourceType() *string
+	SetSourceType(val *string)
+	Stack() awscdk.Stack
+	SubscriptionName() *string
+	SetSubscriptionName(val *string)
+	Tags() awscdk.TagManager
+	UpdatedProperites() *map[string]interface{}
+	AddDeletionOverride(path *string)
+	AddDependsOn(target awscdk.CfnResource)
+	AddMetadata(key *string, value interface{})
+	AddOverride(path *string, value interface{})
+	AddPropertyDeletionOverride(propertyPath *string)
+	AddPropertyOverride(propertyPath *string, value interface{})
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	GetAtt(attributeName *string) awscdk.Reference
+	GetMetadata(key *string) interface{}
+	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	OverrideLogicalId(newLogicalId *string)
+	Prepare()
+	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
+	ValidateProperties(_properties interface{})
+}
+
+// The jsii proxy struct for CfnEventSubscription
+type jsiiProxy_CfnEventSubscription struct {
+	internal.Type__awscdkCfnResource
+	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnEventSubscription) AttrCustomerAwsId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCustomerAwsId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSubscription) AttrCustSubscriptionId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCustSubscriptionId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSubscription) AttrEventCategoriesList() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrEventCategoriesList",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSubscription) AttrSourceIdsList() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrSourceIdsList",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSubscription) AttrStatus() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrStatus",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSubscription) AttrSubscriptionCreationTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrSubscriptionCreationTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSubscription) CfnOptions() awscdk.ICfnResourceOptions {
+	var returns awscdk.ICfnResourceOptions
+	_jsii_.Get(
+		j,
+		"cfnOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSubscription) CfnProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"cfnProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSubscription) CfnResourceType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSubscription) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSubscription) Enabled() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"enabled",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSubscription) EventCategories() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"eventCategories",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSubscription) LogicalId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSubscription) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSubscription) Ref() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSubscription) Severity() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"severity",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSubscription) SnsTopicArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"snsTopicArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSubscription) SourceIds() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"sourceIds",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSubscription) SourceType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"sourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSubscription) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSubscription) SubscriptionName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"subscriptionName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSubscription) Tags() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnEventSubscription) UpdatedProperites() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a new `AWS::Redshift::EventSubscription`.
+func NewCfnEventSubscription(scope awscdk.Construct, id *string, props *CfnEventSubscriptionProps) CfnEventSubscription {
+	_init_.Initialize()
+
+	j := jsiiProxy_CfnEventSubscription{}
+
+	_jsii_.Create(
+		"monocdk.aws_redshift.CfnEventSubscription",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a new `AWS::Redshift::EventSubscription`.
+func NewCfnEventSubscription_Override(c CfnEventSubscription, scope awscdk.Construct, id *string, props *CfnEventSubscriptionProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_redshift.CfnEventSubscription",
+		[]interface{}{scope, id, props},
+		c,
+	)
+}
+
+func (j *jsiiProxy_CfnEventSubscription) SetEnabled(val interface{}) {
+	_jsii_.Set(
+		j,
+		"enabled",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEventSubscription) SetEventCategories(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"eventCategories",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEventSubscription) SetSeverity(val *string) {
+	_jsii_.Set(
+		j,
+		"severity",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEventSubscription) SetSnsTopicArn(val *string) {
+	_jsii_.Set(
+		j,
+		"snsTopicArn",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEventSubscription) SetSourceIds(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"sourceIds",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEventSubscription) SetSourceType(val *string) {
+	_jsii_.Set(
+		j,
+		"sourceType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEventSubscription) SetSubscriptionName(val *string) {
+	_jsii_.Set(
+		j,
+		"subscriptionName",
+		val,
+	)
+}
+
+// Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
+//
+// Uses duck-typing instead of `instanceof` to allow stack elements from different
+// versions of this library to be included in the same stack.
+//
+// Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
+func CfnEventSubscription_IsCfnElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_redshift.CfnEventSubscription",
+		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a CfnResource.
+// Experimental.
+func CfnEventSubscription_IsCfnResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_redshift.CfnEventSubscription",
+		"isCfnResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func CfnEventSubscription_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_redshift.CfnEventSubscription",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnEventSubscription_CFN_RESOURCE_TYPE_NAME() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"monocdk.aws_redshift.CfnEventSubscription",
+		"CFN_RESOURCE_TYPE_NAME",
+		&returns,
+	)
+	return returns
+}
+
+// Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) AddDeletionOverride(path *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDeletionOverride",
+		[]interface{}{path},
+	)
+}
+
+// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+//
+// This can be used for resources across stacks (or nested stack) boundaries
+// and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) AddDependsOn(target awscdk.CfnResource) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDependsOn",
+		[]interface{}{target},
+	)
+}
+
+// Add a value to the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) AddMetadata(key *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addMetadata",
+		[]interface{}{key, value},
+	)
+}
+
+// Adds an override to the synthesized CloudFormation resource.
+//
+// To add a
+// property override, either use `addPropertyOverride` or prefix `path` with
+// "Properties." (i.e. `Properties.TopicName`).
+//
+// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+// If there is an array as part of the nesting, specify the index in the path.
+//
+// To include a literal `.` in the property name, prefix with a `\`. In most
+// programming languages you will need to write this as `"\\."` because the
+// `\` itself will need to be escaped.
+//
+// For example,
+// ```typescript
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+// ```
+// would add the overrides
+// ```json
+// "Properties": {
+//    "GlobalSecondaryIndexes": [
+//      {
+//        "Projection": {
+//          "NonKeyAttributes": [ "myattribute" ]
+//          ...
+//        }
+//        ...
+//      },
+//      {
+//        "ProjectionType": "INCLUDE"
+//        ...
+//      },
+//    ]
+//    ...
+// }
+// ```
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) AddOverride(path *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addOverride",
+		[]interface{}{path, value},
+	)
+}
+
+// Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) AddPropertyDeletionOverride(propertyPath *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyDeletionOverride",
+		[]interface{}{propertyPath},
+	)
+}
+
+// Adds an override to a resource property.
+//
+// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) AddPropertyOverride(propertyPath *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyOverride",
+		[]interface{}{propertyPath, value},
+	)
+}
+
+// Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	_jsii_.InvokeVoid(
+		c,
+		"applyRemovalPolicy",
+		[]interface{}{policy, options},
+	)
+}
+
+// Returns a token for an runtime attribute of this resource.
+//
+// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+// in case there is no generated attribute.
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) GetAtt(attributeName *string) awscdk.Reference {
+	var returns awscdk.Reference
+
+	_jsii_.Invoke(
+		c,
+		"getAtt",
+		[]interface{}{attributeName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Retrieve a value value from the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) GetMetadata(key *string) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"getMetadata",
+		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
+// Examines the CloudFormation resource and discloses attributes.
+func (c *jsiiProxy_CfnEventSubscription) Inspect(inspector awscdk.TreeInspector) {
+	_jsii_.InvokeVoid(
+		c,
+		"inspect",
+		[]interface{}{inspector},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) OverrideLogicalId(newLogicalId *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"overrideLogicalId",
+		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnEventSubscription) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderProperties",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+//
+// Returns: `true` if the resource should be included or `false` is the resource
+// should be omitted.
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) ShouldSynthesize() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"shouldSynthesize",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+//
+// Returns: a string representation of this resource
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (c *jsiiProxy_CfnEventSubscription) ValidateProperties(_properties interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"validateProperties",
+		[]interface{}{_properties},
+	)
+}
+
+// Properties for defining a `AWS::Redshift::EventSubscription`.
+type CfnEventSubscriptionProps struct {
+	// `AWS::Redshift::EventSubscription.SubscriptionName`.
+	SubscriptionName *string `json:"subscriptionName"`
+	// `AWS::Redshift::EventSubscription.Enabled`.
+	Enabled interface{} `json:"enabled"`
+	// `AWS::Redshift::EventSubscription.EventCategories`.
+	EventCategories *[]*string `json:"eventCategories"`
+	// `AWS::Redshift::EventSubscription.Severity`.
+	Severity *string `json:"severity"`
+	// `AWS::Redshift::EventSubscription.SnsTopicArn`.
+	SnsTopicArn *string `json:"snsTopicArn"`
+	// `AWS::Redshift::EventSubscription.SourceIds`.
+	SourceIds *[]*string `json:"sourceIds"`
+	// `AWS::Redshift::EventSubscription.SourceType`.
+	SourceType *string `json:"sourceType"`
+	// `AWS::Redshift::EventSubscription.Tags`.
+	Tags *[]*awscdk.CfnTag `json:"tags"`
+}
+
+// A CloudFormation `AWS::Redshift::ScheduledAction`.
+type CfnScheduledAction interface {
+	awscdk.CfnResource
+	awscdk.IInspectable
+	AttrNextInvocations() *[]*string
+	AttrState() *string
+	CfnOptions() awscdk.ICfnResourceOptions
+	CfnProperties() *map[string]interface{}
+	CfnResourceType() *string
+	CreationStack() *[]*string
+	Enable() interface{}
+	SetEnable(val interface{})
+	EndTime() *string
+	SetEndTime(val *string)
+	IamRole() *string
+	SetIamRole(val *string)
+	LogicalId() *string
+	Node() awscdk.ConstructNode
+	Ref() *string
+	Schedule() *string
+	SetSchedule(val *string)
+	ScheduledActionDescription() *string
+	SetScheduledActionDescription(val *string)
+	ScheduledActionName() *string
+	SetScheduledActionName(val *string)
+	Stack() awscdk.Stack
+	StartTime() *string
+	SetStartTime(val *string)
+	TargetAction() interface{}
+	SetTargetAction(val interface{})
+	UpdatedProperites() *map[string]interface{}
+	AddDeletionOverride(path *string)
+	AddDependsOn(target awscdk.CfnResource)
+	AddMetadata(key *string, value interface{})
+	AddOverride(path *string, value interface{})
+	AddPropertyDeletionOverride(propertyPath *string)
+	AddPropertyOverride(propertyPath *string, value interface{})
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	GetAtt(attributeName *string) awscdk.Reference
+	GetMetadata(key *string) interface{}
+	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	OverrideLogicalId(newLogicalId *string)
+	Prepare()
+	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
+	ValidateProperties(_properties interface{})
+}
+
+// The jsii proxy struct for CfnScheduledAction
+type jsiiProxy_CfnScheduledAction struct {
+	internal.Type__awscdkCfnResource
+	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnScheduledAction) AttrNextInvocations() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"attrNextInvocations",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnScheduledAction) AttrState() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrState",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnScheduledAction) CfnOptions() awscdk.ICfnResourceOptions {
+	var returns awscdk.ICfnResourceOptions
+	_jsii_.Get(
+		j,
+		"cfnOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnScheduledAction) CfnProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"cfnProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnScheduledAction) CfnResourceType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnScheduledAction) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnScheduledAction) Enable() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"enable",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnScheduledAction) EndTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"endTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnScheduledAction) IamRole() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"iamRole",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnScheduledAction) LogicalId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnScheduledAction) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnScheduledAction) Ref() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnScheduledAction) Schedule() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"schedule",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnScheduledAction) ScheduledActionDescription() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"scheduledActionDescription",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnScheduledAction) ScheduledActionName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"scheduledActionName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnScheduledAction) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnScheduledAction) StartTime() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"startTime",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnScheduledAction) TargetAction() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"targetAction",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnScheduledAction) UpdatedProperites() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a new `AWS::Redshift::ScheduledAction`.
+func NewCfnScheduledAction(scope awscdk.Construct, id *string, props *CfnScheduledActionProps) CfnScheduledAction {
+	_init_.Initialize()
+
+	j := jsiiProxy_CfnScheduledAction{}
+
+	_jsii_.Create(
+		"monocdk.aws_redshift.CfnScheduledAction",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a new `AWS::Redshift::ScheduledAction`.
+func NewCfnScheduledAction_Override(c CfnScheduledAction, scope awscdk.Construct, id *string, props *CfnScheduledActionProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_redshift.CfnScheduledAction",
+		[]interface{}{scope, id, props},
+		c,
+	)
+}
+
+func (j *jsiiProxy_CfnScheduledAction) SetEnable(val interface{}) {
+	_jsii_.Set(
+		j,
+		"enable",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnScheduledAction) SetEndTime(val *string) {
+	_jsii_.Set(
+		j,
+		"endTime",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnScheduledAction) SetIamRole(val *string) {
+	_jsii_.Set(
+		j,
+		"iamRole",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnScheduledAction) SetSchedule(val *string) {
+	_jsii_.Set(
+		j,
+		"schedule",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnScheduledAction) SetScheduledActionDescription(val *string) {
+	_jsii_.Set(
+		j,
+		"scheduledActionDescription",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnScheduledAction) SetScheduledActionName(val *string) {
+	_jsii_.Set(
+		j,
+		"scheduledActionName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnScheduledAction) SetStartTime(val *string) {
+	_jsii_.Set(
+		j,
+		"startTime",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnScheduledAction) SetTargetAction(val interface{}) {
+	_jsii_.Set(
+		j,
+		"targetAction",
+		val,
+	)
+}
+
+// Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
+//
+// Uses duck-typing instead of `instanceof` to allow stack elements from different
+// versions of this library to be included in the same stack.
+//
+// Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
+func CfnScheduledAction_IsCfnElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_redshift.CfnScheduledAction",
+		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a CfnResource.
+// Experimental.
+func CfnScheduledAction_IsCfnResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_redshift.CfnScheduledAction",
+		"isCfnResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func CfnScheduledAction_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_redshift.CfnScheduledAction",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnScheduledAction_CFN_RESOURCE_TYPE_NAME() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"monocdk.aws_redshift.CfnScheduledAction",
+		"CFN_RESOURCE_TYPE_NAME",
+		&returns,
+	)
+	return returns
+}
+
+// Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
+func (c *jsiiProxy_CfnScheduledAction) AddDeletionOverride(path *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDeletionOverride",
+		[]interface{}{path},
+	)
+}
+
+// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+//
+// This can be used for resources across stacks (or nested stack) boundaries
+// and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
+func (c *jsiiProxy_CfnScheduledAction) AddDependsOn(target awscdk.CfnResource) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDependsOn",
+		[]interface{}{target},
+	)
+}
+
+// Add a value to the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+// Experimental.
+func (c *jsiiProxy_CfnScheduledAction) AddMetadata(key *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addMetadata",
+		[]interface{}{key, value},
+	)
+}
+
+// Adds an override to the synthesized CloudFormation resource.
+//
+// To add a
+// property override, either use `addPropertyOverride` or prefix `path` with
+// "Properties." (i.e. `Properties.TopicName`).
+//
+// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+// If there is an array as part of the nesting, specify the index in the path.
+//
+// To include a literal `.` in the property name, prefix with a `\`. In most
+// programming languages you will need to write this as `"\\."` because the
+// `\` itself will need to be escaped.
+//
+// For example,
+// ```typescript
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+// ```
+// would add the overrides
+// ```json
+// "Properties": {
+//    "GlobalSecondaryIndexes": [
+//      {
+//        "Projection": {
+//          "NonKeyAttributes": [ "myattribute" ]
+//          ...
+//        }
+//        ...
+//      },
+//      {
+//        "ProjectionType": "INCLUDE"
+//        ...
+//      },
+//    ]
+//    ...
+// }
+// ```
+// Experimental.
+func (c *jsiiProxy_CfnScheduledAction) AddOverride(path *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addOverride",
+		[]interface{}{path, value},
+	)
+}
+
+// Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
+func (c *jsiiProxy_CfnScheduledAction) AddPropertyDeletionOverride(propertyPath *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyDeletionOverride",
+		[]interface{}{propertyPath},
+	)
+}
+
+// Adds an override to a resource property.
+//
+// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
+func (c *jsiiProxy_CfnScheduledAction) AddPropertyOverride(propertyPath *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyOverride",
+		[]interface{}{propertyPath, value},
+	)
+}
+
+// Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
+func (c *jsiiProxy_CfnScheduledAction) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	_jsii_.InvokeVoid(
+		c,
+		"applyRemovalPolicy",
+		[]interface{}{policy, options},
+	)
+}
+
+// Returns a token for an runtime attribute of this resource.
+//
+// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+// in case there is no generated attribute.
+// Experimental.
+func (c *jsiiProxy_CfnScheduledAction) GetAtt(attributeName *string) awscdk.Reference {
+	var returns awscdk.Reference
+
+	_jsii_.Invoke(
+		c,
+		"getAtt",
+		[]interface{}{attributeName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Retrieve a value value from the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+// Experimental.
+func (c *jsiiProxy_CfnScheduledAction) GetMetadata(key *string) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"getMetadata",
+		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
+// Examines the CloudFormation resource and discloses attributes.
+func (c *jsiiProxy_CfnScheduledAction) Inspect(inspector awscdk.TreeInspector) {
+	_jsii_.InvokeVoid(
+		c,
+		"inspect",
+		[]interface{}{inspector},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnScheduledAction) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnScheduledAction) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnScheduledAction) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
+func (c *jsiiProxy_CfnScheduledAction) OverrideLogicalId(newLogicalId *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"overrideLogicalId",
+		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnScheduledAction) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnScheduledAction) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderProperties",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+//
+// Returns: `true` if the resource should be included or `false` is the resource
+// should be omitted.
+// Experimental.
+func (c *jsiiProxy_CfnScheduledAction) ShouldSynthesize() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"shouldSynthesize",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnScheduledAction) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+//
+// Returns: a string representation of this resource
+// Experimental.
+func (c *jsiiProxy_CfnScheduledAction) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnScheduledAction) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (c *jsiiProxy_CfnScheduledAction) ValidateProperties(_properties interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"validateProperties",
+		[]interface{}{_properties},
+	)
+}
+
+type CfnScheduledAction_PauseClusterMessageProperty struct {
+	// `CfnScheduledAction.PauseClusterMessageProperty.ClusterIdentifier`.
+	ClusterIdentifier *string `json:"clusterIdentifier"`
+}
+
+type CfnScheduledAction_ResizeClusterMessageProperty struct {
+	// `CfnScheduledAction.ResizeClusterMessageProperty.ClusterIdentifier`.
+	ClusterIdentifier *string `json:"clusterIdentifier"`
+	// `CfnScheduledAction.ResizeClusterMessageProperty.Classic`.
+	Classic interface{} `json:"classic"`
+	// `CfnScheduledAction.ResizeClusterMessageProperty.ClusterType`.
+	ClusterType *string `json:"clusterType"`
+	// `CfnScheduledAction.ResizeClusterMessageProperty.NodeType`.
+	NodeType *string `json:"nodeType"`
+	// `CfnScheduledAction.ResizeClusterMessageProperty.NumberOfNodes`.
+	NumberOfNodes *float64 `json:"numberOfNodes"`
+}
+
+type CfnScheduledAction_ResumeClusterMessageProperty struct {
+	// `CfnScheduledAction.ResumeClusterMessageProperty.ClusterIdentifier`.
+	ClusterIdentifier *string `json:"clusterIdentifier"`
+}
+
+type CfnScheduledAction_ScheduledActionTypeProperty struct {
+	// `CfnScheduledAction.ScheduledActionTypeProperty.PauseCluster`.
+	PauseCluster interface{} `json:"pauseCluster"`
+	// `CfnScheduledAction.ScheduledActionTypeProperty.ResizeCluster`.
+	ResizeCluster interface{} `json:"resizeCluster"`
+	// `CfnScheduledAction.ScheduledActionTypeProperty.ResumeCluster`.
+	ResumeCluster interface{} `json:"resumeCluster"`
+}
+
+// Properties for defining a `AWS::Redshift::ScheduledAction`.
+type CfnScheduledActionProps struct {
+	// `AWS::Redshift::ScheduledAction.ScheduledActionName`.
+	ScheduledActionName *string `json:"scheduledActionName"`
+	// `AWS::Redshift::ScheduledAction.Enable`.
+	Enable interface{} `json:"enable"`
+	// `AWS::Redshift::ScheduledAction.EndTime`.
+	EndTime *string `json:"endTime"`
+	// `AWS::Redshift::ScheduledAction.IamRole`.
+	IamRole *string `json:"iamRole"`
+	// `AWS::Redshift::ScheduledAction.Schedule`.
+	Schedule *string `json:"schedule"`
+	// `AWS::Redshift::ScheduledAction.ScheduledActionDescription`.
+	ScheduledActionDescription *string `json:"scheduledActionDescription"`
+	// `AWS::Redshift::ScheduledAction.StartTime`.
+	StartTime *string `json:"startTime"`
+	// `AWS::Redshift::ScheduledAction.TargetAction`.
+	TargetAction interface{} `json:"targetAction"`
+}
+
 // Create a Redshift cluster a given number of nodes.
 // Experimental.
 type Cluster interface {

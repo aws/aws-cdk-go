@@ -2900,6 +2900,8 @@ type CfnTracker interface {
 	SetKmsKeyId(val *string)
 	LogicalId() *string
 	Node() awscdk.ConstructNode
+	PositionFiltering() *string
+	SetPositionFiltering(val *string)
 	PricingPlan() *string
 	SetPricingPlan(val *string)
 	PricingPlanDataSource() *string
@@ -3058,6 +3060,16 @@ func (j *jsiiProxy_CfnTracker) Node() awscdk.ConstructNode {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTracker) PositionFiltering() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"positionFiltering",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTracker) PricingPlan() *string {
 	var returns *string
 	_jsii_.Get(
@@ -3157,6 +3169,14 @@ func (j *jsiiProxy_CfnTracker) SetKmsKeyId(val *string) {
 	_jsii_.Set(
 		j,
 		"kmsKeyId",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTracker) SetPositionFiltering(val *string) {
+	_jsii_.Set(
+		j,
+		"positionFiltering",
 		val,
 	)
 }
@@ -4216,6 +4236,8 @@ type CfnTrackerProps struct {
 	Description *string `json:"description"`
 	// `AWS::Location::Tracker.KmsKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
+	// `AWS::Location::Tracker.PositionFiltering`.
+	PositionFiltering *string `json:"positionFiltering"`
 	// `AWS::Location::Tracker.PricingPlanDataSource`.
 	PricingPlanDataSource *string `json:"pricingPlanDataSource"`
 }

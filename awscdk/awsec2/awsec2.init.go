@@ -239,6 +239,70 @@ func init() {
 		"monocdk.aws_ec2.CfnCapacityReservation.TagSpecificationProperty",
 		reflect.TypeOf((*CfnCapacityReservation_TagSpecificationProperty)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_ec2.CfnCapacityReservationFleet",
+		reflect.TypeOf((*CfnCapacityReservationFleet)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberProperty{JsiiProperty: "allocationStrategy", GoGetter: "AllocationStrategy"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrCapacityReservationFleetId", GoGetter: "AttrCapacityReservationFleetId"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "endDate", GoGetter: "EndDate"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "instanceMatchCriteria", GoGetter: "InstanceMatchCriteria"},
+			_jsii_.MemberProperty{JsiiProperty: "instanceTypeSpecifications", GoGetter: "InstanceTypeSpecifications"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "noRemoveEndDate", GoGetter: "NoRemoveEndDate"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberProperty{JsiiProperty: "removeEndDate", GoGetter: "RemoveEndDate"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "tagSpecifications", GoGetter: "TagSpecifications"},
+			_jsii_.MemberProperty{JsiiProperty: "tenancy", GoGetter: "Tenancy"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "totalTargetCapacity", GoGetter: "TotalTargetCapacity"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnCapacityReservationFleet{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnCapacityReservationFleet.InstanceTypeSpecificationProperty",
+		reflect.TypeOf((*CfnCapacityReservationFleet_InstanceTypeSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnCapacityReservationFleet.TagSpecificationProperty",
+		reflect.TypeOf((*CfnCapacityReservationFleet_TagSpecificationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnCapacityReservationFleetProps",
+		reflect.TypeOf((*CfnCapacityReservationFleetProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_ec2.CfnCapacityReservationProps",
 		reflect.TypeOf((*CfnCapacityReservationProps)(nil)).Elem(),
@@ -690,6 +754,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnEC2Fleet.AcceleratorCountRequestProperty",
+		reflect.TypeOf((*CfnEC2Fleet_AcceleratorCountRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnEC2Fleet.AcceleratorTotalMemoryMiBRequestProperty",
+		reflect.TypeOf((*CfnEC2Fleet_AcceleratorTotalMemoryMiBRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnEC2Fleet.BaselineEbsBandwidthMbpsRequestProperty",
+		reflect.TypeOf((*CfnEC2Fleet_BaselineEbsBandwidthMbpsRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnEC2Fleet.CapacityRebalanceProperty",
+		reflect.TypeOf((*CfnEC2Fleet_CapacityRebalanceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_ec2.CfnEC2Fleet.CapacityReservationOptionsRequestProperty",
 		reflect.TypeOf((*CfnEC2Fleet_CapacityReservationOptionsRequestProperty)(nil)).Elem(),
 	)
@@ -704,6 +784,26 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_ec2.CfnEC2Fleet.FleetLaunchTemplateSpecificationRequestProperty",
 		reflect.TypeOf((*CfnEC2Fleet_FleetLaunchTemplateSpecificationRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnEC2Fleet.InstanceRequirementsRequestProperty",
+		reflect.TypeOf((*CfnEC2Fleet_InstanceRequirementsRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnEC2Fleet.MaintenanceStrategiesProperty",
+		reflect.TypeOf((*CfnEC2Fleet_MaintenanceStrategiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnEC2Fleet.MemoryGiBPerVCpuRequestProperty",
+		reflect.TypeOf((*CfnEC2Fleet_MemoryGiBPerVCpuRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnEC2Fleet.MemoryMiBRequestProperty",
+		reflect.TypeOf((*CfnEC2Fleet_MemoryMiBRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnEC2Fleet.NetworkInterfaceCountRequestProperty",
+		reflect.TypeOf((*CfnEC2Fleet_NetworkInterfaceCountRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_ec2.CfnEC2Fleet.OnDemandOptionsRequestProperty",
@@ -724,6 +824,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_ec2.CfnEC2Fleet.TargetCapacitySpecificationRequestProperty",
 		reflect.TypeOf((*CfnEC2Fleet_TargetCapacitySpecificationRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnEC2Fleet.TotalLocalStorageGBRequestProperty",
+		reflect.TypeOf((*CfnEC2Fleet_TotalLocalStorageGBRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnEC2Fleet.VCpuCountRangeRequestProperty",
+		reflect.TypeOf((*CfnEC2Fleet_VCpuCountRangeRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_ec2.CfnEC2FleetProps",
@@ -1254,6 +1362,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrInternetGatewayId", GoGetter: "AttrInternetGatewayId"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -1629,6 +1738,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -1673,6 +1783,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -1899,6 +2010,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrPrimaryPrivateIpAddress", GoGetter: "AttrPrimaryPrivateIpAddress"},
 			_jsii_.MemberProperty{JsiiProperty: "attrSecondaryPrivateIpAddresses", GoGetter: "AttrSecondaryPrivateIpAddresses"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
@@ -2230,6 +2342,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrRouteTableId", GoGetter: "AttrRouteTableId"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -2487,6 +2600,18 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnSpotFleet.AcceleratorCountRequestProperty",
+		reflect.TypeOf((*CfnSpotFleet_AcceleratorCountRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnSpotFleet.AcceleratorTotalMemoryMiBRequestProperty",
+		reflect.TypeOf((*CfnSpotFleet_AcceleratorTotalMemoryMiBRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnSpotFleet.BaselineEbsBandwidthMbpsRequestProperty",
+		reflect.TypeOf((*CfnSpotFleet_BaselineEbsBandwidthMbpsRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_ec2.CfnSpotFleet.BlockDeviceMappingProperty",
 		reflect.TypeOf((*CfnSpotFleet_BlockDeviceMappingProperty)(nil)).Elem(),
 	)
@@ -2523,6 +2648,10 @@ func init() {
 		reflect.TypeOf((*CfnSpotFleet_InstanceNetworkInterfaceSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnSpotFleet.InstanceRequirementsRequestProperty",
+		reflect.TypeOf((*CfnSpotFleet_InstanceRequirementsRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_ec2.CfnSpotFleet.LaunchTemplateConfigProperty",
 		reflect.TypeOf((*CfnSpotFleet_LaunchTemplateConfigProperty)(nil)).Elem(),
 	)
@@ -2533,6 +2662,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_ec2.CfnSpotFleet.LoadBalancersConfigProperty",
 		reflect.TypeOf((*CfnSpotFleet_LoadBalancersConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnSpotFleet.MemoryGiBPerVCpuRequestProperty",
+		reflect.TypeOf((*CfnSpotFleet_MemoryGiBPerVCpuRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnSpotFleet.MemoryMiBRequestProperty",
+		reflect.TypeOf((*CfnSpotFleet_MemoryMiBRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnSpotFleet.NetworkInterfaceCountRequestProperty",
+		reflect.TypeOf((*CfnSpotFleet_NetworkInterfaceCountRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_ec2.CfnSpotFleet.PrivateIpAddressSpecificationProperty",
@@ -2573,6 +2714,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_ec2.CfnSpotFleet.TargetGroupsConfigProperty",
 		reflect.TypeOf((*CfnSpotFleet_TargetGroupsConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnSpotFleet.TotalLocalStorageGBRequestProperty",
+		reflect.TypeOf((*CfnSpotFleet_TotalLocalStorageGBRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnSpotFleet.VCpuCountRangeRequestProperty",
+		reflect.TypeOf((*CfnSpotFleet_VCpuCountRangeRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_ec2.CfnSpotFleetProps",
@@ -3402,6 +3551,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
 			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberProperty{JsiiProperty: "options", GoGetter: "Options"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "peerAccountId", GoGetter: "PeerAccountId"},
 			_jsii_.MemberProperty{JsiiProperty: "peerRegion", GoGetter: "PeerRegion"},
@@ -3425,6 +3575,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ec2.CfnTransitGatewayPeeringAttachment.TransitGatewayPeeringAttachmentOptionsProperty",
+		reflect.TypeOf((*CfnTransitGatewayPeeringAttachment_TransitGatewayPeeringAttachmentOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_ec2.CfnTransitGatewayPeeringAttachmentProps",
@@ -3967,6 +4121,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "payerResponsibility", GoGetter: "PayerResponsibility"},
 			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -5545,6 +5700,7 @@ func init() {
 			"COMPUTE3": InstanceClass_COMPUTE3,
 			"COMPUTE4": InstanceClass_COMPUTE4,
 			"COMPUTE5": InstanceClass_COMPUTE5,
+			"COMPUTE6_INTEL": InstanceClass_COMPUTE6_INTEL,
 			"COMPUTE5_NVME_DRIVE": InstanceClass_COMPUTE5_NVME_DRIVE,
 			"COMPUTE5_AMD": InstanceClass_COMPUTE5_AMD,
 			"COMPUTE5_AMD_NVME_DRIVE": InstanceClass_COMPUTE5_AMD_NVME_DRIVE,
@@ -6314,6 +6470,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "canInlineRule", GoGetter: "CanInlineRule"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultPort", GoGetter: "DefaultPort"},
+			_jsii_.MemberMethod{JsiiMethod: "determineRuleScope", GoMethod: "DetermineRuleScope"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},

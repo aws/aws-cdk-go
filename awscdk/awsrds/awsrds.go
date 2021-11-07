@@ -714,6 +714,17 @@ func AuroraPostgresEngineVersion_VER_10_16() AuroraPostgresEngineVersion {
 	return returns
 }
 
+func AuroraPostgresEngineVersion_VER_10_18() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
+		"VER_10_18",
+		&returns,
+	)
+	return returns
+}
+
 func AuroraPostgresEngineVersion_VER_10_4() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
@@ -764,6 +775,17 @@ func AuroraPostgresEngineVersion_VER_11_11() AuroraPostgresEngineVersion {
 	_jsii_.StaticGet(
 		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_11_11",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraPostgresEngineVersion_VER_11_13() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
+		"VER_11_13",
 		&returns,
 	)
 	return returns
@@ -846,12 +868,34 @@ func AuroraPostgresEngineVersion_VER_12_6() AuroraPostgresEngineVersion {
 	return returns
 }
 
+func AuroraPostgresEngineVersion_VER_12_8() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
+		"VER_12_8",
+		&returns,
+	)
+	return returns
+}
+
 func AuroraPostgresEngineVersion_VER_13_3() AuroraPostgresEngineVersion {
 	_init_.Initialize()
 	var returns AuroraPostgresEngineVersion
 	_jsii_.StaticGet(
 		"monocdk.aws_rds.AuroraPostgresEngineVersion",
 		"VER_13_3",
+		&returns,
+	)
+	return returns
+}
+
+func AuroraPostgresEngineVersion_VER_13_4() AuroraPostgresEngineVersion {
+	_init_.Initialize()
+	var returns AuroraPostgresEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.AuroraPostgresEngineVersion",
+		"VER_13_4",
 		&returns,
 	)
 	return returns
@@ -22521,6 +22565,17 @@ func MysqlEngineVersion_VER_8_0_25() MysqlEngineVersion {
 	return returns
 }
 
+func MysqlEngineVersion_VER_8_0_26() MysqlEngineVersion {
+	_init_.Initialize()
+	var returns MysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MysqlEngineVersion",
+		"VER_8_0_26",
+		&returns,
+	)
+	return returns
+}
+
 // Configuration properties for an option.
 // Experimental.
 type OptionConfiguration struct {
@@ -25471,9 +25526,20 @@ type RotationMultiUserOptions struct {
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
 	// Experimental.
 	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter"`
+	// The VPC interface endpoint to use for the Secrets Manager API.
+	//
+	// If you enable private DNS hostnames for your VPC private endpoint (the default), you don't
+	// need to specify an endpoint. The standard Secrets Manager DNS hostname the Secrets Manager
+	// CLI and SDKs use by default (https://secretsmanager.<region>.amazonaws.com) automatically
+	// resolves to your VPC endpoint.
+	// Experimental.
+	Endpoint awsec2.IInterfaceVpcEndpoint `json:"endpoint"`
 	// Specifies characters to not include in generated passwords.
 	// Experimental.
 	ExcludeCharacters *string `json:"excludeCharacters"`
+	// Where to place the rotation Lambda function.
+	// Experimental.
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 }
 
 // Options to add the multi user rotation.
@@ -25482,9 +25548,20 @@ type RotationSingleUserOptions struct {
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
 	// Experimental.
 	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter"`
+	// The VPC interface endpoint to use for the Secrets Manager API.
+	//
+	// If you enable private DNS hostnames for your VPC private endpoint (the default), you don't
+	// need to specify an endpoint. The standard Secrets Manager DNS hostname the Secrets Manager
+	// CLI and SDKs use by default (https://secretsmanager.<region>.amazonaws.com) automatically
+	// resolves to your VPC endpoint.
+	// Experimental.
+	Endpoint awsec2.IInterfaceVpcEndpoint `json:"endpoint"`
 	// Specifies characters to not include in generated passwords.
 	// Experimental.
 	ExcludeCharacters *string `json:"excludeCharacters"`
+	// Where to place the rotation Lambda function.
+	// Experimental.
+	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 }
 
 // Create an Aurora Serverless Cluster.

@@ -113,12 +113,24 @@ func init() {
 		reflect.TypeOf((*CfnConnectorProfile_MarketoConnectorProfilePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_appflow.CfnConnectorProfile.OAuthPropertiesProperty",
+		reflect.TypeOf((*CfnConnectorProfile_OAuthPropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_appflow.CfnConnectorProfile.RedshiftConnectorProfileCredentialsProperty",
 		reflect.TypeOf((*CfnConnectorProfile_RedshiftConnectorProfileCredentialsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_appflow.CfnConnectorProfile.RedshiftConnectorProfilePropertiesProperty",
 		reflect.TypeOf((*CfnConnectorProfile_RedshiftConnectorProfilePropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_appflow.CfnConnectorProfile.SAPODataConnectorProfileCredentialsProperty",
+		reflect.TypeOf((*CfnConnectorProfile_SAPODataConnectorProfileCredentialsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_appflow.CfnConnectorProfile.SAPODataConnectorProfilePropertiesProperty",
+		reflect.TypeOf((*CfnConnectorProfile_SAPODataConnectorProfilePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_appflow.CfnConnectorProfile.SalesforceConnectorProfileCredentialsProperty",
@@ -300,12 +312,20 @@ func init() {
 		reflect.TypeOf((*CfnFlow_S3DestinationPropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_appflow.CfnFlow.S3InputFormatConfigProperty",
+		reflect.TypeOf((*CfnFlow_S3InputFormatConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_appflow.CfnFlow.S3OutputFormatConfigProperty",
 		reflect.TypeOf((*CfnFlow_S3OutputFormatConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_appflow.CfnFlow.S3SourcePropertiesProperty",
 		reflect.TypeOf((*CfnFlow_S3SourcePropertiesProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_appflow.CfnFlow.SAPODataSourcePropertiesProperty",
+		reflect.TypeOf((*CfnFlow_SAPODataSourcePropertiesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_appflow.CfnFlow.SalesforceDestinationPropertiesProperty",

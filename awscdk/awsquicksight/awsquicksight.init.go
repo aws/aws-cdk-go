@@ -463,6 +463,10 @@ func init() {
 		reflect.TypeOf((*CfnDataSource_AmazonElasticsearchParametersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_quicksight.CfnDataSource.AmazonOpenSearchParametersProperty",
+		reflect.TypeOf((*CfnDataSource_AmazonOpenSearchParametersProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_quicksight.CfnDataSource.AthenaParametersProperty",
 		reflect.TypeOf((*CfnDataSource_AthenaParametersProperty)(nil)).Elem(),
 	)

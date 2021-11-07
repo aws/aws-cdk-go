@@ -9,6 +9,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/awss3assets"
 	"github.com/aws/aws-cdk-go/awscdk/awsservicecatalog/internal"
 	"github.com/aws/aws-cdk-go/awscdk/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/cloudassemblyschema"
+	"github.com/aws/aws-cdk-go/awscdk/cxapi"
 	"github.com/aws/constructs-go/constructs/v3"
 )
 
@@ -11568,6 +11570,23 @@ func CloudFormationTemplate_FromAsset(path *string, options *awss3assets.AssetOp
 	return returns
 }
 
+// Creates a product with the resources defined in the given product stack.
+// Experimental.
+func CloudFormationTemplate_FromProductStack(productStack ProductStack) CloudFormationTemplate {
+	_init_.Initialize()
+
+	var returns CloudFormationTemplate
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_servicecatalog.CloudFormationTemplate",
+		"fromProductStack",
+		[]interface{}{productStack},
+		&returns,
+	)
+
+	return returns
+}
+
 // Template from URL.
 // Experimental.
 func CloudFormationTemplate_FromUrl(url *string) CloudFormationTemplate {
@@ -12689,6 +12708,844 @@ func (p *jsiiProxy_Product) ToString() *string {
 // Returns: An array of validation error messages, or an empty array if the construct is valid.
 // Experimental.
 func (p *jsiiProxy_Product) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// A Service Catalog product stack, which is similar in form to a Cloudformation nested stack.
+//
+// You can add the resources to this stack that you want to define for your service catalog product.
+//
+// This stack will not be treated as an independent deployment
+// artifact (won't be listed in "cdk list" or deployable through "cdk deploy"),
+// but rather only synthesized as a template and uploaded as an asset to S3.
+// Experimental.
+type ProductStack interface {
+	awscdk.Stack
+	Account() *string
+	ArtifactId() *string
+	AvailabilityZones() *[]*string
+	Dependencies() *[]awscdk.Stack
+	Environment() *string
+	Nested() *bool
+	NestedStackParent() awscdk.Stack
+	NestedStackResource() awscdk.CfnResource
+	Node() awscdk.ConstructNode
+	NotificationArns() *[]*string
+	ParentStack() awscdk.Stack
+	Partition() *string
+	Region() *string
+	StackId() *string
+	StackName() *string
+	Synthesizer() awscdk.IStackSynthesizer
+	Tags() awscdk.TagManager
+	TemplateFile() *string
+	TemplateOptions() awscdk.ITemplateOptions
+	TerminationProtection() *bool
+	UrlSuffix() *string
+	AddDependency(target awscdk.Stack, reason *string)
+	AddDockerImageAsset(asset *awscdk.DockerImageAssetSource) *awscdk.DockerImageAssetLocation
+	AddFileAsset(asset *awscdk.FileAssetSource) *awscdk.FileAssetLocation
+	AddTransform(transform *string)
+	AllocateLogicalId(cfnElement awscdk.CfnElement) *string
+	ExportValue(exportedValue interface{}, options *awscdk.ExportValueOptions) *string
+	FormatArn(components *awscdk.ArnComponents) *string
+	GetLogicalId(element awscdk.CfnElement) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	ParseArn(arn *string, sepIfToken *string, hasName *bool) *awscdk.ArnComponents
+	Prepare()
+	PrepareCrossReference(_sourceStack awscdk.Stack, reference awscdk.Reference) awscdk.IResolvable
+	RenameLogicalId(oldId *string, newId *string)
+	ReportMissingContext(report *cxapi.MissingContext)
+	ReportMissingContextKey(report *cloudassemblyschema.MissingContext)
+	Resolve(obj interface{}) interface{}
+	SplitArn(arn *string, arnFormat awscdk.ArnFormat) *awscdk.ArnComponents
+	Synthesize(session awscdk.ISynthesisSession)
+	ToJsonString(obj interface{}, space *float64) *string
+	ToString() *string
+	Validate() *[]*string
+}
+
+// The jsii proxy struct for ProductStack
+type jsiiProxy_ProductStack struct {
+	internal.Type__awscdkStack
+}
+
+func (j *jsiiProxy_ProductStack) Account() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"account",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ProductStack) ArtifactId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"artifactId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ProductStack) AvailabilityZones() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"availabilityZones",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ProductStack) Dependencies() *[]awscdk.Stack {
+	var returns *[]awscdk.Stack
+	_jsii_.Get(
+		j,
+		"dependencies",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ProductStack) Environment() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"environment",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ProductStack) Nested() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"nested",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ProductStack) NestedStackParent() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"nestedStackParent",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ProductStack) NestedStackResource() awscdk.CfnResource {
+	var returns awscdk.CfnResource
+	_jsii_.Get(
+		j,
+		"nestedStackResource",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ProductStack) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ProductStack) NotificationArns() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"notificationArns",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ProductStack) ParentStack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"parentStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ProductStack) Partition() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"partition",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ProductStack) Region() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"region",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ProductStack) StackId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"stackId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ProductStack) StackName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"stackName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ProductStack) Synthesizer() awscdk.IStackSynthesizer {
+	var returns awscdk.IStackSynthesizer
+	_jsii_.Get(
+		j,
+		"synthesizer",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ProductStack) Tags() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ProductStack) TemplateFile() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"templateFile",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ProductStack) TemplateOptions() awscdk.ITemplateOptions {
+	var returns awscdk.ITemplateOptions
+	_jsii_.Get(
+		j,
+		"templateOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ProductStack) TerminationProtection() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"terminationProtection",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ProductStack) UrlSuffix() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"urlSuffix",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewProductStack(scope constructs.Construct, id *string) ProductStack {
+	_init_.Initialize()
+
+	j := jsiiProxy_ProductStack{}
+
+	_jsii_.Create(
+		"monocdk.aws_servicecatalog.ProductStack",
+		[]interface{}{scope, id},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewProductStack_Override(p ProductStack, scope constructs.Construct, id *string) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_servicecatalog.ProductStack",
+		[]interface{}{scope, id},
+		p,
+	)
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func ProductStack_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_servicecatalog.ProductStack",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Stack.
+//
+// We do attribute detection since we can't reliably use 'instanceof'.
+// Experimental.
+func ProductStack_IsStack(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_servicecatalog.ProductStack",
+		"isStack",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Looks up the first stack scope in which `construct` is defined.
+//
+// Fails if there is no stack up the tree.
+// Experimental.
+func ProductStack_Of(construct constructs.IConstruct) awscdk.Stack {
+	_init_.Initialize()
+
+	var returns awscdk.Stack
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_servicecatalog.ProductStack",
+		"of",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Add a dependency between this stack and another stack.
+//
+// This can be used to define dependencies between any two stacks within an
+// app, and also supports nested stacks.
+// Experimental.
+func (p *jsiiProxy_ProductStack) AddDependency(target awscdk.Stack, reason *string) {
+	_jsii_.InvokeVoid(
+		p,
+		"addDependency",
+		[]interface{}{target, reason},
+	)
+}
+
+// Register a docker image asset on this Stack.
+// Deprecated: Use `stack.synthesizer.addDockerImageAsset()` if you are calling,
+// and a different `IStackSynthesizer` class if you are implementing.
+func (p *jsiiProxy_ProductStack) AddDockerImageAsset(asset *awscdk.DockerImageAssetSource) *awscdk.DockerImageAssetLocation {
+	var returns *awscdk.DockerImageAssetLocation
+
+	_jsii_.Invoke(
+		p,
+		"addDockerImageAsset",
+		[]interface{}{asset},
+		&returns,
+	)
+
+	return returns
+}
+
+// Register a file asset on this Stack.
+// Deprecated: Use `stack.synthesizer.addFileAsset()` if you are calling,
+// and a different IStackSynthesizer class if you are implementing.
+func (p *jsiiProxy_ProductStack) AddFileAsset(asset *awscdk.FileAssetSource) *awscdk.FileAssetLocation {
+	var returns *awscdk.FileAssetLocation
+
+	_jsii_.Invoke(
+		p,
+		"addFileAsset",
+		[]interface{}{asset},
+		&returns,
+	)
+
+	return returns
+}
+
+// Add a Transform to this stack. A Transform is a macro that AWS CloudFormation uses to process your template.
+//
+// Duplicate values are removed when stack is synthesized.
+//
+// TODO: EXAMPLE
+//
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-section-structure.html
+//
+// Experimental.
+func (p *jsiiProxy_ProductStack) AddTransform(transform *string) {
+	_jsii_.InvokeVoid(
+		p,
+		"addTransform",
+		[]interface{}{transform},
+	)
+}
+
+// Returns the naming scheme used to allocate logical IDs.
+//
+// By default, uses
+// the `HashedAddressingScheme` but this method can be overridden to customize
+// this behavior.
+//
+// In order to make sure logical IDs are unique and stable, we hash the resource
+// construct tree path (i.e. toplevel/secondlevel/.../myresource) and add it as
+// a suffix to the path components joined without a separator (CloudFormation
+// IDs only allow alphanumeric characters).
+//
+// The result will be:
+//
+//    <path.join('')><md5(path.join('/')>
+//      "human"      "hash"
+//
+// If the "human" part of the ID exceeds 240 characters, we simply trim it so
+// the total ID doesn't exceed CloudFormation's 255 character limit.
+//
+// We only take 8 characters from the md5 hash (0.000005 chance of collision).
+//
+// Special cases:
+//
+// - If the path only contains a single component (i.e. it's a top-level
+//    resource), we won't add the hash to it. The hash is not needed for
+//    disamiguation and also, it allows for a more straightforward migration an
+//    existing CloudFormation template to a CDK stack without logical ID changes
+//    (or renames).
+// - For aesthetic reasons, if the last components of the path are the same
+//    (i.e. `L1/L2/Pipeline/Pipeline`), they will be de-duplicated to make the
+//    resulting human portion of the ID more pleasing: `L1L2Pipeline<HASH>`
+//    instead of `L1L2PipelinePipeline<HASH>`
+// - If a component is named "Default" it will be omitted from the path. This
+//    allows refactoring higher level abstractions around constructs without affecting
+//    the IDs of already deployed resources.
+// - If a component is named "Resource" it will be omitted from the user-visible
+//    path, but included in the hash. This reduces visual noise in the human readable
+//    part of the identifier.
+// Experimental.
+func (p *jsiiProxy_ProductStack) AllocateLogicalId(cfnElement awscdk.CfnElement) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		p,
+		"allocateLogicalId",
+		[]interface{}{cfnElement},
+		&returns,
+	)
+
+	return returns
+}
+
+// Create a CloudFormation Export for a value.
+//
+// Returns a string representing the corresponding `Fn.importValue()`
+// expression for this Export. You can control the name for the export by
+// passing the `name` option.
+//
+// If you don't supply a value for `name`, the value you're exporting must be
+// a Resource attribute (for example: `bucket.bucketName`) and it will be
+// given the same name as the automatic cross-stack reference that would be created
+// if you used the attribute in another Stack.
+//
+// One of the uses for this method is to *remove* the relationship between
+// two Stacks established by automatic cross-stack references. It will
+// temporarily ensure that the CloudFormation Export still exists while you
+// remove the reference from the consuming stack. After that, you can remove
+// the resource and the manual export.
+//
+// ## Example
+//
+// Here is how the process works. Let's say there are two stacks,
+// `producerStack` and `consumerStack`, and `producerStack` has a bucket
+// called `bucket`, which is referenced by `consumerStack` (perhaps because
+// an AWS Lambda Function writes into it, or something like that).
+//
+// It is not safe to remove `producerStack.bucket` because as the bucket is being
+// deleted, `consumerStack` might still be using it.
+//
+// Instead, the process takes two deployments:
+//
+// ### Deployment 1: break the relationship
+//
+// - Make sure `consumerStack` no longer references `bucket.bucketName` (maybe the consumer
+//    stack now uses its own bucket, or it writes to an AWS DynamoDB table, or maybe you just
+//    remove the Lambda Function altogether).
+// - In the `ProducerStack` class, call `this.exportValue(this.bucket.bucketName)`. This
+//    will make sure the CloudFormation Export continues to exist while the relationship
+//    between the two stacks is being broken.
+// - Deploy (this will effectively only change the `consumerStack`, but it's safe to deploy both).
+//
+// ### Deployment 2: remove the bucket resource
+//
+// - You are now free to remove the `bucket` resource from `producerStack`.
+// - Don't forget to remove the `exportValue()` call as well.
+// - Deploy again (this time only the `producerStack` will be changed -- the bucket will be deleted).
+// Experimental.
+func (p *jsiiProxy_ProductStack) ExportValue(exportedValue interface{}, options *awscdk.ExportValueOptions) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		p,
+		"exportValue",
+		[]interface{}{exportedValue, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Creates an ARN from components.
+//
+// If `partition`, `region` or `account` are not specified, the stack's
+// partition, region and account will be used.
+//
+// If any component is the empty string, an empty string will be inserted
+// into the generated ARN at the location that component corresponds to.
+//
+// The ARN will be formatted as follows:
+//
+//    arn:{partition}:{service}:{region}:{account}:{resource}{sep}}{resource-name}
+//
+// The required ARN pieces that are omitted will be taken from the stack that
+// the 'scope' is attached to. If all ARN pieces are supplied, the supplied scope
+// can be 'undefined'.
+// Experimental.
+func (p *jsiiProxy_ProductStack) FormatArn(components *awscdk.ArnComponents) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		p,
+		"formatArn",
+		[]interface{}{components},
+		&returns,
+	)
+
+	return returns
+}
+
+// Allocates a stack-unique CloudFormation-compatible logical identity for a specific resource.
+//
+// This method is called when a `CfnElement` is created and used to render the
+// initial logical identity of resources. Logical ID renames are applied at
+// this stage.
+//
+// This method uses the protected method `allocateLogicalId` to render the
+// logical ID for an element. To modify the naming scheme, extend the `Stack`
+// class and override this method.
+// Experimental.
+func (p *jsiiProxy_ProductStack) GetLogicalId(element awscdk.CfnElement) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		p,
+		"getLogicalId",
+		[]interface{}{element},
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (p *jsiiProxy_ProductStack) OnPrepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (p *jsiiProxy_ProductStack) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (p *jsiiProxy_ProductStack) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		p,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Given an ARN, parses it and returns components.
+//
+// IF THE ARN IS A CONCRETE STRING...
+//
+// ...it will be parsed and validated. The separator (`sep`) will be set to '/'
+// if the 6th component includes a '/', in which case, `resource` will be set
+// to the value before the '/' and `resourceName` will be the rest. In case
+// there is no '/', `resource` will be set to the 6th components and
+// `resourceName` will be set to the rest of the string.
+//
+// IF THE ARN IS A TOKEN...
+//
+// ...it cannot be validated, since we don't have the actual value yet at the
+// time of this function call. You will have to supply `sepIfToken` and
+// whether or not ARNs of the expected format usually have resource names
+// in order to parse it properly. The resulting `ArnComponents` object will
+// contain tokens for the subexpressions of the ARN, not string literals.
+//
+// If the resource name could possibly contain the separator char, the actual
+// resource name cannot be properly parsed. This only occurs if the separator
+// char is '/', and happens for example for S3 object ARNs, IAM Role ARNs,
+// IAM OIDC Provider ARNs, etc. To properly extract the resource name from a
+// Tokenized ARN, you must know the resource type and call
+// `Arn.extractResourceName`.
+//
+// Returns: an ArnComponents object which allows access to the various
+// components of the ARN.
+// Deprecated: use splitArn instead
+func (p *jsiiProxy_ProductStack) ParseArn(arn *string, sepIfToken *string, hasName *bool) *awscdk.ArnComponents {
+	var returns *awscdk.ArnComponents
+
+	_jsii_.Invoke(
+		p,
+		"parseArn",
+		[]interface{}{arn, sepIfToken, hasName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (p *jsiiProxy_ProductStack) Prepare() {
+	_jsii_.InvokeVoid(
+		p,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Deprecated.
+//
+// Returns: reference itself without any change
+// See: https://github.com/aws/aws-cdk/pull/7187
+//
+// Deprecated: cross reference handling has been moved to `App.prepare()`.
+func (p *jsiiProxy_ProductStack) PrepareCrossReference(_sourceStack awscdk.Stack, reference awscdk.Reference) awscdk.IResolvable {
+	var returns awscdk.IResolvable
+
+	_jsii_.Invoke(
+		p,
+		"prepareCrossReference",
+		[]interface{}{_sourceStack, reference},
+		&returns,
+	)
+
+	return returns
+}
+
+// Rename a generated logical identities.
+//
+// To modify the naming scheme strategy, extend the `Stack` class and
+// override the `allocateLogicalId` method.
+// Experimental.
+func (p *jsiiProxy_ProductStack) RenameLogicalId(oldId *string, newId *string) {
+	_jsii_.InvokeVoid(
+		p,
+		"renameLogicalId",
+		[]interface{}{oldId, newId},
+	)
+}
+
+// DEPRECATED.
+// Deprecated: use `reportMissingContextKey()`
+func (p *jsiiProxy_ProductStack) ReportMissingContext(report *cxapi.MissingContext) {
+	_jsii_.InvokeVoid(
+		p,
+		"reportMissingContext",
+		[]interface{}{report},
+	)
+}
+
+// Indicate that a context key was expected.
+//
+// Contains instructions which will be emitted into the cloud assembly on how
+// the key should be supplied.
+// Experimental.
+func (p *jsiiProxy_ProductStack) ReportMissingContextKey(report *cloudassemblyschema.MissingContext) {
+	_jsii_.InvokeVoid(
+		p,
+		"reportMissingContextKey",
+		[]interface{}{report},
+	)
+}
+
+// Resolve a tokenized value in the context of the current stack.
+// Experimental.
+func (p *jsiiProxy_ProductStack) Resolve(obj interface{}) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		p,
+		"resolve",
+		[]interface{}{obj},
+		&returns,
+	)
+
+	return returns
+}
+
+// Splits the provided ARN into its components.
+//
+// Works both if 'arn' is a string like 'arn:aws:s3:::bucket',
+// and a Token representing a dynamic CloudFormation expression
+// (in which case the returned components will also be dynamic CloudFormation expressions,
+// encoded as Tokens).
+// Experimental.
+func (p *jsiiProxy_ProductStack) SplitArn(arn *string, arnFormat awscdk.ArnFormat) *awscdk.ArnComponents {
+	var returns *awscdk.ArnComponents
+
+	_jsii_.Invoke(
+		p,
+		"splitArn",
+		[]interface{}{arn, arnFormat},
+		&returns,
+	)
+
+	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (p *jsiiProxy_ProductStack) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		p,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Convert an object, potentially containing tokens, to a JSON string.
+// Experimental.
+func (p *jsiiProxy_ProductStack) ToJsonString(obj interface{}, space *float64) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		p,
+		"toJsonString",
+		[]interface{}{obj, space},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns a string representation of this construct.
+// Experimental.
+func (p *jsiiProxy_ProductStack) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		p,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (p *jsiiProxy_ProductStack) Validate() *[]*string {
 	var returns *[]*string
 
 	_jsii_.Invoke(

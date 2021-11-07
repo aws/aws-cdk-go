@@ -1759,10 +1759,12 @@ type CfnCluster_EndpointProperty struct {
 
 // Properties for defining a `AWS::MemoryDB::Cluster`.
 type CfnClusterProps struct {
-	// `AWS::MemoryDB::Cluster.ClusterName`.
-	ClusterName *string `json:"clusterName"`
 	// `AWS::MemoryDB::Cluster.ACLName`.
 	AclName *string `json:"aclName"`
+	// `AWS::MemoryDB::Cluster.ClusterName`.
+	ClusterName *string `json:"clusterName"`
+	// `AWS::MemoryDB::Cluster.NodeType`.
+	NodeType *string `json:"nodeType"`
 	// `AWS::MemoryDB::Cluster.AutoMinorVersionUpgrade`.
 	AutoMinorVersionUpgrade interface{} `json:"autoMinorVersionUpgrade"`
 	// `AWS::MemoryDB::Cluster.ClusterEndpoint`.
@@ -1777,8 +1779,6 @@ type CfnClusterProps struct {
 	KmsKeyId *string `json:"kmsKeyId"`
 	// `AWS::MemoryDB::Cluster.MaintenanceWindow`.
 	MaintenanceWindow *string `json:"maintenanceWindow"`
-	// `AWS::MemoryDB::Cluster.NodeType`.
-	NodeType *string `json:"nodeType"`
 	// `AWS::MemoryDB::Cluster.NumReplicasPerShard`.
 	NumReplicasPerShard *float64 `json:"numReplicasPerShard"`
 	// `AWS::MemoryDB::Cluster.NumShards`.
@@ -2479,12 +2479,12 @@ func (c *jsiiProxy_CfnParameterGroup) ValidateProperties(_properties interface{}
 
 // Properties for defining a `AWS::MemoryDB::ParameterGroup`.
 type CfnParameterGroupProps struct {
+	// `AWS::MemoryDB::ParameterGroup.Family`.
+	Family *string `json:"family"`
 	// `AWS::MemoryDB::ParameterGroup.ParameterGroupName`.
 	ParameterGroupName *string `json:"parameterGroupName"`
 	// `AWS::MemoryDB::ParameterGroup.Description`.
 	Description *string `json:"description"`
-	// `AWS::MemoryDB::ParameterGroup.Family`.
-	Family *string `json:"family"`
 	// `AWS::MemoryDB::ParameterGroup.Parameters`.
 	Parameters interface{} `json:"parameters"`
 	// `AWS::MemoryDB::ParameterGroup.Tags`.
@@ -3143,10 +3143,10 @@ func (c *jsiiProxy_CfnSubnetGroup) ValidateProperties(_properties interface{}) {
 type CfnSubnetGroupProps struct {
 	// `AWS::MemoryDB::SubnetGroup.SubnetGroupName`.
 	SubnetGroupName *string `json:"subnetGroupName"`
-	// `AWS::MemoryDB::SubnetGroup.Description`.
-	Description *string `json:"description"`
 	// `AWS::MemoryDB::SubnetGroup.SubnetIds`.
 	SubnetIds *[]*string `json:"subnetIds"`
+	// `AWS::MemoryDB::SubnetGroup.Description`.
+	Description *string `json:"description"`
 	// `AWS::MemoryDB::SubnetGroup.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }

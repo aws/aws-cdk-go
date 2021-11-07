@@ -6103,6 +6103,8 @@ type CfnTaskDefinition interface {
 	Ref() *string
 	RequiresCompatibilities() *[]*string
 	SetRequiresCompatibilities(val *[]*string)
+	RuntimePlatform() interface{}
+	SetRuntimePlatform(val interface{})
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
 	TaskRoleArn() *string
@@ -6349,6 +6351,16 @@ func (j *jsiiProxy_CfnTaskDefinition) RequiresCompatibilities() *[]*string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnTaskDefinition) RuntimePlatform() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"runtimePlatform",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTaskDefinition) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -6526,6 +6538,14 @@ func (j *jsiiProxy_CfnTaskDefinition) SetRequiresCompatibilities(val *[]*string)
 	_jsii_.Set(
 		j,
 		"requiresCompatibilities",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTaskDefinition) SetRuntimePlatform(val interface{}) {
+	_jsii_.Set(
+		j,
+		"runtimePlatform",
 		val,
 	)
 }
@@ -7213,6 +7233,13 @@ type CfnTaskDefinition_ResourceRequirementProperty struct {
 	Value *string `json:"value"`
 }
 
+type CfnTaskDefinition_RuntimePlatformProperty struct {
+	// `CfnTaskDefinition.RuntimePlatformProperty.CpuArchitecture`.
+	CpuArchitecture *string `json:"cpuArchitecture"`
+	// `CfnTaskDefinition.RuntimePlatformProperty.OperatingSystemFamily`.
+	OperatingSystemFamily *string `json:"operatingSystemFamily"`
+}
+
 type CfnTaskDefinition_SecretProperty struct {
 	// `CfnTaskDefinition.SecretProperty.Name`.
 	Name *string `json:"name"`
@@ -7298,6 +7325,8 @@ type CfnTaskDefinitionProps struct {
 	ProxyConfiguration interface{} `json:"proxyConfiguration"`
 	// `AWS::ECS::TaskDefinition.RequiresCompatibilities`.
 	RequiresCompatibilities *[]*string `json:"requiresCompatibilities"`
+	// `AWS::ECS::TaskDefinition.RuntimePlatform`.
+	RuntimePlatform interface{} `json:"runtimePlatform"`
 	// `AWS::ECS::TaskDefinition.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::ECS::TaskDefinition.TaskRoleArn`.
@@ -10797,14 +10826,14 @@ type Ec2ServiceProps struct {
 	PlacementStrategies *[]PlacementStrategy `json:"placementStrategies"`
 	// The security groups to associate with the service.
 	//
-	// If you do not specify a security group, the default security group for the VPC is used.
+	// If you do not specify a security group, a new security group is created.
 	//
 	// This property is only used for tasks that use the awsvpc network mode.
 	// Deprecated: use securityGroups instead.
 	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 	// The security groups to associate with the service.
 	//
-	// If you do not specify a security group, the default security group for the VPC is used.
+	// If you do not specify a security group, a new security group is created.
 	//
 	// This property is only used for tasks that use the awsvpc network mode.
 	// Experimental.
@@ -12877,7 +12906,7 @@ type ExternalServiceProps struct {
 	TaskDefinition TaskDefinition `json:"taskDefinition"`
 	// The security groups to associate with the service.
 	//
-	// If you do not specify a security group, the default security group for the VPC is used.
+	// If you do not specify a security group, a new security group is created.
 	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 }
@@ -14417,12 +14446,12 @@ type FargateServiceProps struct {
 	PlatformVersion FargatePlatformVersion `json:"platformVersion"`
 	// The security groups to associate with the service.
 	//
-	// If you do not specify a security group, the default security group for the VPC is used.
+	// If you do not specify a security group, a new security group is created.
 	// Deprecated: use securityGroups instead.
 	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 	// The security groups to associate with the service.
 	//
-	// If you do not specify a security group, the default security group for the VPC is used.
+	// If you do not specify a security group, a new security group is created.
 	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 	// The subnets to associate with the service.

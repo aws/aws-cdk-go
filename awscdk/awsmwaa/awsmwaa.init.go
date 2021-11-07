@@ -89,10 +89,6 @@ func init() {
 		reflect.TypeOf((*CfnEnvironment_NetworkConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_mwaa.CfnEnvironment.TagMapProperty",
-		reflect.TypeOf((*CfnEnvironment_TagMapProperty)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"monocdk.aws_mwaa.CfnEnvironmentProps",
 		reflect.TypeOf((*CfnEnvironmentProps)(nil)).Elem(),
 	)

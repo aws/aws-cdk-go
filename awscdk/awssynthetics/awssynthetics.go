@@ -639,6 +639,8 @@ type CanaryProps struct {
 type CfnCanary interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	ArtifactConfig() interface{}
+	SetArtifactConfig(val interface{})
 	ArtifactS3Location() *string
 	SetArtifactS3Location(val *string)
 	AttrId() *string
@@ -702,6 +704,16 @@ type CfnCanary interface {
 type jsiiProxy_CfnCanary struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnCanary) ArtifactConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"artifactConfig",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnCanary) ArtifactS3Location() *string {
@@ -968,6 +980,14 @@ func NewCfnCanary_Override(c CfnCanary, scope awscdk.Construct, id *string, prop
 		"monocdk.aws_synthetics.CfnCanary",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnCanary) SetArtifactConfig(val interface{}) {
+	_jsii_.Set(
+		j,
+		"artifactConfig",
+		val,
 	)
 }
 
@@ -1474,6 +1494,11 @@ func (c *jsiiProxy_CfnCanary) ValidateProperties(_properties interface{}) {
 	)
 }
 
+type CfnCanary_ArtifactConfigProperty struct {
+	// `CfnCanary.ArtifactConfigProperty.S3Encryption`.
+	S3Encryption interface{} `json:"s3Encryption"`
+}
+
 type CfnCanary_BaseScreenshotProperty struct {
 	// `CfnCanary.BaseScreenshotProperty.ScreenshotName`.
 	ScreenshotName *string `json:"screenshotName"`
@@ -1503,6 +1528,13 @@ type CfnCanary_RunConfigProperty struct {
 	MemoryInMb *float64 `json:"memoryInMb"`
 	// `CfnCanary.RunConfigProperty.TimeoutInSeconds`.
 	TimeoutInSeconds *float64 `json:"timeoutInSeconds"`
+}
+
+type CfnCanary_S3EncryptionProperty struct {
+	// `CfnCanary.S3EncryptionProperty.EncryptionMode`.
+	EncryptionMode *string `json:"encryptionMode"`
+	// `CfnCanary.S3EncryptionProperty.KmsKeyArn`.
+	KmsKeyArn *string `json:"kmsKeyArn"`
 }
 
 type CfnCanary_ScheduleProperty struct {
@@ -1544,6 +1576,8 @@ type CfnCanaryProps struct {
 	Schedule interface{} `json:"schedule"`
 	// `AWS::Synthetics::Canary.StartCanaryAfterCreation`.
 	StartCanaryAfterCreation interface{} `json:"startCanaryAfterCreation"`
+	// `AWS::Synthetics::Canary.ArtifactConfig`.
+	ArtifactConfig interface{} `json:"artifactConfig"`
 	// `AWS::Synthetics::Canary.FailureRetentionPeriod`.
 	FailureRetentionPeriod *float64 `json:"failureRetentionPeriod"`
 	// `AWS::Synthetics::Canary.RunConfig`.
@@ -1672,6 +1706,31 @@ type CodeConfig struct {
 	// The location of the code in S3 (mutually exclusive with `inlineCode`).
 	// Experimental.
 	S3Location *awss3.Location `json:"s3Location"`
+}
+
+// Options to configure a cron expression.
+//
+// All fields are strings so you can use complex expressions. Absence of
+// a field implies '*' or '?', whichever one is appropriate.
+// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html
+//
+// Experimental.
+type CronOptions struct {
+	// The day of the month to run this rule at.
+	// Experimental.
+	Day *string `json:"day"`
+	// The hour to run this rule at.
+	// Experimental.
+	Hour *string `json:"hour"`
+	// The minute to run this rule at.
+	// Experimental.
+	Minute *string `json:"minute"`
+	// The month to run this rule at.
+	// Experimental.
+	Month *string `json:"month"`
+	// The day of the week to run this rule at.
+	// Experimental.
+	WeekDay *string `json:"weekDay"`
 }
 
 // Properties for specifying a test.
@@ -2114,6 +2173,23 @@ func (j *jsiiProxy_Schedule) ExpressionString() *string {
 	return returns
 }
 
+
+// Create a schedule from a set of cron fields.
+// Experimental.
+func Schedule_Cron(options *CronOptions) Schedule {
+	_init_.Initialize()
+
+	var returns Schedule
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_synthetics.Schedule",
+		"cron",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
 
 // Construct a schedule from a literal schedule expression.
 //

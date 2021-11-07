@@ -5121,6 +5121,8 @@ type CfnEndpoint interface {
 	Ref() *string
 	RetainAllVariantProperties() interface{}
 	SetRetainAllVariantProperties(val interface{})
+	RetainDeploymentConfig() interface{}
+	SetRetainDeploymentConfig(val interface{})
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
 	UpdatedProperites() *map[string]interface{}
@@ -5283,6 +5285,16 @@ func (j *jsiiProxy_CfnEndpoint) RetainAllVariantProperties() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEndpoint) RetainDeploymentConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"retainDeploymentConfig",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEndpoint) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -5376,6 +5388,14 @@ func (j *jsiiProxy_CfnEndpoint) SetRetainAllVariantProperties(val interface{}) {
 	_jsii_.Set(
 		j,
 		"retainAllVariantProperties",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEndpoint) SetRetainDeploymentConfig(val interface{}) {
+	_jsii_.Set(
+		j,
+		"retainDeploymentConfig",
 		val,
 	)
 }
@@ -5825,6 +5845,8 @@ type CfnEndpoint_TrafficRoutingConfigProperty struct {
 	Type *string `json:"type"`
 	// `CfnEndpoint.TrafficRoutingConfigProperty.CanarySize`.
 	CanarySize interface{} `json:"canarySize"`
+	// `CfnEndpoint.TrafficRoutingConfigProperty.LinearStepSize`.
+	LinearStepSize interface{} `json:"linearStepSize"`
 	// `CfnEndpoint.TrafficRoutingConfigProperty.WaitIntervalInSeconds`.
 	WaitIntervalInSeconds *float64 `json:"waitIntervalInSeconds"`
 }
@@ -6620,6 +6642,8 @@ type CfnEndpointProps struct {
 	ExcludeRetainedVariantProperties interface{} `json:"excludeRetainedVariantProperties"`
 	// `AWS::SageMaker::Endpoint.RetainAllVariantProperties`.
 	RetainAllVariantProperties interface{} `json:"retainAllVariantProperties"`
+	// `AWS::SageMaker::Endpoint.RetainDeploymentConfig`.
+	RetainDeploymentConfig interface{} `json:"retainDeploymentConfig"`
 	// `AWS::SageMaker::Endpoint.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
@@ -13887,6 +13911,8 @@ type CfnNotebookInstance interface {
 	Node() awscdk.ConstructNode
 	NotebookInstanceName() *string
 	SetNotebookInstanceName(val *string)
+	PlatformIdentifier() *string
+	SetPlatformIdentifier(val *string)
 	Ref() *string
 	RoleArn() *string
 	SetRoleArn(val *string)
@@ -14080,6 +14106,16 @@ func (j *jsiiProxy_CfnNotebookInstance) NotebookInstanceName() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNotebookInstance) PlatformIdentifier() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"platformIdentifier",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNotebookInstance) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -14257,6 +14293,14 @@ func (j *jsiiProxy_CfnNotebookInstance) SetNotebookInstanceName(val *string) {
 	_jsii_.Set(
 		j,
 		"notebookInstanceName",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNotebookInstance) SetPlatformIdentifier(val *string) {
+	_jsii_.Set(
+		j,
+		"platformIdentifier",
 		val,
 	)
 }
@@ -15380,6 +15424,8 @@ type CfnNotebookInstanceProps struct {
 	LifecycleConfigName *string `json:"lifecycleConfigName"`
 	// `AWS::SageMaker::NotebookInstance.NotebookInstanceName`.
 	NotebookInstanceName *string `json:"notebookInstanceName"`
+	// `AWS::SageMaker::NotebookInstance.PlatformIdentifier`.
+	PlatformIdentifier *string `json:"platformIdentifier"`
 	// `AWS::SageMaker::NotebookInstance.RootAccess`.
 	RootAccess *string `json:"rootAccess"`
 	// `AWS::SageMaker::NotebookInstance.SecurityGroupIds`.

@@ -735,6 +735,8 @@ type CfnConnectorProfile_ConnectorProfileCredentialsProperty struct {
 	Redshift interface{} `json:"redshift"`
 	// `CfnConnectorProfile.ConnectorProfileCredentialsProperty.Salesforce`.
 	Salesforce interface{} `json:"salesforce"`
+	// `CfnConnectorProfile.ConnectorProfileCredentialsProperty.SAPOData`.
+	SapoData interface{} `json:"sapoData"`
 	// `CfnConnectorProfile.ConnectorProfileCredentialsProperty.ServiceNow`.
 	ServiceNow interface{} `json:"serviceNow"`
 	// `CfnConnectorProfile.ConnectorProfileCredentialsProperty.Singular`.
@@ -764,6 +766,8 @@ type CfnConnectorProfile_ConnectorProfilePropertiesProperty struct {
 	Redshift interface{} `json:"redshift"`
 	// `CfnConnectorProfile.ConnectorProfilePropertiesProperty.Salesforce`.
 	Salesforce interface{} `json:"salesforce"`
+	// `CfnConnectorProfile.ConnectorProfilePropertiesProperty.SAPOData`.
+	SapoData interface{} `json:"sapoData"`
 	// `CfnConnectorProfile.ConnectorProfilePropertiesProperty.ServiceNow`.
 	ServiceNow interface{} `json:"serviceNow"`
 	// `CfnConnectorProfile.ConnectorProfilePropertiesProperty.Slack`.
@@ -843,6 +847,15 @@ type CfnConnectorProfile_MarketoConnectorProfilePropertiesProperty struct {
 	InstanceUrl *string `json:"instanceUrl"`
 }
 
+type CfnConnectorProfile_OAuthPropertiesProperty struct {
+	// `CfnConnectorProfile.OAuthPropertiesProperty.AuthCodeUrl`.
+	AuthCodeUrl *string `json:"authCodeUrl"`
+	// `CfnConnectorProfile.OAuthPropertiesProperty.OAuthScopes`.
+	OAuthScopes *[]*string `json:"oAuthScopes"`
+	// `CfnConnectorProfile.OAuthPropertiesProperty.TokenUrl`.
+	TokenUrl *string `json:"tokenUrl"`
+}
+
 type CfnConnectorProfile_RedshiftConnectorProfileCredentialsProperty struct {
 	// `CfnConnectorProfile.RedshiftConnectorProfileCredentialsProperty.Password`.
 	Password *string `json:"password"`
@@ -859,6 +872,30 @@ type CfnConnectorProfile_RedshiftConnectorProfilePropertiesProperty struct {
 	RoleArn *string `json:"roleArn"`
 	// `CfnConnectorProfile.RedshiftConnectorProfilePropertiesProperty.BucketPrefix`.
 	BucketPrefix *string `json:"bucketPrefix"`
+}
+
+type CfnConnectorProfile_SAPODataConnectorProfileCredentialsProperty struct {
+	// `CfnConnectorProfile.SAPODataConnectorProfileCredentialsProperty.BasicAuthCredentials`.
+	BasicAuthCredentials interface{} `json:"basicAuthCredentials"`
+	// `CfnConnectorProfile.SAPODataConnectorProfileCredentialsProperty.OAuthCredentials`.
+	OAuthCredentials interface{} `json:"oAuthCredentials"`
+}
+
+type CfnConnectorProfile_SAPODataConnectorProfilePropertiesProperty struct {
+	// `CfnConnectorProfile.SAPODataConnectorProfilePropertiesProperty.ApplicationHostUrl`.
+	ApplicationHostUrl *string `json:"applicationHostUrl"`
+	// `CfnConnectorProfile.SAPODataConnectorProfilePropertiesProperty.ApplicationServicePath`.
+	ApplicationServicePath *string `json:"applicationServicePath"`
+	// `CfnConnectorProfile.SAPODataConnectorProfilePropertiesProperty.ClientNumber`.
+	ClientNumber *string `json:"clientNumber"`
+	// `CfnConnectorProfile.SAPODataConnectorProfilePropertiesProperty.LogonLanguage`.
+	LogonLanguage *string `json:"logonLanguage"`
+	// `CfnConnectorProfile.SAPODataConnectorProfilePropertiesProperty.OAuthProperties`.
+	OAuthProperties interface{} `json:"oAuthProperties"`
+	// `CfnConnectorProfile.SAPODataConnectorProfilePropertiesProperty.PortNumber`.
+	PortNumber *float64 `json:"portNumber"`
+	// `CfnConnectorProfile.SAPODataConnectorProfilePropertiesProperty.PrivateLinkServiceName`.
+	PrivateLinkServiceName *string `json:"privateLinkServiceName"`
 }
 
 type CfnConnectorProfile_SalesforceConnectorProfileCredentialsProperty struct {
@@ -1738,6 +1775,8 @@ type CfnFlow_ConnectorOperatorProperty struct {
 	S3 *string `json:"s3"`
 	// `CfnFlow.ConnectorOperatorProperty.Salesforce`.
 	Salesforce *string `json:"salesforce"`
+	// `CfnFlow.ConnectorOperatorProperty.SAPOData`.
+	SapoData *string `json:"sapoData"`
 	// `CfnFlow.ConnectorOperatorProperty.ServiceNow`.
 	ServiceNow *string `json:"serviceNow"`
 	// `CfnFlow.ConnectorOperatorProperty.Singular`.
@@ -1858,6 +1897,11 @@ type CfnFlow_S3DestinationPropertiesProperty struct {
 	S3OutputFormatConfig interface{} `json:"s3OutputFormatConfig"`
 }
 
+type CfnFlow_S3InputFormatConfigProperty struct {
+	// `CfnFlow.S3InputFormatConfigProperty.S3InputFileType`.
+	S3InputFileType *string `json:"s3InputFileType"`
+}
+
 type CfnFlow_S3OutputFormatConfigProperty struct {
 	// `CfnFlow.S3OutputFormatConfigProperty.AggregationConfig`.
 	AggregationConfig interface{} `json:"aggregationConfig"`
@@ -1872,6 +1916,13 @@ type CfnFlow_S3SourcePropertiesProperty struct {
 	BucketName *string `json:"bucketName"`
 	// `CfnFlow.S3SourcePropertiesProperty.BucketPrefix`.
 	BucketPrefix *string `json:"bucketPrefix"`
+	// `CfnFlow.S3SourcePropertiesProperty.S3InputFormatConfig`.
+	S3InputFormatConfig interface{} `json:"s3InputFormatConfig"`
+}
+
+type CfnFlow_SAPODataSourcePropertiesProperty struct {
+	// `CfnFlow.SAPODataSourcePropertiesProperty.ObjectPath`.
+	ObjectPath *string `json:"objectPath"`
 }
 
 type CfnFlow_SalesforceDestinationPropertiesProperty struct {
@@ -1952,6 +2003,8 @@ type CfnFlow_SourceConnectorPropertiesProperty struct {
 	S3 interface{} `json:"s3"`
 	// `CfnFlow.SourceConnectorPropertiesProperty.Salesforce`.
 	Salesforce interface{} `json:"salesforce"`
+	// `CfnFlow.SourceConnectorPropertiesProperty.SAPOData`.
+	SapoData interface{} `json:"sapoData"`
 	// `CfnFlow.SourceConnectorPropertiesProperty.ServiceNow`.
 	ServiceNow interface{} `json:"serviceNow"`
 	// `CfnFlow.SourceConnectorPropertiesProperty.Singular`.

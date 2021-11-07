@@ -626,6 +626,8 @@ type CfnTable interface {
 	ClusteringKeyColumns() interface{}
 	SetClusteringKeyColumns(val interface{})
 	CreationStack() *[]*string
+	DefaultTimeToLive() *float64
+	SetDefaultTimeToLive(val *float64)
 	EncryptionSpecification() interface{}
 	SetEncryptionSpecification(val interface{})
 	KeyspaceName() *string
@@ -728,6 +730,16 @@ func (j *jsiiProxy_CfnTable) CreationStack() *[]*string {
 	_jsii_.Get(
 		j,
 		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnTable) DefaultTimeToLive() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"defaultTimeToLive",
 		&returns,
 	)
 	return returns
@@ -892,6 +904,14 @@ func (j *jsiiProxy_CfnTable) SetClusteringKeyColumns(val interface{}) {
 	_jsii_.Set(
 		j,
 		"clusteringKeyColumns",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnTable) SetDefaultTimeToLive(val *float64) {
+	_jsii_.Set(
+		j,
+		"defaultTimeToLive",
 		val,
 	)
 }
@@ -1396,6 +1416,8 @@ type CfnTableProps struct {
 	BillingMode interface{} `json:"billingMode"`
 	// `AWS::Cassandra::Table.ClusteringKeyColumns`.
 	ClusteringKeyColumns interface{} `json:"clusteringKeyColumns"`
+	// `AWS::Cassandra::Table.DefaultTimeToLive`.
+	DefaultTimeToLive *float64 `json:"defaultTimeToLive"`
 	// `AWS::Cassandra::Table.EncryptionSpecification`.
 	EncryptionSpecification interface{} `json:"encryptionSpecification"`
 	// `AWS::Cassandra::Table.PointInTimeRecoveryEnabled`.

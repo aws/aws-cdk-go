@@ -2954,6 +2954,262 @@ type CrossRegionSupport struct {
 	Stack awscdk.Stack `json:"stack"`
 }
 
+// The creation attributes used for defining a configuration property of a custom Action.
+// Experimental.
+type CustomActionProperty struct {
+	// The name of the property.
+	//
+	// You use this name in the `configuration` attribute when defining your custom Action class.
+	// Experimental.
+	Name *string `json:"name"`
+	// Whether this property is required.
+	// Experimental.
+	Required *bool `json:"required"`
+	// The description of the property.
+	// Experimental.
+	Description *string `json:"description"`
+	// Whether this property is a key.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype-configurationproperties.html#cfn-codepipeline-customactiontype-configurationproperties-key
+	//
+	// Experimental.
+	Key *bool `json:"key"`
+	// Whether this property is queryable.
+	//
+	// Note that only a single property of a custom Action can be queryable.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype-configurationproperties.html#cfn-codepipeline-customactiontype-configurationproperties-queryable
+	//
+	// Experimental.
+	Queryable *bool `json:"queryable"`
+	// Whether this property is secret, like a password, or access key.
+	// Experimental.
+	Secret *bool `json:"secret"`
+	// The type of the property, like 'String', 'Number', or 'Boolean'.
+	// Experimental.
+	Type *string `json:"type"`
+}
+
+// The resource representing registering a custom Action with CodePipeline.
+//
+// For the Action to be usable, it has to be registered for every region and every account it's used in.
+// In addition to this class, you should most likely also provide your clients a class
+// representing your custom Action, extending the Action class,
+// and taking the `actionProperties` as properly typed, construction properties.
+// Experimental.
+type CustomActionRegistration interface {
+	awscdk.Construct
+	Node() awscdk.ConstructNode
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
+}
+
+// The jsii proxy struct for CustomActionRegistration
+type jsiiProxy_CustomActionRegistration struct {
+	internal.Type__awscdkConstruct
+}
+
+func (j *jsiiProxy_CustomActionRegistration) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewCustomActionRegistration(scope constructs.Construct, id *string, props *CustomActionRegistrationProps) CustomActionRegistration {
+	_init_.Initialize()
+
+	j := jsiiProxy_CustomActionRegistration{}
+
+	_jsii_.Create(
+		"monocdk.aws_codepipeline.CustomActionRegistration",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewCustomActionRegistration_Override(c CustomActionRegistration, scope constructs.Construct, id *string, props *CustomActionRegistrationProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_codepipeline.CustomActionRegistration",
+		[]interface{}{scope, id, props},
+		c,
+	)
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func CustomActionRegistration_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_codepipeline.CustomActionRegistration",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CustomActionRegistration) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CustomActionRegistration) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CustomActionRegistration) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CustomActionRegistration) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CustomActionRegistration) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+// Experimental.
+func (c *jsiiProxy_CustomActionRegistration) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CustomActionRegistration) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Properties of registering a custom Action.
+// Experimental.
+type CustomActionRegistrationProps struct {
+	// The artifact bounds of the Action.
+	// Experimental.
+	ArtifactBounds *ActionArtifactBounds `json:"artifactBounds"`
+	// The category of the Action.
+	// Experimental.
+	Category ActionCategory `json:"category"`
+	// The provider of the Action.
+	//
+	// TODO: EXAMPLE
+	//
+	// Experimental.
+	Provider *string `json:"provider"`
+	// The properties used for customizing the instance of your Action.
+	// Experimental.
+	ActionProperties *[]*CustomActionProperty `json:"actionProperties"`
+	// The URL shown for the entire Action in the Pipeline UI.
+	// Experimental.
+	EntityUrl *string `json:"entityUrl"`
+	// The URL shown for a particular execution of an Action in the Pipeline UI.
+	// Experimental.
+	ExecutionUrl *string `json:"executionUrl"`
+	// The version of your Action.
+	// Experimental.
+	Version *string `json:"version"`
+}
+
 // The CodePipeline variables that are global, not bound to a specific action.
 //
 // This class defines a bunch of static fields that represent the different variables.

@@ -2143,6 +2143,809 @@ type CfnCapacityReservation_TagSpecificationProperty struct {
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
+// A CloudFormation `AWS::EC2::CapacityReservationFleet`.
+type CfnCapacityReservationFleet interface {
+	awscdk.CfnResource
+	awscdk.IInspectable
+	AllocationStrategy() *string
+	SetAllocationStrategy(val *string)
+	AttrCapacityReservationFleetId() *string
+	CfnOptions() awscdk.ICfnResourceOptions
+	CfnProperties() *map[string]interface{}
+	CfnResourceType() *string
+	CreationStack() *[]*string
+	EndDate() *string
+	SetEndDate(val *string)
+	InstanceMatchCriteria() *string
+	SetInstanceMatchCriteria(val *string)
+	InstanceTypeSpecifications() interface{}
+	SetInstanceTypeSpecifications(val interface{})
+	LogicalId() *string
+	Node() awscdk.ConstructNode
+	NoRemoveEndDate() interface{}
+	SetNoRemoveEndDate(val interface{})
+	Ref() *string
+	RemoveEndDate() interface{}
+	SetRemoveEndDate(val interface{})
+	Stack() awscdk.Stack
+	TagSpecifications() interface{}
+	SetTagSpecifications(val interface{})
+	Tenancy() *string
+	SetTenancy(val *string)
+	TotalTargetCapacity() *float64
+	SetTotalTargetCapacity(val *float64)
+	UpdatedProperites() *map[string]interface{}
+	AddDeletionOverride(path *string)
+	AddDependsOn(target awscdk.CfnResource)
+	AddMetadata(key *string, value interface{})
+	AddOverride(path *string, value interface{})
+	AddPropertyDeletionOverride(propertyPath *string)
+	AddPropertyOverride(propertyPath *string, value interface{})
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	GetAtt(attributeName *string) awscdk.Reference
+	GetMetadata(key *string) interface{}
+	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	OverrideLogicalId(newLogicalId *string)
+	Prepare()
+	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
+	ValidateProperties(_properties interface{})
+}
+
+// The jsii proxy struct for CfnCapacityReservationFleet
+type jsiiProxy_CfnCapacityReservationFleet struct {
+	internal.Type__awscdkCfnResource
+	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) AllocationStrategy() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"allocationStrategy",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) AttrCapacityReservationFleetId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrCapacityReservationFleetId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) CfnOptions() awscdk.ICfnResourceOptions {
+	var returns awscdk.ICfnResourceOptions
+	_jsii_.Get(
+		j,
+		"cfnOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) CfnProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"cfnProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) CfnResourceType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) EndDate() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"endDate",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) InstanceMatchCriteria() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"instanceMatchCriteria",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) InstanceTypeSpecifications() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"instanceTypeSpecifications",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) LogicalId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) NoRemoveEndDate() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"noRemoveEndDate",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) Ref() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) RemoveEndDate() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"removeEndDate",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) TagSpecifications() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"tagSpecifications",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) Tenancy() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"tenancy",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) TotalTargetCapacity() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"totalTargetCapacity",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) UpdatedProperites() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a new `AWS::EC2::CapacityReservationFleet`.
+func NewCfnCapacityReservationFleet(scope awscdk.Construct, id *string, props *CfnCapacityReservationFleetProps) CfnCapacityReservationFleet {
+	_init_.Initialize()
+
+	j := jsiiProxy_CfnCapacityReservationFleet{}
+
+	_jsii_.Create(
+		"monocdk.aws_ec2.CfnCapacityReservationFleet",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a new `AWS::EC2::CapacityReservationFleet`.
+func NewCfnCapacityReservationFleet_Override(c CfnCapacityReservationFleet, scope awscdk.Construct, id *string, props *CfnCapacityReservationFleetProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_ec2.CfnCapacityReservationFleet",
+		[]interface{}{scope, id, props},
+		c,
+	)
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) SetAllocationStrategy(val *string) {
+	_jsii_.Set(
+		j,
+		"allocationStrategy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) SetEndDate(val *string) {
+	_jsii_.Set(
+		j,
+		"endDate",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) SetInstanceMatchCriteria(val *string) {
+	_jsii_.Set(
+		j,
+		"instanceMatchCriteria",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) SetInstanceTypeSpecifications(val interface{}) {
+	_jsii_.Set(
+		j,
+		"instanceTypeSpecifications",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) SetNoRemoveEndDate(val interface{}) {
+	_jsii_.Set(
+		j,
+		"noRemoveEndDate",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) SetRemoveEndDate(val interface{}) {
+	_jsii_.Set(
+		j,
+		"removeEndDate",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) SetTagSpecifications(val interface{}) {
+	_jsii_.Set(
+		j,
+		"tagSpecifications",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) SetTenancy(val *string) {
+	_jsii_.Set(
+		j,
+		"tenancy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCapacityReservationFleet) SetTotalTargetCapacity(val *float64) {
+	_jsii_.Set(
+		j,
+		"totalTargetCapacity",
+		val,
+	)
+}
+
+// Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
+//
+// Uses duck-typing instead of `instanceof` to allow stack elements from different
+// versions of this library to be included in the same stack.
+//
+// Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
+func CfnCapacityReservationFleet_IsCfnElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ec2.CfnCapacityReservationFleet",
+		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a CfnResource.
+// Experimental.
+func CfnCapacityReservationFleet_IsCfnResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ec2.CfnCapacityReservationFleet",
+		"isCfnResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func CfnCapacityReservationFleet_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_ec2.CfnCapacityReservationFleet",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnCapacityReservationFleet_CFN_RESOURCE_TYPE_NAME() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"monocdk.aws_ec2.CfnCapacityReservationFleet",
+		"CFN_RESOURCE_TYPE_NAME",
+		&returns,
+	)
+	return returns
+}
+
+// Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
+func (c *jsiiProxy_CfnCapacityReservationFleet) AddDeletionOverride(path *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDeletionOverride",
+		[]interface{}{path},
+	)
+}
+
+// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+//
+// This can be used for resources across stacks (or nested stack) boundaries
+// and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
+func (c *jsiiProxy_CfnCapacityReservationFleet) AddDependsOn(target awscdk.CfnResource) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDependsOn",
+		[]interface{}{target},
+	)
+}
+
+// Add a value to the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+// Experimental.
+func (c *jsiiProxy_CfnCapacityReservationFleet) AddMetadata(key *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addMetadata",
+		[]interface{}{key, value},
+	)
+}
+
+// Adds an override to the synthesized CloudFormation resource.
+//
+// To add a
+// property override, either use `addPropertyOverride` or prefix `path` with
+// "Properties." (i.e. `Properties.TopicName`).
+//
+// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+// If there is an array as part of the nesting, specify the index in the path.
+//
+// To include a literal `.` in the property name, prefix with a `\`. In most
+// programming languages you will need to write this as `"\\."` because the
+// `\` itself will need to be escaped.
+//
+// For example,
+// ```typescript
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+// ```
+// would add the overrides
+// ```json
+// "Properties": {
+//    "GlobalSecondaryIndexes": [
+//      {
+//        "Projection": {
+//          "NonKeyAttributes": [ "myattribute" ]
+//          ...
+//        }
+//        ...
+//      },
+//      {
+//        "ProjectionType": "INCLUDE"
+//        ...
+//      },
+//    ]
+//    ...
+// }
+// ```
+// Experimental.
+func (c *jsiiProxy_CfnCapacityReservationFleet) AddOverride(path *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addOverride",
+		[]interface{}{path, value},
+	)
+}
+
+// Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
+func (c *jsiiProxy_CfnCapacityReservationFleet) AddPropertyDeletionOverride(propertyPath *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyDeletionOverride",
+		[]interface{}{propertyPath},
+	)
+}
+
+// Adds an override to a resource property.
+//
+// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
+func (c *jsiiProxy_CfnCapacityReservationFleet) AddPropertyOverride(propertyPath *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyOverride",
+		[]interface{}{propertyPath, value},
+	)
+}
+
+// Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
+func (c *jsiiProxy_CfnCapacityReservationFleet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	_jsii_.InvokeVoid(
+		c,
+		"applyRemovalPolicy",
+		[]interface{}{policy, options},
+	)
+}
+
+// Returns a token for an runtime attribute of this resource.
+//
+// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+// in case there is no generated attribute.
+// Experimental.
+func (c *jsiiProxy_CfnCapacityReservationFleet) GetAtt(attributeName *string) awscdk.Reference {
+	var returns awscdk.Reference
+
+	_jsii_.Invoke(
+		c,
+		"getAtt",
+		[]interface{}{attributeName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Retrieve a value value from the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+// Experimental.
+func (c *jsiiProxy_CfnCapacityReservationFleet) GetMetadata(key *string) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"getMetadata",
+		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
+// Examines the CloudFormation resource and discloses attributes.
+func (c *jsiiProxy_CfnCapacityReservationFleet) Inspect(inspector awscdk.TreeInspector) {
+	_jsii_.InvokeVoid(
+		c,
+		"inspect",
+		[]interface{}{inspector},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnCapacityReservationFleet) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnCapacityReservationFleet) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnCapacityReservationFleet) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
+func (c *jsiiProxy_CfnCapacityReservationFleet) OverrideLogicalId(newLogicalId *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"overrideLogicalId",
+		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnCapacityReservationFleet) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnCapacityReservationFleet) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderProperties",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+//
+// Returns: `true` if the resource should be included or `false` is the resource
+// should be omitted.
+// Experimental.
+func (c *jsiiProxy_CfnCapacityReservationFleet) ShouldSynthesize() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"shouldSynthesize",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnCapacityReservationFleet) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+//
+// Returns: a string representation of this resource
+// Experimental.
+func (c *jsiiProxy_CfnCapacityReservationFleet) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnCapacityReservationFleet) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (c *jsiiProxy_CfnCapacityReservationFleet) ValidateProperties(_properties interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"validateProperties",
+		[]interface{}{_properties},
+	)
+}
+
+type CfnCapacityReservationFleet_InstanceTypeSpecificationProperty struct {
+	// `CfnCapacityReservationFleet.InstanceTypeSpecificationProperty.AvailabilityZone`.
+	AvailabilityZone *string `json:"availabilityZone"`
+	// `CfnCapacityReservationFleet.InstanceTypeSpecificationProperty.AvailabilityZoneId`.
+	AvailabilityZoneId *string `json:"availabilityZoneId"`
+	// `CfnCapacityReservationFleet.InstanceTypeSpecificationProperty.EbsOptimized`.
+	EbsOptimized interface{} `json:"ebsOptimized"`
+	// `CfnCapacityReservationFleet.InstanceTypeSpecificationProperty.InstancePlatform`.
+	InstancePlatform *string `json:"instancePlatform"`
+	// `CfnCapacityReservationFleet.InstanceTypeSpecificationProperty.InstanceType`.
+	InstanceType *string `json:"instanceType"`
+	// `CfnCapacityReservationFleet.InstanceTypeSpecificationProperty.Priority`.
+	Priority *float64 `json:"priority"`
+	// `CfnCapacityReservationFleet.InstanceTypeSpecificationProperty.Weight`.
+	Weight *float64 `json:"weight"`
+}
+
+type CfnCapacityReservationFleet_TagSpecificationProperty struct {
+	// `CfnCapacityReservationFleet.TagSpecificationProperty.ResourceType`.
+	ResourceType *string `json:"resourceType"`
+	// `CfnCapacityReservationFleet.TagSpecificationProperty.Tags`.
+	Tags *[]*awscdk.CfnTag `json:"tags"`
+}
+
+// Properties for defining a `AWS::EC2::CapacityReservationFleet`.
+type CfnCapacityReservationFleetProps struct {
+	// `AWS::EC2::CapacityReservationFleet.AllocationStrategy`.
+	AllocationStrategy *string `json:"allocationStrategy"`
+	// `AWS::EC2::CapacityReservationFleet.EndDate`.
+	EndDate *string `json:"endDate"`
+	// `AWS::EC2::CapacityReservationFleet.InstanceMatchCriteria`.
+	InstanceMatchCriteria *string `json:"instanceMatchCriteria"`
+	// `AWS::EC2::CapacityReservationFleet.InstanceTypeSpecifications`.
+	InstanceTypeSpecifications interface{} `json:"instanceTypeSpecifications"`
+	// `AWS::EC2::CapacityReservationFleet.NoRemoveEndDate`.
+	NoRemoveEndDate interface{} `json:"noRemoveEndDate"`
+	// `AWS::EC2::CapacityReservationFleet.RemoveEndDate`.
+	RemoveEndDate interface{} `json:"removeEndDate"`
+	// `AWS::EC2::CapacityReservationFleet.TagSpecifications`.
+	TagSpecifications interface{} `json:"tagSpecifications"`
+	// `AWS::EC2::CapacityReservationFleet.Tenancy`.
+	Tenancy *string `json:"tenancy"`
+	// `AWS::EC2::CapacityReservationFleet.TotalTargetCapacity`.
+	TotalTargetCapacity *float64 `json:"totalTargetCapacity"`
+}
+
 // Properties for defining a `AWS::EC2::CapacityReservation`.
 type CfnCapacityReservationProps struct {
 	// `AWS::EC2::CapacityReservation.AvailabilityZone`.
@@ -7858,6 +8661,34 @@ func (c *jsiiProxy_CfnEC2Fleet) ValidateProperties(_properties interface{}) {
 	)
 }
 
+type CfnEC2Fleet_AcceleratorCountRequestProperty struct {
+	// `CfnEC2Fleet.AcceleratorCountRequestProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnEC2Fleet.AcceleratorCountRequestProperty.Min`.
+	Min *float64 `json:"min"`
+}
+
+type CfnEC2Fleet_AcceleratorTotalMemoryMiBRequestProperty struct {
+	// `CfnEC2Fleet.AcceleratorTotalMemoryMiBRequestProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnEC2Fleet.AcceleratorTotalMemoryMiBRequestProperty.Min`.
+	Min *float64 `json:"min"`
+}
+
+type CfnEC2Fleet_BaselineEbsBandwidthMbpsRequestProperty struct {
+	// `CfnEC2Fleet.BaselineEbsBandwidthMbpsRequestProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnEC2Fleet.BaselineEbsBandwidthMbpsRequestProperty.Min`.
+	Min *float64 `json:"min"`
+}
+
+type CfnEC2Fleet_CapacityRebalanceProperty struct {
+	// `CfnEC2Fleet.CapacityRebalanceProperty.ReplacementStrategy`.
+	ReplacementStrategy *string `json:"replacementStrategy"`
+	// `CfnEC2Fleet.CapacityRebalanceProperty.TerminationDelay`.
+	TerminationDelay *float64 `json:"terminationDelay"`
+}
+
 type CfnEC2Fleet_CapacityReservationOptionsRequestProperty struct {
 	// `CfnEC2Fleet.CapacityReservationOptionsRequestProperty.UsageStrategy`.
 	UsageStrategy *string `json:"usageStrategy"`
@@ -7873,6 +8704,8 @@ type CfnEC2Fleet_FleetLaunchTemplateConfigRequestProperty struct {
 type CfnEC2Fleet_FleetLaunchTemplateOverridesRequestProperty struct {
 	// `CfnEC2Fleet.FleetLaunchTemplateOverridesRequestProperty.AvailabilityZone`.
 	AvailabilityZone *string `json:"availabilityZone"`
+	// `CfnEC2Fleet.FleetLaunchTemplateOverridesRequestProperty.InstanceRequirements`.
+	InstanceRequirements interface{} `json:"instanceRequirements"`
 	// `CfnEC2Fleet.FleetLaunchTemplateOverridesRequestProperty.InstanceType`.
 	InstanceType *string `json:"instanceType"`
 	// `CfnEC2Fleet.FleetLaunchTemplateOverridesRequestProperty.MaxPrice`.
@@ -7894,6 +8727,77 @@ type CfnEC2Fleet_FleetLaunchTemplateSpecificationRequestProperty struct {
 	LaunchTemplateName *string `json:"launchTemplateName"`
 	// `CfnEC2Fleet.FleetLaunchTemplateSpecificationRequestProperty.Version`.
 	Version *string `json:"version"`
+}
+
+type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
+	// `CfnEC2Fleet.InstanceRequirementsRequestProperty.AcceleratorCount`.
+	AcceleratorCount interface{} `json:"acceleratorCount"`
+	// `CfnEC2Fleet.InstanceRequirementsRequestProperty.AcceleratorManufacturers`.
+	AcceleratorManufacturers *[]*string `json:"acceleratorManufacturers"`
+	// `CfnEC2Fleet.InstanceRequirementsRequestProperty.AcceleratorNames`.
+	AcceleratorNames *[]*string `json:"acceleratorNames"`
+	// `CfnEC2Fleet.InstanceRequirementsRequestProperty.AcceleratorTotalMemoryMiB`.
+	AcceleratorTotalMemoryMiB interface{} `json:"acceleratorTotalMemoryMiB"`
+	// `CfnEC2Fleet.InstanceRequirementsRequestProperty.AcceleratorTypes`.
+	AcceleratorTypes *[]*string `json:"acceleratorTypes"`
+	// `CfnEC2Fleet.InstanceRequirementsRequestProperty.BareMetal`.
+	BareMetal *string `json:"bareMetal"`
+	// `CfnEC2Fleet.InstanceRequirementsRequestProperty.BaselineEbsBandwidthMbps`.
+	BaselineEbsBandwidthMbps interface{} `json:"baselineEbsBandwidthMbps"`
+	// `CfnEC2Fleet.InstanceRequirementsRequestProperty.BurstablePerformance`.
+	BurstablePerformance *string `json:"burstablePerformance"`
+	// `CfnEC2Fleet.InstanceRequirementsRequestProperty.CpuManufacturers`.
+	CpuManufacturers *[]*string `json:"cpuManufacturers"`
+	// `CfnEC2Fleet.InstanceRequirementsRequestProperty.ExcludedInstanceTypes`.
+	ExcludedInstanceTypes *[]*string `json:"excludedInstanceTypes"`
+	// `CfnEC2Fleet.InstanceRequirementsRequestProperty.InstanceGenerations`.
+	InstanceGenerations *[]*string `json:"instanceGenerations"`
+	// `CfnEC2Fleet.InstanceRequirementsRequestProperty.LocalStorage`.
+	LocalStorage *string `json:"localStorage"`
+	// `CfnEC2Fleet.InstanceRequirementsRequestProperty.LocalStorageTypes`.
+	LocalStorageTypes *[]*string `json:"localStorageTypes"`
+	// `CfnEC2Fleet.InstanceRequirementsRequestProperty.MemoryGiBPerVCpu`.
+	MemoryGiBPerVCpu interface{} `json:"memoryGiBPerVCpu"`
+	// `CfnEC2Fleet.InstanceRequirementsRequestProperty.MemoryMiB`.
+	MemoryMiB interface{} `json:"memoryMiB"`
+	// `CfnEC2Fleet.InstanceRequirementsRequestProperty.NetworkInterfaceCount`.
+	NetworkInterfaceCount interface{} `json:"networkInterfaceCount"`
+	// `CfnEC2Fleet.InstanceRequirementsRequestProperty.OnDemandMaxPricePercentageOverLowestPrice`.
+	OnDemandMaxPricePercentageOverLowestPrice *float64 `json:"onDemandMaxPricePercentageOverLowestPrice"`
+	// `CfnEC2Fleet.InstanceRequirementsRequestProperty.RequireHibernateSupport`.
+	RequireHibernateSupport interface{} `json:"requireHibernateSupport"`
+	// `CfnEC2Fleet.InstanceRequirementsRequestProperty.SpotMaxPricePercentageOverLowestPrice`.
+	SpotMaxPricePercentageOverLowestPrice *float64 `json:"spotMaxPricePercentageOverLowestPrice"`
+	// `CfnEC2Fleet.InstanceRequirementsRequestProperty.TotalLocalStorageGB`.
+	TotalLocalStorageGb interface{} `json:"totalLocalStorageGb"`
+	// `CfnEC2Fleet.InstanceRequirementsRequestProperty.VCpuCount`.
+	VCpuCount interface{} `json:"vCpuCount"`
+}
+
+type CfnEC2Fleet_MaintenanceStrategiesProperty struct {
+	// `CfnEC2Fleet.MaintenanceStrategiesProperty.CapacityRebalance`.
+	CapacityRebalance interface{} `json:"capacityRebalance"`
+}
+
+type CfnEC2Fleet_MemoryGiBPerVCpuRequestProperty struct {
+	// `CfnEC2Fleet.MemoryGiBPerVCpuRequestProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnEC2Fleet.MemoryGiBPerVCpuRequestProperty.Min`.
+	Min *float64 `json:"min"`
+}
+
+type CfnEC2Fleet_MemoryMiBRequestProperty struct {
+	// `CfnEC2Fleet.MemoryMiBRequestProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnEC2Fleet.MemoryMiBRequestProperty.Min`.
+	Min *float64 `json:"min"`
+}
+
+type CfnEC2Fleet_NetworkInterfaceCountRequestProperty struct {
+	// `CfnEC2Fleet.NetworkInterfaceCountRequestProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnEC2Fleet.NetworkInterfaceCountRequestProperty.Min`.
+	Min *float64 `json:"min"`
 }
 
 type CfnEC2Fleet_OnDemandOptionsRequestProperty struct {
@@ -7937,6 +8841,8 @@ type CfnEC2Fleet_SpotOptionsRequestProperty struct {
 	InstanceInterruptionBehavior *string `json:"instanceInterruptionBehavior"`
 	// `CfnEC2Fleet.SpotOptionsRequestProperty.InstancePoolsToUseCount`.
 	InstancePoolsToUseCount *float64 `json:"instancePoolsToUseCount"`
+	// `CfnEC2Fleet.SpotOptionsRequestProperty.MaintenanceStrategies`.
+	MaintenanceStrategies interface{} `json:"maintenanceStrategies"`
 	// `CfnEC2Fleet.SpotOptionsRequestProperty.MaxTotalPrice`.
 	MaxTotalPrice *string `json:"maxTotalPrice"`
 	// `CfnEC2Fleet.SpotOptionsRequestProperty.MinTargetCapacity`.
@@ -7963,6 +8869,22 @@ type CfnEC2Fleet_TargetCapacitySpecificationRequestProperty struct {
 	OnDemandTargetCapacity *float64 `json:"onDemandTargetCapacity"`
 	// `CfnEC2Fleet.TargetCapacitySpecificationRequestProperty.SpotTargetCapacity`.
 	SpotTargetCapacity *float64 `json:"spotTargetCapacity"`
+	// `CfnEC2Fleet.TargetCapacitySpecificationRequestProperty.TargetCapacityUnitType`.
+	TargetCapacityUnitType *string `json:"targetCapacityUnitType"`
+}
+
+type CfnEC2Fleet_TotalLocalStorageGBRequestProperty struct {
+	// `CfnEC2Fleet.TotalLocalStorageGBRequestProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnEC2Fleet.TotalLocalStorageGBRequestProperty.Min`.
+	Min *float64 `json:"min"`
+}
+
+type CfnEC2Fleet_VCpuCountRangeRequestProperty struct {
+	// `CfnEC2Fleet.VCpuCountRangeRequestProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnEC2Fleet.VCpuCountRangeRequestProperty.Min`.
+	Min *float64 `json:"min"`
 }
 
 // Properties for defining a `AWS::EC2::EC2Fleet`.
@@ -14253,6 +15175,7 @@ type CfnInstanceProps struct {
 type CfnInternetGateway interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrInternetGatewayId() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -14290,6 +15213,16 @@ type CfnInternetGateway interface {
 type jsiiProxy_CfnInternetGateway struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnInternetGateway) AttrInternetGatewayId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrInternetGatewayId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnInternetGateway) CfnOptions() awscdk.ICfnResourceOptions {
@@ -17778,6 +18711,7 @@ type CfnNatGatewayProps struct {
 type CfnNetworkAcl interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -17817,6 +18751,16 @@ type CfnNetworkAcl interface {
 type jsiiProxy_CfnNetworkAcl struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnNetworkAcl) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnNetworkAcl) CfnOptions() awscdk.ICfnResourceOptions {
@@ -18375,6 +19319,7 @@ func (c *jsiiProxy_CfnNetworkAcl) ValidateProperties(_properties interface{}) {
 type CfnNetworkAclEntry interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -18429,6 +19374,16 @@ type CfnNetworkAclEntry interface {
 type jsiiProxy_CfnNetworkAclEntry struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnNetworkAclEntry) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnNetworkAclEntry) CfnOptions() awscdk.ICfnResourceOptions {
@@ -20873,6 +21828,7 @@ type CfnNetworkInsightsPathProps struct {
 type CfnNetworkInterface interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	AttrPrimaryPrivateIpAddress() *string
 	AttrSecondaryPrivateIpAddresses() *[]*string
 	CfnOptions() awscdk.ICfnResourceOptions
@@ -20932,6 +21888,16 @@ type CfnNetworkInterface interface {
 type jsiiProxy_CfnNetworkInterface struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnNetworkInterface) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnNetworkInterface) AttrPrimaryPrivateIpAddress() *string {
@@ -25174,6 +26140,7 @@ type CfnRouteProps struct {
 type CfnRouteTable interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrRouteTableId() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -25213,6 +26180,16 @@ type CfnRouteTable interface {
 type jsiiProxy_CfnRouteTable struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnRouteTable) AttrRouteTableId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrRouteTableId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnRouteTable) CfnOptions() awscdk.ICfnResourceOptions {
@@ -28731,6 +29708,27 @@ func (c *jsiiProxy_CfnSpotFleet) ValidateProperties(_properties interface{}) {
 	)
 }
 
+type CfnSpotFleet_AcceleratorCountRequestProperty struct {
+	// `CfnSpotFleet.AcceleratorCountRequestProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnSpotFleet.AcceleratorCountRequestProperty.Min`.
+	Min *float64 `json:"min"`
+}
+
+type CfnSpotFleet_AcceleratorTotalMemoryMiBRequestProperty struct {
+	// `CfnSpotFleet.AcceleratorTotalMemoryMiBRequestProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnSpotFleet.AcceleratorTotalMemoryMiBRequestProperty.Min`.
+	Min *float64 `json:"min"`
+}
+
+type CfnSpotFleet_BaselineEbsBandwidthMbpsRequestProperty struct {
+	// `CfnSpotFleet.BaselineEbsBandwidthMbpsRequestProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnSpotFleet.BaselineEbsBandwidthMbpsRequestProperty.Min`.
+	Min *float64 `json:"min"`
+}
+
 type CfnSpotFleet_BlockDeviceMappingProperty struct {
 	// `CfnSpotFleet.BlockDeviceMappingProperty.DeviceName`.
 	DeviceName *string `json:"deviceName"`
@@ -28816,6 +29814,51 @@ type CfnSpotFleet_InstanceNetworkInterfaceSpecificationProperty struct {
 	SubnetId *string `json:"subnetId"`
 }
 
+type CfnSpotFleet_InstanceRequirementsRequestProperty struct {
+	// `CfnSpotFleet.InstanceRequirementsRequestProperty.AcceleratorCount`.
+	AcceleratorCount interface{} `json:"acceleratorCount"`
+	// `CfnSpotFleet.InstanceRequirementsRequestProperty.AcceleratorManufacturers`.
+	AcceleratorManufacturers *[]*string `json:"acceleratorManufacturers"`
+	// `CfnSpotFleet.InstanceRequirementsRequestProperty.AcceleratorNames`.
+	AcceleratorNames *[]*string `json:"acceleratorNames"`
+	// `CfnSpotFleet.InstanceRequirementsRequestProperty.AcceleratorTotalMemoryMiB`.
+	AcceleratorTotalMemoryMiB interface{} `json:"acceleratorTotalMemoryMiB"`
+	// `CfnSpotFleet.InstanceRequirementsRequestProperty.AcceleratorTypes`.
+	AcceleratorTypes *[]*string `json:"acceleratorTypes"`
+	// `CfnSpotFleet.InstanceRequirementsRequestProperty.BareMetal`.
+	BareMetal *string `json:"bareMetal"`
+	// `CfnSpotFleet.InstanceRequirementsRequestProperty.BaselineEbsBandwidthMbps`.
+	BaselineEbsBandwidthMbps interface{} `json:"baselineEbsBandwidthMbps"`
+	// `CfnSpotFleet.InstanceRequirementsRequestProperty.BurstablePerformance`.
+	BurstablePerformance *string `json:"burstablePerformance"`
+	// `CfnSpotFleet.InstanceRequirementsRequestProperty.CpuManufacturers`.
+	CpuManufacturers *[]*string `json:"cpuManufacturers"`
+	// `CfnSpotFleet.InstanceRequirementsRequestProperty.ExcludedInstanceTypes`.
+	ExcludedInstanceTypes *[]*string `json:"excludedInstanceTypes"`
+	// `CfnSpotFleet.InstanceRequirementsRequestProperty.InstanceGenerations`.
+	InstanceGenerations *[]*string `json:"instanceGenerations"`
+	// `CfnSpotFleet.InstanceRequirementsRequestProperty.LocalStorage`.
+	LocalStorage *string `json:"localStorage"`
+	// `CfnSpotFleet.InstanceRequirementsRequestProperty.LocalStorageTypes`.
+	LocalStorageTypes *[]*string `json:"localStorageTypes"`
+	// `CfnSpotFleet.InstanceRequirementsRequestProperty.MemoryGiBPerVCpu`.
+	MemoryGiBPerVCpu interface{} `json:"memoryGiBPerVCpu"`
+	// `CfnSpotFleet.InstanceRequirementsRequestProperty.MemoryMiB`.
+	MemoryMiB interface{} `json:"memoryMiB"`
+	// `CfnSpotFleet.InstanceRequirementsRequestProperty.NetworkInterfaceCount`.
+	NetworkInterfaceCount interface{} `json:"networkInterfaceCount"`
+	// `CfnSpotFleet.InstanceRequirementsRequestProperty.OnDemandMaxPricePercentageOverLowestPrice`.
+	OnDemandMaxPricePercentageOverLowestPrice *float64 `json:"onDemandMaxPricePercentageOverLowestPrice"`
+	// `CfnSpotFleet.InstanceRequirementsRequestProperty.RequireHibernateSupport`.
+	RequireHibernateSupport interface{} `json:"requireHibernateSupport"`
+	// `CfnSpotFleet.InstanceRequirementsRequestProperty.SpotMaxPricePercentageOverLowestPrice`.
+	SpotMaxPricePercentageOverLowestPrice *float64 `json:"spotMaxPricePercentageOverLowestPrice"`
+	// `CfnSpotFleet.InstanceRequirementsRequestProperty.TotalLocalStorageGB`.
+	TotalLocalStorageGb interface{} `json:"totalLocalStorageGb"`
+	// `CfnSpotFleet.InstanceRequirementsRequestProperty.VCpuCount`.
+	VCpuCount interface{} `json:"vCpuCount"`
+}
+
 type CfnSpotFleet_LaunchTemplateConfigProperty struct {
 	// `CfnSpotFleet.LaunchTemplateConfigProperty.LaunchTemplateSpecification`.
 	LaunchTemplateSpecification interface{} `json:"launchTemplateSpecification"`
@@ -28826,6 +29869,8 @@ type CfnSpotFleet_LaunchTemplateConfigProperty struct {
 type CfnSpotFleet_LaunchTemplateOverridesProperty struct {
 	// `CfnSpotFleet.LaunchTemplateOverridesProperty.AvailabilityZone`.
 	AvailabilityZone *string `json:"availabilityZone"`
+	// `CfnSpotFleet.LaunchTemplateOverridesProperty.InstanceRequirements`.
+	InstanceRequirements interface{} `json:"instanceRequirements"`
 	// `CfnSpotFleet.LaunchTemplateOverridesProperty.InstanceType`.
 	InstanceType *string `json:"instanceType"`
 	// `CfnSpotFleet.LaunchTemplateOverridesProperty.SpotPrice`.
@@ -28843,6 +29888,27 @@ type CfnSpotFleet_LoadBalancersConfigProperty struct {
 	TargetGroupsConfig interface{} `json:"targetGroupsConfig"`
 }
 
+type CfnSpotFleet_MemoryGiBPerVCpuRequestProperty struct {
+	// `CfnSpotFleet.MemoryGiBPerVCpuRequestProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnSpotFleet.MemoryGiBPerVCpuRequestProperty.Min`.
+	Min *float64 `json:"min"`
+}
+
+type CfnSpotFleet_MemoryMiBRequestProperty struct {
+	// `CfnSpotFleet.MemoryMiBRequestProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnSpotFleet.MemoryMiBRequestProperty.Min`.
+	Min *float64 `json:"min"`
+}
+
+type CfnSpotFleet_NetworkInterfaceCountRequestProperty struct {
+	// `CfnSpotFleet.NetworkInterfaceCountRequestProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnSpotFleet.NetworkInterfaceCountRequestProperty.Min`.
+	Min *float64 `json:"min"`
+}
+
 type CfnSpotFleet_PrivateIpAddressSpecificationProperty struct {
 	// `CfnSpotFleet.PrivateIpAddressSpecificationProperty.PrivateIpAddress`.
 	PrivateIpAddress *string `json:"privateIpAddress"`
@@ -28853,19 +29919,23 @@ type CfnSpotFleet_PrivateIpAddressSpecificationProperty struct {
 type CfnSpotFleet_SpotCapacityRebalanceProperty struct {
 	// `CfnSpotFleet.SpotCapacityRebalanceProperty.ReplacementStrategy`.
 	ReplacementStrategy *string `json:"replacementStrategy"`
+	// `CfnSpotFleet.SpotCapacityRebalanceProperty.TerminationDelay`.
+	TerminationDelay *float64 `json:"terminationDelay"`
 }
 
 type CfnSpotFleet_SpotFleetLaunchSpecificationProperty struct {
 	// `CfnSpotFleet.SpotFleetLaunchSpecificationProperty.ImageId`.
 	ImageId *string `json:"imageId"`
-	// `CfnSpotFleet.SpotFleetLaunchSpecificationProperty.InstanceType`.
-	InstanceType *string `json:"instanceType"`
 	// `CfnSpotFleet.SpotFleetLaunchSpecificationProperty.BlockDeviceMappings`.
 	BlockDeviceMappings interface{} `json:"blockDeviceMappings"`
 	// `CfnSpotFleet.SpotFleetLaunchSpecificationProperty.EbsOptimized`.
 	EbsOptimized interface{} `json:"ebsOptimized"`
 	// `CfnSpotFleet.SpotFleetLaunchSpecificationProperty.IamInstanceProfile`.
 	IamInstanceProfile interface{} `json:"iamInstanceProfile"`
+	// `CfnSpotFleet.SpotFleetLaunchSpecificationProperty.InstanceRequirements`.
+	InstanceRequirements interface{} `json:"instanceRequirements"`
+	// `CfnSpotFleet.SpotFleetLaunchSpecificationProperty.InstanceType`.
+	InstanceType *string `json:"instanceType"`
 	// `CfnSpotFleet.SpotFleetLaunchSpecificationProperty.KernelId`.
 	KernelId *string `json:"kernelId"`
 	// `CfnSpotFleet.SpotFleetLaunchSpecificationProperty.KeyName`.
@@ -28932,6 +30002,8 @@ type CfnSpotFleet_SpotFleetRequestConfigDataProperty struct {
 	SpotMaxTotalPrice *string `json:"spotMaxTotalPrice"`
 	// `CfnSpotFleet.SpotFleetRequestConfigDataProperty.SpotPrice`.
 	SpotPrice *string `json:"spotPrice"`
+	// `CfnSpotFleet.SpotFleetRequestConfigDataProperty.TargetCapacityUnitType`.
+	TargetCapacityUnitType *string `json:"targetCapacityUnitType"`
 	// `CfnSpotFleet.SpotFleetRequestConfigDataProperty.TerminateInstancesWithExpiration`.
 	TerminateInstancesWithExpiration interface{} `json:"terminateInstancesWithExpiration"`
 	// `CfnSpotFleet.SpotFleetRequestConfigDataProperty.Type`.
@@ -28971,6 +30043,20 @@ type CfnSpotFleet_TargetGroupProperty struct {
 type CfnSpotFleet_TargetGroupsConfigProperty struct {
 	// `CfnSpotFleet.TargetGroupsConfigProperty.TargetGroups`.
 	TargetGroups interface{} `json:"targetGroups"`
+}
+
+type CfnSpotFleet_TotalLocalStorageGBRequestProperty struct {
+	// `CfnSpotFleet.TotalLocalStorageGBRequestProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnSpotFleet.TotalLocalStorageGBRequestProperty.Min`.
+	Min *float64 `json:"min"`
+}
+
+type CfnSpotFleet_VCpuCountRangeRequestProperty struct {
+	// `CfnSpotFleet.VCpuCountRangeRequestProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnSpotFleet.VCpuCountRangeRequestProperty.Min`.
+	Min *float64 `json:"min"`
 }
 
 // Properties for defining a `AWS::EC2::SpotFleet`.
@@ -39368,6 +40454,8 @@ type CfnTransitGatewayPeeringAttachment interface {
 	CreationStack() *[]*string
 	LogicalId() *string
 	Node() awscdk.ConstructNode
+	Options() interface{}
+	SetOptions(val interface{})
 	PeerAccountId() *string
 	SetPeerAccountId(val *string)
 	PeerRegion() *string
@@ -39499,6 +40587,16 @@ func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) Node() awscdk.ConstructNo
 	return returns
 }
 
+func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) Options() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"options",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) PeerAccountId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -39603,6 +40701,14 @@ func NewCfnTransitGatewayPeeringAttachment_Override(c CfnTransitGatewayPeeringAt
 		"monocdk.aws_ec2.CfnTransitGatewayPeeringAttachment",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnTransitGatewayPeeringAttachment) SetOptions(val interface{}) {
+	_jsii_.Set(
+		j,
+		"options",
+		val,
 	)
 }
 
@@ -40045,6 +41151,11 @@ func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) ValidateProperties(_prope
 	)
 }
 
+type CfnTransitGatewayPeeringAttachment_TransitGatewayPeeringAttachmentOptionsProperty struct {
+	// `CfnTransitGatewayPeeringAttachment.TransitGatewayPeeringAttachmentOptionsProperty.DynamicRouting`.
+	DynamicRouting *string `json:"dynamicRouting"`
+}
+
 // Properties for defining a `AWS::EC2::TransitGatewayPeeringAttachment`.
 type CfnTransitGatewayPeeringAttachmentProps struct {
 	// `AWS::EC2::TransitGatewayPeeringAttachment.PeerAccountId`.
@@ -40055,6 +41166,8 @@ type CfnTransitGatewayPeeringAttachmentProps struct {
 	PeerTransitGatewayId *string `json:"peerTransitGatewayId"`
 	// `AWS::EC2::TransitGatewayPeeringAttachment.TransitGatewayId`.
 	TransitGatewayId *string `json:"transitGatewayId"`
+	// `AWS::EC2::TransitGatewayPeeringAttachment.Options`.
+	Options interface{} `json:"options"`
 	// `AWS::EC2::TransitGatewayPeeringAttachment.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
@@ -46763,6 +47876,8 @@ type CfnVPCEndpointService interface {
 	NetworkLoadBalancerArns() *[]*string
 	SetNetworkLoadBalancerArns(val *[]*string)
 	Node() awscdk.ConstructNode
+	PayerResponsibility() *string
+	SetPayerResponsibility(val *string)
 	Ref() *string
 	Stack() awscdk.Stack
 	UpdatedProperites() *map[string]interface{}
@@ -46885,6 +48000,16 @@ func (j *jsiiProxy_CfnVPCEndpointService) Node() awscdk.ConstructNode {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVPCEndpointService) PayerResponsibility() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"payerResponsibility",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVPCEndpointService) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -46962,6 +48087,14 @@ func (j *jsiiProxy_CfnVPCEndpointService) SetNetworkLoadBalancerArns(val *[]*str
 	_jsii_.Set(
 		j,
 		"networkLoadBalancerArns",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPCEndpointService) SetPayerResponsibility(val *string) {
+	_jsii_.Set(
+		j,
+		"payerResponsibility",
 		val,
 	)
 }
@@ -47995,6 +49128,8 @@ type CfnVPCEndpointServiceProps struct {
 	GatewayLoadBalancerArns *[]*string `json:"gatewayLoadBalancerArns"`
 	// `AWS::EC2::VPCEndpointService.NetworkLoadBalancerArns`.
 	NetworkLoadBalancerArns *[]*string `json:"networkLoadBalancerArns"`
+	// `AWS::EC2::VPCEndpointService.PayerResponsibility`.
+	PayerResponsibility *string `json:"payerResponsibility"`
 }
 
 // A CloudFormation `AWS::EC2::VPCGatewayAttachment`.
@@ -60111,6 +61246,7 @@ const (
 	InstanceClass_COMPUTE3 InstanceClass = "COMPUTE3"
 	InstanceClass_COMPUTE4 InstanceClass = "COMPUTE4"
 	InstanceClass_COMPUTE5 InstanceClass = "COMPUTE5"
+	InstanceClass_COMPUTE6_INTEL InstanceClass = "COMPUTE6_INTEL"
 	InstanceClass_COMPUTE5_NVME_DRIVE InstanceClass = "COMPUTE5_NVME_DRIVE"
 	InstanceClass_COMPUTE5_AMD InstanceClass = "COMPUTE5_AMD"
 	InstanceClass_COMPUTE5_AMD_NVME_DRIVE InstanceClass = "COMPUTE5_AMD_NVME_DRIVE"
@@ -66130,6 +67266,7 @@ type SecurityGroup interface {
 	AddEgressRule(peer IPeer, connection Port, description *string, remoteRule *bool)
 	AddIngressRule(peer IPeer, connection Port, description *string, remoteRule *bool)
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	DetermineRuleScope(peer IPeer, connection Port, fromTo *string, remoteRule *bool) *map[string]interface{}
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
@@ -66437,6 +67574,66 @@ func (s *jsiiProxy_SecurityGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 		"applyRemovalPolicy",
 		[]interface{}{policy},
 	)
+}
+
+// Determine where to parent a new ingress/egress rule.
+//
+// A SecurityGroup rule is parented under the group it's related to, UNLESS
+// we're in a cross-stack scenario with another Security Group. In that case,
+// we respect the 'remoteRule' flag and will parent under the other security
+// group.
+//
+// This is necessary to avoid cyclic dependencies between stacks, since both
+// ingress and egress rules will reference both security groups, and a naive
+// parenting will lead to the following situation:
+//
+//    ╔════════════════════╗         ╔════════════════════╗
+//    ║  ┌───────────┐     ║         ║    ┌───────────┐   ║
+//    ║  │  GroupA   │◀────╬─┐   ┌───╬───▶│  GroupB   │   ║
+//    ║  └───────────┘     ║ │   │   ║    └───────────┘   ║
+//    ║        ▲           ║ │   │   ║          ▲         ║
+//    ║        │           ║ │   │   ║          │         ║
+//    ║        │           ║ │   │   ║          │         ║
+//    ║  ┌───────────┐     ║ └───┼───╬────┌───────────┐   ║
+//    ║  │  EgressA  │─────╬─────┘   ║    │ IngressB  │   ║
+//    ║  └───────────┘     ║         ║    └───────────┘   ║
+//    ║                    ║         ║                    ║
+//    ╚════════════════════╝         ╚════════════════════╝
+//
+// By having the ability to switch the parent, we avoid the cyclic reference by
+// keeping all rules in a single stack.
+//
+// If this happens, we also have to change the construct ID, because
+// otherwise we might have two objects with the same ID if we have
+// multiple reversed security group relationships.
+//
+//    ╔═══════════════════════════════════╗
+//    ║┌───────────┐                      ║
+//    ║│  GroupB   │                      ║
+//    ║└───────────┘                      ║
+//    ║      ▲                            ║
+//    ║      │              ┌───────────┐ ║
+//    ║      ├────"from A"──│ IngressB  │ ║
+//    ║      │              └───────────┘ ║
+//    ║      │              ┌───────────┐ ║
+//    ║      ├─────"to B"───│  EgressA  │ ║
+//    ║      │              └───────────┘ ║
+//    ║      │              ┌───────────┐ ║
+//    ║      └─────"to B"───│  EgressC  │ ║  <-- oops
+//    ║                     └───────────┘ ║
+//    ╚═══════════════════════════════════╝
+// Experimental.
+func (s *jsiiProxy_SecurityGroup) DetermineRuleScope(peer IPeer, connection Port, fromTo *string, remoteRule *bool) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		s,
+		"determineRuleScope",
+		[]interface{}{peer, connection, fromTo, remoteRule},
+		&returns,
+	)
+
+	return returns
 }
 
 // Experimental.

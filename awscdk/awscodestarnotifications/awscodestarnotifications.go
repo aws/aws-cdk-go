@@ -17,9 +17,13 @@ type CfnNotificationRule interface {
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
+	CreatedBy() *string
+	SetCreatedBy(val *string)
 	CreationStack() *[]*string
 	DetailType() *string
 	SetDetailType(val *string)
+	EventTypeId() *string
+	SetEventTypeId(val *string)
 	EventTypeIds() *[]*string
 	SetEventTypeIds(val *[]*string)
 	LogicalId() *string
@@ -33,6 +37,8 @@ type CfnNotificationRule interface {
 	Status() *string
 	SetStatus(val *string)
 	Tags() awscdk.TagManager
+	TargetAddress() *string
+	SetTargetAddress(val *string)
 	Targets() interface{}
 	SetTargets(val interface{})
 	UpdatedProperites() *map[string]interface{}
@@ -105,6 +111,16 @@ func (j *jsiiProxy_CfnNotificationRule) CfnResourceType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNotificationRule) CreatedBy() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"createdBy",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNotificationRule) CreationStack() *[]*string {
 	var returns *[]*string
 	_jsii_.Get(
@@ -120,6 +136,16 @@ func (j *jsiiProxy_CfnNotificationRule) DetailType() *string {
 	_jsii_.Get(
 		j,
 		"detailType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnNotificationRule) EventTypeId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"eventTypeId",
 		&returns,
 	)
 	return returns
@@ -215,6 +241,16 @@ func (j *jsiiProxy_CfnNotificationRule) Tags() awscdk.TagManager {
 	return returns
 }
 
+func (j *jsiiProxy_CfnNotificationRule) TargetAddress() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"targetAddress",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnNotificationRule) Targets() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -262,10 +298,26 @@ func NewCfnNotificationRule_Override(c CfnNotificationRule, scope awscdk.Constru
 	)
 }
 
+func (j *jsiiProxy_CfnNotificationRule) SetCreatedBy(val *string) {
+	_jsii_.Set(
+		j,
+		"createdBy",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnNotificationRule) SetDetailType(val *string) {
 	_jsii_.Set(
 		j,
 		"detailType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNotificationRule) SetEventTypeId(val *string) {
+	_jsii_.Set(
+		j,
+		"eventTypeId",
 		val,
 	)
 }
@@ -298,6 +350,14 @@ func (j *jsiiProxy_CfnNotificationRule) SetStatus(val *string) {
 	_jsii_.Set(
 		j,
 		"status",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnNotificationRule) SetTargetAddress(val *string) {
+	_jsii_.Set(
+		j,
+		"targetAddress",
 		val,
 	)
 }
@@ -736,10 +796,16 @@ type CfnNotificationRuleProps struct {
 	Resource *string `json:"resource"`
 	// `AWS::CodeStarNotifications::NotificationRule.Targets`.
 	Targets interface{} `json:"targets"`
+	// `AWS::CodeStarNotifications::NotificationRule.CreatedBy`.
+	CreatedBy *string `json:"createdBy"`
+	// `AWS::CodeStarNotifications::NotificationRule.EventTypeId`.
+	EventTypeId *string `json:"eventTypeId"`
 	// `AWS::CodeStarNotifications::NotificationRule.Status`.
 	Status *string `json:"status"`
 	// `AWS::CodeStarNotifications::NotificationRule.Tags`.
 	Tags interface{} `json:"tags"`
+	// `AWS::CodeStarNotifications::NotificationRule.TargetAddress`.
+	TargetAddress *string `json:"targetAddress"`
 }
 
 // The level of detail to include in the notifications for this resource.

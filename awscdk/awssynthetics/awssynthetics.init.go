@@ -72,6 +72,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "artifactConfig", GoGetter: "ArtifactConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "artifactS3Location", GoGetter: "ArtifactS3Location"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrState", GoGetter: "AttrState"},
@@ -119,6 +120,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_synthetics.CfnCanary.ArtifactConfigProperty",
+		reflect.TypeOf((*CfnCanary_ArtifactConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_synthetics.CfnCanary.BaseScreenshotProperty",
 		reflect.TypeOf((*CfnCanary_BaseScreenshotProperty)(nil)).Elem(),
 	)
@@ -129,6 +134,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_synthetics.CfnCanary.RunConfigProperty",
 		reflect.TypeOf((*CfnCanary_RunConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_synthetics.CfnCanary.S3EncryptionProperty",
+		reflect.TypeOf((*CfnCanary_S3EncryptionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_synthetics.CfnCanary.ScheduleProperty",
@@ -159,6 +168,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_synthetics.CodeConfig",
 		reflect.TypeOf((*CodeConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_synthetics.CronOptions",
+		reflect.TypeOf((*CronOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_synthetics.CustomTestOptions",

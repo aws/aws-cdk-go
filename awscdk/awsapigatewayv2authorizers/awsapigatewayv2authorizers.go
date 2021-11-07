@@ -232,9 +232,9 @@ type UserPoolAuthorizerProps struct {
 	// The associated user pool.
 	// Experimental.
 	UserPool awscognito.IUserPool `json:"userPool"`
-	// The user pool client that should be used to authorize requests with the user pool.
+	// The user pool clients that should be used to authorize requests with the user pool.
 	// Experimental.
-	UserPoolClient awscognito.IUserPoolClient `json:"userPoolClient"`
+	UserPoolClients *[]awscognito.IUserPoolClient `json:"userPoolClients"`
 	// The name of the authorizer.
 	// Experimental.
 	AuthorizerName *string `json:"authorizerName"`

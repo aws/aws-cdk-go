@@ -667,6 +667,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "requiresCompatibilities", GoGetter: "RequiresCompatibilities"},
+			_jsii_.MemberProperty{JsiiProperty: "runtimePlatform", GoGetter: "RuntimePlatform"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
@@ -772,6 +773,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_ecs.CfnTaskDefinition.ResourceRequirementProperty",
 		reflect.TypeOf((*CfnTaskDefinition_ResourceRequirementProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_ecs.CfnTaskDefinition.RuntimePlatformProperty",
+		reflect.TypeOf((*CfnTaskDefinition_RuntimePlatformProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_ecs.CfnTaskDefinition.SecretProperty",

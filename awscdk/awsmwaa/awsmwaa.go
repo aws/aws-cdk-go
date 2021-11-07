@@ -62,8 +62,7 @@ type CfnEnvironment interface {
 	SourceBucketArn() *string
 	SetSourceBucketArn(val *string)
 	Stack() awscdk.Stack
-	Tags() *CfnEnvironment_TagMapProperty
-	SetTags(val *CfnEnvironment_TagMapProperty)
+	Tags() awscdk.TagManager
 	UpdatedProperites() *map[string]interface{}
 	WebserverAccessMode() *string
 	SetWebserverAccessMode(val *string)
@@ -418,8 +417,8 @@ func (j *jsiiProxy_CfnEnvironment) Stack() awscdk.Stack {
 	return returns
 }
 
-func (j *jsiiProxy_CfnEnvironment) Tags() *CfnEnvironment_TagMapProperty {
-	var returns *CfnEnvironment_TagMapProperty
+func (j *jsiiProxy_CfnEnvironment) Tags() awscdk.TagManager {
+	var returns awscdk.TagManager
 	_jsii_.Get(
 		j,
 		"tags",
@@ -617,14 +616,6 @@ func (j *jsiiProxy_CfnEnvironment) SetSourceBucketArn(val *string) {
 	_jsii_.Set(
 		j,
 		"sourceBucketArn",
-		val,
-	)
-}
-
-func (j *jsiiProxy_CfnEnvironment) SetTags(val *CfnEnvironment_TagMapProperty) {
-	_jsii_.Set(
-		j,
-		"tags",
 		val,
 	)
 }
@@ -1081,9 +1072,6 @@ type CfnEnvironment_NetworkConfigurationProperty struct {
 	SubnetIds *[]*string `json:"subnetIds"`
 }
 
-type CfnEnvironment_TagMapProperty struct {
-}
-
 // Properties for defining a `AWS::MWAA::Environment`.
 type CfnEnvironmentProps struct {
 	// `AWS::MWAA::Environment.Name`.
@@ -1121,7 +1109,7 @@ type CfnEnvironmentProps struct {
 	// `AWS::MWAA::Environment.SourceBucketArn`.
 	SourceBucketArn *string `json:"sourceBucketArn"`
 	// `AWS::MWAA::Environment.Tags`.
-	Tags *CfnEnvironment_TagMapProperty `json:"tags"`
+	Tags interface{} `json:"tags"`
 	// `AWS::MWAA::Environment.WebserverAccessMode`.
 	WebserverAccessMode *string `json:"webserverAccessMode"`
 	// `AWS::MWAA::Environment.WeeklyMaintenanceWindowStart`.

@@ -1911,6 +1911,8 @@ type CfnProject_LogsConfigProperty struct {
 }
 
 type CfnProject_ProjectBuildBatchConfigProperty struct {
+	// `CfnProject.ProjectBuildBatchConfigProperty.BatchReportMode`.
+	BatchReportMode *string `json:"batchReportMode"`
 	// `CfnProject.ProjectBuildBatchConfigProperty.CombineArtifacts`.
 	CombineArtifacts interface{} `json:"combineArtifacts"`
 	// `CfnProject.ProjectBuildBatchConfigProperty.Restrictions`.

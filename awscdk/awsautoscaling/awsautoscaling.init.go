@@ -156,6 +156,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cooldown", GoGetter: "Cooldown"},
 			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
 			_jsii_.MemberProperty{JsiiProperty: "desiredCapacity", GoGetter: "DesiredCapacity"},
+			_jsii_.MemberProperty{JsiiProperty: "desiredCapacityType", GoGetter: "DesiredCapacityType"},
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberProperty{JsiiProperty: "healthCheckGracePeriod", GoGetter: "HealthCheckGracePeriod"},
@@ -204,6 +205,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_autoscaling.CfnAutoScalingGroup.AcceleratorCountRequestProperty",
+		reflect.TypeOf((*CfnAutoScalingGroup_AcceleratorCountRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_autoscaling.CfnAutoScalingGroup.AcceleratorTotalMemoryMiBRequestProperty",
+		reflect.TypeOf((*CfnAutoScalingGroup_AcceleratorTotalMemoryMiBRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_autoscaling.CfnAutoScalingGroup.BaselineEbsBandwidthMbpsRequestProperty",
+		reflect.TypeOf((*CfnAutoScalingGroup_BaselineEbsBandwidthMbpsRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_autoscaling.CfnAutoScalingGroup.InstanceRequirementsProperty",
+		reflect.TypeOf((*CfnAutoScalingGroup_InstanceRequirementsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_autoscaling.CfnAutoScalingGroup.InstancesDistributionProperty",
 		reflect.TypeOf((*CfnAutoScalingGroup_InstancesDistributionProperty)(nil)).Elem(),
 	)
@@ -224,6 +241,14 @@ func init() {
 		reflect.TypeOf((*CfnAutoScalingGroup_LifecycleHookSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_autoscaling.CfnAutoScalingGroup.MemoryGiBPerVCpuRequestProperty",
+		reflect.TypeOf((*CfnAutoScalingGroup_MemoryGiBPerVCpuRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_autoscaling.CfnAutoScalingGroup.MemoryMiBRequestProperty",
+		reflect.TypeOf((*CfnAutoScalingGroup_MemoryMiBRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_autoscaling.CfnAutoScalingGroup.MetricsCollectionProperty",
 		reflect.TypeOf((*CfnAutoScalingGroup_MetricsCollectionProperty)(nil)).Elem(),
 	)
@@ -232,12 +257,24 @@ func init() {
 		reflect.TypeOf((*CfnAutoScalingGroup_MixedInstancesPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_autoscaling.CfnAutoScalingGroup.NetworkInterfaceCountRequestProperty",
+		reflect.TypeOf((*CfnAutoScalingGroup_NetworkInterfaceCountRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_autoscaling.CfnAutoScalingGroup.NotificationConfigurationProperty",
 		reflect.TypeOf((*CfnAutoScalingGroup_NotificationConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_autoscaling.CfnAutoScalingGroup.TagPropertyProperty",
 		reflect.TypeOf((*CfnAutoScalingGroup_TagPropertyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_autoscaling.CfnAutoScalingGroup.TotalLocalStorageGBRequestProperty",
+		reflect.TypeOf((*CfnAutoScalingGroup_TotalLocalStorageGBRequestProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_autoscaling.CfnAutoScalingGroup.VCpuCountRequestProperty",
+		reflect.TypeOf((*CfnAutoScalingGroup_VCpuCountRequestProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_autoscaling.CfnAutoScalingGroupProps",

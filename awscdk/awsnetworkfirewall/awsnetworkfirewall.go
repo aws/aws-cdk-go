@@ -1465,6 +1465,10 @@ type CfnFirewallPolicy_FirewallPolicyProperty struct {
 	StatelessDefaultActions *[]*string `json:"statelessDefaultActions"`
 	// `CfnFirewallPolicy.FirewallPolicyProperty.StatelessFragmentDefaultActions`.
 	StatelessFragmentDefaultActions *[]*string `json:"statelessFragmentDefaultActions"`
+	// `CfnFirewallPolicy.FirewallPolicyProperty.StatefulDefaultActions`.
+	StatefulDefaultActions *[]*string `json:"statefulDefaultActions"`
+	// `CfnFirewallPolicy.FirewallPolicyProperty.StatefulEngineOptions`.
+	StatefulEngineOptions interface{} `json:"statefulEngineOptions"`
 	// `CfnFirewallPolicy.FirewallPolicyProperty.StatefulRuleGroupReferences`.
 	StatefulRuleGroupReferences interface{} `json:"statefulRuleGroupReferences"`
 	// `CfnFirewallPolicy.FirewallPolicyProperty.StatelessCustomActions`.
@@ -1478,9 +1482,16 @@ type CfnFirewallPolicy_PublishMetricActionProperty struct {
 	Dimensions interface{} `json:"dimensions"`
 }
 
+type CfnFirewallPolicy_StatefulEngineOptionsProperty struct {
+	// `CfnFirewallPolicy.StatefulEngineOptionsProperty.RuleOrder`.
+	RuleOrder *string `json:"ruleOrder"`
+}
+
 type CfnFirewallPolicy_StatefulRuleGroupReferenceProperty struct {
 	// `CfnFirewallPolicy.StatefulRuleGroupReferenceProperty.ResourceArn`.
 	ResourceArn *string `json:"resourceArn"`
+	// `CfnFirewallPolicy.StatefulRuleGroupReferenceProperty.Priority`.
+	Priority *float64 `json:"priority"`
 }
 
 type CfnFirewallPolicy_StatelessRuleGroupReferenceProperty struct {
@@ -2974,6 +2985,8 @@ type CfnRuleGroup_RuleGroupProperty struct {
 	RulesSource interface{} `json:"rulesSource"`
 	// `CfnRuleGroup.RuleGroupProperty.RuleVariables`.
 	RuleVariables interface{} `json:"ruleVariables"`
+	// `CfnRuleGroup.RuleGroupProperty.StatefulRuleOptions`.
+	StatefulRuleOptions interface{} `json:"statefulRuleOptions"`
 }
 
 type CfnRuleGroup_RuleOptionProperty struct {
@@ -3008,6 +3021,11 @@ type CfnRuleGroup_RulesSourceProperty struct {
 	StatefulRules interface{} `json:"statefulRules"`
 	// `CfnRuleGroup.RulesSourceProperty.StatelessRulesAndCustomActions`.
 	StatelessRulesAndCustomActions interface{} `json:"statelessRulesAndCustomActions"`
+}
+
+type CfnRuleGroup_StatefulRuleOptionsProperty struct {
+	// `CfnRuleGroup.StatefulRuleOptionsProperty.RuleOrder`.
+	RuleOrder *string `json:"ruleOrder"`
 }
 
 type CfnRuleGroup_StatefulRuleProperty struct {

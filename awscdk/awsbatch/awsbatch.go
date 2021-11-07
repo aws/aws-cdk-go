@@ -47,6 +47,8 @@ type CfnComputeEnvironment interface {
 	Tags() awscdk.TagManager
 	Type() *string
 	SetType(val *string)
+	UnmanagedvCpus() *float64
+	SetUnmanagedvCpus(val *float64)
 	UpdatedProperites() *map[string]interface{}
 	AddDeletionOverride(path *string)
 	AddDependsOn(target awscdk.CfnResource)
@@ -217,6 +219,16 @@ func (j *jsiiProxy_CfnComputeEnvironment) Type() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnComputeEnvironment) UnmanagedvCpus() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"unmanagedvCpus",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnComputeEnvironment) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -290,6 +302,14 @@ func (j *jsiiProxy_CfnComputeEnvironment) SetType(val *string) {
 	_jsii_.Set(
 		j,
 		"type",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnComputeEnvironment) SetUnmanagedvCpus(val *float64) {
+	_jsii_.Set(
+		j,
+		"unmanagedvCpus",
 		val,
 	)
 }
@@ -768,6 +788,8 @@ type CfnComputeEnvironmentProps struct {
 	State *string `json:"state"`
 	// `AWS::Batch::ComputeEnvironment.Tags`.
 	Tags interface{} `json:"tags"`
+	// `AWS::Batch::ComputeEnvironment.UnmanagedvCpus`.
+	UnmanagedvCpus *float64 `json:"unmanagedvCpus"`
 }
 
 // A CloudFormation `AWS::Batch::JobDefinition`.
@@ -795,6 +817,8 @@ type CfnJobDefinition interface {
 	Ref() *string
 	RetryStrategy() interface{}
 	SetRetryStrategy(val interface{})
+	SchedulingPriority() *float64
+	SetSchedulingPriority(val *float64)
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
 	Timeout() interface{}
@@ -971,6 +995,16 @@ func (j *jsiiProxy_CfnJobDefinition) RetryStrategy() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnJobDefinition) SchedulingPriority() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"schedulingPriority",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnJobDefinition) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -1100,6 +1134,14 @@ func (j *jsiiProxy_CfnJobDefinition) SetRetryStrategy(val interface{}) {
 	_jsii_.Set(
 		j,
 		"retryStrategy",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnJobDefinition) SetSchedulingPriority(val *float64) {
+	_jsii_.Set(
+		j,
+		"schedulingPriority",
 		val,
 	)
 }
@@ -1752,6 +1794,8 @@ type CfnJobDefinitionProps struct {
 	PropagateTags interface{} `json:"propagateTags"`
 	// `AWS::Batch::JobDefinition.RetryStrategy`.
 	RetryStrategy interface{} `json:"retryStrategy"`
+	// `AWS::Batch::JobDefinition.SchedulingPriority`.
+	SchedulingPriority *float64 `json:"schedulingPriority"`
 	// `AWS::Batch::JobDefinition.Tags`.
 	Tags interface{} `json:"tags"`
 	// `AWS::Batch::JobDefinition.Timeout`.
@@ -1775,6 +1819,8 @@ type CfnJobQueue interface {
 	Priority() *float64
 	SetPriority(val *float64)
 	Ref() *string
+	SchedulingPolicyArn() *string
+	SetSchedulingPolicyArn(val *string)
 	Stack() awscdk.Stack
 	State() *string
 	SetState(val *string)
@@ -1909,6 +1955,16 @@ func (j *jsiiProxy_CfnJobQueue) Ref() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnJobQueue) SchedulingPolicyArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"schedulingPolicyArn",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnJobQueue) Stack() awscdk.Stack {
 	var returns awscdk.Stack
 	_jsii_.Get(
@@ -1996,6 +2052,14 @@ func (j *jsiiProxy_CfnJobQueue) SetPriority(val *float64) {
 	_jsii_.Set(
 		j,
 		"priority",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnJobQueue) SetSchedulingPolicyArn(val *string) {
+	_jsii_.Set(
+		j,
+		"schedulingPolicyArn",
 		val,
 	)
 }
@@ -2430,6 +2494,8 @@ type CfnJobQueueProps struct {
 	Priority *float64 `json:"priority"`
 	// `AWS::Batch::JobQueue.JobQueueName`.
 	JobQueueName *string `json:"jobQueueName"`
+	// `AWS::Batch::JobQueue.SchedulingPolicyArn`.
+	SchedulingPolicyArn *string `json:"schedulingPolicyArn"`
 	// `AWS::Batch::JobQueue.State`.
 	State *string `json:"state"`
 	// `AWS::Batch::JobQueue.Tags`.

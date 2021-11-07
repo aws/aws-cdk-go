@@ -648,6 +648,8 @@ type CfnPolicy interface {
 	Ref() *string
 	RemediationEnabled() interface{}
 	SetRemediationEnabled(val interface{})
+	ResourcesCleanUp() interface{}
+	SetResourcesCleanUp(val interface{})
 	ResourceTags() interface{}
 	SetResourceTags(val interface{})
 	ResourceType() *string
@@ -839,6 +841,16 @@ func (j *jsiiProxy_CfnPolicy) RemediationEnabled() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnPolicy) ResourcesCleanUp() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"resourcesCleanUp",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnPolicy) ResourceTags() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -980,6 +992,14 @@ func (j *jsiiProxy_CfnPolicy) SetRemediationEnabled(val interface{}) {
 	_jsii_.Set(
 		j,
 		"remediationEnabled",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnPolicy) SetResourcesCleanUp(val interface{}) {
+	_jsii_.Set(
+		j,
+		"resourcesCleanUp",
 		val,
 	)
 }
@@ -1495,6 +1515,8 @@ type CfnPolicyProps struct {
 	ExcludeMap interface{} `json:"excludeMap"`
 	// `AWS::FMS::Policy.IncludeMap`.
 	IncludeMap interface{} `json:"includeMap"`
+	// `AWS::FMS::Policy.ResourcesCleanUp`.
+	ResourcesCleanUp interface{} `json:"resourcesCleanUp"`
 	// `AWS::FMS::Policy.ResourceTags`.
 	ResourceTags interface{} `json:"resourceTags"`
 	// `AWS::FMS::Policy.ResourceTypeList`.

@@ -1067,7 +1067,7 @@ type ApplicationLoadBalancedFargateServiceProps struct {
 	PlatformVersion awsecs.FargatePlatformVersion `json:"platformVersion"`
 	// The security groups to associate with the service.
 	//
-	// If you do not specify a security group, the default security group for the VPC is used.
+	// If you do not specify a security group, a new security group is created.
 	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 	// The task definition to use for tasks in the service. TaskDefinition or TaskImageOptions must be specified, but not both.
@@ -7005,7 +7005,7 @@ type QueueProcessingFargateServiceProps struct {
 	PlatformVersion awsecs.FargatePlatformVersion `json:"platformVersion"`
 	// The security groups to associate with the service.
 	//
-	// If you do not specify a security group, the default security group for the VPC is used.
+	// If you do not specify a security group, a new security group is created.
 	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 	// The subnets to associate with the service.

@@ -475,6 +475,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
+			_jsii_.MemberProperty{JsiiProperty: "priority", GoGetter: "Priority"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "schedule", GoGetter: "Schedule"},
@@ -515,12 +516,36 @@ func init() {
 		reflect.TypeOf((*CfnCampaign_CampaignHookProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_pinpoint.CfnCampaign.CampaignInAppMessageProperty",
+		reflect.TypeOf((*CfnCampaign_CampaignInAppMessageProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_pinpoint.CfnCampaign.CampaignSmsMessageProperty",
 		reflect.TypeOf((*CfnCampaign_CampaignSmsMessageProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_pinpoint.CfnCampaign.DefaultButtonConfigurationProperty",
+		reflect.TypeOf((*CfnCampaign_DefaultButtonConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_pinpoint.CfnCampaign.EventDimensionsProperty",
 		reflect.TypeOf((*CfnCampaign_EventDimensionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_pinpoint.CfnCampaign.InAppMessageBodyConfigProperty",
+		reflect.TypeOf((*CfnCampaign_InAppMessageBodyConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_pinpoint.CfnCampaign.InAppMessageButtonProperty",
+		reflect.TypeOf((*CfnCampaign_InAppMessageButtonProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_pinpoint.CfnCampaign.InAppMessageContentProperty",
+		reflect.TypeOf((*CfnCampaign_InAppMessageContentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_pinpoint.CfnCampaign.InAppMessageHeaderConfigProperty",
+		reflect.TypeOf((*CfnCampaign_InAppMessageHeaderConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_pinpoint.CfnCampaign.LimitsProperty",
@@ -537,6 +562,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_pinpoint.CfnCampaign.MetricDimensionProperty",
 		reflect.TypeOf((*CfnCampaign_MetricDimensionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_pinpoint.CfnCampaign.OverrideButtonConfigurationProperty",
+		reflect.TypeOf((*CfnCampaign_OverrideButtonConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_pinpoint.CfnCampaign.QuietTimeProperty",
@@ -761,6 +790,83 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_pinpoint.CfnGCMChannelProps",
 		reflect.TypeOf((*CfnGCMChannelProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_pinpoint.CfnInAppTemplate",
+		reflect.TypeOf((*CfnInAppTemplate)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addDependsOn", GoMethod: "AddDependsOn"},
+			_jsii_.MemberMethod{JsiiMethod: "addMetadata", GoMethod: "AddMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "addOverride", GoMethod: "AddOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyDeletionOverride", GoMethod: "AddPropertyDeletionOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "addPropertyOverride", GoMethod: "AddPropertyOverride"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "attrArn", GoGetter: "AttrArn"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
+			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
+			_jsii_.MemberProperty{JsiiProperty: "content", GoGetter: "Content"},
+			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
+			_jsii_.MemberProperty{JsiiProperty: "customConfig", GoGetter: "CustomConfig"},
+			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
+			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
+			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "layout", GoGetter: "Layout"},
+			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
+			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
+			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
+			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
+			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
+			_jsii_.MemberProperty{JsiiProperty: "templateDescription", GoGetter: "TemplateDescription"},
+			_jsii_.MemberProperty{JsiiProperty: "templateName", GoGetter: "TemplateName"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CfnInAppTemplate{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkCfnResource)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_pinpoint.CfnInAppTemplate.BodyConfigProperty",
+		reflect.TypeOf((*CfnInAppTemplate_BodyConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_pinpoint.CfnInAppTemplate.ButtonConfigProperty",
+		reflect.TypeOf((*CfnInAppTemplate_ButtonConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_pinpoint.CfnInAppTemplate.DefaultButtonConfigurationProperty",
+		reflect.TypeOf((*CfnInAppTemplate_DefaultButtonConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_pinpoint.CfnInAppTemplate.HeaderConfigProperty",
+		reflect.TypeOf((*CfnInAppTemplate_HeaderConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_pinpoint.CfnInAppTemplate.InAppMessageContentProperty",
+		reflect.TypeOf((*CfnInAppTemplate_InAppMessageContentProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_pinpoint.CfnInAppTemplate.OverrideButtonConfigurationProperty",
+		reflect.TypeOf((*CfnInAppTemplate_OverrideButtonConfigurationProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_pinpoint.CfnInAppTemplateProps",
+		reflect.TypeOf((*CfnInAppTemplateProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_pinpoint.CfnPushTemplate",

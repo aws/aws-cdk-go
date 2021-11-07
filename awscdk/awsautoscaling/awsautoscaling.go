@@ -1465,6 +1465,8 @@ type CfnAutoScalingGroup interface {
 	CreationStack() *[]*string
 	DesiredCapacity() *string
 	SetDesiredCapacity(val *string)
+	DesiredCapacityType() *string
+	SetDesiredCapacityType(val *string)
 	HealthCheckGracePeriod() *float64
 	SetHealthCheckGracePeriod(val *float64)
 	HealthCheckType() *string
@@ -1633,6 +1635,16 @@ func (j *jsiiProxy_CfnAutoScalingGroup) DesiredCapacity() *string {
 	_jsii_.Get(
 		j,
 		"desiredCapacity",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnAutoScalingGroup) DesiredCapacityType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"desiredCapacityType",
 		&returns,
 	)
 	return returns
@@ -1959,6 +1971,14 @@ func (j *jsiiProxy_CfnAutoScalingGroup) SetDesiredCapacity(val *string) {
 	_jsii_.Set(
 		j,
 		"desiredCapacity",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnAutoScalingGroup) SetDesiredCapacityType(val *string) {
+	_jsii_.Set(
+		j,
+		"desiredCapacityType",
 		val,
 	)
 }
@@ -2522,6 +2542,72 @@ func (c *jsiiProxy_CfnAutoScalingGroup) ValidateProperties(_properties interface
 	)
 }
 
+type CfnAutoScalingGroup_AcceleratorCountRequestProperty struct {
+	// `CfnAutoScalingGroup.AcceleratorCountRequestProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnAutoScalingGroup.AcceleratorCountRequestProperty.Min`.
+	Min *float64 `json:"min"`
+}
+
+type CfnAutoScalingGroup_AcceleratorTotalMemoryMiBRequestProperty struct {
+	// `CfnAutoScalingGroup.AcceleratorTotalMemoryMiBRequestProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnAutoScalingGroup.AcceleratorTotalMemoryMiBRequestProperty.Min`.
+	Min *float64 `json:"min"`
+}
+
+type CfnAutoScalingGroup_BaselineEbsBandwidthMbpsRequestProperty struct {
+	// `CfnAutoScalingGroup.BaselineEbsBandwidthMbpsRequestProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnAutoScalingGroup.BaselineEbsBandwidthMbpsRequestProperty.Min`.
+	Min *float64 `json:"min"`
+}
+
+type CfnAutoScalingGroup_InstanceRequirementsProperty struct {
+	// `CfnAutoScalingGroup.InstanceRequirementsProperty.AcceleratorCount`.
+	AcceleratorCount interface{} `json:"acceleratorCount"`
+	// `CfnAutoScalingGroup.InstanceRequirementsProperty.AcceleratorManufacturers`.
+	AcceleratorManufacturers *[]*string `json:"acceleratorManufacturers"`
+	// `CfnAutoScalingGroup.InstanceRequirementsProperty.AcceleratorNames`.
+	AcceleratorNames *[]*string `json:"acceleratorNames"`
+	// `CfnAutoScalingGroup.InstanceRequirementsProperty.AcceleratorTotalMemoryMiB`.
+	AcceleratorTotalMemoryMiB interface{} `json:"acceleratorTotalMemoryMiB"`
+	// `CfnAutoScalingGroup.InstanceRequirementsProperty.AcceleratorTypes`.
+	AcceleratorTypes *[]*string `json:"acceleratorTypes"`
+	// `CfnAutoScalingGroup.InstanceRequirementsProperty.BareMetal`.
+	BareMetal *string `json:"bareMetal"`
+	// `CfnAutoScalingGroup.InstanceRequirementsProperty.BaselineEbsBandwidthMbps`.
+	BaselineEbsBandwidthMbps interface{} `json:"baselineEbsBandwidthMbps"`
+	// `CfnAutoScalingGroup.InstanceRequirementsProperty.BurstablePerformance`.
+	BurstablePerformance *string `json:"burstablePerformance"`
+	// `CfnAutoScalingGroup.InstanceRequirementsProperty.CpuManufacturers`.
+	CpuManufacturers *[]*string `json:"cpuManufacturers"`
+	// `CfnAutoScalingGroup.InstanceRequirementsProperty.ExcludedInstanceTypes`.
+	ExcludedInstanceTypes *[]*string `json:"excludedInstanceTypes"`
+	// `CfnAutoScalingGroup.InstanceRequirementsProperty.InstanceGenerations`.
+	InstanceGenerations *[]*string `json:"instanceGenerations"`
+	// `CfnAutoScalingGroup.InstanceRequirementsProperty.LocalStorage`.
+	LocalStorage *string `json:"localStorage"`
+	// `CfnAutoScalingGroup.InstanceRequirementsProperty.LocalStorageTypes`.
+	LocalStorageTypes *[]*string `json:"localStorageTypes"`
+	// `CfnAutoScalingGroup.InstanceRequirementsProperty.MemoryGiBPerVCpu`.
+	MemoryGiBPerVCpu interface{} `json:"memoryGiBPerVCpu"`
+	// `CfnAutoScalingGroup.InstanceRequirementsProperty.MemoryMiB`.
+	MemoryMiB interface{} `json:"memoryMiB"`
+	// `CfnAutoScalingGroup.InstanceRequirementsProperty.NetworkInterfaceCount`.
+	NetworkInterfaceCount interface{} `json:"networkInterfaceCount"`
+	// `CfnAutoScalingGroup.InstanceRequirementsProperty.OnDemandMaxPricePercentageOverLowestPrice`.
+	OnDemandMaxPricePercentageOverLowestPrice *float64 `json:"onDemandMaxPricePercentageOverLowestPrice"`
+	// `CfnAutoScalingGroup.InstanceRequirementsProperty.RequireHibernateSupport`.
+	RequireHibernateSupport interface{} `json:"requireHibernateSupport"`
+	// `CfnAutoScalingGroup.InstanceRequirementsProperty.SpotMaxPricePercentageOverLowestPrice`.
+	SpotMaxPricePercentageOverLowestPrice *float64 `json:"spotMaxPricePercentageOverLowestPrice"`
+	// `CfnAutoScalingGroup.InstanceRequirementsProperty.TotalLocalStorageGB`.
+	TotalLocalStorageGb interface{} `json:"totalLocalStorageGb"`
+	// `CfnAutoScalingGroup.InstanceRequirementsProperty.VCpuCount`.
+	VCpuCount interface{} `json:"vCpuCount"`
+}
+
 type CfnAutoScalingGroup_InstancesDistributionProperty struct {
 	// `CfnAutoScalingGroup.InstancesDistributionProperty.OnDemandAllocationStrategy`.
 	OnDemandAllocationStrategy *string `json:"onDemandAllocationStrategy"`
@@ -2538,6 +2624,8 @@ type CfnAutoScalingGroup_InstancesDistributionProperty struct {
 }
 
 type CfnAutoScalingGroup_LaunchTemplateOverridesProperty struct {
+	// `CfnAutoScalingGroup.LaunchTemplateOverridesProperty.InstanceRequirements`.
+	InstanceRequirements interface{} `json:"instanceRequirements"`
 	// `CfnAutoScalingGroup.LaunchTemplateOverridesProperty.InstanceType`.
 	InstanceType *string `json:"instanceType"`
 	// `CfnAutoScalingGroup.LaunchTemplateOverridesProperty.LaunchTemplateSpecification`.
@@ -2579,6 +2667,20 @@ type CfnAutoScalingGroup_LifecycleHookSpecificationProperty struct {
 	RoleArn *string `json:"roleArn"`
 }
 
+type CfnAutoScalingGroup_MemoryGiBPerVCpuRequestProperty struct {
+	// `CfnAutoScalingGroup.MemoryGiBPerVCpuRequestProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnAutoScalingGroup.MemoryGiBPerVCpuRequestProperty.Min`.
+	Min *float64 `json:"min"`
+}
+
+type CfnAutoScalingGroup_MemoryMiBRequestProperty struct {
+	// `CfnAutoScalingGroup.MemoryMiBRequestProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnAutoScalingGroup.MemoryMiBRequestProperty.Min`.
+	Min *float64 `json:"min"`
+}
+
 type CfnAutoScalingGroup_MetricsCollectionProperty struct {
 	// `CfnAutoScalingGroup.MetricsCollectionProperty.Granularity`.
 	Granularity *string `json:"granularity"`
@@ -2591,6 +2693,13 @@ type CfnAutoScalingGroup_MixedInstancesPolicyProperty struct {
 	LaunchTemplate interface{} `json:"launchTemplate"`
 	// `CfnAutoScalingGroup.MixedInstancesPolicyProperty.InstancesDistribution`.
 	InstancesDistribution interface{} `json:"instancesDistribution"`
+}
+
+type CfnAutoScalingGroup_NetworkInterfaceCountRequestProperty struct {
+	// `CfnAutoScalingGroup.NetworkInterfaceCountRequestProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnAutoScalingGroup.NetworkInterfaceCountRequestProperty.Min`.
+	Min *float64 `json:"min"`
 }
 
 type CfnAutoScalingGroup_NotificationConfigurationProperty struct {
@@ -2607,6 +2716,20 @@ type CfnAutoScalingGroup_TagPropertyProperty struct {
 	PropagateAtLaunch interface{} `json:"propagateAtLaunch"`
 	// `CfnAutoScalingGroup.TagPropertyProperty.Value`.
 	Value *string `json:"value"`
+}
+
+type CfnAutoScalingGroup_TotalLocalStorageGBRequestProperty struct {
+	// `CfnAutoScalingGroup.TotalLocalStorageGBRequestProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnAutoScalingGroup.TotalLocalStorageGBRequestProperty.Min`.
+	Min *float64 `json:"min"`
+}
+
+type CfnAutoScalingGroup_VCpuCountRequestProperty struct {
+	// `CfnAutoScalingGroup.VCpuCountRequestProperty.Max`.
+	Max *float64 `json:"max"`
+	// `CfnAutoScalingGroup.VCpuCountRequestProperty.Min`.
+	Min *float64 `json:"min"`
 }
 
 // Properties for defining a `AWS::AutoScaling::AutoScalingGroup`.
@@ -2627,6 +2750,8 @@ type CfnAutoScalingGroupProps struct {
 	Cooldown *string `json:"cooldown"`
 	// `AWS::AutoScaling::AutoScalingGroup.DesiredCapacity`.
 	DesiredCapacity *string `json:"desiredCapacity"`
+	// `AWS::AutoScaling::AutoScalingGroup.DesiredCapacityType`.
+	DesiredCapacityType *string `json:"desiredCapacityType"`
 	// `AWS::AutoScaling::AutoScalingGroup.HealthCheckGracePeriod`.
 	HealthCheckGracePeriod *float64 `json:"healthCheckGracePeriod"`
 	// `AWS::AutoScaling::AutoScalingGroup.HealthCheckType`.

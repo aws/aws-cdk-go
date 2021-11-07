@@ -1257,6 +1257,8 @@ type CfnCluster interface {
 	SetEncryptionConfig(val interface{})
 	KubernetesNetworkConfig() interface{}
 	SetKubernetesNetworkConfig(val interface{})
+	Logging() interface{}
+	SetLogging(val interface{})
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
@@ -1267,6 +1269,7 @@ type CfnCluster interface {
 	RoleArn() *string
 	SetRoleArn(val *string)
 	Stack() awscdk.Stack
+	Tags() awscdk.TagManager
 	UpdatedProperites() *map[string]interface{}
 	Version() *string
 	SetVersion(val *string)
@@ -1419,6 +1422,16 @@ func (j *jsiiProxy_CfnCluster) KubernetesNetworkConfig() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) Logging() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"logging",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -1489,6 +1502,16 @@ func (j *jsiiProxy_CfnCluster) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) Tags() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -1548,6 +1571,14 @@ func (j *jsiiProxy_CfnCluster) SetKubernetesNetworkConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"kubernetesNetworkConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster) SetLogging(val interface{}) {
+	_jsii_.Set(
+		j,
+		"logging",
 		val,
 	)
 }
@@ -1991,6 +2022,11 @@ func (c *jsiiProxy_CfnCluster) ValidateProperties(_properties interface{}) {
 	)
 }
 
+type CfnCluster_ClusterLoggingProperty struct {
+	// `CfnCluster.ClusterLoggingProperty.EnabledTypes`.
+	EnabledTypes interface{} `json:"enabledTypes"`
+}
+
 type CfnCluster_EncryptionConfigProperty struct {
 	// `CfnCluster.EncryptionConfigProperty.Provider`.
 	Provider interface{} `json:"provider"`
@@ -2003,14 +2039,25 @@ type CfnCluster_KubernetesNetworkConfigProperty struct {
 	ServiceIpv4Cidr *string `json:"serviceIpv4Cidr"`
 }
 
-type CfnCluster_ProviderProperty struct {
-	// `CfnCluster.ProviderProperty.KeyArn`.
-	KeyArn *string `json:"keyArn"`
+type CfnCluster_LoggingProperty struct {
+	// `CfnCluster.LoggingProperty.ClusterLogging`.
+	ClusterLogging interface{} `json:"clusterLogging"`
+}
+
+type CfnCluster_LoggingTypeConfigProperty struct {
+	// `CfnCluster.LoggingTypeConfigProperty.Type`.
+	Type *string `json:"type"`
 }
 
 type CfnCluster_ResourcesVpcConfigProperty struct {
 	// `CfnCluster.ResourcesVpcConfigProperty.SubnetIds`.
 	SubnetIds *[]*string `json:"subnetIds"`
+	// `CfnCluster.ResourcesVpcConfigProperty.EndpointPrivateAccess`.
+	EndpointPrivateAccess interface{} `json:"endpointPrivateAccess"`
+	// `CfnCluster.ResourcesVpcConfigProperty.EndpointPublicAccess`.
+	EndpointPublicAccess interface{} `json:"endpointPublicAccess"`
+	// `CfnCluster.ResourcesVpcConfigProperty.PublicAccessCidrs`.
+	PublicAccessCidrs *[]*string `json:"publicAccessCidrs"`
 	// `CfnCluster.ResourcesVpcConfigProperty.SecurityGroupIds`.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
 }
@@ -2025,8 +2072,12 @@ type CfnClusterProps struct {
 	EncryptionConfig interface{} `json:"encryptionConfig"`
 	// `AWS::EKS::Cluster.KubernetesNetworkConfig`.
 	KubernetesNetworkConfig interface{} `json:"kubernetesNetworkConfig"`
+	// `AWS::EKS::Cluster.Logging`.
+	Logging interface{} `json:"logging"`
 	// `AWS::EKS::Cluster.Name`.
 	Name *string `json:"name"`
+	// `AWS::EKS::Cluster.Tags`.
+	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::EKS::Cluster.Version`.
 	Version *string `json:"version"`
 }
@@ -3794,6 +3845,7 @@ type Cluster interface {
 	ClusterCertificateAuthorityData() *string
 	ClusterEncryptionConfigKeyArn() *string
 	ClusterEndpoint() *string
+	ClusterHandlerSecurityGroup() awsec2.ISecurityGroup
 	ClusterName() *string
 	ClusterOpenIdConnectIssuer() *string
 	ClusterOpenIdConnectIssuerUrl() *string
@@ -3900,6 +3952,16 @@ func (j *jsiiProxy_Cluster) ClusterEndpoint() *string {
 	_jsii_.Get(
 		j,
 		"clusterEndpoint",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Cluster) ClusterHandlerSecurityGroup() awsec2.ISecurityGroup {
+	var returns awsec2.ISecurityGroup
+	_jsii_.Get(
+		j,
+		"clusterHandlerSecurityGroup",
 		&returns,
 	)
 	return returns
@@ -4592,6 +4654,11 @@ type ClusterAttributes struct {
 	// The API Server endpoint URL.
 	// Experimental.
 	ClusterEndpoint *string `json:"clusterEndpoint"`
+	// A security group id to associate with the Cluster Handler's Lambdas.
+	//
+	// The Cluster Handler's Lambdas are responsible for calling AWS's EKS API.
+	// Experimental.
+	ClusterHandlerSecurityGroupId *string `json:"clusterHandlerSecurityGroupId"`
 	// The cluster security group that was created by Amazon EKS for the cluster.
 	// Experimental.
 	ClusterSecurityGroupId *string `json:"clusterSecurityGroupId"`
@@ -4702,6 +4769,13 @@ type ClusterOptions struct {
 	// Custom environment variables when interacting with the EKS endpoint to manage the cluster lifecycle.
 	// Experimental.
 	ClusterHandlerEnvironment *map[string]*string `json:"clusterHandlerEnvironment"`
+	// A security group to associate with the Cluster Handler's Lambdas.
+	//
+	// The Cluster Handler's Lambdas are responsible for calling AWS's EKS API.
+	//
+	// Requires `placeClusterHandlerInVpc` to be set to true.
+	// Experimental.
+	ClusterHandlerSecurityGroup awsec2.ISecurityGroup `json:"clusterHandlerSecurityGroup"`
 	// Controls the "eks.amazonaws.com/compute-type" annotation in the CoreDNS configuration on your cluster to determine which compute type to use for CoreDNS.
 	// Experimental.
 	CoreDnsComputeType CoreDnsComputeType `json:"coreDnsComputeType"`
@@ -4746,23 +4820,21 @@ type ClusterOptions struct {
 	MastersRole awsiam.IRole `json:"mastersRole"`
 	// An AWS Lambda Layer which includes the NPM dependency `proxy-agent`.
 	//
+	// This layer
+	// is used by the onEvent handler to route AWS SDK requests through a proxy.
+	//
 	// By default, the provider will use the layer included in the
 	// "aws-lambda-layer-node-proxy-agent" SAR application which is available in all
 	// commercial regions.
 	//
-	// To deploy the layer locally, visit
-	// https://github.com/aws-samples/aws-lambda-layer-node-proxy-agent/blob/master/cdk/README.md
-	// for instructions on how to prepare the .zip file and then define it in your
-	// app as follows:
+	// To deploy the layer locally define it in your app as follows:
 	//
 	// ```ts
-	// const layer = new lambda.LayerVersion(this, 'node-proxy-agent-layer', {
+	// const layer = new lambda.LayerVersion(this, 'proxy-agent-layer', {
 	//    code: lambda.Code.fromAsset(`${__dirname}/layer.zip`)),
-	//    compatibleRuntimes: [lambda.Runtime.NODEJS_14_X]
+	//    compatibleRuntimes: [lambda.Runtime.NODEJS_12_X]
 	// })
 	// ```
-	// See: https://github.com/aws-samples/aws-lambda-layer-node-proxy-agent
-	//
 	// Experimental.
 	OnEventLayer awslambda.ILayerVersion `json:"onEventLayer"`
 	// Determines whether a CloudFormation output with the ARN of the "masters" IAM role will be synthesized (if `mastersRole` is specified).
@@ -4831,6 +4903,13 @@ type ClusterProps struct {
 	// Custom environment variables when interacting with the EKS endpoint to manage the cluster lifecycle.
 	// Experimental.
 	ClusterHandlerEnvironment *map[string]*string `json:"clusterHandlerEnvironment"`
+	// A security group to associate with the Cluster Handler's Lambdas.
+	//
+	// The Cluster Handler's Lambdas are responsible for calling AWS's EKS API.
+	//
+	// Requires `placeClusterHandlerInVpc` to be set to true.
+	// Experimental.
+	ClusterHandlerSecurityGroup awsec2.ISecurityGroup `json:"clusterHandlerSecurityGroup"`
 	// Controls the "eks.amazonaws.com/compute-type" annotation in the CoreDNS configuration on your cluster to determine which compute type to use for CoreDNS.
 	// Experimental.
 	CoreDnsComputeType CoreDnsComputeType `json:"coreDnsComputeType"`
@@ -4875,23 +4954,21 @@ type ClusterProps struct {
 	MastersRole awsiam.IRole `json:"mastersRole"`
 	// An AWS Lambda Layer which includes the NPM dependency `proxy-agent`.
 	//
+	// This layer
+	// is used by the onEvent handler to route AWS SDK requests through a proxy.
+	//
 	// By default, the provider will use the layer included in the
 	// "aws-lambda-layer-node-proxy-agent" SAR application which is available in all
 	// commercial regions.
 	//
-	// To deploy the layer locally, visit
-	// https://github.com/aws-samples/aws-lambda-layer-node-proxy-agent/blob/master/cdk/README.md
-	// for instructions on how to prepare the .zip file and then define it in your
-	// app as follows:
+	// To deploy the layer locally define it in your app as follows:
 	//
 	// ```ts
-	// const layer = new lambda.LayerVersion(this, 'node-proxy-agent-layer', {
+	// const layer = new lambda.LayerVersion(this, 'proxy-agent-layer', {
 	//    code: lambda.Code.fromAsset(`${__dirname}/layer.zip`)),
-	//    compatibleRuntimes: [lambda.Runtime.NODEJS_14_X]
+	//    compatibleRuntimes: [lambda.Runtime.NODEJS_12_X]
 	// })
 	// ```
-	// See: https://github.com/aws-samples/aws-lambda-layer-node-proxy-agent
-	//
 	// Experimental.
 	OnEventLayer awslambda.ILayerVersion `json:"onEventLayer"`
 	// Determines whether a CloudFormation output with the ARN of the "masters" IAM role will be synthesized (if `mastersRole` is specified).
@@ -5153,6 +5230,7 @@ type FargateCluster interface {
 	ClusterCertificateAuthorityData() *string
 	ClusterEncryptionConfigKeyArn() *string
 	ClusterEndpoint() *string
+	ClusterHandlerSecurityGroup() awsec2.ISecurityGroup
 	ClusterName() *string
 	ClusterOpenIdConnectIssuer() *string
 	ClusterOpenIdConnectIssuerUrl() *string
@@ -5161,6 +5239,7 @@ type FargateCluster interface {
 	Connections() awsec2.Connections
 	DefaultCapacity() awsautoscaling.AutoScalingGroup
 	DefaultNodegroup() Nodegroup
+	DefaultProfile() FargateProfile
 	Env() *awscdk.ResourceEnvironment
 	KubectlEnvironment() *map[string]*string
 	KubectlLayer() awslambda.ILayerVersion
@@ -5263,6 +5342,16 @@ func (j *jsiiProxy_FargateCluster) ClusterEndpoint() *string {
 	return returns
 }
 
+func (j *jsiiProxy_FargateCluster) ClusterHandlerSecurityGroup() awsec2.ISecurityGroup {
+	var returns awsec2.ISecurityGroup
+	_jsii_.Get(
+		j,
+		"clusterHandlerSecurityGroup",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_FargateCluster) ClusterName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -5338,6 +5427,16 @@ func (j *jsiiProxy_FargateCluster) DefaultNodegroup() Nodegroup {
 	_jsii_.Get(
 		j,
 		"defaultNodegroup",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FargateCluster) DefaultProfile() FargateProfile {
+	var returns FargateProfile
+	_jsii_.Get(
+		j,
+		"defaultProfile",
 		&returns,
 	)
 	return returns
@@ -5976,6 +6075,13 @@ type FargateClusterProps struct {
 	// Custom environment variables when interacting with the EKS endpoint to manage the cluster lifecycle.
 	// Experimental.
 	ClusterHandlerEnvironment *map[string]*string `json:"clusterHandlerEnvironment"`
+	// A security group to associate with the Cluster Handler's Lambdas.
+	//
+	// The Cluster Handler's Lambdas are responsible for calling AWS's EKS API.
+	//
+	// Requires `placeClusterHandlerInVpc` to be set to true.
+	// Experimental.
+	ClusterHandlerSecurityGroup awsec2.ISecurityGroup `json:"clusterHandlerSecurityGroup"`
 	// Controls the "eks.amazonaws.com/compute-type" annotation in the CoreDNS configuration on your cluster to determine which compute type to use for CoreDNS.
 	// Experimental.
 	CoreDnsComputeType CoreDnsComputeType `json:"coreDnsComputeType"`
@@ -6020,23 +6126,21 @@ type FargateClusterProps struct {
 	MastersRole awsiam.IRole `json:"mastersRole"`
 	// An AWS Lambda Layer which includes the NPM dependency `proxy-agent`.
 	//
+	// This layer
+	// is used by the onEvent handler to route AWS SDK requests through a proxy.
+	//
 	// By default, the provider will use the layer included in the
 	// "aws-lambda-layer-node-proxy-agent" SAR application which is available in all
 	// commercial regions.
 	//
-	// To deploy the layer locally, visit
-	// https://github.com/aws-samples/aws-lambda-layer-node-proxy-agent/blob/master/cdk/README.md
-	// for instructions on how to prepare the .zip file and then define it in your
-	// app as follows:
+	// To deploy the layer locally define it in your app as follows:
 	//
 	// ```ts
-	// const layer = new lambda.LayerVersion(this, 'node-proxy-agent-layer', {
+	// const layer = new lambda.LayerVersion(this, 'proxy-agent-layer', {
 	//    code: lambda.Code.fromAsset(`${__dirname}/layer.zip`)),
-	//    compatibleRuntimes: [lambda.Runtime.NODEJS_14_X]
+	//    compatibleRuntimes: [lambda.Runtime.NODEJS_12_X]
 	// })
 	// ```
-	// See: https://github.com/aws-samples/aws-lambda-layer-node-proxy-agent
-	//
 	// Experimental.
 	OnEventLayer awslambda.ILayerVersion `json:"onEventLayer"`
 	// Determines whether a CloudFormation output with the ARN of the "masters" IAM role will be synthesized (if `mastersRole` is specified).
@@ -6736,6 +6840,13 @@ type ICluster interface {
 	// The API Server endpoint URL.
 	// Experimental.
 	ClusterEndpoint() *string
+	// A security group to associate with the Cluster Handler's Lambdas.
+	//
+	// The Cluster Handler's Lambdas are responsible for calling AWS's EKS API.
+	//
+	// Requires `placeClusterHandlerInVpc` to be set to true.
+	// Experimental.
+	ClusterHandlerSecurityGroup() awsec2.ISecurityGroup
 	// The physical name of the Cluster.
 	// Experimental.
 	ClusterName() *string
@@ -6900,6 +7011,16 @@ func (j *jsiiProxy_ICluster) ClusterEndpoint() *string {
 	_jsii_.Get(
 		j,
 		"clusterEndpoint",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ICluster) ClusterHandlerSecurityGroup() awsec2.ISecurityGroup {
+	var returns awsec2.ISecurityGroup
+	_jsii_.Get(
+		j,
+		"clusterHandlerSecurityGroup",
 		&returns,
 	)
 	return returns

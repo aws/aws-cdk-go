@@ -897,6 +897,8 @@ type CfnAnalysisProps struct {
 	AnalysisId *string `json:"analysisId"`
 	// `AWS::QuickSight::Analysis.AwsAccountId`.
 	AwsAccountId *string `json:"awsAccountId"`
+	// `AWS::QuickSight::Analysis.SourceEntity`.
+	SourceEntity interface{} `json:"sourceEntity"`
 	// `AWS::QuickSight::Analysis.Errors`.
 	Errors interface{} `json:"errors"`
 	// `AWS::QuickSight::Analysis.Name`.
@@ -905,8 +907,6 @@ type CfnAnalysisProps struct {
 	Parameters interface{} `json:"parameters"`
 	// `AWS::QuickSight::Analysis.Permissions`.
 	Permissions interface{} `json:"permissions"`
-	// `AWS::QuickSight::Analysis.SourceEntity`.
-	SourceEntity interface{} `json:"sourceEntity"`
 	// `AWS::QuickSight::Analysis.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::QuickSight::Analysis.ThemeArn`.
@@ -1809,6 +1809,8 @@ type CfnDashboardProps struct {
 	AwsAccountId *string `json:"awsAccountId"`
 	// `AWS::QuickSight::Dashboard.DashboardId`.
 	DashboardId *string `json:"dashboardId"`
+	// `AWS::QuickSight::Dashboard.SourceEntity`.
+	SourceEntity interface{} `json:"sourceEntity"`
 	// `AWS::QuickSight::Dashboard.DashboardPublishOptions`.
 	DashboardPublishOptions interface{} `json:"dashboardPublishOptions"`
 	// `AWS::QuickSight::Dashboard.Name`.
@@ -1817,8 +1819,6 @@ type CfnDashboardProps struct {
 	Parameters interface{} `json:"parameters"`
 	// `AWS::QuickSight::Dashboard.Permissions`.
 	Permissions interface{} `json:"permissions"`
-	// `AWS::QuickSight::Dashboard.SourceEntity`.
-	SourceEntity interface{} `json:"sourceEntity"`
 	// `AWS::QuickSight::Dashboard.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::QuickSight::Dashboard.ThemeArn`.
@@ -3809,6 +3809,11 @@ type CfnDataSource_AmazonElasticsearchParametersProperty struct {
 	Domain *string `json:"domain"`
 }
 
+type CfnDataSource_AmazonOpenSearchParametersProperty struct {
+	// `CfnDataSource.AmazonOpenSearchParametersProperty.Domain`.
+	Domain *string `json:"domain"`
+}
+
 type CfnDataSource_AthenaParametersProperty struct {
 	// `CfnDataSource.AthenaParametersProperty.WorkGroup`.
 	WorkGroup *string `json:"workGroup"`
@@ -3858,6 +3863,8 @@ type CfnDataSource_DataSourceErrorInfoProperty struct {
 type CfnDataSource_DataSourceParametersProperty struct {
 	// `CfnDataSource.DataSourceParametersProperty.AmazonElasticsearchParameters`.
 	AmazonElasticsearchParameters interface{} `json:"amazonElasticsearchParameters"`
+	// `CfnDataSource.DataSourceParametersProperty.AmazonOpenSearchParameters`.
+	AmazonOpenSearchParameters interface{} `json:"amazonOpenSearchParameters"`
 	// `CfnDataSource.DataSourceParametersProperty.AthenaParameters`.
 	AthenaParameters interface{} `json:"athenaParameters"`
 	// `CfnDataSource.DataSourceParametersProperty.AuroraParameters`.
@@ -4811,14 +4818,14 @@ type CfnTemplate_TemplateSourceTemplateProperty struct {
 type CfnTemplateProps struct {
 	// `AWS::QuickSight::Template.AwsAccountId`.
 	AwsAccountId *string `json:"awsAccountId"`
+	// `AWS::QuickSight::Template.SourceEntity`.
+	SourceEntity interface{} `json:"sourceEntity"`
 	// `AWS::QuickSight::Template.TemplateId`.
 	TemplateId *string `json:"templateId"`
 	// `AWS::QuickSight::Template.Name`.
 	Name *string `json:"name"`
 	// `AWS::QuickSight::Template.Permissions`.
 	Permissions interface{} `json:"permissions"`
-	// `AWS::QuickSight::Template.SourceEntity`.
-	SourceEntity interface{} `json:"sourceEntity"`
 	// `AWS::QuickSight::Template.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::QuickSight::Template.VersionDescription`.

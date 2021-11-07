@@ -319,6 +319,33 @@ func init() {
 		"monocdk.aws_codepipeline.CrossRegionSupport",
 		reflect.TypeOf((*CrossRegionSupport)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_codepipeline.CustomActionProperty",
+		reflect.TypeOf((*CustomActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_codepipeline.CustomActionRegistration",
+		reflect.TypeOf((*CustomActionRegistration)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+		},
+		func() interface{} {
+			j := jsiiProxy_CustomActionRegistration{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkConstruct)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_codepipeline.CustomActionRegistrationProps",
+		reflect.TypeOf((*CustomActionRegistrationProps)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_codepipeline.GlobalVariables",
 		reflect.TypeOf((*GlobalVariables)(nil)).Elem(),

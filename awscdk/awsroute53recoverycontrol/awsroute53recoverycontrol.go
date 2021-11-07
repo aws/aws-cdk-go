@@ -26,6 +26,7 @@ type CfnCluster interface {
 	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
+	Tags() awscdk.TagManager
 	UpdatedProperites() *map[string]interface{}
 	AddDeletionOverride(path *string)
 	AddDependsOn(target awscdk.CfnResource)
@@ -171,6 +172,16 @@ func (j *jsiiProxy_CfnCluster) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) Tags() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"tags",
 		&returns,
 	)
 	return returns
@@ -639,6 +650,8 @@ type CfnCluster_ClusterEndpointProperty struct {
 type CfnClusterProps struct {
 	// `AWS::Route53RecoveryControl::Cluster.Name`.
 	Name *string `json:"name"`
+	// `AWS::Route53RecoveryControl::Cluster.Tags`.
+	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::Route53RecoveryControl::ControlPanel`.
@@ -661,6 +674,7 @@ type CfnControlPanel interface {
 	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
+	Tags() awscdk.TagManager
 	UpdatedProperites() *map[string]interface{}
 	AddDeletionOverride(path *string)
 	AddDependsOn(target awscdk.CfnResource)
@@ -826,6 +840,16 @@ func (j *jsiiProxy_CfnControlPanel) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnControlPanel) Tags() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"tags",
 		&returns,
 	)
 	return returns
@@ -1297,6 +1321,8 @@ type CfnControlPanelProps struct {
 	Name *string `json:"name"`
 	// `AWS::Route53RecoveryControl::ControlPanel.ClusterArn`.
 	ClusterArn *string `json:"clusterArn"`
+	// `AWS::Route53RecoveryControl::ControlPanel.Tags`.
+	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::Route53RecoveryControl::RoutingControl`.
@@ -1981,6 +2007,7 @@ type CfnSafetyRule interface {
 	RuleConfig() interface{}
 	SetRuleConfig(val interface{})
 	Stack() awscdk.Stack
+	Tags() awscdk.TagManager
 	UpdatedProperites() *map[string]interface{}
 	AddDeletionOverride(path *string)
 	AddDependsOn(target awscdk.CfnResource)
@@ -2156,6 +2183,16 @@ func (j *jsiiProxy_CfnSafetyRule) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnSafetyRule) Tags() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"tags",
 		&returns,
 	)
 	return returns
@@ -2682,5 +2719,7 @@ type CfnSafetyRuleProps struct {
 	AssertionRule interface{} `json:"assertionRule"`
 	// `AWS::Route53RecoveryControl::SafetyRule.GatingRule`.
 	GatingRule interface{} `json:"gatingRule"`
+	// `AWS::Route53RecoveryControl::SafetyRule.Tags`.
+	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 

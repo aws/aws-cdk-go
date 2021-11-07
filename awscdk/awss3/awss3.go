@@ -536,6 +536,18 @@ func Bucket_IsResource(construct awscdk.IConstruct) *bool {
 	return returns
 }
 
+// Thrown an exception if the given bucket name is not valid.
+// Experimental.
+func Bucket_ValidateBucketName(physicalName *string) {
+	_init_.Initialize()
+
+	_jsii_.StaticInvokeVoid(
+		"monocdk.aws_s3.Bucket",
+		"validateBucketName",
+		[]interface{}{physicalName},
+	)
+}
+
 // Adds a cross-origin access configuration for objects in an Amazon S3 bucket.
 // Experimental.
 func (b *jsiiProxy_Bucket) AddCorsRule(rule *CorsRule) {

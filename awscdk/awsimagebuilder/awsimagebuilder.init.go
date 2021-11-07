@@ -439,6 +439,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getAtt", GoMethod: "GetAtt"},
 			_jsii_.MemberMethod{JsiiMethod: "getMetadata", GoMethod: "GetMetadata"},
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
+			_jsii_.MemberProperty{JsiiProperty: "instanceMetadataOptions", GoGetter: "InstanceMetadataOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "instanceProfileName", GoGetter: "InstanceProfileName"},
 			_jsii_.MemberProperty{JsiiProperty: "instanceTypes", GoGetter: "InstanceTypes"},
 			_jsii_.MemberProperty{JsiiProperty: "keyPair", GoGetter: "KeyPair"},
@@ -473,6 +474,10 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIInspectable)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_imagebuilder.CfnInfrastructureConfiguration.InstanceMetadataOptionsProperty",
+		reflect.TypeOf((*CfnInfrastructureConfiguration_InstanceMetadataOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_imagebuilder.CfnInfrastructureConfiguration.LoggingProperty",

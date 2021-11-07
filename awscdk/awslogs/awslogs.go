@@ -5295,7 +5295,7 @@ func (j *jsiiProxy_IFilterPattern) LogPatternString() *string {
 
 // Experimental.
 type ILogGroup interface {
-	awscdk.IResource
+	awsiam.IResourceWithPolicy
 	// Create a new Metric Filter on this Log Group.
 	// Experimental.
 	AddMetricFilter(id *string, props *MetricFilterOptions) MetricFilter
@@ -5335,7 +5335,7 @@ type ILogGroup interface {
 
 // The jsii proxy for ILogGroup
 type jsiiProxy_ILogGroup struct {
-	internal.Type__awscdkIResource
+	internal.Type__awsiamIResourceWithPolicy
 }
 
 func (i *jsiiProxy_ILogGroup) AddMetricFilter(id *string, props *MetricFilterOptions) MetricFilter {
@@ -5569,6 +5569,7 @@ type LogGroup interface {
 	AddMetricFilter(id *string, props *MetricFilterOptions) MetricFilter
 	AddStream(id *string, props *StreamOptions) LogStream
 	AddSubscriptionFilter(id *string, props *SubscriptionFilterOptions) SubscriptionFilter
+	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	ExtractMetric(jsonField *string, metricNamespace *string, metricName *string) awscloudwatch.Metric
 	GeneratePhysicalName() *string
@@ -5786,6 +5787,23 @@ func (l *jsiiProxy_LogGroup) AddSubscriptionFilter(id *string, props *Subscripti
 		l,
 		"addSubscriptionFilter",
 		[]interface{}{id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Adds a statement to the resource policy associated with this log group.
+//
+// A resource policy will be automatically created upon the first call to `addToResourcePolicy`.
+// Experimental.
+func (l *jsiiProxy_LogGroup) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
+	var returns *awsiam.AddToResourcePolicyResult
+
+	_jsii_.Invoke(
+		l,
+		"addToResourcePolicy",
+		[]interface{}{statement},
 		&returns,
 	)
 

@@ -422,6 +422,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addMetricFilter", GoMethod: "AddMetricFilter"},
 			_jsii_.MemberMethod{JsiiMethod: "addStream", GoMethod: "AddStream"},
 			_jsii_.MemberMethod{JsiiMethod: "addSubscriptionFilter", GoMethod: "AddSubscriptionFilter"},
+			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "extractMetric", GoMethod: "ExtractMetric"},
 			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
@@ -434,7 +435,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_ILogGroup{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
+			_jsii_.InitJsiiProxy(&j.Type__awsiamIResourceWithPolicy)
 			return &j
 		},
 	)
@@ -483,6 +484,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addMetricFilter", GoMethod: "AddMetricFilter"},
 			_jsii_.MemberMethod{JsiiMethod: "addStream", GoMethod: "AddStream"},
 			_jsii_.MemberMethod{JsiiMethod: "addSubscriptionFilter", GoMethod: "AddSubscriptionFilter"},
+			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "extractMetric", GoMethod: "ExtractMetric"},

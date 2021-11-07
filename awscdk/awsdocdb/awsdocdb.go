@@ -5162,6 +5162,9 @@ type DatabaseSecretProps struct {
 	// The KMS key to use to encrypt the secret.
 	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	// Characters to not include in the generated password.
+	// Experimental.
+	ExcludeCharacters *string `json:"excludeCharacters"`
 	// The master secret which will be used to rotate this secret.
 	// Experimental.
 	MasterSecret awssecretsmanager.ISecret `json:"masterSecret"`
@@ -5518,6 +5521,9 @@ type Login struct {
 	// Username.
 	// Experimental.
 	Username *string `json:"username"`
+	// Specifies characters to not include in generated passwords.
+	// Experimental.
+	ExcludeCharacters *string `json:"excludeCharacters"`
 	// KMS encryption key to encrypt the generated secret.
 	// Experimental.
 	KmsKey awskms.IKey `json:"kmsKey"`

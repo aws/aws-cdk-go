@@ -160,6 +160,11 @@ type BundlingOptions struct {
 	//
 	// Experimental.
 	SourceMapMode SourceMapMode `json:"sourceMapMode"`
+	// Whether to include original source code in source maps when bundling.
+	// See: https://esbuild.github.io/api/#sources-content
+	//
+	// Experimental.
+	SourcesContent *bool `json:"sourcesContent"`
 	// Target environment for the generated JavaScript code.
 	// See: https://esbuild.github.io/api/#target
 	//

@@ -698,6 +698,8 @@ type CfnEndpoint interface {
 	SetPort(val *float64)
 	PostgreSqlSettings() interface{}
 	SetPostgreSqlSettings(val interface{})
+	RedisSettings() interface{}
+	SetRedisSettings(val interface{})
 	RedshiftSettings() interface{}
 	SetRedshiftSettings(val interface{})
 	Ref() *string
@@ -1025,6 +1027,16 @@ func (j *jsiiProxy_CfnEndpoint) PostgreSqlSettings() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnEndpoint) RedisSettings() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"redisSettings",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnEndpoint) RedshiftSettings() interface{} {
 	var returns interface{}
 	_jsii_.Get(
@@ -1326,6 +1338,14 @@ func (j *jsiiProxy_CfnEndpoint) SetPostgreSqlSettings(val interface{}) {
 	_jsii_.Set(
 		j,
 		"postgreSqlSettings",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnEndpoint) SetRedisSettings(val interface{}) {
+	_jsii_.Set(
+		j,
+		"redisSettings",
 		val,
 	)
 }
@@ -1826,13 +1846,51 @@ type CfnEndpoint_IbmDb2SettingsProperty struct {
 type CfnEndpoint_KafkaSettingsProperty struct {
 	// `CfnEndpoint.KafkaSettingsProperty.Broker`.
 	Broker *string `json:"broker"`
+	// `CfnEndpoint.KafkaSettingsProperty.IncludeControlDetails`.
+	IncludeControlDetails interface{} `json:"includeControlDetails"`
+	// `CfnEndpoint.KafkaSettingsProperty.IncludeNullAndEmpty`.
+	IncludeNullAndEmpty interface{} `json:"includeNullAndEmpty"`
+	// `CfnEndpoint.KafkaSettingsProperty.IncludeTableAlterOperations`.
+	IncludeTableAlterOperations interface{} `json:"includeTableAlterOperations"`
+	// `CfnEndpoint.KafkaSettingsProperty.IncludeTransactionDetails`.
+	IncludeTransactionDetails interface{} `json:"includeTransactionDetails"`
+	// `CfnEndpoint.KafkaSettingsProperty.NoHexPrefix`.
+	NoHexPrefix interface{} `json:"noHexPrefix"`
+	// `CfnEndpoint.KafkaSettingsProperty.PartitionIncludeSchemaTable`.
+	PartitionIncludeSchemaTable interface{} `json:"partitionIncludeSchemaTable"`
+	// `CfnEndpoint.KafkaSettingsProperty.SaslPassword`.
+	SaslPassword *string `json:"saslPassword"`
+	// `CfnEndpoint.KafkaSettingsProperty.SaslUserName`.
+	SaslUserName *string `json:"saslUserName"`
+	// `CfnEndpoint.KafkaSettingsProperty.SecurityProtocol`.
+	SecurityProtocol *string `json:"securityProtocol"`
+	// `CfnEndpoint.KafkaSettingsProperty.SslCaCertificateArn`.
+	SslCaCertificateArn *string `json:"sslCaCertificateArn"`
+	// `CfnEndpoint.KafkaSettingsProperty.SslClientCertificateArn`.
+	SslClientCertificateArn *string `json:"sslClientCertificateArn"`
+	// `CfnEndpoint.KafkaSettingsProperty.SslClientKeyArn`.
+	SslClientKeyArn *string `json:"sslClientKeyArn"`
+	// `CfnEndpoint.KafkaSettingsProperty.SslClientKeyPassword`.
+	SslClientKeyPassword *string `json:"sslClientKeyPassword"`
 	// `CfnEndpoint.KafkaSettingsProperty.Topic`.
 	Topic *string `json:"topic"`
 }
 
 type CfnEndpoint_KinesisSettingsProperty struct {
+	// `CfnEndpoint.KinesisSettingsProperty.IncludeControlDetails`.
+	IncludeControlDetails interface{} `json:"includeControlDetails"`
+	// `CfnEndpoint.KinesisSettingsProperty.IncludeNullAndEmpty`.
+	IncludeNullAndEmpty interface{} `json:"includeNullAndEmpty"`
+	// `CfnEndpoint.KinesisSettingsProperty.IncludeTableAlterOperations`.
+	IncludeTableAlterOperations interface{} `json:"includeTableAlterOperations"`
+	// `CfnEndpoint.KinesisSettingsProperty.IncludeTransactionDetails`.
+	IncludeTransactionDetails interface{} `json:"includeTransactionDetails"`
 	// `CfnEndpoint.KinesisSettingsProperty.MessageFormat`.
 	MessageFormat *string `json:"messageFormat"`
+	// `CfnEndpoint.KinesisSettingsProperty.NoHexPrefix`.
+	NoHexPrefix interface{} `json:"noHexPrefix"`
+	// `CfnEndpoint.KinesisSettingsProperty.PartitionIncludeSchemaTable`.
+	PartitionIncludeSchemaTable interface{} `json:"partitionIncludeSchemaTable"`
 	// `CfnEndpoint.KinesisSettingsProperty.ServiceAccessRoleArn`.
 	ServiceAccessRoleArn *string `json:"serviceAccessRoleArn"`
 	// `CfnEndpoint.KinesisSettingsProperty.StreamArn`.
@@ -1917,6 +1975,23 @@ type CfnEndpoint_PostgreSqlSettingsProperty struct {
 	SecretsManagerSecretId *string `json:"secretsManagerSecretId"`
 }
 
+type CfnEndpoint_RedisSettingsProperty struct {
+	// `CfnEndpoint.RedisSettingsProperty.AuthPassword`.
+	AuthPassword *string `json:"authPassword"`
+	// `CfnEndpoint.RedisSettingsProperty.AuthType`.
+	AuthType *string `json:"authType"`
+	// `CfnEndpoint.RedisSettingsProperty.AuthUserName`.
+	AuthUserName *string `json:"authUserName"`
+	// `CfnEndpoint.RedisSettingsProperty.Port`.
+	Port *float64 `json:"port"`
+	// `CfnEndpoint.RedisSettingsProperty.ServerName`.
+	ServerName *string `json:"serverName"`
+	// `CfnEndpoint.RedisSettingsProperty.SslCaCertificateArn`.
+	SslCaCertificateArn *string `json:"sslCaCertificateArn"`
+	// `CfnEndpoint.RedisSettingsProperty.SslSecurityProtocol`.
+	SslSecurityProtocol *string `json:"sslSecurityProtocol"`
+}
+
 type CfnEndpoint_RedshiftSettingsProperty struct {
 	// `CfnEndpoint.RedshiftSettingsProperty.SecretsManagerAccessRoleArn`.
 	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn"`
@@ -1992,6 +2067,8 @@ type CfnEndpointProps struct {
 	Port *float64 `json:"port"`
 	// `AWS::DMS::Endpoint.PostgreSqlSettings`.
 	PostgreSqlSettings interface{} `json:"postgreSqlSettings"`
+	// `AWS::DMS::Endpoint.RedisSettings`.
+	RedisSettings interface{} `json:"redisSettings"`
 	// `AWS::DMS::Endpoint.RedshiftSettings`.
 	RedshiftSettings interface{} `json:"redshiftSettings"`
 	// `AWS::DMS::Endpoint.ResourceIdentifier`.

@@ -103,6 +103,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "port", GoGetter: "Port"},
 			_jsii_.MemberProperty{JsiiProperty: "postgreSqlSettings", GoGetter: "PostgreSqlSettings"},
 			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
+			_jsii_.MemberProperty{JsiiProperty: "redisSettings", GoGetter: "RedisSettings"},
 			_jsii_.MemberProperty{JsiiProperty: "redshiftSettings", GoGetter: "RedshiftSettings"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -175,6 +176,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_dms.CfnEndpoint.PostgreSqlSettingsProperty",
 		reflect.TypeOf((*CfnEndpoint_PostgreSqlSettingsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_dms.CfnEndpoint.RedisSettingsProperty",
+		reflect.TypeOf((*CfnEndpoint_RedisSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_dms.CfnEndpoint.RedshiftSettingsProperty",

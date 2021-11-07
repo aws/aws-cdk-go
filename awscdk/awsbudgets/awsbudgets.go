@@ -1507,9 +1507,9 @@ type CfnBudgetsActionProps struct {
 	ExecutionRoleArn *string `json:"executionRoleArn"`
 	// `AWS::Budgets::BudgetsAction.NotificationType`.
 	NotificationType *string `json:"notificationType"`
-	// `AWS::Budgets::BudgetsAction.ApprovalModel`.
-	ApprovalModel *string `json:"approvalModel"`
 	// `AWS::Budgets::BudgetsAction.Subscribers`.
 	Subscribers interface{} `json:"subscribers"`
+	// `AWS::Budgets::BudgetsAction.ApprovalModel`.
+	ApprovalModel *string `json:"approvalModel"`
 }
 

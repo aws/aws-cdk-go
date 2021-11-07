@@ -134,6 +134,10 @@ func init() {
 		reflect.TypeOf((*CfnFirewallPolicy_PublishMetricActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_networkfirewall.CfnFirewallPolicy.StatefulEngineOptionsProperty",
+		reflect.TypeOf((*CfnFirewallPolicy_StatefulEngineOptionsProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_networkfirewall.CfnFirewallPolicy.StatefulRuleGroupReferenceProperty",
 		reflect.TypeOf((*CfnFirewallPolicy_StatefulRuleGroupReferenceProperty)(nil)).Elem(),
 	)
@@ -325,6 +329,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_networkfirewall.CfnRuleGroup.RulesSourceProperty",
 		reflect.TypeOf((*CfnRuleGroup_RulesSourceProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_networkfirewall.CfnRuleGroup.StatefulRuleOptionsProperty",
+		reflect.TypeOf((*CfnRuleGroup_StatefulRuleOptionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_networkfirewall.CfnRuleGroup.StatefulRuleProperty",

@@ -1212,6 +1212,8 @@ type CfnCluster interface {
 	SetEncryptionConfig(val interface{})
 	KubernetesNetworkConfig() interface{}
 	SetKubernetesNetworkConfig(val interface{})
+	Logging() interface{}
+	SetLogging(val interface{})
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
@@ -1222,6 +1224,7 @@ type CfnCluster interface {
 	RoleArn() *string
 	SetRoleArn(val *string)
 	Stack() awscdk.Stack
+	Tags() awscdk.TagManager
 	UpdatedProperites() *map[string]interface{}
 	Version() *string
 	SetVersion(val *string)
@@ -1374,6 +1377,16 @@ func (j *jsiiProxy_CfnCluster) KubernetesNetworkConfig() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) Logging() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"logging",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) LogicalId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -1444,6 +1457,16 @@ func (j *jsiiProxy_CfnCluster) Stack() awscdk.Stack {
 	return returns
 }
 
+func (j *jsiiProxy_CfnCluster) Tags() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnCluster) UpdatedProperites() *map[string]interface{} {
 	var returns *map[string]interface{}
 	_jsii_.Get(
@@ -1503,6 +1526,14 @@ func (j *jsiiProxy_CfnCluster) SetKubernetesNetworkConfig(val interface{}) {
 	_jsii_.Set(
 		j,
 		"kubernetesNetworkConfig",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnCluster) SetLogging(val interface{}) {
+	_jsii_.Set(
+		j,
+		"logging",
 		val,
 	)
 }
@@ -1946,6 +1977,11 @@ func (c *jsiiProxy_CfnCluster) ValidateProperties(_properties interface{}) {
 	)
 }
 
+type CfnCluster_ClusterLoggingProperty struct {
+	// `CfnCluster.ClusterLoggingProperty.EnabledTypes`.
+	EnabledTypes interface{} `json:"enabledTypes"`
+}
+
 type CfnCluster_EncryptionConfigProperty struct {
 	// `CfnCluster.EncryptionConfigProperty.Provider`.
 	Provider interface{} `json:"provider"`
@@ -1958,14 +1994,25 @@ type CfnCluster_KubernetesNetworkConfigProperty struct {
 	ServiceIpv4Cidr *string `json:"serviceIpv4Cidr"`
 }
 
-type CfnCluster_ProviderProperty struct {
-	// `CfnCluster.ProviderProperty.KeyArn`.
-	KeyArn *string `json:"keyArn"`
+type CfnCluster_LoggingProperty struct {
+	// `CfnCluster.LoggingProperty.ClusterLogging`.
+	ClusterLogging interface{} `json:"clusterLogging"`
+}
+
+type CfnCluster_LoggingTypeConfigProperty struct {
+	// `CfnCluster.LoggingTypeConfigProperty.Type`.
+	Type *string `json:"type"`
 }
 
 type CfnCluster_ResourcesVpcConfigProperty struct {
 	// `CfnCluster.ResourcesVpcConfigProperty.SubnetIds`.
 	SubnetIds *[]*string `json:"subnetIds"`
+	// `CfnCluster.ResourcesVpcConfigProperty.EndpointPrivateAccess`.
+	EndpointPrivateAccess interface{} `json:"endpointPrivateAccess"`
+	// `CfnCluster.ResourcesVpcConfigProperty.EndpointPublicAccess`.
+	EndpointPublicAccess interface{} `json:"endpointPublicAccess"`
+	// `CfnCluster.ResourcesVpcConfigProperty.PublicAccessCidrs`.
+	PublicAccessCidrs *[]*string `json:"publicAccessCidrs"`
 	// `CfnCluster.ResourcesVpcConfigProperty.SecurityGroupIds`.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
 }
@@ -1980,8 +2027,12 @@ type CfnClusterProps struct {
 	EncryptionConfig interface{} `json:"encryptionConfig"`
 	// `AWS::EKS::Cluster.KubernetesNetworkConfig`.
 	KubernetesNetworkConfig interface{} `json:"kubernetesNetworkConfig"`
+	// `AWS::EKS::Cluster.Logging`.
+	Logging interface{} `json:"logging"`
 	// `AWS::EKS::Cluster.Name`.
 	Name *string `json:"name"`
+	// `AWS::EKS::Cluster.Tags`.
+	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::EKS::Cluster.Version`.
 	Version *string `json:"version"`
 }

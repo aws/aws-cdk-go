@@ -610,6 +610,7 @@ type CatchProps struct {
 type CfnActivity interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrArn() *string
 	AttrName() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -650,6 +651,16 @@ type CfnActivity interface {
 type jsiiProxy_CfnActivity struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnActivity) AttrArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrArn",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnActivity) AttrName() *string {

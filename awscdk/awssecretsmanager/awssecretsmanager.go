@@ -5366,6 +5366,14 @@ type SecretRotationProps struct {
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
 	// Experimental.
 	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter"`
+	// The VPC interface endpoint to use for the Secrets Manager API.
+	//
+	// If you enable private DNS hostnames for your VPC private endpoint (the default), you don't
+	// need to specify an endpoint. The standard Secrets Manager DNS hostname the Secrets Manager
+	// CLI and SDKs use by default (https://secretsmanager.<region>.amazonaws.com) automatically
+	// resolves to your VPC endpoint.
+	// Experimental.
+	Endpoint awsec2.IInterfaceVpcEndpoint `json:"endpoint"`
 	// Characters which should not appear in the generated password.
 	// Experimental.
 	ExcludeCharacters *string `json:"excludeCharacters"`

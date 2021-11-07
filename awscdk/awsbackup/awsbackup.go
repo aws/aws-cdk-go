@@ -3069,8 +3069,12 @@ type CfnBackupSelection_BackupSelectionResourceTypeProperty struct {
 	IamRoleArn *string `json:"iamRoleArn"`
 	// `CfnBackupSelection.BackupSelectionResourceTypeProperty.SelectionName`.
 	SelectionName *string `json:"selectionName"`
+	// `CfnBackupSelection.BackupSelectionResourceTypeProperty.Conditions`.
+	Conditions interface{} `json:"conditions"`
 	// `CfnBackupSelection.BackupSelectionResourceTypeProperty.ListOfTags`.
 	ListOfTags interface{} `json:"listOfTags"`
+	// `CfnBackupSelection.BackupSelectionResourceTypeProperty.NotResources`.
+	NotResources *[]*string `json:"notResources"`
 	// `CfnBackupSelection.BackupSelectionResourceTypeProperty.Resources`.
 	Resources *[]*string `json:"resources"`
 }

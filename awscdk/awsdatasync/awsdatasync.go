@@ -2139,6 +2139,889 @@ type CfnLocationFSxWindowsProps struct {
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
+// A CloudFormation `AWS::DataSync::LocationHDFS`.
+type CfnLocationHDFS interface {
+	awscdk.CfnResource
+	awscdk.IInspectable
+	AgentArns() *[]*string
+	SetAgentArns(val *[]*string)
+	AttrLocationArn() *string
+	AttrLocationUri() *string
+	AuthenticationType() *string
+	SetAuthenticationType(val *string)
+	BlockSize() *float64
+	SetBlockSize(val *float64)
+	CfnOptions() awscdk.ICfnResourceOptions
+	CfnProperties() *map[string]interface{}
+	CfnResourceType() *string
+	CreationStack() *[]*string
+	KerberosKeytab() *string
+	SetKerberosKeytab(val *string)
+	KerberosKrb5Conf() *string
+	SetKerberosKrb5Conf(val *string)
+	KerberosPrincipal() *string
+	SetKerberosPrincipal(val *string)
+	KmsKeyProviderUri() *string
+	SetKmsKeyProviderUri(val *string)
+	LogicalId() *string
+	NameNodes() interface{}
+	SetNameNodes(val interface{})
+	Node() awscdk.ConstructNode
+	QopConfiguration() interface{}
+	SetQopConfiguration(val interface{})
+	Ref() *string
+	ReplicationFactor() *float64
+	SetReplicationFactor(val *float64)
+	SimpleUser() *string
+	SetSimpleUser(val *string)
+	Stack() awscdk.Stack
+	Subdirectory() *string
+	SetSubdirectory(val *string)
+	Tags() awscdk.TagManager
+	UpdatedProperites() *map[string]interface{}
+	AddDeletionOverride(path *string)
+	AddDependsOn(target awscdk.CfnResource)
+	AddMetadata(key *string, value interface{})
+	AddOverride(path *string, value interface{})
+	AddPropertyDeletionOverride(propertyPath *string)
+	AddPropertyOverride(propertyPath *string, value interface{})
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions)
+	GetAtt(attributeName *string) awscdk.Reference
+	GetMetadata(key *string) interface{}
+	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	OverrideLogicalId(newLogicalId *string)
+	Prepare()
+	RenderProperties(props *map[string]interface{}) *map[string]interface{}
+	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
+	ValidateProperties(_properties interface{})
+}
+
+// The jsii proxy struct for CfnLocationHDFS
+type jsiiProxy_CfnLocationHDFS struct {
+	internal.Type__awscdkCfnResource
+	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) AgentArns() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"agentArns",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) AttrLocationArn() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLocationArn",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) AttrLocationUri() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrLocationUri",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) AuthenticationType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"authenticationType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) BlockSize() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"blockSize",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) CfnOptions() awscdk.ICfnResourceOptions {
+	var returns awscdk.ICfnResourceOptions
+	_jsii_.Get(
+		j,
+		"cfnOptions",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) CfnProperties() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"cfnProperties",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) CfnResourceType() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"cfnResourceType",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) CreationStack() *[]*string {
+	var returns *[]*string
+	_jsii_.Get(
+		j,
+		"creationStack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) KerberosKeytab() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"kerberosKeytab",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) KerberosKrb5Conf() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"kerberosKrb5Conf",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) KerberosPrincipal() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"kerberosPrincipal",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) KmsKeyProviderUri() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"kmsKeyProviderUri",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) LogicalId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"logicalId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) NameNodes() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"nameNodes",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) QopConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"qopConfiguration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) Ref() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"ref",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) ReplicationFactor() *float64 {
+	var returns *float64
+	_jsii_.Get(
+		j,
+		"replicationFactor",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) SimpleUser() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"simpleUser",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) Subdirectory() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"subdirectory",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) Tags() awscdk.TagManager {
+	var returns awscdk.TagManager
+	_jsii_.Get(
+		j,
+		"tags",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) UpdatedProperites() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"updatedProperites",
+		&returns,
+	)
+	return returns
+}
+
+
+// Create a new `AWS::DataSync::LocationHDFS`.
+func NewCfnLocationHDFS(scope awscdk.Construct, id *string, props *CfnLocationHDFSProps) CfnLocationHDFS {
+	_init_.Initialize()
+
+	j := jsiiProxy_CfnLocationHDFS{}
+
+	_jsii_.Create(
+		"monocdk.aws_datasync.CfnLocationHDFS",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Create a new `AWS::DataSync::LocationHDFS`.
+func NewCfnLocationHDFS_Override(c CfnLocationHDFS, scope awscdk.Construct, id *string, props *CfnLocationHDFSProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_datasync.CfnLocationHDFS",
+		[]interface{}{scope, id, props},
+		c,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) SetAgentArns(val *[]*string) {
+	_jsii_.Set(
+		j,
+		"agentArns",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) SetAuthenticationType(val *string) {
+	_jsii_.Set(
+		j,
+		"authenticationType",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) SetBlockSize(val *float64) {
+	_jsii_.Set(
+		j,
+		"blockSize",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) SetKerberosKeytab(val *string) {
+	_jsii_.Set(
+		j,
+		"kerberosKeytab",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) SetKerberosKrb5Conf(val *string) {
+	_jsii_.Set(
+		j,
+		"kerberosKrb5Conf",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) SetKerberosPrincipal(val *string) {
+	_jsii_.Set(
+		j,
+		"kerberosPrincipal",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) SetKmsKeyProviderUri(val *string) {
+	_jsii_.Set(
+		j,
+		"kmsKeyProviderUri",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) SetNameNodes(val interface{}) {
+	_jsii_.Set(
+		j,
+		"nameNodes",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) SetQopConfiguration(val interface{}) {
+	_jsii_.Set(
+		j,
+		"qopConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) SetReplicationFactor(val *float64) {
+	_jsii_.Set(
+		j,
+		"replicationFactor",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) SetSimpleUser(val *string) {
+	_jsii_.Set(
+		j,
+		"simpleUser",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnLocationHDFS) SetSubdirectory(val *string) {
+	_jsii_.Set(
+		j,
+		"subdirectory",
+		val,
+	)
+}
+
+// Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
+//
+// Uses duck-typing instead of `instanceof` to allow stack elements from different
+// versions of this library to be included in the same stack.
+//
+// Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
+func CfnLocationHDFS_IsCfnElement(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_datasync.CfnLocationHDFS",
+		"isCfnElement",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a CfnResource.
+// Experimental.
+func CfnLocationHDFS_IsCfnResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_datasync.CfnLocationHDFS",
+		"isCfnResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func CfnLocationHDFS_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_datasync.CfnLocationHDFS",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+func CfnLocationHDFS_CFN_RESOURCE_TYPE_NAME() *string {
+	_init_.Initialize()
+	var returns *string
+	_jsii_.StaticGet(
+		"monocdk.aws_datasync.CfnLocationHDFS",
+		"CFN_RESOURCE_TYPE_NAME",
+		&returns,
+	)
+	return returns
+}
+
+// Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
+func (c *jsiiProxy_CfnLocationHDFS) AddDeletionOverride(path *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDeletionOverride",
+		[]interface{}{path},
+	)
+}
+
+// Indicates that this resource depends on another resource and cannot be provisioned unless the other resource has been successfully provisioned.
+//
+// This can be used for resources across stacks (or nested stack) boundaries
+// and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
+func (c *jsiiProxy_CfnLocationHDFS) AddDependsOn(target awscdk.CfnResource) {
+	_jsii_.InvokeVoid(
+		c,
+		"addDependsOn",
+		[]interface{}{target},
+	)
+}
+
+// Add a value to the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+// Experimental.
+func (c *jsiiProxy_CfnLocationHDFS) AddMetadata(key *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addMetadata",
+		[]interface{}{key, value},
+	)
+}
+
+// Adds an override to the synthesized CloudFormation resource.
+//
+// To add a
+// property override, either use `addPropertyOverride` or prefix `path` with
+// "Properties." (i.e. `Properties.TopicName`).
+//
+// If the override is nested, separate each nested level using a dot (.) in the path parameter.
+// If there is an array as part of the nesting, specify the index in the path.
+//
+// To include a literal `.` in the property name, prefix with a `\`. In most
+// programming languages you will need to write this as `"\\."` because the
+// `\` itself will need to be escaped.
+//
+// For example,
+// ```typescript
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.0.Projection.NonKeyAttributes', ['myattribute']);
+// cfnResource.addOverride('Properties.GlobalSecondaryIndexes.1.ProjectionType', 'INCLUDE');
+// ```
+// would add the overrides
+// ```json
+// "Properties": {
+//    "GlobalSecondaryIndexes": [
+//      {
+//        "Projection": {
+//          "NonKeyAttributes": [ "myattribute" ]
+//          ...
+//        }
+//        ...
+//      },
+//      {
+//        "ProjectionType": "INCLUDE"
+//        ...
+//      },
+//    ]
+//    ...
+// }
+// ```
+// Experimental.
+func (c *jsiiProxy_CfnLocationHDFS) AddOverride(path *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addOverride",
+		[]interface{}{path, value},
+	)
+}
+
+// Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
+func (c *jsiiProxy_CfnLocationHDFS) AddPropertyDeletionOverride(propertyPath *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyDeletionOverride",
+		[]interface{}{propertyPath},
+	)
+}
+
+// Adds an override to a resource property.
+//
+// Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
+func (c *jsiiProxy_CfnLocationHDFS) AddPropertyOverride(propertyPath *string, value interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"addPropertyOverride",
+		[]interface{}{propertyPath, value},
+	)
+}
+
+// Sets the deletion policy of the resource based on the removal policy specified.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
+func (c *jsiiProxy_CfnLocationHDFS) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
+	_jsii_.InvokeVoid(
+		c,
+		"applyRemovalPolicy",
+		[]interface{}{policy, options},
+	)
+}
+
+// Returns a token for an runtime attribute of this resource.
+//
+// Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
+// in case there is no generated attribute.
+// Experimental.
+func (c *jsiiProxy_CfnLocationHDFS) GetAtt(attributeName *string) awscdk.Reference {
+	var returns awscdk.Reference
+
+	_jsii_.Invoke(
+		c,
+		"getAtt",
+		[]interface{}{attributeName},
+		&returns,
+	)
+
+	return returns
+}
+
+// Retrieve a value value from the CloudFormation Resource Metadata.
+// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/metadata-section-structure.html
+//
+// Note that this is a different set of metadata from CDK node metadata; this
+// metadata ends up in the stack template under the resource, whereas CDK
+// node metadata ends up in the Cloud Assembly.
+//
+// Experimental.
+func (c *jsiiProxy_CfnLocationHDFS) GetMetadata(key *string) interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		c,
+		"getMetadata",
+		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
+// Examines the CloudFormation resource and discloses attributes.
+func (c *jsiiProxy_CfnLocationHDFS) Inspect(inspector awscdk.TreeInspector) {
+	_jsii_.InvokeVoid(
+		c,
+		"inspect",
+		[]interface{}{inspector},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnLocationHDFS) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnLocationHDFS) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnLocationHDFS) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
+func (c *jsiiProxy_CfnLocationHDFS) OverrideLogicalId(newLogicalId *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"overrideLogicalId",
+		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnLocationHDFS) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+func (c *jsiiProxy_CfnLocationHDFS) RenderProperties(props *map[string]interface{}) *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		c,
+		"renderProperties",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Can be overridden by subclasses to determine if this resource will be rendered into the cloudformation template.
+//
+// Returns: `true` if the resource should be included or `false` is the resource
+// should be omitted.
+// Experimental.
+func (c *jsiiProxy_CfnLocationHDFS) ShouldSynthesize() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"shouldSynthesize",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnLocationHDFS) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+//
+// Returns: a string representation of this resource
+// Experimental.
+func (c *jsiiProxy_CfnLocationHDFS) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnLocationHDFS) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
+func (c *jsiiProxy_CfnLocationHDFS) ValidateProperties(_properties interface{}) {
+	_jsii_.InvokeVoid(
+		c,
+		"validateProperties",
+		[]interface{}{_properties},
+	)
+}
+
+type CfnLocationHDFS_NameNodeProperty struct {
+	// `CfnLocationHDFS.NameNodeProperty.Hostname`.
+	Hostname *string `json:"hostname"`
+	// `CfnLocationHDFS.NameNodeProperty.Port`.
+	Port *float64 `json:"port"`
+}
+
+type CfnLocationHDFS_QopConfigurationProperty struct {
+	// `CfnLocationHDFS.QopConfigurationProperty.DataTransferProtection`.
+	DataTransferProtection *string `json:"dataTransferProtection"`
+	// `CfnLocationHDFS.QopConfigurationProperty.RpcProtection`.
+	RpcProtection *string `json:"rpcProtection"`
+}
+
+// Properties for defining a `AWS::DataSync::LocationHDFS`.
+type CfnLocationHDFSProps struct {
+	// `AWS::DataSync::LocationHDFS.AgentArns`.
+	AgentArns *[]*string `json:"agentArns"`
+	// `AWS::DataSync::LocationHDFS.AuthenticationType`.
+	AuthenticationType *string `json:"authenticationType"`
+	// `AWS::DataSync::LocationHDFS.NameNodes`.
+	NameNodes interface{} `json:"nameNodes"`
+	// `AWS::DataSync::LocationHDFS.BlockSize`.
+	BlockSize *float64 `json:"blockSize"`
+	// `AWS::DataSync::LocationHDFS.KerberosKeytab`.
+	KerberosKeytab *string `json:"kerberosKeytab"`
+	// `AWS::DataSync::LocationHDFS.KerberosKrb5Conf`.
+	KerberosKrb5Conf *string `json:"kerberosKrb5Conf"`
+	// `AWS::DataSync::LocationHDFS.KerberosPrincipal`.
+	KerberosPrincipal *string `json:"kerberosPrincipal"`
+	// `AWS::DataSync::LocationHDFS.KmsKeyProviderUri`.
+	KmsKeyProviderUri *string `json:"kmsKeyProviderUri"`
+	// `AWS::DataSync::LocationHDFS.QopConfiguration`.
+	QopConfiguration interface{} `json:"qopConfiguration"`
+	// `AWS::DataSync::LocationHDFS.ReplicationFactor`.
+	ReplicationFactor *float64 `json:"replicationFactor"`
+	// `AWS::DataSync::LocationHDFS.SimpleUser`.
+	SimpleUser *string `json:"simpleUser"`
+	// `AWS::DataSync::LocationHDFS.Subdirectory`.
+	Subdirectory *string `json:"subdirectory"`
+	// `AWS::DataSync::LocationHDFS.Tags`.
+	Tags *[]*awscdk.CfnTag `json:"tags"`
+}
+
 // A CloudFormation `AWS::DataSync::LocationNFS`.
 type CfnLocationNFS interface {
 	awscdk.CfnResource
