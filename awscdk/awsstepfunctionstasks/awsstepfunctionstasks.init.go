@@ -1469,6 +1469,10 @@ func init() {
 		reflect.TypeOf((*EmrCreateCluster_AutoScalingPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.AutoTerminationPolicyProperty",
+		reflect.TypeOf((*EmrCreateCluster_AutoTerminationPolicyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.BootstrapActionConfigProperty",
 		reflect.TypeOf((*EmrCreateCluster_BootstrapActionConfigProperty)(nil)).Elem(),
 	)

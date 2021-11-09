@@ -1516,6 +1516,10 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_apigatewayv2.MTLSConfig",
+		reflect.TypeOf((*MTLSConfig)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_apigatewayv2.MappingValue",
 		reflect.TypeOf((*MappingValue)(nil)).Elem(),

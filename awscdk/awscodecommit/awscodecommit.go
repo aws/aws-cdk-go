@@ -773,7 +773,7 @@ type IRepository interface {
 	// Experimental.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Defines a CodeStar Notification rule which triggers when a pull request is merged.
-	// Experimental.
+	// Deprecated: this method has a typo in its name, use notifyOnPullRequestMerged instead
 	NotifiyOnPullRequestMerged(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	// Defines a CodeStar Notification rule triggered when the project events specified by you are emitted. Similar to `onEvent` API.
 	//
@@ -801,6 +801,9 @@ type IRepository interface {
 	// Defines a CodeStar Notification rule which triggers when a pull request is created.
 	// Experimental.
 	NotifyOnPullRequestCreated(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
+	// Defines a CodeStar Notification rule which triggers when a pull request is merged.
+	// Experimental.
+	NotifyOnPullRequestMerged(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	// Defines a CloudWatch event rule which triggers when a comment is made on a commit.
 	// Experimental.
 	OnCommentOnCommit(id *string, options *awsevents.OnEventOptions) awsevents.Rule
@@ -1015,6 +1018,19 @@ func (i *jsiiProxy_IRepository) NotifyOnPullRequestCreated(id *string, target aw
 	_jsii_.Invoke(
 		i,
 		"notifyOnPullRequestCreated",
+		[]interface{}{id, target, options},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IRepository) NotifyOnPullRequestMerged(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
+	var returns awscodestarnotifications.INotificationRule
+
+	_jsii_.Invoke(
+		i,
+		"notifyOnPullRequestMerged",
 		[]interface{}{id, target, options},
 		&returns,
 	)
@@ -1379,6 +1395,7 @@ type Repository interface {
 	NotifyOnBranchOrTagDeleted(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	NotifyOnPullRequestComment(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	NotifyOnPullRequestCreated(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
+	NotifyOnPullRequestMerged(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	OnCommentOnCommit(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	OnCommentOnPullRequest(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	OnCommit(id *string, options *OnCommitOptions) awsevents.Rule
@@ -1869,6 +1886,21 @@ func (r *jsiiProxy_Repository) NotifyOnPullRequestCreated(id *string, target aws
 	_jsii_.Invoke(
 		r,
 		"notifyOnPullRequestCreated",
+		[]interface{}{id, target, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Defines a CodeStar Notification rule which triggers when a pull request is merged.
+// Experimental.
+func (r *jsiiProxy_Repository) NotifyOnPullRequestMerged(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
+	var returns awscodestarnotifications.INotificationRule
+
+	_jsii_.Invoke(
+		r,
+		"notifyOnPullRequestMerged",
 		[]interface{}{id, target, options},
 		&returns,
 	)

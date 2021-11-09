@@ -18475,6 +18475,16 @@ type EmrCreateCluster_AutoScalingPolicyProperty struct {
 	Rules *[]*EmrCreateCluster_ScalingRuleProperty `json:"rules"`
 }
 
+// Auto-termination policy for the EMR cluster.
+// See: https://docs.aws.amazon.com/emr/latest/APIReference/API_AutoTerminationPolicy.html
+//
+// Experimental.
+type EmrCreateCluster_AutoTerminationPolicyProperty struct {
+	// Specifies the amount of idle time after which the cluster automatically terminates.
+	// Experimental.
+	IdleTimeout awscdk.Duration `json:"idleTimeout"`
+}
+
 // Configuration of a bootstrap action.
 //
 // See the RunJobFlow API for complete documentation on input parameters
@@ -19152,6 +19162,13 @@ type EmrCreateClusterProps struct {
 	// An IAM role for automatic scaling policies.
 	// Experimental.
 	AutoScalingRole awsiam.IRole `json:"autoScalingRole"`
+	// An auto-termination policy for an Amazon EMR cluster.
+	//
+	// An auto-termination policy defines the amount of
+	// idle time in seconds after which a cluster automatically terminates. The value must be between
+	// 60 seconds and 7 days.
+	// Experimental.
+	AutoTerminationPolicy *EmrCreateCluster_AutoTerminationPolicyProperty `json:"autoTerminationPolicy"`
 	// A list of bootstrap actions to run before Hadoop starts on the cluster nodes.
 	// Experimental.
 	BootstrapActions *[]*EmrCreateCluster_BootstrapActionConfigProperty `json:"bootstrapActions"`

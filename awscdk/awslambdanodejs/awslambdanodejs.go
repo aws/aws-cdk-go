@@ -20,6 +20,19 @@ import (
 // Bundling options.
 // Experimental.
 type BundlingOptions struct {
+	// Specify a custom hash for this asset.
+	//
+	// For consistency, this custom hash will
+	// be SHA256 hashed and encoded as hex. The resulting hash will be the asset
+	// hash.
+	//
+	// NOTE: the hash is used in order to identify a specific revision of the asset, and
+	// used for optimizing and caching deployment activities related to this asset such as
+	// packaging, uploading to Amazon S3, etc. If you chose to customize the hash, you will
+	// need to make sure it is updated every time the asset changes, or otherwise it is
+	// possible that some deployments will not be invalidated.
+	// Experimental.
+	AssetHash *string `json:"assetHash"`
 	// Use this to insert an arbitrary string at the beginning of generated JavaScript files.
 	//
 	// This is similar to footer which inserts at the end instead of the beginning.

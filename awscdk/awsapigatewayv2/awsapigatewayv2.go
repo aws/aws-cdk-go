@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/awscertificatemanager"
 	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
 	"github.com/aws/constructs-go/constructs/v3"
 )
 
@@ -10809,6 +10810,9 @@ type DomainNameProps struct {
 	// The custom domain name.
 	// Experimental.
 	DomainName *string `json:"domainName"`
+	// The mutual TLS authentication configuration for a custom domain name.
+	// Experimental.
+	Mtls *MTLSConfig `json:"mtls"`
 }
 
 // Create a new API Gateway HTTP API endpoint.
@@ -14234,6 +14238,22 @@ func (j *jsiiProxy_IWebSocketStage) CallbackUrl() *string {
 		&returns,
 	)
 	return returns
+}
+
+// The mTLS authentication configuration for a custom domain name.
+// Experimental.
+type MTLSConfig struct {
+	// The bucket that the trust store is hosted in.
+	// Experimental.
+	Bucket awss3.IBucket `json:"bucket"`
+	// The key in S3 to look at for the trust store.
+	// Experimental.
+	Key *string `json:"key"`
+	// The version of the S3 object that contains your truststore.
+	//
+	// To specify a version, you must have versioning enabled for the S3 bucket.
+	// Experimental.
+	Version *string `json:"version"`
 }
 
 // Represents a Mapping Value.
