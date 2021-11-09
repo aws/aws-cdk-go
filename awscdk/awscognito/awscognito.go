@@ -1,15 +1,15 @@
 package awscognito
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscertificatemanager"
-	"github.com/aws/aws-cdk-go/awscdk/awscognito/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // How will a user be able to recover their account?
@@ -142,7 +142,7 @@ func NewBooleanAttribute(props *CustomAttributeProps) BooleanAttribute {
 	j := jsiiProxy_BooleanAttribute{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.BooleanAttribute",
+		"aws-cdk-lib.aws_cognito.BooleanAttribute",
 		[]interface{}{props},
 		&j,
 	)
@@ -155,7 +155,7 @@ func NewBooleanAttribute_Override(b BooleanAttribute, props *CustomAttributeProp
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.BooleanAttribute",
+		"aws-cdk-lib.aws_cognito.BooleanAttribute",
 		[]interface{}{props},
 		b,
 	)
@@ -200,7 +200,7 @@ type CfnIdentityPool interface {
 	IdentityPoolName() *string
 	SetIdentityPoolName(val *string)
 	LogicalId() *string
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	OpenIdConnectProviderArns() *[]*string
 	SetOpenIdConnectProviderArns(val *[]*string)
 	PushSync() interface{}
@@ -222,16 +222,10 @@ type CfnIdentityPool interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -371,8 +365,8 @@ func (j *jsiiProxy_CfnIdentityPool) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdentityPool) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnIdentityPool) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -453,13 +447,13 @@ func (j *jsiiProxy_CfnIdentityPool) UpdatedProperites() *map[string]interface{} 
 
 
 // Create a new `AWS::Cognito::IdentityPool`.
-func NewCfnIdentityPool(scope awscdk.Construct, id *string, props *CfnIdentityPoolProps) CfnIdentityPool {
+func NewCfnIdentityPool(scope constructs.Construct, id *string, props *CfnIdentityPoolProps) CfnIdentityPool {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnIdentityPool{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnIdentityPool",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPool",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -468,11 +462,11 @@ func NewCfnIdentityPool(scope awscdk.Construct, id *string, props *CfnIdentityPo
 }
 
 // Create a new `AWS::Cognito::IdentityPool`.
-func NewCfnIdentityPool_Override(c CfnIdentityPool, scope awscdk.Construct, id *string, props *CfnIdentityPoolProps) {
+func NewCfnIdentityPool_Override(c CfnIdentityPool, scope constructs.Construct, id *string, props *CfnIdentityPoolProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnIdentityPool",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPool",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -579,7 +573,7 @@ func CfnIdentityPool_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnIdentityPool",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPool",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -596,7 +590,7 @@ func CfnIdentityPool_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnIdentityPool",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPool",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -605,15 +599,17 @@ func CfnIdentityPool_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnIdentityPool_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnIdentityPool",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPool",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -626,7 +622,7 @@ func CfnIdentityPool_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.CfnIdentityPool",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPool",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -806,56 +802,6 @@ func (c *jsiiProxy_CfnIdentityPool) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnIdentityPool) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnIdentityPool) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnIdentityPool) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnIdentityPool) OverrideLogicalId(newLogicalId *string) {
@@ -863,23 +809,6 @@ func (c *jsiiProxy_CfnIdentityPool) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnIdentityPool) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -914,19 +843,6 @@ func (c *jsiiProxy_CfnIdentityPool) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnIdentityPool) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -937,26 +853,6 @@ func (c *jsiiProxy_CfnIdentityPool) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnIdentityPool) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1035,7 +931,7 @@ type CfnIdentityPoolRoleAttachment interface {
 	IdentityPoolId() *string
 	SetIdentityPoolId(val *string)
 	LogicalId() *string
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Ref() *string
 	RoleMappings() interface{}
 	SetRoleMappings(val interface{})
@@ -1053,16 +949,10 @@ type CfnIdentityPoolRoleAttachment interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1132,8 +1022,8 @@ func (j *jsiiProxy_CfnIdentityPoolRoleAttachment) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnIdentityPoolRoleAttachment) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnIdentityPoolRoleAttachment) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1194,13 +1084,13 @@ func (j *jsiiProxy_CfnIdentityPoolRoleAttachment) UpdatedProperites() *map[strin
 
 
 // Create a new `AWS::Cognito::IdentityPoolRoleAttachment`.
-func NewCfnIdentityPoolRoleAttachment(scope awscdk.Construct, id *string, props *CfnIdentityPoolRoleAttachmentProps) CfnIdentityPoolRoleAttachment {
+func NewCfnIdentityPoolRoleAttachment(scope constructs.Construct, id *string, props *CfnIdentityPoolRoleAttachmentProps) CfnIdentityPoolRoleAttachment {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnIdentityPoolRoleAttachment{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnIdentityPoolRoleAttachment",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPoolRoleAttachment",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1209,11 +1099,11 @@ func NewCfnIdentityPoolRoleAttachment(scope awscdk.Construct, id *string, props 
 }
 
 // Create a new `AWS::Cognito::IdentityPoolRoleAttachment`.
-func NewCfnIdentityPoolRoleAttachment_Override(c CfnIdentityPoolRoleAttachment, scope awscdk.Construct, id *string, props *CfnIdentityPoolRoleAttachmentProps) {
+func NewCfnIdentityPoolRoleAttachment_Override(c CfnIdentityPoolRoleAttachment, scope constructs.Construct, id *string, props *CfnIdentityPoolRoleAttachmentProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnIdentityPoolRoleAttachment",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPoolRoleAttachment",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1256,7 +1146,7 @@ func CfnIdentityPoolRoleAttachment_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnIdentityPoolRoleAttachment",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPoolRoleAttachment",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1273,7 +1163,7 @@ func CfnIdentityPoolRoleAttachment_IsCfnResource(construct constructs.IConstruct
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnIdentityPoolRoleAttachment",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPoolRoleAttachment",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1282,15 +1172,17 @@ func CfnIdentityPoolRoleAttachment_IsCfnResource(construct constructs.IConstruct
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnIdentityPoolRoleAttachment_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnIdentityPoolRoleAttachment",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPoolRoleAttachment",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1303,7 +1195,7 @@ func CfnIdentityPoolRoleAttachment_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.CfnIdentityPoolRoleAttachment",
+		"aws-cdk-lib.aws_cognito.CfnIdentityPoolRoleAttachment",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1483,56 +1375,6 @@ func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) Inspect(inspector awscdk.TreeI
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) OverrideLogicalId(newLogicalId *string) {
@@ -1540,23 +1382,6 @@ func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) OverrideLogicalId(newLogicalId
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1591,19 +1416,6 @@ func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -1614,26 +1426,6 @@ func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1721,7 +1513,7 @@ type CfnUserPool interface {
 	LogicalId() *string
 	MfaConfiguration() *string
 	SetMfaConfiguration(val *string)
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Policies() interface{}
 	SetPolicies(val interface{})
 	Ref() *string
@@ -1756,16 +1548,10 @@ type CfnUserPool interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1965,8 +1751,8 @@ func (j *jsiiProxy_CfnUserPool) MfaConfiguration() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPool) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnUserPool) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2117,13 +1903,13 @@ func (j *jsiiProxy_CfnUserPool) VerificationMessageTemplate() interface{} {
 
 
 // Create a new `AWS::Cognito::UserPool`.
-func NewCfnUserPool(scope awscdk.Construct, id *string, props *CfnUserPoolProps) CfnUserPool {
+func NewCfnUserPool(scope constructs.Construct, id *string, props *CfnUserPoolProps) CfnUserPool {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnUserPool{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPool",
+		"aws-cdk-lib.aws_cognito.CfnUserPool",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2132,11 +1918,11 @@ func NewCfnUserPool(scope awscdk.Construct, id *string, props *CfnUserPoolProps)
 }
 
 // Create a new `AWS::Cognito::UserPool`.
-func NewCfnUserPool_Override(c CfnUserPool, scope awscdk.Construct, id *string, props *CfnUserPoolProps) {
+func NewCfnUserPool_Override(c CfnUserPool, scope constructs.Construct, id *string, props *CfnUserPoolProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPool",
+		"aws-cdk-lib.aws_cognito.CfnUserPool",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2323,7 +2109,7 @@ func CfnUserPool_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPool",
+		"aws-cdk-lib.aws_cognito.CfnUserPool",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2340,7 +2126,7 @@ func CfnUserPool_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPool",
+		"aws-cdk-lib.aws_cognito.CfnUserPool",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2349,15 +2135,17 @@ func CfnUserPool_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnUserPool_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPool",
+		"aws-cdk-lib.aws_cognito.CfnUserPool",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2370,7 +2158,7 @@ func CfnUserPool_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.CfnUserPool",
+		"aws-cdk-lib.aws_cognito.CfnUserPool",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2550,56 +2338,6 @@ func (c *jsiiProxy_CfnUserPool) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnUserPool) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnUserPool) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnUserPool) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnUserPool) OverrideLogicalId(newLogicalId *string) {
@@ -2607,23 +2345,6 @@ func (c *jsiiProxy_CfnUserPool) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnUserPool) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -2658,19 +2379,6 @@ func (c *jsiiProxy_CfnUserPool) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnUserPool) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -2681,26 +2389,6 @@ func (c *jsiiProxy_CfnUserPool) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnUserPool) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -2930,7 +2618,7 @@ type CfnUserPoolClient interface {
 	LogicalId() *string
 	LogoutUrLs() *[]*string
 	SetLogoutUrLs(val *[]*string)
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	PreventUserExistenceErrors() *string
 	SetPreventUserExistenceErrors(val *string)
 	ReadAttributes() *[]*string
@@ -2958,16 +2646,10 @@ type CfnUserPoolClient interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -3177,8 +2859,8 @@ func (j *jsiiProxy_CfnUserPoolClient) LogoutUrLs() *[]*string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolClient) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnUserPoolClient) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -3289,13 +2971,13 @@ func (j *jsiiProxy_CfnUserPoolClient) WriteAttributes() *[]*string {
 
 
 // Create a new `AWS::Cognito::UserPoolClient`.
-func NewCfnUserPoolClient(scope awscdk.Construct, id *string, props *CfnUserPoolClientProps) CfnUserPoolClient {
+func NewCfnUserPoolClient(scope constructs.Construct, id *string, props *CfnUserPoolClientProps) CfnUserPoolClient {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnUserPoolClient{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolClient",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolClient",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3304,11 +2986,11 @@ func NewCfnUserPoolClient(scope awscdk.Construct, id *string, props *CfnUserPool
 }
 
 // Create a new `AWS::Cognito::UserPoolClient`.
-func NewCfnUserPoolClient_Override(c CfnUserPoolClient, scope awscdk.Construct, id *string, props *CfnUserPoolClientProps) {
+func NewCfnUserPoolClient_Override(c CfnUserPoolClient, scope constructs.Construct, id *string, props *CfnUserPoolClientProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolClient",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolClient",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3487,7 +3169,7 @@ func CfnUserPoolClient_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolClient",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolClient",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3504,7 +3186,7 @@ func CfnUserPoolClient_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolClient",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolClient",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3513,15 +3195,17 @@ func CfnUserPoolClient_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnUserPoolClient_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolClient",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolClient",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3534,7 +3218,7 @@ func CfnUserPoolClient_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.CfnUserPoolClient",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolClient",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3714,56 +3398,6 @@ func (c *jsiiProxy_CfnUserPoolClient) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolClient) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolClient) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolClient) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnUserPoolClient) OverrideLogicalId(newLogicalId *string) {
@@ -3771,23 +3405,6 @@ func (c *jsiiProxy_CfnUserPoolClient) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolClient) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -3822,19 +3439,6 @@ func (c *jsiiProxy_CfnUserPoolClient) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolClient) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -3845,26 +3449,6 @@ func (c *jsiiProxy_CfnUserPoolClient) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolClient) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3960,7 +3544,7 @@ type CfnUserPoolDomain interface {
 	Domain() *string
 	SetDomain(val *string)
 	LogicalId() *string
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Ref() *string
 	Stack() awscdk.Stack
 	UpdatedProperites() *map[string]interface{}
@@ -3976,16 +3560,10 @@ type CfnUserPoolDomain interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -4065,8 +3643,8 @@ func (j *jsiiProxy_CfnUserPoolDomain) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolDomain) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnUserPoolDomain) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -4117,13 +3695,13 @@ func (j *jsiiProxy_CfnUserPoolDomain) UserPoolId() *string {
 
 
 // Create a new `AWS::Cognito::UserPoolDomain`.
-func NewCfnUserPoolDomain(scope awscdk.Construct, id *string, props *CfnUserPoolDomainProps) CfnUserPoolDomain {
+func NewCfnUserPoolDomain(scope constructs.Construct, id *string, props *CfnUserPoolDomainProps) CfnUserPoolDomain {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnUserPoolDomain{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolDomain",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolDomain",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4132,11 +3710,11 @@ func NewCfnUserPoolDomain(scope awscdk.Construct, id *string, props *CfnUserPool
 }
 
 // Create a new `AWS::Cognito::UserPoolDomain`.
-func NewCfnUserPoolDomain_Override(c CfnUserPoolDomain, scope awscdk.Construct, id *string, props *CfnUserPoolDomainProps) {
+func NewCfnUserPoolDomain_Override(c CfnUserPoolDomain, scope constructs.Construct, id *string, props *CfnUserPoolDomainProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolDomain",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolDomain",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4179,7 +3757,7 @@ func CfnUserPoolDomain_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolDomain",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolDomain",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4196,7 +3774,7 @@ func CfnUserPoolDomain_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolDomain",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolDomain",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4205,15 +3783,17 @@ func CfnUserPoolDomain_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnUserPoolDomain_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolDomain",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolDomain",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4226,7 +3806,7 @@ func CfnUserPoolDomain_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.CfnUserPoolDomain",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolDomain",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -4406,56 +3986,6 @@ func (c *jsiiProxy_CfnUserPoolDomain) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolDomain) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolDomain) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolDomain) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnUserPoolDomain) OverrideLogicalId(newLogicalId *string) {
@@ -4463,23 +3993,6 @@ func (c *jsiiProxy_CfnUserPoolDomain) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolDomain) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -4514,19 +4027,6 @@ func (c *jsiiProxy_CfnUserPoolDomain) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolDomain) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -4537,26 +4037,6 @@ func (c *jsiiProxy_CfnUserPoolDomain) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolDomain) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -4601,7 +4081,7 @@ type CfnUserPoolGroup interface {
 	GroupName() *string
 	SetGroupName(val *string)
 	LogicalId() *string
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Precedence() *float64
 	SetPrecedence(val *float64)
 	Ref() *string
@@ -4621,16 +4101,10 @@ type CfnUserPoolGroup interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -4710,8 +4184,8 @@ func (j *jsiiProxy_CfnUserPoolGroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolGroup) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnUserPoolGroup) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -4782,13 +4256,13 @@ func (j *jsiiProxy_CfnUserPoolGroup) UserPoolId() *string {
 
 
 // Create a new `AWS::Cognito::UserPoolGroup`.
-func NewCfnUserPoolGroup(scope awscdk.Construct, id *string, props *CfnUserPoolGroupProps) CfnUserPoolGroup {
+func NewCfnUserPoolGroup(scope constructs.Construct, id *string, props *CfnUserPoolGroupProps) CfnUserPoolGroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnUserPoolGroup{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolGroup",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolGroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -4797,11 +4271,11 @@ func NewCfnUserPoolGroup(scope awscdk.Construct, id *string, props *CfnUserPoolG
 }
 
 // Create a new `AWS::Cognito::UserPoolGroup`.
-func NewCfnUserPoolGroup_Override(c CfnUserPoolGroup, scope awscdk.Construct, id *string, props *CfnUserPoolGroupProps) {
+func NewCfnUserPoolGroup_Override(c CfnUserPoolGroup, scope constructs.Construct, id *string, props *CfnUserPoolGroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolGroup",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolGroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -4860,7 +4334,7 @@ func CfnUserPoolGroup_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolGroup",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolGroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -4877,7 +4351,7 @@ func CfnUserPoolGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolGroup",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolGroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -4886,15 +4360,17 @@ func CfnUserPoolGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnUserPoolGroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolGroup",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolGroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4907,7 +4383,7 @@ func CfnUserPoolGroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.CfnUserPoolGroup",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolGroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -5087,56 +4563,6 @@ func (c *jsiiProxy_CfnUserPoolGroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolGroup) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolGroup) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolGroup) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnUserPoolGroup) OverrideLogicalId(newLogicalId *string) {
@@ -5144,23 +4570,6 @@ func (c *jsiiProxy_CfnUserPoolGroup) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolGroup) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -5195,19 +4604,6 @@ func (c *jsiiProxy_CfnUserPoolGroup) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolGroup) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -5218,26 +4614,6 @@ func (c *jsiiProxy_CfnUserPoolGroup) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolGroup) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5281,7 +4657,7 @@ type CfnUserPoolIdentityProvider interface {
 	IdpIdentifiers() *[]*string
 	SetIdpIdentifiers(val *[]*string)
 	LogicalId() *string
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	ProviderDetails() interface{}
 	SetProviderDetails(val interface{})
 	ProviderName() *string
@@ -5303,16 +4679,10 @@ type CfnUserPoolIdentityProvider interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -5392,8 +4762,8 @@ func (j *jsiiProxy_CfnUserPoolIdentityProvider) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolIdentityProvider) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnUserPoolIdentityProvider) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -5474,13 +4844,13 @@ func (j *jsiiProxy_CfnUserPoolIdentityProvider) UserPoolId() *string {
 
 
 // Create a new `AWS::Cognito::UserPoolIdentityProvider`.
-func NewCfnUserPoolIdentityProvider(scope awscdk.Construct, id *string, props *CfnUserPoolIdentityProviderProps) CfnUserPoolIdentityProvider {
+func NewCfnUserPoolIdentityProvider(scope constructs.Construct, id *string, props *CfnUserPoolIdentityProviderProps) CfnUserPoolIdentityProvider {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnUserPoolIdentityProvider{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolIdentityProvider",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolIdentityProvider",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5489,11 +4859,11 @@ func NewCfnUserPoolIdentityProvider(scope awscdk.Construct, id *string, props *C
 }
 
 // Create a new `AWS::Cognito::UserPoolIdentityProvider`.
-func NewCfnUserPoolIdentityProvider_Override(c CfnUserPoolIdentityProvider, scope awscdk.Construct, id *string, props *CfnUserPoolIdentityProviderProps) {
+func NewCfnUserPoolIdentityProvider_Override(c CfnUserPoolIdentityProvider, scope constructs.Construct, id *string, props *CfnUserPoolIdentityProviderProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolIdentityProvider",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolIdentityProvider",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -5560,7 +4930,7 @@ func CfnUserPoolIdentityProvider_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolIdentityProvider",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolIdentityProvider",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -5577,7 +4947,7 @@ func CfnUserPoolIdentityProvider_IsCfnResource(construct constructs.IConstruct) 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolIdentityProvider",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolIdentityProvider",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -5586,15 +4956,17 @@ func CfnUserPoolIdentityProvider_IsCfnResource(construct constructs.IConstruct) 
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnUserPoolIdentityProvider_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolIdentityProvider",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolIdentityProvider",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5607,7 +4979,7 @@ func CfnUserPoolIdentityProvider_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.CfnUserPoolIdentityProvider",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolIdentityProvider",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -5787,56 +5159,6 @@ func (c *jsiiProxy_CfnUserPoolIdentityProvider) Inspect(inspector awscdk.TreeIns
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolIdentityProvider) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolIdentityProvider) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolIdentityProvider) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnUserPoolIdentityProvider) OverrideLogicalId(newLogicalId *string) {
@@ -5844,23 +5166,6 @@ func (c *jsiiProxy_CfnUserPoolIdentityProvider) OverrideLogicalId(newLogicalId *
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolIdentityProvider) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -5895,19 +5200,6 @@ func (c *jsiiProxy_CfnUserPoolIdentityProvider) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolIdentityProvider) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -5918,26 +5210,6 @@ func (c *jsiiProxy_CfnUserPoolIdentityProvider) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolIdentityProvider) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -6031,7 +5303,7 @@ type CfnUserPoolResourceServer interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Ref() *string
 	Scopes() interface{}
 	SetScopes(val interface{})
@@ -6049,16 +5321,10 @@ type CfnUserPoolResourceServer interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -6138,8 +5404,8 @@ func (j *jsiiProxy_CfnUserPoolResourceServer) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolResourceServer) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnUserPoolResourceServer) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -6200,13 +5466,13 @@ func (j *jsiiProxy_CfnUserPoolResourceServer) UserPoolId() *string {
 
 
 // Create a new `AWS::Cognito::UserPoolResourceServer`.
-func NewCfnUserPoolResourceServer(scope awscdk.Construct, id *string, props *CfnUserPoolResourceServerProps) CfnUserPoolResourceServer {
+func NewCfnUserPoolResourceServer(scope constructs.Construct, id *string, props *CfnUserPoolResourceServerProps) CfnUserPoolResourceServer {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnUserPoolResourceServer{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolResourceServer",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolResourceServer",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6215,11 +5481,11 @@ func NewCfnUserPoolResourceServer(scope awscdk.Construct, id *string, props *Cfn
 }
 
 // Create a new `AWS::Cognito::UserPoolResourceServer`.
-func NewCfnUserPoolResourceServer_Override(c CfnUserPoolResourceServer, scope awscdk.Construct, id *string, props *CfnUserPoolResourceServerProps) {
+func NewCfnUserPoolResourceServer_Override(c CfnUserPoolResourceServer, scope constructs.Construct, id *string, props *CfnUserPoolResourceServerProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolResourceServer",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolResourceServer",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -6270,7 +5536,7 @@ func CfnUserPoolResourceServer_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolResourceServer",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolResourceServer",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -6287,7 +5553,7 @@ func CfnUserPoolResourceServer_IsCfnResource(construct constructs.IConstruct) *b
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolResourceServer",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolResourceServer",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -6296,15 +5562,17 @@ func CfnUserPoolResourceServer_IsCfnResource(construct constructs.IConstruct) *b
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnUserPoolResourceServer_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolResourceServer",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolResourceServer",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6317,7 +5585,7 @@ func CfnUserPoolResourceServer_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.CfnUserPoolResourceServer",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolResourceServer",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -6497,56 +5765,6 @@ func (c *jsiiProxy_CfnUserPoolResourceServer) Inspect(inspector awscdk.TreeInspe
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolResourceServer) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolResourceServer) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolResourceServer) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnUserPoolResourceServer) OverrideLogicalId(newLogicalId *string) {
@@ -6554,23 +5772,6 @@ func (c *jsiiProxy_CfnUserPoolResourceServer) OverrideLogicalId(newLogicalId *st
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolResourceServer) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -6605,19 +5806,6 @@ func (c *jsiiProxy_CfnUserPoolResourceServer) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolResourceServer) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -6628,26 +5816,6 @@ func (c *jsiiProxy_CfnUserPoolResourceServer) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolResourceServer) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -6698,7 +5866,7 @@ type CfnUserPoolRiskConfigurationAttachment interface {
 	SetCompromisedCredentialsRiskConfiguration(val interface{})
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Ref() *string
 	RiskExceptionConfiguration() interface{}
 	SetRiskExceptionConfiguration(val interface{})
@@ -6716,16 +5884,10 @@ type CfnUserPoolRiskConfigurationAttachment interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -6815,8 +5977,8 @@ func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -6877,13 +6039,13 @@ func (j *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) UserPoolId() *string 
 
 
 // Create a new `AWS::Cognito::UserPoolRiskConfigurationAttachment`.
-func NewCfnUserPoolRiskConfigurationAttachment(scope awscdk.Construct, id *string, props *CfnUserPoolRiskConfigurationAttachmentProps) CfnUserPoolRiskConfigurationAttachment {
+func NewCfnUserPoolRiskConfigurationAttachment(scope constructs.Construct, id *string, props *CfnUserPoolRiskConfigurationAttachmentProps) CfnUserPoolRiskConfigurationAttachment {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnUserPoolRiskConfigurationAttachment{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolRiskConfigurationAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolRiskConfigurationAttachment",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6892,11 +6054,11 @@ func NewCfnUserPoolRiskConfigurationAttachment(scope awscdk.Construct, id *strin
 }
 
 // Create a new `AWS::Cognito::UserPoolRiskConfigurationAttachment`.
-func NewCfnUserPoolRiskConfigurationAttachment_Override(c CfnUserPoolRiskConfigurationAttachment, scope awscdk.Construct, id *string, props *CfnUserPoolRiskConfigurationAttachmentProps) {
+func NewCfnUserPoolRiskConfigurationAttachment_Override(c CfnUserPoolRiskConfigurationAttachment, scope constructs.Construct, id *string, props *CfnUserPoolRiskConfigurationAttachmentProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolRiskConfigurationAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolRiskConfigurationAttachment",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -6955,7 +6117,7 @@ func CfnUserPoolRiskConfigurationAttachment_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolRiskConfigurationAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolRiskConfigurationAttachment",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -6972,7 +6134,7 @@ func CfnUserPoolRiskConfigurationAttachment_IsCfnResource(construct constructs.I
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolRiskConfigurationAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolRiskConfigurationAttachment",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -6981,15 +6143,17 @@ func CfnUserPoolRiskConfigurationAttachment_IsCfnResource(construct constructs.I
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnUserPoolRiskConfigurationAttachment_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolRiskConfigurationAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolRiskConfigurationAttachment",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7002,7 +6166,7 @@ func CfnUserPoolRiskConfigurationAttachment_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.CfnUserPoolRiskConfigurationAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolRiskConfigurationAttachment",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -7182,56 +6346,6 @@ func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) Inspect(inspector aws
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) OverrideLogicalId(newLogicalId *string) {
@@ -7239,23 +6353,6 @@ func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) OverrideLogicalId(new
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -7290,19 +6387,6 @@ func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) ShouldSynthesize() *b
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -7313,26 +6397,6 @@ func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -7442,7 +6506,7 @@ type CfnUserPoolUICustomizationAttachment interface {
 	Css() *string
 	SetCss(val *string)
 	LogicalId() *string
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Ref() *string
 	Stack() awscdk.Stack
 	UpdatedProperites() *map[string]interface{}
@@ -7458,16 +6522,10 @@ type CfnUserPoolUICustomizationAttachment interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -7547,8 +6605,8 @@ func (j *jsiiProxy_CfnUserPoolUICustomizationAttachment) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolUICustomizationAttachment) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnUserPoolUICustomizationAttachment) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -7599,13 +6657,13 @@ func (j *jsiiProxy_CfnUserPoolUICustomizationAttachment) UserPoolId() *string {
 
 
 // Create a new `AWS::Cognito::UserPoolUICustomizationAttachment`.
-func NewCfnUserPoolUICustomizationAttachment(scope awscdk.Construct, id *string, props *CfnUserPoolUICustomizationAttachmentProps) CfnUserPoolUICustomizationAttachment {
+func NewCfnUserPoolUICustomizationAttachment(scope constructs.Construct, id *string, props *CfnUserPoolUICustomizationAttachmentProps) CfnUserPoolUICustomizationAttachment {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnUserPoolUICustomizationAttachment{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolUICustomizationAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUICustomizationAttachment",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7614,11 +6672,11 @@ func NewCfnUserPoolUICustomizationAttachment(scope awscdk.Construct, id *string,
 }
 
 // Create a new `AWS::Cognito::UserPoolUICustomizationAttachment`.
-func NewCfnUserPoolUICustomizationAttachment_Override(c CfnUserPoolUICustomizationAttachment, scope awscdk.Construct, id *string, props *CfnUserPoolUICustomizationAttachmentProps) {
+func NewCfnUserPoolUICustomizationAttachment_Override(c CfnUserPoolUICustomizationAttachment, scope constructs.Construct, id *string, props *CfnUserPoolUICustomizationAttachmentProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolUICustomizationAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUICustomizationAttachment",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -7661,7 +6719,7 @@ func CfnUserPoolUICustomizationAttachment_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolUICustomizationAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUICustomizationAttachment",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -7678,7 +6736,7 @@ func CfnUserPoolUICustomizationAttachment_IsCfnResource(construct constructs.ICo
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolUICustomizationAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUICustomizationAttachment",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -7687,15 +6745,17 @@ func CfnUserPoolUICustomizationAttachment_IsCfnResource(construct constructs.ICo
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnUserPoolUICustomizationAttachment_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolUICustomizationAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUICustomizationAttachment",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7708,7 +6768,7 @@ func CfnUserPoolUICustomizationAttachment_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.CfnUserPoolUICustomizationAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUICustomizationAttachment",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -7888,56 +6948,6 @@ func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) Inspect(inspector awscd
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) OverrideLogicalId(newLogicalId *string) {
@@ -7945,23 +6955,6 @@ func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) OverrideLogicalId(newLo
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -7996,19 +6989,6 @@ func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) ShouldSynthesize() *boo
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -8019,26 +6999,6 @@ func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -8082,7 +7042,7 @@ type CfnUserPoolUser interface {
 	LogicalId() *string
 	MessageAction() *string
 	SetMessageAction(val *string)
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Ref() *string
 	Stack() awscdk.Stack
 	UpdatedProperites() *map[string]interface{}
@@ -8104,16 +7064,10 @@ type CfnUserPoolUser interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -8213,8 +7167,8 @@ func (j *jsiiProxy_CfnUserPoolUser) MessageAction() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolUser) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnUserPoolUser) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -8295,13 +7249,13 @@ func (j *jsiiProxy_CfnUserPoolUser) ValidationData() interface{} {
 
 
 // Create a new `AWS::Cognito::UserPoolUser`.
-func NewCfnUserPoolUser(scope awscdk.Construct, id *string, props *CfnUserPoolUserProps) CfnUserPoolUser {
+func NewCfnUserPoolUser(scope constructs.Construct, id *string, props *CfnUserPoolUserProps) CfnUserPoolUser {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnUserPoolUser{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolUser",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUser",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -8310,11 +7264,11 @@ func NewCfnUserPoolUser(scope awscdk.Construct, id *string, props *CfnUserPoolUs
 }
 
 // Create a new `AWS::Cognito::UserPoolUser`.
-func NewCfnUserPoolUser_Override(c CfnUserPoolUser, scope awscdk.Construct, id *string, props *CfnUserPoolUserProps) {
+func NewCfnUserPoolUser_Override(c CfnUserPoolUser, scope constructs.Construct, id *string, props *CfnUserPoolUserProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolUser",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUser",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -8397,7 +7351,7 @@ func CfnUserPoolUser_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolUser",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUser",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -8414,7 +7368,7 @@ func CfnUserPoolUser_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolUser",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUser",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -8423,15 +7377,17 @@ func CfnUserPoolUser_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnUserPoolUser_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolUser",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUser",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -8444,7 +7400,7 @@ func CfnUserPoolUser_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.CfnUserPoolUser",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUser",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -8624,56 +7580,6 @@ func (c *jsiiProxy_CfnUserPoolUser) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolUser) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolUser) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolUser) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnUserPoolUser) OverrideLogicalId(newLogicalId *string) {
@@ -8681,23 +7587,6 @@ func (c *jsiiProxy_CfnUserPoolUser) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolUser) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -8732,19 +7621,6 @@ func (c *jsiiProxy_CfnUserPoolUser) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolUser) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -8755,26 +7631,6 @@ func (c *jsiiProxy_CfnUserPoolUser) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolUser) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -8829,7 +7685,7 @@ type CfnUserPoolUserToGroupAttachment interface {
 	GroupName() *string
 	SetGroupName(val *string)
 	LogicalId() *string
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Ref() *string
 	Stack() awscdk.Stack
 	UpdatedProperites() *map[string]interface{}
@@ -8847,16 +7703,10 @@ type CfnUserPoolUserToGroupAttachment interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -8926,8 +7776,8 @@ func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -8988,13 +7838,13 @@ func (j *jsiiProxy_CfnUserPoolUserToGroupAttachment) UserPoolId() *string {
 
 
 // Create a new `AWS::Cognito::UserPoolUserToGroupAttachment`.
-func NewCfnUserPoolUserToGroupAttachment(scope awscdk.Construct, id *string, props *CfnUserPoolUserToGroupAttachmentProps) CfnUserPoolUserToGroupAttachment {
+func NewCfnUserPoolUserToGroupAttachment(scope constructs.Construct, id *string, props *CfnUserPoolUserToGroupAttachmentProps) CfnUserPoolUserToGroupAttachment {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnUserPoolUserToGroupAttachment{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolUserToGroupAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUserToGroupAttachment",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -9003,11 +7853,11 @@ func NewCfnUserPoolUserToGroupAttachment(scope awscdk.Construct, id *string, pro
 }
 
 // Create a new `AWS::Cognito::UserPoolUserToGroupAttachment`.
-func NewCfnUserPoolUserToGroupAttachment_Override(c CfnUserPoolUserToGroupAttachment, scope awscdk.Construct, id *string, props *CfnUserPoolUserToGroupAttachmentProps) {
+func NewCfnUserPoolUserToGroupAttachment_Override(c CfnUserPoolUserToGroupAttachment, scope constructs.Construct, id *string, props *CfnUserPoolUserToGroupAttachmentProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.CfnUserPoolUserToGroupAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUserToGroupAttachment",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -9050,7 +7900,7 @@ func CfnUserPoolUserToGroupAttachment_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolUserToGroupAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUserToGroupAttachment",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -9067,7 +7917,7 @@ func CfnUserPoolUserToGroupAttachment_IsCfnResource(construct constructs.IConstr
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolUserToGroupAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUserToGroupAttachment",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -9076,15 +7926,17 @@ func CfnUserPoolUserToGroupAttachment_IsCfnResource(construct constructs.IConstr
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnUserPoolUserToGroupAttachment_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.CfnUserPoolUserToGroupAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUserToGroupAttachment",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -9097,7 +7949,7 @@ func CfnUserPoolUserToGroupAttachment_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.CfnUserPoolUserToGroupAttachment",
+		"aws-cdk-lib.aws_cognito.CfnUserPoolUserToGroupAttachment",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -9277,56 +8129,6 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) Inspect(inspector awscdk.Tr
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) OverrideLogicalId(newLogicalId *string) {
@@ -9334,23 +8136,6 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) OverrideLogicalId(newLogica
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -9385,19 +8170,6 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -9408,26 +8180,6 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -9475,7 +8227,7 @@ func NewClientAttributes() ClientAttributes {
 	j := jsiiProxy_ClientAttributes{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.ClientAttributes",
+		"aws-cdk-lib.aws_cognito.ClientAttributes",
 		nil, // no parameters
 		&j,
 	)
@@ -9489,7 +8241,7 @@ func NewClientAttributes_Override(c ClientAttributes) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.ClientAttributes",
+		"aws-cdk-lib.aws_cognito.ClientAttributes",
 		nil, // no parameters
 		c,
 	)
@@ -9622,7 +8374,7 @@ func NewDateTimeAttribute(props *CustomAttributeProps) DateTimeAttribute {
 	j := jsiiProxy_DateTimeAttribute{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.DateTimeAttribute",
+		"aws-cdk-lib.aws_cognito.DateTimeAttribute",
 		[]interface{}{props},
 		&j,
 	)
@@ -9635,7 +8387,7 @@ func NewDateTimeAttribute_Override(d DateTimeAttribute, props *CustomAttributePr
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.DateTimeAttribute",
+		"aws-cdk-lib.aws_cognito.DateTimeAttribute",
 		[]interface{}{props},
 		d,
 	)
@@ -9976,7 +8728,7 @@ func NewNumberAttribute(props *NumberAttributeProps) NumberAttribute {
 	j := jsiiProxy_NumberAttribute{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.NumberAttribute",
+		"aws-cdk-lib.aws_cognito.NumberAttribute",
 		[]interface{}{props},
 		&j,
 	)
@@ -9989,7 +8741,7 @@ func NewNumberAttribute_Override(n NumberAttribute, props *NumberAttributeProps)
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.NumberAttribute",
+		"aws-cdk-lib.aws_cognito.NumberAttribute",
 		[]interface{}{props},
 		n,
 	)
@@ -10091,7 +8843,7 @@ func OAuthScope_Custom(name *string) OAuthScope {
 	var returns OAuthScope
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.OAuthScope",
+		"aws-cdk-lib.aws_cognito.OAuthScope",
 		"custom",
 		[]interface{}{name},
 		&returns,
@@ -10108,7 +8860,7 @@ func OAuthScope_ResourceServer(server IUserPoolResourceServer, scope ResourceSer
 	var returns OAuthScope
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.OAuthScope",
+		"aws-cdk-lib.aws_cognito.OAuthScope",
 		"resourceServer",
 		[]interface{}{server, scope},
 		&returns,
@@ -10121,7 +8873,7 @@ func OAuthScope_COGNITO_ADMIN() OAuthScope {
 	_init_.Initialize()
 	var returns OAuthScope
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.OAuthScope",
+		"aws-cdk-lib.aws_cognito.OAuthScope",
 		"COGNITO_ADMIN",
 		&returns,
 	)
@@ -10132,7 +8884,7 @@ func OAuthScope_EMAIL() OAuthScope {
 	_init_.Initialize()
 	var returns OAuthScope
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.OAuthScope",
+		"aws-cdk-lib.aws_cognito.OAuthScope",
 		"EMAIL",
 		&returns,
 	)
@@ -10143,7 +8895,7 @@ func OAuthScope_OPENID() OAuthScope {
 	_init_.Initialize()
 	var returns OAuthScope
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.OAuthScope",
+		"aws-cdk-lib.aws_cognito.OAuthScope",
 		"OPENID",
 		&returns,
 	)
@@ -10154,7 +8906,7 @@ func OAuthScope_PHONE() OAuthScope {
 	_init_.Initialize()
 	var returns OAuthScope
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.OAuthScope",
+		"aws-cdk-lib.aws_cognito.OAuthScope",
 		"PHONE",
 		&returns,
 	)
@@ -10165,7 +8917,7 @@ func OAuthScope_PROFILE() OAuthScope {
 	_init_.Initialize()
 	var returns OAuthScope
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.OAuthScope",
+		"aws-cdk-lib.aws_cognito.OAuthScope",
 		"PROFILE",
 		&returns,
 	)
@@ -10249,7 +9001,7 @@ func ProviderAttribute_Other(attributeName *string) ProviderAttribute {
 	var returns ProviderAttribute
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"other",
 		[]interface{}{attributeName},
 		&returns,
@@ -10262,7 +9014,7 @@ func ProviderAttribute_AMAZON_EMAIL() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"AMAZON_EMAIL",
 		&returns,
 	)
@@ -10273,7 +9025,7 @@ func ProviderAttribute_AMAZON_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"AMAZON_NAME",
 		&returns,
 	)
@@ -10284,7 +9036,7 @@ func ProviderAttribute_AMAZON_POSTAL_CODE() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"AMAZON_POSTAL_CODE",
 		&returns,
 	)
@@ -10295,7 +9047,7 @@ func ProviderAttribute_AMAZON_USER_ID() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"AMAZON_USER_ID",
 		&returns,
 	)
@@ -10306,7 +9058,7 @@ func ProviderAttribute_APPLE_EMAIL() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"APPLE_EMAIL",
 		&returns,
 	)
@@ -10317,7 +9069,7 @@ func ProviderAttribute_APPLE_FIRST_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"APPLE_FIRST_NAME",
 		&returns,
 	)
@@ -10328,7 +9080,7 @@ func ProviderAttribute_APPLE_LAST_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"APPLE_LAST_NAME",
 		&returns,
 	)
@@ -10339,7 +9091,7 @@ func ProviderAttribute_APPLE_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"APPLE_NAME",
 		&returns,
 	)
@@ -10350,7 +9102,7 @@ func ProviderAttribute_FACEBOOK_BIRTHDAY() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"FACEBOOK_BIRTHDAY",
 		&returns,
 	)
@@ -10361,7 +9113,7 @@ func ProviderAttribute_FACEBOOK_EMAIL() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"FACEBOOK_EMAIL",
 		&returns,
 	)
@@ -10372,7 +9124,7 @@ func ProviderAttribute_FACEBOOK_FIRST_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"FACEBOOK_FIRST_NAME",
 		&returns,
 	)
@@ -10383,7 +9135,7 @@ func ProviderAttribute_FACEBOOK_GENDER() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"FACEBOOK_GENDER",
 		&returns,
 	)
@@ -10394,7 +9146,7 @@ func ProviderAttribute_FACEBOOK_ID() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"FACEBOOK_ID",
 		&returns,
 	)
@@ -10405,7 +9157,7 @@ func ProviderAttribute_FACEBOOK_LAST_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"FACEBOOK_LAST_NAME",
 		&returns,
 	)
@@ -10416,7 +9168,7 @@ func ProviderAttribute_FACEBOOK_LOCALE() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"FACEBOOK_LOCALE",
 		&returns,
 	)
@@ -10427,7 +9179,7 @@ func ProviderAttribute_FACEBOOK_MIDDLE_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"FACEBOOK_MIDDLE_NAME",
 		&returns,
 	)
@@ -10438,7 +9190,7 @@ func ProviderAttribute_FACEBOOK_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"FACEBOOK_NAME",
 		&returns,
 	)
@@ -10449,7 +9201,7 @@ func ProviderAttribute_GOOGLE_BIRTHDAYS() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"GOOGLE_BIRTHDAYS",
 		&returns,
 	)
@@ -10460,7 +9212,7 @@ func ProviderAttribute_GOOGLE_EMAIL() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"GOOGLE_EMAIL",
 		&returns,
 	)
@@ -10471,7 +9223,7 @@ func ProviderAttribute_GOOGLE_FAMILY_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"GOOGLE_FAMILY_NAME",
 		&returns,
 	)
@@ -10482,7 +9234,7 @@ func ProviderAttribute_GOOGLE_GENDER() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"GOOGLE_GENDER",
 		&returns,
 	)
@@ -10493,7 +9245,7 @@ func ProviderAttribute_GOOGLE_GIVEN_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"GOOGLE_GIVEN_NAME",
 		&returns,
 	)
@@ -10504,7 +9256,7 @@ func ProviderAttribute_GOOGLE_NAME() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"GOOGLE_NAME",
 		&returns,
 	)
@@ -10515,7 +9267,7 @@ func ProviderAttribute_GOOGLE_NAMES() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"GOOGLE_NAMES",
 		&returns,
 	)
@@ -10526,7 +9278,7 @@ func ProviderAttribute_GOOGLE_PHONE_NUMBERS() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"GOOGLE_PHONE_NUMBERS",
 		&returns,
 	)
@@ -10537,7 +9289,7 @@ func ProviderAttribute_GOOGLE_PICTURE() ProviderAttribute {
 	_init_.Initialize()
 	var returns ProviderAttribute
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.ProviderAttribute",
+		"aws-cdk-lib.aws_cognito.ProviderAttribute",
 		"GOOGLE_PICTURE",
 		&returns,
 	)
@@ -10584,7 +9336,7 @@ func NewResourceServerScope(props *ResourceServerScopeProps) ResourceServerScope
 	j := jsiiProxy_ResourceServerScope{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.ResourceServerScope",
+		"aws-cdk-lib.aws_cognito.ResourceServerScope",
 		[]interface{}{props},
 		&j,
 	)
@@ -10597,7 +9349,7 @@ func NewResourceServerScope_Override(r ResourceServerScope, props *ResourceServe
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.ResourceServerScope",
+		"aws-cdk-lib.aws_cognito.ResourceServerScope",
 		[]interface{}{props},
 		r,
 	)
@@ -10810,7 +9562,7 @@ func NewStringAttribute(props *StringAttributeProps) StringAttribute {
 	j := jsiiProxy_StringAttribute{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.StringAttribute",
+		"aws-cdk-lib.aws_cognito.StringAttribute",
 		[]interface{}{props},
 		&j,
 	)
@@ -10823,7 +9575,7 @@ func NewStringAttribute_Override(s StringAttribute, props *StringAttributeProps)
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.StringAttribute",
+		"aws-cdk-lib.aws_cognito.StringAttribute",
 		[]interface{}{props},
 		s,
 	)
@@ -10894,7 +9646,7 @@ type UserPool interface {
 	IUserPool
 	Env() *awscdk.ResourceEnvironment
 	IdentityProviders() *[]IUserPoolIdentityProvider
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	UserPoolArn() *string
@@ -10909,14 +9661,8 @@ type UserPool interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
 	RegisterIdentityProvider(provider IUserPoolIdentityProvider)
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for UserPool
@@ -10945,8 +9691,8 @@ func (j *jsiiProxy_UserPool) IdentityProviders() *[]IUserPoolIdentityProvider {
 	return returns
 }
 
-func (j *jsiiProxy_UserPool) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_UserPool) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -11023,7 +9769,7 @@ func NewUserPool(scope constructs.Construct, id *string, props *UserPoolProps) U
 	j := jsiiProxy_UserPool{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPool",
+		"aws-cdk-lib.aws_cognito.UserPool",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -11036,7 +9782,7 @@ func NewUserPool_Override(u UserPool, scope constructs.Construct, id *string, pr
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPool",
+		"aws-cdk-lib.aws_cognito.UserPool",
 		[]interface{}{scope, id, props},
 		u,
 	)
@@ -11050,7 +9796,7 @@ func UserPool_FromUserPoolArn(scope constructs.Construct, id *string, userPoolAr
 	var returns IUserPool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPool",
+		"aws-cdk-lib.aws_cognito.UserPool",
 		"fromUserPoolArn",
 		[]interface{}{scope, id, userPoolArn},
 		&returns,
@@ -11067,7 +9813,7 @@ func UserPool_FromUserPoolId(scope constructs.Construct, id *string, userPoolId 
 	var returns IUserPool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPool",
+		"aws-cdk-lib.aws_cognito.UserPool",
 		"fromUserPoolId",
 		[]interface{}{scope, id, userPoolId},
 		&returns,
@@ -11076,15 +9822,17 @@ func UserPool_FromUserPoolId(scope constructs.Construct, id *string, userPoolId 
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func UserPool_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPool",
+		"aws-cdk-lib.aws_cognito.UserPool",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -11095,13 +9843,13 @@ func UserPool_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func UserPool_IsResource(construct awscdk.IConstruct) *bool {
+func UserPool_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPool",
+		"aws-cdk-lib.aws_cognito.UserPool",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -11238,73 +9986,6 @@ func (u *jsiiProxy_UserPool) GetResourceNameAttribute(nameAttr *string) *string 
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (u *jsiiProxy_UserPool) OnPrepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (u *jsiiProxy_UserPool) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (u *jsiiProxy_UserPool) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (u *jsiiProxy_UserPool) Prepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 // Register an identity provider with this user pool.
 // Experimental.
 func (u *jsiiProxy_UserPool) RegisterIdentityProvider(provider IUserPoolIdentityProvider) {
@@ -11312,19 +9993,6 @@ func (u *jsiiProxy_UserPool) RegisterIdentityProvider(provider IUserPoolIdentity
 		u,
 		"registerIdentityProvider",
 		[]interface{}{provider},
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (u *jsiiProxy_UserPool) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"synthesize",
-		[]interface{}{session},
 	)
 }
 
@@ -11343,33 +10011,13 @@ func (u *jsiiProxy_UserPool) ToString() *string {
 	return returns
 }
 
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (u *jsiiProxy_UserPool) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Define a UserPool App Client.
 // Experimental.
 type UserPoolClient interface {
 	awscdk.Resource
 	IUserPoolClient
 	Env() *awscdk.ResourceEnvironment
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	OAuthFlows() *OAuthFlows
 	PhysicalName() *string
 	Stack() awscdk.Stack
@@ -11379,13 +10027,7 @@ type UserPoolClient interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for UserPoolClient
@@ -11404,8 +10046,8 @@ func (j *jsiiProxy_UserPoolClient) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_UserPoolClient) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_UserPoolClient) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -11472,7 +10114,7 @@ func NewUserPoolClient(scope constructs.Construct, id *string, props *UserPoolCl
 	j := jsiiProxy_UserPoolClient{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolClient",
+		"aws-cdk-lib.aws_cognito.UserPoolClient",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -11485,7 +10127,7 @@ func NewUserPoolClient_Override(u UserPoolClient, scope constructs.Construct, id
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolClient",
+		"aws-cdk-lib.aws_cognito.UserPoolClient",
 		[]interface{}{scope, id, props},
 		u,
 	)
@@ -11499,7 +10141,7 @@ func UserPoolClient_FromUserPoolClientId(scope constructs.Construct, id *string,
 	var returns IUserPoolClient
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolClient",
+		"aws-cdk-lib.aws_cognito.UserPoolClient",
 		"fromUserPoolClientId",
 		[]interface{}{scope, id, userPoolClientId},
 		&returns,
@@ -11508,15 +10150,17 @@ func UserPoolClient_FromUserPoolClientId(scope constructs.Construct, id *string,
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func UserPoolClient_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolClient",
+		"aws-cdk-lib.aws_cognito.UserPoolClient",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -11527,13 +10171,13 @@ func UserPoolClient_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func UserPoolClient_IsResource(construct awscdk.IConstruct) *bool {
+func UserPoolClient_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolClient",
+		"aws-cdk-lib.aws_cognito.UserPoolClient",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -11613,86 +10257,6 @@ func (u *jsiiProxy_UserPoolClient) GetResourceNameAttribute(nameAttr *string) *s
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (u *jsiiProxy_UserPoolClient) OnPrepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (u *jsiiProxy_UserPoolClient) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (u *jsiiProxy_UserPoolClient) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (u *jsiiProxy_UserPoolClient) Prepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (u *jsiiProxy_UserPoolClient) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (u *jsiiProxy_UserPoolClient) ToString() *string {
@@ -11701,26 +10265,6 @@ func (u *jsiiProxy_UserPoolClient) ToString() *string {
 	_jsii_.Invoke(
 		u,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (u *jsiiProxy_UserPoolClient) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -11758,7 +10302,7 @@ func UserPoolClientIdentityProvider_Custom(name *string) UserPoolClientIdentityP
 	var returns UserPoolClientIdentityProvider
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolClientIdentityProvider",
+		"aws-cdk-lib.aws_cognito.UserPoolClientIdentityProvider",
 		"custom",
 		[]interface{}{name},
 		&returns,
@@ -11771,7 +10315,7 @@ func UserPoolClientIdentityProvider_AMAZON() UserPoolClientIdentityProvider {
 	_init_.Initialize()
 	var returns UserPoolClientIdentityProvider
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolClientIdentityProvider",
+		"aws-cdk-lib.aws_cognito.UserPoolClientIdentityProvider",
 		"AMAZON",
 		&returns,
 	)
@@ -11782,7 +10326,7 @@ func UserPoolClientIdentityProvider_APPLE() UserPoolClientIdentityProvider {
 	_init_.Initialize()
 	var returns UserPoolClientIdentityProvider
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolClientIdentityProvider",
+		"aws-cdk-lib.aws_cognito.UserPoolClientIdentityProvider",
 		"APPLE",
 		&returns,
 	)
@@ -11793,7 +10337,7 @@ func UserPoolClientIdentityProvider_COGNITO() UserPoolClientIdentityProvider {
 	_init_.Initialize()
 	var returns UserPoolClientIdentityProvider
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolClientIdentityProvider",
+		"aws-cdk-lib.aws_cognito.UserPoolClientIdentityProvider",
 		"COGNITO",
 		&returns,
 	)
@@ -11804,7 +10348,7 @@ func UserPoolClientIdentityProvider_FACEBOOK() UserPoolClientIdentityProvider {
 	_init_.Initialize()
 	var returns UserPoolClientIdentityProvider
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolClientIdentityProvider",
+		"aws-cdk-lib.aws_cognito.UserPoolClientIdentityProvider",
 		"FACEBOOK",
 		&returns,
 	)
@@ -11815,7 +10359,7 @@ func UserPoolClientIdentityProvider_GOOGLE() UserPoolClientIdentityProvider {
 	_init_.Initialize()
 	var returns UserPoolClientIdentityProvider
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolClientIdentityProvider",
+		"aws-cdk-lib.aws_cognito.UserPoolClientIdentityProvider",
 		"GOOGLE",
 		&returns,
 	)
@@ -11969,7 +10513,7 @@ type UserPoolDomain interface {
 	CloudFrontDomainName() *string
 	DomainName() *string
 	Env() *awscdk.ResourceEnvironment
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
@@ -11977,14 +10521,8 @@ type UserPoolDomain interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
 	SignInUrl(client UserPoolClient, options *SignInUrlOptions) *string
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for UserPoolDomain
@@ -12023,8 +10561,8 @@ func (j *jsiiProxy_UserPoolDomain) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_UserPoolDomain) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_UserPoolDomain) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -12061,7 +10599,7 @@ func NewUserPoolDomain(scope constructs.Construct, id *string, props *UserPoolDo
 	j := jsiiProxy_UserPoolDomain{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolDomain",
+		"aws-cdk-lib.aws_cognito.UserPoolDomain",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -12074,7 +10612,7 @@ func NewUserPoolDomain_Override(u UserPoolDomain, scope constructs.Construct, id
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolDomain",
+		"aws-cdk-lib.aws_cognito.UserPoolDomain",
 		[]interface{}{scope, id, props},
 		u,
 	)
@@ -12088,7 +10626,7 @@ func UserPoolDomain_FromDomainName(scope constructs.Construct, id *string, userP
 	var returns IUserPoolDomain
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolDomain",
+		"aws-cdk-lib.aws_cognito.UserPoolDomain",
 		"fromDomainName",
 		[]interface{}{scope, id, userPoolDomainName},
 		&returns,
@@ -12097,15 +10635,17 @@ func UserPoolDomain_FromDomainName(scope constructs.Construct, id *string, userP
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func UserPoolDomain_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolDomain",
+		"aws-cdk-lib.aws_cognito.UserPoolDomain",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -12116,13 +10656,13 @@ func UserPoolDomain_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func UserPoolDomain_IsResource(construct awscdk.IConstruct) *bool {
+func UserPoolDomain_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolDomain",
+		"aws-cdk-lib.aws_cognito.UserPoolDomain",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -12217,73 +10757,6 @@ func (u *jsiiProxy_UserPoolDomain) GetResourceNameAttribute(nameAttr *string) *s
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (u *jsiiProxy_UserPoolDomain) OnPrepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (u *jsiiProxy_UserPoolDomain) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (u *jsiiProxy_UserPoolDomain) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (u *jsiiProxy_UserPoolDomain) Prepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 // The URL to the sign in page in this domain using a specific UserPoolClient.
 // Experimental.
 func (u *jsiiProxy_UserPoolDomain) SignInUrl(client UserPoolClient, options *SignInUrlOptions) *string {
@@ -12299,19 +10772,6 @@ func (u *jsiiProxy_UserPoolDomain) SignInUrl(client UserPoolClient, options *Sig
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (u *jsiiProxy_UserPoolDomain) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (u *jsiiProxy_UserPoolDomain) ToString() *string {
@@ -12320,26 +10780,6 @@ func (u *jsiiProxy_UserPoolDomain) ToString() *string {
 	_jsii_.Invoke(
 		u,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (u *jsiiProxy_UserPoolDomain) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -12398,7 +10838,7 @@ func UserPoolIdentityProvider_FromProviderName(scope constructs.Construct, id *s
 	var returns IUserPoolIdentityProvider
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolIdentityProvider",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProvider",
 		"fromProviderName",
 		[]interface{}{scope, id, providerName},
 		&returns,
@@ -12413,7 +10853,7 @@ type UserPoolIdentityProviderAmazon interface {
 	awscdk.Resource
 	IUserPoolIdentityProvider
 	Env() *awscdk.ResourceEnvironment
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	PhysicalName() *string
 	ProviderName() *string
 	Stack() awscdk.Stack
@@ -12422,13 +10862,7 @@ type UserPoolIdentityProviderAmazon interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for UserPoolIdentityProviderAmazon
@@ -12447,8 +10881,8 @@ func (j *jsiiProxy_UserPoolIdentityProviderAmazon) Env() *awscdk.ResourceEnviron
 	return returns
 }
 
-func (j *jsiiProxy_UserPoolIdentityProviderAmazon) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_UserPoolIdentityProviderAmazon) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -12495,7 +10929,7 @@ func NewUserPoolIdentityProviderAmazon(scope constructs.Construct, id *string, p
 	j := jsiiProxy_UserPoolIdentityProviderAmazon{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolIdentityProviderAmazon",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderAmazon",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -12508,21 +10942,23 @@ func NewUserPoolIdentityProviderAmazon_Override(u UserPoolIdentityProviderAmazon
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolIdentityProviderAmazon",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderAmazon",
 		[]interface{}{scope, id, props},
 		u,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func UserPoolIdentityProviderAmazon_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolIdentityProviderAmazon",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderAmazon",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -12533,13 +10969,13 @@ func UserPoolIdentityProviderAmazon_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func UserPoolIdentityProviderAmazon_IsResource(construct awscdk.IConstruct) *bool {
+func UserPoolIdentityProviderAmazon_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolIdentityProviderAmazon",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderAmazon",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -12633,86 +11069,6 @@ func (u *jsiiProxy_UserPoolIdentityProviderAmazon) GetResourceNameAttribute(name
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (u *jsiiProxy_UserPoolIdentityProviderAmazon) OnPrepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (u *jsiiProxy_UserPoolIdentityProviderAmazon) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (u *jsiiProxy_UserPoolIdentityProviderAmazon) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (u *jsiiProxy_UserPoolIdentityProviderAmazon) Prepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (u *jsiiProxy_UserPoolIdentityProviderAmazon) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (u *jsiiProxy_UserPoolIdentityProviderAmazon) ToString() *string {
@@ -12721,26 +11077,6 @@ func (u *jsiiProxy_UserPoolIdentityProviderAmazon) ToString() *string {
 	_jsii_.Invoke(
 		u,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (u *jsiiProxy_UserPoolIdentityProviderAmazon) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -12780,7 +11116,7 @@ type UserPoolIdentityProviderApple interface {
 	awscdk.Resource
 	IUserPoolIdentityProvider
 	Env() *awscdk.ResourceEnvironment
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	PhysicalName() *string
 	ProviderName() *string
 	Stack() awscdk.Stack
@@ -12789,13 +11125,7 @@ type UserPoolIdentityProviderApple interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for UserPoolIdentityProviderApple
@@ -12814,8 +11144,8 @@ func (j *jsiiProxy_UserPoolIdentityProviderApple) Env() *awscdk.ResourceEnvironm
 	return returns
 }
 
-func (j *jsiiProxy_UserPoolIdentityProviderApple) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_UserPoolIdentityProviderApple) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -12862,7 +11192,7 @@ func NewUserPoolIdentityProviderApple(scope constructs.Construct, id *string, pr
 	j := jsiiProxy_UserPoolIdentityProviderApple{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolIdentityProviderApple",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderApple",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -12875,21 +11205,23 @@ func NewUserPoolIdentityProviderApple_Override(u UserPoolIdentityProviderApple, 
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolIdentityProviderApple",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderApple",
 		[]interface{}{scope, id, props},
 		u,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func UserPoolIdentityProviderApple_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolIdentityProviderApple",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderApple",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -12900,13 +11232,13 @@ func UserPoolIdentityProviderApple_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func UserPoolIdentityProviderApple_IsResource(construct awscdk.IConstruct) *bool {
+func UserPoolIdentityProviderApple_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolIdentityProviderApple",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderApple",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -13000,86 +11332,6 @@ func (u *jsiiProxy_UserPoolIdentityProviderApple) GetResourceNameAttribute(nameA
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (u *jsiiProxy_UserPoolIdentityProviderApple) OnPrepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (u *jsiiProxy_UserPoolIdentityProviderApple) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (u *jsiiProxy_UserPoolIdentityProviderApple) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (u *jsiiProxy_UserPoolIdentityProviderApple) Prepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (u *jsiiProxy_UserPoolIdentityProviderApple) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (u *jsiiProxy_UserPoolIdentityProviderApple) ToString() *string {
@@ -13088,26 +11340,6 @@ func (u *jsiiProxy_UserPoolIdentityProviderApple) ToString() *string {
 	_jsii_.Invoke(
 		u,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (u *jsiiProxy_UserPoolIdentityProviderApple) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -13151,7 +11383,7 @@ type UserPoolIdentityProviderFacebook interface {
 	awscdk.Resource
 	IUserPoolIdentityProvider
 	Env() *awscdk.ResourceEnvironment
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	PhysicalName() *string
 	ProviderName() *string
 	Stack() awscdk.Stack
@@ -13160,13 +11392,7 @@ type UserPoolIdentityProviderFacebook interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for UserPoolIdentityProviderFacebook
@@ -13185,8 +11411,8 @@ func (j *jsiiProxy_UserPoolIdentityProviderFacebook) Env() *awscdk.ResourceEnvir
 	return returns
 }
 
-func (j *jsiiProxy_UserPoolIdentityProviderFacebook) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_UserPoolIdentityProviderFacebook) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -13233,7 +11459,7 @@ func NewUserPoolIdentityProviderFacebook(scope constructs.Construct, id *string,
 	j := jsiiProxy_UserPoolIdentityProviderFacebook{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolIdentityProviderFacebook",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderFacebook",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -13246,21 +11472,23 @@ func NewUserPoolIdentityProviderFacebook_Override(u UserPoolIdentityProviderFace
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolIdentityProviderFacebook",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderFacebook",
 		[]interface{}{scope, id, props},
 		u,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func UserPoolIdentityProviderFacebook_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolIdentityProviderFacebook",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderFacebook",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -13271,13 +11499,13 @@ func UserPoolIdentityProviderFacebook_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func UserPoolIdentityProviderFacebook_IsResource(construct awscdk.IConstruct) *bool {
+func UserPoolIdentityProviderFacebook_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolIdentityProviderFacebook",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderFacebook",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -13371,86 +11599,6 @@ func (u *jsiiProxy_UserPoolIdentityProviderFacebook) GetResourceNameAttribute(na
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (u *jsiiProxy_UserPoolIdentityProviderFacebook) OnPrepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (u *jsiiProxy_UserPoolIdentityProviderFacebook) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (u *jsiiProxy_UserPoolIdentityProviderFacebook) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (u *jsiiProxy_UserPoolIdentityProviderFacebook) Prepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (u *jsiiProxy_UserPoolIdentityProviderFacebook) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (u *jsiiProxy_UserPoolIdentityProviderFacebook) ToString() *string {
@@ -13459,26 +11607,6 @@ func (u *jsiiProxy_UserPoolIdentityProviderFacebook) ToString() *string {
 	_jsii_.Invoke(
 		u,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (u *jsiiProxy_UserPoolIdentityProviderFacebook) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -13519,7 +11647,7 @@ type UserPoolIdentityProviderGoogle interface {
 	awscdk.Resource
 	IUserPoolIdentityProvider
 	Env() *awscdk.ResourceEnvironment
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	PhysicalName() *string
 	ProviderName() *string
 	Stack() awscdk.Stack
@@ -13528,13 +11656,7 @@ type UserPoolIdentityProviderGoogle interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for UserPoolIdentityProviderGoogle
@@ -13553,8 +11675,8 @@ func (j *jsiiProxy_UserPoolIdentityProviderGoogle) Env() *awscdk.ResourceEnviron
 	return returns
 }
 
-func (j *jsiiProxy_UserPoolIdentityProviderGoogle) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_UserPoolIdentityProviderGoogle) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -13601,7 +11723,7 @@ func NewUserPoolIdentityProviderGoogle(scope constructs.Construct, id *string, p
 	j := jsiiProxy_UserPoolIdentityProviderGoogle{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolIdentityProviderGoogle",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderGoogle",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -13614,21 +11736,23 @@ func NewUserPoolIdentityProviderGoogle_Override(u UserPoolIdentityProviderGoogle
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolIdentityProviderGoogle",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderGoogle",
 		[]interface{}{scope, id, props},
 		u,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func UserPoolIdentityProviderGoogle_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolIdentityProviderGoogle",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderGoogle",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -13639,13 +11763,13 @@ func UserPoolIdentityProviderGoogle_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func UserPoolIdentityProviderGoogle_IsResource(construct awscdk.IConstruct) *bool {
+func UserPoolIdentityProviderGoogle_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolIdentityProviderGoogle",
+		"aws-cdk-lib.aws_cognito.UserPoolIdentityProviderGoogle",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -13739,86 +11863,6 @@ func (u *jsiiProxy_UserPoolIdentityProviderGoogle) GetResourceNameAttribute(name
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (u *jsiiProxy_UserPoolIdentityProviderGoogle) OnPrepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (u *jsiiProxy_UserPoolIdentityProviderGoogle) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (u *jsiiProxy_UserPoolIdentityProviderGoogle) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (u *jsiiProxy_UserPoolIdentityProviderGoogle) Prepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (u *jsiiProxy_UserPoolIdentityProviderGoogle) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (u *jsiiProxy_UserPoolIdentityProviderGoogle) ToString() *string {
@@ -13827,26 +11871,6 @@ func (u *jsiiProxy_UserPoolIdentityProviderGoogle) ToString() *string {
 	_jsii_.Invoke(
 		u,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (u *jsiiProxy_UserPoolIdentityProviderGoogle) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -13921,7 +11945,7 @@ func UserPoolOperation_Of(name *string) UserPoolOperation {
 	var returns UserPoolOperation
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolOperation",
+		"aws-cdk-lib.aws_cognito.UserPoolOperation",
 		"of",
 		[]interface{}{name},
 		&returns,
@@ -13934,7 +11958,7 @@ func UserPoolOperation_CREATE_AUTH_CHALLENGE() UserPoolOperation {
 	_init_.Initialize()
 	var returns UserPoolOperation
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolOperation",
+		"aws-cdk-lib.aws_cognito.UserPoolOperation",
 		"CREATE_AUTH_CHALLENGE",
 		&returns,
 	)
@@ -13945,7 +11969,7 @@ func UserPoolOperation_CUSTOM_MESSAGE() UserPoolOperation {
 	_init_.Initialize()
 	var returns UserPoolOperation
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolOperation",
+		"aws-cdk-lib.aws_cognito.UserPoolOperation",
 		"CUSTOM_MESSAGE",
 		&returns,
 	)
@@ -13956,7 +11980,7 @@ func UserPoolOperation_DEFINE_AUTH_CHALLENGE() UserPoolOperation {
 	_init_.Initialize()
 	var returns UserPoolOperation
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolOperation",
+		"aws-cdk-lib.aws_cognito.UserPoolOperation",
 		"DEFINE_AUTH_CHALLENGE",
 		&returns,
 	)
@@ -13967,7 +11991,7 @@ func UserPoolOperation_POST_AUTHENTICATION() UserPoolOperation {
 	_init_.Initialize()
 	var returns UserPoolOperation
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolOperation",
+		"aws-cdk-lib.aws_cognito.UserPoolOperation",
 		"POST_AUTHENTICATION",
 		&returns,
 	)
@@ -13978,7 +12002,7 @@ func UserPoolOperation_POST_CONFIRMATION() UserPoolOperation {
 	_init_.Initialize()
 	var returns UserPoolOperation
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolOperation",
+		"aws-cdk-lib.aws_cognito.UserPoolOperation",
 		"POST_CONFIRMATION",
 		&returns,
 	)
@@ -13989,7 +12013,7 @@ func UserPoolOperation_PRE_AUTHENTICATION() UserPoolOperation {
 	_init_.Initialize()
 	var returns UserPoolOperation
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolOperation",
+		"aws-cdk-lib.aws_cognito.UserPoolOperation",
 		"PRE_AUTHENTICATION",
 		&returns,
 	)
@@ -14000,7 +12024,7 @@ func UserPoolOperation_PRE_SIGN_UP() UserPoolOperation {
 	_init_.Initialize()
 	var returns UserPoolOperation
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolOperation",
+		"aws-cdk-lib.aws_cognito.UserPoolOperation",
 		"PRE_SIGN_UP",
 		&returns,
 	)
@@ -14011,7 +12035,7 @@ func UserPoolOperation_PRE_TOKEN_GENERATION() UserPoolOperation {
 	_init_.Initialize()
 	var returns UserPoolOperation
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolOperation",
+		"aws-cdk-lib.aws_cognito.UserPoolOperation",
 		"PRE_TOKEN_GENERATION",
 		&returns,
 	)
@@ -14022,7 +12046,7 @@ func UserPoolOperation_USER_MIGRATION() UserPoolOperation {
 	_init_.Initialize()
 	var returns UserPoolOperation
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolOperation",
+		"aws-cdk-lib.aws_cognito.UserPoolOperation",
 		"USER_MIGRATION",
 		&returns,
 	)
@@ -14033,7 +12057,7 @@ func UserPoolOperation_VERIFY_AUTH_CHALLENGE_RESPONSE() UserPoolOperation {
 	_init_.Initialize()
 	var returns UserPoolOperation
 	_jsii_.StaticGet(
-		"monocdk.aws_cognito.UserPoolOperation",
+		"aws-cdk-lib.aws_cognito.UserPoolOperation",
 		"VERIFY_AUTH_CHALLENGE_RESPONSE",
 		&returns,
 	)
@@ -14145,7 +12169,7 @@ type UserPoolResourceServer interface {
 	awscdk.Resource
 	IUserPoolResourceServer
 	Env() *awscdk.ResourceEnvironment
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	UserPoolResourceServerId() *string
@@ -14153,13 +12177,7 @@ type UserPoolResourceServer interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for UserPoolResourceServer
@@ -14178,8 +12196,8 @@ func (j *jsiiProxy_UserPoolResourceServer) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_UserPoolResourceServer) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_UserPoolResourceServer) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -14226,7 +12244,7 @@ func NewUserPoolResourceServer(scope constructs.Construct, id *string, props *Us
 	j := jsiiProxy_UserPoolResourceServer{}
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolResourceServer",
+		"aws-cdk-lib.aws_cognito.UserPoolResourceServer",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -14239,7 +12257,7 @@ func NewUserPoolResourceServer_Override(u UserPoolResourceServer, scope construc
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_cognito.UserPoolResourceServer",
+		"aws-cdk-lib.aws_cognito.UserPoolResourceServer",
 		[]interface{}{scope, id, props},
 		u,
 	)
@@ -14253,7 +12271,7 @@ func UserPoolResourceServer_FromUserPoolResourceServerId(scope constructs.Constr
 	var returns IUserPoolResourceServer
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolResourceServer",
+		"aws-cdk-lib.aws_cognito.UserPoolResourceServer",
 		"fromUserPoolResourceServerId",
 		[]interface{}{scope, id, userPoolResourceServerId},
 		&returns,
@@ -14262,15 +12280,17 @@ func UserPoolResourceServer_FromUserPoolResourceServerId(scope constructs.Constr
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func UserPoolResourceServer_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolResourceServer",
+		"aws-cdk-lib.aws_cognito.UserPoolResourceServer",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -14281,13 +12301,13 @@ func UserPoolResourceServer_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func UserPoolResourceServer_IsResource(construct awscdk.IConstruct) *bool {
+func UserPoolResourceServer_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_cognito.UserPoolResourceServer",
+		"aws-cdk-lib.aws_cognito.UserPoolResourceServer",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -14367,86 +12387,6 @@ func (u *jsiiProxy_UserPoolResourceServer) GetResourceNameAttribute(nameAttr *st
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (u *jsiiProxy_UserPoolResourceServer) OnPrepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (u *jsiiProxy_UserPoolResourceServer) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (u *jsiiProxy_UserPoolResourceServer) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (u *jsiiProxy_UserPoolResourceServer) Prepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (u *jsiiProxy_UserPoolResourceServer) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (u *jsiiProxy_UserPoolResourceServer) ToString() *string {
@@ -14455,26 +12395,6 @@ func (u *jsiiProxy_UserPoolResourceServer) ToString() *string {
 	_jsii_.Invoke(
 		u,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (u *jsiiProxy_UserPoolResourceServer) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

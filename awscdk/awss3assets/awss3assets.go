@@ -1,21 +1,21 @@
 package awss3assets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/assets"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/awss3assets/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/assets"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // An asset represents a local file or directory, which is automatically uploaded to S3 and then can be referenced within a CDK application.
 // Experimental.
 type Asset interface {
-	awscdk.Construct
+	constructs.Construct
 	awscdk.IAsset
 	AssetHash() *string
 	AssetPath() *string
@@ -23,7 +23,7 @@ type Asset interface {
 	HttpUrl() *string
 	IsFile() *bool
 	IsZipArchive() *bool
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	S3BucketName() *string
 	S3ObjectKey() *string
 	S3ObjectUrl() *string
@@ -31,18 +31,12 @@ type Asset interface {
 	SourceHash() *string
 	AddResourceMetadata(resource awscdk.CfnResource, resourceProperty *string)
 	GrantRead(grantee awsiam.IGrantable)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for Asset
 type jsiiProxy_Asset struct {
-	internal.Type__awscdkConstruct
+	internal.Type__constructsConstruct
 	internal.Type__awscdkIAsset
 }
 
@@ -106,8 +100,8 @@ func (j *jsiiProxy_Asset) IsZipArchive() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_Asset) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_Asset) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -174,7 +168,7 @@ func NewAsset(scope constructs.Construct, id *string, props *AssetProps) Asset {
 	j := jsiiProxy_Asset{}
 
 	_jsii_.Create(
-		"monocdk.aws_s3_assets.Asset",
+		"aws-cdk-lib.aws_s3_assets.Asset",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -187,21 +181,23 @@ func NewAsset_Override(a Asset, scope constructs.Construct, id *string, props *A
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_s3_assets.Asset",
+		"aws-cdk-lib.aws_s3_assets.Asset",
 		[]interface{}{scope, id, props},
 		a,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func Asset_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_s3_assets.Asset",
+		"aws-cdk-lib.aws_s3_assets.Asset",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -239,86 +235,6 @@ func (a *jsiiProxy_Asset) GrantRead(grantee awsiam.IGrantable) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (a *jsiiProxy_Asset) OnPrepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (a *jsiiProxy_Asset) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (a *jsiiProxy_Asset) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (a *jsiiProxy_Asset) Prepare() {
-	_jsii_.InvokeVoid(
-		a,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (a *jsiiProxy_Asset) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		a,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (a *jsiiProxy_Asset) ToString() *string {
@@ -327,26 +243,6 @@ func (a *jsiiProxy_Asset) ToString() *string {
 	_jsii_.Invoke(
 		a,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (a *jsiiProxy_Asset) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		a,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

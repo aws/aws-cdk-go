@@ -1,24 +1,24 @@
 package pipelines
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awscodebuild"
-	"github.com/aws/aws-cdk-go/awscdk/awscodecommit"
-	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/awscodepipelineactions"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awsecr"
-	"github.com/aws/aws-cdk-go/awscdk/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/awssecretsmanager"
-	"github.com/aws/aws-cdk-go/awscdk/awssns"
-	"github.com/aws/aws-cdk-go/awscdk/cxapi"
-	"github.com/aws/aws-cdk-go/awscdk/pipelines/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodebuild"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodecommit"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipelineactions"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/v2/cxapi"
+	"github.com/aws/aws-cdk-go/awscdk/v2/pipelines/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Options for addManualApproval.
@@ -118,7 +118,7 @@ func NewArtifactMap() ArtifactMap {
 	j := jsiiProxy_ArtifactMap{}
 
 	_jsii_.Create(
-		"monocdk.pipelines.ArtifactMap",
+		"aws-cdk-lib.pipelines.ArtifactMap",
 		nil, // no parameters
 		&j,
 	)
@@ -131,7 +131,7 @@ func NewArtifactMap_Override(a ArtifactMap) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.pipelines.ArtifactMap",
+		"aws-cdk-lib.pipelines.ArtifactMap",
 		nil, // no parameters
 		a,
 	)
@@ -213,25 +213,19 @@ type BaseStageOptions struct {
 // - Using stack outputs later on in the pipeline.
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 type CdkPipeline interface {
-	awscdk.Construct
+	constructs.Construct
 	CodePipeline() awscodepipeline.Pipeline
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	AddApplicationStage(appStage awscdk.Stage, options *AddStageOptions) CdkStage
 	AddStage(stageName *string, options *BaseStageOptions) CdkStage
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
 	StackOutput(cfnOutput awscdk.CfnOutput) StackOutput
 	Stage(stageName *string) awscodepipeline.IStage
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for CdkPipeline
 type jsiiProxy_CdkPipeline struct {
-	internal.Type__awscdkConstruct
+	internal.Type__constructsConstruct
 }
 
 func (j *jsiiProxy_CdkPipeline) CodePipeline() awscodepipeline.Pipeline {
@@ -244,8 +238,8 @@ func (j *jsiiProxy_CdkPipeline) CodePipeline() awscodepipeline.Pipeline {
 	return returns
 }
 
-func (j *jsiiProxy_CdkPipeline) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CdkPipeline) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -262,7 +256,7 @@ func NewCdkPipeline(scope constructs.Construct, id *string, props *CdkPipelinePr
 	j := jsiiProxy_CdkPipeline{}
 
 	_jsii_.Create(
-		"monocdk.pipelines.CdkPipeline",
+		"aws-cdk-lib.pipelines.CdkPipeline",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -275,21 +269,23 @@ func NewCdkPipeline_Override(c CdkPipeline, scope constructs.Construct, id *stri
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.pipelines.CdkPipeline",
+		"aws-cdk-lib.pipelines.CdkPipeline",
 		[]interface{}{scope, id, props},
 		c,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CdkPipeline_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.pipelines.CdkPipeline",
+		"aws-cdk-lib.pipelines.CdkPipeline",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -340,73 +336,6 @@ func (c *jsiiProxy_CdkPipeline) AddStage(stageName *string, options *BaseStageOp
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (c *jsiiProxy_CdkPipeline) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (c *jsiiProxy_CdkPipeline) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (c *jsiiProxy_CdkPipeline) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (c *jsiiProxy_CdkPipeline) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 // Get the StackOutput object that holds this CfnOutput's value in this pipeline.
 //
 // `StackOutput` can be used in validation actions later in the pipeline.
@@ -441,19 +370,6 @@ func (c *jsiiProxy_CdkPipeline) Stage(stageName *string) awscodepipeline.IStage 
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (c *jsiiProxy_CdkPipeline) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 func (c *jsiiProxy_CdkPipeline) ToString() *string {
@@ -462,24 +378,6 @@ func (c *jsiiProxy_CdkPipeline) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate that we don't have any stacks violating dependency order in the pipeline.
-//
-// Our own convenience methods will never generate a pipeline that does that (although
-// this is a nice verification), but a user can also add the stacks by hand.
-// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (c *jsiiProxy_CdkPipeline) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -628,30 +526,24 @@ type CdkStackActionFromArtifactOptions struct {
 // `cdkPipeline.addStage()` instead.
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 type CdkStage interface {
-	awscdk.Construct
-	Node() awscdk.ConstructNode
+	constructs.Construct
+	Node() constructs.Node
 	AddActions(actions ...awscodepipeline.IAction)
 	AddApplication(appStage awscdk.Stage, options *AddStageOptions)
 	AddManualApprovalAction(options *AddManualApprovalOptions)
 	AddStackArtifactDeployment(stackArtifact cxapi.CloudFormationStackArtifact, options *AddStackOptions)
 	DeploysStack(artifactId *string) *bool
 	NextSequentialRunOrder(count *float64) *float64
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for CdkStage
 type jsiiProxy_CdkStage struct {
-	internal.Type__awscdkConstruct
+	internal.Type__constructsConstruct
 }
 
-func (j *jsiiProxy_CdkStage) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CdkStage) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -668,7 +560,7 @@ func NewCdkStage(scope constructs.Construct, id *string, props *CdkStageProps) C
 	j := jsiiProxy_CdkStage{}
 
 	_jsii_.Create(
-		"monocdk.pipelines.CdkStage",
+		"aws-cdk-lib.pipelines.CdkStage",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -681,21 +573,23 @@ func NewCdkStage_Override(c CdkStage, scope constructs.Construct, id *string, pr
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.pipelines.CdkStage",
+		"aws-cdk-lib.pipelines.CdkStage",
 		[]interface{}{scope, id, props},
 		c,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CdkStage_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.pipelines.CdkStage",
+		"aws-cdk-lib.pipelines.CdkStage",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -797,86 +691,6 @@ func (c *jsiiProxy_CdkStage) NextSequentialRunOrder(count *float64) *float64 {
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (c *jsiiProxy_CdkStage) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (c *jsiiProxy_CdkStage) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (c *jsiiProxy_CdkStage) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (c *jsiiProxy_CdkStage) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (c *jsiiProxy_CdkStage) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 func (c *jsiiProxy_CdkStage) ToString() *string {
@@ -885,26 +699,6 @@ func (c *jsiiProxy_CdkStage) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (c *jsiiProxy_CdkStage) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1226,7 +1020,7 @@ func NewCodeBuildStep(id *string, props *CodeBuildStepProps) CodeBuildStep {
 	j := jsiiProxy_CodeBuildStep{}
 
 	_jsii_.Create(
-		"monocdk.pipelines.CodeBuildStep",
+		"aws-cdk-lib.pipelines.CodeBuildStep",
 		[]interface{}{id, props},
 		&j,
 	)
@@ -1239,7 +1033,7 @@ func NewCodeBuildStep_Override(c CodeBuildStep, id *string, props *CodeBuildStep
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.pipelines.CodeBuildStep",
+		"aws-cdk-lib.pipelines.CodeBuildStep",
 		[]interface{}{id, props},
 		c,
 	)
@@ -1458,7 +1252,7 @@ type CodeCommitSourceOptions struct {
 type CodePipeline interface {
 	PipelineBase
 	CloudAssemblyFileSet() FileSet
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Pipeline() awscodepipeline.Pipeline
 	Synth() IFileSetProducer
 	SynthProject() awscodebuild.IProject
@@ -1467,13 +1261,7 @@ type CodePipeline interface {
 	AddWave(id *string, options *WaveOptions) Wave
 	BuildPipeline()
 	DoBuildPipeline()
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for CodePipeline
@@ -1491,8 +1279,8 @@ func (j *jsiiProxy_CodePipeline) CloudAssemblyFileSet() FileSet {
 	return returns
 }
 
-func (j *jsiiProxy_CodePipeline) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CodePipeline) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1549,7 +1337,7 @@ func NewCodePipeline(scope constructs.Construct, id *string, props *CodePipeline
 	j := jsiiProxy_CodePipeline{}
 
 	_jsii_.Create(
-		"monocdk.pipelines.CodePipeline",
+		"aws-cdk-lib.pipelines.CodePipeline",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1562,21 +1350,23 @@ func NewCodePipeline_Override(c CodePipeline, scope constructs.Construct, id *st
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.pipelines.CodePipeline",
+		"aws-cdk-lib.pipelines.CodePipeline",
 		[]interface{}{scope, id, props},
 		c,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CodePipeline_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.pipelines.CodePipeline",
+		"aws-cdk-lib.pipelines.CodePipeline",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1653,86 +1443,6 @@ func (c *jsiiProxy_CodePipeline) DoBuildPipeline() {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CodePipeline) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CodePipeline) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CodePipeline) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CodePipeline) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CodePipeline) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (c *jsiiProxy_CodePipeline) ToString() *string {
@@ -1741,26 +1451,6 @@ func (c *jsiiProxy_CodePipeline) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CodePipeline) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1837,7 +1527,7 @@ func CodePipelineFileSet_FromArtifact(artifact awscodepipeline.Artifact) CodePip
 	var returns CodePipelineFileSet
 
 	_jsii_.StaticInvoke(
-		"monocdk.pipelines.CodePipelineFileSet",
+		"aws-cdk-lib.pipelines.CodePipelineFileSet",
 		"fromArtifact",
 		[]interface{}{artifact},
 		&returns,
@@ -2077,7 +1767,7 @@ func NewCodePipelineSource_Override(c CodePipelineSource, id *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.pipelines.CodePipelineSource",
+		"aws-cdk-lib.pipelines.CodePipelineSource",
 		[]interface{}{id},
 		c,
 	)
@@ -2091,7 +1781,7 @@ func CodePipelineSource_CodeCommit(repository awscodecommit.IRepository, branch 
 	var returns CodePipelineSource
 
 	_jsii_.StaticInvoke(
-		"monocdk.pipelines.CodePipelineSource",
+		"aws-cdk-lib.pipelines.CodePipelineSource",
 		"codeCommit",
 		[]interface{}{repository, branch, props},
 		&returns,
@@ -2127,7 +1817,7 @@ func CodePipelineSource_Connection(repoString *string, branch *string, props *Co
 	var returns CodePipelineSource
 
 	_jsii_.StaticInvoke(
-		"monocdk.pipelines.CodePipelineSource",
+		"aws-cdk-lib.pipelines.CodePipelineSource",
 		"connection",
 		[]interface{}{repoString, branch, props},
 		&returns,
@@ -2162,7 +1852,7 @@ func CodePipelineSource_GitHub(repoString *string, branch *string, props *GitHub
 	var returns CodePipelineSource
 
 	_jsii_.StaticInvoke(
-		"monocdk.pipelines.CodePipelineSource",
+		"aws-cdk-lib.pipelines.CodePipelineSource",
 		"gitHub",
 		[]interface{}{repoString, branch, props},
 		&returns,
@@ -2179,7 +1869,7 @@ func CodePipelineSource_S3(bucket awss3.IBucket, objectKey *string, props *S3Sou
 	var returns CodePipelineSource
 
 	_jsii_.StaticInvoke(
-		"monocdk.pipelines.CodePipelineSource",
+		"aws-cdk-lib.pipelines.CodePipelineSource",
 		"s3",
 		[]interface{}{bucket, objectKey, props},
 		&returns,
@@ -2336,7 +2026,7 @@ func NewConfirmPermissionsBroadening(id *string, props *PermissionsBroadeningChe
 	j := jsiiProxy_ConfirmPermissionsBroadening{}
 
 	_jsii_.Create(
-		"monocdk.pipelines.ConfirmPermissionsBroadening",
+		"aws-cdk-lib.pipelines.ConfirmPermissionsBroadening",
 		[]interface{}{id, props},
 		&j,
 	)
@@ -2349,7 +2039,7 @@ func NewConfirmPermissionsBroadening_Override(c ConfirmPermissionsBroadening, id
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.pipelines.ConfirmPermissionsBroadening",
+		"aws-cdk-lib.pipelines.ConfirmPermissionsBroadening",
 		[]interface{}{id, props},
 		c,
 	)
@@ -2452,7 +2142,7 @@ type DeployCdkStackAction interface {
 	PrepareRunOrder() *float64
 	StackArtifactId() *string
 	StackName() *string
-	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
 }
 
@@ -2529,7 +2219,7 @@ func NewDeployCdkStackAction(props *DeployCdkStackActionProps) DeployCdkStackAct
 	j := jsiiProxy_DeployCdkStackAction{}
 
 	_jsii_.Create(
-		"monocdk.pipelines.DeployCdkStackAction",
+		"aws-cdk-lib.pipelines.DeployCdkStackAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -2542,7 +2232,7 @@ func NewDeployCdkStackAction_Override(d DeployCdkStackAction, props *DeployCdkSt
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.pipelines.DeployCdkStackAction",
+		"aws-cdk-lib.pipelines.DeployCdkStackAction",
 		[]interface{}{props},
 		d,
 	)
@@ -2556,7 +2246,7 @@ func DeployCdkStackAction_FromStackArtifact(scope constructs.Construct, artifact
 	var returns DeployCdkStackAction
 
 	_jsii_.StaticInvoke(
-		"monocdk.pipelines.DeployCdkStackAction",
+		"aws-cdk-lib.pipelines.DeployCdkStackAction",
 		"fromStackArtifact",
 		[]interface{}{scope, artifact, options},
 		&returns,
@@ -2567,7 +2257,7 @@ func DeployCdkStackAction_FromStackArtifact(scope constructs.Construct, artifact
 
 // Exists to implement IAction.
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (d *jsiiProxy_DeployCdkStackAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (d *jsiiProxy_DeployCdkStackAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -2705,7 +2395,7 @@ func NewDockerCredential_Override(d DockerCredential, usages *[]DockerCredential
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.pipelines.DockerCredential",
+		"aws-cdk-lib.pipelines.DockerCredential",
 		[]interface{}{usages},
 		d,
 	)
@@ -2719,7 +2409,7 @@ func DockerCredential_CustomRegistry(registryDomain *string, secret awssecretsma
 	var returns DockerCredential
 
 	_jsii_.StaticInvoke(
-		"monocdk.pipelines.DockerCredential",
+		"aws-cdk-lib.pipelines.DockerCredential",
 		"customRegistry",
 		[]interface{}{registryDomain, secret, opts},
 		&returns,
@@ -2738,7 +2428,7 @@ func DockerCredential_DockerHub(secret awssecretsmanager.ISecret, opts *External
 	var returns DockerCredential
 
 	_jsii_.StaticInvoke(
-		"monocdk.pipelines.DockerCredential",
+		"aws-cdk-lib.pipelines.DockerCredential",
 		"dockerHub",
 		[]interface{}{secret, opts},
 		&returns,
@@ -2761,7 +2451,7 @@ func DockerCredential_Ecr(repositories *[]awsecr.IRepository, opts *EcrDockerCre
 	var returns DockerCredential
 
 	_jsii_.StaticInvoke(
-		"monocdk.pipelines.DockerCredential",
+		"aws-cdk-lib.pipelines.DockerCredential",
 		"ecr",
 		[]interface{}{repositories, opts},
 		&returns,
@@ -2877,7 +2567,7 @@ func NewFileSet(id *string, producer Step) FileSet {
 	j := jsiiProxy_FileSet{}
 
 	_jsii_.Create(
-		"monocdk.pipelines.FileSet",
+		"aws-cdk-lib.pipelines.FileSet",
 		[]interface{}{id, producer},
 		&j,
 	)
@@ -2890,7 +2580,7 @@ func NewFileSet_Override(f FileSet, id *string, producer Step) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.pipelines.FileSet",
+		"aws-cdk-lib.pipelines.FileSet",
 		[]interface{}{id, producer},
 		f,
 	)
@@ -3175,7 +2865,7 @@ func NewManualApprovalStep(id *string, props *ManualApprovalStepProps) ManualApp
 	j := jsiiProxy_ManualApprovalStep{}
 
 	_jsii_.Create(
-		"monocdk.pipelines.ManualApprovalStep",
+		"aws-cdk-lib.pipelines.ManualApprovalStep",
 		[]interface{}{id, props},
 		&j,
 	)
@@ -3188,7 +2878,7 @@ func NewManualApprovalStep_Override(m ManualApprovalStep, id *string, props *Man
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.pipelines.ManualApprovalStep",
+		"aws-cdk-lib.pipelines.ManualApprovalStep",
 		[]interface{}{id, props},
 		m,
 	)
@@ -3265,27 +2955,21 @@ type PermissionsBroadeningCheckProps struct {
 // happens first).
 // Experimental.
 type PipelineBase interface {
-	awscdk.Construct
+	constructs.Construct
 	CloudAssemblyFileSet() FileSet
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Synth() IFileSetProducer
 	Waves() *[]Wave
 	AddStage(stage awscdk.Stage, options *AddStageOpts) StageDeployment
 	AddWave(id *string, options *WaveOptions) Wave
 	BuildPipeline()
 	DoBuildPipeline()
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for PipelineBase
 type jsiiProxy_PipelineBase struct {
-	internal.Type__awscdkConstruct
+	internal.Type__constructsConstruct
 }
 
 func (j *jsiiProxy_PipelineBase) CloudAssemblyFileSet() FileSet {
@@ -3298,8 +2982,8 @@ func (j *jsiiProxy_PipelineBase) CloudAssemblyFileSet() FileSet {
 	return returns
 }
 
-func (j *jsiiProxy_PipelineBase) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_PipelineBase) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -3334,21 +3018,23 @@ func NewPipelineBase_Override(p PipelineBase, scope constructs.Construct, id *st
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.pipelines.PipelineBase",
+		"aws-cdk-lib.pipelines.PipelineBase",
 		[]interface{}{scope, id, props},
 		p,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func PipelineBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.pipelines.PipelineBase",
+		"aws-cdk-lib.pipelines.PipelineBase",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3425,86 +3111,6 @@ func (p *jsiiProxy_PipelineBase) DoBuildPipeline() {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (p *jsiiProxy_PipelineBase) OnPrepare() {
-	_jsii_.InvokeVoid(
-		p,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (p *jsiiProxy_PipelineBase) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		p,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (p *jsiiProxy_PipelineBase) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		p,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (p *jsiiProxy_PipelineBase) Prepare() {
-	_jsii_.InvokeVoid(
-		p,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (p *jsiiProxy_PipelineBase) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		p,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (p *jsiiProxy_PipelineBase) ToString() *string {
@@ -3513,26 +3119,6 @@ func (p *jsiiProxy_PipelineBase) ToString() *string {
 	_jsii_.Invoke(
 		p,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (p *jsiiProxy_PipelineBase) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		p,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3600,25 +3186,19 @@ type ProduceActionOptions struct {
 // be added by the pipeline when you add stacks that use assets.
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 type PublishAssetsAction interface {
-	awscdk.Construct
+	constructs.Construct
 	awscodepipeline.IAction
 	ActionProperties() *awscodepipeline.ActionProperties
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	AddPublishCommand(relativeManifestPath *string, assetSelector *string)
-	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	OnPrepare()
+	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for PublishAssetsAction
 type jsiiProxy_PublishAssetsAction struct {
-	internal.Type__awscdkConstruct
+	internal.Type__constructsConstruct
 	internal.Type__awscodepipelineIAction
 }
 
@@ -3632,8 +3212,8 @@ func (j *jsiiProxy_PublishAssetsAction) ActionProperties() *awscodepipeline.Acti
 	return returns
 }
 
-func (j *jsiiProxy_PublishAssetsAction) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_PublishAssetsAction) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -3650,7 +3230,7 @@ func NewPublishAssetsAction(scope constructs.Construct, id *string, props *Publi
 	j := jsiiProxy_PublishAssetsAction{}
 
 	_jsii_.Create(
-		"monocdk.pipelines.PublishAssetsAction",
+		"aws-cdk-lib.pipelines.PublishAssetsAction",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3663,21 +3243,23 @@ func NewPublishAssetsAction_Override(p PublishAssetsAction, scope constructs.Con
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.pipelines.PublishAssetsAction",
+		"aws-cdk-lib.pipelines.PublishAssetsAction",
 		[]interface{}{scope, id, props},
 		p,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func PublishAssetsAction_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.pipelines.PublishAssetsAction",
+		"aws-cdk-lib.pipelines.PublishAssetsAction",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3700,7 +3282,7 @@ func (p *jsiiProxy_PublishAssetsAction) AddPublishCommand(relativeManifestPath *
 
 // Exists to implement IAction.
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (p *jsiiProxy_PublishAssetsAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (p *jsiiProxy_PublishAssetsAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -3711,23 +3293,6 @@ func (p *jsiiProxy_PublishAssetsAction) Bind(scope awscdk.Construct, stage awsco
 	)
 
 	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (p *jsiiProxy_PublishAssetsAction) OnPrepare() {
-	_jsii_.InvokeVoid(
-		p,
-		"onPrepare",
-		nil, // no parameters
-	)
 }
 
 // Exists to implement IAction.
@@ -3745,69 +3310,6 @@ func (p *jsiiProxy_PublishAssetsAction) OnStateChange(name *string, target awsev
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (p *jsiiProxy_PublishAssetsAction) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		p,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (p *jsiiProxy_PublishAssetsAction) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		p,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (p *jsiiProxy_PublishAssetsAction) Prepare() {
-	_jsii_.InvokeVoid(
-		p,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (p *jsiiProxy_PublishAssetsAction) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		p,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 func (p *jsiiProxy_PublishAssetsAction) ToString() *string {
@@ -3816,26 +3318,6 @@ func (p *jsiiProxy_PublishAssetsAction) ToString() *string {
 	_jsii_.Invoke(
 		p,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (p *jsiiProxy_PublishAssetsAction) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		p,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -3868,7 +3350,7 @@ type PublishAssetsActionProps struct {
 	CreateBuildspecFile *bool `json:"createBuildspecFile"`
 	// Any Dependable construct that the CodeBuild project needs to take a dependency on.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-	Dependable awscdk.IDependable `json:"dependable"`
+	Dependable constructs.IDependable `json:"dependable"`
 	// Additional commands to run before installing cdk-assert Use this to setup proxies or npm mirrors.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	PreInstallCommands *[]*string `json:"preInstallCommands"`
@@ -3912,7 +3394,7 @@ type ShellScriptAction interface {
 	ActionProperties() *awscodepipeline.ActionProperties
 	GrantPrincipal() awsiam.IPrincipal
 	Project() awscodebuild.IProject
-	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
 }
 
@@ -3960,7 +3442,7 @@ func NewShellScriptAction(props *ShellScriptActionProps) ShellScriptAction {
 	j := jsiiProxy_ShellScriptAction{}
 
 	_jsii_.Create(
-		"monocdk.pipelines.ShellScriptAction",
+		"aws-cdk-lib.pipelines.ShellScriptAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -3973,7 +3455,7 @@ func NewShellScriptAction_Override(s ShellScriptAction, props *ShellScriptAction
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.pipelines.ShellScriptAction",
+		"aws-cdk-lib.pipelines.ShellScriptAction",
 		[]interface{}{props},
 		s,
 	)
@@ -3981,7 +3463,7 @@ func NewShellScriptAction_Override(s ShellScriptAction, props *ShellScriptAction
 
 // Exists to implement IAction.
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (s *jsiiProxy_ShellScriptAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (s *jsiiProxy_ShellScriptAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -4219,7 +3701,7 @@ func NewShellStep(id *string, props *ShellStepProps) ShellStep {
 	j := jsiiProxy_ShellStep{}
 
 	_jsii_.Create(
-		"monocdk.pipelines.ShellStep",
+		"aws-cdk-lib.pipelines.ShellStep",
 		[]interface{}{id, props},
 		&j,
 	)
@@ -4232,7 +3714,7 @@ func NewShellStep_Override(s ShellStep, id *string, props *ShellStepProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.pipelines.ShellStep",
+		"aws-cdk-lib.pipelines.ShellStep",
 		[]interface{}{id, props},
 		s,
 	)
@@ -4384,7 +3866,7 @@ type SimpleSynthAction interface {
 	ActionProperties() *awscodepipeline.ActionProperties
 	GrantPrincipal() awsiam.IPrincipal
 	Project() awscodebuild.IProject
-	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
+	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
 }
 
@@ -4432,7 +3914,7 @@ func NewSimpleSynthAction(props *SimpleSynthActionProps) SimpleSynthAction {
 	j := jsiiProxy_SimpleSynthAction{}
 
 	_jsii_.Create(
-		"monocdk.pipelines.SimpleSynthAction",
+		"aws-cdk-lib.pipelines.SimpleSynthAction",
 		[]interface{}{props},
 		&j,
 	)
@@ -4445,7 +3927,7 @@ func NewSimpleSynthAction_Override(s SimpleSynthAction, props *SimpleSynthAction
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.pipelines.SimpleSynthAction",
+		"aws-cdk-lib.pipelines.SimpleSynthAction",
 		[]interface{}{props},
 		s,
 	)
@@ -4463,7 +3945,7 @@ func SimpleSynthAction_StandardNpmSynth(options *StandardNpmSynthOptions) Simple
 	var returns SimpleSynthAction
 
 	_jsii_.StaticInvoke(
-		"monocdk.pipelines.SimpleSynthAction",
+		"aws-cdk-lib.pipelines.SimpleSynthAction",
 		"standardNpmSynth",
 		[]interface{}{options},
 		&returns,
@@ -4484,7 +3966,7 @@ func SimpleSynthAction_StandardYarnSynth(options *StandardYarnSynthOptions) Simp
 	var returns SimpleSynthAction
 
 	_jsii_.StaticInvoke(
-		"monocdk.pipelines.SimpleSynthAction",
+		"aws-cdk-lib.pipelines.SimpleSynthAction",
 		"standardYarnSynth",
 		[]interface{}{options},
 		&returns,
@@ -4495,7 +3977,7 @@ func SimpleSynthAction_StandardYarnSynth(options *StandardYarnSynthOptions) Simp
 
 // Exists to implement IAction.
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (s *jsiiProxy_SimpleSynthAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (s *jsiiProxy_SimpleSynthAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -4907,7 +4389,7 @@ func StackDeployment_FromArtifact(stackArtifact cxapi.CloudFormationStackArtifac
 	var returns StackDeployment
 
 	_jsii_.StaticInvoke(
-		"monocdk.pipelines.StackDeployment",
+		"aws-cdk-lib.pipelines.StackDeployment",
 		"fromArtifact",
 		[]interface{}{stackArtifact},
 		&returns,
@@ -5015,7 +4497,7 @@ func NewStackOutput(artifactFile awscodepipeline.ArtifactPath, outputName *strin
 	j := jsiiProxy_StackOutput{}
 
 	_jsii_.Create(
-		"monocdk.pipelines.StackOutput",
+		"aws-cdk-lib.pipelines.StackOutput",
 		[]interface{}{artifactFile, outputName},
 		&j,
 	)
@@ -5029,7 +4511,7 @@ func NewStackOutput_Override(s StackOutput, artifactFile awscodepipeline.Artifac
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.pipelines.StackOutput",
+		"aws-cdk-lib.pipelines.StackOutput",
 		[]interface{}{artifactFile, outputName},
 		s,
 	)
@@ -5077,7 +4559,7 @@ func StackOutputReference_FromCfnOutput(output awscdk.CfnOutput) StackOutputRefe
 	var returns StackOutputReference
 
 	_jsii_.StaticInvoke(
-		"monocdk.pipelines.StackOutputReference",
+		"aws-cdk-lib.pipelines.StackOutputReference",
 		"fromCfnOutput",
 		[]interface{}{output},
 		&returns,
@@ -5200,7 +4682,7 @@ func StageDeployment_FromStage(stage awscdk.Stage, props *StageDeploymentProps) 
 	var returns StageDeployment
 
 	_jsii_.StaticInvoke(
-		"monocdk.pipelines.StageDeployment",
+		"aws-cdk-lib.pipelines.StageDeployment",
 		"fromStage",
 		[]interface{}{stage, props},
 		&returns,
@@ -5499,7 +4981,7 @@ func NewStep_Override(s Step, id *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.pipelines.Step",
+		"aws-cdk-lib.pipelines.Step",
 		[]interface{}{id},
 		s,
 	)
@@ -5551,24 +5033,18 @@ func (s *jsiiProxy_Step) ToString() *string {
 // be added by the pipeline.
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 type UpdatePipelineAction interface {
-	awscdk.Construct
+	constructs.Construct
 	awscodepipeline.IAction
 	ActionProperties() *awscodepipeline.ActionProperties
-	Node() awscdk.ConstructNode
-	Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	OnPrepare()
+	Node() constructs.Node
+	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
 	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for UpdatePipelineAction
 type jsiiProxy_UpdatePipelineAction struct {
-	internal.Type__awscdkConstruct
+	internal.Type__constructsConstruct
 	internal.Type__awscodepipelineIAction
 }
 
@@ -5582,8 +5058,8 @@ func (j *jsiiProxy_UpdatePipelineAction) ActionProperties() *awscodepipeline.Act
 	return returns
 }
 
-func (j *jsiiProxy_UpdatePipelineAction) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_UpdatePipelineAction) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -5600,7 +5076,7 @@ func NewUpdatePipelineAction(scope constructs.Construct, id *string, props *Upda
 	j := jsiiProxy_UpdatePipelineAction{}
 
 	_jsii_.Create(
-		"monocdk.pipelines.UpdatePipelineAction",
+		"aws-cdk-lib.pipelines.UpdatePipelineAction",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5613,21 +5089,23 @@ func NewUpdatePipelineAction_Override(u UpdatePipelineAction, scope constructs.C
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.pipelines.UpdatePipelineAction",
+		"aws-cdk-lib.pipelines.UpdatePipelineAction",
 		[]interface{}{scope, id, props},
 		u,
 	)
 }
 
-// Return whether the given object is a Construct.
-// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func UpdatePipelineAction_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.pipelines.UpdatePipelineAction",
+		"aws-cdk-lib.pipelines.UpdatePipelineAction",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5638,7 +5116,7 @@ func UpdatePipelineAction_IsConstruct(x interface{}) *bool {
 
 // Exists to implement IAction.
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (u *jsiiProxy_UpdatePipelineAction) Bind(scope awscdk.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
+func (u *jsiiProxy_UpdatePipelineAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
 	var returns *awscodepipeline.ActionConfig
 
 	_jsii_.Invoke(
@@ -5649,23 +5127,6 @@ func (u *jsiiProxy_UpdatePipelineAction) Bind(scope awscdk.Construct, stage awsc
 	)
 
 	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (u *jsiiProxy_UpdatePipelineAction) OnPrepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"onPrepare",
-		nil, // no parameters
-	)
 }
 
 // Exists to implement IAction.
@@ -5683,69 +5144,6 @@ func (u *jsiiProxy_UpdatePipelineAction) OnStateChange(name *string, target awse
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (u *jsiiProxy_UpdatePipelineAction) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (u *jsiiProxy_UpdatePipelineAction) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (u *jsiiProxy_UpdatePipelineAction) Prepare() {
-	_jsii_.InvokeVoid(
-		u,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (u *jsiiProxy_UpdatePipelineAction) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		u,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 func (u *jsiiProxy_UpdatePipelineAction) ToString() *string {
@@ -5754,26 +5152,6 @@ func (u *jsiiProxy_UpdatePipelineAction) ToString() *string {
 	_jsii_.Invoke(
 		u,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-func (u *jsiiProxy_UpdatePipelineAction) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		u,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -5875,7 +5253,7 @@ func NewWave(id *string, props *WaveProps) Wave {
 	j := jsiiProxy_Wave{}
 
 	_jsii_.Create(
-		"monocdk.pipelines.Wave",
+		"aws-cdk-lib.pipelines.Wave",
 		[]interface{}{id, props},
 		&j,
 	)
@@ -5888,7 +5266,7 @@ func NewWave_Override(w Wave, id *string, props *WaveProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.pipelines.Wave",
+		"aws-cdk-lib.pipelines.Wave",
 		[]interface{}{id, props},
 		w,
 	)

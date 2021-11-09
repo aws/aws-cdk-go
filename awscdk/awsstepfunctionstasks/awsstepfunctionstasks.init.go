@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.AcceleratorClass",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AcceleratorClass",
 		reflect.TypeOf((*AcceleratorClass)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "version", GoGetter: "Version"},
@@ -18,7 +18,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.AcceleratorType",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AcceleratorType",
 		reflect.TypeOf((*AcceleratorType)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
@@ -28,7 +28,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.ActionOnFailure",
+		"aws-cdk-lib.aws_stepfunctions_tasks.ActionOnFailure",
 		reflect.TypeOf((*ActionOnFailure)(nil)).Elem(),
 		map[string]interface{}{
 			"TERMINATE_CLUSTER": ActionOnFailure_TERMINATE_CLUSTER,
@@ -37,11 +37,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.AlgorithmSpecification",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AlgorithmSpecification",
 		reflect.TypeOf((*AlgorithmSpecification)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.AssembleWith",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AssembleWith",
 		reflect.TypeOf((*AssembleWith)(nil)).Elem(),
 		map[string]interface{}{
 			"NONE": AssembleWith_NONE,
@@ -49,7 +49,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryExecution",
 		reflect.TypeOf((*AthenaGetQueryExecution)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -80,12 +80,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -97,12 +93,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -112,11 +107,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryExecutionProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryExecutionProps",
 		reflect.TypeOf((*AthenaGetQueryExecutionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryResults",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryResults",
 		reflect.TypeOf((*AthenaGetQueryResults)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -147,12 +142,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -164,12 +155,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -179,11 +169,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.AthenaGetQueryResultsProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaGetQueryResultsProps",
 		reflect.TypeOf((*AthenaGetQueryResultsProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.AthenaStartQueryExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStartQueryExecution",
 		reflect.TypeOf((*AthenaStartQueryExecution)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -214,12 +204,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -231,12 +217,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -246,11 +231,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.AthenaStartQueryExecutionProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStartQueryExecutionProps",
 		reflect.TypeOf((*AthenaStartQueryExecutionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.AthenaStopQueryExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStopQueryExecution",
 		reflect.TypeOf((*AthenaStopQueryExecution)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -281,12 +266,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -298,12 +279,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -313,11 +293,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.AthenaStopQueryExecutionProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AthenaStopQueryExecutionProps",
 		reflect.TypeOf((*AthenaStopQueryExecutionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.AuthType",
+		"aws-cdk-lib.aws_stepfunctions_tasks.AuthType",
 		reflect.TypeOf((*AuthType)(nil)).Elem(),
 		map[string]interface{}{
 			"NO_AUTH": AuthType_NO_AUTH,
@@ -326,15 +306,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.BatchContainerOverrides",
+		"aws-cdk-lib.aws_stepfunctions_tasks.BatchContainerOverrides",
 		reflect.TypeOf((*BatchContainerOverrides)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.BatchJobDependency",
+		"aws-cdk-lib.aws_stepfunctions_tasks.BatchJobDependency",
 		reflect.TypeOf((*BatchJobDependency)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.BatchStrategy",
+		"aws-cdk-lib.aws_stepfunctions_tasks.BatchStrategy",
 		reflect.TypeOf((*BatchStrategy)(nil)).Elem(),
 		map[string]interface{}{
 			"MULTI_RECORD": BatchStrategy_MULTI_RECORD,
@@ -342,7 +322,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.BatchSubmitJob",
+		"aws-cdk-lib.aws_stepfunctions_tasks.BatchSubmitJob",
 		reflect.TypeOf((*BatchSubmitJob)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -373,12 +353,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -390,12 +366,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -405,15 +380,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.BatchSubmitJobProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.BatchSubmitJobProps",
 		reflect.TypeOf((*BatchSubmitJobProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.CallApiGatewayEndpointBaseProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayEndpointBaseProps",
 		reflect.TypeOf((*CallApiGatewayEndpointBaseProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpoint",
 		reflect.TypeOf((*CallApiGatewayHttpApiEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -447,12 +422,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -465,12 +436,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stageName", GoGetter: "StageName"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -480,11 +450,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpointProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayHttpApiEndpointProps",
 		reflect.TypeOf((*CallApiGatewayHttpApiEndpointProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpoint",
 		reflect.TypeOf((*CallApiGatewayRestApiEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -518,12 +488,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -536,12 +502,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "stageName", GoGetter: "StageName"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -551,11 +516,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpointProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallApiGatewayRestApiEndpointProps",
 		reflect.TypeOf((*CallApiGatewayRestApiEndpointProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.CallAwsService",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallAwsService",
 		reflect.TypeOf((*CallAwsService)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -586,12 +551,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -603,12 +564,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -618,15 +578,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.CallAwsServiceProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CallAwsServiceProps",
 		reflect.TypeOf((*CallAwsServiceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.Channel",
+		"aws-cdk-lib.aws_stepfunctions_tasks.Channel",
 		reflect.TypeOf((*Channel)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.CodeBuildStartBuild",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CodeBuildStartBuild",
 		reflect.TypeOf((*CodeBuildStartBuild)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -657,12 +617,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -674,12 +630,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -689,15 +644,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.CodeBuildStartBuildProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CodeBuildStartBuildProps",
 		reflect.TypeOf((*CodeBuildStartBuildProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.CommonEcsRunTaskProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CommonEcsRunTaskProps",
 		reflect.TypeOf((*CommonEcsRunTaskProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.CompressionType",
+		"aws-cdk-lib.aws_stepfunctions_tasks.CompressionType",
 		reflect.TypeOf((*CompressionType)(nil)).Elem(),
 		map[string]interface{}{
 			"NONE": CompressionType_NONE,
@@ -705,7 +660,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.ContainerDefinition",
+		"aws-cdk-lib.aws_stepfunctions_tasks.ContainerDefinition",
 		reflect.TypeOf((*ContainerDefinition)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -717,27 +672,27 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.ContainerDefinitionConfig",
+		"aws-cdk-lib.aws_stepfunctions_tasks.ContainerDefinitionConfig",
 		reflect.TypeOf((*ContainerDefinitionConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.ContainerDefinitionOptions",
+		"aws-cdk-lib.aws_stepfunctions_tasks.ContainerDefinitionOptions",
 		reflect.TypeOf((*ContainerDefinitionOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.ContainerOverride",
+		"aws-cdk-lib.aws_stepfunctions_tasks.ContainerOverride",
 		reflect.TypeOf((*ContainerOverride)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.ContainerOverrides",
+		"aws-cdk-lib.aws_stepfunctions_tasks.ContainerOverrides",
 		reflect.TypeOf((*ContainerOverrides)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.DataSource",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DataSource",
 		reflect.TypeOf((*DataSource)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.DockerImage",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DockerImage",
 		reflect.TypeOf((*DockerImage)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -747,11 +702,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.DockerImageConfig",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DockerImageConfig",
 		reflect.TypeOf((*DockerImageConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.DynamoAttributeValue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoAttributeValue",
 		reflect.TypeOf((*DynamoAttributeValue)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "attributeValue", GoGetter: "AttributeValue"},
@@ -762,7 +717,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.DynamoConsumedCapacity",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoConsumedCapacity",
 		reflect.TypeOf((*DynamoConsumedCapacity)(nil)).Elem(),
 		map[string]interface{}{
 			"INDEXES": DynamoConsumedCapacity_INDEXES,
@@ -771,7 +726,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.DynamoDeleteItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoDeleteItem",
 		reflect.TypeOf((*DynamoDeleteItem)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -802,12 +757,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -819,12 +770,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -834,11 +784,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.DynamoDeleteItemProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoDeleteItemProps",
 		reflect.TypeOf((*DynamoDeleteItemProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.DynamoGetItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoGetItem",
 		reflect.TypeOf((*DynamoGetItem)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -869,12 +819,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -886,12 +832,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -901,11 +846,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.DynamoGetItemProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoGetItemProps",
 		reflect.TypeOf((*DynamoGetItemProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.DynamoItemCollectionMetrics",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoItemCollectionMetrics",
 		reflect.TypeOf((*DynamoItemCollectionMetrics)(nil)).Elem(),
 		map[string]interface{}{
 			"SIZE": DynamoItemCollectionMetrics_SIZE,
@@ -913,7 +858,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.DynamoProjectionExpression",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoProjectionExpression",
 		reflect.TypeOf((*DynamoProjectionExpression)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "atIndex", GoMethod: "AtIndex"},
@@ -925,7 +870,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.DynamoPutItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoPutItem",
 		reflect.TypeOf((*DynamoPutItem)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -956,12 +901,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -973,12 +914,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -988,11 +928,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.DynamoPutItemProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoPutItemProps",
 		reflect.TypeOf((*DynamoPutItemProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.DynamoReturnValues",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoReturnValues",
 		reflect.TypeOf((*DynamoReturnValues)(nil)).Elem(),
 		map[string]interface{}{
 			"NONE": DynamoReturnValues_NONE,
@@ -1003,7 +943,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.DynamoUpdateItem",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoUpdateItem",
 		reflect.TypeOf((*DynamoUpdateItem)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -1034,12 +974,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -1051,12 +987,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -1066,11 +1001,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.DynamoUpdateItemProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.DynamoUpdateItemProps",
 		reflect.TypeOf((*DynamoUpdateItemProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.EcsEc2LaunchTarget",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EcsEc2LaunchTarget",
 		reflect.TypeOf((*EcsEc2LaunchTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1082,11 +1017,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EcsEc2LaunchTargetOptions",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EcsEc2LaunchTargetOptions",
 		reflect.TypeOf((*EcsEc2LaunchTargetOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.EcsFargateLaunchTarget",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EcsFargateLaunchTarget",
 		reflect.TypeOf((*EcsFargateLaunchTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1098,15 +1033,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EcsFargateLaunchTargetOptions",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EcsFargateLaunchTargetOptions",
 		reflect.TypeOf((*EcsFargateLaunchTargetOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EcsLaunchTargetConfig",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EcsLaunchTargetConfig",
 		reflect.TypeOf((*EcsLaunchTargetConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.EcsRunTask",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EcsRunTask",
 		reflect.TypeOf((*EcsRunTask)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -1138,12 +1073,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -1155,12 +1086,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -1171,7 +1101,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.EcsRunTaskBase",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EcsRunTaskBase",
 		reflect.TypeOf((*EcsRunTaskBase)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -1186,15 +1116,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EcsRunTaskBaseProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EcsRunTaskBaseProps",
 		reflect.TypeOf((*EcsRunTaskBaseProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EcsRunTaskProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EcsRunTaskProps",
 		reflect.TypeOf((*EcsRunTaskProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.EksCall",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EksCall",
 		reflect.TypeOf((*EksCall)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -1225,12 +1155,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -1242,12 +1168,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -1257,11 +1182,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EksCallProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EksCallProps",
 		reflect.TypeOf((*EksCallProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.EmrAddStep",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrAddStep",
 		reflect.TypeOf((*EmrAddStep)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -1292,12 +1217,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -1309,12 +1230,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -1324,11 +1244,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrAddStepProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrAddStepProps",
 		reflect.TypeOf((*EmrAddStepProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.EmrCancelStep",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCancelStep",
 		reflect.TypeOf((*EmrCancelStep)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -1359,12 +1279,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -1376,12 +1292,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -1391,11 +1306,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrCancelStepProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCancelStepProps",
 		reflect.TypeOf((*EmrCancelStepProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster",
 		reflect.TypeOf((*EmrCreateCluster)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -1428,12 +1343,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -1446,12 +1357,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "serviceRole", GoGetter: "ServiceRole"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -1461,23 +1371,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.ApplicationConfigProperty",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.ApplicationConfigProperty",
 		reflect.TypeOf((*EmrCreateCluster_ApplicationConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.AutoScalingPolicyProperty",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.AutoScalingPolicyProperty",
 		reflect.TypeOf((*EmrCreateCluster_AutoScalingPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.AutoTerminationPolicyProperty",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.AutoTerminationPolicyProperty",
 		reflect.TypeOf((*EmrCreateCluster_AutoTerminationPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.BootstrapActionConfigProperty",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.BootstrapActionConfigProperty",
 		reflect.TypeOf((*EmrCreateCluster_BootstrapActionConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.CloudWatchAlarmComparisonOperator",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.CloudWatchAlarmComparisonOperator",
 		reflect.TypeOf((*EmrCreateCluster_CloudWatchAlarmComparisonOperator)(nil)).Elem(),
 		map[string]interface{}{
 			"GREATER_THAN_OR_EQUAL": EmrCreateCluster_CloudWatchAlarmComparisonOperator_GREATER_THAN_OR_EQUAL,
@@ -1487,11 +1397,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.CloudWatchAlarmDefinitionProperty",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.CloudWatchAlarmDefinitionProperty",
 		reflect.TypeOf((*EmrCreateCluster_CloudWatchAlarmDefinitionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.CloudWatchAlarmStatistic",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.CloudWatchAlarmStatistic",
 		reflect.TypeOf((*EmrCreateCluster_CloudWatchAlarmStatistic)(nil)).Elem(),
 		map[string]interface{}{
 			"SAMPLE_COUNT": EmrCreateCluster_CloudWatchAlarmStatistic_SAMPLE_COUNT,
@@ -1502,7 +1412,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.CloudWatchAlarmUnit",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.CloudWatchAlarmUnit",
 		reflect.TypeOf((*EmrCreateCluster_CloudWatchAlarmUnit)(nil)).Elem(),
 		map[string]interface{}{
 			"NONE": EmrCreateCluster_CloudWatchAlarmUnit_NONE,
@@ -1535,15 +1445,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.ConfigurationProperty",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.ConfigurationProperty",
 		reflect.TypeOf((*EmrCreateCluster_ConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.EbsBlockDeviceConfigProperty",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.EbsBlockDeviceConfigProperty",
 		reflect.TypeOf((*EmrCreateCluster_EbsBlockDeviceConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.EbsBlockDeviceVolumeType",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.EbsBlockDeviceVolumeType",
 		reflect.TypeOf((*EmrCreateCluster_EbsBlockDeviceVolumeType)(nil)).Elem(),
 		map[string]interface{}{
 			"GP2": EmrCreateCluster_EbsBlockDeviceVolumeType_GP2,
@@ -1552,11 +1462,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.EbsConfigurationProperty",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.EbsConfigurationProperty",
 		reflect.TypeOf((*EmrCreateCluster_EbsConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.EmrClusterScaleDownBehavior",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.EmrClusterScaleDownBehavior",
 		reflect.TypeOf((*EmrCreateCluster_EmrClusterScaleDownBehavior)(nil)).Elem(),
 		map[string]interface{}{
 			"TERMINATE_AT_INSTANCE_HOUR": EmrCreateCluster_EmrClusterScaleDownBehavior_TERMINATE_AT_INSTANCE_HOUR,
@@ -1564,19 +1474,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.InstanceFleetConfigProperty",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.InstanceFleetConfigProperty",
 		reflect.TypeOf((*EmrCreateCluster_InstanceFleetConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.InstanceFleetProvisioningSpecificationsProperty",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.InstanceFleetProvisioningSpecificationsProperty",
 		reflect.TypeOf((*EmrCreateCluster_InstanceFleetProvisioningSpecificationsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.InstanceGroupConfigProperty",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.InstanceGroupConfigProperty",
 		reflect.TypeOf((*EmrCreateCluster_InstanceGroupConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.InstanceMarket",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.InstanceMarket",
 		reflect.TypeOf((*EmrCreateCluster_InstanceMarket)(nil)).Elem(),
 		map[string]interface{}{
 			"ON_DEMAND": EmrCreateCluster_InstanceMarket_ON_DEMAND,
@@ -1584,7 +1494,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.InstanceRoleType",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.InstanceRoleType",
 		reflect.TypeOf((*EmrCreateCluster_InstanceRoleType)(nil)).Elem(),
 		map[string]interface{}{
 			"MASTER": EmrCreateCluster_InstanceRoleType_MASTER,
@@ -1593,31 +1503,31 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.InstanceTypeConfigProperty",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.InstanceTypeConfigProperty",
 		reflect.TypeOf((*EmrCreateCluster_InstanceTypeConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.InstancesConfigProperty",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.InstancesConfigProperty",
 		reflect.TypeOf((*EmrCreateCluster_InstancesConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.KerberosAttributesProperty",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.KerberosAttributesProperty",
 		reflect.TypeOf((*EmrCreateCluster_KerberosAttributesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.MetricDimensionProperty",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.MetricDimensionProperty",
 		reflect.TypeOf((*EmrCreateCluster_MetricDimensionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.PlacementTypeProperty",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.PlacementTypeProperty",
 		reflect.TypeOf((*EmrCreateCluster_PlacementTypeProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.ScalingActionProperty",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.ScalingActionProperty",
 		reflect.TypeOf((*EmrCreateCluster_ScalingActionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.ScalingAdjustmentType",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.ScalingAdjustmentType",
 		reflect.TypeOf((*EmrCreateCluster_ScalingAdjustmentType)(nil)).Elem(),
 		map[string]interface{}{
 			"CHANGE_IN_CAPACITY": EmrCreateCluster_ScalingAdjustmentType_CHANGE_IN_CAPACITY,
@@ -1626,38 +1536,38 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.ScalingConstraintsProperty",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.ScalingConstraintsProperty",
 		reflect.TypeOf((*EmrCreateCluster_ScalingConstraintsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.ScalingRuleProperty",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.ScalingRuleProperty",
 		reflect.TypeOf((*EmrCreateCluster_ScalingRuleProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.ScalingTriggerProperty",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.ScalingTriggerProperty",
 		reflect.TypeOf((*EmrCreateCluster_ScalingTriggerProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.ScriptBootstrapActionConfigProperty",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.ScriptBootstrapActionConfigProperty",
 		reflect.TypeOf((*EmrCreateCluster_ScriptBootstrapActionConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.SimpleScalingPolicyConfigurationProperty",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.SimpleScalingPolicyConfigurationProperty",
 		reflect.TypeOf((*EmrCreateCluster_SimpleScalingPolicyConfigurationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.SpotAllocationStrategy",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.SpotAllocationStrategy",
 		reflect.TypeOf((*EmrCreateCluster_SpotAllocationStrategy)(nil)).Elem(),
 		map[string]interface{}{
 			"CAPACITY_OPTIMIZED": EmrCreateCluster_SpotAllocationStrategy_CAPACITY_OPTIMIZED,
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.SpotProvisioningSpecificationProperty",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.SpotProvisioningSpecificationProperty",
 		reflect.TypeOf((*EmrCreateCluster_SpotProvisioningSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.SpotTimeoutAction",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.SpotTimeoutAction",
 		reflect.TypeOf((*EmrCreateCluster_SpotTimeoutAction)(nil)).Elem(),
 		map[string]interface{}{
 			"SWITCH_TO_ON_DEMAND": EmrCreateCluster_SpotTimeoutAction_SWITCH_TO_ON_DEMAND,
@@ -1665,15 +1575,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.VolumeSpecificationProperty",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster.VolumeSpecificationProperty",
 		reflect.TypeOf((*EmrCreateCluster_VolumeSpecificationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrCreateClusterProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateClusterProps",
 		reflect.TypeOf((*EmrCreateClusterProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceFleetByName",
 		reflect.TypeOf((*EmrModifyInstanceFleetByName)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -1704,12 +1614,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -1721,12 +1627,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -1736,11 +1641,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceFleetByNameProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceFleetByNameProps",
 		reflect.TypeOf((*EmrModifyInstanceFleetByNameProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName",
 		reflect.TypeOf((*EmrModifyInstanceGroupByName)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -1771,12 +1676,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -1788,12 +1689,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -1803,23 +1703,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName.InstanceGroupModifyConfigProperty",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName.InstanceGroupModifyConfigProperty",
 		reflect.TypeOf((*EmrModifyInstanceGroupByName_InstanceGroupModifyConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName.InstanceResizePolicyProperty",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName.InstanceResizePolicyProperty",
 		reflect.TypeOf((*EmrModifyInstanceGroupByName_InstanceResizePolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName.ShrinkPolicyProperty",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceGroupByName.ShrinkPolicyProperty",
 		reflect.TypeOf((*EmrModifyInstanceGroupByName_ShrinkPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrModifyInstanceGroupByNameProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrModifyInstanceGroupByNameProps",
 		reflect.TypeOf((*EmrModifyInstanceGroupByNameProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrSetClusterTerminationProtection",
 		reflect.TypeOf((*EmrSetClusterTerminationProtection)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -1850,12 +1750,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -1867,12 +1763,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -1882,11 +1777,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrSetClusterTerminationProtectionProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrSetClusterTerminationProtectionProps",
 		reflect.TypeOf((*EmrSetClusterTerminationProtectionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.EmrTerminateCluster",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrTerminateCluster",
 		reflect.TypeOf((*EmrTerminateCluster)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -1917,12 +1812,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -1934,12 +1825,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -1949,15 +1839,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EmrTerminateClusterProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrTerminateClusterProps",
 		reflect.TypeOf((*EmrTerminateClusterProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EncryptionConfiguration",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EncryptionConfiguration",
 		reflect.TypeOf((*EncryptionConfiguration)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.EncryptionOption",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EncryptionOption",
 		reflect.TypeOf((*EncryptionOption)(nil)).Elem(),
 		map[string]interface{}{
 			"S3_MANAGED": EncryptionOption_S3_MANAGED,
@@ -1966,7 +1856,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.EvaluateExpression",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EvaluateExpression",
 		reflect.TypeOf((*EvaluateExpression)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -1997,12 +1887,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -2014,12 +1900,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -2029,11 +1914,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EvaluateExpressionProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EvaluateExpressionProps",
 		reflect.TypeOf((*EvaluateExpressionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.EventBridgePutEvents",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EventBridgePutEvents",
 		reflect.TypeOf((*EventBridgePutEvents)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -2064,12 +1949,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -2081,12 +1962,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -2096,15 +1976,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EventBridgePutEventsEntry",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EventBridgePutEventsEntry",
 		reflect.TypeOf((*EventBridgePutEventsEntry)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.EventBridgePutEventsProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.EventBridgePutEventsProps",
 		reflect.TypeOf((*EventBridgePutEventsProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
+		"aws-cdk-lib.aws_stepfunctions_tasks.GlueDataBrewStartJobRun",
 		reflect.TypeOf((*GlueDataBrewStartJobRun)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -2135,12 +2015,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -2152,12 +2028,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -2167,11 +2042,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.GlueDataBrewStartJobRunProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.GlueDataBrewStartJobRunProps",
 		reflect.TypeOf((*GlueDataBrewStartJobRunProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.GlueStartJobRun",
+		"aws-cdk-lib.aws_stepfunctions_tasks.GlueStartJobRun",
 		reflect.TypeOf((*GlueStartJobRun)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -2202,12 +2077,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -2219,12 +2090,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -2234,11 +2104,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.GlueStartJobRunProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.GlueStartJobRunProps",
 		reflect.TypeOf((*GlueStartJobRunProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.HttpMethod",
+		"aws-cdk-lib.aws_stepfunctions_tasks.HttpMethod",
 		reflect.TypeOf((*HttpMethod)(nil)).Elem(),
 		map[string]interface{}{
 			"GET": HttpMethod_GET,
@@ -2251,7 +2121,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.HttpMethods",
+		"aws-cdk-lib.aws_stepfunctions_tasks.HttpMethods",
 		reflect.TypeOf((*HttpMethods)(nil)).Elem(),
 		map[string]interface{}{
 			"GET": HttpMethods_GET,
@@ -2263,7 +2133,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_stepfunctions_tasks.IContainerDefinition",
+		"aws-cdk-lib.aws_stepfunctions_tasks.IContainerDefinition",
 		reflect.TypeOf((*IContainerDefinition)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -2273,7 +2143,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_stepfunctions_tasks.IEcsLaunchTarget",
+		"aws-cdk-lib.aws_stepfunctions_tasks.IEcsLaunchTarget",
 		reflect.TypeOf((*IEcsLaunchTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -2283,7 +2153,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_stepfunctions_tasks.ISageMakerTask",
+		"aws-cdk-lib.aws_stepfunctions_tasks.ISageMakerTask",
 		reflect.TypeOf((*ISageMakerTask)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
@@ -2295,7 +2165,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.InputMode",
+		"aws-cdk-lib.aws_stepfunctions_tasks.InputMode",
 		reflect.TypeOf((*InputMode)(nil)).Elem(),
 		map[string]interface{}{
 			"PIPE": InputMode_PIPE,
@@ -2303,7 +2173,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.InvocationType",
+		"aws-cdk-lib.aws_stepfunctions_tasks.InvocationType",
 		reflect.TypeOf((*InvocationType)(nil)).Elem(),
 		map[string]interface{}{
 			"REQUEST_RESPONSE": InvocationType_REQUEST_RESPONSE,
@@ -2312,7 +2182,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.InvokeActivity",
+		"aws-cdk-lib.aws_stepfunctions_tasks.InvokeActivity",
 		reflect.TypeOf((*InvokeActivity)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -2324,11 +2194,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.InvokeActivityProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.InvokeActivityProps",
 		reflect.TypeOf((*InvokeActivityProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.InvokeFunction",
+		"aws-cdk-lib.aws_stepfunctions_tasks.InvokeFunction",
 		reflect.TypeOf((*InvokeFunction)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -2340,15 +2210,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.InvokeFunctionProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.InvokeFunctionProps",
 		reflect.TypeOf((*InvokeFunctionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.JobDependency",
+		"aws-cdk-lib.aws_stepfunctions_tasks.JobDependency",
 		reflect.TypeOf((*JobDependency)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.LambdaInvocationType",
+		"aws-cdk-lib.aws_stepfunctions_tasks.LambdaInvocationType",
 		reflect.TypeOf((*LambdaInvocationType)(nil)).Elem(),
 		map[string]interface{}{
 			"REQUEST_RESPONSE": LambdaInvocationType_REQUEST_RESPONSE,
@@ -2357,7 +2227,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.LambdaInvoke",
+		"aws-cdk-lib.aws_stepfunctions_tasks.LambdaInvoke",
 		reflect.TypeOf((*LambdaInvoke)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -2388,12 +2258,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -2405,12 +2271,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -2420,19 +2285,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.LambdaInvokeProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.LambdaInvokeProps",
 		reflect.TypeOf((*LambdaInvokeProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.LaunchTargetBindOptions",
+		"aws-cdk-lib.aws_stepfunctions_tasks.LaunchTargetBindOptions",
 		reflect.TypeOf((*LaunchTargetBindOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.MessageAttribute",
+		"aws-cdk-lib.aws_stepfunctions_tasks.MessageAttribute",
 		reflect.TypeOf((*MessageAttribute)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.MessageAttributeDataType",
+		"aws-cdk-lib.aws_stepfunctions_tasks.MessageAttributeDataType",
 		reflect.TypeOf((*MessageAttributeDataType)(nil)).Elem(),
 		map[string]interface{}{
 			"STRING": MessageAttributeDataType_STRING,
@@ -2442,11 +2307,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.MetricDefinition",
+		"aws-cdk-lib.aws_stepfunctions_tasks.MetricDefinition",
 		reflect.TypeOf((*MetricDefinition)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.Mode",
+		"aws-cdk-lib.aws_stepfunctions_tasks.Mode",
 		reflect.TypeOf((*Mode)(nil)).Elem(),
 		map[string]interface{}{
 			"SINGLE_MODEL": Mode_SINGLE_MODEL,
@@ -2454,19 +2319,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.ModelClientOptions",
+		"aws-cdk-lib.aws_stepfunctions_tasks.ModelClientOptions",
 		reflect.TypeOf((*ModelClientOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.OutputDataConfig",
+		"aws-cdk-lib.aws_stepfunctions_tasks.OutputDataConfig",
 		reflect.TypeOf((*OutputDataConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.ProductionVariant",
+		"aws-cdk-lib.aws_stepfunctions_tasks.ProductionVariant",
 		reflect.TypeOf((*ProductionVariant)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.PublishToTopic",
+		"aws-cdk-lib.aws_stepfunctions_tasks.PublishToTopic",
 		reflect.TypeOf((*PublishToTopic)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -2478,15 +2343,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.PublishToTopicProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.PublishToTopicProps",
 		reflect.TypeOf((*PublishToTopicProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.QueryExecutionContext",
+		"aws-cdk-lib.aws_stepfunctions_tasks.QueryExecutionContext",
 		reflect.TypeOf((*QueryExecutionContext)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.RecordWrapperType",
+		"aws-cdk-lib.aws_stepfunctions_tasks.RecordWrapperType",
 		reflect.TypeOf((*RecordWrapperType)(nil)).Elem(),
 		map[string]interface{}{
 			"NONE": RecordWrapperType_NONE,
@@ -2494,15 +2359,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.ResourceConfig",
+		"aws-cdk-lib.aws_stepfunctions_tasks.ResourceConfig",
 		reflect.TypeOf((*ResourceConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.ResultConfiguration",
+		"aws-cdk-lib.aws_stepfunctions_tasks.ResultConfiguration",
 		reflect.TypeOf((*ResultConfiguration)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.RunBatchJob",
+		"aws-cdk-lib.aws_stepfunctions_tasks.RunBatchJob",
 		reflect.TypeOf((*RunBatchJob)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -2514,11 +2379,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.RunBatchJobProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.RunBatchJobProps",
 		reflect.TypeOf((*RunBatchJobProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.RunEcsEc2Task",
+		"aws-cdk-lib.aws_stepfunctions_tasks.RunEcsEc2Task",
 		reflect.TypeOf((*RunEcsEc2Task)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -2532,11 +2397,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.RunEcsEc2TaskProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.RunEcsEc2TaskProps",
 		reflect.TypeOf((*RunEcsEc2TaskProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.RunEcsFargateTask",
+		"aws-cdk-lib.aws_stepfunctions_tasks.RunEcsFargateTask",
 		reflect.TypeOf((*RunEcsFargateTask)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -2550,11 +2415,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.RunEcsFargateTaskProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.RunEcsFargateTaskProps",
 		reflect.TypeOf((*RunEcsFargateTaskProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.RunGlueJobTask",
+		"aws-cdk-lib.aws_stepfunctions_tasks.RunGlueJobTask",
 		reflect.TypeOf((*RunGlueJobTask)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -2566,11 +2431,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.RunGlueJobTaskProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.RunGlueJobTaskProps",
 		reflect.TypeOf((*RunGlueJobTaskProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.RunLambdaTask",
+		"aws-cdk-lib.aws_stepfunctions_tasks.RunLambdaTask",
 		reflect.TypeOf((*RunLambdaTask)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -2582,11 +2447,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.RunLambdaTaskProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.RunLambdaTaskProps",
 		reflect.TypeOf((*RunLambdaTaskProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.S3DataDistributionType",
+		"aws-cdk-lib.aws_stepfunctions_tasks.S3DataDistributionType",
 		reflect.TypeOf((*S3DataDistributionType)(nil)).Elem(),
 		map[string]interface{}{
 			"FULLY_REPLICATED": S3DataDistributionType_FULLY_REPLICATED,
@@ -2594,11 +2459,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.S3DataSource",
+		"aws-cdk-lib.aws_stepfunctions_tasks.S3DataSource",
 		reflect.TypeOf((*S3DataSource)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.S3DataType",
+		"aws-cdk-lib.aws_stepfunctions_tasks.S3DataType",
 		reflect.TypeOf((*S3DataType)(nil)).Elem(),
 		map[string]interface{}{
 			"MANIFEST_FILE": S3DataType_MANIFEST_FILE,
@@ -2607,7 +2472,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.S3Location",
+		"aws-cdk-lib.aws_stepfunctions_tasks.S3Location",
 		reflect.TypeOf((*S3Location)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -2617,15 +2482,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.S3LocationBindOptions",
+		"aws-cdk-lib.aws_stepfunctions_tasks.S3LocationBindOptions",
 		reflect.TypeOf((*S3LocationBindOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.S3LocationConfig",
+		"aws-cdk-lib.aws_stepfunctions_tasks.S3LocationConfig",
 		reflect.TypeOf((*S3LocationConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpoint",
 		reflect.TypeOf((*SageMakerCreateEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -2656,12 +2521,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -2673,12 +2534,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -2688,7 +2548,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpointConfig",
 		reflect.TypeOf((*SageMakerCreateEndpointConfig)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -2719,12 +2579,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -2736,12 +2592,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -2751,15 +2606,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpointConfigProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpointConfigProps",
 		reflect.TypeOf((*SageMakerCreateEndpointConfigProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateEndpointProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateEndpointProps",
 		reflect.TypeOf((*SageMakerCreateEndpointProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateModel",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateModel",
 		reflect.TypeOf((*SageMakerCreateModel)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -2793,12 +2648,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -2811,12 +2662,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -2828,11 +2678,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateModelProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateModelProps",
 		reflect.TypeOf((*SageMakerCreateModelProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTrainingJob",
 		reflect.TypeOf((*SageMakerCreateTrainingJob)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -2866,12 +2716,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -2884,12 +2730,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -2901,11 +2746,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTrainingJobProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTrainingJobProps",
 		reflect.TypeOf((*SageMakerCreateTrainingJobProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTransformJob",
 		reflect.TypeOf((*SageMakerCreateTransformJob)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -2936,12 +2781,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -2954,12 +2795,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -2969,11 +2809,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.SageMakerCreateTransformJobProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerCreateTransformJobProps",
 		reflect.TypeOf((*SageMakerCreateTransformJobProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerUpdateEndpoint",
 		reflect.TypeOf((*SageMakerUpdateEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -3004,12 +2844,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -3021,12 +2857,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -3036,11 +2871,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.SageMakerUpdateEndpointProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerUpdateEndpointProps",
 		reflect.TypeOf((*SageMakerUpdateEndpointProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.SendToQueue",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SendToQueue",
 		reflect.TypeOf((*SendToQueue)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -3052,15 +2887,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.SendToQueueProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SendToQueueProps",
 		reflect.TypeOf((*SendToQueueProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.ShuffleConfig",
+		"aws-cdk-lib.aws_stepfunctions_tasks.ShuffleConfig",
 		reflect.TypeOf((*ShuffleConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.SnsPublish",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SnsPublish",
 		reflect.TypeOf((*SnsPublish)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -3091,12 +2926,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -3108,12 +2939,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -3123,11 +2953,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.SnsPublishProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SnsPublishProps",
 		reflect.TypeOf((*SnsPublishProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_stepfunctions_tasks.SplitType",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SplitType",
 		reflect.TypeOf((*SplitType)(nil)).Elem(),
 		map[string]interface{}{
 			"NONE": SplitType_NONE,
@@ -3137,7 +2967,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.SqsSendMessage",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SqsSendMessage",
 		reflect.TypeOf((*SqsSendMessage)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -3168,12 +2998,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -3185,12 +3011,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -3200,11 +3025,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.SqsSendMessageProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.SqsSendMessageProps",
 		reflect.TypeOf((*SqsSendMessageProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.StartExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.StartExecution",
 		reflect.TypeOf((*StartExecution)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -3216,11 +3041,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.StartExecutionProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.StartExecutionProps",
 		reflect.TypeOf((*StartExecutionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
+		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",
 		reflect.TypeOf((*StepFunctionsInvokeActivity)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -3251,12 +3076,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -3268,12 +3089,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -3283,11 +3103,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.StepFunctionsInvokeActivityProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsInvokeActivityProps",
 		reflect.TypeOf((*StepFunctionsInvokeActivityProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_stepfunctions_tasks.StepFunctionsStartExecution",
+		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsStartExecution",
 		reflect.TypeOf((*StepFunctionsStartExecution)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
@@ -3318,12 +3138,8 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
 			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
 			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
 			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
@@ -3335,12 +3151,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
 			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
 			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
 			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
 			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
 			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
 		},
 		func() interface{} {
@@ -3350,39 +3165,39 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.StepFunctionsStartExecutionProps",
+		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsStartExecutionProps",
 		reflect.TypeOf((*StepFunctionsStartExecutionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.StoppingCondition",
+		"aws-cdk-lib.aws_stepfunctions_tasks.StoppingCondition",
 		reflect.TypeOf((*StoppingCondition)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.TaskEnvironmentVariable",
+		"aws-cdk-lib.aws_stepfunctions_tasks.TaskEnvironmentVariable",
 		reflect.TypeOf((*TaskEnvironmentVariable)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.TransformDataSource",
+		"aws-cdk-lib.aws_stepfunctions_tasks.TransformDataSource",
 		reflect.TypeOf((*TransformDataSource)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.TransformInput",
+		"aws-cdk-lib.aws_stepfunctions_tasks.TransformInput",
 		reflect.TypeOf((*TransformInput)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.TransformOutput",
+		"aws-cdk-lib.aws_stepfunctions_tasks.TransformOutput",
 		reflect.TypeOf((*TransformOutput)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.TransformResources",
+		"aws-cdk-lib.aws_stepfunctions_tasks.TransformResources",
 		reflect.TypeOf((*TransformResources)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.TransformS3DataSource",
+		"aws-cdk-lib.aws_stepfunctions_tasks.TransformS3DataSource",
 		reflect.TypeOf((*TransformS3DataSource)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_stepfunctions_tasks.VpcConfig",
+		"aws-cdk-lib.aws_stepfunctions_tasks.VpcConfig",
 		reflect.TypeOf((*VpcConfig)(nil)).Elem(),
 	)
 }
