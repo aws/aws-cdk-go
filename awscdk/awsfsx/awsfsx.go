@@ -1,14 +1,14 @@
 package awsfsx
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsfsx/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsfsx/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awskms"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::FSx::FileSystem`.
@@ -25,12 +25,16 @@ type CfnFileSystem interface {
 	CreationStack() *[]*string
 	FileSystemType() *string
 	SetFileSystemType(val *string)
+	FileSystemTypeVersion() *string
+	SetFileSystemTypeVersion(val *string)
 	KmsKeyId() *string
 	SetKmsKeyId(val *string)
 	LogicalId() *string
 	LustreConfiguration() interface{}
 	SetLustreConfiguration(val interface{})
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
+	OntapConfiguration() interface{}
+	SetOntapConfiguration(val interface{})
 	Ref() *string
 	SecurityGroupIds() *[]*string
 	SetSecurityGroupIds(val *[]*string)
@@ -55,10 +59,16 @@ type CfnFileSystem interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -148,6 +158,16 @@ func (j *jsiiProxy_CfnFileSystem) FileSystemType() *string {
 	return returns
 }
 
+func (j *jsiiProxy_CfnFileSystem) FileSystemTypeVersion() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"fileSystemTypeVersion",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnFileSystem) KmsKeyId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -178,11 +198,21 @@ func (j *jsiiProxy_CfnFileSystem) LustreConfiguration() interface{} {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFileSystem) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnFileSystem) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnFileSystem) OntapConfiguration() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"ontapConfiguration",
 		&returns,
 	)
 	return returns
@@ -280,13 +310,13 @@ func (j *jsiiProxy_CfnFileSystem) WindowsConfiguration() interface{} {
 
 
 // Create a new `AWS::FSx::FileSystem`.
-func NewCfnFileSystem(scope constructs.Construct, id *string, props *CfnFileSystemProps) CfnFileSystem {
+func NewCfnFileSystem(scope awscdk.Construct, id *string, props *CfnFileSystemProps) CfnFileSystem {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnFileSystem{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_fsx.CfnFileSystem",
+		"monocdk.aws_fsx.CfnFileSystem",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -295,11 +325,11 @@ func NewCfnFileSystem(scope constructs.Construct, id *string, props *CfnFileSyst
 }
 
 // Create a new `AWS::FSx::FileSystem`.
-func NewCfnFileSystem_Override(c CfnFileSystem, scope constructs.Construct, id *string, props *CfnFileSystemProps) {
+func NewCfnFileSystem_Override(c CfnFileSystem, scope awscdk.Construct, id *string, props *CfnFileSystemProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_fsx.CfnFileSystem",
+		"monocdk.aws_fsx.CfnFileSystem",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -321,6 +351,14 @@ func (j *jsiiProxy_CfnFileSystem) SetFileSystemType(val *string) {
 	)
 }
 
+func (j *jsiiProxy_CfnFileSystem) SetFileSystemTypeVersion(val *string) {
+	_jsii_.Set(
+		j,
+		"fileSystemTypeVersion",
+		val,
+	)
+}
+
 func (j *jsiiProxy_CfnFileSystem) SetKmsKeyId(val *string) {
 	_jsii_.Set(
 		j,
@@ -333,6 +371,14 @@ func (j *jsiiProxy_CfnFileSystem) SetLustreConfiguration(val interface{}) {
 	_jsii_.Set(
 		j,
 		"lustreConfiguration",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnFileSystem) SetOntapConfiguration(val interface{}) {
+	_jsii_.Set(
+		j,
+		"ontapConfiguration",
 		val,
 	)
 }
@@ -390,7 +436,7 @@ func CfnFileSystem_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_fsx.CfnFileSystem",
+		"monocdk.aws_fsx.CfnFileSystem",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -407,7 +453,7 @@ func CfnFileSystem_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_fsx.CfnFileSystem",
+		"monocdk.aws_fsx.CfnFileSystem",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -416,17 +462,15 @@ func CfnFileSystem_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnFileSystem_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_fsx.CfnFileSystem",
+		"monocdk.aws_fsx.CfnFileSystem",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -439,7 +483,7 @@ func CfnFileSystem_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_fsx.CfnFileSystem",
+		"monocdk.aws_fsx.CfnFileSystem",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -619,6 +663,56 @@ func (c *jsiiProxy_CfnFileSystem) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnFileSystem) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnFileSystem) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnFileSystem) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnFileSystem) OverrideLogicalId(newLogicalId *string) {
@@ -626,6 +720,23 @@ func (c *jsiiProxy_CfnFileSystem) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnFileSystem) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -660,6 +771,19 @@ func (c *jsiiProxy_CfnFileSystem) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnFileSystem) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -670,6 +794,26 @@ func (c *jsiiProxy_CfnFileSystem) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnFileSystem) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -693,6 +837,13 @@ type CfnFileSystem_AuditLogConfigurationProperty struct {
 	FileShareAccessAuditLogLevel *string `json:"fileShareAccessAuditLogLevel"`
 	// `CfnFileSystem.AuditLogConfigurationProperty.AuditLogDestination`.
 	AuditLogDestination *string `json:"auditLogDestination"`
+}
+
+type CfnFileSystem_DiskIopsConfigurationProperty struct {
+	// `CfnFileSystem.DiskIopsConfigurationProperty.Iops`.
+	Iops *float64 `json:"iops"`
+	// `CfnFileSystem.DiskIopsConfigurationProperty.Mode`.
+	Mode *string `json:"mode"`
 }
 
 type CfnFileSystem_LustreConfigurationProperty struct {
@@ -719,6 +870,29 @@ type CfnFileSystem_LustreConfigurationProperty struct {
 	// `CfnFileSystem.LustreConfigurationProperty.PerUnitStorageThroughput`.
 	PerUnitStorageThroughput *float64 `json:"perUnitStorageThroughput"`
 	// `CfnFileSystem.LustreConfigurationProperty.WeeklyMaintenanceStartTime`.
+	WeeklyMaintenanceStartTime *string `json:"weeklyMaintenanceStartTime"`
+}
+
+type CfnFileSystem_OntapConfigurationProperty struct {
+	// `CfnFileSystem.OntapConfigurationProperty.DeploymentType`.
+	DeploymentType *string `json:"deploymentType"`
+	// `CfnFileSystem.OntapConfigurationProperty.AutomaticBackupRetentionDays`.
+	AutomaticBackupRetentionDays *float64 `json:"automaticBackupRetentionDays"`
+	// `CfnFileSystem.OntapConfigurationProperty.DailyAutomaticBackupStartTime`.
+	DailyAutomaticBackupStartTime *string `json:"dailyAutomaticBackupStartTime"`
+	// `CfnFileSystem.OntapConfigurationProperty.DiskIopsConfiguration`.
+	DiskIopsConfiguration interface{} `json:"diskIopsConfiguration"`
+	// `CfnFileSystem.OntapConfigurationProperty.EndpointIpAddressRange`.
+	EndpointIpAddressRange *string `json:"endpointIpAddressRange"`
+	// `CfnFileSystem.OntapConfigurationProperty.FsxAdminPassword`.
+	FsxAdminPassword *string `json:"fsxAdminPassword"`
+	// `CfnFileSystem.OntapConfigurationProperty.PreferredSubnetId`.
+	PreferredSubnetId *string `json:"preferredSubnetId"`
+	// `CfnFileSystem.OntapConfigurationProperty.RouteTableIds`.
+	RouteTableIds *[]*string `json:"routeTableIds"`
+	// `CfnFileSystem.OntapConfigurationProperty.ThroughputCapacity`.
+	ThroughputCapacity *float64 `json:"throughputCapacity"`
+	// `CfnFileSystem.OntapConfigurationProperty.WeeklyMaintenanceStartTime`.
 	WeeklyMaintenanceStartTime *string `json:"weeklyMaintenanceStartTime"`
 }
 
@@ -770,10 +944,14 @@ type CfnFileSystemProps struct {
 	SubnetIds *[]*string `json:"subnetIds"`
 	// `AWS::FSx::FileSystem.BackupId`.
 	BackupId *string `json:"backupId"`
+	// `AWS::FSx::FileSystem.FileSystemTypeVersion`.
+	FileSystemTypeVersion *string `json:"fileSystemTypeVersion"`
 	// `AWS::FSx::FileSystem.KmsKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
 	// `AWS::FSx::FileSystem.LustreConfiguration`.
 	LustreConfiguration interface{} `json:"lustreConfiguration"`
+	// `AWS::FSx::FileSystem.OntapConfiguration`.
+	OntapConfiguration interface{} `json:"ontapConfiguration"`
 	// `AWS::FSx::FileSystem.SecurityGroupIds`.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
 	// `AWS::FSx::FileSystem.StorageCapacity`.
@@ -809,14 +987,20 @@ type FileSystemBase interface {
 	DnsName() *string
 	Env() *awscdk.ResourceEnvironment
 	FileSystemId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for FileSystemBase
@@ -865,8 +1049,8 @@ func (j *jsiiProxy_FileSystemBase) FileSystemId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_FileSystemBase) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_FileSystemBase) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -901,23 +1085,21 @@ func NewFileSystemBase_Override(f FileSystemBase, scope constructs.Construct, id
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_fsx.FileSystemBase",
+		"monocdk.aws_fsx.FileSystemBase",
 		[]interface{}{scope, id, props},
 		f,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func FileSystemBase_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_fsx.FileSystemBase",
+		"monocdk.aws_fsx.FileSystemBase",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -928,13 +1110,13 @@ func FileSystemBase_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func FileSystemBase_IsResource(construct constructs.IConstruct) *bool {
+func FileSystemBase_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_fsx.FileSystemBase",
+		"monocdk.aws_fsx.FileSystemBase",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -1014,6 +1196,86 @@ func (f *jsiiProxy_FileSystemBase) GetResourceNameAttribute(nameAttr *string) *s
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (f *jsiiProxy_FileSystemBase) OnPrepare() {
+	_jsii_.InvokeVoid(
+		f,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (f *jsiiProxy_FileSystemBase) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		f,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (f *jsiiProxy_FileSystemBase) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		f,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (f *jsiiProxy_FileSystemBase) Prepare() {
+	_jsii_.InvokeVoid(
+		f,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (f *jsiiProxy_FileSystemBase) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		f,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (f *jsiiProxy_FileSystemBase) ToString() *string {
@@ -1022,6 +1284,26 @@ func (f *jsiiProxy_FileSystemBase) ToString() *string {
 	_jsii_.Invoke(
 		f,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (f *jsiiProxy_FileSystemBase) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		f,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1148,14 +1430,20 @@ type LustreFileSystem interface {
 	Env() *awscdk.ResourceEnvironment
 	FileSystemId() *string
 	MountName() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for LustreFileSystem
@@ -1213,8 +1501,8 @@ func (j *jsiiProxy_LustreFileSystem) MountName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_LustreFileSystem) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_LustreFileSystem) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1251,7 +1539,7 @@ func NewLustreFileSystem(scope constructs.Construct, id *string, props *LustreFi
 	j := jsiiProxy_LustreFileSystem{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_fsx.LustreFileSystem",
+		"monocdk.aws_fsx.LustreFileSystem",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1264,7 +1552,7 @@ func NewLustreFileSystem_Override(l LustreFileSystem, scope constructs.Construct
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_fsx.LustreFileSystem",
+		"monocdk.aws_fsx.LustreFileSystem",
 		[]interface{}{scope, id, props},
 		l,
 	)
@@ -1278,7 +1566,7 @@ func LustreFileSystem_FromLustreFileSystemAttributes(scope constructs.Construct,
 	var returns IFileSystem
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_fsx.LustreFileSystem",
+		"monocdk.aws_fsx.LustreFileSystem",
 		"fromLustreFileSystemAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -1287,17 +1575,15 @@ func LustreFileSystem_FromLustreFileSystemAttributes(scope constructs.Construct,
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func LustreFileSystem_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_fsx.LustreFileSystem",
+		"monocdk.aws_fsx.LustreFileSystem",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1308,13 +1594,13 @@ func LustreFileSystem_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func LustreFileSystem_IsResource(construct constructs.IConstruct) *bool {
+func LustreFileSystem_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_fsx.LustreFileSystem",
+		"monocdk.aws_fsx.LustreFileSystem",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -1394,6 +1680,86 @@ func (l *jsiiProxy_LustreFileSystem) GetResourceNameAttribute(nameAttr *string) 
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (l *jsiiProxy_LustreFileSystem) OnPrepare() {
+	_jsii_.InvokeVoid(
+		l,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (l *jsiiProxy_LustreFileSystem) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		l,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (l *jsiiProxy_LustreFileSystem) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		l,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (l *jsiiProxy_LustreFileSystem) Prepare() {
+	_jsii_.InvokeVoid(
+		l,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (l *jsiiProxy_LustreFileSystem) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		l,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (l *jsiiProxy_LustreFileSystem) ToString() *string {
@@ -1402,6 +1768,26 @@ func (l *jsiiProxy_LustreFileSystem) ToString() *string {
 	_jsii_.Invoke(
 		l,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (l *jsiiProxy_LustreFileSystem) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		l,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -1462,7 +1848,7 @@ func NewLustreMaintenanceTime(props *LustreMaintenanceTimeProps) LustreMaintenan
 	j := jsiiProxy_LustreMaintenanceTime{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_fsx.LustreMaintenanceTime",
+		"monocdk.aws_fsx.LustreMaintenanceTime",
 		[]interface{}{props},
 		&j,
 	)
@@ -1475,7 +1861,7 @@ func NewLustreMaintenanceTime_Override(l LustreMaintenanceTime, props *LustreMai
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_fsx.LustreMaintenanceTime",
+		"monocdk.aws_fsx.LustreMaintenanceTime",
 		[]interface{}{props},
 		l,
 	)

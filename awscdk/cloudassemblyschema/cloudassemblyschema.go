@@ -1,7 +1,7 @@
 package cloudassemblyschema
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
@@ -14,23 +14,20 @@ type AmiContextQuery struct {
 	// Filters to DescribeImages call.
 	// Experimental.
 	Filters *map[string]*[]*string `json:"filters"`
-	// Region to query.
-	// Experimental.
-	Region *string `json:"region"`
 	// The ARN of the role that should be used to look up the missing values.
 	// Experimental.
 	LookupRoleArn *string `json:"lookupRoleArn"`
 	// Owners to DescribeImages call.
 	// Experimental.
 	Owners *[]*string `json:"owners"`
+	// Region to query.
+	// Experimental.
+	Region *string `json:"region"`
 }
 
 // A manifest for a single artifact within the cloud assembly.
 // Experimental.
 type ArtifactManifest struct {
-	// The type of artifact.
-	// Experimental.
-	Type ArtifactType `json:"type"`
 	// IDs of artifacts that must be deployed before this artifact.
 	// Experimental.
 	Dependencies *[]*string `json:"dependencies"`
@@ -48,6 +45,9 @@ type ArtifactManifest struct {
 	// The set of properties for this artifact (depends on type).
 	// Experimental.
 	Properties interface{} `json:"properties"`
+	// The type of artifact.
+	// Experimental.
+	Type ArtifactType `json:"type"`
 }
 
 // Type of artifact metadata entry.
@@ -68,19 +68,16 @@ const (
 type ArtifactType string
 
 const (
-	ArtifactType_NONE ArtifactType = "NONE"
+	ArtifactType_ASSET_MANIFEST ArtifactType = "ASSET_MANIFEST"
 	ArtifactType_AWS_CLOUDFORMATION_STACK ArtifactType = "AWS_CLOUDFORMATION_STACK"
 	ArtifactType_CDK_TREE ArtifactType = "CDK_TREE"
-	ArtifactType_ASSET_MANIFEST ArtifactType = "ASSET_MANIFEST"
 	ArtifactType_NESTED_CLOUD_ASSEMBLY ArtifactType = "NESTED_CLOUD_ASSEMBLY"
+	ArtifactType_NONE ArtifactType = "NONE"
 )
 
 // A manifest which describes the cloud assembly.
 // Experimental.
 type AssemblyManifest struct {
-	// Protocol version.
-	// Experimental.
-	Version *string `json:"version"`
 	// The set of artifacts in this assembly.
 	// Experimental.
 	Artifacts *map[string]*ArtifactManifest `json:"artifacts"`
@@ -93,6 +90,9 @@ type AssemblyManifest struct {
 	// Runtime information.
 	// Experimental.
 	Runtime *RuntimeInfo `json:"runtime"`
+	// Protocol version.
+	// Experimental.
+	Version *string `json:"version"`
 }
 
 // Definitions for the asset manifest.
@@ -112,9 +112,6 @@ type AssetManifest struct {
 // Artifact properties for the Asset Manifest.
 // Experimental.
 type AssetManifestProperties struct {
-	// Filename of the asset manifest.
-	// Experimental.
-	File *string `json:"file"`
 	// SSM parameter where the bootstrap stack version number can be found.
 	//
 	// - If this value is not set, the bootstrap stack name must be known at
@@ -124,6 +121,9 @@ type AssetManifestProperties struct {
 	//    we won't need to look it up.
 	// Experimental.
 	BootstrapStackVersionSsmParameter *string `json:"bootstrapStackVersionSsmParameter"`
+	// Filename of the asset manifest.
+	// Experimental.
+	File *string `json:"file"`
 	// Version of bootstrap stack required to deploy this stack.
 	// Experimental.
 	RequiresBootstrapStackVersion *float64 `json:"requiresBootstrapStackVersion"`
@@ -135,20 +135,17 @@ type AvailabilityZonesContextQuery struct {
 	// Query account.
 	// Experimental.
 	Account *string `json:"account"`
-	// Query region.
-	// Experimental.
-	Region *string `json:"region"`
 	// The ARN of the role that should be used to look up the missing values.
 	// Experimental.
 	LookupRoleArn *string `json:"lookupRoleArn"`
+	// Query region.
+	// Experimental.
+	Region *string `json:"region"`
 }
 
 // Artifact properties for CloudFormation stacks.
 // Experimental.
 type AwsCloudFormationStackProperties struct {
-	// A file relative to the assembly root which contains the CloudFormation template for this stack.
-	// Experimental.
-	TemplateFile *string `json:"templateFile"`
 	// The role that needs to be assumed to deploy the stack.
 	// Experimental.
 	AssumeRoleArn *string `json:"assumeRoleArn"`
@@ -184,6 +181,9 @@ type AwsCloudFormationStackProperties struct {
 	// Values for CloudFormation stack tags that should be passed when the stack is deployed.
 	// Experimental.
 	Tags *map[string]*string `json:"tags"`
+	// A file relative to the assembly root which contains the CloudFormation template for this stack.
+	// Experimental.
+	TemplateFile *string `json:"templateFile"`
 	// Whether to enable termination protection for this stack.
 	// Experimental.
 	TerminationProtection *bool `json:"terminationProtection"`
@@ -209,24 +209,15 @@ type AwsDestination struct {
 // Metadata Entry spec for container images.
 // Experimental.
 type ContainerImageAssetMetadataEntry struct {
-	// Logical identifier for the asset.
-	// Experimental.
-	Id *string `json:"id"`
-	// Type of asset.
-	// Experimental.
-	Packaging *string `json:"packaging"`
-	// Path on disk to the asset.
-	// Experimental.
-	Path *string `json:"path"`
-	// The hash of the asset source.
-	// Experimental.
-	SourceHash *string `json:"sourceHash"`
 	// Build args to pass to the `docker build` command.
 	// Experimental.
 	BuildArgs *map[string]*string `json:"buildArgs"`
 	// Path to the Dockerfile (relative to the directory).
 	// Experimental.
 	File *string `json:"file"`
+	// Logical identifier for the asset.
+	// Experimental.
+	Id *string `json:"id"`
 	// ECR Repository name and repo digest (separated by "@sha256:") where this image is stored.
 	// Deprecated: specify `repositoryName` and `imageTag` instead, and then you
 	// know where the image will go.
@@ -238,6 +229,12 @@ type ContainerImageAssetMetadataEntry struct {
 	// able to find the image).
 	// Experimental.
 	ImageTag *string `json:"imageTag"`
+	// Type of asset.
+	// Experimental.
+	Packaging *string `json:"packaging"`
+	// Path on disk to the asset.
+	// Experimental.
+	Path *string `json:"path"`
 	// ECR repository name, if omitted a default name based on the asset's ID is used instead.
 	//
 	// Specify this property if you need to statically address the
@@ -245,6 +242,9 @@ type ContainerImageAssetMetadataEntry struct {
 	// without the registry and the tag parts.
 	// Experimental.
 	RepositoryName *string `json:"repositoryName"`
+	// The hash of the asset source.
+	// Experimental.
+	SourceHash *string `json:"sourceHash"`
 	// Docker target to build to.
 	// Experimental.
 	Target *string `json:"target"`
@@ -257,14 +257,14 @@ type ContextProvider string
 const (
 	ContextProvider_AMI_PROVIDER ContextProvider = "AMI_PROVIDER"
 	ContextProvider_AVAILABILITY_ZONE_PROVIDER ContextProvider = "AVAILABILITY_ZONE_PROVIDER"
+	ContextProvider_ENDPOINT_SERVICE_AVAILABILITY_ZONE_PROVIDER ContextProvider = "ENDPOINT_SERVICE_AVAILABILITY_ZONE_PROVIDER"
 	ContextProvider_HOSTED_ZONE_PROVIDER ContextProvider = "HOSTED_ZONE_PROVIDER"
+	ContextProvider_KEY_PROVIDER ContextProvider = "KEY_PROVIDER"
+	ContextProvider_LOAD_BALANCER_LISTENER_PROVIDER ContextProvider = "LOAD_BALANCER_LISTENER_PROVIDER"
+	ContextProvider_LOAD_BALANCER_PROVIDER ContextProvider = "LOAD_BALANCER_PROVIDER"
+	ContextProvider_SECURITY_GROUP_PROVIDER ContextProvider = "SECURITY_GROUP_PROVIDER"
 	ContextProvider_SSM_PARAMETER_PROVIDER ContextProvider = "SSM_PARAMETER_PROVIDER"
 	ContextProvider_VPC_PROVIDER ContextProvider = "VPC_PROVIDER"
-	ContextProvider_ENDPOINT_SERVICE_AVAILABILITY_ZONE_PROVIDER ContextProvider = "ENDPOINT_SERVICE_AVAILABILITY_ZONE_PROVIDER"
-	ContextProvider_LOAD_BALANCER_PROVIDER ContextProvider = "LOAD_BALANCER_PROVIDER"
-	ContextProvider_LOAD_BALANCER_LISTENER_PROVIDER ContextProvider = "LOAD_BALANCER_LISTENER_PROVIDER"
-	ContextProvider_SECURITY_GROUP_PROVIDER ContextProvider = "SECURITY_GROUP_PROVIDER"
-	ContextProvider_KEY_PROVIDER ContextProvider = "KEY_PROVIDER"
 )
 
 // A file asset.
@@ -332,15 +332,15 @@ type EndpointServiceAvailabilityZonesContextQuery struct {
 	// Query account.
 	// Experimental.
 	Account *string `json:"account"`
+	// The ARN of the role that should be used to look up the missing values.
+	// Experimental.
+	LookupRoleArn *string `json:"lookupRoleArn"`
 	// Query region.
 	// Experimental.
 	Region *string `json:"region"`
 	// Query service name.
 	// Experimental.
 	ServiceName *string `json:"serviceName"`
-	// The ARN of the role that should be used to look up the missing values.
-	// Experimental.
-	LookupRoleArn *string `json:"lookupRoleArn"`
 }
 
 // A file asset.
@@ -436,15 +436,15 @@ type HostedZoneContextQuery struct {
 	// The domain name e.g. example.com to lookup.
 	// Experimental.
 	DomainName *string `json:"domainName"`
-	// Query region.
-	// Experimental.
-	Region *string `json:"region"`
 	// The ARN of the role that should be used to look up the missing values.
 	// Experimental.
 	LookupRoleArn *string `json:"lookupRoleArn"`
 	// True if the zone you want to find is a private hosted zone.
 	// Experimental.
 	PrivateZone *bool `json:"privateZone"`
+	// Query region.
+	// Experimental.
+	Region *string `json:"region"`
 	// The VPC ID to that the private zone must be associated with.
 	//
 	// If you provide VPC ID and privateZone is false, this will return no results
@@ -462,69 +462,66 @@ type KeyContextQuery struct {
 	// Alias name used to search the Key.
 	// Experimental.
 	AliasName *string `json:"aliasName"`
-	// Query region.
-	// Experimental.
-	Region *string `json:"region"`
 	// The ARN of the role that should be used to look up the missing values.
 	// Experimental.
 	LookupRoleArn *string `json:"lookupRoleArn"`
+	// Query region.
+	// Experimental.
+	Region *string `json:"region"`
 }
 
 // Query input for looking up a load balancer.
 // Experimental.
 type LoadBalancerContextQuery struct {
-	// Filter load balancers by their type.
-	// Experimental.
-	LoadBalancerType LoadBalancerType `json:"loadBalancerType"`
 	// Find by load balancer's ARN.
 	// Experimental.
 	LoadBalancerArn *string `json:"loadBalancerArn"`
 	// Match load balancer tags.
 	// Experimental.
 	LoadBalancerTags *[]*Tag `json:"loadBalancerTags"`
+	// Filter load balancers by their type.
+	// Experimental.
+	LoadBalancerType LoadBalancerType `json:"loadBalancerType"`
 	// Query account.
 	// Experimental.
 	Account *string `json:"account"`
-	// Query region.
-	// Experimental.
-	Region *string `json:"region"`
 	// The ARN of the role that should be used to look up the missing values.
 	// Experimental.
 	LookupRoleArn *string `json:"lookupRoleArn"`
+	// Query region.
+	// Experimental.
+	Region *string `json:"region"`
 }
 
 // Filters for selecting load balancers.
 // Experimental.
 type LoadBalancerFilter struct {
-	// Filter load balancers by their type.
-	// Experimental.
-	LoadBalancerType LoadBalancerType `json:"loadBalancerType"`
 	// Find by load balancer's ARN.
 	// Experimental.
 	LoadBalancerArn *string `json:"loadBalancerArn"`
 	// Match load balancer tags.
 	// Experimental.
 	LoadBalancerTags *[]*Tag `json:"loadBalancerTags"`
+	// Filter load balancers by their type.
+	// Experimental.
+	LoadBalancerType LoadBalancerType `json:"loadBalancerType"`
 }
 
 // Query input for looking up a load balancer listener.
 // Experimental.
 type LoadBalancerListenerContextQuery struct {
-	// Filter load balancers by their type.
-	// Experimental.
-	LoadBalancerType LoadBalancerType `json:"loadBalancerType"`
 	// Find by load balancer's ARN.
 	// Experimental.
 	LoadBalancerArn *string `json:"loadBalancerArn"`
 	// Match load balancer tags.
 	// Experimental.
 	LoadBalancerTags *[]*Tag `json:"loadBalancerTags"`
+	// Filter load balancers by their type.
+	// Experimental.
+	LoadBalancerType LoadBalancerType `json:"loadBalancerType"`
 	// Query account.
 	// Experimental.
 	Account *string `json:"account"`
-	// Query region.
-	// Experimental.
-	Region *string `json:"region"`
 	// Find by listener's arn.
 	// Experimental.
 	ListenerArn *string `json:"listenerArn"`
@@ -537,6 +534,9 @@ type LoadBalancerListenerContextQuery struct {
 	// The ARN of the role that should be used to look up the missing values.
 	// Experimental.
 	LookupRoleArn *string `json:"lookupRoleArn"`
+	// Query region.
+	// Experimental.
+	Region *string `json:"region"`
 }
 
 // The protocol for connections from clients to the load balancer.
@@ -547,9 +547,9 @@ const (
 	LoadBalancerListenerProtocol_HTTP LoadBalancerListenerProtocol = "HTTP"
 	LoadBalancerListenerProtocol_HTTPS LoadBalancerListenerProtocol = "HTTPS"
 	LoadBalancerListenerProtocol_TCP LoadBalancerListenerProtocol = "TCP"
+	LoadBalancerListenerProtocol_TCP_UDP LoadBalancerListenerProtocol = "TCP_UDP"
 	LoadBalancerListenerProtocol_TLS LoadBalancerListenerProtocol = "TLS"
 	LoadBalancerListenerProtocol_UDP LoadBalancerListenerProtocol = "UDP"
-	LoadBalancerListenerProtocol_TCP_UDP LoadBalancerListenerProtocol = "TCP_UDP"
 )
 
 // Type of load balancer.
@@ -557,8 +557,8 @@ const (
 type LoadBalancerType string
 
 const (
-	LoadBalancerType_NETWORK LoadBalancerType = "NETWORK"
 	LoadBalancerType_APPLICATION LoadBalancerType = "APPLICATION"
+	LoadBalancerType_NETWORK LoadBalancerType = "NETWORK"
 )
 
 // Protocol utility class.
@@ -579,7 +579,7 @@ func Manifest_Load(filePath *string) *AssemblyManifest {
 	var returns *AssemblyManifest
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.cloud_assembly_schema.Manifest",
+		"monocdk.cloud_assembly_schema.Manifest",
 		"load",
 		[]interface{}{filePath},
 		&returns,
@@ -596,7 +596,7 @@ func Manifest_LoadAssemblyManifest(filePath *string) *AssemblyManifest {
 	var returns *AssemblyManifest
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.cloud_assembly_schema.Manifest",
+		"monocdk.cloud_assembly_schema.Manifest",
 		"loadAssemblyManifest",
 		[]interface{}{filePath},
 		&returns,
@@ -613,7 +613,7 @@ func Manifest_LoadAssetManifest(filePath *string) *AssetManifest {
 	var returns *AssetManifest
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.cloud_assembly_schema.Manifest",
+		"monocdk.cloud_assembly_schema.Manifest",
 		"loadAssetManifest",
 		[]interface{}{filePath},
 		&returns,
@@ -628,7 +628,7 @@ func Manifest_Save(manifest *AssemblyManifest, filePath *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.cloud_assembly_schema.Manifest",
+		"monocdk.cloud_assembly_schema.Manifest",
 		"save",
 		[]interface{}{manifest, filePath},
 	)
@@ -640,7 +640,7 @@ func Manifest_SaveAssemblyManifest(manifest *AssemblyManifest, filePath *string)
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.cloud_assembly_schema.Manifest",
+		"monocdk.cloud_assembly_schema.Manifest",
 		"saveAssemblyManifest",
 		[]interface{}{manifest, filePath},
 	)
@@ -652,7 +652,7 @@ func Manifest_SaveAssetManifest(manifest *AssetManifest, filePath *string) {
 	_init_.Initialize()
 
 	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.cloud_assembly_schema.Manifest",
+		"monocdk.cloud_assembly_schema.Manifest",
 		"saveAssetManifest",
 		[]interface{}{manifest, filePath},
 	)
@@ -666,7 +666,7 @@ func Manifest_Version() *string {
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.cloud_assembly_schema.Manifest",
+		"monocdk.cloud_assembly_schema.Manifest",
 		"version",
 		nil, // no parameters
 		&returns,
@@ -678,15 +678,15 @@ func Manifest_Version() *string {
 // A metadata entry in a cloud assembly artifact.
 // Experimental.
 type MetadataEntry struct {
-	// The type of the metadata entry.
-	// Experimental.
-	Type *string `json:"type"`
 	// The data.
 	// Experimental.
 	Data interface{} `json:"data"`
 	// A stack trace for when the entry was created.
 	// Experimental.
 	Trace *[]*string `json:"trace"`
+	// The type of the metadata entry.
+	// Experimental.
+	Type *string `json:"type"`
 }
 
 // Represents a missing piece of context.
@@ -728,15 +728,15 @@ type SSMParameterContextQuery struct {
 	// Query account.
 	// Experimental.
 	Account *string `json:"account"`
+	// The ARN of the role that should be used to look up the missing values.
+	// Experimental.
+	LookupRoleArn *string `json:"lookupRoleArn"`
 	// Parameter name to query.
 	// Experimental.
 	ParameterName *string `json:"parameterName"`
 	// Query region.
 	// Experimental.
 	Region *string `json:"region"`
-	// The ARN of the role that should be used to look up the missing values.
-	// Experimental.
-	LookupRoleArn *string `json:"lookupRoleArn"`
 }
 
 // Query input for looking up a security group.
@@ -745,15 +745,21 @@ type SecurityGroupContextQuery struct {
 	// Query account.
 	// Experimental.
 	Account *string `json:"account"`
+	// The ARN of the role that should be used to look up the missing values.
+	// Experimental.
+	LookupRoleArn *string `json:"lookupRoleArn"`
 	// Query region.
 	// Experimental.
 	Region *string `json:"region"`
 	// Security group id.
 	// Experimental.
 	SecurityGroupId *string `json:"securityGroupId"`
-	// The ARN of the role that should be used to look up the missing values.
+	// Security group name.
 	// Experimental.
-	LookupRoleArn *string `json:"lookupRoleArn"`
+	SecurityGroupName *string `json:"securityGroupName"`
+	// VPC ID.
+	// Experimental.
+	VpcId *string `json:"vpcId"`
 }
 
 // Metadata Entry spec for stack tag.
@@ -796,12 +802,12 @@ type VpcContextQuery struct {
 	//
 	// Experimental.
 	Filter *map[string]*string `json:"filter"`
-	// Query region.
-	// Experimental.
-	Region *string `json:"region"`
 	// The ARN of the role that should be used to look up the missing values.
 	// Experimental.
 	LookupRoleArn *string `json:"lookupRoleArn"`
+	// Query region.
+	// Experimental.
+	Region *string `json:"region"`
 	// Whether to populate the subnetGroups field of the {@link VpcContextResponse}, which contains potentially asymmetric subnet groups.
 	// Experimental.
 	ReturnAsymmetricSubnets *bool `json:"returnAsymmetricSubnets"`

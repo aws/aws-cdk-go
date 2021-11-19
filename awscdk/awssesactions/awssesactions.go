@@ -1,18 +1,21 @@
 package awssesactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsses"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssesactions/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/awsses"
+	"github.com/aws/aws-cdk-go/awscdk/awssesactions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awssns"
 )
 
 // Adds a header to the received email.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AddHeader interface {
 	awsses.IReceiptRuleAction
@@ -31,7 +34,7 @@ func NewAddHeader(props *AddHeaderProps) AddHeader {
 	j := jsiiProxy_AddHeader{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses_actions.AddHeader",
+		"monocdk.aws_ses_actions.AddHeader",
 		[]interface{}{props},
 		&j,
 	)
@@ -44,7 +47,7 @@ func NewAddHeader_Override(a AddHeader, props *AddHeaderProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses_actions.AddHeader",
+		"monocdk.aws_ses_actions.AddHeader",
 		[]interface{}{props},
 		a,
 	)
@@ -66,6 +69,9 @@ func (a *jsiiProxy_AddHeader) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRul
 }
 
 // Construction properties for a add header action.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AddHeaderProps struct {
 	// The name of the header to add.
@@ -102,7 +108,7 @@ func NewBounce(props *BounceProps) Bounce {
 	j := jsiiProxy_Bounce{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses_actions.Bounce",
+		"monocdk.aws_ses_actions.Bounce",
 		[]interface{}{props},
 		&j,
 	)
@@ -115,7 +121,7 @@ func NewBounce_Override(b Bounce, props *BounceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses_actions.Bounce",
+		"monocdk.aws_ses_actions.Bounce",
 		[]interface{}{props},
 		b,
 	)
@@ -182,7 +188,7 @@ func NewBounceTemplate(props *BounceTemplateProps) BounceTemplate {
 	j := jsiiProxy_BounceTemplate{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses_actions.BounceTemplate",
+		"monocdk.aws_ses_actions.BounceTemplate",
 		[]interface{}{props},
 		&j,
 	)
@@ -195,7 +201,7 @@ func NewBounceTemplate_Override(b BounceTemplate, props *BounceTemplateProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses_actions.BounceTemplate",
+		"monocdk.aws_ses_actions.BounceTemplate",
 		[]interface{}{props},
 		b,
 	)
@@ -205,7 +211,7 @@ func BounceTemplate_MAILBOX_DOES_NOT_EXIST() BounceTemplate {
 	_init_.Initialize()
 	var returns BounceTemplate
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ses_actions.BounceTemplate",
+		"monocdk.aws_ses_actions.BounceTemplate",
 		"MAILBOX_DOES_NOT_EXIST",
 		&returns,
 	)
@@ -216,7 +222,7 @@ func BounceTemplate_MAILBOX_FULL() BounceTemplate {
 	_init_.Initialize()
 	var returns BounceTemplate
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ses_actions.BounceTemplate",
+		"monocdk.aws_ses_actions.BounceTemplate",
 		"MAILBOX_FULL",
 		&returns,
 	)
@@ -227,7 +233,7 @@ func BounceTemplate_MESSAGE_CONTENT_REJECTED() BounceTemplate {
 	_init_.Initialize()
 	var returns BounceTemplate
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ses_actions.BounceTemplate",
+		"monocdk.aws_ses_actions.BounceTemplate",
 		"MESSAGE_CONTENT_REJECTED",
 		&returns,
 	)
@@ -238,7 +244,7 @@ func BounceTemplate_MESSAGE_TOO_LARGE() BounceTemplate {
 	_init_.Initialize()
 	var returns BounceTemplate
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ses_actions.BounceTemplate",
+		"monocdk.aws_ses_actions.BounceTemplate",
 		"MESSAGE_TOO_LARGE",
 		&returns,
 	)
@@ -249,7 +255,7 @@ func BounceTemplate_TEMPORARY_FAILURE() BounceTemplate {
 	_init_.Initialize()
 	var returns BounceTemplate
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_ses_actions.BounceTemplate",
+		"monocdk.aws_ses_actions.BounceTemplate",
 		"TEMPORARY_FAILURE",
 		&returns,
 	)
@@ -302,7 +308,7 @@ func NewLambda(props *LambdaProps) Lambda {
 	j := jsiiProxy_Lambda{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses_actions.Lambda",
+		"monocdk.aws_ses_actions.Lambda",
 		[]interface{}{props},
 		&j,
 	)
@@ -315,7 +321,7 @@ func NewLambda_Override(l Lambda, props *LambdaProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses_actions.Lambda",
+		"monocdk.aws_ses_actions.Lambda",
 		[]interface{}{props},
 		l,
 	)
@@ -360,6 +366,9 @@ type LambdaProps struct {
 }
 
 // Saves the received message to an Amazon S3 bucket and, optionally, publishes a notification to Amazon SNS.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type S3 interface {
 	awsses.IReceiptRuleAction
@@ -378,7 +387,7 @@ func NewS3(props *S3Props) S3 {
 	j := jsiiProxy_S3{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses_actions.S3",
+		"monocdk.aws_ses_actions.S3",
 		[]interface{}{props},
 		&j,
 	)
@@ -391,7 +400,7 @@ func NewS3_Override(s S3, props *S3Props) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses_actions.S3",
+		"monocdk.aws_ses_actions.S3",
 		[]interface{}{props},
 		s,
 	)
@@ -413,6 +422,9 @@ func (s *jsiiProxy_S3) Bind(rule awsses.IReceiptRule) *awsses.ReceiptRuleActionC
 }
 
 // Construction properties for a S3 action.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type S3Props struct {
 	// The S3 bucket that incoming email will be saved to.
@@ -430,6 +442,9 @@ type S3Props struct {
 }
 
 // Publishes the email content within a notification to Amazon SNS.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Sns interface {
 	awsses.IReceiptRuleAction
@@ -448,7 +463,7 @@ func NewSns(props *SnsProps) Sns {
 	j := jsiiProxy_Sns{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses_actions.Sns",
+		"monocdk.aws_ses_actions.Sns",
 		[]interface{}{props},
 		&j,
 	)
@@ -461,7 +476,7 @@ func NewSns_Override(s Sns, props *SnsProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses_actions.Sns",
+		"monocdk.aws_ses_actions.Sns",
 		[]interface{}{props},
 		s,
 	)
@@ -483,6 +498,9 @@ func (s *jsiiProxy_Sns) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActio
 }
 
 // Construction properties for a SNS action.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SnsProps struct {
 	// The SNS topic to notify.
@@ -512,7 +530,7 @@ func NewStop(props *StopProps) Stop {
 	j := jsiiProxy_Stop{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses_actions.Stop",
+		"monocdk.aws_ses_actions.Stop",
 		[]interface{}{props},
 		&j,
 	)
@@ -525,7 +543,7 @@ func NewStop_Override(s Stop, props *StopProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ses_actions.Stop",
+		"monocdk.aws_ses_actions.Stop",
 		[]interface{}{props},
 		s,
 	)

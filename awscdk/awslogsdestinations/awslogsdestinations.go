@@ -1,21 +1,21 @@
 package awslogsdestinations
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogsdestinations/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awskinesis"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/awslogsdestinations/internal"
 )
 
 // Use a Kinesis stream as the destination for a log subscription.
 // Experimental.
 type KinesisDestination interface {
 	awslogs.ILogSubscriptionDestination
-	Bind(scope constructs.Construct, _sourceLogGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig
+	Bind(scope awscdk.Construct, _sourceLogGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig
 }
 
 // The jsii proxy struct for KinesisDestination
@@ -30,7 +30,7 @@ func NewKinesisDestination(stream awskinesis.IStream) KinesisDestination {
 	j := jsiiProxy_KinesisDestination{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs_destinations.KinesisDestination",
+		"monocdk.aws_logs_destinations.KinesisDestination",
 		[]interface{}{stream},
 		&j,
 	)
@@ -43,7 +43,7 @@ func NewKinesisDestination_Override(k KinesisDestination, stream awskinesis.IStr
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs_destinations.KinesisDestination",
+		"monocdk.aws_logs_destinations.KinesisDestination",
 		[]interface{}{stream},
 		k,
 	)
@@ -58,7 +58,7 @@ func NewKinesisDestination_Override(k KinesisDestination, stream awskinesis.IStr
 // The destination may reconfigure its own permissions in response to this
 // function call.
 // Experimental.
-func (k *jsiiProxy_KinesisDestination) Bind(scope constructs.Construct, _sourceLogGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig {
+func (k *jsiiProxy_KinesisDestination) Bind(scope awscdk.Construct, _sourceLogGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig {
 	var returns *awslogs.LogSubscriptionDestinationConfig
 
 	_jsii_.Invoke(
@@ -72,10 +72,13 @@ func (k *jsiiProxy_KinesisDestination) Bind(scope constructs.Construct, _sourceL
 }
 
 // Use a Lambda Function as the destination for a log subscription.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LambdaDestination interface {
 	awslogs.ILogSubscriptionDestination
-	Bind(scope constructs.Construct, logGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig
+	Bind(scope awscdk.Construct, logGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig
 }
 
 // The jsii proxy struct for LambdaDestination
@@ -91,7 +94,7 @@ func NewLambdaDestination(fn awslambda.IFunction, options *LambdaDestinationOpti
 	j := jsiiProxy_LambdaDestination{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs_destinations.LambdaDestination",
+		"monocdk.aws_logs_destinations.LambdaDestination",
 		[]interface{}{fn, options},
 		&j,
 	)
@@ -105,7 +108,7 @@ func NewLambdaDestination_Override(l LambdaDestination, fn awslambda.IFunction, 
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_logs_destinations.LambdaDestination",
+		"monocdk.aws_logs_destinations.LambdaDestination",
 		[]interface{}{fn, options},
 		l,
 	)
@@ -120,7 +123,7 @@ func NewLambdaDestination_Override(l LambdaDestination, fn awslambda.IFunction, 
 // The destination may reconfigure its own permissions in response to this
 // function call.
 // Experimental.
-func (l *jsiiProxy_LambdaDestination) Bind(scope constructs.Construct, logGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig {
+func (l *jsiiProxy_LambdaDestination) Bind(scope awscdk.Construct, logGroup awslogs.ILogGroup) *awslogs.LogSubscriptionDestinationConfig {
 	var returns *awslogs.LogSubscriptionDestinationConfig
 
 	_jsii_.Invoke(

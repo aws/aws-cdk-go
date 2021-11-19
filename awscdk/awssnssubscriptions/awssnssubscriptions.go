@@ -1,18 +1,21 @@
 package awssnssubscriptions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssnssubscriptions/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/awssnssubscriptions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awssqs"
 )
 
 // Use an email address as a subscription target.
 //
 // Email subscriptions require confirmation.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EmailSubscription interface {
 	awssns.ITopicSubscription
@@ -31,7 +34,7 @@ func NewEmailSubscription(emailAddress *string, props *EmailSubscriptionProps) E
 	j := jsiiProxy_EmailSubscription{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sns_subscriptions.EmailSubscription",
+		"monocdk.aws_sns_subscriptions.EmailSubscription",
 		[]interface{}{emailAddress, props},
 		&j,
 	)
@@ -44,7 +47,7 @@ func NewEmailSubscription_Override(e EmailSubscription, emailAddress *string, pr
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sns_subscriptions.EmailSubscription",
+		"monocdk.aws_sns_subscriptions.EmailSubscription",
 		[]interface{}{emailAddress, props},
 		e,
 	)
@@ -82,6 +85,9 @@ type EmailSubscriptionProps struct {
 }
 
 // Use a Lambda function as a subscription target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LambdaSubscription interface {
 	awssns.ITopicSubscription
@@ -100,7 +106,7 @@ func NewLambdaSubscription(fn awslambda.IFunction, props *LambdaSubscriptionProp
 	j := jsiiProxy_LambdaSubscription{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sns_subscriptions.LambdaSubscription",
+		"monocdk.aws_sns_subscriptions.LambdaSubscription",
 		[]interface{}{fn, props},
 		&j,
 	)
@@ -113,7 +119,7 @@ func NewLambdaSubscription_Override(l LambdaSubscription, fn awslambda.IFunction
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sns_subscriptions.LambdaSubscription",
+		"monocdk.aws_sns_subscriptions.LambdaSubscription",
 		[]interface{}{fn, props},
 		l,
 	)
@@ -135,6 +141,9 @@ func (l *jsiiProxy_LambdaSubscription) Bind(topic awssns.ITopic) *awssns.TopicSu
 }
 
 // Properties for a Lambda subscription.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LambdaSubscriptionProps struct {
 	// Queue to be used as dead letter queue.
@@ -148,6 +157,9 @@ type LambdaSubscriptionProps struct {
 }
 
 // Use an sms address as a subscription target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SmsSubscription interface {
 	awssns.ITopicSubscription
@@ -166,7 +178,7 @@ func NewSmsSubscription(phoneNumber *string, props *SmsSubscriptionProps) SmsSub
 	j := jsiiProxy_SmsSubscription{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sns_subscriptions.SmsSubscription",
+		"monocdk.aws_sns_subscriptions.SmsSubscription",
 		[]interface{}{phoneNumber, props},
 		&j,
 	)
@@ -179,7 +191,7 @@ func NewSmsSubscription_Override(s SmsSubscription, phoneNumber *string, props *
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sns_subscriptions.SmsSubscription",
+		"monocdk.aws_sns_subscriptions.SmsSubscription",
 		[]interface{}{phoneNumber, props},
 		s,
 	)
@@ -214,6 +226,9 @@ type SmsSubscriptionProps struct {
 }
 
 // Use an SQS queue as a subscription target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SqsSubscription interface {
 	awssns.ITopicSubscription
@@ -232,7 +247,7 @@ func NewSqsSubscription(queue awssqs.IQueue, props *SqsSubscriptionProps) SqsSub
 	j := jsiiProxy_SqsSubscription{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sns_subscriptions.SqsSubscription",
+		"monocdk.aws_sns_subscriptions.SqsSubscription",
 		[]interface{}{queue, props},
 		&j,
 	)
@@ -245,7 +260,7 @@ func NewSqsSubscription_Override(s SqsSubscription, queue awssqs.IQueue, props *
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sns_subscriptions.SqsSubscription",
+		"monocdk.aws_sns_subscriptions.SqsSubscription",
 		[]interface{}{queue, props},
 		s,
 	)
@@ -300,6 +315,9 @@ type SubscriptionProps struct {
 // Use a URL as a subscription target.
 //
 // The message will be POSTed to the given URL.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/sns/latest/dg/sns-http-https-endpoint-as-subscriber.html
 //
 // Experimental.
@@ -320,7 +338,7 @@ func NewUrlSubscription(url *string, props *UrlSubscriptionProps) UrlSubscriptio
 	j := jsiiProxy_UrlSubscription{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sns_subscriptions.UrlSubscription",
+		"monocdk.aws_sns_subscriptions.UrlSubscription",
 		[]interface{}{url, props},
 		&j,
 	)
@@ -333,7 +351,7 @@ func NewUrlSubscription_Override(u UrlSubscription, url *string, props *UrlSubsc
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_sns_subscriptions.UrlSubscription",
+		"monocdk.aws_sns_subscriptions.UrlSubscription",
 		[]interface{}{url, props},
 		u,
 	)

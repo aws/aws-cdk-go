@@ -1,36 +1,46 @@
 package awsecrassets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/assets"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecrassets/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/assets"
+	"github.com/aws/aws-cdk-go/awscdk/awsecr"
+	"github.com/aws/aws-cdk-go/awscdk/awsecrassets/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // An asset that represents a Docker image.
 //
 // The image will be created in build time and uploaded to an ECR repository.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DockerImageAsset interface {
-	constructs.Construct
+	awscdk.Construct
 	assets.IAsset
 	AssetHash() *string
 	ImageUri() *string
 	SetImageUri(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Repository() awsecr.IRepository
 	SetRepository(val awsecr.IRepository)
 	SourceHash() *string
+	AddResourceMetadata(resource awscdk.CfnResource, resourceProperty *string)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for DockerImageAsset
 type jsiiProxy_DockerImageAsset struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 	internal.Type__assetsIAsset
 }
 
@@ -54,8 +64,8 @@ func (j *jsiiProxy_DockerImageAsset) ImageUri() *string {
 	return returns
 }
 
-func (j *jsiiProxy_DockerImageAsset) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_DockerImageAsset) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -92,7 +102,7 @@ func NewDockerImageAsset(scope constructs.Construct, id *string, props *DockerIm
 	j := jsiiProxy_DockerImageAsset{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecr_assets.DockerImageAsset",
+		"monocdk.aws_ecr_assets.DockerImageAsset",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -105,7 +115,7 @@ func NewDockerImageAsset_Override(d DockerImageAsset, scope constructs.Construct
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecr_assets.DockerImageAsset",
+		"monocdk.aws_ecr_assets.DockerImageAsset",
 		[]interface{}{scope, id, props},
 		d,
 	)
@@ -127,23 +137,120 @@ func (j *jsiiProxy_DockerImageAsset) SetRepository(val awsecr.IRepository) {
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func DockerImageAsset_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecr_assets.DockerImageAsset",
+		"monocdk.aws_ecr_assets.DockerImageAsset",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
 	)
 
 	return returns
+}
+
+// Adds CloudFormation template metadata to the specified resource with information that indicates which resource property is mapped to this local asset.
+//
+// This can be used by tools such as SAM CLI to provide local
+// experience such as local invocation and debugging of Lambda functions.
+//
+// Asset metadata will only be included if the stack is synthesized with the
+// "aws:cdk:enable-asset-metadata" context key defined, which is the default
+// behavior when synthesizing via the CDK Toolkit.
+// See: https://github.com/aws/aws-cdk/issues/1432
+//
+// Experimental.
+func (d *jsiiProxy_DockerImageAsset) AddResourceMetadata(resource awscdk.CfnResource, resourceProperty *string) {
+	_jsii_.InvokeVoid(
+		d,
+		"addResourceMetadata",
+		[]interface{}{resource, resourceProperty},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DockerImageAsset) OnPrepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DockerImageAsset) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (d *jsiiProxy_DockerImageAsset) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (d *jsiiProxy_DockerImageAsset) Prepare() {
+	_jsii_.InvokeVoid(
+		d,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (d *jsiiProxy_DockerImageAsset) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		d,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Returns a string representation of this construct.
@@ -154,6 +261,26 @@ func (d *jsiiProxy_DockerImageAsset) ToString() *string {
 	_jsii_.Invoke(
 		d,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (d *jsiiProxy_DockerImageAsset) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		d,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -227,6 +354,9 @@ type DockerImageAssetOptions struct {
 }
 
 // Props for DockerImageAssets.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DockerImageAssetProps struct {
 	// Glob patterns to exclude from the copy.
@@ -279,23 +409,32 @@ type DockerImageAssetProps struct {
 // An asset that represents a Docker image.
 //
 // The image will loaded from an existing tarball and uploaded to an ECR repository.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type TarballImageAsset interface {
-	constructs.Construct
+	awscdk.Construct
 	assets.IAsset
 	AssetHash() *string
 	ImageUri() *string
 	SetImageUri(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Repository() awsecr.IRepository
 	SetRepository(val awsecr.IRepository)
 	SourceHash() *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for TarballImageAsset
 type jsiiProxy_TarballImageAsset struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 	internal.Type__assetsIAsset
 }
 
@@ -319,8 +458,8 @@ func (j *jsiiProxy_TarballImageAsset) ImageUri() *string {
 	return returns
 }
 
-func (j *jsiiProxy_TarballImageAsset) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_TarballImageAsset) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -357,7 +496,7 @@ func NewTarballImageAsset(scope constructs.Construct, id *string, props *Tarball
 	j := jsiiProxy_TarballImageAsset{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecr_assets.TarballImageAsset",
+		"monocdk.aws_ecr_assets.TarballImageAsset",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -370,7 +509,7 @@ func NewTarballImageAsset_Override(t TarballImageAsset, scope constructs.Constru
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_ecr_assets.TarballImageAsset",
+		"monocdk.aws_ecr_assets.TarballImageAsset",
 		[]interface{}{scope, id, props},
 		t,
 	)
@@ -392,23 +531,101 @@ func (j *jsiiProxy_TarballImageAsset) SetRepository(val awsecr.IRepository) {
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func TarballImageAsset_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ecr_assets.TarballImageAsset",
+		"monocdk.aws_ecr_assets.TarballImageAsset",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
 	)
 
 	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (t *jsiiProxy_TarballImageAsset) OnPrepare() {
+	_jsii_.InvokeVoid(
+		t,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (t *jsiiProxy_TarballImageAsset) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		t,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (t *jsiiProxy_TarballImageAsset) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		t,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (t *jsiiProxy_TarballImageAsset) Prepare() {
+	_jsii_.InvokeVoid(
+		t,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (t *jsiiProxy_TarballImageAsset) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		t,
+		"synthesize",
+		[]interface{}{session},
+	)
 }
 
 // Returns a string representation of this construct.
@@ -426,7 +643,30 @@ func (t *jsiiProxy_TarballImageAsset) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (t *jsiiProxy_TarballImageAsset) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		t,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Options for TarballImageAsset.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type TarballImageAssetProps struct {
 	// Absolute path to the tarball.

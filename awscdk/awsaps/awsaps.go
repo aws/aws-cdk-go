@@ -1,12 +1,12 @@
 package awsaps
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsaps/internal"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsaps/internal"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::APS::RuleGroupsNamespace`.
@@ -23,7 +23,7 @@ type CfnRuleGroupsNamespace interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -40,10 +40,16 @@ type CfnRuleGroupsNamespace interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -133,8 +139,8 @@ func (j *jsiiProxy_CfnRuleGroupsNamespace) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnRuleGroupsNamespace) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnRuleGroupsNamespace) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -195,13 +201,13 @@ func (j *jsiiProxy_CfnRuleGroupsNamespace) Workspace() *string {
 
 
 // Create a new `AWS::APS::RuleGroupsNamespace`.
-func NewCfnRuleGroupsNamespace(scope constructs.Construct, id *string, props *CfnRuleGroupsNamespaceProps) CfnRuleGroupsNamespace {
+func NewCfnRuleGroupsNamespace(scope awscdk.Construct, id *string, props *CfnRuleGroupsNamespaceProps) CfnRuleGroupsNamespace {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnRuleGroupsNamespace{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_aps.CfnRuleGroupsNamespace",
+		"monocdk.aws_aps.CfnRuleGroupsNamespace",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -210,11 +216,11 @@ func NewCfnRuleGroupsNamespace(scope constructs.Construct, id *string, props *Cf
 }
 
 // Create a new `AWS::APS::RuleGroupsNamespace`.
-func NewCfnRuleGroupsNamespace_Override(c CfnRuleGroupsNamespace, scope constructs.Construct, id *string, props *CfnRuleGroupsNamespaceProps) {
+func NewCfnRuleGroupsNamespace_Override(c CfnRuleGroupsNamespace, scope awscdk.Construct, id *string, props *CfnRuleGroupsNamespaceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_aps.CfnRuleGroupsNamespace",
+		"monocdk.aws_aps.CfnRuleGroupsNamespace",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -257,7 +263,7 @@ func CfnRuleGroupsNamespace_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_aps.CfnRuleGroupsNamespace",
+		"monocdk.aws_aps.CfnRuleGroupsNamespace",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -274,7 +280,7 @@ func CfnRuleGroupsNamespace_IsCfnResource(construct constructs.IConstruct) *bool
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_aps.CfnRuleGroupsNamespace",
+		"monocdk.aws_aps.CfnRuleGroupsNamespace",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -283,17 +289,15 @@ func CfnRuleGroupsNamespace_IsCfnResource(construct constructs.IConstruct) *bool
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnRuleGroupsNamespace_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_aps.CfnRuleGroupsNamespace",
+		"monocdk.aws_aps.CfnRuleGroupsNamespace",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -306,7 +310,7 @@ func CfnRuleGroupsNamespace_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_aps.CfnRuleGroupsNamespace",
+		"monocdk.aws_aps.CfnRuleGroupsNamespace",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -486,6 +490,56 @@ func (c *jsiiProxy_CfnRuleGroupsNamespace) Inspect(inspector awscdk.TreeInspecto
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnRuleGroupsNamespace) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnRuleGroupsNamespace) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnRuleGroupsNamespace) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnRuleGroupsNamespace) OverrideLogicalId(newLogicalId *string) {
@@ -493,6 +547,23 @@ func (c *jsiiProxy_CfnRuleGroupsNamespace) OverrideLogicalId(newLogicalId *strin
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnRuleGroupsNamespace) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -527,6 +598,19 @@ func (c *jsiiProxy_CfnRuleGroupsNamespace) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnRuleGroupsNamespace) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -537,6 +621,26 @@ func (c *jsiiProxy_CfnRuleGroupsNamespace) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnRuleGroupsNamespace) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -557,10 +661,10 @@ func (c *jsiiProxy_CfnRuleGroupsNamespace) ValidateProperties(_properties interf
 type CfnRuleGroupsNamespaceProps struct {
 	// `AWS::APS::RuleGroupsNamespace.Data`.
 	Data *string `json:"data"`
-	// `AWS::APS::RuleGroupsNamespace.Workspace`.
-	Workspace *string `json:"workspace"`
 	// `AWS::APS::RuleGroupsNamespace.Name`.
 	Name *string `json:"name"`
+	// `AWS::APS::RuleGroupsNamespace.Workspace`.
+	Workspace *string `json:"workspace"`
 	// `AWS::APS::RuleGroupsNamespace.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
@@ -581,7 +685,7 @@ type CfnWorkspace interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	Stack() awscdk.Stack
 	Tags() awscdk.TagManager
@@ -596,10 +700,16 @@ type CfnWorkspace interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -709,8 +819,8 @@ func (j *jsiiProxy_CfnWorkspace) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnWorkspace) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnWorkspace) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -761,13 +871,13 @@ func (j *jsiiProxy_CfnWorkspace) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::APS::Workspace`.
-func NewCfnWorkspace(scope constructs.Construct, id *string, props *CfnWorkspaceProps) CfnWorkspace {
+func NewCfnWorkspace(scope awscdk.Construct, id *string, props *CfnWorkspaceProps) CfnWorkspace {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnWorkspace{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_aps.CfnWorkspace",
+		"monocdk.aws_aps.CfnWorkspace",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -776,11 +886,11 @@ func NewCfnWorkspace(scope constructs.Construct, id *string, props *CfnWorkspace
 }
 
 // Create a new `AWS::APS::Workspace`.
-func NewCfnWorkspace_Override(c CfnWorkspace, scope constructs.Construct, id *string, props *CfnWorkspaceProps) {
+func NewCfnWorkspace_Override(c CfnWorkspace, scope awscdk.Construct, id *string, props *CfnWorkspaceProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_aps.CfnWorkspace",
+		"monocdk.aws_aps.CfnWorkspace",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -815,7 +925,7 @@ func CfnWorkspace_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_aps.CfnWorkspace",
+		"monocdk.aws_aps.CfnWorkspace",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -832,7 +942,7 @@ func CfnWorkspace_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_aps.CfnWorkspace",
+		"monocdk.aws_aps.CfnWorkspace",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -841,17 +951,15 @@ func CfnWorkspace_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnWorkspace_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_aps.CfnWorkspace",
+		"monocdk.aws_aps.CfnWorkspace",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -864,7 +972,7 @@ func CfnWorkspace_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_aps.CfnWorkspace",
+		"monocdk.aws_aps.CfnWorkspace",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1044,6 +1152,56 @@ func (c *jsiiProxy_CfnWorkspace) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnWorkspace) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnWorkspace) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnWorkspace) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnWorkspace) OverrideLogicalId(newLogicalId *string) {
@@ -1051,6 +1209,23 @@ func (c *jsiiProxy_CfnWorkspace) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnWorkspace) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1085,6 +1260,19 @@ func (c *jsiiProxy_CfnWorkspace) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnWorkspace) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -1095,6 +1283,26 @@ func (c *jsiiProxy_CfnWorkspace) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnWorkspace) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)

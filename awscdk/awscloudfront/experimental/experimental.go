@@ -1,20 +1,20 @@
 package experimental
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront/experimental/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodeguruprofiler"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudfront/experimental/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awscodeguruprofiler"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/awssqs"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A Lambda@Edge function.
@@ -24,6 +24,9 @@ import (
 //
 // Note that this construct requires that the 'us-east-1' region has been bootstrapped.
 // See https://docs.aws.amazon.com/cdk/latest/guide/bootstrapping.html or 'cdk bootstrap --help' for options.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EdgeFunction interface {
 	awscdk.Resource
@@ -38,8 +41,8 @@ type EdgeFunction interface {
 	IsBoundToVpc() *bool
 	Lambda() awslambda.IFunction
 	LatestVersion() awslambda.IVersion
-	Node() constructs.Node
-	PermissionsNode() constructs.Node
+	Node() awscdk.ConstructNode
+	PermissionsNode() awscdk.ConstructNode
 	PhysicalName() *string
 	Role() awsiam.IRole
 	Stack() awscdk.Stack
@@ -60,7 +63,13 @@ type EdgeFunction interface {
 	MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for EdgeFunction
@@ -169,8 +178,8 @@ func (j *jsiiProxy_EdgeFunction) LatestVersion() awslambda.IVersion {
 	return returns
 }
 
-func (j *jsiiProxy_EdgeFunction) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_EdgeFunction) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -179,8 +188,8 @@ func (j *jsiiProxy_EdgeFunction) Node() constructs.Node {
 	return returns
 }
 
-func (j *jsiiProxy_EdgeFunction) PermissionsNode() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_EdgeFunction) PermissionsNode() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"permissionsNode",
@@ -237,7 +246,7 @@ func NewEdgeFunction(scope constructs.Construct, id *string, props *EdgeFunction
 	j := jsiiProxy_EdgeFunction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudfront.experimental.EdgeFunction",
+		"monocdk.aws_cloudfront.experimental.EdgeFunction",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -250,23 +259,21 @@ func NewEdgeFunction_Override(e EdgeFunction, scope constructs.Construct, id *st
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudfront.experimental.EdgeFunction",
+		"monocdk.aws_cloudfront.experimental.EdgeFunction",
 		[]interface{}{scope, id, props},
 		e,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func EdgeFunction_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cloudfront.experimental.EdgeFunction",
+		"monocdk.aws_cloudfront.experimental.EdgeFunction",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -277,13 +284,13 @@ func EdgeFunction_IsConstruct(x interface{}) *bool {
 
 // Check whether the given construct is a Resource.
 // Experimental.
-func EdgeFunction_IsResource(construct constructs.IConstruct) *bool {
+func EdgeFunction_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cloudfront.experimental.EdgeFunction",
+		"monocdk.aws_cloudfront.experimental.EdgeFunction",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -531,6 +538,86 @@ func (e *jsiiProxy_EdgeFunction) MetricThrottles(props *awscloudwatch.MetricOpti
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (e *jsiiProxy_EdgeFunction) OnPrepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (e *jsiiProxy_EdgeFunction) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (e *jsiiProxy_EdgeFunction) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (e *jsiiProxy_EdgeFunction) Prepare() {
+	_jsii_.InvokeVoid(
+		e,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (e *jsiiProxy_EdgeFunction) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		e,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 // Experimental.
 func (e *jsiiProxy_EdgeFunction) ToString() *string {
@@ -546,7 +633,30 @@ func (e *jsiiProxy_EdgeFunction) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (e *jsiiProxy_EdgeFunction) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Properties for creating a Lambda@Edge function.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EdgeFunctionProps struct {
 	// The maximum age of a request that Lambda sends to a function for processing.

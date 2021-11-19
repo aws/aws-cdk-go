@@ -1,16 +1,19 @@
 package assertions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk"
 )
 
 // Capture values while matching templates.
 //
 // Using an instance of this class within a Matcher will capture the matching value.
 // The `as*()` APIs on the instance can be used to get the captured value.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Capture interface {
 	Matcher
@@ -46,7 +49,7 @@ func NewCapture() Capture {
 	j := jsiiProxy_Capture{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.assertions.Capture",
+		"monocdk.assertions.Capture",
 		nil, // no parameters
 		&j,
 	)
@@ -59,7 +62,7 @@ func NewCapture_Override(c Capture) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.assertions.Capture",
+		"monocdk.assertions.Capture",
 		nil, // no parameters
 		c,
 	)
@@ -73,7 +76,7 @@ func Capture_IsMatcher(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.assertions.Capture",
+		"monocdk.assertions.Capture",
 		"isMatcher",
 		[]interface{}{x},
 		&returns,
@@ -200,7 +203,7 @@ func NewMatch_Override(m Match) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.assertions.Match",
+		"monocdk.assertions.Match",
 		nil, // no parameters
 		m,
 	)
@@ -214,7 +217,7 @@ func Match_Absent() Matcher {
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.assertions.Match",
+		"monocdk.assertions.Match",
 		"absent",
 		nil, // no parameters
 		&returns,
@@ -231,7 +234,7 @@ func Match_AnyValue() Matcher {
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.assertions.Match",
+		"monocdk.assertions.Match",
 		"anyValue",
 		nil, // no parameters
 		&returns,
@@ -250,7 +253,7 @@ func Match_ArrayEquals(pattern *[]interface{}) Matcher {
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.assertions.Match",
+		"monocdk.assertions.Match",
 		"arrayEquals",
 		[]interface{}{pattern},
 		&returns,
@@ -269,7 +272,7 @@ func Match_ArrayWith(pattern *[]interface{}) Matcher {
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.assertions.Match",
+		"monocdk.assertions.Match",
 		"arrayWith",
 		[]interface{}{pattern},
 		&returns,
@@ -286,7 +289,7 @@ func Match_Exact(pattern interface{}) Matcher {
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.assertions.Match",
+		"monocdk.assertions.Match",
 		"exact",
 		[]interface{}{pattern},
 		&returns,
@@ -303,7 +306,7 @@ func Match_Not(pattern interface{}) Matcher {
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.assertions.Match",
+		"monocdk.assertions.Match",
 		"not",
 		[]interface{}{pattern},
 		&returns,
@@ -322,7 +325,7 @@ func Match_ObjectEquals(pattern *map[string]interface{}) Matcher {
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.assertions.Match",
+		"monocdk.assertions.Match",
 		"objectEquals",
 		[]interface{}{pattern},
 		&returns,
@@ -341,7 +344,7 @@ func Match_ObjectLike(pattern *map[string]interface{}) Matcher {
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.assertions.Match",
+		"monocdk.assertions.Match",
 		"objectLike",
 		[]interface{}{pattern},
 		&returns,
@@ -358,7 +361,7 @@ func Match_SerializedJson(pattern interface{}) Matcher {
 	var returns Matcher
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.assertions.Match",
+		"monocdk.assertions.Match",
 		"serializedJson",
 		[]interface{}{pattern},
 		&returns,
@@ -411,7 +414,7 @@ func NewMatchResult(target interface{}) MatchResult {
 	j := jsiiProxy_MatchResult{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.assertions.MatchResult",
+		"monocdk.assertions.MatchResult",
 		[]interface{}{target},
 		&j,
 	)
@@ -424,7 +427,7 @@ func NewMatchResult_Override(m MatchResult, target interface{}) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.assertions.MatchResult",
+		"monocdk.assertions.MatchResult",
 		[]interface{}{target},
 		m,
 	)
@@ -497,6 +500,9 @@ func (m *jsiiProxy_MatchResult) ToHumanStrings() *[]*string {
 }
 
 // Represents a matcher that can perform special data matching capabilities between a given pattern and a target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Matcher interface {
 	Name() *string
@@ -524,7 +530,7 @@ func NewMatcher_Override(m Matcher) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.assertions.Matcher",
+		"monocdk.assertions.Matcher",
 		nil, // no parameters
 		m,
 	)
@@ -538,7 +544,7 @@ func Matcher_IsMatcher(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.assertions.Matcher",
+		"monocdk.assertions.Matcher",
 		"isMatcher",
 		[]interface{}{x},
 		&returns,
@@ -571,6 +577,9 @@ func (m *jsiiProxy_Matcher) Test(actual interface{}) MatchResult {
 //
 // Typically used, as part of unit tests, to validate that the rendered
 // CloudFormation template has expected resources and properties.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Template interface {
 	FindMappings(logicalId *string, props interface{}) *map[string]*map[string]interface{}
@@ -598,7 +607,7 @@ func Template_FromJSON(template *map[string]interface{}) Template {
 	var returns Template
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.assertions.Template",
+		"monocdk.assertions.Template",
 		"fromJSON",
 		[]interface{}{template},
 		&returns,
@@ -615,7 +624,7 @@ func Template_FromStack(stack awscdk.Stack) Template {
 	var returns Template
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.assertions.Template",
+		"monocdk.assertions.Template",
 		"fromStack",
 		[]interface{}{stack},
 		&returns,
@@ -632,7 +641,7 @@ func Template_FromString(template *string) Template {
 	var returns Template
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.assertions.Template",
+		"monocdk.assertions.Template",
 		"fromString",
 		[]interface{}{template},
 		&returns,

@@ -1,22 +1,22 @@
 package awscloudwatchactions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationautoscaling"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscaling"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatchactions/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsapplicationautoscaling"
+	"github.com/aws/aws-cdk-go/awscdk/awsautoscaling"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatchactions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awssns"
 )
 
 // Use an ApplicationAutoScaling StepScalingAction as an Alarm Action.
 // Experimental.
 type ApplicationScalingAction interface {
 	awscloudwatch.IAlarmAction
-	Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
+	Bind(_scope awscdk.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
 }
 
 // The jsii proxy struct for ApplicationScalingAction
@@ -31,7 +31,7 @@ func NewApplicationScalingAction(stepScalingAction awsapplicationautoscaling.Ste
 	j := jsiiProxy_ApplicationScalingAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudwatch_actions.ApplicationScalingAction",
+		"monocdk.aws_cloudwatch_actions.ApplicationScalingAction",
 		[]interface{}{stepScalingAction},
 		&j,
 	)
@@ -44,7 +44,7 @@ func NewApplicationScalingAction_Override(a ApplicationScalingAction, stepScalin
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudwatch_actions.ApplicationScalingAction",
+		"monocdk.aws_cloudwatch_actions.ApplicationScalingAction",
 		[]interface{}{stepScalingAction},
 		a,
 	)
@@ -52,7 +52,7 @@ func NewApplicationScalingAction_Override(a ApplicationScalingAction, stepScalin
 
 // Returns an alarm action configuration to use an ApplicationScaling StepScalingAction as an alarm action.
 // Experimental.
-func (a *jsiiProxy_ApplicationScalingAction) Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
+func (a *jsiiProxy_ApplicationScalingAction) Bind(_scope awscdk.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
 	var returns *awscloudwatch.AlarmActionConfig
 
 	_jsii_.Invoke(
@@ -69,7 +69,7 @@ func (a *jsiiProxy_ApplicationScalingAction) Bind(_scope constructs.Construct, _
 // Experimental.
 type AutoScalingAction interface {
 	awscloudwatch.IAlarmAction
-	Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
+	Bind(_scope awscdk.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
 }
 
 // The jsii proxy struct for AutoScalingAction
@@ -84,7 +84,7 @@ func NewAutoScalingAction(stepScalingAction awsautoscaling.StepScalingAction) Au
 	j := jsiiProxy_AutoScalingAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudwatch_actions.AutoScalingAction",
+		"monocdk.aws_cloudwatch_actions.AutoScalingAction",
 		[]interface{}{stepScalingAction},
 		&j,
 	)
@@ -97,7 +97,7 @@ func NewAutoScalingAction_Override(a AutoScalingAction, stepScalingAction awsaut
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudwatch_actions.AutoScalingAction",
+		"monocdk.aws_cloudwatch_actions.AutoScalingAction",
 		[]interface{}{stepScalingAction},
 		a,
 	)
@@ -105,7 +105,7 @@ func NewAutoScalingAction_Override(a AutoScalingAction, stepScalingAction awsaut
 
 // Returns an alarm action configuration to use an AutoScaling StepScalingAction as an alarm action.
 // Experimental.
-func (a *jsiiProxy_AutoScalingAction) Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
+func (a *jsiiProxy_AutoScalingAction) Bind(_scope awscdk.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
 	var returns *awscloudwatch.AlarmActionConfig
 
 	_jsii_.Invoke(
@@ -122,7 +122,7 @@ func (a *jsiiProxy_AutoScalingAction) Bind(_scope constructs.Construct, _alarm a
 // Experimental.
 type Ec2Action interface {
 	awscloudwatch.IAlarmAction
-	Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
+	Bind(_scope awscdk.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
 }
 
 // The jsii proxy struct for Ec2Action
@@ -137,7 +137,7 @@ func NewEc2Action(instanceAction Ec2InstanceAction) Ec2Action {
 	j := jsiiProxy_Ec2Action{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudwatch_actions.Ec2Action",
+		"monocdk.aws_cloudwatch_actions.Ec2Action",
 		[]interface{}{instanceAction},
 		&j,
 	)
@@ -150,7 +150,7 @@ func NewEc2Action_Override(e Ec2Action, instanceAction Ec2InstanceAction) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudwatch_actions.Ec2Action",
+		"monocdk.aws_cloudwatch_actions.Ec2Action",
 		[]interface{}{instanceAction},
 		e,
 	)
@@ -158,7 +158,7 @@ func NewEc2Action_Override(e Ec2Action, instanceAction Ec2InstanceAction) {
 
 // Returns an alarm action configuration to use an EC2 action as an alarm action.
 // Experimental.
-func (e *jsiiProxy_Ec2Action) Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
+func (e *jsiiProxy_Ec2Action) Bind(_scope awscdk.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
 	var returns *awscloudwatch.AlarmActionConfig
 
 	_jsii_.Invoke(
@@ -183,10 +183,13 @@ const (
 )
 
 // Use an SNS topic as an alarm action.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SnsAction interface {
 	awscloudwatch.IAlarmAction
-	Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
+	Bind(_scope awscdk.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
 }
 
 // The jsii proxy struct for SnsAction
@@ -201,7 +204,7 @@ func NewSnsAction(topic awssns.ITopic) SnsAction {
 	j := jsiiProxy_SnsAction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudwatch_actions.SnsAction",
+		"monocdk.aws_cloudwatch_actions.SnsAction",
 		[]interface{}{topic},
 		&j,
 	)
@@ -214,7 +217,7 @@ func NewSnsAction_Override(s SnsAction, topic awssns.ITopic) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_cloudwatch_actions.SnsAction",
+		"monocdk.aws_cloudwatch_actions.SnsAction",
 		[]interface{}{topic},
 		s,
 	)
@@ -222,7 +225,7 @@ func NewSnsAction_Override(s SnsAction, topic awssns.ITopic) {
 
 // Returns an alarm action configuration to use an SNS topic as an alarm action.
 // Experimental.
-func (s *jsiiProxy_SnsAction) Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
+func (s *jsiiProxy_SnsAction) Bind(_scope awscdk.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
 	var returns *awscloudwatch.AlarmActionConfig
 
 	_jsii_.Invoke(

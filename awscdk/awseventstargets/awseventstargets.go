@@ -1,29 +1,31 @@
 package awseventstargets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodebuild"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodepipeline"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsecs"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsevents"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awseventstargets/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesisfirehose"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsapigateway"
+	"github.com/aws/aws-cdk-go/awscdk/awscodebuild"
+	"github.com/aws/aws-cdk-go/awscdk/awscodepipeline"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awsecs"
+	"github.com/aws/aws-cdk-go/awscdk/awsevents"
+	"github.com/aws/aws-cdk-go/awscdk/awseventstargets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awskinesis"
+	"github.com/aws/aws-cdk-go/awscdk/awskinesisfirehose"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/awssqs"
+	"github.com/aws/aws-cdk-go/awscdk/awsstepfunctions"
 )
 
 // Use an API Gateway REST APIs as a target for Amazon EventBridge rules.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ApiGateway interface {
 	awsevents.IRuleTarget
@@ -54,7 +56,7 @@ func NewApiGateway(restApi awsapigateway.RestApi, props *ApiGatewayProps) ApiGat
 	j := jsiiProxy_ApiGateway{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.ApiGateway",
+		"monocdk.aws_events_targets.ApiGateway",
 		[]interface{}{restApi, props},
 		&j,
 	)
@@ -67,7 +69,7 @@ func NewApiGateway_Override(a ApiGateway, restApi awsapigateway.RestApi, props *
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.ApiGateway",
+		"monocdk.aws_events_targets.ApiGateway",
 		[]interface{}{restApi, props},
 		a,
 	)
@@ -91,6 +93,9 @@ func (a *jsiiProxy_ApiGateway) Bind(rule awsevents.IRule, _id *string) *awsevent
 }
 
 // Customize the API Gateway Event Target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ApiGatewayProps struct {
 	// The SQS queue to be used as deadLetterQueue. Check out the [considerations for using a dead-letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html#dlq-considerations).
@@ -160,7 +165,7 @@ func NewAwsApi(props *AwsApiProps) AwsApi {
 	j := jsiiProxy_AwsApi{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.AwsApi",
+		"monocdk.aws_events_targets.AwsApi",
 		[]interface{}{props},
 		&j,
 	)
@@ -173,7 +178,7 @@ func NewAwsApi_Override(a AwsApi, props *AwsApiProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.AwsApi",
+		"monocdk.aws_events_targets.AwsApi",
 		[]interface{}{props},
 		a,
 	)
@@ -270,6 +275,9 @@ type AwsApiProps struct {
 // `new BatchJob(jobQueue.jobQueueArn, jobQueue, jobDefinition.jobDefinitionArn, jobDefinition)`
 //
 // In the future this API will be improved to be fully typed
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BatchJob interface {
 	awsevents.IRuleTarget
@@ -282,13 +290,13 @@ type jsiiProxy_BatchJob struct {
 }
 
 // Experimental.
-func NewBatchJob(jobQueueArn *string, jobQueueScope constructs.IConstruct, jobDefinitionArn *string, jobDefinitionScope constructs.IConstruct, props *BatchJobProps) BatchJob {
+func NewBatchJob(jobQueueArn *string, jobQueueScope awscdk.IConstruct, jobDefinitionArn *string, jobDefinitionScope awscdk.IConstruct, props *BatchJobProps) BatchJob {
 	_init_.Initialize()
 
 	j := jsiiProxy_BatchJob{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.BatchJob",
+		"monocdk.aws_events_targets.BatchJob",
 		[]interface{}{jobQueueArn, jobQueueScope, jobDefinitionArn, jobDefinitionScope, props},
 		&j,
 	)
@@ -297,11 +305,11 @@ func NewBatchJob(jobQueueArn *string, jobQueueScope constructs.IConstruct, jobDe
 }
 
 // Experimental.
-func NewBatchJob_Override(b BatchJob, jobQueueArn *string, jobQueueScope constructs.IConstruct, jobDefinitionArn *string, jobDefinitionScope constructs.IConstruct, props *BatchJobProps) {
+func NewBatchJob_Override(b BatchJob, jobQueueArn *string, jobQueueScope awscdk.IConstruct, jobDefinitionArn *string, jobDefinitionScope awscdk.IConstruct, props *BatchJobProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.BatchJob",
+		"monocdk.aws_events_targets.BatchJob",
 		[]interface{}{jobQueueArn, jobQueueScope, jobDefinitionArn, jobDefinitionScope, props},
 		b,
 	)
@@ -323,6 +331,9 @@ func (b *jsiiProxy_BatchJob) Bind(rule awsevents.IRule, _id *string) *awsevents.
 }
 
 // Customize the Batch Job Event Target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BatchJobProps struct {
 	// The SQS queue to be used as deadLetterQueue. Check out the [considerations for using a dead-letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html#dlq-considerations).
@@ -365,6 +376,9 @@ type BatchJobProps struct {
 }
 
 // Use an AWS CloudWatch LogGroup as an event rule target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CloudWatchLogGroup interface {
 	awsevents.IRuleTarget
@@ -383,7 +397,7 @@ func NewCloudWatchLogGroup(logGroup awslogs.ILogGroup, props *LogGroupProps) Clo
 	j := jsiiProxy_CloudWatchLogGroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.CloudWatchLogGroup",
+		"monocdk.aws_events_targets.CloudWatchLogGroup",
 		[]interface{}{logGroup, props},
 		&j,
 	)
@@ -396,7 +410,7 @@ func NewCloudWatchLogGroup_Override(c CloudWatchLogGroup, logGroup awslogs.ILogG
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.CloudWatchLogGroup",
+		"monocdk.aws_events_targets.CloudWatchLogGroup",
 		[]interface{}{logGroup, props},
 		c,
 	)
@@ -418,6 +432,9 @@ func (c *jsiiProxy_CloudWatchLogGroup) Bind(_rule awsevents.IRule, _id *string) 
 }
 
 // Start a CodeBuild build when an Amazon EventBridge rule is triggered.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CodeBuildProject interface {
 	awsevents.IRuleTarget
@@ -436,7 +453,7 @@ func NewCodeBuildProject(project awscodebuild.IProject, props *CodeBuildProjectP
 	j := jsiiProxy_CodeBuildProject{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.CodeBuildProject",
+		"monocdk.aws_events_targets.CodeBuildProject",
 		[]interface{}{project, props},
 		&j,
 	)
@@ -449,7 +466,7 @@ func NewCodeBuildProject_Override(c CodeBuildProject, project awscodebuild.IProj
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.CodeBuildProject",
+		"monocdk.aws_events_targets.CodeBuildProject",
 		[]interface{}{project, props},
 		c,
 	)
@@ -471,6 +488,9 @@ func (c *jsiiProxy_CodeBuildProject) Bind(_rule awsevents.IRule, _id *string) *a
 }
 
 // Customize the CodeBuild Event Target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CodeBuildProjectProps struct {
 	// The SQS queue to be used as deadLetterQueue. Check out the [considerations for using a dead-letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html#dlq-considerations).
@@ -503,6 +523,9 @@ type CodeBuildProjectProps struct {
 }
 
 // Allows the pipeline to be used as an EventBridge rule target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CodePipeline interface {
 	awsevents.IRuleTarget
@@ -521,7 +544,7 @@ func NewCodePipeline(pipeline awscodepipeline.IPipeline, options *CodePipelineTa
 	j := jsiiProxy_CodePipeline{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.CodePipeline",
+		"monocdk.aws_events_targets.CodePipeline",
 		[]interface{}{pipeline, options},
 		&j,
 	)
@@ -534,7 +557,7 @@ func NewCodePipeline_Override(c CodePipeline, pipeline awscodepipeline.IPipeline
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.CodePipeline",
+		"monocdk.aws_events_targets.CodePipeline",
 		[]interface{}{pipeline, options},
 		c,
 	)
@@ -607,6 +630,9 @@ type ContainerOverride struct {
 }
 
 // Start a task on an ECS cluster.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EcsTask interface {
 	awsevents.IRuleTarget
@@ -648,7 +674,7 @@ func NewEcsTask(props *EcsTaskProps) EcsTask {
 	j := jsiiProxy_EcsTask{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.EcsTask",
+		"monocdk.aws_events_targets.EcsTask",
 		[]interface{}{props},
 		&j,
 	)
@@ -661,7 +687,7 @@ func NewEcsTask_Override(e EcsTask, props *EcsTaskProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.EcsTask",
+		"monocdk.aws_events_targets.EcsTask",
 		[]interface{}{props},
 		e,
 	)
@@ -683,6 +709,9 @@ func (e *jsiiProxy_EcsTask) Bind(_rule awsevents.IRule, _id *string) *awsevents.
 }
 
 // Properties to define an ECS Event Task.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EcsTaskProps struct {
 	// Cluster where service will be deployed.
@@ -728,6 +757,9 @@ type EcsTaskProps struct {
 }
 
 // Notify an existing Event Bus of an event.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EventBus interface {
 	awsevents.IRuleTarget
@@ -746,7 +778,7 @@ func NewEventBus(eventBus awsevents.IEventBus, props *EventBusProps) EventBus {
 	j := jsiiProxy_EventBus{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.EventBus",
+		"monocdk.aws_events_targets.EventBus",
 		[]interface{}{eventBus, props},
 		&j,
 	)
@@ -759,7 +791,7 @@ func NewEventBus_Override(e EventBus, eventBus awsevents.IEventBus, props *Event
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.EventBus",
+		"monocdk.aws_events_targets.EventBus",
 		[]interface{}{eventBus, props},
 		e,
 	)
@@ -818,7 +850,7 @@ func NewKinesisFirehoseStream(stream awskinesisfirehose.CfnDeliveryStream, props
 	j := jsiiProxy_KinesisFirehoseStream{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.KinesisFirehoseStream",
+		"monocdk.aws_events_targets.KinesisFirehoseStream",
 		[]interface{}{stream, props},
 		&j,
 	)
@@ -831,7 +863,7 @@ func NewKinesisFirehoseStream_Override(k KinesisFirehoseStream, stream awskinesi
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.KinesisFirehoseStream",
+		"monocdk.aws_events_targets.KinesisFirehoseStream",
 		[]interface{}{stream, props},
 		k,
 	)
@@ -884,7 +916,7 @@ func NewKinesisStream(stream awskinesis.IStream, props *KinesisStreamProps) Kine
 	j := jsiiProxy_KinesisStream{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.KinesisStream",
+		"monocdk.aws_events_targets.KinesisStream",
 		[]interface{}{stream, props},
 		&j,
 	)
@@ -897,7 +929,7 @@ func NewKinesisStream_Override(k KinesisStream, stream awskinesis.IStream, props
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.KinesisStream",
+		"monocdk.aws_events_targets.KinesisStream",
 		[]interface{}{stream, props},
 		k,
 	)
@@ -932,6 +964,9 @@ type KinesisStreamProps struct {
 }
 
 // Use an AWS Lambda function as an event rule target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LambdaFunction interface {
 	awsevents.IRuleTarget
@@ -950,7 +985,7 @@ func NewLambdaFunction(handler awslambda.IFunction, props *LambdaFunctionProps) 
 	j := jsiiProxy_LambdaFunction{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.LambdaFunction",
+		"monocdk.aws_events_targets.LambdaFunction",
 		[]interface{}{handler, props},
 		&j,
 	)
@@ -963,7 +998,7 @@ func NewLambdaFunction_Override(l LambdaFunction, handler awslambda.IFunction, p
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.LambdaFunction",
+		"monocdk.aws_events_targets.LambdaFunction",
 		[]interface{}{handler, props},
 		l,
 	)
@@ -985,6 +1020,9 @@ func (l *jsiiProxy_LambdaFunction) Bind(rule awsevents.IRule, _id *string) *awse
 }
 
 // Customize the Lambda Event Target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LambdaFunctionProps struct {
 	// The SQS queue to be used as deadLetterQueue. Check out the [considerations for using a dead-letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html#dlq-considerations).
@@ -1043,6 +1081,9 @@ type LogGroupProps struct {
 }
 
 // Use a StepFunctions state machine as a target for Amazon EventBridge rules.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SfnStateMachine interface {
 	awsevents.IRuleTarget
@@ -1073,7 +1114,7 @@ func NewSfnStateMachine(machine awsstepfunctions.IStateMachine, props *SfnStateM
 	j := jsiiProxy_SfnStateMachine{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.SfnStateMachine",
+		"monocdk.aws_events_targets.SfnStateMachine",
 		[]interface{}{machine, props},
 		&j,
 	)
@@ -1086,7 +1127,7 @@ func NewSfnStateMachine_Override(s SfnStateMachine, machine awsstepfunctions.ISt
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.SfnStateMachine",
+		"monocdk.aws_events_targets.SfnStateMachine",
 		[]interface{}{machine, props},
 		s,
 	)
@@ -1110,6 +1151,9 @@ func (s *jsiiProxy_SfnStateMachine) Bind(_rule awsevents.IRule, _id *string) *aw
 }
 
 // Customize the Step Functions State Machine target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SfnStateMachineProps struct {
 	// The SQS queue to be used as deadLetterQueue. Check out the [considerations for using a dead-letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html#dlq-considerations).
@@ -1173,7 +1217,7 @@ func NewSnsTopic(topic awssns.ITopic, props *SnsTopicProps) SnsTopic {
 	j := jsiiProxy_SnsTopic{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.SnsTopic",
+		"monocdk.aws_events_targets.SnsTopic",
 		[]interface{}{topic, props},
 		&j,
 	)
@@ -1186,7 +1230,7 @@ func NewSnsTopic_Override(s SnsTopic, topic awssns.ITopic, props *SnsTopicProps)
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.SnsTopic",
+		"monocdk.aws_events_targets.SnsTopic",
 		[]interface{}{topic, props},
 		s,
 	)
@@ -1210,6 +1254,9 @@ func (s *jsiiProxy_SnsTopic) Bind(_rule awsevents.IRule, _id *string) *awsevents
 }
 
 // Customize the SNS Topic Event Target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SnsTopicProps struct {
 	// The message to send to the topic.
@@ -1251,7 +1298,7 @@ func NewSqsQueue(queue awssqs.IQueue, props *SqsQueueProps) SqsQueue {
 	j := jsiiProxy_SqsQueue{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.SqsQueue",
+		"monocdk.aws_events_targets.SqsQueue",
 		[]interface{}{queue, props},
 		&j,
 	)
@@ -1264,7 +1311,7 @@ func NewSqsQueue_Override(s SqsQueue, queue awssqs.IQueue, props *SqsQueueProps)
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_events_targets.SqsQueue",
+		"monocdk.aws_events_targets.SqsQueue",
 		[]interface{}{queue, props},
 		s,
 	)
