@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::Detective::Graph`.
+//
+// TODO: EXAMPLE
+//
 type CfnGraph interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -598,12 +601,18 @@ func (c *jsiiProxy_CfnGraph) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Detective::Graph`.
+//
+// TODO: EXAMPLE
+//
 type CfnGraphProps struct {
 	// `AWS::Detective::Graph.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::Detective::MemberInvitation`.
+//
+// TODO: EXAMPLE
+//
 type CfnMemberInvitation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1270,15 +1279,18 @@ func (c *jsiiProxy_CfnMemberInvitation) ValidateProperties(_properties interface
 }
 
 // Properties for defining a `AWS::Detective::MemberInvitation`.
+//
+// TODO: EXAMPLE
+//
 type CfnMemberInvitationProps struct {
+	// `AWS::Detective::MemberInvitation.DisableEmailNotification`.
+	DisableEmailNotification interface{} `json:"disableEmailNotification"`
 	// `AWS::Detective::MemberInvitation.GraphArn`.
 	GraphArn *string `json:"graphArn"`
 	// `AWS::Detective::MemberInvitation.MemberEmailAddress`.
 	MemberEmailAddress *string `json:"memberEmailAddress"`
 	// `AWS::Detective::MemberInvitation.MemberId`.
 	MemberId *string `json:"memberId"`
-	// `AWS::Detective::MemberInvitation.DisableEmailNotification`.
-	DisableEmailNotification interface{} `json:"disableEmailNotification"`
 	// `AWS::Detective::MemberInvitation.Message`.
 	Message *string `json:"message"`
 }

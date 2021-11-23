@@ -246,9 +246,9 @@ func init() {
 		"monocdk.aws_codepipeline_actions.CodeCommitTrigger",
 		reflect.TypeOf((*CodeCommitTrigger)(nil)).Elem(),
 		map[string]interface{}{
+			"EVENTS": CodeCommitTrigger_EVENTS,
 			"NONE": CodeCommitTrigger_NONE,
 			"POLL": CodeCommitTrigger_POLL,
-			"EVENTS": CodeCommitTrigger_EVENTS,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -570,9 +570,9 @@ func init() {
 		"monocdk.aws_codepipeline_actions.S3Trigger",
 		reflect.TypeOf((*S3Trigger)(nil)).Elem(),
 		map[string]interface{}{
+			"EVENTS": S3Trigger_EVENTS,
 			"NONE": S3Trigger_NONE,
 			"POLL": S3Trigger_POLL,
-			"EVENTS": S3Trigger_EVENTS,
 		},
 	)
 	_jsii_.RegisterClass(

@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::CodeArtifact::Domain`.
+//
+// TODO: EXAMPLE
+//
 type CfnDomain interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -691,6 +694,9 @@ func (c *jsiiProxy_CfnDomain) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::CodeArtifact::Domain`.
+//
+// TODO: EXAMPLE
+//
 type CfnDomainProps struct {
 	// `AWS::CodeArtifact::Domain.DomainName`.
 	DomainName *string `json:"domainName"`
@@ -703,6 +709,9 @@ type CfnDomainProps struct {
 }
 
 // A CloudFormation `AWS::CodeArtifact::Repository`.
+//
+// TODO: EXAMPLE
+//
 type CfnRepository interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1464,19 +1473,22 @@ func (c *jsiiProxy_CfnRepository) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::CodeArtifact::Repository`.
+//
+// TODO: EXAMPLE
+//
 type CfnRepositoryProps struct {
-	// `AWS::CodeArtifact::Repository.DomainName`.
-	DomainName *string `json:"domainName"`
-	// `AWS::CodeArtifact::Repository.RepositoryName`.
-	RepositoryName *string `json:"repositoryName"`
 	// `AWS::CodeArtifact::Repository.Description`.
 	Description *string `json:"description"`
+	// `AWS::CodeArtifact::Repository.DomainName`.
+	DomainName *string `json:"domainName"`
 	// `AWS::CodeArtifact::Repository.DomainOwner`.
 	DomainOwner *string `json:"domainOwner"`
 	// `AWS::CodeArtifact::Repository.ExternalConnections`.
 	ExternalConnections *[]*string `json:"externalConnections"`
 	// `AWS::CodeArtifact::Repository.PermissionsPolicyDocument`.
 	PermissionsPolicyDocument interface{} `json:"permissionsPolicyDocument"`
+	// `AWS::CodeArtifact::Repository.RepositoryName`.
+	RepositoryName *string `json:"repositoryName"`
 	// `AWS::CodeArtifact::Repository.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::CodeArtifact::Repository.Upstreams`.

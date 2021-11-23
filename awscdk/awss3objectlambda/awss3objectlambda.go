@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::S3ObjectLambda::AccessPoint`.
+//
+// TODO: EXAMPLE
+//
 type CfnAccessPoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -637,17 +640,21 @@ func (c *jsiiProxy_CfnAccessPoint) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnAccessPoint_ObjectLambdaConfigurationProperty struct {
-	// `CfnAccessPoint.ObjectLambdaConfigurationProperty.SupportingAccessPoint`.
-	SupportingAccessPoint *string `json:"supportingAccessPoint"`
-	// `CfnAccessPoint.ObjectLambdaConfigurationProperty.TransformationConfigurations`.
-	TransformationConfigurations interface{} `json:"transformationConfigurations"`
 	// `CfnAccessPoint.ObjectLambdaConfigurationProperty.AllowedFeatures`.
 	AllowedFeatures *[]*string `json:"allowedFeatures"`
 	// `CfnAccessPoint.ObjectLambdaConfigurationProperty.CloudWatchMetricsEnabled`.
 	CloudWatchMetricsEnabled interface{} `json:"cloudWatchMetricsEnabled"`
+	// `CfnAccessPoint.ObjectLambdaConfigurationProperty.SupportingAccessPoint`.
+	SupportingAccessPoint *string `json:"supportingAccessPoint"`
+	// `CfnAccessPoint.ObjectLambdaConfigurationProperty.TransformationConfigurations`.
+	TransformationConfigurations interface{} `json:"transformationConfigurations"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAccessPoint_TransformationConfigurationProperty struct {
 	// `CfnAccessPoint.TransformationConfigurationProperty.Actions`.
 	Actions *[]*string `json:"actions"`
@@ -656,6 +663,9 @@ type CfnAccessPoint_TransformationConfigurationProperty struct {
 }
 
 // A CloudFormation `AWS::S3ObjectLambda::AccessPointPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnAccessPointPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1262,6 +1272,9 @@ func (c *jsiiProxy_CfnAccessPointPolicy) ValidateProperties(_properties interfac
 }
 
 // Properties for defining a `AWS::S3ObjectLambda::AccessPointPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnAccessPointPolicyProps struct {
 	// `AWS::S3ObjectLambda::AccessPointPolicy.ObjectLambdaAccessPoint`.
 	ObjectLambdaAccessPoint *string `json:"objectLambdaAccessPoint"`
@@ -1270,10 +1283,13 @@ type CfnAccessPointPolicyProps struct {
 }
 
 // Properties for defining a `AWS::S3ObjectLambda::AccessPoint`.
+//
+// TODO: EXAMPLE
+//
 type CfnAccessPointProps struct {
-	// `AWS::S3ObjectLambda::AccessPoint.ObjectLambdaConfiguration`.
-	ObjectLambdaConfiguration interface{} `json:"objectLambdaConfiguration"`
 	// `AWS::S3ObjectLambda::AccessPoint.Name`.
 	Name *string `json:"name"`
+	// `AWS::S3ObjectLambda::AccessPoint.ObjectLambdaConfiguration`.
+	ObjectLambdaConfiguration interface{} `json:"objectLambdaConfiguration"`
 }
 

@@ -14,6 +14,9 @@ import (
 )
 
 // A CloudFormation `AWS::CloudFormation::CustomResource`.
+//
+// TODO: EXAMPLE
+//
 type CfnCustomResource interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -600,12 +603,18 @@ func (c *jsiiProxy_CfnCustomResource) ValidateProperties(_properties interface{}
 }
 
 // Properties for defining a `AWS::CloudFormation::CustomResource`.
+//
+// TODO: EXAMPLE
+//
 type CfnCustomResourceProps struct {
 	// `AWS::CloudFormation::CustomResource.ServiceToken`.
 	ServiceToken *string `json:"serviceToken"`
 }
 
 // A CloudFormation `AWS::CloudFormation::Macro`.
+//
+// TODO: EXAMPLE
+//
 type CfnMacro interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1272,20 +1281,26 @@ func (c *jsiiProxy_CfnMacro) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::CloudFormation::Macro`.
+//
+// TODO: EXAMPLE
+//
 type CfnMacroProps struct {
-	// `AWS::CloudFormation::Macro.FunctionName`.
-	FunctionName *string `json:"functionName"`
-	// `AWS::CloudFormation::Macro.Name`.
-	Name *string `json:"name"`
 	// `AWS::CloudFormation::Macro.Description`.
 	Description *string `json:"description"`
+	// `AWS::CloudFormation::Macro.FunctionName`.
+	FunctionName *string `json:"functionName"`
 	// `AWS::CloudFormation::Macro.LogGroupName`.
 	LogGroupName *string `json:"logGroupName"`
 	// `AWS::CloudFormation::Macro.LogRoleARN`.
 	LogRoleArn *string `json:"logRoleArn"`
+	// `AWS::CloudFormation::Macro.Name`.
+	Name *string `json:"name"`
 }
 
 // A CloudFormation `AWS::CloudFormation::ModuleDefaultVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnModuleDefaultVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1912,6 +1927,9 @@ func (c *jsiiProxy_CfnModuleDefaultVersion) ValidateProperties(_properties inter
 }
 
 // Properties for defining a `AWS::CloudFormation::ModuleDefaultVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnModuleDefaultVersionProps struct {
 	// `AWS::CloudFormation::ModuleDefaultVersion.Arn`.
 	Arn *string `json:"arn"`
@@ -1922,6 +1940,9 @@ type CfnModuleDefaultVersionProps struct {
 }
 
 // A CloudFormation `AWS::CloudFormation::ModuleVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnModuleVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2616,6 +2637,9 @@ func (c *jsiiProxy_CfnModuleVersion) ValidateProperties(_properties interface{})
 }
 
 // Properties for defining a `AWS::CloudFormation::ModuleVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnModuleVersionProps struct {
 	// `AWS::CloudFormation::ModuleVersion.ModuleName`.
 	ModuleName *string `json:"moduleName"`
@@ -2624,6 +2648,9 @@ type CfnModuleVersionProps struct {
 }
 
 // A CloudFormation `AWS::CloudFormation::PublicTypeVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnPublicTypeVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3323,6 +3350,9 @@ func (c *jsiiProxy_CfnPublicTypeVersion) ValidateProperties(_properties interfac
 }
 
 // Properties for defining a `AWS::CloudFormation::PublicTypeVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnPublicTypeVersionProps struct {
 	// `AWS::CloudFormation::PublicTypeVersion.Arn`.
 	Arn *string `json:"arn"`
@@ -3337,6 +3367,9 @@ type CfnPublicTypeVersionProps struct {
 }
 
 // A CloudFormation `AWS::CloudFormation::Publisher`.
+//
+// TODO: EXAMPLE
+//
 type CfnPublisher interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3987,6 +4020,9 @@ func (c *jsiiProxy_CfnPublisher) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::CloudFormation::Publisher`.
+//
+// TODO: EXAMPLE
+//
 type CfnPublisherProps struct {
 	// `AWS::CloudFormation::Publisher.AcceptTermsAndConditions`.
 	AcceptTermsAndConditions interface{} `json:"acceptTermsAndConditions"`
@@ -3995,6 +4031,9 @@ type CfnPublisherProps struct {
 }
 
 // A CloudFormation `AWS::CloudFormation::ResourceDefaultVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourceDefaultVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4632,6 +4671,9 @@ func (c *jsiiProxy_CfnResourceDefaultVersion) ValidateProperties(_properties int
 }
 
 // Properties for defining a `AWS::CloudFormation::ResourceDefaultVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourceDefaultVersionProps struct {
 	// `AWS::CloudFormation::ResourceDefaultVersion.TypeName`.
 	TypeName *string `json:"typeName"`
@@ -4642,6 +4684,9 @@ type CfnResourceDefaultVersionProps struct {
 }
 
 // A CloudFormation `AWS::CloudFormation::ResourceVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourceVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5353,6 +5398,8 @@ func (c *jsiiProxy_CfnResourceVersion) ValidateProperties(_properties interface{
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceVersion_LoggingConfigProperty struct {
 	// `CfnResourceVersion.LoggingConfigProperty.LogGroupName`.
 	LogGroupName *string `json:"logGroupName"`
@@ -5361,18 +5408,24 @@ type CfnResourceVersion_LoggingConfigProperty struct {
 }
 
 // Properties for defining a `AWS::CloudFormation::ResourceVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourceVersionProps struct {
-	// `AWS::CloudFormation::ResourceVersion.SchemaHandlerPackage`.
-	SchemaHandlerPackage *string `json:"schemaHandlerPackage"`
-	// `AWS::CloudFormation::ResourceVersion.TypeName`.
-	TypeName *string `json:"typeName"`
 	// `AWS::CloudFormation::ResourceVersion.ExecutionRoleArn`.
 	ExecutionRoleArn *string `json:"executionRoleArn"`
 	// `AWS::CloudFormation::ResourceVersion.LoggingConfig`.
 	LoggingConfig interface{} `json:"loggingConfig"`
+	// `AWS::CloudFormation::ResourceVersion.SchemaHandlerPackage`.
+	SchemaHandlerPackage *string `json:"schemaHandlerPackage"`
+	// `AWS::CloudFormation::ResourceVersion.TypeName`.
+	TypeName *string `json:"typeName"`
 }
 
 // A CloudFormation `AWS::CloudFormation::Stack`.
+//
+// TODO: EXAMPLE
+//
 type CfnStack interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6030,20 +6083,26 @@ func (c *jsiiProxy_CfnStack) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::CloudFormation::Stack`.
+//
+// TODO: EXAMPLE
+//
 type CfnStackProps struct {
-	// `AWS::CloudFormation::Stack.TemplateURL`.
-	TemplateUrl *string `json:"templateUrl"`
 	// `AWS::CloudFormation::Stack.NotificationARNs`.
 	NotificationArns *[]*string `json:"notificationArns"`
 	// `AWS::CloudFormation::Stack.Parameters`.
 	Parameters interface{} `json:"parameters"`
 	// `AWS::CloudFormation::Stack.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::CloudFormation::Stack.TemplateURL`.
+	TemplateUrl *string `json:"templateUrl"`
 	// `AWS::CloudFormation::Stack.TimeoutInMinutes`.
 	TimeoutInMinutes *float64 `json:"timeoutInMinutes"`
 }
 
 // A CloudFormation `AWS::CloudFormation::StackSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnStackSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6911,6 +6970,8 @@ func (c *jsiiProxy_CfnStackSet) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnStackSet_AutoDeploymentProperty struct {
 	// `CfnStackSet.AutoDeploymentProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
@@ -6918,6 +6979,8 @@ type CfnStackSet_AutoDeploymentProperty struct {
 	RetainStacksOnAccountRemoval interface{} `json:"retainStacksOnAccountRemoval"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStackSet_DeploymentTargetsProperty struct {
 	// `CfnStackSet.DeploymentTargetsProperty.Accounts`.
 	Accounts *[]*string `json:"accounts"`
@@ -6925,6 +6988,8 @@ type CfnStackSet_DeploymentTargetsProperty struct {
 	OrganizationalUnitIds *[]*string `json:"organizationalUnitIds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStackSet_OperationPreferencesProperty struct {
 	// `CfnStackSet.OperationPreferencesProperty.FailureToleranceCount`.
 	FailureToleranceCount *float64 `json:"failureToleranceCount"`
@@ -6940,6 +7005,8 @@ type CfnStackSet_OperationPreferencesProperty struct {
 	RegionOrder *[]*string `json:"regionOrder"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStackSet_ParameterProperty struct {
 	// `CfnStackSet.ParameterProperty.ParameterKey`.
 	ParameterKey *string `json:"parameterKey"`
@@ -6947,21 +7014,22 @@ type CfnStackSet_ParameterProperty struct {
 	ParameterValue *string `json:"parameterValue"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStackSet_StackInstancesProperty struct {
 	// `CfnStackSet.StackInstancesProperty.DeploymentTargets`.
 	DeploymentTargets interface{} `json:"deploymentTargets"`
-	// `CfnStackSet.StackInstancesProperty.Regions`.
-	Regions *[]*string `json:"regions"`
 	// `CfnStackSet.StackInstancesProperty.ParameterOverrides`.
 	ParameterOverrides interface{} `json:"parameterOverrides"`
+	// `CfnStackSet.StackInstancesProperty.Regions`.
+	Regions *[]*string `json:"regions"`
 }
 
 // Properties for defining a `AWS::CloudFormation::StackSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnStackSetProps struct {
-	// `AWS::CloudFormation::StackSet.PermissionModel`.
-	PermissionModel *string `json:"permissionModel"`
-	// `AWS::CloudFormation::StackSet.StackSetName`.
-	StackSetName *string `json:"stackSetName"`
 	// `AWS::CloudFormation::StackSet.AdministrationRoleARN`.
 	AdministrationRoleArn *string `json:"administrationRoleArn"`
 	// `AWS::CloudFormation::StackSet.AutoDeployment`.
@@ -6980,8 +7048,12 @@ type CfnStackSetProps struct {
 	OperationPreferences interface{} `json:"operationPreferences"`
 	// `AWS::CloudFormation::StackSet.Parameters`.
 	Parameters interface{} `json:"parameters"`
+	// `AWS::CloudFormation::StackSet.PermissionModel`.
+	PermissionModel *string `json:"permissionModel"`
 	// `AWS::CloudFormation::StackSet.StackInstancesGroup`.
 	StackInstancesGroup interface{} `json:"stackInstancesGroup"`
+	// `AWS::CloudFormation::StackSet.StackSetName`.
+	StackSetName *string `json:"stackSetName"`
 	// `AWS::CloudFormation::StackSet.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::CloudFormation::StackSet.TemplateBody`.
@@ -6991,6 +7063,9 @@ type CfnStackSetProps struct {
 }
 
 // A CloudFormation `AWS::CloudFormation::TypeActivation`.
+//
+// TODO: EXAMPLE
+//
 type CfnTypeActivation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -7767,6 +7842,8 @@ func (c *jsiiProxy_CfnTypeActivation) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnTypeActivation_LoggingConfigProperty struct {
 	// `CfnTypeActivation.LoggingConfigProperty.LogGroupName`.
 	LogGroupName *string `json:"logGroupName"`
@@ -7775,6 +7852,9 @@ type CfnTypeActivation_LoggingConfigProperty struct {
 }
 
 // Properties for defining a `AWS::CloudFormation::TypeActivation`.
+//
+// TODO: EXAMPLE
+//
 type CfnTypeActivationProps struct {
 	// `AWS::CloudFormation::TypeActivation.AutoUpdate`.
 	AutoUpdate interface{} `json:"autoUpdate"`
@@ -7799,6 +7879,9 @@ type CfnTypeActivationProps struct {
 }
 
 // A CloudFormation `AWS::CloudFormation::WaitCondition`.
+//
+// TODO: EXAMPLE
+//
 type CfnWaitCondition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -8436,6 +8519,9 @@ func (c *jsiiProxy_CfnWaitCondition) ValidateProperties(_properties interface{})
 }
 
 // A CloudFormation `AWS::CloudFormation::WaitConditionHandle`.
+//
+// TODO: EXAMPLE
+//
 type CfnWaitConditionHandle interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -9003,6 +9089,9 @@ func (c *jsiiProxy_CfnWaitConditionHandle) ValidateProperties(_properties interf
 }
 
 // Properties for defining a `AWS::CloudFormation::WaitCondition`.
+//
+// TODO: EXAMPLE
+//
 type CfnWaitConditionProps struct {
 	// `AWS::CloudFormation::WaitCondition.Count`.
 	Count *float64 `json:"count"`
@@ -9017,13 +9106,16 @@ type CfnWaitConditionProps struct {
 type CloudFormationCapabilities string
 
 const (
-	CloudFormationCapabilities_NONE CloudFormationCapabilities = "NONE"
 	CloudFormationCapabilities_ANONYMOUS_IAM CloudFormationCapabilities = "ANONYMOUS_IAM"
-	CloudFormationCapabilities_NAMED_IAM CloudFormationCapabilities = "NAMED_IAM"
 	CloudFormationCapabilities_AUTO_EXPAND CloudFormationCapabilities = "AUTO_EXPAND"
+	CloudFormationCapabilities_NAMED_IAM CloudFormationCapabilities = "NAMED_IAM"
+	CloudFormationCapabilities_NONE CloudFormationCapabilities = "NONE"
 )
 
 // Deprecated.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: use `core.CustomResource`
 type CustomResource interface {
 	awscdk.CustomResource
@@ -9391,8 +9483,14 @@ func (c *jsiiProxy_CustomResource) Validate() *[]*string {
 }
 
 // Properties to provide a Lambda-backed custom resource.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: use `core.CustomResourceProps`
 type CustomResourceProps struct {
+	// Properties to pass to the Lambda.
+	// Deprecated: use `core.CustomResourceProps`
+	Properties *map[string]interface{} `json:"properties"`
 	// The provider which implements the custom resource.
 	//
 	// You can implement a provider by listening to raw AWS CloudFormation events
@@ -9421,9 +9519,6 @@ type CustomResourceProps struct {
 	// ```
 	// Deprecated: use `core.CustomResourceProps`
 	Provider ICustomResourceProvider `json:"provider"`
-	// Properties to pass to the Lambda.
-	// Deprecated: use `core.CustomResourceProps`
-	Properties *map[string]interface{} `json:"properties"`
 	// The policy to apply when this resource is removed from the application.
 	// Deprecated: use `core.CustomResourceProps`
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
@@ -9448,6 +9543,9 @@ type CustomResourceProps struct {
 }
 
 // Represents a provider for an AWS CloudFormation custom resources.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: use core.CustomResource instead
 type CustomResourceProvider interface {
 	ICustomResourceProvider
@@ -9557,6 +9655,9 @@ func (c *jsiiProxy_CustomResourceProvider) Bind(_arg awscdk.Construct) *CustomRe
 }
 
 // Configuration options for custom resource providers.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: used in {@link ICustomResourceProvider} which is now deprecated
 type CustomResourceProviderConfig struct {
 	// The ARN of the SNS topic or the AWS Lambda function which implements this provider.
@@ -9606,6 +9707,9 @@ func (i *jsiiProxy_ICustomResourceProvider) Bind(scope awscdk.Construct) *Custom
 // Cross references of resource attributes between the parent stack and the
 // nested stack will automatically be translated to stack parameters and
 // outputs.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: use core.NestedStack instead
 type NestedStack interface {
 	awscdk.NestedStack
@@ -10466,6 +10570,9 @@ func (n *jsiiProxy_NestedStack) Validate() *[]*string {
 }
 
 // Initialization props for the `NestedStack` construct.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: use core.NestedStackProps instead
 type NestedStackProps struct {
 	// The Simple Notification Service (SNS) topics to publish stack related events.

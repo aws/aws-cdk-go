@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::LookoutMetrics::Alert`.
+//
+// TODO: EXAMPLE
+//
 type CfnAlert interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -686,6 +689,8 @@ func (c *jsiiProxy_CfnAlert) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnAlert_ActionProperty struct {
 	// `CfnAlert.ActionProperty.LambdaConfiguration`.
 	LambdaConfiguration interface{} `json:"lambdaConfiguration"`
@@ -693,6 +698,8 @@ type CfnAlert_ActionProperty struct {
 	SnsConfiguration interface{} `json:"snsConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAlert_LambdaConfigurationProperty struct {
 	// `CfnAlert.LambdaConfigurationProperty.LambdaArn`.
 	LambdaArn *string `json:"lambdaArn"`
@@ -700,6 +707,8 @@ type CfnAlert_LambdaConfigurationProperty struct {
 	RoleArn *string `json:"roleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAlert_SNSConfigurationProperty struct {
 	// `CfnAlert.SNSConfigurationProperty.RoleArn`.
 	RoleArn *string `json:"roleArn"`
@@ -708,20 +717,26 @@ type CfnAlert_SNSConfigurationProperty struct {
 }
 
 // Properties for defining a `AWS::LookoutMetrics::Alert`.
+//
+// TODO: EXAMPLE
+//
 type CfnAlertProps struct {
 	// `AWS::LookoutMetrics::Alert.Action`.
 	Action interface{} `json:"action"`
-	// `AWS::LookoutMetrics::Alert.AlertSensitivityThreshold`.
-	AlertSensitivityThreshold *float64 `json:"alertSensitivityThreshold"`
-	// `AWS::LookoutMetrics::Alert.AnomalyDetectorArn`.
-	AnomalyDetectorArn *string `json:"anomalyDetectorArn"`
 	// `AWS::LookoutMetrics::Alert.AlertDescription`.
 	AlertDescription *string `json:"alertDescription"`
 	// `AWS::LookoutMetrics::Alert.AlertName`.
 	AlertName *string `json:"alertName"`
+	// `AWS::LookoutMetrics::Alert.AlertSensitivityThreshold`.
+	AlertSensitivityThreshold *float64 `json:"alertSensitivityThreshold"`
+	// `AWS::LookoutMetrics::Alert.AnomalyDetectorArn`.
+	AnomalyDetectorArn *string `json:"anomalyDetectorArn"`
 }
 
 // A CloudFormation `AWS::LookoutMetrics::AnomalyDetector`.
+//
+// TODO: EXAMPLE
+//
 type CfnAnomalyDetector interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1398,11 +1413,15 @@ func (c *jsiiProxy_CfnAnomalyDetector) ValidateProperties(_properties interface{
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnomalyDetector_AnomalyDetectorConfigProperty struct {
 	// `CfnAnomalyDetector.AnomalyDetectorConfigProperty.AnomalyDetectorFrequency`.
 	AnomalyDetectorFrequency *string `json:"anomalyDetectorFrequency"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnomalyDetector_AppFlowConfigProperty struct {
 	// `CfnAnomalyDetector.AppFlowConfigProperty.FlowName`.
 	FlowName *string `json:"flowName"`
@@ -1410,11 +1429,15 @@ type CfnAnomalyDetector_AppFlowConfigProperty struct {
 	RoleArn *string `json:"roleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnomalyDetector_CloudwatchConfigProperty struct {
 	// `CfnAnomalyDetector.CloudwatchConfigProperty.RoleArn`.
 	RoleArn *string `json:"roleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnomalyDetector_CsvFormatDescriptorProperty struct {
 	// `CfnAnomalyDetector.CsvFormatDescriptorProperty.Charset`.
 	Charset *string `json:"charset"`
@@ -1430,6 +1453,8 @@ type CfnAnomalyDetector_CsvFormatDescriptorProperty struct {
 	QuoteSymbol *string `json:"quoteSymbol"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnomalyDetector_FileFormatDescriptorProperty struct {
 	// `CfnAnomalyDetector.FileFormatDescriptorProperty.CsvFormatDescriptor`.
 	CsvFormatDescriptor interface{} `json:"csvFormatDescriptor"`
@@ -1437,6 +1462,8 @@ type CfnAnomalyDetector_FileFormatDescriptorProperty struct {
 	JsonFormatDescriptor interface{} `json:"jsonFormatDescriptor"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnomalyDetector_JsonFormatDescriptorProperty struct {
 	// `CfnAnomalyDetector.JsonFormatDescriptorProperty.Charset`.
 	Charset *string `json:"charset"`
@@ -1444,6 +1471,8 @@ type CfnAnomalyDetector_JsonFormatDescriptorProperty struct {
 	FileCompression *string `json:"fileCompression"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnomalyDetector_MetricProperty struct {
 	// `CfnAnomalyDetector.MetricProperty.AggregationFunction`.
 	AggregationFunction *string `json:"aggregationFunction"`
@@ -1453,19 +1482,21 @@ type CfnAnomalyDetector_MetricProperty struct {
 	Namespace *string `json:"namespace"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnomalyDetector_MetricSetProperty struct {
-	// `CfnAnomalyDetector.MetricSetProperty.MetricList`.
-	MetricList interface{} `json:"metricList"`
-	// `CfnAnomalyDetector.MetricSetProperty.MetricSetName`.
-	MetricSetName *string `json:"metricSetName"`
-	// `CfnAnomalyDetector.MetricSetProperty.MetricSource`.
-	MetricSource interface{} `json:"metricSource"`
 	// `CfnAnomalyDetector.MetricSetProperty.DimensionList`.
 	DimensionList *[]*string `json:"dimensionList"`
+	// `CfnAnomalyDetector.MetricSetProperty.MetricList`.
+	MetricList interface{} `json:"metricList"`
 	// `CfnAnomalyDetector.MetricSetProperty.MetricSetDescription`.
 	MetricSetDescription *string `json:"metricSetDescription"`
 	// `CfnAnomalyDetector.MetricSetProperty.MetricSetFrequency`.
 	MetricSetFrequency *string `json:"metricSetFrequency"`
+	// `CfnAnomalyDetector.MetricSetProperty.MetricSetName`.
+	MetricSetName *string `json:"metricSetName"`
+	// `CfnAnomalyDetector.MetricSetProperty.MetricSource`.
+	MetricSource interface{} `json:"metricSource"`
 	// `CfnAnomalyDetector.MetricSetProperty.Offset`.
 	Offset *float64 `json:"offset"`
 	// `CfnAnomalyDetector.MetricSetProperty.TimestampColumn`.
@@ -1474,6 +1505,8 @@ type CfnAnomalyDetector_MetricSetProperty struct {
 	Timezone *string `json:"timezone"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnomalyDetector_MetricSourceProperty struct {
 	// `CfnAnomalyDetector.MetricSourceProperty.AppFlowConfig`.
 	AppFlowConfig interface{} `json:"appFlowConfig"`
@@ -1487,6 +1520,8 @@ type CfnAnomalyDetector_MetricSourceProperty struct {
 	S3SourceConfig interface{} `json:"s3SourceConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnomalyDetector_RDSSourceConfigProperty struct {
 	// `CfnAnomalyDetector.RDSSourceConfigProperty.DatabaseHost`.
 	DatabaseHost *string `json:"databaseHost"`
@@ -1506,6 +1541,8 @@ type CfnAnomalyDetector_RDSSourceConfigProperty struct {
 	VpcConfiguration interface{} `json:"vpcConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnomalyDetector_RedshiftSourceConfigProperty struct {
 	// `CfnAnomalyDetector.RedshiftSourceConfigProperty.ClusterIdentifier`.
 	ClusterIdentifier *string `json:"clusterIdentifier"`
@@ -1525,17 +1562,21 @@ type CfnAnomalyDetector_RedshiftSourceConfigProperty struct {
 	VpcConfiguration interface{} `json:"vpcConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnomalyDetector_S3SourceConfigProperty struct {
 	// `CfnAnomalyDetector.S3SourceConfigProperty.FileFormatDescriptor`.
 	FileFormatDescriptor interface{} `json:"fileFormatDescriptor"`
-	// `CfnAnomalyDetector.S3SourceConfigProperty.RoleArn`.
-	RoleArn *string `json:"roleArn"`
 	// `CfnAnomalyDetector.S3SourceConfigProperty.HistoricalDataPathList`.
 	HistoricalDataPathList *[]*string `json:"historicalDataPathList"`
+	// `CfnAnomalyDetector.S3SourceConfigProperty.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 	// `CfnAnomalyDetector.S3SourceConfigProperty.TemplatedPathList`.
 	TemplatedPathList *[]*string `json:"templatedPathList"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnomalyDetector_TimestampColumnProperty struct {
 	// `CfnAnomalyDetector.TimestampColumnProperty.ColumnFormat`.
 	ColumnFormat *string `json:"columnFormat"`
@@ -1543,6 +1584,8 @@ type CfnAnomalyDetector_TimestampColumnProperty struct {
 	ColumnName *string `json:"columnName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnomalyDetector_VpcConfigurationProperty struct {
 	// `CfnAnomalyDetector.VpcConfigurationProperty.SecurityGroupIdList`.
 	SecurityGroupIdList *[]*string `json:"securityGroupIdList"`
@@ -1551,16 +1594,19 @@ type CfnAnomalyDetector_VpcConfigurationProperty struct {
 }
 
 // Properties for defining a `AWS::LookoutMetrics::AnomalyDetector`.
+//
+// TODO: EXAMPLE
+//
 type CfnAnomalyDetectorProps struct {
 	// `AWS::LookoutMetrics::AnomalyDetector.AnomalyDetectorConfig`.
 	AnomalyDetectorConfig interface{} `json:"anomalyDetectorConfig"`
-	// `AWS::LookoutMetrics::AnomalyDetector.MetricSetList`.
-	MetricSetList interface{} `json:"metricSetList"`
 	// `AWS::LookoutMetrics::AnomalyDetector.AnomalyDetectorDescription`.
 	AnomalyDetectorDescription *string `json:"anomalyDetectorDescription"`
 	// `AWS::LookoutMetrics::AnomalyDetector.AnomalyDetectorName`.
 	AnomalyDetectorName *string `json:"anomalyDetectorName"`
 	// `AWS::LookoutMetrics::AnomalyDetector.KmsKeyArn`.
 	KmsKeyArn *string `json:"kmsKeyArn"`
+	// `AWS::LookoutMetrics::AnomalyDetector.MetricSetList`.
+	MetricSetList interface{} `json:"metricSetList"`
 }
 

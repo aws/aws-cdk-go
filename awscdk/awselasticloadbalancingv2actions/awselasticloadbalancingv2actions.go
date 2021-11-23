@@ -11,6 +11,9 @@ import (
 )
 
 // A Listener Action to authenticate with Cognito.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AuthenticateCognitoAction interface {
 	awselasticloadbalancingv2.ListenerAction
@@ -222,26 +225,20 @@ func (a *jsiiProxy_AuthenticateCognitoAction) Renumber(actions *[]*awselasticloa
 }
 
 // Properties for AuthenticateCognitoAction.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AuthenticateCognitoActionProps struct {
+	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
+	// Experimental.
+	AuthenticationRequestExtraParams *map[string]*string `json:"authenticationRequestExtraParams"`
 	// What action to execute next.
 	//
 	// Multiple actions form a linked chain; the chain must always terminate in a
 	// (weighted)forward, fixedResponse or redirect action.
 	// Experimental.
 	Next awselasticloadbalancingv2.ListenerAction `json:"next"`
-	// The Amazon Cognito user pool.
-	// Experimental.
-	UserPool awscognito.IUserPool `json:"userPool"`
-	// The Amazon Cognito user pool client.
-	// Experimental.
-	UserPoolClient awscognito.IUserPoolClient `json:"userPoolClient"`
-	// The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
-	// Experimental.
-	UserPoolDomain awscognito.IUserPoolDomain `json:"userPoolDomain"`
-	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
-	// Experimental.
-	AuthenticationRequestExtraParams *map[string]*string `json:"authenticationRequestExtraParams"`
 	// The behavior if the user is not authenticated.
 	// Experimental.
 	OnUnauthenticatedRequest awselasticloadbalancingv2.UnauthenticatedAction `json:"onUnauthenticatedRequest"`
@@ -256,5 +253,14 @@ type AuthenticateCognitoActionProps struct {
 	// The maximum duration of the authentication session.
 	// Experimental.
 	SessionTimeout awscdk.Duration `json:"sessionTimeout"`
+	// The Amazon Cognito user pool.
+	// Experimental.
+	UserPool awscognito.IUserPool `json:"userPool"`
+	// The Amazon Cognito user pool client.
+	// Experimental.
+	UserPoolClient awscognito.IUserPoolClient `json:"userPoolClient"`
+	// The domain prefix or fully-qualified domain name of the Amazon Cognito user pool.
+	// Experimental.
+	UserPoolDomain awscognito.IUserPoolDomain `json:"userPoolDomain"`
 }
 

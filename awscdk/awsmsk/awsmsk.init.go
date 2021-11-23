@@ -179,9 +179,9 @@ func init() {
 		"monocdk.aws_msk.ClientBrokerEncryption",
 		reflect.TypeOf((*ClientBrokerEncryption)(nil)).Elem(),
 		map[string]interface{}{
+			"PLAINTEXT": ClientBrokerEncryption_PLAINTEXT,
 			"TLS": ClientBrokerEncryption_TLS,
 			"TLS_PLAINTEXT": ClientBrokerEncryption_TLS_PLAINTEXT,
-			"PLAINTEXT": ClientBrokerEncryption_PLAINTEXT,
 		},
 	)
 	_jsii_.RegisterClass(

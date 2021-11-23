@@ -33,6 +33,9 @@ type AddEventSelectorOptions struct {
 }
 
 // A CloudFormation `AWS::CloudTrail::Trail`.
+//
+// TODO: EXAMPLE
+//
 type CfnTrail interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -911,6 +914,8 @@ func (c *jsiiProxy_CfnTrail) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnTrail_DataResourceProperty struct {
 	// `CfnTrail.DataResourceProperty.Type`.
 	Type *string `json:"type"`
@@ -918,6 +923,8 @@ type CfnTrail_DataResourceProperty struct {
 	Values *[]*string `json:"values"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTrail_EventSelectorProperty struct {
 	// `CfnTrail.EventSelectorProperty.DataResources`.
 	DataResources interface{} `json:"dataResources"`
@@ -929,17 +936,18 @@ type CfnTrail_EventSelectorProperty struct {
 	ReadWriteType *string `json:"readWriteType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTrail_InsightSelectorProperty struct {
 	// `CfnTrail.InsightSelectorProperty.InsightType`.
 	InsightType *string `json:"insightType"`
 }
 
 // Properties for defining a `AWS::CloudTrail::Trail`.
+//
+// TODO: EXAMPLE
+//
 type CfnTrailProps struct {
-	// `AWS::CloudTrail::Trail.IsLogging`.
-	IsLogging interface{} `json:"isLogging"`
-	// `AWS::CloudTrail::Trail.S3BucketName`.
-	S3BucketName *string `json:"s3BucketName"`
 	// `AWS::CloudTrail::Trail.CloudWatchLogsLogGroupArn`.
 	CloudWatchLogsLogGroupArn *string `json:"cloudWatchLogsLogGroupArn"`
 	// `AWS::CloudTrail::Trail.CloudWatchLogsRoleArn`.
@@ -952,12 +960,16 @@ type CfnTrailProps struct {
 	IncludeGlobalServiceEvents interface{} `json:"includeGlobalServiceEvents"`
 	// `AWS::CloudTrail::Trail.InsightSelectors`.
 	InsightSelectors interface{} `json:"insightSelectors"`
+	// `AWS::CloudTrail::Trail.IsLogging`.
+	IsLogging interface{} `json:"isLogging"`
 	// `AWS::CloudTrail::Trail.IsMultiRegionTrail`.
 	IsMultiRegionTrail interface{} `json:"isMultiRegionTrail"`
 	// `AWS::CloudTrail::Trail.IsOrganizationTrail`.
 	IsOrganizationTrail interface{} `json:"isOrganizationTrail"`
 	// `AWS::CloudTrail::Trail.KMSKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
+	// `AWS::CloudTrail::Trail.S3BucketName`.
+	S3BucketName *string `json:"s3BucketName"`
 	// `AWS::CloudTrail::Trail.S3KeyPrefix`.
 	S3KeyPrefix *string `json:"s3KeyPrefix"`
 	// `AWS::CloudTrail::Trail.SnsTopicName`.
@@ -1001,6 +1013,9 @@ const (
 )
 
 // Selecting an S3 bucket and an optional prefix to be logged for data events.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type S3EventSelector struct {
 	// S3 bucket.

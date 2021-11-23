@@ -991,6 +991,8 @@ func (c *jsiiProxy_CfnIdentityPool) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnIdentityPool_CognitoIdentityProviderProperty struct {
 	// `CfnIdentityPool.CognitoIdentityProviderProperty.ClientId`.
 	ClientId *string `json:"clientId"`
@@ -1000,6 +1002,8 @@ type CfnIdentityPool_CognitoIdentityProviderProperty struct {
 	ServerSideTokenCheck interface{} `json:"serverSideTokenCheck"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIdentityPool_CognitoStreamsProperty struct {
 	// `CfnIdentityPool.CognitoStreamsProperty.RoleArn`.
 	RoleArn *string `json:"roleArn"`
@@ -1009,6 +1013,8 @@ type CfnIdentityPool_CognitoStreamsProperty struct {
 	StreamName *string `json:"streamName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIdentityPool_PushSyncProperty struct {
 	// `CfnIdentityPool.PushSyncProperty.ApplicationArns`.
 	ApplicationArns *[]*string `json:"applicationArns"`
@@ -1046,6 +1052,9 @@ type CfnIdentityPoolProps struct {
 }
 
 // A CloudFormation `AWS::Cognito::IdentityPoolRoleAttachment`.
+//
+// TODO: EXAMPLE
+//
 type CfnIdentityPoolRoleAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1671,6 +1680,8 @@ func (c *jsiiProxy_CfnIdentityPoolRoleAttachment) ValidateProperties(_properties
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnIdentityPoolRoleAttachment_MappingRuleProperty struct {
 	// `CfnIdentityPoolRoleAttachment.MappingRuleProperty.Claim`.
 	Claim *string `json:"claim"`
@@ -1682,23 +1693,30 @@ type CfnIdentityPoolRoleAttachment_MappingRuleProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIdentityPoolRoleAttachment_RoleMappingProperty struct {
-	// `CfnIdentityPoolRoleAttachment.RoleMappingProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnIdentityPoolRoleAttachment.RoleMappingProperty.AmbiguousRoleResolution`.
 	AmbiguousRoleResolution *string `json:"ambiguousRoleResolution"`
 	// `CfnIdentityPoolRoleAttachment.RoleMappingProperty.IdentityProvider`.
 	IdentityProvider *string `json:"identityProvider"`
 	// `CfnIdentityPoolRoleAttachment.RoleMappingProperty.RulesConfiguration`.
 	RulesConfiguration interface{} `json:"rulesConfiguration"`
+	// `CfnIdentityPoolRoleAttachment.RoleMappingProperty.Type`.
+	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIdentityPoolRoleAttachment_RulesConfigurationTypeProperty struct {
 	// `CfnIdentityPoolRoleAttachment.RulesConfigurationTypeProperty.Rules`.
 	Rules interface{} `json:"rules"`
 }
 
 // Properties for defining a `AWS::Cognito::IdentityPoolRoleAttachment`.
+//
+// TODO: EXAMPLE
+//
 type CfnIdentityPoolRoleAttachmentProps struct {
 	// `AWS::Cognito::IdentityPoolRoleAttachment.IdentityPoolId`.
 	IdentityPoolId *string `json:"identityPoolId"`
@@ -1709,6 +1727,9 @@ type CfnIdentityPoolRoleAttachmentProps struct {
 }
 
 // A CloudFormation `AWS::Cognito::UserPool`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserPool interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2738,11 +2759,15 @@ func (c *jsiiProxy_CfnUserPool) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPool_AccountRecoverySettingProperty struct {
 	// `CfnUserPool.AccountRecoverySettingProperty.RecoveryMechanisms`.
 	RecoveryMechanisms interface{} `json:"recoveryMechanisms"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPool_AdminCreateUserConfigProperty struct {
 	// `CfnUserPool.AdminCreateUserConfigProperty.AllowAdminCreateUserOnly`.
 	AllowAdminCreateUserOnly interface{} `json:"allowAdminCreateUserOnly"`
@@ -2752,6 +2777,8 @@ type CfnUserPool_AdminCreateUserConfigProperty struct {
 	UnusedAccountValidityDays *float64 `json:"unusedAccountValidityDays"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPool_CustomEmailSenderProperty struct {
 	// `CfnUserPool.CustomEmailSenderProperty.LambdaArn`.
 	LambdaArn *string `json:"lambdaArn"`
@@ -2759,6 +2786,8 @@ type CfnUserPool_CustomEmailSenderProperty struct {
 	LambdaVersion *string `json:"lambdaVersion"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPool_CustomSMSSenderProperty struct {
 	// `CfnUserPool.CustomSMSSenderProperty.LambdaArn`.
 	LambdaArn *string `json:"lambdaArn"`
@@ -2766,6 +2795,8 @@ type CfnUserPool_CustomSMSSenderProperty struct {
 	LambdaVersion *string `json:"lambdaVersion"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPool_DeviceConfigurationProperty struct {
 	// `CfnUserPool.DeviceConfigurationProperty.ChallengeRequiredOnNewDevice`.
 	ChallengeRequiredOnNewDevice interface{} `json:"challengeRequiredOnNewDevice"`
@@ -2773,6 +2804,8 @@ type CfnUserPool_DeviceConfigurationProperty struct {
 	DeviceOnlyRememberedOnUserPrompt interface{} `json:"deviceOnlyRememberedOnUserPrompt"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPool_EmailConfigurationProperty struct {
 	// `CfnUserPool.EmailConfigurationProperty.ConfigurationSet`.
 	ConfigurationSet *string `json:"configurationSet"`
@@ -2786,6 +2819,8 @@ type CfnUserPool_EmailConfigurationProperty struct {
 	SourceArn *string `json:"sourceArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPool_InviteMessageTemplateProperty struct {
 	// `CfnUserPool.InviteMessageTemplateProperty.EmailMessage`.
 	EmailMessage *string `json:"emailMessage"`
@@ -2795,6 +2830,8 @@ type CfnUserPool_InviteMessageTemplateProperty struct {
 	SmsMessage *string `json:"smsMessage"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPool_LambdaConfigProperty struct {
 	// `CfnUserPool.LambdaConfigProperty.CreateAuthChallenge`.
 	CreateAuthChallenge *string `json:"createAuthChallenge"`
@@ -2824,6 +2861,8 @@ type CfnUserPool_LambdaConfigProperty struct {
 	VerifyAuthChallengeResponse *string `json:"verifyAuthChallengeResponse"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPool_NumberAttributeConstraintsProperty struct {
 	// `CfnUserPool.NumberAttributeConstraintsProperty.MaxValue`.
 	MaxValue *string `json:"maxValue"`
@@ -2831,6 +2870,8 @@ type CfnUserPool_NumberAttributeConstraintsProperty struct {
 	MinValue *string `json:"minValue"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPool_PasswordPolicyProperty struct {
 	// `CfnUserPool.PasswordPolicyProperty.MinimumLength`.
 	MinimumLength *float64 `json:"minimumLength"`
@@ -2846,11 +2887,15 @@ type CfnUserPool_PasswordPolicyProperty struct {
 	TemporaryPasswordValidityDays *float64 `json:"temporaryPasswordValidityDays"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPool_PoliciesProperty struct {
 	// `CfnUserPool.PoliciesProperty.PasswordPolicy`.
 	PasswordPolicy interface{} `json:"passwordPolicy"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPool_RecoveryOptionProperty struct {
 	// `CfnUserPool.RecoveryOptionProperty.Name`.
 	Name *string `json:"name"`
@@ -2858,6 +2903,8 @@ type CfnUserPool_RecoveryOptionProperty struct {
 	Priority *float64 `json:"priority"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPool_SchemaAttributeProperty struct {
 	// `CfnUserPool.SchemaAttributeProperty.AttributeDataType`.
 	AttributeDataType *string `json:"attributeDataType"`
@@ -2875,6 +2922,8 @@ type CfnUserPool_SchemaAttributeProperty struct {
 	StringAttributeConstraints interface{} `json:"stringAttributeConstraints"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPool_SmsConfigurationProperty struct {
 	// `CfnUserPool.SmsConfigurationProperty.ExternalId`.
 	ExternalId *string `json:"externalId"`
@@ -2882,6 +2931,8 @@ type CfnUserPool_SmsConfigurationProperty struct {
 	SnsCallerArn *string `json:"snsCallerArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPool_StringAttributeConstraintsProperty struct {
 	// `CfnUserPool.StringAttributeConstraintsProperty.MaxLength`.
 	MaxLength *string `json:"maxLength"`
@@ -2889,16 +2940,22 @@ type CfnUserPool_StringAttributeConstraintsProperty struct {
 	MinLength *string `json:"minLength"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPool_UserPoolAddOnsProperty struct {
 	// `CfnUserPool.UserPoolAddOnsProperty.AdvancedSecurityMode`.
 	AdvancedSecurityMode *string `json:"advancedSecurityMode"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPool_UsernameConfigurationProperty struct {
 	// `CfnUserPool.UsernameConfigurationProperty.CaseSensitive`.
 	CaseSensitive interface{} `json:"caseSensitive"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPool_VerificationMessageTemplateProperty struct {
 	// `CfnUserPool.VerificationMessageTemplateProperty.DefaultEmailOption`.
 	DefaultEmailOption *string `json:"defaultEmailOption"`
@@ -2915,6 +2972,9 @@ type CfnUserPool_VerificationMessageTemplateProperty struct {
 }
 
 // A CloudFormation `AWS::Cognito::UserPoolClient`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserPoolClient interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3902,6 +3962,8 @@ func (c *jsiiProxy_CfnUserPoolClient) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPoolClient_AnalyticsConfigurationProperty struct {
 	// `CfnUserPoolClient.AnalyticsConfigurationProperty.ApplicationArn`.
 	ApplicationArn *string `json:"applicationArn"`
@@ -3915,6 +3977,8 @@ type CfnUserPoolClient_AnalyticsConfigurationProperty struct {
 	UserDataShared interface{} `json:"userDataShared"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPoolClient_TokenValidityUnitsProperty struct {
 	// `CfnUserPoolClient.TokenValidityUnitsProperty.AccessToken`.
 	AccessToken *string `json:"accessToken"`
@@ -3925,9 +3989,10 @@ type CfnUserPoolClient_TokenValidityUnitsProperty struct {
 }
 
 // Properties for defining a `AWS::Cognito::UserPoolClient`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserPoolClientProps struct {
-	// `AWS::Cognito::UserPoolClient.UserPoolId`.
-	UserPoolId *string `json:"userPoolId"`
 	// `AWS::Cognito::UserPoolClient.AccessTokenValidity`.
 	AccessTokenValidity *float64 `json:"accessTokenValidity"`
 	// `AWS::Cognito::UserPoolClient.AllowedOAuthFlows`.
@@ -3964,11 +4029,16 @@ type CfnUserPoolClientProps struct {
 	SupportedIdentityProviders *[]*string `json:"supportedIdentityProviders"`
 	// `AWS::Cognito::UserPoolClient.TokenValidityUnits`.
 	TokenValidityUnits interface{} `json:"tokenValidityUnits"`
+	// `AWS::Cognito::UserPoolClient.UserPoolId`.
+	UserPoolId *string `json:"userPoolId"`
 	// `AWS::Cognito::UserPoolClient.WriteAttributes`.
 	WriteAttributes *[]*string `json:"writeAttributes"`
 }
 
 // A CloudFormation `AWS::Cognito::UserPoolDomain`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserPoolDomain interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4594,22 +4664,30 @@ func (c *jsiiProxy_CfnUserPoolDomain) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPoolDomain_CustomDomainConfigTypeProperty struct {
 	// `CfnUserPoolDomain.CustomDomainConfigTypeProperty.CertificateArn`.
 	CertificateArn *string `json:"certificateArn"`
 }
 
 // Properties for defining a `AWS::Cognito::UserPoolDomain`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserPoolDomainProps struct {
+	// `AWS::Cognito::UserPoolDomain.CustomDomainConfig`.
+	CustomDomainConfig interface{} `json:"customDomainConfig"`
 	// `AWS::Cognito::UserPoolDomain.Domain`.
 	Domain *string `json:"domain"`
 	// `AWS::Cognito::UserPoolDomain.UserPoolId`.
 	UserPoolId *string `json:"userPoolId"`
-	// `AWS::Cognito::UserPoolDomain.CustomDomainConfig`.
-	CustomDomainConfig interface{} `json:"customDomainConfig"`
 }
 
 // A CloudFormation `AWS::Cognito::UserPoolGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserPoolGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5276,9 +5354,10 @@ func (c *jsiiProxy_CfnUserPoolGroup) ValidateProperties(_properties interface{})
 }
 
 // Properties for defining a `AWS::Cognito::UserPoolGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserPoolGroupProps struct {
-	// `AWS::Cognito::UserPoolGroup.UserPoolId`.
-	UserPoolId *string `json:"userPoolId"`
 	// `AWS::Cognito::UserPoolGroup.Description`.
 	Description *string `json:"description"`
 	// `AWS::Cognito::UserPoolGroup.GroupName`.
@@ -5287,9 +5366,14 @@ type CfnUserPoolGroupProps struct {
 	Precedence *float64 `json:"precedence"`
 	// `AWS::Cognito::UserPoolGroup.RoleArn`.
 	RoleArn *string `json:"roleArn"`
+	// `AWS::Cognito::UserPoolGroup.UserPoolId`.
+	UserPoolId *string `json:"userPoolId"`
 }
 
 // A CloudFormation `AWS::Cognito::UserPoolIdentityProvider`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserPoolIdentityProvider interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5976,22 +6060,28 @@ func (c *jsiiProxy_CfnUserPoolIdentityProvider) ValidateProperties(_properties i
 }
 
 // Properties for defining a `AWS::Cognito::UserPoolIdentityProvider`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserPoolIdentityProviderProps struct {
-	// `AWS::Cognito::UserPoolIdentityProvider.ProviderName`.
-	ProviderName *string `json:"providerName"`
-	// `AWS::Cognito::UserPoolIdentityProvider.ProviderType`.
-	ProviderType *string `json:"providerType"`
-	// `AWS::Cognito::UserPoolIdentityProvider.UserPoolId`.
-	UserPoolId *string `json:"userPoolId"`
 	// `AWS::Cognito::UserPoolIdentityProvider.AttributeMapping`.
 	AttributeMapping interface{} `json:"attributeMapping"`
 	// `AWS::Cognito::UserPoolIdentityProvider.IdpIdentifiers`.
 	IdpIdentifiers *[]*string `json:"idpIdentifiers"`
 	// `AWS::Cognito::UserPoolIdentityProvider.ProviderDetails`.
 	ProviderDetails interface{} `json:"providerDetails"`
+	// `AWS::Cognito::UserPoolIdentityProvider.ProviderName`.
+	ProviderName *string `json:"providerName"`
+	// `AWS::Cognito::UserPoolIdentityProvider.ProviderType`.
+	ProviderType *string `json:"providerType"`
+	// `AWS::Cognito::UserPoolIdentityProvider.UserPoolId`.
+	UserPoolId *string `json:"userPoolId"`
 }
 
 // Properties for defining a `AWS::Cognito::UserPool`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserPoolProps struct {
 	// `AWS::Cognito::UserPool.AccountRecoverySetting`.
 	AccountRecoverySetting interface{} `json:"accountRecoverySetting"`
@@ -6040,6 +6130,9 @@ type CfnUserPoolProps struct {
 }
 
 // A CloudFormation `AWS::Cognito::UserPoolResourceServer`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserPoolResourceServer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6685,6 +6778,8 @@ func (c *jsiiProxy_CfnUserPoolResourceServer) ValidateProperties(_properties int
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPoolResourceServer_ResourceServerScopeTypeProperty struct {
 	// `CfnUserPoolResourceServer.ResourceServerScopeTypeProperty.ScopeDescription`.
 	ScopeDescription *string `json:"scopeDescription"`
@@ -6693,18 +6788,24 @@ type CfnUserPoolResourceServer_ResourceServerScopeTypeProperty struct {
 }
 
 // Properties for defining a `AWS::Cognito::UserPoolResourceServer`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserPoolResourceServerProps struct {
 	// `AWS::Cognito::UserPoolResourceServer.Identifier`.
 	Identifier *string `json:"identifier"`
 	// `AWS::Cognito::UserPoolResourceServer.Name`.
 	Name *string `json:"name"`
-	// `AWS::Cognito::UserPoolResourceServer.UserPoolId`.
-	UserPoolId *string `json:"userPoolId"`
 	// `AWS::Cognito::UserPoolResourceServer.Scopes`.
 	Scopes interface{} `json:"scopes"`
+	// `AWS::Cognito::UserPoolResourceServer.UserPoolId`.
+	UserPoolId *string `json:"userPoolId"`
 }
 
 // A CloudFormation `AWS::Cognito::UserPoolRiskConfigurationAttachment`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserPoolRiskConfigurationAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -7370,6 +7471,8 @@ func (c *jsiiProxy_CfnUserPoolRiskConfigurationAttachment) ValidateProperties(_p
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPoolRiskConfigurationAttachment_AccountTakeoverActionTypeProperty struct {
 	// `CfnUserPoolRiskConfigurationAttachment.AccountTakeoverActionTypeProperty.EventAction`.
 	EventAction *string `json:"eventAction"`
@@ -7377,6 +7480,8 @@ type CfnUserPoolRiskConfigurationAttachment_AccountTakeoverActionTypeProperty st
 	Notify interface{} `json:"notify"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPoolRiskConfigurationAttachment_AccountTakeoverActionsTypeProperty struct {
 	// `CfnUserPoolRiskConfigurationAttachment.AccountTakeoverActionsTypeProperty.HighAction`.
 	HighAction interface{} `json:"highAction"`
@@ -7386,6 +7491,8 @@ type CfnUserPoolRiskConfigurationAttachment_AccountTakeoverActionsTypeProperty s
 	MediumAction interface{} `json:"mediumAction"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPoolRiskConfigurationAttachment_AccountTakeoverRiskConfigurationTypeProperty struct {
 	// `CfnUserPoolRiskConfigurationAttachment.AccountTakeoverRiskConfigurationTypeProperty.Actions`.
 	Actions interface{} `json:"actions"`
@@ -7393,11 +7500,15 @@ type CfnUserPoolRiskConfigurationAttachment_AccountTakeoverRiskConfigurationType
 	NotifyConfiguration interface{} `json:"notifyConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPoolRiskConfigurationAttachment_CompromisedCredentialsActionsTypeProperty struct {
 	// `CfnUserPoolRiskConfigurationAttachment.CompromisedCredentialsActionsTypeProperty.EventAction`.
 	EventAction *string `json:"eventAction"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPoolRiskConfigurationAttachment_CompromisedCredentialsRiskConfigurationTypeProperty struct {
 	// `CfnUserPoolRiskConfigurationAttachment.CompromisedCredentialsRiskConfigurationTypeProperty.Actions`.
 	Actions interface{} `json:"actions"`
@@ -7405,9 +7516,9 @@ type CfnUserPoolRiskConfigurationAttachment_CompromisedCredentialsRiskConfigurat
 	EventFilter *[]*string `json:"eventFilter"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPoolRiskConfigurationAttachment_NotifyConfigurationTypeProperty struct {
-	// `CfnUserPoolRiskConfigurationAttachment.NotifyConfigurationTypeProperty.SourceArn`.
-	SourceArn *string `json:"sourceArn"`
 	// `CfnUserPoolRiskConfigurationAttachment.NotifyConfigurationTypeProperty.BlockEmail`.
 	BlockEmail interface{} `json:"blockEmail"`
 	// `CfnUserPoolRiskConfigurationAttachment.NotifyConfigurationTypeProperty.From`.
@@ -7418,17 +7529,23 @@ type CfnUserPoolRiskConfigurationAttachment_NotifyConfigurationTypeProperty stru
 	NoActionEmail interface{} `json:"noActionEmail"`
 	// `CfnUserPoolRiskConfigurationAttachment.NotifyConfigurationTypeProperty.ReplyTo`.
 	ReplyTo *string `json:"replyTo"`
+	// `CfnUserPoolRiskConfigurationAttachment.NotifyConfigurationTypeProperty.SourceArn`.
+	SourceArn *string `json:"sourceArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPoolRiskConfigurationAttachment_NotifyEmailTypeProperty struct {
-	// `CfnUserPoolRiskConfigurationAttachment.NotifyEmailTypeProperty.Subject`.
-	Subject *string `json:"subject"`
 	// `CfnUserPoolRiskConfigurationAttachment.NotifyEmailTypeProperty.HtmlBody`.
 	HtmlBody *string `json:"htmlBody"`
+	// `CfnUserPoolRiskConfigurationAttachment.NotifyEmailTypeProperty.Subject`.
+	Subject *string `json:"subject"`
 	// `CfnUserPoolRiskConfigurationAttachment.NotifyEmailTypeProperty.TextBody`.
 	TextBody *string `json:"textBody"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPoolRiskConfigurationAttachment_RiskExceptionConfigurationTypeProperty struct {
 	// `CfnUserPoolRiskConfigurationAttachment.RiskExceptionConfigurationTypeProperty.BlockedIPRangeList`.
 	BlockedIpRangeList *[]*string `json:"blockedIpRangeList"`
@@ -7437,20 +7554,26 @@ type CfnUserPoolRiskConfigurationAttachment_RiskExceptionConfigurationTypeProper
 }
 
 // Properties for defining a `AWS::Cognito::UserPoolRiskConfigurationAttachment`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserPoolRiskConfigurationAttachmentProps struct {
-	// `AWS::Cognito::UserPoolRiskConfigurationAttachment.ClientId`.
-	ClientId *string `json:"clientId"`
-	// `AWS::Cognito::UserPoolRiskConfigurationAttachment.UserPoolId`.
-	UserPoolId *string `json:"userPoolId"`
 	// `AWS::Cognito::UserPoolRiskConfigurationAttachment.AccountTakeoverRiskConfiguration`.
 	AccountTakeoverRiskConfiguration interface{} `json:"accountTakeoverRiskConfiguration"`
+	// `AWS::Cognito::UserPoolRiskConfigurationAttachment.ClientId`.
+	ClientId *string `json:"clientId"`
 	// `AWS::Cognito::UserPoolRiskConfigurationAttachment.CompromisedCredentialsRiskConfiguration`.
 	CompromisedCredentialsRiskConfiguration interface{} `json:"compromisedCredentialsRiskConfiguration"`
 	// `AWS::Cognito::UserPoolRiskConfigurationAttachment.RiskExceptionConfiguration`.
 	RiskExceptionConfiguration interface{} `json:"riskExceptionConfiguration"`
+	// `AWS::Cognito::UserPoolRiskConfigurationAttachment.UserPoolId`.
+	UserPoolId *string `json:"userPoolId"`
 }
 
 // A CloudFormation `AWS::Cognito::UserPoolUICustomizationAttachment`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserPoolUICustomizationAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -8077,16 +8200,22 @@ func (c *jsiiProxy_CfnUserPoolUICustomizationAttachment) ValidateProperties(_pro
 }
 
 // Properties for defining a `AWS::Cognito::UserPoolUICustomizationAttachment`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserPoolUICustomizationAttachmentProps struct {
 	// `AWS::Cognito::UserPoolUICustomizationAttachment.ClientId`.
 	ClientId *string `json:"clientId"`
-	// `AWS::Cognito::UserPoolUICustomizationAttachment.UserPoolId`.
-	UserPoolId *string `json:"userPoolId"`
 	// `AWS::Cognito::UserPoolUICustomizationAttachment.CSS`.
 	Css *string `json:"css"`
+	// `AWS::Cognito::UserPoolUICustomizationAttachment.UserPoolId`.
+	UserPoolId *string `json:"userPoolId"`
 }
 
 // A CloudFormation `AWS::Cognito::UserPoolUser`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserPoolUser interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -8812,6 +8941,8 @@ func (c *jsiiProxy_CfnUserPoolUser) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserPoolUser_AttributeTypeProperty struct {
 	// `CfnUserPoolUser.AttributeTypeProperty.Name`.
 	Name *string `json:"name"`
@@ -8820,9 +8951,10 @@ type CfnUserPoolUser_AttributeTypeProperty struct {
 }
 
 // Properties for defining a `AWS::Cognito::UserPoolUser`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserPoolUserProps struct {
-	// `AWS::Cognito::UserPoolUser.UserPoolId`.
-	UserPoolId *string `json:"userPoolId"`
 	// `AWS::Cognito::UserPoolUser.ClientMetadata`.
 	ClientMetadata interface{} `json:"clientMetadata"`
 	// `AWS::Cognito::UserPoolUser.DesiredDeliveryMediums`.
@@ -8835,11 +8967,16 @@ type CfnUserPoolUserProps struct {
 	UserAttributes interface{} `json:"userAttributes"`
 	// `AWS::Cognito::UserPoolUser.Username`.
 	Username *string `json:"username"`
+	// `AWS::Cognito::UserPoolUser.UserPoolId`.
+	UserPoolId *string `json:"userPoolId"`
 	// `AWS::Cognito::UserPoolUser.ValidationData`.
 	ValidationData interface{} `json:"validationData"`
 }
 
 // A CloudFormation `AWS::Cognito::UserPoolUserToGroupAttachment`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserPoolUserToGroupAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -9466,6 +9603,9 @@ func (c *jsiiProxy_CfnUserPoolUserToGroupAttachment) ValidateProperties(_propert
 }
 
 // Properties for defining a `AWS::Cognito::UserPoolUserToGroupAttachment`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserPoolUserToGroupAttachmentProps struct {
 	// `AWS::Cognito::UserPoolUserToGroupAttachment.GroupName`.
 	GroupName *string `json:"groupName"`
@@ -9583,6 +9723,9 @@ type CognitoDomainOptions struct {
 }
 
 // Configuration that will be fed into CloudFormation for any custom attribute type.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CustomAttributeConfig struct {
 	// The data type of the custom attribute.
@@ -9715,6 +9858,9 @@ type DeviceTracking struct {
 }
 
 // Email settings for the user pool.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EmailSettings struct {
 	// The 'from' address on the emails received by the user.
@@ -10059,6 +10205,9 @@ func (n *jsiiProxy_NumberAttribute) Bind() *CustomAttributeConfig {
 }
 
 // Constraints that can be applied to a custom attribute of number type.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NumberAttributeConstraints struct {
 	// Maximum value of this attribute.
@@ -10611,6 +10760,9 @@ func ProviderAttribute_GOOGLE_PICTURE() ProviderAttribute {
 }
 
 // A scope for ResourceServer.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ResourceServerScope interface {
 	ScopeDescription() *string
@@ -10670,6 +10822,9 @@ func NewResourceServerScope_Override(r ResourceServerScope, props *ResourceServe
 }
 
 // Props to initialize ResourceServerScope.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ResourceServerScopeProps struct {
 	// A description of the scope.
@@ -10808,6 +10963,9 @@ type StandardAttributes struct {
 }
 
 // This interface contains standard attributes recognized by Cognito from https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html including built-in attributes `email_verified` and `phone_number_verified`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type StandardAttributesMask struct {
 	// The user's postal address.
@@ -10926,6 +11084,9 @@ func (s *jsiiProxy_StringAttribute) Bind() *CustomAttributeConfig {
 }
 
 // Constraints that can be applied to a custom attribute of string type.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type StringAttributeConstraints struct {
 	// Maximum length of this attribute.
@@ -12471,6 +12632,9 @@ type UserPoolDomainOptions struct {
 }
 
 // Props for UserPoolDomain construct.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type UserPoolDomainProps struct {
 	// Associate a cognito prefix domain with your user pool Either `customDomain` or `cognitoDomain` must be specified.
@@ -12923,12 +13087,12 @@ func (u *jsiiProxy_UserPoolIdentityProviderAmazon) Validate() *[]*string {
 //
 // Experimental.
 type UserPoolIdentityProviderAmazonProps struct {
-	// The user pool to which this construct provides identities.
-	// Experimental.
-	UserPool IUserPool `json:"userPool"`
 	// Mapping attributes from the identity provider to standard and custom attributes of the user pool.
 	// Experimental.
 	AttributeMapping *AttributeMapping `json:"attributeMapping"`
+	// The user pool to which this construct provides identities.
+	// Experimental.
+	UserPool IUserPool `json:"userPool"`
 	// The client id recognized by 'Login with Amazon' APIs.
 	// See: https://developer.amazon.com/docs/login-with-amazon/security-profile.html#client-identifier
 	//
@@ -12947,6 +13111,9 @@ type UserPoolIdentityProviderAmazonProps struct {
 }
 
 // Represents a identity provider that integrates with 'Apple'.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type UserPoolIdentityProviderApple interface {
 	awscdk.Resource
@@ -13288,14 +13455,17 @@ func (u *jsiiProxy_UserPoolIdentityProviderApple) Validate() *[]*string {
 }
 
 // Properties to initialize UserPoolAppleIdentityProvider.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type UserPoolIdentityProviderAppleProps struct {
-	// The user pool to which this construct provides identities.
-	// Experimental.
-	UserPool IUserPool `json:"userPool"`
 	// Mapping attributes from the identity provider to standard and custom attributes of the user pool.
 	// Experimental.
 	AttributeMapping *AttributeMapping `json:"attributeMapping"`
+	// The user pool to which this construct provides identities.
+	// Experimental.
+	UserPool IUserPool `json:"userPool"`
 	// The client id recognized by Apple APIs.
 	// See: https://developer.apple.com/documentation/sign_in_with_apple/clientconfigi/3230948-clientid
 	//
@@ -13307,17 +13477,20 @@ type UserPoolIdentityProviderAppleProps struct {
 	// The privateKey content for Apple APIs to authenticate the client.
 	// Experimental.
 	PrivateKey *string `json:"privateKey"`
-	// The teamId for Apple APIs to authenticate the client.
-	// Experimental.
-	TeamId *string `json:"teamId"`
 	// The list of apple permissions to obtain for getting access to the apple profile.
 	// See: https://developer.apple.com/documentation/sign_in_with_apple/clientconfigi/3230955-scope
 	//
 	// Experimental.
 	Scopes *[]*string `json:"scopes"`
+	// The teamId for Apple APIs to authenticate the client.
+	// Experimental.
+	TeamId *string `json:"teamId"`
 }
 
 // Represents a identity provider that integrates with 'Facebook Login'.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type UserPoolIdentityProviderFacebook interface {
 	awscdk.Resource
@@ -13659,14 +13832,20 @@ func (u *jsiiProxy_UserPoolIdentityProviderFacebook) Validate() *[]*string {
 }
 
 // Properties to initialize UserPoolFacebookIdentityProvider.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type UserPoolIdentityProviderFacebookProps struct {
-	// The user pool to which this construct provides identities.
-	// Experimental.
-	UserPool IUserPool `json:"userPool"`
 	// Mapping attributes from the identity provider to standard and custom attributes of the user pool.
 	// Experimental.
 	AttributeMapping *AttributeMapping `json:"attributeMapping"`
+	// The user pool to which this construct provides identities.
+	// Experimental.
+	UserPool IUserPool `json:"userPool"`
+	// The Facebook API version to use.
+	// Experimental.
+	ApiVersion *string `json:"apiVersion"`
 	// The client id recognized by Facebook APIs.
 	// Experimental.
 	ClientId *string `json:"clientId"`
@@ -13675,9 +13854,6 @@ type UserPoolIdentityProviderFacebookProps struct {
 	//
 	// Experimental.
 	ClientSecret *string `json:"clientSecret"`
-	// The Facebook API version to use.
-	// Experimental.
-	ApiVersion *string `json:"apiVersion"`
 	// The list of facebook permissions to obtain for getting access to the Facebook profile.
 	// See: https://developers.facebook.com/docs/facebook-login/permissions
 	//
@@ -13686,6 +13862,9 @@ type UserPoolIdentityProviderFacebookProps struct {
 }
 
 // Represents a identity provider that integrates with 'Google'.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type UserPoolIdentityProviderGoogle interface {
 	awscdk.Resource
@@ -14027,14 +14206,17 @@ func (u *jsiiProxy_UserPoolIdentityProviderGoogle) Validate() *[]*string {
 }
 
 // Properties to initialize UserPoolGoogleIdentityProvider.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type UserPoolIdentityProviderGoogleProps struct {
-	// The user pool to which this construct provides identities.
-	// Experimental.
-	UserPool IUserPool `json:"userPool"`
 	// Mapping attributes from the identity provider to standard and custom attributes of the user pool.
 	// Experimental.
 	AttributeMapping *AttributeMapping `json:"attributeMapping"`
+	// The user pool to which this construct provides identities.
+	// Experimental.
+	UserPool IUserPool `json:"userPool"`
 	// The client id recognized by Google APIs.
 	// See: https://developers.google.com/identity/sign-in/web/sign-in#specify_your_apps_client_id
 	//
@@ -14053,14 +14235,17 @@ type UserPoolIdentityProviderGoogleProps struct {
 }
 
 // Properties to create a new instance of UserPoolIdentityProvider.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type UserPoolIdentityProviderProps struct {
-	// The user pool to which this construct provides identities.
-	// Experimental.
-	UserPool IUserPool `json:"userPool"`
 	// Mapping attributes from the identity provider to standard and custom attributes of the user pool.
 	// Experimental.
 	AttributeMapping *AttributeMapping `json:"attributeMapping"`
+	// The user pool to which this construct provides identities.
+	// Experimental.
+	UserPool IUserPool `json:"userPool"`
 }
 
 // User pool operations to which lambda triggers can be attached.
@@ -14684,6 +14869,9 @@ type UserPoolResourceServerOptions struct {
 }
 
 // Properties for the UserPoolResourceServer construct.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type UserPoolResourceServerProps struct {
 	// A unique resource server identifier for the resource server.
@@ -14701,8 +14889,16 @@ type UserPoolResourceServerProps struct {
 }
 
 // Configuration for Cognito sending emails via Amazon SES.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type UserPoolSESOptions struct {
+	// The name of a configuration set in Amazon SES that should be applied to emails sent via Cognito.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-emailconfiguration.html#cfn-cognito-userpool-emailconfiguration-configurationset
+	//
+	// Experimental.
+	ConfigurationSetName *string `json:"configurationSetName"`
 	// The verified Amazon SES email address that Cognito should use to send emails.
 	//
 	// The email address used must be a verified email address
@@ -14712,11 +14908,6 @@ type UserPoolSESOptions struct {
 	//
 	// Experimental.
 	FromEmail *string `json:"fromEmail"`
-	// The name of a configuration set in Amazon SES that should be applied to emails sent via Cognito.
-	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-emailconfiguration.html#cfn-cognito-userpool-emailconfiguration-configurationset
-	//
-	// Experimental.
-	ConfigurationSetName *string `json:"configurationSetName"`
 	// An optional name that should be used as the sender's name along with the email.
 	// Experimental.
 	FromName *string `json:"fromName"`

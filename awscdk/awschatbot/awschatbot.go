@@ -15,6 +15,9 @@ import (
 )
 
 // A CloudFormation `AWS::Chatbot::SlackChannelConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnSlackChannelConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -752,19 +755,22 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) ValidateProperties(_properties 
 }
 
 // Properties for defining a `AWS::Chatbot::SlackChannelConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnSlackChannelConfigurationProps struct {
 	// `AWS::Chatbot::SlackChannelConfiguration.ConfigurationName`.
 	ConfigurationName *string `json:"configurationName"`
+	// `AWS::Chatbot::SlackChannelConfiguration.GuardrailPolicies`.
+	GuardrailPolicies *[]*string `json:"guardrailPolicies"`
 	// `AWS::Chatbot::SlackChannelConfiguration.IamRoleArn`.
 	IamRoleArn *string `json:"iamRoleArn"`
+	// `AWS::Chatbot::SlackChannelConfiguration.LoggingLevel`.
+	LoggingLevel *string `json:"loggingLevel"`
 	// `AWS::Chatbot::SlackChannelConfiguration.SlackChannelId`.
 	SlackChannelId *string `json:"slackChannelId"`
 	// `AWS::Chatbot::SlackChannelConfiguration.SlackWorkspaceId`.
 	SlackWorkspaceId *string `json:"slackWorkspaceId"`
-	// `AWS::Chatbot::SlackChannelConfiguration.GuardrailPolicies`.
-	GuardrailPolicies *[]*string `json:"guardrailPolicies"`
-	// `AWS::Chatbot::SlackChannelConfiguration.LoggingLevel`.
-	LoggingLevel *string `json:"loggingLevel"`
 	// `AWS::Chatbot::SlackChannelConfiguration.SnsTopicArns`.
 	SnsTopicArns *[]*string `json:"snsTopicArns"`
 	// `AWS::Chatbot::SlackChannelConfiguration.UserRoleRequired`.

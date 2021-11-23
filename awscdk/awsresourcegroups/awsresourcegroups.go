@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::ResourceGroups::Group`.
+//
+// TODO: EXAMPLE
+//
 type CfnGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -697,6 +700,8 @@ func (c *jsiiProxy_CfnGroup) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnGroup_ConfigurationItemProperty struct {
 	// `CfnGroup.ConfigurationItemProperty.Parameters`.
 	Parameters interface{} `json:"parameters"`
@@ -704,6 +709,8 @@ type CfnGroup_ConfigurationItemProperty struct {
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGroup_ConfigurationParameterProperty struct {
 	// `CfnGroup.ConfigurationParameterProperty.Name`.
 	Name *string `json:"name"`
@@ -711,6 +718,8 @@ type CfnGroup_ConfigurationParameterProperty struct {
 	Values *[]*string `json:"values"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGroup_QueryProperty struct {
 	// `CfnGroup.QueryProperty.ResourceTypeFilters`.
 	ResourceTypeFilters *[]*string `json:"resourceTypeFilters"`
@@ -720,6 +729,8 @@ type CfnGroup_QueryProperty struct {
 	TagFilters interface{} `json:"tagFilters"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGroup_ResourceQueryProperty struct {
 	// `CfnGroup.ResourceQueryProperty.Query`.
 	Query interface{} `json:"query"`
@@ -727,6 +738,8 @@ type CfnGroup_ResourceQueryProperty struct {
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGroup_TagFilterProperty struct {
 	// `CfnGroup.TagFilterProperty.Key`.
 	Key *string `json:"key"`
@@ -735,13 +748,16 @@ type CfnGroup_TagFilterProperty struct {
 }
 
 // Properties for defining a `AWS::ResourceGroups::Group`.
+//
+// TODO: EXAMPLE
+//
 type CfnGroupProps struct {
-	// `AWS::ResourceGroups::Group.Name`.
-	Name *string `json:"name"`
 	// `AWS::ResourceGroups::Group.Configuration`.
 	Configuration interface{} `json:"configuration"`
 	// `AWS::ResourceGroups::Group.Description`.
 	Description *string `json:"description"`
+	// `AWS::ResourceGroups::Group.Name`.
+	Name *string `json:"name"`
 	// `AWS::ResourceGroups::Group.ResourceQuery`.
 	ResourceQuery interface{} `json:"resourceQuery"`
 	// `AWS::ResourceGroups::Group.Resources`.

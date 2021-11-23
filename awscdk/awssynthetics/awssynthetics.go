@@ -17,6 +17,9 @@ import (
 //
 // The artifacts bucket location **cannot**
 // be updated once the canary is created.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ArtifactsBucketLocation struct {
 	// The s3 location that stores the data of each run.
@@ -30,6 +33,9 @@ type ArtifactsBucketLocation struct {
 }
 
 // Canary code from an Asset.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AssetCode interface {
 	Code
@@ -642,6 +648,9 @@ type CanaryProps struct {
 }
 
 // A CloudFormation `AWS::Synthetics::Canary`.
+//
+// TODO: EXAMPLE
+//
 type CfnCanary interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1500,18 +1509,24 @@ func (c *jsiiProxy_CfnCanary) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnCanary_ArtifactConfigProperty struct {
 	// `CfnCanary.ArtifactConfigProperty.S3Encryption`.
 	S3Encryption interface{} `json:"s3Encryption"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCanary_BaseScreenshotProperty struct {
-	// `CfnCanary.BaseScreenshotProperty.ScreenshotName`.
-	ScreenshotName *string `json:"screenshotName"`
 	// `CfnCanary.BaseScreenshotProperty.IgnoreCoordinates`.
 	IgnoreCoordinates *[]*string `json:"ignoreCoordinates"`
+	// `CfnCanary.BaseScreenshotProperty.ScreenshotName`.
+	ScreenshotName *string `json:"screenshotName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCanary_CodeProperty struct {
 	// `CfnCanary.CodeProperty.Handler`.
 	Handler *string `json:"handler"`
@@ -1525,6 +1540,8 @@ type CfnCanary_CodeProperty struct {
 	Script *string `json:"script"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCanary_RunConfigProperty struct {
 	// `CfnCanary.RunConfigProperty.ActiveTracing`.
 	ActiveTracing interface{} `json:"activeTracing"`
@@ -1536,6 +1553,8 @@ type CfnCanary_RunConfigProperty struct {
 	TimeoutInSeconds *float64 `json:"timeoutInSeconds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCanary_S3EncryptionProperty struct {
 	// `CfnCanary.S3EncryptionProperty.EncryptionMode`.
 	EncryptionMode *string `json:"encryptionMode"`
@@ -1543,13 +1562,17 @@ type CfnCanary_S3EncryptionProperty struct {
 	KmsKeyArn *string `json:"kmsKeyArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCanary_ScheduleProperty struct {
-	// `CfnCanary.ScheduleProperty.Expression`.
-	Expression *string `json:"expression"`
 	// `CfnCanary.ScheduleProperty.DurationInSeconds`.
 	DurationInSeconds *string `json:"durationInSeconds"`
+	// `CfnCanary.ScheduleProperty.Expression`.
+	Expression *string `json:"expression"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCanary_VPCConfigProperty struct {
 	// `CfnCanary.VPCConfigProperty.SecurityGroupIds`.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
@@ -1559,6 +1582,8 @@ type CfnCanary_VPCConfigProperty struct {
 	VpcId *string `json:"vpcId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCanary_VisualReferenceProperty struct {
 	// `CfnCanary.VisualReferenceProperty.BaseCanaryRunId`.
 	BaseCanaryRunId *string `json:"baseCanaryRunId"`
@@ -1567,27 +1592,30 @@ type CfnCanary_VisualReferenceProperty struct {
 }
 
 // Properties for defining a `AWS::Synthetics::Canary`.
+//
+// TODO: EXAMPLE
+//
 type CfnCanaryProps struct {
+	// `AWS::Synthetics::Canary.ArtifactConfig`.
+	ArtifactConfig interface{} `json:"artifactConfig"`
 	// `AWS::Synthetics::Canary.ArtifactS3Location`.
 	ArtifactS3Location *string `json:"artifactS3Location"`
 	// `AWS::Synthetics::Canary.Code`.
 	Code interface{} `json:"code"`
 	// `AWS::Synthetics::Canary.ExecutionRoleArn`.
 	ExecutionRoleArn *string `json:"executionRoleArn"`
+	// `AWS::Synthetics::Canary.FailureRetentionPeriod`.
+	FailureRetentionPeriod *float64 `json:"failureRetentionPeriod"`
 	// `AWS::Synthetics::Canary.Name`.
 	Name *string `json:"name"`
+	// `AWS::Synthetics::Canary.RunConfig`.
+	RunConfig interface{} `json:"runConfig"`
 	// `AWS::Synthetics::Canary.RuntimeVersion`.
 	RuntimeVersion *string `json:"runtimeVersion"`
 	// `AWS::Synthetics::Canary.Schedule`.
 	Schedule interface{} `json:"schedule"`
 	// `AWS::Synthetics::Canary.StartCanaryAfterCreation`.
 	StartCanaryAfterCreation interface{} `json:"startCanaryAfterCreation"`
-	// `AWS::Synthetics::Canary.ArtifactConfig`.
-	ArtifactConfig interface{} `json:"artifactConfig"`
-	// `AWS::Synthetics::Canary.FailureRetentionPeriod`.
-	FailureRetentionPeriod *float64 `json:"failureRetentionPeriod"`
-	// `AWS::Synthetics::Canary.RunConfig`.
-	RunConfig interface{} `json:"runConfig"`
 	// `AWS::Synthetics::Canary.SuccessRetentionPeriod`.
 	SuccessRetentionPeriod *float64 `json:"successRetentionPeriod"`
 	// `AWS::Synthetics::Canary.Tags`.
@@ -1707,6 +1735,9 @@ func (c *jsiiProxy_Code) Bind(scope constructs.Construct, handler *string, famil
 }
 
 // Configuration of the code class.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CodeConfig struct {
 	// Inline code (mutually exclusive with `s3Location`).
@@ -1762,6 +1793,9 @@ type CustomTestOptions struct {
 }
 
 // Canary code from an inline string.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type InlineCode interface {
 	Code
@@ -2047,11 +2081,14 @@ type RuntimeFamily string
 
 const (
 	RuntimeFamily_NODEJS RuntimeFamily = "NODEJS"
-	RuntimeFamily_PYTHON RuntimeFamily = "PYTHON"
 	RuntimeFamily_OTHER RuntimeFamily = "OTHER"
+	RuntimeFamily_PYTHON RuntimeFamily = "PYTHON"
 )
 
 // S3 bucket path to the code zip file.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type S3Code interface {
 	Code

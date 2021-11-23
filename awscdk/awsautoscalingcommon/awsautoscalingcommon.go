@@ -4,6 +4,8 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 )
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type Alarms struct {
 	// Experimental.
@@ -12,6 +14,8 @@ type Alarms struct {
 	UpperAlarmIntervalIndex *float64 `json:"upperAlarmIntervalIndex"`
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type ArbitraryIntervals struct {
 	// Experimental.
@@ -20,14 +24,16 @@ type ArbitraryIntervals struct {
 	Intervals *[]*ScalingInterval `json:"intervals"`
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type CompleteScalingInterval struct {
+	// Experimental.
+	Change *float64 `json:"change"`
 	// Experimental.
 	Lower *float64 `json:"lower"`
 	// Experimental.
 	Upper *float64 `json:"upper"`
-	// Experimental.
-	Change *float64 `json:"change"`
 }
 
 // Experimental.
@@ -70,6 +76,9 @@ func (i *jsiiProxy_IRandomGenerator) NextInt(min *float64, max *float64) *float6
 }
 
 // A range of metric values in which to apply a certain scaling operation.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ScalingInterval struct {
 	// The capacity adjustment to apply in this interval.

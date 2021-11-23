@@ -91,8 +91,8 @@ func init() {
 		"monocdk.aws_codebuild.BuildEnvironmentVariableType",
 		reflect.TypeOf((*BuildEnvironmentVariableType)(nil)).Elem(),
 		map[string]interface{}{
-			"PLAINTEXT": BuildEnvironmentVariableType_PLAINTEXT,
 			"PARAMETER_STORE": BuildEnvironmentVariableType_PARAMETER_STORE,
+			"PLAINTEXT": BuildEnvironmentVariableType_PLAINTEXT,
 			"SECRETS_MANAGER": BuildEnvironmentVariableType_SECRETS_MANAGER,
 		},
 	)
@@ -396,9 +396,9 @@ func init() {
 		"monocdk.aws_codebuild.ComputeType",
 		reflect.TypeOf((*ComputeType)(nil)).Elem(),
 		map[string]interface{}{
-			"SMALL": ComputeType_SMALL,
-			"MEDIUM": ComputeType_MEDIUM,
 			"LARGE": ComputeType_LARGE,
+			"MEDIUM": ComputeType_MEDIUM,
+			"SMALL": ComputeType_SMALL,
 			"X2_LARGE": ComputeType_X2_LARGE,
 		},
 	)
@@ -703,9 +703,9 @@ func init() {
 		"monocdk.aws_codebuild.LocalCacheMode",
 		reflect.TypeOf((*LocalCacheMode)(nil)).Elem(),
 		map[string]interface{}{
-			"SOURCE": LocalCacheMode_SOURCE,
-			"DOCKER_LAYER": LocalCacheMode_DOCKER_LAYER,
 			"CUSTOM": LocalCacheMode_CUSTOM,
+			"DOCKER_LAYER": LocalCacheMode_DOCKER_LAYER,
+			"SOURCE": LocalCacheMode_SOURCE,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -834,11 +834,11 @@ func init() {
 		reflect.TypeOf((*ProjectNotificationEvents)(nil)).Elem(),
 		map[string]interface{}{
 			"BUILD_FAILED": ProjectNotificationEvents_BUILD_FAILED,
-			"BUILD_SUCCEEDED": ProjectNotificationEvents_BUILD_SUCCEEDED,
 			"BUILD_IN_PROGRESS": ProjectNotificationEvents_BUILD_IN_PROGRESS,
-			"BUILD_STOPPED": ProjectNotificationEvents_BUILD_STOPPED,
 			"BUILD_PHASE_FAILED": ProjectNotificationEvents_BUILD_PHASE_FAILED,
 			"BUILD_PHASE_SUCCEEDED": ProjectNotificationEvents_BUILD_PHASE_SUCCEEDED,
+			"BUILD_STOPPED": ProjectNotificationEvents_BUILD_STOPPED,
+			"BUILD_SUCCEEDED": ProjectNotificationEvents_BUILD_SUCCEEDED,
 		},
 	)
 	_jsii_.RegisterStruct(

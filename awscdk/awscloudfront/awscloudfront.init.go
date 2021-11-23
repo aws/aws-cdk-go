@@ -857,9 +857,9 @@ func init() {
 		"monocdk.aws_cloudfront.CloudFrontAllowedMethods",
 		reflect.TypeOf((*CloudFrontAllowedMethods)(nil)).Elem(),
 		map[string]interface{}{
+			"ALL": CloudFrontAllowedMethods_ALL,
 			"GET_HEAD": CloudFrontAllowedMethods_GET_HEAD,
 			"GET_HEAD_OPTIONS": CloudFrontAllowedMethods_GET_HEAD_OPTIONS,
-			"ALL": CloudFrontAllowedMethods_ALL,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -956,12 +956,12 @@ func init() {
 		"monocdk.aws_cloudfront.FailoverStatusCode",
 		reflect.TypeOf((*FailoverStatusCode)(nil)).Elem(),
 		map[string]interface{}{
-			"FORBIDDEN": FailoverStatusCode_FORBIDDEN,
-			"NOT_FOUND": FailoverStatusCode_NOT_FOUND,
-			"INTERNAL_SERVER_ERROR": FailoverStatusCode_INTERNAL_SERVER_ERROR,
 			"BAD_GATEWAY": FailoverStatusCode_BAD_GATEWAY,
-			"SERVICE_UNAVAILABLE": FailoverStatusCode_SERVICE_UNAVAILABLE,
+			"FORBIDDEN": FailoverStatusCode_FORBIDDEN,
 			"GATEWAY_TIMEOUT": FailoverStatusCode_GATEWAY_TIMEOUT,
+			"INTERNAL_SERVER_ERROR": FailoverStatusCode_INTERNAL_SERVER_ERROR,
+			"NOT_FOUND": FailoverStatusCode_NOT_FOUND,
+			"SERVICE_UNAVAILABLE": FailoverStatusCode_SERVICE_UNAVAILABLE,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -1277,8 +1277,8 @@ func init() {
 		reflect.TypeOf((*OriginProtocolPolicy)(nil)).Elem(),
 		map[string]interface{}{
 			"HTTP_ONLY": OriginProtocolPolicy_HTTP_ONLY,
-			"MATCH_VIEWER": OriginProtocolPolicy_MATCH_VIEWER,
 			"HTTPS_ONLY": OriginProtocolPolicy_HTTPS_ONLY,
+			"MATCH_VIEWER": OriginProtocolPolicy_MATCH_VIEWER,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -1415,11 +1415,11 @@ func init() {
 		map[string]interface{}{
 			"SSL_V3": SecurityPolicyProtocol_SSL_V3,
 			"TLS_V1": SecurityPolicyProtocol_TLS_V1,
-			"TLS_V1_2016": SecurityPolicyProtocol_TLS_V1_2016,
 			"TLS_V1_1_2016": SecurityPolicyProtocol_TLS_V1_1_2016,
 			"TLS_V1_2_2018": SecurityPolicyProtocol_TLS_V1_2_2018,
 			"TLS_V1_2_2019": SecurityPolicyProtocol_TLS_V1_2_2019,
 			"TLS_V1_2_2021": SecurityPolicyProtocol_TLS_V1_2_2021,
+			"TLS_V1_2016": SecurityPolicyProtocol_TLS_V1_2016,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -1445,9 +1445,9 @@ func init() {
 		"monocdk.aws_cloudfront.ViewerProtocolPolicy",
 		reflect.TypeOf((*ViewerProtocolPolicy)(nil)).Elem(),
 		map[string]interface{}{
+			"ALLOW_ALL": ViewerProtocolPolicy_ALLOW_ALL,
 			"HTTPS_ONLY": ViewerProtocolPolicy_HTTPS_ONLY,
 			"REDIRECT_TO_HTTPS": ViewerProtocolPolicy_REDIRECT_TO_HTTPS,
-			"ALLOW_ALL": ViewerProtocolPolicy_ALLOW_ALL,
 		},
 	)
 }

@@ -15,6 +15,9 @@ import (
 // Use an Event Bridge event bus as a Lambda destination.
 //
 // If no event bus is specified, the default event bus is used.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EventBridgeDestination interface {
 	awslambda.IDestination
@@ -199,6 +202,9 @@ func (s *jsiiProxy_SnsDestination) Bind(_scope awscdk.Construct, fn awslambda.IF
 }
 
 // Use a SQS queue as a Lambda destination.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SqsDestination interface {
 	awslambda.IDestination

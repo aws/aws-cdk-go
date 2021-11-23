@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::CUR::ReportDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnReportDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -816,7 +819,16 @@ func (c *jsiiProxy_CfnReportDefinition) ValidateProperties(_properties interface
 }
 
 // Properties for defining a `AWS::CUR::ReportDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnReportDefinitionProps struct {
+	// `AWS::CUR::ReportDefinition.AdditionalArtifacts`.
+	AdditionalArtifacts *[]*string `json:"additionalArtifacts"`
+	// `AWS::CUR::ReportDefinition.AdditionalSchemaElements`.
+	AdditionalSchemaElements *[]*string `json:"additionalSchemaElements"`
+	// `AWS::CUR::ReportDefinition.BillingViewArn`.
+	BillingViewArn *string `json:"billingViewArn"`
 	// `AWS::CUR::ReportDefinition.Compression`.
 	Compression *string `json:"compression"`
 	// `AWS::CUR::ReportDefinition.Format`.
@@ -835,11 +847,5 @@ type CfnReportDefinitionProps struct {
 	S3Region *string `json:"s3Region"`
 	// `AWS::CUR::ReportDefinition.TimeUnit`.
 	TimeUnit *string `json:"timeUnit"`
-	// `AWS::CUR::ReportDefinition.AdditionalArtifacts`.
-	AdditionalArtifacts *[]*string `json:"additionalArtifacts"`
-	// `AWS::CUR::ReportDefinition.AdditionalSchemaElements`.
-	AdditionalSchemaElements *[]*string `json:"additionalSchemaElements"`
-	// `AWS::CUR::ReportDefinition.BillingViewArn`.
-	BillingViewArn *string `json:"billingViewArn"`
 }
 

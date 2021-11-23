@@ -552,6 +552,9 @@ type AppProps struct {
 }
 
 // Auto branch creation configuration.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AutoBranchCreation struct {
 	// Whether to enable auto building for the auto created branch.
@@ -587,6 +590,9 @@ type AutoBranchCreation struct {
 }
 
 // Basic Auth configuration.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BasicAuth interface {
 	Bind(scope awscdk.Construct, id *string) *BasicAuthConfig
@@ -673,6 +679,9 @@ func (b *jsiiProxy_BasicAuth) Bind(scope awscdk.Construct, id *string) *BasicAut
 }
 
 // A Basic Auth configuration.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BasicAuthConfig struct {
 	// Whether to enable Basic Auth.
@@ -687,20 +696,26 @@ type BasicAuthConfig struct {
 }
 
 // Properties for a BasicAuth.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BasicAuthProps struct {
-	// The username.
-	// Experimental.
-	Username *string `json:"username"`
 	// The encryption key to use to encrypt the password when it's generated in Secrets Manager.
 	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey"`
 	// The password.
 	// Experimental.
 	Password awscdk.SecretValue `json:"password"`
+	// The username.
+	// Experimental.
+	Username *string `json:"username"`
 }
 
 // An Amplify Console branch.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Branch interface {
 	awscdk.Resource
@@ -1074,6 +1089,9 @@ func (b *jsiiProxy_Branch) Validate() *[]*string {
 }
 
 // Options to add a branch to an application.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BranchOptions struct {
 	// Whether to enable auto building for the branch.
@@ -1114,6 +1132,9 @@ type BranchOptions struct {
 }
 
 // Properties for a Branch.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BranchProps struct {
 	// Whether to enable auto building for the branch.
@@ -1157,6 +1178,9 @@ type BranchProps struct {
 }
 
 // A CloudFormation `AWS::Amplify::App`.
+//
+// TODO: EXAMPLE
+//
 type CfnApp interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2037,6 +2061,8 @@ func (c *jsiiProxy_CfnApp) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnApp_AutoBranchCreationConfigProperty struct {
 	// `CfnApp.AutoBranchCreationConfigProperty.AutoBranchCreationPatterns`.
 	AutoBranchCreationPatterns *[]*string `json:"autoBranchCreationPatterns"`
@@ -2060,6 +2086,8 @@ type CfnApp_AutoBranchCreationConfigProperty struct {
 	Stage *string `json:"stage"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApp_BasicAuthConfigProperty struct {
 	// `CfnApp.BasicAuthConfigProperty.EnableBasicAuth`.
 	EnableBasicAuth interface{} `json:"enableBasicAuth"`
@@ -2069,17 +2097,21 @@ type CfnApp_BasicAuthConfigProperty struct {
 	Username *string `json:"username"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApp_CustomRuleProperty struct {
-	// `CfnApp.CustomRuleProperty.Source`.
-	Source *string `json:"source"`
-	// `CfnApp.CustomRuleProperty.Target`.
-	Target *string `json:"target"`
 	// `CfnApp.CustomRuleProperty.Condition`.
 	Condition *string `json:"condition"`
+	// `CfnApp.CustomRuleProperty.Source`.
+	Source *string `json:"source"`
 	// `CfnApp.CustomRuleProperty.Status`.
 	Status *string `json:"status"`
+	// `CfnApp.CustomRuleProperty.Target`.
+	Target *string `json:"target"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApp_EnvironmentVariableProperty struct {
 	// `CfnApp.EnvironmentVariableProperty.Name`.
 	Name *string `json:"name"`
@@ -2088,9 +2120,10 @@ type CfnApp_EnvironmentVariableProperty struct {
 }
 
 // Properties for defining a `AWS::Amplify::App`.
+//
+// TODO: EXAMPLE
+//
 type CfnAppProps struct {
-	// `AWS::Amplify::App.Name`.
-	Name *string `json:"name"`
 	// `AWS::Amplify::App.AccessToken`.
 	AccessToken *string `json:"accessToken"`
 	// `AWS::Amplify::App.AutoBranchCreationConfig`.
@@ -2111,6 +2144,8 @@ type CfnAppProps struct {
 	EnvironmentVariables interface{} `json:"environmentVariables"`
 	// `AWS::Amplify::App.IAMServiceRole`.
 	IamServiceRole *string `json:"iamServiceRole"`
+	// `AWS::Amplify::App.Name`.
+	Name *string `json:"name"`
 	// `AWS::Amplify::App.OauthToken`.
 	OauthToken *string `json:"oauthToken"`
 	// `AWS::Amplify::App.Repository`.
@@ -2120,6 +2155,9 @@ type CfnAppProps struct {
 }
 
 // A CloudFormation `AWS::Amplify::Branch`.
+//
+// TODO: EXAMPLE
+//
 type CfnBranch interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2938,15 +2976,19 @@ func (c *jsiiProxy_CfnBranch) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnBranch_BasicAuthConfigProperty struct {
+	// `CfnBranch.BasicAuthConfigProperty.EnableBasicAuth`.
+	EnableBasicAuth interface{} `json:"enableBasicAuth"`
 	// `CfnBranch.BasicAuthConfigProperty.Password`.
 	Password *string `json:"password"`
 	// `CfnBranch.BasicAuthConfigProperty.Username`.
 	Username *string `json:"username"`
-	// `CfnBranch.BasicAuthConfigProperty.EnableBasicAuth`.
-	EnableBasicAuth interface{} `json:"enableBasicAuth"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBranch_EnvironmentVariableProperty struct {
 	// `CfnBranch.EnvironmentVariableProperty.Name`.
 	Name *string `json:"name"`
@@ -2955,13 +2997,16 @@ type CfnBranch_EnvironmentVariableProperty struct {
 }
 
 // Properties for defining a `AWS::Amplify::Branch`.
+//
+// TODO: EXAMPLE
+//
 type CfnBranchProps struct {
 	// `AWS::Amplify::Branch.AppId`.
 	AppId *string `json:"appId"`
-	// `AWS::Amplify::Branch.BranchName`.
-	BranchName *string `json:"branchName"`
 	// `AWS::Amplify::Branch.BasicAuthConfig`.
 	BasicAuthConfig interface{} `json:"basicAuthConfig"`
+	// `AWS::Amplify::Branch.BranchName`.
+	BranchName *string `json:"branchName"`
 	// `AWS::Amplify::Branch.BuildSpec`.
 	BuildSpec *string `json:"buildSpec"`
 	// `AWS::Amplify::Branch.Description`.
@@ -2983,6 +3028,9 @@ type CfnBranchProps struct {
 }
 
 // A CloudFormation `AWS::Amplify::Domain`.
+//
+// TODO: EXAMPLE
+//
 type CfnDomain interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3756,6 +3804,8 @@ func (c *jsiiProxy_CfnDomain) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDomain_SubDomainSettingProperty struct {
 	// `CfnDomain.SubDomainSettingProperty.BranchName`.
 	BranchName *string `json:"branchName"`
@@ -3764,22 +3814,28 @@ type CfnDomain_SubDomainSettingProperty struct {
 }
 
 // Properties for defining a `AWS::Amplify::Domain`.
+//
+// TODO: EXAMPLE
+//
 type CfnDomainProps struct {
 	// `AWS::Amplify::Domain.AppId`.
 	AppId *string `json:"appId"`
-	// `AWS::Amplify::Domain.DomainName`.
-	DomainName *string `json:"domainName"`
-	// `AWS::Amplify::Domain.SubDomainSettings`.
-	SubDomainSettings interface{} `json:"subDomainSettings"`
 	// `AWS::Amplify::Domain.AutoSubDomainCreationPatterns`.
 	AutoSubDomainCreationPatterns *[]*string `json:"autoSubDomainCreationPatterns"`
 	// `AWS::Amplify::Domain.AutoSubDomainIAMRole`.
 	AutoSubDomainIamRole *string `json:"autoSubDomainIamRole"`
+	// `AWS::Amplify::Domain.DomainName`.
+	DomainName *string `json:"domainName"`
 	// `AWS::Amplify::Domain.EnableAutoSubDomain`.
 	EnableAutoSubDomain interface{} `json:"enableAutoSubDomain"`
+	// `AWS::Amplify::Domain.SubDomainSettings`.
+	SubDomainSettings interface{} `json:"subDomainSettings"`
 }
 
 // CodeCommit source code provider.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CodeCommitSourceCodeProvider interface {
 	ISourceCodeProvider
@@ -3833,6 +3889,9 @@ func (c *jsiiProxy_CodeCommitSourceCodeProvider) Bind(app App) *SourceCodeProvid
 }
 
 // Properties for a CodeCommit source code provider.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CodeCommitSourceCodeProviderProps struct {
 	// The CodeCommit repository.
@@ -3841,6 +3900,9 @@ type CodeCommitSourceCodeProviderProps struct {
 }
 
 // Custom response header of an Amplify App.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CustomResponseHeader struct {
 	// The map of custom headers to be applied.
@@ -3852,6 +3914,9 @@ type CustomResponseHeader struct {
 }
 
 // Custom rewrite/redirect rule for an Amplify App.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html
 //
 // Experimental.
@@ -3946,31 +4011,37 @@ func CustomRule_SINGLE_PAGE_APPLICATION_REDIRECT() CustomRule {
 }
 
 // Options for a custom rewrite/redirect rule for an Amplify App.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CustomRuleOptions struct {
-	// The source pattern for a URL rewrite or redirect rule.
-	// See: https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html
-	//
-	// Experimental.
-	Source *string `json:"source"`
-	// The target pattern for a URL rewrite or redirect rule.
-	// See: https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html
-	//
-	// Experimental.
-	Target *string `json:"target"`
 	// The condition for a URL rewrite or redirect rule, e.g. country code.
 	// See: https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html
 	//
 	// Experimental.
 	Condition *string `json:"condition"`
+	// The source pattern for a URL rewrite or redirect rule.
+	// See: https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html
+	//
+	// Experimental.
+	Source *string `json:"source"`
 	// The status code for a URL rewrite or redirect rule.
 	// See: https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html
 	//
 	// Experimental.
 	Status RedirectStatus `json:"status"`
+	// The target pattern for a URL rewrite or redirect rule.
+	// See: https://docs.aws.amazon.com/amplify/latest/userguide/redirects.html
+	//
+	// Experimental.
+	Target *string `json:"target"`
 }
 
 // An Amplify Console domain.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Domain interface {
 	awscdk.Resource
@@ -4402,6 +4473,9 @@ func (d *jsiiProxy_Domain) Validate() *[]*string {
 }
 
 // Options to add a domain to an application.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DomainOptions struct {
 	// Branches which should automatically create subdomains.
@@ -4419,6 +4493,9 @@ type DomainOptions struct {
 }
 
 // Properties for a Domain.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DomainProps struct {
 	// Branches which should automatically create subdomains.
@@ -4515,6 +4592,9 @@ type GitHubSourceCodeProviderProps struct {
 }
 
 // GitLab source code provider.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type GitLabSourceCodeProvider interface {
 	ISourceCodeProvider
@@ -4568,6 +4648,9 @@ func (g *jsiiProxy_GitLabSourceCodeProvider) Bind(_app App) *SourceCodeProviderC
 }
 
 // Properties for a GitLab source code provider.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type GitLabSourceCodeProviderProps struct {
 	// A personal access token with the `repo` scope.
@@ -4660,24 +4743,19 @@ func (i *jsiiProxy_ISourceCodeProvider) Bind(app App) *SourceCodeProviderConfig 
 type RedirectStatus string
 
 const (
-	RedirectStatus_REWRITE RedirectStatus = "REWRITE"
-	RedirectStatus_PERMANENT_REDIRECT RedirectStatus = "PERMANENT_REDIRECT"
-	RedirectStatus_TEMPORARY_REDIRECT RedirectStatus = "TEMPORARY_REDIRECT"
 	RedirectStatus_NOT_FOUND RedirectStatus = "NOT_FOUND"
 	RedirectStatus_NOT_FOUND_REWRITE RedirectStatus = "NOT_FOUND_REWRITE"
+	RedirectStatus_PERMANENT_REDIRECT RedirectStatus = "PERMANENT_REDIRECT"
+	RedirectStatus_REWRITE RedirectStatus = "REWRITE"
+	RedirectStatus_TEMPORARY_REDIRECT RedirectStatus = "TEMPORARY_REDIRECT"
 )
 
 // Configuration for the source code provider.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SourceCodeProviderConfig struct {
-	// The repository for the application.
-	//
-	// Must use the `HTTPS` protocol.
-	//
-	// TODO: EXAMPLE
-	//
-	// Experimental.
-	Repository *string `json:"repository"`
 	// Personal Access token for 3rd party source control system for an Amplify App, used to create webhook and read-only deploy key.
 	//
 	// Token is not stored.
@@ -4694,9 +4772,20 @@ type SourceCodeProviderConfig struct {
 	// is sepcified.
 	// Experimental.
 	OauthToken awscdk.SecretValue `json:"oauthToken"`
+	// The repository for the application.
+	//
+	// Must use the `HTTPS` protocol.
+	//
+	// TODO: EXAMPLE
+	//
+	// Experimental.
+	Repository *string `json:"repository"`
 }
 
 // Sub domain settings.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SubDomain struct {
 	// The branch.

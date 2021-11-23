@@ -478,11 +478,11 @@ func init() {
 		"monocdk.aws_amplify.RedirectStatus",
 		reflect.TypeOf((*RedirectStatus)(nil)).Elem(),
 		map[string]interface{}{
-			"REWRITE": RedirectStatus_REWRITE,
-			"PERMANENT_REDIRECT": RedirectStatus_PERMANENT_REDIRECT,
-			"TEMPORARY_REDIRECT": RedirectStatus_TEMPORARY_REDIRECT,
 			"NOT_FOUND": RedirectStatus_NOT_FOUND,
 			"NOT_FOUND_REWRITE": RedirectStatus_NOT_FOUND_REWRITE,
+			"PERMANENT_REDIRECT": RedirectStatus_PERMANENT_REDIRECT,
+			"REWRITE": RedirectStatus_REWRITE,
+			"TEMPORARY_REDIRECT": RedirectStatus_TEMPORARY_REDIRECT,
 		},
 	)
 	_jsii_.RegisterStruct(

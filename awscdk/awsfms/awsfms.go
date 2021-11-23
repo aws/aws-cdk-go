@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::FMS::NotificationChannel`.
+//
+// TODO: EXAMPLE
+//
 type CfnNotificationChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -616,6 +619,9 @@ func (c *jsiiProxy_CfnNotificationChannel) ValidateProperties(_properties interf
 }
 
 // Properties for defining a `AWS::FMS::NotificationChannel`.
+//
+// TODO: EXAMPLE
+//
 type CfnNotificationChannelProps struct {
 	// `AWS::FMS::NotificationChannel.SnsRoleName`.
 	SnsRoleName *string `json:"snsRoleName"`
@@ -624,6 +630,9 @@ type CfnNotificationChannelProps struct {
 }
 
 // A CloudFormation `AWS::FMS::Policy`.
+//
+// TODO: EXAMPLE
+//
 type CfnPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1483,6 +1492,8 @@ func (j *jsiiProxy_CfnPolicy_IEMapProperty) Orgunit() *[]*string {
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 type CfnPolicy_PolicyTagProperty struct {
 	// `CfnPolicy.PolicyTagProperty.Key`.
 	Key *string `json:"key"`
@@ -1490,6 +1501,8 @@ type CfnPolicy_PolicyTagProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPolicy_ResourceTagProperty struct {
 	// `CfnPolicy.ResourceTagProperty.Key`.
 	Key *string `json:"key"`
@@ -1498,29 +1511,32 @@ type CfnPolicy_ResourceTagProperty struct {
 }
 
 // Properties for defining a `AWS::FMS::Policy`.
+//
+// TODO: EXAMPLE
+//
 type CfnPolicyProps struct {
-	// `AWS::FMS::Policy.ExcludeResourceTags`.
-	ExcludeResourceTags interface{} `json:"excludeResourceTags"`
-	// `AWS::FMS::Policy.PolicyName`.
-	PolicyName *string `json:"policyName"`
-	// `AWS::FMS::Policy.RemediationEnabled`.
-	RemediationEnabled interface{} `json:"remediationEnabled"`
-	// `AWS::FMS::Policy.ResourceType`.
-	ResourceType *string `json:"resourceType"`
-	// `AWS::FMS::Policy.SecurityServicePolicyData`.
-	SecurityServicePolicyData interface{} `json:"securityServicePolicyData"`
 	// `AWS::FMS::Policy.DeleteAllPolicyResources`.
 	DeleteAllPolicyResources interface{} `json:"deleteAllPolicyResources"`
 	// `AWS::FMS::Policy.ExcludeMap`.
 	ExcludeMap interface{} `json:"excludeMap"`
+	// `AWS::FMS::Policy.ExcludeResourceTags`.
+	ExcludeResourceTags interface{} `json:"excludeResourceTags"`
 	// `AWS::FMS::Policy.IncludeMap`.
 	IncludeMap interface{} `json:"includeMap"`
+	// `AWS::FMS::Policy.PolicyName`.
+	PolicyName *string `json:"policyName"`
+	// `AWS::FMS::Policy.RemediationEnabled`.
+	RemediationEnabled interface{} `json:"remediationEnabled"`
 	// `AWS::FMS::Policy.ResourcesCleanUp`.
 	ResourcesCleanUp interface{} `json:"resourcesCleanUp"`
 	// `AWS::FMS::Policy.ResourceTags`.
 	ResourceTags interface{} `json:"resourceTags"`
+	// `AWS::FMS::Policy.ResourceType`.
+	ResourceType *string `json:"resourceType"`
 	// `AWS::FMS::Policy.ResourceTypeList`.
 	ResourceTypeList *[]*string `json:"resourceTypeList"`
+	// `AWS::FMS::Policy.SecurityServicePolicyData`.
+	SecurityServicePolicyData interface{} `json:"securityServicePolicyData"`
 	// `AWS::FMS::Policy.Tags`.
 	Tags *[]*CfnPolicy_PolicyTagProperty `json:"tags"`
 }

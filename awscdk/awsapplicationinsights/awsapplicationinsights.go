@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::ApplicationInsights::Application`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -757,11 +760,15 @@ func (c *jsiiProxy_CfnApplication) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_AlarmMetricProperty struct {
 	// `CfnApplication.AlarmMetricProperty.AlarmMetricName`.
 	AlarmMetricName *string `json:"alarmMetricName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_AlarmProperty struct {
 	// `CfnApplication.AlarmProperty.AlarmName`.
 	AlarmName *string `json:"alarmName"`
@@ -769,6 +776,8 @@ type CfnApplication_AlarmProperty struct {
 	Severity *string `json:"severity"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_ComponentConfigurationProperty struct {
 	// `CfnApplication.ComponentConfigurationProperty.ConfigurationDetails`.
 	ConfigurationDetails interface{} `json:"configurationDetails"`
@@ -776,21 +785,25 @@ type CfnApplication_ComponentConfigurationProperty struct {
 	SubComponentTypeConfigurations interface{} `json:"subComponentTypeConfigurations"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_ComponentMonitoringSettingProperty struct {
-	// `CfnApplication.ComponentMonitoringSettingProperty.ComponentConfigurationMode`.
-	ComponentConfigurationMode *string `json:"componentConfigurationMode"`
-	// `CfnApplication.ComponentMonitoringSettingProperty.Tier`.
-	Tier *string `json:"tier"`
 	// `CfnApplication.ComponentMonitoringSettingProperty.ComponentARN`.
 	ComponentArn *string `json:"componentArn"`
+	// `CfnApplication.ComponentMonitoringSettingProperty.ComponentConfigurationMode`.
+	ComponentConfigurationMode *string `json:"componentConfigurationMode"`
 	// `CfnApplication.ComponentMonitoringSettingProperty.ComponentName`.
 	ComponentName *string `json:"componentName"`
 	// `CfnApplication.ComponentMonitoringSettingProperty.CustomComponentConfiguration`.
 	CustomComponentConfiguration interface{} `json:"customComponentConfiguration"`
 	// `CfnApplication.ComponentMonitoringSettingProperty.DefaultOverwriteComponentConfiguration`.
 	DefaultOverwriteComponentConfiguration interface{} `json:"defaultOverwriteComponentConfiguration"`
+	// `CfnApplication.ComponentMonitoringSettingProperty.Tier`.
+	Tier *string `json:"tier"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_ConfigurationDetailsProperty struct {
 	// `CfnApplication.ConfigurationDetailsProperty.AlarmMetrics`.
 	AlarmMetrics interface{} `json:"alarmMetrics"`
@@ -804,6 +817,8 @@ type CfnApplication_ConfigurationDetailsProperty struct {
 	WindowsEvents interface{} `json:"windowsEvents"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_CustomComponentProperty struct {
 	// `CfnApplication.CustomComponentProperty.ComponentName`.
 	ComponentName *string `json:"componentName"`
@@ -811,6 +826,8 @@ type CfnApplication_CustomComponentProperty struct {
 	ResourceList *[]*string `json:"resourceList"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_JMXPrometheusExporterProperty struct {
 	// `CfnApplication.JMXPrometheusExporterProperty.HostPort`.
 	HostPort *string `json:"hostPort"`
@@ -820,6 +837,8 @@ type CfnApplication_JMXPrometheusExporterProperty struct {
 	PrometheusPort *string `json:"prometheusPort"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_LogPatternProperty struct {
 	// `CfnApplication.LogPatternProperty.Pattern`.
 	Pattern *string `json:"pattern"`
@@ -829,6 +848,8 @@ type CfnApplication_LogPatternProperty struct {
 	Rank *float64 `json:"rank"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_LogPatternSetProperty struct {
 	// `CfnApplication.LogPatternSetProperty.LogPatterns`.
 	LogPatterns interface{} `json:"logPatterns"`
@@ -836,19 +857,23 @@ type CfnApplication_LogPatternSetProperty struct {
 	PatternSetName *string `json:"patternSetName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_LogProperty struct {
-	// `CfnApplication.LogProperty.LogType`.
-	LogType *string `json:"logType"`
 	// `CfnApplication.LogProperty.Encoding`.
 	Encoding *string `json:"encoding"`
 	// `CfnApplication.LogProperty.LogGroupName`.
 	LogGroupName *string `json:"logGroupName"`
 	// `CfnApplication.LogProperty.LogPath`.
 	LogPath *string `json:"logPath"`
+	// `CfnApplication.LogProperty.LogType`.
+	LogType *string `json:"logType"`
 	// `CfnApplication.LogProperty.PatternSet`.
 	PatternSet *string `json:"patternSet"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_SubComponentConfigurationDetailsProperty struct {
 	// `CfnApplication.SubComponentConfigurationDetailsProperty.AlarmMetrics`.
 	AlarmMetrics interface{} `json:"alarmMetrics"`
@@ -858,6 +883,8 @@ type CfnApplication_SubComponentConfigurationDetailsProperty struct {
 	WindowsEvents interface{} `json:"windowsEvents"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_SubComponentTypeConfigurationProperty struct {
 	// `CfnApplication.SubComponentTypeConfigurationProperty.SubComponentConfigurationDetails`.
 	SubComponentConfigurationDetails interface{} `json:"subComponentConfigurationDetails"`
@@ -865,6 +892,8 @@ type CfnApplication_SubComponentTypeConfigurationProperty struct {
 	SubComponentType *string `json:"subComponentType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_WindowsEventProperty struct {
 	// `CfnApplication.WindowsEventProperty.EventLevels`.
 	EventLevels *[]*string `json:"eventLevels"`
@@ -877,9 +906,10 @@ type CfnApplication_WindowsEventProperty struct {
 }
 
 // Properties for defining a `AWS::ApplicationInsights::Application`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationProps struct {
-	// `AWS::ApplicationInsights::Application.ResourceGroupName`.
-	ResourceGroupName *string `json:"resourceGroupName"`
 	// `AWS::ApplicationInsights::Application.AutoConfigurationEnabled`.
 	AutoConfigurationEnabled interface{} `json:"autoConfigurationEnabled"`
 	// `AWS::ApplicationInsights::Application.ComponentMonitoringSettings`.
@@ -894,6 +924,8 @@ type CfnApplicationProps struct {
 	OpsCenterEnabled interface{} `json:"opsCenterEnabled"`
 	// `AWS::ApplicationInsights::Application.OpsItemSNSTopicArn`.
 	OpsItemSnsTopicArn *string `json:"opsItemSnsTopicArn"`
+	// `AWS::ApplicationInsights::Application.ResourceGroupName`.
+	ResourceGroupName *string `json:"resourceGroupName"`
 	// `AWS::ApplicationInsights::Application.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }

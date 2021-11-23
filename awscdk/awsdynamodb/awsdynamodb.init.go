@@ -328,24 +328,24 @@ func init() {
 		"monocdk.aws_dynamodb.Operation",
 		reflect.TypeOf((*Operation)(nil)).Elem(),
 		map[string]interface{}{
-			"GET_ITEM": Operation_GET_ITEM,
 			"BATCH_GET_ITEM": Operation_BATCH_GET_ITEM,
-			"SCAN": Operation_SCAN,
-			"QUERY": Operation_QUERY,
+			"BATCH_WRITE_ITEM": Operation_BATCH_WRITE_ITEM,
+			"DELETE_ITEM": Operation_DELETE_ITEM,
+			"GET_ITEM": Operation_GET_ITEM,
 			"GET_RECORDS": Operation_GET_RECORDS,
 			"PUT_ITEM": Operation_PUT_ITEM,
-			"DELETE_ITEM": Operation_DELETE_ITEM,
+			"QUERY": Operation_QUERY,
+			"SCAN": Operation_SCAN,
 			"UPDATE_ITEM": Operation_UPDATE_ITEM,
-			"BATCH_WRITE_ITEM": Operation_BATCH_WRITE_ITEM,
 		},
 	)
 	_jsii_.RegisterEnum(
 		"monocdk.aws_dynamodb.ProjectionType",
 		reflect.TypeOf((*ProjectionType)(nil)).Elem(),
 		map[string]interface{}{
-			"KEYS_ONLY": ProjectionType_KEYS_ONLY,
-			"INCLUDE": ProjectionType_INCLUDE,
 			"ALL": ProjectionType_ALL,
+			"INCLUDE": ProjectionType_INCLUDE,
+			"KEYS_ONLY": ProjectionType_KEYS_ONLY,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -360,10 +360,10 @@ func init() {
 		"monocdk.aws_dynamodb.StreamViewType",
 		reflect.TypeOf((*StreamViewType)(nil)).Elem(),
 		map[string]interface{}{
+			"KEYS_ONLY": StreamViewType_KEYS_ONLY,
+			"NEW_AND_OLD_IMAGES": StreamViewType_NEW_AND_OLD_IMAGES,
 			"NEW_IMAGE": StreamViewType_NEW_IMAGE,
 			"OLD_IMAGE": StreamViewType_OLD_IMAGE,
-			"NEW_AND_OLD_IMAGES": StreamViewType_NEW_AND_OLD_IMAGES,
-			"KEYS_ONLY": StreamViewType_KEYS_ONLY,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -435,9 +435,9 @@ func init() {
 		"monocdk.aws_dynamodb.TableEncryption",
 		reflect.TypeOf((*TableEncryption)(nil)).Elem(),
 		map[string]interface{}{
-			"DEFAULT": TableEncryption_DEFAULT,
-			"CUSTOMER_MANAGED": TableEncryption_CUSTOMER_MANAGED,
 			"AWS_MANAGED": TableEncryption_AWS_MANAGED,
+			"CUSTOMER_MANAGED": TableEncryption_CUSTOMER_MANAGED,
+			"DEFAULT": TableEncryption_DEFAULT,
 		},
 	)
 	_jsii_.RegisterStruct(

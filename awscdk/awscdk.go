@@ -1912,10 +1912,10 @@ type CfnAutoScalingScheduledAction struct {
 type CfnCapabilities string
 
 const (
-	CfnCapabilities_NONE CfnCapabilities = "NONE"
 	CfnCapabilities_ANONYMOUS_IAM CfnCapabilities = "ANONYMOUS_IAM"
-	CfnCapabilities_NAMED_IAM CfnCapabilities = "NAMED_IAM"
 	CfnCapabilities_AUTO_EXPAND CfnCapabilities = "AUTO_EXPAND"
+	CfnCapabilities_NAMED_IAM CfnCapabilities = "NAMED_IAM"
+	CfnCapabilities_NONE CfnCapabilities = "NONE"
 )
 
 // Additional options for the blue/green deployment.
@@ -7349,12 +7349,6 @@ func (c *jsiiProxy_CfnOutput) Validate() *[]*string {
 //
 // Experimental.
 type CfnOutputProps struct {
-	// The value of the property returned by the aws cloudformation describe-stacks command.
-	//
-	// The value of an output can include literals, parameter references, pseudo-parameters,
-	// a mapping value, or intrinsic functions.
-	// Experimental.
-	Value *string `json:"value"`
 	// A condition to associate with this output value.
 	//
 	// If the condition evaluates
@@ -7371,6 +7365,12 @@ type CfnOutputProps struct {
 	// To import the value from another stack, use `Fn.importValue(exportName)`.
 	// Experimental.
 	ExportName *string `json:"exportName"`
+	// The value of the property returned by the aws cloudformation describe-stacks command.
+	//
+	// The value of an output can include literals, parameter references, pseudo-parameters,
+	// a mapping value, or intrinsic functions.
+	// Experimental.
+	Value *string `json:"value"`
 }
 
 // A CloudFormation parameter.
@@ -16922,6 +16922,33 @@ func (c *jsiiProxy_CustomResource) Validate() *[]*string {
 //
 // Experimental.
 type CustomResourceProps struct {
+	// Convert all property keys to pascal case.
+	// Experimental.
+	PascalCaseProperties *bool `json:"pascalCaseProperties"`
+	// Properties to pass to the Lambda.
+	// Experimental.
+	Properties *map[string]interface{} `json:"properties"`
+	// The policy to apply when this resource is removed from the application.
+	// Experimental.
+	RemovalPolicy RemovalPolicy `json:"removalPolicy"`
+	// For custom resources, you can specify AWS::CloudFormation::CustomResource (the default) as the resource type, or you can specify your own resource type name.
+	//
+	// For example, you can use "Custom::MyCustomResourceTypeName".
+	//
+	// Custom resource type names must begin with "Custom::" and can include
+	// alphanumeric characters and the following characters: _@-. You can specify
+	// a custom resource type name up to a maximum length of 60 characters. You
+	// cannot change the type during an update.
+	//
+	// Using your own resource type names helps you quickly differentiate the
+	// types of custom resources in your stack. For example, if you had two custom
+	// resources that conduct two different ping tests, you could name their type
+	// as Custom::PingTester to make them easily identifiable as ping testers
+	// (instead of using AWS::CloudFormation::CustomResource).
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html#aws-cfn-resource-type-name
+	//
+	// Experimental.
+	ResourceType *string `json:"resourceType"`
 	// The ARN of the provider which implements this custom resource type.
 	//
 	// You can implement a provider by listening to raw AWS CloudFormation events
@@ -16965,33 +16992,6 @@ type CustomResourceProps struct {
 	// ```
 	// Experimental.
 	ServiceToken *string `json:"serviceToken"`
-	// Convert all property keys to pascal case.
-	// Experimental.
-	PascalCaseProperties *bool `json:"pascalCaseProperties"`
-	// Properties to pass to the Lambda.
-	// Experimental.
-	Properties *map[string]interface{} `json:"properties"`
-	// The policy to apply when this resource is removed from the application.
-	// Experimental.
-	RemovalPolicy RemovalPolicy `json:"removalPolicy"`
-	// For custom resources, you can specify AWS::CloudFormation::CustomResource (the default) as the resource type, or you can specify your own resource type name.
-	//
-	// For example, you can use "Custom::MyCustomResourceTypeName".
-	//
-	// Custom resource type names must begin with "Custom::" and can include
-	// alphanumeric characters and the following characters: _@-. You can specify
-	// a custom resource type name up to a maximum length of 60 characters. You
-	// cannot change the type during an update.
-	//
-	// Using your own resource type names helps you quickly differentiate the
-	// types of custom resources in your stack. For example, if you had two custom
-	// resources that conduct two different ping tests, you could name their type
-	// as Custom::PingTester to make them easily identifiable as ping testers
-	// (instead of using AWS::CloudFormation::CustomResource).
-	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html#aws-cfn-resource-type-name
-	//
-	// Experimental.
-	ResourceType *string `json:"resourceType"`
 }
 
 // An AWS-Lambda backed custom resource provider.

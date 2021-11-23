@@ -69,6 +69,9 @@ func (e *jsiiProxy_EmailSubscription) Bind(_topic awssns.ITopic) *awssns.TopicSu
 }
 
 // Options for email subscriptions.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EmailSubscriptionProps struct {
 	// Queue to be used as dead letter queue.
@@ -213,6 +216,9 @@ func (s *jsiiProxy_SmsSubscription) Bind(_topic awssns.ITopic) *awssns.TopicSubs
 }
 
 // Options for SMS subscriptions.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SmsSubscriptionProps struct {
 	// Queue to be used as dead letter queue.
@@ -282,6 +288,9 @@ func (s *jsiiProxy_SqsSubscription) Bind(topic awssns.ITopic) *awssns.TopicSubsc
 }
 
 // Properties for an SQS subscription.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SqsSubscriptionProps struct {
 	// Queue to be used as dead letter queue.
@@ -300,6 +309,9 @@ type SqsSubscriptionProps struct {
 }
 
 // Options to subscribing to an SNS topic.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SubscriptionProps struct {
 	// Queue to be used as dead letter queue.
@@ -373,6 +385,9 @@ func (u *jsiiProxy_UrlSubscription) Bind(_topic awssns.ITopic) *awssns.TopicSubs
 }
 
 // Options for URL subscriptions.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type UrlSubscriptionProps struct {
 	// Queue to be used as dead letter queue.

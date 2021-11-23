@@ -25,6 +25,9 @@ const (
 )
 
 // A CloudFormation `AWS::Batch::ComputeEnvironment`.
+//
+// TODO: EXAMPLE
+//
 type CfnComputeEnvironment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -721,13 +724,9 @@ func (c *jsiiProxy_CfnComputeEnvironment) ValidateProperties(_properties interfa
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnComputeEnvironment_ComputeResourcesProperty struct {
-	// `CfnComputeEnvironment.ComputeResourcesProperty.MaxvCpus`.
-	MaxvCpus *float64 `json:"maxvCpus"`
-	// `CfnComputeEnvironment.ComputeResourcesProperty.Subnets`.
-	Subnets *[]*string `json:"subnets"`
-	// `CfnComputeEnvironment.ComputeResourcesProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.AllocationStrategy`.
 	AllocationStrategy *string `json:"allocationStrategy"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.BidPercentage`.
@@ -746,6 +745,8 @@ type CfnComputeEnvironment_ComputeResourcesProperty struct {
 	InstanceTypes *[]*string `json:"instanceTypes"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.LaunchTemplate`.
 	LaunchTemplate interface{} `json:"launchTemplate"`
+	// `CfnComputeEnvironment.ComputeResourcesProperty.MaxvCpus`.
+	MaxvCpus *float64 `json:"maxvCpus"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.MinvCpus`.
 	MinvCpus *float64 `json:"minvCpus"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.PlacementGroup`.
@@ -754,17 +755,25 @@ type CfnComputeEnvironment_ComputeResourcesProperty struct {
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.SpotIamFleetRole`.
 	SpotIamFleetRole *string `json:"spotIamFleetRole"`
+	// `CfnComputeEnvironment.ComputeResourcesProperty.Subnets`.
+	Subnets *[]*string `json:"subnets"`
 	// `CfnComputeEnvironment.ComputeResourcesProperty.Tags`.
 	Tags interface{} `json:"tags"`
+	// `CfnComputeEnvironment.ComputeResourcesProperty.Type`.
+	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnComputeEnvironment_Ec2ConfigurationObjectProperty struct {
-	// `CfnComputeEnvironment.Ec2ConfigurationObjectProperty.ImageType`.
-	ImageType *string `json:"imageType"`
 	// `CfnComputeEnvironment.Ec2ConfigurationObjectProperty.ImageIdOverride`.
 	ImageIdOverride *string `json:"imageIdOverride"`
+	// `CfnComputeEnvironment.Ec2ConfigurationObjectProperty.ImageType`.
+	ImageType *string `json:"imageType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnComputeEnvironment_LaunchTemplateSpecificationProperty struct {
 	// `CfnComputeEnvironment.LaunchTemplateSpecificationProperty.LaunchTemplateId`.
 	LaunchTemplateId *string `json:"launchTemplateId"`
@@ -775,9 +784,10 @@ type CfnComputeEnvironment_LaunchTemplateSpecificationProperty struct {
 }
 
 // Properties for defining a `AWS::Batch::ComputeEnvironment`.
+//
+// TODO: EXAMPLE
+//
 type CfnComputeEnvironmentProps struct {
-	// `AWS::Batch::ComputeEnvironment.Type`.
-	Type *string `json:"type"`
 	// `AWS::Batch::ComputeEnvironment.ComputeEnvironmentName`.
 	ComputeEnvironmentName *string `json:"computeEnvironmentName"`
 	// `AWS::Batch::ComputeEnvironment.ComputeResources`.
@@ -788,11 +798,16 @@ type CfnComputeEnvironmentProps struct {
 	State *string `json:"state"`
 	// `AWS::Batch::ComputeEnvironment.Tags`.
 	Tags interface{} `json:"tags"`
+	// `AWS::Batch::ComputeEnvironment.Type`.
+	Type *string `json:"type"`
 	// `AWS::Batch::ComputeEnvironment.UnmanagedvCpus`.
 	UnmanagedvCpus *float64 `json:"unmanagedvCpus"`
 }
 
 // A CloudFormation `AWS::Batch::JobDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnJobDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1569,6 +1584,8 @@ func (c *jsiiProxy_CfnJobDefinition) ValidateProperties(_properties interface{})
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnJobDefinition_AuthorizationConfigProperty struct {
 	// `CfnJobDefinition.AuthorizationConfigProperty.AccessPointId`.
 	AccessPointId *string `json:"accessPointId"`
@@ -1576,9 +1593,9 @@ type CfnJobDefinition_AuthorizationConfigProperty struct {
 	Iam *string `json:"iam"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnJobDefinition_ContainerPropertiesProperty struct {
-	// `CfnJobDefinition.ContainerPropertiesProperty.Image`.
-	Image *string `json:"image"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.Command`.
 	Command *[]*string `json:"command"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.Environment`.
@@ -1587,6 +1604,8 @@ type CfnJobDefinition_ContainerPropertiesProperty struct {
 	ExecutionRoleArn *string `json:"executionRoleArn"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.FargatePlatformConfiguration`.
 	FargatePlatformConfiguration interface{} `json:"fargatePlatformConfiguration"`
+	// `CfnJobDefinition.ContainerPropertiesProperty.Image`.
+	Image *string `json:"image"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.InstanceType`.
 	InstanceType *string `json:"instanceType"`
 	// `CfnJobDefinition.ContainerPropertiesProperty.JobRoleArn`.
@@ -1619,6 +1638,8 @@ type CfnJobDefinition_ContainerPropertiesProperty struct {
 	Volumes interface{} `json:"volumes"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnJobDefinition_DeviceProperty struct {
 	// `CfnJobDefinition.DeviceProperty.ContainerPath`.
 	ContainerPath *string `json:"containerPath"`
@@ -1628,11 +1649,13 @@ type CfnJobDefinition_DeviceProperty struct {
 	Permissions *[]*string `json:"permissions"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnJobDefinition_EfsVolumeConfigurationProperty struct {
-	// `CfnJobDefinition.EfsVolumeConfigurationProperty.FileSystemId`.
-	FileSystemId *string `json:"fileSystemId"`
 	// `CfnJobDefinition.EfsVolumeConfigurationProperty.AuthorizationConfig`.
 	AuthorizationConfig interface{} `json:"authorizationConfig"`
+	// `CfnJobDefinition.EfsVolumeConfigurationProperty.FileSystemId`.
+	FileSystemId *string `json:"fileSystemId"`
 	// `CfnJobDefinition.EfsVolumeConfigurationProperty.RootDirectory`.
 	RootDirectory *string `json:"rootDirectory"`
 	// `CfnJobDefinition.EfsVolumeConfigurationProperty.TransitEncryption`.
@@ -1641,6 +1664,8 @@ type CfnJobDefinition_EfsVolumeConfigurationProperty struct {
 	TransitEncryptionPort *float64 `json:"transitEncryptionPort"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnJobDefinition_EnvironmentProperty struct {
 	// `CfnJobDefinition.EnvironmentProperty.Name`.
 	Name *string `json:"name"`
@@ -1648,6 +1673,8 @@ type CfnJobDefinition_EnvironmentProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnJobDefinition_EvaluateOnExitProperty struct {
 	// `CfnJobDefinition.EvaluateOnExitProperty.Action`.
 	Action *string `json:"action"`
@@ -1659,11 +1686,15 @@ type CfnJobDefinition_EvaluateOnExitProperty struct {
 	OnStatusReason *string `json:"onStatusReason"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnJobDefinition_FargatePlatformConfigurationProperty struct {
 	// `CfnJobDefinition.FargatePlatformConfigurationProperty.PlatformVersion`.
 	PlatformVersion *string `json:"platformVersion"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnJobDefinition_LinuxParametersProperty struct {
 	// `CfnJobDefinition.LinuxParametersProperty.Devices`.
 	Devices interface{} `json:"devices"`
@@ -1679,6 +1710,8 @@ type CfnJobDefinition_LinuxParametersProperty struct {
 	Tmpfs interface{} `json:"tmpfs"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnJobDefinition_LogConfigurationProperty struct {
 	// `CfnJobDefinition.LogConfigurationProperty.LogDriver`.
 	LogDriver *string `json:"logDriver"`
@@ -1688,6 +1721,8 @@ type CfnJobDefinition_LogConfigurationProperty struct {
 	SecretOptions interface{} `json:"secretOptions"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnJobDefinition_MountPointsProperty struct {
 	// `CfnJobDefinition.MountPointsProperty.ContainerPath`.
 	ContainerPath *string `json:"containerPath"`
@@ -1697,11 +1732,15 @@ type CfnJobDefinition_MountPointsProperty struct {
 	SourceVolume *string `json:"sourceVolume"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnJobDefinition_NetworkConfigurationProperty struct {
 	// `CfnJobDefinition.NetworkConfigurationProperty.AssignPublicIp`.
 	AssignPublicIp *string `json:"assignPublicIp"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnJobDefinition_NodePropertiesProperty struct {
 	// `CfnJobDefinition.NodePropertiesProperty.MainNode`.
 	MainNode *float64 `json:"mainNode"`
@@ -1711,13 +1750,17 @@ type CfnJobDefinition_NodePropertiesProperty struct {
 	NumNodes *float64 `json:"numNodes"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnJobDefinition_NodeRangePropertyProperty struct {
-	// `CfnJobDefinition.NodeRangePropertyProperty.TargetNodes`.
-	TargetNodes *string `json:"targetNodes"`
 	// `CfnJobDefinition.NodeRangePropertyProperty.Container`.
 	Container interface{} `json:"container"`
+	// `CfnJobDefinition.NodeRangePropertyProperty.TargetNodes`.
+	TargetNodes *string `json:"targetNodes"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnJobDefinition_ResourceRequirementProperty struct {
 	// `CfnJobDefinition.ResourceRequirementProperty.Type`.
 	Type *string `json:"type"`
@@ -1725,6 +1768,8 @@ type CfnJobDefinition_ResourceRequirementProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnJobDefinition_RetryStrategyProperty struct {
 	// `CfnJobDefinition.RetryStrategyProperty.Attempts`.
 	Attempts *float64 `json:"attempts"`
@@ -1732,6 +1777,8 @@ type CfnJobDefinition_RetryStrategyProperty struct {
 	EvaluateOnExit interface{} `json:"evaluateOnExit"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnJobDefinition_SecretProperty struct {
 	// `CfnJobDefinition.SecretProperty.Name`.
 	Name *string `json:"name"`
@@ -1739,20 +1786,26 @@ type CfnJobDefinition_SecretProperty struct {
 	ValueFrom *string `json:"valueFrom"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnJobDefinition_TimeoutProperty struct {
 	// `CfnJobDefinition.TimeoutProperty.AttemptDurationSeconds`.
 	AttemptDurationSeconds *float64 `json:"attemptDurationSeconds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnJobDefinition_TmpfsProperty struct {
 	// `CfnJobDefinition.TmpfsProperty.ContainerPath`.
 	ContainerPath *string `json:"containerPath"`
-	// `CfnJobDefinition.TmpfsProperty.Size`.
-	Size *float64 `json:"size"`
 	// `CfnJobDefinition.TmpfsProperty.MountOptions`.
 	MountOptions *[]*string `json:"mountOptions"`
+	// `CfnJobDefinition.TmpfsProperty.Size`.
+	Size *float64 `json:"size"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnJobDefinition_UlimitProperty struct {
 	// `CfnJobDefinition.UlimitProperty.HardLimit`.
 	HardLimit *float64 `json:"hardLimit"`
@@ -1762,11 +1815,15 @@ type CfnJobDefinition_UlimitProperty struct {
 	SoftLimit *float64 `json:"softLimit"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnJobDefinition_VolumesHostProperty struct {
 	// `CfnJobDefinition.VolumesHostProperty.SourcePath`.
 	SourcePath *string `json:"sourcePath"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnJobDefinition_VolumesProperty struct {
 	// `CfnJobDefinition.VolumesProperty.EfsVolumeConfiguration`.
 	EfsVolumeConfiguration interface{} `json:"efsVolumeConfiguration"`
@@ -1777,9 +1834,10 @@ type CfnJobDefinition_VolumesProperty struct {
 }
 
 // Properties for defining a `AWS::Batch::JobDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnJobDefinitionProps struct {
-	// `AWS::Batch::JobDefinition.Type`.
-	Type *string `json:"type"`
 	// `AWS::Batch::JobDefinition.ContainerProperties`.
 	ContainerProperties interface{} `json:"containerProperties"`
 	// `AWS::Batch::JobDefinition.JobDefinitionName`.
@@ -1800,9 +1858,14 @@ type CfnJobDefinitionProps struct {
 	Tags interface{} `json:"tags"`
 	// `AWS::Batch::JobDefinition.Timeout`.
 	Timeout interface{} `json:"timeout"`
+	// `AWS::Batch::JobDefinition.Type`.
+	Type *string `json:"type"`
 }
 
 // A CloudFormation `AWS::Batch::JobQueue`.
+//
+// TODO: EXAMPLE
+//
 type CfnJobQueue interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2479,6 +2542,8 @@ func (c *jsiiProxy_CfnJobQueue) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnJobQueue_ComputeEnvironmentOrderProperty struct {
 	// `CfnJobQueue.ComputeEnvironmentOrderProperty.ComputeEnvironment`.
 	ComputeEnvironment *string `json:"computeEnvironment"`
@@ -2487,13 +2552,16 @@ type CfnJobQueue_ComputeEnvironmentOrderProperty struct {
 }
 
 // Properties for defining a `AWS::Batch::JobQueue`.
+//
+// TODO: EXAMPLE
+//
 type CfnJobQueueProps struct {
 	// `AWS::Batch::JobQueue.ComputeEnvironmentOrder`.
 	ComputeEnvironmentOrder interface{} `json:"computeEnvironmentOrder"`
-	// `AWS::Batch::JobQueue.Priority`.
-	Priority *float64 `json:"priority"`
 	// `AWS::Batch::JobQueue.JobQueueName`.
 	JobQueueName *string `json:"jobQueueName"`
+	// `AWS::Batch::JobQueue.Priority`.
+	Priority *float64 `json:"priority"`
 	// `AWS::Batch::JobQueue.SchedulingPolicyArn`.
 	SchedulingPolicyArn *string `json:"schedulingPolicyArn"`
 	// `AWS::Batch::JobQueue.State`.
@@ -2503,6 +2571,9 @@ type CfnJobQueueProps struct {
 }
 
 // A CloudFormation `AWS::Batch::SchedulingPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnSchedulingPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3130,6 +3201,8 @@ func (c *jsiiProxy_CfnSchedulingPolicy) ValidateProperties(_properties interface
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnSchedulingPolicy_FairsharePolicyProperty struct {
 	// `CfnSchedulingPolicy.FairsharePolicyProperty.ComputeReservation`.
 	ComputeReservation *float64 `json:"computeReservation"`
@@ -3139,6 +3212,8 @@ type CfnSchedulingPolicy_FairsharePolicyProperty struct {
 	ShareDistribution interface{} `json:"shareDistribution"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSchedulingPolicy_ShareAttributesProperty struct {
 	// `CfnSchedulingPolicy.ShareAttributesProperty.ShareIdentifier`.
 	ShareIdentifier *string `json:"shareIdentifier"`
@@ -3147,6 +3222,9 @@ type CfnSchedulingPolicy_ShareAttributesProperty struct {
 }
 
 // Properties for defining a `AWS::Batch::SchedulingPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnSchedulingPolicyProps struct {
 	// `AWS::Batch::SchedulingPolicy.FairsharePolicy`.
 	FairsharePolicy interface{} `json:"fairsharePolicy"`
@@ -4941,6 +5019,9 @@ func (j *jsiiProxy_JobQueue) Validate() *[]*string {
 }
 
 // Properties for mapping a compute environment to a job queue.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type JobQueueComputeEnvironment struct {
 	// The batch compute environment to use for processing submitted jobs to this queue.

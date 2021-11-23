@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::FIS::ExperimentTemplate`.
+//
+// TODO: EXAMPLE
+//
 type CfnExperimentTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -697,6 +700,8 @@ func (c *jsiiProxy_CfnExperimentTemplate) ValidateProperties(_properties interfa
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnExperimentTemplate_ExperimentTemplateActionProperty struct {
 	// `CfnExperimentTemplate.ExperimentTemplateActionProperty.ActionId`.
 	ActionId *string `json:"actionId"`
@@ -710,6 +715,8 @@ type CfnExperimentTemplate_ExperimentTemplateActionProperty struct {
 	Targets interface{} `json:"targets"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnExperimentTemplate_ExperimentTemplateStopConditionProperty struct {
 	// `CfnExperimentTemplate.ExperimentTemplateStopConditionProperty.Source`.
 	Source *string `json:"source"`
@@ -717,6 +724,8 @@ type CfnExperimentTemplate_ExperimentTemplateStopConditionProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnExperimentTemplate_ExperimentTemplateTargetFilterProperty struct {
 	// `CfnExperimentTemplate.ExperimentTemplateTargetFilterProperty.Path`.
 	Path *string `json:"path"`
@@ -724,21 +733,28 @@ type CfnExperimentTemplate_ExperimentTemplateTargetFilterProperty struct {
 	Values *[]*string `json:"values"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnExperimentTemplate_ExperimentTemplateTargetProperty struct {
-	// `CfnExperimentTemplate.ExperimentTemplateTargetProperty.ResourceType`.
-	ResourceType *string `json:"resourceType"`
-	// `CfnExperimentTemplate.ExperimentTemplateTargetProperty.SelectionMode`.
-	SelectionMode *string `json:"selectionMode"`
 	// `CfnExperimentTemplate.ExperimentTemplateTargetProperty.Filters`.
 	Filters interface{} `json:"filters"`
 	// `CfnExperimentTemplate.ExperimentTemplateTargetProperty.ResourceArns`.
 	ResourceArns *[]*string `json:"resourceArns"`
 	// `CfnExperimentTemplate.ExperimentTemplateTargetProperty.ResourceTags`.
 	ResourceTags interface{} `json:"resourceTags"`
+	// `CfnExperimentTemplate.ExperimentTemplateTargetProperty.ResourceType`.
+	ResourceType *string `json:"resourceType"`
+	// `CfnExperimentTemplate.ExperimentTemplateTargetProperty.SelectionMode`.
+	SelectionMode *string `json:"selectionMode"`
 }
 
 // Properties for defining a `AWS::FIS::ExperimentTemplate`.
+//
+// TODO: EXAMPLE
+//
 type CfnExperimentTemplateProps struct {
+	// `AWS::FIS::ExperimentTemplate.Actions`.
+	Actions interface{} `json:"actions"`
 	// `AWS::FIS::ExperimentTemplate.Description`.
 	Description *string `json:"description"`
 	// `AWS::FIS::ExperimentTemplate.RoleArn`.
@@ -749,7 +765,5 @@ type CfnExperimentTemplateProps struct {
 	Tags *map[string]*string `json:"tags"`
 	// `AWS::FIS::ExperimentTemplate.Targets`.
 	Targets interface{} `json:"targets"`
-	// `AWS::FIS::ExperimentTemplate.Actions`.
-	Actions interface{} `json:"actions"`
 }
 

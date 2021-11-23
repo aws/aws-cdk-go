@@ -12,6 +12,9 @@ import (
 )
 
 // Use a Kinesis stream as the destination for a log subscription.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type KinesisDestination interface {
 	awslogs.ILogSubscriptionDestination
@@ -137,6 +140,9 @@ func (l *jsiiProxy_LambdaDestination) Bind(scope awscdk.Construct, logGroup awsl
 }
 
 // Options that may be provided to LambdaDestination.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LambdaDestinationOptions struct {
 	// Whether or not to add Lambda Permissions.

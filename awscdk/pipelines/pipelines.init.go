@@ -45,8 +45,8 @@ func init() {
 		"monocdk.pipelines.AssetType",
 		reflect.TypeOf((*AssetType)(nil)).Elem(),
 		map[string]interface{}{
-			"FILE": AssetType_FILE,
 			"DOCKER_IMAGE": AssetType_DOCKER_IMAGE,
+			"FILE": AssetType_FILE,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -304,9 +304,9 @@ func init() {
 		"monocdk.pipelines.DockerCredentialUsage",
 		reflect.TypeOf((*DockerCredentialUsage)(nil)).Elem(),
 		map[string]interface{}{
-			"SYNTH": DockerCredentialUsage_SYNTH,
-			"SELF_UPDATE": DockerCredentialUsage_SELF_UPDATE,
 			"ASSET_PUBLISHING": DockerCredentialUsage_ASSET_PUBLISHING,
+			"SELF_UPDATE": DockerCredentialUsage_SELF_UPDATE,
+			"SYNTH": DockerCredentialUsage_SYNTH,
 		},
 	)
 	_jsii_.RegisterStruct(

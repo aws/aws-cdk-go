@@ -824,8 +824,8 @@ func init() {
 		reflect.TypeOf((*MaximumExecutionFrequency)(nil)).Elem(),
 		map[string]interface{}{
 			"ONE_HOUR": MaximumExecutionFrequency_ONE_HOUR,
-			"THREE_HOURS": MaximumExecutionFrequency_THREE_HOURS,
 			"SIX_HOURS": MaximumExecutionFrequency_SIX_HOURS,
+			"THREE_HOURS": MaximumExecutionFrequency_THREE_HOURS,
 			"TWELVE_HOURS": MaximumExecutionFrequency_TWELVE_HOURS,
 			"TWENTY_FOUR_HOURS": MaximumExecutionFrequency_TWENTY_FOUR_HOURS,
 		},

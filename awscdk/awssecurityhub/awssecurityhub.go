@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::SecurityHub::Hub`.
+//
+// TODO: EXAMPLE
+//
 type CfnHub interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -587,6 +590,9 @@ func (c *jsiiProxy_CfnHub) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::SecurityHub::Hub`.
+//
+// TODO: EXAMPLE
+//
 type CfnHubProps struct {
 	// `AWS::SecurityHub::Hub.Tags`.
 	Tags interface{} `json:"tags"`

@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::GuardDuty::Detector`.
+//
+// TODO: EXAMPLE
+//
 type CfnDetector interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -635,27 +638,37 @@ func (c *jsiiProxy_CfnDetector) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetector_CFNDataSourceConfigurationsProperty struct {
 	// `CfnDetector.CFNDataSourceConfigurationsProperty.S3Logs`.
 	S3Logs interface{} `json:"s3Logs"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetector_CFNS3LogsConfigurationProperty struct {
 	// `CfnDetector.CFNS3LogsConfigurationProperty.Enable`.
 	Enable interface{} `json:"enable"`
 }
 
 // Properties for defining a `AWS::GuardDuty::Detector`.
+//
+// TODO: EXAMPLE
+//
 type CfnDetectorProps struct {
-	// `AWS::GuardDuty::Detector.Enable`.
-	Enable interface{} `json:"enable"`
 	// `AWS::GuardDuty::Detector.DataSources`.
 	DataSources interface{} `json:"dataSources"`
+	// `AWS::GuardDuty::Detector.Enable`.
+	Enable interface{} `json:"enable"`
 	// `AWS::GuardDuty::Detector.FindingPublishingFrequency`.
 	FindingPublishingFrequency *string `json:"findingPublishingFrequency"`
 }
 
 // A CloudFormation `AWS::GuardDuty::Filter`.
+//
+// TODO: EXAMPLE
+//
 type CfnFilter interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1341,6 +1354,8 @@ func (c *jsiiProxy_CfnFilter) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFilter_ConditionProperty struct {
 	// `CfnFilter.ConditionProperty.Eq`.
 	Eq *[]*string `json:"eq"`
@@ -1354,6 +1369,8 @@ type CfnFilter_ConditionProperty struct {
 	Neq *[]*string `json:"neq"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFilter_FindingCriteriaProperty struct {
 	// `CfnFilter.FindingCriteriaProperty.Criterion`.
 	Criterion interface{} `json:"criterion"`
@@ -1362,6 +1379,9 @@ type CfnFilter_FindingCriteriaProperty struct {
 }
 
 // Properties for defining a `AWS::GuardDuty::Filter`.
+//
+// TODO: EXAMPLE
+//
 type CfnFilterProps struct {
 	// `AWS::GuardDuty::Filter.Action`.
 	Action *string `json:"action"`
@@ -1378,6 +1398,9 @@ type CfnFilterProps struct {
 }
 
 // A CloudFormation `AWS::GuardDuty::IPSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnIPSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2044,6 +2067,9 @@ func (c *jsiiProxy_CfnIPSet) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::GuardDuty::IPSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnIPSetProps struct {
 	// `AWS::GuardDuty::IPSet.Activate`.
 	Activate interface{} `json:"activate"`
@@ -2058,6 +2084,9 @@ type CfnIPSetProps struct {
 }
 
 // A CloudFormation `AWS::GuardDuty::Master`.
+//
+// TODO: EXAMPLE
+//
 type CfnMaster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2684,16 +2713,22 @@ func (c *jsiiProxy_CfnMaster) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::GuardDuty::Master`.
+//
+// TODO: EXAMPLE
+//
 type CfnMasterProps struct {
 	// `AWS::GuardDuty::Master.DetectorId`.
 	DetectorId *string `json:"detectorId"`
-	// `AWS::GuardDuty::Master.MasterId`.
-	MasterId *string `json:"masterId"`
 	// `AWS::GuardDuty::Master.InvitationId`.
 	InvitationId *string `json:"invitationId"`
+	// `AWS::GuardDuty::Master.MasterId`.
+	MasterId *string `json:"masterId"`
 }
 
 // A CloudFormation `AWS::GuardDuty::Member`.
+//
+// TODO: EXAMPLE
+//
 type CfnMember interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3380,15 +3415,18 @@ func (c *jsiiProxy_CfnMember) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::GuardDuty::Member`.
+//
+// TODO: EXAMPLE
+//
 type CfnMemberProps struct {
 	// `AWS::GuardDuty::Member.DetectorId`.
 	DetectorId *string `json:"detectorId"`
+	// `AWS::GuardDuty::Member.DisableEmailNotification`.
+	DisableEmailNotification interface{} `json:"disableEmailNotification"`
 	// `AWS::GuardDuty::Member.Email`.
 	Email *string `json:"email"`
 	// `AWS::GuardDuty::Member.MemberId`.
 	MemberId *string `json:"memberId"`
-	// `AWS::GuardDuty::Member.DisableEmailNotification`.
-	DisableEmailNotification interface{} `json:"disableEmailNotification"`
 	// `AWS::GuardDuty::Member.Message`.
 	Message *string `json:"message"`
 	// `AWS::GuardDuty::Member.Status`.
@@ -3396,6 +3434,9 @@ type CfnMemberProps struct {
 }
 
 // A CloudFormation `AWS::GuardDuty::ThreatIntelSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnThreatIntelSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4062,6 +4103,9 @@ func (c *jsiiProxy_CfnThreatIntelSet) ValidateProperties(_properties interface{}
 }
 
 // Properties for defining a `AWS::GuardDuty::ThreatIntelSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnThreatIntelSetProps struct {
 	// `AWS::GuardDuty::ThreatIntelSet.Activate`.
 	Activate interface{} `json:"activate"`

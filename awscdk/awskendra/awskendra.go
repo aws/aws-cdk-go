@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::Kendra::DataSource`.
+//
+// TODO: EXAMPLE
+//
 type CfnDataSource interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -748,16 +751,22 @@ func (c *jsiiProxy_CfnDataSource) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_AccessControlListConfigurationProperty struct {
 	// `CfnDataSource.AccessControlListConfigurationProperty.KeyPath`.
 	KeyPath *string `json:"keyPath"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_AclConfigurationProperty struct {
 	// `CfnDataSource.AclConfigurationProperty.AllowedGroupsColumnName`.
 	AllowedGroupsColumnName *string `json:"allowedGroupsColumnName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_ColumnConfigurationProperty struct {
 	// `CfnDataSource.ColumnConfigurationProperty.ChangeDetectingColumns`.
 	ChangeDetectingColumns *[]*string `json:"changeDetectingColumns"`
@@ -771,6 +780,8 @@ type CfnDataSource_ColumnConfigurationProperty struct {
 	FieldMappings interface{} `json:"fieldMappings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_ConfluenceAttachmentConfigurationProperty struct {
 	// `CfnDataSource.ConfluenceAttachmentConfigurationProperty.AttachmentFieldMappings`.
 	AttachmentFieldMappings interface{} `json:"attachmentFieldMappings"`
@@ -778,36 +789,38 @@ type CfnDataSource_ConfluenceAttachmentConfigurationProperty struct {
 	CrawlAttachments interface{} `json:"crawlAttachments"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_ConfluenceAttachmentToIndexFieldMappingProperty struct {
 	// `CfnDataSource.ConfluenceAttachmentToIndexFieldMappingProperty.DataSourceFieldName`.
 	DataSourceFieldName *string `json:"dataSourceFieldName"`
-	// `CfnDataSource.ConfluenceAttachmentToIndexFieldMappingProperty.IndexFieldName`.
-	IndexFieldName *string `json:"indexFieldName"`
 	// `CfnDataSource.ConfluenceAttachmentToIndexFieldMappingProperty.DateFieldFormat`.
 	DateFieldFormat *string `json:"dateFieldFormat"`
+	// `CfnDataSource.ConfluenceAttachmentToIndexFieldMappingProperty.IndexFieldName`.
+	IndexFieldName *string `json:"indexFieldName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_ConfluenceBlogConfigurationProperty struct {
 	// `CfnDataSource.ConfluenceBlogConfigurationProperty.BlogFieldMappings`.
 	BlogFieldMappings interface{} `json:"blogFieldMappings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_ConfluenceBlogToIndexFieldMappingProperty struct {
 	// `CfnDataSource.ConfluenceBlogToIndexFieldMappingProperty.DataSourceFieldName`.
 	DataSourceFieldName *string `json:"dataSourceFieldName"`
-	// `CfnDataSource.ConfluenceBlogToIndexFieldMappingProperty.IndexFieldName`.
-	IndexFieldName *string `json:"indexFieldName"`
 	// `CfnDataSource.ConfluenceBlogToIndexFieldMappingProperty.DateFieldFormat`.
 	DateFieldFormat *string `json:"dateFieldFormat"`
+	// `CfnDataSource.ConfluenceBlogToIndexFieldMappingProperty.IndexFieldName`.
+	IndexFieldName *string `json:"indexFieldName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_ConfluenceConfigurationProperty struct {
-	// `CfnDataSource.ConfluenceConfigurationProperty.SecretArn`.
-	SecretArn *string `json:"secretArn"`
-	// `CfnDataSource.ConfluenceConfigurationProperty.ServerUrl`.
-	ServerUrl *string `json:"serverUrl"`
-	// `CfnDataSource.ConfluenceConfigurationProperty.Version`.
-	Version *string `json:"version"`
 	// `CfnDataSource.ConfluenceConfigurationProperty.AttachmentConfiguration`.
 	AttachmentConfiguration interface{} `json:"attachmentConfiguration"`
 	// `CfnDataSource.ConfluenceConfigurationProperty.BlogConfiguration`.
@@ -818,26 +831,38 @@ type CfnDataSource_ConfluenceConfigurationProperty struct {
 	InclusionPatterns *[]*string `json:"inclusionPatterns"`
 	// `CfnDataSource.ConfluenceConfigurationProperty.PageConfiguration`.
 	PageConfiguration interface{} `json:"pageConfiguration"`
+	// `CfnDataSource.ConfluenceConfigurationProperty.SecretArn`.
+	SecretArn *string `json:"secretArn"`
+	// `CfnDataSource.ConfluenceConfigurationProperty.ServerUrl`.
+	ServerUrl *string `json:"serverUrl"`
 	// `CfnDataSource.ConfluenceConfigurationProperty.SpaceConfiguration`.
 	SpaceConfiguration interface{} `json:"spaceConfiguration"`
+	// `CfnDataSource.ConfluenceConfigurationProperty.Version`.
+	Version *string `json:"version"`
 	// `CfnDataSource.ConfluenceConfigurationProperty.VpcConfiguration`.
 	VpcConfiguration interface{} `json:"vpcConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_ConfluencePageConfigurationProperty struct {
 	// `CfnDataSource.ConfluencePageConfigurationProperty.PageFieldMappings`.
 	PageFieldMappings interface{} `json:"pageFieldMappings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_ConfluencePageToIndexFieldMappingProperty struct {
 	// `CfnDataSource.ConfluencePageToIndexFieldMappingProperty.DataSourceFieldName`.
 	DataSourceFieldName *string `json:"dataSourceFieldName"`
-	// `CfnDataSource.ConfluencePageToIndexFieldMappingProperty.IndexFieldName`.
-	IndexFieldName *string `json:"indexFieldName"`
 	// `CfnDataSource.ConfluencePageToIndexFieldMappingProperty.DateFieldFormat`.
 	DateFieldFormat *string `json:"dateFieldFormat"`
+	// `CfnDataSource.ConfluencePageToIndexFieldMappingProperty.IndexFieldName`.
+	IndexFieldName *string `json:"indexFieldName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_ConfluenceSpaceConfigurationProperty struct {
 	// `CfnDataSource.ConfluenceSpaceConfigurationProperty.CrawlArchivedSpaces`.
 	CrawlArchivedSpaces interface{} `json:"crawlArchivedSpaces"`
@@ -851,15 +876,19 @@ type CfnDataSource_ConfluenceSpaceConfigurationProperty struct {
 	SpaceFieldMappings interface{} `json:"spaceFieldMappings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_ConfluenceSpaceToIndexFieldMappingProperty struct {
 	// `CfnDataSource.ConfluenceSpaceToIndexFieldMappingProperty.DataSourceFieldName`.
 	DataSourceFieldName *string `json:"dataSourceFieldName"`
-	// `CfnDataSource.ConfluenceSpaceToIndexFieldMappingProperty.IndexFieldName`.
-	IndexFieldName *string `json:"indexFieldName"`
 	// `CfnDataSource.ConfluenceSpaceToIndexFieldMappingProperty.DateFieldFormat`.
 	DateFieldFormat *string `json:"dateFieldFormat"`
+	// `CfnDataSource.ConfluenceSpaceToIndexFieldMappingProperty.IndexFieldName`.
+	IndexFieldName *string `json:"indexFieldName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_ConnectionConfigurationProperty struct {
 	// `CfnDataSource.ConnectionConfigurationProperty.DatabaseHost`.
 	DatabaseHost *string `json:"databaseHost"`
@@ -873,6 +902,8 @@ type CfnDataSource_ConnectionConfigurationProperty struct {
 	TableName *string `json:"tableName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_DataSourceConfigurationProperty struct {
 	// `CfnDataSource.DataSourceConfigurationProperty.ConfluenceConfiguration`.
 	ConfluenceConfiguration interface{} `json:"confluenceConfiguration"`
@@ -896,15 +927,19 @@ type CfnDataSource_DataSourceConfigurationProperty struct {
 	WorkDocsConfiguration interface{} `json:"workDocsConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_DataSourceToIndexFieldMappingProperty struct {
 	// `CfnDataSource.DataSourceToIndexFieldMappingProperty.DataSourceFieldName`.
 	DataSourceFieldName *string `json:"dataSourceFieldName"`
-	// `CfnDataSource.DataSourceToIndexFieldMappingProperty.IndexFieldName`.
-	IndexFieldName *string `json:"indexFieldName"`
 	// `CfnDataSource.DataSourceToIndexFieldMappingProperty.DateFieldFormat`.
 	DateFieldFormat *string `json:"dateFieldFormat"`
+	// `CfnDataSource.DataSourceToIndexFieldMappingProperty.IndexFieldName`.
+	IndexFieldName *string `json:"indexFieldName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_DataSourceVpcConfigurationProperty struct {
 	// `CfnDataSource.DataSourceVpcConfigurationProperty.SecurityGroupIds`.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
@@ -912,29 +947,33 @@ type CfnDataSource_DataSourceVpcConfigurationProperty struct {
 	SubnetIds *[]*string `json:"subnetIds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_DatabaseConfigurationProperty struct {
+	// `CfnDataSource.DatabaseConfigurationProperty.AclConfiguration`.
+	AclConfiguration interface{} `json:"aclConfiguration"`
 	// `CfnDataSource.DatabaseConfigurationProperty.ColumnConfiguration`.
 	ColumnConfiguration interface{} `json:"columnConfiguration"`
 	// `CfnDataSource.DatabaseConfigurationProperty.ConnectionConfiguration`.
 	ConnectionConfiguration interface{} `json:"connectionConfiguration"`
 	// `CfnDataSource.DatabaseConfigurationProperty.DatabaseEngineType`.
 	DatabaseEngineType *string `json:"databaseEngineType"`
-	// `CfnDataSource.DatabaseConfigurationProperty.AclConfiguration`.
-	AclConfiguration interface{} `json:"aclConfiguration"`
 	// `CfnDataSource.DatabaseConfigurationProperty.SqlConfiguration`.
 	SqlConfiguration interface{} `json:"sqlConfiguration"`
 	// `CfnDataSource.DatabaseConfigurationProperty.VpcConfiguration`.
 	VpcConfiguration interface{} `json:"vpcConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_DocumentsMetadataConfigurationProperty struct {
 	// `CfnDataSource.DocumentsMetadataConfigurationProperty.S3Prefix`.
 	S3Prefix *string `json:"s3Prefix"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_GoogleDriveConfigurationProperty struct {
-	// `CfnDataSource.GoogleDriveConfigurationProperty.SecretArn`.
-	SecretArn *string `json:"secretArn"`
 	// `CfnDataSource.GoogleDriveConfigurationProperty.ExcludeMimeTypes`.
 	ExcludeMimeTypes *[]*string `json:"excludeMimeTypes"`
 	// `CfnDataSource.GoogleDriveConfigurationProperty.ExcludeSharedDrives`.
@@ -947,15 +986,13 @@ type CfnDataSource_GoogleDriveConfigurationProperty struct {
 	FieldMappings interface{} `json:"fieldMappings"`
 	// `CfnDataSource.GoogleDriveConfigurationProperty.InclusionPatterns`.
 	InclusionPatterns *[]*string `json:"inclusionPatterns"`
+	// `CfnDataSource.GoogleDriveConfigurationProperty.SecretArn`.
+	SecretArn *string `json:"secretArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_OneDriveConfigurationProperty struct {
-	// `CfnDataSource.OneDriveConfigurationProperty.OneDriveUsers`.
-	OneDriveUsers interface{} `json:"oneDriveUsers"`
-	// `CfnDataSource.OneDriveConfigurationProperty.SecretArn`.
-	SecretArn *string `json:"secretArn"`
-	// `CfnDataSource.OneDriveConfigurationProperty.TenantDomain`.
-	TenantDomain *string `json:"tenantDomain"`
 	// `CfnDataSource.OneDriveConfigurationProperty.DisableLocalGroups`.
 	DisableLocalGroups interface{} `json:"disableLocalGroups"`
 	// `CfnDataSource.OneDriveConfigurationProperty.ExclusionPatterns`.
@@ -964,8 +1001,16 @@ type CfnDataSource_OneDriveConfigurationProperty struct {
 	FieldMappings interface{} `json:"fieldMappings"`
 	// `CfnDataSource.OneDriveConfigurationProperty.InclusionPatterns`.
 	InclusionPatterns *[]*string `json:"inclusionPatterns"`
+	// `CfnDataSource.OneDriveConfigurationProperty.OneDriveUsers`.
+	OneDriveUsers interface{} `json:"oneDriveUsers"`
+	// `CfnDataSource.OneDriveConfigurationProperty.SecretArn`.
+	SecretArn *string `json:"secretArn"`
+	// `CfnDataSource.OneDriveConfigurationProperty.TenantDomain`.
+	TenantDomain *string `json:"tenantDomain"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_OneDriveUsersProperty struct {
 	// `CfnDataSource.OneDriveUsersProperty.OneDriveUserList`.
 	OneDriveUserList *[]*string `json:"oneDriveUserList"`
@@ -973,20 +1018,24 @@ type CfnDataSource_OneDriveUsersProperty struct {
 	OneDriveUserS3Path interface{} `json:"oneDriveUserS3Path"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_ProxyConfigurationProperty struct {
+	// `CfnDataSource.ProxyConfigurationProperty.Credentials`.
+	Credentials *string `json:"credentials"`
 	// `CfnDataSource.ProxyConfigurationProperty.Host`.
 	Host *string `json:"host"`
 	// `CfnDataSource.ProxyConfigurationProperty.Port`.
 	Port *float64 `json:"port"`
-	// `CfnDataSource.ProxyConfigurationProperty.Credentials`.
-	Credentials *string `json:"credentials"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_S3DataSourceConfigurationProperty struct {
-	// `CfnDataSource.S3DataSourceConfigurationProperty.BucketName`.
-	BucketName *string `json:"bucketName"`
 	// `CfnDataSource.S3DataSourceConfigurationProperty.AccessControlListConfiguration`.
 	AccessControlListConfiguration interface{} `json:"accessControlListConfiguration"`
+	// `CfnDataSource.S3DataSourceConfigurationProperty.BucketName`.
+	BucketName *string `json:"bucketName"`
 	// `CfnDataSource.S3DataSourceConfigurationProperty.DocumentsMetadataConfiguration`.
 	DocumentsMetadataConfiguration interface{} `json:"documentsMetadataConfiguration"`
 	// `CfnDataSource.S3DataSourceConfigurationProperty.ExclusionPatterns`.
@@ -997,6 +1046,8 @@ type CfnDataSource_S3DataSourceConfigurationProperty struct {
 	InclusionPrefixes *[]*string `json:"inclusionPrefixes"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_S3PathProperty struct {
 	// `CfnDataSource.S3PathProperty.Bucket`.
 	Bucket *string `json:"bucket"`
@@ -1004,6 +1055,8 @@ type CfnDataSource_S3PathProperty struct {
 	Key *string `json:"key"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_SalesforceChatterFeedConfigurationProperty struct {
 	// `CfnDataSource.SalesforceChatterFeedConfigurationProperty.DocumentDataFieldName`.
 	DocumentDataFieldName *string `json:"documentDataFieldName"`
@@ -1015,11 +1068,9 @@ type CfnDataSource_SalesforceChatterFeedConfigurationProperty struct {
 	IncludeFilterTypes *[]*string `json:"includeFilterTypes"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_SalesforceConfigurationProperty struct {
-	// `CfnDataSource.SalesforceConfigurationProperty.SecretArn`.
-	SecretArn *string `json:"secretArn"`
-	// `CfnDataSource.SalesforceConfigurationProperty.ServerUrl`.
-	ServerUrl *string `json:"serverUrl"`
 	// `CfnDataSource.SalesforceConfigurationProperty.ChatterFeedConfiguration`.
 	ChatterFeedConfiguration interface{} `json:"chatterFeedConfiguration"`
 	// `CfnDataSource.SalesforceConfigurationProperty.CrawlAttachments`.
@@ -1030,32 +1081,42 @@ type CfnDataSource_SalesforceConfigurationProperty struct {
 	IncludeAttachmentFilePatterns *[]*string `json:"includeAttachmentFilePatterns"`
 	// `CfnDataSource.SalesforceConfigurationProperty.KnowledgeArticleConfiguration`.
 	KnowledgeArticleConfiguration interface{} `json:"knowledgeArticleConfiguration"`
+	// `CfnDataSource.SalesforceConfigurationProperty.SecretArn`.
+	SecretArn *string `json:"secretArn"`
+	// `CfnDataSource.SalesforceConfigurationProperty.ServerUrl`.
+	ServerUrl *string `json:"serverUrl"`
 	// `CfnDataSource.SalesforceConfigurationProperty.StandardObjectAttachmentConfiguration`.
 	StandardObjectAttachmentConfiguration interface{} `json:"standardObjectAttachmentConfiguration"`
 	// `CfnDataSource.SalesforceConfigurationProperty.StandardObjectConfigurations`.
 	StandardObjectConfigurations interface{} `json:"standardObjectConfigurations"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_SalesforceCustomKnowledgeArticleTypeConfigurationProperty struct {
 	// `CfnDataSource.SalesforceCustomKnowledgeArticleTypeConfigurationProperty.DocumentDataFieldName`.
 	DocumentDataFieldName *string `json:"documentDataFieldName"`
-	// `CfnDataSource.SalesforceCustomKnowledgeArticleTypeConfigurationProperty.Name`.
-	Name *string `json:"name"`
 	// `CfnDataSource.SalesforceCustomKnowledgeArticleTypeConfigurationProperty.DocumentTitleFieldName`.
 	DocumentTitleFieldName *string `json:"documentTitleFieldName"`
 	// `CfnDataSource.SalesforceCustomKnowledgeArticleTypeConfigurationProperty.FieldMappings`.
 	FieldMappings interface{} `json:"fieldMappings"`
+	// `CfnDataSource.SalesforceCustomKnowledgeArticleTypeConfigurationProperty.Name`.
+	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_SalesforceKnowledgeArticleConfigurationProperty struct {
-	// `CfnDataSource.SalesforceKnowledgeArticleConfigurationProperty.IncludedStates`.
-	IncludedStates *[]*string `json:"includedStates"`
 	// `CfnDataSource.SalesforceKnowledgeArticleConfigurationProperty.CustomKnowledgeArticleTypeConfigurations`.
 	CustomKnowledgeArticleTypeConfigurations interface{} `json:"customKnowledgeArticleTypeConfigurations"`
+	// `CfnDataSource.SalesforceKnowledgeArticleConfigurationProperty.IncludedStates`.
+	IncludedStates *[]*string `json:"includedStates"`
 	// `CfnDataSource.SalesforceKnowledgeArticleConfigurationProperty.StandardKnowledgeArticleTypeConfiguration`.
 	StandardKnowledgeArticleTypeConfiguration interface{} `json:"standardKnowledgeArticleTypeConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_SalesforceStandardKnowledgeArticleTypeConfigurationProperty struct {
 	// `CfnDataSource.SalesforceStandardKnowledgeArticleTypeConfigurationProperty.DocumentDataFieldName`.
 	DocumentDataFieldName *string `json:"documentDataFieldName"`
@@ -1065,6 +1126,8 @@ type CfnDataSource_SalesforceStandardKnowledgeArticleTypeConfigurationProperty s
 	FieldMappings interface{} `json:"fieldMappings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_SalesforceStandardObjectAttachmentConfigurationProperty struct {
 	// `CfnDataSource.SalesforceStandardObjectAttachmentConfigurationProperty.DocumentTitleFieldName`.
 	DocumentTitleFieldName *string `json:"documentTitleFieldName"`
@@ -1072,37 +1135,43 @@ type CfnDataSource_SalesforceStandardObjectAttachmentConfigurationProperty struc
 	FieldMappings interface{} `json:"fieldMappings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_SalesforceStandardObjectConfigurationProperty struct {
 	// `CfnDataSource.SalesforceStandardObjectConfigurationProperty.DocumentDataFieldName`.
 	DocumentDataFieldName *string `json:"documentDataFieldName"`
-	// `CfnDataSource.SalesforceStandardObjectConfigurationProperty.Name`.
-	Name *string `json:"name"`
 	// `CfnDataSource.SalesforceStandardObjectConfigurationProperty.DocumentTitleFieldName`.
 	DocumentTitleFieldName *string `json:"documentTitleFieldName"`
 	// `CfnDataSource.SalesforceStandardObjectConfigurationProperty.FieldMappings`.
 	FieldMappings interface{} `json:"fieldMappings"`
+	// `CfnDataSource.SalesforceStandardObjectConfigurationProperty.Name`.
+	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_ServiceNowConfigurationProperty struct {
-	// `CfnDataSource.ServiceNowConfigurationProperty.HostUrl`.
-	HostUrl *string `json:"hostUrl"`
-	// `CfnDataSource.ServiceNowConfigurationProperty.SecretArn`.
-	SecretArn *string `json:"secretArn"`
-	// `CfnDataSource.ServiceNowConfigurationProperty.ServiceNowBuildVersion`.
-	ServiceNowBuildVersion *string `json:"serviceNowBuildVersion"`
 	// `CfnDataSource.ServiceNowConfigurationProperty.AuthenticationType`.
 	AuthenticationType *string `json:"authenticationType"`
+	// `CfnDataSource.ServiceNowConfigurationProperty.HostUrl`.
+	HostUrl *string `json:"hostUrl"`
 	// `CfnDataSource.ServiceNowConfigurationProperty.KnowledgeArticleConfiguration`.
 	KnowledgeArticleConfiguration interface{} `json:"knowledgeArticleConfiguration"`
+	// `CfnDataSource.ServiceNowConfigurationProperty.SecretArn`.
+	SecretArn *string `json:"secretArn"`
 	// `CfnDataSource.ServiceNowConfigurationProperty.ServiceCatalogConfiguration`.
 	ServiceCatalogConfiguration interface{} `json:"serviceCatalogConfiguration"`
+	// `CfnDataSource.ServiceNowConfigurationProperty.ServiceNowBuildVersion`.
+	ServiceNowBuildVersion *string `json:"serviceNowBuildVersion"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_ServiceNowKnowledgeArticleConfigurationProperty struct {
-	// `CfnDataSource.ServiceNowKnowledgeArticleConfigurationProperty.DocumentDataFieldName`.
-	DocumentDataFieldName *string `json:"documentDataFieldName"`
 	// `CfnDataSource.ServiceNowKnowledgeArticleConfigurationProperty.CrawlAttachments`.
 	CrawlAttachments interface{} `json:"crawlAttachments"`
+	// `CfnDataSource.ServiceNowKnowledgeArticleConfigurationProperty.DocumentDataFieldName`.
+	DocumentDataFieldName *string `json:"documentDataFieldName"`
 	// `CfnDataSource.ServiceNowKnowledgeArticleConfigurationProperty.DocumentTitleFieldName`.
 	DocumentTitleFieldName *string `json:"documentTitleFieldName"`
 	// `CfnDataSource.ServiceNowKnowledgeArticleConfigurationProperty.ExcludeAttachmentFilePatterns`.
@@ -1115,11 +1184,13 @@ type CfnDataSource_ServiceNowKnowledgeArticleConfigurationProperty struct {
 	IncludeAttachmentFilePatterns *[]*string `json:"includeAttachmentFilePatterns"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_ServiceNowServiceCatalogConfigurationProperty struct {
-	// `CfnDataSource.ServiceNowServiceCatalogConfigurationProperty.DocumentDataFieldName`.
-	DocumentDataFieldName *string `json:"documentDataFieldName"`
 	// `CfnDataSource.ServiceNowServiceCatalogConfigurationProperty.CrawlAttachments`.
 	CrawlAttachments interface{} `json:"crawlAttachments"`
+	// `CfnDataSource.ServiceNowServiceCatalogConfigurationProperty.DocumentDataFieldName`.
+	DocumentDataFieldName *string `json:"documentDataFieldName"`
 	// `CfnDataSource.ServiceNowServiceCatalogConfigurationProperty.DocumentTitleFieldName`.
 	DocumentTitleFieldName *string `json:"documentTitleFieldName"`
 	// `CfnDataSource.ServiceNowServiceCatalogConfigurationProperty.ExcludeAttachmentFilePatterns`.
@@ -1130,13 +1201,9 @@ type CfnDataSource_ServiceNowServiceCatalogConfigurationProperty struct {
 	IncludeAttachmentFilePatterns *[]*string `json:"includeAttachmentFilePatterns"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_SharePointConfigurationProperty struct {
-	// `CfnDataSource.SharePointConfigurationProperty.SecretArn`.
-	SecretArn *string `json:"secretArn"`
-	// `CfnDataSource.SharePointConfigurationProperty.SharePointVersion`.
-	SharePointVersion *string `json:"sharePointVersion"`
-	// `CfnDataSource.SharePointConfigurationProperty.Urls`.
-	Urls *[]*string `json:"urls"`
 	// `CfnDataSource.SharePointConfigurationProperty.CrawlAttachments`.
 	CrawlAttachments interface{} `json:"crawlAttachments"`
 	// `CfnDataSource.SharePointConfigurationProperty.DisableLocalGroups`.
@@ -1149,24 +1216,36 @@ type CfnDataSource_SharePointConfigurationProperty struct {
 	FieldMappings interface{} `json:"fieldMappings"`
 	// `CfnDataSource.SharePointConfigurationProperty.InclusionPatterns`.
 	InclusionPatterns *[]*string `json:"inclusionPatterns"`
+	// `CfnDataSource.SharePointConfigurationProperty.SecretArn`.
+	SecretArn *string `json:"secretArn"`
+	// `CfnDataSource.SharePointConfigurationProperty.SharePointVersion`.
+	SharePointVersion *string `json:"sharePointVersion"`
 	// `CfnDataSource.SharePointConfigurationProperty.SslCertificateS3Path`.
 	SslCertificateS3Path interface{} `json:"sslCertificateS3Path"`
+	// `CfnDataSource.SharePointConfigurationProperty.Urls`.
+	Urls *[]*string `json:"urls"`
 	// `CfnDataSource.SharePointConfigurationProperty.UseChangeLog`.
 	UseChangeLog interface{} `json:"useChangeLog"`
 	// `CfnDataSource.SharePointConfigurationProperty.VpcConfiguration`.
 	VpcConfiguration interface{} `json:"vpcConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_SqlConfigurationProperty struct {
 	// `CfnDataSource.SqlConfigurationProperty.QueryIdentifiersEnclosingOption`.
 	QueryIdentifiersEnclosingOption *string `json:"queryIdentifiersEnclosingOption"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_WebCrawlerAuthenticationConfigurationProperty struct {
 	// `CfnDataSource.WebCrawlerAuthenticationConfigurationProperty.BasicAuthentication`.
 	BasicAuthentication interface{} `json:"basicAuthentication"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_WebCrawlerBasicAuthenticationProperty struct {
 	// `CfnDataSource.WebCrawlerBasicAuthenticationProperty.Credentials`.
 	Credentials *string `json:"credentials"`
@@ -1176,9 +1255,9 @@ type CfnDataSource_WebCrawlerBasicAuthenticationProperty struct {
 	Port *float64 `json:"port"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_WebCrawlerConfigurationProperty struct {
-	// `CfnDataSource.WebCrawlerConfigurationProperty.Urls`.
-	Urls interface{} `json:"urls"`
 	// `CfnDataSource.WebCrawlerConfigurationProperty.AuthenticationConfiguration`.
 	AuthenticationConfiguration interface{} `json:"authenticationConfiguration"`
 	// `CfnDataSource.WebCrawlerConfigurationProperty.CrawlDepth`.
@@ -1195,8 +1274,12 @@ type CfnDataSource_WebCrawlerConfigurationProperty struct {
 	UrlExclusionPatterns *[]*string `json:"urlExclusionPatterns"`
 	// `CfnDataSource.WebCrawlerConfigurationProperty.UrlInclusionPatterns`.
 	UrlInclusionPatterns *[]*string `json:"urlInclusionPatterns"`
+	// `CfnDataSource.WebCrawlerConfigurationProperty.Urls`.
+	Urls interface{} `json:"urls"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_WebCrawlerSeedUrlConfigurationProperty struct {
 	// `CfnDataSource.WebCrawlerSeedUrlConfigurationProperty.SeedUrls`.
 	SeedUrls *[]*string `json:"seedUrls"`
@@ -1204,11 +1287,15 @@ type CfnDataSource_WebCrawlerSeedUrlConfigurationProperty struct {
 	WebCrawlerMode *string `json:"webCrawlerMode"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_WebCrawlerSiteMapsConfigurationProperty struct {
 	// `CfnDataSource.WebCrawlerSiteMapsConfigurationProperty.SiteMaps`.
 	SiteMaps *[]*string `json:"siteMaps"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_WebCrawlerUrlsProperty struct {
 	// `CfnDataSource.WebCrawlerUrlsProperty.SeedUrlConfiguration`.
 	SeedUrlConfiguration interface{} `json:"seedUrlConfiguration"`
@@ -1216,9 +1303,9 @@ type CfnDataSource_WebCrawlerUrlsProperty struct {
 	SiteMapsConfiguration interface{} `json:"siteMapsConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_WorkDocsConfigurationProperty struct {
-	// `CfnDataSource.WorkDocsConfigurationProperty.OrganizationId`.
-	OrganizationId *string `json:"organizationId"`
 	// `CfnDataSource.WorkDocsConfigurationProperty.CrawlComments`.
 	CrawlComments interface{} `json:"crawlComments"`
 	// `CfnDataSource.WorkDocsConfigurationProperty.ExclusionPatterns`.
@@ -1227,31 +1314,39 @@ type CfnDataSource_WorkDocsConfigurationProperty struct {
 	FieldMappings interface{} `json:"fieldMappings"`
 	// `CfnDataSource.WorkDocsConfigurationProperty.InclusionPatterns`.
 	InclusionPatterns *[]*string `json:"inclusionPatterns"`
+	// `CfnDataSource.WorkDocsConfigurationProperty.OrganizationId`.
+	OrganizationId *string `json:"organizationId"`
 	// `CfnDataSource.WorkDocsConfigurationProperty.UseChangeLog`.
 	UseChangeLog interface{} `json:"useChangeLog"`
 }
 
 // Properties for defining a `AWS::Kendra::DataSource`.
+//
+// TODO: EXAMPLE
+//
 type CfnDataSourceProps struct {
-	// `AWS::Kendra::DataSource.IndexId`.
-	IndexId *string `json:"indexId"`
-	// `AWS::Kendra::DataSource.Name`.
-	Name *string `json:"name"`
-	// `AWS::Kendra::DataSource.Type`.
-	Type *string `json:"type"`
 	// `AWS::Kendra::DataSource.DataSourceConfiguration`.
 	DataSourceConfiguration interface{} `json:"dataSourceConfiguration"`
 	// `AWS::Kendra::DataSource.Description`.
 	Description *string `json:"description"`
+	// `AWS::Kendra::DataSource.IndexId`.
+	IndexId *string `json:"indexId"`
+	// `AWS::Kendra::DataSource.Name`.
+	Name *string `json:"name"`
 	// `AWS::Kendra::DataSource.RoleArn`.
 	RoleArn *string `json:"roleArn"`
 	// `AWS::Kendra::DataSource.Schedule`.
 	Schedule *string `json:"schedule"`
 	// `AWS::Kendra::DataSource.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::Kendra::DataSource.Type`.
+	Type *string `json:"type"`
 }
 
 // A CloudFormation `AWS::Kendra::Faq`.
+//
+// TODO: EXAMPLE
+//
 type CfnFaq interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1970,6 +2065,8 @@ func (c *jsiiProxy_CfnFaq) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFaq_S3PathProperty struct {
 	// `CfnFaq.S3PathProperty.Bucket`.
 	Bucket *string `json:"bucket"`
@@ -1978,7 +2075,14 @@ type CfnFaq_S3PathProperty struct {
 }
 
 // Properties for defining a `AWS::Kendra::Faq`.
+//
+// TODO: EXAMPLE
+//
 type CfnFaqProps struct {
+	// `AWS::Kendra::Faq.Description`.
+	Description *string `json:"description"`
+	// `AWS::Kendra::Faq.FileFormat`.
+	FileFormat *string `json:"fileFormat"`
 	// `AWS::Kendra::Faq.IndexId`.
 	IndexId *string `json:"indexId"`
 	// `AWS::Kendra::Faq.Name`.
@@ -1987,15 +2091,14 @@ type CfnFaqProps struct {
 	RoleArn *string `json:"roleArn"`
 	// `AWS::Kendra::Faq.S3Path`.
 	S3Path interface{} `json:"s3Path"`
-	// `AWS::Kendra::Faq.Description`.
-	Description *string `json:"description"`
-	// `AWS::Kendra::Faq.FileFormat`.
-	FileFormat *string `json:"fileFormat"`
 	// `AWS::Kendra::Faq.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::Kendra::Index`.
+//
+// TODO: EXAMPLE
+//
 type CfnIndex interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2774,6 +2877,8 @@ func (c *jsiiProxy_CfnIndex) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnIndex_CapacityUnitsConfigurationProperty struct {
 	// `CfnIndex.CapacityUnitsConfigurationProperty.QueryCapacityUnits`.
 	QueryCapacityUnits *float64 `json:"queryCapacityUnits"`
@@ -2781,17 +2886,21 @@ type CfnIndex_CapacityUnitsConfigurationProperty struct {
 	StorageCapacityUnits *float64 `json:"storageCapacityUnits"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIndex_DocumentMetadataConfigurationProperty struct {
 	// `CfnIndex.DocumentMetadataConfigurationProperty.Name`.
 	Name *string `json:"name"`
-	// `CfnIndex.DocumentMetadataConfigurationProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnIndex.DocumentMetadataConfigurationProperty.Relevance`.
 	Relevance interface{} `json:"relevance"`
 	// `CfnIndex.DocumentMetadataConfigurationProperty.Search`.
 	Search interface{} `json:"search"`
+	// `CfnIndex.DocumentMetadataConfigurationProperty.Type`.
+	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIndex_JsonTokenTypeConfigurationProperty struct {
 	// `CfnIndex.JsonTokenTypeConfigurationProperty.GroupAttributeField`.
 	GroupAttributeField *string `json:"groupAttributeField"`
@@ -2799,15 +2908,17 @@ type CfnIndex_JsonTokenTypeConfigurationProperty struct {
 	UserNameAttributeField *string `json:"userNameAttributeField"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIndex_JwtTokenTypeConfigurationProperty struct {
-	// `CfnIndex.JwtTokenTypeConfigurationProperty.KeyLocation`.
-	KeyLocation *string `json:"keyLocation"`
 	// `CfnIndex.JwtTokenTypeConfigurationProperty.ClaimRegex`.
 	ClaimRegex *string `json:"claimRegex"`
 	// `CfnIndex.JwtTokenTypeConfigurationProperty.GroupAttributeField`.
 	GroupAttributeField *string `json:"groupAttributeField"`
 	// `CfnIndex.JwtTokenTypeConfigurationProperty.Issuer`.
 	Issuer *string `json:"issuer"`
+	// `CfnIndex.JwtTokenTypeConfigurationProperty.KeyLocation`.
+	KeyLocation *string `json:"keyLocation"`
 	// `CfnIndex.JwtTokenTypeConfigurationProperty.SecretManagerArn`.
 	SecretManagerArn *string `json:"secretManagerArn"`
 	// `CfnIndex.JwtTokenTypeConfigurationProperty.URL`.
@@ -2816,6 +2927,8 @@ type CfnIndex_JwtTokenTypeConfigurationProperty struct {
 	UserNameAttributeField *string `json:"userNameAttributeField"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIndex_RelevanceProperty struct {
 	// `CfnIndex.RelevanceProperty.Duration`.
 	Duration *string `json:"duration"`
@@ -2829,6 +2942,8 @@ type CfnIndex_RelevanceProperty struct {
 	ValueImportanceItems interface{} `json:"valueImportanceItems"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIndex_SearchProperty struct {
 	// `CfnIndex.SearchProperty.Displayable`.
 	Displayable interface{} `json:"displayable"`
@@ -2840,11 +2955,15 @@ type CfnIndex_SearchProperty struct {
 	Sortable interface{} `json:"sortable"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIndex_ServerSideEncryptionConfigurationProperty struct {
 	// `CfnIndex.ServerSideEncryptionConfigurationProperty.KmsKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIndex_UserTokenConfigurationProperty struct {
 	// `CfnIndex.UserTokenConfigurationProperty.JsonTokenTypeConfiguration`.
 	JsonTokenTypeConfiguration interface{} `json:"jsonTokenTypeConfiguration"`
@@ -2852,6 +2971,8 @@ type CfnIndex_UserTokenConfigurationProperty struct {
 	JwtTokenTypeConfiguration interface{} `json:"jwtTokenTypeConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIndex_ValueImportanceItemProperty struct {
 	// `CfnIndex.ValueImportanceItemProperty.Key`.
 	Key *string `json:"key"`
@@ -2860,19 +2981,22 @@ type CfnIndex_ValueImportanceItemProperty struct {
 }
 
 // Properties for defining a `AWS::Kendra::Index`.
+//
+// TODO: EXAMPLE
+//
 type CfnIndexProps struct {
-	// `AWS::Kendra::Index.Edition`.
-	Edition *string `json:"edition"`
-	// `AWS::Kendra::Index.Name`.
-	Name *string `json:"name"`
-	// `AWS::Kendra::Index.RoleArn`.
-	RoleArn *string `json:"roleArn"`
 	// `AWS::Kendra::Index.CapacityUnits`.
 	CapacityUnits interface{} `json:"capacityUnits"`
 	// `AWS::Kendra::Index.Description`.
 	Description *string `json:"description"`
 	// `AWS::Kendra::Index.DocumentMetadataConfigurations`.
 	DocumentMetadataConfigurations interface{} `json:"documentMetadataConfigurations"`
+	// `AWS::Kendra::Index.Edition`.
+	Edition *string `json:"edition"`
+	// `AWS::Kendra::Index.Name`.
+	Name *string `json:"name"`
+	// `AWS::Kendra::Index.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 	// `AWS::Kendra::Index.ServerSideEncryptionConfiguration`.
 	ServerSideEncryptionConfiguration interface{} `json:"serverSideEncryptionConfiguration"`
 	// `AWS::Kendra::Index.Tags`.

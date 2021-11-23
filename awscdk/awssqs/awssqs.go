@@ -13,6 +13,9 @@ import (
 )
 
 // A CloudFormation `AWS::SQS::Queue`.
+//
+// TODO: EXAMPLE
+//
 type CfnQueue interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -892,6 +895,9 @@ func (c *jsiiProxy_CfnQueue) ValidateProperties(_properties interface{}) {
 }
 
 // A CloudFormation `AWS::SQS::QueuePolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnQueuePolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1509,6 +1515,9 @@ func (c *jsiiProxy_CfnQueuePolicy) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::SQS::QueuePolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnQueuePolicyProps struct {
 	// `AWS::SQS::QueuePolicy.PolicyDocument`.
 	PolicyDocument interface{} `json:"policyDocument"`
@@ -1517,6 +1526,9 @@ type CfnQueuePolicyProps struct {
 }
 
 // Properties for defining a `AWS::SQS::Queue`.
+//
+// TODO: EXAMPLE
+//
 type CfnQueueProps struct {
 	// `AWS::SQS::Queue.ContentBasedDeduplication`.
 	ContentBasedDeduplication interface{} `json:"contentBasedDeduplication"`
@@ -1551,6 +1563,9 @@ type CfnQueueProps struct {
 }
 
 // Dead letter queue settings.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DeadLetterQueue struct {
 	// The number of times a message can be unsuccesfully dequeued before being moved to the dead-letter queue.
@@ -2646,11 +2661,11 @@ func (q *jsiiProxy_Queue) Validate() *[]*string {
 }
 
 // Reference to a queue.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type QueueAttributes struct {
-	// The ARN of the queue.
-	// Experimental.
-	QueueArn *string `json:"queueArn"`
 	// Whether this queue is an Amazon SQS FIFO queue. If false, this is a standard queue.
 	//
 	// In case of a FIFO queue which is imported from a token, this value has to be explicitly set to true.
@@ -2659,6 +2674,9 @@ type QueueAttributes struct {
 	// KMS encryption key, if this queue is server-side encrypted by a KMS key.
 	// Experimental.
 	KeyArn *string `json:"keyArn"`
+	// The ARN of the queue.
+	// Experimental.
+	QueueArn *string `json:"queueArn"`
 	// The name of the queue.
 	// Experimental.
 	QueueName *string `json:"queueName"`
@@ -3334,6 +3352,9 @@ const (
 )
 
 // Applies a policy to SQS queues.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type QueuePolicy interface {
 	awscdk.Resource
@@ -3669,6 +3690,9 @@ func (q *jsiiProxy_QueuePolicy) Validate() *[]*string {
 }
 
 // Properties to associate SQS queues with a policy.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type QueuePolicyProps struct {
 	// The set of queues this policy applies to.

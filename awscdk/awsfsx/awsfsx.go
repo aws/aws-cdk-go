@@ -12,6 +12,9 @@ import (
 )
 
 // A CloudFormation `AWS::FSx::FileSystem`.
+//
+// TODO: EXAMPLE
+//
 type CfnFileSystem interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -830,15 +833,19 @@ func (c *jsiiProxy_CfnFileSystem) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFileSystem_AuditLogConfigurationProperty struct {
+	// `CfnFileSystem.AuditLogConfigurationProperty.AuditLogDestination`.
+	AuditLogDestination *string `json:"auditLogDestination"`
 	// `CfnFileSystem.AuditLogConfigurationProperty.FileAccessAuditLogLevel`.
 	FileAccessAuditLogLevel *string `json:"fileAccessAuditLogLevel"`
 	// `CfnFileSystem.AuditLogConfigurationProperty.FileShareAccessAuditLogLevel`.
 	FileShareAccessAuditLogLevel *string `json:"fileShareAccessAuditLogLevel"`
-	// `CfnFileSystem.AuditLogConfigurationProperty.AuditLogDestination`.
-	AuditLogDestination *string `json:"auditLogDestination"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFileSystem_DiskIopsConfigurationProperty struct {
 	// `CfnFileSystem.DiskIopsConfigurationProperty.Iops`.
 	Iops *float64 `json:"iops"`
@@ -846,6 +853,8 @@ type CfnFileSystem_DiskIopsConfigurationProperty struct {
 	Mode *string `json:"mode"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFileSystem_LustreConfigurationProperty struct {
 	// `CfnFileSystem.LustreConfigurationProperty.AutoImportPolicy`.
 	AutoImportPolicy *string `json:"autoImportPolicy"`
@@ -873,13 +882,15 @@ type CfnFileSystem_LustreConfigurationProperty struct {
 	WeeklyMaintenanceStartTime *string `json:"weeklyMaintenanceStartTime"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFileSystem_OntapConfigurationProperty struct {
-	// `CfnFileSystem.OntapConfigurationProperty.DeploymentType`.
-	DeploymentType *string `json:"deploymentType"`
 	// `CfnFileSystem.OntapConfigurationProperty.AutomaticBackupRetentionDays`.
 	AutomaticBackupRetentionDays *float64 `json:"automaticBackupRetentionDays"`
 	// `CfnFileSystem.OntapConfigurationProperty.DailyAutomaticBackupStartTime`.
 	DailyAutomaticBackupStartTime *string `json:"dailyAutomaticBackupStartTime"`
+	// `CfnFileSystem.OntapConfigurationProperty.DeploymentType`.
+	DeploymentType *string `json:"deploymentType"`
 	// `CfnFileSystem.OntapConfigurationProperty.DiskIopsConfiguration`.
 	DiskIopsConfiguration interface{} `json:"diskIopsConfiguration"`
 	// `CfnFileSystem.OntapConfigurationProperty.EndpointIpAddressRange`.
@@ -896,6 +907,8 @@ type CfnFileSystem_OntapConfigurationProperty struct {
 	WeeklyMaintenanceStartTime *string `json:"weeklyMaintenanceStartTime"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFileSystem_SelfManagedActiveDirectoryConfigurationProperty struct {
 	// `CfnFileSystem.SelfManagedActiveDirectoryConfigurationProperty.DnsIps`.
 	DnsIps *[]*string `json:"dnsIps"`
@@ -911,9 +924,9 @@ type CfnFileSystem_SelfManagedActiveDirectoryConfigurationProperty struct {
 	UserName *string `json:"userName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFileSystem_WindowsConfigurationProperty struct {
-	// `CfnFileSystem.WindowsConfigurationProperty.ThroughputCapacity`.
-	ThroughputCapacity *float64 `json:"throughputCapacity"`
 	// `CfnFileSystem.WindowsConfigurationProperty.ActiveDirectoryId`.
 	ActiveDirectoryId *string `json:"activeDirectoryId"`
 	// `CfnFileSystem.WindowsConfigurationProperty.Aliases`.
@@ -932,18 +945,21 @@ type CfnFileSystem_WindowsConfigurationProperty struct {
 	PreferredSubnetId *string `json:"preferredSubnetId"`
 	// `CfnFileSystem.WindowsConfigurationProperty.SelfManagedActiveDirectoryConfiguration`.
 	SelfManagedActiveDirectoryConfiguration interface{} `json:"selfManagedActiveDirectoryConfiguration"`
+	// `CfnFileSystem.WindowsConfigurationProperty.ThroughputCapacity`.
+	ThroughputCapacity *float64 `json:"throughputCapacity"`
 	// `CfnFileSystem.WindowsConfigurationProperty.WeeklyMaintenanceStartTime`.
 	WeeklyMaintenanceStartTime *string `json:"weeklyMaintenanceStartTime"`
 }
 
 // Properties for defining a `AWS::FSx::FileSystem`.
+//
+// TODO: EXAMPLE
+//
 type CfnFileSystemProps struct {
-	// `AWS::FSx::FileSystem.FileSystemType`.
-	FileSystemType *string `json:"fileSystemType"`
-	// `AWS::FSx::FileSystem.SubnetIds`.
-	SubnetIds *[]*string `json:"subnetIds"`
 	// `AWS::FSx::FileSystem.BackupId`.
 	BackupId *string `json:"backupId"`
+	// `AWS::FSx::FileSystem.FileSystemType`.
+	FileSystemType *string `json:"fileSystemType"`
 	// `AWS::FSx::FileSystem.FileSystemTypeVersion`.
 	FileSystemTypeVersion *string `json:"fileSystemTypeVersion"`
 	// `AWS::FSx::FileSystem.KmsKeyId`.
@@ -958,6 +974,8 @@ type CfnFileSystemProps struct {
 	StorageCapacity *float64 `json:"storageCapacity"`
 	// `AWS::FSx::FileSystem.StorageType`.
 	StorageType *string `json:"storageType"`
+	// `AWS::FSx::FileSystem.SubnetIds`.
+	SubnetIds *[]*string `json:"subnetIds"`
 	// `AWS::FSx::FileSystem.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::FSx::FileSystem.WindowsConfiguration`.
@@ -965,6 +983,9 @@ type CfnFileSystemProps struct {
 }
 
 // Properties that describe an existing FSx file system.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FileSystemAttributes struct {
 	// The DNS name assigned to this file system.
@@ -1312,20 +1333,13 @@ func (f *jsiiProxy_FileSystemBase) Validate() *[]*string {
 }
 
 // Properties for the FSx file system.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html
 //
 // Experimental.
 type FileSystemProps struct {
-	// The storage capacity of the file system being created.
-	//
-	// For Windows file systems, valid values are 32 GiB to 65,536 GiB.
-	// For SCRATCH_1 deployment types, valid values are 1,200, 2,400, 3,600, then continuing in increments of 3,600 GiB.
-	// For SCRATCH_2 and PERSISTENT_1 types, valid values are 1,200, 2,400, then continuing in increments of 2,400 GiB.
-	// Experimental.
-	StorageCapacityGiB *float64 `json:"storageCapacityGiB"`
-	// The VPC to launch the file system in.
-	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
 	// The ID of the backup.
 	//
 	// Specifies the backup to use if you're creating a file system from an existing backup.
@@ -1340,6 +1354,16 @@ type FileSystemProps struct {
 	// Security Group to assign to this file system.
 	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
+	// The storage capacity of the file system being created.
+	//
+	// For Windows file systems, valid values are 32 GiB to 65,536 GiB.
+	// For SCRATCH_1 deployment types, valid values are 1,200, 2,400, 3,600, then continuing in increments of 3,600 GiB.
+	// For SCRATCH_2 and PERSISTENT_1 types, valid values are 1,200, 2,400, then continuing in increments of 2,400 GiB.
+	// Experimental.
+	StorageCapacityGiB *float64 `json:"storageCapacityGiB"`
+	// The VPC to launch the file system in.
+	// Experimental.
+	Vpc awsec2.IVpc `json:"vpc"`
 }
 
 // Interface to implement FSx File Systems.
@@ -1367,6 +1391,9 @@ func (j *jsiiProxy_IFileSystem) FileSystemId() *string {
 }
 
 // The configuration for the Amazon FSx for Lustre file system.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html
 //
 // Experimental.
@@ -1414,12 +1441,15 @@ type LustreConfiguration struct {
 type LustreDeploymentType string
 
 const (
+	LustreDeploymentType_PERSISTENT_1 LustreDeploymentType = "PERSISTENT_1"
 	LustreDeploymentType_SCRATCH_1 LustreDeploymentType = "SCRATCH_1"
 	LustreDeploymentType_SCRATCH_2 LustreDeploymentType = "SCRATCH_2"
-	LustreDeploymentType_PERSISTENT_1 LustreDeploymentType = "PERSISTENT_1"
 )
 
 // The FSx for Lustre File System implementation of IFileSystem.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html
 //
 // Experimental.
@@ -1796,18 +1826,11 @@ func (l *jsiiProxy_LustreFileSystem) Validate() *[]*string {
 }
 
 // Properties specific to the Lustre version of the FSx file system.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LustreFileSystemProps struct {
-	// The storage capacity of the file system being created.
-	//
-	// For Windows file systems, valid values are 32 GiB to 65,536 GiB.
-	// For SCRATCH_1 deployment types, valid values are 1,200, 2,400, 3,600, then continuing in increments of 3,600 GiB.
-	// For SCRATCH_2 and PERSISTENT_1 types, valid values are 1,200, 2,400, then continuing in increments of 2,400 GiB.
-	// Experimental.
-	StorageCapacityGiB *float64 `json:"storageCapacityGiB"`
-	// The VPC to launch the file system in.
-	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
 	// The ID of the backup.
 	//
 	// Specifies the backup to use if you're creating a file system from an existing backup.
@@ -1822,6 +1845,16 @@ type LustreFileSystemProps struct {
 	// Security Group to assign to this file system.
 	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
+	// The storage capacity of the file system being created.
+	//
+	// For Windows file systems, valid values are 32 GiB to 65,536 GiB.
+	// For SCRATCH_1 deployment types, valid values are 1,200, 2,400, 3,600, then continuing in increments of 3,600 GiB.
+	// For SCRATCH_2 and PERSISTENT_1 types, valid values are 1,200, 2,400, then continuing in increments of 2,400 GiB.
+	// Experimental.
+	StorageCapacityGiB *float64 `json:"storageCapacityGiB"`
+	// The VPC to launch the file system in.
+	// Experimental.
+	Vpc awsec2.IVpc `json:"vpc"`
 	// Additional configuration for FSx specific to Lustre.
 	// Experimental.
 	LustreConfiguration *LustreConfiguration `json:"lustreConfiguration"`
@@ -1831,6 +1864,9 @@ type LustreFileSystemProps struct {
 }
 
 // Class for scheduling a weekly manitenance time.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LustreMaintenanceTime interface {
 	ToTimestamp() *string
@@ -1883,6 +1919,9 @@ func (l *jsiiProxy_LustreMaintenanceTime) ToTimestamp() *string {
 }
 
 // Properties required for setting up a weekly maintenance time.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LustreMaintenanceTimeProps struct {
 	// The day of the week for maintenance to be performed.
@@ -1901,12 +1940,12 @@ type LustreMaintenanceTimeProps struct {
 type Weekday string
 
 const (
-	Weekday_MONDAY Weekday = "MONDAY"
-	Weekday_TUESDAY Weekday = "TUESDAY"
-	Weekday_WEDNESDAY Weekday = "WEDNESDAY"
-	Weekday_THURSDAY Weekday = "THURSDAY"
 	Weekday_FRIDAY Weekday = "FRIDAY"
+	Weekday_MONDAY Weekday = "MONDAY"
 	Weekday_SATURDAY Weekday = "SATURDAY"
 	Weekday_SUNDAY Weekday = "SUNDAY"
+	Weekday_THURSDAY Weekday = "THURSDAY"
+	Weekday_TUESDAY Weekday = "TUESDAY"
+	Weekday_WEDNESDAY Weekday = "WEDNESDAY"
 )
 

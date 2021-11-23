@@ -11,6 +11,9 @@ import (
 )
 
 // Use an Application Load Balancer as a Global Accelerator Endpoint.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ApplicationLoadBalancerEndpoint interface {
 	awsglobalaccelerator.IEndpoint
@@ -76,6 +79,9 @@ func (a *jsiiProxy_ApplicationLoadBalancerEndpoint) RenderEndpointConfiguration(
 }
 
 // Properties for a ApplicationLoadBalancerEndpoint.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ApplicationLoadBalancerEndpointOptions struct {
 	// Forward the client IP address in an `X-Forwarded-For` header.
@@ -95,6 +101,9 @@ type ApplicationLoadBalancerEndpointOptions struct {
 }
 
 // Use an EC2 Instance as a Global Accelerator Endpoint.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CfnEipEndpoint interface {
 	awsglobalaccelerator.IEndpoint
@@ -160,6 +169,9 @@ func (c *jsiiProxy_CfnEipEndpoint) RenderEndpointConfiguration() interface{} {
 }
 
 // Properties for a NetworkLoadBalancerEndpoint.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CfnEipEndpointProps struct {
 	// Endpoint weight across all endpoints in the group.
@@ -170,6 +182,9 @@ type CfnEipEndpointProps struct {
 }
 
 // Use an EC2 Instance as a Global Accelerator Endpoint.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type InstanceEndpoint interface {
 	awsglobalaccelerator.IEndpoint
@@ -235,6 +250,9 @@ func (i *jsiiProxy_InstanceEndpoint) RenderEndpointConfiguration() interface{} {
 }
 
 // Properties for a NetworkLoadBalancerEndpoint.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type InstanceEndpointProps struct {
 	// Forward the client IP address.
@@ -322,6 +340,9 @@ func (n *jsiiProxy_NetworkLoadBalancerEndpoint) RenderEndpointConfiguration() in
 }
 
 // Properties for a NetworkLoadBalancerEndpoint.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NetworkLoadBalancerEndpointProps struct {
 	// Endpoint weight across all endpoints in the group.

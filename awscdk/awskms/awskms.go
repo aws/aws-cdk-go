@@ -519,6 +519,9 @@ func (a *jsiiProxy_Alias) Validate() *[]*string {
 }
 
 // Properties of a reference to an existing KMS Alias.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AliasAttributes struct {
 	// Specifies the alias name.
@@ -544,6 +547,9 @@ type AliasProps struct {
 	// alias/AWS. These aliases are reserved.
 	// Experimental.
 	AliasName *string `json:"aliasName"`
+	// Policy to apply when the alias is removed from this stack.
+	// Experimental.
+	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// The ID of the key for which you are creating the alias.
 	//
 	// Specify the key's
@@ -551,12 +557,12 @@ type AliasProps struct {
 	// specify another alias.
 	// Experimental.
 	TargetKey IKey `json:"targetKey"`
-	// Policy to apply when the alias is removed from this stack.
-	// Experimental.
-	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 }
 
 // A CloudFormation `AWS::KMS::Alias`.
+//
+// TODO: EXAMPLE
+//
 type CfnAlias interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1163,6 +1169,9 @@ func (c *jsiiProxy_CfnAlias) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::KMS::Alias`.
+//
+// TODO: EXAMPLE
+//
 type CfnAliasProps struct {
 	// `AWS::KMS::Alias.AliasName`.
 	AliasName *string `json:"aliasName"`
@@ -1933,15 +1942,18 @@ func (c *jsiiProxy_CfnKey) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::KMS::Key`.
+//
+// TODO: EXAMPLE
+//
 type CfnKeyProps struct {
-	// `AWS::KMS::Key.KeyPolicy`.
-	KeyPolicy interface{} `json:"keyPolicy"`
 	// `AWS::KMS::Key.Description`.
 	Description *string `json:"description"`
 	// `AWS::KMS::Key.Enabled`.
 	Enabled interface{} `json:"enabled"`
 	// `AWS::KMS::Key.EnableKeyRotation`.
 	EnableKeyRotation interface{} `json:"enableKeyRotation"`
+	// `AWS::KMS::Key.KeyPolicy`.
+	KeyPolicy interface{} `json:"keyPolicy"`
 	// `AWS::KMS::Key.KeySpec`.
 	KeySpec *string `json:"keySpec"`
 	// `AWS::KMS::Key.KeyUsage`.
@@ -1955,6 +1967,9 @@ type CfnKeyProps struct {
 }
 
 // A CloudFormation `AWS::KMS::ReplicaKey`.
+//
+// TODO: EXAMPLE
+//
 type CfnReplicaKey interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2654,17 +2669,20 @@ func (c *jsiiProxy_CfnReplicaKey) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::KMS::ReplicaKey`.
+//
+// TODO: EXAMPLE
+//
 type CfnReplicaKeyProps struct {
-	// `AWS::KMS::ReplicaKey.KeyPolicy`.
-	KeyPolicy interface{} `json:"keyPolicy"`
-	// `AWS::KMS::ReplicaKey.PrimaryKeyArn`.
-	PrimaryKeyArn *string `json:"primaryKeyArn"`
 	// `AWS::KMS::ReplicaKey.Description`.
 	Description *string `json:"description"`
 	// `AWS::KMS::ReplicaKey.Enabled`.
 	Enabled interface{} `json:"enabled"`
+	// `AWS::KMS::ReplicaKey.KeyPolicy`.
+	KeyPolicy interface{} `json:"keyPolicy"`
 	// `AWS::KMS::ReplicaKey.PendingWindowInDays`.
 	PendingWindowInDays *float64 `json:"pendingWindowInDays"`
+	// `AWS::KMS::ReplicaKey.PrimaryKeyArn`.
+	PrimaryKeyArn *string `json:"primaryKeyArn"`
 	// `AWS::KMS::ReplicaKey.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
@@ -3531,6 +3549,9 @@ const (
 )
 
 // A principal to allow access to a key if it's being used through another AWS service.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ViaServicePrincipal interface {
 	awsiam.PrincipalBase

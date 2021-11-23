@@ -88,14 +88,14 @@ func init() {
 		"monocdk.aws_s3.BucketAccessControl",
 		reflect.TypeOf((*BucketAccessControl)(nil)).Elem(),
 		map[string]interface{}{
+			"AUTHENTICATED_READ": BucketAccessControl_AUTHENTICATED_READ,
+			"AWS_EXEC_READ": BucketAccessControl_AWS_EXEC_READ,
+			"BUCKET_OWNER_FULL_CONTROL": BucketAccessControl_BUCKET_OWNER_FULL_CONTROL,
+			"BUCKET_OWNER_READ": BucketAccessControl_BUCKET_OWNER_READ,
+			"LOG_DELIVERY_WRITE": BucketAccessControl_LOG_DELIVERY_WRITE,
 			"PRIVATE": BucketAccessControl_PRIVATE,
 			"PUBLIC_READ": BucketAccessControl_PUBLIC_READ,
 			"PUBLIC_READ_WRITE": BucketAccessControl_PUBLIC_READ_WRITE,
-			"AUTHENTICATED_READ": BucketAccessControl_AUTHENTICATED_READ,
-			"LOG_DELIVERY_WRITE": BucketAccessControl_LOG_DELIVERY_WRITE,
-			"BUCKET_OWNER_READ": BucketAccessControl_BUCKET_OWNER_READ,
-			"BUCKET_OWNER_FULL_CONTROL": BucketAccessControl_BUCKET_OWNER_FULL_CONTROL,
-			"AWS_EXEC_READ": BucketAccessControl_AWS_EXEC_READ,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -833,31 +833,31 @@ func init() {
 		reflect.TypeOf((*EventType)(nil)).Elem(),
 		map[string]interface{}{
 			"OBJECT_CREATED": EventType_OBJECT_CREATED,
-			"OBJECT_CREATED_PUT": EventType_OBJECT_CREATED_PUT,
-			"OBJECT_CREATED_POST": EventType_OBJECT_CREATED_POST,
-			"OBJECT_CREATED_COPY": EventType_OBJECT_CREATED_COPY,
 			"OBJECT_CREATED_COMPLETE_MULTIPART_UPLOAD": EventType_OBJECT_CREATED_COMPLETE_MULTIPART_UPLOAD,
+			"OBJECT_CREATED_COPY": EventType_OBJECT_CREATED_COPY,
+			"OBJECT_CREATED_POST": EventType_OBJECT_CREATED_POST,
+			"OBJECT_CREATED_PUT": EventType_OBJECT_CREATED_PUT,
 			"OBJECT_REMOVED": EventType_OBJECT_REMOVED,
 			"OBJECT_REMOVED_DELETE": EventType_OBJECT_REMOVED_DELETE,
 			"OBJECT_REMOVED_DELETE_MARKER_CREATED": EventType_OBJECT_REMOVED_DELETE_MARKER_CREATED,
-			"OBJECT_RESTORE_POST": EventType_OBJECT_RESTORE_POST,
 			"OBJECT_RESTORE_COMPLETED": EventType_OBJECT_RESTORE_COMPLETED,
+			"OBJECT_RESTORE_POST": EventType_OBJECT_RESTORE_POST,
 			"REDUCED_REDUNDANCY_LOST_OBJECT": EventType_REDUCED_REDUNDANCY_LOST_OBJECT,
 			"REPLICATION_OPERATION_FAILED_REPLICATION": EventType_REPLICATION_OPERATION_FAILED_REPLICATION,
 			"REPLICATION_OPERATION_MISSED_THRESHOLD": EventType_REPLICATION_OPERATION_MISSED_THRESHOLD,
-			"REPLICATION_OPERATION_REPLICATED_AFTER_THRESHOLD": EventType_REPLICATION_OPERATION_REPLICATED_AFTER_THRESHOLD,
 			"REPLICATION_OPERATION_NOT_TRACKED": EventType_REPLICATION_OPERATION_NOT_TRACKED,
+			"REPLICATION_OPERATION_REPLICATED_AFTER_THRESHOLD": EventType_REPLICATION_OPERATION_REPLICATED_AFTER_THRESHOLD,
 		},
 	)
 	_jsii_.RegisterEnum(
 		"monocdk.aws_s3.HttpMethods",
 		reflect.TypeOf((*HttpMethods)(nil)).Elem(),
 		map[string]interface{}{
+			"DELETE": HttpMethods_DELETE,
 			"GET": HttpMethods_GET,
-			"PUT": HttpMethods_PUT,
 			"HEAD": HttpMethods_HEAD,
 			"POST": HttpMethods_POST,
-			"DELETE": HttpMethods_DELETE,
+			"PUT": HttpMethods_PUT,
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -925,8 +925,8 @@ func init() {
 		reflect.TypeOf((*InventoryFormat)(nil)).Elem(),
 		map[string]interface{}{
 			"CSV": InventoryFormat_CSV,
-			"PARQUET": InventoryFormat_PARQUET,
 			"ORC": InventoryFormat_ORC,
+			"PARQUET": InventoryFormat_PARQUET,
 		},
 	)
 	_jsii_.RegisterEnum(

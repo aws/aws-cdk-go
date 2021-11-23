@@ -39,6 +39,9 @@ func AuthorizationToken_GrantRead(grantee awsiam.IGrantable) {
 }
 
 // A CloudFormation `AWS::ECR::PublicRepository`.
+//
+// TODO: EXAMPLE
+//
 type CfnPublicRepository interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -687,6 +690,9 @@ func (c *jsiiProxy_CfnPublicRepository) ValidateProperties(_properties interface
 }
 
 // Properties for defining a `AWS::ECR::PublicRepository`.
+//
+// TODO: EXAMPLE
+//
 type CfnPublicRepositoryProps struct {
 	// `AWS::ECR::PublicRepository.RepositoryCatalogData`.
 	RepositoryCatalogData interface{} `json:"repositoryCatalogData"`
@@ -699,6 +705,9 @@ type CfnPublicRepositoryProps struct {
 }
 
 // A CloudFormation `AWS::ECR::RegistryPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnRegistryPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1296,12 +1305,18 @@ func (c *jsiiProxy_CfnRegistryPolicy) ValidateProperties(_properties interface{}
 }
 
 // Properties for defining a `AWS::ECR::RegistryPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnRegistryPolicyProps struct {
 	// `AWS::ECR::RegistryPolicy.PolicyText`.
 	PolicyText interface{} `json:"policyText"`
 }
 
 // A CloudFormation `AWS::ECR::ReplicationConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnReplicationConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1898,11 +1913,15 @@ func (c *jsiiProxy_CfnReplicationConfiguration) ValidateProperties(_properties i
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnReplicationConfiguration_ReplicationConfigurationProperty struct {
 	// `CfnReplicationConfiguration.ReplicationConfigurationProperty.Rules`.
 	Rules interface{} `json:"rules"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnReplicationConfiguration_ReplicationDestinationProperty struct {
 	// `CfnReplicationConfiguration.ReplicationDestinationProperty.Region`.
 	Region *string `json:"region"`
@@ -1910,6 +1929,8 @@ type CfnReplicationConfiguration_ReplicationDestinationProperty struct {
 	RegistryId *string `json:"registryId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnReplicationConfiguration_ReplicationRuleProperty struct {
 	// `CfnReplicationConfiguration.ReplicationRuleProperty.Destinations`.
 	Destinations interface{} `json:"destinations"`
@@ -1917,6 +1938,8 @@ type CfnReplicationConfiguration_ReplicationRuleProperty struct {
 	RepositoryFilters interface{} `json:"repositoryFilters"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnReplicationConfiguration_RepositoryFilterProperty struct {
 	// `CfnReplicationConfiguration.RepositoryFilterProperty.Filter`.
 	Filter *string `json:"filter"`
@@ -1925,12 +1948,18 @@ type CfnReplicationConfiguration_RepositoryFilterProperty struct {
 }
 
 // Properties for defining a `AWS::ECR::ReplicationConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnReplicationConfigurationProps struct {
 	// `AWS::ECR::ReplicationConfiguration.ReplicationConfiguration`.
 	ReplicationConfiguration interface{} `json:"replicationConfiguration"`
 }
 
 // A CloudFormation `AWS::ECR::Repository`.
+//
+// TODO: EXAMPLE
+//
 type CfnRepository interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2649,6 +2678,8 @@ func (c *jsiiProxy_CfnRepository) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnRepository_EncryptionConfigurationProperty struct {
 	// `CfnRepository.EncryptionConfigurationProperty.EncryptionType`.
 	EncryptionType *string `json:"encryptionType"`
@@ -2656,11 +2687,15 @@ type CfnRepository_EncryptionConfigurationProperty struct {
 	KmsKey *string `json:"kmsKey"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRepository_ImageScanningConfigurationProperty struct {
 	// `CfnRepository.ImageScanningConfigurationProperty.ScanOnPush`.
 	ScanOnPush interface{} `json:"scanOnPush"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRepository_LifecyclePolicyProperty struct {
 	// `CfnRepository.LifecyclePolicyProperty.LifecyclePolicyText`.
 	LifecyclePolicyText *string `json:"lifecyclePolicyText"`
@@ -2669,6 +2704,9 @@ type CfnRepository_LifecyclePolicyProperty struct {
 }
 
 // Properties for defining a `AWS::ECR::Repository`.
+//
+// TODO: EXAMPLE
+//
 type CfnRepositoryProps struct {
 	// `AWS::ECR::Repository.EncryptionConfiguration`.
 	EncryptionConfiguration interface{} `json:"encryptionConfiguration"`
@@ -2961,6 +2999,9 @@ type LifecycleRule struct {
 }
 
 // Options for the onCloudTrailImagePushed method.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type OnCloudTrailImagePushedOptions struct {
 	// A description of the rule's purpose.
@@ -2987,6 +3028,9 @@ type OnCloudTrailImagePushedOptions struct {
 }
 
 // Options for the OnImageScanCompleted method.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type OnImageScanCompletedOptions struct {
 	// A description of the rule's purpose.
@@ -3646,6 +3690,8 @@ func (r *jsiiProxy_Repository) Validate() *[]*string {
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type RepositoryAttributes struct {
 	// Experimental.

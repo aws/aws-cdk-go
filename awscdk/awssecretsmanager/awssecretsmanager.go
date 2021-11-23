@@ -14,6 +14,9 @@ import (
 )
 
 // Options to add a secret attachment to a secret.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AttachedSecretOptions struct {
 	// The target to attach the secret to.
@@ -26,15 +29,18 @@ type AttachedSecretOptions struct {
 type AttachmentTargetType string
 
 const (
-	AttachmentTargetType_INSTANCE AttachmentTargetType = "INSTANCE"
 	AttachmentTargetType_CLUSTER AttachmentTargetType = "CLUSTER"
+	AttachmentTargetType_DOCDB_DB_CLUSTER AttachmentTargetType = "DOCDB_DB_CLUSTER"
+	AttachmentTargetType_DOCDB_DB_INSTANCE AttachmentTargetType = "DOCDB_DB_INSTANCE"
+	AttachmentTargetType_INSTANCE AttachmentTargetType = "INSTANCE"
 	AttachmentTargetType_RDS_DB_PROXY AttachmentTargetType = "RDS_DB_PROXY"
 	AttachmentTargetType_REDSHIFT_CLUSTER AttachmentTargetType = "REDSHIFT_CLUSTER"
-	AttachmentTargetType_DOCDB_DB_INSTANCE AttachmentTargetType = "DOCDB_DB_INSTANCE"
-	AttachmentTargetType_DOCDB_DB_CLUSTER AttachmentTargetType = "DOCDB_DB_CLUSTER"
 )
 
 // A CloudFormation `AWS::SecretsManager::ResourcePolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourcePolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -661,16 +667,22 @@ func (c *jsiiProxy_CfnResourcePolicy) ValidateProperties(_properties interface{}
 }
 
 // Properties for defining a `AWS::SecretsManager::ResourcePolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourcePolicyProps struct {
+	// `AWS::SecretsManager::ResourcePolicy.BlockPublicPolicy`.
+	BlockPublicPolicy interface{} `json:"blockPublicPolicy"`
 	// `AWS::SecretsManager::ResourcePolicy.ResourcePolicy`.
 	ResourcePolicy interface{} `json:"resourcePolicy"`
 	// `AWS::SecretsManager::ResourcePolicy.SecretId`.
 	SecretId *string `json:"secretId"`
-	// `AWS::SecretsManager::ResourcePolicy.BlockPublicPolicy`.
-	BlockPublicPolicy interface{} `json:"blockPublicPolicy"`
 }
 
 // A CloudFormation `AWS::SecretsManager::RotationSchedule`.
+//
+// TODO: EXAMPLE
+//
 type CfnRotationSchedule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1316,9 +1328,9 @@ func (c *jsiiProxy_CfnRotationSchedule) ValidateProperties(_properties interface
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnRotationSchedule_HostedRotationLambdaProperty struct {
-	// `CfnRotationSchedule.HostedRotationLambdaProperty.RotationType`.
-	RotationType *string `json:"rotationType"`
 	// `CfnRotationSchedule.HostedRotationLambdaProperty.KmsKeyArn`.
 	KmsKeyArn *string `json:"kmsKeyArn"`
 	// `CfnRotationSchedule.HostedRotationLambdaProperty.MasterSecretArn`.
@@ -1327,6 +1339,8 @@ type CfnRotationSchedule_HostedRotationLambdaProperty struct {
 	MasterSecretKmsKeyArn *string `json:"masterSecretKmsKeyArn"`
 	// `CfnRotationSchedule.HostedRotationLambdaProperty.RotationLambdaName`.
 	RotationLambdaName *string `json:"rotationLambdaName"`
+	// `CfnRotationSchedule.HostedRotationLambdaProperty.RotationType`.
+	RotationType *string `json:"rotationType"`
 	// `CfnRotationSchedule.HostedRotationLambdaProperty.SuperuserSecretArn`.
 	SuperuserSecretArn *string `json:"superuserSecretArn"`
 	// `CfnRotationSchedule.HostedRotationLambdaProperty.SuperuserSecretKmsKeyArn`.
@@ -1337,24 +1351,32 @@ type CfnRotationSchedule_HostedRotationLambdaProperty struct {
 	VpcSubnetIds *string `json:"vpcSubnetIds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRotationSchedule_RotationRulesProperty struct {
 	// `CfnRotationSchedule.RotationRulesProperty.AutomaticallyAfterDays`.
 	AutomaticallyAfterDays *float64 `json:"automaticallyAfterDays"`
 }
 
 // Properties for defining a `AWS::SecretsManager::RotationSchedule`.
+//
+// TODO: EXAMPLE
+//
 type CfnRotationScheduleProps struct {
-	// `AWS::SecretsManager::RotationSchedule.SecretId`.
-	SecretId *string `json:"secretId"`
 	// `AWS::SecretsManager::RotationSchedule.HostedRotationLambda`.
 	HostedRotationLambda interface{} `json:"hostedRotationLambda"`
 	// `AWS::SecretsManager::RotationSchedule.RotationLambdaARN`.
 	RotationLambdaArn *string `json:"rotationLambdaArn"`
 	// `AWS::SecretsManager::RotationSchedule.RotationRules`.
 	RotationRules interface{} `json:"rotationRules"`
+	// `AWS::SecretsManager::RotationSchedule.SecretId`.
+	SecretId *string `json:"secretId"`
 }
 
 // A CloudFormation `AWS::SecretsManager::Secret`.
+//
+// TODO: EXAMPLE
+//
 type CfnSecret interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2051,6 +2073,8 @@ func (c *jsiiProxy_CfnSecret) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnSecret_GenerateSecretStringProperty struct {
 	// `CfnSecret.GenerateSecretStringProperty.ExcludeCharacters`.
 	ExcludeCharacters *string `json:"excludeCharacters"`
@@ -2074,14 +2098,19 @@ type CfnSecret_GenerateSecretStringProperty struct {
 	SecretStringTemplate *string `json:"secretStringTemplate"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSecret_ReplicaRegionProperty struct {
-	// `CfnSecret.ReplicaRegionProperty.Region`.
-	Region *string `json:"region"`
 	// `CfnSecret.ReplicaRegionProperty.KmsKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
+	// `CfnSecret.ReplicaRegionProperty.Region`.
+	Region *string `json:"region"`
 }
 
 // Properties for defining a `AWS::SecretsManager::Secret`.
+//
+// TODO: EXAMPLE
+//
 type CfnSecretProps struct {
 	// `AWS::SecretsManager::Secret.Description`.
 	Description *string `json:"description"`
@@ -2100,6 +2129,9 @@ type CfnSecretProps struct {
 }
 
 // A CloudFormation `AWS::SecretsManager::SecretTargetAttachment`.
+//
+// TODO: EXAMPLE
+//
 type CfnSecretTargetAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2726,6 +2758,9 @@ func (c *jsiiProxy_CfnSecretTargetAttachment) ValidateProperties(_properties int
 }
 
 // Properties for defining a `AWS::SecretsManager::SecretTargetAttachment`.
+//
+// TODO: EXAMPLE
+//
 type CfnSecretTargetAttachmentProps struct {
 	// `AWS::SecretsManager::SecretTargetAttachment.SecretId`.
 	SecretId *string `json:"secretId"`
@@ -2736,6 +2771,9 @@ type CfnSecretTargetAttachmentProps struct {
 }
 
 // A hosted rotation.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HostedRotation interface {
 	awsec2.IConnectable
@@ -3013,6 +3051,9 @@ func (h *jsiiProxy_HostedRotation) Bind(secret ISecret, scope constructs.Constru
 }
 
 // Hosted rotation type.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HostedRotationType interface {
 	IsMultiUser() *bool
@@ -3449,6 +3490,9 @@ func (j *jsiiProxy_ISecretTargetAttachment) SecretTargetAttachmentSecretArn() *s
 }
 
 // Multi user hosted rotation options.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type MultiUserHostedRotationOptions struct {
 	// A name for the Lambda created to rotate the secret.
@@ -3469,17 +3513,23 @@ type MultiUserHostedRotationOptions struct {
 }
 
 // Secret replica region.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ReplicaRegion struct {
-	// The name of the region.
-	// Experimental.
-	Region *string `json:"region"`
 	// The customer-managed encryption key to use for encrypting the secret value.
 	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	// The name of the region.
+	// Experimental.
+	Region *string `json:"region"`
 }
 
 // Secret Resource Policy.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ResourcePolicy interface {
 	awscdk.Resource
@@ -3804,6 +3854,9 @@ func (r *jsiiProxy_ResourcePolicy) Validate() *[]*string {
 }
 
 // Construction properties for a ResourcePolicy.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ResourcePolicyProps struct {
 	// The secret to attach a resource-based permissions policy.
@@ -3812,6 +3865,9 @@ type ResourcePolicyProps struct {
 }
 
 // A rotation schedule.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type RotationSchedule interface {
 	awscdk.Resource
@@ -4125,6 +4181,9 @@ func (r *jsiiProxy_RotationSchedule) Validate() *[]*string {
 }
 
 // Options to add a rotation schedule to a secret.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type RotationScheduleOptions struct {
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
@@ -4139,6 +4198,9 @@ type RotationScheduleOptions struct {
 }
 
 // Construction properties for a RotationSchedule.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type RotationScheduleProps struct {
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
@@ -4819,6 +4881,9 @@ func (s *jsiiProxy_Secret) Validate() *[]*string {
 }
 
 // Attachment target specifications.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SecretAttachmentTargetProps struct {
 	// The id of the target to attach the secret to.
@@ -4832,6 +4897,9 @@ type SecretAttachmentTargetProps struct {
 // Attributes required to import an existing secret into the Stack.
 //
 // One ARN format (`secretArn`, `secretCompleteArn`, `secretPartialArn`) must be provided.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SecretAttributes struct {
 	// The encryption key that is used to encrypt the secret, unless the default SecretsManager key is used.
@@ -4886,6 +4954,9 @@ type SecretProps struct {
 }
 
 // Secret rotation for a service or database.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SecretRotation interface {
 	awscdk.Construct
@@ -5074,6 +5145,9 @@ func (s *jsiiProxy_SecretRotation) Validate() *[]*string {
 }
 
 // A secret rotation serverless application.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SecretRotationApplication interface {
 	ApplicationId() *string
@@ -5334,6 +5408,9 @@ func (s *jsiiProxy_SecretRotationApplication) SemanticVersionForPartition(partit
 }
 
 // Options for a SecretRotationApplication.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SecretRotationApplicationOptions struct {
 	// Whether the rotation application uses the mutli user scheme.
@@ -5342,11 +5419,31 @@ type SecretRotationApplicationOptions struct {
 }
 
 // Construction properties for a SecretRotation.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SecretRotationProps struct {
 	// The serverless application for the rotation.
 	// Experimental.
 	Application SecretRotationApplication `json:"application"`
+	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
+	// Experimental.
+	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter"`
+	// The VPC interface endpoint to use for the Secrets Manager API.
+	//
+	// If you enable private DNS hostnames for your VPC private endpoint (the default), you don't
+	// need to specify an endpoint. The standard Secrets Manager DNS hostname the Secrets Manager
+	// CLI and SDKs use by default (https://secretsmanager.<region>.amazonaws.com) automatically
+	// resolves to your VPC endpoint.
+	// Experimental.
+	Endpoint awsec2.IInterfaceVpcEndpoint `json:"endpoint"`
+	// Characters which should not appear in the generated password.
+	// Experimental.
+	ExcludeCharacters *string `json:"excludeCharacters"`
+	// The master secret for a multi user rotation scheme.
+	// Experimental.
+	MasterSecret ISecret `json:"masterSecret"`
 	// The secret to rotate. It must be a JSON string with the following format:.
 	//
 	// ```
@@ -5367,38 +5464,24 @@ type SecretRotationProps struct {
 	//
 	// Experimental.
 	Secret ISecret `json:"secret"`
+	// The security group for the Lambda rotation function.
+	// Experimental.
+	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 	// The target service or database.
 	// Experimental.
 	Target awsec2.IConnectable `json:"target"`
 	// The VPC where the Lambda rotation function will run.
 	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
-	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
-	// Experimental.
-	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter"`
-	// The VPC interface endpoint to use for the Secrets Manager API.
-	//
-	// If you enable private DNS hostnames for your VPC private endpoint (the default), you don't
-	// need to specify an endpoint. The standard Secrets Manager DNS hostname the Secrets Manager
-	// CLI and SDKs use by default (https://secretsmanager.<region>.amazonaws.com) automatically
-	// resolves to your VPC endpoint.
-	// Experimental.
-	Endpoint awsec2.IInterfaceVpcEndpoint `json:"endpoint"`
-	// Characters which should not appear in the generated password.
-	// Experimental.
-	ExcludeCharacters *string `json:"excludeCharacters"`
-	// The master secret for a multi user rotation scheme.
-	// Experimental.
-	MasterSecret ISecret `json:"masterSecret"`
-	// The security group for the Lambda rotation function.
-	// Experimental.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 	// The type of subnets in the VPC where the Lambda rotation function will run.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 }
 
 // Configuration to generate secrets such as passwords automatically.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SecretStringGenerator struct {
 	// A string that includes characters that shouldn't be included in the generated password.
@@ -5445,6 +5528,9 @@ type SecretStringGenerator struct {
 }
 
 // An attached secret.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SecretTargetAttachment interface {
 	awscdk.Resource
@@ -5977,6 +6063,9 @@ func (s *jsiiProxy_SecretTargetAttachment) Validate() *[]*string {
 }
 
 // Construction properties for an AttachedSecret.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SecretTargetAttachmentProps struct {
 	// The target to attach the secret to.
@@ -5988,6 +6077,9 @@ type SecretTargetAttachmentProps struct {
 }
 
 // Single user hosted rotation options.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SingleUserHostedRotationOptions struct {
 	// A name for the Lambda created to rotate the secret.

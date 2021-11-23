@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::OpsWorksCM::Server`.
+//
+// TODO: EXAMPLE
+//
 type CfnServer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1019,6 +1022,8 @@ func (c *jsiiProxy_CfnServer) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnServer_EngineAttributeProperty struct {
 	// `CfnServer.EngineAttributeProperty.Name`.
 	Name *string `json:"name"`
@@ -1027,13 +1032,10 @@ type CfnServer_EngineAttributeProperty struct {
 }
 
 // Properties for defining a `AWS::OpsWorksCM::Server`.
+//
+// TODO: EXAMPLE
+//
 type CfnServerProps struct {
-	// `AWS::OpsWorksCM::Server.InstanceProfileArn`.
-	InstanceProfileArn *string `json:"instanceProfileArn"`
-	// `AWS::OpsWorksCM::Server.InstanceType`.
-	InstanceType *string `json:"instanceType"`
-	// `AWS::OpsWorksCM::Server.ServiceRoleArn`.
-	ServiceRoleArn *string `json:"serviceRoleArn"`
 	// `AWS::OpsWorksCM::Server.AssociatePublicIpAddress`.
 	AssociatePublicIpAddress interface{} `json:"associatePublicIpAddress"`
 	// `AWS::OpsWorksCM::Server.BackupId`.
@@ -1056,6 +1058,10 @@ type CfnServerProps struct {
 	EngineModel *string `json:"engineModel"`
 	// `AWS::OpsWorksCM::Server.EngineVersion`.
 	EngineVersion *string `json:"engineVersion"`
+	// `AWS::OpsWorksCM::Server.InstanceProfileArn`.
+	InstanceProfileArn *string `json:"instanceProfileArn"`
+	// `AWS::OpsWorksCM::Server.InstanceType`.
+	InstanceType *string `json:"instanceType"`
 	// `AWS::OpsWorksCM::Server.KeyPair`.
 	KeyPair *string `json:"keyPair"`
 	// `AWS::OpsWorksCM::Server.PreferredBackupWindow`.
@@ -1066,6 +1072,8 @@ type CfnServerProps struct {
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
 	// `AWS::OpsWorksCM::Server.ServerName`.
 	ServerName *string `json:"serverName"`
+	// `AWS::OpsWorksCM::Server.ServiceRoleArn`.
+	ServiceRoleArn *string `json:"serviceRoleArn"`
 	// `AWS::OpsWorksCM::Server.SubnetIds`.
 	SubnetIds *[]*string `json:"subnetIds"`
 	// `AWS::OpsWorksCM::Server.Tags`.

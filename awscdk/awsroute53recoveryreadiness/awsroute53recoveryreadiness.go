@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::Route53RecoveryReadiness::Cell`.
+//
+// TODO: EXAMPLE
+//
 type CfnCell interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -649,6 +652,9 @@ func (c *jsiiProxy_CfnCell) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Route53RecoveryReadiness::Cell`.
+//
+// TODO: EXAMPLE
+//
 type CfnCellProps struct {
 	// `AWS::Route53RecoveryReadiness::Cell.CellName`.
 	CellName *string `json:"cellName"`
@@ -659,6 +665,9 @@ type CfnCellProps struct {
 }
 
 // A CloudFormation `AWS::Route53RecoveryReadiness::ReadinessCheck`.
+//
+// TODO: EXAMPLE
+//
 type CfnReadinessCheck interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1287,6 +1296,9 @@ func (c *jsiiProxy_CfnReadinessCheck) ValidateProperties(_properties interface{}
 }
 
 // Properties for defining a `AWS::Route53RecoveryReadiness::ReadinessCheck`.
+//
+// TODO: EXAMPLE
+//
 type CfnReadinessCheckProps struct {
 	// `AWS::Route53RecoveryReadiness::ReadinessCheck.ReadinessCheckName`.
 	ReadinessCheckName *string `json:"readinessCheckName"`
@@ -1297,6 +1309,9 @@ type CfnReadinessCheckProps struct {
 }
 
 // A CloudFormation `AWS::Route53RecoveryReadiness::RecoveryGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnRecoveryGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1925,16 +1940,22 @@ func (c *jsiiProxy_CfnRecoveryGroup) ValidateProperties(_properties interface{})
 }
 
 // Properties for defining a `AWS::Route53RecoveryReadiness::RecoveryGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnRecoveryGroupProps struct {
-	// `AWS::Route53RecoveryReadiness::RecoveryGroup.RecoveryGroupName`.
-	RecoveryGroupName *string `json:"recoveryGroupName"`
 	// `AWS::Route53RecoveryReadiness::RecoveryGroup.Cells`.
 	Cells *[]*string `json:"cells"`
+	// `AWS::Route53RecoveryReadiness::RecoveryGroup.RecoveryGroupName`.
+	RecoveryGroupName *string `json:"recoveryGroupName"`
 	// `AWS::Route53RecoveryReadiness::RecoveryGroup.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::Route53RecoveryReadiness::ResourceSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourceSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2582,6 +2603,8 @@ func (c *jsiiProxy_CfnResourceSet) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceSet_DNSTargetResourceProperty struct {
 	// `CfnResourceSet.DNSTargetResourceProperty.DomainName`.
 	DomainName *string `json:"domainName"`
@@ -2595,11 +2618,15 @@ type CfnResourceSet_DNSTargetResourceProperty struct {
 	TargetResource interface{} `json:"targetResource"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceSet_NLBResourceProperty struct {
 	// `CfnResourceSet.NLBResourceProperty.Arn`.
 	Arn *string `json:"arn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceSet_R53ResourceRecordProperty struct {
 	// `CfnResourceSet.R53ResourceRecordProperty.DomainName`.
 	DomainName *string `json:"domainName"`
@@ -2607,6 +2634,8 @@ type CfnResourceSet_R53ResourceRecordProperty struct {
 	RecordSetId *string `json:"recordSetId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceSet_ResourceProperty struct {
 	// `CfnResourceSet.ResourceProperty.ComponentId`.
 	ComponentId *string `json:"componentId"`
@@ -2618,6 +2647,8 @@ type CfnResourceSet_ResourceProperty struct {
 	ResourceArn *string `json:"resourceArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceSet_TargetResourceProperty struct {
 	// `CfnResourceSet.TargetResourceProperty.NLBResource`.
 	NlbResource interface{} `json:"nlbResource"`
@@ -2626,6 +2657,9 @@ type CfnResourceSet_TargetResourceProperty struct {
 }
 
 // Properties for defining a `AWS::Route53RecoveryReadiness::ResourceSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourceSetProps struct {
 	// `AWS::Route53RecoveryReadiness::ResourceSet.Resources`.
 	Resources interface{} `json:"resources"`

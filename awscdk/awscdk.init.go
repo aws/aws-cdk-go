@@ -203,10 +203,10 @@ func init() {
 		"monocdk.CfnCapabilities",
 		reflect.TypeOf((*CfnCapabilities)(nil)).Elem(),
 		map[string]interface{}{
-			"NONE": CfnCapabilities_NONE,
 			"ANONYMOUS_IAM": CfnCapabilities_ANONYMOUS_IAM,
-			"NAMED_IAM": CfnCapabilities_NAMED_IAM,
 			"AUTO_EXPAND": CfnCapabilities_AUTO_EXPAND,
+			"NAMED_IAM": CfnCapabilities_NAMED_IAM,
+			"NONE": CfnCapabilities_NONE,
 		},
 	)
 	_jsii_.RegisterStruct(

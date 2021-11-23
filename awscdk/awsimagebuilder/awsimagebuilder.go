@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::ImageBuilder::Component`.
+//
+// TODO: EXAMPLE
+//
 type CfnComponent interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -811,13 +814,10 @@ func (c *jsiiProxy_CfnComponent) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::ImageBuilder::Component`.
+//
+// TODO: EXAMPLE
+//
 type CfnComponentProps struct {
-	// `AWS::ImageBuilder::Component.Name`.
-	Name *string `json:"name"`
-	// `AWS::ImageBuilder::Component.Platform`.
-	Platform *string `json:"platform"`
-	// `AWS::ImageBuilder::Component.Version`.
-	Version *string `json:"version"`
 	// `AWS::ImageBuilder::Component.ChangeDescription`.
 	ChangeDescription *string `json:"changeDescription"`
 	// `AWS::ImageBuilder::Component.Data`.
@@ -826,15 +826,24 @@ type CfnComponentProps struct {
 	Description *string `json:"description"`
 	// `AWS::ImageBuilder::Component.KmsKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
+	// `AWS::ImageBuilder::Component.Name`.
+	Name *string `json:"name"`
+	// `AWS::ImageBuilder::Component.Platform`.
+	Platform *string `json:"platform"`
 	// `AWS::ImageBuilder::Component.SupportedOsVersions`.
 	SupportedOsVersions *[]*string `json:"supportedOsVersions"`
 	// `AWS::ImageBuilder::Component.Tags`.
 	Tags *map[string]*string `json:"tags"`
 	// `AWS::ImageBuilder::Component.Uri`.
 	Uri *string `json:"uri"`
+	// `AWS::ImageBuilder::Component.Version`.
+	Version *string `json:"version"`
 }
 
 // A CloudFormation `AWS::ImageBuilder::ContainerRecipe`.
+//
+// TODO: EXAMPLE
+//
 type CfnContainerRecipe interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1713,11 +1722,15 @@ func (c *jsiiProxy_CfnContainerRecipe) ValidateProperties(_properties interface{
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnContainerRecipe_ComponentConfigurationProperty struct {
 	// `CfnContainerRecipe.ComponentConfigurationProperty.ComponentArn`.
 	ComponentArn *string `json:"componentArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnContainerRecipe_EbsInstanceBlockDeviceSpecificationProperty struct {
 	// `CfnContainerRecipe.EbsInstanceBlockDeviceSpecificationProperty.DeleteOnTermination`.
 	DeleteOnTermination interface{} `json:"deleteOnTermination"`
@@ -1737,6 +1750,8 @@ type CfnContainerRecipe_EbsInstanceBlockDeviceSpecificationProperty struct {
 	VolumeType *string `json:"volumeType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnContainerRecipe_InstanceBlockDeviceMappingProperty struct {
 	// `CfnContainerRecipe.InstanceBlockDeviceMappingProperty.DeviceName`.
 	DeviceName *string `json:"deviceName"`
@@ -1748,6 +1763,8 @@ type CfnContainerRecipe_InstanceBlockDeviceMappingProperty struct {
 	VirtualName *string `json:"virtualName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnContainerRecipe_InstanceConfigurationProperty struct {
 	// `CfnContainerRecipe.InstanceConfigurationProperty.BlockDeviceMappings`.
 	BlockDeviceMappings interface{} `json:"blockDeviceMappings"`
@@ -1755,6 +1772,8 @@ type CfnContainerRecipe_InstanceConfigurationProperty struct {
 	Image *string `json:"image"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnContainerRecipe_TargetContainerRepositoryProperty struct {
 	// `CfnContainerRecipe.TargetContainerRepositoryProperty.RepositoryName`.
 	RepositoryName *string `json:"repositoryName"`
@@ -1763,19 +1782,14 @@ type CfnContainerRecipe_TargetContainerRepositoryProperty struct {
 }
 
 // Properties for defining a `AWS::ImageBuilder::ContainerRecipe`.
+//
+// TODO: EXAMPLE
+//
 type CfnContainerRecipeProps struct {
 	// `AWS::ImageBuilder::ContainerRecipe.Components`.
 	Components interface{} `json:"components"`
 	// `AWS::ImageBuilder::ContainerRecipe.ContainerType`.
 	ContainerType *string `json:"containerType"`
-	// `AWS::ImageBuilder::ContainerRecipe.Name`.
-	Name *string `json:"name"`
-	// `AWS::ImageBuilder::ContainerRecipe.ParentImage`.
-	ParentImage *string `json:"parentImage"`
-	// `AWS::ImageBuilder::ContainerRecipe.TargetRepository`.
-	TargetRepository interface{} `json:"targetRepository"`
-	// `AWS::ImageBuilder::ContainerRecipe.Version`.
-	Version *string `json:"version"`
 	// `AWS::ImageBuilder::ContainerRecipe.Description`.
 	Description *string `json:"description"`
 	// `AWS::ImageBuilder::ContainerRecipe.DockerfileTemplateData`.
@@ -1788,15 +1802,26 @@ type CfnContainerRecipeProps struct {
 	InstanceConfiguration interface{} `json:"instanceConfiguration"`
 	// `AWS::ImageBuilder::ContainerRecipe.KmsKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
+	// `AWS::ImageBuilder::ContainerRecipe.Name`.
+	Name *string `json:"name"`
+	// `AWS::ImageBuilder::ContainerRecipe.ParentImage`.
+	ParentImage *string `json:"parentImage"`
 	// `AWS::ImageBuilder::ContainerRecipe.PlatformOverride`.
 	PlatformOverride *string `json:"platformOverride"`
 	// `AWS::ImageBuilder::ContainerRecipe.Tags`.
 	Tags *map[string]*string `json:"tags"`
+	// `AWS::ImageBuilder::ContainerRecipe.TargetRepository`.
+	TargetRepository interface{} `json:"targetRepository"`
+	// `AWS::ImageBuilder::ContainerRecipe.Version`.
+	Version *string `json:"version"`
 	// `AWS::ImageBuilder::ContainerRecipe.WorkingDirectory`.
 	WorkingDirectory *string `json:"workingDirectory"`
 }
 
 // A CloudFormation `AWS::ImageBuilder::DistributionConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnDistributionConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2455,9 +2480,9 @@ func (c *jsiiProxy_CfnDistributionConfiguration) ValidateProperties(_properties 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDistributionConfiguration_DistributionProperty struct {
-	// `CfnDistributionConfiguration.DistributionProperty.Region`.
-	Region *string `json:"region"`
 	// `CfnDistributionConfiguration.DistributionProperty.AmiDistributionConfiguration`.
 	AmiDistributionConfiguration interface{} `json:"amiDistributionConfiguration"`
 	// `CfnDistributionConfiguration.DistributionProperty.ContainerDistributionConfiguration`.
@@ -2466,8 +2491,12 @@ type CfnDistributionConfiguration_DistributionProperty struct {
 	LaunchTemplateConfigurations interface{} `json:"launchTemplateConfigurations"`
 	// `CfnDistributionConfiguration.DistributionProperty.LicenseConfigurationArns`.
 	LicenseConfigurationArns *[]*string `json:"licenseConfigurationArns"`
+	// `CfnDistributionConfiguration.DistributionProperty.Region`.
+	Region *string `json:"region"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDistributionConfiguration_LaunchTemplateConfigurationProperty struct {
 	// `CfnDistributionConfiguration.LaunchTemplateConfigurationProperty.AccountId`.
 	AccountId *string `json:"accountId"`
@@ -2478,18 +2507,24 @@ type CfnDistributionConfiguration_LaunchTemplateConfigurationProperty struct {
 }
 
 // Properties for defining a `AWS::ImageBuilder::DistributionConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnDistributionConfigurationProps struct {
+	// `AWS::ImageBuilder::DistributionConfiguration.Description`.
+	Description *string `json:"description"`
 	// `AWS::ImageBuilder::DistributionConfiguration.Distributions`.
 	Distributions interface{} `json:"distributions"`
 	// `AWS::ImageBuilder::DistributionConfiguration.Name`.
 	Name *string `json:"name"`
-	// `AWS::ImageBuilder::DistributionConfiguration.Description`.
-	Description *string `json:"description"`
 	// `AWS::ImageBuilder::DistributionConfiguration.Tags`.
 	Tags *map[string]*string `json:"tags"`
 }
 
 // A CloudFormation `AWS::ImageBuilder::Image`.
+//
+// TODO: EXAMPLE
+//
 type CfnImage interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3219,6 +3254,8 @@ func (c *jsiiProxy_CfnImage) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnImage_ImageTestsConfigurationProperty struct {
 	// `CfnImage.ImageTestsConfigurationProperty.ImageTestsEnabled`.
 	ImageTestsEnabled interface{} `json:"imageTestsEnabled"`
@@ -3227,6 +3264,9 @@ type CfnImage_ImageTestsConfigurationProperty struct {
 }
 
 // A CloudFormation `AWS::ImageBuilder::ImagePipeline`.
+//
+// TODO: EXAMPLE
+//
 type CfnImagePipeline interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4025,6 +4065,8 @@ func (c *jsiiProxy_CfnImagePipeline) ValidateProperties(_properties interface{})
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnImagePipeline_ImageTestsConfigurationProperty struct {
 	// `CfnImagePipeline.ImageTestsConfigurationProperty.ImageTestsEnabled`.
 	ImageTestsEnabled interface{} `json:"imageTestsEnabled"`
@@ -4032,6 +4074,8 @@ type CfnImagePipeline_ImageTestsConfigurationProperty struct {
 	TimeoutMinutes *float64 `json:"timeoutMinutes"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnImagePipeline_ScheduleProperty struct {
 	// `CfnImagePipeline.ScheduleProperty.PipelineExecutionStartCondition`.
 	PipelineExecutionStartCondition *string `json:"pipelineExecutionStartCondition"`
@@ -4040,11 +4084,10 @@ type CfnImagePipeline_ScheduleProperty struct {
 }
 
 // Properties for defining a `AWS::ImageBuilder::ImagePipeline`.
+//
+// TODO: EXAMPLE
+//
 type CfnImagePipelineProps struct {
-	// `AWS::ImageBuilder::ImagePipeline.InfrastructureConfigurationArn`.
-	InfrastructureConfigurationArn *string `json:"infrastructureConfigurationArn"`
-	// `AWS::ImageBuilder::ImagePipeline.Name`.
-	Name *string `json:"name"`
 	// `AWS::ImageBuilder::ImagePipeline.ContainerRecipeArn`.
 	ContainerRecipeArn *string `json:"containerRecipeArn"`
 	// `AWS::ImageBuilder::ImagePipeline.Description`.
@@ -4057,6 +4100,10 @@ type CfnImagePipelineProps struct {
 	ImageRecipeArn *string `json:"imageRecipeArn"`
 	// `AWS::ImageBuilder::ImagePipeline.ImageTestsConfiguration`.
 	ImageTestsConfiguration interface{} `json:"imageTestsConfiguration"`
+	// `AWS::ImageBuilder::ImagePipeline.InfrastructureConfigurationArn`.
+	InfrastructureConfigurationArn *string `json:"infrastructureConfigurationArn"`
+	// `AWS::ImageBuilder::ImagePipeline.Name`.
+	Name *string `json:"name"`
 	// `AWS::ImageBuilder::ImagePipeline.Schedule`.
 	Schedule interface{} `json:"schedule"`
 	// `AWS::ImageBuilder::ImagePipeline.Status`.
@@ -4066,9 +4113,10 @@ type CfnImagePipelineProps struct {
 }
 
 // Properties for defining a `AWS::ImageBuilder::Image`.
+//
+// TODO: EXAMPLE
+//
 type CfnImageProps struct {
-	// `AWS::ImageBuilder::Image.InfrastructureConfigurationArn`.
-	InfrastructureConfigurationArn *string `json:"infrastructureConfigurationArn"`
 	// `AWS::ImageBuilder::Image.ContainerRecipeArn`.
 	ContainerRecipeArn *string `json:"containerRecipeArn"`
 	// `AWS::ImageBuilder::Image.DistributionConfigurationArn`.
@@ -4079,11 +4127,16 @@ type CfnImageProps struct {
 	ImageRecipeArn *string `json:"imageRecipeArn"`
 	// `AWS::ImageBuilder::Image.ImageTestsConfiguration`.
 	ImageTestsConfiguration interface{} `json:"imageTestsConfiguration"`
+	// `AWS::ImageBuilder::Image.InfrastructureConfigurationArn`.
+	InfrastructureConfigurationArn *string `json:"infrastructureConfigurationArn"`
 	// `AWS::ImageBuilder::Image.Tags`.
 	Tags *map[string]*string `json:"tags"`
 }
 
 // A CloudFormation `AWS::ImageBuilder::ImageRecipe`.
+//
+// TODO: EXAMPLE
+//
 type CfnImageRecipe interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4842,6 +4895,8 @@ func (c *jsiiProxy_CfnImageRecipe) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnImageRecipe_AdditionalInstanceConfigurationProperty struct {
 	// `CfnImageRecipe.AdditionalInstanceConfigurationProperty.SystemsManagerAgent`.
 	SystemsManagerAgent interface{} `json:"systemsManagerAgent"`
@@ -4849,6 +4904,8 @@ type CfnImageRecipe_AdditionalInstanceConfigurationProperty struct {
 	UserDataOverride *string `json:"userDataOverride"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnImageRecipe_ComponentConfigurationProperty struct {
 	// `CfnImageRecipe.ComponentConfigurationProperty.ComponentArn`.
 	ComponentArn *string `json:"componentArn"`
@@ -4856,6 +4913,8 @@ type CfnImageRecipe_ComponentConfigurationProperty struct {
 	Parameters interface{} `json:"parameters"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnImageRecipe_ComponentParameterProperty struct {
 	// `CfnImageRecipe.ComponentParameterProperty.Name`.
 	Name *string `json:"name"`
@@ -4863,6 +4922,8 @@ type CfnImageRecipe_ComponentParameterProperty struct {
 	Value *[]*string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnImageRecipe_EbsInstanceBlockDeviceSpecificationProperty struct {
 	// `CfnImageRecipe.EbsInstanceBlockDeviceSpecificationProperty.DeleteOnTermination`.
 	DeleteOnTermination interface{} `json:"deleteOnTermination"`
@@ -4882,6 +4943,8 @@ type CfnImageRecipe_EbsInstanceBlockDeviceSpecificationProperty struct {
 	VolumeType *string `json:"volumeType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnImageRecipe_InstanceBlockDeviceMappingProperty struct {
 	// `CfnImageRecipe.InstanceBlockDeviceMappingProperty.DeviceName`.
 	DeviceName *string `json:"deviceName"`
@@ -4893,34 +4956,42 @@ type CfnImageRecipe_InstanceBlockDeviceMappingProperty struct {
 	VirtualName *string `json:"virtualName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnImageRecipe_SystemsManagerAgentProperty struct {
 	// `CfnImageRecipe.SystemsManagerAgentProperty.UninstallAfterBuild`.
 	UninstallAfterBuild interface{} `json:"uninstallAfterBuild"`
 }
 
 // Properties for defining a `AWS::ImageBuilder::ImageRecipe`.
+//
+// TODO: EXAMPLE
+//
 type CfnImageRecipeProps struct {
-	// `AWS::ImageBuilder::ImageRecipe.Components`.
-	Components interface{} `json:"components"`
-	// `AWS::ImageBuilder::ImageRecipe.Name`.
-	Name *string `json:"name"`
-	// `AWS::ImageBuilder::ImageRecipe.ParentImage`.
-	ParentImage *string `json:"parentImage"`
-	// `AWS::ImageBuilder::ImageRecipe.Version`.
-	Version *string `json:"version"`
 	// `AWS::ImageBuilder::ImageRecipe.AdditionalInstanceConfiguration`.
 	AdditionalInstanceConfiguration interface{} `json:"additionalInstanceConfiguration"`
 	// `AWS::ImageBuilder::ImageRecipe.BlockDeviceMappings`.
 	BlockDeviceMappings interface{} `json:"blockDeviceMappings"`
+	// `AWS::ImageBuilder::ImageRecipe.Components`.
+	Components interface{} `json:"components"`
 	// `AWS::ImageBuilder::ImageRecipe.Description`.
 	Description *string `json:"description"`
+	// `AWS::ImageBuilder::ImageRecipe.Name`.
+	Name *string `json:"name"`
+	// `AWS::ImageBuilder::ImageRecipe.ParentImage`.
+	ParentImage *string `json:"parentImage"`
 	// `AWS::ImageBuilder::ImageRecipe.Tags`.
 	Tags *map[string]*string `json:"tags"`
+	// `AWS::ImageBuilder::ImageRecipe.Version`.
+	Version *string `json:"version"`
 	// `AWS::ImageBuilder::ImageRecipe.WorkingDirectory`.
 	WorkingDirectory *string `json:"workingDirectory"`
 }
 
 // A CloudFormation `AWS::ImageBuilder::InfrastructureConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnInfrastructureConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5759,6 +5830,8 @@ func (c *jsiiProxy_CfnInfrastructureConfiguration) ValidateProperties(_propertie
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnInfrastructureConfiguration_InstanceMetadataOptionsProperty struct {
 	// `CfnInfrastructureConfiguration.InstanceMetadataOptionsProperty.HttpPutResponseHopLimit`.
 	HttpPutResponseHopLimit *float64 `json:"httpPutResponseHopLimit"`
@@ -5766,11 +5839,15 @@ type CfnInfrastructureConfiguration_InstanceMetadataOptionsProperty struct {
 	HttpTokens *string `json:"httpTokens"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInfrastructureConfiguration_LoggingProperty struct {
 	// `CfnInfrastructureConfiguration.LoggingProperty.S3Logs`.
 	S3Logs interface{} `json:"s3Logs"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInfrastructureConfiguration_S3LogsProperty struct {
 	// `CfnInfrastructureConfiguration.S3LogsProperty.S3BucketName`.
 	S3BucketName *string `json:"s3BucketName"`
@@ -5779,21 +5856,24 @@ type CfnInfrastructureConfiguration_S3LogsProperty struct {
 }
 
 // Properties for defining a `AWS::ImageBuilder::InfrastructureConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnInfrastructureConfigurationProps struct {
-	// `AWS::ImageBuilder::InfrastructureConfiguration.InstanceProfileName`.
-	InstanceProfileName *string `json:"instanceProfileName"`
-	// `AWS::ImageBuilder::InfrastructureConfiguration.Name`.
-	Name *string `json:"name"`
 	// `AWS::ImageBuilder::InfrastructureConfiguration.Description`.
 	Description *string `json:"description"`
 	// `AWS::ImageBuilder::InfrastructureConfiguration.InstanceMetadataOptions`.
 	InstanceMetadataOptions interface{} `json:"instanceMetadataOptions"`
+	// `AWS::ImageBuilder::InfrastructureConfiguration.InstanceProfileName`.
+	InstanceProfileName *string `json:"instanceProfileName"`
 	// `AWS::ImageBuilder::InfrastructureConfiguration.InstanceTypes`.
 	InstanceTypes *[]*string `json:"instanceTypes"`
 	// `AWS::ImageBuilder::InfrastructureConfiguration.KeyPair`.
 	KeyPair *string `json:"keyPair"`
 	// `AWS::ImageBuilder::InfrastructureConfiguration.Logging`.
 	Logging interface{} `json:"logging"`
+	// `AWS::ImageBuilder::InfrastructureConfiguration.Name`.
+	Name *string `json:"name"`
 	// `AWS::ImageBuilder::InfrastructureConfiguration.ResourceTags`.
 	ResourceTags interface{} `json:"resourceTags"`
 	// `AWS::ImageBuilder::InfrastructureConfiguration.SecurityGroupIds`.

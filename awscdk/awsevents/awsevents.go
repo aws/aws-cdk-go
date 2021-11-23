@@ -11,6 +11,9 @@ import (
 )
 
 // Define an EventBridge Archive.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Archive interface {
 	awscdk.Resource
@@ -346,17 +349,20 @@ func (a *jsiiProxy_Archive) Validate() *[]*string {
 }
 
 // The event archive properties.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ArchiveProps struct {
-	// An event pattern to use to filter events sent to the archive.
-	// Experimental.
-	EventPattern *EventPattern `json:"eventPattern"`
 	// The name of the archive.
 	// Experimental.
 	ArchiveName *string `json:"archiveName"`
 	// A description for the archive.
 	// Experimental.
 	Description *string `json:"description"`
+	// An event pattern to use to filter events sent to the archive.
+	// Experimental.
+	EventPattern *EventPattern `json:"eventPattern"`
 	// The number of days to retain events for.
 	//
 	// Default value is 0. If set to 0, events are retained indefinitely.
@@ -373,15 +379,15 @@ type ArchiveProps struct {
 //
 // Experimental.
 type BaseArchiveProps struct {
-	// An event pattern to use to filter events sent to the archive.
-	// Experimental.
-	EventPattern *EventPattern `json:"eventPattern"`
 	// The name of the archive.
 	// Experimental.
 	ArchiveName *string `json:"archiveName"`
 	// A description for the archive.
 	// Experimental.
 	Description *string `json:"description"`
+	// An event pattern to use to filter events sent to the archive.
+	// Experimental.
+	EventPattern *EventPattern `json:"eventPattern"`
 	// The number of days to retain events for.
 	//
 	// Default value is 0. If set to 0, events are retained indefinitely.
@@ -390,6 +396,9 @@ type BaseArchiveProps struct {
 }
 
 // A CloudFormation `AWS::Events::ApiDestination`.
+//
+// TODO: EXAMPLE
+//
 type CfnApiDestination interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1087,15 +1096,18 @@ func (c *jsiiProxy_CfnApiDestination) ValidateProperties(_properties interface{}
 }
 
 // Properties for defining a `AWS::Events::ApiDestination`.
+//
+// TODO: EXAMPLE
+//
 type CfnApiDestinationProps struct {
 	// `AWS::Events::ApiDestination.ConnectionArn`.
 	ConnectionArn *string `json:"connectionArn"`
+	// `AWS::Events::ApiDestination.Description`.
+	Description *string `json:"description"`
 	// `AWS::Events::ApiDestination.HttpMethod`.
 	HttpMethod *string `json:"httpMethod"`
 	// `AWS::Events::ApiDestination.InvocationEndpoint`.
 	InvocationEndpoint *string `json:"invocationEndpoint"`
-	// `AWS::Events::ApiDestination.Description`.
-	Description *string `json:"description"`
 	// `AWS::Events::ApiDestination.InvocationRateLimitPerSecond`.
 	InvocationRateLimitPerSecond *float64 `json:"invocationRateLimitPerSecond"`
 	// `AWS::Events::ApiDestination.Name`.
@@ -1103,6 +1115,9 @@ type CfnApiDestinationProps struct {
 }
 
 // A CloudFormation `AWS::Events::Archive`.
+//
+// TODO: EXAMPLE
+//
 type CfnArchive interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1791,9 +1806,10 @@ func (c *jsiiProxy_CfnArchive) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Events::Archive`.
+//
+// TODO: EXAMPLE
+//
 type CfnArchiveProps struct {
-	// `AWS::Events::Archive.SourceArn`.
-	SourceArn *string `json:"sourceArn"`
 	// `AWS::Events::Archive.ArchiveName`.
 	ArchiveName *string `json:"archiveName"`
 	// `AWS::Events::Archive.Description`.
@@ -1802,9 +1818,14 @@ type CfnArchiveProps struct {
 	EventPattern interface{} `json:"eventPattern"`
 	// `AWS::Events::Archive.RetentionDays`.
 	RetentionDays *float64 `json:"retentionDays"`
+	// `AWS::Events::Archive.SourceArn`.
+	SourceArn *string `json:"sourceArn"`
 }
 
 // A CloudFormation `AWS::Events::Connection`.
+//
+// TODO: EXAMPLE
+//
 type CfnConnection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2473,6 +2494,9 @@ func (c *jsiiProxy_CfnConnection) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Events::Connection`.
+//
+// TODO: EXAMPLE
+//
 type CfnConnectionProps struct {
 	// `AWS::Events::Connection.AuthorizationType`.
 	AuthorizationType *string `json:"authorizationType"`
@@ -2485,6 +2509,9 @@ type CfnConnectionProps struct {
 }
 
 // A CloudFormation `AWS::Events::EventBus`.
+//
+// TODO: EXAMPLE
+//
 type CfnEventBus interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3124,6 +3151,9 @@ func (c *jsiiProxy_CfnEventBus) ValidateProperties(_properties interface{}) {
 }
 
 // A CloudFormation `AWS::Events::EventBusPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnEventBusPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3809,6 +3839,8 @@ func (c *jsiiProxy_CfnEventBusPolicy) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnEventBusPolicy_ConditionProperty struct {
 	// `CfnEventBusPolicy.ConditionProperty.Key`.
 	Key *string `json:"key"`
@@ -3819,9 +3851,10 @@ type CfnEventBusPolicy_ConditionProperty struct {
 }
 
 // Properties for defining a `AWS::Events::EventBusPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnEventBusPolicyProps struct {
-	// `AWS::Events::EventBusPolicy.StatementId`.
-	StatementId *string `json:"statementId"`
 	// `AWS::Events::EventBusPolicy.Action`.
 	Action *string `json:"action"`
 	// `AWS::Events::EventBusPolicy.Condition`.
@@ -3832,17 +3865,25 @@ type CfnEventBusPolicyProps struct {
 	Principal *string `json:"principal"`
 	// `AWS::Events::EventBusPolicy.Statement`.
 	Statement interface{} `json:"statement"`
+	// `AWS::Events::EventBusPolicy.StatementId`.
+	StatementId *string `json:"statementId"`
 }
 
 // Properties for defining a `AWS::Events::EventBus`.
+//
+// TODO: EXAMPLE
+//
 type CfnEventBusProps struct {
-	// `AWS::Events::EventBus.Name`.
-	Name *string `json:"name"`
 	// `AWS::Events::EventBus.EventSourceName`.
 	EventSourceName *string `json:"eventSourceName"`
+	// `AWS::Events::EventBus.Name`.
+	Name *string `json:"name"`
 }
 
 // A CloudFormation `AWS::Events::Rule`.
+//
+// TODO: EXAMPLE
+//
 type CfnRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4579,53 +4620,65 @@ func (c *jsiiProxy_CfnRule) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnRule_AwsVpcConfigurationProperty struct {
-	// `CfnRule.AwsVpcConfigurationProperty.Subnets`.
-	Subnets *[]*string `json:"subnets"`
 	// `CfnRule.AwsVpcConfigurationProperty.AssignPublicIp`.
 	AssignPublicIp *string `json:"assignPublicIp"`
 	// `CfnRule.AwsVpcConfigurationProperty.SecurityGroups`.
 	SecurityGroups *[]*string `json:"securityGroups"`
+	// `CfnRule.AwsVpcConfigurationProperty.Subnets`.
+	Subnets *[]*string `json:"subnets"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRule_BatchArrayPropertiesProperty struct {
 	// `CfnRule.BatchArrayPropertiesProperty.Size`.
 	Size *float64 `json:"size"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRule_BatchParametersProperty struct {
+	// `CfnRule.BatchParametersProperty.ArrayProperties`.
+	ArrayProperties interface{} `json:"arrayProperties"`
 	// `CfnRule.BatchParametersProperty.JobDefinition`.
 	JobDefinition *string `json:"jobDefinition"`
 	// `CfnRule.BatchParametersProperty.JobName`.
 	JobName *string `json:"jobName"`
-	// `CfnRule.BatchParametersProperty.ArrayProperties`.
-	ArrayProperties interface{} `json:"arrayProperties"`
 	// `CfnRule.BatchParametersProperty.RetryStrategy`.
 	RetryStrategy interface{} `json:"retryStrategy"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRule_BatchRetryStrategyProperty struct {
 	// `CfnRule.BatchRetryStrategyProperty.Attempts`.
 	Attempts *float64 `json:"attempts"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRule_CapacityProviderStrategyItemProperty struct {
-	// `CfnRule.CapacityProviderStrategyItemProperty.CapacityProvider`.
-	CapacityProvider *string `json:"capacityProvider"`
 	// `CfnRule.CapacityProviderStrategyItemProperty.Base`.
 	Base *float64 `json:"base"`
+	// `CfnRule.CapacityProviderStrategyItemProperty.CapacityProvider`.
+	CapacityProvider *string `json:"capacityProvider"`
 	// `CfnRule.CapacityProviderStrategyItemProperty.Weight`.
 	Weight *float64 `json:"weight"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRule_DeadLetterConfigProperty struct {
 	// `CfnRule.DeadLetterConfigProperty.Arn`.
 	Arn *string `json:"arn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRule_EcsParametersProperty struct {
-	// `CfnRule.EcsParametersProperty.TaskDefinitionArn`.
-	TaskDefinitionArn *string `json:"taskDefinitionArn"`
 	// `CfnRule.EcsParametersProperty.CapacityProviderStrategy`.
 	CapacityProviderStrategy interface{} `json:"capacityProviderStrategy"`
 	// `CfnRule.EcsParametersProperty.EnableECSManagedTags`.
@@ -4652,8 +4705,12 @@ type CfnRule_EcsParametersProperty struct {
 	TagList interface{} `json:"tagList"`
 	// `CfnRule.EcsParametersProperty.TaskCount`.
 	TaskCount *float64 `json:"taskCount"`
+	// `CfnRule.EcsParametersProperty.TaskDefinitionArn`.
+	TaskDefinitionArn *string `json:"taskDefinitionArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRule_HttpParametersProperty struct {
 	// `CfnRule.HttpParametersProperty.HeaderParameters`.
 	HeaderParameters interface{} `json:"headerParameters"`
@@ -4663,23 +4720,31 @@ type CfnRule_HttpParametersProperty struct {
 	QueryStringParameters interface{} `json:"queryStringParameters"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRule_InputTransformerProperty struct {
-	// `CfnRule.InputTransformerProperty.InputTemplate`.
-	InputTemplate *string `json:"inputTemplate"`
 	// `CfnRule.InputTransformerProperty.InputPathsMap`.
 	InputPathsMap interface{} `json:"inputPathsMap"`
+	// `CfnRule.InputTransformerProperty.InputTemplate`.
+	InputTemplate *string `json:"inputTemplate"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRule_KinesisParametersProperty struct {
 	// `CfnRule.KinesisParametersProperty.PartitionKeyPath`.
 	PartitionKeyPath *string `json:"partitionKeyPath"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRule_NetworkConfigurationProperty struct {
 	// `CfnRule.NetworkConfigurationProperty.AwsVpcConfiguration`.
 	AwsVpcConfiguration interface{} `json:"awsVpcConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRule_PlacementConstraintProperty struct {
 	// `CfnRule.PlacementConstraintProperty.Expression`.
 	Expression *string `json:"expression"`
@@ -4687,6 +4752,8 @@ type CfnRule_PlacementConstraintProperty struct {
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRule_PlacementStrategyProperty struct {
 	// `CfnRule.PlacementStrategyProperty.Field`.
 	Field *string `json:"field"`
@@ -4694,21 +4761,25 @@ type CfnRule_PlacementStrategyProperty struct {
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRule_RedshiftDataParametersProperty struct {
 	// `CfnRule.RedshiftDataParametersProperty.Database`.
 	Database *string `json:"database"`
-	// `CfnRule.RedshiftDataParametersProperty.Sql`.
-	Sql *string `json:"sql"`
 	// `CfnRule.RedshiftDataParametersProperty.DbUser`.
 	DbUser *string `json:"dbUser"`
 	// `CfnRule.RedshiftDataParametersProperty.SecretManagerArn`.
 	SecretManagerArn *string `json:"secretManagerArn"`
+	// `CfnRule.RedshiftDataParametersProperty.Sql`.
+	Sql *string `json:"sql"`
 	// `CfnRule.RedshiftDataParametersProperty.StatementName`.
 	StatementName *string `json:"statementName"`
 	// `CfnRule.RedshiftDataParametersProperty.WithEvent`.
 	WithEvent interface{} `json:"withEvent"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRule_RetryPolicyProperty struct {
 	// `CfnRule.RetryPolicyProperty.MaximumEventAgeInSeconds`.
 	MaximumEventAgeInSeconds *float64 `json:"maximumEventAgeInSeconds"`
@@ -4716,11 +4787,15 @@ type CfnRule_RetryPolicyProperty struct {
 	MaximumRetryAttempts *float64 `json:"maximumRetryAttempts"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRule_RunCommandParametersProperty struct {
 	// `CfnRule.RunCommandParametersProperty.RunCommandTargets`.
 	RunCommandTargets interface{} `json:"runCommandTargets"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRule_RunCommandTargetProperty struct {
 	// `CfnRule.RunCommandTargetProperty.Key`.
 	Key *string `json:"key"`
@@ -4728,11 +4803,15 @@ type CfnRule_RunCommandTargetProperty struct {
 	Values *[]*string `json:"values"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRule_SqsParametersProperty struct {
 	// `CfnRule.SqsParametersProperty.MessageGroupId`.
 	MessageGroupId *string `json:"messageGroupId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRule_TagProperty struct {
 	// `CfnRule.TagProperty.Key`.
 	Key *string `json:"key"`
@@ -4740,11 +4819,11 @@ type CfnRule_TagProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRule_TargetProperty struct {
 	// `CfnRule.TargetProperty.Arn`.
 	Arn *string `json:"arn"`
-	// `CfnRule.TargetProperty.Id`.
-	Id *string `json:"id"`
 	// `CfnRule.TargetProperty.BatchParameters`.
 	BatchParameters interface{} `json:"batchParameters"`
 	// `CfnRule.TargetProperty.DeadLetterConfig`.
@@ -4753,6 +4832,8 @@ type CfnRule_TargetProperty struct {
 	EcsParameters interface{} `json:"ecsParameters"`
 	// `CfnRule.TargetProperty.HttpParameters`.
 	HttpParameters interface{} `json:"httpParameters"`
+	// `CfnRule.TargetProperty.Id`.
+	Id *string `json:"id"`
 	// `CfnRule.TargetProperty.Input`.
 	Input *string `json:"input"`
 	// `CfnRule.TargetProperty.InputPath`.
@@ -4774,6 +4855,9 @@ type CfnRule_TargetProperty struct {
 }
 
 // Properties for defining a `AWS::Events::Rule`.
+//
+// TODO: EXAMPLE
+//
 type CfnRuleProps struct {
 	// `AWS::Events::Rule.Description`.
 	Description *string `json:"description"`
@@ -5307,6 +5391,9 @@ func (e *jsiiProxy_EventBus) Validate() *[]*string {
 }
 
 // Interface with properties necessary to import a reusable EventBus.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EventBusAttributes struct {
 	// The ARN of this event bus resource.
@@ -6256,6 +6343,9 @@ type RuleProps struct {
 }
 
 // Properties for an event rule target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type RuleTargetConfig struct {
 	// The Amazon Resource Name (ARN) of the target.
@@ -6435,6 +6525,9 @@ func (r *jsiiProxy_RuleTargetInput) Bind(rule IRule) *RuleTargetInputProperties 
 }
 
 // The input properties for an event target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type RuleTargetInputProperties struct {
 	// Literal input to the target service (must be valid JSON).

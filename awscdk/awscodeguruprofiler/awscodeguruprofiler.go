@@ -11,6 +11,9 @@ import (
 )
 
 // A CloudFormation `AWS::CodeGuruProfiler::ProfilingGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnProfilingGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -678,23 +681,28 @@ func (c *jsiiProxy_CfnProfilingGroup) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnProfilingGroup_ChannelProperty struct {
-	// `CfnProfilingGroup.ChannelProperty.channelUri`.
-	ChannelUri *string `json:"channelUri"`
 	// `CfnProfilingGroup.ChannelProperty.channelId`.
 	ChannelId *string `json:"channelId"`
+	// `CfnProfilingGroup.ChannelProperty.channelUri`.
+	ChannelUri *string `json:"channelUri"`
 }
 
 // Properties for defining a `AWS::CodeGuruProfiler::ProfilingGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnProfilingGroupProps struct {
-	// `AWS::CodeGuruProfiler::ProfilingGroup.ProfilingGroupName`.
-	ProfilingGroupName *string `json:"profilingGroupName"`
 	// `AWS::CodeGuruProfiler::ProfilingGroup.AgentPermissions`.
 	AgentPermissions interface{} `json:"agentPermissions"`
 	// `AWS::CodeGuruProfiler::ProfilingGroup.AnomalyDetectionNotificationConfiguration`.
 	AnomalyDetectionNotificationConfiguration interface{} `json:"anomalyDetectionNotificationConfiguration"`
 	// `AWS::CodeGuruProfiler::ProfilingGroup.ComputePlatform`.
 	ComputePlatform *string `json:"computePlatform"`
+	// `AWS::CodeGuruProfiler::ProfilingGroup.ProfilingGroupName`.
+	ProfilingGroupName *string `json:"profilingGroupName"`
 	// `AWS::CodeGuruProfiler::ProfilingGroup.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
@@ -775,6 +783,9 @@ func (j *jsiiProxy_IProfilingGroup) ProfilingGroupName() *string {
 }
 
 // A new Profiling Group.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ProfilingGroup interface {
 	awscdk.Resource
@@ -1188,6 +1199,9 @@ func (p *jsiiProxy_ProfilingGroup) Validate() *[]*string {
 }
 
 // Properties for creating a new Profiling Group.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ProfilingGroupProps struct {
 	// The compute platform of the profiling group.

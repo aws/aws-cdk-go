@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::DLM::LifecyclePolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnLifecyclePolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -677,6 +680,8 @@ func (c *jsiiProxy_CfnLifecyclePolicy) ValidateProperties(_properties interface{
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnLifecyclePolicy_ActionProperty struct {
 	// `CfnLifecyclePolicy.ActionProperty.CrossRegionCopy`.
 	CrossRegionCopy interface{} `json:"crossRegionCopy"`
@@ -684,6 +689,8 @@ type CfnLifecyclePolicy_ActionProperty struct {
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLifecyclePolicy_CreateRuleProperty struct {
 	// `CfnLifecyclePolicy.CreateRuleProperty.CronExpression`.
 	CronExpression *string `json:"cronExpression"`
@@ -697,15 +704,19 @@ type CfnLifecyclePolicy_CreateRuleProperty struct {
 	Times *[]*string `json:"times"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLifecyclePolicy_CrossRegionCopyActionProperty struct {
 	// `CfnLifecyclePolicy.CrossRegionCopyActionProperty.EncryptionConfiguration`.
 	EncryptionConfiguration interface{} `json:"encryptionConfiguration"`
-	// `CfnLifecyclePolicy.CrossRegionCopyActionProperty.Target`.
-	Target *string `json:"target"`
 	// `CfnLifecyclePolicy.CrossRegionCopyActionProperty.RetainRule`.
 	RetainRule interface{} `json:"retainRule"`
+	// `CfnLifecyclePolicy.CrossRegionCopyActionProperty.Target`.
+	Target *string `json:"target"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLifecyclePolicy_CrossRegionCopyDeprecateRuleProperty struct {
 	// `CfnLifecyclePolicy.CrossRegionCopyDeprecateRuleProperty.Interval`.
 	Interval *float64 `json:"interval"`
@@ -713,6 +724,8 @@ type CfnLifecyclePolicy_CrossRegionCopyDeprecateRuleProperty struct {
 	IntervalUnit *string `json:"intervalUnit"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLifecyclePolicy_CrossRegionCopyRetainRuleProperty struct {
 	// `CfnLifecyclePolicy.CrossRegionCopyRetainRuleProperty.Interval`.
 	Interval *float64 `json:"interval"`
@@ -720,15 +733,17 @@ type CfnLifecyclePolicy_CrossRegionCopyRetainRuleProperty struct {
 	IntervalUnit *string `json:"intervalUnit"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLifecyclePolicy_CrossRegionCopyRuleProperty struct {
-	// `CfnLifecyclePolicy.CrossRegionCopyRuleProperty.Encrypted`.
-	Encrypted interface{} `json:"encrypted"`
 	// `CfnLifecyclePolicy.CrossRegionCopyRuleProperty.CmkArn`.
 	CmkArn *string `json:"cmkArn"`
 	// `CfnLifecyclePolicy.CrossRegionCopyRuleProperty.CopyTags`.
 	CopyTags interface{} `json:"copyTags"`
 	// `CfnLifecyclePolicy.CrossRegionCopyRuleProperty.DeprecateRule`.
 	DeprecateRule interface{} `json:"deprecateRule"`
+	// `CfnLifecyclePolicy.CrossRegionCopyRuleProperty.Encrypted`.
+	Encrypted interface{} `json:"encrypted"`
 	// `CfnLifecyclePolicy.CrossRegionCopyRuleProperty.RetainRule`.
 	RetainRule interface{} `json:"retainRule"`
 	// `CfnLifecyclePolicy.CrossRegionCopyRuleProperty.Target`.
@@ -737,6 +752,8 @@ type CfnLifecyclePolicy_CrossRegionCopyRuleProperty struct {
 	TargetRegion *string `json:"targetRegion"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLifecyclePolicy_DeprecateRuleProperty struct {
 	// `CfnLifecyclePolicy.DeprecateRuleProperty.Count`.
 	Count *float64 `json:"count"`
@@ -746,29 +763,37 @@ type CfnLifecyclePolicy_DeprecateRuleProperty struct {
 	IntervalUnit *string `json:"intervalUnit"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLifecyclePolicy_EncryptionConfigurationProperty struct {
-	// `CfnLifecyclePolicy.EncryptionConfigurationProperty.Encrypted`.
-	Encrypted interface{} `json:"encrypted"`
 	// `CfnLifecyclePolicy.EncryptionConfigurationProperty.CmkArn`.
 	CmkArn *string `json:"cmkArn"`
+	// `CfnLifecyclePolicy.EncryptionConfigurationProperty.Encrypted`.
+	Encrypted interface{} `json:"encrypted"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLifecyclePolicy_EventParametersProperty struct {
+	// `CfnLifecyclePolicy.EventParametersProperty.DescriptionRegex`.
+	DescriptionRegex *string `json:"descriptionRegex"`
 	// `CfnLifecyclePolicy.EventParametersProperty.EventType`.
 	EventType *string `json:"eventType"`
 	// `CfnLifecyclePolicy.EventParametersProperty.SnapshotOwner`.
 	SnapshotOwner *[]*string `json:"snapshotOwner"`
-	// `CfnLifecyclePolicy.EventParametersProperty.DescriptionRegex`.
-	DescriptionRegex *string `json:"descriptionRegex"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLifecyclePolicy_EventSourceProperty struct {
-	// `CfnLifecyclePolicy.EventSourceProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnLifecyclePolicy.EventSourceProperty.Parameters`.
 	Parameters interface{} `json:"parameters"`
+	// `CfnLifecyclePolicy.EventSourceProperty.Type`.
+	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLifecyclePolicy_FastRestoreRuleProperty struct {
 	// `CfnLifecyclePolicy.FastRestoreRuleProperty.AvailabilityZones`.
 	AvailabilityZones *[]*string `json:"availabilityZones"`
@@ -780,6 +805,8 @@ type CfnLifecyclePolicy_FastRestoreRuleProperty struct {
 	IntervalUnit *string `json:"intervalUnit"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLifecyclePolicy_ParametersProperty struct {
 	// `CfnLifecyclePolicy.ParametersProperty.ExcludeBootVolume`.
 	ExcludeBootVolume interface{} `json:"excludeBootVolume"`
@@ -787,6 +814,8 @@ type CfnLifecyclePolicy_ParametersProperty struct {
 	NoReboot interface{} `json:"noReboot"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLifecyclePolicy_PolicyDetailsProperty struct {
 	// `CfnLifecyclePolicy.PolicyDetailsProperty.Actions`.
 	Actions interface{} `json:"actions"`
@@ -806,6 +835,8 @@ type CfnLifecyclePolicy_PolicyDetailsProperty struct {
 	TargetTags interface{} `json:"targetTags"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLifecyclePolicy_RetainRuleProperty struct {
 	// `CfnLifecyclePolicy.RetainRuleProperty.Count`.
 	Count *float64 `json:"count"`
@@ -815,6 +846,8 @@ type CfnLifecyclePolicy_RetainRuleProperty struct {
 	IntervalUnit *string `json:"intervalUnit"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLifecyclePolicy_ScheduleProperty struct {
 	// `CfnLifecyclePolicy.ScheduleProperty.CopyTags`.
 	CopyTags interface{} `json:"copyTags"`
@@ -838,6 +871,8 @@ type CfnLifecyclePolicy_ScheduleProperty struct {
 	VariableTags interface{} `json:"variableTags"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLifecyclePolicy_ShareRuleProperty struct {
 	// `CfnLifecyclePolicy.ShareRuleProperty.TargetAccounts`.
 	TargetAccounts *[]*string `json:"targetAccounts"`
@@ -848,6 +883,9 @@ type CfnLifecyclePolicy_ShareRuleProperty struct {
 }
 
 // Properties for defining a `AWS::DLM::LifecyclePolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnLifecyclePolicyProps struct {
 	// `AWS::DLM::LifecyclePolicy.Description`.
 	Description *string `json:"description"`

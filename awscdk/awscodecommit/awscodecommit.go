@@ -13,6 +13,9 @@ import (
 )
 
 // A CloudFormation `AWS::CodeCommit::Repository`.
+//
+// TODO: EXAMPLE
+//
 type CfnRepository interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -713,26 +716,32 @@ func (c *jsiiProxy_CfnRepository) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnRepository_CodeProperty struct {
-	// `CfnRepository.CodeProperty.S3`.
-	S3 interface{} `json:"s3"`
 	// `CfnRepository.CodeProperty.BranchName`.
 	BranchName *string `json:"branchName"`
+	// `CfnRepository.CodeProperty.S3`.
+	S3 interface{} `json:"s3"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRepository_RepositoryTriggerProperty struct {
+	// `CfnRepository.RepositoryTriggerProperty.Branches`.
+	Branches *[]*string `json:"branches"`
+	// `CfnRepository.RepositoryTriggerProperty.CustomData`.
+	CustomData *string `json:"customData"`
 	// `CfnRepository.RepositoryTriggerProperty.DestinationArn`.
 	DestinationArn *string `json:"destinationArn"`
 	// `CfnRepository.RepositoryTriggerProperty.Events`.
 	Events *[]*string `json:"events"`
 	// `CfnRepository.RepositoryTriggerProperty.Name`.
 	Name *string `json:"name"`
-	// `CfnRepository.RepositoryTriggerProperty.Branches`.
-	Branches *[]*string `json:"branches"`
-	// `CfnRepository.RepositoryTriggerProperty.CustomData`.
-	CustomData *string `json:"customData"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRepository_S3Property struct {
 	// `CfnRepository.S3Property.Bucket`.
 	Bucket *string `json:"bucket"`
@@ -743,13 +752,16 @@ type CfnRepository_S3Property struct {
 }
 
 // Properties for defining a `AWS::CodeCommit::Repository`.
+//
+// TODO: EXAMPLE
+//
 type CfnRepositoryProps struct {
-	// `AWS::CodeCommit::Repository.RepositoryName`.
-	RepositoryName *string `json:"repositoryName"`
 	// `AWS::CodeCommit::Repository.Code`.
 	Code interface{} `json:"code"`
 	// `AWS::CodeCommit::Repository.RepositoryDescription`.
 	RepositoryDescription *string `json:"repositoryDescription"`
+	// `AWS::CodeCommit::Repository.RepositoryName`.
+	RepositoryName *string `json:"repositoryName"`
 	// `AWS::CodeCommit::Repository.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::CodeCommit::Repository.Triggers`.
@@ -2173,9 +2185,9 @@ type RepositoryEventTrigger string
 
 const (
 	RepositoryEventTrigger_ALL RepositoryEventTrigger = "ALL"
-	RepositoryEventTrigger_UPDATE_REF RepositoryEventTrigger = "UPDATE_REF"
 	RepositoryEventTrigger_CREATE_REF RepositoryEventTrigger = "CREATE_REF"
 	RepositoryEventTrigger_DELETE_REF RepositoryEventTrigger = "DELETE_REF"
+	RepositoryEventTrigger_UPDATE_REF RepositoryEventTrigger = "UPDATE_REF"
 )
 
 // List of event types for AWS CodeCommit.
@@ -2185,20 +2197,23 @@ const (
 type RepositoryNotificationEvents string
 
 const (
-	RepositoryNotificationEvents_COMMIT_COMMENT RepositoryNotificationEvents = "COMMIT_COMMENT"
-	RepositoryNotificationEvents_PULL_REQUEST_COMMENT RepositoryNotificationEvents = "PULL_REQUEST_COMMENT"
-	RepositoryNotificationEvents_APPROVAL_STATUS_CHANGED RepositoryNotificationEvents = "APPROVAL_STATUS_CHANGED"
 	RepositoryNotificationEvents_APPROVAL_RULE_OVERRIDDEN RepositoryNotificationEvents = "APPROVAL_RULE_OVERRIDDEN"
-	RepositoryNotificationEvents_PULL_REQUEST_CREATED RepositoryNotificationEvents = "PULL_REQUEST_CREATED"
-	RepositoryNotificationEvents_PULL_REQUEST_SOURCE_UPDATED RepositoryNotificationEvents = "PULL_REQUEST_SOURCE_UPDATED"
-	RepositoryNotificationEvents_PULL_REQUEST_STATUS_CHANGED RepositoryNotificationEvents = "PULL_REQUEST_STATUS_CHANGED"
-	RepositoryNotificationEvents_PULL_REQUEST_MERGED RepositoryNotificationEvents = "PULL_REQUEST_MERGED"
+	RepositoryNotificationEvents_APPROVAL_STATUS_CHANGED RepositoryNotificationEvents = "APPROVAL_STATUS_CHANGED"
 	RepositoryNotificationEvents_BRANCH_OR_TAG_CREATED RepositoryNotificationEvents = "BRANCH_OR_TAG_CREATED"
 	RepositoryNotificationEvents_BRANCH_OR_TAG_DELETED RepositoryNotificationEvents = "BRANCH_OR_TAG_DELETED"
 	RepositoryNotificationEvents_BRANCH_OR_TAG_UPDATED RepositoryNotificationEvents = "BRANCH_OR_TAG_UPDATED"
+	RepositoryNotificationEvents_COMMIT_COMMENT RepositoryNotificationEvents = "COMMIT_COMMENT"
+	RepositoryNotificationEvents_PULL_REQUEST_COMMENT RepositoryNotificationEvents = "PULL_REQUEST_COMMENT"
+	RepositoryNotificationEvents_PULL_REQUEST_CREATED RepositoryNotificationEvents = "PULL_REQUEST_CREATED"
+	RepositoryNotificationEvents_PULL_REQUEST_MERGED RepositoryNotificationEvents = "PULL_REQUEST_MERGED"
+	RepositoryNotificationEvents_PULL_REQUEST_SOURCE_UPDATED RepositoryNotificationEvents = "PULL_REQUEST_SOURCE_UPDATED"
+	RepositoryNotificationEvents_PULL_REQUEST_STATUS_CHANGED RepositoryNotificationEvents = "PULL_REQUEST_STATUS_CHANGED"
 )
 
 // Additional options to pass to the notification rule.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type RepositoryNotifyOnOptions struct {
 	// The level of detail to include in the notifications for this resource.
@@ -2244,6 +2259,9 @@ type RepositoryProps struct {
 }
 
 // Creates for a repository trigger to an SNS topic or Lambda function.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type RepositoryTriggerOptions struct {
 	// The names of the branches in the AWS CodeCommit repository that contain events that you want to include in the trigger.

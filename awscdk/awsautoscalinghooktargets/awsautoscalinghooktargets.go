@@ -16,6 +16,9 @@ import (
 // Use a Lambda Function as a hook target.
 //
 // Internally creates a Topic to make the connection.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FunctionHook interface {
 	awsautoscaling.ILifecycleHookTarget
@@ -69,6 +72,9 @@ func (f *jsiiProxy_FunctionHook) Bind(scope awscdk.Construct, lifecycleHook awsa
 }
 
 // Use an SQS queue as a hook target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type QueueHook interface {
 	awsautoscaling.ILifecycleHookTarget
@@ -122,6 +128,9 @@ func (q *jsiiProxy_QueueHook) Bind(_scope awscdk.Construct, lifecycleHook awsaut
 }
 
 // Use an SNS topic as a hook target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type TopicHook interface {
 	awsautoscaling.ILifecycleHookTarget

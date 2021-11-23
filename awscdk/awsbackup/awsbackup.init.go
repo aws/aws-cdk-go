@@ -511,8 +511,8 @@ func init() {
 		"monocdk.aws_backup.TagOperation",
 		reflect.TypeOf((*TagOperation)(nil)).Elem(),
 		map[string]interface{}{
-			"STRING_EQUALS": TagOperation_STRING_EQUALS,
 			"DUMMY": TagOperation_DUMMY,
+			"STRING_EQUALS": TagOperation_STRING_EQUALS,
 		},
 	)
 }

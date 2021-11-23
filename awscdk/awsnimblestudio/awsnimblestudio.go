@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::NimbleStudio::LaunchProfile`.
+//
+// TODO: EXAMPLE
+//
 type CfnLaunchProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -737,19 +740,26 @@ func (c *jsiiProxy_CfnLaunchProfile) ValidateProperties(_properties interface{})
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchProfile_StreamConfigurationProperty struct {
 	// `CfnLaunchProfile.StreamConfigurationProperty.ClipboardMode`.
 	ClipboardMode *string `json:"clipboardMode"`
 	// `CfnLaunchProfile.StreamConfigurationProperty.Ec2InstanceTypes`.
 	Ec2InstanceTypes *[]*string `json:"ec2InstanceTypes"`
-	// `CfnLaunchProfile.StreamConfigurationProperty.StreamingImageIds`.
-	StreamingImageIds *[]*string `json:"streamingImageIds"`
 	// `CfnLaunchProfile.StreamConfigurationProperty.MaxSessionLengthInMinutes`.
 	MaxSessionLengthInMinutes *float64 `json:"maxSessionLengthInMinutes"`
+	// `CfnLaunchProfile.StreamConfigurationProperty.StreamingImageIds`.
+	StreamingImageIds *[]*string `json:"streamingImageIds"`
 }
 
 // Properties for defining a `AWS::NimbleStudio::LaunchProfile`.
+//
+// TODO: EXAMPLE
+//
 type CfnLaunchProfileProps struct {
+	// `AWS::NimbleStudio::LaunchProfile.Description`.
+	Description *string `json:"description"`
 	// `AWS::NimbleStudio::LaunchProfile.Ec2SubnetIds`.
 	Ec2SubnetIds *[]*string `json:"ec2SubnetIds"`
 	// `AWS::NimbleStudio::LaunchProfile.LaunchProfileProtocolVersions`.
@@ -762,13 +772,14 @@ type CfnLaunchProfileProps struct {
 	StudioComponentIds *[]*string `json:"studioComponentIds"`
 	// `AWS::NimbleStudio::LaunchProfile.StudioId`.
 	StudioId *string `json:"studioId"`
-	// `AWS::NimbleStudio::LaunchProfile.Description`.
-	Description *string `json:"description"`
 	// `AWS::NimbleStudio::LaunchProfile.Tags`.
 	Tags *map[string]*string `json:"tags"`
 }
 
 // A CloudFormation `AWS::NimbleStudio::StreamingImage`.
+//
+// TODO: EXAMPLE
+//
 type CfnStreamingImage interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1470,20 +1481,26 @@ func (c *jsiiProxy_CfnStreamingImage) ValidateProperties(_properties interface{}
 }
 
 // Properties for defining a `AWS::NimbleStudio::StreamingImage`.
+//
+// TODO: EXAMPLE
+//
 type CfnStreamingImageProps struct {
+	// `AWS::NimbleStudio::StreamingImage.Description`.
+	Description *string `json:"description"`
 	// `AWS::NimbleStudio::StreamingImage.Ec2ImageId`.
 	Ec2ImageId *string `json:"ec2ImageId"`
 	// `AWS::NimbleStudio::StreamingImage.Name`.
 	Name *string `json:"name"`
 	// `AWS::NimbleStudio::StreamingImage.StudioId`.
 	StudioId *string `json:"studioId"`
-	// `AWS::NimbleStudio::StreamingImage.Description`.
-	Description *string `json:"description"`
 	// `AWS::NimbleStudio::StreamingImage.Tags`.
 	Tags *map[string]*string `json:"tags"`
 }
 
 // A CloudFormation `AWS::NimbleStudio::Studio`.
+//
+// TODO: EXAMPLE
+//
 type CfnStudio interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2204,14 +2221,19 @@ func (c *jsiiProxy_CfnStudio) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnStudio_StudioEncryptionConfigurationProperty struct {
-	// `CfnStudio.StudioEncryptionConfigurationProperty.KeyType`.
-	KeyType *string `json:"keyType"`
 	// `CfnStudio.StudioEncryptionConfigurationProperty.KeyArn`.
 	KeyArn *string `json:"keyArn"`
+	// `CfnStudio.StudioEncryptionConfigurationProperty.KeyType`.
+	KeyType *string `json:"keyType"`
 }
 
 // A CloudFormation `AWS::NimbleStudio::StudioComponent`.
+//
+// TODO: EXAMPLE
+//
 type CfnStudioComponent interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2979,6 +3001,8 @@ func (c *jsiiProxy_CfnStudioComponent) ValidateProperties(_properties interface{
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnStudioComponent_ActiveDirectoryComputerAttributeProperty struct {
 	// `CfnStudioComponent.ActiveDirectoryComputerAttributeProperty.Name`.
 	Name *string `json:"name"`
@@ -2986,6 +3010,8 @@ type CfnStudioComponent_ActiveDirectoryComputerAttributeProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStudioComponent_ActiveDirectoryConfigurationProperty struct {
 	// `CfnStudioComponent.ActiveDirectoryConfigurationProperty.ComputerAttributes`.
 	ComputerAttributes interface{} `json:"computerAttributes"`
@@ -2995,6 +3021,8 @@ type CfnStudioComponent_ActiveDirectoryConfigurationProperty struct {
 	OrganizationalUnitDistinguishedName *string `json:"organizationalUnitDistinguishedName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStudioComponent_ComputeFarmConfigurationProperty struct {
 	// `CfnStudioComponent.ComputeFarmConfigurationProperty.ActiveDirectoryUser`.
 	ActiveDirectoryUser *string `json:"activeDirectoryUser"`
@@ -3002,11 +3030,15 @@ type CfnStudioComponent_ComputeFarmConfigurationProperty struct {
 	Endpoint *string `json:"endpoint"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStudioComponent_LicenseServiceConfigurationProperty struct {
 	// `CfnStudioComponent.LicenseServiceConfigurationProperty.Endpoint`.
 	Endpoint *string `json:"endpoint"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStudioComponent_ScriptParameterKeyValueProperty struct {
 	// `CfnStudioComponent.ScriptParameterKeyValueProperty.Key`.
 	Key *string `json:"key"`
@@ -3014,6 +3046,8 @@ type CfnStudioComponent_ScriptParameterKeyValueProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStudioComponent_SharedFileSystemConfigurationProperty struct {
 	// `CfnStudioComponent.SharedFileSystemConfigurationProperty.Endpoint`.
 	Endpoint *string `json:"endpoint"`
@@ -3027,6 +3061,8 @@ type CfnStudioComponent_SharedFileSystemConfigurationProperty struct {
 	WindowsMountDrive *string `json:"windowsMountDrive"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStudioComponent_StudioComponentConfigurationProperty struct {
 	// `CfnStudioComponent.StudioComponentConfigurationProperty.ActiveDirectoryConfiguration`.
 	ActiveDirectoryConfiguration interface{} `json:"activeDirectoryConfiguration"`
@@ -3038,6 +3074,8 @@ type CfnStudioComponent_StudioComponentConfigurationProperty struct {
 	SharedFileSystemConfiguration interface{} `json:"sharedFileSystemConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStudioComponent_StudioComponentInitializationScriptProperty struct {
 	// `CfnStudioComponent.StudioComponentInitializationScriptProperty.LaunchProfileProtocolVersion`.
 	LaunchProfileProtocolVersion *string `json:"launchProfileProtocolVersion"`
@@ -3050,13 +3088,10 @@ type CfnStudioComponent_StudioComponentInitializationScriptProperty struct {
 }
 
 // Properties for defining a `AWS::NimbleStudio::StudioComponent`.
+//
+// TODO: EXAMPLE
+//
 type CfnStudioComponentProps struct {
-	// `AWS::NimbleStudio::StudioComponent.Name`.
-	Name *string `json:"name"`
-	// `AWS::NimbleStudio::StudioComponent.StudioId`.
-	StudioId *string `json:"studioId"`
-	// `AWS::NimbleStudio::StudioComponent.Type`.
-	Type *string `json:"type"`
 	// `AWS::NimbleStudio::StudioComponent.Configuration`.
 	Configuration interface{} `json:"configuration"`
 	// `AWS::NimbleStudio::StudioComponent.Description`.
@@ -3065,27 +3100,36 @@ type CfnStudioComponentProps struct {
 	Ec2SecurityGroupIds *[]*string `json:"ec2SecurityGroupIds"`
 	// `AWS::NimbleStudio::StudioComponent.InitializationScripts`.
 	InitializationScripts interface{} `json:"initializationScripts"`
+	// `AWS::NimbleStudio::StudioComponent.Name`.
+	Name *string `json:"name"`
 	// `AWS::NimbleStudio::StudioComponent.ScriptParameters`.
 	ScriptParameters interface{} `json:"scriptParameters"`
+	// `AWS::NimbleStudio::StudioComponent.StudioId`.
+	StudioId *string `json:"studioId"`
 	// `AWS::NimbleStudio::StudioComponent.Subtype`.
 	Subtype *string `json:"subtype"`
 	// `AWS::NimbleStudio::StudioComponent.Tags`.
 	Tags *map[string]*string `json:"tags"`
+	// `AWS::NimbleStudio::StudioComponent.Type`.
+	Type *string `json:"type"`
 }
 
 // Properties for defining a `AWS::NimbleStudio::Studio`.
+//
+// TODO: EXAMPLE
+//
 type CfnStudioProps struct {
 	// `AWS::NimbleStudio::Studio.AdminRoleArn`.
 	AdminRoleArn *string `json:"adminRoleArn"`
 	// `AWS::NimbleStudio::Studio.DisplayName`.
 	DisplayName *string `json:"displayName"`
-	// `AWS::NimbleStudio::Studio.StudioName`.
-	StudioName *string `json:"studioName"`
-	// `AWS::NimbleStudio::Studio.UserRoleArn`.
-	UserRoleArn *string `json:"userRoleArn"`
 	// `AWS::NimbleStudio::Studio.StudioEncryptionConfiguration`.
 	StudioEncryptionConfiguration interface{} `json:"studioEncryptionConfiguration"`
+	// `AWS::NimbleStudio::Studio.StudioName`.
+	StudioName *string `json:"studioName"`
 	// `AWS::NimbleStudio::Studio.Tags`.
 	Tags *map[string]*string `json:"tags"`
+	// `AWS::NimbleStudio::Studio.UserRoleArn`.
+	UserRoleArn *string `json:"userRoleArn"`
 }
 

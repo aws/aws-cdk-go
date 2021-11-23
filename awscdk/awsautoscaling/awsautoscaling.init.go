@@ -16,8 +16,8 @@ func init() {
 		reflect.TypeOf((*AdjustmentType)(nil)).Elem(),
 		map[string]interface{}{
 			"CHANGE_IN_CAPACITY": AdjustmentType_CHANGE_IN_CAPACITY,
-			"PERCENT_CHANGE_IN_CAPACITY": AdjustmentType_PERCENT_CHANGE_IN_CAPACITY,
 			"EXACT_CAPACITY": AdjustmentType_EXACT_CAPACITY,
+			"PERCENT_CHANGE_IN_CAPACITY": AdjustmentType_PERCENT_CHANGE_IN_CAPACITY,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -628,8 +628,8 @@ func init() {
 		"monocdk.aws_autoscaling.DefaultResult",
 		reflect.TypeOf((*DefaultResult)(nil)).Elem(),
 		map[string]interface{}{
-			"CONTINUE": DefaultResult_CONTINUE,
 			"ABANDON": DefaultResult_ABANDON,
+			"CONTINUE": DefaultResult_CONTINUE,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -652,12 +652,12 @@ func init() {
 		"monocdk.aws_autoscaling.EbsDeviceVolumeType",
 		reflect.TypeOf((*EbsDeviceVolumeType)(nil)).Elem(),
 		map[string]interface{}{
-			"STANDARD": EbsDeviceVolumeType_STANDARD,
-			"IO1": EbsDeviceVolumeType_IO1,
 			"GP2": EbsDeviceVolumeType_GP2,
 			"GP3": EbsDeviceVolumeType_GP3,
-			"ST1": EbsDeviceVolumeType_ST1,
+			"IO1": EbsDeviceVolumeType_IO1,
 			"SC1": EbsDeviceVolumeType_SC1,
+			"ST1": EbsDeviceVolumeType_ST1,
+			"STANDARD": EbsDeviceVolumeType_STANDARD,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -799,8 +799,8 @@ func init() {
 		reflect.TypeOf((*MetricAggregationType)(nil)).Elem(),
 		map[string]interface{}{
 			"AVERAGE": MetricAggregationType_AVERAGE,
-			"MINIMUM": MetricAggregationType_MINIMUM,
 			"MAXIMUM": MetricAggregationType_MAXIMUM,
+			"MINIMUM": MetricAggregationType_MINIMUM,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -827,10 +827,10 @@ func init() {
 		"monocdk.aws_autoscaling.PredefinedMetric",
 		reflect.TypeOf((*PredefinedMetric)(nil)).Elem(),
 		map[string]interface{}{
+			"ALB_REQUEST_COUNT_PER_TARGET": PredefinedMetric_ALB_REQUEST_COUNT_PER_TARGET,
 			"ASG_AVERAGE_CPU_UTILIZATION": PredefinedMetric_ASG_AVERAGE_CPU_UTILIZATION,
 			"ASG_AVERAGE_NETWORK_IN": PredefinedMetric_ASG_AVERAGE_NETWORK_IN,
 			"ASG_AVERAGE_NETWORK_OUT": PredefinedMetric_ASG_AVERAGE_NETWORK_OUT,
-			"ALB_REQUEST_COUNT_PER_TARGET": PredefinedMetric_ALB_REQUEST_COUNT_PER_TARGET,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -854,9 +854,9 @@ func init() {
 		reflect.TypeOf((*ScalingEvent)(nil)).Elem(),
 		map[string]interface{}{
 			"INSTANCE_LAUNCH": ScalingEvent_INSTANCE_LAUNCH,
+			"INSTANCE_LAUNCH_ERROR": ScalingEvent_INSTANCE_LAUNCH_ERROR,
 			"INSTANCE_TERMINATE": ScalingEvent_INSTANCE_TERMINATE,
 			"INSTANCE_TERMINATE_ERROR": ScalingEvent_INSTANCE_TERMINATE_ERROR,
-			"INSTANCE_LAUNCH_ERROR": ScalingEvent_INSTANCE_LAUNCH_ERROR,
 			"TEST_NOTIFICATION": ScalingEvent_TEST_NOTIFICATION,
 		},
 	)
@@ -876,14 +876,14 @@ func init() {
 		"monocdk.aws_autoscaling.ScalingProcess",
 		reflect.TypeOf((*ScalingProcess)(nil)).Elem(),
 		map[string]interface{}{
-			"LAUNCH": ScalingProcess_LAUNCH,
-			"TERMINATE": ScalingProcess_TERMINATE,
-			"HEALTH_CHECK": ScalingProcess_HEALTH_CHECK,
-			"REPLACE_UNHEALTHY": ScalingProcess_REPLACE_UNHEALTHY,
-			"AZ_REBALANCE": ScalingProcess_AZ_REBALANCE,
-			"ALARM_NOTIFICATION": ScalingProcess_ALARM_NOTIFICATION,
-			"SCHEDULED_ACTIONS": ScalingProcess_SCHEDULED_ACTIONS,
 			"ADD_TO_LOAD_BALANCER": ScalingProcess_ADD_TO_LOAD_BALANCER,
+			"ALARM_NOTIFICATION": ScalingProcess_ALARM_NOTIFICATION,
+			"AZ_REBALANCE": ScalingProcess_AZ_REBALANCE,
+			"HEALTH_CHECK": ScalingProcess_HEALTH_CHECK,
+			"LAUNCH": ScalingProcess_LAUNCH,
+			"REPLACE_UNHEALTHY": ScalingProcess_REPLACE_UNHEALTHY,
+			"SCHEDULED_ACTIONS": ScalingProcess_SCHEDULED_ACTIONS,
+			"TERMINATE": ScalingProcess_TERMINATE,
 		},
 	)
 	_jsii_.RegisterClass(

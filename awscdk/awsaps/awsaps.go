@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::APS::RuleGroupsNamespace`.
+//
+// TODO: EXAMPLE
+//
 type CfnRuleGroupsNamespace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -658,18 +661,24 @@ func (c *jsiiProxy_CfnRuleGroupsNamespace) ValidateProperties(_properties interf
 }
 
 // Properties for defining a `AWS::APS::RuleGroupsNamespace`.
+//
+// TODO: EXAMPLE
+//
 type CfnRuleGroupsNamespaceProps struct {
 	// `AWS::APS::RuleGroupsNamespace.Data`.
 	Data *string `json:"data"`
 	// `AWS::APS::RuleGroupsNamespace.Name`.
 	Name *string `json:"name"`
-	// `AWS::APS::RuleGroupsNamespace.Workspace`.
-	Workspace *string `json:"workspace"`
 	// `AWS::APS::RuleGroupsNamespace.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::APS::RuleGroupsNamespace.Workspace`.
+	Workspace *string `json:"workspace"`
 }
 
 // A CloudFormation `AWS::APS::Workspace`.
+//
+// TODO: EXAMPLE
+//
 type CfnWorkspace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1320,6 +1329,9 @@ func (c *jsiiProxy_CfnWorkspace) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::APS::Workspace`.
+//
+// TODO: EXAMPLE
+//
 type CfnWorkspaceProps struct {
 	// `AWS::APS::Workspace.AlertManagerDefinition`.
 	AlertManagerDefinition *string `json:"alertManagerDefinition"`

@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::SSO::Assignment`.
+//
+// TODO: EXAMPLE
+//
 type CfnAssignment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -696,6 +699,9 @@ func (c *jsiiProxy_CfnAssignment) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::SSO::Assignment`.
+//
+// TODO: EXAMPLE
+//
 type CfnAssignmentProps struct {
 	// `AWS::SSO::Assignment.InstanceArn`.
 	InstanceArn *string `json:"instanceArn"`
@@ -712,6 +718,9 @@ type CfnAssignmentProps struct {
 }
 
 // A CloudFormation `AWS::SSO::InstanceAccessControlAttributeConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnInstanceAccessControlAttributeConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1317,6 +1326,8 @@ func (c *jsiiProxy_CfnInstanceAccessControlAttributeConfiguration) ValidatePrope
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstanceAccessControlAttributeConfiguration_AccessControlAttributeProperty struct {
 	// `CfnInstanceAccessControlAttributeConfiguration.AccessControlAttributeProperty.Key`.
 	Key *string `json:"key"`
@@ -1324,20 +1335,28 @@ type CfnInstanceAccessControlAttributeConfiguration_AccessControlAttributeProper
 	Value interface{} `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstanceAccessControlAttributeConfiguration_AccessControlAttributeValueProperty struct {
 	// `CfnInstanceAccessControlAttributeConfiguration.AccessControlAttributeValueProperty.Source`.
 	Source *[]*string `json:"source"`
 }
 
 // Properties for defining a `AWS::SSO::InstanceAccessControlAttributeConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnInstanceAccessControlAttributeConfigurationProps struct {
-	// `AWS::SSO::InstanceAccessControlAttributeConfiguration.InstanceArn`.
-	InstanceArn *string `json:"instanceArn"`
 	// `AWS::SSO::InstanceAccessControlAttributeConfiguration.AccessControlAttributes`.
 	AccessControlAttributes interface{} `json:"accessControlAttributes"`
+	// `AWS::SSO::InstanceAccessControlAttributeConfiguration.InstanceArn`.
+	InstanceArn *string `json:"instanceArn"`
 }
 
 // A CloudFormation `AWS::SSO::PermissionSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnPermissionSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2066,17 +2085,20 @@ func (c *jsiiProxy_CfnPermissionSet) ValidateProperties(_properties interface{})
 }
 
 // Properties for defining a `AWS::SSO::PermissionSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnPermissionSetProps struct {
-	// `AWS::SSO::PermissionSet.InstanceArn`.
-	InstanceArn *string `json:"instanceArn"`
-	// `AWS::SSO::PermissionSet.Name`.
-	Name *string `json:"name"`
 	// `AWS::SSO::PermissionSet.Description`.
 	Description *string `json:"description"`
 	// `AWS::SSO::PermissionSet.InlinePolicy`.
 	InlinePolicy interface{} `json:"inlinePolicy"`
+	// `AWS::SSO::PermissionSet.InstanceArn`.
+	InstanceArn *string `json:"instanceArn"`
 	// `AWS::SSO::PermissionSet.ManagedPolicies`.
 	ManagedPolicies *[]*string `json:"managedPolicies"`
+	// `AWS::SSO::PermissionSet.Name`.
+	Name *string `json:"name"`
 	// `AWS::SSO::PermissionSet.RelayStateType`.
 	RelayStateType *string `json:"relayStateType"`
 	// `AWS::SSO::PermissionSet.SessionDuration`.

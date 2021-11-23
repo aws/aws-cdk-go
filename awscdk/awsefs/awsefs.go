@@ -440,6 +440,9 @@ type AccessPointOptions struct {
 }
 
 // Properties for the AccessPoint.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AccessPointProps struct {
 	// Specifies the POSIX IDs and permissions to apply when creating the access point's root directory.
@@ -486,6 +489,9 @@ type Acl struct {
 }
 
 // A CloudFormation `AWS::EFS::AccessPoint`.
+//
+// TODO: EXAMPLE
+//
 type CfnAccessPoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1173,6 +1179,8 @@ func (c *jsiiProxy_CfnAccessPoint) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnAccessPoint_AccessPointTagProperty struct {
 	// `CfnAccessPoint.AccessPointTagProperty.Key`.
 	Key *string `json:"key"`
@@ -1180,6 +1188,8 @@ type CfnAccessPoint_AccessPointTagProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAccessPoint_CreationInfoProperty struct {
 	// `CfnAccessPoint.CreationInfoProperty.OwnerGid`.
 	OwnerGid *string `json:"ownerGid"`
@@ -1189,15 +1199,19 @@ type CfnAccessPoint_CreationInfoProperty struct {
 	Permissions *string `json:"permissions"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAccessPoint_PosixUserProperty struct {
 	// `CfnAccessPoint.PosixUserProperty.Gid`.
 	Gid *string `json:"gid"`
-	// `CfnAccessPoint.PosixUserProperty.Uid`.
-	Uid *string `json:"uid"`
 	// `CfnAccessPoint.PosixUserProperty.SecondaryGids`.
 	SecondaryGids *[]*string `json:"secondaryGids"`
+	// `CfnAccessPoint.PosixUserProperty.Uid`.
+	Uid *string `json:"uid"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAccessPoint_RootDirectoryProperty struct {
 	// `CfnAccessPoint.RootDirectoryProperty.CreationInfo`.
 	CreationInfo interface{} `json:"creationInfo"`
@@ -1206,13 +1220,16 @@ type CfnAccessPoint_RootDirectoryProperty struct {
 }
 
 // Properties for defining a `AWS::EFS::AccessPoint`.
+//
+// TODO: EXAMPLE
+//
 type CfnAccessPointProps struct {
-	// `AWS::EFS::AccessPoint.FileSystemId`.
-	FileSystemId *string `json:"fileSystemId"`
 	// `AWS::EFS::AccessPoint.AccessPointTags`.
 	AccessPointTags interface{} `json:"accessPointTags"`
 	// `AWS::EFS::AccessPoint.ClientToken`.
 	ClientToken *string `json:"clientToken"`
+	// `AWS::EFS::AccessPoint.FileSystemId`.
+	FileSystemId *string `json:"fileSystemId"`
 	// `AWS::EFS::AccessPoint.PosixUser`.
 	PosixUser interface{} `json:"posixUser"`
 	// `AWS::EFS::AccessPoint.RootDirectory`.
@@ -1220,6 +1237,9 @@ type CfnAccessPointProps struct {
 }
 
 // A CloudFormation `AWS::EFS::FileSystem`.
+//
+// TODO: EXAMPLE
+//
 type CfnFileSystem interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2018,11 +2038,15 @@ func (c *jsiiProxy_CfnFileSystem) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFileSystem_BackupPolicyProperty struct {
 	// `CfnFileSystem.BackupPolicyProperty.Status`.
 	Status *string `json:"status"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFileSystem_ElasticFileSystemTagProperty struct {
 	// `CfnFileSystem.ElasticFileSystemTagProperty.Key`.
 	Key *string `json:"key"`
@@ -2030,6 +2054,8 @@ type CfnFileSystem_ElasticFileSystemTagProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFileSystem_LifecyclePolicyProperty struct {
 	// `CfnFileSystem.LifecyclePolicyProperty.TransitionToIA`.
 	TransitionToIa *string `json:"transitionToIa"`
@@ -2038,6 +2064,9 @@ type CfnFileSystem_LifecyclePolicyProperty struct {
 }
 
 // Properties for defining a `AWS::EFS::FileSystem`.
+//
+// TODO: EXAMPLE
+//
 type CfnFileSystemProps struct {
 	// `AWS::EFS::FileSystem.AvailabilityZoneName`.
 	AvailabilityZoneName *string `json:"availabilityZoneName"`
@@ -2064,6 +2093,9 @@ type CfnFileSystemProps struct {
 }
 
 // A CloudFormation `AWS::EFS::MountTarget`.
+//
+// TODO: EXAMPLE
+//
 type CfnMountTarget interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2732,15 +2764,18 @@ func (c *jsiiProxy_CfnMountTarget) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::EFS::MountTarget`.
+//
+// TODO: EXAMPLE
+//
 type CfnMountTargetProps struct {
 	// `AWS::EFS::MountTarget.FileSystemId`.
 	FileSystemId *string `json:"fileSystemId"`
+	// `AWS::EFS::MountTarget.IpAddress`.
+	IpAddress *string `json:"ipAddress"`
 	// `AWS::EFS::MountTarget.SecurityGroups`.
 	SecurityGroups *[]*string `json:"securityGroups"`
 	// `AWS::EFS::MountTarget.SubnetId`.
 	SubnetId *string `json:"subnetId"`
-	// `AWS::EFS::MountTarget.IpAddress`.
-	IpAddress *string `json:"ipAddress"`
 }
 
 // The Elastic File System implementation of IFileSystem.
@@ -3450,12 +3485,12 @@ type PosixUser struct {
 	// The POSIX group ID used for all file system operations using this access point.
 	// Experimental.
 	Gid *string `json:"gid"`
-	// The POSIX user ID used for all file system operations using this access point.
-	// Experimental.
-	Uid *string `json:"uid"`
 	// Secondary POSIX group IDs used for all file system operations using this access point.
 	// Experimental.
 	SecondaryGids *[]*string `json:"secondaryGids"`
+	// The POSIX user ID used for all file system operations using this access point.
+	// Experimental.
+	Uid *string `json:"uid"`
 }
 
 // EFS Throughput mode.

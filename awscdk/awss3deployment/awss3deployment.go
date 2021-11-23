@@ -17,6 +17,9 @@ import (
 )
 
 // `BucketDeployment` populates an S3 bucket with the contents of .zip files from other S3 buckets or from local disk.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BucketDeployment interface {
 	awscdk.Construct
@@ -205,14 +208,11 @@ func (b *jsiiProxy_BucketDeployment) Validate() *[]*string {
 }
 
 // Properties for `BucketDeployment`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BucketDeploymentProps struct {
-	// The S3 bucket to sync the contents of the zip file to.
-	// Experimental.
-	DestinationBucket awss3.IBucket `json:"destinationBucket"`
-	// The sources from which to deploy the contents of this bucket.
-	// Experimental.
-	Sources *[]ISource `json:"sources"`
 	// System-defined x-amz-acl metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl
 	//
@@ -243,6 +243,9 @@ type BucketDeploymentProps struct {
 	//
 	// Experimental.
 	ContentType *string `json:"contentType"`
+	// The S3 bucket to sync the contents of the zip file to.
+	// Experimental.
+	DestinationBucket awss3.IBucket `json:"destinationBucket"`
 	// Key prefix in the destination bucket.
 	// Experimental.
 	DestinationKeyPrefix *string `json:"destinationKeyPrefix"`
@@ -323,6 +326,9 @@ type BucketDeploymentProps struct {
 	//
 	// Experimental.
 	ServerSideEncryptionCustomerAlgorithm *string `json:"serverSideEncryptionCustomerAlgorithm"`
+	// The sources from which to deploy the contents of this bucket.
+	// Experimental.
+	Sources *[]ISource `json:"sources"`
 	// System-defined x-amz-storage-class metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 	//
@@ -352,6 +358,9 @@ type BucketDeploymentProps struct {
 }
 
 // Used for HTTP cache-control header, which influences downstream caches.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 //
 // Experimental.
@@ -529,6 +538,9 @@ func CacheControl_SMaxAge(t awscdk.Duration) CacheControl {
 }
 
 // Bind context for ISources.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DeploymentSourceContext struct {
 	// The role for the handler.
@@ -539,6 +551,9 @@ type DeploymentSourceContext struct {
 // Used for HTTP expires header, which influences downstream caches.
 //
 // Does NOT influence deletion of the object.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 //
 // Deprecated: use core.Expiration
@@ -723,6 +738,9 @@ func Source_Bucket(bucket awss3.IBucket, zipObjectKey *string) ISource {
 }
 
 // Source information.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SourceConfig struct {
 	// The source bucket to deploy from.
@@ -740,16 +758,19 @@ type SourceConfig struct {
 type StorageClass string
 
 const (
-	StorageClass_STANDARD StorageClass = "STANDARD"
-	StorageClass_REDUCED_REDUNDANCY StorageClass = "REDUCED_REDUNDANCY"
-	StorageClass_STANDARD_IA StorageClass = "STANDARD_IA"
-	StorageClass_ONEZONE_IA StorageClass = "ONEZONE_IA"
-	StorageClass_INTELLIGENT_TIERING StorageClass = "INTELLIGENT_TIERING"
-	StorageClass_GLACIER StorageClass = "GLACIER"
 	StorageClass_DEEP_ARCHIVE StorageClass = "DEEP_ARCHIVE"
+	StorageClass_GLACIER StorageClass = "GLACIER"
+	StorageClass_INTELLIGENT_TIERING StorageClass = "INTELLIGENT_TIERING"
+	StorageClass_ONEZONE_IA StorageClass = "ONEZONE_IA"
+	StorageClass_REDUCED_REDUNDANCY StorageClass = "REDUCED_REDUNDANCY"
+	StorageClass_STANDARD StorageClass = "STANDARD"
+	StorageClass_STANDARD_IA StorageClass = "STANDARD_IA"
 )
 
 // Custom user defined metadata.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type UserDefinedObjectMetadata struct {
 }

@@ -102,6 +102,9 @@ func (a *jsiiProxy_Artifacts) Bind(_scope awscdk.Construct, _project IProject) *
 }
 
 // The type returned from {@link IArtifacts#bind}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ArtifactsConfig struct {
 	// The low-level CloudFormation artifacts property.
@@ -110,6 +113,9 @@ type ArtifactsConfig struct {
 }
 
 // Properties common to all Artifacts classes.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ArtifactsProps struct {
 	// The artifact identifier.
@@ -120,6 +126,9 @@ type ArtifactsProps struct {
 }
 
 // The type returned from {@link IProject#enableBatchBuilds}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BatchBuildConfig struct {
 	// The IAM batch service Role of this Project.
@@ -128,6 +137,9 @@ type BatchBuildConfig struct {
 }
 
 // The extra options passed to the {@link IProject.bindToCodePipeline} method.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BindToCodePipelineOptions struct {
 	// The artifact bucket that will be used by the action that invokes this project.
@@ -527,6 +539,8 @@ type BitBucketSourceProps struct {
 	WebhookTriggersBatchBuild *bool `json:"webhookTriggersBatchBuild"`
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type BucketCacheOptions struct {
 	// The prefix to use to store the cache in the bucket.
@@ -582,6 +596,9 @@ type BuildEnvironmentCertificate struct {
 //
 // Experimental.
 type BuildEnvironmentVariable struct {
+	// The type of environment variable.
+	// Experimental.
+	Type BuildEnvironmentVariableType `json:"type"`
 	// The value of the environment variable.
 	//
 	// For plain-text variables (the default), this is the literal value of variable.
@@ -592,9 +609,6 @@ type BuildEnvironmentVariable struct {
 	// (see https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec.env.secrets-manager for details).
 	// Experimental.
 	Value interface{} `json:"value"`
-	// The type of environment variable.
-	// Experimental.
-	Type BuildEnvironmentVariableType `json:"type"`
 }
 
 // TODO: EXAMPLE
@@ -603,17 +617,23 @@ type BuildEnvironmentVariable struct {
 type BuildEnvironmentVariableType string
 
 const (
-	BuildEnvironmentVariableType_PLAINTEXT BuildEnvironmentVariableType = "PLAINTEXT"
 	BuildEnvironmentVariableType_PARAMETER_STORE BuildEnvironmentVariableType = "PARAMETER_STORE"
+	BuildEnvironmentVariableType_PLAINTEXT BuildEnvironmentVariableType = "PLAINTEXT"
 	BuildEnvironmentVariableType_SECRETS_MANAGER BuildEnvironmentVariableType = "SECRETS_MANAGER"
 )
 
 // Optional arguments to {@link IBuildImage.binder} - currently empty.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BuildImageBindOptions struct {
 }
 
 // The return type from {@link IBuildImage.binder} - currently empty.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BuildImageConfig struct {
 }
@@ -806,6 +826,9 @@ func Cache_None() Cache {
 }
 
 // A CloudFormation `AWS::CodeBuild::Project`.
+//
+// TODO: EXAMPLE
+//
 type CfnProject interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1853,9 +1876,9 @@ func (c *jsiiProxy_CfnProject) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnProject_ArtifactsProperty struct {
-	// `CfnProject.ArtifactsProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnProject.ArtifactsProperty.ArtifactIdentifier`.
 	ArtifactIdentifier *string `json:"artifactIdentifier"`
 	// `CfnProject.ArtifactsProperty.EncryptionDisabled`.
@@ -1872,8 +1895,12 @@ type CfnProject_ArtifactsProperty struct {
 	Packaging *string `json:"packaging"`
 	// `CfnProject.ArtifactsProperty.Path`.
 	Path *string `json:"path"`
+	// `CfnProject.ArtifactsProperty.Type`.
+	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnProject_BatchRestrictionsProperty struct {
 	// `CfnProject.BatchRestrictionsProperty.ComputeTypesAllowed`.
 	ComputeTypesAllowed *[]*string `json:"computeTypesAllowed"`
@@ -1881,6 +1908,8 @@ type CfnProject_BatchRestrictionsProperty struct {
 	MaximumBuildsAllowed *float64 `json:"maximumBuildsAllowed"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnProject_BuildStatusConfigProperty struct {
 	// `CfnProject.BuildStatusConfigProperty.Context`.
 	Context *string `json:"context"`
@@ -1888,48 +1917,58 @@ type CfnProject_BuildStatusConfigProperty struct {
 	TargetUrl *string `json:"targetUrl"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnProject_CloudWatchLogsConfigProperty struct {
-	// `CfnProject.CloudWatchLogsConfigProperty.Status`.
-	Status *string `json:"status"`
 	// `CfnProject.CloudWatchLogsConfigProperty.GroupName`.
 	GroupName *string `json:"groupName"`
+	// `CfnProject.CloudWatchLogsConfigProperty.Status`.
+	Status *string `json:"status"`
 	// `CfnProject.CloudWatchLogsConfigProperty.StreamName`.
 	StreamName *string `json:"streamName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnProject_EnvironmentProperty struct {
-	// `CfnProject.EnvironmentProperty.ComputeType`.
-	ComputeType *string `json:"computeType"`
-	// `CfnProject.EnvironmentProperty.Image`.
-	Image *string `json:"image"`
-	// `CfnProject.EnvironmentProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnProject.EnvironmentProperty.Certificate`.
 	Certificate *string `json:"certificate"`
+	// `CfnProject.EnvironmentProperty.ComputeType`.
+	ComputeType *string `json:"computeType"`
 	// `CfnProject.EnvironmentProperty.EnvironmentVariables`.
 	EnvironmentVariables interface{} `json:"environmentVariables"`
+	// `CfnProject.EnvironmentProperty.Image`.
+	Image *string `json:"image"`
 	// `CfnProject.EnvironmentProperty.ImagePullCredentialsType`.
 	ImagePullCredentialsType *string `json:"imagePullCredentialsType"`
 	// `CfnProject.EnvironmentProperty.PrivilegedMode`.
 	PrivilegedMode interface{} `json:"privilegedMode"`
 	// `CfnProject.EnvironmentProperty.RegistryCredential`.
 	RegistryCredential interface{} `json:"registryCredential"`
-}
-
-type CfnProject_EnvironmentVariableProperty struct {
-	// `CfnProject.EnvironmentVariableProperty.Name`.
-	Name *string `json:"name"`
-	// `CfnProject.EnvironmentVariableProperty.Value`.
-	Value *string `json:"value"`
-	// `CfnProject.EnvironmentVariableProperty.Type`.
+	// `CfnProject.EnvironmentProperty.Type`.
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
+type CfnProject_EnvironmentVariableProperty struct {
+	// `CfnProject.EnvironmentVariableProperty.Name`.
+	Name *string `json:"name"`
+	// `CfnProject.EnvironmentVariableProperty.Type`.
+	Type *string `json:"type"`
+	// `CfnProject.EnvironmentVariableProperty.Value`.
+	Value *string `json:"value"`
+}
+
+// TODO: EXAMPLE
+//
 type CfnProject_GitSubmodulesConfigProperty struct {
 	// `CfnProject.GitSubmodulesConfigProperty.FetchSubmodules`.
 	FetchSubmodules interface{} `json:"fetchSubmodules"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnProject_LogsConfigProperty struct {
 	// `CfnProject.LogsConfigProperty.CloudWatchLogs`.
 	CloudWatchLogs interface{} `json:"cloudWatchLogs"`
@@ -1937,6 +1976,8 @@ type CfnProject_LogsConfigProperty struct {
 	S3Logs interface{} `json:"s3Logs"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnProject_ProjectBuildBatchConfigProperty struct {
 	// `CfnProject.ProjectBuildBatchConfigProperty.BatchReportMode`.
 	BatchReportMode *string `json:"batchReportMode"`
@@ -1950,28 +1991,34 @@ type CfnProject_ProjectBuildBatchConfigProperty struct {
 	TimeoutInMins *float64 `json:"timeoutInMins"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnProject_ProjectCacheProperty struct {
-	// `CfnProject.ProjectCacheProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnProject.ProjectCacheProperty.Location`.
 	Location *string `json:"location"`
 	// `CfnProject.ProjectCacheProperty.Modes`.
 	Modes *[]*string `json:"modes"`
+	// `CfnProject.ProjectCacheProperty.Type`.
+	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnProject_ProjectFileSystemLocationProperty struct {
 	// `CfnProject.ProjectFileSystemLocationProperty.Identifier`.
 	Identifier *string `json:"identifier"`
 	// `CfnProject.ProjectFileSystemLocationProperty.Location`.
 	Location *string `json:"location"`
+	// `CfnProject.ProjectFileSystemLocationProperty.MountOptions`.
+	MountOptions *string `json:"mountOptions"`
 	// `CfnProject.ProjectFileSystemLocationProperty.MountPoint`.
 	MountPoint *string `json:"mountPoint"`
 	// `CfnProject.ProjectFileSystemLocationProperty.Type`.
 	Type *string `json:"type"`
-	// `CfnProject.ProjectFileSystemLocationProperty.MountOptions`.
-	MountOptions *string `json:"mountOptions"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnProject_ProjectSourceVersionProperty struct {
 	// `CfnProject.ProjectSourceVersionProperty.SourceIdentifier`.
 	SourceIdentifier *string `json:"sourceIdentifier"`
@@ -1979,6 +2026,8 @@ type CfnProject_ProjectSourceVersionProperty struct {
 	SourceVersion *string `json:"sourceVersion"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnProject_ProjectTriggersProperty struct {
 	// `CfnProject.ProjectTriggersProperty.BuildType`.
 	BuildType *string `json:"buildType"`
@@ -1988,6 +2037,8 @@ type CfnProject_ProjectTriggersProperty struct {
 	Webhook interface{} `json:"webhook"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnProject_RegistryCredentialProperty struct {
 	// `CfnProject.RegistryCredentialProperty.Credential`.
 	Credential *string `json:"credential"`
@@ -1995,25 +2046,29 @@ type CfnProject_RegistryCredentialProperty struct {
 	CredentialProvider *string `json:"credentialProvider"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnProject_S3LogsConfigProperty struct {
-	// `CfnProject.S3LogsConfigProperty.Status`.
-	Status *string `json:"status"`
 	// `CfnProject.S3LogsConfigProperty.EncryptionDisabled`.
 	EncryptionDisabled interface{} `json:"encryptionDisabled"`
 	// `CfnProject.S3LogsConfigProperty.Location`.
 	Location *string `json:"location"`
+	// `CfnProject.S3LogsConfigProperty.Status`.
+	Status *string `json:"status"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnProject_SourceAuthProperty struct {
-	// `CfnProject.SourceAuthProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnProject.SourceAuthProperty.Resource`.
 	Resource *string `json:"resource"`
+	// `CfnProject.SourceAuthProperty.Type`.
+	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnProject_SourceProperty struct {
-	// `CfnProject.SourceProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnProject.SourceProperty.Auth`.
 	Auth interface{} `json:"auth"`
 	// `CfnProject.SourceProperty.BuildSpec`.
@@ -2032,8 +2087,12 @@ type CfnProject_SourceProperty struct {
 	ReportBuildStatus interface{} `json:"reportBuildStatus"`
 	// `CfnProject.SourceProperty.SourceIdentifier`.
 	SourceIdentifier *string `json:"sourceIdentifier"`
+	// `CfnProject.SourceProperty.Type`.
+	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnProject_VpcConfigProperty struct {
 	// `CfnProject.VpcConfigProperty.SecurityGroupIds`.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
@@ -2043,25 +2102,24 @@ type CfnProject_VpcConfigProperty struct {
 	VpcId *string `json:"vpcId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnProject_WebhookFilterProperty struct {
+	// `CfnProject.WebhookFilterProperty.ExcludeMatchedPattern`.
+	ExcludeMatchedPattern interface{} `json:"excludeMatchedPattern"`
 	// `CfnProject.WebhookFilterProperty.Pattern`.
 	Pattern *string `json:"pattern"`
 	// `CfnProject.WebhookFilterProperty.Type`.
 	Type *string `json:"type"`
-	// `CfnProject.WebhookFilterProperty.ExcludeMatchedPattern`.
-	ExcludeMatchedPattern interface{} `json:"excludeMatchedPattern"`
 }
 
 // Properties for defining a `AWS::CodeBuild::Project`.
+//
+// TODO: EXAMPLE
+//
 type CfnProjectProps struct {
 	// `AWS::CodeBuild::Project.Artifacts`.
 	Artifacts interface{} `json:"artifacts"`
-	// `AWS::CodeBuild::Project.Environment`.
-	Environment interface{} `json:"environment"`
-	// `AWS::CodeBuild::Project.ServiceRole`.
-	ServiceRole *string `json:"serviceRole"`
-	// `AWS::CodeBuild::Project.Source`.
-	Source interface{} `json:"source"`
 	// `AWS::CodeBuild::Project.BadgeEnabled`.
 	BadgeEnabled interface{} `json:"badgeEnabled"`
 	// `AWS::CodeBuild::Project.BuildBatchConfig`.
@@ -2074,6 +2132,8 @@ type CfnProjectProps struct {
 	Description *string `json:"description"`
 	// `AWS::CodeBuild::Project.EncryptionKey`.
 	EncryptionKey *string `json:"encryptionKey"`
+	// `AWS::CodeBuild::Project.Environment`.
+	Environment interface{} `json:"environment"`
 	// `AWS::CodeBuild::Project.FileSystemLocations`.
 	FileSystemLocations interface{} `json:"fileSystemLocations"`
 	// `AWS::CodeBuild::Project.LogsConfig`.
@@ -2090,6 +2150,10 @@ type CfnProjectProps struct {
 	SecondarySources interface{} `json:"secondarySources"`
 	// `AWS::CodeBuild::Project.SecondarySourceVersions`.
 	SecondarySourceVersions interface{} `json:"secondarySourceVersions"`
+	// `AWS::CodeBuild::Project.ServiceRole`.
+	ServiceRole *string `json:"serviceRole"`
+	// `AWS::CodeBuild::Project.Source`.
+	Source interface{} `json:"source"`
 	// `AWS::CodeBuild::Project.SourceVersion`.
 	SourceVersion *string `json:"sourceVersion"`
 	// `AWS::CodeBuild::Project.Tags`.
@@ -2105,6 +2169,9 @@ type CfnProjectProps struct {
 }
 
 // A CloudFormation `AWS::CodeBuild::ReportGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnReportGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2772,6 +2839,8 @@ func (c *jsiiProxy_CfnReportGroup) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnReportGroup_ReportExportConfigProperty struct {
 	// `CfnReportGroup.ReportExportConfigProperty.ExportConfigType`.
 	ExportConfigType *string `json:"exportConfigType"`
@@ -2779,6 +2848,8 @@ type CfnReportGroup_ReportExportConfigProperty struct {
 	S3Destination interface{} `json:"s3Destination"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnReportGroup_S3ReportExportConfigProperty struct {
 	// `CfnReportGroup.S3ReportExportConfigProperty.Bucket`.
 	Bucket *string `json:"bucket"`
@@ -2795,20 +2866,26 @@ type CfnReportGroup_S3ReportExportConfigProperty struct {
 }
 
 // Properties for defining a `AWS::CodeBuild::ReportGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnReportGroupProps struct {
-	// `AWS::CodeBuild::ReportGroup.ExportConfig`.
-	ExportConfig interface{} `json:"exportConfig"`
-	// `AWS::CodeBuild::ReportGroup.Type`.
-	Type *string `json:"type"`
 	// `AWS::CodeBuild::ReportGroup.DeleteReports`.
 	DeleteReports interface{} `json:"deleteReports"`
+	// `AWS::CodeBuild::ReportGroup.ExportConfig`.
+	ExportConfig interface{} `json:"exportConfig"`
 	// `AWS::CodeBuild::ReportGroup.Name`.
 	Name *string `json:"name"`
 	// `AWS::CodeBuild::ReportGroup.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::CodeBuild::ReportGroup.Type`.
+	Type *string `json:"type"`
 }
 
 // A CloudFormation `AWS::CodeBuild::SourceCredential`.
+//
+// TODO: EXAMPLE
+//
 type CfnSourceCredential interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3455,6 +3532,9 @@ func (c *jsiiProxy_CfnSourceCredential) ValidateProperties(_properties interface
 }
 
 // Properties for defining a `AWS::CodeBuild::SourceCredential`.
+//
+// TODO: EXAMPLE
+//
 type CfnSourceCredentialProps struct {
 	// `AWS::CodeBuild::SourceCredential.AuthType`.
 	AuthType *string `json:"authType"`
@@ -3514,6 +3594,8 @@ type CodeCommitSourceProps struct {
 	FetchSubmodules *bool `json:"fetchSubmodules"`
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type CommonProjectProps struct {
 	// Whether to allow the CodeBuild to send all network traffic.
@@ -3628,13 +3710,16 @@ type CommonProjectProps struct {
 type ComputeType string
 
 const (
-	ComputeType_SMALL ComputeType = "SMALL"
-	ComputeType_MEDIUM ComputeType = "MEDIUM"
 	ComputeType_LARGE ComputeType = "LARGE"
+	ComputeType_MEDIUM ComputeType = "MEDIUM"
+	ComputeType_SMALL ComputeType = "SMALL"
 	ComputeType_X2_LARGE ComputeType = "X2_LARGE"
 )
 
 // The options when creating a CodeBuild Docker build image using {@link LinuxBuildImage.fromDockerRegistry} or {@link WindowsBuildImage.fromDockerRegistry}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DockerImageOptions struct {
 	// The credentials, stored in Secrets Manager, used for accessing the repository holding the image, if the repository is private.
@@ -3680,6 +3765,9 @@ const (
 )
 
 // The type returned from {@link IFileSystemLocation#bind}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FileSystemConfig struct {
 	// File system location wrapper property.
@@ -4062,6 +4150,9 @@ func (f *jsiiProxy_FilterGroup) AndTagIsNot(tagName *string) FilterGroup {
 // **Note**: CodeBuild only allows a single credential for GitHub Enterprise
 // to be saved in a given AWS account in a given region -
 // any attempt to add more than one will result in an error.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type GitHubEnterpriseSourceCredentials interface {
 	awscdk.Resource
@@ -4375,6 +4466,9 @@ func (g *jsiiProxy_GitHubEnterpriseSourceCredentials) Validate() *[]*string {
 }
 
 // Creation properties for {@link GitHubEnterpriseSourceCredentials}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type GitHubEnterpriseSourceCredentialsProps struct {
 	// The personal access token to use when contacting the instance of the GitHub Enterprise API.
@@ -6595,9 +6689,9 @@ func (l *jsiiProxy_LinuxGpuBuildImage) Validate(buildEnvironment *BuildEnvironme
 type LocalCacheMode string
 
 const (
-	LocalCacheMode_SOURCE LocalCacheMode = "SOURCE"
-	LocalCacheMode_DOCKER_LAYER LocalCacheMode = "DOCKER_LAYER"
 	LocalCacheMode_CUSTOM LocalCacheMode = "CUSTOM"
+	LocalCacheMode_DOCKER_LAYER LocalCacheMode = "DOCKER_LAYER"
+	LocalCacheMode_SOURCE LocalCacheMode = "SOURCE"
 )
 
 // Information about logs for the build project.
@@ -8404,14 +8498,17 @@ type ProjectNotificationEvents string
 
 const (
 	ProjectNotificationEvents_BUILD_FAILED ProjectNotificationEvents = "BUILD_FAILED"
-	ProjectNotificationEvents_BUILD_SUCCEEDED ProjectNotificationEvents = "BUILD_SUCCEEDED"
 	ProjectNotificationEvents_BUILD_IN_PROGRESS ProjectNotificationEvents = "BUILD_IN_PROGRESS"
-	ProjectNotificationEvents_BUILD_STOPPED ProjectNotificationEvents = "BUILD_STOPPED"
 	ProjectNotificationEvents_BUILD_PHASE_FAILED ProjectNotificationEvents = "BUILD_PHASE_FAILED"
 	ProjectNotificationEvents_BUILD_PHASE_SUCCEEDED ProjectNotificationEvents = "BUILD_PHASE_SUCCEEDED"
+	ProjectNotificationEvents_BUILD_STOPPED ProjectNotificationEvents = "BUILD_STOPPED"
+	ProjectNotificationEvents_BUILD_SUCCEEDED ProjectNotificationEvents = "BUILD_SUCCEEDED"
 )
 
 // Additional options to pass to the notification rule.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ProjectNotifyOnOptions struct {
 	// The level of detail to include in the notifications for this resource.
@@ -8957,6 +9054,9 @@ func (r *jsiiProxy_ReportGroup) Validate() *[]*string {
 }
 
 // Construction properties for {@link ReportGroup}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ReportGroupProps struct {
 	// An optional S3 bucket to export the reports to.
@@ -9219,12 +9319,15 @@ func (s *jsiiProxy_Source) Bind(_scope awscdk.Construct, _project IProject) *Sou
 }
 
 // The type returned from {@link ISource#bind}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SourceConfig struct {
 	// Experimental.
-	SourceProperty *CfnProject_SourceProperty `json:"sourceProperty"`
-	// Experimental.
 	BuildTriggers *CfnProject_ProjectTriggersProperty `json:"buildTriggers"`
+	// Experimental.
+	SourceProperty *CfnProject_SourceProperty `json:"sourceProperty"`
 	// `AWS::CodeBuild::Project.SourceVersion`.
 	// See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-sourceversion
 	//
@@ -9233,6 +9336,9 @@ type SourceConfig struct {
 }
 
 // Properties common to all Source classes.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SourceProps struct {
 	// The source identifier.
@@ -9802,6 +9908,9 @@ func (u *jsiiProxy_UntrustedCodeBoundaryPolicy) Validate() *[]*string {
 }
 
 // Construction properties for UntrustedCodeBoundaryPolicy.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type UntrustedCodeBoundaryPolicyProps struct {
 	// Additional statements to add to the default set of statements.

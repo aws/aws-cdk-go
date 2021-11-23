@@ -40,6 +40,9 @@ func CertificateAuthority_FromCertificateAuthorityArn(scope constructs.Construct
 }
 
 // A CloudFormation `AWS::ACMPCA::Certificate`.
+//
+// TODO: EXAMPLE
+//
 type CfnCertificate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -767,6 +770,8 @@ func (c *jsiiProxy_CfnCertificate) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnCertificate_ApiPassthroughProperty struct {
 	// `CfnCertificate.ApiPassthroughProperty.Extensions`.
 	Extensions interface{} `json:"extensions"`
@@ -774,6 +779,8 @@ type CfnCertificate_ApiPassthroughProperty struct {
 	Subject interface{} `json:"subject"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCertificate_EdiPartyNameProperty struct {
 	// `CfnCertificate.EdiPartyNameProperty.NameAssigner`.
 	NameAssigner *string `json:"nameAssigner"`
@@ -781,6 +788,8 @@ type CfnCertificate_EdiPartyNameProperty struct {
 	PartyName *string `json:"partyName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCertificate_ExtendedKeyUsageProperty struct {
 	// `CfnCertificate.ExtendedKeyUsageProperty.ExtendedKeyUsageObjectIdentifier`.
 	ExtendedKeyUsageObjectIdentifier *string `json:"extendedKeyUsageObjectIdentifier"`
@@ -788,6 +797,8 @@ type CfnCertificate_ExtendedKeyUsageProperty struct {
 	ExtendedKeyUsageType *string `json:"extendedKeyUsageType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCertificate_ExtensionsProperty struct {
 	// `CfnCertificate.ExtensionsProperty.CertificatePolicies`.
 	CertificatePolicies interface{} `json:"certificatePolicies"`
@@ -799,6 +810,8 @@ type CfnCertificate_ExtensionsProperty struct {
 	SubjectAlternativeNames interface{} `json:"subjectAlternativeNames"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCertificate_GeneralNameProperty struct {
 	// `CfnCertificate.GeneralNameProperty.DirectoryName`.
 	DirectoryName interface{} `json:"directoryName"`
@@ -818,6 +831,8 @@ type CfnCertificate_GeneralNameProperty struct {
 	UniformResourceIdentifier *string `json:"uniformResourceIdentifier"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCertificate_KeyUsageProperty struct {
 	// `CfnCertificate.KeyUsageProperty.CRLSign`.
 	CrlSign interface{} `json:"crlSign"`
@@ -839,6 +854,8 @@ type CfnCertificate_KeyUsageProperty struct {
 	NonRepudiation interface{} `json:"nonRepudiation"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCertificate_OtherNameProperty struct {
 	// `CfnCertificate.OtherNameProperty.TypeId`.
 	TypeId *string `json:"typeId"`
@@ -846,6 +863,8 @@ type CfnCertificate_OtherNameProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCertificate_PolicyInformationProperty struct {
 	// `CfnCertificate.PolicyInformationProperty.CertPolicyId`.
 	CertPolicyId *string `json:"certPolicyId"`
@@ -853,6 +872,8 @@ type CfnCertificate_PolicyInformationProperty struct {
 	PolicyQualifiers interface{} `json:"policyQualifiers"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCertificate_PolicyQualifierInfoProperty struct {
 	// `CfnCertificate.PolicyQualifierInfoProperty.PolicyQualifierId`.
 	PolicyQualifierId *string `json:"policyQualifierId"`
@@ -860,11 +881,15 @@ type CfnCertificate_PolicyQualifierInfoProperty struct {
 	Qualifier interface{} `json:"qualifier"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCertificate_QualifierProperty struct {
 	// `CfnCertificate.QualifierProperty.CpsUri`.
 	CpsUri *string `json:"cpsUri"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCertificate_SubjectProperty struct {
 	// `CfnCertificate.SubjectProperty.CommonName`.
 	CommonName *string `json:"commonName"`
@@ -896,6 +921,8 @@ type CfnCertificate_SubjectProperty struct {
 	Title *string `json:"title"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCertificate_ValidityProperty struct {
 	// `CfnCertificate.ValidityProperty.Type`.
 	Type *string `json:"type"`
@@ -904,6 +931,9 @@ type CfnCertificate_ValidityProperty struct {
 }
 
 // A CloudFormation `AWS::ACMPCA::CertificateAuthority`.
+//
+// TODO: EXAMPLE
+//
 type CfnCertificateAuthority interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1642,6 +1672,8 @@ func (c *jsiiProxy_CfnCertificateAuthority) ValidateProperties(_properties inter
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnCertificateAuthority_AccessDescriptionProperty struct {
 	// `CfnCertificateAuthority.AccessDescriptionProperty.AccessLocation`.
 	AccessLocation interface{} `json:"accessLocation"`
@@ -1649,6 +1681,8 @@ type CfnCertificateAuthority_AccessDescriptionProperty struct {
 	AccessMethod interface{} `json:"accessMethod"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCertificateAuthority_AccessMethodProperty struct {
 	// `CfnCertificateAuthority.AccessMethodProperty.AccessMethodType`.
 	AccessMethodType *string `json:"accessMethodType"`
@@ -1656,6 +1690,8 @@ type CfnCertificateAuthority_AccessMethodProperty struct {
 	CustomObjectIdentifier *string `json:"customObjectIdentifier"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCertificateAuthority_CrlConfigurationProperty struct {
 	// `CfnCertificateAuthority.CrlConfigurationProperty.CustomCname`.
 	CustomCname *string `json:"customCname"`
@@ -1669,6 +1705,8 @@ type CfnCertificateAuthority_CrlConfigurationProperty struct {
 	S3ObjectAcl *string `json:"s3ObjectAcl"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCertificateAuthority_CsrExtensionsProperty struct {
 	// `CfnCertificateAuthority.CsrExtensionsProperty.KeyUsage`.
 	KeyUsage interface{} `json:"keyUsage"`
@@ -1676,6 +1714,8 @@ type CfnCertificateAuthority_CsrExtensionsProperty struct {
 	SubjectInformationAccess interface{} `json:"subjectInformationAccess"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCertificateAuthority_EdiPartyNameProperty struct {
 	// `CfnCertificateAuthority.EdiPartyNameProperty.NameAssigner`.
 	NameAssigner *string `json:"nameAssigner"`
@@ -1683,6 +1723,8 @@ type CfnCertificateAuthority_EdiPartyNameProperty struct {
 	PartyName *string `json:"partyName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCertificateAuthority_GeneralNameProperty struct {
 	// `CfnCertificateAuthority.GeneralNameProperty.DirectoryName`.
 	DirectoryName interface{} `json:"directoryName"`
@@ -1702,6 +1744,8 @@ type CfnCertificateAuthority_GeneralNameProperty struct {
 	UniformResourceIdentifier *string `json:"uniformResourceIdentifier"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCertificateAuthority_KeyUsageProperty struct {
 	// `CfnCertificateAuthority.KeyUsageProperty.CRLSign`.
 	CrlSign interface{} `json:"crlSign"`
@@ -1723,6 +1767,8 @@ type CfnCertificateAuthority_KeyUsageProperty struct {
 	NonRepudiation interface{} `json:"nonRepudiation"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCertificateAuthority_OcspConfigurationProperty struct {
 	// `CfnCertificateAuthority.OcspConfigurationProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
@@ -1730,6 +1776,8 @@ type CfnCertificateAuthority_OcspConfigurationProperty struct {
 	OcspCustomCname *string `json:"ocspCustomCname"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCertificateAuthority_OtherNameProperty struct {
 	// `CfnCertificateAuthority.OtherNameProperty.TypeId`.
 	TypeId *string `json:"typeId"`
@@ -1737,6 +1785,8 @@ type CfnCertificateAuthority_OtherNameProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCertificateAuthority_RevocationConfigurationProperty struct {
 	// `CfnCertificateAuthority.RevocationConfigurationProperty.CrlConfiguration`.
 	CrlConfiguration interface{} `json:"crlConfiguration"`
@@ -1744,6 +1794,8 @@ type CfnCertificateAuthority_RevocationConfigurationProperty struct {
 	OcspConfiguration interface{} `json:"ocspConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCertificateAuthority_SubjectProperty struct {
 	// `CfnCertificateAuthority.SubjectProperty.CommonName`.
 	CommonName *string `json:"commonName"`
@@ -1776,6 +1828,9 @@ type CfnCertificateAuthority_SubjectProperty struct {
 }
 
 // A CloudFormation `AWS::ACMPCA::CertificateAuthorityActivation`.
+//
+// TODO: EXAMPLE
+//
 type CfnCertificateAuthorityActivation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2433,6 +2488,9 @@ func (c *jsiiProxy_CfnCertificateAuthorityActivation) ValidateProperties(_proper
 }
 
 // Properties for defining a `AWS::ACMPCA::CertificateAuthorityActivation`.
+//
+// TODO: EXAMPLE
+//
 type CfnCertificateAuthorityActivationProps struct {
 	// `AWS::ACMPCA::CertificateAuthorityActivation.Certificate`.
 	Certificate *string `json:"certificate"`
@@ -2445,44 +2503,53 @@ type CfnCertificateAuthorityActivationProps struct {
 }
 
 // Properties for defining a `AWS::ACMPCA::CertificateAuthority`.
+//
+// TODO: EXAMPLE
+//
 type CfnCertificateAuthorityProps struct {
-	// `AWS::ACMPCA::CertificateAuthority.KeyAlgorithm`.
-	KeyAlgorithm *string `json:"keyAlgorithm"`
-	// `AWS::ACMPCA::CertificateAuthority.SigningAlgorithm`.
-	SigningAlgorithm *string `json:"signingAlgorithm"`
-	// `AWS::ACMPCA::CertificateAuthority.Subject`.
-	Subject interface{} `json:"subject"`
-	// `AWS::ACMPCA::CertificateAuthority.Type`.
-	Type *string `json:"type"`
 	// `AWS::ACMPCA::CertificateAuthority.CsrExtensions`.
 	CsrExtensions interface{} `json:"csrExtensions"`
+	// `AWS::ACMPCA::CertificateAuthority.KeyAlgorithm`.
+	KeyAlgorithm *string `json:"keyAlgorithm"`
 	// `AWS::ACMPCA::CertificateAuthority.KeyStorageSecurityStandard`.
 	KeyStorageSecurityStandard *string `json:"keyStorageSecurityStandard"`
 	// `AWS::ACMPCA::CertificateAuthority.RevocationConfiguration`.
 	RevocationConfiguration interface{} `json:"revocationConfiguration"`
+	// `AWS::ACMPCA::CertificateAuthority.SigningAlgorithm`.
+	SigningAlgorithm *string `json:"signingAlgorithm"`
+	// `AWS::ACMPCA::CertificateAuthority.Subject`.
+	Subject interface{} `json:"subject"`
 	// `AWS::ACMPCA::CertificateAuthority.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::ACMPCA::CertificateAuthority.Type`.
+	Type *string `json:"type"`
 }
 
 // Properties for defining a `AWS::ACMPCA::Certificate`.
+//
+// TODO: EXAMPLE
+//
 type CfnCertificateProps struct {
+	// `AWS::ACMPCA::Certificate.ApiPassthrough`.
+	ApiPassthrough interface{} `json:"apiPassthrough"`
 	// `AWS::ACMPCA::Certificate.CertificateAuthorityArn`.
 	CertificateAuthorityArn *string `json:"certificateAuthorityArn"`
 	// `AWS::ACMPCA::Certificate.CertificateSigningRequest`.
 	CertificateSigningRequest *string `json:"certificateSigningRequest"`
 	// `AWS::ACMPCA::Certificate.SigningAlgorithm`.
 	SigningAlgorithm *string `json:"signingAlgorithm"`
-	// `AWS::ACMPCA::Certificate.Validity`.
-	Validity interface{} `json:"validity"`
-	// `AWS::ACMPCA::Certificate.ApiPassthrough`.
-	ApiPassthrough interface{} `json:"apiPassthrough"`
 	// `AWS::ACMPCA::Certificate.TemplateArn`.
 	TemplateArn *string `json:"templateArn"`
+	// `AWS::ACMPCA::Certificate.Validity`.
+	Validity interface{} `json:"validity"`
 	// `AWS::ACMPCA::Certificate.ValidityNotBefore`.
 	ValidityNotBefore interface{} `json:"validityNotBefore"`
 }
 
 // A CloudFormation `AWS::ACMPCA::Permission`.
+//
+// TODO: EXAMPLE
+//
 type CfnPermission interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3129,6 +3196,9 @@ func (c *jsiiProxy_CfnPermission) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::ACMPCA::Permission`.
+//
+// TODO: EXAMPLE
+//
 type CfnPermissionProps struct {
 	// `AWS::ACMPCA::Permission.Actions`.
 	Actions *[]*string `json:"actions"`

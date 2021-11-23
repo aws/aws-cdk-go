@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::MediaPackage::Asset`.
+//
+// TODO: EXAMPLE
+//
 type CfnAsset interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -719,6 +722,8 @@ func (c *jsiiProxy_CfnAsset) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnAsset_EgressEndpointProperty struct {
 	// `CfnAsset.EgressEndpointProperty.PackagingConfigurationId`.
 	PackagingConfigurationId *string `json:"packagingConfigurationId"`
@@ -727,22 +732,28 @@ type CfnAsset_EgressEndpointProperty struct {
 }
 
 // Properties for defining a `AWS::MediaPackage::Asset`.
+//
+// TODO: EXAMPLE
+//
 type CfnAssetProps struct {
 	// `AWS::MediaPackage::Asset.Id`.
 	Id *string `json:"id"`
 	// `AWS::MediaPackage::Asset.PackagingGroupId`.
 	PackagingGroupId *string `json:"packagingGroupId"`
+	// `AWS::MediaPackage::Asset.ResourceId`.
+	ResourceId *string `json:"resourceId"`
 	// `AWS::MediaPackage::Asset.SourceArn`.
 	SourceArn *string `json:"sourceArn"`
 	// `AWS::MediaPackage::Asset.SourceRoleArn`.
 	SourceRoleArn *string `json:"sourceRoleArn"`
-	// `AWS::MediaPackage::Asset.ResourceId`.
-	ResourceId *string `json:"resourceId"`
 	// `AWS::MediaPackage::Asset.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::MediaPackage::Channel`.
+//
+// TODO: EXAMPLE
+//
 type CfnChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1410,19 +1421,24 @@ func (c *jsiiProxy_CfnChannel) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_LogConfigurationProperty struct {
 	// `CfnChannel.LogConfigurationProperty.LogGroupName`.
 	LogGroupName *string `json:"logGroupName"`
 }
 
 // Properties for defining a `AWS::MediaPackage::Channel`.
+//
+// TODO: EXAMPLE
+//
 type CfnChannelProps struct {
-	// `AWS::MediaPackage::Channel.Id`.
-	Id *string `json:"id"`
 	// `AWS::MediaPackage::Channel.Description`.
 	Description *string `json:"description"`
 	// `AWS::MediaPackage::Channel.EgressAccessLogs`.
 	EgressAccessLogs interface{} `json:"egressAccessLogs"`
+	// `AWS::MediaPackage::Channel.Id`.
+	Id *string `json:"id"`
 	// `AWS::MediaPackage::Channel.IngressAccessLogs`.
 	IngressAccessLogs interface{} `json:"ingressAccessLogs"`
 	// `AWS::MediaPackage::Channel.Tags`.
@@ -1430,6 +1446,9 @@ type CfnChannelProps struct {
 }
 
 // A CloudFormation `AWS::MediaPackage::OriginEndpoint`.
+//
+// TODO: EXAMPLE
+//
 type CfnOriginEndpoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2288,6 +2307,8 @@ func (c *jsiiProxy_CfnOriginEndpoint) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnOriginEndpoint_AuthorizationProperty struct {
 	// `CfnOriginEndpoint.AuthorizationProperty.CdnIdentifierSecret`.
 	CdnIdentifierSecret *string `json:"cdnIdentifierSecret"`
@@ -2295,15 +2316,19 @@ type CfnOriginEndpoint_AuthorizationProperty struct {
 	SecretsRoleArn *string `json:"secretsRoleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnOriginEndpoint_CmafEncryptionProperty struct {
-	// `CfnOriginEndpoint.CmafEncryptionProperty.SpekeKeyProvider`.
-	SpekeKeyProvider interface{} `json:"spekeKeyProvider"`
 	// `CfnOriginEndpoint.CmafEncryptionProperty.ConstantInitializationVector`.
 	ConstantInitializationVector *string `json:"constantInitializationVector"`
 	// `CfnOriginEndpoint.CmafEncryptionProperty.KeyRotationIntervalSeconds`.
 	KeyRotationIntervalSeconds *float64 `json:"keyRotationIntervalSeconds"`
+	// `CfnOriginEndpoint.CmafEncryptionProperty.SpekeKeyProvider`.
+	SpekeKeyProvider interface{} `json:"spekeKeyProvider"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnOriginEndpoint_CmafPackageProperty struct {
 	// `CfnOriginEndpoint.CmafPackageProperty.Encryption`.
 	Encryption interface{} `json:"encryption"`
@@ -2317,13 +2342,17 @@ type CfnOriginEndpoint_CmafPackageProperty struct {
 	StreamSelection interface{} `json:"streamSelection"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnOriginEndpoint_DashEncryptionProperty struct {
-	// `CfnOriginEndpoint.DashEncryptionProperty.SpekeKeyProvider`.
-	SpekeKeyProvider interface{} `json:"spekeKeyProvider"`
 	// `CfnOriginEndpoint.DashEncryptionProperty.KeyRotationIntervalSeconds`.
 	KeyRotationIntervalSeconds *float64 `json:"keyRotationIntervalSeconds"`
+	// `CfnOriginEndpoint.DashEncryptionProperty.SpekeKeyProvider`.
+	SpekeKeyProvider interface{} `json:"spekeKeyProvider"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnOriginEndpoint_DashPackageProperty struct {
 	// `CfnOriginEndpoint.DashPackageProperty.AdsOnDeliveryRestrictions`.
 	AdsOnDeliveryRestrictions *string `json:"adsOnDeliveryRestrictions"`
@@ -2357,9 +2386,9 @@ type CfnOriginEndpoint_DashPackageProperty struct {
 	UtcTimingUri *string `json:"utcTimingUri"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnOriginEndpoint_HlsEncryptionProperty struct {
-	// `CfnOriginEndpoint.HlsEncryptionProperty.SpekeKeyProvider`.
-	SpekeKeyProvider interface{} `json:"spekeKeyProvider"`
 	// `CfnOriginEndpoint.HlsEncryptionProperty.ConstantInitializationVector`.
 	ConstantInitializationVector *string `json:"constantInitializationVector"`
 	// `CfnOriginEndpoint.HlsEncryptionProperty.EncryptionMethod`.
@@ -2368,17 +2397,21 @@ type CfnOriginEndpoint_HlsEncryptionProperty struct {
 	KeyRotationIntervalSeconds *float64 `json:"keyRotationIntervalSeconds"`
 	// `CfnOriginEndpoint.HlsEncryptionProperty.RepeatExtXKey`.
 	RepeatExtXKey interface{} `json:"repeatExtXKey"`
+	// `CfnOriginEndpoint.HlsEncryptionProperty.SpekeKeyProvider`.
+	SpekeKeyProvider interface{} `json:"spekeKeyProvider"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnOriginEndpoint_HlsManifestProperty struct {
-	// `CfnOriginEndpoint.HlsManifestProperty.Id`.
-	Id *string `json:"id"`
 	// `CfnOriginEndpoint.HlsManifestProperty.AdMarkers`.
 	AdMarkers *string `json:"adMarkers"`
 	// `CfnOriginEndpoint.HlsManifestProperty.AdsOnDeliveryRestrictions`.
 	AdsOnDeliveryRestrictions *string `json:"adsOnDeliveryRestrictions"`
 	// `CfnOriginEndpoint.HlsManifestProperty.AdTriggers`.
 	AdTriggers *[]*string `json:"adTriggers"`
+	// `CfnOriginEndpoint.HlsManifestProperty.Id`.
+	Id *string `json:"id"`
 	// `CfnOriginEndpoint.HlsManifestProperty.IncludeIframeOnlyStream`.
 	IncludeIframeOnlyStream interface{} `json:"includeIframeOnlyStream"`
 	// `CfnOriginEndpoint.HlsManifestProperty.ManifestName`.
@@ -2393,6 +2426,8 @@ type CfnOriginEndpoint_HlsManifestProperty struct {
 	Url *string `json:"url"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnOriginEndpoint_HlsPackageProperty struct {
 	// `CfnOriginEndpoint.HlsPackageProperty.AdMarkers`.
 	AdMarkers *string `json:"adMarkers"`
@@ -2418,11 +2453,15 @@ type CfnOriginEndpoint_HlsPackageProperty struct {
 	UseAudioRenditionGroup interface{} `json:"useAudioRenditionGroup"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnOriginEndpoint_MssEncryptionProperty struct {
 	// `CfnOriginEndpoint.MssEncryptionProperty.SpekeKeyProvider`.
 	SpekeKeyProvider interface{} `json:"spekeKeyProvider"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnOriginEndpoint_MssPackageProperty struct {
 	// `CfnOriginEndpoint.MssPackageProperty.Encryption`.
 	Encryption interface{} `json:"encryption"`
@@ -2434,7 +2473,11 @@ type CfnOriginEndpoint_MssPackageProperty struct {
 	StreamSelection interface{} `json:"streamSelection"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnOriginEndpoint_SpekeKeyProviderProperty struct {
+	// `CfnOriginEndpoint.SpekeKeyProviderProperty.CertificateArn`.
+	CertificateArn *string `json:"certificateArn"`
 	// `CfnOriginEndpoint.SpekeKeyProviderProperty.ResourceId`.
 	ResourceId *string `json:"resourceId"`
 	// `CfnOriginEndpoint.SpekeKeyProviderProperty.RoleArn`.
@@ -2443,10 +2486,10 @@ type CfnOriginEndpoint_SpekeKeyProviderProperty struct {
 	SystemIds *[]*string `json:"systemIds"`
 	// `CfnOriginEndpoint.SpekeKeyProviderProperty.Url`.
 	Url *string `json:"url"`
-	// `CfnOriginEndpoint.SpekeKeyProviderProperty.CertificateArn`.
-	CertificateArn *string `json:"certificateArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnOriginEndpoint_StreamSelectionProperty struct {
 	// `CfnOriginEndpoint.StreamSelectionProperty.MaxVideoBitsPerSecond`.
 	MaxVideoBitsPerSecond *float64 `json:"maxVideoBitsPerSecond"`
@@ -2457,13 +2500,14 @@ type CfnOriginEndpoint_StreamSelectionProperty struct {
 }
 
 // Properties for defining a `AWS::MediaPackage::OriginEndpoint`.
+//
+// TODO: EXAMPLE
+//
 type CfnOriginEndpointProps struct {
-	// `AWS::MediaPackage::OriginEndpoint.ChannelId`.
-	ChannelId *string `json:"channelId"`
-	// `AWS::MediaPackage::OriginEndpoint.Id`.
-	Id *string `json:"id"`
 	// `AWS::MediaPackage::OriginEndpoint.Authorization`.
 	Authorization interface{} `json:"authorization"`
+	// `AWS::MediaPackage::OriginEndpoint.ChannelId`.
+	ChannelId *string `json:"channelId"`
 	// `AWS::MediaPackage::OriginEndpoint.CmafPackage`.
 	CmafPackage interface{} `json:"cmafPackage"`
 	// `AWS::MediaPackage::OriginEndpoint.DashPackage`.
@@ -2472,6 +2516,8 @@ type CfnOriginEndpointProps struct {
 	Description *string `json:"description"`
 	// `AWS::MediaPackage::OriginEndpoint.HlsPackage`.
 	HlsPackage interface{} `json:"hlsPackage"`
+	// `AWS::MediaPackage::OriginEndpoint.Id`.
+	Id *string `json:"id"`
 	// `AWS::MediaPackage::OriginEndpoint.ManifestName`.
 	ManifestName *string `json:"manifestName"`
 	// `AWS::MediaPackage::OriginEndpoint.MssPackage`.
@@ -2489,6 +2535,9 @@ type CfnOriginEndpointProps struct {
 }
 
 // A CloudFormation `AWS::MediaPackage::PackagingConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnPackagingConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3196,27 +3245,35 @@ func (c *jsiiProxy_CfnPackagingConfiguration) ValidateProperties(_properties int
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnPackagingConfiguration_CmafEncryptionProperty struct {
 	// `CfnPackagingConfiguration.CmafEncryptionProperty.SpekeKeyProvider`.
 	SpekeKeyProvider interface{} `json:"spekeKeyProvider"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPackagingConfiguration_CmafPackageProperty struct {
-	// `CfnPackagingConfiguration.CmafPackageProperty.HlsManifests`.
-	HlsManifests interface{} `json:"hlsManifests"`
 	// `CfnPackagingConfiguration.CmafPackageProperty.Encryption`.
 	Encryption interface{} `json:"encryption"`
+	// `CfnPackagingConfiguration.CmafPackageProperty.HlsManifests`.
+	HlsManifests interface{} `json:"hlsManifests"`
 	// `CfnPackagingConfiguration.CmafPackageProperty.IncludeEncoderConfigurationInSegments`.
 	IncludeEncoderConfigurationInSegments interface{} `json:"includeEncoderConfigurationInSegments"`
 	// `CfnPackagingConfiguration.CmafPackageProperty.SegmentDurationSeconds`.
 	SegmentDurationSeconds *float64 `json:"segmentDurationSeconds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPackagingConfiguration_DashEncryptionProperty struct {
 	// `CfnPackagingConfiguration.DashEncryptionProperty.SpekeKeyProvider`.
 	SpekeKeyProvider interface{} `json:"spekeKeyProvider"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPackagingConfiguration_DashManifestProperty struct {
 	// `CfnPackagingConfiguration.DashManifestProperty.ManifestLayout`.
 	ManifestLayout *string `json:"manifestLayout"`
@@ -3230,6 +3287,8 @@ type CfnPackagingConfiguration_DashManifestProperty struct {
 	StreamSelection interface{} `json:"streamSelection"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPackagingConfiguration_DashPackageProperty struct {
 	// `CfnPackagingConfiguration.DashPackageProperty.DashManifests`.
 	DashManifests interface{} `json:"dashManifests"`
@@ -3245,15 +3304,19 @@ type CfnPackagingConfiguration_DashPackageProperty struct {
 	SegmentTemplateFormat *string `json:"segmentTemplateFormat"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPackagingConfiguration_HlsEncryptionProperty struct {
-	// `CfnPackagingConfiguration.HlsEncryptionProperty.SpekeKeyProvider`.
-	SpekeKeyProvider interface{} `json:"spekeKeyProvider"`
 	// `CfnPackagingConfiguration.HlsEncryptionProperty.ConstantInitializationVector`.
 	ConstantInitializationVector *string `json:"constantInitializationVector"`
 	// `CfnPackagingConfiguration.HlsEncryptionProperty.EncryptionMethod`.
 	EncryptionMethod *string `json:"encryptionMethod"`
+	// `CfnPackagingConfiguration.HlsEncryptionProperty.SpekeKeyProvider`.
+	SpekeKeyProvider interface{} `json:"spekeKeyProvider"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPackagingConfiguration_HlsManifestProperty struct {
 	// `CfnPackagingConfiguration.HlsManifestProperty.AdMarkers`.
 	AdMarkers *string `json:"adMarkers"`
@@ -3269,22 +3332,28 @@ type CfnPackagingConfiguration_HlsManifestProperty struct {
 	StreamSelection interface{} `json:"streamSelection"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPackagingConfiguration_HlsPackageProperty struct {
-	// `CfnPackagingConfiguration.HlsPackageProperty.HlsManifests`.
-	HlsManifests interface{} `json:"hlsManifests"`
 	// `CfnPackagingConfiguration.HlsPackageProperty.Encryption`.
 	Encryption interface{} `json:"encryption"`
+	// `CfnPackagingConfiguration.HlsPackageProperty.HlsManifests`.
+	HlsManifests interface{} `json:"hlsManifests"`
 	// `CfnPackagingConfiguration.HlsPackageProperty.SegmentDurationSeconds`.
 	SegmentDurationSeconds *float64 `json:"segmentDurationSeconds"`
 	// `CfnPackagingConfiguration.HlsPackageProperty.UseAudioRenditionGroup`.
 	UseAudioRenditionGroup interface{} `json:"useAudioRenditionGroup"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPackagingConfiguration_MssEncryptionProperty struct {
 	// `CfnPackagingConfiguration.MssEncryptionProperty.SpekeKeyProvider`.
 	SpekeKeyProvider interface{} `json:"spekeKeyProvider"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPackagingConfiguration_MssManifestProperty struct {
 	// `CfnPackagingConfiguration.MssManifestProperty.ManifestName`.
 	ManifestName *string `json:"manifestName"`
@@ -3292,15 +3361,19 @@ type CfnPackagingConfiguration_MssManifestProperty struct {
 	StreamSelection interface{} `json:"streamSelection"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPackagingConfiguration_MssPackageProperty struct {
-	// `CfnPackagingConfiguration.MssPackageProperty.MssManifests`.
-	MssManifests interface{} `json:"mssManifests"`
 	// `CfnPackagingConfiguration.MssPackageProperty.Encryption`.
 	Encryption interface{} `json:"encryption"`
+	// `CfnPackagingConfiguration.MssPackageProperty.MssManifests`.
+	MssManifests interface{} `json:"mssManifests"`
 	// `CfnPackagingConfiguration.MssPackageProperty.SegmentDurationSeconds`.
 	SegmentDurationSeconds *float64 `json:"segmentDurationSeconds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPackagingConfiguration_SpekeKeyProviderProperty struct {
 	// `CfnPackagingConfiguration.SpekeKeyProviderProperty.RoleArn`.
 	RoleArn *string `json:"roleArn"`
@@ -3310,6 +3383,8 @@ type CfnPackagingConfiguration_SpekeKeyProviderProperty struct {
 	Url *string `json:"url"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPackagingConfiguration_StreamSelectionProperty struct {
 	// `CfnPackagingConfiguration.StreamSelectionProperty.MaxVideoBitsPerSecond`.
 	MaxVideoBitsPerSecond *float64 `json:"maxVideoBitsPerSecond"`
@@ -3320,24 +3395,30 @@ type CfnPackagingConfiguration_StreamSelectionProperty struct {
 }
 
 // Properties for defining a `AWS::MediaPackage::PackagingConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnPackagingConfigurationProps struct {
-	// `AWS::MediaPackage::PackagingConfiguration.Id`.
-	Id *string `json:"id"`
-	// `AWS::MediaPackage::PackagingConfiguration.PackagingGroupId`.
-	PackagingGroupId *string `json:"packagingGroupId"`
 	// `AWS::MediaPackage::PackagingConfiguration.CmafPackage`.
 	CmafPackage interface{} `json:"cmafPackage"`
 	// `AWS::MediaPackage::PackagingConfiguration.DashPackage`.
 	DashPackage interface{} `json:"dashPackage"`
 	// `AWS::MediaPackage::PackagingConfiguration.HlsPackage`.
 	HlsPackage interface{} `json:"hlsPackage"`
+	// `AWS::MediaPackage::PackagingConfiguration.Id`.
+	Id *string `json:"id"`
 	// `AWS::MediaPackage::PackagingConfiguration.MssPackage`.
 	MssPackage interface{} `json:"mssPackage"`
+	// `AWS::MediaPackage::PackagingConfiguration.PackagingGroupId`.
+	PackagingGroupId *string `json:"packagingGroupId"`
 	// `AWS::MediaPackage::PackagingConfiguration.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::MediaPackage::PackagingGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnPackagingGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3996,6 +4077,8 @@ func (c *jsiiProxy_CfnPackagingGroup) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnPackagingGroup_AuthorizationProperty struct {
 	// `CfnPackagingGroup.AuthorizationProperty.CdnIdentifierSecret`.
 	CdnIdentifierSecret *string `json:"cdnIdentifierSecret"`
@@ -4003,19 +4086,24 @@ type CfnPackagingGroup_AuthorizationProperty struct {
 	SecretsRoleArn *string `json:"secretsRoleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPackagingGroup_LogConfigurationProperty struct {
 	// `CfnPackagingGroup.LogConfigurationProperty.LogGroupName`.
 	LogGroupName *string `json:"logGroupName"`
 }
 
 // Properties for defining a `AWS::MediaPackage::PackagingGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnPackagingGroupProps struct {
-	// `AWS::MediaPackage::PackagingGroup.Id`.
-	Id *string `json:"id"`
 	// `AWS::MediaPackage::PackagingGroup.Authorization`.
 	Authorization interface{} `json:"authorization"`
 	// `AWS::MediaPackage::PackagingGroup.EgressAccessLogs`.
 	EgressAccessLogs interface{} `json:"egressAccessLogs"`
+	// `AWS::MediaPackage::PackagingGroup.Id`.
+	Id *string `json:"id"`
 	// `AWS::MediaPackage::PackagingGroup.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }

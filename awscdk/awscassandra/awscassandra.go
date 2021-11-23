@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::Cassandra::Keyspace`.
+//
+// TODO: EXAMPLE
+//
 type CfnKeyspace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -607,6 +610,9 @@ func (c *jsiiProxy_CfnKeyspace) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Cassandra::Keyspace`.
+//
+// TODO: EXAMPLE
+//
 type CfnKeyspaceProps struct {
 	// `AWS::Cassandra::Keyspace.KeyspaceName`.
 	KeyspaceName *string `json:"keyspaceName"`
@@ -615,6 +621,9 @@ type CfnKeyspaceProps struct {
 }
 
 // A CloudFormation `AWS::Cassandra::Table`.
+//
+// TODO: EXAMPLE
+//
 type CfnTable interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1371,6 +1380,8 @@ func (c *jsiiProxy_CfnTable) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnTable_BillingModeProperty struct {
 	// `CfnTable.BillingModeProperty.Mode`.
 	Mode *string `json:"mode"`
@@ -1378,6 +1389,8 @@ type CfnTable_BillingModeProperty struct {
 	ProvisionedThroughput interface{} `json:"provisionedThroughput"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTable_ClusteringKeyColumnProperty struct {
 	// `CfnTable.ClusteringKeyColumnProperty.Column`.
 	Column interface{} `json:"column"`
@@ -1385,6 +1398,8 @@ type CfnTable_ClusteringKeyColumnProperty struct {
 	OrderBy *string `json:"orderBy"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTable_ColumnProperty struct {
 	// `CfnTable.ColumnProperty.ColumnName`.
 	ColumnName *string `json:"columnName"`
@@ -1392,6 +1407,8 @@ type CfnTable_ColumnProperty struct {
 	ColumnType *string `json:"columnType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTable_EncryptionSpecificationProperty struct {
 	// `CfnTable.EncryptionSpecificationProperty.EncryptionType`.
 	EncryptionType *string `json:"encryptionType"`
@@ -1399,6 +1416,8 @@ type CfnTable_EncryptionSpecificationProperty struct {
 	KmsKeyIdentifier *string `json:"kmsKeyIdentifier"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTable_ProvisionedThroughputProperty struct {
 	// `CfnTable.ProvisionedThroughputProperty.ReadCapacityUnits`.
 	ReadCapacityUnits *float64 `json:"readCapacityUnits"`
@@ -1407,11 +1426,10 @@ type CfnTable_ProvisionedThroughputProperty struct {
 }
 
 // Properties for defining a `AWS::Cassandra::Table`.
+//
+// TODO: EXAMPLE
+//
 type CfnTableProps struct {
-	// `AWS::Cassandra::Table.KeyspaceName`.
-	KeyspaceName *string `json:"keyspaceName"`
-	// `AWS::Cassandra::Table.PartitionKeyColumns`.
-	PartitionKeyColumns interface{} `json:"partitionKeyColumns"`
 	// `AWS::Cassandra::Table.BillingMode`.
 	BillingMode interface{} `json:"billingMode"`
 	// `AWS::Cassandra::Table.ClusteringKeyColumns`.
@@ -1420,6 +1438,10 @@ type CfnTableProps struct {
 	DefaultTimeToLive *float64 `json:"defaultTimeToLive"`
 	// `AWS::Cassandra::Table.EncryptionSpecification`.
 	EncryptionSpecification interface{} `json:"encryptionSpecification"`
+	// `AWS::Cassandra::Table.KeyspaceName`.
+	KeyspaceName *string `json:"keyspaceName"`
+	// `AWS::Cassandra::Table.PartitionKeyColumns`.
+	PartitionKeyColumns interface{} `json:"partitionKeyColumns"`
 	// `AWS::Cassandra::Table.PointInTimeRecoveryEnabled`.
 	PointInTimeRecoveryEnabled interface{} `json:"pointInTimeRecoveryEnabled"`
 	// `AWS::Cassandra::Table.RegularColumns`.

@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::DirectoryService::MicrosoftAD`.
+//
+// TODO: EXAMPLE
+//
 type CfnMicrosoftAD interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -737,6 +740,8 @@ func (c *jsiiProxy_CfnMicrosoftAD) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnMicrosoftAD_VpcSettingsProperty struct {
 	// `CfnMicrosoftAD.VpcSettingsProperty.SubnetIds`.
 	SubnetIds *[]*string `json:"subnetIds"`
@@ -745,24 +750,30 @@ type CfnMicrosoftAD_VpcSettingsProperty struct {
 }
 
 // Properties for defining a `AWS::DirectoryService::MicrosoftAD`.
+//
+// TODO: EXAMPLE
+//
 type CfnMicrosoftADProps struct {
-	// `AWS::DirectoryService::MicrosoftAD.Name`.
-	Name *string `json:"name"`
-	// `AWS::DirectoryService::MicrosoftAD.Password`.
-	Password *string `json:"password"`
-	// `AWS::DirectoryService::MicrosoftAD.VpcSettings`.
-	VpcSettings interface{} `json:"vpcSettings"`
 	// `AWS::DirectoryService::MicrosoftAD.CreateAlias`.
 	CreateAlias interface{} `json:"createAlias"`
 	// `AWS::DirectoryService::MicrosoftAD.Edition`.
 	Edition *string `json:"edition"`
 	// `AWS::DirectoryService::MicrosoftAD.EnableSso`.
 	EnableSso interface{} `json:"enableSso"`
+	// `AWS::DirectoryService::MicrosoftAD.Name`.
+	Name *string `json:"name"`
+	// `AWS::DirectoryService::MicrosoftAD.Password`.
+	Password *string `json:"password"`
 	// `AWS::DirectoryService::MicrosoftAD.ShortName`.
 	ShortName *string `json:"shortName"`
+	// `AWS::DirectoryService::MicrosoftAD.VpcSettings`.
+	VpcSettings interface{} `json:"vpcSettings"`
 }
 
 // A CloudFormation `AWS::DirectoryService::SimpleAD`.
+//
+// TODO: EXAMPLE
+//
 type CfnSimpleAD interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1510,6 +1521,8 @@ func (c *jsiiProxy_CfnSimpleAD) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnSimpleAD_VpcSettingsProperty struct {
 	// `CfnSimpleAD.VpcSettingsProperty.SubnetIds`.
 	SubnetIds *[]*string `json:"subnetIds"`
@@ -1518,22 +1531,25 @@ type CfnSimpleAD_VpcSettingsProperty struct {
 }
 
 // Properties for defining a `AWS::DirectoryService::SimpleAD`.
+//
+// TODO: EXAMPLE
+//
 type CfnSimpleADProps struct {
-	// `AWS::DirectoryService::SimpleAD.Name`.
-	Name *string `json:"name"`
-	// `AWS::DirectoryService::SimpleAD.Password`.
-	Password *string `json:"password"`
-	// `AWS::DirectoryService::SimpleAD.Size`.
-	Size *string `json:"size"`
-	// `AWS::DirectoryService::SimpleAD.VpcSettings`.
-	VpcSettings interface{} `json:"vpcSettings"`
 	// `AWS::DirectoryService::SimpleAD.CreateAlias`.
 	CreateAlias interface{} `json:"createAlias"`
 	// `AWS::DirectoryService::SimpleAD.Description`.
 	Description *string `json:"description"`
 	// `AWS::DirectoryService::SimpleAD.EnableSso`.
 	EnableSso interface{} `json:"enableSso"`
+	// `AWS::DirectoryService::SimpleAD.Name`.
+	Name *string `json:"name"`
+	// `AWS::DirectoryService::SimpleAD.Password`.
+	Password *string `json:"password"`
 	// `AWS::DirectoryService::SimpleAD.ShortName`.
 	ShortName *string `json:"shortName"`
+	// `AWS::DirectoryService::SimpleAD.Size`.
+	Size *string `json:"size"`
+	// `AWS::DirectoryService::SimpleAD.VpcSettings`.
+	VpcSettings interface{} `json:"vpcSettings"`
 }
 

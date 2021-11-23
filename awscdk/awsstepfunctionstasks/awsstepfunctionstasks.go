@@ -27,6 +27,9 @@ import (
 )
 
 // The generation of Elastic Inference (EI) instance.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html
 //
 // Experimental.
@@ -92,6 +95,9 @@ func AcceleratorClass_EIA2() AcceleratorClass {
 // The size of the Elastic Inference (EI) instance to use for the production variant.
 //
 // EI instances provide on-demand GPU computing for inference
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html
 //
 // Experimental.
@@ -3958,12 +3964,15 @@ type AthenaStopQueryExecutionProps struct {
 type AuthType string
 
 const (
-	AuthType_NO_AUTH AuthType = "NO_AUTH"
 	AuthType_IAM_ROLE AuthType = "IAM_ROLE"
+	AuthType_NO_AUTH AuthType = "NO_AUTH"
 	AuthType_RESOURCE_POLICY AuthType = "RESOURCE_POLICY"
 )
 
 // The overrides that should be sent to a container.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BatchContainerOverrides struct {
 	// The command to send to the container that overrides the default command from the Docker image or the job definition.
@@ -3999,6 +4008,9 @@ type BatchContainerOverrides struct {
 }
 
 // An object representing an AWS Batch job dependency.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BatchJobDependency struct {
 	// The job ID of the AWS Batch job associated with this dependency.
@@ -4985,6 +4997,9 @@ type BatchSubmitJobProps struct {
 }
 
 // Base CallApiGatewayEdnpoint Task Props.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CallApiGatewayEndpointBaseProps struct {
 	// An optional description for this state.
@@ -5029,9 +5044,6 @@ type CallApiGatewayEndpointBaseProps struct {
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
-	// Http method for the API.
-	// Experimental.
-	Method HttpMethod `json:"method"`
 	// Path parameters appended after API endpoint.
 	// Experimental.
 	ApiPath *string `json:"apiPath"`
@@ -5041,6 +5053,9 @@ type CallApiGatewayEndpointBaseProps struct {
 	// HTTP request information that does not relate to contents of the request.
 	// Experimental.
 	Headers awsstepfunctions.TaskInput `json:"headers"`
+	// Http method for the API.
+	// Experimental.
+	Method HttpMethod `json:"method"`
 	// Query strings attatched to end of request.
 	// Experimental.
 	QueryParameters awsstepfunctions.TaskInput `json:"queryParameters"`
@@ -6021,9 +6036,6 @@ type CallApiGatewayHttpApiEndpointProps struct {
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
-	// Http method for the API.
-	// Experimental.
-	Method HttpMethod `json:"method"`
 	// Path parameters appended after API endpoint.
 	// Experimental.
 	ApiPath *string `json:"apiPath"`
@@ -6033,6 +6045,9 @@ type CallApiGatewayHttpApiEndpointProps struct {
 	// HTTP request information that does not relate to contents of the request.
 	// Experimental.
 	Headers awsstepfunctions.TaskInput `json:"headers"`
+	// Http method for the API.
+	// Experimental.
+	Method HttpMethod `json:"method"`
 	// Query strings attatched to end of request.
 	// Experimental.
 	QueryParameters awsstepfunctions.TaskInput `json:"queryParameters"`
@@ -7022,9 +7037,6 @@ type CallApiGatewayRestApiEndpointProps struct {
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
-	// Http method for the API.
-	// Experimental.
-	Method HttpMethod `json:"method"`
 	// Path parameters appended after API endpoint.
 	// Experimental.
 	ApiPath *string `json:"apiPath"`
@@ -7034,6 +7046,9 @@ type CallApiGatewayRestApiEndpointProps struct {
 	// HTTP request information that does not relate to contents of the request.
 	// Experimental.
 	Headers awsstepfunctions.TaskInput `json:"headers"`
+	// Http method for the API.
+	// Experimental.
+	Method HttpMethod `json:"method"`
 	// Query strings attatched to end of request.
 	// Experimental.
 	QueryParameters awsstepfunctions.TaskInput `json:"queryParameters"`
@@ -8001,20 +8016,23 @@ type CallAwsServiceProps struct {
 }
 
 // Describes the training, validation or test dataset and the Amazon S3 location where it is stored.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Channel struct {
 	// Name of the channel.
 	// Experimental.
 	ChannelName *string `json:"channelName"`
-	// Location of the channel data.
-	// Experimental.
-	DataSource *DataSource `json:"dataSource"`
 	// Compression type if training data is compressed.
 	// Experimental.
 	CompressionType CompressionType `json:"compressionType"`
 	// The MIME type of the data.
 	// Experimental.
 	ContentType *string `json:"contentType"`
+	// Location of the channel data.
+	// Experimental.
+	DataSource *DataSource `json:"dataSource"`
 	// Input mode to use for the data channel in a training job.
 	// Experimental.
 	InputMode InputMode `json:"inputMode"`
@@ -8962,17 +8980,14 @@ type CodeBuildStartBuildProps struct {
 }
 
 // Basic properties for ECS Tasks.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CommonEcsRunTaskProps struct {
 	// The topic to run the task on.
 	// Experimental.
 	Cluster awsecs.ICluster `json:"cluster"`
-	// Task Definition used for running tasks in the service.
-	//
-	// Note: this must be TaskDefinition, and not ITaskDefinition,
-	// as it requires properties that are not known for imported task definitions
-	// Experimental.
-	TaskDefinition awsecs.TaskDefinition `json:"taskDefinition"`
 	// Container setting overrides.
 	//
 	// Key is the name of the container to override, value is the
@@ -8984,6 +8999,12 @@ type CommonEcsRunTaskProps struct {
 	// The valid value for Lambda is FIRE_AND_FORGET, SYNC and WAIT_FOR_TASK_TOKEN.
 	// Experimental.
 	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `json:"integrationPattern"`
+	// Task Definition used for running tasks in the service.
+	//
+	// Note: this must be TaskDefinition, and not ITaskDefinition,
+	// as it requires properties that are not known for imported task definitions
+	// Experimental.
+	TaskDefinition awsecs.TaskDefinition `json:"taskDefinition"`
 }
 
 // Compression type of the data.
@@ -8991,8 +9012,8 @@ type CommonEcsRunTaskProps struct {
 type CompressionType string
 
 const (
-	CompressionType_NONE CompressionType = "NONE"
 	CompressionType_GZIP CompressionType = "GZIP"
+	CompressionType_NONE CompressionType = "NONE"
 )
 
 // Describes the container, as part of model definition.
@@ -9054,6 +9075,9 @@ func (c *jsiiProxy_ContainerDefinition) Bind(task ISageMakerTask) *ContainerDefi
 }
 
 // Configuration options for the ContainerDefinition.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ContainerDefinitionConfig struct {
 	// Additional parameters to pass to the base task.
@@ -9096,14 +9120,17 @@ type ContainerDefinitionOptions struct {
 }
 
 // A list of container overrides that specify the name of a container and the overrides it should receive.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ContainerOverride struct {
-	// Name of the container inside the task definition.
-	// Experimental.
-	ContainerDefinition awsecs.ContainerDefinition `json:"containerDefinition"`
 	// Command to run inside the container.
 	// Experimental.
 	Command *[]*string `json:"command"`
+	// Name of the container inside the task definition.
+	// Experimental.
+	ContainerDefinition awsecs.ContainerDefinition `json:"containerDefinition"`
 	// The number of cpu units reserved for the container.
 	// Experimental.
 	Cpu *float64 `json:"cpu"`
@@ -9122,6 +9149,9 @@ type ContainerOverride struct {
 }
 
 // The overrides that should be sent to a container.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ContainerOverrides struct {
 	// The command to send to the container that overrides the default command from the Docker image or the job definition.
@@ -9280,6 +9310,9 @@ func (d *jsiiProxy_DockerImage) Bind(task ISageMakerTask) *DockerImageConfig {
 }
 
 // Configuration for a using Docker image.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DockerImageConfig struct {
 	// The fully qualified URI of the Docker image.
@@ -11584,6 +11617,9 @@ const (
 )
 
 // Class to generate projection expression.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DynamoProjectionExpression interface {
 	AtIndex(index *float64) DynamoProjectionExpression
@@ -13748,6 +13784,9 @@ func (e *jsiiProxy_EcsFargateLaunchTarget) Bind(_task EcsRunTask, launchTargetOp
 }
 
 // Properties to define an ECS service.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EcsFargateLaunchTargetOptions struct {
 	// Refers to a specific runtime environment for Fargate task infrastructure.
@@ -13760,6 +13799,9 @@ type EcsFargateLaunchTargetOptions struct {
 }
 
 // Configuration options for the ECS launch type.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EcsLaunchTargetConfig struct {
 	// Additional parameters to pass to the base task.
@@ -14655,6 +14697,9 @@ func (e *jsiiProxy_EcsRunTask) WhenBoundToGraph(graph awsstepfunctions.StateGrap
 }
 
 // A StepFunctions Task to run a Task on ECS or Fargate.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: No replacement
 type EcsRunTaskBase interface {
 	awsec2.IConnectable
@@ -14732,17 +14777,14 @@ func (e *jsiiProxy_EcsRunTaskBase) ConfigureAwsVpcNetworking(vpc awsec2.IVpc, as
 }
 
 // Construction properties for the BaseRunTaskProps.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: No replacement
 type EcsRunTaskBaseProps struct {
 	// The topic to run the task on.
 	// Deprecated: No replacement
 	Cluster awsecs.ICluster `json:"cluster"`
-	// Task Definition used for running tasks in the service.
-	//
-	// Note: this must be TaskDefinition, and not ITaskDefinition,
-	// as it requires properties that are not known for imported task definitions
-	// Deprecated: No replacement
-	TaskDefinition awsecs.TaskDefinition `json:"taskDefinition"`
 	// Container setting overrides.
 	//
 	// Key is the name of the container to override, value is the
@@ -14754,6 +14796,12 @@ type EcsRunTaskBaseProps struct {
 	// The valid value for Lambda is FIRE_AND_FORGET, SYNC and WAIT_FOR_TASK_TOKEN.
 	// Deprecated: No replacement
 	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `json:"integrationPattern"`
+	// Task Definition used for running tasks in the service.
+	//
+	// Note: this must be TaskDefinition, and not ITaskDefinition,
+	// as it requires properties that are not known for imported task definitions
+	// Deprecated: No replacement
+	TaskDefinition awsecs.TaskDefinition `json:"taskDefinition"`
 	// Additional parameters to pass to the base task.
 	// Deprecated: No replacement
 	Parameters *map[string]interface{} `json:"parameters"`
@@ -18590,13 +18638,13 @@ func (e *jsiiProxy_EmrCreateCluster) WhenBoundToGraph(graph awsstepfunctions.Sta
 // the cluster.
 //
 // See the RunJobFlow API for complete documentation on input parameters
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_Application.html
 //
 // Experimental.
 type EmrCreateCluster_ApplicationConfigProperty struct {
-	// The name of the application.
-	// Experimental.
-	Name *string `json:"name"`
 	// This option is for advanced users only.
 	//
 	// This is meta information about third-party applications that third-party vendors use
@@ -18606,12 +18654,18 @@ type EmrCreateCluster_ApplicationConfigProperty struct {
 	// Arguments for Amazon EMR to pass to the application.
 	// Experimental.
 	Args *[]*string `json:"args"`
+	// The name of the application.
+	// Experimental.
+	Name *string `json:"name"`
 	// The version of the application.
 	// Experimental.
 	Version *string `json:"version"`
 }
 
 // An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_AutoScalingPolicy.html
 //
 // Experimental.
@@ -18630,6 +18684,9 @@ type EmrCreateCluster_AutoScalingPolicyProperty struct {
 // Configuration of a bootstrap action.
 //
 // See the RunJobFlow API for complete documentation on input parameters
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_BootstrapActionConfig.html
 //
 // Experimental.
@@ -18647,8 +18704,8 @@ type EmrCreateCluster_BootstrapActionConfigProperty struct {
 type EmrCreateCluster_CloudWatchAlarmComparisonOperator string
 
 const (
-	EmrCreateCluster_CloudWatchAlarmComparisonOperator_GREATER_THAN_OR_EQUAL EmrCreateCluster_CloudWatchAlarmComparisonOperator = "GREATER_THAN_OR_EQUAL"
 	EmrCreateCluster_CloudWatchAlarmComparisonOperator_GREATER_THAN EmrCreateCluster_CloudWatchAlarmComparisonOperator = "GREATER_THAN"
+	EmrCreateCluster_CloudWatchAlarmComparisonOperator_GREATER_THAN_OR_EQUAL EmrCreateCluster_CloudWatchAlarmComparisonOperator = "GREATER_THAN_OR_EQUAL"
 	EmrCreateCluster_CloudWatchAlarmComparisonOperator_LESS_THAN EmrCreateCluster_CloudWatchAlarmComparisonOperator = "LESS_THAN"
 	EmrCreateCluster_CloudWatchAlarmComparisonOperator_LESS_THAN_OR_EQUAL EmrCreateCluster_CloudWatchAlarmComparisonOperator = "LESS_THAN_OR_EQUAL"
 )
@@ -18657,6 +18714,9 @@ const (
 //
 // When the defined alarm conditions
 // are satisfied, scaling activity begins.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_CloudWatchAlarmDefinition.html
 //
 // Experimental.
@@ -18664,24 +18724,24 @@ type EmrCreateCluster_CloudWatchAlarmDefinitionProperty struct {
 	// Determines how the metric specified by MetricName is compared to the value specified by Threshold.
 	// Experimental.
 	ComparisonOperator EmrCreateCluster_CloudWatchAlarmComparisonOperator `json:"comparisonOperator"`
-	// The name of the CloudWatch metric that is watched to determine an alarm condition.
-	// Experimental.
-	MetricName *string `json:"metricName"`
-	// The period, in seconds, over which the statistic is applied.
-	//
-	// EMR CloudWatch metrics are emitted every five minutes (300 seconds), so if
-	// an EMR CloudWatch metric is specified, specify 300.
-	// Experimental.
-	Period awscdk.Duration `json:"period"`
 	// A CloudWatch metric dimension.
 	// Experimental.
 	Dimensions *[]*EmrCreateCluster_MetricDimensionProperty `json:"dimensions"`
 	// The number of periods, in five-minute increments, during which the alarm condition must exist before the alarm triggers automatic scaling activity.
 	// Experimental.
 	EvaluationPeriods *float64 `json:"evaluationPeriods"`
+	// The name of the CloudWatch metric that is watched to determine an alarm condition.
+	// Experimental.
+	MetricName *string `json:"metricName"`
 	// The namespace for the CloudWatch metric.
 	// Experimental.
 	Namespace *string `json:"namespace"`
+	// The period, in seconds, over which the statistic is applied.
+	//
+	// EMR CloudWatch metrics are emitted every five minutes (300 seconds), so if
+	// an EMR CloudWatch metric is specified, specify 300.
+	// Experimental.
+	Period awscdk.Duration `json:"period"`
 	// The statistic to apply to the metric associated with the alarm.
 	// Experimental.
 	Statistic EmrCreateCluster_CloudWatchAlarmStatistic `json:"statistic"`
@@ -18701,11 +18761,11 @@ type EmrCreateCluster_CloudWatchAlarmDefinitionProperty struct {
 type EmrCreateCluster_CloudWatchAlarmStatistic string
 
 const (
-	EmrCreateCluster_CloudWatchAlarmStatistic_SAMPLE_COUNT EmrCreateCluster_CloudWatchAlarmStatistic = "SAMPLE_COUNT"
 	EmrCreateCluster_CloudWatchAlarmStatistic_AVERAGE EmrCreateCluster_CloudWatchAlarmStatistic = "AVERAGE"
-	EmrCreateCluster_CloudWatchAlarmStatistic_SUM EmrCreateCluster_CloudWatchAlarmStatistic = "SUM"
-	EmrCreateCluster_CloudWatchAlarmStatistic_MINIMUM EmrCreateCluster_CloudWatchAlarmStatistic = "MINIMUM"
 	EmrCreateCluster_CloudWatchAlarmStatistic_MAXIMUM EmrCreateCluster_CloudWatchAlarmStatistic = "MAXIMUM"
+	EmrCreateCluster_CloudWatchAlarmStatistic_MINIMUM EmrCreateCluster_CloudWatchAlarmStatistic = "MINIMUM"
+	EmrCreateCluster_CloudWatchAlarmStatistic_SAMPLE_COUNT EmrCreateCluster_CloudWatchAlarmStatistic = "SAMPLE_COUNT"
+	EmrCreateCluster_CloudWatchAlarmStatistic_SUM EmrCreateCluster_CloudWatchAlarmStatistic = "SUM"
 )
 
 // CloudWatch Alarm Units.
@@ -18713,38 +18773,41 @@ const (
 type EmrCreateCluster_CloudWatchAlarmUnit string
 
 const (
-	EmrCreateCluster_CloudWatchAlarmUnit_NONE EmrCreateCluster_CloudWatchAlarmUnit = "NONE"
-	EmrCreateCluster_CloudWatchAlarmUnit_SECONDS EmrCreateCluster_CloudWatchAlarmUnit = "SECONDS"
+	EmrCreateCluster_CloudWatchAlarmUnit_BITS EmrCreateCluster_CloudWatchAlarmUnit = "BITS"
+	EmrCreateCluster_CloudWatchAlarmUnit_BITS_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "BITS_PER_SECOND"
+	EmrCreateCluster_CloudWatchAlarmUnit_BYTES EmrCreateCluster_CloudWatchAlarmUnit = "BYTES"
+	EmrCreateCluster_CloudWatchAlarmUnit_BYTES_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "BYTES_PER_SECOND"
+	EmrCreateCluster_CloudWatchAlarmUnit_COUNT EmrCreateCluster_CloudWatchAlarmUnit = "COUNT"
+	EmrCreateCluster_CloudWatchAlarmUnit_COUNT_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "COUNT_PER_SECOND"
+	EmrCreateCluster_CloudWatchAlarmUnit_GIGA_BITS EmrCreateCluster_CloudWatchAlarmUnit = "GIGA_BITS"
+	EmrCreateCluster_CloudWatchAlarmUnit_GIGA_BITS_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "GIGA_BITS_PER_SECOND"
+	EmrCreateCluster_CloudWatchAlarmUnit_GIGA_BYTES EmrCreateCluster_CloudWatchAlarmUnit = "GIGA_BYTES"
+	EmrCreateCluster_CloudWatchAlarmUnit_GIGA_BYTES_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "GIGA_BYTES_PER_SECOND"
+	EmrCreateCluster_CloudWatchAlarmUnit_KILO_BITS EmrCreateCluster_CloudWatchAlarmUnit = "KILO_BITS"
+	EmrCreateCluster_CloudWatchAlarmUnit_KILO_BITS_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "KILO_BITS_PER_SECOND"
+	EmrCreateCluster_CloudWatchAlarmUnit_KILO_BYTES EmrCreateCluster_CloudWatchAlarmUnit = "KILO_BYTES"
+	EmrCreateCluster_CloudWatchAlarmUnit_KILO_BYTES_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "KILO_BYTES_PER_SECOND"
+	EmrCreateCluster_CloudWatchAlarmUnit_MEGA_BITS EmrCreateCluster_CloudWatchAlarmUnit = "MEGA_BITS"
+	EmrCreateCluster_CloudWatchAlarmUnit_MEGA_BITS_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "MEGA_BITS_PER_SECOND"
+	EmrCreateCluster_CloudWatchAlarmUnit_MEGA_BYTES EmrCreateCluster_CloudWatchAlarmUnit = "MEGA_BYTES"
+	EmrCreateCluster_CloudWatchAlarmUnit_MEGA_BYTES_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "MEGA_BYTES_PER_SECOND"
 	EmrCreateCluster_CloudWatchAlarmUnit_MICRO_SECONDS EmrCreateCluster_CloudWatchAlarmUnit = "MICRO_SECONDS"
 	EmrCreateCluster_CloudWatchAlarmUnit_MILLI_SECONDS EmrCreateCluster_CloudWatchAlarmUnit = "MILLI_SECONDS"
-	EmrCreateCluster_CloudWatchAlarmUnit_BYTES EmrCreateCluster_CloudWatchAlarmUnit = "BYTES"
-	EmrCreateCluster_CloudWatchAlarmUnit_KILO_BYTES EmrCreateCluster_CloudWatchAlarmUnit = "KILO_BYTES"
-	EmrCreateCluster_CloudWatchAlarmUnit_MEGA_BYTES EmrCreateCluster_CloudWatchAlarmUnit = "MEGA_BYTES"
-	EmrCreateCluster_CloudWatchAlarmUnit_GIGA_BYTES EmrCreateCluster_CloudWatchAlarmUnit = "GIGA_BYTES"
-	EmrCreateCluster_CloudWatchAlarmUnit_TERA_BYTES EmrCreateCluster_CloudWatchAlarmUnit = "TERA_BYTES"
-	EmrCreateCluster_CloudWatchAlarmUnit_BITS EmrCreateCluster_CloudWatchAlarmUnit = "BITS"
-	EmrCreateCluster_CloudWatchAlarmUnit_KILO_BITS EmrCreateCluster_CloudWatchAlarmUnit = "KILO_BITS"
-	EmrCreateCluster_CloudWatchAlarmUnit_MEGA_BITS EmrCreateCluster_CloudWatchAlarmUnit = "MEGA_BITS"
-	EmrCreateCluster_CloudWatchAlarmUnit_GIGA_BITS EmrCreateCluster_CloudWatchAlarmUnit = "GIGA_BITS"
-	EmrCreateCluster_CloudWatchAlarmUnit_TERA_BITS EmrCreateCluster_CloudWatchAlarmUnit = "TERA_BITS"
+	EmrCreateCluster_CloudWatchAlarmUnit_NONE EmrCreateCluster_CloudWatchAlarmUnit = "NONE"
 	EmrCreateCluster_CloudWatchAlarmUnit_PERCENT EmrCreateCluster_CloudWatchAlarmUnit = "PERCENT"
-	EmrCreateCluster_CloudWatchAlarmUnit_COUNT EmrCreateCluster_CloudWatchAlarmUnit = "COUNT"
-	EmrCreateCluster_CloudWatchAlarmUnit_BYTES_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "BYTES_PER_SECOND"
-	EmrCreateCluster_CloudWatchAlarmUnit_KILO_BYTES_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "KILO_BYTES_PER_SECOND"
-	EmrCreateCluster_CloudWatchAlarmUnit_MEGA_BYTES_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "MEGA_BYTES_PER_SECOND"
-	EmrCreateCluster_CloudWatchAlarmUnit_GIGA_BYTES_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "GIGA_BYTES_PER_SECOND"
-	EmrCreateCluster_CloudWatchAlarmUnit_TERA_BYTES_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "TERA_BYTES_PER_SECOND"
-	EmrCreateCluster_CloudWatchAlarmUnit_BITS_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "BITS_PER_SECOND"
-	EmrCreateCluster_CloudWatchAlarmUnit_KILO_BITS_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "KILO_BITS_PER_SECOND"
-	EmrCreateCluster_CloudWatchAlarmUnit_MEGA_BITS_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "MEGA_BITS_PER_SECOND"
-	EmrCreateCluster_CloudWatchAlarmUnit_GIGA_BITS_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "GIGA_BITS_PER_SECOND"
+	EmrCreateCluster_CloudWatchAlarmUnit_SECONDS EmrCreateCluster_CloudWatchAlarmUnit = "SECONDS"
+	EmrCreateCluster_CloudWatchAlarmUnit_TERA_BITS EmrCreateCluster_CloudWatchAlarmUnit = "TERA_BITS"
 	EmrCreateCluster_CloudWatchAlarmUnit_TERA_BITS_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "TERA_BITS_PER_SECOND"
-	EmrCreateCluster_CloudWatchAlarmUnit_COUNT_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "COUNT_PER_SECOND"
+	EmrCreateCluster_CloudWatchAlarmUnit_TERA_BYTES EmrCreateCluster_CloudWatchAlarmUnit = "TERA_BYTES"
+	EmrCreateCluster_CloudWatchAlarmUnit_TERA_BYTES_PER_SECOND EmrCreateCluster_CloudWatchAlarmUnit = "TERA_BYTES_PER_SECOND"
 )
 
 // An optional configuration specification to be used when provisioning cluster instances, which can include configurations for applications and software bundled with Amazon EMR.
 //
 // See the RunJobFlow API for complete documentation on input parameters
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_Configuration.html
 //
 // Experimental.
@@ -18761,6 +18824,9 @@ type EmrCreateCluster_ConfigurationProperty struct {
 }
 
 // Configuration of requested EBS block device associated with the instance group with count of volumes that will be associated to every instance.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_EbsBlockDeviceConfig.html
 //
 // Experimental.
@@ -18784,6 +18850,9 @@ const (
 )
 
 // The Amazon EBS configuration of a cluster instance.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_EbsConfiguration.html
 //
 // Experimental.
@@ -18808,6 +18877,9 @@ const (
 )
 
 // The configuration that defines an instance fleet.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_InstanceFleetConfig.html
 //
 // Experimental.
@@ -18835,6 +18907,9 @@ type EmrCreateCluster_InstanceFleetConfigProperty struct {
 }
 
 // The launch specification for Spot instances in the fleet, which determines the defined duration and provisioning timeout behavior.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_InstanceFleetProvisioningSpecifications.html
 //
 // Experimental.
@@ -18845,19 +18920,13 @@ type EmrCreateCluster_InstanceFleetProvisioningSpecificationsProperty struct {
 }
 
 // Configuration defining a new instance group.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_InstanceGroupConfig.html
 //
 // Experimental.
 type EmrCreateCluster_InstanceGroupConfigProperty struct {
-	// Target number of instances for the instance group.
-	// Experimental.
-	InstanceCount *float64 `json:"instanceCount"`
-	// The role of the instance group in the cluster.
-	// Experimental.
-	InstanceRole EmrCreateCluster_InstanceRoleType `json:"instanceRole"`
-	// The EC2 instance type for all instances in the instance group.
-	// Experimental.
-	InstanceType *string `json:"instanceType"`
 	// An automatic scaling policy for a core instance group or task instance group in an Amazon EMR cluster.
 	// Experimental.
 	AutoScalingPolicy *EmrCreateCluster_AutoScalingPolicyProperty `json:"autoScalingPolicy"`
@@ -18872,6 +18941,15 @@ type EmrCreateCluster_InstanceGroupConfigProperty struct {
 	// EBS configurations that will be attached to each EC2 instance in the instance group.
 	// Experimental.
 	EbsConfiguration *EmrCreateCluster_EbsConfigurationProperty `json:"ebsConfiguration"`
+	// Target number of instances for the instance group.
+	// Experimental.
+	InstanceCount *float64 `json:"instanceCount"`
+	// The role of the instance group in the cluster.
+	// Experimental.
+	InstanceRole EmrCreateCluster_InstanceRoleType `json:"instanceRole"`
+	// The EC2 instance type for all instances in the instance group.
+	// Experimental.
+	InstanceType *string `json:"instanceType"`
 	// Market type of the EC2 instances used to create a cluster node.
 	// Experimental.
 	Market EmrCreateCluster_InstanceMarket `json:"market"`
@@ -18894,19 +18972,19 @@ const (
 type EmrCreateCluster_InstanceRoleType string
 
 const (
-	EmrCreateCluster_InstanceRoleType_MASTER EmrCreateCluster_InstanceRoleType = "MASTER"
 	EmrCreateCluster_InstanceRoleType_CORE EmrCreateCluster_InstanceRoleType = "CORE"
+	EmrCreateCluster_InstanceRoleType_MASTER EmrCreateCluster_InstanceRoleType = "MASTER"
 	EmrCreateCluster_InstanceRoleType_TASK EmrCreateCluster_InstanceRoleType = "TASK"
 )
 
 // An instance type configuration for each instance type in an instance fleet, which determines the EC2 instances Amazon EMR attempts to provision to fulfill On-Demand and Spot target capacities.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_InstanceTypeConfig.html
 //
 // Experimental.
 type EmrCreateCluster_InstanceTypeConfigProperty struct {
-	// An EC2 instance type.
-	// Experimental.
-	InstanceType *string `json:"instanceType"`
 	// The bid price for each EC2 Spot instance type as defined by InstanceType.
 	//
 	// Expressed in USD.
@@ -18921,6 +18999,9 @@ type EmrCreateCluster_InstanceTypeConfigProperty struct {
 	// The configuration of Amazon Elastic Block Storage (EBS) attached to each instance as defined by InstanceType.
 	// Experimental.
 	EbsConfiguration *EmrCreateCluster_EbsConfigurationProperty `json:"ebsConfiguration"`
+	// An EC2 instance type.
+	// Experimental.
+	InstanceType *string `json:"instanceType"`
 	// The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in the InstanceFleetConfig.
 	// Experimental.
 	WeightedCapacity *float64 `json:"weightedCapacity"`
@@ -18997,15 +19078,13 @@ type EmrCreateCluster_InstancesConfigProperty struct {
 // Attributes for Kerberos configuration when Kerberos authentication is enabled using a security configuration.
 //
 // See the RunJobFlow API for complete documentation on input parameters
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_KerberosAttributes.html
 //
 // Experimental.
 type EmrCreateCluster_KerberosAttributesProperty struct {
-	// The name of the Kerberos realm to which all nodes in a cluster belong.
-	//
-	// For example, EC2.INTERNAL.
-	// Experimental.
-	Realm *string `json:"realm"`
 	// The Active Directory password for ADDomainJoinUser.
 	// Experimental.
 	AdDomainJoinPassword *string `json:"adDomainJoinPassword"`
@@ -19024,6 +19103,11 @@ type EmrCreateCluster_KerberosAttributesProperty struct {
 	// The password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster.
 	// Experimental.
 	KdcAdminPassword *string `json:"kdcAdminPassword"`
+	// The name of the Kerberos realm to which all nodes in a cluster belong.
+	//
+	// For example, EC2.INTERNAL.
+	// Experimental.
+	Realm *string `json:"realm"`
 }
 
 // A CloudWatch dimension, which is specified using a Key (known as a Name in CloudWatch), Value pair.
@@ -19031,6 +19115,9 @@ type EmrCreateCluster_KerberosAttributesProperty struct {
 // By default, Amazon EMR uses
 // one dimension whose Key is JobFlowID and Value is a variable representing the cluster ID, which is ${emr.clusterId}. This enables
 // the rule to bootstrap when the cluster ID becomes available
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_MetricDimension.html
 //
 // Experimental.
@@ -19044,6 +19131,9 @@ type EmrCreateCluster_MetricDimensionProperty struct {
 }
 
 // The Amazon EC2 Availability Zone configuration of the cluster (job flow).
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_PlacementType.html
 //
 // Experimental.
@@ -19065,18 +19155,21 @@ type EmrCreateCluster_PlacementTypeProperty struct {
 //
 // And an automatic scaling configuration, which describes how the policy adds or removes instances, the cooldown period,
 // and the number of EC2 instances that will be added each time the CloudWatch metric alarm condition is satisfied.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_ScalingAction.html
 //
 // Experimental.
 type EmrCreateCluster_ScalingActionProperty struct {
-	// The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
-	// Experimental.
-	SimpleScalingPolicyConfiguration *EmrCreateCluster_SimpleScalingPolicyConfigurationProperty `json:"simpleScalingPolicyConfiguration"`
 	// Not available for instance groups.
 	//
 	// Instance groups use the market type specified for the group.
 	// Experimental.
 	Market EmrCreateCluster_InstanceMarket `json:"market"`
+	// The type of adjustment the automatic scaling activity makes when triggered, and the periodicity of the adjustment.
+	// Experimental.
+	SimpleScalingPolicyConfiguration *EmrCreateCluster_SimpleScalingPolicyConfigurationProperty `json:"simpleScalingPolicyConfiguration"`
 }
 
 // AutoScaling Adjustment Type.
@@ -19085,14 +19178,17 @@ type EmrCreateCluster_ScalingAdjustmentType string
 
 const (
 	EmrCreateCluster_ScalingAdjustmentType_CHANGE_IN_CAPACITY EmrCreateCluster_ScalingAdjustmentType = "CHANGE_IN_CAPACITY"
-	EmrCreateCluster_ScalingAdjustmentType_PERCENT_CHANGE_IN_CAPACITY EmrCreateCluster_ScalingAdjustmentType = "PERCENT_CHANGE_IN_CAPACITY"
 	EmrCreateCluster_ScalingAdjustmentType_EXACT_CAPACITY EmrCreateCluster_ScalingAdjustmentType = "EXACT_CAPACITY"
+	EmrCreateCluster_ScalingAdjustmentType_PERCENT_CHANGE_IN_CAPACITY EmrCreateCluster_ScalingAdjustmentType = "PERCENT_CHANGE_IN_CAPACITY"
 )
 
 // The upper and lower EC2 instance limits for an automatic scaling policy.
 //
 // Automatic scaling activities triggered by automatic scaling
 // rules will not cause an instance group to grow above or below these limits.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_ScalingConstraints.html
 //
 // Experimental.
@@ -19112,6 +19208,9 @@ type EmrCreateCluster_ScalingConstraintsProperty struct {
 }
 
 // A scale-in or scale-out rule that defines scaling activity, including the CloudWatch metric alarm that triggers activity, how EC2 instances are added or removed, and the periodicity of adjustments.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_ScalingRule.html
 //
 // Experimental.
@@ -19119,6 +19218,9 @@ type EmrCreateCluster_ScalingRuleProperty struct {
 	// The conditions that trigger an automatic scaling activity.
 	// Experimental.
 	Action *EmrCreateCluster_ScalingActionProperty `json:"action"`
+	// A friendly, more verbose description of the automatic scaling rule.
+	// Experimental.
+	Description *string `json:"description"`
 	// The name used to identify an automatic scaling rule.
 	//
 	// Rule names must be unique within a scaling policy.
@@ -19127,14 +19229,14 @@ type EmrCreateCluster_ScalingRuleProperty struct {
 	// The CloudWatch alarm definition that determines when automatic scaling activity is triggered.
 	// Experimental.
 	Trigger *EmrCreateCluster_ScalingTriggerProperty `json:"trigger"`
-	// A friendly, more verbose description of the automatic scaling rule.
-	// Experimental.
-	Description *string `json:"description"`
 }
 
 // The conditions that trigger an automatic scaling activity and the definition of a CloudWatch metric alarm.
 //
 // When the defined alarm conditions are met along with other trigger parameters, scaling activity begins.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_ScalingTrigger.html
 //
 // Experimental.
@@ -19148,25 +19250,37 @@ type EmrCreateCluster_ScalingTriggerProperty struct {
 }
 
 // Configuration of the script to run during a bootstrap action.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_ScriptBootstrapActionConfig.html
 //
 // Experimental.
 type EmrCreateCluster_ScriptBootstrapActionConfigProperty struct {
+	// A list of command line arguments to pass to the bootstrap action script.
+	// Experimental.
+	Args *[]*string `json:"args"`
 	// Location of the script to run during a bootstrap action.
 	//
 	// Can be either a location in Amazon S3 or on a local file system.
 	// Experimental.
 	Path *string `json:"path"`
-	// A list of command line arguments to pass to the bootstrap action script.
-	// Experimental.
-	Args *[]*string `json:"args"`
 }
 
 // An automatic scaling configuration, which describes how the policy adds or removes instances, the cooldown period, and the number of EC2 instances that will be added each time the CloudWatch metric alarm condition is satisfied.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_SimpleScalingPolicyConfiguration.html
 //
 // Experimental.
 type EmrCreateCluster_SimpleScalingPolicyConfigurationProperty struct {
+	// The way in which EC2 instances are added (if ScalingAdjustment is a positive number) or terminated (if ScalingAdjustment is a negative number) each time the scaling activity is triggered.
+	// Experimental.
+	AdjustmentType EmrCreateCluster_ScalingAdjustmentType `json:"adjustmentType"`
+	// The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start.
+	// Experimental.
+	CoolDown *float64 `json:"coolDown"`
 	// The amount by which to scale in or scale out, based on the specified AdjustmentType.
 	//
 	// A positive value adds to the instance group's
@@ -19174,12 +19288,6 @@ type EmrCreateCluster_SimpleScalingPolicyConfigurationProperty struct {
 	// a positive integer.
 	// Experimental.
 	ScalingAdjustment *float64 `json:"scalingAdjustment"`
-	// The way in which EC2 instances are added (if ScalingAdjustment is a positive number) or terminated (if ScalingAdjustment is a negative number) each time the scaling activity is triggered.
-	// Experimental.
-	AdjustmentType EmrCreateCluster_ScalingAdjustmentType `json:"adjustmentType"`
-	// The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start.
-	// Experimental.
-	CoolDown *float64 `json:"coolDown"`
 }
 
 // Spot Allocation Strategies.
@@ -19195,22 +19303,25 @@ const (
 )
 
 // The launch specification for Spot instances in the instance fleet, which determines the defined duration and provisioning timeout behavior.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_SpotProvisioningSpecification.html
 //
 // Experimental.
 type EmrCreateCluster_SpotProvisioningSpecificationProperty struct {
-	// The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired.
-	// Experimental.
-	TimeoutAction EmrCreateCluster_SpotTimeoutAction `json:"timeoutAction"`
-	// The spot provisioning timeout period in minutes.
-	// Experimental.
-	TimeoutDurationMinutes *float64 `json:"timeoutDurationMinutes"`
 	// Specifies the strategy to use in launching Spot Instance fleets.
 	// Experimental.
 	AllocationStrategy EmrCreateCluster_SpotAllocationStrategy `json:"allocationStrategy"`
 	// The defined duration for Spot instances (also known as Spot blocks) in minutes.
 	// Experimental.
 	BlockDurationMinutes *float64 `json:"blockDurationMinutes"`
+	// The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired.
+	// Experimental.
+	TimeoutAction EmrCreateCluster_SpotTimeoutAction `json:"timeoutAction"`
+	// The spot provisioning timeout period in minutes.
+	// Experimental.
+	TimeoutDurationMinutes *float64 `json:"timeoutDurationMinutes"`
 }
 
 // Spot Timeout Actions.
@@ -19223,10 +19334,16 @@ const (
 )
 
 // EBS volume specifications such as volume type, IOPS, and size (GiB) that will be requested for the EBS volume attached to an EC2 instance in the cluster.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_VolumeSpecification.html
 //
 // Experimental.
 type EmrCreateCluster_VolumeSpecificationProperty struct {
+	// The number of I/O operations per second (IOPS) that the volume supports.
+	// Experimental.
+	Iops *float64 `json:"iops"`
 	// The volume size.
 	//
 	// If the volume type is EBS-optimized, the minimum value is 10GiB.
@@ -19238,9 +19355,6 @@ type EmrCreateCluster_VolumeSpecificationProperty struct {
 	// Volume types supported are gp2, io1, standard.
 	// Experimental.
 	VolumeType EmrCreateCluster_EbsBlockDeviceVolumeType `json:"volumeType"`
-	// The number of I/O operations per second (IOPS) that the volume supports.
-	// Experimental.
-	Iops *float64 `json:"iops"`
 }
 
 // Properties for EmrCreateCluster.
@@ -19295,12 +19409,6 @@ type EmrCreateClusterProps struct {
 	// Timeout for the state machine.
 	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
-	// A specification of the number and type of Amazon EC2 instances.
-	// Experimental.
-	Instances *EmrCreateCluster_InstancesConfigProperty `json:"instances"`
-	// The Name of the Cluster.
-	// Experimental.
-	Name *string `json:"name"`
 	// A JSON string for selecting additional features.
 	// Experimental.
 	AdditionalInfo *string `json:"additionalInfo"`
@@ -19329,12 +19437,18 @@ type EmrCreateClusterProps struct {
 	// The size of the EBS root device volume of the Linux AMI that is used for each EC2 instance.
 	// Experimental.
 	EbsRootVolumeSize awscdk.Size `json:"ebsRootVolumeSize"`
+	// A specification of the number and type of Amazon EC2 instances.
+	// Experimental.
+	Instances *EmrCreateCluster_InstancesConfigProperty `json:"instances"`
 	// Attributes for Kerberos configuration when Kerberos authentication is enabled using a security configuration.
 	// Experimental.
 	KerberosAttributes *EmrCreateCluster_KerberosAttributesProperty `json:"kerberosAttributes"`
 	// The location in Amazon S3 to write the log files of the job flow.
 	// Experimental.
 	LogUri *string `json:"logUri"`
+	// The Name of the Cluster.
+	// Experimental.
+	Name *string `json:"name"`
 	// The Amazon EMR release label, which determines the version of open-source application packages installed on the cluster.
 	// Experimental.
 	ReleaseLabel *string `json:"releaseLabel"`
@@ -21202,6 +21316,9 @@ type EmrModifyInstanceGroupByName_InstanceGroupModifyConfigProperty struct {
 }
 
 // Custom policy for requesting termination protection or termination of specific instances when shrinking an instance group.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_InstanceResizePolicy.html
 //
 // Experimental.
@@ -21220,6 +21337,9 @@ type EmrModifyInstanceGroupByName_InstanceResizePolicyProperty struct {
 // Policy for customizing shrink operations.
 //
 // Allows configuration of decommissioning timeout and targeted instance shrinking.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/emr/latest/APIReference/API_ShrinkPolicy.html
 //
 // Experimental.
@@ -24994,6 +25114,9 @@ func (e *jsiiProxy_EventBridgePutEvents) WhenBoundToGraph(graph awsstepfunctions
 }
 
 // An entry to be sent to EventBridge.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEventsRequestEntry.html
 //
 // Experimental.
@@ -25013,6 +25136,9 @@ type EventBridgePutEventsEntry struct {
 	//
 	// Experimental.
 	DetailType *string `json:"detailType"`
+	// The event bus the entry will be sent to.
+	// Experimental.
+	EventBus awsevents.IEventBus `json:"eventBus"`
 	// The service or application that caused this event to be generated.
 	//
 	// Example value: `com.example.service`
@@ -25020,9 +25146,6 @@ type EventBridgePutEventsEntry struct {
 	//
 	// Experimental.
 	Source *string `json:"source"`
-	// The event bus the entry will be sent to.
-	// Experimental.
-	EventBus awsevents.IEventBus `json:"eventBus"`
 }
 
 // Properties for sending events with PutEvents.
@@ -26965,13 +27088,13 @@ type GlueStartJobRunProps struct {
 type HttpMethod string
 
 const (
-	HttpMethod_GET HttpMethod = "GET"
-	HttpMethod_POST HttpMethod = "POST"
-	HttpMethod_PUT HttpMethod = "PUT"
 	HttpMethod_DELETE HttpMethod = "DELETE"
-	HttpMethod_PATCH HttpMethod = "PATCH"
+	HttpMethod_GET HttpMethod = "GET"
 	HttpMethod_HEAD HttpMethod = "HEAD"
 	HttpMethod_OPTIONS HttpMethod = "OPTIONS"
+	HttpMethod_PATCH HttpMethod = "PATCH"
+	HttpMethod_POST HttpMethod = "POST"
+	HttpMethod_PUT HttpMethod = "PUT"
 )
 
 // Method type of a EKS call.
@@ -27065,8 +27188,8 @@ type jsiiProxy_ISageMakerTask struct {
 type InputMode string
 
 const (
-	InputMode_PIPE InputMode = "PIPE"
 	InputMode_FILE InputMode = "FILE"
+	InputMode_PIPE InputMode = "PIPE"
 )
 
 // Invocation type of a Lambda.
@@ -27074,14 +27197,17 @@ const (
 type InvocationType string
 
 const (
-	InvocationType_REQUEST_RESPONSE InvocationType = "REQUEST_RESPONSE"
-	InvocationType_EVENT InvocationType = "EVENT"
 	InvocationType_DRY_RUN InvocationType = "DRY_RUN"
+	InvocationType_EVENT InvocationType = "EVENT"
+	InvocationType_REQUEST_RESPONSE InvocationType = "REQUEST_RESPONSE"
 )
 
 // A Step Functions Task to invoke an Activity worker.
 //
 // An Activity can be used directly as a Resource.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: use `StepFunctionsInvokeActivity`
 type InvokeActivity interface {
 	awsstepfunctions.IStepFunctionsTask
@@ -27135,6 +27261,9 @@ func (i *jsiiProxy_InvokeActivity) Bind(_task awsstepfunctions.Task) *awsstepfun
 }
 
 // Properties for FunctionTask.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: use `StepFunctionsInvokeActivity` and `StepFunctionsInvokeActivityProps`.
 type InvokeActivityProps struct {
 	// Maximum time between heart beats.
@@ -27149,6 +27278,9 @@ type InvokeActivityProps struct {
 // The Lambda function Arn is defined as Resource in the state machine definition.
 //
 // OUTPUT: the output of this task is the return value of the Lambda Function.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: Use `LambdaInvoke`
 type InvokeFunction interface {
 	awsstepfunctions.IStepFunctionsTask
@@ -27202,6 +27334,9 @@ func (i *jsiiProxy_InvokeFunction) Bind(_task awsstepfunctions.Task) *awsstepfun
 }
 
 // Properties for InvokeFunction.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: use `LambdaInvoke`
 type InvokeFunctionProps struct {
 	// The JSON that you want to provide to your Lambda function as input.
@@ -27212,6 +27347,9 @@ type InvokeFunctionProps struct {
 }
 
 // An object representing an AWS Batch job dependency.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type JobDependency struct {
 	// The job ID of the AWS Batch job associated with this dependency.
@@ -28197,14 +28335,17 @@ type LambdaInvokeProps struct {
 }
 
 // Options for binding a launch target to an ECS run job task.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LaunchTargetBindOptions struct {
-	// Task definition to run Docker containers in Amazon ECS.
-	// Experimental.
-	TaskDefinition awsecs.ITaskDefinition `json:"taskDefinition"`
 	// A regional grouping of one or more container instances on which you can run tasks and services.
 	// Experimental.
 	Cluster awsecs.ICluster `json:"cluster"`
+	// Task definition to run Docker containers in Amazon ECS.
+	// Experimental.
+	TaskDefinition awsecs.ITaskDefinition `json:"taskDefinition"`
 }
 
 // A message attribute to add to the SNS message.
@@ -28242,6 +28383,9 @@ const (
 )
 
 // Specifies the metric name and regular expressions used to parse algorithm logs.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type MetricDefinition struct {
 	// Name of the metric.
@@ -28293,10 +28437,22 @@ type OutputDataConfig struct {
 }
 
 // Identifies a model that you want to host and the resources to deploy for hosting it.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ProductionVariant.html
 //
 // Experimental.
 type ProductionVariant struct {
+	// The size of the Elastic Inference (EI) instance to use for the production variant.
+	// Experimental.
+	AcceleratorType AcceleratorType `json:"acceleratorType"`
+	// Number of instances to launch initially.
+	// Experimental.
+	InitialInstanceCount *float64 `json:"initialInstanceCount"`
+	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration.
+	// Experimental.
+	InitialVariantWeight *float64 `json:"initialVariantWeight"`
 	// The ML compute instance type.
 	// Experimental.
 	InstanceType awsec2.InstanceType `json:"instanceType"`
@@ -28308,21 +28464,15 @@ type ProductionVariant struct {
 	// The name of the production variant.
 	// Experimental.
 	VariantName *string `json:"variantName"`
-	// The size of the Elastic Inference (EI) instance to use for the production variant.
-	// Experimental.
-	AcceleratorType AcceleratorType `json:"acceleratorType"`
-	// Number of instances to launch initially.
-	// Experimental.
-	InitialInstanceCount *float64 `json:"initialInstanceCount"`
-	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration.
-	// Experimental.
-	InitialVariantWeight *float64 `json:"initialVariantWeight"`
 }
 
 // A Step Functions Task to publish messages to SNS topic.
 //
 // A Function can be used directly as a Resource, but this class mirrors
 // integration with other AWS services via a specific class instance.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: Use `SnsPublish`
 type PublishToTopic interface {
 	awsstepfunctions.IStepFunctionsTask
@@ -28376,16 +28526,19 @@ func (p *jsiiProxy_PublishToTopic) Bind(_task awsstepfunctions.Task) *awsstepfun
 }
 
 // Properties for PublishTask.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: Use `SnsPublish`
 type PublishToTopicProps struct {
-	// The text message to send to the topic.
-	// Deprecated: Use `SnsPublish`
-	Message awsstepfunctions.TaskInput `json:"message"`
 	// The service integration pattern indicates different ways to call Publish to SNS.
 	//
 	// The valid value is either FIRE_AND_FORGET or WAIT_FOR_TASK_TOKEN.
 	// Deprecated: Use `SnsPublish`
 	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `json:"integrationPattern"`
+	// The text message to send to the topic.
+	// Deprecated: Use `SnsPublish`
+	Message awsstepfunctions.TaskInput `json:"message"`
 	// If true, send a different message to every subscription type.
 	//
 	// If this is set to true, message must be a JSON object with a
@@ -28476,6 +28629,9 @@ type ResultConfiguration struct {
 }
 
 // A Step Functions Task to run AWS Batch.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: use `BatchSubmitJob`
 type RunBatchJob interface {
 	awsstepfunctions.IStepFunctionsTask
@@ -28529,20 +28685,11 @@ func (r *jsiiProxy_RunBatchJob) Bind(_task awsstepfunctions.Task) *awsstepfuncti
 }
 
 // Properties for RunBatchJob.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: use `BatchSubmitJob`
 type RunBatchJobProps struct {
-	// The arn of the job definition used by this job.
-	// Deprecated: use `BatchSubmitJob`
-	JobDefinitionArn *string `json:"jobDefinitionArn"`
-	// The name of the job.
-	//
-	// The first character must be alphanumeric, and up to 128 letters (uppercase and lowercase),
-	// numbers, hyphens, and underscores are allowed.
-	// Deprecated: use `BatchSubmitJob`
-	JobName *string `json:"jobName"`
-	// The arn of the job queue into which the job is submitted.
-	// Deprecated: use `BatchSubmitJob`
-	JobQueueArn *string `json:"jobQueueArn"`
 	// The array size can be between 2 and 10,000.
 	//
 	// If you specify array properties for a job, it becomes an array job.
@@ -28573,6 +28720,18 @@ type RunBatchJobProps struct {
 	// The valid value is either FIRE_AND_FORGET or SYNC.
 	// Deprecated: use `BatchSubmitJob`
 	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `json:"integrationPattern"`
+	// The arn of the job definition used by this job.
+	// Deprecated: use `BatchSubmitJob`
+	JobDefinitionArn *string `json:"jobDefinitionArn"`
+	// The name of the job.
+	//
+	// The first character must be alphanumeric, and up to 128 letters (uppercase and lowercase),
+	// numbers, hyphens, and underscores are allowed.
+	// Deprecated: use `BatchSubmitJob`
+	JobName *string `json:"jobName"`
+	// The arn of the job queue into which the job is submitted.
+	// Deprecated: use `BatchSubmitJob`
+	JobQueueArn *string `json:"jobQueueArn"`
 	// The payload to be passed as parametrs to the batch job.
 	// Deprecated: use `BatchSubmitJob`
 	Payload *map[string]interface{} `json:"payload"`
@@ -28586,6 +28745,9 @@ type RunBatchJobProps struct {
 }
 
 // Run an ECS/EC2 Task in a StepFunctions workflow.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: - replaced by `EcsRunTask`
 type RunEcsEc2Task interface {
 	EcsRunTaskBase
@@ -28661,17 +28823,14 @@ func (r *jsiiProxy_RunEcsEc2Task) ConfigureAwsVpcNetworking(vpc awsec2.IVpc, ass
 }
 
 // Properties to run an ECS task on EC2 in StepFunctionsan ECS.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: use `EcsRunTask` and `EcsRunTaskProps`
 type RunEcsEc2TaskProps struct {
 	// The topic to run the task on.
 	// Deprecated: use `EcsRunTask` and `EcsRunTaskProps`
 	Cluster awsecs.ICluster `json:"cluster"`
-	// Task Definition used for running tasks in the service.
-	//
-	// Note: this must be TaskDefinition, and not ITaskDefinition,
-	// as it requires properties that are not known for imported task definitions
-	// Deprecated: use `EcsRunTask` and `EcsRunTaskProps`
-	TaskDefinition awsecs.TaskDefinition `json:"taskDefinition"`
 	// Container setting overrides.
 	//
 	// Key is the name of the container to override, value is the
@@ -28683,6 +28842,12 @@ type RunEcsEc2TaskProps struct {
 	// The valid value for Lambda is FIRE_AND_FORGET, SYNC and WAIT_FOR_TASK_TOKEN.
 	// Deprecated: use `EcsRunTask` and `EcsRunTaskProps`
 	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `json:"integrationPattern"`
+	// Task Definition used for running tasks in the service.
+	//
+	// Note: this must be TaskDefinition, and not ITaskDefinition,
+	// as it requires properties that are not known for imported task definitions
+	// Deprecated: use `EcsRunTask` and `EcsRunTaskProps`
+	TaskDefinition awsecs.TaskDefinition `json:"taskDefinition"`
 	// Placement constraints.
 	// Deprecated: use `EcsRunTask` and `EcsRunTaskProps`
 	PlacementConstraints *[]awsecs.PlacementConstraint `json:"placementConstraints"`
@@ -28702,6 +28867,9 @@ type RunEcsEc2TaskProps struct {
 }
 
 // Start a service on an ECS cluster.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: replaced by `EcsRunTask`
 type RunEcsFargateTask interface {
 	EcsRunTaskBase
@@ -28777,17 +28945,14 @@ func (r *jsiiProxy_RunEcsFargateTask) ConfigureAwsVpcNetworking(vpc awsec2.IVpc,
 }
 
 // Properties to define an ECS service.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: replaced by `EcsRunTask` and `EcsRunTaskProps`
 type RunEcsFargateTaskProps struct {
 	// The topic to run the task on.
 	// Deprecated: replaced by `EcsRunTask` and `EcsRunTaskProps`
 	Cluster awsecs.ICluster `json:"cluster"`
-	// Task Definition used for running tasks in the service.
-	//
-	// Note: this must be TaskDefinition, and not ITaskDefinition,
-	// as it requires properties that are not known for imported task definitions
-	// Deprecated: replaced by `EcsRunTask` and `EcsRunTaskProps`
-	TaskDefinition awsecs.TaskDefinition `json:"taskDefinition"`
 	// Container setting overrides.
 	//
 	// Key is the name of the container to override, value is the
@@ -28799,6 +28964,12 @@ type RunEcsFargateTaskProps struct {
 	// The valid value for Lambda is FIRE_AND_FORGET, SYNC and WAIT_FOR_TASK_TOKEN.
 	// Deprecated: replaced by `EcsRunTask` and `EcsRunTaskProps`
 	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `json:"integrationPattern"`
+	// Task Definition used for running tasks in the service.
+	//
+	// Note: this must be TaskDefinition, and not ITaskDefinition,
+	// as it requires properties that are not known for imported task definitions
+	// Deprecated: replaced by `EcsRunTask` and `EcsRunTaskProps`
+	TaskDefinition awsecs.TaskDefinition `json:"taskDefinition"`
 	// Assign public IP addresses to each task.
 	// Deprecated: replaced by `EcsRunTask` and `EcsRunTaskProps`
 	AssignPublicIp *bool `json:"assignPublicIp"`
@@ -28820,6 +28991,9 @@ type RunEcsFargateTaskProps struct {
 //
 // OUTPUT: the output of this task is a JobRun structure, for details consult
 // https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-runs.html#aws-glue-api-jobs-runs-JobRun
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-glue.html
 //
 // Deprecated: use `GlueStartJobRun`
@@ -28875,6 +29049,9 @@ func (r *jsiiProxy_RunGlueJobTask) Bind(task awsstepfunctions.Task) *awsstepfunc
 }
 
 // Properties for RunGlueJobTask.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: use `GlueStartJobRun`
 type RunGlueJobTaskProps struct {
 	// The job arguments specifically for this run.
@@ -28911,6 +29088,9 @@ type RunGlueJobTaskProps struct {
 // OUTPUT: the output of this task is either the return value of Lambda's
 // Invoke call, or whatever the Lambda Function posted back using
 // `SendTaskSuccess/SendTaskFailure` in `waitForTaskToken` mode.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-lambda.html
 //
 // Deprecated: Use `LambdaInvoke`
@@ -28966,6 +29146,9 @@ func (r *jsiiProxy_RunLambdaTask) Bind(_task awsstepfunctions.Task) *awsstepfunc
 }
 
 // Properties for RunLambdaTask.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: Use `LambdaInvoke`
 type RunLambdaTaskProps struct {
 	// Client context to pass to the function.
@@ -29009,9 +29192,6 @@ const (
 //
 // Experimental.
 type S3DataSource struct {
-	// S3 Uri.
-	// Experimental.
-	S3Location S3Location `json:"s3Location"`
 	// List of one or more attribute names to use that are found in a specified augmented manifest file.
 	// Experimental.
 	AttributeNames *[]*string `json:"attributeNames"`
@@ -29021,6 +29201,9 @@ type S3DataSource struct {
 	// S3 Data Type.
 	// Experimental.
 	S3DataType S3DataType `json:"s3DataType"`
+	// S3 Uri.
+	// Experimental.
+	S3Location S3Location `json:"s3Location"`
 }
 
 // S3 Data Type.
@@ -29031,9 +29214,9 @@ type S3DataSource struct {
 type S3DataType string
 
 const (
+	S3DataType_AUGMENTED_MANIFEST_FILE S3DataType = "AUGMENTED_MANIFEST_FILE"
 	S3DataType_MANIFEST_FILE S3DataType = "MANIFEST_FILE"
 	S3DataType_S3_PREFIX S3DataType = "S3_PREFIX"
-	S3DataType_AUGMENTED_MANIFEST_FILE S3DataType = "AUGMENTED_MANIFEST_FILE"
 )
 
 // Constructs `IS3Location` objects.
@@ -29114,6 +29297,9 @@ func (s *jsiiProxy_S3Location) Bind(task ISageMakerTask, opts *S3LocationBindOpt
 }
 
 // Options for binding an S3 Location.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type S3LocationBindOptions struct {
 	// Allow reading from the S3 Location.
@@ -29125,6 +29311,9 @@ type S3LocationBindOptions struct {
 }
 
 // Stores information about the location of an object in Amazon S3.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type S3LocationConfig struct {
 	// Uniquely identifies the resource in Amazon S3.
@@ -34942,6 +35131,9 @@ type SageMakerUpdateEndpointProps struct {
 //
 // A Function can be used directly as a Resource, but this class mirrors
 // integration with other AWS services via a specific class instance.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: Use `SqsSendMessage`
 type SendToQueue interface {
 	awsstepfunctions.IStepFunctionsTask
@@ -34995,11 +35187,11 @@ func (s *jsiiProxy_SendToQueue) Bind(_task awsstepfunctions.Task) *awsstepfuncti
 }
 
 // Properties for SendMessageTask.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: Use `SqsSendMessage`
 type SendToQueueProps struct {
-	// The text message to send to the queue.
-	// Deprecated: Use `SqsSendMessage`
-	MessageBody awsstepfunctions.TaskInput `json:"messageBody"`
 	// The length of time, in seconds, for which to delay a specific message.
 	//
 	// Valid values are 0-900 seconds.
@@ -35010,6 +35202,9 @@ type SendToQueueProps struct {
 	// The valid value is either FIRE_AND_FORGET or WAIT_FOR_TASK_TOKEN.
 	// Deprecated: Use `SqsSendMessage`
 	IntegrationPattern awsstepfunctions.ServiceIntegrationPattern `json:"integrationPattern"`
+	// The text message to send to the queue.
+	// Deprecated: Use `SqsSendMessage`
+	MessageBody awsstepfunctions.TaskInput `json:"messageBody"`
 	// The token used for deduplication of sent messages.
 	// Deprecated: Use `SqsSendMessage`
 	MessageDeduplicationId *string `json:"messageDeduplicationId"`
@@ -35022,6 +35217,9 @@ type SendToQueueProps struct {
 }
 
 // Configuration for a shuffle option for input data in a channel.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ShuffleConfig struct {
 	// Determines the shuffling order.
@@ -36952,6 +37150,9 @@ type SqsSendMessageProps struct {
 // A Step Functions Task to call StartExecution on another state machine.
 //
 // It supports three service integration patterns: FIRE_AND_FORGET, SYNC and WAIT_FOR_TASK_TOKEN.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: - use 'StepFunctionsStartExecution'
 type StartExecution interface {
 	awsstepfunctions.IStepFunctionsTask
@@ -37005,6 +37206,9 @@ func (s *jsiiProxy_StartExecution) Bind(task awsstepfunctions.Task) *awsstepfunc
 }
 
 // Properties for StartExecution.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: - use 'StepFunctionsStartExecution'
 type StartExecutionProps struct {
 	// The JSON input for the execution, same as that of StartExecution.
@@ -38915,6 +39119,9 @@ type StoppingCondition struct {
 }
 
 // An environment variable to be set in the container run as a task.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type TaskEnvironmentVariable struct {
 	// Name for the environment variable.
@@ -39012,13 +39219,16 @@ type TransformS3DataSource struct {
 }
 
 // Specifies the VPC that you want your Amazon SageMaker training job to connect to.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type VpcConfig struct {
-	// VPC.
-	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
 	// VPC subnets.
 	// Experimental.
 	Subnets *awsec2.SubnetSelection `json:"subnets"`
+	// VPC.
+	// Experimental.
+	Vpc awsec2.IVpc `json:"vpc"`
 }
 

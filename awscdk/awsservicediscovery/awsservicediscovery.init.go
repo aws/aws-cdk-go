@@ -398,10 +398,10 @@ func init() {
 		reflect.TypeOf((*DnsRecordType)(nil)).Elem(),
 		map[string]interface{}{
 			"A": DnsRecordType_A,
-			"AAAA": DnsRecordType_AAAA,
 			"A_AAAA": DnsRecordType_A_AAAA,
-			"SRV": DnsRecordType_SRV,
+			"AAAA": DnsRecordType_AAAA,
 			"CNAME": DnsRecordType_CNAME,
+			"SRV": DnsRecordType_SRV,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -650,9 +650,9 @@ func init() {
 		"monocdk.aws_servicediscovery.NamespaceType",
 		reflect.TypeOf((*NamespaceType)(nil)).Elem(),
 		map[string]interface{}{
-			"HTTP": NamespaceType_HTTP,
 			"DNS_PRIVATE": NamespaceType_DNS_PRIVATE,
 			"DNS_PUBLIC": NamespaceType_DNS_PUBLIC,
+			"HTTP": NamespaceType_HTTP,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -782,8 +782,8 @@ func init() {
 		"monocdk.aws_servicediscovery.RoutingPolicy",
 		reflect.TypeOf((*RoutingPolicy)(nil)).Elem(),
 		map[string]interface{}{
-			"WEIGHTED": RoutingPolicy_WEIGHTED,
 			"MULTIVALUE": RoutingPolicy_MULTIVALUE,
+			"WEIGHTED": RoutingPolicy_WEIGHTED,
 		},
 	)
 	_jsii_.RegisterClass(

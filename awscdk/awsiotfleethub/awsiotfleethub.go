@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::IoTFleetHub::Application`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -735,13 +738,16 @@ func (c *jsiiProxy_CfnApplication) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::IoTFleetHub::Application`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationProps struct {
+	// `AWS::IoTFleetHub::Application.ApplicationDescription`.
+	ApplicationDescription *string `json:"applicationDescription"`
 	// `AWS::IoTFleetHub::Application.ApplicationName`.
 	ApplicationName *string `json:"applicationName"`
 	// `AWS::IoTFleetHub::Application.RoleArn`.
 	RoleArn *string `json:"roleArn"`
-	// `AWS::IoTFleetHub::Application.ApplicationDescription`.
-	ApplicationDescription *string `json:"applicationDescription"`
 	// `AWS::IoTFleetHub::Application.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }

@@ -1470,13 +1470,13 @@ func init() {
 		"monocdk.aws_lambda.RuntimeFamily",
 		reflect.TypeOf((*RuntimeFamily)(nil)).Elem(),
 		map[string]interface{}{
-			"NODEJS": RuntimeFamily_NODEJS,
-			"JAVA": RuntimeFamily_JAVA,
-			"PYTHON": RuntimeFamily_PYTHON,
 			"DOTNET_CORE": RuntimeFamily_DOTNET_CORE,
 			"GO": RuntimeFamily_GO,
-			"RUBY": RuntimeFamily_RUBY,
+			"JAVA": RuntimeFamily_JAVA,
+			"NODEJS": RuntimeFamily_NODEJS,
 			"OTHER": RuntimeFamily_OTHER,
+			"PYTHON": RuntimeFamily_PYTHON,
+			"RUBY": RuntimeFamily_RUBY,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -1568,8 +1568,8 @@ func init() {
 		"monocdk.aws_lambda.StartingPosition",
 		reflect.TypeOf((*StartingPosition)(nil)).Elem(),
 		map[string]interface{}{
-			"TRIM_HORIZON": StartingPosition_TRIM_HORIZON,
 			"LATEST": StartingPosition_LATEST,
+			"TRIM_HORIZON": StartingPosition_TRIM_HORIZON,
 		},
 	)
 	_jsii_.RegisterEnum(
@@ -1577,8 +1577,8 @@ func init() {
 		reflect.TypeOf((*Tracing)(nil)).Elem(),
 		map[string]interface{}{
 			"ACTIVE": Tracing_ACTIVE,
-			"PASS_THROUGH": Tracing_PASS_THROUGH,
 			"DISABLED": Tracing_DISABLED,
+			"PASS_THROUGH": Tracing_PASS_THROUGH,
 		},
 	)
 	_jsii_.RegisterEnum(

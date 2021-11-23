@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::IoTSiteWise::AccessPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnAccessPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -657,6 +660,8 @@ func (c *jsiiProxy_CfnAccessPolicy) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnAccessPolicy_AccessPolicyIdentityProperty struct {
 	// `CfnAccessPolicy.AccessPolicyIdentityProperty.IamRole`.
 	IamRole interface{} `json:"iamRole"`
@@ -666,6 +671,8 @@ type CfnAccessPolicy_AccessPolicyIdentityProperty struct {
 	User interface{} `json:"user"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAccessPolicy_AccessPolicyResourceProperty struct {
 	// `CfnAccessPolicy.AccessPolicyResourceProperty.Portal`.
 	Portal interface{} `json:"portal"`
@@ -673,32 +680,45 @@ type CfnAccessPolicy_AccessPolicyResourceProperty struct {
 	Project interface{} `json:"project"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAccessPolicy_IamRoleProperty struct {
 	// `CfnAccessPolicy.IamRoleProperty.arn`.
 	Arn *string `json:"arn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAccessPolicy_IamUserProperty struct {
 	// `CfnAccessPolicy.IamUserProperty.arn`.
 	Arn *string `json:"arn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAccessPolicy_PortalProperty struct {
 	// `CfnAccessPolicy.PortalProperty.id`.
 	Id *string `json:"id"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAccessPolicy_ProjectProperty struct {
 	// `CfnAccessPolicy.ProjectProperty.id`.
 	Id *string `json:"id"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAccessPolicy_UserProperty struct {
 	// `CfnAccessPolicy.UserProperty.id`.
 	Id *string `json:"id"`
 }
 
 // Properties for defining a `AWS::IoTSiteWise::AccessPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnAccessPolicyProps struct {
 	// `AWS::IoTSiteWise::AccessPolicy.AccessPolicyIdentity`.
 	AccessPolicyIdentity interface{} `json:"accessPolicyIdentity"`
@@ -709,6 +729,9 @@ type CfnAccessPolicyProps struct {
 }
 
 // A CloudFormation `AWS::IoTSiteWise::Asset`.
+//
+// TODO: EXAMPLE
+//
 type CfnAsset interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1387,6 +1410,8 @@ func (c *jsiiProxy_CfnAsset) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnAsset_AssetHierarchyProperty struct {
 	// `CfnAsset.AssetHierarchyProperty.ChildAssetId`.
 	ChildAssetId *string `json:"childAssetId"`
@@ -1394,16 +1419,21 @@ type CfnAsset_AssetHierarchyProperty struct {
 	LogicalId *string `json:"logicalId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAsset_AssetPropertyProperty struct {
-	// `CfnAsset.AssetPropertyProperty.LogicalId`.
-	LogicalId *string `json:"logicalId"`
 	// `CfnAsset.AssetPropertyProperty.Alias`.
 	Alias *string `json:"alias"`
+	// `CfnAsset.AssetPropertyProperty.LogicalId`.
+	LogicalId *string `json:"logicalId"`
 	// `CfnAsset.AssetPropertyProperty.NotificationState`.
 	NotificationState *string `json:"notificationState"`
 }
 
 // A CloudFormation `AWS::IoTSiteWise::AssetModel`.
+//
+// TODO: EXAMPLE
+//
 type CfnAssetModel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2102,17 +2132,21 @@ func (c *jsiiProxy_CfnAssetModel) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnAssetModel_AssetModelCompositeModelProperty struct {
-	// `CfnAssetModel.AssetModelCompositeModelProperty.Name`.
-	Name *string `json:"name"`
-	// `CfnAssetModel.AssetModelCompositeModelProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnAssetModel.AssetModelCompositeModelProperty.CompositeModelProperties`.
 	CompositeModelProperties interface{} `json:"compositeModelProperties"`
 	// `CfnAssetModel.AssetModelCompositeModelProperty.Description`.
 	Description *string `json:"description"`
+	// `CfnAssetModel.AssetModelCompositeModelProperty.Name`.
+	Name *string `json:"name"`
+	// `CfnAssetModel.AssetModelCompositeModelProperty.Type`.
+	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAssetModel_AssetModelHierarchyProperty struct {
 	// `CfnAssetModel.AssetModelHierarchyProperty.ChildAssetModelId`.
 	ChildAssetModelId *string `json:"childAssetModelId"`
@@ -2122,26 +2156,32 @@ type CfnAssetModel_AssetModelHierarchyProperty struct {
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAssetModel_AssetModelPropertyProperty struct {
 	// `CfnAssetModel.AssetModelPropertyProperty.DataType`.
 	DataType *string `json:"dataType"`
+	// `CfnAssetModel.AssetModelPropertyProperty.DataTypeSpec`.
+	DataTypeSpec *string `json:"dataTypeSpec"`
 	// `CfnAssetModel.AssetModelPropertyProperty.LogicalId`.
 	LogicalId *string `json:"logicalId"`
 	// `CfnAssetModel.AssetModelPropertyProperty.Name`.
 	Name *string `json:"name"`
 	// `CfnAssetModel.AssetModelPropertyProperty.Type`.
 	Type interface{} `json:"type"`
-	// `CfnAssetModel.AssetModelPropertyProperty.DataTypeSpec`.
-	DataTypeSpec *string `json:"dataTypeSpec"`
 	// `CfnAssetModel.AssetModelPropertyProperty.Unit`.
 	Unit *string `json:"unit"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAssetModel_AttributeProperty struct {
 	// `CfnAssetModel.AttributeProperty.DefaultValue`.
 	DefaultValue *string `json:"defaultValue"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAssetModel_ExpressionVariableProperty struct {
 	// `CfnAssetModel.ExpressionVariableProperty.Name`.
 	Name *string `json:"name"`
@@ -2149,6 +2189,8 @@ type CfnAssetModel_ExpressionVariableProperty struct {
 	Value interface{} `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAssetModel_MetricProperty struct {
 	// `CfnAssetModel.MetricProperty.Expression`.
 	Expression *string `json:"expression"`
@@ -2158,22 +2200,28 @@ type CfnAssetModel_MetricProperty struct {
 	Window interface{} `json:"window"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAssetModel_MetricWindowProperty struct {
 	// `CfnAssetModel.MetricWindowProperty.Tumbling`.
 	Tumbling interface{} `json:"tumbling"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAssetModel_PropertyTypeProperty struct {
-	// `CfnAssetModel.PropertyTypeProperty.TypeName`.
-	TypeName *string `json:"typeName"`
 	// `CfnAssetModel.PropertyTypeProperty.Attribute`.
 	Attribute interface{} `json:"attribute"`
 	// `CfnAssetModel.PropertyTypeProperty.Metric`.
 	Metric interface{} `json:"metric"`
 	// `CfnAssetModel.PropertyTypeProperty.Transform`.
 	Transform interface{} `json:"transform"`
+	// `CfnAssetModel.PropertyTypeProperty.TypeName`.
+	TypeName *string `json:"typeName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAssetModel_TransformProperty struct {
 	// `CfnAssetModel.TransformProperty.Expression`.
 	Expression *string `json:"expression"`
@@ -2181,6 +2229,8 @@ type CfnAssetModel_TransformProperty struct {
 	Variables interface{} `json:"variables"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAssetModel_TumblingWindowProperty struct {
 	// `CfnAssetModel.TumblingWindowProperty.Interval`.
 	Interval *string `json:"interval"`
@@ -2188,23 +2238,28 @@ type CfnAssetModel_TumblingWindowProperty struct {
 	Offset *string `json:"offset"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAssetModel_VariableValueProperty struct {
-	// `CfnAssetModel.VariableValueProperty.PropertyLogicalId`.
-	PropertyLogicalId *string `json:"propertyLogicalId"`
 	// `CfnAssetModel.VariableValueProperty.HierarchyLogicalId`.
 	HierarchyLogicalId *string `json:"hierarchyLogicalId"`
+	// `CfnAssetModel.VariableValueProperty.PropertyLogicalId`.
+	PropertyLogicalId *string `json:"propertyLogicalId"`
 }
 
 // Properties for defining a `AWS::IoTSiteWise::AssetModel`.
+//
+// TODO: EXAMPLE
+//
 type CfnAssetModelProps struct {
-	// `AWS::IoTSiteWise::AssetModel.AssetModelName`.
-	AssetModelName *string `json:"assetModelName"`
 	// `AWS::IoTSiteWise::AssetModel.AssetModelCompositeModels`.
 	AssetModelCompositeModels interface{} `json:"assetModelCompositeModels"`
 	// `AWS::IoTSiteWise::AssetModel.AssetModelDescription`.
 	AssetModelDescription *string `json:"assetModelDescription"`
 	// `AWS::IoTSiteWise::AssetModel.AssetModelHierarchies`.
 	AssetModelHierarchies interface{} `json:"assetModelHierarchies"`
+	// `AWS::IoTSiteWise::AssetModel.AssetModelName`.
+	AssetModelName *string `json:"assetModelName"`
 	// `AWS::IoTSiteWise::AssetModel.AssetModelProperties`.
 	AssetModelProperties interface{} `json:"assetModelProperties"`
 	// `AWS::IoTSiteWise::AssetModel.Tags`.
@@ -2212,13 +2267,16 @@ type CfnAssetModelProps struct {
 }
 
 // Properties for defining a `AWS::IoTSiteWise::Asset`.
+//
+// TODO: EXAMPLE
+//
 type CfnAssetProps struct {
+	// `AWS::IoTSiteWise::Asset.AssetHierarchies`.
+	AssetHierarchies interface{} `json:"assetHierarchies"`
 	// `AWS::IoTSiteWise::Asset.AssetModelId`.
 	AssetModelId *string `json:"assetModelId"`
 	// `AWS::IoTSiteWise::Asset.AssetName`.
 	AssetName *string `json:"assetName"`
-	// `AWS::IoTSiteWise::Asset.AssetHierarchies`.
-	AssetHierarchies interface{} `json:"assetHierarchies"`
 	// `AWS::IoTSiteWise::Asset.AssetProperties`.
 	AssetProperties interface{} `json:"assetProperties"`
 	// `AWS::IoTSiteWise::Asset.Tags`.
@@ -2226,6 +2284,9 @@ type CfnAssetProps struct {
 }
 
 // A CloudFormation `AWS::IoTSiteWise::Dashboard`.
+//
+// TODO: EXAMPLE
+//
 type CfnDashboard interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2905,6 +2966,9 @@ func (c *jsiiProxy_CfnDashboard) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::IoTSiteWise::Dashboard`.
+//
+// TODO: EXAMPLE
+//
 type CfnDashboardProps struct {
 	// `AWS::IoTSiteWise::Dashboard.DashboardDefinition`.
 	DashboardDefinition *string `json:"dashboardDefinition"`
@@ -2919,6 +2983,9 @@ type CfnDashboardProps struct {
 }
 
 // A CloudFormation `AWS::IoTSiteWise::Gateway`.
+//
+// TODO: EXAMPLE
+//
 type CfnGateway interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3566,36 +3633,48 @@ func (c *jsiiProxy_CfnGateway) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnGateway_GatewayCapabilitySummaryProperty struct {
-	// `CfnGateway.GatewayCapabilitySummaryProperty.CapabilityNamespace`.
-	CapabilityNamespace *string `json:"capabilityNamespace"`
 	// `CfnGateway.GatewayCapabilitySummaryProperty.CapabilityConfiguration`.
 	CapabilityConfiguration *string `json:"capabilityConfiguration"`
+	// `CfnGateway.GatewayCapabilitySummaryProperty.CapabilityNamespace`.
+	CapabilityNamespace *string `json:"capabilityNamespace"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGateway_GatewayPlatformProperty struct {
 	// `CfnGateway.GatewayPlatformProperty.Greengrass`.
 	Greengrass interface{} `json:"greengrass"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGateway_GreengrassProperty struct {
 	// `CfnGateway.GreengrassProperty.GroupArn`.
 	GroupArn *string `json:"groupArn"`
 }
 
 // Properties for defining a `AWS::IoTSiteWise::Gateway`.
+//
+// TODO: EXAMPLE
+//
 type CfnGatewayProps struct {
+	// `AWS::IoTSiteWise::Gateway.GatewayCapabilitySummaries`.
+	GatewayCapabilitySummaries interface{} `json:"gatewayCapabilitySummaries"`
 	// `AWS::IoTSiteWise::Gateway.GatewayName`.
 	GatewayName *string `json:"gatewayName"`
 	// `AWS::IoTSiteWise::Gateway.GatewayPlatform`.
 	GatewayPlatform interface{} `json:"gatewayPlatform"`
-	// `AWS::IoTSiteWise::Gateway.GatewayCapabilitySummaries`.
-	GatewayCapabilitySummaries interface{} `json:"gatewayCapabilitySummaries"`
 	// `AWS::IoTSiteWise::Gateway.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::IoTSiteWise::Portal`.
+//
+// TODO: EXAMPLE
+//
 type CfnPortal interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4357,26 +4436,32 @@ func (c *jsiiProxy_CfnPortal) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::IoTSiteWise::Portal`.
+//
+// TODO: EXAMPLE
+//
 type CfnPortalProps struct {
-	// `AWS::IoTSiteWise::Portal.PortalContactEmail`.
-	PortalContactEmail *string `json:"portalContactEmail"`
-	// `AWS::IoTSiteWise::Portal.PortalName`.
-	PortalName *string `json:"portalName"`
-	// `AWS::IoTSiteWise::Portal.RoleArn`.
-	RoleArn *string `json:"roleArn"`
 	// `AWS::IoTSiteWise::Portal.Alarms`.
 	Alarms interface{} `json:"alarms"`
 	// `AWS::IoTSiteWise::Portal.NotificationSenderEmail`.
 	NotificationSenderEmail *string `json:"notificationSenderEmail"`
 	// `AWS::IoTSiteWise::Portal.PortalAuthMode`.
 	PortalAuthMode *string `json:"portalAuthMode"`
+	// `AWS::IoTSiteWise::Portal.PortalContactEmail`.
+	PortalContactEmail *string `json:"portalContactEmail"`
 	// `AWS::IoTSiteWise::Portal.PortalDescription`.
 	PortalDescription *string `json:"portalDescription"`
+	// `AWS::IoTSiteWise::Portal.PortalName`.
+	PortalName *string `json:"portalName"`
+	// `AWS::IoTSiteWise::Portal.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 	// `AWS::IoTSiteWise::Portal.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::IoTSiteWise::Project`.
+//
+// TODO: EXAMPLE
+//
 type CfnProject interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5036,13 +5121,16 @@ func (c *jsiiProxy_CfnProject) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::IoTSiteWise::Project`.
+//
+// TODO: EXAMPLE
+//
 type CfnProjectProps struct {
 	// `AWS::IoTSiteWise::Project.PortalId`.
 	PortalId *string `json:"portalId"`
-	// `AWS::IoTSiteWise::Project.ProjectName`.
-	ProjectName *string `json:"projectName"`
 	// `AWS::IoTSiteWise::Project.ProjectDescription`.
 	ProjectDescription *string `json:"projectDescription"`
+	// `AWS::IoTSiteWise::Project.ProjectName`.
+	ProjectName *string `json:"projectName"`
 	// `AWS::IoTSiteWise::Project.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }

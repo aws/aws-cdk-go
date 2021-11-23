@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::AppFlow::ConnectorProfile`.
+//
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -697,6 +700,8 @@ func (c *jsiiProxy_CfnConnectorProfile) ValidateProperties(_properties interface
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_AmplitudeConnectorProfileCredentialsProperty struct {
 	// `CfnConnectorProfile.AmplitudeConnectorProfileCredentialsProperty.ApiKey`.
 	ApiKey *string `json:"apiKey"`
@@ -704,6 +709,8 @@ type CfnConnectorProfile_AmplitudeConnectorProfileCredentialsProperty struct {
 	SecretKey *string `json:"secretKey"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_ConnectorOAuthRequestProperty struct {
 	// `CfnConnectorProfile.ConnectorOAuthRequestProperty.AuthCode`.
 	AuthCode *string `json:"authCode"`
@@ -711,6 +718,8 @@ type CfnConnectorProfile_ConnectorOAuthRequestProperty struct {
 	RedirectUri *string `json:"redirectUri"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_ConnectorProfileConfigProperty struct {
 	// `CfnConnectorProfile.ConnectorProfileConfigProperty.ConnectorProfileCredentials`.
 	ConnectorProfileCredentials interface{} `json:"connectorProfileCredentials"`
@@ -718,6 +727,8 @@ type CfnConnectorProfile_ConnectorProfileConfigProperty struct {
 	ConnectorProfileProperties interface{} `json:"connectorProfileProperties"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_ConnectorProfileCredentialsProperty struct {
 	// `CfnConnectorProfile.ConnectorProfileCredentialsProperty.Amplitude`.
 	Amplitude interface{} `json:"amplitude"`
@@ -753,6 +764,8 @@ type CfnConnectorProfile_ConnectorProfileCredentialsProperty struct {
 	Zendesk interface{} `json:"zendesk"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_ConnectorProfilePropertiesProperty struct {
 	// `CfnConnectorProfile.ConnectorProfilePropertiesProperty.Datadog`.
 	Datadog interface{} `json:"datadog"`
@@ -780,6 +793,8 @@ type CfnConnectorProfile_ConnectorProfilePropertiesProperty struct {
 	Zendesk interface{} `json:"zendesk"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_DatadogConnectorProfileCredentialsProperty struct {
 	// `CfnConnectorProfile.DatadogConnectorProfileCredentialsProperty.ApiKey`.
 	ApiKey *string `json:"apiKey"`
@@ -787,34 +802,44 @@ type CfnConnectorProfile_DatadogConnectorProfileCredentialsProperty struct {
 	ApplicationKey *string `json:"applicationKey"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_DatadogConnectorProfilePropertiesProperty struct {
 	// `CfnConnectorProfile.DatadogConnectorProfilePropertiesProperty.InstanceUrl`.
 	InstanceUrl *string `json:"instanceUrl"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_DynatraceConnectorProfileCredentialsProperty struct {
 	// `CfnConnectorProfile.DynatraceConnectorProfileCredentialsProperty.ApiToken`.
 	ApiToken *string `json:"apiToken"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_DynatraceConnectorProfilePropertiesProperty struct {
 	// `CfnConnectorProfile.DynatraceConnectorProfilePropertiesProperty.InstanceUrl`.
 	InstanceUrl *string `json:"instanceUrl"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_GoogleAnalyticsConnectorProfileCredentialsProperty struct {
+	// `CfnConnectorProfile.GoogleAnalyticsConnectorProfileCredentialsProperty.AccessToken`.
+	AccessToken *string `json:"accessToken"`
 	// `CfnConnectorProfile.GoogleAnalyticsConnectorProfileCredentialsProperty.ClientId`.
 	ClientId *string `json:"clientId"`
 	// `CfnConnectorProfile.GoogleAnalyticsConnectorProfileCredentialsProperty.ClientSecret`.
 	ClientSecret *string `json:"clientSecret"`
-	// `CfnConnectorProfile.GoogleAnalyticsConnectorProfileCredentialsProperty.AccessToken`.
-	AccessToken *string `json:"accessToken"`
 	// `CfnConnectorProfile.GoogleAnalyticsConnectorProfileCredentialsProperty.ConnectorOAuthRequest`.
 	ConnectorOAuthRequest interface{} `json:"connectorOAuthRequest"`
 	// `CfnConnectorProfile.GoogleAnalyticsConnectorProfileCredentialsProperty.RefreshToken`.
 	RefreshToken *string `json:"refreshToken"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_InforNexusConnectorProfileCredentialsProperty struct {
 	// `CfnConnectorProfile.InforNexusConnectorProfileCredentialsProperty.AccessKeyId`.
 	AccessKeyId *string `json:"accessKeyId"`
@@ -826,27 +851,35 @@ type CfnConnectorProfile_InforNexusConnectorProfileCredentialsProperty struct {
 	UserId *string `json:"userId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_InforNexusConnectorProfilePropertiesProperty struct {
 	// `CfnConnectorProfile.InforNexusConnectorProfilePropertiesProperty.InstanceUrl`.
 	InstanceUrl *string `json:"instanceUrl"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_MarketoConnectorProfileCredentialsProperty struct {
+	// `CfnConnectorProfile.MarketoConnectorProfileCredentialsProperty.AccessToken`.
+	AccessToken *string `json:"accessToken"`
 	// `CfnConnectorProfile.MarketoConnectorProfileCredentialsProperty.ClientId`.
 	ClientId *string `json:"clientId"`
 	// `CfnConnectorProfile.MarketoConnectorProfileCredentialsProperty.ClientSecret`.
 	ClientSecret *string `json:"clientSecret"`
-	// `CfnConnectorProfile.MarketoConnectorProfileCredentialsProperty.AccessToken`.
-	AccessToken *string `json:"accessToken"`
 	// `CfnConnectorProfile.MarketoConnectorProfileCredentialsProperty.ConnectorOAuthRequest`.
 	ConnectorOAuthRequest interface{} `json:"connectorOAuthRequest"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_MarketoConnectorProfilePropertiesProperty struct {
 	// `CfnConnectorProfile.MarketoConnectorProfilePropertiesProperty.InstanceUrl`.
 	InstanceUrl *string `json:"instanceUrl"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_OAuthPropertiesProperty struct {
 	// `CfnConnectorProfile.OAuthPropertiesProperty.AuthCodeUrl`.
 	AuthCodeUrl *string `json:"authCodeUrl"`
@@ -856,6 +889,8 @@ type CfnConnectorProfile_OAuthPropertiesProperty struct {
 	TokenUrl *string `json:"tokenUrl"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_RedshiftConnectorProfileCredentialsProperty struct {
 	// `CfnConnectorProfile.RedshiftConnectorProfileCredentialsProperty.Password`.
 	Password *string `json:"password"`
@@ -863,17 +898,21 @@ type CfnConnectorProfile_RedshiftConnectorProfileCredentialsProperty struct {
 	Username *string `json:"username"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_RedshiftConnectorProfilePropertiesProperty struct {
 	// `CfnConnectorProfile.RedshiftConnectorProfilePropertiesProperty.BucketName`.
 	BucketName *string `json:"bucketName"`
+	// `CfnConnectorProfile.RedshiftConnectorProfilePropertiesProperty.BucketPrefix`.
+	BucketPrefix *string `json:"bucketPrefix"`
 	// `CfnConnectorProfile.RedshiftConnectorProfilePropertiesProperty.DatabaseUrl`.
 	DatabaseUrl *string `json:"databaseUrl"`
 	// `CfnConnectorProfile.RedshiftConnectorProfilePropertiesProperty.RoleArn`.
 	RoleArn *string `json:"roleArn"`
-	// `CfnConnectorProfile.RedshiftConnectorProfilePropertiesProperty.BucketPrefix`.
-	BucketPrefix *string `json:"bucketPrefix"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_SAPODataConnectorProfileCredentialsProperty struct {
 	// `CfnConnectorProfile.SAPODataConnectorProfileCredentialsProperty.BasicAuthCredentials`.
 	BasicAuthCredentials interface{} `json:"basicAuthCredentials"`
@@ -881,6 +920,8 @@ type CfnConnectorProfile_SAPODataConnectorProfileCredentialsProperty struct {
 	OAuthCredentials interface{} `json:"oAuthCredentials"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_SAPODataConnectorProfilePropertiesProperty struct {
 	// `CfnConnectorProfile.SAPODataConnectorProfilePropertiesProperty.ApplicationHostUrl`.
 	ApplicationHostUrl *string `json:"applicationHostUrl"`
@@ -898,6 +939,8 @@ type CfnConnectorProfile_SAPODataConnectorProfilePropertiesProperty struct {
 	PrivateLinkServiceName *string `json:"privateLinkServiceName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_SalesforceConnectorProfileCredentialsProperty struct {
 	// `CfnConnectorProfile.SalesforceConnectorProfileCredentialsProperty.AccessToken`.
 	AccessToken *string `json:"accessToken"`
@@ -909,6 +952,8 @@ type CfnConnectorProfile_SalesforceConnectorProfileCredentialsProperty struct {
 	RefreshToken *string `json:"refreshToken"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_SalesforceConnectorProfilePropertiesProperty struct {
 	// `CfnConnectorProfile.SalesforceConnectorProfilePropertiesProperty.InstanceUrl`.
 	InstanceUrl *string `json:"instanceUrl"`
@@ -916,6 +961,8 @@ type CfnConnectorProfile_SalesforceConnectorProfilePropertiesProperty struct {
 	IsSandboxEnvironment interface{} `json:"isSandboxEnvironment"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_ServiceNowConnectorProfileCredentialsProperty struct {
 	// `CfnConnectorProfile.ServiceNowConnectorProfileCredentialsProperty.Password`.
 	Password *string `json:"password"`
@@ -923,32 +970,42 @@ type CfnConnectorProfile_ServiceNowConnectorProfileCredentialsProperty struct {
 	Username *string `json:"username"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_ServiceNowConnectorProfilePropertiesProperty struct {
 	// `CfnConnectorProfile.ServiceNowConnectorProfilePropertiesProperty.InstanceUrl`.
 	InstanceUrl *string `json:"instanceUrl"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_SingularConnectorProfileCredentialsProperty struct {
 	// `CfnConnectorProfile.SingularConnectorProfileCredentialsProperty.ApiKey`.
 	ApiKey *string `json:"apiKey"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_SlackConnectorProfileCredentialsProperty struct {
+	// `CfnConnectorProfile.SlackConnectorProfileCredentialsProperty.AccessToken`.
+	AccessToken *string `json:"accessToken"`
 	// `CfnConnectorProfile.SlackConnectorProfileCredentialsProperty.ClientId`.
 	ClientId *string `json:"clientId"`
 	// `CfnConnectorProfile.SlackConnectorProfileCredentialsProperty.ClientSecret`.
 	ClientSecret *string `json:"clientSecret"`
-	// `CfnConnectorProfile.SlackConnectorProfileCredentialsProperty.AccessToken`.
-	AccessToken *string `json:"accessToken"`
 	// `CfnConnectorProfile.SlackConnectorProfileCredentialsProperty.ConnectorOAuthRequest`.
 	ConnectorOAuthRequest interface{} `json:"connectorOAuthRequest"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_SlackConnectorProfilePropertiesProperty struct {
 	// `CfnConnectorProfile.SlackConnectorProfilePropertiesProperty.InstanceUrl`.
 	InstanceUrl *string `json:"instanceUrl"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_SnowflakeConnectorProfileCredentialsProperty struct {
 	// `CfnConnectorProfile.SnowflakeConnectorProfileCredentialsProperty.Password`.
 	Password *string `json:"password"`
@@ -956,28 +1013,34 @@ type CfnConnectorProfile_SnowflakeConnectorProfileCredentialsProperty struct {
 	Username *string `json:"username"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_SnowflakeConnectorProfilePropertiesProperty struct {
-	// `CfnConnectorProfile.SnowflakeConnectorProfilePropertiesProperty.BucketName`.
-	BucketName *string `json:"bucketName"`
-	// `CfnConnectorProfile.SnowflakeConnectorProfilePropertiesProperty.Stage`.
-	Stage *string `json:"stage"`
-	// `CfnConnectorProfile.SnowflakeConnectorProfilePropertiesProperty.Warehouse`.
-	Warehouse *string `json:"warehouse"`
 	// `CfnConnectorProfile.SnowflakeConnectorProfilePropertiesProperty.AccountName`.
 	AccountName *string `json:"accountName"`
+	// `CfnConnectorProfile.SnowflakeConnectorProfilePropertiesProperty.BucketName`.
+	BucketName *string `json:"bucketName"`
 	// `CfnConnectorProfile.SnowflakeConnectorProfilePropertiesProperty.BucketPrefix`.
 	BucketPrefix *string `json:"bucketPrefix"`
 	// `CfnConnectorProfile.SnowflakeConnectorProfilePropertiesProperty.PrivateLinkServiceName`.
 	PrivateLinkServiceName *string `json:"privateLinkServiceName"`
 	// `CfnConnectorProfile.SnowflakeConnectorProfilePropertiesProperty.Region`.
 	Region *string `json:"region"`
+	// `CfnConnectorProfile.SnowflakeConnectorProfilePropertiesProperty.Stage`.
+	Stage *string `json:"stage"`
+	// `CfnConnectorProfile.SnowflakeConnectorProfilePropertiesProperty.Warehouse`.
+	Warehouse *string `json:"warehouse"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_TrendmicroConnectorProfileCredentialsProperty struct {
 	// `CfnConnectorProfile.TrendmicroConnectorProfileCredentialsProperty.ApiSecretKey`.
 	ApiSecretKey *string `json:"apiSecretKey"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_VeevaConnectorProfileCredentialsProperty struct {
 	// `CfnConnectorProfile.VeevaConnectorProfileCredentialsProperty.Password`.
 	Password *string `json:"password"`
@@ -985,42 +1048,54 @@ type CfnConnectorProfile_VeevaConnectorProfileCredentialsProperty struct {
 	Username *string `json:"username"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_VeevaConnectorProfilePropertiesProperty struct {
 	// `CfnConnectorProfile.VeevaConnectorProfilePropertiesProperty.InstanceUrl`.
 	InstanceUrl *string `json:"instanceUrl"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_ZendeskConnectorProfileCredentialsProperty struct {
+	// `CfnConnectorProfile.ZendeskConnectorProfileCredentialsProperty.AccessToken`.
+	AccessToken *string `json:"accessToken"`
 	// `CfnConnectorProfile.ZendeskConnectorProfileCredentialsProperty.ClientId`.
 	ClientId *string `json:"clientId"`
 	// `CfnConnectorProfile.ZendeskConnectorProfileCredentialsProperty.ClientSecret`.
 	ClientSecret *string `json:"clientSecret"`
-	// `CfnConnectorProfile.ZendeskConnectorProfileCredentialsProperty.AccessToken`.
-	AccessToken *string `json:"accessToken"`
 	// `CfnConnectorProfile.ZendeskConnectorProfileCredentialsProperty.ConnectorOAuthRequest`.
 	ConnectorOAuthRequest interface{} `json:"connectorOAuthRequest"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorProfile_ZendeskConnectorProfilePropertiesProperty struct {
 	// `CfnConnectorProfile.ZendeskConnectorProfilePropertiesProperty.InstanceUrl`.
 	InstanceUrl *string `json:"instanceUrl"`
 }
 
 // Properties for defining a `AWS::AppFlow::ConnectorProfile`.
+//
+// TODO: EXAMPLE
+//
 type CfnConnectorProfileProps struct {
 	// `AWS::AppFlow::ConnectorProfile.ConnectionMode`.
 	ConnectionMode *string `json:"connectionMode"`
+	// `AWS::AppFlow::ConnectorProfile.ConnectorProfileConfig`.
+	ConnectorProfileConfig interface{} `json:"connectorProfileConfig"`
 	// `AWS::AppFlow::ConnectorProfile.ConnectorProfileName`.
 	ConnectorProfileName *string `json:"connectorProfileName"`
 	// `AWS::AppFlow::ConnectorProfile.ConnectorType`.
 	ConnectorType *string `json:"connectorType"`
-	// `AWS::AppFlow::ConnectorProfile.ConnectorProfileConfig`.
-	ConnectorProfileConfig interface{} `json:"connectorProfileConfig"`
 	// `AWS::AppFlow::ConnectorProfile.KMSArn`.
 	KmsArn *string `json:"kmsArn"`
 }
 
 // A CloudFormation `AWS::AppFlow::Flow`.
+//
+// TODO: EXAMPLE
+//
 type CfnFlow interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1748,16 +1823,22 @@ func (c *jsiiProxy_CfnFlow) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_AggregationConfigProperty struct {
 	// `CfnFlow.AggregationConfigProperty.AggregationType`.
 	AggregationType *string `json:"aggregationType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_AmplitudeSourcePropertiesProperty struct {
 	// `CfnFlow.AmplitudeSourcePropertiesProperty.Object`.
 	Object *string `json:"object"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_ConnectorOperatorProperty struct {
 	// `CfnFlow.ConnectorOperatorProperty.Amplitude`.
 	Amplitude *string `json:"amplitude"`
@@ -1791,11 +1872,15 @@ type CfnFlow_ConnectorOperatorProperty struct {
 	Zendesk *string `json:"zendesk"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_DatadogSourcePropertiesProperty struct {
 	// `CfnFlow.DatadogSourcePropertiesProperty.Object`.
 	Object *string `json:"object"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_DestinationConnectorPropertiesProperty struct {
 	// `CfnFlow.DestinationConnectorPropertiesProperty.EventBridge`.
 	EventBridge interface{} `json:"eventBridge"`
@@ -1815,20 +1900,26 @@ type CfnFlow_DestinationConnectorPropertiesProperty struct {
 	Zendesk interface{} `json:"zendesk"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_DestinationFlowConfigProperty struct {
+	// `CfnFlow.DestinationFlowConfigProperty.ConnectorProfileName`.
+	ConnectorProfileName *string `json:"connectorProfileName"`
 	// `CfnFlow.DestinationFlowConfigProperty.ConnectorType`.
 	ConnectorType *string `json:"connectorType"`
 	// `CfnFlow.DestinationFlowConfigProperty.DestinationConnectorProperties`.
 	DestinationConnectorProperties interface{} `json:"destinationConnectorProperties"`
-	// `CfnFlow.DestinationFlowConfigProperty.ConnectorProfileName`.
-	ConnectorProfileName *string `json:"connectorProfileName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_DynatraceSourcePropertiesProperty struct {
 	// `CfnFlow.DynatraceSourcePropertiesProperty.Object`.
 	Object *string `json:"object"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_ErrorHandlingConfigProperty struct {
 	// `CfnFlow.ErrorHandlingConfigProperty.BucketName`.
 	BucketName *string `json:"bucketName"`
@@ -1838,38 +1929,52 @@ type CfnFlow_ErrorHandlingConfigProperty struct {
 	FailOnFirstError interface{} `json:"failOnFirstError"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_EventBridgeDestinationPropertiesProperty struct {
-	// `CfnFlow.EventBridgeDestinationPropertiesProperty.Object`.
-	Object *string `json:"object"`
 	// `CfnFlow.EventBridgeDestinationPropertiesProperty.ErrorHandlingConfig`.
 	ErrorHandlingConfig interface{} `json:"errorHandlingConfig"`
+	// `CfnFlow.EventBridgeDestinationPropertiesProperty.Object`.
+	Object *string `json:"object"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_GoogleAnalyticsSourcePropertiesProperty struct {
 	// `CfnFlow.GoogleAnalyticsSourcePropertiesProperty.Object`.
 	Object *string `json:"object"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_IncrementalPullConfigProperty struct {
 	// `CfnFlow.IncrementalPullConfigProperty.DatetimeTypeFieldName`.
 	DatetimeTypeFieldName *string `json:"datetimeTypeFieldName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_InforNexusSourcePropertiesProperty struct {
 	// `CfnFlow.InforNexusSourcePropertiesProperty.Object`.
 	Object *string `json:"object"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_LookoutMetricsDestinationPropertiesProperty struct {
 	// `CfnFlow.LookoutMetricsDestinationPropertiesProperty.Object`.
 	Object *string `json:"object"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_MarketoSourcePropertiesProperty struct {
 	// `CfnFlow.MarketoSourcePropertiesProperty.Object`.
 	Object *string `json:"object"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_PrefixConfigProperty struct {
 	// `CfnFlow.PrefixConfigProperty.PrefixFormat`.
 	PrefixFormat *string `json:"prefixFormat"`
@@ -1877,17 +1982,21 @@ type CfnFlow_PrefixConfigProperty struct {
 	PrefixType *string `json:"prefixType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_RedshiftDestinationPropertiesProperty struct {
-	// `CfnFlow.RedshiftDestinationPropertiesProperty.IntermediateBucketName`.
-	IntermediateBucketName *string `json:"intermediateBucketName"`
-	// `CfnFlow.RedshiftDestinationPropertiesProperty.Object`.
-	Object *string `json:"object"`
 	// `CfnFlow.RedshiftDestinationPropertiesProperty.BucketPrefix`.
 	BucketPrefix *string `json:"bucketPrefix"`
 	// `CfnFlow.RedshiftDestinationPropertiesProperty.ErrorHandlingConfig`.
 	ErrorHandlingConfig interface{} `json:"errorHandlingConfig"`
+	// `CfnFlow.RedshiftDestinationPropertiesProperty.IntermediateBucketName`.
+	IntermediateBucketName *string `json:"intermediateBucketName"`
+	// `CfnFlow.RedshiftDestinationPropertiesProperty.Object`.
+	Object *string `json:"object"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_S3DestinationPropertiesProperty struct {
 	// `CfnFlow.S3DestinationPropertiesProperty.BucketName`.
 	BucketName *string `json:"bucketName"`
@@ -1897,11 +2006,15 @@ type CfnFlow_S3DestinationPropertiesProperty struct {
 	S3OutputFormatConfig interface{} `json:"s3OutputFormatConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_S3InputFormatConfigProperty struct {
 	// `CfnFlow.S3InputFormatConfigProperty.S3InputFileType`.
 	S3InputFileType *string `json:"s3InputFileType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_S3OutputFormatConfigProperty struct {
 	// `CfnFlow.S3OutputFormatConfigProperty.AggregationConfig`.
 	AggregationConfig interface{} `json:"aggregationConfig"`
@@ -1911,6 +2024,8 @@ type CfnFlow_S3OutputFormatConfigProperty struct {
 	PrefixConfig interface{} `json:"prefixConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_S3SourcePropertiesProperty struct {
 	// `CfnFlow.S3SourcePropertiesProperty.BucketName`.
 	BucketName *string `json:"bucketName"`
@@ -1920,38 +2035,46 @@ type CfnFlow_S3SourcePropertiesProperty struct {
 	S3InputFormatConfig interface{} `json:"s3InputFormatConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_SAPODataSourcePropertiesProperty struct {
 	// `CfnFlow.SAPODataSourcePropertiesProperty.ObjectPath`.
 	ObjectPath *string `json:"objectPath"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_SalesforceDestinationPropertiesProperty struct {
-	// `CfnFlow.SalesforceDestinationPropertiesProperty.Object`.
-	Object *string `json:"object"`
 	// `CfnFlow.SalesforceDestinationPropertiesProperty.ErrorHandlingConfig`.
 	ErrorHandlingConfig interface{} `json:"errorHandlingConfig"`
 	// `CfnFlow.SalesforceDestinationPropertiesProperty.IdFieldNames`.
 	IdFieldNames *[]*string `json:"idFieldNames"`
+	// `CfnFlow.SalesforceDestinationPropertiesProperty.Object`.
+	Object *string `json:"object"`
 	// `CfnFlow.SalesforceDestinationPropertiesProperty.WriteOperationType`.
 	WriteOperationType *string `json:"writeOperationType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_SalesforceSourcePropertiesProperty struct {
-	// `CfnFlow.SalesforceSourcePropertiesProperty.Object`.
-	Object *string `json:"object"`
 	// `CfnFlow.SalesforceSourcePropertiesProperty.EnableDynamicFieldUpdate`.
 	EnableDynamicFieldUpdate interface{} `json:"enableDynamicFieldUpdate"`
 	// `CfnFlow.SalesforceSourcePropertiesProperty.IncludeDeletedRecords`.
 	IncludeDeletedRecords interface{} `json:"includeDeletedRecords"`
+	// `CfnFlow.SalesforceSourcePropertiesProperty.Object`.
+	Object *string `json:"object"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_ScheduledTriggerPropertiesProperty struct {
-	// `CfnFlow.ScheduledTriggerPropertiesProperty.ScheduleExpression`.
-	ScheduleExpression *string `json:"scheduleExpression"`
 	// `CfnFlow.ScheduledTriggerPropertiesProperty.DataPullMode`.
 	DataPullMode *string `json:"dataPullMode"`
 	// `CfnFlow.ScheduledTriggerPropertiesProperty.ScheduleEndTime`.
 	ScheduleEndTime *float64 `json:"scheduleEndTime"`
+	// `CfnFlow.ScheduledTriggerPropertiesProperty.ScheduleExpression`.
+	ScheduleExpression *string `json:"scheduleExpression"`
 	// `CfnFlow.ScheduledTriggerPropertiesProperty.ScheduleOffset`.
 	ScheduleOffset *float64 `json:"scheduleOffset"`
 	// `CfnFlow.ScheduledTriggerPropertiesProperty.ScheduleStartTime`.
@@ -1960,32 +2083,42 @@ type CfnFlow_ScheduledTriggerPropertiesProperty struct {
 	TimeZone *string `json:"timeZone"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_ServiceNowSourcePropertiesProperty struct {
 	// `CfnFlow.ServiceNowSourcePropertiesProperty.Object`.
 	Object *string `json:"object"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_SingularSourcePropertiesProperty struct {
 	// `CfnFlow.SingularSourcePropertiesProperty.Object`.
 	Object *string `json:"object"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_SlackSourcePropertiesProperty struct {
 	// `CfnFlow.SlackSourcePropertiesProperty.Object`.
 	Object *string `json:"object"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_SnowflakeDestinationPropertiesProperty struct {
-	// `CfnFlow.SnowflakeDestinationPropertiesProperty.IntermediateBucketName`.
-	IntermediateBucketName *string `json:"intermediateBucketName"`
-	// `CfnFlow.SnowflakeDestinationPropertiesProperty.Object`.
-	Object *string `json:"object"`
 	// `CfnFlow.SnowflakeDestinationPropertiesProperty.BucketPrefix`.
 	BucketPrefix *string `json:"bucketPrefix"`
 	// `CfnFlow.SnowflakeDestinationPropertiesProperty.ErrorHandlingConfig`.
 	ErrorHandlingConfig interface{} `json:"errorHandlingConfig"`
+	// `CfnFlow.SnowflakeDestinationPropertiesProperty.IntermediateBucketName`.
+	IntermediateBucketName *string `json:"intermediateBucketName"`
+	// `CfnFlow.SnowflakeDestinationPropertiesProperty.Object`.
+	Object *string `json:"object"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_SourceConnectorPropertiesProperty struct {
 	// `CfnFlow.SourceConnectorPropertiesProperty.Amplitude`.
 	Amplitude interface{} `json:"amplitude"`
@@ -2019,17 +2152,21 @@ type CfnFlow_SourceConnectorPropertiesProperty struct {
 	Zendesk interface{} `json:"zendesk"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_SourceFlowConfigProperty struct {
-	// `CfnFlow.SourceFlowConfigProperty.ConnectorType`.
-	ConnectorType *string `json:"connectorType"`
-	// `CfnFlow.SourceFlowConfigProperty.SourceConnectorProperties`.
-	SourceConnectorProperties interface{} `json:"sourceConnectorProperties"`
 	// `CfnFlow.SourceFlowConfigProperty.ConnectorProfileName`.
 	ConnectorProfileName *string `json:"connectorProfileName"`
+	// `CfnFlow.SourceFlowConfigProperty.ConnectorType`.
+	ConnectorType *string `json:"connectorType"`
 	// `CfnFlow.SourceFlowConfigProperty.IncrementalPullConfig`.
 	IncrementalPullConfig interface{} `json:"incrementalPullConfig"`
+	// `CfnFlow.SourceFlowConfigProperty.SourceConnectorProperties`.
+	SourceConnectorProperties interface{} `json:"sourceConnectorProperties"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_TaskPropertiesObjectProperty struct {
 	// `CfnFlow.TaskPropertiesObjectProperty.Key`.
 	Key *string `json:"key"`
@@ -2037,52 +2174,62 @@ type CfnFlow_TaskPropertiesObjectProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_TaskProperty struct {
-	// `CfnFlow.TaskProperty.SourceFields`.
-	SourceFields *[]*string `json:"sourceFields"`
-	// `CfnFlow.TaskProperty.TaskType`.
-	TaskType *string `json:"taskType"`
 	// `CfnFlow.TaskProperty.ConnectorOperator`.
 	ConnectorOperator interface{} `json:"connectorOperator"`
 	// `CfnFlow.TaskProperty.DestinationField`.
 	DestinationField *string `json:"destinationField"`
+	// `CfnFlow.TaskProperty.SourceFields`.
+	SourceFields *[]*string `json:"sourceFields"`
 	// `CfnFlow.TaskProperty.TaskProperties`.
 	TaskProperties interface{} `json:"taskProperties"`
+	// `CfnFlow.TaskProperty.TaskType`.
+	TaskType *string `json:"taskType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_TrendmicroSourcePropertiesProperty struct {
 	// `CfnFlow.TrendmicroSourcePropertiesProperty.Object`.
 	Object *string `json:"object"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_TriggerConfigProperty struct {
-	// `CfnFlow.TriggerConfigProperty.TriggerType`.
-	TriggerType *string `json:"triggerType"`
 	// `CfnFlow.TriggerConfigProperty.TriggerProperties`.
 	TriggerProperties interface{} `json:"triggerProperties"`
+	// `CfnFlow.TriggerConfigProperty.TriggerType`.
+	TriggerType *string `json:"triggerType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_UpsolverDestinationPropertiesProperty struct {
 	// `CfnFlow.UpsolverDestinationPropertiesProperty.BucketName`.
 	BucketName *string `json:"bucketName"`
-	// `CfnFlow.UpsolverDestinationPropertiesProperty.S3OutputFormatConfig`.
-	S3OutputFormatConfig interface{} `json:"s3OutputFormatConfig"`
 	// `CfnFlow.UpsolverDestinationPropertiesProperty.BucketPrefix`.
 	BucketPrefix *string `json:"bucketPrefix"`
+	// `CfnFlow.UpsolverDestinationPropertiesProperty.S3OutputFormatConfig`.
+	S3OutputFormatConfig interface{} `json:"s3OutputFormatConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_UpsolverS3OutputFormatConfigProperty struct {
-	// `CfnFlow.UpsolverS3OutputFormatConfigProperty.PrefixConfig`.
-	PrefixConfig interface{} `json:"prefixConfig"`
 	// `CfnFlow.UpsolverS3OutputFormatConfigProperty.AggregationConfig`.
 	AggregationConfig interface{} `json:"aggregationConfig"`
 	// `CfnFlow.UpsolverS3OutputFormatConfigProperty.FileType`.
 	FileType *string `json:"fileType"`
+	// `CfnFlow.UpsolverS3OutputFormatConfigProperty.PrefixConfig`.
+	PrefixConfig interface{} `json:"prefixConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_VeevaSourcePropertiesProperty struct {
-	// `CfnFlow.VeevaSourcePropertiesProperty.Object`.
-	Object *string `json:"object"`
 	// `CfnFlow.VeevaSourcePropertiesProperty.DocumentType`.
 	DocumentType *string `json:"documentType"`
 	// `CfnFlow.VeevaSourcePropertiesProperty.IncludeAllVersions`.
@@ -2091,41 +2238,50 @@ type CfnFlow_VeevaSourcePropertiesProperty struct {
 	IncludeRenditions interface{} `json:"includeRenditions"`
 	// `CfnFlow.VeevaSourcePropertiesProperty.IncludeSourceFiles`.
 	IncludeSourceFiles interface{} `json:"includeSourceFiles"`
+	// `CfnFlow.VeevaSourcePropertiesProperty.Object`.
+	Object *string `json:"object"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_ZendeskDestinationPropertiesProperty struct {
-	// `CfnFlow.ZendeskDestinationPropertiesProperty.Object`.
-	Object *string `json:"object"`
 	// `CfnFlow.ZendeskDestinationPropertiesProperty.ErrorHandlingConfig`.
 	ErrorHandlingConfig interface{} `json:"errorHandlingConfig"`
 	// `CfnFlow.ZendeskDestinationPropertiesProperty.IdFieldNames`.
 	IdFieldNames *[]*string `json:"idFieldNames"`
+	// `CfnFlow.ZendeskDestinationPropertiesProperty.Object`.
+	Object *string `json:"object"`
 	// `CfnFlow.ZendeskDestinationPropertiesProperty.WriteOperationType`.
 	WriteOperationType *string `json:"writeOperationType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_ZendeskSourcePropertiesProperty struct {
 	// `CfnFlow.ZendeskSourcePropertiesProperty.Object`.
 	Object *string `json:"object"`
 }
 
 // Properties for defining a `AWS::AppFlow::Flow`.
+//
+// TODO: EXAMPLE
+//
 type CfnFlowProps struct {
+	// `AWS::AppFlow::Flow.Description`.
+	Description *string `json:"description"`
 	// `AWS::AppFlow::Flow.DestinationFlowConfigList`.
 	DestinationFlowConfigList interface{} `json:"destinationFlowConfigList"`
 	// `AWS::AppFlow::Flow.FlowName`.
 	FlowName *string `json:"flowName"`
+	// `AWS::AppFlow::Flow.KMSArn`.
+	KmsArn *string `json:"kmsArn"`
 	// `AWS::AppFlow::Flow.SourceFlowConfig`.
 	SourceFlowConfig interface{} `json:"sourceFlowConfig"`
+	// `AWS::AppFlow::Flow.Tags`.
+	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::AppFlow::Flow.Tasks`.
 	Tasks interface{} `json:"tasks"`
 	// `AWS::AppFlow::Flow.TriggerConfig`.
 	TriggerConfig interface{} `json:"triggerConfig"`
-	// `AWS::AppFlow::Flow.Description`.
-	Description *string `json:"description"`
-	// `AWS::AppFlow::Flow.KMSArn`.
-	KmsArn *string `json:"kmsArn"`
-	// `AWS::AppFlow::Flow.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 

@@ -289,6 +289,9 @@ func (d *jsiiProxy_DockerImageAsset) Validate() *[]*string {
 }
 
 // Options to control invalidation of `DockerImageAsset` asset hashes.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DockerImageAssetInvalidationOptions struct {
 	// Use `buildArgs` while calculating the asset hash.
@@ -309,6 +312,9 @@ type DockerImageAssetInvalidationOptions struct {
 }
 
 // Options for DockerImageAsset.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DockerImageAssetOptions struct {
 	// Glob patterns to exclude from the copy.

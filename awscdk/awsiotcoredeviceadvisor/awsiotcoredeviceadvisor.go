@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::IoTCoreDeviceAdvisor::SuiteDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnSuiteDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -640,6 +643,9 @@ func (c *jsiiProxy_CfnSuiteDefinition) ValidateProperties(_properties interface{
 }
 
 // Properties for defining a `AWS::IoTCoreDeviceAdvisor::SuiteDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnSuiteDefinitionProps struct {
 	// `AWS::IoTCoreDeviceAdvisor::SuiteDefinition.SuiteDefinitionConfiguration`.
 	SuiteDefinitionConfiguration interface{} `json:"suiteDefinitionConfiguration"`

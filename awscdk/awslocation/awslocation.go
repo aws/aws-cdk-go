@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::Location::GeofenceCollection`.
+//
+// TODO: EXAMPLE
+//
 type CfnGeofenceCollection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -720,20 +723,26 @@ func (c *jsiiProxy_CfnGeofenceCollection) ValidateProperties(_properties interfa
 }
 
 // Properties for defining a `AWS::Location::GeofenceCollection`.
+//
+// TODO: EXAMPLE
+//
 type CfnGeofenceCollectionProps struct {
 	// `AWS::Location::GeofenceCollection.CollectionName`.
 	CollectionName *string `json:"collectionName"`
-	// `AWS::Location::GeofenceCollection.PricingPlan`.
-	PricingPlan *string `json:"pricingPlan"`
 	// `AWS::Location::GeofenceCollection.Description`.
 	Description *string `json:"description"`
 	// `AWS::Location::GeofenceCollection.KmsKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
+	// `AWS::Location::GeofenceCollection.PricingPlan`.
+	PricingPlan *string `json:"pricingPlan"`
 	// `AWS::Location::GeofenceCollection.PricingPlanDataSource`.
 	PricingPlanDataSource *string `json:"pricingPlanDataSource"`
 }
 
 // A CloudFormation `AWS::Location::Map`.
+//
+// TODO: EXAMPLE
+//
 type CfnMap interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1434,24 +1443,32 @@ func (c *jsiiProxy_CfnMap) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnMap_MapConfigurationProperty struct {
 	// `CfnMap.MapConfigurationProperty.Style`.
 	Style *string `json:"style"`
 }
 
 // Properties for defining a `AWS::Location::Map`.
+//
+// TODO: EXAMPLE
+//
 type CfnMapProps struct {
 	// `AWS::Location::Map.Configuration`.
 	Configuration interface{} `json:"configuration"`
+	// `AWS::Location::Map.Description`.
+	Description *string `json:"description"`
 	// `AWS::Location::Map.MapName`.
 	MapName *string `json:"mapName"`
 	// `AWS::Location::Map.PricingPlan`.
 	PricingPlan *string `json:"pricingPlan"`
-	// `AWS::Location::Map.Description`.
-	Description *string `json:"description"`
 }
 
 // A CloudFormation `AWS::Location::PlaceIndex`.
+//
+// TODO: EXAMPLE
+//
 type CfnPlaceIndex interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2161,26 +2178,34 @@ func (c *jsiiProxy_CfnPlaceIndex) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnPlaceIndex_DataSourceConfigurationProperty struct {
 	// `CfnPlaceIndex.DataSourceConfigurationProperty.IntendedUse`.
 	IntendedUse *string `json:"intendedUse"`
 }
 
 // Properties for defining a `AWS::Location::PlaceIndex`.
+//
+// TODO: EXAMPLE
+//
 type CfnPlaceIndexProps struct {
 	// `AWS::Location::PlaceIndex.DataSource`.
 	DataSource *string `json:"dataSource"`
-	// `AWS::Location::PlaceIndex.IndexName`.
-	IndexName *string `json:"indexName"`
-	// `AWS::Location::PlaceIndex.PricingPlan`.
-	PricingPlan *string `json:"pricingPlan"`
 	// `AWS::Location::PlaceIndex.DataSourceConfiguration`.
 	DataSourceConfiguration interface{} `json:"dataSourceConfiguration"`
 	// `AWS::Location::PlaceIndex.Description`.
 	Description *string `json:"description"`
+	// `AWS::Location::PlaceIndex.IndexName`.
+	IndexName *string `json:"indexName"`
+	// `AWS::Location::PlaceIndex.PricingPlan`.
+	PricingPlan *string `json:"pricingPlan"`
 }
 
 // A CloudFormation `AWS::Location::RouteCalculator`.
+//
+// TODO: EXAMPLE
+//
 type CfnRouteCalculator interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2871,18 +2896,24 @@ func (c *jsiiProxy_CfnRouteCalculator) ValidateProperties(_properties interface{
 }
 
 // Properties for defining a `AWS::Location::RouteCalculator`.
+//
+// TODO: EXAMPLE
+//
 type CfnRouteCalculatorProps struct {
 	// `AWS::Location::RouteCalculator.CalculatorName`.
 	CalculatorName *string `json:"calculatorName"`
 	// `AWS::Location::RouteCalculator.DataSource`.
 	DataSource *string `json:"dataSource"`
-	// `AWS::Location::RouteCalculator.PricingPlan`.
-	PricingPlan *string `json:"pricingPlan"`
 	// `AWS::Location::RouteCalculator.Description`.
 	Description *string `json:"description"`
+	// `AWS::Location::RouteCalculator.PricingPlan`.
+	PricingPlan *string `json:"pricingPlan"`
 }
 
 // A CloudFormation `AWS::Location::Tracker`.
+//
+// TODO: EXAMPLE
+//
 type CfnTracker interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3613,6 +3644,9 @@ func (c *jsiiProxy_CfnTracker) ValidateProperties(_properties interface{}) {
 }
 
 // A CloudFormation `AWS::Location::TrackerConsumer`.
+//
+// TODO: EXAMPLE
+//
 type CfnTrackerConsumer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4219,6 +4253,9 @@ func (c *jsiiProxy_CfnTrackerConsumer) ValidateProperties(_properties interface{
 }
 
 // Properties for defining a `AWS::Location::TrackerConsumer`.
+//
+// TODO: EXAMPLE
+//
 type CfnTrackerConsumerProps struct {
 	// `AWS::Location::TrackerConsumer.ConsumerArn`.
 	ConsumerArn *string `json:"consumerArn"`
@@ -4227,18 +4264,21 @@ type CfnTrackerConsumerProps struct {
 }
 
 // Properties for defining a `AWS::Location::Tracker`.
+//
+// TODO: EXAMPLE
+//
 type CfnTrackerProps struct {
-	// `AWS::Location::Tracker.PricingPlan`.
-	PricingPlan *string `json:"pricingPlan"`
-	// `AWS::Location::Tracker.TrackerName`.
-	TrackerName *string `json:"trackerName"`
 	// `AWS::Location::Tracker.Description`.
 	Description *string `json:"description"`
 	// `AWS::Location::Tracker.KmsKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
 	// `AWS::Location::Tracker.PositionFiltering`.
 	PositionFiltering *string `json:"positionFiltering"`
+	// `AWS::Location::Tracker.PricingPlan`.
+	PricingPlan *string `json:"pricingPlan"`
 	// `AWS::Location::Tracker.PricingPlanDataSource`.
 	PricingPlanDataSource *string `json:"pricingPlanDataSource"`
+	// `AWS::Location::Tracker.TrackerName`.
+	TrackerName *string `json:"trackerName"`
 }
 

@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::GroundStation::Config`.
+//
+// TODO: EXAMPLE
+//
 type CfnConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -659,11 +662,15 @@ func (c *jsiiProxy_CfnConfig) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfig_AntennaDownlinkConfigProperty struct {
 	// `CfnConfig.AntennaDownlinkConfigProperty.SpectrumConfig`.
 	SpectrumConfig interface{} `json:"spectrumConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfig_AntennaDownlinkDemodDecodeConfigProperty struct {
 	// `CfnConfig.AntennaDownlinkDemodDecodeConfigProperty.DecodeConfig`.
 	DecodeConfig interface{} `json:"decodeConfig"`
@@ -673,6 +680,8 @@ type CfnConfig_AntennaDownlinkDemodDecodeConfigProperty struct {
 	SpectrumConfig interface{} `json:"spectrumConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfig_AntennaUplinkConfigProperty struct {
 	// `CfnConfig.AntennaUplinkConfigProperty.SpectrumConfig`.
 	SpectrumConfig interface{} `json:"spectrumConfig"`
@@ -682,6 +691,8 @@ type CfnConfig_AntennaUplinkConfigProperty struct {
 	TransmitDisabled interface{} `json:"transmitDisabled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfig_ConfigDataProperty struct {
 	// `CfnConfig.ConfigDataProperty.AntennaDownlinkConfig`.
 	AntennaDownlinkConfig interface{} `json:"antennaDownlinkConfig"`
@@ -699,6 +710,8 @@ type CfnConfig_ConfigDataProperty struct {
 	UplinkEchoConfig interface{} `json:"uplinkEchoConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfig_DataflowEndpointConfigProperty struct {
 	// `CfnConfig.DataflowEndpointConfigProperty.DataflowEndpointName`.
 	DataflowEndpointName *string `json:"dataflowEndpointName"`
@@ -706,16 +719,22 @@ type CfnConfig_DataflowEndpointConfigProperty struct {
 	DataflowEndpointRegion *string `json:"dataflowEndpointRegion"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfig_DecodeConfigProperty struct {
 	// `CfnConfig.DecodeConfigProperty.UnvalidatedJSON`.
 	UnvalidatedJson *string `json:"unvalidatedJson"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfig_DemodulationConfigProperty struct {
 	// `CfnConfig.DemodulationConfigProperty.UnvalidatedJSON`.
 	UnvalidatedJson *string `json:"unvalidatedJson"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfig_EirpProperty struct {
 	// `CfnConfig.EirpProperty.Units`.
 	Units *string `json:"units"`
@@ -723,6 +742,8 @@ type CfnConfig_EirpProperty struct {
 	Value *float64 `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfig_FrequencyBandwidthProperty struct {
 	// `CfnConfig.FrequencyBandwidthProperty.Units`.
 	Units *string `json:"units"`
@@ -730,6 +751,8 @@ type CfnConfig_FrequencyBandwidthProperty struct {
 	Value *float64 `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfig_FrequencyProperty struct {
 	// `CfnConfig.FrequencyProperty.Units`.
 	Units *string `json:"units"`
@@ -737,6 +760,8 @@ type CfnConfig_FrequencyProperty struct {
 	Value *float64 `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfig_S3RecordingConfigProperty struct {
 	// `CfnConfig.S3RecordingConfigProperty.BucketArn`.
 	BucketArn *string `json:"bucketArn"`
@@ -746,6 +771,8 @@ type CfnConfig_S3RecordingConfigProperty struct {
 	RoleArn *string `json:"roleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfig_SpectrumConfigProperty struct {
 	// `CfnConfig.SpectrumConfigProperty.Bandwidth`.
 	Bandwidth interface{} `json:"bandwidth"`
@@ -755,11 +782,15 @@ type CfnConfig_SpectrumConfigProperty struct {
 	Polarization *string `json:"polarization"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfig_TrackingConfigProperty struct {
 	// `CfnConfig.TrackingConfigProperty.Autotrack`.
 	Autotrack *string `json:"autotrack"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfig_UplinkEchoConfigProperty struct {
 	// `CfnConfig.UplinkEchoConfigProperty.AntennaUplinkConfigArn`.
 	AntennaUplinkConfigArn *string `json:"antennaUplinkConfigArn"`
@@ -767,6 +798,8 @@ type CfnConfig_UplinkEchoConfigProperty struct {
 	Enabled interface{} `json:"enabled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfig_UplinkSpectrumConfigProperty struct {
 	// `CfnConfig.UplinkSpectrumConfigProperty.CenterFrequency`.
 	CenterFrequency interface{} `json:"centerFrequency"`
@@ -775,6 +808,9 @@ type CfnConfig_UplinkSpectrumConfigProperty struct {
 }
 
 // Properties for defining a `AWS::GroundStation::Config`.
+//
+// TODO: EXAMPLE
+//
 type CfnConfigProps struct {
 	// `AWS::GroundStation::Config.ConfigData`.
 	ConfigData interface{} `json:"configData"`
@@ -785,6 +821,9 @@ type CfnConfigProps struct {
 }
 
 // A CloudFormation `AWS::GroundStation::DataflowEndpointGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnDataflowEndpointGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1403,6 +1442,8 @@ func (c *jsiiProxy_CfnDataflowEndpointGroup) ValidateProperties(_properties inte
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataflowEndpointGroup_DataflowEndpointProperty struct {
 	// `CfnDataflowEndpointGroup.DataflowEndpointProperty.Address`.
 	Address interface{} `json:"address"`
@@ -1412,6 +1453,8 @@ type CfnDataflowEndpointGroup_DataflowEndpointProperty struct {
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataflowEndpointGroup_EndpointDetailsProperty struct {
 	// `CfnDataflowEndpointGroup.EndpointDetailsProperty.Endpoint`.
 	Endpoint interface{} `json:"endpoint"`
@@ -1419,6 +1462,8 @@ type CfnDataflowEndpointGroup_EndpointDetailsProperty struct {
 	SecurityDetails interface{} `json:"securityDetails"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataflowEndpointGroup_SecurityDetailsProperty struct {
 	// `CfnDataflowEndpointGroup.SecurityDetailsProperty.RoleArn`.
 	RoleArn *string `json:"roleArn"`
@@ -1428,6 +1473,8 @@ type CfnDataflowEndpointGroup_SecurityDetailsProperty struct {
 	SubnetIds *[]*string `json:"subnetIds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataflowEndpointGroup_SocketAddressProperty struct {
 	// `CfnDataflowEndpointGroup.SocketAddressProperty.Name`.
 	Name *string `json:"name"`
@@ -1436,6 +1483,9 @@ type CfnDataflowEndpointGroup_SocketAddressProperty struct {
 }
 
 // Properties for defining a `AWS::GroundStation::DataflowEndpointGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnDataflowEndpointGroupProps struct {
 	// `AWS::GroundStation::DataflowEndpointGroup.EndpointDetails`.
 	EndpointDetails interface{} `json:"endpointDetails"`
@@ -1444,6 +1494,9 @@ type CfnDataflowEndpointGroupProps struct {
 }
 
 // A CloudFormation `AWS::GroundStation::MissionProfile`.
+//
+// TODO: EXAMPLE
+//
 type CfnMissionProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2173,6 +2226,8 @@ func (c *jsiiProxy_CfnMissionProfile) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnMissionProfile_DataflowEdgeProperty struct {
 	// `CfnMissionProfile.DataflowEdgeProperty.Destination`.
 	Destination *string `json:"destination"`
@@ -2181,20 +2236,23 @@ type CfnMissionProfile_DataflowEdgeProperty struct {
 }
 
 // Properties for defining a `AWS::GroundStation::MissionProfile`.
+//
+// TODO: EXAMPLE
+//
 type CfnMissionProfileProps struct {
+	// `AWS::GroundStation::MissionProfile.ContactPostPassDurationSeconds`.
+	ContactPostPassDurationSeconds *float64 `json:"contactPostPassDurationSeconds"`
+	// `AWS::GroundStation::MissionProfile.ContactPrePassDurationSeconds`.
+	ContactPrePassDurationSeconds *float64 `json:"contactPrePassDurationSeconds"`
 	// `AWS::GroundStation::MissionProfile.DataflowEdges`.
 	DataflowEdges interface{} `json:"dataflowEdges"`
 	// `AWS::GroundStation::MissionProfile.MinimumViableContactDurationSeconds`.
 	MinimumViableContactDurationSeconds *float64 `json:"minimumViableContactDurationSeconds"`
 	// `AWS::GroundStation::MissionProfile.Name`.
 	Name *string `json:"name"`
-	// `AWS::GroundStation::MissionProfile.TrackingConfigArn`.
-	TrackingConfigArn *string `json:"trackingConfigArn"`
-	// `AWS::GroundStation::MissionProfile.ContactPostPassDurationSeconds`.
-	ContactPostPassDurationSeconds *float64 `json:"contactPostPassDurationSeconds"`
-	// `AWS::GroundStation::MissionProfile.ContactPrePassDurationSeconds`.
-	ContactPrePassDurationSeconds *float64 `json:"contactPrePassDurationSeconds"`
 	// `AWS::GroundStation::MissionProfile.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::GroundStation::MissionProfile.TrackingConfigArn`.
+	TrackingConfigArn *string `json:"trackingConfigArn"`
 }
 

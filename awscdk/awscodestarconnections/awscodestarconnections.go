@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::CodeStarConnections::Connection`.
+//
+// TODO: EXAMPLE
+//
 type CfnConnection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -680,6 +683,9 @@ func (c *jsiiProxy_CfnConnection) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::CodeStarConnections::Connection`.
+//
+// TODO: EXAMPLE
+//
 type CfnConnectionProps struct {
 	// `AWS::CodeStarConnections::Connection.ConnectionName`.
 	ConnectionName *string `json:"connectionName"`

@@ -14,6 +14,9 @@ import (
 )
 
 // Options for adding an AutoScalingGroup as capacity.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AutoScalingGroupOptions struct {
 	// Configures the EC2 user-data script for instances in this autoscaling group to bootstrap the node (invoke `/etc/eks/bootstrap.sh`) and associate it with the EKS cluster.
@@ -33,6 +36,9 @@ type AutoScalingGroupOptions struct {
 }
 
 // Manages mapping between IAM users and roles to Kubernetes RBAC configuration.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/en_us/eks/latest/userguide/add-user-role.html
 //
 // Experimental.
@@ -266,6 +272,8 @@ func (a *jsiiProxy_AwsAuth) Validate() *[]*string {
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type AwsAuthProps struct {
 	// The EKS cluster to apply this configuration to.
@@ -473,9 +481,6 @@ type CapacityOptions struct {
 	// Where to place instances within the VPC.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
-	// Instance type of the instances to start.
-	// Experimental.
-	InstanceType awsec2.InstanceType `json:"instanceType"`
 	// Configures the EC2 user-data script for instances in this autoscaling group to bootstrap the node (invoke `/etc/eks/bootstrap.sh`) and associate it with the EKS cluster.
 	//
 	// If you wish to provide a custom user data script, set this to `false` and
@@ -485,6 +490,9 @@ type CapacityOptions struct {
 	// EKS node bootstrapping options.
 	// Experimental.
 	BootstrapOptions *BootstrapOptions `json:"bootstrapOptions"`
+	// Instance type of the instances to start.
+	// Experimental.
+	InstanceType awsec2.InstanceType `json:"instanceType"`
 	// Will automatically update the aws-auth ConfigMap to map the IAM instance role to RBAC.
 	//
 	// This cannot be explicitly set to `true` if the cluster has kubectl disabled.
@@ -493,6 +501,9 @@ type CapacityOptions struct {
 }
 
 // A CloudFormation `AWS::EKS::Addon`.
+//
+// TODO: EXAMPLE
+//
 type CfnAddon interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1181,13 +1192,16 @@ func (c *jsiiProxy_CfnAddon) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::EKS::Addon`.
+//
+// TODO: EXAMPLE
+//
 type CfnAddonProps struct {
 	// `AWS::EKS::Addon.AddonName`.
 	AddonName *string `json:"addonName"`
-	// `AWS::EKS::Addon.ClusterName`.
-	ClusterName *string `json:"clusterName"`
 	// `AWS::EKS::Addon.AddonVersion`.
 	AddonVersion *string `json:"addonVersion"`
+	// `AWS::EKS::Addon.ClusterName`.
+	ClusterName *string `json:"clusterName"`
 	// `AWS::EKS::Addon.ResolveConflicts`.
 	ResolveConflicts *string `json:"resolveConflicts"`
 	// `AWS::EKS::Addon.ServiceAccountRoleArn`.
@@ -1197,6 +1211,9 @@ type CfnAddonProps struct {
 }
 
 // A CloudFormation `AWS::EKS::Cluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1979,11 +1996,15 @@ func (c *jsiiProxy_CfnCluster) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_ClusterLoggingProperty struct {
 	// `CfnCluster.ClusterLoggingProperty.EnabledTypes`.
 	EnabledTypes interface{} `json:"enabledTypes"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_EncryptionConfigProperty struct {
 	// `CfnCluster.EncryptionConfigProperty.Provider`.
 	Provider interface{} `json:"provider"`
@@ -1991,24 +2012,30 @@ type CfnCluster_EncryptionConfigProperty struct {
 	Resources *[]*string `json:"resources"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_KubernetesNetworkConfigProperty struct {
 	// `CfnCluster.KubernetesNetworkConfigProperty.ServiceIpv4Cidr`.
 	ServiceIpv4Cidr *string `json:"serviceIpv4Cidr"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_LoggingProperty struct {
 	// `CfnCluster.LoggingProperty.ClusterLogging`.
 	ClusterLogging interface{} `json:"clusterLogging"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_LoggingTypeConfigProperty struct {
 	// `CfnCluster.LoggingTypeConfigProperty.Type`.
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_ResourcesVpcConfigProperty struct {
-	// `CfnCluster.ResourcesVpcConfigProperty.SubnetIds`.
-	SubnetIds *[]*string `json:"subnetIds"`
 	// `CfnCluster.ResourcesVpcConfigProperty.EndpointPrivateAccess`.
 	EndpointPrivateAccess interface{} `json:"endpointPrivateAccess"`
 	// `CfnCluster.ResourcesVpcConfigProperty.EndpointPublicAccess`.
@@ -2017,14 +2044,15 @@ type CfnCluster_ResourcesVpcConfigProperty struct {
 	PublicAccessCidrs *[]*string `json:"publicAccessCidrs"`
 	// `CfnCluster.ResourcesVpcConfigProperty.SecurityGroupIds`.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
+	// `CfnCluster.ResourcesVpcConfigProperty.SubnetIds`.
+	SubnetIds *[]*string `json:"subnetIds"`
 }
 
 // Properties for defining a `AWS::EKS::Cluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnClusterProps struct {
-	// `AWS::EKS::Cluster.ResourcesVpcConfig`.
-	ResourcesVpcConfig interface{} `json:"resourcesVpcConfig"`
-	// `AWS::EKS::Cluster.RoleArn`.
-	RoleArn *string `json:"roleArn"`
 	// `AWS::EKS::Cluster.EncryptionConfig`.
 	EncryptionConfig interface{} `json:"encryptionConfig"`
 	// `AWS::EKS::Cluster.KubernetesNetworkConfig`.
@@ -2033,6 +2061,10 @@ type CfnClusterProps struct {
 	Logging interface{} `json:"logging"`
 	// `AWS::EKS::Cluster.Name`.
 	Name *string `json:"name"`
+	// `AWS::EKS::Cluster.ResourcesVpcConfig`.
+	ResourcesVpcConfig interface{} `json:"resourcesVpcConfig"`
+	// `AWS::EKS::Cluster.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 	// `AWS::EKS::Cluster.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::EKS::Cluster.Version`.
@@ -2040,6 +2072,9 @@ type CfnClusterProps struct {
 }
 
 // A CloudFormation `AWS::EKS::FargateProfile`.
+//
+// TODO: EXAMPLE
+//
 type CfnFargateProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2727,6 +2762,8 @@ func (c *jsiiProxy_CfnFargateProfile) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFargateProfile_LabelProperty struct {
 	// `CfnFargateProfile.LabelProperty.Key`.
 	Key *string `json:"key"`
@@ -2734,23 +2771,28 @@ type CfnFargateProfile_LabelProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFargateProfile_SelectorProperty struct {
-	// `CfnFargateProfile.SelectorProperty.Namespace`.
-	Namespace *string `json:"namespace"`
 	// `CfnFargateProfile.SelectorProperty.Labels`.
 	Labels interface{} `json:"labels"`
+	// `CfnFargateProfile.SelectorProperty.Namespace`.
+	Namespace *string `json:"namespace"`
 }
 
 // Properties for defining a `AWS::EKS::FargateProfile`.
+//
+// TODO: EXAMPLE
+//
 type CfnFargateProfileProps struct {
 	// `AWS::EKS::FargateProfile.ClusterName`.
 	ClusterName *string `json:"clusterName"`
+	// `AWS::EKS::FargateProfile.FargateProfileName`.
+	FargateProfileName *string `json:"fargateProfileName"`
 	// `AWS::EKS::FargateProfile.PodExecutionRoleArn`.
 	PodExecutionRoleArn *string `json:"podExecutionRoleArn"`
 	// `AWS::EKS::FargateProfile.Selectors`.
 	Selectors interface{} `json:"selectors"`
-	// `AWS::EKS::FargateProfile.FargateProfileName`.
-	FargateProfileName *string `json:"fargateProfileName"`
 	// `AWS::EKS::FargateProfile.Subnets`.
 	Subnets *[]*string `json:"subnets"`
 	// `AWS::EKS::FargateProfile.Tags`.
@@ -2758,6 +2800,9 @@ type CfnFargateProfileProps struct {
 }
 
 // A CloudFormation `AWS::EKS::Nodegroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnNodegroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3707,6 +3752,8 @@ func (c *jsiiProxy_CfnNodegroup) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnNodegroup_LaunchTemplateSpecificationProperty struct {
 	// `CfnNodegroup.LaunchTemplateSpecificationProperty.Id`.
 	Id *string `json:"id"`
@@ -3716,6 +3763,8 @@ type CfnNodegroup_LaunchTemplateSpecificationProperty struct {
 	Version *string `json:"version"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnNodegroup_RemoteAccessProperty struct {
 	// `CfnNodegroup.RemoteAccessProperty.Ec2SshKey`.
 	Ec2SshKey *string `json:"ec2SshKey"`
@@ -3723,6 +3772,8 @@ type CfnNodegroup_RemoteAccessProperty struct {
 	SourceSecurityGroups *[]*string `json:"sourceSecurityGroups"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnNodegroup_ScalingConfigProperty struct {
 	// `CfnNodegroup.ScalingConfigProperty.DesiredSize`.
 	DesiredSize *float64 `json:"desiredSize"`
@@ -3732,6 +3783,8 @@ type CfnNodegroup_ScalingConfigProperty struct {
 	MinSize *float64 `json:"minSize"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnNodegroup_TaintProperty struct {
 	// `CfnNodegroup.TaintProperty.Effect`.
 	Effect *string `json:"effect"`
@@ -3741,6 +3794,8 @@ type CfnNodegroup_TaintProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnNodegroup_UpdateConfigProperty struct {
 	// `CfnNodegroup.UpdateConfigProperty.MaxUnavailable`.
 	MaxUnavailable *float64 `json:"maxUnavailable"`
@@ -3749,17 +3804,16 @@ type CfnNodegroup_UpdateConfigProperty struct {
 }
 
 // Properties for defining a `AWS::EKS::Nodegroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnNodegroupProps struct {
-	// `AWS::EKS::Nodegroup.ClusterName`.
-	ClusterName *string `json:"clusterName"`
-	// `AWS::EKS::Nodegroup.NodeRole`.
-	NodeRole *string `json:"nodeRole"`
-	// `AWS::EKS::Nodegroup.Subnets`.
-	Subnets *[]*string `json:"subnets"`
 	// `AWS::EKS::Nodegroup.AmiType`.
 	AmiType *string `json:"amiType"`
 	// `AWS::EKS::Nodegroup.CapacityType`.
 	CapacityType *string `json:"capacityType"`
+	// `AWS::EKS::Nodegroup.ClusterName`.
+	ClusterName *string `json:"clusterName"`
 	// `AWS::EKS::Nodegroup.DiskSize`.
 	DiskSize *float64 `json:"diskSize"`
 	// `AWS::EKS::Nodegroup.ForceUpdateEnabled`.
@@ -3772,12 +3826,16 @@ type CfnNodegroupProps struct {
 	LaunchTemplate interface{} `json:"launchTemplate"`
 	// `AWS::EKS::Nodegroup.NodegroupName`.
 	NodegroupName *string `json:"nodegroupName"`
+	// `AWS::EKS::Nodegroup.NodeRole`.
+	NodeRole *string `json:"nodeRole"`
 	// `AWS::EKS::Nodegroup.ReleaseVersion`.
 	ReleaseVersion *string `json:"releaseVersion"`
 	// `AWS::EKS::Nodegroup.RemoteAccess`.
 	RemoteAccess interface{} `json:"remoteAccess"`
 	// `AWS::EKS::Nodegroup.ScalingConfig`.
 	ScalingConfig interface{} `json:"scalingConfig"`
+	// `AWS::EKS::Nodegroup.Subnets`.
+	Subnets *[]*string `json:"subnets"`
 	// `AWS::EKS::Nodegroup.Tags`.
 	Tags interface{} `json:"tags"`
 	// `AWS::EKS::Nodegroup.Taints`.
@@ -4332,6 +4390,8 @@ func (c *jsiiProxy_Cluster) Validate() *[]*string {
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type ClusterAttributes struct {
 	// The unique ARN assigned to the service by AWS in the form of arn:aws:eks:.
@@ -4441,6 +4501,9 @@ type ClusterProps struct {
 }
 
 // Construct an Amazon Linux 2 image from the latest EKS Optimized AMI published in SSM.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EksOptimizedImage interface {
 	awsec2.IMachineImage
@@ -4496,6 +4559,9 @@ func (e *jsiiProxy_EksOptimizedImage) GetImage(scope awscdk.Construct) *awsec2.M
 }
 
 // Properties for EksOptimizedImage.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EksOptimizedImageProps struct {
 	// The Kubernetes version to use.
@@ -5146,7 +5212,7 @@ type Mapping struct {
 type NodeType string
 
 const (
-	NodeType_STANDARD NodeType = "STANDARD"
 	NodeType_GPU NodeType = "GPU"
+	NodeType_STANDARD NodeType = "STANDARD"
 )
 

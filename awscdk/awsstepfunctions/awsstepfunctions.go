@@ -568,6 +568,9 @@ func (a *jsiiProxy_Activity) Validate() *[]*string {
 }
 
 // Properties for defining a new Step Functions Activity.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ActivityProps struct {
 	// The name for this activity.
@@ -576,6 +579,9 @@ type ActivityProps struct {
 }
 
 // Options for selecting the choice paths.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AfterwardsOptions struct {
 	// Whether to include error handling states.
@@ -593,6 +599,9 @@ type AfterwardsOptions struct {
 }
 
 // Error handler details.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CatchProps struct {
 	// Errors to recover from by going to the given state.
@@ -610,6 +619,9 @@ type CatchProps struct {
 }
 
 // A CloudFormation `AWS::StepFunctions::Activity`.
+//
+// TODO: EXAMPLE
+//
 type CfnActivity interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1228,6 +1240,8 @@ func (c *jsiiProxy_CfnActivity) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnActivity_TagsEntryProperty struct {
 	// `CfnActivity.TagsEntryProperty.Key`.
 	Key *string `json:"key"`
@@ -1236,6 +1250,9 @@ type CfnActivity_TagsEntryProperty struct {
 }
 
 // Properties for defining a `AWS::StepFunctions::Activity`.
+//
+// TODO: EXAMPLE
+//
 type CfnActivityProps struct {
 	// `AWS::StepFunctions::Activity.Name`.
 	Name *string `json:"name"`
@@ -1244,6 +1261,9 @@ type CfnActivityProps struct {
 }
 
 // A CloudFormation `AWS::StepFunctions::StateMachine`.
+//
+// TODO: EXAMPLE
+//
 type CfnStateMachine interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2022,19 +2042,27 @@ func (c *jsiiProxy_CfnStateMachine) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnStateMachine_CloudWatchLogsLogGroupProperty struct {
 	// `CfnStateMachine.CloudWatchLogsLogGroupProperty.LogGroupArn`.
 	LogGroupArn *string `json:"logGroupArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStateMachine_DefinitionProperty struct {
 }
 
+// TODO: EXAMPLE
+//
 type CfnStateMachine_LogDestinationProperty struct {
 	// `CfnStateMachine.LogDestinationProperty.CloudWatchLogsLogGroup`.
 	CloudWatchLogsLogGroup interface{} `json:"cloudWatchLogsLogGroup"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStateMachine_LoggingConfigurationProperty struct {
 	// `CfnStateMachine.LoggingConfigurationProperty.Destinations`.
 	Destinations interface{} `json:"destinations"`
@@ -2044,6 +2072,8 @@ type CfnStateMachine_LoggingConfigurationProperty struct {
 	Level *string `json:"level"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStateMachine_S3LocationProperty struct {
 	// `CfnStateMachine.S3LocationProperty.Bucket`.
 	Bucket *string `json:"bucket"`
@@ -2053,6 +2083,8 @@ type CfnStateMachine_S3LocationProperty struct {
 	Version *string `json:"version"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStateMachine_TagsEntryProperty struct {
 	// `CfnStateMachine.TagsEntryProperty.Key`.
 	Key *string `json:"key"`
@@ -2060,15 +2092,18 @@ type CfnStateMachine_TagsEntryProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStateMachine_TracingConfigurationProperty struct {
 	// `CfnStateMachine.TracingConfigurationProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
 }
 
 // Properties for defining a `AWS::StepFunctions::StateMachine`.
+//
+// TODO: EXAMPLE
+//
 type CfnStateMachineProps struct {
-	// `AWS::StepFunctions::StateMachine.RoleArn`.
-	RoleArn *string `json:"roleArn"`
 	// `AWS::StepFunctions::StateMachine.Definition`.
 	Definition interface{} `json:"definition"`
 	// `AWS::StepFunctions::StateMachine.DefinitionS3Location`.
@@ -2079,6 +2114,8 @@ type CfnStateMachineProps struct {
 	DefinitionSubstitutions interface{} `json:"definitionSubstitutions"`
 	// `AWS::StepFunctions::StateMachine.LoggingConfiguration`.
 	LoggingConfiguration interface{} `json:"loggingConfiguration"`
+	// `AWS::StepFunctions::StateMachine.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 	// `AWS::StepFunctions::StateMachine.StateMachineName`.
 	StateMachineName *string `json:"stateMachineName"`
 	// `AWS::StepFunctions::StateMachine.StateMachineType`.
@@ -2925,6 +2962,9 @@ func (c *jsiiProxy_Choice) WhenBoundToGraph(graph StateGraph) {
 }
 
 // Properties for defining a Choice state.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ChoiceProps struct {
 	// An optional description for this state.
@@ -4639,6 +4679,9 @@ func Data_EntirePayload() *string {
 }
 
 // Predefined error strings Error names in Amazon States Language - https://states-language.net/spec.html#appendix-a Error handling in Step Functions - https://docs.aws.amazon.com/step-functions/latest/dg/concepts-error-handling.html.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Errors interface {
 }
@@ -5495,6 +5538,9 @@ func FieldUtils_RenderObject(obj *map[string]interface{}) *map[string]interface{
 }
 
 // Options for finding reachable states.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FindStateOptions struct {
 	// Whether or not to follow error-handling transitions.
@@ -5931,8 +5977,8 @@ func (i *jsiiProxy_IStepFunctionsTask) Bind(task Task) *StepFunctionsTaskConfig 
 type InputType string
 
 const (
-	InputType_TEXT InputType = "TEXT"
 	InputType_OBJECT InputType = "OBJECT"
+	InputType_TEXT InputType = "TEXT"
 )
 
 // AWS Step Functions integrates with services directly in the Amazon States Language.
@@ -7589,6 +7635,9 @@ func (p *jsiiProxy_Parallel) WhenBoundToGraph(graph StateGraph) {
 }
 
 // Properties for defining a Parallel state.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ParallelProps struct {
 	// An optional description for this state.
@@ -8496,6 +8545,9 @@ const (
 )
 
 // Options for creating a single state.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SingleStateOptions struct {
 	// An optional description for this state.
@@ -9177,6 +9229,9 @@ func (s *jsiiProxy_State) WhenBoundToGraph(graph StateGraph) {
 // them to the IAM Role.
 //
 // You do not need to instantiate this class; it is used internally.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type StateGraph interface {
 	PolicyStatements() *[]awsiam.PolicyStatement
@@ -10254,6 +10309,9 @@ const (
 )
 
 // Properties shared by all states.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type StateProps struct {
 	// A comment describing this state.
@@ -10419,14 +10477,11 @@ func StateTransitionMetric_MetricThrottledEvents(props *awscloudwatch.MetricOpti
 }
 
 // Properties that define what kind of task should be created.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: used by `IStepFunctionsTask`. `IStepFunctionsTask` is deprecated and replaced by `TaskStateBase`.
 type StepFunctionsTaskConfig struct {
-	// The resource that represents the work to be executed.
-	//
-	// Either the ARN of a Lambda Function or Activity, or a special
-	// ARN.
-	// Deprecated: used by `IStepFunctionsTask`. `IStepFunctionsTask` is deprecated and replaced by `TaskStateBase`.
-	ResourceArn *string `json:"resourceArn"`
 	// Maximum time between heart beats.
 	//
 	// If the time between heart beats takes longer than this, a 'Timeout' error is raised.
@@ -10456,6 +10511,12 @@ type StepFunctionsTaskConfig struct {
 	// Additional policy statements to add to the execution role.
 	// Deprecated: used by `IStepFunctionsTask`. `IStepFunctionsTask` is deprecated and replaced by `TaskStateBase`.
 	PolicyStatements *[]awsiam.PolicyStatement `json:"policyStatements"`
+	// The resource that represents the work to be executed.
+	//
+	// Either the ARN of a Lambda Function or Activity, or a special
+	// ARN.
+	// Deprecated: used by `IStepFunctionsTask`. `IStepFunctionsTask` is deprecated and replaced by `TaskStateBase`.
+	ResourceArn *string `json:"resourceArn"`
 }
 
 // Define a Succeed state in the state machine.
@@ -11099,6 +11160,9 @@ func (s *jsiiProxy_Succeed) WhenBoundToGraph(graph StateGraph) {
 }
 
 // Properties for defining a Succeed state.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SucceedProps struct {
 	// An optional description for this state.
@@ -11126,6 +11190,9 @@ type SucceedProps struct {
 //
 // For some resource types, more specific subclasses of Task may be available
 // which are more convenient to use.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
 type Task interface {
 	State
@@ -12114,6 +12181,9 @@ func TaskInput_FromText(text *string) TaskInput {
 }
 
 // Task Metrics.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type TaskMetricsConfig struct {
 	// The dimensions to attach to metrics.
@@ -12128,11 +12198,11 @@ type TaskMetricsConfig struct {
 }
 
 // Props that are common to all tasks.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
 type TaskProps struct {
-	// Actual task to be invoked in this workflow.
-	// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
-	Task IStepFunctionsTask `json:"task"`
 	// An optional description for this state.
 	// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
 	Comment *string `json:"comment"`
@@ -12173,6 +12243,9 @@ type TaskProps struct {
 	// input to become its output.
 	// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
 	ResultPath *string `json:"resultPath"`
+	// Actual task to be invoked in this workflow.
+	// Deprecated: - replaced by service integration specific classes (i.e. LambdaInvoke, SnsPublish)
+	Task IStepFunctionsTask `json:"task"`
 	// Maximum run time of this state.
 	//
 	// If the state takes longer than this amount of time to complete, a 'Timeout' error is raised.
@@ -13046,6 +13119,9 @@ func (t *jsiiProxy_TaskStateBase) WhenBoundToGraph(graph StateGraph) {
 }
 
 // Props that are common to all tasks.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type TaskStateBaseProps struct {
 	// An optional description for this state.

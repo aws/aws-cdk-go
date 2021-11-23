@@ -475,8 +475,8 @@ func init() {
 		"monocdk.aws_eks_legacy.NodeType",
 		reflect.TypeOf((*NodeType)(nil)).Elem(),
 		map[string]interface{}{
-			"STANDARD": NodeType_STANDARD,
 			"GPU": NodeType_GPU,
+			"STANDARD": NodeType_STANDARD,
 		},
 	)
 }

@@ -147,6 +147,9 @@ type ApiGatewayProps struct {
 }
 
 // Use an AWS Lambda function that makes API calls as an event rule target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AwsApi interface {
 	awsevents.IRuleTarget
@@ -200,6 +203,9 @@ func (a *jsiiProxy_AwsApi) Bind(rule awsevents.IRule, id *string) *awsevents.Rul
 }
 
 // Rule target input for an AwsApi target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AwsApiInput struct {
 	// The service action to call.
@@ -207,11 +213,6 @@ type AwsApiInput struct {
 	//
 	// Experimental.
 	Action *string `json:"action"`
-	// The service to call.
-	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html
-	//
-	// Experimental.
-	Service *string `json:"service"`
 	// API version to use for the service.
 	// See: https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/locking-api-versions.html
 	//
@@ -229,9 +230,17 @@ type AwsApiInput struct {
 	//
 	// Experimental.
 	Parameters interface{} `json:"parameters"`
+	// The service to call.
+	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html
+	//
+	// Experimental.
+	Service *string `json:"service"`
 }
 
 // Properties for an AwsApi target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AwsApiProps struct {
 	// The service action to call.
@@ -239,11 +248,6 @@ type AwsApiProps struct {
 	//
 	// Experimental.
 	Action *string `json:"action"`
-	// The service to call.
-	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html
-	//
-	// Experimental.
-	Service *string `json:"service"`
 	// API version to use for the service.
 	// See: https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/locking-api-versions.html
 	//
@@ -261,6 +265,11 @@ type AwsApiProps struct {
 	//
 	// Experimental.
 	Parameters interface{} `json:"parameters"`
+	// The service to call.
+	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html
+	//
+	// Experimental.
+	Service *string `json:"service"`
 	// The IAM policy statement to allow the API call.
 	//
 	// Use only if
@@ -581,6 +590,9 @@ func (c *jsiiProxy_CodePipeline) Bind(_rule awsevents.IRule, _id *string) *awsev
 }
 
 // Customization options when creating a {@link CodePipeline} event target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CodePipelineTargetOptions struct {
 	// The SQS queue to be used as deadLetterQueue. Check out the [considerations for using a dead-letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html#dlq-considerations).
@@ -607,14 +619,16 @@ type CodePipelineTargetOptions struct {
 	EventRole awsiam.IRole `json:"eventRole"`
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type ContainerOverride struct {
-	// Name of the container inside the task definition.
-	// Experimental.
-	ContainerName *string `json:"containerName"`
 	// Command to run inside the container.
 	// Experimental.
 	Command *[]*string `json:"command"`
+	// Name of the container inside the task definition.
+	// Experimental.
+	ContainerName *string `json:"containerName"`
 	// The number of cpu units reserved for the container.
 	// Experimental.
 	Cpu *float64 `json:"cpu"`
@@ -817,6 +831,9 @@ func (e *jsiiProxy_EventBus) Bind(rule awsevents.IRule, _id *string) *awsevents.
 // Configuration properties of an Event Bus event.
 //
 // Cannot extend TargetBaseProps. Retry policy is not supported for Event bus targets.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EventBusProps struct {
 	// The SQS queue to be used as deadLetterQueue. Check out the [considerations for using a dead-letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html#dlq-considerations).
@@ -832,6 +849,9 @@ type EventBusProps struct {
 }
 
 // Customize the Firehose Stream Event Target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type KinesisFirehoseStream interface {
 	awsevents.IRuleTarget
@@ -885,6 +905,9 @@ func (k *jsiiProxy_KinesisFirehoseStream) Bind(_rule awsevents.IRule, _id *strin
 }
 
 // Customize the Firehose Stream Event Target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type KinesisFirehoseStreamProps struct {
 	// The message to send to the stream.
@@ -951,6 +974,9 @@ func (k *jsiiProxy_KinesisStream) Bind(_rule awsevents.IRule, _id *string) *awse
 }
 
 // Customize the Kinesis Stream Event Target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type KinesisStreamProps struct {
 	// The message to send to the stream.
@@ -1052,6 +1078,9 @@ type LambdaFunctionProps struct {
 }
 
 // Customize the CloudWatch LogGroup Event Target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LogGroupProps struct {
 	// The SQS queue to be used as deadLetterQueue. Check out the [considerations for using a dead-letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html#dlq-considerations).
@@ -1335,6 +1364,9 @@ func (s *jsiiProxy_SqsQueue) Bind(rule awsevents.IRule, _id *string) *awsevents.
 }
 
 // Customize the SQS Queue Event Target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SqsQueueProps struct {
 	// The SQS queue to be used as deadLetterQueue. Check out the [considerations for using a dead-letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html#dlq-considerations).
@@ -1369,6 +1401,9 @@ type SqsQueueProps struct {
 }
 
 // The generic properties for an RuleTarget.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type TargetBaseProps struct {
 	// The SQS queue to be used as deadLetterQueue. Check out the [considerations for using a dead-letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html#dlq-considerations).
@@ -1393,6 +1428,9 @@ type TargetBaseProps struct {
 }
 
 // An environment variable to be set in the container run as a task.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type TaskEnvironmentVariable struct {
 	// Name for the environment variable.

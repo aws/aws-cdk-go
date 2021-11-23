@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::MediaConvert::JobTemplate`.
+//
+// TODO: EXAMPLE
+//
 type CfnJobTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -788,11 +791,15 @@ func (c *jsiiProxy_CfnJobTemplate) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnJobTemplate_AccelerationSettingsProperty struct {
 	// `CfnJobTemplate.AccelerationSettingsProperty.Mode`.
 	Mode *string `json:"mode"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnJobTemplate_HopDestinationProperty struct {
 	// `CfnJobTemplate.HopDestinationProperty.Priority`.
 	Priority *float64 `json:"priority"`
@@ -803,9 +810,10 @@ type CfnJobTemplate_HopDestinationProperty struct {
 }
 
 // Properties for defining a `AWS::MediaConvert::JobTemplate`.
+//
+// TODO: EXAMPLE
+//
 type CfnJobTemplateProps struct {
-	// `AWS::MediaConvert::JobTemplate.SettingsJson`.
-	SettingsJson interface{} `json:"settingsJson"`
 	// `AWS::MediaConvert::JobTemplate.AccelerationSettings`.
 	AccelerationSettings interface{} `json:"accelerationSettings"`
 	// `AWS::MediaConvert::JobTemplate.Category`.
@@ -820,6 +828,8 @@ type CfnJobTemplateProps struct {
 	Priority *float64 `json:"priority"`
 	// `AWS::MediaConvert::JobTemplate.Queue`.
 	Queue *string `json:"queue"`
+	// `AWS::MediaConvert::JobTemplate.SettingsJson`.
+	SettingsJson interface{} `json:"settingsJson"`
 	// `AWS::MediaConvert::JobTemplate.StatusUpdateInterval`.
 	StatusUpdateInterval *string `json:"statusUpdateInterval"`
 	// `AWS::MediaConvert::JobTemplate.Tags`.
@@ -827,6 +837,9 @@ type CfnJobTemplateProps struct {
 }
 
 // A CloudFormation `AWS::MediaConvert::Preset`.
+//
+// TODO: EXAMPLE
+//
 type CfnPreset interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1506,20 +1519,26 @@ func (c *jsiiProxy_CfnPreset) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::MediaConvert::Preset`.
+//
+// TODO: EXAMPLE
+//
 type CfnPresetProps struct {
-	// `AWS::MediaConvert::Preset.SettingsJson`.
-	SettingsJson interface{} `json:"settingsJson"`
 	// `AWS::MediaConvert::Preset.Category`.
 	Category *string `json:"category"`
 	// `AWS::MediaConvert::Preset.Description`.
 	Description *string `json:"description"`
 	// `AWS::MediaConvert::Preset.Name`.
 	Name *string `json:"name"`
+	// `AWS::MediaConvert::Preset.SettingsJson`.
+	SettingsJson interface{} `json:"settingsJson"`
 	// `AWS::MediaConvert::Preset.Tags`.
 	Tags interface{} `json:"tags"`
 }
 
 // A CloudFormation `AWS::MediaConvert::Queue`.
+//
+// TODO: EXAMPLE
+//
 type CfnQueue interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2199,6 +2218,9 @@ func (c *jsiiProxy_CfnQueue) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::MediaConvert::Queue`.
+//
+// TODO: EXAMPLE
+//
 type CfnQueueProps struct {
 	// `AWS::MediaConvert::Queue.Description`.
 	Description *string `json:"description"`

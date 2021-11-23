@@ -18,6 +18,9 @@ import (
 //
 // Use this to bridge any gap that might exist in the CloudFormation Coverage.
 // You can specify exactly which calls are invoked for the 'CREATE', 'UPDATE' and 'DELETE' life cycle events.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AwsCustomResource interface {
 	awscdk.Construct
@@ -266,6 +269,9 @@ func (a *jsiiProxy_AwsCustomResource) Validate() *[]*string {
 }
 
 // The IAM Policy that will be applied to the different calls.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AwsCustomResourcePolicy interface {
 	Resources() *[]*string
@@ -348,20 +354,11 @@ func AwsCustomResourcePolicy_ANY_RESOURCE() *[]*string {
 // Properties for AwsCustomResource.
 //
 // Note that at least onCreate, onUpdate or onDelete must be specified.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AwsCustomResourceProps struct {
-	// The policy that will be added to the execution role of the Lambda function implementing this custom resource provider.
-	//
-	// The custom resource also implements `iam.IGrantable`, making it possible
-	// to use the `grantXxx()` methods.
-	//
-	// As this custom resource uses a singleton Lambda function, it's important
-	// to note the that function's role will eventually accumulate the
-	// permissions/grants from all resources.
-	// See: Policy.fromSdkCalls
-	//
-	// Experimental.
-	Policy AwsCustomResourcePolicy `json:"policy"`
 	// A name for the Lambda function implementing this custom resource.
 	// Experimental.
 	FunctionName *string `json:"functionName"`
@@ -382,6 +379,18 @@ type AwsCustomResourceProps struct {
 	// The AWS SDK call to make when the resource is updated.
 	// Experimental.
 	OnUpdate *AwsSdkCall `json:"onUpdate"`
+	// The policy that will be added to the execution role of the Lambda function implementing this custom resource provider.
+	//
+	// The custom resource also implements `iam.IGrantable`, making it possible
+	// to use the `grantXxx()` methods.
+	//
+	// As this custom resource uses a singleton Lambda function, it's important
+	// to note the that function's role will eventually accumulate the
+	// permissions/grants from all resources.
+	// See: Policy.fromSdkCalls
+	//
+	// Experimental.
+	Policy AwsCustomResourcePolicy `json:"policy"`
 	// Cloudformation Resource type.
 	// Experimental.
 	ResourceType *string `json:"resourceType"`
@@ -398,6 +407,9 @@ type AwsCustomResourceProps struct {
 }
 
 // An AWS SDK call.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AwsSdkCall struct {
 	// The service action to call.
@@ -405,11 +417,6 @@ type AwsSdkCall struct {
 	//
 	// Experimental.
 	Action *string `json:"action"`
-	// The service to call.
-	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html
-	//
-	// Experimental.
-	Service *string `json:"service"`
 	// API version to use for the service.
 	// See: https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/locking-api-versions.html
 	//
@@ -461,9 +468,17 @@ type AwsSdkCall struct {
 	// **Consider first deploying a stack in that region.**
 	// Experimental.
 	Region *string `json:"region"`
+	// The service to call.
+	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html
+	//
+	// Experimental.
+	Service *string `json:"service"`
 }
 
 // Physical ID of the custom resource.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type PhysicalResourceId interface {
 	Id() *string
@@ -531,6 +546,9 @@ func PhysicalResourceId_Of(id *string) PhysicalResourceId {
 }
 
 // Reference to the physical resource id that can be passed to the AWS operation as a parameter.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type PhysicalResourceIdReference interface {
 	awscdk.IResolvable
@@ -935,6 +953,9 @@ type ProviderProps struct {
 }
 
 // Options for the auto-generation of policies based on the configured SDK calls.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SdkCallsPolicyOptions struct {
 	// The resources that the calls will have access to.

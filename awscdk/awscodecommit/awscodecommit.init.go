@@ -190,26 +190,26 @@ func init() {
 		reflect.TypeOf((*RepositoryEventTrigger)(nil)).Elem(),
 		map[string]interface{}{
 			"ALL": RepositoryEventTrigger_ALL,
-			"UPDATE_REF": RepositoryEventTrigger_UPDATE_REF,
 			"CREATE_REF": RepositoryEventTrigger_CREATE_REF,
 			"DELETE_REF": RepositoryEventTrigger_DELETE_REF,
+			"UPDATE_REF": RepositoryEventTrigger_UPDATE_REF,
 		},
 	)
 	_jsii_.RegisterEnum(
 		"monocdk.aws_codecommit.RepositoryNotificationEvents",
 		reflect.TypeOf((*RepositoryNotificationEvents)(nil)).Elem(),
 		map[string]interface{}{
-			"COMMIT_COMMENT": RepositoryNotificationEvents_COMMIT_COMMENT,
-			"PULL_REQUEST_COMMENT": RepositoryNotificationEvents_PULL_REQUEST_COMMENT,
-			"APPROVAL_STATUS_CHANGED": RepositoryNotificationEvents_APPROVAL_STATUS_CHANGED,
 			"APPROVAL_RULE_OVERRIDDEN": RepositoryNotificationEvents_APPROVAL_RULE_OVERRIDDEN,
-			"PULL_REQUEST_CREATED": RepositoryNotificationEvents_PULL_REQUEST_CREATED,
-			"PULL_REQUEST_SOURCE_UPDATED": RepositoryNotificationEvents_PULL_REQUEST_SOURCE_UPDATED,
-			"PULL_REQUEST_STATUS_CHANGED": RepositoryNotificationEvents_PULL_REQUEST_STATUS_CHANGED,
-			"PULL_REQUEST_MERGED": RepositoryNotificationEvents_PULL_REQUEST_MERGED,
+			"APPROVAL_STATUS_CHANGED": RepositoryNotificationEvents_APPROVAL_STATUS_CHANGED,
 			"BRANCH_OR_TAG_CREATED": RepositoryNotificationEvents_BRANCH_OR_TAG_CREATED,
 			"BRANCH_OR_TAG_DELETED": RepositoryNotificationEvents_BRANCH_OR_TAG_DELETED,
 			"BRANCH_OR_TAG_UPDATED": RepositoryNotificationEvents_BRANCH_OR_TAG_UPDATED,
+			"COMMIT_COMMENT": RepositoryNotificationEvents_COMMIT_COMMENT,
+			"PULL_REQUEST_COMMENT": RepositoryNotificationEvents_PULL_REQUEST_COMMENT,
+			"PULL_REQUEST_CREATED": RepositoryNotificationEvents_PULL_REQUEST_CREATED,
+			"PULL_REQUEST_MERGED": RepositoryNotificationEvents_PULL_REQUEST_MERGED,
+			"PULL_REQUEST_SOURCE_UPDATED": RepositoryNotificationEvents_PULL_REQUEST_SOURCE_UPDATED,
+			"PULL_REQUEST_STATUS_CHANGED": RepositoryNotificationEvents_PULL_REQUEST_STATUS_CHANGED,
 		},
 	)
 	_jsii_.RegisterStruct(

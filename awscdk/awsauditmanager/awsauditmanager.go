@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::AuditManager::Assessment`.
+//
+// TODO: EXAMPLE
+//
 type CfnAssessment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -790,6 +793,8 @@ func (c *jsiiProxy_CfnAssessment) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnAssessment_AWSAccountProperty struct {
 	// `CfnAssessment.AWSAccountProperty.EmailAddress`.
 	EmailAddress *string `json:"emailAddress"`
@@ -799,11 +804,15 @@ type CfnAssessment_AWSAccountProperty struct {
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAssessment_AWSServiceProperty struct {
 	// `CfnAssessment.AWSServiceProperty.ServiceName`.
 	ServiceName *string `json:"serviceName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAssessment_AssessmentReportsDestinationProperty struct {
 	// `CfnAssessment.AssessmentReportsDestinationProperty.Destination`.
 	Destination *string `json:"destination"`
@@ -811,6 +820,8 @@ type CfnAssessment_AssessmentReportsDestinationProperty struct {
 	DestinationType *string `json:"destinationType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAssessment_DelegationProperty struct {
 	// `CfnAssessment.DelegationProperty.AssessmentId`.
 	AssessmentId *string `json:"assessmentId"`
@@ -836,6 +847,8 @@ type CfnAssessment_DelegationProperty struct {
 	Status *string `json:"status"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAssessment_RoleProperty struct {
 	// `CfnAssessment.RoleProperty.RoleArn`.
 	RoleArn *string `json:"roleArn"`
@@ -843,6 +856,8 @@ type CfnAssessment_RoleProperty struct {
 	RoleType *string `json:"roleType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAssessment_ScopeProperty struct {
 	// `CfnAssessment.ScopeProperty.AwsAccounts`.
 	AwsAccounts interface{} `json:"awsAccounts"`
@@ -851,6 +866,9 @@ type CfnAssessment_ScopeProperty struct {
 }
 
 // Properties for defining a `AWS::AuditManager::Assessment`.
+//
+// TODO: EXAMPLE
+//
 type CfnAssessmentProps struct {
 	// `AWS::AuditManager::Assessment.AssessmentReportsDestination`.
 	AssessmentReportsDestination interface{} `json:"assessmentReportsDestination"`

@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::Wisdom::Assistant`.
+//
+// TODO: EXAMPLE
+//
 type CfnAssistant interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -688,12 +691,17 @@ func (c *jsiiProxy_CfnAssistant) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnAssistant_ServerSideEncryptionConfigurationProperty struct {
 	// `CfnAssistant.ServerSideEncryptionConfigurationProperty.KmsKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
 }
 
 // A CloudFormation `AWS::Wisdom::AssistantAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnAssistantAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1363,12 +1371,17 @@ func (c *jsiiProxy_CfnAssistantAssociation) ValidateProperties(_properties inter
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnAssistantAssociation_AssociationDataProperty struct {
 	// `CfnAssistantAssociation.AssociationDataProperty.KnowledgeBaseId`.
 	KnowledgeBaseId *string `json:"knowledgeBaseId"`
 }
 
 // Properties for defining a `AWS::Wisdom::AssistantAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnAssistantAssociationProps struct {
 	// `AWS::Wisdom::AssistantAssociation.AssistantId`.
 	AssistantId *string `json:"assistantId"`
@@ -1381,20 +1394,26 @@ type CfnAssistantAssociationProps struct {
 }
 
 // Properties for defining a `AWS::Wisdom::Assistant`.
+//
+// TODO: EXAMPLE
+//
 type CfnAssistantProps struct {
-	// `AWS::Wisdom::Assistant.Name`.
-	Name *string `json:"name"`
-	// `AWS::Wisdom::Assistant.Type`.
-	Type *string `json:"type"`
 	// `AWS::Wisdom::Assistant.Description`.
 	Description *string `json:"description"`
+	// `AWS::Wisdom::Assistant.Name`.
+	Name *string `json:"name"`
 	// `AWS::Wisdom::Assistant.ServerSideEncryptionConfiguration`.
 	ServerSideEncryptionConfiguration interface{} `json:"serverSideEncryptionConfiguration"`
 	// `AWS::Wisdom::Assistant.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::Wisdom::Assistant.Type`.
+	Type *string `json:"type"`
 }
 
 // A CloudFormation `AWS::Wisdom::KnowledgeBase`.
+//
+// TODO: EXAMPLE
+//
 type CfnKnowledgeBase interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2113,6 +2132,8 @@ func (c *jsiiProxy_CfnKnowledgeBase) ValidateProperties(_properties interface{})
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnKnowledgeBase_AppIntegrationsConfigurationProperty struct {
 	// `CfnKnowledgeBase.AppIntegrationsConfigurationProperty.AppIntegrationArn`.
 	AppIntegrationArn *string `json:"appIntegrationArn"`
@@ -2120,29 +2141,38 @@ type CfnKnowledgeBase_AppIntegrationsConfigurationProperty struct {
 	ObjectFields *[]*string `json:"objectFields"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnKnowledgeBase_RenderingConfigurationProperty struct {
 	// `CfnKnowledgeBase.RenderingConfigurationProperty.TemplateUri`.
 	TemplateUri *string `json:"templateUri"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnKnowledgeBase_ServerSideEncryptionConfigurationProperty struct {
 	// `CfnKnowledgeBase.ServerSideEncryptionConfigurationProperty.KmsKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnKnowledgeBase_SourceConfigurationProperty struct {
 	// `CfnKnowledgeBase.SourceConfigurationProperty.AppIntegrations`.
 	AppIntegrations interface{} `json:"appIntegrations"`
 }
 
 // Properties for defining a `AWS::Wisdom::KnowledgeBase`.
+//
+// TODO: EXAMPLE
+//
 type CfnKnowledgeBaseProps struct {
+	// `AWS::Wisdom::KnowledgeBase.Description`.
+	Description *string `json:"description"`
 	// `AWS::Wisdom::KnowledgeBase.KnowledgeBaseType`.
 	KnowledgeBaseType *string `json:"knowledgeBaseType"`
 	// `AWS::Wisdom::KnowledgeBase.Name`.
 	Name *string `json:"name"`
-	// `AWS::Wisdom::KnowledgeBase.Description`.
-	Description *string `json:"description"`
 	// `AWS::Wisdom::KnowledgeBase.RenderingConfiguration`.
 	RenderingConfiguration interface{} `json:"renderingConfiguration"`
 	// `AWS::Wisdom::KnowledgeBase.ServerSideEncryptionConfiguration`.

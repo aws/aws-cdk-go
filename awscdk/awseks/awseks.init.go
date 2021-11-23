@@ -7,6 +7,52 @@ import (
 )
 
 func init() {
+	_jsii_.RegisterClass(
+		"monocdk.aws_eks.AlbController",
+		reflect.TypeOf((*AlbController)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+		},
+		func() interface{} {
+			j := jsiiProxy_AlbController{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkConstruct)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_eks.AlbControllerOptions",
+		reflect.TypeOf((*AlbControllerOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_eks.AlbControllerProps",
+		reflect.TypeOf((*AlbControllerProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_eks.AlbControllerVersion",
+		reflect.TypeOf((*AlbControllerVersion)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "custom", GoGetter: "Custom"},
+			_jsii_.MemberProperty{JsiiProperty: "version", GoGetter: "Version"},
+		},
+		func() interface{} {
+			return &jsiiProxy_AlbControllerVersion{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_eks.AlbScheme",
+		reflect.TypeOf((*AlbScheme)(nil)).Elem(),
+		map[string]interface{}{
+			"INTERNAL": AlbScheme_INTERNAL,
+			"INTERNET_FACING": AlbScheme_INTERNET_FACING,
+		},
+	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_eks.AutoScalingGroupCapacityOptions",
 		reflect.TypeOf((*AutoScalingGroupCapacityOptions)(nil)).Elem(),
@@ -54,8 +100,8 @@ func init() {
 		"monocdk.aws_eks.CapacityType",
 		reflect.TypeOf((*CapacityType)(nil)).Elem(),
 		map[string]interface{}{
-			"SPOT": CapacityType_SPOT,
 			"ON_DEMAND": CapacityType_ON_DEMAND,
+			"SPOT": CapacityType_SPOT,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -355,6 +401,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addNodegroupCapacity", GoMethod: "AddNodegroupCapacity"},
 			_jsii_.MemberMethod{JsiiMethod: "addServiceAccount", GoMethod: "AddServiceAccount"},
 			_jsii_.MemberProperty{JsiiProperty: "adminRole", GoGetter: "AdminRole"},
+			_jsii_.MemberProperty{JsiiProperty: "albController", GoGetter: "AlbController"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "awsAuth", GoGetter: "AwsAuth"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterArn", GoGetter: "ClusterArn"},
@@ -373,6 +420,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "defaultNodegroup", GoGetter: "DefaultNodegroup"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getIngressLoadBalancerAddress", GoMethod: "GetIngressLoadBalancerAddress"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getServiceLoadBalancerAddress", GoMethod: "GetServiceLoadBalancerAddress"},
@@ -442,8 +490,8 @@ func init() {
 		"monocdk.aws_eks.DefaultCapacityType",
 		reflect.TypeOf((*DefaultCapacityType)(nil)).Elem(),
 		map[string]interface{}{
-			"NODEGROUP": DefaultCapacityType_NODEGROUP,
 			"EC2": DefaultCapacityType_EC2,
+			"NODEGROUP": DefaultCapacityType_NODEGROUP,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -484,6 +532,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addNodegroupCapacity", GoMethod: "AddNodegroupCapacity"},
 			_jsii_.MemberMethod{JsiiMethod: "addServiceAccount", GoMethod: "AddServiceAccount"},
 			_jsii_.MemberProperty{JsiiProperty: "adminRole", GoGetter: "AdminRole"},
+			_jsii_.MemberProperty{JsiiProperty: "albController", GoGetter: "AlbController"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "awsAuth", GoGetter: "AwsAuth"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterArn", GoGetter: "ClusterArn"},
@@ -503,6 +552,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "defaultProfile", GoGetter: "DefaultProfile"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getIngressLoadBalancerAddress", GoMethod: "GetIngressLoadBalancerAddress"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getServiceLoadBalancerAddress", GoMethod: "GetServiceLoadBalancerAddress"},
@@ -653,6 +703,10 @@ func init() {
 			return &j
 		},
 	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_eks.IngressLoadBalancerAddressOptions",
+		reflect.TypeOf((*IngressLoadBalancerAddressOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_eks.KubernetesManifest",
 		reflect.TypeOf((*KubernetesManifest)(nil)).Elem(),
@@ -753,9 +807,9 @@ func init() {
 		"monocdk.aws_eks.NodeType",
 		reflect.TypeOf((*NodeType)(nil)).Elem(),
 		map[string]interface{}{
-			"STANDARD": NodeType_STANDARD,
 			"GPU": NodeType_GPU,
 			"INFERENTIA": NodeType_INFERENTIA,
+			"STANDARD": NodeType_STANDARD,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -793,9 +847,9 @@ func init() {
 		"monocdk.aws_eks.NodegroupAmiType",
 		reflect.TypeOf((*NodegroupAmiType)(nil)).Elem(),
 		map[string]interface{}{
+			"AL2_ARM_64": NodegroupAmiType_AL2_ARM_64,
 			"AL2_X86_64": NodegroupAmiType_AL2_X86_64,
 			"AL2_X86_64_GPU": NodegroupAmiType_AL2_X86_64_GPU,
-			"AL2_ARM_64": NodegroupAmiType_AL2_ARM_64,
 			"BOTTLEROCKET_ARM_64": NodegroupAmiType_BOTTLEROCKET_ARM_64,
 			"BOTTLEROCKET_X86_64": NodegroupAmiType_BOTTLEROCKET_X86_64,
 		},
@@ -901,9 +955,9 @@ func init() {
 		"monocdk.aws_eks.TaintEffect",
 		reflect.TypeOf((*TaintEffect)(nil)).Elem(),
 		map[string]interface{}{
+			"NO_EXECUTE": TaintEffect_NO_EXECUTE,
 			"NO_SCHEDULE": TaintEffect_NO_SCHEDULE,
 			"PREFER_NO_SCHEDULE": TaintEffect_PREFER_NO_SCHEDULE,
-			"NO_EXECUTE": TaintEffect_NO_EXECUTE,
 		},
 	)
 	_jsii_.RegisterStruct(

@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::Serverless::Api`.
+//
+// TODO: EXAMPLE
+//
 type CfnApi interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -997,6 +1000,8 @@ func (c *jsiiProxy_CfnApi) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnApi_AccessLogSettingProperty struct {
 	// `CfnApi.AccessLogSettingProperty.DestinationArn`.
 	DestinationArn *string `json:"destinationArn"`
@@ -1004,6 +1009,8 @@ type CfnApi_AccessLogSettingProperty struct {
 	Format *string `json:"format"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApi_AuthProperty struct {
 	// `CfnApi.AuthProperty.Authorizers`.
 	Authorizers interface{} `json:"authorizers"`
@@ -1011,6 +1018,8 @@ type CfnApi_AuthProperty struct {
 	DefaultAuthorizer *string `json:"defaultAuthorizer"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApi_CanarySettingProperty struct {
 	// `CfnApi.CanarySettingProperty.DeploymentId`.
 	DeploymentId *string `json:"deploymentId"`
@@ -1022,19 +1031,23 @@ type CfnApi_CanarySettingProperty struct {
 	UseStageCache interface{} `json:"useStageCache"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApi_CorsConfigurationProperty struct {
-	// `CfnApi.CorsConfigurationProperty.AllowOrigin`.
-	AllowOrigin *string `json:"allowOrigin"`
 	// `CfnApi.CorsConfigurationProperty.AllowCredentials`.
 	AllowCredentials interface{} `json:"allowCredentials"`
 	// `CfnApi.CorsConfigurationProperty.AllowHeaders`.
 	AllowHeaders *string `json:"allowHeaders"`
 	// `CfnApi.CorsConfigurationProperty.AllowMethods`.
 	AllowMethods *string `json:"allowMethods"`
+	// `CfnApi.CorsConfigurationProperty.AllowOrigin`.
+	AllowOrigin *string `json:"allowOrigin"`
 	// `CfnApi.CorsConfigurationProperty.MaxAge`.
 	MaxAge *string `json:"maxAge"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApi_EndpointConfigurationProperty struct {
 	// `CfnApi.EndpointConfigurationProperty.Type`.
 	Type *string `json:"type"`
@@ -1042,6 +1055,8 @@ type CfnApi_EndpointConfigurationProperty struct {
 	VpcEndpointIds *[]*string `json:"vpcEndpointIds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApi_S3LocationProperty struct {
 	// `CfnApi.S3LocationProperty.Bucket`.
 	Bucket *string `json:"bucket"`
@@ -1052,9 +1067,10 @@ type CfnApi_S3LocationProperty struct {
 }
 
 // Properties for defining a `AWS::Serverless::Api`.
+//
+// TODO: EXAMPLE
+//
 type CfnApiProps struct {
-	// `AWS::Serverless::Api.StageName`.
-	StageName *string `json:"stageName"`
 	// `AWS::Serverless::Api.AccessLogSetting`.
 	AccessLogSetting interface{} `json:"accessLogSetting"`
 	// `AWS::Serverless::Api.Auth`.
@@ -1089,6 +1105,8 @@ type CfnApiProps struct {
 	Name *string `json:"name"`
 	// `AWS::Serverless::Api.OpenApiVersion`.
 	OpenApiVersion *string `json:"openApiVersion"`
+	// `AWS::Serverless::Api.StageName`.
+	StageName *string `json:"stageName"`
 	// `AWS::Serverless::Api.Tags`.
 	Tags *map[string]*string `json:"tags"`
 	// `AWS::Serverless::Api.TracingEnabled`.
@@ -1098,6 +1116,9 @@ type CfnApiProps struct {
 }
 
 // A CloudFormation `AWS::Serverless::Application`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1765,6 +1786,8 @@ func (c *jsiiProxy_CfnApplication) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_ApplicationLocationProperty struct {
 	// `CfnApplication.ApplicationLocationProperty.ApplicationId`.
 	ApplicationId *string `json:"applicationId"`
@@ -1773,6 +1796,9 @@ type CfnApplication_ApplicationLocationProperty struct {
 }
 
 // Properties for defining a `AWS::Serverless::Application`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationProps struct {
 	// `AWS::Serverless::Application.Location`.
 	Location interface{} `json:"location"`
@@ -1787,6 +1813,9 @@ type CfnApplicationProps struct {
 }
 
 // A CloudFormation `AWS::Serverless::Function`.
+//
+// TODO: EXAMPLE
+//
 type CfnFunction interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2994,22 +3023,28 @@ func (c *jsiiProxy_CfnFunction) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_AlexaSkillEventProperty struct {
 	// `CfnFunction.AlexaSkillEventProperty.Variables`.
 	Variables interface{} `json:"variables"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_ApiEventProperty struct {
+	// `CfnFunction.ApiEventProperty.Auth`.
+	Auth interface{} `json:"auth"`
 	// `CfnFunction.ApiEventProperty.Method`.
 	Method *string `json:"method"`
 	// `CfnFunction.ApiEventProperty.Path`.
 	Path *string `json:"path"`
-	// `CfnFunction.ApiEventProperty.Auth`.
-	Auth interface{} `json:"auth"`
 	// `CfnFunction.ApiEventProperty.RestApiId`.
 	RestApiId *string `json:"restApiId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_AuthProperty struct {
 	// `CfnFunction.AuthProperty.ApiKeyRequired`.
 	ApiKeyRequired interface{} `json:"apiKeyRequired"`
@@ -3021,6 +3056,8 @@ type CfnFunction_AuthProperty struct {
 	ResourcePolicy interface{} `json:"resourcePolicy"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_AuthResourcePolicyProperty struct {
 	// `CfnFunction.AuthResourcePolicyProperty.AwsAccountBlacklist`.
 	AwsAccountBlacklist *[]*string `json:"awsAccountBlacklist"`
@@ -3046,20 +3083,26 @@ type CfnFunction_AuthResourcePolicyProperty struct {
 	SourceVpcWhitelist *[]*string `json:"sourceVpcWhitelist"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_BucketSAMPTProperty struct {
 	// `CfnFunction.BucketSAMPTProperty.BucketName`.
 	BucketName *string `json:"bucketName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_CloudWatchEventEventProperty struct {
-	// `CfnFunction.CloudWatchEventEventProperty.Pattern`.
-	Pattern interface{} `json:"pattern"`
 	// `CfnFunction.CloudWatchEventEventProperty.Input`.
 	Input *string `json:"input"`
 	// `CfnFunction.CloudWatchEventEventProperty.InputPath`.
 	InputPath *string `json:"inputPath"`
+	// `CfnFunction.CloudWatchEventEventProperty.Pattern`.
+	Pattern interface{} `json:"pattern"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_CloudWatchLogsEventProperty struct {
 	// `CfnFunction.CloudWatchLogsEventProperty.FilterPattern`.
 	FilterPattern *string `json:"filterPattern"`
@@ -3067,11 +3110,15 @@ type CfnFunction_CloudWatchLogsEventProperty struct {
 	LogGroupName *string `json:"logGroupName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_CollectionSAMPTProperty struct {
 	// `CfnFunction.CollectionSAMPTProperty.CollectionId`.
 	CollectionId *string `json:"collectionId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_DeadLetterQueueProperty struct {
 	// `CfnFunction.DeadLetterQueueProperty.TargetArn`.
 	TargetArn *string `json:"targetArn"`
@@ -3079,22 +3126,28 @@ type CfnFunction_DeadLetterQueueProperty struct {
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_DeploymentPreferenceProperty struct {
-	// `CfnFunction.DeploymentPreferenceProperty.Enabled`.
-	Enabled interface{} `json:"enabled"`
-	// `CfnFunction.DeploymentPreferenceProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnFunction.DeploymentPreferenceProperty.Alarms`.
 	Alarms *[]*string `json:"alarms"`
+	// `CfnFunction.DeploymentPreferenceProperty.Enabled`.
+	Enabled interface{} `json:"enabled"`
 	// `CfnFunction.DeploymentPreferenceProperty.Hooks`.
 	Hooks *[]*string `json:"hooks"`
+	// `CfnFunction.DeploymentPreferenceProperty.Type`.
+	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_DestinationConfigProperty struct {
 	// `CfnFunction.DestinationConfigProperty.OnFailure`.
 	OnFailure interface{} `json:"onFailure"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_DestinationProperty struct {
 	// `CfnFunction.DestinationProperty.Destination`.
 	Destination *string `json:"destination"`
@@ -3102,16 +3155,16 @@ type CfnFunction_DestinationProperty struct {
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_DomainSAMPTProperty struct {
 	// `CfnFunction.DomainSAMPTProperty.DomainName`.
 	DomainName *string `json:"domainName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_DynamoDBEventProperty struct {
-	// `CfnFunction.DynamoDBEventProperty.StartingPosition`.
-	StartingPosition *string `json:"startingPosition"`
-	// `CfnFunction.DynamoDBEventProperty.Stream`.
-	Stream *string `json:"stream"`
 	// `CfnFunction.DynamoDBEventProperty.BatchSize`.
 	BatchSize *float64 `json:"batchSize"`
 	// `CfnFunction.DynamoDBEventProperty.BisectBatchOnFunctionError`.
@@ -3128,22 +3181,32 @@ type CfnFunction_DynamoDBEventProperty struct {
 	MaximumRetryAttempts *float64 `json:"maximumRetryAttempts"`
 	// `CfnFunction.DynamoDBEventProperty.ParallelizationFactor`.
 	ParallelizationFactor *float64 `json:"parallelizationFactor"`
+	// `CfnFunction.DynamoDBEventProperty.StartingPosition`.
+	StartingPosition *string `json:"startingPosition"`
+	// `CfnFunction.DynamoDBEventProperty.Stream`.
+	Stream *string `json:"stream"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_EmptySAMPTProperty struct {
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_EventBridgeRuleEventProperty struct {
-	// `CfnFunction.EventBridgeRuleEventProperty.Pattern`.
-	Pattern interface{} `json:"pattern"`
 	// `CfnFunction.EventBridgeRuleEventProperty.EventBusName`.
 	EventBusName *string `json:"eventBusName"`
 	// `CfnFunction.EventBridgeRuleEventProperty.Input`.
 	Input *string `json:"input"`
 	// `CfnFunction.EventBridgeRuleEventProperty.InputPath`.
 	InputPath *string `json:"inputPath"`
+	// `CfnFunction.EventBridgeRuleEventProperty.Pattern`.
+	Pattern interface{} `json:"pattern"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_EventInvokeConfigProperty struct {
 	// `CfnFunction.EventInvokeConfigProperty.DestinationConfig`.
 	DestinationConfig interface{} `json:"destinationConfig"`
@@ -3153,6 +3216,8 @@ type CfnFunction_EventInvokeConfigProperty struct {
 	MaximumRetryAttempts *float64 `json:"maximumRetryAttempts"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_EventInvokeDestinationConfigProperty struct {
 	// `CfnFunction.EventInvokeDestinationConfigProperty.OnFailure`.
 	OnFailure interface{} `json:"onFailure"`
@@ -3160,6 +3225,8 @@ type CfnFunction_EventInvokeDestinationConfigProperty struct {
 	OnSuccess interface{} `json:"onSuccess"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_EventSourceProperty struct {
 	// `CfnFunction.EventSourceProperty.Properties`.
 	Properties interface{} `json:"properties"`
@@ -3167,6 +3234,8 @@ type CfnFunction_EventSourceProperty struct {
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_FileSystemConfigProperty struct {
 	// `CfnFunction.FileSystemConfigProperty.Arn`.
 	Arn *string `json:"arn"`
@@ -3174,11 +3243,15 @@ type CfnFunction_FileSystemConfigProperty struct {
 	LocalMountPath *string `json:"localMountPath"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_FunctionEnvironmentProperty struct {
 	// `CfnFunction.FunctionEnvironmentProperty.Variables`.
 	Variables interface{} `json:"variables"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_FunctionSAMPTProperty struct {
 	// `CfnFunction.FunctionSAMPTProperty.FunctionName`.
 	FunctionName *string `json:"functionName"`
@@ -3204,11 +3277,15 @@ func (j *jsiiProxy_CfnFunction_IAMPolicyDocumentProperty) Statement() interface{
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_IdentitySAMPTProperty struct {
 	// `CfnFunction.IdentitySAMPTProperty.IdentityName`.
 	IdentityName *string `json:"identityName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_ImageConfigProperty struct {
 	// `CfnFunction.ImageConfigProperty.Command`.
 	Command *[]*string `json:"command"`
@@ -3218,44 +3295,58 @@ type CfnFunction_ImageConfigProperty struct {
 	WorkingDirectory *string `json:"workingDirectory"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_IoTRuleEventProperty struct {
-	// `CfnFunction.IoTRuleEventProperty.Sql`.
-	Sql *string `json:"sql"`
 	// `CfnFunction.IoTRuleEventProperty.AwsIotSqlVersion`.
 	AwsIotSqlVersion *string `json:"awsIotSqlVersion"`
+	// `CfnFunction.IoTRuleEventProperty.Sql`.
+	Sql *string `json:"sql"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_KeySAMPTProperty struct {
 	// `CfnFunction.KeySAMPTProperty.KeyId`.
 	KeyId *string `json:"keyId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_KinesisEventProperty struct {
-	// `CfnFunction.KinesisEventProperty.StartingPosition`.
-	StartingPosition *string `json:"startingPosition"`
-	// `CfnFunction.KinesisEventProperty.Stream`.
-	Stream *string `json:"stream"`
 	// `CfnFunction.KinesisEventProperty.BatchSize`.
 	BatchSize *float64 `json:"batchSize"`
 	// `CfnFunction.KinesisEventProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
+	// `CfnFunction.KinesisEventProperty.StartingPosition`.
+	StartingPosition *string `json:"startingPosition"`
+	// `CfnFunction.KinesisEventProperty.Stream`.
+	Stream *string `json:"stream"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_LogGroupSAMPTProperty struct {
 	// `CfnFunction.LogGroupSAMPTProperty.LogGroupName`.
 	LogGroupName *string `json:"logGroupName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_ProvisionedConcurrencyConfigProperty struct {
 	// `CfnFunction.ProvisionedConcurrencyConfigProperty.ProvisionedConcurrentExecutions`.
 	ProvisionedConcurrentExecutions *string `json:"provisionedConcurrentExecutions"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_QueueSAMPTProperty struct {
 	// `CfnFunction.QueueSAMPTProperty.QueueName`.
 	QueueName *string `json:"queueName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_S3EventProperty struct {
 	// `CfnFunction.S3EventProperty.Bucket`.
 	Bucket *string `json:"bucket"`
@@ -3265,11 +3356,15 @@ type CfnFunction_S3EventProperty struct {
 	Filter interface{} `json:"filter"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_S3KeyFilterProperty struct {
 	// `CfnFunction.S3KeyFilterProperty.Rules`.
 	Rules interface{} `json:"rules"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_S3KeyFilterRuleProperty struct {
 	// `CfnFunction.S3KeyFilterRuleProperty.Name`.
 	Name *string `json:"name"`
@@ -3277,6 +3372,8 @@ type CfnFunction_S3KeyFilterRuleProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_S3LocationProperty struct {
 	// `CfnFunction.S3LocationProperty.Bucket`.
 	Bucket *string `json:"bucket"`
@@ -3286,11 +3383,15 @@ type CfnFunction_S3LocationProperty struct {
 	Version *float64 `json:"version"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_S3NotificationFilterProperty struct {
 	// `CfnFunction.S3NotificationFilterProperty.S3Key`.
 	S3Key interface{} `json:"s3Key"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_SAMPolicyTemplateProperty struct {
 	// `CfnFunction.SAMPolicyTemplateProperty.AMIDescribePolicy`.
 	AmiDescribePolicy interface{} `json:"amiDescribePolicy"`
@@ -3354,42 +3455,56 @@ type CfnFunction_SAMPolicyTemplateProperty struct {
 	VpcAccessPolicy interface{} `json:"vpcAccessPolicy"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_SNSEventProperty struct {
 	// `CfnFunction.SNSEventProperty.Topic`.
 	Topic *string `json:"topic"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_SQSEventProperty struct {
-	// `CfnFunction.SQSEventProperty.Queue`.
-	Queue *string `json:"queue"`
 	// `CfnFunction.SQSEventProperty.BatchSize`.
 	BatchSize *float64 `json:"batchSize"`
 	// `CfnFunction.SQSEventProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
+	// `CfnFunction.SQSEventProperty.Queue`.
+	Queue *string `json:"queue"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_ScheduleEventProperty struct {
-	// `CfnFunction.ScheduleEventProperty.Schedule`.
-	Schedule *string `json:"schedule"`
 	// `CfnFunction.ScheduleEventProperty.Input`.
 	Input *string `json:"input"`
+	// `CfnFunction.ScheduleEventProperty.Schedule`.
+	Schedule *string `json:"schedule"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_StateMachineSAMPTProperty struct {
 	// `CfnFunction.StateMachineSAMPTProperty.StateMachineName`.
 	StateMachineName *string `json:"stateMachineName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_StreamSAMPTProperty struct {
 	// `CfnFunction.StreamSAMPTProperty.StreamName`.
 	StreamName *string `json:"streamName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_TableSAMPTProperty struct {
 	// `CfnFunction.TableSAMPTProperty.TableName`.
 	TableName *string `json:"tableName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_TableStreamSAMPTProperty struct {
 	// `CfnFunction.TableStreamSAMPTProperty.StreamName`.
 	StreamName *string `json:"streamName"`
@@ -3397,11 +3512,15 @@ type CfnFunction_TableStreamSAMPTProperty struct {
 	TableName *string `json:"tableName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_TopicSAMPTProperty struct {
 	// `CfnFunction.TopicSAMPTProperty.TopicName`.
 	TopicName *string `json:"topicName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_VpcConfigProperty struct {
 	// `CfnFunction.VpcConfigProperty.SecurityGroupIds`.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
@@ -3410,6 +3529,9 @@ type CfnFunction_VpcConfigProperty struct {
 }
 
 // Properties for defining a `AWS::Serverless::Function`.
+//
+// TODO: EXAMPLE
+//
 type CfnFunctionProps struct {
 	// `AWS::Serverless::Function.AssumeRolePolicyDocument`.
 	AssumeRolePolicyDocument interface{} `json:"assumeRolePolicyDocument"`
@@ -3478,6 +3600,9 @@ type CfnFunctionProps struct {
 }
 
 // A CloudFormation `AWS::Serverless::HttpApi`.
+//
+// TODO: EXAMPLE
+//
 type CfnHttpApi interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4325,6 +4450,8 @@ func (c *jsiiProxy_CfnHttpApi) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnHttpApi_AccessLogSettingProperty struct {
 	// `CfnHttpApi.AccessLogSettingProperty.DestinationArn`.
 	DestinationArn *string `json:"destinationArn"`
@@ -4332,6 +4459,8 @@ type CfnHttpApi_AccessLogSettingProperty struct {
 	Format *string `json:"format"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnHttpApi_CorsConfigurationObjectProperty struct {
 	// `CfnHttpApi.CorsConfigurationObjectProperty.AllowCredentials`.
 	AllowCredentials interface{} `json:"allowCredentials"`
@@ -4347,6 +4476,8 @@ type CfnHttpApi_CorsConfigurationObjectProperty struct {
 	MaxAge *string `json:"maxAge"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnHttpApi_HttpApiAuthProperty struct {
 	// `CfnHttpApi.HttpApiAuthProperty.Authorizers`.
 	Authorizers interface{} `json:"authorizers"`
@@ -4354,13 +4485,15 @@ type CfnHttpApi_HttpApiAuthProperty struct {
 	DefaultAuthorizer *string `json:"defaultAuthorizer"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnHttpApi_HttpApiDomainConfigurationProperty struct {
+	// `CfnHttpApi.HttpApiDomainConfigurationProperty.BasePath`.
+	BasePath *string `json:"basePath"`
 	// `CfnHttpApi.HttpApiDomainConfigurationProperty.CertificateArn`.
 	CertificateArn *string `json:"certificateArn"`
 	// `CfnHttpApi.HttpApiDomainConfigurationProperty.DomainName`.
 	DomainName *string `json:"domainName"`
-	// `CfnHttpApi.HttpApiDomainConfigurationProperty.BasePath`.
-	BasePath *string `json:"basePath"`
 	// `CfnHttpApi.HttpApiDomainConfigurationProperty.EndpointConfiguration`.
 	EndpointConfiguration *string `json:"endpointConfiguration"`
 	// `CfnHttpApi.HttpApiDomainConfigurationProperty.MutualTlsAuthentication`.
@@ -4371,6 +4504,8 @@ type CfnHttpApi_HttpApiDomainConfigurationProperty struct {
 	SecurityPolicy *string `json:"securityPolicy"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnHttpApi_MutualTlsAuthenticationProperty struct {
 	// `CfnHttpApi.MutualTlsAuthenticationProperty.TruststoreUri`.
 	TruststoreUri *string `json:"truststoreUri"`
@@ -4378,6 +4513,8 @@ type CfnHttpApi_MutualTlsAuthenticationProperty struct {
 	TruststoreVersion interface{} `json:"truststoreVersion"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnHttpApi_Route53ConfigurationProperty struct {
 	// `CfnHttpApi.Route53ConfigurationProperty.DistributedDomainName`.
 	DistributedDomainName *string `json:"distributedDomainName"`
@@ -4391,6 +4528,8 @@ type CfnHttpApi_Route53ConfigurationProperty struct {
 	IpV6 interface{} `json:"ipV6"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnHttpApi_RouteSettingsProperty struct {
 	// `CfnHttpApi.RouteSettingsProperty.DataTraceEnabled`.
 	DataTraceEnabled interface{} `json:"dataTraceEnabled"`
@@ -4404,6 +4543,8 @@ type CfnHttpApi_RouteSettingsProperty struct {
 	ThrottlingRateLimit *float64 `json:"throttlingRateLimit"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnHttpApi_S3LocationProperty struct {
 	// `CfnHttpApi.S3LocationProperty.Bucket`.
 	Bucket *string `json:"bucket"`
@@ -4414,6 +4555,9 @@ type CfnHttpApi_S3LocationProperty struct {
 }
 
 // Properties for defining a `AWS::Serverless::HttpApi`.
+//
+// TODO: EXAMPLE
+//
 type CfnHttpApiProps struct {
 	// `AWS::Serverless::HttpApi.AccessLogSetting`.
 	AccessLogSetting interface{} `json:"accessLogSetting"`
@@ -4446,6 +4590,9 @@ type CfnHttpApiProps struct {
 }
 
 // A CloudFormation `AWS::Serverless::LayerVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnLayerVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5142,6 +5289,8 @@ func (c *jsiiProxy_CfnLayerVersion) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnLayerVersion_S3LocationProperty struct {
 	// `CfnLayerVersion.S3LocationProperty.Bucket`.
 	Bucket *string `json:"bucket"`
@@ -5152,6 +5301,9 @@ type CfnLayerVersion_S3LocationProperty struct {
 }
 
 // Properties for defining a `AWS::Serverless::LayerVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnLayerVersionProps struct {
 	// `AWS::Serverless::LayerVersion.CompatibleRuntimes`.
 	CompatibleRuntimes *[]*string `json:"compatibleRuntimes"`
@@ -5168,6 +5320,9 @@ type CfnLayerVersionProps struct {
 }
 
 // A CloudFormation `AWS::Serverless::SimpleTable`.
+//
+// TODO: EXAMPLE
+//
 type CfnSimpleTable interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5835,26 +5990,35 @@ func (c *jsiiProxy_CfnSimpleTable) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnSimpleTable_PrimaryKeyProperty struct {
-	// `CfnSimpleTable.PrimaryKeyProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnSimpleTable.PrimaryKeyProperty.Name`.
 	Name *string `json:"name"`
+	// `CfnSimpleTable.PrimaryKeyProperty.Type`.
+	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSimpleTable_ProvisionedThroughputProperty struct {
-	// `CfnSimpleTable.ProvisionedThroughputProperty.WriteCapacityUnits`.
-	WriteCapacityUnits *float64 `json:"writeCapacityUnits"`
 	// `CfnSimpleTable.ProvisionedThroughputProperty.ReadCapacityUnits`.
 	ReadCapacityUnits *float64 `json:"readCapacityUnits"`
+	// `CfnSimpleTable.ProvisionedThroughputProperty.WriteCapacityUnits`.
+	WriteCapacityUnits *float64 `json:"writeCapacityUnits"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSimpleTable_SSESpecificationProperty struct {
 	// `CfnSimpleTable.SSESpecificationProperty.SSEEnabled`.
 	SseEnabled interface{} `json:"sseEnabled"`
 }
 
 // Properties for defining a `AWS::Serverless::SimpleTable`.
+//
+// TODO: EXAMPLE
+//
 type CfnSimpleTableProps struct {
 	// `AWS::Serverless::SimpleTable.PrimaryKey`.
 	PrimaryKey interface{} `json:"primaryKey"`
@@ -5869,6 +6033,9 @@ type CfnSimpleTableProps struct {
 }
 
 // A CloudFormation `AWS::Serverless::StateMachine`.
+//
+// TODO: EXAMPLE
+//
 type CfnStateMachine interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6676,6 +6843,8 @@ func (c *jsiiProxy_CfnStateMachine) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnStateMachine_ApiEventProperty struct {
 	// `CfnStateMachine.ApiEventProperty.Method`.
 	Method *string `json:"method"`
@@ -6685,33 +6854,41 @@ type CfnStateMachine_ApiEventProperty struct {
 	RestApiId *string `json:"restApiId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStateMachine_CloudWatchEventEventProperty struct {
-	// `CfnStateMachine.CloudWatchEventEventProperty.Pattern`.
-	Pattern interface{} `json:"pattern"`
 	// `CfnStateMachine.CloudWatchEventEventProperty.EventBusName`.
 	EventBusName *string `json:"eventBusName"`
 	// `CfnStateMachine.CloudWatchEventEventProperty.Input`.
 	Input *string `json:"input"`
 	// `CfnStateMachine.CloudWatchEventEventProperty.InputPath`.
 	InputPath *string `json:"inputPath"`
+	// `CfnStateMachine.CloudWatchEventEventProperty.Pattern`.
+	Pattern interface{} `json:"pattern"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStateMachine_CloudWatchLogsLogGroupProperty struct {
 	// `CfnStateMachine.CloudWatchLogsLogGroupProperty.LogGroupArn`.
 	LogGroupArn *string `json:"logGroupArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStateMachine_EventBridgeRuleEventProperty struct {
-	// `CfnStateMachine.EventBridgeRuleEventProperty.Pattern`.
-	Pattern interface{} `json:"pattern"`
 	// `CfnStateMachine.EventBridgeRuleEventProperty.EventBusName`.
 	EventBusName *string `json:"eventBusName"`
 	// `CfnStateMachine.EventBridgeRuleEventProperty.Input`.
 	Input *string `json:"input"`
 	// `CfnStateMachine.EventBridgeRuleEventProperty.InputPath`.
 	InputPath *string `json:"inputPath"`
+	// `CfnStateMachine.EventBridgeRuleEventProperty.Pattern`.
+	Pattern interface{} `json:"pattern"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStateMachine_EventSourceProperty struct {
 	// `CfnStateMachine.EventSourceProperty.Properties`.
 	Properties interface{} `json:"properties"`
@@ -6719,6 +6896,8 @@ type CfnStateMachine_EventSourceProperty struct {
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStateMachine_FunctionSAMPTProperty struct {
 	// `CfnStateMachine.FunctionSAMPTProperty.FunctionName`.
 	FunctionName *string `json:"functionName"`
@@ -6744,11 +6923,15 @@ func (j *jsiiProxy_CfnStateMachine_IAMPolicyDocumentProperty) Statement() interf
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 type CfnStateMachine_LogDestinationProperty struct {
 	// `CfnStateMachine.LogDestinationProperty.CloudWatchLogsLogGroup`.
 	CloudWatchLogsLogGroup interface{} `json:"cloudWatchLogsLogGroup"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStateMachine_LoggingConfigurationProperty struct {
 	// `CfnStateMachine.LoggingConfigurationProperty.Destinations`.
 	Destinations interface{} `json:"destinations"`
@@ -6758,6 +6941,8 @@ type CfnStateMachine_LoggingConfigurationProperty struct {
 	Level *string `json:"level"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStateMachine_S3LocationProperty struct {
 	// `CfnStateMachine.S3LocationProperty.Bucket`.
 	Bucket *string `json:"bucket"`
@@ -6767,6 +6952,8 @@ type CfnStateMachine_S3LocationProperty struct {
 	Version *float64 `json:"version"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStateMachine_SAMPolicyTemplateProperty struct {
 	// `CfnStateMachine.SAMPolicyTemplateProperty.LambdaInvokePolicy`.
 	LambdaInvokePolicy interface{} `json:"lambdaInvokePolicy"`
@@ -6774,24 +6961,33 @@ type CfnStateMachine_SAMPolicyTemplateProperty struct {
 	StepFunctionsExecutionPolicy interface{} `json:"stepFunctionsExecutionPolicy"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStateMachine_ScheduleEventProperty struct {
-	// `CfnStateMachine.ScheduleEventProperty.Schedule`.
-	Schedule *string `json:"schedule"`
 	// `CfnStateMachine.ScheduleEventProperty.Input`.
 	Input *string `json:"input"`
+	// `CfnStateMachine.ScheduleEventProperty.Schedule`.
+	Schedule *string `json:"schedule"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStateMachine_StateMachineSAMPTProperty struct {
 	// `CfnStateMachine.StateMachineSAMPTProperty.StateMachineName`.
 	StateMachineName *string `json:"stateMachineName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStateMachine_TracingConfigurationProperty struct {
 	// `CfnStateMachine.TracingConfigurationProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
 }
 
 // Properties for defining a `AWS::Serverless::StateMachine`.
+//
+// TODO: EXAMPLE
+//
 type CfnStateMachineProps struct {
 	// `AWS::Serverless::StateMachine.Definition`.
 	Definition interface{} `json:"definition"`

@@ -10,6 +10,9 @@ import (
 )
 
 // AddHeaderAction configuration.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AddHeaderActionConfig struct {
 	// The name of the header that you want to add to the incoming message.
@@ -21,6 +24,9 @@ type AddHeaderActionConfig struct {
 }
 
 // An allow list receipt filter.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AllowListReceiptFilter interface {
 	awscdk.Construct
@@ -209,6 +215,9 @@ func (a *jsiiProxy_AllowListReceiptFilter) Validate() *[]*string {
 }
 
 // Construction properties for am AllowListReceiptFilter.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AllowListReceiptFilterProps struct {
 	// A list of ip addresses or ranges to allow list.
@@ -217,6 +226,9 @@ type AllowListReceiptFilterProps struct {
 }
 
 // BoundAction configuration.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BounceActionConfig struct {
 	// Human-readable text to include in the bounce message.
@@ -239,6 +251,9 @@ type BounceActionConfig struct {
 }
 
 // A CloudFormation `AWS::SES::ConfigurationSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnConfigurationSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -825,6 +840,9 @@ func (c *jsiiProxy_CfnConfigurationSet) ValidateProperties(_properties interface
 }
 
 // A CloudFormation `AWS::SES::ConfigurationSetEventDestination`.
+//
+// TODO: EXAMPLE
+//
 type CfnConfigurationSetEventDestination interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1430,11 +1448,15 @@ func (c *jsiiProxy_CfnConfigurationSetEventDestination) ValidateProperties(_prop
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfigurationSetEventDestination_CloudWatchDestinationProperty struct {
 	// `CfnConfigurationSetEventDestination.CloudWatchDestinationProperty.DimensionConfigurations`.
 	DimensionConfigurations interface{} `json:"dimensionConfigurations"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfigurationSetEventDestination_DimensionConfigurationProperty struct {
 	// `CfnConfigurationSetEventDestination.DimensionConfigurationProperty.DefaultDimensionValue`.
 	DefaultDimensionValue *string `json:"defaultDimensionValue"`
@@ -1444,19 +1466,23 @@ type CfnConfigurationSetEventDestination_DimensionConfigurationProperty struct {
 	DimensionValueSource *string `json:"dimensionValueSource"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfigurationSetEventDestination_EventDestinationProperty struct {
-	// `CfnConfigurationSetEventDestination.EventDestinationProperty.MatchingEventTypes`.
-	MatchingEventTypes *[]*string `json:"matchingEventTypes"`
 	// `CfnConfigurationSetEventDestination.EventDestinationProperty.CloudWatchDestination`.
 	CloudWatchDestination interface{} `json:"cloudWatchDestination"`
 	// `CfnConfigurationSetEventDestination.EventDestinationProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
 	// `CfnConfigurationSetEventDestination.EventDestinationProperty.KinesisFirehoseDestination`.
 	KinesisFirehoseDestination interface{} `json:"kinesisFirehoseDestination"`
+	// `CfnConfigurationSetEventDestination.EventDestinationProperty.MatchingEventTypes`.
+	MatchingEventTypes *[]*string `json:"matchingEventTypes"`
 	// `CfnConfigurationSetEventDestination.EventDestinationProperty.Name`.
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfigurationSetEventDestination_KinesisFirehoseDestinationProperty struct {
 	// `CfnConfigurationSetEventDestination.KinesisFirehoseDestinationProperty.DeliveryStreamARN`.
 	DeliveryStreamArn *string `json:"deliveryStreamArn"`
@@ -1465,6 +1491,9 @@ type CfnConfigurationSetEventDestination_KinesisFirehoseDestinationProperty stru
 }
 
 // Properties for defining a `AWS::SES::ConfigurationSetEventDestination`.
+//
+// TODO: EXAMPLE
+//
 type CfnConfigurationSetEventDestinationProps struct {
 	// `AWS::SES::ConfigurationSetEventDestination.ConfigurationSetName`.
 	ConfigurationSetName *string `json:"configurationSetName"`
@@ -1473,12 +1502,18 @@ type CfnConfigurationSetEventDestinationProps struct {
 }
 
 // Properties for defining a `AWS::SES::ConfigurationSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnConfigurationSetProps struct {
 	// `AWS::SES::ConfigurationSet.Name`.
 	Name *string `json:"name"`
 }
 
 // A CloudFormation `AWS::SES::ContactList`.
+//
+// TODO: EXAMPLE
+//
 type CfnContactList interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2115,18 +2150,23 @@ func (c *jsiiProxy_CfnContactList) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnContactList_TopicProperty struct {
 	// `CfnContactList.TopicProperty.DefaultSubscriptionStatus`.
 	DefaultSubscriptionStatus *string `json:"defaultSubscriptionStatus"`
+	// `CfnContactList.TopicProperty.Description`.
+	Description *string `json:"description"`
 	// `CfnContactList.TopicProperty.DisplayName`.
 	DisplayName *string `json:"displayName"`
 	// `CfnContactList.TopicProperty.TopicName`.
 	TopicName *string `json:"topicName"`
-	// `CfnContactList.TopicProperty.Description`.
-	Description *string `json:"description"`
 }
 
 // Properties for defining a `AWS::SES::ContactList`.
+//
+// TODO: EXAMPLE
+//
 type CfnContactListProps struct {
 	// `AWS::SES::ContactList.ContactListName`.
 	ContactListName *string `json:"contactListName"`
@@ -2139,6 +2179,9 @@ type CfnContactListProps struct {
 }
 
 // A CloudFormation `AWS::SES::ReceiptFilter`.
+//
+// TODO: EXAMPLE
+//
 type CfnReceiptFilter interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2724,6 +2767,8 @@ func (c *jsiiProxy_CfnReceiptFilter) ValidateProperties(_properties interface{})
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnReceiptFilter_FilterProperty struct {
 	// `CfnReceiptFilter.FilterProperty.IpFilter`.
 	IpFilter interface{} `json:"ipFilter"`
@@ -2731,6 +2776,8 @@ type CfnReceiptFilter_FilterProperty struct {
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnReceiptFilter_IpFilterProperty struct {
 	// `CfnReceiptFilter.IpFilterProperty.Cidr`.
 	Cidr *string `json:"cidr"`
@@ -2739,12 +2786,18 @@ type CfnReceiptFilter_IpFilterProperty struct {
 }
 
 // Properties for defining a `AWS::SES::ReceiptFilter`.
+//
+// TODO: EXAMPLE
+//
 type CfnReceiptFilterProps struct {
 	// `AWS::SES::ReceiptFilter.Filter`.
 	Filter interface{} `json:"filter"`
 }
 
 // A CloudFormation `AWS::SES::ReceiptRule`.
+//
+// TODO: EXAMPLE
+//
 type CfnReceiptRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3370,6 +3423,8 @@ func (c *jsiiProxy_CfnReceiptRule) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnReceiptRule_ActionProperty struct {
 	// `CfnReceiptRule.ActionProperty.AddHeaderAction`.
 	AddHeaderAction interface{} `json:"addHeaderAction"`
@@ -3387,6 +3442,8 @@ type CfnReceiptRule_ActionProperty struct {
 	WorkmailAction interface{} `json:"workmailAction"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnReceiptRule_AddHeaderActionProperty struct {
 	// `CfnReceiptRule.AddHeaderActionProperty.HeaderName`.
 	HeaderName *string `json:"headerName"`
@@ -3394,6 +3451,8 @@ type CfnReceiptRule_AddHeaderActionProperty struct {
 	HeaderValue *string `json:"headerValue"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnReceiptRule_BounceActionProperty struct {
 	// `CfnReceiptRule.BounceActionProperty.Message`.
 	Message *string `json:"message"`
@@ -3407,6 +3466,8 @@ type CfnReceiptRule_BounceActionProperty struct {
 	TopicArn *string `json:"topicArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnReceiptRule_LambdaActionProperty struct {
 	// `CfnReceiptRule.LambdaActionProperty.FunctionArn`.
 	FunctionArn *string `json:"functionArn"`
@@ -3416,6 +3477,8 @@ type CfnReceiptRule_LambdaActionProperty struct {
 	TopicArn *string `json:"topicArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnReceiptRule_RuleProperty struct {
 	// `CfnReceiptRule.RuleProperty.Actions`.
 	Actions interface{} `json:"actions"`
@@ -3431,6 +3494,8 @@ type CfnReceiptRule_RuleProperty struct {
 	TlsPolicy *string `json:"tlsPolicy"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnReceiptRule_S3ActionProperty struct {
 	// `CfnReceiptRule.S3ActionProperty.BucketName`.
 	BucketName *string `json:"bucketName"`
@@ -3442,6 +3507,8 @@ type CfnReceiptRule_S3ActionProperty struct {
 	TopicArn *string `json:"topicArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnReceiptRule_SNSActionProperty struct {
 	// `CfnReceiptRule.SNSActionProperty.Encoding`.
 	Encoding *string `json:"encoding"`
@@ -3449,6 +3516,8 @@ type CfnReceiptRule_SNSActionProperty struct {
 	TopicArn *string `json:"topicArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnReceiptRule_StopActionProperty struct {
 	// `CfnReceiptRule.StopActionProperty.Scope`.
 	Scope *string `json:"scope"`
@@ -3456,6 +3525,8 @@ type CfnReceiptRule_StopActionProperty struct {
 	TopicArn *string `json:"topicArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnReceiptRule_WorkmailActionProperty struct {
 	// `CfnReceiptRule.WorkmailActionProperty.OrganizationArn`.
 	OrganizationArn *string `json:"organizationArn"`
@@ -3464,16 +3535,22 @@ type CfnReceiptRule_WorkmailActionProperty struct {
 }
 
 // Properties for defining a `AWS::SES::ReceiptRule`.
+//
+// TODO: EXAMPLE
+//
 type CfnReceiptRuleProps struct {
+	// `AWS::SES::ReceiptRule.After`.
+	After *string `json:"after"`
 	// `AWS::SES::ReceiptRule.Rule`.
 	Rule interface{} `json:"rule"`
 	// `AWS::SES::ReceiptRule.RuleSetName`.
 	RuleSetName *string `json:"ruleSetName"`
-	// `AWS::SES::ReceiptRule.After`.
-	After *string `json:"after"`
 }
 
 // A CloudFormation `AWS::SES::ReceiptRuleSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnReceiptRuleSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4060,12 +4137,18 @@ func (c *jsiiProxy_CfnReceiptRuleSet) ValidateProperties(_properties interface{}
 }
 
 // Properties for defining a `AWS::SES::ReceiptRuleSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnReceiptRuleSetProps struct {
 	// `AWS::SES::ReceiptRuleSet.RuleSetName`.
 	RuleSetName *string `json:"ruleSetName"`
 }
 
 // A CloudFormation `AWS::SES::Template`.
+//
+// TODO: EXAMPLE
+//
 type CfnTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4651,6 +4734,8 @@ func (c *jsiiProxy_CfnTemplate) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnTemplate_TemplateProperty struct {
 	// `CfnTemplate.TemplateProperty.HtmlPart`.
 	HtmlPart *string `json:"htmlPart"`
@@ -4663,12 +4748,18 @@ type CfnTemplate_TemplateProperty struct {
 }
 
 // Properties for defining a `AWS::SES::Template`.
+//
+// TODO: EXAMPLE
+//
 type CfnTemplateProps struct {
 	// `AWS::SES::Template.Template`.
 	Template interface{} `json:"template"`
 }
 
 // A rule added at the top of the rule set to drop spam/virus.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-lambda-example-functions.html
 //
 // Experimental.
@@ -4869,6 +4960,8 @@ func (d *jsiiProxy_DropSpamReceiptRule) Validate() *[]*string {
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type DropSpamReceiptRuleProps struct {
 	// An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.
@@ -4991,6 +5084,9 @@ func (j *jsiiProxy_IReceiptRuleSet) ReceiptRuleSetName() *string {
 }
 
 // LambdaAction configuration.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LambdaActionConfig struct {
 	// The Amazon Resource Name (ARN) of the AWS Lambda function.
@@ -5008,6 +5104,9 @@ type LambdaActionConfig struct {
 //
 // When instantiated without props, it creates a
 // block all receipt filter.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ReceiptFilter interface {
 	awscdk.Resource
@@ -5330,6 +5429,9 @@ const (
 )
 
 // Construction properties for a ReceiptFilter.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ReceiptFilterProps struct {
 	// The ip address or range to filter.
@@ -5344,6 +5446,9 @@ type ReceiptFilterProps struct {
 }
 
 // A new receipt rule.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ReceiptRule interface {
 	awscdk.Resource
@@ -5697,6 +5802,9 @@ func (r *jsiiProxy_ReceiptRule) Validate() *[]*string {
 }
 
 // Properties for a receipt rule action.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ReceiptRuleActionConfig struct {
 	// Adds a header to the received email.
@@ -5723,6 +5831,9 @@ type ReceiptRuleActionConfig struct {
 }
 
 // Options to add a receipt rule to a receipt rule set.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ReceiptRuleOptions struct {
 	// An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.
@@ -5749,6 +5860,9 @@ type ReceiptRuleOptions struct {
 }
 
 // Construction properties for a ReceiptRule.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ReceiptRuleProps struct {
 	// An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.
@@ -6174,6 +6288,9 @@ type ReceiptRuleSetProps struct {
 }
 
 // S3Action configuration.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type S3ActionConfig struct {
 	// The name of the Amazon S3 bucket that you want to send incoming mail to.
@@ -6191,6 +6308,9 @@ type S3ActionConfig struct {
 }
 
 // SNSAction configuration.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SNSActionConfig struct {
 	// The encoding to use for the email within the Amazon SNS notification.
@@ -6202,6 +6322,9 @@ type SNSActionConfig struct {
 }
 
 // StopAction configuration.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type StopActionConfig struct {
 	// The scope of the StopAction.
@@ -6224,6 +6347,9 @@ const (
 )
 
 // An allow list receipt filter.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: use `AllowListReceiptFilter`
 type WhiteListReceiptFilter interface {
 	AllowListReceiptFilter
@@ -6412,6 +6538,9 @@ func (w *jsiiProxy_WhiteListReceiptFilter) Validate() *[]*string {
 }
 
 // Construction properties for a WhiteListReceiptFilter.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: use `AllowListReceiptFilterProps`
 type WhiteListReceiptFilterProps struct {
 	// A list of ip addresses or ranges to allow list.
@@ -6420,6 +6549,9 @@ type WhiteListReceiptFilterProps struct {
 }
 
 // WorkmailAction configuration.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type WorkmailActionConfig struct {
 	// The Amazon Resource Name (ARN) of the Amazon WorkMail organization.

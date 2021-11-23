@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::MemoryDB::ACL`.
+//
+// TODO: EXAMPLE
+//
 type CfnACL interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -649,6 +652,9 @@ func (c *jsiiProxy_CfnACL) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::MemoryDB::ACL`.
+//
+// TODO: EXAMPLE
+//
 type CfnACLProps struct {
 	// `AWS::MemoryDB::ACL.ACLName`.
 	AclName *string `json:"aclName"`
@@ -659,6 +665,9 @@ type CfnACLProps struct {
 }
 
 // A CloudFormation `AWS::MemoryDB::Cluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1730,6 +1739,8 @@ func (c *jsiiProxy_CfnCluster) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_EndpointProperty struct {
 	// `CfnCluster.EndpointProperty.Address`.
 	Address *string `json:"address"`
@@ -1738,15 +1749,16 @@ type CfnCluster_EndpointProperty struct {
 }
 
 // Properties for defining a `AWS::MemoryDB::Cluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnClusterProps struct {
 	// `AWS::MemoryDB::Cluster.ACLName`.
 	AclName *string `json:"aclName"`
-	// `AWS::MemoryDB::Cluster.ClusterName`.
-	ClusterName *string `json:"clusterName"`
-	// `AWS::MemoryDB::Cluster.NodeType`.
-	NodeType *string `json:"nodeType"`
 	// `AWS::MemoryDB::Cluster.AutoMinorVersionUpgrade`.
 	AutoMinorVersionUpgrade interface{} `json:"autoMinorVersionUpgrade"`
+	// `AWS::MemoryDB::Cluster.ClusterName`.
+	ClusterName *string `json:"clusterName"`
 	// `AWS::MemoryDB::Cluster.Description`.
 	Description *string `json:"description"`
 	// `AWS::MemoryDB::Cluster.EngineVersion`.
@@ -1757,6 +1769,8 @@ type CfnClusterProps struct {
 	KmsKeyId *string `json:"kmsKeyId"`
 	// `AWS::MemoryDB::Cluster.MaintenanceWindow`.
 	MaintenanceWindow *string `json:"maintenanceWindow"`
+	// `AWS::MemoryDB::Cluster.NodeType`.
+	NodeType *string `json:"nodeType"`
 	// `AWS::MemoryDB::Cluster.NumReplicasPerShard`.
 	NumReplicasPerShard *float64 `json:"numReplicasPerShard"`
 	// `AWS::MemoryDB::Cluster.NumShards`.
@@ -1788,6 +1802,9 @@ type CfnClusterProps struct {
 }
 
 // A CloudFormation `AWS::MemoryDB::ParameterGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnParameterGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2456,13 +2473,16 @@ func (c *jsiiProxy_CfnParameterGroup) ValidateProperties(_properties interface{}
 }
 
 // Properties for defining a `AWS::MemoryDB::ParameterGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnParameterGroupProps struct {
+	// `AWS::MemoryDB::ParameterGroup.Description`.
+	Description *string `json:"description"`
 	// `AWS::MemoryDB::ParameterGroup.Family`.
 	Family *string `json:"family"`
 	// `AWS::MemoryDB::ParameterGroup.ParameterGroupName`.
 	ParameterGroupName *string `json:"parameterGroupName"`
-	// `AWS::MemoryDB::ParameterGroup.Description`.
-	Description *string `json:"description"`
 	// `AWS::MemoryDB::ParameterGroup.Parameters`.
 	Parameters interface{} `json:"parameters"`
 	// `AWS::MemoryDB::ParameterGroup.Tags`.
@@ -2470,6 +2490,9 @@ type CfnParameterGroupProps struct {
 }
 
 // A CloudFormation `AWS::MemoryDB::SubnetGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnSubnetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3118,18 +3141,24 @@ func (c *jsiiProxy_CfnSubnetGroup) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::MemoryDB::SubnetGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnSubnetGroupProps struct {
+	// `AWS::MemoryDB::SubnetGroup.Description`.
+	Description *string `json:"description"`
 	// `AWS::MemoryDB::SubnetGroup.SubnetGroupName`.
 	SubnetGroupName *string `json:"subnetGroupName"`
 	// `AWS::MemoryDB::SubnetGroup.SubnetIds`.
 	SubnetIds *[]*string `json:"subnetIds"`
-	// `AWS::MemoryDB::SubnetGroup.Description`.
-	Description *string `json:"description"`
 	// `AWS::MemoryDB::SubnetGroup.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::MemoryDB::User`.
+//
+// TODO: EXAMPLE
+//
 type CfnUser interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3789,14 +3818,17 @@ func (c *jsiiProxy_CfnUser) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::MemoryDB::User`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserProps struct {
 	// `AWS::MemoryDB::User.AccessString`.
 	AccessString *string `json:"accessString"`
 	// `AWS::MemoryDB::User.AuthenticationMode`.
 	AuthenticationMode interface{} `json:"authenticationMode"`
-	// `AWS::MemoryDB::User.UserName`.
-	UserName *string `json:"userName"`
 	// `AWS::MemoryDB::User.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::MemoryDB::User.UserName`.
+	UserName *string `json:"userName"`
 }
 

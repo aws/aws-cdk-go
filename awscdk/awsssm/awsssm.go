@@ -12,6 +12,9 @@ import (
 )
 
 // A CloudFormation `AWS::SSM::Association`.
+//
+// TODO: EXAMPLE
+//
 type CfnAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -908,11 +911,15 @@ func (c *jsiiProxy_CfnAssociation) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnAssociation_InstanceAssociationOutputLocationProperty struct {
 	// `CfnAssociation.InstanceAssociationOutputLocationProperty.S3Location`.
 	S3Location interface{} `json:"s3Location"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAssociation_S3OutputLocationProperty struct {
 	// `CfnAssociation.S3OutputLocationProperty.OutputS3BucketName`.
 	OutputS3BucketName *string `json:"outputS3BucketName"`
@@ -922,6 +929,8 @@ type CfnAssociation_S3OutputLocationProperty struct {
 	OutputS3Region *string `json:"outputS3Region"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAssociation_TargetProperty struct {
 	// `CfnAssociation.TargetProperty.Key`.
 	Key *string `json:"key"`
@@ -930,9 +939,10 @@ type CfnAssociation_TargetProperty struct {
 }
 
 // Properties for defining a `AWS::SSM::Association`.
+//
+// TODO: EXAMPLE
+//
 type CfnAssociationProps struct {
-	// `AWS::SSM::Association.Name`.
-	Name *string `json:"name"`
 	// `AWS::SSM::Association.ApplyOnlyAtCronInterval`.
 	ApplyOnlyAtCronInterval interface{} `json:"applyOnlyAtCronInterval"`
 	// `AWS::SSM::Association.AssociationName`.
@@ -951,6 +961,8 @@ type CfnAssociationProps struct {
 	MaxConcurrency *string `json:"maxConcurrency"`
 	// `AWS::SSM::Association.MaxErrors`.
 	MaxErrors *string `json:"maxErrors"`
+	// `AWS::SSM::Association.Name`.
+	Name *string `json:"name"`
 	// `AWS::SSM::Association.OutputLocation`.
 	OutputLocation interface{} `json:"outputLocation"`
 	// `AWS::SSM::Association.Parameters`.
@@ -966,6 +978,9 @@ type CfnAssociationProps struct {
 }
 
 // A CloudFormation `AWS::SSM::Document`.
+//
+// TODO: EXAMPLE
+//
 type CfnDocument interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1702,6 +1717,8 @@ func (c *jsiiProxy_CfnDocument) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDocument_AttachmentsSourceProperty struct {
 	// `CfnDocument.AttachmentsSourceProperty.Key`.
 	Key *string `json:"key"`
@@ -1711,6 +1728,8 @@ type CfnDocument_AttachmentsSourceProperty struct {
 	Values *[]*string `json:"values"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDocument_DocumentRequiresProperty struct {
 	// `CfnDocument.DocumentRequiresProperty.Name`.
 	Name *string `json:"name"`
@@ -1719,11 +1738,14 @@ type CfnDocument_DocumentRequiresProperty struct {
 }
 
 // Properties for defining a `AWS::SSM::Document`.
+//
+// TODO: EXAMPLE
+//
 type CfnDocumentProps struct {
-	// `AWS::SSM::Document.Content`.
-	Content interface{} `json:"content"`
 	// `AWS::SSM::Document.Attachments`.
 	Attachments interface{} `json:"attachments"`
+	// `AWS::SSM::Document.Content`.
+	Content interface{} `json:"content"`
 	// `AWS::SSM::Document.DocumentFormat`.
 	DocumentFormat *string `json:"documentFormat"`
 	// `AWS::SSM::Document.DocumentType`.
@@ -1741,6 +1763,9 @@ type CfnDocumentProps struct {
 }
 
 // A CloudFormation `AWS::SSM::MaintenanceWindow`.
+//
+// TODO: EXAMPLE
+//
 type CfnMaintenanceWindow interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2518,21 +2543,24 @@ func (c *jsiiProxy_CfnMaintenanceWindow) ValidateProperties(_properties interfac
 }
 
 // Properties for defining a `AWS::SSM::MaintenanceWindow`.
+//
+// TODO: EXAMPLE
+//
 type CfnMaintenanceWindowProps struct {
 	// `AWS::SSM::MaintenanceWindow.AllowUnassociatedTargets`.
 	AllowUnassociatedTargets interface{} `json:"allowUnassociatedTargets"`
 	// `AWS::SSM::MaintenanceWindow.Cutoff`.
 	Cutoff *float64 `json:"cutoff"`
+	// `AWS::SSM::MaintenanceWindow.Description`.
+	Description *string `json:"description"`
 	// `AWS::SSM::MaintenanceWindow.Duration`.
 	Duration *float64 `json:"duration"`
+	// `AWS::SSM::MaintenanceWindow.EndDate`.
+	EndDate *string `json:"endDate"`
 	// `AWS::SSM::MaintenanceWindow.Name`.
 	Name *string `json:"name"`
 	// `AWS::SSM::MaintenanceWindow.Schedule`.
 	Schedule *string `json:"schedule"`
-	// `AWS::SSM::MaintenanceWindow.Description`.
-	Description *string `json:"description"`
-	// `AWS::SSM::MaintenanceWindow.EndDate`.
-	EndDate *string `json:"endDate"`
 	// `AWS::SSM::MaintenanceWindow.ScheduleOffset`.
 	ScheduleOffset *float64 `json:"scheduleOffset"`
 	// `AWS::SSM::MaintenanceWindow.ScheduleTimezone`.
@@ -2544,6 +2572,9 @@ type CfnMaintenanceWindowProps struct {
 }
 
 // A CloudFormation `AWS::SSM::MaintenanceWindowTarget`.
+//
+// TODO: EXAMPLE
+//
 type CfnMaintenanceWindowTarget interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3229,6 +3260,8 @@ func (c *jsiiProxy_CfnMaintenanceWindowTarget) ValidateProperties(_properties in
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnMaintenanceWindowTarget_TargetsProperty struct {
 	// `CfnMaintenanceWindowTarget.TargetsProperty.Key`.
 	Key *string `json:"key"`
@@ -3237,22 +3270,28 @@ type CfnMaintenanceWindowTarget_TargetsProperty struct {
 }
 
 // Properties for defining a `AWS::SSM::MaintenanceWindowTarget`.
+//
+// TODO: EXAMPLE
+//
 type CfnMaintenanceWindowTargetProps struct {
-	// `AWS::SSM::MaintenanceWindowTarget.ResourceType`.
-	ResourceType *string `json:"resourceType"`
-	// `AWS::SSM::MaintenanceWindowTarget.Targets`.
-	Targets interface{} `json:"targets"`
-	// `AWS::SSM::MaintenanceWindowTarget.WindowId`.
-	WindowId *string `json:"windowId"`
 	// `AWS::SSM::MaintenanceWindowTarget.Description`.
 	Description *string `json:"description"`
 	// `AWS::SSM::MaintenanceWindowTarget.Name`.
 	Name *string `json:"name"`
 	// `AWS::SSM::MaintenanceWindowTarget.OwnerInformation`.
 	OwnerInformation *string `json:"ownerInformation"`
+	// `AWS::SSM::MaintenanceWindowTarget.ResourceType`.
+	ResourceType *string `json:"resourceType"`
+	// `AWS::SSM::MaintenanceWindowTarget.Targets`.
+	Targets interface{} `json:"targets"`
+	// `AWS::SSM::MaintenanceWindowTarget.WindowId`.
+	WindowId *string `json:"windowId"`
 }
 
 // A CloudFormation `AWS::SSM::MaintenanceWindowTask`.
+//
+// TODO: EXAMPLE
+//
 type CfnMaintenanceWindowTask interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4098,6 +4137,8 @@ func (c *jsiiProxy_CfnMaintenanceWindowTask) ValidateProperties(_properties inte
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnMaintenanceWindowTask_LoggingInfoProperty struct {
 	// `CfnMaintenanceWindowTask.LoggingInfoProperty.Region`.
 	Region *string `json:"region"`
@@ -4107,6 +4148,8 @@ type CfnMaintenanceWindowTask_LoggingInfoProperty struct {
 	S3Prefix *string `json:"s3Prefix"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMaintenanceWindowTask_MaintenanceWindowAutomationParametersProperty struct {
 	// `CfnMaintenanceWindowTask.MaintenanceWindowAutomationParametersProperty.DocumentVersion`.
 	DocumentVersion *string `json:"documentVersion"`
@@ -4114,6 +4157,8 @@ type CfnMaintenanceWindowTask_MaintenanceWindowAutomationParametersProperty stru
 	Parameters interface{} `json:"parameters"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMaintenanceWindowTask_MaintenanceWindowLambdaParametersProperty struct {
 	// `CfnMaintenanceWindowTask.MaintenanceWindowLambdaParametersProperty.ClientContext`.
 	ClientContext *string `json:"clientContext"`
@@ -4123,6 +4168,8 @@ type CfnMaintenanceWindowTask_MaintenanceWindowLambdaParametersProperty struct {
 	Qualifier *string `json:"qualifier"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMaintenanceWindowTask_MaintenanceWindowRunCommandParametersProperty struct {
 	// `CfnMaintenanceWindowTask.MaintenanceWindowRunCommandParametersProperty.Comment`.
 	Comment *string `json:"comment"`
@@ -4144,6 +4191,8 @@ type CfnMaintenanceWindowTask_MaintenanceWindowRunCommandParametersProperty stru
 	TimeoutSeconds *float64 `json:"timeoutSeconds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMaintenanceWindowTask_MaintenanceWindowStepFunctionsParametersProperty struct {
 	// `CfnMaintenanceWindowTask.MaintenanceWindowStepFunctionsParametersProperty.Input`.
 	Input *string `json:"input"`
@@ -4151,6 +4200,8 @@ type CfnMaintenanceWindowTask_MaintenanceWindowStepFunctionsParametersProperty s
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMaintenanceWindowTask_NotificationConfigProperty struct {
 	// `CfnMaintenanceWindowTask.NotificationConfigProperty.NotificationArn`.
 	NotificationArn *string `json:"notificationArn"`
@@ -4160,6 +4211,8 @@ type CfnMaintenanceWindowTask_NotificationConfigProperty struct {
 	NotificationType *string `json:"notificationType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMaintenanceWindowTask_TargetProperty struct {
 	// `CfnMaintenanceWindowTask.TargetProperty.Key`.
 	Key *string `json:"key"`
@@ -4167,6 +4220,8 @@ type CfnMaintenanceWindowTask_TargetProperty struct {
 	Values *[]*string `json:"values"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMaintenanceWindowTask_TaskInvocationParametersProperty struct {
 	// `CfnMaintenanceWindowTask.TaskInvocationParametersProperty.MaintenanceWindowAutomationParameters`.
 	MaintenanceWindowAutomationParameters interface{} `json:"maintenanceWindowAutomationParameters"`
@@ -4179,15 +4234,10 @@ type CfnMaintenanceWindowTask_TaskInvocationParametersProperty struct {
 }
 
 // Properties for defining a `AWS::SSM::MaintenanceWindowTask`.
+//
+// TODO: EXAMPLE
+//
 type CfnMaintenanceWindowTaskProps struct {
-	// `AWS::SSM::MaintenanceWindowTask.Priority`.
-	Priority *float64 `json:"priority"`
-	// `AWS::SSM::MaintenanceWindowTask.TaskArn`.
-	TaskArn *string `json:"taskArn"`
-	// `AWS::SSM::MaintenanceWindowTask.TaskType`.
-	TaskType *string `json:"taskType"`
-	// `AWS::SSM::MaintenanceWindowTask.WindowId`.
-	WindowId *string `json:"windowId"`
 	// `AWS::SSM::MaintenanceWindowTask.CutoffBehavior`.
 	CutoffBehavior *string `json:"cutoffBehavior"`
 	// `AWS::SSM::MaintenanceWindowTask.Description`.
@@ -4200,17 +4250,28 @@ type CfnMaintenanceWindowTaskProps struct {
 	MaxErrors *string `json:"maxErrors"`
 	// `AWS::SSM::MaintenanceWindowTask.Name`.
 	Name *string `json:"name"`
+	// `AWS::SSM::MaintenanceWindowTask.Priority`.
+	Priority *float64 `json:"priority"`
 	// `AWS::SSM::MaintenanceWindowTask.ServiceRoleArn`.
 	ServiceRoleArn *string `json:"serviceRoleArn"`
 	// `AWS::SSM::MaintenanceWindowTask.Targets`.
 	Targets interface{} `json:"targets"`
+	// `AWS::SSM::MaintenanceWindowTask.TaskArn`.
+	TaskArn *string `json:"taskArn"`
 	// `AWS::SSM::MaintenanceWindowTask.TaskInvocationParameters`.
 	TaskInvocationParameters interface{} `json:"taskInvocationParameters"`
 	// `AWS::SSM::MaintenanceWindowTask.TaskParameters`.
 	TaskParameters interface{} `json:"taskParameters"`
+	// `AWS::SSM::MaintenanceWindowTask.TaskType`.
+	TaskType *string `json:"taskType"`
+	// `AWS::SSM::MaintenanceWindowTask.WindowId`.
+	WindowId *string `json:"windowId"`
 }
 
 // A CloudFormation `AWS::SSM::Parameter`.
+//
+// TODO: EXAMPLE
+//
 type CfnParameter interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4970,11 +5031,10 @@ func (c *jsiiProxy_CfnParameter) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::SSM::Parameter`.
+//
+// TODO: EXAMPLE
+//
 type CfnParameterProps struct {
-	// `AWS::SSM::Parameter.Type`.
-	Type *string `json:"type"`
-	// `AWS::SSM::Parameter.Value`.
-	Value *string `json:"value"`
 	// `AWS::SSM::Parameter.AllowedPattern`.
 	AllowedPattern *string `json:"allowedPattern"`
 	// `AWS::SSM::Parameter.DataType`.
@@ -4989,9 +5049,16 @@ type CfnParameterProps struct {
 	Tags interface{} `json:"tags"`
 	// `AWS::SSM::Parameter.Tier`.
 	Tier *string `json:"tier"`
+	// `AWS::SSM::Parameter.Type`.
+	Type *string `json:"type"`
+	// `AWS::SSM::Parameter.Value`.
+	Value *string `json:"value"`
 }
 
 // A CloudFormation `AWS::SSM::PatchBaseline`.
+//
+// TODO: EXAMPLE
+//
 type CfnPatchBaseline interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5808,11 +5875,15 @@ func (c *jsiiProxy_CfnPatchBaseline) ValidateProperties(_properties interface{})
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnPatchBaseline_PatchFilterGroupProperty struct {
 	// `CfnPatchBaseline.PatchFilterGroupProperty.PatchFilters`.
 	PatchFilters interface{} `json:"patchFilters"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPatchBaseline_PatchFilterProperty struct {
 	// `CfnPatchBaseline.PatchFilterProperty.Key`.
 	Key *string `json:"key"`
@@ -5820,6 +5891,8 @@ type CfnPatchBaseline_PatchFilterProperty struct {
 	Values *[]*string `json:"values"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPatchBaseline_PatchSourceProperty struct {
 	// `CfnPatchBaseline.PatchSourceProperty.Configuration`.
 	Configuration *string `json:"configuration"`
@@ -5829,11 +5902,15 @@ type CfnPatchBaseline_PatchSourceProperty struct {
 	Products *[]*string `json:"products"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPatchBaseline_RuleGroupProperty struct {
 	// `CfnPatchBaseline.RuleGroupProperty.PatchRules`.
 	PatchRules interface{} `json:"patchRules"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPatchBaseline_RuleProperty struct {
 	// `CfnPatchBaseline.RuleProperty.ApproveAfterDays`.
 	ApproveAfterDays *float64 `json:"approveAfterDays"`
@@ -5848,9 +5925,10 @@ type CfnPatchBaseline_RuleProperty struct {
 }
 
 // Properties for defining a `AWS::SSM::PatchBaseline`.
+//
+// TODO: EXAMPLE
+//
 type CfnPatchBaselineProps struct {
-	// `AWS::SSM::PatchBaseline.Name`.
-	Name *string `json:"name"`
 	// `AWS::SSM::PatchBaseline.ApprovalRules`.
 	ApprovalRules interface{} `json:"approvalRules"`
 	// `AWS::SSM::PatchBaseline.ApprovedPatches`.
@@ -5863,6 +5941,8 @@ type CfnPatchBaselineProps struct {
 	Description *string `json:"description"`
 	// `AWS::SSM::PatchBaseline.GlobalFilters`.
 	GlobalFilters interface{} `json:"globalFilters"`
+	// `AWS::SSM::PatchBaseline.Name`.
+	Name *string `json:"name"`
 	// `AWS::SSM::PatchBaseline.OperatingSystem`.
 	OperatingSystem *string `json:"operatingSystem"`
 	// `AWS::SSM::PatchBaseline.PatchGroups`.
@@ -5878,6 +5958,9 @@ type CfnPatchBaselineProps struct {
 }
 
 // A CloudFormation `AWS::SSM::ResourceDataSync`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourceDataSync interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6634,41 +6717,48 @@ func (c *jsiiProxy_CfnResourceDataSync) ValidateProperties(_properties interface
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceDataSync_AwsOrganizationsSourceProperty struct {
-	// `CfnResourceDataSync.AwsOrganizationsSourceProperty.OrganizationSourceType`.
-	OrganizationSourceType *string `json:"organizationSourceType"`
 	// `CfnResourceDataSync.AwsOrganizationsSourceProperty.OrganizationalUnits`.
 	OrganizationalUnits *[]*string `json:"organizationalUnits"`
+	// `CfnResourceDataSync.AwsOrganizationsSourceProperty.OrganizationSourceType`.
+	OrganizationSourceType *string `json:"organizationSourceType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceDataSync_S3DestinationProperty struct {
 	// `CfnResourceDataSync.S3DestinationProperty.BucketName`.
 	BucketName *string `json:"bucketName"`
-	// `CfnResourceDataSync.S3DestinationProperty.BucketRegion`.
-	BucketRegion *string `json:"bucketRegion"`
-	// `CfnResourceDataSync.S3DestinationProperty.SyncFormat`.
-	SyncFormat *string `json:"syncFormat"`
 	// `CfnResourceDataSync.S3DestinationProperty.BucketPrefix`.
 	BucketPrefix *string `json:"bucketPrefix"`
+	// `CfnResourceDataSync.S3DestinationProperty.BucketRegion`.
+	BucketRegion *string `json:"bucketRegion"`
 	// `CfnResourceDataSync.S3DestinationProperty.KMSKeyArn`.
 	KmsKeyArn *string `json:"kmsKeyArn"`
+	// `CfnResourceDataSync.S3DestinationProperty.SyncFormat`.
+	SyncFormat *string `json:"syncFormat"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceDataSync_SyncSourceProperty struct {
-	// `CfnResourceDataSync.SyncSourceProperty.SourceRegions`.
-	SourceRegions *[]*string `json:"sourceRegions"`
-	// `CfnResourceDataSync.SyncSourceProperty.SourceType`.
-	SourceType *string `json:"sourceType"`
 	// `CfnResourceDataSync.SyncSourceProperty.AwsOrganizationsSource`.
 	AwsOrganizationsSource interface{} `json:"awsOrganizationsSource"`
 	// `CfnResourceDataSync.SyncSourceProperty.IncludeFutureRegions`.
 	IncludeFutureRegions interface{} `json:"includeFutureRegions"`
+	// `CfnResourceDataSync.SyncSourceProperty.SourceRegions`.
+	SourceRegions *[]*string `json:"sourceRegions"`
+	// `CfnResourceDataSync.SyncSourceProperty.SourceType`.
+	SourceType *string `json:"sourceType"`
 }
 
 // Properties for defining a `AWS::SSM::ResourceDataSync`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourceDataSyncProps struct {
-	// `AWS::SSM::ResourceDataSync.SyncName`.
-	SyncName *string `json:"syncName"`
 	// `AWS::SSM::ResourceDataSync.BucketName`.
 	BucketName *string `json:"bucketName"`
 	// `AWS::SSM::ResourceDataSync.BucketPrefix`.
@@ -6681,6 +6771,8 @@ type CfnResourceDataSyncProps struct {
 	S3Destination interface{} `json:"s3Destination"`
 	// `AWS::SSM::ResourceDataSync.SyncFormat`.
 	SyncFormat *string `json:"syncFormat"`
+	// `AWS::SSM::ResourceDataSync.SyncName`.
+	SyncName *string `json:"syncName"`
 	// `AWS::SSM::ResourceDataSync.SyncSource`.
 	SyncSource interface{} `json:"syncSource"`
 	// `AWS::SSM::ResourceDataSync.SyncType`.
@@ -6688,6 +6780,9 @@ type CfnResourceDataSyncProps struct {
 }
 
 // Common attributes for string parameters.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CommonStringParameterAttributes struct {
 	// The name of the parameter store value.
@@ -6854,6 +6949,9 @@ const (
 )
 
 // Properties needed to create a new SSM Parameter.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ParameterOptions struct {
 	// A regular expression used to validate the parameter value.
@@ -6902,13 +7000,16 @@ const (
 type ParameterType string
 
 const (
-	ParameterType_STRING ParameterType = "STRING"
-	ParameterType_SECURE_STRING ParameterType = "SECURE_STRING"
-	ParameterType_STRING_LIST ParameterType = "STRING_LIST"
 	ParameterType_AWS_EC2_IMAGE_ID ParameterType = "AWS_EC2_IMAGE_ID"
+	ParameterType_SECURE_STRING ParameterType = "SECURE_STRING"
+	ParameterType_STRING ParameterType = "STRING"
+	ParameterType_STRING_LIST ParameterType = "STRING_LIST"
 )
 
 // Attributes for secure string parameters.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SecureStringParameterAttributes struct {
 	// The name of the parameter store value.
@@ -6928,17 +7029,20 @@ type SecureStringParameterAttributes struct {
 	// simple name.
 	// Experimental.
 	SimpleName *bool `json:"simpleName"`
+	// The encryption key that is used to encrypt this parameter.
+	// Experimental.
+	EncryptionKey awskms.IKey `json:"encryptionKey"`
 	// The version number of the value you wish to retrieve.
 	//
 	// This is required for secure strings.
 	// Experimental.
 	Version *float64 `json:"version"`
-	// The encryption key that is used to encrypt this parameter.
-	// Experimental.
-	EncryptionKey awskms.IKey `json:"encryptionKey"`
 }
 
 // Creates a new StringList SSM Parameter.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type StringListParameter interface {
 	awscdk.Resource
@@ -7362,6 +7466,9 @@ func (s *jsiiProxy_StringListParameter) Validate() *[]*string {
 }
 
 // Properties needed to create a StringList SSM Parameter.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type StringListParameterProps struct {
 	// A regular expression used to validate the parameter value.
@@ -7927,6 +8034,9 @@ func (s *jsiiProxy_StringParameter) Validate() *[]*string {
 }
 
 // Attributes for parameters of various types of string.
+//
+// TODO: EXAMPLE
+//
 // See: ParameterType
 //
 // Experimental.

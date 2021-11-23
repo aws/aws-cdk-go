@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::LicenseManager::Grant`.
+//
+// TODO: EXAMPLE
+//
 type CfnGrant interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -718,6 +721,9 @@ func (c *jsiiProxy_CfnGrant) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::LicenseManager::Grant`.
+//
+// TODO: EXAMPLE
+//
 type CfnGrantProps struct {
 	// `AWS::LicenseManager::Grant.AllowedOperations`.
 	AllowedOperations *[]*string `json:"allowedOperations"`
@@ -734,6 +740,9 @@ type CfnGrantProps struct {
 }
 
 // A CloudFormation `AWS::LicenseManager::License`.
+//
+// TODO: EXAMPLE
+//
 type CfnLicense interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1541,6 +1550,8 @@ func (c *jsiiProxy_CfnLicense) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnLicense_BorrowConfigurationProperty struct {
 	// `CfnLicense.BorrowConfigurationProperty.AllowEarlyCheckIn`.
 	AllowEarlyCheckIn interface{} `json:"allowEarlyCheckIn"`
@@ -1548,6 +1559,8 @@ type CfnLicense_BorrowConfigurationProperty struct {
 	MaxTimeToLiveInMinutes *float64 `json:"maxTimeToLiveInMinutes"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLicense_ConsumptionConfigurationProperty struct {
 	// `CfnLicense.ConsumptionConfigurationProperty.BorrowConfiguration`.
 	BorrowConfiguration interface{} `json:"borrowConfiguration"`
@@ -1557,21 +1570,25 @@ type CfnLicense_ConsumptionConfigurationProperty struct {
 	RenewType *string `json:"renewType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLicense_EntitlementProperty struct {
-	// `CfnLicense.EntitlementProperty.Name`.
-	Name *string `json:"name"`
-	// `CfnLicense.EntitlementProperty.Unit`.
-	Unit *string `json:"unit"`
 	// `CfnLicense.EntitlementProperty.AllowCheckIn`.
 	AllowCheckIn interface{} `json:"allowCheckIn"`
 	// `CfnLicense.EntitlementProperty.MaxCount`.
 	MaxCount *float64 `json:"maxCount"`
+	// `CfnLicense.EntitlementProperty.Name`.
+	Name *string `json:"name"`
 	// `CfnLicense.EntitlementProperty.Overage`.
 	Overage interface{} `json:"overage"`
+	// `CfnLicense.EntitlementProperty.Unit`.
+	Unit *string `json:"unit"`
 	// `CfnLicense.EntitlementProperty.Value`.
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLicense_IssuerDataProperty struct {
 	// `CfnLicense.IssuerDataProperty.Name`.
 	Name *string `json:"name"`
@@ -1579,6 +1596,8 @@ type CfnLicense_IssuerDataProperty struct {
 	SignKey *string `json:"signKey"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLicense_MetadataProperty struct {
 	// `CfnLicense.MetadataProperty.Name`.
 	Name *string `json:"name"`
@@ -1586,11 +1605,15 @@ type CfnLicense_MetadataProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLicense_ProvisionalConfigurationProperty struct {
 	// `CfnLicense.ProvisionalConfigurationProperty.MaxTimeToLiveInMinutes`.
 	MaxTimeToLiveInMinutes *float64 `json:"maxTimeToLiveInMinutes"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLicense_ValidityDateFormatProperty struct {
 	// `CfnLicense.ValidityDateFormatProperty.Begin`.
 	Begin *string `json:"begin"`
@@ -1599,7 +1622,12 @@ type CfnLicense_ValidityDateFormatProperty struct {
 }
 
 // Properties for defining a `AWS::LicenseManager::License`.
+//
+// TODO: EXAMPLE
+//
 type CfnLicenseProps struct {
+	// `AWS::LicenseManager::License.Beneficiary`.
+	Beneficiary *string `json:"beneficiary"`
 	// `AWS::LicenseManager::License.ConsumptionConfiguration`.
 	ConsumptionConfiguration interface{} `json:"consumptionConfiguration"`
 	// `AWS::LicenseManager::License.Entitlements`.
@@ -1608,19 +1636,17 @@ type CfnLicenseProps struct {
 	HomeRegion *string `json:"homeRegion"`
 	// `AWS::LicenseManager::License.Issuer`.
 	Issuer interface{} `json:"issuer"`
+	// `AWS::LicenseManager::License.LicenseMetadata`.
+	LicenseMetadata interface{} `json:"licenseMetadata"`
 	// `AWS::LicenseManager::License.LicenseName`.
 	LicenseName *string `json:"licenseName"`
 	// `AWS::LicenseManager::License.ProductName`.
 	ProductName *string `json:"productName"`
-	// `AWS::LicenseManager::License.Validity`.
-	Validity interface{} `json:"validity"`
-	// `AWS::LicenseManager::License.Beneficiary`.
-	Beneficiary *string `json:"beneficiary"`
-	// `AWS::LicenseManager::License.LicenseMetadata`.
-	LicenseMetadata interface{} `json:"licenseMetadata"`
 	// `AWS::LicenseManager::License.ProductSKU`.
 	ProductSku *string `json:"productSku"`
 	// `AWS::LicenseManager::License.Status`.
 	Status *string `json:"status"`
+	// `AWS::LicenseManager::License.Validity`.
+	Validity interface{} `json:"validity"`
 }
 

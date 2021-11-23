@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::FraudDetector::Detector`.
+//
+// TODO: EXAMPLE
+//
 type CfnDetector interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -803,6 +806,8 @@ func (c *jsiiProxy_CfnDetector) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetector_EntityTypeProperty struct {
 	// `CfnDetector.EntityTypeProperty.Arn`.
 	Arn *string `json:"arn"`
@@ -820,6 +825,8 @@ type CfnDetector_EntityTypeProperty struct {
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetector_EventTypeProperty struct {
 	// `CfnDetector.EventTypeProperty.Arn`.
 	Arn *string `json:"arn"`
@@ -843,6 +850,8 @@ type CfnDetector_EventTypeProperty struct {
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetector_EventVariableProperty struct {
 	// `CfnDetector.EventVariableProperty.Arn`.
 	Arn *string `json:"arn"`
@@ -868,6 +877,8 @@ type CfnDetector_EventVariableProperty struct {
 	VariableType *string `json:"variableType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetector_LabelProperty struct {
 	// `CfnDetector.LabelProperty.Arn`.
 	Arn *string `json:"arn"`
@@ -885,11 +896,15 @@ type CfnDetector_LabelProperty struct {
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetector_ModelProperty struct {
 	// `CfnDetector.ModelProperty.Arn`.
 	Arn *string `json:"arn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetector_OutcomeProperty struct {
 	// `CfnDetector.OutcomeProperty.Arn`.
 	Arn *string `json:"arn"`
@@ -907,6 +922,8 @@ type CfnDetector_OutcomeProperty struct {
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetector_RuleProperty struct {
 	// `CfnDetector.RuleProperty.Arn`.
 	Arn *string `json:"arn"`
@@ -933,26 +950,32 @@ type CfnDetector_RuleProperty struct {
 }
 
 // Properties for defining a `AWS::FraudDetector::Detector`.
+//
+// TODO: EXAMPLE
+//
 type CfnDetectorProps struct {
-	// `AWS::FraudDetector::Detector.DetectorId`.
-	DetectorId *string `json:"detectorId"`
-	// `AWS::FraudDetector::Detector.EventType`.
-	EventType interface{} `json:"eventType"`
-	// `AWS::FraudDetector::Detector.Rules`.
-	Rules interface{} `json:"rules"`
 	// `AWS::FraudDetector::Detector.AssociatedModels`.
 	AssociatedModels interface{} `json:"associatedModels"`
 	// `AWS::FraudDetector::Detector.Description`.
 	Description *string `json:"description"`
+	// `AWS::FraudDetector::Detector.DetectorId`.
+	DetectorId *string `json:"detectorId"`
 	// `AWS::FraudDetector::Detector.DetectorVersionStatus`.
 	DetectorVersionStatus *string `json:"detectorVersionStatus"`
+	// `AWS::FraudDetector::Detector.EventType`.
+	EventType interface{} `json:"eventType"`
 	// `AWS::FraudDetector::Detector.RuleExecutionMode`.
 	RuleExecutionMode *string `json:"ruleExecutionMode"`
+	// `AWS::FraudDetector::Detector.Rules`.
+	Rules interface{} `json:"rules"`
 	// `AWS::FraudDetector::Detector.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::FraudDetector::EntityType`.
+//
+// TODO: EXAMPLE
+//
 type CfnEntityType interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1603,16 +1626,22 @@ func (c *jsiiProxy_CfnEntityType) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::FraudDetector::EntityType`.
+//
+// TODO: EXAMPLE
+//
 type CfnEntityTypeProps struct {
-	// `AWS::FraudDetector::EntityType.Name`.
-	Name *string `json:"name"`
 	// `AWS::FraudDetector::EntityType.Description`.
 	Description *string `json:"description"`
+	// `AWS::FraudDetector::EntityType.Name`.
+	Name *string `json:"name"`
 	// `AWS::FraudDetector::EntityType.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::FraudDetector::EventType`.
+//
+// TODO: EXAMPLE
+//
 type CfnEventType interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2322,6 +2351,8 @@ func (c *jsiiProxy_CfnEventType) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnEventType_EntityTypeProperty struct {
 	// `CfnEventType.EntityTypeProperty.Arn`.
 	Arn *string `json:"arn"`
@@ -2339,6 +2370,8 @@ type CfnEventType_EntityTypeProperty struct {
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEventType_EventVariableProperty struct {
 	// `CfnEventType.EventVariableProperty.Arn`.
 	Arn *string `json:"arn"`
@@ -2364,6 +2397,8 @@ type CfnEventType_EventVariableProperty struct {
 	VariableType *string `json:"variableType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEventType_LabelProperty struct {
 	// `CfnEventType.LabelProperty.Arn`.
 	Arn *string `json:"arn"`
@@ -2382,7 +2417,12 @@ type CfnEventType_LabelProperty struct {
 }
 
 // Properties for defining a `AWS::FraudDetector::EventType`.
+//
+// TODO: EXAMPLE
+//
 type CfnEventTypeProps struct {
+	// `AWS::FraudDetector::EventType.Description`.
+	Description *string `json:"description"`
 	// `AWS::FraudDetector::EventType.EntityTypes`.
 	EntityTypes interface{} `json:"entityTypes"`
 	// `AWS::FraudDetector::EventType.EventVariables`.
@@ -2391,13 +2431,14 @@ type CfnEventTypeProps struct {
 	Labels interface{} `json:"labels"`
 	// `AWS::FraudDetector::EventType.Name`.
 	Name *string `json:"name"`
-	// `AWS::FraudDetector::EventType.Description`.
-	Description *string `json:"description"`
 	// `AWS::FraudDetector::EventType.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::FraudDetector::Label`.
+//
+// TODO: EXAMPLE
+//
 type CfnLabel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3048,16 +3089,22 @@ func (c *jsiiProxy_CfnLabel) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::FraudDetector::Label`.
+//
+// TODO: EXAMPLE
+//
 type CfnLabelProps struct {
-	// `AWS::FraudDetector::Label.Name`.
-	Name *string `json:"name"`
 	// `AWS::FraudDetector::Label.Description`.
 	Description *string `json:"description"`
+	// `AWS::FraudDetector::Label.Name`.
+	Name *string `json:"name"`
 	// `AWS::FraudDetector::Label.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::FraudDetector::Outcome`.
+//
+// TODO: EXAMPLE
+//
 type CfnOutcome interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3708,16 +3755,22 @@ func (c *jsiiProxy_CfnOutcome) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::FraudDetector::Outcome`.
+//
+// TODO: EXAMPLE
+//
 type CfnOutcomeProps struct {
-	// `AWS::FraudDetector::Outcome.Name`.
-	Name *string `json:"name"`
 	// `AWS::FraudDetector::Outcome.Description`.
 	Description *string `json:"description"`
+	// `AWS::FraudDetector::Outcome.Name`.
+	Name *string `json:"name"`
 	// `AWS::FraudDetector::Outcome.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::FraudDetector::Variable`.
+//
+// TODO: EXAMPLE
+//
 type CfnVariable interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4448,6 +4501,9 @@ func (c *jsiiProxy_CfnVariable) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::FraudDetector::Variable`.
+//
+// TODO: EXAMPLE
+//
 type CfnVariableProps struct {
 	// `AWS::FraudDetector::Variable.DataSource`.
 	DataSource *string `json:"dataSource"`
@@ -4455,10 +4511,10 @@ type CfnVariableProps struct {
 	DataType *string `json:"dataType"`
 	// `AWS::FraudDetector::Variable.DefaultValue`.
 	DefaultValue *string `json:"defaultValue"`
-	// `AWS::FraudDetector::Variable.Name`.
-	Name *string `json:"name"`
 	// `AWS::FraudDetector::Variable.Description`.
 	Description *string `json:"description"`
+	// `AWS::FraudDetector::Variable.Name`.
+	Name *string `json:"name"`
 	// `AWS::FraudDetector::Variable.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::FraudDetector::Variable.VariableType`.

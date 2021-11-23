@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::S3Outposts::AccessPoint`.
+//
+// TODO: EXAMPLE
+//
 type CfnAccessPoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -666,24 +669,32 @@ func (c *jsiiProxy_CfnAccessPoint) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnAccessPoint_VpcConfigurationProperty struct {
 	// `CfnAccessPoint.VpcConfigurationProperty.VpcId`.
 	VpcId *string `json:"vpcId"`
 }
 
 // Properties for defining a `AWS::S3Outposts::AccessPoint`.
+//
+// TODO: EXAMPLE
+//
 type CfnAccessPointProps struct {
 	// `AWS::S3Outposts::AccessPoint.Bucket`.
 	Bucket *string `json:"bucket"`
 	// `AWS::S3Outposts::AccessPoint.Name`.
 	Name *string `json:"name"`
-	// `AWS::S3Outposts::AccessPoint.VpcConfiguration`.
-	VpcConfiguration interface{} `json:"vpcConfiguration"`
 	// `AWS::S3Outposts::AccessPoint.Policy`.
 	Policy interface{} `json:"policy"`
+	// `AWS::S3Outposts::AccessPoint.VpcConfiguration`.
+	VpcConfiguration interface{} `json:"vpcConfiguration"`
 }
 
 // A CloudFormation `AWS::S3Outposts::Bucket`.
+//
+// TODO: EXAMPLE
+//
 type CfnBucket interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1331,16 +1342,22 @@ func (c *jsiiProxy_CfnBucket) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_AbortIncompleteMultipartUploadProperty struct {
 	// `CfnBucket.AbortIncompleteMultipartUploadProperty.DaysAfterInitiation`.
 	DaysAfterInitiation *float64 `json:"daysAfterInitiation"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_LifecycleConfigurationProperty struct {
 	// `CfnBucket.LifecycleConfigurationProperty.Rules`.
 	Rules interface{} `json:"rules"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_RuleProperty struct {
 	// `CfnBucket.RuleProperty.AbortIncompleteMultipartUpload`.
 	AbortIncompleteMultipartUpload interface{} `json:"abortIncompleteMultipartUpload"`
@@ -1357,6 +1374,9 @@ type CfnBucket_RuleProperty struct {
 }
 
 // A CloudFormation `AWS::S3Outposts::BucketPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnBucketPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1963,6 +1983,9 @@ func (c *jsiiProxy_CfnBucketPolicy) ValidateProperties(_properties interface{}) 
 }
 
 // Properties for defining a `AWS::S3Outposts::BucketPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnBucketPolicyProps struct {
 	// `AWS::S3Outposts::BucketPolicy.Bucket`.
 	Bucket *string `json:"bucket"`
@@ -1971,18 +1994,24 @@ type CfnBucketPolicyProps struct {
 }
 
 // Properties for defining a `AWS::S3Outposts::Bucket`.
+//
+// TODO: EXAMPLE
+//
 type CfnBucketProps struct {
 	// `AWS::S3Outposts::Bucket.BucketName`.
 	BucketName *string `json:"bucketName"`
-	// `AWS::S3Outposts::Bucket.OutpostId`.
-	OutpostId *string `json:"outpostId"`
 	// `AWS::S3Outposts::Bucket.LifecycleConfiguration`.
 	LifecycleConfiguration interface{} `json:"lifecycleConfiguration"`
+	// `AWS::S3Outposts::Bucket.OutpostId`.
+	OutpostId *string `json:"outpostId"`
 	// `AWS::S3Outposts::Bucket.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::S3Outposts::Endpoint`.
+//
+// TODO: EXAMPLE
+//
 type CfnEndpoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2714,22 +2743,27 @@ func (c *jsiiProxy_CfnEndpoint) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpoint_NetworkInterfaceProperty struct {
 	// `CfnEndpoint.NetworkInterfaceProperty.NetworkInterfaceId`.
 	NetworkInterfaceId *string `json:"networkInterfaceId"`
 }
 
 // Properties for defining a `AWS::S3Outposts::Endpoint`.
+//
+// TODO: EXAMPLE
+//
 type CfnEndpointProps struct {
+	// `AWS::S3Outposts::Endpoint.AccessType`.
+	AccessType *string `json:"accessType"`
+	// `AWS::S3Outposts::Endpoint.CustomerOwnedIpv4Pool`.
+	CustomerOwnedIpv4Pool *string `json:"customerOwnedIpv4Pool"`
 	// `AWS::S3Outposts::Endpoint.OutpostId`.
 	OutpostId *string `json:"outpostId"`
 	// `AWS::S3Outposts::Endpoint.SecurityGroupId`.
 	SecurityGroupId *string `json:"securityGroupId"`
 	// `AWS::S3Outposts::Endpoint.SubnetId`.
 	SubnetId *string `json:"subnetId"`
-	// `AWS::S3Outposts::Endpoint.AccessType`.
-	AccessType *string `json:"accessType"`
-	// `AWS::S3Outposts::Endpoint.CustomerOwnedIpv4Pool`.
-	CustomerOwnedIpv4Pool *string `json:"customerOwnedIpv4Pool"`
 }
 

@@ -508,6 +508,9 @@ func (b *jsiiProxy_BaseJenkinsProvider) Validate() *[]*string {
 }
 
 // A CodePipeline source action for BitBucket.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: use CodeStarConnectionsSourceAction instead
 type BitBucketSourceAction interface {
 	awscodepipeline.IAction
@@ -589,6 +592,9 @@ func (b *jsiiProxy_BitBucketSourceAction) OnStateChange(name *string, target aws
 }
 
 // Construction properties for {@link BitBucketSourceAction}.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: use CodeStarConnectionsSourceActionProps instead
 type BitBucketSourceActionProps struct {
 	// The physical, human-readable name of the Action.
@@ -615,6 +621,17 @@ type BitBucketSourceActionProps struct {
 	// method in the {@link ActionBindOptions.role} property.
 	// Deprecated: use CodeStarConnectionsSourceActionProps instead
 	Role awsiam.IRole `json:"role"`
+	// The branch to build.
+	// Deprecated: use CodeStarConnectionsSourceActionProps instead
+	Branch *string `json:"branch"`
+	// Whether the output should be the contents of the repository (which is the default), or a link that allows CodeBuild to clone the repository before building.
+	//
+	// **Note**: if this option is true,
+	// then only CodeBuild actions can use the resulting {@link output}.
+	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config
+	//
+	// Deprecated: use CodeStarConnectionsSourceActionProps instead
+	CodeBuildCloneOutput *bool `json:"codeBuildCloneOutput"`
 	// The ARN of the CodeStar Connection created in the AWS console that has permissions to access this GitHub or BitBucket repository.
 	//
 	// TODO: EXAMPLE
@@ -640,17 +657,6 @@ type BitBucketSourceActionProps struct {
 	//
 	// Deprecated: use CodeStarConnectionsSourceActionProps instead
 	Repo *string `json:"repo"`
-	// The branch to build.
-	// Deprecated: use CodeStarConnectionsSourceActionProps instead
-	Branch *string `json:"branch"`
-	// Whether the output should be the contents of the repository (which is the default), or a link that allows CodeBuild to clone the repository before building.
-	//
-	// **Note**: if this option is true,
-	// then only CodeBuild actions can use the resulting {@link output}.
-	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config
-	//
-	// Deprecated: use CodeStarConnectionsSourceActionProps instead
-	CodeBuildCloneOutput *bool `json:"codeBuildCloneOutput"`
 	// Controls automatically starting your pipeline when a new commit is made on the configured repository and branch.
 	//
 	// If unspecified,
@@ -665,6 +671,9 @@ type BitBucketSourceActionProps struct {
 //
 // Use the provided static factory methods to construct instances of this class.
 // Used in the {@link S3DeployActionProps.cacheControl} property.
+//
+// TODO: EXAMPLE
+//
 // See: https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9
 //
 // Experimental.
@@ -854,6 +863,9 @@ func CacheControl_SMaxAge(t awscdk.Duration) CacheControl {
 //
 // Creates the change set if it doesn't exist based on the stack name and template that you submit.
 // If the change set exists, AWS CloudFormation deletes it, and then creates a new one.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CloudFormationCreateReplaceChangeSetAction interface {
 	Action
@@ -1004,6 +1016,9 @@ func (c *jsiiProxy_CloudFormationCreateReplaceChangeSetAction) VariableExpressio
 }
 
 // Properties for the CloudFormationCreateReplaceChangeSetAction.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CloudFormationCreateReplaceChangeSetActionProps struct {
 	// The physical, human-readable name of the Action.
@@ -1030,6 +1045,12 @@ type CloudFormationCreateReplaceChangeSetActionProps struct {
 	// method in the {@link ActionBindOptions.role} property.
 	// Experimental.
 	Role awsiam.IRole `json:"role"`
+	// The AWS account this Action is supposed to operate in.
+	//
+	// **Note**: if you specify the `role` property,
+	// this is ignored - the action will operate in the same region the passed role does.
+	// Experimental.
+	Account *string `json:"account"`
 	// Whether to grant full permissions to CloudFormation while deploying this template.
 	//
 	// Setting this to `true` affects the defaults for `role` and `capabilities`, if you
@@ -1045,21 +1066,6 @@ type CloudFormationCreateReplaceChangeSetActionProps struct {
 	// deployment is allowed to do.
 	// Experimental.
 	AdminPermissions *bool `json:"adminPermissions"`
-	// Name of the change set to create or update.
-	// Experimental.
-	ChangeSetName *string `json:"changeSetName"`
-	// The name of the stack to apply this action to.
-	// Experimental.
-	StackName *string `json:"stackName"`
-	// Input artifact with the ChangeSet's CloudFormation template.
-	// Experimental.
-	TemplatePath awscodepipeline.ArtifactPath `json:"templatePath"`
-	// The AWS account this Action is supposed to operate in.
-	//
-	// **Note**: if you specify the `role` property,
-	// this is ignored - the action will operate in the same region the passed role does.
-	// Experimental.
-	Account *string `json:"account"`
 	// Acknowledge certain changes made as part of deployment.
 	//
 	// For stacks that contain certain resources, explicit acknowledgement that AWS CloudFormation
@@ -1081,6 +1087,9 @@ type CloudFormationCreateReplaceChangeSetActionProps struct {
 	//
 	// Experimental.
 	CfnCapabilities *[]awscdk.CfnCapabilities `json:"cfnCapabilities"`
+	// Name of the change set to create or update.
+	// Experimental.
+	ChangeSetName *string `json:"changeSetName"`
 	// IAM role to assume when deploying changes.
 	//
 	// If not specified, a fresh role is created. The role is created with zero
@@ -1141,6 +1150,9 @@ type CloudFormationCreateReplaceChangeSetActionProps struct {
 	// that you will need to `cdk deploy` before deploying the main, Pipeline-containing Stack.
 	// Experimental.
 	Region *string `json:"region"`
+	// The name of the stack to apply this action to.
+	// Experimental.
+	StackName *string `json:"stackName"`
 	// Input artifact to use for template parameters values and stack policy.
 	//
 	// The template configuration file should contain a JSON object that should look like this:
@@ -1151,6 +1163,9 @@ type CloudFormationCreateReplaceChangeSetActionProps struct {
 	// file.
 	// Experimental.
 	TemplateConfiguration awscodepipeline.ArtifactPath `json:"templateConfiguration"`
+	// Input artifact with the ChangeSet's CloudFormation template.
+	// Experimental.
+	TemplatePath awscodepipeline.ArtifactPath `json:"templatePath"`
 }
 
 // CodePipeline action to deploy a stack.
@@ -1482,6 +1497,9 @@ type CloudFormationCreateUpdateStackActionProps struct {
 //
 // Deletes a stack. If you specify a stack that doesn't exist, the action completes successfully
 // without deleting a stack.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CloudFormationDeleteStackAction interface {
 	Action
@@ -1632,6 +1650,9 @@ func (c *jsiiProxy_CloudFormationDeleteStackAction) VariableExpression(variableN
 }
 
 // Properties for the CloudFormationDeleteStackAction.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CloudFormationDeleteStackActionProps struct {
 	// The physical, human-readable name of the Action.
@@ -1658,6 +1679,12 @@ type CloudFormationDeleteStackActionProps struct {
 	// method in the {@link ActionBindOptions.role} property.
 	// Experimental.
 	Role awsiam.IRole `json:"role"`
+	// The AWS account this Action is supposed to operate in.
+	//
+	// **Note**: if you specify the `role` property,
+	// this is ignored - the action will operate in the same region the passed role does.
+	// Experimental.
+	Account *string `json:"account"`
 	// Whether to grant full permissions to CloudFormation while deploying this template.
 	//
 	// Setting this to `true` affects the defaults for `role` and `capabilities`, if you
@@ -1673,15 +1700,6 @@ type CloudFormationDeleteStackActionProps struct {
 	// deployment is allowed to do.
 	// Experimental.
 	AdminPermissions *bool `json:"adminPermissions"`
-	// The name of the stack to apply this action to.
-	// Experimental.
-	StackName *string `json:"stackName"`
-	// The AWS account this Action is supposed to operate in.
-	//
-	// **Note**: if you specify the `role` property,
-	// this is ignored - the action will operate in the same region the passed role does.
-	// Experimental.
-	Account *string `json:"account"`
 	// Acknowledge certain changes made as part of deployment.
 	//
 	// For stacks that contain certain resources, explicit acknowledgement that AWS CloudFormation
@@ -1763,6 +1781,9 @@ type CloudFormationDeleteStackActionProps struct {
 	// that you will need to `cdk deploy` before deploying the main, Pipeline-containing Stack.
 	// Experimental.
 	Region *string `json:"region"`
+	// The name of the stack to apply this action to.
+	// Experimental.
+	StackName *string `json:"stackName"`
 	// Input artifact to use for template parameters values and stack policy.
 	//
 	// The template configuration file should contain a JSON object that should look like this:
@@ -2410,6 +2431,9 @@ type CodeCommitSourceActionProps struct {
 }
 
 // The CodePipeline variables emitted by the CodeCommit source Action.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CodeCommitSourceVariables struct {
 	// The date the currently last commit on the tracked branch was authored, in ISO-8601 format.
@@ -2439,12 +2463,15 @@ type CodeCommitSourceVariables struct {
 type CodeCommitTrigger string
 
 const (
+	CodeCommitTrigger_EVENTS CodeCommitTrigger = "EVENTS"
 	CodeCommitTrigger_NONE CodeCommitTrigger = "NONE"
 	CodeCommitTrigger_POLL CodeCommitTrigger = "POLL"
-	CodeCommitTrigger_EVENTS CodeCommitTrigger = "EVENTS"
 )
 
 // Configuration for replacing a placeholder string in the ECS task definition template file with an image URI.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CodeDeployEcsContainerImageInput struct {
 	// The artifact that contains an `imageDetails.json` file with the image URI.
@@ -2464,6 +2491,8 @@ type CodeDeployEcsContainerImageInput struct {
 	TaskDefinitionPlaceholder *string `json:"taskDefinitionPlaceholder"`
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type CodeDeployEcsDeployAction interface {
 	Action
@@ -2587,6 +2616,9 @@ func (c *jsiiProxy_CodeDeployEcsDeployAction) VariableExpression(variableName *s
 }
 
 // Construction properties of the {@link CodeDeployEcsDeployAction CodeDeploy ECS deploy CodePipeline Action}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CodeDeployEcsDeployActionProps struct {
 	// The physical, human-readable name of the Action.
@@ -2613,9 +2645,6 @@ type CodeDeployEcsDeployActionProps struct {
 	// method in the {@link ActionBindOptions.role} property.
 	// Experimental.
 	Role awsiam.IRole `json:"role"`
-	// The CodeDeploy ECS Deployment Group to deploy to.
-	// Experimental.
-	DeploymentGroup awscodedeploy.IEcsDeploymentGroup `json:"deploymentGroup"`
 	// The name of the CodeDeploy AppSpec file.
 	//
 	// During deployment, a new task definition will be registered
@@ -2646,6 +2675,9 @@ type CodeDeployEcsDeployActionProps struct {
 	// file prior to deployment. A maximum of 4 images can be given.
 	// Experimental.
 	ContainerImageInputs *[]*CodeDeployEcsContainerImageInput `json:"containerImageInputs"`
+	// The CodeDeploy ECS Deployment Group to deploy to.
+	// Experimental.
+	DeploymentGroup awscodedeploy.IEcsDeploymentGroup `json:"deploymentGroup"`
 	// The name of the ECS task definition template file.
 	//
 	// During deployment, the task definition template file contents
@@ -2985,6 +3017,17 @@ type CodeStarConnectionsSourceActionProps struct {
 	// method in the {@link ActionBindOptions.role} property.
 	// Experimental.
 	Role awsiam.IRole `json:"role"`
+	// The branch to build.
+	// Experimental.
+	Branch *string `json:"branch"`
+	// Whether the output should be the contents of the repository (which is the default), or a link that allows CodeBuild to clone the repository before building.
+	//
+	// **Note**: if this option is true,
+	// then only CodeBuild actions can use the resulting {@link output}.
+	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config
+	//
+	// Experimental.
+	CodeBuildCloneOutput *bool `json:"codeBuildCloneOutput"`
 	// The ARN of the CodeStar Connection created in the AWS console that has permissions to access this GitHub or BitBucket repository.
 	//
 	// TODO: EXAMPLE
@@ -3010,17 +3053,6 @@ type CodeStarConnectionsSourceActionProps struct {
 	//
 	// Experimental.
 	Repo *string `json:"repo"`
-	// The branch to build.
-	// Experimental.
-	Branch *string `json:"branch"`
-	// Whether the output should be the contents of the repository (which is the default), or a link that allows CodeBuild to clone the repository before building.
-	//
-	// **Note**: if this option is true,
-	// then only CodeBuild actions can use the resulting {@link output}.
-	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config
-	//
-	// Experimental.
-	CodeBuildCloneOutput *bool `json:"codeBuildCloneOutput"`
 	// Controls automatically starting your pipeline when a new commit is made on the configured repository and branch.
 	//
 	// If unspecified,
@@ -3213,6 +3245,9 @@ type EcrSourceActionProps struct {
 }
 
 // The CodePipeline variables emitted by the ECR source Action.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EcrSourceVariables struct {
 	// The digest of the current image, in the form '<digest type>:<digest value>'.
@@ -3622,6 +3657,9 @@ type GitHubSourceActionProps struct {
 }
 
 // The CodePipeline variables emitted by GitHub source Action.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type GitHubSourceVariables struct {
 	// The date the currently last commit on the tracked branch was authored, in ISO-8601 format.
@@ -4981,6 +5019,9 @@ type S3SourceActionProps struct {
 }
 
 // The CodePipeline variables emitted by the S3 source Action.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type S3SourceVariables struct {
 	// The e-tag of the S3 version of the object that triggered the build.
@@ -5001,9 +5042,9 @@ type S3SourceVariables struct {
 type S3Trigger string
 
 const (
+	S3Trigger_EVENTS S3Trigger = "EVENTS"
 	S3Trigger_NONE S3Trigger = "NONE"
 	S3Trigger_POLL S3Trigger = "POLL"
-	S3Trigger_EVENTS S3Trigger = "EVENTS"
 )
 
 // CodePipeline action to connect to an existing ServiceCatalog product.

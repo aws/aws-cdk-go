@@ -11,6 +11,9 @@ import (
 )
 
 // A single Application Load Balancer as the target for load balancing.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AlbArnTarget interface {
 	awselasticloadbalancingv2.INetworkLoadBalancerTarget
@@ -131,6 +134,9 @@ func (a *jsiiProxy_AlbTarget) AttachToNetworkTargetGroup(targetGroup awselasticl
 //
 // If you register a target of this type, you are responsible for making
 // sure the load balancer's security group can connect to the instance.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type InstanceIdTarget interface {
 	awselasticloadbalancingv2.IApplicationLoadBalancerTarget
@@ -209,6 +215,8 @@ func (i *jsiiProxy_InstanceIdTarget) AttachToNetworkTargetGroup(targetGroup awse
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type InstanceTarget interface {
 	InstanceIdTarget
@@ -294,6 +302,9 @@ func (i *jsiiProxy_InstanceTarget) AttachToNetworkTargetGroup(targetGroup awsela
 //
 // If you register a target of this type, you are responsible for making
 // sure the load balancer's security group can send packets to the IP address.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type IpTarget interface {
 	awselasticloadbalancingv2.IApplicationLoadBalancerTarget

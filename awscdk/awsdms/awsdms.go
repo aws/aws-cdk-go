@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::DMS::Certificate`.
+//
+// TODO: EXAMPLE
+//
 type CfnCertificate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -636,6 +639,9 @@ func (c *jsiiProxy_CfnCertificate) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::DMS::Certificate`.
+//
+// TODO: EXAMPLE
+//
 type CfnCertificateProps struct {
 	// `AWS::DMS::Certificate.CertificateIdentifier`.
 	CertificateIdentifier *string `json:"certificateIdentifier"`
@@ -646,6 +652,9 @@ type CfnCertificateProps struct {
 }
 
 // A CloudFormation `AWS::DMS::Endpoint`.
+//
+// TODO: EXAMPLE
+//
 type CfnEndpoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1813,6 +1822,8 @@ func (c *jsiiProxy_CfnEndpoint) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpoint_DocDbSettingsProperty struct {
 	// `CfnEndpoint.DocDbSettingsProperty.SecretsManagerAccessRoleArn`.
 	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn"`
@@ -1820,11 +1831,15 @@ type CfnEndpoint_DocDbSettingsProperty struct {
 	SecretsManagerSecretId *string `json:"secretsManagerSecretId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpoint_DynamoDbSettingsProperty struct {
 	// `CfnEndpoint.DynamoDbSettingsProperty.ServiceAccessRoleArn`.
 	ServiceAccessRoleArn *string `json:"serviceAccessRoleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpoint_ElasticsearchSettingsProperty struct {
 	// `CfnEndpoint.ElasticsearchSettingsProperty.EndpointUri`.
 	EndpointUri *string `json:"endpointUri"`
@@ -1836,6 +1851,8 @@ type CfnEndpoint_ElasticsearchSettingsProperty struct {
 	ServiceAccessRoleArn *string `json:"serviceAccessRoleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpoint_IbmDb2SettingsProperty struct {
 	// `CfnEndpoint.IbmDb2SettingsProperty.SecretsManagerAccessRoleArn`.
 	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn"`
@@ -1843,6 +1860,8 @@ type CfnEndpoint_IbmDb2SettingsProperty struct {
 	SecretsManagerSecretId *string `json:"secretsManagerSecretId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpoint_KafkaSettingsProperty struct {
 	// `CfnEndpoint.KafkaSettingsProperty.Broker`.
 	Broker *string `json:"broker"`
@@ -1876,6 +1895,8 @@ type CfnEndpoint_KafkaSettingsProperty struct {
 	Topic *string `json:"topic"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpoint_KinesisSettingsProperty struct {
 	// `CfnEndpoint.KinesisSettingsProperty.IncludeControlDetails`.
 	IncludeControlDetails interface{} `json:"includeControlDetails"`
@@ -1897,6 +1918,8 @@ type CfnEndpoint_KinesisSettingsProperty struct {
 	StreamArn *string `json:"streamArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpoint_MicrosoftSqlServerSettingsProperty struct {
 	// `CfnEndpoint.MicrosoftSqlServerSettingsProperty.SecretsManagerAccessRoleArn`.
 	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn"`
@@ -1904,6 +1927,8 @@ type CfnEndpoint_MicrosoftSqlServerSettingsProperty struct {
 	SecretsManagerSecretId *string `json:"secretsManagerSecretId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpoint_MongoDbSettingsProperty struct {
 	// `CfnEndpoint.MongoDbSettingsProperty.AuthMechanism`.
 	AuthMechanism *string `json:"authMechanism"`
@@ -1933,6 +1958,8 @@ type CfnEndpoint_MongoDbSettingsProperty struct {
 	Username *string `json:"username"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpoint_MySqlSettingsProperty struct {
 	// `CfnEndpoint.MySqlSettingsProperty.SecretsManagerAccessRoleArn`.
 	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn"`
@@ -1940,6 +1967,8 @@ type CfnEndpoint_MySqlSettingsProperty struct {
 	SecretsManagerSecretId *string `json:"secretsManagerSecretId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpoint_NeptuneSettingsProperty struct {
 	// `CfnEndpoint.NeptuneSettingsProperty.ErrorRetryDuration`.
 	ErrorRetryDuration *float64 `json:"errorRetryDuration"`
@@ -1957,6 +1986,8 @@ type CfnEndpoint_NeptuneSettingsProperty struct {
 	ServiceAccessRoleArn *string `json:"serviceAccessRoleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpoint_OracleSettingsProperty struct {
 	// `CfnEndpoint.OracleSettingsProperty.SecretsManagerAccessRoleArn`.
 	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn"`
@@ -1968,6 +1999,8 @@ type CfnEndpoint_OracleSettingsProperty struct {
 	SecretsManagerSecretId *string `json:"secretsManagerSecretId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpoint_PostgreSqlSettingsProperty struct {
 	// `CfnEndpoint.PostgreSqlSettingsProperty.SecretsManagerAccessRoleArn`.
 	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn"`
@@ -1975,6 +2008,8 @@ type CfnEndpoint_PostgreSqlSettingsProperty struct {
 	SecretsManagerSecretId *string `json:"secretsManagerSecretId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpoint_RedisSettingsProperty struct {
 	// `CfnEndpoint.RedisSettingsProperty.AuthPassword`.
 	AuthPassword *string `json:"authPassword"`
@@ -1992,6 +2027,8 @@ type CfnEndpoint_RedisSettingsProperty struct {
 	SslSecurityProtocol *string `json:"sslSecurityProtocol"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpoint_RedshiftSettingsProperty struct {
 	// `CfnEndpoint.RedshiftSettingsProperty.SecretsManagerAccessRoleArn`.
 	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn"`
@@ -1999,6 +2036,8 @@ type CfnEndpoint_RedshiftSettingsProperty struct {
 	SecretsManagerSecretId *string `json:"secretsManagerSecretId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpoint_S3SettingsProperty struct {
 	// `CfnEndpoint.S3SettingsProperty.BucketFolder`.
 	BucketFolder *string `json:"bucketFolder"`
@@ -2016,6 +2055,8 @@ type CfnEndpoint_S3SettingsProperty struct {
 	ServiceAccessRoleArn *string `json:"serviceAccessRoleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpoint_SybaseSettingsProperty struct {
 	// `CfnEndpoint.SybaseSettingsProperty.SecretsManagerAccessRoleArn`.
 	SecretsManagerAccessRoleArn *string `json:"secretsManagerAccessRoleArn"`
@@ -2024,11 +2065,10 @@ type CfnEndpoint_SybaseSettingsProperty struct {
 }
 
 // Properties for defining a `AWS::DMS::Endpoint`.
+//
+// TODO: EXAMPLE
+//
 type CfnEndpointProps struct {
-	// `AWS::DMS::Endpoint.EndpointType`.
-	EndpointType *string `json:"endpointType"`
-	// `AWS::DMS::Endpoint.EngineName`.
-	EngineName *string `json:"engineName"`
 	// `AWS::DMS::Endpoint.CertificateArn`.
 	CertificateArn *string `json:"certificateArn"`
 	// `AWS::DMS::Endpoint.DatabaseName`.
@@ -2041,6 +2081,10 @@ type CfnEndpointProps struct {
 	ElasticsearchSettings interface{} `json:"elasticsearchSettings"`
 	// `AWS::DMS::Endpoint.EndpointIdentifier`.
 	EndpointIdentifier *string `json:"endpointIdentifier"`
+	// `AWS::DMS::Endpoint.EndpointType`.
+	EndpointType *string `json:"endpointType"`
+	// `AWS::DMS::Endpoint.EngineName`.
+	EngineName *string `json:"engineName"`
 	// `AWS::DMS::Endpoint.ExtraConnectionAttributes`.
 	ExtraConnectionAttributes *string `json:"extraConnectionAttributes"`
 	// `AWS::DMS::Endpoint.IbmDb2Settings`.
@@ -2088,6 +2132,9 @@ type CfnEndpointProps struct {
 }
 
 // A CloudFormation `AWS::DMS::EventSubscription`.
+//
+// TODO: EXAMPLE
+//
 type CfnEventSubscription interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2785,13 +2832,16 @@ func (c *jsiiProxy_CfnEventSubscription) ValidateProperties(_properties interfac
 }
 
 // Properties for defining a `AWS::DMS::EventSubscription`.
+//
+// TODO: EXAMPLE
+//
 type CfnEventSubscriptionProps struct {
-	// `AWS::DMS::EventSubscription.SnsTopicArn`.
-	SnsTopicArn *string `json:"snsTopicArn"`
 	// `AWS::DMS::EventSubscription.Enabled`.
 	Enabled interface{} `json:"enabled"`
 	// `AWS::DMS::EventSubscription.EventCategories`.
 	EventCategories *[]*string `json:"eventCategories"`
+	// `AWS::DMS::EventSubscription.SnsTopicArn`.
+	SnsTopicArn *string `json:"snsTopicArn"`
 	// `AWS::DMS::EventSubscription.SourceIds`.
 	SourceIds *[]*string `json:"sourceIds"`
 	// `AWS::DMS::EventSubscription.SourceType`.
@@ -2803,6 +2853,9 @@ type CfnEventSubscriptionProps struct {
 }
 
 // A CloudFormation `AWS::DMS::ReplicationInstance`.
+//
+// TODO: EXAMPLE
+//
 type CfnReplicationInstance interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3682,9 +3735,10 @@ func (c *jsiiProxy_CfnReplicationInstance) ValidateProperties(_properties interf
 }
 
 // Properties for defining a `AWS::DMS::ReplicationInstance`.
+//
+// TODO: EXAMPLE
+//
 type CfnReplicationInstanceProps struct {
-	// `AWS::DMS::ReplicationInstance.ReplicationInstanceClass`.
-	ReplicationInstanceClass *string `json:"replicationInstanceClass"`
 	// `AWS::DMS::ReplicationInstance.AllocatedStorage`.
 	AllocatedStorage *float64 `json:"allocatedStorage"`
 	// `AWS::DMS::ReplicationInstance.AllowMajorVersionUpgrade`.
@@ -3703,6 +3757,8 @@ type CfnReplicationInstanceProps struct {
 	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
 	// `AWS::DMS::ReplicationInstance.PubliclyAccessible`.
 	PubliclyAccessible interface{} `json:"publiclyAccessible"`
+	// `AWS::DMS::ReplicationInstance.ReplicationInstanceClass`.
+	ReplicationInstanceClass *string `json:"replicationInstanceClass"`
 	// `AWS::DMS::ReplicationInstance.ReplicationInstanceIdentifier`.
 	ReplicationInstanceIdentifier *string `json:"replicationInstanceIdentifier"`
 	// `AWS::DMS::ReplicationInstance.ReplicationSubnetGroupIdentifier`.
@@ -3716,6 +3772,9 @@ type CfnReplicationInstanceProps struct {
 }
 
 // A CloudFormation `AWS::DMS::ReplicationSubnetGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnReplicationSubnetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4353,18 +4412,24 @@ func (c *jsiiProxy_CfnReplicationSubnetGroup) ValidateProperties(_properties int
 }
 
 // Properties for defining a `AWS::DMS::ReplicationSubnetGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnReplicationSubnetGroupProps struct {
 	// `AWS::DMS::ReplicationSubnetGroup.ReplicationSubnetGroupDescription`.
 	ReplicationSubnetGroupDescription *string `json:"replicationSubnetGroupDescription"`
-	// `AWS::DMS::ReplicationSubnetGroup.SubnetIds`.
-	SubnetIds *[]*string `json:"subnetIds"`
 	// `AWS::DMS::ReplicationSubnetGroup.ReplicationSubnetGroupIdentifier`.
 	ReplicationSubnetGroupIdentifier *string `json:"replicationSubnetGroupIdentifier"`
+	// `AWS::DMS::ReplicationSubnetGroup.SubnetIds`.
+	SubnetIds *[]*string `json:"subnetIds"`
 	// `AWS::DMS::ReplicationSubnetGroup.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::DMS::ReplicationTask`.
+//
+// TODO: EXAMPLE
+//
 type CfnReplicationTask interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5182,31 +5247,34 @@ func (c *jsiiProxy_CfnReplicationTask) ValidateProperties(_properties interface{
 }
 
 // Properties for defining a `AWS::DMS::ReplicationTask`.
+//
+// TODO: EXAMPLE
+//
 type CfnReplicationTaskProps struct {
-	// `AWS::DMS::ReplicationTask.MigrationType`.
-	MigrationType *string `json:"migrationType"`
-	// `AWS::DMS::ReplicationTask.ReplicationInstanceArn`.
-	ReplicationInstanceArn *string `json:"replicationInstanceArn"`
-	// `AWS::DMS::ReplicationTask.SourceEndpointArn`.
-	SourceEndpointArn *string `json:"sourceEndpointArn"`
-	// `AWS::DMS::ReplicationTask.TableMappings`.
-	TableMappings *string `json:"tableMappings"`
-	// `AWS::DMS::ReplicationTask.TargetEndpointArn`.
-	TargetEndpointArn *string `json:"targetEndpointArn"`
 	// `AWS::DMS::ReplicationTask.CdcStartPosition`.
 	CdcStartPosition *string `json:"cdcStartPosition"`
 	// `AWS::DMS::ReplicationTask.CdcStartTime`.
 	CdcStartTime *float64 `json:"cdcStartTime"`
 	// `AWS::DMS::ReplicationTask.CdcStopPosition`.
 	CdcStopPosition *string `json:"cdcStopPosition"`
+	// `AWS::DMS::ReplicationTask.MigrationType`.
+	MigrationType *string `json:"migrationType"`
+	// `AWS::DMS::ReplicationTask.ReplicationInstanceArn`.
+	ReplicationInstanceArn *string `json:"replicationInstanceArn"`
 	// `AWS::DMS::ReplicationTask.ReplicationTaskIdentifier`.
 	ReplicationTaskIdentifier *string `json:"replicationTaskIdentifier"`
 	// `AWS::DMS::ReplicationTask.ReplicationTaskSettings`.
 	ReplicationTaskSettings *string `json:"replicationTaskSettings"`
 	// `AWS::DMS::ReplicationTask.ResourceIdentifier`.
 	ResourceIdentifier *string `json:"resourceIdentifier"`
+	// `AWS::DMS::ReplicationTask.SourceEndpointArn`.
+	SourceEndpointArn *string `json:"sourceEndpointArn"`
+	// `AWS::DMS::ReplicationTask.TableMappings`.
+	TableMappings *string `json:"tableMappings"`
 	// `AWS::DMS::ReplicationTask.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::DMS::ReplicationTask.TargetEndpointArn`.
+	TargetEndpointArn *string `json:"targetEndpointArn"`
 	// `AWS::DMS::ReplicationTask.TaskData`.
 	TaskData *string `json:"taskData"`
 }

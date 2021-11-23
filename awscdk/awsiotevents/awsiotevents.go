@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::IoTEvents::DetectorModel`.
+//
+// TODO: EXAMPLE
+//
 type CfnDetectorModel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -706,6 +709,8 @@ func (c *jsiiProxy_CfnDetectorModel) ValidateProperties(_properties interface{})
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetectorModel_ActionProperty struct {
 	// `CfnDetectorModel.ActionProperty.ClearTimer`.
 	ClearTimer interface{} `json:"clearTimer"`
@@ -735,22 +740,28 @@ type CfnDetectorModel_ActionProperty struct {
 	Sqs interface{} `json:"sqs"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetectorModel_AssetPropertyTimestampProperty struct {
-	// `CfnDetectorModel.AssetPropertyTimestampProperty.TimeInSeconds`.
-	TimeInSeconds *string `json:"timeInSeconds"`
 	// `CfnDetectorModel.AssetPropertyTimestampProperty.OffsetInNanos`.
 	OffsetInNanos *string `json:"offsetInNanos"`
+	// `CfnDetectorModel.AssetPropertyTimestampProperty.TimeInSeconds`.
+	TimeInSeconds *string `json:"timeInSeconds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetectorModel_AssetPropertyValueProperty struct {
-	// `CfnDetectorModel.AssetPropertyValueProperty.Value`.
-	Value interface{} `json:"value"`
 	// `CfnDetectorModel.AssetPropertyValueProperty.Quality`.
 	Quality *string `json:"quality"`
 	// `CfnDetectorModel.AssetPropertyValueProperty.Timestamp`.
 	Timestamp interface{} `json:"timestamp"`
+	// `CfnDetectorModel.AssetPropertyValueProperty.Value`.
+	Value interface{} `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetectorModel_AssetPropertyVariantProperty struct {
 	// `CfnDetectorModel.AssetPropertyVariantProperty.BooleanValue`.
 	BooleanValue *string `json:"booleanValue"`
@@ -762,11 +773,15 @@ type CfnDetectorModel_AssetPropertyVariantProperty struct {
 	StringValue *string `json:"stringValue"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetectorModel_ClearTimerProperty struct {
 	// `CfnDetectorModel.ClearTimerProperty.TimerName`.
 	TimerName *string `json:"timerName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetectorModel_DetectorModelDefinitionProperty struct {
 	// `CfnDetectorModel.DetectorModelDefinitionProperty.InitialStateName`.
 	InitialStateName *string `json:"initialStateName"`
@@ -774,15 +789,15 @@ type CfnDetectorModel_DetectorModelDefinitionProperty struct {
 	States interface{} `json:"states"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetectorModel_DynamoDBProperty struct {
 	// `CfnDetectorModel.DynamoDBProperty.HashKeyField`.
 	HashKeyField *string `json:"hashKeyField"`
-	// `CfnDetectorModel.DynamoDBProperty.HashKeyValue`.
-	HashKeyValue *string `json:"hashKeyValue"`
-	// `CfnDetectorModel.DynamoDBProperty.TableName`.
-	TableName *string `json:"tableName"`
 	// `CfnDetectorModel.DynamoDBProperty.HashKeyType`.
 	HashKeyType *string `json:"hashKeyType"`
+	// `CfnDetectorModel.DynamoDBProperty.HashKeyValue`.
+	HashKeyValue *string `json:"hashKeyValue"`
 	// `CfnDetectorModel.DynamoDBProperty.Operation`.
 	Operation *string `json:"operation"`
 	// `CfnDetectorModel.DynamoDBProperty.Payload`.
@@ -795,24 +810,32 @@ type CfnDetectorModel_DynamoDBProperty struct {
 	RangeKeyType *string `json:"rangeKeyType"`
 	// `CfnDetectorModel.DynamoDBProperty.RangeKeyValue`.
 	RangeKeyValue *string `json:"rangeKeyValue"`
+	// `CfnDetectorModel.DynamoDBProperty.TableName`.
+	TableName *string `json:"tableName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetectorModel_DynamoDBv2Property struct {
-	// `CfnDetectorModel.DynamoDBv2Property.TableName`.
-	TableName *string `json:"tableName"`
 	// `CfnDetectorModel.DynamoDBv2Property.Payload`.
 	Payload interface{} `json:"payload"`
+	// `CfnDetectorModel.DynamoDBv2Property.TableName`.
+	TableName *string `json:"tableName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetectorModel_EventProperty struct {
-	// `CfnDetectorModel.EventProperty.EventName`.
-	EventName *string `json:"eventName"`
 	// `CfnDetectorModel.EventProperty.Actions`.
 	Actions interface{} `json:"actions"`
 	// `CfnDetectorModel.EventProperty.Condition`.
 	Condition *string `json:"condition"`
+	// `CfnDetectorModel.EventProperty.EventName`.
+	EventName *string `json:"eventName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetectorModel_FirehoseProperty struct {
 	// `CfnDetectorModel.FirehoseProperty.DeliveryStreamName`.
 	DeliveryStreamName *string `json:"deliveryStreamName"`
@@ -822,6 +845,8 @@ type CfnDetectorModel_FirehoseProperty struct {
 	Separator *string `json:"separator"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetectorModel_IotEventsProperty struct {
 	// `CfnDetectorModel.IotEventsProperty.InputName`.
 	InputName *string `json:"inputName"`
@@ -829,9 +854,9 @@ type CfnDetectorModel_IotEventsProperty struct {
 	Payload interface{} `json:"payload"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetectorModel_IotSiteWiseProperty struct {
-	// `CfnDetectorModel.IotSiteWiseProperty.PropertyValue`.
-	PropertyValue interface{} `json:"propertyValue"`
 	// `CfnDetectorModel.IotSiteWiseProperty.AssetId`.
 	AssetId *string `json:"assetId"`
 	// `CfnDetectorModel.IotSiteWiseProperty.EntryId`.
@@ -840,8 +865,12 @@ type CfnDetectorModel_IotSiteWiseProperty struct {
 	PropertyAlias *string `json:"propertyAlias"`
 	// `CfnDetectorModel.IotSiteWiseProperty.PropertyId`.
 	PropertyId *string `json:"propertyId"`
+	// `CfnDetectorModel.IotSiteWiseProperty.PropertyValue`.
+	PropertyValue interface{} `json:"propertyValue"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetectorModel_IotTopicPublishProperty struct {
 	// `CfnDetectorModel.IotTopicPublishProperty.MqttTopic`.
 	MqttTopic *string `json:"mqttTopic"`
@@ -849,6 +878,8 @@ type CfnDetectorModel_IotTopicPublishProperty struct {
 	Payload interface{} `json:"payload"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetectorModel_LambdaProperty struct {
 	// `CfnDetectorModel.LambdaProperty.FunctionArn`.
 	FunctionArn *string `json:"functionArn"`
@@ -856,16 +887,22 @@ type CfnDetectorModel_LambdaProperty struct {
 	Payload interface{} `json:"payload"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetectorModel_OnEnterProperty struct {
 	// `CfnDetectorModel.OnEnterProperty.Events`.
 	Events interface{} `json:"events"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetectorModel_OnExitProperty struct {
 	// `CfnDetectorModel.OnExitProperty.Events`.
 	Events interface{} `json:"events"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetectorModel_OnInputProperty struct {
 	// `CfnDetectorModel.OnInputProperty.Events`.
 	Events interface{} `json:"events"`
@@ -873,6 +910,8 @@ type CfnDetectorModel_OnInputProperty struct {
 	TransitionEvents interface{} `json:"transitionEvents"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetectorModel_PayloadProperty struct {
 	// `CfnDetectorModel.PayloadProperty.ContentExpression`.
 	ContentExpression *string `json:"contentExpression"`
@@ -880,20 +919,26 @@ type CfnDetectorModel_PayloadProperty struct {
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetectorModel_ResetTimerProperty struct {
 	// `CfnDetectorModel.ResetTimerProperty.TimerName`.
 	TimerName *string `json:"timerName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetectorModel_SetTimerProperty struct {
-	// `CfnDetectorModel.SetTimerProperty.TimerName`.
-	TimerName *string `json:"timerName"`
 	// `CfnDetectorModel.SetTimerProperty.DurationExpression`.
 	DurationExpression *string `json:"durationExpression"`
 	// `CfnDetectorModel.SetTimerProperty.Seconds`.
 	Seconds *float64 `json:"seconds"`
+	// `CfnDetectorModel.SetTimerProperty.TimerName`.
+	TimerName *string `json:"timerName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetectorModel_SetVariableProperty struct {
 	// `CfnDetectorModel.SetVariableProperty.Value`.
 	Value *string `json:"value"`
@@ -901,50 +946,59 @@ type CfnDetectorModel_SetVariableProperty struct {
 	VariableName *string `json:"variableName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetectorModel_SnsProperty struct {
-	// `CfnDetectorModel.SnsProperty.TargetArn`.
-	TargetArn *string `json:"targetArn"`
 	// `CfnDetectorModel.SnsProperty.Payload`.
 	Payload interface{} `json:"payload"`
+	// `CfnDetectorModel.SnsProperty.TargetArn`.
+	TargetArn *string `json:"targetArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetectorModel_SqsProperty struct {
-	// `CfnDetectorModel.SqsProperty.QueueUrl`.
-	QueueUrl *string `json:"queueUrl"`
 	// `CfnDetectorModel.SqsProperty.Payload`.
 	Payload interface{} `json:"payload"`
+	// `CfnDetectorModel.SqsProperty.QueueUrl`.
+	QueueUrl *string `json:"queueUrl"`
 	// `CfnDetectorModel.SqsProperty.UseBase64`.
 	UseBase64 interface{} `json:"useBase64"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetectorModel_StateProperty struct {
-	// `CfnDetectorModel.StateProperty.StateName`.
-	StateName *string `json:"stateName"`
 	// `CfnDetectorModel.StateProperty.OnEnter`.
 	OnEnter interface{} `json:"onEnter"`
 	// `CfnDetectorModel.StateProperty.OnExit`.
 	OnExit interface{} `json:"onExit"`
 	// `CfnDetectorModel.StateProperty.OnInput`.
 	OnInput interface{} `json:"onInput"`
+	// `CfnDetectorModel.StateProperty.StateName`.
+	StateName *string `json:"stateName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDetectorModel_TransitionEventProperty struct {
+	// `CfnDetectorModel.TransitionEventProperty.Actions`.
+	Actions interface{} `json:"actions"`
 	// `CfnDetectorModel.TransitionEventProperty.Condition`.
 	Condition *string `json:"condition"`
 	// `CfnDetectorModel.TransitionEventProperty.EventName`.
 	EventName *string `json:"eventName"`
 	// `CfnDetectorModel.TransitionEventProperty.NextState`.
 	NextState *string `json:"nextState"`
-	// `CfnDetectorModel.TransitionEventProperty.Actions`.
-	Actions interface{} `json:"actions"`
 }
 
 // Properties for defining a `AWS::IoTEvents::DetectorModel`.
+//
+// TODO: EXAMPLE
+//
 type CfnDetectorModelProps struct {
 	// `AWS::IoTEvents::DetectorModel.DetectorModelDefinition`.
 	DetectorModelDefinition interface{} `json:"detectorModelDefinition"`
-	// `AWS::IoTEvents::DetectorModel.RoleArn`.
-	RoleArn *string `json:"roleArn"`
 	// `AWS::IoTEvents::DetectorModel.DetectorModelDescription`.
 	DetectorModelDescription *string `json:"detectorModelDescription"`
 	// `AWS::IoTEvents::DetectorModel.DetectorModelName`.
@@ -953,11 +1007,16 @@ type CfnDetectorModelProps struct {
 	EvaluationMethod *string `json:"evaluationMethod"`
 	// `AWS::IoTEvents::DetectorModel.Key`.
 	Key *string `json:"key"`
+	// `AWS::IoTEvents::DetectorModel.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 	// `AWS::IoTEvents::DetectorModel.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::IoTEvents::Input`.
+//
+// TODO: EXAMPLE
+//
 type CfnInput interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1594,17 +1653,24 @@ func (c *jsiiProxy_CfnInput) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnInput_AttributeProperty struct {
 	// `CfnInput.AttributeProperty.JsonPath`.
 	JsonPath *string `json:"jsonPath"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInput_InputDefinitionProperty struct {
 	// `CfnInput.InputDefinitionProperty.Attributes`.
 	Attributes interface{} `json:"attributes"`
 }
 
 // Properties for defining a `AWS::IoTEvents::Input`.
+//
+// TODO: EXAMPLE
+//
 type CfnInputProps struct {
 	// `AWS::IoTEvents::Input.InputDefinition`.
 	InputDefinition interface{} `json:"inputDefinition"`

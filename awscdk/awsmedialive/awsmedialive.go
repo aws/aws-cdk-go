@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::MediaLive::Channel`.
+//
+// TODO: EXAMPLE
+//
 type CfnChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -808,6 +811,8 @@ func (c *jsiiProxy_CfnChannel) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_AacSettingsProperty struct {
 	// `CfnChannel.AacSettingsProperty.Bitrate`.
 	Bitrate *float64 `json:"bitrate"`
@@ -829,6 +834,8 @@ type CfnChannel_AacSettingsProperty struct {
 	VbrQuality *string `json:"vbrQuality"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_Ac3SettingsProperty struct {
 	// `CfnChannel.Ac3SettingsProperty.Bitrate`.
 	Bitrate *float64 `json:"bitrate"`
@@ -846,16 +853,22 @@ type CfnChannel_Ac3SettingsProperty struct {
 	MetadataControl *string `json:"metadataControl"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_AncillarySourceSettingsProperty struct {
 	// `CfnChannel.AncillarySourceSettingsProperty.SourceAncillaryChannelNumber`.
 	SourceAncillaryChannelNumber *float64 `json:"sourceAncillaryChannelNumber"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_ArchiveCdnSettingsProperty struct {
 	// `CfnChannel.ArchiveCdnSettingsProperty.ArchiveS3Settings`.
 	ArchiveS3Settings interface{} `json:"archiveS3Settings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_ArchiveContainerSettingsProperty struct {
 	// `CfnChannel.ArchiveContainerSettingsProperty.M2tsSettings`.
 	M2TsSettings interface{} `json:"m2TsSettings"`
@@ -863,6 +876,8 @@ type CfnChannel_ArchiveContainerSettingsProperty struct {
 	RawSettings interface{} `json:"rawSettings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_ArchiveGroupSettingsProperty struct {
 	// `CfnChannel.ArchiveGroupSettingsProperty.ArchiveCdnSettings`.
 	ArchiveCdnSettings interface{} `json:"archiveCdnSettings"`
@@ -872,6 +887,8 @@ type CfnChannel_ArchiveGroupSettingsProperty struct {
 	RolloverInterval *float64 `json:"rolloverInterval"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_ArchiveOutputSettingsProperty struct {
 	// `CfnChannel.ArchiveOutputSettingsProperty.ContainerSettings`.
 	ContainerSettings interface{} `json:"containerSettings"`
@@ -881,17 +898,25 @@ type CfnChannel_ArchiveOutputSettingsProperty struct {
 	NameModifier *string `json:"nameModifier"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_ArchiveS3SettingsProperty struct {
 	// `CfnChannel.ArchiveS3SettingsProperty.CannedAcl`.
 	CannedAcl *string `json:"cannedAcl"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_AribDestinationSettingsProperty struct {
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_AribSourceSettingsProperty struct {
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_AudioChannelMappingProperty struct {
 	// `CfnChannel.AudioChannelMappingProperty.InputChannelLevels`.
 	InputChannelLevels interface{} `json:"inputChannelLevels"`
@@ -899,6 +924,8 @@ type CfnChannel_AudioChannelMappingProperty struct {
 	OutputChannel *float64 `json:"outputChannel"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_AudioCodecSettingsProperty struct {
 	// `CfnChannel.AudioCodecSettingsProperty.AacSettings`.
 	AacSettings interface{} `json:"aacSettings"`
@@ -914,6 +941,8 @@ type CfnChannel_AudioCodecSettingsProperty struct {
 	WavSettings interface{} `json:"wavSettings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_AudioDescriptionProperty struct {
 	// `CfnChannel.AudioDescriptionProperty.AudioNormalizationSettings`.
 	AudioNormalizationSettings interface{} `json:"audioNormalizationSettings"`
@@ -937,6 +966,8 @@ type CfnChannel_AudioDescriptionProperty struct {
 	StreamName *string `json:"streamName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_AudioLanguageSelectionProperty struct {
 	// `CfnChannel.AudioLanguageSelectionProperty.LanguageCode`.
 	LanguageCode *string `json:"languageCode"`
@@ -944,6 +975,8 @@ type CfnChannel_AudioLanguageSelectionProperty struct {
 	LanguageSelectionPolicy *string `json:"languageSelectionPolicy"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_AudioNormalizationSettingsProperty struct {
 	// `CfnChannel.AudioNormalizationSettingsProperty.Algorithm`.
 	Algorithm *string `json:"algorithm"`
@@ -953,6 +986,8 @@ type CfnChannel_AudioNormalizationSettingsProperty struct {
 	TargetLkfs *float64 `json:"targetLkfs"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_AudioOnlyHlsSettingsProperty struct {
 	// `CfnChannel.AudioOnlyHlsSettingsProperty.AudioGroupId`.
 	AudioGroupId *string `json:"audioGroupId"`
@@ -964,11 +999,15 @@ type CfnChannel_AudioOnlyHlsSettingsProperty struct {
 	SegmentType *string `json:"segmentType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_AudioPidSelectionProperty struct {
 	// `CfnChannel.AudioPidSelectionProperty.Pid`.
 	Pid *float64 `json:"pid"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_AudioSelectorProperty struct {
 	// `CfnChannel.AudioSelectorProperty.Name`.
 	Name *string `json:"name"`
@@ -976,6 +1015,8 @@ type CfnChannel_AudioSelectorProperty struct {
 	SelectorSettings interface{} `json:"selectorSettings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_AudioSelectorSettingsProperty struct {
 	// `CfnChannel.AudioSelectorSettingsProperty.AudioLanguageSelection`.
 	AudioLanguageSelection interface{} `json:"audioLanguageSelection"`
@@ -985,6 +1026,8 @@ type CfnChannel_AudioSelectorSettingsProperty struct {
 	AudioTrackSelection interface{} `json:"audioTrackSelection"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_AudioSilenceFailoverSettingsProperty struct {
 	// `CfnChannel.AudioSilenceFailoverSettingsProperty.AudioSelectorName`.
 	AudioSelectorName *string `json:"audioSelectorName"`
@@ -992,16 +1035,22 @@ type CfnChannel_AudioSilenceFailoverSettingsProperty struct {
 	AudioSilenceThresholdMsec *float64 `json:"audioSilenceThresholdMsec"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_AudioTrackProperty struct {
 	// `CfnChannel.AudioTrackProperty.Track`.
 	Track *float64 `json:"track"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_AudioTrackSelectionProperty struct {
 	// `CfnChannel.AudioTrackSelectionProperty.Tracks`.
 	Tracks interface{} `json:"tracks"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_AutomaticInputFailoverSettingsProperty struct {
 	// `CfnChannel.AutomaticInputFailoverSettingsProperty.ErrorClearTimeMsec`.
 	ErrorClearTimeMsec *float64 `json:"errorClearTimeMsec"`
@@ -1013,6 +1062,8 @@ type CfnChannel_AutomaticInputFailoverSettingsProperty struct {
 	SecondaryInputId *string `json:"secondaryInputId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_AvailBlankingProperty struct {
 	// `CfnChannel.AvailBlankingProperty.AvailBlankingImage`.
 	AvailBlankingImage interface{} `json:"availBlankingImage"`
@@ -1020,11 +1071,15 @@ type CfnChannel_AvailBlankingProperty struct {
 	State *string `json:"state"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_AvailConfigurationProperty struct {
 	// `CfnChannel.AvailConfigurationProperty.AvailSettings`.
 	AvailSettings interface{} `json:"availSettings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_AvailSettingsProperty struct {
 	// `CfnChannel.AvailSettingsProperty.Scte35SpliceInsert`.
 	Scte35SpliceInsert interface{} `json:"scte35SpliceInsert"`
@@ -1032,6 +1087,8 @@ type CfnChannel_AvailSettingsProperty struct {
 	Scte35TimeSignalApos interface{} `json:"scte35TimeSignalApos"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_BlackoutSlateProperty struct {
 	// `CfnChannel.BlackoutSlateProperty.BlackoutSlateImage`.
 	BlackoutSlateImage interface{} `json:"blackoutSlateImage"`
@@ -1045,6 +1102,8 @@ type CfnChannel_BlackoutSlateProperty struct {
 	State *string `json:"state"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_BurnInDestinationSettingsProperty struct {
 	// `CfnChannel.BurnInDestinationSettingsProperty.Alignment`.
 	Alignment *string `json:"alignment"`
@@ -1082,6 +1141,8 @@ type CfnChannel_BurnInDestinationSettingsProperty struct {
 	YPosition *float64 `json:"yPosition"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_CaptionDescriptionProperty struct {
 	// `CfnChannel.CaptionDescriptionProperty.CaptionSelectorName`.
 	CaptionSelectorName *string `json:"captionSelectorName"`
@@ -1095,6 +1156,8 @@ type CfnChannel_CaptionDescriptionProperty struct {
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_CaptionDestinationSettingsProperty struct {
 	// `CfnChannel.CaptionDestinationSettingsProperty.AribDestinationSettings`.
 	AribDestinationSettings interface{} `json:"aribDestinationSettings"`
@@ -1124,6 +1187,8 @@ type CfnChannel_CaptionDestinationSettingsProperty struct {
 	WebvttDestinationSettings interface{} `json:"webvttDestinationSettings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_CaptionLanguageMappingProperty struct {
 	// `CfnChannel.CaptionLanguageMappingProperty.CaptionChannel`.
 	CaptionChannel *float64 `json:"captionChannel"`
@@ -1133,6 +1198,8 @@ type CfnChannel_CaptionLanguageMappingProperty struct {
 	LanguageDescription *string `json:"languageDescription"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_CaptionRectangleProperty struct {
 	// `CfnChannel.CaptionRectangleProperty.Height`.
 	Height *float64 `json:"height"`
@@ -1144,6 +1211,8 @@ type CfnChannel_CaptionRectangleProperty struct {
 	Width *float64 `json:"width"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_CaptionSelectorProperty struct {
 	// `CfnChannel.CaptionSelectorProperty.LanguageCode`.
 	LanguageCode *string `json:"languageCode"`
@@ -1153,6 +1222,8 @@ type CfnChannel_CaptionSelectorProperty struct {
 	SelectorSettings interface{} `json:"selectorSettings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_CaptionSelectorSettingsProperty struct {
 	// `CfnChannel.CaptionSelectorSettingsProperty.AncillarySourceSettings`.
 	AncillarySourceSettings interface{} `json:"ancillarySourceSettings"`
@@ -1170,14 +1241,20 @@ type CfnChannel_CaptionSelectorSettingsProperty struct {
 	TeletextSourceSettings interface{} `json:"teletextSourceSettings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_CdiInputSpecificationProperty struct {
 	// `CfnChannel.CdiInputSpecificationProperty.Resolution`.
 	Resolution *string `json:"resolution"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_ColorSpacePassthroughSettingsProperty struct {
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_DvbNitSettingsProperty struct {
 	// `CfnChannel.DvbNitSettingsProperty.NetworkId`.
 	NetworkId *float64 `json:"networkId"`
@@ -1187,6 +1264,8 @@ type CfnChannel_DvbNitSettingsProperty struct {
 	RepInterval *float64 `json:"repInterval"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_DvbSdtSettingsProperty struct {
 	// `CfnChannel.DvbSdtSettingsProperty.OutputSdt`.
 	OutputSdt *string `json:"outputSdt"`
@@ -1198,6 +1277,8 @@ type CfnChannel_DvbSdtSettingsProperty struct {
 	ServiceProviderName *string `json:"serviceProviderName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_DvbSubDestinationSettingsProperty struct {
 	// `CfnChannel.DvbSubDestinationSettingsProperty.Alignment`.
 	Alignment *string `json:"alignment"`
@@ -1235,16 +1316,22 @@ type CfnChannel_DvbSubDestinationSettingsProperty struct {
 	YPosition *float64 `json:"yPosition"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_DvbSubSourceSettingsProperty struct {
 	// `CfnChannel.DvbSubSourceSettingsProperty.Pid`.
 	Pid *float64 `json:"pid"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_DvbTdtSettingsProperty struct {
 	// `CfnChannel.DvbTdtSettingsProperty.RepInterval`.
 	RepInterval *float64 `json:"repInterval"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_Eac3SettingsProperty struct {
 	// `CfnChannel.Eac3SettingsProperty.AttenuationControl`.
 	AttenuationControl *string `json:"attenuationControl"`
@@ -1288,6 +1375,8 @@ type CfnChannel_Eac3SettingsProperty struct {
 	SurroundMode *string `json:"surroundMode"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_EbuTtDDestinationSettingsProperty struct {
 	// `CfnChannel.EbuTtDDestinationSettingsProperty.CopyrightHolder`.
 	CopyrightHolder *string `json:"copyrightHolder"`
@@ -1299,12 +1388,18 @@ type CfnChannel_EbuTtDDestinationSettingsProperty struct {
 	StyleControl *string `json:"styleControl"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_EmbeddedDestinationSettingsProperty struct {
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_EmbeddedPlusScte20DestinationSettingsProperty struct {
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_EmbeddedSourceSettingsProperty struct {
 	// `CfnChannel.EmbeddedSourceSettingsProperty.Convert608To708`.
 	Convert608To708 *string `json:"convert608To708"`
@@ -1316,6 +1411,8 @@ type CfnChannel_EmbeddedSourceSettingsProperty struct {
 	Source608TrackNumber *float64 `json:"source608TrackNumber"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_EncoderSettingsProperty struct {
 	// `CfnChannel.EncoderSettingsProperty.AudioDescriptions`.
 	AudioDescriptions interface{} `json:"audioDescriptions"`
@@ -1343,11 +1440,15 @@ type CfnChannel_EncoderSettingsProperty struct {
 	VideoDescriptions interface{} `json:"videoDescriptions"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_FailoverConditionProperty struct {
 	// `CfnChannel.FailoverConditionProperty.FailoverConditionSettings`.
 	FailoverConditionSettings interface{} `json:"failoverConditionSettings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_FailoverConditionSettingsProperty struct {
 	// `CfnChannel.FailoverConditionSettingsProperty.AudioSilenceSettings`.
 	AudioSilenceSettings interface{} `json:"audioSilenceSettings"`
@@ -1357,11 +1458,15 @@ type CfnChannel_FailoverConditionSettingsProperty struct {
 	VideoBlackSettings interface{} `json:"videoBlackSettings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_FeatureActivationsProperty struct {
 	// `CfnChannel.FeatureActivationsProperty.InputPrepareScheduleActions`.
 	InputPrepareScheduleActions *string `json:"inputPrepareScheduleActions"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_FecOutputSettingsProperty struct {
 	// `CfnChannel.FecOutputSettingsProperty.ColumnDepth`.
 	ColumnDepth *float64 `json:"columnDepth"`
@@ -1371,6 +1476,8 @@ type CfnChannel_FecOutputSettingsProperty struct {
 	RowLength *float64 `json:"rowLength"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_Fmp4HlsSettingsProperty struct {
 	// `CfnChannel.Fmp4HlsSettingsProperty.AudioRenditionSets`.
 	AudioRenditionSets *string `json:"audioRenditionSets"`
@@ -1380,11 +1487,15 @@ type CfnChannel_Fmp4HlsSettingsProperty struct {
 	TimedMetadataBehavior *string `json:"timedMetadataBehavior"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_FrameCaptureCdnSettingsProperty struct {
 	// `CfnChannel.FrameCaptureCdnSettingsProperty.FrameCaptureS3Settings`.
 	FrameCaptureS3Settings interface{} `json:"frameCaptureS3Settings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_FrameCaptureGroupSettingsProperty struct {
 	// `CfnChannel.FrameCaptureGroupSettingsProperty.Destination`.
 	Destination interface{} `json:"destination"`
@@ -1392,19 +1503,27 @@ type CfnChannel_FrameCaptureGroupSettingsProperty struct {
 	FrameCaptureCdnSettings interface{} `json:"frameCaptureCdnSettings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_FrameCaptureHlsSettingsProperty struct {
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_FrameCaptureOutputSettingsProperty struct {
 	// `CfnChannel.FrameCaptureOutputSettingsProperty.NameModifier`.
 	NameModifier *string `json:"nameModifier"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_FrameCaptureS3SettingsProperty struct {
 	// `CfnChannel.FrameCaptureS3SettingsProperty.CannedAcl`.
 	CannedAcl *string `json:"cannedAcl"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_FrameCaptureSettingsProperty struct {
 	// `CfnChannel.FrameCaptureSettingsProperty.CaptureInterval`.
 	CaptureInterval *float64 `json:"captureInterval"`
@@ -1412,6 +1531,8 @@ type CfnChannel_FrameCaptureSettingsProperty struct {
 	CaptureIntervalUnits *string `json:"captureIntervalUnits"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_GlobalConfigurationProperty struct {
 	// `CfnChannel.GlobalConfigurationProperty.InitialAudioGain`.
 	InitialAudioGain *float64 `json:"initialAudioGain"`
@@ -1427,6 +1548,8 @@ type CfnChannel_GlobalConfigurationProperty struct {
 	SupportLowFramerateInputs *string `json:"supportLowFramerateInputs"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_H264ColorSpaceSettingsProperty struct {
 	// `CfnChannel.H264ColorSpaceSettingsProperty.ColorSpacePassthroughSettings`.
 	ColorSpacePassthroughSettings interface{} `json:"colorSpacePassthroughSettings"`
@@ -1436,11 +1559,15 @@ type CfnChannel_H264ColorSpaceSettingsProperty struct {
 	Rec709Settings interface{} `json:"rec709Settings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_H264FilterSettingsProperty struct {
 	// `CfnChannel.H264FilterSettingsProperty.TemporalFilterSettings`.
 	TemporalFilterSettings interface{} `json:"temporalFilterSettings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_H264SettingsProperty struct {
 	// `CfnChannel.H264SettingsProperty.AdaptiveQuantization`.
 	AdaptiveQuantization *string `json:"adaptiveQuantization"`
@@ -1526,6 +1653,8 @@ type CfnChannel_H264SettingsProperty struct {
 	TimecodeInsertion *string `json:"timecodeInsertion"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_H265ColorSpaceSettingsProperty struct {
 	// `CfnChannel.H265ColorSpaceSettingsProperty.ColorSpacePassthroughSettings`.
 	ColorSpacePassthroughSettings interface{} `json:"colorSpacePassthroughSettings"`
@@ -1537,11 +1666,15 @@ type CfnChannel_H265ColorSpaceSettingsProperty struct {
 	Rec709Settings interface{} `json:"rec709Settings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_H265FilterSettingsProperty struct {
 	// `CfnChannel.H265FilterSettingsProperty.TemporalFilterSettings`.
 	TemporalFilterSettings interface{} `json:"temporalFilterSettings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_H265SettingsProperty struct {
 	// `CfnChannel.H265SettingsProperty.AdaptiveQuantization`.
 	AdaptiveQuantization *string `json:"adaptiveQuantization"`
@@ -1603,6 +1736,8 @@ type CfnChannel_H265SettingsProperty struct {
 	TimecodeInsertion *string `json:"timecodeInsertion"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_Hdr10SettingsProperty struct {
 	// `CfnChannel.Hdr10SettingsProperty.MaxCll`.
 	MaxCll *float64 `json:"maxCll"`
@@ -1610,6 +1745,8 @@ type CfnChannel_Hdr10SettingsProperty struct {
 	MaxFall *float64 `json:"maxFall"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_HlsAkamaiSettingsProperty struct {
 	// `CfnChannel.HlsAkamaiSettingsProperty.ConnectionRetryInterval`.
 	ConnectionRetryInterval *float64 `json:"connectionRetryInterval"`
@@ -1627,6 +1764,8 @@ type CfnChannel_HlsAkamaiSettingsProperty struct {
 	Token *string `json:"token"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_HlsBasicPutSettingsProperty struct {
 	// `CfnChannel.HlsBasicPutSettingsProperty.ConnectionRetryInterval`.
 	ConnectionRetryInterval *float64 `json:"connectionRetryInterval"`
@@ -1638,6 +1777,8 @@ type CfnChannel_HlsBasicPutSettingsProperty struct {
 	RestartDelay *float64 `json:"restartDelay"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_HlsCdnSettingsProperty struct {
 	// `CfnChannel.HlsCdnSettingsProperty.HlsAkamaiSettings`.
 	HlsAkamaiSettings interface{} `json:"hlsAkamaiSettings"`
@@ -1651,6 +1792,8 @@ type CfnChannel_HlsCdnSettingsProperty struct {
 	HlsWebdavSettings interface{} `json:"hlsWebdavSettings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_HlsGroupSettingsProperty struct {
 	// `CfnChannel.HlsGroupSettingsProperty.AdMarkers`.
 	AdMarkers *[]*string `json:"adMarkers"`
@@ -1738,6 +1881,8 @@ type CfnChannel_HlsGroupSettingsProperty struct {
 	TsFileMode *string `json:"tsFileMode"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_HlsInputSettingsProperty struct {
 	// `CfnChannel.HlsInputSettingsProperty.Bandwidth`.
 	Bandwidth *float64 `json:"bandwidth"`
@@ -1749,6 +1894,8 @@ type CfnChannel_HlsInputSettingsProperty struct {
 	RetryInterval *float64 `json:"retryInterval"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_HlsMediaStoreSettingsProperty struct {
 	// `CfnChannel.HlsMediaStoreSettingsProperty.ConnectionRetryInterval`.
 	ConnectionRetryInterval *float64 `json:"connectionRetryInterval"`
@@ -1762,6 +1909,8 @@ type CfnChannel_HlsMediaStoreSettingsProperty struct {
 	RestartDelay *float64 `json:"restartDelay"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_HlsOutputSettingsProperty struct {
 	// `CfnChannel.HlsOutputSettingsProperty.H265PackagingType`.
 	H265PackagingType *string `json:"h265PackagingType"`
@@ -1773,11 +1922,15 @@ type CfnChannel_HlsOutputSettingsProperty struct {
 	SegmentModifier *string `json:"segmentModifier"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_HlsS3SettingsProperty struct {
 	// `CfnChannel.HlsS3SettingsProperty.CannedAcl`.
 	CannedAcl *string `json:"cannedAcl"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_HlsSettingsProperty struct {
 	// `CfnChannel.HlsSettingsProperty.AudioOnlyHlsSettings`.
 	AudioOnlyHlsSettings interface{} `json:"audioOnlyHlsSettings"`
@@ -1789,6 +1942,8 @@ type CfnChannel_HlsSettingsProperty struct {
 	StandardHlsSettings interface{} `json:"standardHlsSettings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_HlsWebdavSettingsProperty struct {
 	// `CfnChannel.HlsWebdavSettingsProperty.ConnectionRetryInterval`.
 	ConnectionRetryInterval *float64 `json:"connectionRetryInterval"`
@@ -1802,9 +1957,13 @@ type CfnChannel_HlsWebdavSettingsProperty struct {
 	RestartDelay *float64 `json:"restartDelay"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_HtmlMotionGraphicsSettingsProperty struct {
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_InputAttachmentProperty struct {
 	// `CfnChannel.InputAttachmentProperty.AutomaticInputFailoverSettings`.
 	AutomaticInputFailoverSettings interface{} `json:"automaticInputFailoverSettings"`
@@ -1816,6 +1975,8 @@ type CfnChannel_InputAttachmentProperty struct {
 	InputSettings interface{} `json:"inputSettings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_InputChannelLevelProperty struct {
 	// `CfnChannel.InputChannelLevelProperty.Gain`.
 	Gain *float64 `json:"gain"`
@@ -1823,6 +1984,8 @@ type CfnChannel_InputChannelLevelProperty struct {
 	InputChannel *float64 `json:"inputChannel"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_InputLocationProperty struct {
 	// `CfnChannel.InputLocationProperty.PasswordParam`.
 	PasswordParam *string `json:"passwordParam"`
@@ -1832,6 +1995,8 @@ type CfnChannel_InputLocationProperty struct {
 	Username *string `json:"username"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_InputLossBehaviorProperty struct {
 	// `CfnChannel.InputLossBehaviorProperty.BlackFrameMsec`.
 	BlackFrameMsec *float64 `json:"blackFrameMsec"`
@@ -1845,11 +2010,15 @@ type CfnChannel_InputLossBehaviorProperty struct {
 	RepeatFrameMsec *float64 `json:"repeatFrameMsec"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_InputLossFailoverSettingsProperty struct {
 	// `CfnChannel.InputLossFailoverSettingsProperty.InputLossThresholdMsec`.
 	InputLossThresholdMsec *float64 `json:"inputLossThresholdMsec"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_InputSettingsProperty struct {
 	// `CfnChannel.InputSettingsProperty.AudioSelectors`.
 	AudioSelectors interface{} `json:"audioSelectors"`
@@ -1873,6 +2042,8 @@ type CfnChannel_InputSettingsProperty struct {
 	VideoSelector interface{} `json:"videoSelector"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_InputSpecificationProperty struct {
 	// `CfnChannel.InputSpecificationProperty.Codec`.
 	Codec *string `json:"codec"`
@@ -1882,11 +2053,15 @@ type CfnChannel_InputSpecificationProperty struct {
 	Resolution *string `json:"resolution"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_KeyProviderSettingsProperty struct {
 	// `CfnChannel.KeyProviderSettingsProperty.StaticKeySettings`.
 	StaticKeySettings interface{} `json:"staticKeySettings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_M2tsSettingsProperty struct {
 	// `CfnChannel.M2tsSettingsProperty.AbsentInputAudioBehavior`.
 	AbsentInputAudioBehavior *string `json:"absentInputAudioBehavior"`
@@ -1984,6 +2159,8 @@ type CfnChannel_M2tsSettingsProperty struct {
 	VideoPid *string `json:"videoPid"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_M3u8SettingsProperty struct {
 	// `CfnChannel.M3u8SettingsProperty.AudioFramesPerPes`.
 	AudioFramesPerPes *float64 `json:"audioFramesPerPes"`
@@ -2021,19 +2198,27 @@ type CfnChannel_M3u8SettingsProperty struct {
 	VideoPid *string `json:"videoPid"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_MediaPackageGroupSettingsProperty struct {
 	// `CfnChannel.MediaPackageGroupSettingsProperty.Destination`.
 	Destination interface{} `json:"destination"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_MediaPackageOutputDestinationSettingsProperty struct {
 	// `CfnChannel.MediaPackageOutputDestinationSettingsProperty.ChannelId`.
 	ChannelId *string `json:"channelId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_MediaPackageOutputSettingsProperty struct {
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_MotionGraphicsConfigurationProperty struct {
 	// `CfnChannel.MotionGraphicsConfigurationProperty.MotionGraphicsInsertion`.
 	MotionGraphicsInsertion *string `json:"motionGraphicsInsertion"`
@@ -2041,11 +2226,15 @@ type CfnChannel_MotionGraphicsConfigurationProperty struct {
 	MotionGraphicsSettings interface{} `json:"motionGraphicsSettings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_MotionGraphicsSettingsProperty struct {
 	// `CfnChannel.MotionGraphicsSettingsProperty.HtmlMotionGraphicsSettings`.
 	HtmlMotionGraphicsSettings interface{} `json:"htmlMotionGraphicsSettings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_Mp2SettingsProperty struct {
 	// `CfnChannel.Mp2SettingsProperty.Bitrate`.
 	Bitrate *float64 `json:"bitrate"`
@@ -2055,11 +2244,15 @@ type CfnChannel_Mp2SettingsProperty struct {
 	SampleRate *float64 `json:"sampleRate"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_Mpeg2FilterSettingsProperty struct {
 	// `CfnChannel.Mpeg2FilterSettingsProperty.TemporalFilterSettings`.
 	TemporalFilterSettings interface{} `json:"temporalFilterSettings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_Mpeg2SettingsProperty struct {
 	// `CfnChannel.Mpeg2SettingsProperty.AdaptiveQuantization`.
 	AdaptiveQuantization *string `json:"adaptiveQuantization"`
@@ -2095,6 +2288,8 @@ type CfnChannel_Mpeg2SettingsProperty struct {
 	TimecodeInsertion *string `json:"timecodeInsertion"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_MsSmoothGroupSettingsProperty struct {
 	// `CfnChannel.MsSmoothGroupSettingsProperty.AcquisitionPointId`.
 	AcquisitionPointId *string `json:"acquisitionPointId"`
@@ -2136,6 +2331,8 @@ type CfnChannel_MsSmoothGroupSettingsProperty struct {
 	TimestampOffsetMode *string `json:"timestampOffsetMode"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_MsSmoothOutputSettingsProperty struct {
 	// `CfnChannel.MsSmoothOutputSettingsProperty.H265PackagingType`.
 	H265PackagingType *string `json:"h265PackagingType"`
@@ -2143,14 +2340,20 @@ type CfnChannel_MsSmoothOutputSettingsProperty struct {
 	NameModifier *string `json:"nameModifier"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_MultiplexGroupSettingsProperty struct {
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_MultiplexOutputSettingsProperty struct {
 	// `CfnChannel.MultiplexOutputSettingsProperty.Destination`.
 	Destination interface{} `json:"destination"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_MultiplexProgramChannelDestinationSettingsProperty struct {
 	// `CfnChannel.MultiplexProgramChannelDestinationSettingsProperty.MultiplexId`.
 	MultiplexId *string `json:"multiplexId"`
@@ -2158,6 +2361,8 @@ type CfnChannel_MultiplexProgramChannelDestinationSettingsProperty struct {
 	ProgramName *string `json:"programName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_NetworkInputSettingsProperty struct {
 	// `CfnChannel.NetworkInputSettingsProperty.HlsInputSettings`.
 	HlsInputSettings interface{} `json:"hlsInputSettings"`
@@ -2165,6 +2370,8 @@ type CfnChannel_NetworkInputSettingsProperty struct {
 	ServerValidation *string `json:"serverValidation"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_NielsenConfigurationProperty struct {
 	// `CfnChannel.NielsenConfigurationProperty.DistributorId`.
 	DistributorId *string `json:"distributorId"`
@@ -2172,6 +2379,8 @@ type CfnChannel_NielsenConfigurationProperty struct {
 	NielsenPcmToId3Tagging *string `json:"nielsenPcmToId3Tagging"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_OutputDestinationProperty struct {
 	// `CfnChannel.OutputDestinationProperty.Id`.
 	Id *string `json:"id"`
@@ -2183,6 +2392,8 @@ type CfnChannel_OutputDestinationProperty struct {
 	Settings interface{} `json:"settings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_OutputDestinationSettingsProperty struct {
 	// `CfnChannel.OutputDestinationSettingsProperty.PasswordParam`.
 	PasswordParam *string `json:"passwordParam"`
@@ -2194,6 +2405,8 @@ type CfnChannel_OutputDestinationSettingsProperty struct {
 	Username *string `json:"username"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_OutputGroupProperty struct {
 	// `CfnChannel.OutputGroupProperty.Name`.
 	Name *string `json:"name"`
@@ -2203,6 +2416,8 @@ type CfnChannel_OutputGroupProperty struct {
 	Outputs interface{} `json:"outputs"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_OutputGroupSettingsProperty struct {
 	// `CfnChannel.OutputGroupSettingsProperty.ArchiveGroupSettings`.
 	ArchiveGroupSettings interface{} `json:"archiveGroupSettings"`
@@ -2222,11 +2437,15 @@ type CfnChannel_OutputGroupSettingsProperty struct {
 	UdpGroupSettings interface{} `json:"udpGroupSettings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_OutputLocationRefProperty struct {
 	// `CfnChannel.OutputLocationRefProperty.DestinationRefId`.
 	DestinationRefId *string `json:"destinationRefId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_OutputProperty struct {
 	// `CfnChannel.OutputProperty.AudioDescriptionNames`.
 	AudioDescriptionNames *[]*string `json:"audioDescriptionNames"`
@@ -2240,6 +2459,8 @@ type CfnChannel_OutputProperty struct {
 	VideoDescriptionName *string `json:"videoDescriptionName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_OutputSettingsProperty struct {
 	// `CfnChannel.OutputSettingsProperty.ArchiveOutputSettings`.
 	ArchiveOutputSettings interface{} `json:"archiveOutputSettings"`
@@ -2259,18 +2480,28 @@ type CfnChannel_OutputSettingsProperty struct {
 	UdpOutputSettings interface{} `json:"udpOutputSettings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_PassThroughSettingsProperty struct {
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_RawSettingsProperty struct {
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_Rec601SettingsProperty struct {
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_Rec709SettingsProperty struct {
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_RemixSettingsProperty struct {
 	// `CfnChannel.RemixSettingsProperty.ChannelMappings`.
 	ChannelMappings interface{} `json:"channelMappings"`
@@ -2280,9 +2511,13 @@ type CfnChannel_RemixSettingsProperty struct {
 	ChannelsOut *float64 `json:"channelsOut"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_RtmpCaptionInfoDestinationSettingsProperty struct {
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_RtmpGroupSettingsProperty struct {
 	// `CfnChannel.RtmpGroupSettingsProperty.AdMarkers`.
 	AdMarkers *[]*string `json:"adMarkers"`
@@ -2300,6 +2535,8 @@ type CfnChannel_RtmpGroupSettingsProperty struct {
 	RestartDelay *float64 `json:"restartDelay"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_RtmpOutputSettingsProperty struct {
 	// `CfnChannel.RtmpOutputSettingsProperty.CertificateMode`.
 	CertificateMode *string `json:"certificateMode"`
@@ -2311,9 +2548,13 @@ type CfnChannel_RtmpOutputSettingsProperty struct {
 	NumRetries *float64 `json:"numRetries"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_Scte20PlusEmbeddedDestinationSettingsProperty struct {
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_Scte20SourceSettingsProperty struct {
 	// `CfnChannel.Scte20SourceSettingsProperty.Convert608To708`.
 	Convert608To708 *string `json:"convert608To708"`
@@ -2321,14 +2562,20 @@ type CfnChannel_Scte20SourceSettingsProperty struct {
 	Source608ChannelNumber *float64 `json:"source608ChannelNumber"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_Scte27DestinationSettingsProperty struct {
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_Scte27SourceSettingsProperty struct {
 	// `CfnChannel.Scte27SourceSettingsProperty.Pid`.
 	Pid *float64 `json:"pid"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_Scte35SpliceInsertProperty struct {
 	// `CfnChannel.Scte35SpliceInsertProperty.AdAvailOffset`.
 	AdAvailOffset *float64 `json:"adAvailOffset"`
@@ -2338,6 +2585,8 @@ type CfnChannel_Scte35SpliceInsertProperty struct {
 	WebDeliveryAllowedFlag *string `json:"webDeliveryAllowedFlag"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_Scte35TimeSignalAposProperty struct {
 	// `CfnChannel.Scte35TimeSignalAposProperty.AdAvailOffset`.
 	AdAvailOffset *float64 `json:"adAvailOffset"`
@@ -2347,9 +2596,13 @@ type CfnChannel_Scte35TimeSignalAposProperty struct {
 	WebDeliveryAllowedFlag *string `json:"webDeliveryAllowedFlag"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_SmpteTtDestinationSettingsProperty struct {
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_StandardHlsSettingsProperty struct {
 	// `CfnChannel.StandardHlsSettingsProperty.AudioRenditionSets`.
 	AudioRenditionSets *string `json:"audioRenditionSets"`
@@ -2357,6 +2610,8 @@ type CfnChannel_StandardHlsSettingsProperty struct {
 	M3U8Settings interface{} `json:"m3U8Settings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_StaticKeySettingsProperty struct {
 	// `CfnChannel.StaticKeySettingsProperty.KeyProviderServer`.
 	KeyProviderServer interface{} `json:"keyProviderServer"`
@@ -2364,9 +2619,13 @@ type CfnChannel_StaticKeySettingsProperty struct {
 	StaticKeyValue *string `json:"staticKeyValue"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_TeletextDestinationSettingsProperty struct {
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_TeletextSourceSettingsProperty struct {
 	// `CfnChannel.TeletextSourceSettingsProperty.OutputRectangle`.
 	OutputRectangle interface{} `json:"outputRectangle"`
@@ -2374,6 +2633,8 @@ type CfnChannel_TeletextSourceSettingsProperty struct {
 	PageNumber *string `json:"pageNumber"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_TemporalFilterSettingsProperty struct {
 	// `CfnChannel.TemporalFilterSettingsProperty.PostFilterSharpening`.
 	PostFilterSharpening *string `json:"postFilterSharpening"`
@@ -2381,6 +2642,8 @@ type CfnChannel_TemporalFilterSettingsProperty struct {
 	Strength *string `json:"strength"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_TimecodeConfigProperty struct {
 	// `CfnChannel.TimecodeConfigProperty.Source`.
 	Source *string `json:"source"`
@@ -2388,16 +2651,22 @@ type CfnChannel_TimecodeConfigProperty struct {
 	SyncThreshold *float64 `json:"syncThreshold"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_TtmlDestinationSettingsProperty struct {
 	// `CfnChannel.TtmlDestinationSettingsProperty.StyleControl`.
 	StyleControl *string `json:"styleControl"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_UdpContainerSettingsProperty struct {
 	// `CfnChannel.UdpContainerSettingsProperty.M2tsSettings`.
 	M2TsSettings interface{} `json:"m2TsSettings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_UdpGroupSettingsProperty struct {
 	// `CfnChannel.UdpGroupSettingsProperty.InputLossAction`.
 	InputLossAction *string `json:"inputLossAction"`
@@ -2407,6 +2676,8 @@ type CfnChannel_UdpGroupSettingsProperty struct {
 	TimedMetadataId3Period *float64 `json:"timedMetadataId3Period"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_UdpOutputSettingsProperty struct {
 	// `CfnChannel.UdpOutputSettingsProperty.BufferMsec`.
 	BufferMsec *float64 `json:"bufferMsec"`
@@ -2418,6 +2689,8 @@ type CfnChannel_UdpOutputSettingsProperty struct {
 	FecOutputSettings interface{} `json:"fecOutputSettings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_VideoBlackFailoverSettingsProperty struct {
 	// `CfnChannel.VideoBlackFailoverSettingsProperty.BlackDetectThreshold`.
 	BlackDetectThreshold *float64 `json:"blackDetectThreshold"`
@@ -2425,6 +2698,8 @@ type CfnChannel_VideoBlackFailoverSettingsProperty struct {
 	VideoBlackThresholdMsec *float64 `json:"videoBlackThresholdMsec"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_VideoCodecSettingsProperty struct {
 	// `CfnChannel.VideoCodecSettingsProperty.FrameCaptureSettings`.
 	FrameCaptureSettings interface{} `json:"frameCaptureSettings"`
@@ -2436,6 +2711,8 @@ type CfnChannel_VideoCodecSettingsProperty struct {
 	Mpeg2Settings interface{} `json:"mpeg2Settings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_VideoDescriptionProperty struct {
 	// `CfnChannel.VideoDescriptionProperty.CodecSettings`.
 	CodecSettings interface{} `json:"codecSettings"`
@@ -2453,21 +2730,29 @@ type CfnChannel_VideoDescriptionProperty struct {
 	Width *float64 `json:"width"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_VideoSelectorColorSpaceSettingsProperty struct {
 	// `CfnChannel.VideoSelectorColorSpaceSettingsProperty.Hdr10Settings`.
 	Hdr10Settings interface{} `json:"hdr10Settings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_VideoSelectorPidProperty struct {
 	// `CfnChannel.VideoSelectorPidProperty.Pid`.
 	Pid *float64 `json:"pid"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_VideoSelectorProgramIdProperty struct {
 	// `CfnChannel.VideoSelectorProgramIdProperty.ProgramId`.
 	ProgramId *float64 `json:"programId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_VideoSelectorProperty struct {
 	// `CfnChannel.VideoSelectorProperty.ColorSpace`.
 	ColorSpace *string `json:"colorSpace"`
@@ -2479,6 +2764,8 @@ type CfnChannel_VideoSelectorProperty struct {
 	SelectorSettings interface{} `json:"selectorSettings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_VideoSelectorSettingsProperty struct {
 	// `CfnChannel.VideoSelectorSettingsProperty.VideoSelectorPid`.
 	VideoSelectorPid interface{} `json:"videoSelectorPid"`
@@ -2486,6 +2773,8 @@ type CfnChannel_VideoSelectorSettingsProperty struct {
 	VideoSelectorProgramId interface{} `json:"videoSelectorProgramId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_VpcOutputSettingsProperty struct {
 	// `CfnChannel.VpcOutputSettingsProperty.PublicAddressAllocationIds`.
 	PublicAddressAllocationIds *[]*string `json:"publicAddressAllocationIds"`
@@ -2495,6 +2784,8 @@ type CfnChannel_VpcOutputSettingsProperty struct {
 	SubnetIds *[]*string `json:"subnetIds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_WavSettingsProperty struct {
 	// `CfnChannel.WavSettingsProperty.BitDepth`.
 	BitDepth *float64 `json:"bitDepth"`
@@ -2504,10 +2795,15 @@ type CfnChannel_WavSettingsProperty struct {
 	SampleRate *float64 `json:"sampleRate"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_WebvttDestinationSettingsProperty struct {
 }
 
 // Properties for defining a `AWS::MediaLive::Channel`.
+//
+// TODO: EXAMPLE
+//
 type CfnChannelProps struct {
 	// `AWS::MediaLive::Channel.CdiInputSpecification`.
 	CdiInputSpecification interface{} `json:"cdiInputSpecification"`
@@ -2534,6 +2830,9 @@ type CfnChannelProps struct {
 }
 
 // A CloudFormation `AWS::MediaLive::Input`.
+//
+// TODO: EXAMPLE
+//
 type CfnInput interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3323,21 +3622,29 @@ func (c *jsiiProxy_CfnInput) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnInput_InputDestinationRequestProperty struct {
 	// `CfnInput.InputDestinationRequestProperty.StreamName`.
 	StreamName *string `json:"streamName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInput_InputDeviceRequestProperty struct {
 	// `CfnInput.InputDeviceRequestProperty.Id`.
 	Id *string `json:"id"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInput_InputDeviceSettingsProperty struct {
 	// `CfnInput.InputDeviceSettingsProperty.Id`.
 	Id *string `json:"id"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInput_InputSourceRequestProperty struct {
 	// `CfnInput.InputSourceRequestProperty.PasswordParam`.
 	PasswordParam *string `json:"passwordParam"`
@@ -3347,6 +3654,8 @@ type CfnInput_InputSourceRequestProperty struct {
 	Username *string `json:"username"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInput_InputVpcRequestProperty struct {
 	// `CfnInput.InputVpcRequestProperty.SecurityGroupIds`.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
@@ -3354,12 +3663,17 @@ type CfnInput_InputVpcRequestProperty struct {
 	SubnetIds *[]*string `json:"subnetIds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInput_MediaConnectFlowRequestProperty struct {
 	// `CfnInput.MediaConnectFlowRequestProperty.FlowArn`.
 	FlowArn *string `json:"flowArn"`
 }
 
 // Properties for defining a `AWS::MediaLive::Input`.
+//
+// TODO: EXAMPLE
+//
 type CfnInputProps struct {
 	// `AWS::MediaLive::Input.Destinations`.
 	Destinations interface{} `json:"destinations"`
@@ -3384,6 +3698,9 @@ type CfnInputProps struct {
 }
 
 // A CloudFormation `AWS::MediaLive::InputSecurityGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnInputSecurityGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3991,12 +4308,17 @@ func (c *jsiiProxy_CfnInputSecurityGroup) ValidateProperties(_properties interfa
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnInputSecurityGroup_InputWhitelistRuleCidrProperty struct {
 	// `CfnInputSecurityGroup.InputWhitelistRuleCidrProperty.Cidr`.
 	Cidr *string `json:"cidr"`
 }
 
 // Properties for defining a `AWS::MediaLive::InputSecurityGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnInputSecurityGroupProps struct {
 	// `AWS::MediaLive::InputSecurityGroup.Tags`.
 	Tags interface{} `json:"tags"`

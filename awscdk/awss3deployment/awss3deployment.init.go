@@ -88,13 +88,13 @@ func init() {
 		"monocdk.aws_s3_deployment.StorageClass",
 		reflect.TypeOf((*StorageClass)(nil)).Elem(),
 		map[string]interface{}{
-			"STANDARD": StorageClass_STANDARD,
-			"REDUCED_REDUNDANCY": StorageClass_REDUCED_REDUNDANCY,
-			"STANDARD_IA": StorageClass_STANDARD_IA,
-			"ONEZONE_IA": StorageClass_ONEZONE_IA,
-			"INTELLIGENT_TIERING": StorageClass_INTELLIGENT_TIERING,
-			"GLACIER": StorageClass_GLACIER,
 			"DEEP_ARCHIVE": StorageClass_DEEP_ARCHIVE,
+			"GLACIER": StorageClass_GLACIER,
+			"INTELLIGENT_TIERING": StorageClass_INTELLIGENT_TIERING,
+			"ONEZONE_IA": StorageClass_ONEZONE_IA,
+			"REDUCED_REDUNDANCY": StorageClass_REDUCED_REDUNDANCY,
+			"STANDARD": StorageClass_STANDARD,
+			"STANDARD_IA": StorageClass_STANDARD_IA,
 		},
 	)
 	_jsii_.RegisterStruct(

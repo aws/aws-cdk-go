@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::LakeFormation::DataLakeSettings`.
+//
+// TODO: EXAMPLE
+//
 type CfnDataLakeSettings interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -615,12 +618,17 @@ func (c *jsiiProxy_CfnDataLakeSettings) ValidateProperties(_properties interface
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataLakeSettings_DataLakePrincipalProperty struct {
 	// `CfnDataLakeSettings.DataLakePrincipalProperty.DataLakePrincipalIdentifier`.
 	DataLakePrincipalIdentifier *string `json:"dataLakePrincipalIdentifier"`
 }
 
 // Properties for defining a `AWS::LakeFormation::DataLakeSettings`.
+//
+// TODO: EXAMPLE
+//
 type CfnDataLakeSettingsProps struct {
 	// `AWS::LakeFormation::DataLakeSettings.Admins`.
 	Admins interface{} `json:"admins"`
@@ -629,6 +637,9 @@ type CfnDataLakeSettingsProps struct {
 }
 
 // A CloudFormation `AWS::LakeFormation::Permissions`.
+//
+// TODO: EXAMPLE
+//
 type CfnPermissions interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1274,16 +1285,22 @@ func (c *jsiiProxy_CfnPermissions) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnPermissions_ColumnWildcardProperty struct {
 	// `CfnPermissions.ColumnWildcardProperty.ExcludedColumnNames`.
 	ExcludedColumnNames *[]*string `json:"excludedColumnNames"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPermissions_DataLakePrincipalProperty struct {
 	// `CfnPermissions.DataLakePrincipalProperty.DataLakePrincipalIdentifier`.
 	DataLakePrincipalIdentifier *string `json:"dataLakePrincipalIdentifier"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPermissions_DataLocationResourceProperty struct {
 	// `CfnPermissions.DataLocationResourceProperty.CatalogId`.
 	CatalogId *string `json:"catalogId"`
@@ -1291,6 +1308,8 @@ type CfnPermissions_DataLocationResourceProperty struct {
 	S3Resource *string `json:"s3Resource"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPermissions_DatabaseResourceProperty struct {
 	// `CfnPermissions.DatabaseResourceProperty.CatalogId`.
 	CatalogId *string `json:"catalogId"`
@@ -1298,6 +1317,8 @@ type CfnPermissions_DatabaseResourceProperty struct {
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPermissions_ResourceProperty struct {
 	// `CfnPermissions.ResourceProperty.DatabaseResource`.
 	DatabaseResource interface{} `json:"databaseResource"`
@@ -1309,6 +1330,8 @@ type CfnPermissions_ResourceProperty struct {
 	TableWithColumnsResource interface{} `json:"tableWithColumnsResource"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPermissions_TableResourceProperty struct {
 	// `CfnPermissions.TableResourceProperty.CatalogId`.
 	CatalogId *string `json:"catalogId"`
@@ -1320,9 +1343,13 @@ type CfnPermissions_TableResourceProperty struct {
 	TableWildcard interface{} `json:"tableWildcard"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPermissions_TableWildcardProperty struct {
 }
 
+// TODO: EXAMPLE
+//
 type CfnPermissions_TableWithColumnsResourceProperty struct {
 	// `CfnPermissions.TableWithColumnsResourceProperty.CatalogId`.
 	CatalogId *string `json:"catalogId"`
@@ -1337,18 +1364,24 @@ type CfnPermissions_TableWithColumnsResourceProperty struct {
 }
 
 // Properties for defining a `AWS::LakeFormation::Permissions`.
+//
+// TODO: EXAMPLE
+//
 type CfnPermissionsProps struct {
 	// `AWS::LakeFormation::Permissions.DataLakePrincipal`.
 	DataLakePrincipal interface{} `json:"dataLakePrincipal"`
-	// `AWS::LakeFormation::Permissions.Resource`.
-	Resource interface{} `json:"resource"`
 	// `AWS::LakeFormation::Permissions.Permissions`.
 	Permissions *[]*string `json:"permissions"`
 	// `AWS::LakeFormation::Permissions.PermissionsWithGrantOption`.
 	PermissionsWithGrantOption *[]*string `json:"permissionsWithGrantOption"`
+	// `AWS::LakeFormation::Permissions.Resource`.
+	Resource interface{} `json:"resource"`
 }
 
 // A CloudFormation `AWS::LakeFormation::Resource`.
+//
+// TODO: EXAMPLE
+//
 type CfnResource interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1975,12 +2008,15 @@ func (c *jsiiProxy_CfnResource) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::LakeFormation::Resource`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourceProps struct {
 	// `AWS::LakeFormation::Resource.ResourceArn`.
 	ResourceArn *string `json:"resourceArn"`
-	// `AWS::LakeFormation::Resource.UseServiceLinkedRole`.
-	UseServiceLinkedRole interface{} `json:"useServiceLinkedRole"`
 	// `AWS::LakeFormation::Resource.RoleArn`.
 	RoleArn *string `json:"roleArn"`
+	// `AWS::LakeFormation::Resource.UseServiceLinkedRole`.
+	UseServiceLinkedRole interface{} `json:"useServiceLinkedRole"`
 }
 

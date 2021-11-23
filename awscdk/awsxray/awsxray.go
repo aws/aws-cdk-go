@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::XRay::Group`.
+//
+// TODO: EXAMPLE
+//
 type CfnGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -666,6 +669,8 @@ func (c *jsiiProxy_CfnGroup) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnGroup_InsightsConfigurationProperty struct {
 	// `CfnGroup.InsightsConfigurationProperty.InsightsEnabled`.
 	InsightsEnabled interface{} `json:"insightsEnabled"`
@@ -674,6 +679,9 @@ type CfnGroup_InsightsConfigurationProperty struct {
 }
 
 // Properties for defining a `AWS::XRay::Group`.
+//
+// TODO: EXAMPLE
+//
 type CfnGroupProps struct {
 	// `AWS::XRay::Group.FilterExpression`.
 	FilterExpression *string `json:"filterExpression"`
@@ -686,6 +694,9 @@ type CfnGroupProps struct {
 }
 
 // A CloudFormation `AWS::XRay::SamplingRule`.
+//
+// TODO: EXAMPLE
+//
 type CfnSamplingRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1362,6 +1373,8 @@ func (c *jsiiProxy_CfnSamplingRule) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnSamplingRule_SamplingRuleProperty struct {
 	// `CfnSamplingRule.SamplingRuleProperty.Attributes`.
 	Attributes interface{} `json:"attributes"`
@@ -1391,6 +1404,8 @@ type CfnSamplingRule_SamplingRuleProperty struct {
 	Version *float64 `json:"version"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSamplingRule_SamplingRuleRecordProperty struct {
 	// `CfnSamplingRule.SamplingRuleRecordProperty.CreatedAt`.
 	CreatedAt *string `json:"createdAt"`
@@ -1400,6 +1415,8 @@ type CfnSamplingRule_SamplingRuleRecordProperty struct {
 	SamplingRule interface{} `json:"samplingRule"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSamplingRule_SamplingRuleUpdateProperty struct {
 	// `CfnSamplingRule.SamplingRuleUpdateProperty.Attributes`.
 	Attributes interface{} `json:"attributes"`
@@ -1428,6 +1445,9 @@ type CfnSamplingRule_SamplingRuleUpdateProperty struct {
 }
 
 // Properties for defining a `AWS::XRay::SamplingRule`.
+//
+// TODO: EXAMPLE
+//
 type CfnSamplingRuleProps struct {
 	// `AWS::XRay::SamplingRule.RuleName`.
 	RuleName *string `json:"ruleName"`

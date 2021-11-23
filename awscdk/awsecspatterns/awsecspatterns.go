@@ -20,16 +20,19 @@ import (
 )
 
 // Properties to define an application listener.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ApplicationListenerProps struct {
-	// Name of the listener.
-	// Experimental.
-	Name *string `json:"name"`
 	// Certificate Manager certificate to associate with the load balancer.
 	//
 	// Setting this option will set the load balancer protocol to HTTPS.
 	// Experimental.
 	Certificate awscertificatemanager.ICertificate `json:"certificate"`
+	// Name of the listener.
+	// Experimental.
+	Name *string `json:"name"`
 	// The port on which the listener listens for requests.
 	// Experimental.
 	Port *float64 `json:"port"`
@@ -1397,6 +1400,9 @@ func (a *jsiiProxy_ApplicationLoadBalancedServiceBase) Validate() *[]*string {
 }
 
 // The properties for the base ApplicationLoadBalancedEc2Service or ApplicationLoadBalancedFargateService service.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ApplicationLoadBalancedServiceBaseProps struct {
 	// Certificate Manager certificate to associate with the load balancer.
@@ -1531,11 +1537,6 @@ const (
 //
 // Experimental.
 type ApplicationLoadBalancedTaskImageOptions struct {
-	// The image used to start a container.
-	//
-	// Image or taskDefinition must be specified, not both.
-	// Experimental.
-	Image awsecs.ContainerImage `json:"image"`
 	// The container name value to be specified in the task definition.
 	// Experimental.
 	ContainerName *string `json:"containerName"`
@@ -1568,6 +1569,11 @@ type ApplicationLoadBalancedTaskImageOptions struct {
 	// A family groups multiple versions of a task definition.
 	// Experimental.
 	Family *string `json:"family"`
+	// The image used to start a container.
+	//
+	// Image or taskDefinition must be specified, not both.
+	// Experimental.
+	Image awsecs.ContainerImage `json:"image"`
 	// The log driver to use.
 	// Experimental.
 	LogDriver awsecs.LogDriver `json:"logDriver"`
@@ -1585,11 +1591,6 @@ type ApplicationLoadBalancedTaskImageOptions struct {
 //
 // Experimental.
 type ApplicationLoadBalancedTaskImageProps struct {
-	// The image used to start a container.
-	//
-	// Image or taskDefinition must be specified, not both.
-	// Experimental.
-	Image awsecs.ContainerImage `json:"image"`
 	// The container name value to be specified in the task definition.
 	// Experimental.
 	ContainerName *string `json:"containerName"`
@@ -1622,6 +1623,11 @@ type ApplicationLoadBalancedTaskImageProps struct {
 	// A family groups multiple versions of a task definition.
 	// Experimental.
 	Family *string `json:"family"`
+	// The image used to start a container.
+	//
+	// Image or taskDefinition must be specified, not both.
+	// Experimental.
+	Image awsecs.ContainerImage `json:"image"`
 	// The log driver to use.
 	// Experimental.
 	LogDriver awsecs.LogDriver `json:"logDriver"`
@@ -1634,20 +1640,23 @@ type ApplicationLoadBalancedTaskImageProps struct {
 }
 
 // Properties to define an application load balancer.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ApplicationLoadBalancerProps struct {
-	// Listeners (at least one listener) attached to this load balancer.
-	// Experimental.
-	Listeners *[]*ApplicationListenerProps `json:"listeners"`
-	// Name of the load balancer.
-	// Experimental.
-	Name *string `json:"name"`
 	// The domain name for the service, e.g. "api.example.com.".
 	// Experimental.
 	DomainName *string `json:"domainName"`
 	// The Route53 hosted zone for the domain, e.g. "example.com.".
 	// Experimental.
 	DomainZone awsroute53.IHostedZone `json:"domainZone"`
+	// Listeners (at least one listener) attached to this load balancer.
+	// Experimental.
+	Listeners *[]*ApplicationListenerProps `json:"listeners"`
+	// Name of the load balancer.
+	// Experimental.
+	Name *string `json:"name"`
 	// Determines whether the Load Balancer will be internet-facing.
 	// Experimental.
 	PublicLoadBalancer *bool `json:"publicLoadBalancer"`
@@ -3034,6 +3043,9 @@ func (a *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) Validate() *[]*st
 }
 
 // The properties for the base ApplicationMultipleTargetGroupsEc2Service or ApplicationMultipleTargetGroupsFargateService service.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ApplicationMultipleTargetGroupsServiceBaseProps struct {
 	// The options for configuring an Amazon ECS service to use service discovery.
@@ -3083,6 +3095,9 @@ type ApplicationMultipleTargetGroupsServiceBaseProps struct {
 }
 
 // Properties to define an application target group.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ApplicationTargetProps struct {
 	// The port number of the container.
@@ -3128,6 +3143,9 @@ type ApplicationTargetProps struct {
 }
 
 // Properties to define an network listener.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NetworkListenerProps struct {
 	// Name of the listener.
@@ -4353,6 +4371,9 @@ func (n *jsiiProxy_NetworkLoadBalancedServiceBase) Validate() *[]*string {
 }
 
 // The properties for the base NetworkLoadBalancedEc2Service or NetworkLoadBalancedFargateService service.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NetworkLoadBalancedServiceBaseProps struct {
 	// Whether to enable the deployment circuit breaker.
@@ -4454,11 +4475,6 @@ const (
 //
 // Experimental.
 type NetworkLoadBalancedTaskImageOptions struct {
-	// The image used to start a container.
-	//
-	// Image or taskDefinition must be specified, but not both.
-	// Experimental.
-	Image awsecs.ContainerImage `json:"image"`
 	// The container name value to be specified in the task definition.
 	// Experimental.
 	ContainerName *string `json:"containerName"`
@@ -4491,6 +4507,11 @@ type NetworkLoadBalancedTaskImageOptions struct {
 	// A family groups multiple versions of a task definition.
 	// Experimental.
 	Family *string `json:"family"`
+	// The image used to start a container.
+	//
+	// Image or taskDefinition must be specified, but not both.
+	// Experimental.
+	Image awsecs.ContainerImage `json:"image"`
 	// The log driver to use.
 	// Experimental.
 	LogDriver awsecs.LogDriver `json:"logDriver"`
@@ -4508,11 +4529,6 @@ type NetworkLoadBalancedTaskImageOptions struct {
 //
 // Experimental.
 type NetworkLoadBalancedTaskImageProps struct {
-	// The image used to start a container.
-	//
-	// Image or taskDefinition must be specified, but not both.
-	// Experimental.
-	Image awsecs.ContainerImage `json:"image"`
 	// The container name value to be specified in the task definition.
 	// Experimental.
 	ContainerName *string `json:"containerName"`
@@ -4545,6 +4561,11 @@ type NetworkLoadBalancedTaskImageProps struct {
 	// A family groups multiple versions of a task definition.
 	// Experimental.
 	Family *string `json:"family"`
+	// The image used to start a container.
+	//
+	// Image or taskDefinition must be specified, but not both.
+	// Experimental.
+	Image awsecs.ContainerImage `json:"image"`
 	// The log driver to use.
 	// Experimental.
 	LogDriver awsecs.LogDriver `json:"logDriver"`
@@ -4557,20 +4578,23 @@ type NetworkLoadBalancedTaskImageProps struct {
 }
 
 // Properties to define an network load balancer.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NetworkLoadBalancerProps struct {
-	// Listeners (at least one listener) attached to this load balancer.
-	// Experimental.
-	Listeners *[]*NetworkListenerProps `json:"listeners"`
-	// Name of the load balancer.
-	// Experimental.
-	Name *string `json:"name"`
 	// The domain name for the service, e.g. "api.example.com.".
 	// Experimental.
 	DomainName *string `json:"domainName"`
 	// The Route53 hosted zone for the domain, e.g. "example.com.".
 	// Experimental.
 	DomainZone awsroute53.IHostedZone `json:"domainZone"`
+	// Listeners (at least one listener) attached to this load balancer.
+	// Experimental.
+	Listeners *[]*NetworkListenerProps `json:"listeners"`
+	// Name of the load balancer.
+	// Experimental.
+	Name *string `json:"name"`
 	// Determines whether the Load Balancer will be internet-facing.
 	// Experimental.
 	PublicLoadBalancer *bool `json:"publicLoadBalancer"`
@@ -5961,6 +5985,9 @@ func (n *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) Validate() *[]*string
 }
 
 // The properties for the base NetworkMultipleTargetGroupsEc2Service or NetworkMultipleTargetGroupsFargateService service.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NetworkMultipleTargetGroupsServiceBaseProps struct {
 	// The options for configuring an Amazon ECS service to use service discovery.
@@ -6012,6 +6039,9 @@ type NetworkMultipleTargetGroupsServiceBaseProps struct {
 }
 
 // Properties to define a network load balancer target group.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NetworkTargetProps struct {
 	// The port number of the container.
@@ -6393,9 +6423,6 @@ func (q *jsiiProxy_QueueProcessingEc2Service) Validate() *[]*string {
 //
 // Experimental.
 type QueueProcessingEc2ServiceProps struct {
-	// The image used to start a container.
-	// Experimental.
-	Image awsecs.ContainerImage `json:"image"`
 	// A list of Capacity Provider strategies used to place a service.
 	// Experimental.
 	CapacityProviderStrategies *[]*awsecs.CapacityProviderStrategy `json:"capacityProviderStrategies"`
@@ -6444,6 +6471,9 @@ type QueueProcessingEc2ServiceProps struct {
 	// A family groups multiple versions of a task definition.
 	// Experimental.
 	Family *string `json:"family"`
+	// The image used to start a container.
+	// Experimental.
+	Image awsecs.ContainerImage `json:"image"`
 	// The log driver to use.
 	// Experimental.
 	LogDriver awsecs.LogDriver `json:"logDriver"`
@@ -6915,9 +6945,6 @@ func (q *jsiiProxy_QueueProcessingFargateService) Validate() *[]*string {
 //
 // Experimental.
 type QueueProcessingFargateServiceProps struct {
-	// The image used to start a container.
-	// Experimental.
-	Image awsecs.ContainerImage `json:"image"`
 	// A list of Capacity Provider strategies used to place a service.
 	// Experimental.
 	CapacityProviderStrategies *[]*awsecs.CapacityProviderStrategy `json:"capacityProviderStrategies"`
@@ -6966,6 +6993,9 @@ type QueueProcessingFargateServiceProps struct {
 	// A family groups multiple versions of a task definition.
 	// Experimental.
 	Family *string `json:"family"`
+	// The image used to start a container.
+	// Experimental.
+	Image awsecs.ContainerImage `json:"image"`
 	// The log driver to use.
 	// Experimental.
 	LogDriver awsecs.LogDriver `json:"logDriver"`
@@ -7406,11 +7436,11 @@ func (q *jsiiProxy_QueueProcessingServiceBase) Validate() *[]*string {
 }
 
 // The properties for the base QueueProcessingEc2Service or QueueProcessingFargateService service.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type QueueProcessingServiceBaseProps struct {
-	// The image used to start a container.
-	// Experimental.
-	Image awsecs.ContainerImage `json:"image"`
 	// A list of Capacity Provider strategies used to place a service.
 	// Experimental.
 	CapacityProviderStrategies *[]*awsecs.CapacityProviderStrategy `json:"capacityProviderStrategies"`
@@ -7459,6 +7489,9 @@ type QueueProcessingServiceBaseProps struct {
 	// A family groups multiple versions of a task definition.
 	// Experimental.
 	Family *string `json:"family"`
+	// The image used to start a container.
+	// Experimental.
+	Image awsecs.ContainerImage `json:"image"`
 	// The log driver to use.
 	// Experimental.
 	LogDriver awsecs.LogDriver `json:"logDriver"`
@@ -7837,6 +7870,9 @@ func (s *jsiiProxy_ScheduledEc2Task) Validate() *[]*string {
 }
 
 // The properties for the ScheduledEc2Task using a task definition.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ScheduledEc2TaskDefinitionOptions struct {
 	// The task definition to use for tasks in the service. One of image or taskDefinition must be specified.
@@ -7852,11 +7888,6 @@ type ScheduledEc2TaskDefinitionOptions struct {
 //
 // Experimental.
 type ScheduledEc2TaskImageOptions struct {
-	// The image used to start a container.
-	//
-	// Image or taskDefinition must be specified, but not both.
-	// Experimental.
-	Image awsecs.ContainerImage `json:"image"`
 	// The command that is passed to the container.
 	//
 	// If you provide a shell command as a single string, you have to quote command-line arguments.
@@ -7865,6 +7896,11 @@ type ScheduledEc2TaskImageOptions struct {
 	// The environment variables to pass to the container.
 	// Experimental.
 	Environment *map[string]*string `json:"environment"`
+	// The image used to start a container.
+	//
+	// Image or taskDefinition must be specified, but not both.
+	// Experimental.
+	Image awsecs.ContainerImage `json:"image"`
 	// The log driver to use.
 	// Experimental.
 	LogDriver awsecs.LogDriver `json:"logDriver"`
@@ -7900,13 +7936,6 @@ type ScheduledEc2TaskImageOptions struct {
 //
 // Experimental.
 type ScheduledEc2TaskProps struct {
-	// The schedule or rate (frequency) that determines when CloudWatch Events runs the rule.
-	//
-	// For more information, see
-	// [Schedule Expression Syntax for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html)
-	// in the Amazon CloudWatch User Guide.
-	// Experimental.
-	Schedule awsapplicationautoscaling.Schedule `json:"schedule"`
 	// The name of the cluster that hosts the service.
 	//
 	// If a cluster is specified, the vpc construct should be omitted. Alternatively, you can omit both cluster and vpc.
@@ -7921,6 +7950,13 @@ type ScheduledEc2TaskProps struct {
 	// A name for the rule.
 	// Experimental.
 	RuleName *string `json:"ruleName"`
+	// The schedule or rate (frequency) that determines when CloudWatch Events runs the rule.
+	//
+	// For more information, see
+	// [Schedule Expression Syntax for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html)
+	// in the Amazon CloudWatch User Guide.
+	// Experimental.
+	Schedule awsapplicationautoscaling.Schedule `json:"schedule"`
 	// Existing security groups to use for your service.
 	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
@@ -8265,6 +8301,9 @@ func (s *jsiiProxy_ScheduledFargateTask) Validate() *[]*string {
 }
 
 // The properties for the ScheduledFargateTask using a task definition.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ScheduledFargateTaskDefinitionOptions struct {
 	// The task definition to use for tasks in the service. Image or taskDefinition must be specified, but not both.
@@ -8280,11 +8319,6 @@ type ScheduledFargateTaskDefinitionOptions struct {
 //
 // Experimental.
 type ScheduledFargateTaskImageOptions struct {
-	// The image used to start a container.
-	//
-	// Image or taskDefinition must be specified, but not both.
-	// Experimental.
-	Image awsecs.ContainerImage `json:"image"`
 	// The command that is passed to the container.
 	//
 	// If you provide a shell command as a single string, you have to quote command-line arguments.
@@ -8293,6 +8327,11 @@ type ScheduledFargateTaskImageOptions struct {
 	// The environment variables to pass to the container.
 	// Experimental.
 	Environment *map[string]*string `json:"environment"`
+	// The image used to start a container.
+	//
+	// Image or taskDefinition must be specified, but not both.
+	// Experimental.
+	Image awsecs.ContainerImage `json:"image"`
 	// The log driver to use.
 	// Experimental.
 	LogDriver awsecs.LogDriver `json:"logDriver"`
@@ -8330,13 +8369,6 @@ type ScheduledFargateTaskImageOptions struct {
 //
 // Experimental.
 type ScheduledFargateTaskProps struct {
-	// The schedule or rate (frequency) that determines when CloudWatch Events runs the rule.
-	//
-	// For more information, see
-	// [Schedule Expression Syntax for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html)
-	// in the Amazon CloudWatch User Guide.
-	// Experimental.
-	Schedule awsapplicationautoscaling.Schedule `json:"schedule"`
 	// The name of the cluster that hosts the service.
 	//
 	// If a cluster is specified, the vpc construct should be omitted. Alternatively, you can omit both cluster and vpc.
@@ -8351,6 +8383,13 @@ type ScheduledFargateTaskProps struct {
 	// A name for the rule.
 	// Experimental.
 	RuleName *string `json:"ruleName"`
+	// The schedule or rate (frequency) that determines when CloudWatch Events runs the rule.
+	//
+	// For more information, see
+	// [Schedule Expression Syntax for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html)
+	// in the Amazon CloudWatch User Guide.
+	// Experimental.
+	Schedule awsapplicationautoscaling.Schedule `json:"schedule"`
 	// Existing security groups to use for your service.
 	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
@@ -8661,15 +8700,11 @@ func (s *jsiiProxy_ScheduledTaskBase) Validate() *[]*string {
 }
 
 // The properties for the base ScheduledEc2Task or ScheduledFargateTask task.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ScheduledTaskBaseProps struct {
-	// The schedule or rate (frequency) that determines when CloudWatch Events runs the rule.
-	//
-	// For more information, see
-	// [Schedule Expression Syntax for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html)
-	// in the Amazon CloudWatch User Guide.
-	// Experimental.
-	Schedule awsapplicationautoscaling.Schedule `json:"schedule"`
 	// The name of the cluster that hosts the service.
 	//
 	// If a cluster is specified, the vpc construct should be omitted. Alternatively, you can omit both cluster and vpc.
@@ -8684,6 +8719,13 @@ type ScheduledTaskBaseProps struct {
 	// A name for the rule.
 	// Experimental.
 	RuleName *string `json:"ruleName"`
+	// The schedule or rate (frequency) that determines when CloudWatch Events runs the rule.
+	//
+	// For more information, see
+	// [Schedule Expression Syntax for Rules](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html)
+	// in the Amazon CloudWatch User Guide.
+	// Experimental.
+	Schedule awsapplicationautoscaling.Schedule `json:"schedule"`
 	// Existing security groups to use for your service.
 	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
@@ -8699,13 +8741,10 @@ type ScheduledTaskBaseProps struct {
 	Vpc awsec2.IVpc `json:"vpc"`
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type ScheduledTaskImageProps struct {
-	// The image used to start a container.
-	//
-	// Image or taskDefinition must be specified, but not both.
-	// Experimental.
-	Image awsecs.ContainerImage `json:"image"`
 	// The command that is passed to the container.
 	//
 	// If you provide a shell command as a single string, you have to quote command-line arguments.
@@ -8714,6 +8753,11 @@ type ScheduledTaskImageProps struct {
 	// The environment variables to pass to the container.
 	// Experimental.
 	Environment *map[string]*string `json:"environment"`
+	// The image used to start a container.
+	//
+	// Image or taskDefinition must be specified, but not both.
+	// Experimental.
+	Image awsecs.ContainerImage `json:"image"`
 	// The log driver to use.
 	// Experimental.
 	LogDriver awsecs.LogDriver `json:"logDriver"`

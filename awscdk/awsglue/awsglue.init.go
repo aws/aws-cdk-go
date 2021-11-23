@@ -1479,8 +1479,8 @@ func init() {
 		"monocdk.aws_glue.JobLanguage",
 		reflect.TypeOf((*JobLanguage)(nil)).Elem(),
 		map[string]interface{}{
-			"SCALA": JobLanguage_SCALA,
 			"PYTHON": JobLanguage_PYTHON,
+			"SCALA": JobLanguage_SCALA,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -1540,8 +1540,8 @@ func init() {
 		"monocdk.aws_glue.PythonVersion",
 		reflect.TypeOf((*PythonVersion)(nil)).Elem(),
 		map[string]interface{}{
-			"TWO": PythonVersion_TWO,
 			"THREE": PythonVersion_THREE,
+			"TWO": PythonVersion_TWO,
 		},
 	)
 	_jsii_.RegisterClass(

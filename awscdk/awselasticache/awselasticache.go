@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::ElastiCache::CacheCluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnCacheCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1050,11 +1053,15 @@ func (c *jsiiProxy_CfnCacheCluster) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnCacheCluster_CloudWatchLogsDestinationDetailsProperty struct {
 	// `CfnCacheCluster.CloudWatchLogsDestinationDetailsProperty.LogGroup`.
 	LogGroup *string `json:"logGroup"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCacheCluster_DestinationDetailsProperty struct {
 	// `CfnCacheCluster.DestinationDetailsProperty.CloudWatchLogsDetails`.
 	CloudWatchLogsDetails interface{} `json:"cloudWatchLogsDetails"`
@@ -1062,11 +1069,15 @@ type CfnCacheCluster_DestinationDetailsProperty struct {
 	KinesisFirehoseDetails interface{} `json:"kinesisFirehoseDetails"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCacheCluster_KinesisFirehoseDestinationDetailsProperty struct {
 	// `CfnCacheCluster.KinesisFirehoseDestinationDetailsProperty.DeliveryStream`.
 	DeliveryStream *string `json:"deliveryStream"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCacheCluster_LogDeliveryConfigurationRequestProperty struct {
 	// `CfnCacheCluster.LogDeliveryConfigurationRequestProperty.DestinationDetails`.
 	DestinationDetails interface{} `json:"destinationDetails"`
@@ -1079,17 +1090,16 @@ type CfnCacheCluster_LogDeliveryConfigurationRequestProperty struct {
 }
 
 // Properties for defining a `AWS::ElastiCache::CacheCluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnCacheClusterProps struct {
-	// `AWS::ElastiCache::CacheCluster.CacheNodeType`.
-	CacheNodeType *string `json:"cacheNodeType"`
-	// `AWS::ElastiCache::CacheCluster.Engine`.
-	Engine *string `json:"engine"`
-	// `AWS::ElastiCache::CacheCluster.NumCacheNodes`.
-	NumCacheNodes *float64 `json:"numCacheNodes"`
 	// `AWS::ElastiCache::CacheCluster.AutoMinorVersionUpgrade`.
 	AutoMinorVersionUpgrade interface{} `json:"autoMinorVersionUpgrade"`
 	// `AWS::ElastiCache::CacheCluster.AZMode`.
 	AzMode *string `json:"azMode"`
+	// `AWS::ElastiCache::CacheCluster.CacheNodeType`.
+	CacheNodeType *string `json:"cacheNodeType"`
 	// `AWS::ElastiCache::CacheCluster.CacheParameterGroupName`.
 	CacheParameterGroupName *string `json:"cacheParameterGroupName"`
 	// `AWS::ElastiCache::CacheCluster.CacheSecurityGroupNames`.
@@ -1098,12 +1108,16 @@ type CfnCacheClusterProps struct {
 	CacheSubnetGroupName *string `json:"cacheSubnetGroupName"`
 	// `AWS::ElastiCache::CacheCluster.ClusterName`.
 	ClusterName *string `json:"clusterName"`
+	// `AWS::ElastiCache::CacheCluster.Engine`.
+	Engine *string `json:"engine"`
 	// `AWS::ElastiCache::CacheCluster.EngineVersion`.
 	EngineVersion *string `json:"engineVersion"`
 	// `AWS::ElastiCache::CacheCluster.LogDeliveryConfigurations`.
 	LogDeliveryConfigurations interface{} `json:"logDeliveryConfigurations"`
 	// `AWS::ElastiCache::CacheCluster.NotificationTopicArn`.
 	NotificationTopicArn *string `json:"notificationTopicArn"`
+	// `AWS::ElastiCache::CacheCluster.NumCacheNodes`.
+	NumCacheNodes *float64 `json:"numCacheNodes"`
 	// `AWS::ElastiCache::CacheCluster.Port`.
 	Port *float64 `json:"port"`
 	// `AWS::ElastiCache::CacheCluster.PreferredAvailabilityZone`.
@@ -1127,6 +1141,9 @@ type CfnCacheClusterProps struct {
 }
 
 // A CloudFormation `AWS::ElastiCache::GlobalReplicationGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnGlobalReplicationGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1894,6 +1911,8 @@ func (c *jsiiProxy_CfnGlobalReplicationGroup) ValidateProperties(_properties int
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnGlobalReplicationGroup_GlobalReplicationGroupMemberProperty struct {
 	// `CfnGlobalReplicationGroup.GlobalReplicationGroupMemberProperty.ReplicationGroupId`.
 	ReplicationGroupId *string `json:"replicationGroupId"`
@@ -1903,6 +1922,8 @@ type CfnGlobalReplicationGroup_GlobalReplicationGroupMemberProperty struct {
 	Role *string `json:"role"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGlobalReplicationGroup_RegionalConfigurationProperty struct {
 	// `CfnGlobalReplicationGroup.RegionalConfigurationProperty.ReplicationGroupId`.
 	ReplicationGroupId *string `json:"replicationGroupId"`
@@ -1912,6 +1933,8 @@ type CfnGlobalReplicationGroup_RegionalConfigurationProperty struct {
 	ReshardingConfigurations interface{} `json:"reshardingConfigurations"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGlobalReplicationGroup_ReshardingConfigurationProperty struct {
 	// `CfnGlobalReplicationGroup.ReshardingConfigurationProperty.NodeGroupId`.
 	NodeGroupId *string `json:"nodeGroupId"`
@@ -1920,9 +1943,10 @@ type CfnGlobalReplicationGroup_ReshardingConfigurationProperty struct {
 }
 
 // Properties for defining a `AWS::ElastiCache::GlobalReplicationGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnGlobalReplicationGroupProps struct {
-	// `AWS::ElastiCache::GlobalReplicationGroup.Members`.
-	Members interface{} `json:"members"`
 	// `AWS::ElastiCache::GlobalReplicationGroup.AutomaticFailoverEnabled`.
 	AutomaticFailoverEnabled interface{} `json:"automaticFailoverEnabled"`
 	// `AWS::ElastiCache::GlobalReplicationGroup.CacheNodeType`.
@@ -1937,11 +1961,16 @@ type CfnGlobalReplicationGroupProps struct {
 	GlobalReplicationGroupDescription *string `json:"globalReplicationGroupDescription"`
 	// `AWS::ElastiCache::GlobalReplicationGroup.GlobalReplicationGroupIdSuffix`.
 	GlobalReplicationGroupIdSuffix *string `json:"globalReplicationGroupIdSuffix"`
+	// `AWS::ElastiCache::GlobalReplicationGroup.Members`.
+	Members interface{} `json:"members"`
 	// `AWS::ElastiCache::GlobalReplicationGroup.RegionalConfigurations`.
 	RegionalConfigurations interface{} `json:"regionalConfigurations"`
 }
 
 // A CloudFormation `AWS::ElastiCache::ParameterGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnParameterGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2579,6 +2608,9 @@ func (c *jsiiProxy_CfnParameterGroup) ValidateProperties(_properties interface{}
 }
 
 // Properties for defining a `AWS::ElastiCache::ParameterGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnParameterGroupProps struct {
 	// `AWS::ElastiCache::ParameterGroup.CacheParameterGroupFamily`.
 	CacheParameterGroupFamily *string `json:"cacheParameterGroupFamily"`
@@ -2591,6 +2623,9 @@ type CfnParameterGroupProps struct {
 }
 
 // A CloudFormation `AWS::ElastiCache::ReplicationGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnReplicationGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3937,11 +3972,15 @@ func (c *jsiiProxy_CfnReplicationGroup) ValidateProperties(_properties interface
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnReplicationGroup_CloudWatchLogsDestinationDetailsProperty struct {
 	// `CfnReplicationGroup.CloudWatchLogsDestinationDetailsProperty.LogGroup`.
 	LogGroup *string `json:"logGroup"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnReplicationGroup_DestinationDetailsProperty struct {
 	// `CfnReplicationGroup.DestinationDetailsProperty.CloudWatchLogsDetails`.
 	CloudWatchLogsDetails interface{} `json:"cloudWatchLogsDetails"`
@@ -3949,11 +3988,15 @@ type CfnReplicationGroup_DestinationDetailsProperty struct {
 	KinesisFirehoseDetails interface{} `json:"kinesisFirehoseDetails"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnReplicationGroup_KinesisFirehoseDestinationDetailsProperty struct {
 	// `CfnReplicationGroup.KinesisFirehoseDestinationDetailsProperty.DeliveryStream`.
 	DeliveryStream *string `json:"deliveryStream"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnReplicationGroup_LogDeliveryConfigurationRequestProperty struct {
 	// `CfnReplicationGroup.LogDeliveryConfigurationRequestProperty.DestinationDetails`.
 	DestinationDetails interface{} `json:"destinationDetails"`
@@ -3965,6 +4008,8 @@ type CfnReplicationGroup_LogDeliveryConfigurationRequestProperty struct {
 	LogType *string `json:"logType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnReplicationGroup_NodeGroupConfigurationProperty struct {
 	// `CfnReplicationGroup.NodeGroupConfigurationProperty.NodeGroupId`.
 	NodeGroupId *string `json:"nodeGroupId"`
@@ -3979,9 +4024,10 @@ type CfnReplicationGroup_NodeGroupConfigurationProperty struct {
 }
 
 // Properties for defining a `AWS::ElastiCache::ReplicationGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnReplicationGroupProps struct {
-	// `AWS::ElastiCache::ReplicationGroup.ReplicationGroupDescription`.
-	ReplicationGroupDescription *string `json:"replicationGroupDescription"`
 	// `AWS::ElastiCache::ReplicationGroup.AtRestEncryptionEnabled`.
 	AtRestEncryptionEnabled interface{} `json:"atRestEncryptionEnabled"`
 	// `AWS::ElastiCache::ReplicationGroup.AuthToken`.
@@ -4028,6 +4074,8 @@ type CfnReplicationGroupProps struct {
 	PrimaryClusterId *string `json:"primaryClusterId"`
 	// `AWS::ElastiCache::ReplicationGroup.ReplicasPerNodeGroup`.
 	ReplicasPerNodeGroup *float64 `json:"replicasPerNodeGroup"`
+	// `AWS::ElastiCache::ReplicationGroup.ReplicationGroupDescription`.
+	ReplicationGroupDescription *string `json:"replicationGroupDescription"`
 	// `AWS::ElastiCache::ReplicationGroup.ReplicationGroupId`.
 	ReplicationGroupId *string `json:"replicationGroupId"`
 	// `AWS::ElastiCache::ReplicationGroup.SecurityGroupIds`.
@@ -4051,6 +4099,9 @@ type CfnReplicationGroupProps struct {
 }
 
 // A CloudFormation `AWS::ElastiCache::SecurityGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnSecurityGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4648,6 +4699,9 @@ func (c *jsiiProxy_CfnSecurityGroup) ValidateProperties(_properties interface{})
 }
 
 // A CloudFormation `AWS::ElastiCache::SecurityGroupIngress`.
+//
+// TODO: EXAMPLE
+//
 type CfnSecurityGroupIngress interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5274,6 +5328,9 @@ func (c *jsiiProxy_CfnSecurityGroupIngress) ValidateProperties(_properties inter
 }
 
 // Properties for defining a `AWS::ElastiCache::SecurityGroupIngress`.
+//
+// TODO: EXAMPLE
+//
 type CfnSecurityGroupIngressProps struct {
 	// `AWS::ElastiCache::SecurityGroupIngress.CacheSecurityGroupName`.
 	CacheSecurityGroupName *string `json:"cacheSecurityGroupName"`
@@ -5284,6 +5341,9 @@ type CfnSecurityGroupIngressProps struct {
 }
 
 // Properties for defining a `AWS::ElastiCache::SecurityGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnSecurityGroupProps struct {
 	// `AWS::ElastiCache::SecurityGroup.Description`.
 	Description *string `json:"description"`
@@ -5292,6 +5352,9 @@ type CfnSecurityGroupProps struct {
 }
 
 // A CloudFormation `AWS::ElastiCache::SubnetGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnSubnetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5929,18 +5992,24 @@ func (c *jsiiProxy_CfnSubnetGroup) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::ElastiCache::SubnetGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnSubnetGroupProps struct {
+	// `AWS::ElastiCache::SubnetGroup.CacheSubnetGroupName`.
+	CacheSubnetGroupName *string `json:"cacheSubnetGroupName"`
 	// `AWS::ElastiCache::SubnetGroup.Description`.
 	Description *string `json:"description"`
 	// `AWS::ElastiCache::SubnetGroup.SubnetIds`.
 	SubnetIds *[]*string `json:"subnetIds"`
-	// `AWS::ElastiCache::SubnetGroup.CacheSubnetGroupName`.
-	CacheSubnetGroupName *string `json:"cacheSubnetGroupName"`
 	// `AWS::ElastiCache::SubnetGroup.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::ElastiCache::User`.
+//
+// TODO: EXAMPLE
+//
 type CfnUser interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6649,6 +6718,9 @@ func (c *jsiiProxy_CfnUser) ValidateProperties(_properties interface{}) {
 }
 
 // A CloudFormation `AWS::ElastiCache::UserGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -7297,6 +7369,9 @@ func (c *jsiiProxy_CfnUserGroup) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::ElastiCache::UserGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserGroupProps struct {
 	// `AWS::ElastiCache::UserGroup.Engine`.
 	Engine *string `json:"engine"`
@@ -7307,18 +7382,21 @@ type CfnUserGroupProps struct {
 }
 
 // Properties for defining a `AWS::ElastiCache::User`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserProps struct {
-	// `AWS::ElastiCache::User.Engine`.
-	Engine *string `json:"engine"`
-	// `AWS::ElastiCache::User.UserId`.
-	UserId *string `json:"userId"`
-	// `AWS::ElastiCache::User.UserName`.
-	UserName *string `json:"userName"`
 	// `AWS::ElastiCache::User.AccessString`.
 	AccessString *string `json:"accessString"`
+	// `AWS::ElastiCache::User.Engine`.
+	Engine *string `json:"engine"`
 	// `AWS::ElastiCache::User.NoPasswordRequired`.
 	NoPasswordRequired interface{} `json:"noPasswordRequired"`
 	// `AWS::ElastiCache::User.Passwords`.
 	Passwords *[]*string `json:"passwords"`
+	// `AWS::ElastiCache::User.UserId`.
+	UserId *string `json:"userId"`
+	// `AWS::ElastiCache::User.UserName`.
+	UserName *string `json:"userName"`
 }
 

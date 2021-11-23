@@ -797,6 +797,9 @@ type AttributeGroupProps struct {
 }
 
 // A CloudFormation `AWS::ServiceCatalogAppRegistry::Application`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1436,16 +1439,22 @@ func (c *jsiiProxy_CfnApplication) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::ServiceCatalogAppRegistry::Application`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationProps struct {
-	// `AWS::ServiceCatalogAppRegistry::Application.Name`.
-	Name *string `json:"name"`
 	// `AWS::ServiceCatalogAppRegistry::Application.Description`.
 	Description *string `json:"description"`
+	// `AWS::ServiceCatalogAppRegistry::Application.Name`.
+	Name *string `json:"name"`
 	// `AWS::ServiceCatalogAppRegistry::Application.Tags`.
 	Tags *map[string]*string `json:"tags"`
 }
 
 // A CloudFormation `AWS::ServiceCatalogAppRegistry::AttributeGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnAttributeGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2105,6 +2114,9 @@ func (c *jsiiProxy_CfnAttributeGroup) ValidateProperties(_properties interface{}
 }
 
 // A CloudFormation `AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnAttributeGroupAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2744,6 +2756,9 @@ func (c *jsiiProxy_CfnAttributeGroupAssociation) ValidateProperties(_properties 
 }
 
 // Properties for defining a `AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnAttributeGroupAssociationProps struct {
 	// `AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation.Application`.
 	Application *string `json:"application"`
@@ -2752,18 +2767,24 @@ type CfnAttributeGroupAssociationProps struct {
 }
 
 // Properties for defining a `AWS::ServiceCatalogAppRegistry::AttributeGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnAttributeGroupProps struct {
 	// `AWS::ServiceCatalogAppRegistry::AttributeGroup.Attributes`.
 	Attributes interface{} `json:"attributes"`
-	// `AWS::ServiceCatalogAppRegistry::AttributeGroup.Name`.
-	Name *string `json:"name"`
 	// `AWS::ServiceCatalogAppRegistry::AttributeGroup.Description`.
 	Description *string `json:"description"`
+	// `AWS::ServiceCatalogAppRegistry::AttributeGroup.Name`.
+	Name *string `json:"name"`
 	// `AWS::ServiceCatalogAppRegistry::AttributeGroup.Tags`.
 	Tags *map[string]*string `json:"tags"`
 }
 
 // A CloudFormation `AWS::ServiceCatalogAppRegistry::ResourceAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourceAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3423,6 +3444,9 @@ func (c *jsiiProxy_CfnResourceAssociation) ValidateProperties(_properties interf
 }
 
 // Properties for defining a `AWS::ServiceCatalogAppRegistry::ResourceAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourceAssociationProps struct {
 	// `AWS::ServiceCatalogAppRegistry::ResourceAssociation.Application`.
 	Application *string `json:"application"`

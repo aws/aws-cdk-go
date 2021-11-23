@@ -56,6 +56,9 @@ const (
 )
 
 // A CloudFormation `AWS::DynamoDB::GlobalTable`.
+//
+// TODO: EXAMPLE
+//
 type CfnGlobalTable interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -874,6 +877,8 @@ func (c *jsiiProxy_CfnGlobalTable) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnGlobalTable_AttributeDefinitionProperty struct {
 	// `CfnGlobalTable.AttributeDefinitionProperty.AttributeName`.
 	AttributeName *string `json:"attributeName"`
@@ -881,22 +886,28 @@ type CfnGlobalTable_AttributeDefinitionProperty struct {
 	AttributeType *string `json:"attributeType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGlobalTable_CapacityAutoScalingSettingsProperty struct {
 	// `CfnGlobalTable.CapacityAutoScalingSettingsProperty.MaxCapacity`.
 	MaxCapacity *float64 `json:"maxCapacity"`
 	// `CfnGlobalTable.CapacityAutoScalingSettingsProperty.MinCapacity`.
 	MinCapacity *float64 `json:"minCapacity"`
-	// `CfnGlobalTable.CapacityAutoScalingSettingsProperty.TargetTrackingScalingPolicyConfiguration`.
-	TargetTrackingScalingPolicyConfiguration interface{} `json:"targetTrackingScalingPolicyConfiguration"`
 	// `CfnGlobalTable.CapacityAutoScalingSettingsProperty.SeedCapacity`.
 	SeedCapacity *float64 `json:"seedCapacity"`
+	// `CfnGlobalTable.CapacityAutoScalingSettingsProperty.TargetTrackingScalingPolicyConfiguration`.
+	TargetTrackingScalingPolicyConfiguration interface{} `json:"targetTrackingScalingPolicyConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGlobalTable_ContributorInsightsSpecificationProperty struct {
 	// `CfnGlobalTable.ContributorInsightsSpecificationProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGlobalTable_GlobalSecondaryIndexProperty struct {
 	// `CfnGlobalTable.GlobalSecondaryIndexProperty.IndexName`.
 	IndexName *string `json:"indexName"`
@@ -908,6 +919,8 @@ type CfnGlobalTable_GlobalSecondaryIndexProperty struct {
 	WriteProvisionedThroughputSettings interface{} `json:"writeProvisionedThroughputSettings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGlobalTable_KeySchemaProperty struct {
 	// `CfnGlobalTable.KeySchemaProperty.AttributeName`.
 	AttributeName *string `json:"attributeName"`
@@ -915,6 +928,8 @@ type CfnGlobalTable_KeySchemaProperty struct {
 	KeyType *string `json:"keyType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGlobalTable_LocalSecondaryIndexProperty struct {
 	// `CfnGlobalTable.LocalSecondaryIndexProperty.IndexName`.
 	IndexName *string `json:"indexName"`
@@ -924,11 +939,15 @@ type CfnGlobalTable_LocalSecondaryIndexProperty struct {
 	Projection interface{} `json:"projection"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGlobalTable_PointInTimeRecoverySpecificationProperty struct {
 	// `CfnGlobalTable.PointInTimeRecoverySpecificationProperty.PointInTimeRecoveryEnabled`.
 	PointInTimeRecoveryEnabled interface{} `json:"pointInTimeRecoveryEnabled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGlobalTable_ProjectionProperty struct {
 	// `CfnGlobalTable.ProjectionProperty.NonKeyAttributes`.
 	NonKeyAttributes *[]*string `json:"nonKeyAttributes"`
@@ -936,6 +955,8 @@ type CfnGlobalTable_ProjectionProperty struct {
 	ProjectionType *string `json:"projectionType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGlobalTable_ReadProvisionedThroughputSettingsProperty struct {
 	// `CfnGlobalTable.ReadProvisionedThroughputSettingsProperty.ReadCapacityAutoScalingSettings`.
 	ReadCapacityAutoScalingSettings interface{} `json:"readCapacityAutoScalingSettings"`
@@ -943,23 +964,27 @@ type CfnGlobalTable_ReadProvisionedThroughputSettingsProperty struct {
 	ReadCapacityUnits *float64 `json:"readCapacityUnits"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGlobalTable_ReplicaGlobalSecondaryIndexSpecificationProperty struct {
-	// `CfnGlobalTable.ReplicaGlobalSecondaryIndexSpecificationProperty.IndexName`.
-	IndexName *string `json:"indexName"`
 	// `CfnGlobalTable.ReplicaGlobalSecondaryIndexSpecificationProperty.ContributorInsightsSpecification`.
 	ContributorInsightsSpecification interface{} `json:"contributorInsightsSpecification"`
+	// `CfnGlobalTable.ReplicaGlobalSecondaryIndexSpecificationProperty.IndexName`.
+	IndexName *string `json:"indexName"`
 	// `CfnGlobalTable.ReplicaGlobalSecondaryIndexSpecificationProperty.ReadProvisionedThroughputSettings`.
 	ReadProvisionedThroughputSettings interface{} `json:"readProvisionedThroughputSettings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGlobalTable_ReplicaSSESpecificationProperty struct {
 	// `CfnGlobalTable.ReplicaSSESpecificationProperty.KMSMasterKeyId`.
 	KmsMasterKeyId *string `json:"kmsMasterKeyId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGlobalTable_ReplicaSpecificationProperty struct {
-	// `CfnGlobalTable.ReplicaSpecificationProperty.Region`.
-	Region *string `json:"region"`
 	// `CfnGlobalTable.ReplicaSpecificationProperty.ContributorInsightsSpecification`.
 	ContributorInsightsSpecification interface{} `json:"contributorInsightsSpecification"`
 	// `CfnGlobalTable.ReplicaSpecificationProperty.GlobalSecondaryIndexes`.
@@ -968,12 +993,16 @@ type CfnGlobalTable_ReplicaSpecificationProperty struct {
 	PointInTimeRecoverySpecification interface{} `json:"pointInTimeRecoverySpecification"`
 	// `CfnGlobalTable.ReplicaSpecificationProperty.ReadProvisionedThroughputSettings`.
 	ReadProvisionedThroughputSettings interface{} `json:"readProvisionedThroughputSettings"`
+	// `CfnGlobalTable.ReplicaSpecificationProperty.Region`.
+	Region *string `json:"region"`
 	// `CfnGlobalTable.ReplicaSpecificationProperty.SSESpecification`.
 	SseSpecification interface{} `json:"sseSpecification"`
 	// `CfnGlobalTable.ReplicaSpecificationProperty.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGlobalTable_SSESpecificationProperty struct {
 	// `CfnGlobalTable.SSESpecificationProperty.SSEEnabled`.
 	SseEnabled interface{} `json:"sseEnabled"`
@@ -981,48 +1010,59 @@ type CfnGlobalTable_SSESpecificationProperty struct {
 	SseType *string `json:"sseType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGlobalTable_StreamSpecificationProperty struct {
 	// `CfnGlobalTable.StreamSpecificationProperty.StreamViewType`.
 	StreamViewType *string `json:"streamViewType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGlobalTable_TargetTrackingScalingPolicyConfigurationProperty struct {
-	// `CfnGlobalTable.TargetTrackingScalingPolicyConfigurationProperty.TargetValue`.
-	TargetValue *float64 `json:"targetValue"`
 	// `CfnGlobalTable.TargetTrackingScalingPolicyConfigurationProperty.DisableScaleIn`.
 	DisableScaleIn interface{} `json:"disableScaleIn"`
 	// `CfnGlobalTable.TargetTrackingScalingPolicyConfigurationProperty.ScaleInCooldown`.
 	ScaleInCooldown *float64 `json:"scaleInCooldown"`
 	// `CfnGlobalTable.TargetTrackingScalingPolicyConfigurationProperty.ScaleOutCooldown`.
 	ScaleOutCooldown *float64 `json:"scaleOutCooldown"`
+	// `CfnGlobalTable.TargetTrackingScalingPolicyConfigurationProperty.TargetValue`.
+	TargetValue *float64 `json:"targetValue"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGlobalTable_TimeToLiveSpecificationProperty struct {
-	// `CfnGlobalTable.TimeToLiveSpecificationProperty.Enabled`.
-	Enabled interface{} `json:"enabled"`
 	// `CfnGlobalTable.TimeToLiveSpecificationProperty.AttributeName`.
 	AttributeName *string `json:"attributeName"`
+	// `CfnGlobalTable.TimeToLiveSpecificationProperty.Enabled`.
+	Enabled interface{} `json:"enabled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGlobalTable_WriteProvisionedThroughputSettingsProperty struct {
 	// `CfnGlobalTable.WriteProvisionedThroughputSettingsProperty.WriteCapacityAutoScalingSettings`.
 	WriteCapacityAutoScalingSettings interface{} `json:"writeCapacityAutoScalingSettings"`
 }
 
 // Properties for defining a `AWS::DynamoDB::GlobalTable`.
+//
+// TODO: EXAMPLE
+//
 type CfnGlobalTableProps struct {
 	// `AWS::DynamoDB::GlobalTable.AttributeDefinitions`.
 	AttributeDefinitions interface{} `json:"attributeDefinitions"`
-	// `AWS::DynamoDB::GlobalTable.KeySchema`.
-	KeySchema interface{} `json:"keySchema"`
-	// `AWS::DynamoDB::GlobalTable.Replicas`.
-	Replicas interface{} `json:"replicas"`
 	// `AWS::DynamoDB::GlobalTable.BillingMode`.
 	BillingMode *string `json:"billingMode"`
 	// `AWS::DynamoDB::GlobalTable.GlobalSecondaryIndexes`.
 	GlobalSecondaryIndexes interface{} `json:"globalSecondaryIndexes"`
+	// `AWS::DynamoDB::GlobalTable.KeySchema`.
+	KeySchema interface{} `json:"keySchema"`
 	// `AWS::DynamoDB::GlobalTable.LocalSecondaryIndexes`.
 	LocalSecondaryIndexes interface{} `json:"localSecondaryIndexes"`
+	// `AWS::DynamoDB::GlobalTable.Replicas`.
+	Replicas interface{} `json:"replicas"`
 	// `AWS::DynamoDB::GlobalTable.SSESpecification`.
 	SseSpecification interface{} `json:"sseSpecification"`
 	// `AWS::DynamoDB::GlobalTable.StreamSpecification`.
@@ -1036,6 +1076,9 @@ type CfnGlobalTableProps struct {
 }
 
 // A CloudFormation `AWS::DynamoDB::Table`.
+//
+// TODO: EXAMPLE
+//
 type CfnTable interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1894,6 +1937,8 @@ func (c *jsiiProxy_CfnTable) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnTable_AttributeDefinitionProperty struct {
 	// `CfnTable.AttributeDefinitionProperty.AttributeName`.
 	AttributeName *string `json:"attributeName"`
@@ -1901,24 +1946,30 @@ type CfnTable_AttributeDefinitionProperty struct {
 	AttributeType *string `json:"attributeType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTable_ContributorInsightsSpecificationProperty struct {
 	// `CfnTable.ContributorInsightsSpecificationProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTable_GlobalSecondaryIndexProperty struct {
+	// `CfnTable.GlobalSecondaryIndexProperty.ContributorInsightsSpecification`.
+	ContributorInsightsSpecification interface{} `json:"contributorInsightsSpecification"`
 	// `CfnTable.GlobalSecondaryIndexProperty.IndexName`.
 	IndexName *string `json:"indexName"`
 	// `CfnTable.GlobalSecondaryIndexProperty.KeySchema`.
 	KeySchema interface{} `json:"keySchema"`
 	// `CfnTable.GlobalSecondaryIndexProperty.Projection`.
 	Projection interface{} `json:"projection"`
-	// `CfnTable.GlobalSecondaryIndexProperty.ContributorInsightsSpecification`.
-	ContributorInsightsSpecification interface{} `json:"contributorInsightsSpecification"`
 	// `CfnTable.GlobalSecondaryIndexProperty.ProvisionedThroughput`.
 	ProvisionedThroughput interface{} `json:"provisionedThroughput"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTable_KeySchemaProperty struct {
 	// `CfnTable.KeySchemaProperty.AttributeName`.
 	AttributeName *string `json:"attributeName"`
@@ -1926,11 +1977,15 @@ type CfnTable_KeySchemaProperty struct {
 	KeyType *string `json:"keyType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTable_KinesisStreamSpecificationProperty struct {
 	// `CfnTable.KinesisStreamSpecificationProperty.StreamArn`.
 	StreamArn *string `json:"streamArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTable_LocalSecondaryIndexProperty struct {
 	// `CfnTable.LocalSecondaryIndexProperty.IndexName`.
 	IndexName *string `json:"indexName"`
@@ -1940,11 +1995,15 @@ type CfnTable_LocalSecondaryIndexProperty struct {
 	Projection interface{} `json:"projection"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTable_PointInTimeRecoverySpecificationProperty struct {
 	// `CfnTable.PointInTimeRecoverySpecificationProperty.PointInTimeRecoveryEnabled`.
 	PointInTimeRecoveryEnabled interface{} `json:"pointInTimeRecoveryEnabled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTable_ProjectionProperty struct {
 	// `CfnTable.ProjectionProperty.NonKeyAttributes`.
 	NonKeyAttributes *[]*string `json:"nonKeyAttributes"`
@@ -1952,6 +2011,8 @@ type CfnTable_ProjectionProperty struct {
 	ProjectionType *string `json:"projectionType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTable_ProvisionedThroughputProperty struct {
 	// `CfnTable.ProvisionedThroughputProperty.ReadCapacityUnits`.
 	ReadCapacityUnits *float64 `json:"readCapacityUnits"`
@@ -1959,20 +2020,26 @@ type CfnTable_ProvisionedThroughputProperty struct {
 	WriteCapacityUnits *float64 `json:"writeCapacityUnits"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTable_SSESpecificationProperty struct {
-	// `CfnTable.SSESpecificationProperty.SSEEnabled`.
-	SseEnabled interface{} `json:"sseEnabled"`
 	// `CfnTable.SSESpecificationProperty.KMSMasterKeyId`.
 	KmsMasterKeyId *string `json:"kmsMasterKeyId"`
+	// `CfnTable.SSESpecificationProperty.SSEEnabled`.
+	SseEnabled interface{} `json:"sseEnabled"`
 	// `CfnTable.SSESpecificationProperty.SSEType`.
 	SseType *string `json:"sseType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTable_StreamSpecificationProperty struct {
 	// `CfnTable.StreamSpecificationProperty.StreamViewType`.
 	StreamViewType *string `json:"streamViewType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTable_TimeToLiveSpecificationProperty struct {
 	// `CfnTable.TimeToLiveSpecificationProperty.AttributeName`.
 	AttributeName *string `json:"attributeName"`
@@ -1981,9 +2048,10 @@ type CfnTable_TimeToLiveSpecificationProperty struct {
 }
 
 // Properties for defining a `AWS::DynamoDB::Table`.
+//
+// TODO: EXAMPLE
+//
 type CfnTableProps struct {
-	// `AWS::DynamoDB::Table.KeySchema`.
-	KeySchema interface{} `json:"keySchema"`
 	// `AWS::DynamoDB::Table.AttributeDefinitions`.
 	AttributeDefinitions interface{} `json:"attributeDefinitions"`
 	// `AWS::DynamoDB::Table.BillingMode`.
@@ -1992,6 +2060,8 @@ type CfnTableProps struct {
 	ContributorInsightsSpecification interface{} `json:"contributorInsightsSpecification"`
 	// `AWS::DynamoDB::Table.GlobalSecondaryIndexes`.
 	GlobalSecondaryIndexes interface{} `json:"globalSecondaryIndexes"`
+	// `AWS::DynamoDB::Table.KeySchema`.
+	KeySchema interface{} `json:"keySchema"`
 	// `AWS::DynamoDB::Table.KinesisStreamSpecification`.
 	KinesisStreamSpecification interface{} `json:"kinesisStreamSpecification"`
 	// `AWS::DynamoDB::Table.LocalSecondaryIndexes`.
@@ -2027,6 +2097,9 @@ type EnableScalingProps struct {
 }
 
 // Properties for a global secondary index.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type GlobalSecondaryIndexProps struct {
 	// The name of the secondary index.
@@ -2458,6 +2531,9 @@ func (j *jsiiProxy_ITable) TableStreamArn() *string {
 }
 
 // Properties for a local secondary index.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LocalSecondaryIndexProps struct {
 	// The name of the secondary index.
@@ -2479,15 +2555,15 @@ type LocalSecondaryIndexProps struct {
 type Operation string
 
 const (
-	Operation_GET_ITEM Operation = "GET_ITEM"
 	Operation_BATCH_GET_ITEM Operation = "BATCH_GET_ITEM"
-	Operation_SCAN Operation = "SCAN"
-	Operation_QUERY Operation = "QUERY"
+	Operation_BATCH_WRITE_ITEM Operation = "BATCH_WRITE_ITEM"
+	Operation_DELETE_ITEM Operation = "DELETE_ITEM"
+	Operation_GET_ITEM Operation = "GET_ITEM"
 	Operation_GET_RECORDS Operation = "GET_RECORDS"
 	Operation_PUT_ITEM Operation = "PUT_ITEM"
-	Operation_DELETE_ITEM Operation = "DELETE_ITEM"
+	Operation_QUERY Operation = "QUERY"
+	Operation_SCAN Operation = "SCAN"
 	Operation_UPDATE_ITEM Operation = "UPDATE_ITEM"
-	Operation_BATCH_WRITE_ITEM Operation = "BATCH_WRITE_ITEM"
 )
 
 // The set of attributes that are projected into the index.
@@ -2497,9 +2573,9 @@ const (
 type ProjectionType string
 
 const (
-	ProjectionType_KEYS_ONLY ProjectionType = "KEYS_ONLY"
-	ProjectionType_INCLUDE ProjectionType = "INCLUDE"
 	ProjectionType_ALL ProjectionType = "ALL"
+	ProjectionType_INCLUDE ProjectionType = "INCLUDE"
+	ProjectionType_KEYS_ONLY ProjectionType = "KEYS_ONLY"
 )
 
 // Represents the table schema attributes.
@@ -2517,6 +2593,9 @@ type SchemaOptions struct {
 }
 
 // Properties for a secondary index.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SecondaryIndexProps struct {
 	// The name of the secondary index.
@@ -2537,13 +2616,16 @@ type SecondaryIndexProps struct {
 type StreamViewType string
 
 const (
+	StreamViewType_KEYS_ONLY StreamViewType = "KEYS_ONLY"
+	StreamViewType_NEW_AND_OLD_IMAGES StreamViewType = "NEW_AND_OLD_IMAGES"
 	StreamViewType_NEW_IMAGE StreamViewType = "NEW_IMAGE"
 	StreamViewType_OLD_IMAGE StreamViewType = "OLD_IMAGE"
-	StreamViewType_NEW_AND_OLD_IMAGES StreamViewType = "NEW_AND_OLD_IMAGES"
-	StreamViewType_KEYS_ONLY StreamViewType = "KEYS_ONLY"
 )
 
 // Options for configuring a system errors metric that considers multiple operations.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SystemErrorsForOperationsMetricOptions struct {
 	// Account which this metric comes from.
@@ -3491,6 +3573,9 @@ func (t *jsiiProxy_Table) Validate() *[]*string {
 }
 
 // Reference to a dynamodb table.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type TableAttributes struct {
 	// KMS encryption key, if this table uses a customer-managed encryption key.
@@ -3535,14 +3620,17 @@ type TableAttributes struct {
 type TableEncryption string
 
 const (
-	TableEncryption_DEFAULT TableEncryption = "DEFAULT"
-	TableEncryption_CUSTOMER_MANAGED TableEncryption = "CUSTOMER_MANAGED"
 	TableEncryption_AWS_MANAGED TableEncryption = "AWS_MANAGED"
+	TableEncryption_CUSTOMER_MANAGED TableEncryption = "CUSTOMER_MANAGED"
+	TableEncryption_DEFAULT TableEncryption = "DEFAULT"
 )
 
 // Properties of a DynamoDB Table.
 //
 // Use {@link TableProps} for all table properties
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type TableOptions struct {
 	// Partition key attribute definition.

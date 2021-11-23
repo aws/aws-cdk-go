@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::QuickSight::Analysis`.
+//
+// TODO: EXAMPLE
+//
 type CfnAnalysis interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -812,6 +815,8 @@ func (c *jsiiProxy_CfnAnalysis) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnalysis_AnalysisErrorProperty struct {
 	// `CfnAnalysis.AnalysisErrorProperty.Message`.
 	Message *string `json:"message"`
@@ -819,11 +824,15 @@ type CfnAnalysis_AnalysisErrorProperty struct {
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnalysis_AnalysisSourceEntityProperty struct {
 	// `CfnAnalysis.AnalysisSourceEntityProperty.SourceTemplate`.
 	SourceTemplate interface{} `json:"sourceTemplate"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnalysis_AnalysisSourceTemplateProperty struct {
 	// `CfnAnalysis.AnalysisSourceTemplateProperty.Arn`.
 	Arn *string `json:"arn"`
@@ -831,6 +840,8 @@ type CfnAnalysis_AnalysisSourceTemplateProperty struct {
 	DataSetReferences interface{} `json:"dataSetReferences"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnalysis_DataSetReferenceProperty struct {
 	// `CfnAnalysis.DataSetReferenceProperty.DataSetArn`.
 	DataSetArn *string `json:"dataSetArn"`
@@ -838,6 +849,8 @@ type CfnAnalysis_DataSetReferenceProperty struct {
 	DataSetPlaceholder *string `json:"dataSetPlaceholder"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnalysis_DateTimeParameterProperty struct {
 	// `CfnAnalysis.DateTimeParameterProperty.Name`.
 	Name *string `json:"name"`
@@ -845,6 +858,8 @@ type CfnAnalysis_DateTimeParameterProperty struct {
 	Values *[]*string `json:"values"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnalysis_DecimalParameterProperty struct {
 	// `CfnAnalysis.DecimalParameterProperty.Name`.
 	Name *string `json:"name"`
@@ -852,6 +867,8 @@ type CfnAnalysis_DecimalParameterProperty struct {
 	Values interface{} `json:"values"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnalysis_IntegerParameterProperty struct {
 	// `CfnAnalysis.IntegerParameterProperty.Name`.
 	Name *string `json:"name"`
@@ -859,6 +876,8 @@ type CfnAnalysis_IntegerParameterProperty struct {
 	Values interface{} `json:"values"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnalysis_ParametersProperty struct {
 	// `CfnAnalysis.ParametersProperty.DateTimeParameters`.
 	DateTimeParameters interface{} `json:"dateTimeParameters"`
@@ -870,6 +889,8 @@ type CfnAnalysis_ParametersProperty struct {
 	StringParameters interface{} `json:"stringParameters"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnalysis_ResourcePermissionProperty struct {
 	// `CfnAnalysis.ResourcePermissionProperty.Actions`.
 	Actions *[]*string `json:"actions"`
@@ -877,6 +898,8 @@ type CfnAnalysis_ResourcePermissionProperty struct {
 	Principal *string `json:"principal"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnalysis_SheetProperty struct {
 	// `CfnAnalysis.SheetProperty.Name`.
 	Name *string `json:"name"`
@@ -884,6 +907,8 @@ type CfnAnalysis_SheetProperty struct {
 	SheetId *string `json:"sheetId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnalysis_StringParameterProperty struct {
 	// `CfnAnalysis.StringParameterProperty.Name`.
 	Name *string `json:"name"`
@@ -892,13 +917,14 @@ type CfnAnalysis_StringParameterProperty struct {
 }
 
 // Properties for defining a `AWS::QuickSight::Analysis`.
+//
+// TODO: EXAMPLE
+//
 type CfnAnalysisProps struct {
 	// `AWS::QuickSight::Analysis.AnalysisId`.
 	AnalysisId *string `json:"analysisId"`
 	// `AWS::QuickSight::Analysis.AwsAccountId`.
 	AwsAccountId *string `json:"awsAccountId"`
-	// `AWS::QuickSight::Analysis.SourceEntity`.
-	SourceEntity interface{} `json:"sourceEntity"`
 	// `AWS::QuickSight::Analysis.Errors`.
 	Errors interface{} `json:"errors"`
 	// `AWS::QuickSight::Analysis.Name`.
@@ -907,6 +933,8 @@ type CfnAnalysisProps struct {
 	Parameters interface{} `json:"parameters"`
 	// `AWS::QuickSight::Analysis.Permissions`.
 	Permissions interface{} `json:"permissions"`
+	// `AWS::QuickSight::Analysis.SourceEntity`.
+	SourceEntity interface{} `json:"sourceEntity"`
 	// `AWS::QuickSight::Analysis.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::QuickSight::Analysis.ThemeArn`.
@@ -914,6 +942,9 @@ type CfnAnalysisProps struct {
 }
 
 // A CloudFormation `AWS::QuickSight::Dashboard`.
+//
+// TODO: EXAMPLE
+//
 type CfnDashboard interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1714,11 +1745,15 @@ func (c *jsiiProxy_CfnDashboard) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDashboard_AdHocFilteringOptionProperty struct {
 	// `CfnDashboard.AdHocFilteringOptionProperty.AvailabilityStatus`.
 	AvailabilityStatus *string `json:"availabilityStatus"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDashboard_DashboardPublishOptionsProperty struct {
 	// `CfnDashboard.DashboardPublishOptionsProperty.AdHocFilteringOption`.
 	AdHocFilteringOption interface{} `json:"adHocFilteringOption"`
@@ -1728,11 +1763,15 @@ type CfnDashboard_DashboardPublishOptionsProperty struct {
 	SheetControlsOption interface{} `json:"sheetControlsOption"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDashboard_DashboardSourceEntityProperty struct {
 	// `CfnDashboard.DashboardSourceEntityProperty.SourceTemplate`.
 	SourceTemplate interface{} `json:"sourceTemplate"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDashboard_DashboardSourceTemplateProperty struct {
 	// `CfnDashboard.DashboardSourceTemplateProperty.Arn`.
 	Arn *string `json:"arn"`
@@ -1740,6 +1779,8 @@ type CfnDashboard_DashboardSourceTemplateProperty struct {
 	DataSetReferences interface{} `json:"dataSetReferences"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDashboard_DataSetReferenceProperty struct {
 	// `CfnDashboard.DataSetReferenceProperty.DataSetArn`.
 	DataSetArn *string `json:"dataSetArn"`
@@ -1747,6 +1788,8 @@ type CfnDashboard_DataSetReferenceProperty struct {
 	DataSetPlaceholder *string `json:"dataSetPlaceholder"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDashboard_DateTimeParameterProperty struct {
 	// `CfnDashboard.DateTimeParameterProperty.Name`.
 	Name *string `json:"name"`
@@ -1754,6 +1797,8 @@ type CfnDashboard_DateTimeParameterProperty struct {
 	Values *[]*string `json:"values"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDashboard_DecimalParameterProperty struct {
 	// `CfnDashboard.DecimalParameterProperty.Name`.
 	Name *string `json:"name"`
@@ -1761,11 +1806,15 @@ type CfnDashboard_DecimalParameterProperty struct {
 	Values interface{} `json:"values"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDashboard_ExportToCSVOptionProperty struct {
 	// `CfnDashboard.ExportToCSVOptionProperty.AvailabilityStatus`.
 	AvailabilityStatus *string `json:"availabilityStatus"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDashboard_IntegerParameterProperty struct {
 	// `CfnDashboard.IntegerParameterProperty.Name`.
 	Name *string `json:"name"`
@@ -1773,6 +1822,8 @@ type CfnDashboard_IntegerParameterProperty struct {
 	Values interface{} `json:"values"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDashboard_ParametersProperty struct {
 	// `CfnDashboard.ParametersProperty.DateTimeParameters`.
 	DateTimeParameters interface{} `json:"dateTimeParameters"`
@@ -1784,6 +1835,8 @@ type CfnDashboard_ParametersProperty struct {
 	StringParameters interface{} `json:"stringParameters"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDashboard_ResourcePermissionProperty struct {
 	// `CfnDashboard.ResourcePermissionProperty.Actions`.
 	Actions *[]*string `json:"actions"`
@@ -1791,11 +1844,15 @@ type CfnDashboard_ResourcePermissionProperty struct {
 	Principal *string `json:"principal"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDashboard_SheetControlsOptionProperty struct {
 	// `CfnDashboard.SheetControlsOptionProperty.VisibilityState`.
 	VisibilityState *string `json:"visibilityState"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDashboard_StringParameterProperty struct {
 	// `CfnDashboard.StringParameterProperty.Name`.
 	Name *string `json:"name"`
@@ -1804,13 +1861,14 @@ type CfnDashboard_StringParameterProperty struct {
 }
 
 // Properties for defining a `AWS::QuickSight::Dashboard`.
+//
+// TODO: EXAMPLE
+//
 type CfnDashboardProps struct {
 	// `AWS::QuickSight::Dashboard.AwsAccountId`.
 	AwsAccountId *string `json:"awsAccountId"`
 	// `AWS::QuickSight::Dashboard.DashboardId`.
 	DashboardId *string `json:"dashboardId"`
-	// `AWS::QuickSight::Dashboard.SourceEntity`.
-	SourceEntity interface{} `json:"sourceEntity"`
 	// `AWS::QuickSight::Dashboard.DashboardPublishOptions`.
 	DashboardPublishOptions interface{} `json:"dashboardPublishOptions"`
 	// `AWS::QuickSight::Dashboard.Name`.
@@ -1819,6 +1877,8 @@ type CfnDashboardProps struct {
 	Parameters interface{} `json:"parameters"`
 	// `AWS::QuickSight::Dashboard.Permissions`.
 	Permissions interface{} `json:"permissions"`
+	// `AWS::QuickSight::Dashboard.SourceEntity`.
+	SourceEntity interface{} `json:"sourceEntity"`
 	// `AWS::QuickSight::Dashboard.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::QuickSight::Dashboard.ThemeArn`.
@@ -1828,6 +1888,9 @@ type CfnDashboardProps struct {
 }
 
 // A CloudFormation `AWS::QuickSight::DataSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnDataSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2699,6 +2762,8 @@ func (c *jsiiProxy_CfnDataSet) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSet_CalculatedColumnProperty struct {
 	// `CfnDataSet.CalculatedColumnProperty.ColumnId`.
 	ColumnId *string `json:"columnId"`
@@ -2708,25 +2773,33 @@ type CfnDataSet_CalculatedColumnProperty struct {
 	Expression *string `json:"expression"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSet_CastColumnTypeOperationProperty struct {
 	// `CfnDataSet.CastColumnTypeOperationProperty.ColumnName`.
 	ColumnName *string `json:"columnName"`
-	// `CfnDataSet.CastColumnTypeOperationProperty.NewColumnType`.
-	NewColumnType *string `json:"newColumnType"`
 	// `CfnDataSet.CastColumnTypeOperationProperty.Format`.
 	Format *string `json:"format"`
+	// `CfnDataSet.CastColumnTypeOperationProperty.NewColumnType`.
+	NewColumnType *string `json:"newColumnType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSet_ColumnDescriptionProperty struct {
 	// `CfnDataSet.ColumnDescriptionProperty.Text`.
 	Text *string `json:"text"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSet_ColumnGroupProperty struct {
 	// `CfnDataSet.ColumnGroupProperty.GeoSpatialColumnGroup`.
 	GeoSpatialColumnGroup interface{} `json:"geoSpatialColumnGroup"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSet_ColumnLevelPermissionRuleProperty struct {
 	// `CfnDataSet.ColumnLevelPermissionRuleProperty.ColumnNames`.
 	ColumnNames *[]*string `json:"columnNames"`
@@ -2734,6 +2807,8 @@ type CfnDataSet_ColumnLevelPermissionRuleProperty struct {
 	Principals *[]*string `json:"principals"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSet_ColumnTagProperty struct {
 	// `CfnDataSet.ColumnTagProperty.ColumnDescription`.
 	ColumnDescription interface{} `json:"columnDescription"`
@@ -2741,11 +2816,15 @@ type CfnDataSet_ColumnTagProperty struct {
 	ColumnGeographicRole *string `json:"columnGeographicRole"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSet_CreateColumnsOperationProperty struct {
 	// `CfnDataSet.CreateColumnsOperationProperty.Columns`.
 	Columns interface{} `json:"columns"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSet_CustomSqlProperty struct {
 	// `CfnDataSet.CustomSqlProperty.Columns`.
 	Columns interface{} `json:"columns"`
@@ -2757,6 +2836,8 @@ type CfnDataSet_CustomSqlProperty struct {
 	SqlQuery *string `json:"sqlQuery"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSet_FieldFolderProperty struct {
 	// `CfnDataSet.FieldFolderProperty.Columns`.
 	Columns *[]*string `json:"columns"`
@@ -2764,20 +2845,26 @@ type CfnDataSet_FieldFolderProperty struct {
 	Description *string `json:"description"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSet_FilterOperationProperty struct {
 	// `CfnDataSet.FilterOperationProperty.ConditionExpression`.
 	ConditionExpression *string `json:"conditionExpression"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSet_GeoSpatialColumnGroupProperty struct {
 	// `CfnDataSet.GeoSpatialColumnGroupProperty.Columns`.
 	Columns *[]*string `json:"columns"`
-	// `CfnDataSet.GeoSpatialColumnGroupProperty.Name`.
-	Name *string `json:"name"`
 	// `CfnDataSet.GeoSpatialColumnGroupProperty.CountryCode`.
 	CountryCode *string `json:"countryCode"`
+	// `CfnDataSet.GeoSpatialColumnGroupProperty.Name`.
+	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSet_IngestionWaitPolicyProperty struct {
 	// `CfnDataSet.IngestionWaitPolicyProperty.IngestionWaitTimeInHours`.
 	IngestionWaitTimeInHours *float64 `json:"ingestionWaitTimeInHours"`
@@ -2785,6 +2872,8 @@ type CfnDataSet_IngestionWaitPolicyProperty struct {
 	WaitForSpiceIngestion interface{} `json:"waitForSpiceIngestion"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSet_InputColumnProperty struct {
 	// `CfnDataSet.InputColumnProperty.Name`.
 	Name *string `json:"name"`
@@ -2792,35 +2881,43 @@ type CfnDataSet_InputColumnProperty struct {
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSet_JoinInstructionProperty struct {
+	// `CfnDataSet.JoinInstructionProperty.LeftJoinKeyProperties`.
+	LeftJoinKeyProperties interface{} `json:"leftJoinKeyProperties"`
 	// `CfnDataSet.JoinInstructionProperty.LeftOperand`.
 	LeftOperand *string `json:"leftOperand"`
 	// `CfnDataSet.JoinInstructionProperty.OnClause`.
 	OnClause *string `json:"onClause"`
+	// `CfnDataSet.JoinInstructionProperty.RightJoinKeyProperties`.
+	RightJoinKeyProperties interface{} `json:"rightJoinKeyProperties"`
 	// `CfnDataSet.JoinInstructionProperty.RightOperand`.
 	RightOperand *string `json:"rightOperand"`
 	// `CfnDataSet.JoinInstructionProperty.Type`.
 	Type *string `json:"type"`
-	// `CfnDataSet.JoinInstructionProperty.LeftJoinKeyProperties`.
-	LeftJoinKeyProperties interface{} `json:"leftJoinKeyProperties"`
-	// `CfnDataSet.JoinInstructionProperty.RightJoinKeyProperties`.
-	RightJoinKeyProperties interface{} `json:"rightJoinKeyProperties"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSet_JoinKeyPropertiesProperty struct {
 	// `CfnDataSet.JoinKeyPropertiesProperty.UniqueKey`.
 	UniqueKey interface{} `json:"uniqueKey"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSet_LogicalTableProperty struct {
 	// `CfnDataSet.LogicalTableProperty.Alias`.
 	Alias *string `json:"alias"`
-	// `CfnDataSet.LogicalTableProperty.Source`.
-	Source interface{} `json:"source"`
 	// `CfnDataSet.LogicalTableProperty.DataTransforms`.
 	DataTransforms interface{} `json:"dataTransforms"`
+	// `CfnDataSet.LogicalTableProperty.Source`.
+	Source interface{} `json:"source"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSet_LogicalTableSourceProperty struct {
 	// `CfnDataSet.LogicalTableSourceProperty.JoinInstruction`.
 	JoinInstruction interface{} `json:"joinInstruction"`
@@ -2828,6 +2925,8 @@ type CfnDataSet_LogicalTableSourceProperty struct {
 	PhysicalTableId *string `json:"physicalTableId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSet_OutputColumnProperty struct {
 	// `CfnDataSet.OutputColumnProperty.Description`.
 	Description *string `json:"description"`
@@ -2837,6 +2936,8 @@ type CfnDataSet_OutputColumnProperty struct {
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSet_PhysicalTableProperty struct {
 	// `CfnDataSet.PhysicalTableProperty.CustomSql`.
 	CustomSql interface{} `json:"customSql"`
@@ -2846,24 +2947,30 @@ type CfnDataSet_PhysicalTableProperty struct {
 	S3Source interface{} `json:"s3Source"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSet_ProjectOperationProperty struct {
 	// `CfnDataSet.ProjectOperationProperty.ProjectedColumns`.
 	ProjectedColumns *[]*string `json:"projectedColumns"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSet_RelationalTableProperty struct {
+	// `CfnDataSet.RelationalTableProperty.Catalog`.
+	Catalog *string `json:"catalog"`
 	// `CfnDataSet.RelationalTableProperty.DataSourceArn`.
 	DataSourceArn *string `json:"dataSourceArn"`
 	// `CfnDataSet.RelationalTableProperty.InputColumns`.
 	InputColumns interface{} `json:"inputColumns"`
 	// `CfnDataSet.RelationalTableProperty.Name`.
 	Name *string `json:"name"`
-	// `CfnDataSet.RelationalTableProperty.Catalog`.
-	Catalog *string `json:"catalog"`
 	// `CfnDataSet.RelationalTableProperty.Schema`.
 	Schema *string `json:"schema"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSet_RenameColumnOperationProperty struct {
 	// `CfnDataSet.RenameColumnOperationProperty.ColumnName`.
 	ColumnName *string `json:"columnName"`
@@ -2871,6 +2978,8 @@ type CfnDataSet_RenameColumnOperationProperty struct {
 	NewColumnName *string `json:"newColumnName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSet_ResourcePermissionProperty struct {
 	// `CfnDataSet.ResourcePermissionProperty.Actions`.
 	Actions *[]*string `json:"actions"`
@@ -2878,17 +2987,21 @@ type CfnDataSet_ResourcePermissionProperty struct {
 	Principal *string `json:"principal"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSet_RowLevelPermissionDataSetProperty struct {
 	// `CfnDataSet.RowLevelPermissionDataSetProperty.Arn`.
 	Arn *string `json:"arn"`
-	// `CfnDataSet.RowLevelPermissionDataSetProperty.PermissionPolicy`.
-	PermissionPolicy *string `json:"permissionPolicy"`
 	// `CfnDataSet.RowLevelPermissionDataSetProperty.FormatVersion`.
 	FormatVersion *string `json:"formatVersion"`
 	// `CfnDataSet.RowLevelPermissionDataSetProperty.Namespace`.
 	Namespace *string `json:"namespace"`
+	// `CfnDataSet.RowLevelPermissionDataSetProperty.PermissionPolicy`.
+	PermissionPolicy *string `json:"permissionPolicy"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSet_S3SourceProperty struct {
 	// `CfnDataSet.S3SourceProperty.DataSourceArn`.
 	DataSourceArn *string `json:"dataSourceArn"`
@@ -2898,6 +3011,8 @@ type CfnDataSet_S3SourceProperty struct {
 	UploadSettings interface{} `json:"uploadSettings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSet_TagColumnOperationProperty struct {
 	// `CfnDataSet.TagColumnOperationProperty.ColumnName`.
 	ColumnName *string `json:"columnName"`
@@ -2905,6 +3020,8 @@ type CfnDataSet_TagColumnOperationProperty struct {
 	Tags *[]*CfnDataSet_ColumnTagProperty `json:"tags"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSet_TransformOperationProperty struct {
 	// `CfnDataSet.TransformOperationProperty.CastColumnTypeOperation`.
 	CastColumnTypeOperation interface{} `json:"castColumnTypeOperation"`
@@ -2920,6 +3037,8 @@ type CfnDataSet_TransformOperationProperty struct {
 	TagColumnOperation interface{} `json:"tagColumnOperation"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSet_UploadSettingsProperty struct {
 	// `CfnDataSet.UploadSettingsProperty.ContainsHeader`.
 	ContainsHeader interface{} `json:"containsHeader"`
@@ -2934,6 +3053,9 @@ type CfnDataSet_UploadSettingsProperty struct {
 }
 
 // Properties for defining a `AWS::QuickSight::DataSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnDataSetProps struct {
 	// `AWS::QuickSight::DataSet.AwsAccountId`.
 	AwsAccountId *string `json:"awsAccountId"`
@@ -2964,6 +3086,9 @@ type CfnDataSetProps struct {
 }
 
 // A CloudFormation `AWS::QuickSight::DataSource`.
+//
+// TODO: EXAMPLE
+//
 type CfnDataSource interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3804,21 +3929,29 @@ func (c *jsiiProxy_CfnDataSource) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_AmazonElasticsearchParametersProperty struct {
 	// `CfnDataSource.AmazonElasticsearchParametersProperty.Domain`.
 	Domain *string `json:"domain"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_AmazonOpenSearchParametersProperty struct {
 	// `CfnDataSource.AmazonOpenSearchParametersProperty.Domain`.
 	Domain *string `json:"domain"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_AthenaParametersProperty struct {
 	// `CfnDataSource.AthenaParametersProperty.WorkGroup`.
 	WorkGroup *string `json:"workGroup"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_AuroraParametersProperty struct {
 	// `CfnDataSource.AuroraParametersProperty.Database`.
 	Database *string `json:"database"`
@@ -3828,6 +3961,8 @@ type CfnDataSource_AuroraParametersProperty struct {
 	Port *float64 `json:"port"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_AuroraPostgreSqlParametersProperty struct {
 	// `CfnDataSource.AuroraPostgreSqlParametersProperty.Database`.
 	Database *string `json:"database"`
@@ -3837,15 +3972,19 @@ type CfnDataSource_AuroraPostgreSqlParametersProperty struct {
 	Port *float64 `json:"port"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_CredentialPairProperty struct {
+	// `CfnDataSource.CredentialPairProperty.AlternateDataSourceParameters`.
+	AlternateDataSourceParameters interface{} `json:"alternateDataSourceParameters"`
 	// `CfnDataSource.CredentialPairProperty.Password`.
 	Password *string `json:"password"`
 	// `CfnDataSource.CredentialPairProperty.Username`.
 	Username *string `json:"username"`
-	// `CfnDataSource.CredentialPairProperty.AlternateDataSourceParameters`.
-	AlternateDataSourceParameters interface{} `json:"alternateDataSourceParameters"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_DataSourceCredentialsProperty struct {
 	// `CfnDataSource.DataSourceCredentialsProperty.CopySourceArn`.
 	CopySourceArn *string `json:"copySourceArn"`
@@ -3853,6 +3992,8 @@ type CfnDataSource_DataSourceCredentialsProperty struct {
 	CredentialPair interface{} `json:"credentialPair"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_DataSourceErrorInfoProperty struct {
 	// `CfnDataSource.DataSourceErrorInfoProperty.Message`.
 	Message *string `json:"message"`
@@ -3860,6 +4001,8 @@ type CfnDataSource_DataSourceErrorInfoProperty struct {
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_DataSourceParametersProperty struct {
 	// `CfnDataSource.DataSourceParametersProperty.AmazonElasticsearchParameters`.
 	AmazonElasticsearchParameters interface{} `json:"amazonElasticsearchParameters"`
@@ -3897,6 +4040,8 @@ type CfnDataSource_DataSourceParametersProperty struct {
 	TeradataParameters interface{} `json:"teradataParameters"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_ManifestFileLocationProperty struct {
 	// `CfnDataSource.ManifestFileLocationProperty.Bucket`.
 	Bucket *string `json:"bucket"`
@@ -3904,6 +4049,8 @@ type CfnDataSource_ManifestFileLocationProperty struct {
 	Key *string `json:"key"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_MariaDbParametersProperty struct {
 	// `CfnDataSource.MariaDbParametersProperty.Database`.
 	Database *string `json:"database"`
@@ -3913,6 +4060,8 @@ type CfnDataSource_MariaDbParametersProperty struct {
 	Port *float64 `json:"port"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_MySqlParametersProperty struct {
 	// `CfnDataSource.MySqlParametersProperty.Database`.
 	Database *string `json:"database"`
@@ -3922,6 +4071,8 @@ type CfnDataSource_MySqlParametersProperty struct {
 	Port *float64 `json:"port"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_OracleParametersProperty struct {
 	// `CfnDataSource.OracleParametersProperty.Database`.
 	Database *string `json:"database"`
@@ -3931,6 +4082,8 @@ type CfnDataSource_OracleParametersProperty struct {
 	Port *float64 `json:"port"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_PostgreSqlParametersProperty struct {
 	// `CfnDataSource.PostgreSqlParametersProperty.Database`.
 	Database *string `json:"database"`
@@ -3940,6 +4093,8 @@ type CfnDataSource_PostgreSqlParametersProperty struct {
 	Port *float64 `json:"port"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_PrestoParametersProperty struct {
 	// `CfnDataSource.PrestoParametersProperty.Catalog`.
 	Catalog *string `json:"catalog"`
@@ -3949,6 +4104,8 @@ type CfnDataSource_PrestoParametersProperty struct {
 	Port *float64 `json:"port"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_RdsParametersProperty struct {
 	// `CfnDataSource.RdsParametersProperty.Database`.
 	Database *string `json:"database"`
@@ -3956,17 +4113,21 @@ type CfnDataSource_RdsParametersProperty struct {
 	InstanceId *string `json:"instanceId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_RedshiftParametersProperty struct {
-	// `CfnDataSource.RedshiftParametersProperty.Database`.
-	Database *string `json:"database"`
 	// `CfnDataSource.RedshiftParametersProperty.ClusterId`.
 	ClusterId *string `json:"clusterId"`
+	// `CfnDataSource.RedshiftParametersProperty.Database`.
+	Database *string `json:"database"`
 	// `CfnDataSource.RedshiftParametersProperty.Host`.
 	Host *string `json:"host"`
 	// `CfnDataSource.RedshiftParametersProperty.Port`.
 	Port *float64 `json:"port"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_ResourcePermissionProperty struct {
 	// `CfnDataSource.ResourcePermissionProperty.Actions`.
 	Actions *[]*string `json:"actions"`
@@ -3974,11 +4135,15 @@ type CfnDataSource_ResourcePermissionProperty struct {
 	Principal *string `json:"principal"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_S3ParametersProperty struct {
 	// `CfnDataSource.S3ParametersProperty.ManifestFileLocation`.
 	ManifestFileLocation interface{} `json:"manifestFileLocation"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_SnowflakeParametersProperty struct {
 	// `CfnDataSource.SnowflakeParametersProperty.Database`.
 	Database *string `json:"database"`
@@ -3988,6 +4153,8 @@ type CfnDataSource_SnowflakeParametersProperty struct {
 	Warehouse *string `json:"warehouse"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_SparkParametersProperty struct {
 	// `CfnDataSource.SparkParametersProperty.Host`.
 	Host *string `json:"host"`
@@ -3995,6 +4162,8 @@ type CfnDataSource_SparkParametersProperty struct {
 	Port *float64 `json:"port"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_SqlServerParametersProperty struct {
 	// `CfnDataSource.SqlServerParametersProperty.Database`.
 	Database *string `json:"database"`
@@ -4004,11 +4173,15 @@ type CfnDataSource_SqlServerParametersProperty struct {
 	Port *float64 `json:"port"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_SslPropertiesProperty struct {
 	// `CfnDataSource.SslPropertiesProperty.DisableSsl`.
 	DisableSsl interface{} `json:"disableSsl"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_TeradataParametersProperty struct {
 	// `CfnDataSource.TeradataParametersProperty.Database`.
 	Database *string `json:"database"`
@@ -4018,12 +4191,17 @@ type CfnDataSource_TeradataParametersProperty struct {
 	Port *float64 `json:"port"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_VpcConnectionPropertiesProperty struct {
 	// `CfnDataSource.VpcConnectionPropertiesProperty.VpcConnectionArn`.
 	VpcConnectionArn *string `json:"vpcConnectionArn"`
 }
 
 // Properties for defining a `AWS::QuickSight::DataSource`.
+//
+// TODO: EXAMPLE
+//
 type CfnDataSourceProps struct {
 	// `AWS::QuickSight::DataSource.AlternateDataSourceParameters`.
 	AlternateDataSourceParameters interface{} `json:"alternateDataSourceParameters"`
@@ -4052,6 +4230,9 @@ type CfnDataSourceProps struct {
 }
 
 // A CloudFormation `AWS::QuickSight::Template`.
+//
+// TODO: EXAMPLE
+//
 type CfnTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4781,6 +4962,8 @@ func (c *jsiiProxy_CfnTemplate) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnTemplate_DataSetReferenceProperty struct {
 	// `CfnTemplate.DataSetReferenceProperty.DataSetArn`.
 	DataSetArn *string `json:"dataSetArn"`
@@ -4788,6 +4971,8 @@ type CfnTemplate_DataSetReferenceProperty struct {
 	DataSetPlaceholder *string `json:"dataSetPlaceholder"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTemplate_ResourcePermissionProperty struct {
 	// `CfnTemplate.ResourcePermissionProperty.Actions`.
 	Actions *[]*string `json:"actions"`
@@ -4795,6 +4980,8 @@ type CfnTemplate_ResourcePermissionProperty struct {
 	Principal *string `json:"principal"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTemplate_TemplateSourceAnalysisProperty struct {
 	// `CfnTemplate.TemplateSourceAnalysisProperty.Arn`.
 	Arn *string `json:"arn"`
@@ -4802,6 +4989,8 @@ type CfnTemplate_TemplateSourceAnalysisProperty struct {
 	DataSetReferences interface{} `json:"dataSetReferences"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTemplate_TemplateSourceEntityProperty struct {
 	// `CfnTemplate.TemplateSourceEntityProperty.SourceAnalysis`.
 	SourceAnalysis interface{} `json:"sourceAnalysis"`
@@ -4809,30 +4998,38 @@ type CfnTemplate_TemplateSourceEntityProperty struct {
 	SourceTemplate interface{} `json:"sourceTemplate"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTemplate_TemplateSourceTemplateProperty struct {
 	// `CfnTemplate.TemplateSourceTemplateProperty.Arn`.
 	Arn *string `json:"arn"`
 }
 
 // Properties for defining a `AWS::QuickSight::Template`.
+//
+// TODO: EXAMPLE
+//
 type CfnTemplateProps struct {
 	// `AWS::QuickSight::Template.AwsAccountId`.
 	AwsAccountId *string `json:"awsAccountId"`
-	// `AWS::QuickSight::Template.SourceEntity`.
-	SourceEntity interface{} `json:"sourceEntity"`
-	// `AWS::QuickSight::Template.TemplateId`.
-	TemplateId *string `json:"templateId"`
 	// `AWS::QuickSight::Template.Name`.
 	Name *string `json:"name"`
 	// `AWS::QuickSight::Template.Permissions`.
 	Permissions interface{} `json:"permissions"`
+	// `AWS::QuickSight::Template.SourceEntity`.
+	SourceEntity interface{} `json:"sourceEntity"`
 	// `AWS::QuickSight::Template.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::QuickSight::Template.TemplateId`.
+	TemplateId *string `json:"templateId"`
 	// `AWS::QuickSight::Template.VersionDescription`.
 	VersionDescription *string `json:"versionDescription"`
 }
 
 // A CloudFormation `AWS::QuickSight::Theme`.
+//
+// TODO: EXAMPLE
+//
 type CfnTheme interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5593,11 +5790,15 @@ func (c *jsiiProxy_CfnTheme) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnTheme_BorderStyleProperty struct {
 	// `CfnTheme.BorderStyleProperty.Show`.
 	Show interface{} `json:"show"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTheme_DataColorPaletteProperty struct {
 	// `CfnTheme.DataColorPaletteProperty.Colors`.
 	Colors *[]*string `json:"colors"`
@@ -5607,21 +5808,29 @@ type CfnTheme_DataColorPaletteProperty struct {
 	MinMaxGradient *[]*string `json:"minMaxGradient"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTheme_FontProperty struct {
 	// `CfnTheme.FontProperty.FontFamily`.
 	FontFamily *string `json:"fontFamily"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTheme_GutterStyleProperty struct {
 	// `CfnTheme.GutterStyleProperty.Show`.
 	Show interface{} `json:"show"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTheme_MarginStyleProperty struct {
 	// `CfnTheme.MarginStyleProperty.Show`.
 	Show interface{} `json:"show"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTheme_ResourcePermissionProperty struct {
 	// `CfnTheme.ResourcePermissionProperty.Actions`.
 	Actions *[]*string `json:"actions"`
@@ -5629,6 +5838,8 @@ type CfnTheme_ResourcePermissionProperty struct {
 	Principal *string `json:"principal"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTheme_SheetStyleProperty struct {
 	// `CfnTheme.SheetStyleProperty.Tile`.
 	Tile interface{} `json:"tile"`
@@ -5636,6 +5847,8 @@ type CfnTheme_SheetStyleProperty struct {
 	TileLayout interface{} `json:"tileLayout"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTheme_ThemeConfigurationProperty struct {
 	// `CfnTheme.ThemeConfigurationProperty.DataColorPalette`.
 	DataColorPalette interface{} `json:"dataColorPalette"`
@@ -5647,6 +5860,8 @@ type CfnTheme_ThemeConfigurationProperty struct {
 	UiColorPalette interface{} `json:"uiColorPalette"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTheme_TileLayoutStyleProperty struct {
 	// `CfnTheme.TileLayoutStyleProperty.Gutter`.
 	Gutter interface{} `json:"gutter"`
@@ -5654,16 +5869,22 @@ type CfnTheme_TileLayoutStyleProperty struct {
 	Margin interface{} `json:"margin"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTheme_TileStyleProperty struct {
 	// `CfnTheme.TileStyleProperty.Border`.
 	Border interface{} `json:"border"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTheme_TypographyProperty struct {
 	// `CfnTheme.TypographyProperty.FontFamilies`.
 	FontFamilies interface{} `json:"fontFamilies"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTheme_UIColorPaletteProperty struct {
 	// `CfnTheme.UIColorPaletteProperty.Accent`.
 	Accent *string `json:"accent"`
@@ -5700,11 +5921,12 @@ type CfnTheme_UIColorPaletteProperty struct {
 }
 
 // Properties for defining a `AWS::QuickSight::Theme`.
+//
+// TODO: EXAMPLE
+//
 type CfnThemeProps struct {
 	// `AWS::QuickSight::Theme.AwsAccountId`.
 	AwsAccountId *string `json:"awsAccountId"`
-	// `AWS::QuickSight::Theme.ThemeId`.
-	ThemeId *string `json:"themeId"`
 	// `AWS::QuickSight::Theme.BaseThemeId`.
 	BaseThemeId *string `json:"baseThemeId"`
 	// `AWS::QuickSight::Theme.Configuration`.
@@ -5715,6 +5937,8 @@ type CfnThemeProps struct {
 	Permissions interface{} `json:"permissions"`
 	// `AWS::QuickSight::Theme.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::QuickSight::Theme.ThemeId`.
+	ThemeId *string `json:"themeId"`
 	// `AWS::QuickSight::Theme.VersionDescription`.
 	VersionDescription *string `json:"versionDescription"`
 }

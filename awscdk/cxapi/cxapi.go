@@ -7,6 +7,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/cloudassemblyschema"
 )
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type AssemblyBuildOptions struct {
 	// Include the specified runtime information (module versions) in manifest.
@@ -16,6 +18,9 @@ type AssemblyBuildOptions struct {
 }
 
 // Asset manifest is a description of a set of assets which need to be built and published.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AssetManifestArtifact interface {
 	CloudArtifact
@@ -188,23 +193,29 @@ func (a *jsiiProxy_AssetManifestArtifact) FindMetadataByType(type_ *string) *[]*
 }
 
 // Artifact properties for CloudFormation stacks.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AwsCloudFormationStackProperties struct {
-	// A file relative to the assembly root which contains the CloudFormation template for this stack.
-	// Experimental.
-	TemplateFile *string `json:"templateFile"`
 	// Values for CloudFormation stack parameters that should be passed when the stack is deployed.
 	// Experimental.
 	Parameters *map[string]*string `json:"parameters"`
 	// The name to use for the CloudFormation stack.
 	// Experimental.
 	StackName *string `json:"stackName"`
+	// A file relative to the assembly root which contains the CloudFormation template for this stack.
+	// Experimental.
+	TemplateFile *string `json:"templateFile"`
 	// Whether to enable termination protection for this stack.
 	// Experimental.
 	TerminationProtection *bool `json:"terminationProtection"`
 }
 
 // Represents an artifact within a cloud assembly.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CloudArtifact interface {
 	Assembly() CloudAssembly
@@ -343,6 +354,9 @@ func (c *jsiiProxy_CloudArtifact) FindMetadataByType(type_ *string) *[]*Metadata
 }
 
 // Represents a deployable cloud application.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CloudAssembly interface {
 	Artifacts() *[]CloudArtifact
@@ -592,6 +606,9 @@ func (c *jsiiProxy_CloudAssembly) TryGetArtifact(id *string) CloudArtifact {
 }
 
 // Can be used to build a cloud assembly.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CloudAssemblyBuilder interface {
 	AssetOutdir() *string
@@ -707,6 +724,9 @@ func (c *jsiiProxy_CloudAssemblyBuilder) CreateNestedAssembly(artifactId *string
 }
 
 // Construction properties for CloudAssemblyBuilder.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CloudAssemblyBuilderProps struct {
 	// Use the given asset output directory.
@@ -717,6 +737,8 @@ type CloudAssemblyBuilderProps struct {
 	ParentBuilder CloudAssemblyBuilder `json:"parentBuilder"`
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type CloudFormationStackArtifact interface {
 	CloudArtifact
@@ -1065,6 +1087,9 @@ func (c *jsiiProxy_CloudFormationStackArtifact) FindMetadataByType(type_ *string
 }
 
 // Query to hosted zone context provider.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EndpointServiceAvailabilityZonesContextQuery struct {
 	// Query account.
@@ -1079,6 +1104,9 @@ type EndpointServiceAvailabilityZonesContextQuery struct {
 }
 
 // Models an AWS execution environment, for use within the CDK toolkit.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Environment struct {
 	// The AWS account this environment deploys into.
@@ -1093,6 +1121,9 @@ type Environment struct {
 }
 
 // Return the appropriate values for the environment placeholders.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EnvironmentPlaceholderValues struct {
 	// Return the account.
@@ -1110,6 +1141,9 @@ type EnvironmentPlaceholderValues struct {
 //
 // These can occur both in the Asset Manifest as well as the general
 // Cloud Assembly manifest.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EnvironmentPlaceholders interface {
 }
@@ -1215,6 +1249,8 @@ func EnvironmentPlaceholders_CURRENT_REGION() *string {
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type EnvironmentUtils interface {
 }
@@ -1359,6 +1395,9 @@ func (i *jsiiProxy_IEnvironmentPlaceholderProvider) Region() *string {
 }
 
 // Properties of a discovered key.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type KeyContextResponse struct {
 	// Id of the key.
@@ -1367,6 +1406,9 @@ type KeyContextResponse struct {
 }
 
 // Properties of a discovered load balancer.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LoadBalancerContextResponse struct {
 	// Type of IP address.
@@ -1394,11 +1436,14 @@ type LoadBalancerContextResponse struct {
 type LoadBalancerIpAddressType string
 
 const (
-	LoadBalancerIpAddressType_IPV4 LoadBalancerIpAddressType = "IPV4"
 	LoadBalancerIpAddressType_DUAL_STACK LoadBalancerIpAddressType = "DUAL_STACK"
+	LoadBalancerIpAddressType_IPV4 LoadBalancerIpAddressType = "IPV4"
 )
 
 // Properties of a discovered load balancer listener.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LoadBalancerListenerContextResponse struct {
 	// The ARN of the listener.
@@ -1415,6 +1460,9 @@ type LoadBalancerListenerContextResponse struct {
 // Backwards compatibility for when `MetadataEntry` was defined here.
 //
 // This is necessary because its used as an input in the stable
+//
+// TODO: EXAMPLE
+//
 // See: core.ConstructNode.metadata
 //
 // Deprecated: moved to package 'cloud-assembly-schema'
@@ -1430,6 +1478,8 @@ type MetadataEntry struct {
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type MetadataEntryResult struct {
 	// The data.
@@ -1449,6 +1499,9 @@ type MetadataEntryResult struct {
 // Backwards compatibility for when `MissingContext` was defined here.
 //
 // This is necessary because its used as an input in the stable
+//
+// TODO: EXAMPLE
+//
 // See: core.Stack.reportMissingContext
 //
 // Deprecated: moved to package 'cloud-assembly-schema'
@@ -1471,6 +1524,9 @@ type MissingContext struct {
 }
 
 // Asset manifest is a description of a set of assets which need to be built and published.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NestedCloudAssemblyArtifact interface {
 	CloudArtifact
@@ -1656,6 +1712,9 @@ func (n *jsiiProxy_NestedCloudAssemblyArtifact) FindMetadataByType(type_ *string
 // Backwards compatibility for when `RuntimeInfo` was defined here.
 //
 // This is necessary because its used as an input in the stable
+//
+// TODO: EXAMPLE
+//
 // See: core.ConstructNode.synth
 //
 // Deprecated: moved to package 'cloud-assembly-schema'
@@ -1666,6 +1725,9 @@ type RuntimeInfo struct {
 }
 
 // Properties of a discovered SecurityGroup.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SecurityGroupContextResponse struct {
 	// Whether the security group allows all outbound traffic.
@@ -1680,6 +1742,8 @@ type SecurityGroupContextResponse struct {
 	SecurityGroupId *string `json:"securityGroupId"`
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type SynthesisMessage struct {
 	// Experimental.
@@ -1699,6 +1763,8 @@ const (
 	SynthesisMessageLevel_WARNING SynthesisMessageLevel = "WARNING"
 )
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type TreeCloudArtifact interface {
 	CloudArtifact
@@ -1849,14 +1915,14 @@ func (t *jsiiProxy_TreeCloudArtifact) FindMetadataByType(type_ *string) *[]*Meta
 }
 
 // Properties of a discovered VPC.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type VpcContextResponse struct {
 	// AZs.
 	// Experimental.
 	AvailabilityZones *[]*string `json:"availabilityZones"`
-	// VPC id.
-	// Experimental.
-	VpcId *string `json:"vpcId"`
 	// IDs of all isolated subnets.
 	//
 	// Element count: #(availabilityZones) · #(isolatedGroups)
@@ -1913,31 +1979,40 @@ type VpcContextResponse struct {
 	// VPC cidr.
 	// Experimental.
 	VpcCidrBlock *string `json:"vpcCidrBlock"`
+	// VPC id.
+	// Experimental.
+	VpcId *string `json:"vpcId"`
 	// The VPN gateway ID.
 	// Experimental.
 	VpnGatewayId *string `json:"vpnGatewayId"`
 }
 
 // A subnet representation that the VPC provider uses.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type VpcSubnet struct {
 	// The code of the availability zone this subnet is in (for example, 'us-west-2a').
 	// Experimental.
 	AvailabilityZone *string `json:"availabilityZone"`
+	// CIDR range of the subnet.
+	// Experimental.
+	Cidr *string `json:"cidr"`
 	// The identifier of the route table for this subnet.
 	// Experimental.
 	RouteTableId *string `json:"routeTableId"`
 	// The identifier of the subnet.
 	// Experimental.
 	SubnetId *string `json:"subnetId"`
-	// CIDR range of the subnet.
-	// Experimental.
-	Cidr *string `json:"cidr"`
 }
 
 // A group of subnets returned by the VPC provider.
 //
 // The included subnets do NOT have to be symmetric!
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type VpcSubnetGroup struct {
 	// The name of the subnet group, determined by looking at the tags of of the subnets that belong to it.
@@ -1962,8 +2037,8 @@ type VpcSubnetGroup struct {
 type VpcSubnetGroupType string
 
 const (
-	VpcSubnetGroupType_PUBLIC VpcSubnetGroupType = "PUBLIC"
-	VpcSubnetGroupType_PRIVATE VpcSubnetGroupType = "PRIVATE"
 	VpcSubnetGroupType_ISOLATED VpcSubnetGroupType = "ISOLATED"
+	VpcSubnetGroupType_PRIVATE VpcSubnetGroupType = "PRIVATE"
+	VpcSubnetGroupType_PUBLIC VpcSubnetGroupType = "PUBLIC"
 )
 

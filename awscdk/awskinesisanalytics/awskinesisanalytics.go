@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::KinesisAnalytics::Application`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -655,6 +658,8 @@ func (c *jsiiProxy_CfnApplication) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_CSVMappingParametersProperty struct {
 	// `CfnApplication.CSVMappingParametersProperty.RecordColumnDelimiter`.
 	RecordColumnDelimiter *string `json:"recordColumnDelimiter"`
@@ -662,6 +667,8 @@ type CfnApplication_CSVMappingParametersProperty struct {
 	RecordRowDelimiter *string `json:"recordRowDelimiter"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_InputLambdaProcessorProperty struct {
 	// `CfnApplication.InputLambdaProcessorProperty.ResourceARN`.
 	ResourceArn *string `json:"resourceArn"`
@@ -669,45 +676,57 @@ type CfnApplication_InputLambdaProcessorProperty struct {
 	RoleArn *string `json:"roleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_InputParallelismProperty struct {
 	// `CfnApplication.InputParallelismProperty.Count`.
 	Count *float64 `json:"count"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_InputProcessingConfigurationProperty struct {
 	// `CfnApplication.InputProcessingConfigurationProperty.InputLambdaProcessor`.
 	InputLambdaProcessor interface{} `json:"inputLambdaProcessor"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_InputProperty struct {
-	// `CfnApplication.InputProperty.InputSchema`.
-	InputSchema interface{} `json:"inputSchema"`
-	// `CfnApplication.InputProperty.NamePrefix`.
-	NamePrefix *string `json:"namePrefix"`
 	// `CfnApplication.InputProperty.InputParallelism`.
 	InputParallelism interface{} `json:"inputParallelism"`
 	// `CfnApplication.InputProperty.InputProcessingConfiguration`.
 	InputProcessingConfiguration interface{} `json:"inputProcessingConfiguration"`
+	// `CfnApplication.InputProperty.InputSchema`.
+	InputSchema interface{} `json:"inputSchema"`
 	// `CfnApplication.InputProperty.KinesisFirehoseInput`.
 	KinesisFirehoseInput interface{} `json:"kinesisFirehoseInput"`
 	// `CfnApplication.InputProperty.KinesisStreamsInput`.
 	KinesisStreamsInput interface{} `json:"kinesisStreamsInput"`
+	// `CfnApplication.InputProperty.NamePrefix`.
+	NamePrefix *string `json:"namePrefix"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_InputSchemaProperty struct {
 	// `CfnApplication.InputSchemaProperty.RecordColumns`.
 	RecordColumns interface{} `json:"recordColumns"`
-	// `CfnApplication.InputSchemaProperty.RecordFormat`.
-	RecordFormat interface{} `json:"recordFormat"`
 	// `CfnApplication.InputSchemaProperty.RecordEncoding`.
 	RecordEncoding *string `json:"recordEncoding"`
+	// `CfnApplication.InputSchemaProperty.RecordFormat`.
+	RecordFormat interface{} `json:"recordFormat"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_JSONMappingParametersProperty struct {
 	// `CfnApplication.JSONMappingParametersProperty.RecordRowPath`.
 	RecordRowPath *string `json:"recordRowPath"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_KinesisFirehoseInputProperty struct {
 	// `CfnApplication.KinesisFirehoseInputProperty.ResourceARN`.
 	ResourceArn *string `json:"resourceArn"`
@@ -715,6 +734,8 @@ type CfnApplication_KinesisFirehoseInputProperty struct {
 	RoleArn *string `json:"roleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_KinesisStreamsInputProperty struct {
 	// `CfnApplication.KinesisStreamsInputProperty.ResourceARN`.
 	ResourceArn *string `json:"resourceArn"`
@@ -722,6 +743,8 @@ type CfnApplication_KinesisStreamsInputProperty struct {
 	RoleArn *string `json:"roleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_MappingParametersProperty struct {
 	// `CfnApplication.MappingParametersProperty.CSVMappingParameters`.
 	CsvMappingParameters interface{} `json:"csvMappingParameters"`
@@ -729,23 +752,30 @@ type CfnApplication_MappingParametersProperty struct {
 	JsonMappingParameters interface{} `json:"jsonMappingParameters"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_RecordColumnProperty struct {
+	// `CfnApplication.RecordColumnProperty.Mapping`.
+	Mapping *string `json:"mapping"`
 	// `CfnApplication.RecordColumnProperty.Name`.
 	Name *string `json:"name"`
 	// `CfnApplication.RecordColumnProperty.SqlType`.
 	SqlType *string `json:"sqlType"`
-	// `CfnApplication.RecordColumnProperty.Mapping`.
-	Mapping *string `json:"mapping"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_RecordFormatProperty struct {
-	// `CfnApplication.RecordFormatProperty.RecordFormatType`.
-	RecordFormatType *string `json:"recordFormatType"`
 	// `CfnApplication.RecordFormatProperty.MappingParameters`.
 	MappingParameters interface{} `json:"mappingParameters"`
+	// `CfnApplication.RecordFormatProperty.RecordFormatType`.
+	RecordFormatType *string `json:"recordFormatType"`
 }
 
 // A CloudFormation `AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationCloudWatchLoggingOptionV2 interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1351,12 +1381,17 @@ func (c *jsiiProxy_CfnApplicationCloudWatchLoggingOptionV2) ValidateProperties(_
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationCloudWatchLoggingOptionV2_CloudWatchLoggingOptionProperty struct {
 	// `CfnApplicationCloudWatchLoggingOptionV2.CloudWatchLoggingOptionProperty.LogStreamARN`.
 	LogStreamArn *string `json:"logStreamArn"`
 }
 
 // Properties for defining a `AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationCloudWatchLoggingOptionV2Props struct {
 	// `AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption.ApplicationName`.
 	ApplicationName *string `json:"applicationName"`
@@ -1365,6 +1400,9 @@ type CfnApplicationCloudWatchLoggingOptionV2Props struct {
 }
 
 // A CloudFormation `AWS::KinesisAnalytics::ApplicationOutput`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationOutput interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1970,11 +2008,15 @@ func (c *jsiiProxy_CfnApplicationOutput) ValidateProperties(_properties interfac
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationOutput_DestinationSchemaProperty struct {
 	// `CfnApplicationOutput.DestinationSchemaProperty.RecordFormatType`.
 	RecordFormatType *string `json:"recordFormatType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationOutput_KinesisFirehoseOutputProperty struct {
 	// `CfnApplicationOutput.KinesisFirehoseOutputProperty.ResourceARN`.
 	ResourceArn *string `json:"resourceArn"`
@@ -1982,6 +2024,8 @@ type CfnApplicationOutput_KinesisFirehoseOutputProperty struct {
 	RoleArn *string `json:"roleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationOutput_KinesisStreamsOutputProperty struct {
 	// `CfnApplicationOutput.KinesisStreamsOutputProperty.ResourceARN`.
 	ResourceArn *string `json:"resourceArn"`
@@ -1989,6 +2033,8 @@ type CfnApplicationOutput_KinesisStreamsOutputProperty struct {
 	RoleArn *string `json:"roleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationOutput_LambdaOutputProperty struct {
 	// `CfnApplicationOutput.LambdaOutputProperty.ResourceARN`.
 	ResourceArn *string `json:"resourceArn"`
@@ -1996,6 +2042,8 @@ type CfnApplicationOutput_LambdaOutputProperty struct {
 	RoleArn *string `json:"roleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationOutput_OutputProperty struct {
 	// `CfnApplicationOutput.OutputProperty.DestinationSchema`.
 	DestinationSchema interface{} `json:"destinationSchema"`
@@ -2010,6 +2058,9 @@ type CfnApplicationOutput_OutputProperty struct {
 }
 
 // Properties for defining a `AWS::KinesisAnalytics::ApplicationOutput`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationOutputProps struct {
 	// `AWS::KinesisAnalytics::ApplicationOutput.ApplicationName`.
 	ApplicationName *string `json:"applicationName"`
@@ -2018,6 +2069,9 @@ type CfnApplicationOutputProps struct {
 }
 
 // A CloudFormation `AWS::KinesisAnalyticsV2::ApplicationOutput`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationOutputV2 interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2623,26 +2677,36 @@ func (c *jsiiProxy_CfnApplicationOutputV2) ValidateProperties(_properties interf
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationOutputV2_DestinationSchemaProperty struct {
 	// `CfnApplicationOutputV2.DestinationSchemaProperty.RecordFormatType`.
 	RecordFormatType *string `json:"recordFormatType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationOutputV2_KinesisFirehoseOutputProperty struct {
 	// `CfnApplicationOutputV2.KinesisFirehoseOutputProperty.ResourceARN`.
 	ResourceArn *string `json:"resourceArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationOutputV2_KinesisStreamsOutputProperty struct {
 	// `CfnApplicationOutputV2.KinesisStreamsOutputProperty.ResourceARN`.
 	ResourceArn *string `json:"resourceArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationOutputV2_LambdaOutputProperty struct {
 	// `CfnApplicationOutputV2.LambdaOutputProperty.ResourceARN`.
 	ResourceArn *string `json:"resourceArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationOutputV2_OutputProperty struct {
 	// `CfnApplicationOutputV2.OutputProperty.DestinationSchema`.
 	DestinationSchema interface{} `json:"destinationSchema"`
@@ -2657,6 +2721,9 @@ type CfnApplicationOutputV2_OutputProperty struct {
 }
 
 // Properties for defining a `AWS::KinesisAnalyticsV2::ApplicationOutput`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationOutputV2Props struct {
 	// `AWS::KinesisAnalyticsV2::ApplicationOutput.ApplicationName`.
 	ApplicationName *string `json:"applicationName"`
@@ -2665,18 +2732,24 @@ type CfnApplicationOutputV2Props struct {
 }
 
 // Properties for defining a `AWS::KinesisAnalytics::Application`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationProps struct {
-	// `AWS::KinesisAnalytics::Application.Inputs`.
-	Inputs interface{} `json:"inputs"`
 	// `AWS::KinesisAnalytics::Application.ApplicationCode`.
 	ApplicationCode *string `json:"applicationCode"`
 	// `AWS::KinesisAnalytics::Application.ApplicationDescription`.
 	ApplicationDescription *string `json:"applicationDescription"`
 	// `AWS::KinesisAnalytics::Application.ApplicationName`.
 	ApplicationName *string `json:"applicationName"`
+	// `AWS::KinesisAnalytics::Application.Inputs`.
+	Inputs interface{} `json:"inputs"`
 }
 
 // A CloudFormation `AWS::KinesisAnalytics::ApplicationReferenceDataSource`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationReferenceDataSource interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3282,6 +3355,8 @@ func (c *jsiiProxy_CfnApplicationReferenceDataSource) ValidateProperties(_proper
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationReferenceDataSource_CSVMappingParametersProperty struct {
 	// `CfnApplicationReferenceDataSource.CSVMappingParametersProperty.RecordColumnDelimiter`.
 	RecordColumnDelimiter *string `json:"recordColumnDelimiter"`
@@ -3289,11 +3364,15 @@ type CfnApplicationReferenceDataSource_CSVMappingParametersProperty struct {
 	RecordRowDelimiter *string `json:"recordRowDelimiter"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationReferenceDataSource_JSONMappingParametersProperty struct {
 	// `CfnApplicationReferenceDataSource.JSONMappingParametersProperty.RecordRowPath`.
 	RecordRowPath *string `json:"recordRowPath"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationReferenceDataSource_MappingParametersProperty struct {
 	// `CfnApplicationReferenceDataSource.MappingParametersProperty.CSVMappingParameters`.
 	CsvMappingParameters interface{} `json:"csvMappingParameters"`
@@ -3301,22 +3380,28 @@ type CfnApplicationReferenceDataSource_MappingParametersProperty struct {
 	JsonMappingParameters interface{} `json:"jsonMappingParameters"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationReferenceDataSource_RecordColumnProperty struct {
+	// `CfnApplicationReferenceDataSource.RecordColumnProperty.Mapping`.
+	Mapping *string `json:"mapping"`
 	// `CfnApplicationReferenceDataSource.RecordColumnProperty.Name`.
 	Name *string `json:"name"`
 	// `CfnApplicationReferenceDataSource.RecordColumnProperty.SqlType`.
 	SqlType *string `json:"sqlType"`
-	// `CfnApplicationReferenceDataSource.RecordColumnProperty.Mapping`.
-	Mapping *string `json:"mapping"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationReferenceDataSource_RecordFormatProperty struct {
-	// `CfnApplicationReferenceDataSource.RecordFormatProperty.RecordFormatType`.
-	RecordFormatType *string `json:"recordFormatType"`
 	// `CfnApplicationReferenceDataSource.RecordFormatProperty.MappingParameters`.
 	MappingParameters interface{} `json:"mappingParameters"`
+	// `CfnApplicationReferenceDataSource.RecordFormatProperty.RecordFormatType`.
+	RecordFormatType *string `json:"recordFormatType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationReferenceDataSource_ReferenceDataSourceProperty struct {
 	// `CfnApplicationReferenceDataSource.ReferenceDataSourceProperty.ReferenceSchema`.
 	ReferenceSchema interface{} `json:"referenceSchema"`
@@ -3326,15 +3411,19 @@ type CfnApplicationReferenceDataSource_ReferenceDataSourceProperty struct {
 	TableName *string `json:"tableName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationReferenceDataSource_ReferenceSchemaProperty struct {
 	// `CfnApplicationReferenceDataSource.ReferenceSchemaProperty.RecordColumns`.
 	RecordColumns interface{} `json:"recordColumns"`
-	// `CfnApplicationReferenceDataSource.ReferenceSchemaProperty.RecordFormat`.
-	RecordFormat interface{} `json:"recordFormat"`
 	// `CfnApplicationReferenceDataSource.ReferenceSchemaProperty.RecordEncoding`.
 	RecordEncoding *string `json:"recordEncoding"`
+	// `CfnApplicationReferenceDataSource.ReferenceSchemaProperty.RecordFormat`.
+	RecordFormat interface{} `json:"recordFormat"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationReferenceDataSource_S3ReferenceDataSourceProperty struct {
 	// `CfnApplicationReferenceDataSource.S3ReferenceDataSourceProperty.BucketARN`.
 	BucketArn *string `json:"bucketArn"`
@@ -3345,6 +3434,9 @@ type CfnApplicationReferenceDataSource_S3ReferenceDataSourceProperty struct {
 }
 
 // Properties for defining a `AWS::KinesisAnalytics::ApplicationReferenceDataSource`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationReferenceDataSourceProps struct {
 	// `AWS::KinesisAnalytics::ApplicationReferenceDataSource.ApplicationName`.
 	ApplicationName *string `json:"applicationName"`
@@ -3353,6 +3445,9 @@ type CfnApplicationReferenceDataSourceProps struct {
 }
 
 // A CloudFormation `AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationReferenceDataSourceV2 interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3958,6 +4053,8 @@ func (c *jsiiProxy_CfnApplicationReferenceDataSourceV2) ValidateProperties(_prop
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationReferenceDataSourceV2_CSVMappingParametersProperty struct {
 	// `CfnApplicationReferenceDataSourceV2.CSVMappingParametersProperty.RecordColumnDelimiter`.
 	RecordColumnDelimiter *string `json:"recordColumnDelimiter"`
@@ -3965,11 +4062,15 @@ type CfnApplicationReferenceDataSourceV2_CSVMappingParametersProperty struct {
 	RecordRowDelimiter *string `json:"recordRowDelimiter"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationReferenceDataSourceV2_JSONMappingParametersProperty struct {
 	// `CfnApplicationReferenceDataSourceV2.JSONMappingParametersProperty.RecordRowPath`.
 	RecordRowPath *string `json:"recordRowPath"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationReferenceDataSourceV2_MappingParametersProperty struct {
 	// `CfnApplicationReferenceDataSourceV2.MappingParametersProperty.CSVMappingParameters`.
 	CsvMappingParameters interface{} `json:"csvMappingParameters"`
@@ -3977,22 +4078,28 @@ type CfnApplicationReferenceDataSourceV2_MappingParametersProperty struct {
 	JsonMappingParameters interface{} `json:"jsonMappingParameters"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationReferenceDataSourceV2_RecordColumnProperty struct {
+	// `CfnApplicationReferenceDataSourceV2.RecordColumnProperty.Mapping`.
+	Mapping *string `json:"mapping"`
 	// `CfnApplicationReferenceDataSourceV2.RecordColumnProperty.Name`.
 	Name *string `json:"name"`
 	// `CfnApplicationReferenceDataSourceV2.RecordColumnProperty.SqlType`.
 	SqlType *string `json:"sqlType"`
-	// `CfnApplicationReferenceDataSourceV2.RecordColumnProperty.Mapping`.
-	Mapping *string `json:"mapping"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationReferenceDataSourceV2_RecordFormatProperty struct {
-	// `CfnApplicationReferenceDataSourceV2.RecordFormatProperty.RecordFormatType`.
-	RecordFormatType *string `json:"recordFormatType"`
 	// `CfnApplicationReferenceDataSourceV2.RecordFormatProperty.MappingParameters`.
 	MappingParameters interface{} `json:"mappingParameters"`
+	// `CfnApplicationReferenceDataSourceV2.RecordFormatProperty.RecordFormatType`.
+	RecordFormatType *string `json:"recordFormatType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationReferenceDataSourceV2_ReferenceDataSourceProperty struct {
 	// `CfnApplicationReferenceDataSourceV2.ReferenceDataSourceProperty.ReferenceSchema`.
 	ReferenceSchema interface{} `json:"referenceSchema"`
@@ -4002,15 +4109,19 @@ type CfnApplicationReferenceDataSourceV2_ReferenceDataSourceProperty struct {
 	TableName *string `json:"tableName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationReferenceDataSourceV2_ReferenceSchemaProperty struct {
 	// `CfnApplicationReferenceDataSourceV2.ReferenceSchemaProperty.RecordColumns`.
 	RecordColumns interface{} `json:"recordColumns"`
-	// `CfnApplicationReferenceDataSourceV2.ReferenceSchemaProperty.RecordFormat`.
-	RecordFormat interface{} `json:"recordFormat"`
 	// `CfnApplicationReferenceDataSourceV2.ReferenceSchemaProperty.RecordEncoding`.
 	RecordEncoding *string `json:"recordEncoding"`
+	// `CfnApplicationReferenceDataSourceV2.ReferenceSchemaProperty.RecordFormat`.
+	RecordFormat interface{} `json:"recordFormat"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationReferenceDataSourceV2_S3ReferenceDataSourceProperty struct {
 	// `CfnApplicationReferenceDataSourceV2.S3ReferenceDataSourceProperty.BucketARN`.
 	BucketArn *string `json:"bucketArn"`
@@ -4019,6 +4130,9 @@ type CfnApplicationReferenceDataSourceV2_S3ReferenceDataSourceProperty struct {
 }
 
 // Properties for defining a `AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationReferenceDataSourceV2Props struct {
 	// `AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource.ApplicationName`.
 	ApplicationName *string `json:"applicationName"`
@@ -4027,6 +4141,9 @@ type CfnApplicationReferenceDataSourceV2Props struct {
 }
 
 // A CloudFormation `AWS::KinesisAnalyticsV2::Application`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationV2 interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4723,6 +4840,8 @@ func (c *jsiiProxy_CfnApplicationV2) ValidateProperties(_properties interface{})
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_ApplicationCodeConfigurationProperty struct {
 	// `CfnApplicationV2.ApplicationCodeConfigurationProperty.CodeContent`.
 	CodeContent interface{} `json:"codeContent"`
@@ -4730,6 +4849,8 @@ type CfnApplicationV2_ApplicationCodeConfigurationProperty struct {
 	CodeContentType *string `json:"codeContentType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_ApplicationConfigurationProperty struct {
 	// `CfnApplicationV2.ApplicationConfigurationProperty.ApplicationCodeConfiguration`.
 	ApplicationCodeConfiguration interface{} `json:"applicationCodeConfiguration"`
@@ -4745,11 +4866,15 @@ type CfnApplicationV2_ApplicationConfigurationProperty struct {
 	ZeppelinApplicationConfiguration interface{} `json:"zeppelinApplicationConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_ApplicationSnapshotConfigurationProperty struct {
 	// `CfnApplicationV2.ApplicationSnapshotConfigurationProperty.SnapshotsEnabled`.
 	SnapshotsEnabled interface{} `json:"snapshotsEnabled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_CSVMappingParametersProperty struct {
 	// `CfnApplicationV2.CSVMappingParametersProperty.RecordColumnDelimiter`.
 	RecordColumnDelimiter *string `json:"recordColumnDelimiter"`
@@ -4757,22 +4882,28 @@ type CfnApplicationV2_CSVMappingParametersProperty struct {
 	RecordRowDelimiter *string `json:"recordRowDelimiter"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_CatalogConfigurationProperty struct {
 	// `CfnApplicationV2.CatalogConfigurationProperty.GlueDataCatalogConfiguration`.
 	GlueDataCatalogConfiguration interface{} `json:"glueDataCatalogConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_CheckpointConfigurationProperty struct {
-	// `CfnApplicationV2.CheckpointConfigurationProperty.ConfigurationType`.
-	ConfigurationType *string `json:"configurationType"`
 	// `CfnApplicationV2.CheckpointConfigurationProperty.CheckpointingEnabled`.
 	CheckpointingEnabled interface{} `json:"checkpointingEnabled"`
 	// `CfnApplicationV2.CheckpointConfigurationProperty.CheckpointInterval`.
 	CheckpointInterval *float64 `json:"checkpointInterval"`
+	// `CfnApplicationV2.CheckpointConfigurationProperty.ConfigurationType`.
+	ConfigurationType *string `json:"configurationType"`
 	// `CfnApplicationV2.CheckpointConfigurationProperty.MinPauseBetweenCheckpoints`.
 	MinPauseBetweenCheckpoints *float64 `json:"minPauseBetweenCheckpoints"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_CodeContentProperty struct {
 	// `CfnApplicationV2.CodeContentProperty.S3ContentLocation`.
 	S3ContentLocation interface{} `json:"s3ContentLocation"`
@@ -4782,6 +4913,8 @@ type CfnApplicationV2_CodeContentProperty struct {
 	ZipFileContent *string `json:"zipFileContent"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_CustomArtifactConfigurationProperty struct {
 	// `CfnApplicationV2.CustomArtifactConfigurationProperty.ArtifactType`.
 	ArtifactType *string `json:"artifactType"`
@@ -4791,16 +4924,22 @@ type CfnApplicationV2_CustomArtifactConfigurationProperty struct {
 	S3ContentLocation interface{} `json:"s3ContentLocation"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_DeployAsApplicationConfigurationProperty struct {
 	// `CfnApplicationV2.DeployAsApplicationConfigurationProperty.S3ContentLocation`.
 	S3ContentLocation interface{} `json:"s3ContentLocation"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_EnvironmentPropertiesProperty struct {
 	// `CfnApplicationV2.EnvironmentPropertiesProperty.PropertyGroups`.
 	PropertyGroups interface{} `json:"propertyGroups"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_FlinkApplicationConfigurationProperty struct {
 	// `CfnApplicationV2.FlinkApplicationConfigurationProperty.CheckpointConfiguration`.
 	CheckpointConfiguration interface{} `json:"checkpointConfiguration"`
@@ -4810,65 +4949,85 @@ type CfnApplicationV2_FlinkApplicationConfigurationProperty struct {
 	ParallelismConfiguration interface{} `json:"parallelismConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_GlueDataCatalogConfigurationProperty struct {
 	// `CfnApplicationV2.GlueDataCatalogConfigurationProperty.DatabaseARN`.
 	DatabaseArn *string `json:"databaseArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_InputLambdaProcessorProperty struct {
 	// `CfnApplicationV2.InputLambdaProcessorProperty.ResourceARN`.
 	ResourceArn *string `json:"resourceArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_InputParallelismProperty struct {
 	// `CfnApplicationV2.InputParallelismProperty.Count`.
 	Count *float64 `json:"count"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_InputProcessingConfigurationProperty struct {
 	// `CfnApplicationV2.InputProcessingConfigurationProperty.InputLambdaProcessor`.
 	InputLambdaProcessor interface{} `json:"inputLambdaProcessor"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_InputProperty struct {
-	// `CfnApplicationV2.InputProperty.InputSchema`.
-	InputSchema interface{} `json:"inputSchema"`
-	// `CfnApplicationV2.InputProperty.NamePrefix`.
-	NamePrefix *string `json:"namePrefix"`
 	// `CfnApplicationV2.InputProperty.InputParallelism`.
 	InputParallelism interface{} `json:"inputParallelism"`
 	// `CfnApplicationV2.InputProperty.InputProcessingConfiguration`.
 	InputProcessingConfiguration interface{} `json:"inputProcessingConfiguration"`
+	// `CfnApplicationV2.InputProperty.InputSchema`.
+	InputSchema interface{} `json:"inputSchema"`
 	// `CfnApplicationV2.InputProperty.KinesisFirehoseInput`.
 	KinesisFirehoseInput interface{} `json:"kinesisFirehoseInput"`
 	// `CfnApplicationV2.InputProperty.KinesisStreamsInput`.
 	KinesisStreamsInput interface{} `json:"kinesisStreamsInput"`
+	// `CfnApplicationV2.InputProperty.NamePrefix`.
+	NamePrefix *string `json:"namePrefix"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_InputSchemaProperty struct {
 	// `CfnApplicationV2.InputSchemaProperty.RecordColumns`.
 	RecordColumns interface{} `json:"recordColumns"`
-	// `CfnApplicationV2.InputSchemaProperty.RecordFormat`.
-	RecordFormat interface{} `json:"recordFormat"`
 	// `CfnApplicationV2.InputSchemaProperty.RecordEncoding`.
 	RecordEncoding *string `json:"recordEncoding"`
+	// `CfnApplicationV2.InputSchemaProperty.RecordFormat`.
+	RecordFormat interface{} `json:"recordFormat"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_JSONMappingParametersProperty struct {
 	// `CfnApplicationV2.JSONMappingParametersProperty.RecordRowPath`.
 	RecordRowPath *string `json:"recordRowPath"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_KinesisFirehoseInputProperty struct {
 	// `CfnApplicationV2.KinesisFirehoseInputProperty.ResourceARN`.
 	ResourceArn *string `json:"resourceArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_KinesisStreamsInputProperty struct {
 	// `CfnApplicationV2.KinesisStreamsInputProperty.ResourceARN`.
 	ResourceArn *string `json:"resourceArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_MappingParametersProperty struct {
 	// `CfnApplicationV2.MappingParametersProperty.CSVMappingParameters`.
 	CsvMappingParameters interface{} `json:"csvMappingParameters"`
@@ -4876,6 +5035,8 @@ type CfnApplicationV2_MappingParametersProperty struct {
 	JsonMappingParameters interface{} `json:"jsonMappingParameters"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_MavenReferenceProperty struct {
 	// `CfnApplicationV2.MavenReferenceProperty.ArtifactId`.
 	ArtifactId *string `json:"artifactId"`
@@ -4885,6 +5046,8 @@ type CfnApplicationV2_MavenReferenceProperty struct {
 	Version *string `json:"version"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_MonitoringConfigurationProperty struct {
 	// `CfnApplicationV2.MonitoringConfigurationProperty.ConfigurationType`.
 	ConfigurationType *string `json:"configurationType"`
@@ -4894,17 +5057,21 @@ type CfnApplicationV2_MonitoringConfigurationProperty struct {
 	MetricsLevel *string `json:"metricsLevel"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_ParallelismConfigurationProperty struct {
-	// `CfnApplicationV2.ParallelismConfigurationProperty.ConfigurationType`.
-	ConfigurationType *string `json:"configurationType"`
 	// `CfnApplicationV2.ParallelismConfigurationProperty.AutoScalingEnabled`.
 	AutoScalingEnabled interface{} `json:"autoScalingEnabled"`
+	// `CfnApplicationV2.ParallelismConfigurationProperty.ConfigurationType`.
+	ConfigurationType *string `json:"configurationType"`
 	// `CfnApplicationV2.ParallelismConfigurationProperty.Parallelism`.
 	Parallelism *float64 `json:"parallelism"`
 	// `CfnApplicationV2.ParallelismConfigurationProperty.ParallelismPerKPU`.
 	ParallelismPerKpu *float64 `json:"parallelismPerKpu"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_PropertyGroupProperty struct {
 	// `CfnApplicationV2.PropertyGroupProperty.PropertyGroupId`.
 	PropertyGroupId *string `json:"propertyGroupId"`
@@ -4912,22 +5079,28 @@ type CfnApplicationV2_PropertyGroupProperty struct {
 	PropertyMap interface{} `json:"propertyMap"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_RecordColumnProperty struct {
+	// `CfnApplicationV2.RecordColumnProperty.Mapping`.
+	Mapping *string `json:"mapping"`
 	// `CfnApplicationV2.RecordColumnProperty.Name`.
 	Name *string `json:"name"`
 	// `CfnApplicationV2.RecordColumnProperty.SqlType`.
 	SqlType *string `json:"sqlType"`
-	// `CfnApplicationV2.RecordColumnProperty.Mapping`.
-	Mapping *string `json:"mapping"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_RecordFormatProperty struct {
-	// `CfnApplicationV2.RecordFormatProperty.RecordFormatType`.
-	RecordFormatType *string `json:"recordFormatType"`
 	// `CfnApplicationV2.RecordFormatProperty.MappingParameters`.
 	MappingParameters interface{} `json:"mappingParameters"`
+	// `CfnApplicationV2.RecordFormatProperty.RecordFormatType`.
+	RecordFormatType *string `json:"recordFormatType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_S3ContentBaseLocationProperty struct {
 	// `CfnApplicationV2.S3ContentBaseLocationProperty.BasePath`.
 	BasePath *string `json:"basePath"`
@@ -4935,6 +5108,8 @@ type CfnApplicationV2_S3ContentBaseLocationProperty struct {
 	BucketArn *string `json:"bucketArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_S3ContentLocationProperty struct {
 	// `CfnApplicationV2.S3ContentLocationProperty.BucketARN`.
 	BucketArn *string `json:"bucketArn"`
@@ -4944,11 +5119,15 @@ type CfnApplicationV2_S3ContentLocationProperty struct {
 	ObjectVersion *string `json:"objectVersion"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_SqlApplicationConfigurationProperty struct {
 	// `CfnApplicationV2.SqlApplicationConfigurationProperty.Inputs`.
 	Inputs interface{} `json:"inputs"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_ZeppelinApplicationConfigurationProperty struct {
 	// `CfnApplicationV2.ZeppelinApplicationConfigurationProperty.CatalogConfiguration`.
 	CatalogConfiguration interface{} `json:"catalogConfiguration"`
@@ -4960,17 +5139,18 @@ type CfnApplicationV2_ZeppelinApplicationConfigurationProperty struct {
 	MonitoringConfiguration interface{} `json:"monitoringConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationV2_ZeppelinMonitoringConfigurationProperty struct {
 	// `CfnApplicationV2.ZeppelinMonitoringConfigurationProperty.LogLevel`.
 	LogLevel *string `json:"logLevel"`
 }
 
 // Properties for defining a `AWS::KinesisAnalyticsV2::Application`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationV2Props struct {
-	// `AWS::KinesisAnalyticsV2::Application.RuntimeEnvironment`.
-	RuntimeEnvironment *string `json:"runtimeEnvironment"`
-	// `AWS::KinesisAnalyticsV2::Application.ServiceExecutionRole`.
-	ServiceExecutionRole *string `json:"serviceExecutionRole"`
 	// `AWS::KinesisAnalyticsV2::Application.ApplicationConfiguration`.
 	ApplicationConfiguration interface{} `json:"applicationConfiguration"`
 	// `AWS::KinesisAnalyticsV2::Application.ApplicationDescription`.
@@ -4979,6 +5159,10 @@ type CfnApplicationV2Props struct {
 	ApplicationMode *string `json:"applicationMode"`
 	// `AWS::KinesisAnalyticsV2::Application.ApplicationName`.
 	ApplicationName *string `json:"applicationName"`
+	// `AWS::KinesisAnalyticsV2::Application.RuntimeEnvironment`.
+	RuntimeEnvironment *string `json:"runtimeEnvironment"`
+	// `AWS::KinesisAnalyticsV2::Application.ServiceExecutionRole`.
+	ServiceExecutionRole *string `json:"serviceExecutionRole"`
 	// `AWS::KinesisAnalyticsV2::Application.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }

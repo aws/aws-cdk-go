@@ -184,10 +184,10 @@ func init() {
 		"monocdk.aws_elasticloadbalancing.LoadBalancingProtocol",
 		reflect.TypeOf((*LoadBalancingProtocol)(nil)).Elem(),
 		map[string]interface{}{
-			"TCP": LoadBalancingProtocol_TCP,
-			"SSL": LoadBalancingProtocol_SSL,
 			"HTTP": LoadBalancingProtocol_HTTP,
 			"HTTPS": LoadBalancingProtocol_HTTPS,
+			"SSL": LoadBalancingProtocol_SSL,
+			"TCP": LoadBalancingProtocol_TCP,
 		},
 	)
 }

@@ -12,6 +12,9 @@ import (
 )
 
 // A CloudFormation `AWS::Route53Resolver::FirewallDomainList`.
+//
+// TODO: EXAMPLE
+//
 type CfnFirewallDomainList interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -748,6 +751,9 @@ func (c *jsiiProxy_CfnFirewallDomainList) ValidateProperties(_properties interfa
 }
 
 // Properties for defining a `AWS::Route53Resolver::FirewallDomainList`.
+//
+// TODO: EXAMPLE
+//
 type CfnFirewallDomainListProps struct {
 	// `AWS::Route53Resolver::FirewallDomainList.DomainFileUrl`.
 	DomainFileUrl *string `json:"domainFileUrl"`
@@ -760,6 +766,9 @@ type CfnFirewallDomainListProps struct {
 }
 
 // A CloudFormation `AWS::Route53Resolver::FirewallRuleGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnFirewallRuleGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1486,13 +1495,11 @@ func (c *jsiiProxy_CfnFirewallRuleGroup) ValidateProperties(_properties interfac
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFirewallRuleGroup_FirewallRuleProperty struct {
 	// `CfnFirewallRuleGroup.FirewallRuleProperty.Action`.
 	Action *string `json:"action"`
-	// `CfnFirewallRuleGroup.FirewallRuleProperty.FirewallDomainListId`.
-	FirewallDomainListId *string `json:"firewallDomainListId"`
-	// `CfnFirewallRuleGroup.FirewallRuleProperty.Priority`.
-	Priority *float64 `json:"priority"`
 	// `CfnFirewallRuleGroup.FirewallRuleProperty.BlockOverrideDnsType`.
 	BlockOverrideDnsType *string `json:"blockOverrideDnsType"`
 	// `CfnFirewallRuleGroup.FirewallRuleProperty.BlockOverrideDomain`.
@@ -1501,9 +1508,16 @@ type CfnFirewallRuleGroup_FirewallRuleProperty struct {
 	BlockOverrideTtl *float64 `json:"blockOverrideTtl"`
 	// `CfnFirewallRuleGroup.FirewallRuleProperty.BlockResponse`.
 	BlockResponse *string `json:"blockResponse"`
+	// `CfnFirewallRuleGroup.FirewallRuleProperty.FirewallDomainListId`.
+	FirewallDomainListId *string `json:"firewallDomainListId"`
+	// `CfnFirewallRuleGroup.FirewallRuleProperty.Priority`.
+	Priority *float64 `json:"priority"`
 }
 
 // A CloudFormation `AWS::Route53Resolver::FirewallRuleGroupAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnFirewallRuleGroupAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2269,22 +2283,28 @@ func (c *jsiiProxy_CfnFirewallRuleGroupAssociation) ValidateProperties(_properti
 }
 
 // Properties for defining a `AWS::Route53Resolver::FirewallRuleGroupAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnFirewallRuleGroupAssociationProps struct {
 	// `AWS::Route53Resolver::FirewallRuleGroupAssociation.FirewallRuleGroupId`.
 	FirewallRuleGroupId *string `json:"firewallRuleGroupId"`
-	// `AWS::Route53Resolver::FirewallRuleGroupAssociation.Priority`.
-	Priority *float64 `json:"priority"`
-	// `AWS::Route53Resolver::FirewallRuleGroupAssociation.VpcId`.
-	VpcId *string `json:"vpcId"`
 	// `AWS::Route53Resolver::FirewallRuleGroupAssociation.MutationProtection`.
 	MutationProtection *string `json:"mutationProtection"`
 	// `AWS::Route53Resolver::FirewallRuleGroupAssociation.Name`.
 	Name *string `json:"name"`
+	// `AWS::Route53Resolver::FirewallRuleGroupAssociation.Priority`.
+	Priority *float64 `json:"priority"`
 	// `AWS::Route53Resolver::FirewallRuleGroupAssociation.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::Route53Resolver::FirewallRuleGroupAssociation.VpcId`.
+	VpcId *string `json:"vpcId"`
 }
 
 // Properties for defining a `AWS::Route53Resolver::FirewallRuleGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnFirewallRuleGroupProps struct {
 	// `AWS::Route53Resolver::FirewallRuleGroup.FirewallRules`.
 	FirewallRules interface{} `json:"firewallRules"`
@@ -2295,6 +2315,9 @@ type CfnFirewallRuleGroupProps struct {
 }
 
 // A CloudFormation `AWS::Route53Resolver::ResolverConfig`.
+//
+// TODO: EXAMPLE
+//
 type CfnResolverConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2934,6 +2957,9 @@ func (c *jsiiProxy_CfnResolverConfig) ValidateProperties(_properties interface{}
 }
 
 // Properties for defining a `AWS::Route53Resolver::ResolverConfig`.
+//
+// TODO: EXAMPLE
+//
 type CfnResolverConfigProps struct {
 	// `AWS::Route53Resolver::ResolverConfig.AutodefinedReverseFlag`.
 	AutodefinedReverseFlag *string `json:"autodefinedReverseFlag"`
@@ -2942,6 +2968,9 @@ type CfnResolverConfigProps struct {
 }
 
 // A CloudFormation `AWS::Route53Resolver::ResolverDNSSECConfig`.
+//
+// TODO: EXAMPLE
+//
 type CfnResolverDNSSECConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3561,12 +3590,18 @@ func (c *jsiiProxy_CfnResolverDNSSECConfig) ValidateProperties(_properties inter
 }
 
 // Properties for defining a `AWS::Route53Resolver::ResolverDNSSECConfig`.
+//
+// TODO: EXAMPLE
+//
 type CfnResolverDNSSECConfigProps struct {
 	// `AWS::Route53Resolver::ResolverDNSSECConfig.ResourceId`.
 	ResourceId *string `json:"resourceId"`
 }
 
 // A CloudFormation `AWS::Route53Resolver::ResolverEndpoint`.
+//
+// TODO: EXAMPLE
+//
 type CfnResolverEndpoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4289,28 +4324,36 @@ func (c *jsiiProxy_CfnResolverEndpoint) ValidateProperties(_properties interface
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnResolverEndpoint_IpAddressRequestProperty struct {
-	// `CfnResolverEndpoint.IpAddressRequestProperty.SubnetId`.
-	SubnetId *string `json:"subnetId"`
 	// `CfnResolverEndpoint.IpAddressRequestProperty.Ip`.
 	Ip *string `json:"ip"`
+	// `CfnResolverEndpoint.IpAddressRequestProperty.SubnetId`.
+	SubnetId *string `json:"subnetId"`
 }
 
 // Properties for defining a `AWS::Route53Resolver::ResolverEndpoint`.
+//
+// TODO: EXAMPLE
+//
 type CfnResolverEndpointProps struct {
 	// `AWS::Route53Resolver::ResolverEndpoint.Direction`.
 	Direction *string `json:"direction"`
 	// `AWS::Route53Resolver::ResolverEndpoint.IpAddresses`.
 	IpAddresses interface{} `json:"ipAddresses"`
-	// `AWS::Route53Resolver::ResolverEndpoint.SecurityGroupIds`.
-	SecurityGroupIds *[]*string `json:"securityGroupIds"`
 	// `AWS::Route53Resolver::ResolverEndpoint.Name`.
 	Name *string `json:"name"`
+	// `AWS::Route53Resolver::ResolverEndpoint.SecurityGroupIds`.
+	SecurityGroupIds *[]*string `json:"securityGroupIds"`
 	// `AWS::Route53Resolver::ResolverEndpoint.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::Route53Resolver::ResolverQueryLoggingConfig`.
+//
+// TODO: EXAMPLE
+//
 type CfnResolverQueryLoggingConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5005,6 +5048,9 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfig) ValidateProperties(_properties
 }
 
 // A CloudFormation `AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnResolverQueryLoggingConfigAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5666,6 +5712,9 @@ func (c *jsiiProxy_CfnResolverQueryLoggingConfigAssociation) ValidateProperties(
 }
 
 // Properties for defining a `AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnResolverQueryLoggingConfigAssociationProps struct {
 	// `AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation.ResolverQueryLogConfigId`.
 	ResolverQueryLogConfigId *string `json:"resolverQueryLogConfigId"`
@@ -5674,6 +5723,9 @@ type CfnResolverQueryLoggingConfigAssociationProps struct {
 }
 
 // Properties for defining a `AWS::Route53Resolver::ResolverQueryLoggingConfig`.
+//
+// TODO: EXAMPLE
+//
 type CfnResolverQueryLoggingConfigProps struct {
 	// `AWS::Route53Resolver::ResolverQueryLoggingConfig.DestinationArn`.
 	DestinationArn *string `json:"destinationArn"`
@@ -5682,6 +5734,9 @@ type CfnResolverQueryLoggingConfigProps struct {
 }
 
 // A CloudFormation `AWS::Route53Resolver::ResolverRule`.
+//
+// TODO: EXAMPLE
+//
 type CfnResolverRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6424,6 +6479,8 @@ func (c *jsiiProxy_CfnResolverRule) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnResolverRule_TargetAddressProperty struct {
 	// `CfnResolverRule.TargetAddressProperty.Ip`.
 	Ip *string `json:"ip"`
@@ -6432,6 +6489,9 @@ type CfnResolverRule_TargetAddressProperty struct {
 }
 
 // A CloudFormation `AWS::Route53Resolver::ResolverRuleAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnResolverRuleAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -7102,25 +7162,31 @@ func (c *jsiiProxy_CfnResolverRuleAssociation) ValidateProperties(_properties in
 }
 
 // Properties for defining a `AWS::Route53Resolver::ResolverRuleAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnResolverRuleAssociationProps struct {
+	// `AWS::Route53Resolver::ResolverRuleAssociation.Name`.
+	Name *string `json:"name"`
 	// `AWS::Route53Resolver::ResolverRuleAssociation.ResolverRuleId`.
 	ResolverRuleId *string `json:"resolverRuleId"`
 	// `AWS::Route53Resolver::ResolverRuleAssociation.VPCId`.
 	VpcId *string `json:"vpcId"`
-	// `AWS::Route53Resolver::ResolverRuleAssociation.Name`.
-	Name *string `json:"name"`
 }
 
 // Properties for defining a `AWS::Route53Resolver::ResolverRule`.
+//
+// TODO: EXAMPLE
+//
 type CfnResolverRuleProps struct {
 	// `AWS::Route53Resolver::ResolverRule.DomainName`.
 	DomainName *string `json:"domainName"`
-	// `AWS::Route53Resolver::ResolverRule.RuleType`.
-	RuleType *string `json:"ruleType"`
 	// `AWS::Route53Resolver::ResolverRule.Name`.
 	Name *string `json:"name"`
 	// `AWS::Route53Resolver::ResolverRule.ResolverEndpointId`.
 	ResolverEndpointId *string `json:"resolverEndpointId"`
+	// `AWS::Route53Resolver::ResolverRule.RuleType`.
+	RuleType *string `json:"ruleType"`
 	// `AWS::Route53Resolver::ResolverRule.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::Route53Resolver::ResolverRule.TargetIps`.
@@ -7128,6 +7194,9 @@ type CfnResolverRuleProps struct {
 }
 
 // The way that you want DNS Firewall to block the request.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DnsBlockResponse interface {
 	BlockOverrideDnsType() *string
@@ -7245,6 +7314,9 @@ func DnsBlockResponse_Override(domain *string, ttl awscdk.Duration) DnsBlockResp
 }
 
 // Domains configuration.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DomainsConfig struct {
 	// The fully qualified URL or URI of the file stored in Amazon S3 that contains the list of domains to import.
@@ -7259,6 +7331,9 @@ type DomainsConfig struct {
 }
 
 // A Firewall Domain List.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FirewallDomainList interface {
 	awscdk.Resource
@@ -7690,6 +7765,9 @@ func (f *jsiiProxy_FirewallDomainList) Validate() *[]*string {
 }
 
 // Properties for a Firewall Domain List.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FirewallDomainListProps struct {
 	// A list of domains.
@@ -7701,6 +7779,9 @@ type FirewallDomainListProps struct {
 }
 
 // A list of domains.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FirewallDomains interface {
 	Bind(scope constructs.Construct) *DomainsConfig
@@ -7815,6 +7896,9 @@ func (f *jsiiProxy_FirewallDomains) Bind(scope constructs.Construct) *DomainsCon
 }
 
 // A Firewall Rule.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FirewallRule struct {
 	// The action for this rule.
@@ -7832,6 +7916,9 @@ type FirewallRule struct {
 }
 
 // A Firewall Rule.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FirewallRuleAction interface {
 	Action() *string
@@ -7927,6 +8014,9 @@ func FirewallRuleAction_Block(response DnsBlockResponse) FirewallRuleAction {
 }
 
 // A Firewall Rule Group.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FirewallRuleGroup interface {
 	awscdk.Resource
@@ -8401,6 +8491,9 @@ func (f *jsiiProxy_FirewallRuleGroup) Validate() *[]*string {
 }
 
 // A Firewall Rule Group Association.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FirewallRuleGroupAssociation interface {
 	awscdk.Resource
@@ -8802,8 +8895,17 @@ func (f *jsiiProxy_FirewallRuleGroupAssociation) Validate() *[]*string {
 }
 
 // Options for a Firewall Rule Group Association.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FirewallRuleGroupAssociationOptions struct {
+	// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections.
+	// Experimental.
+	MutationProtection *bool `json:"mutationProtection"`
+	// The name of the association.
+	// Experimental.
+	Name *string `json:"name"`
 	// The setting that determines the processing order of the rule group among the rule groups that are associated with a single VPC.
 	//
 	// DNS Firewall filters VPC
@@ -8815,17 +8917,20 @@ type FirewallRuleGroupAssociationOptions struct {
 	// The VPC that to associate with the rule group.
 	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
-	// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections.
-	// Experimental.
-	MutationProtection *bool `json:"mutationProtection"`
-	// The name of the association.
-	// Experimental.
-	Name *string `json:"name"`
 }
 
 // Properties for a Firewall Rule Group Association.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FirewallRuleGroupAssociationProps struct {
+	// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections.
+	// Experimental.
+	MutationProtection *bool `json:"mutationProtection"`
+	// The name of the association.
+	// Experimental.
+	Name *string `json:"name"`
 	// The setting that determines the processing order of the rule group among the rule groups that are associated with a single VPC.
 	//
 	// DNS Firewall filters VPC
@@ -8837,18 +8942,15 @@ type FirewallRuleGroupAssociationProps struct {
 	// The VPC that to associate with the rule group.
 	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
-	// If enabled, this setting disallows modification or removal of the association, to help prevent against accidentally altering DNS firewall protections.
-	// Experimental.
-	MutationProtection *bool `json:"mutationProtection"`
-	// The name of the association.
-	// Experimental.
-	Name *string `json:"name"`
 	// The firewall rule group which must be associated.
 	// Experimental.
 	FirewallRuleGroup IFirewallRuleGroup `json:"firewallRuleGroup"`
 }
 
 // Properties for a Firewall Rule Group.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FirewallRuleGroupProps struct {
 	// The name of the rule group.

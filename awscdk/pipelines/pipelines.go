@@ -22,6 +22,9 @@ import (
 )
 
 // Options for addManualApproval.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 type AddManualApprovalOptions struct {
 	// The name of the manual approval action.
@@ -33,6 +36,9 @@ type AddManualApprovalOptions struct {
 }
 
 // Additional options for adding a stack deployment.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 type AddStackOptions struct {
 	// Base runorder.
@@ -44,6 +50,9 @@ type AddStackOptions struct {
 }
 
 // Options for adding an application stage to a pipeline.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 type AddStageOptions struct {
 	// Runs a `cdk diff --security-only --fail` to pause the pipeline if there are any security changes.
@@ -93,6 +102,9 @@ type AddStageOpts struct {
 }
 
 // Specification of an additional artifact to generate.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 type AdditionalArtifact struct {
 	// Artifact to represent the build directory in the pipeline.
@@ -104,6 +116,9 @@ type AdditionalArtifact struct {
 }
 
 // Translate FileSets to CodePipeline Artifacts.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ArtifactMap interface {
 	ToCodePipeline(x FileSet) awscodepipeline.Artifact
@@ -156,6 +171,9 @@ func (a *jsiiProxy_ArtifactMap) ToCodePipeline(x FileSet) awscodepipeline.Artifa
 }
 
 // Instructions to publish certain assets.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 type AssetPublishingCommand struct {
 	// Asset identifier.
@@ -180,11 +198,14 @@ type AssetPublishingCommand struct {
 type AssetType string
 
 const (
-	AssetType_FILE AssetType = "FILE"
 	AssetType_DOCKER_IMAGE AssetType = "DOCKER_IMAGE"
+	AssetType_FILE AssetType = "FILE"
 )
 
 // Base options for a pipelines stage.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 type BaseStageOptions struct {
 	// Runs a `cdk diff --security-only --fail` to pause the pipeline if there are any security changes.
@@ -603,17 +624,20 @@ type CdkPipelineProps struct {
 }
 
 // Options for the 'fromStackArtifact' operation.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 type CdkStackActionFromArtifactOptions struct {
-	// The CodePipeline artifact that holds the Cloud Assembly.
-	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-	CloudAssemblyInput awscodepipeline.Artifact `json:"cloudAssemblyInput"`
 	// Base name of the action.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	BaseActionName *string `json:"baseActionName"`
 	// Name of the change set to create and deploy.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	ChangeSetName *string `json:"changeSetName"`
+	// The CodePipeline artifact that holds the Cloud Assembly.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CloudAssemblyInput awscodepipeline.Artifact `json:"cloudAssemblyInput"`
 	// Run order for the Execute action.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	ExecuteRunOrder *float64 `json:"executeRunOrder"`
@@ -635,6 +659,9 @@ type CdkStackActionFromArtifactOptions struct {
 //
 // You don't need to instantiate this class directly. Use
 // `cdkPipeline.addStage()` instead.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 type CdkStage interface {
 	awscdk.Construct
@@ -922,32 +949,35 @@ func (c *jsiiProxy_CdkStage) Validate() *[]*string {
 }
 
 // Construction properties for a CdkStage.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 type CdkStageProps struct {
 	// The CodePipeline Artifact with the Cloud Assembly.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	CloudAssemblyArtifact awscodepipeline.Artifact `json:"cloudAssemblyArtifact"`
-	// Features the Stage needs from its environment.
-	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-	Host IStageHost `json:"host"`
-	// The underlying Pipeline Stage associated with thisCdkStage.
-	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-	PipelineStage awscodepipeline.IStage `json:"pipelineStage"`
-	// Name of the stage that should be created.
-	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-	StageName *string `json:"stageName"`
 	// Run a security check before every application prepare/deploy actions.
 	//
 	// Note: Stage level security check can be overriden per application as follows:
 	//    `stage.addApplication(app, { confirmBroadeningPermissions: false })`
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	ConfirmBroadeningPermissions *bool `json:"confirmBroadeningPermissions"`
+	// Features the Stage needs from its environment.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Host IStageHost `json:"host"`
+	// The underlying Pipeline Stage associated with thisCdkStage.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	PipelineStage awscodepipeline.IStage `json:"pipelineStage"`
 	// Optional SNS topic to send notifications to when any security check registers changes within a application.
 	//
 	// Note: The Stage Notification Topic can be overriden per application as follows:
 	//    `stage.addApplication(app, { securityNotificationTopic: newTopic })`
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	SecurityNotificationTopic awssns.ITopic `json:"securityNotificationTopic"`
+	// Name of the stage that should be created.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	StageName *string `json:"stageName"`
 }
 
 // Options for customizing a single CodeBuild project.
@@ -1447,6 +1477,9 @@ type CodeBuildStepProps struct {
 }
 
 // Configuration options for a CodeCommit source.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CodeCommitSourceOptions struct {
 	// Whether the output should be the contents of the repository (which is the default), or a link that allows CodeBuild to clone the repository before building.
@@ -1790,20 +1823,26 @@ func (c *jsiiProxy_CodePipeline) Validate() *[]*string {
 }
 
 // The result of adding actions to the pipeline.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CodePipelineActionFactoryResult struct {
-	// How many RunOrders were consumed.
-	// Experimental.
-	RunOrdersConsumed *float64 `json:"runOrdersConsumed"`
 	// If a CodeBuild project got created, the project.
 	// Experimental.
 	Project awscodebuild.IProject `json:"project"`
+	// How many RunOrders were consumed.
+	// Experimental.
+	RunOrdersConsumed *float64 `json:"runOrdersConsumed"`
 }
 
 // A FileSet created from a CodePipeline artifact.
 //
 // You only need to use this if you want to add CDK Pipeline stages
 // add the end of an existing CodePipeline, which should be very rare.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CodePipelineFileSet interface {
 	FileSet
@@ -1900,15 +1939,6 @@ func (c *jsiiProxy_CodePipelineFileSet) ToString() *string {
 //
 // Experimental.
 type CodePipelineProps struct {
-	// The build step that produces the CDK Cloud Assembly.
-	//
-	// The primary output of this step needs to be the `cdk.out` directory
-	// generated by the `cdk synth` command.
-	//
-	// If you use a `ShellStep` here and you don't configure an output directory,
-	// the output directory will automatically be assumed to be `cdk.out`.
-	// Experimental.
-	Synth IFileSetProducer `json:"synth"`
 	// Additional customizations to apply to the asset publishing CodeBuild projects.
 	// Experimental.
 	AssetPublishingCodeBuildDefaults *CodeBuildOptions `json:"assetPublishingCodeBuildDefaults"`
@@ -2014,6 +2044,15 @@ type CodePipelineProps struct {
 	// Additional customizations to apply to the self mutation CodeBuild projects.
 	// Experimental.
 	SelfMutationCodeBuildDefaults *CodeBuildOptions `json:"selfMutationCodeBuildDefaults"`
+	// The build step that produces the CDK Cloud Assembly.
+	//
+	// The primary output of this step needs to be the `cdk.out` directory
+	// generated by the `cdk synth` command.
+	//
+	// If you use a `ShellStep` here and you don't configure an output directory,
+	// the output directory will automatically be assumed to be `cdk.out`.
+	// Experimental.
+	Synth IFileSetProducer `json:"synth"`
 	// Additional customizations to apply to the synthesize CodeBuild projects.
 	// Experimental.
 	SynthCodeBuildDefaults *CodeBuildOptions `json:"synthCodeBuildDefaults"`
@@ -2476,6 +2515,9 @@ type ConnectionSourceOptions struct {
 //
 // You do not need to instantiate this action yourself -- it will automatically
 // be added by the pipeline when you add stack artifacts or entire stages.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 type DeployCdkStackAction interface {
 	awscodepipeline.IAction
@@ -2629,17 +2671,20 @@ func (d *jsiiProxy_DeployCdkStackAction) OnStateChange(name *string, target awse
 }
 
 // Customization options for a DeployCdkStackAction.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 type DeployCdkStackActionOptions struct {
-	// The CodePipeline artifact that holds the Cloud Assembly.
-	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-	CloudAssemblyInput awscodepipeline.Artifact `json:"cloudAssemblyInput"`
 	// Base name of the action.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	BaseActionName *string `json:"baseActionName"`
 	// Name of the change set to create and deploy.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	ChangeSetName *string `json:"changeSetName"`
+	// The CodePipeline artifact that holds the Cloud Assembly.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CloudAssemblyInput awscodepipeline.Artifact `json:"cloudAssemblyInput"`
 	// Run order for the Execute action.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	ExecuteRunOrder *float64 `json:"executeRunOrder"`
@@ -2655,17 +2700,20 @@ type DeployCdkStackActionOptions struct {
 }
 
 // Properties for a DeployCdkStackAction.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 type DeployCdkStackActionProps struct {
-	// The CodePipeline artifact that holds the Cloud Assembly.
-	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-	CloudAssemblyInput awscodepipeline.Artifact `json:"cloudAssemblyInput"`
 	// Base name of the action.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	BaseActionName *string `json:"baseActionName"`
 	// Name of the change set to create and deploy.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	ChangeSetName *string `json:"changeSetName"`
+	// The CodePipeline artifact that holds the Cloud Assembly.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CloudAssemblyInput awscodepipeline.Artifact `json:"cloudAssemblyInput"`
 	// Run order for the Execute action.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	ExecuteRunOrder *float64 `json:"executeRunOrder"`
@@ -2683,12 +2731,6 @@ type DeployCdkStackActionProps struct {
 	// This controls the account to deploy into
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	ActionRole awsiam.IRole `json:"actionRole"`
-	// The name of the stack that should be created/updated.
-	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-	StackName *string `json:"stackName"`
-	// Relative path of template in the input artifact.
-	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-	TemplatePath *string `json:"templatePath"`
 	// Role to execute CloudFormation under.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	CloudFormationExecutionRole awsiam.IRole `json:"cloudFormationExecutionRole"`
@@ -2705,9 +2747,15 @@ type DeployCdkStackActionProps struct {
 	// Used for pipeline order checking.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	StackArtifactId *string `json:"stackArtifactId"`
+	// The name of the stack that should be created/updated.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	StackName *string `json:"stackName"`
 	// Template configuration path relative to the input artifact.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	TemplateConfigurationPath *string `json:"templateConfigurationPath"`
+	// Relative path of template in the input artifact.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	TemplatePath *string `json:"templatePath"`
 }
 
 // Represents credentials used to access a Docker registry.
@@ -2826,12 +2874,15 @@ func (d *jsiiProxy_DockerCredential) GrantRead(grantee awsiam.IGrantable, usage 
 type DockerCredentialUsage string
 
 const (
-	DockerCredentialUsage_SYNTH DockerCredentialUsage = "SYNTH"
-	DockerCredentialUsage_SELF_UPDATE DockerCredentialUsage = "SELF_UPDATE"
 	DockerCredentialUsage_ASSET_PUBLISHING DockerCredentialUsage = "ASSET_PUBLISHING"
+	DockerCredentialUsage_SELF_UPDATE DockerCredentialUsage = "SELF_UPDATE"
+	DockerCredentialUsage_SYNTH DockerCredentialUsage = "SYNTH"
 )
 
 // Options for defining access for a Docker Credential composed of ECR repos.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EcrDockerCredentialOptions struct {
 	// An IAM role to assume prior to accessing the secret.
@@ -2969,6 +3020,9 @@ func (f *jsiiProxy_FileSet) ToString() *string {
 }
 
 // Location of a FileSet consumed or produced by a ShellStep.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FileSetLocation struct {
 	// The (relative) directory where the FileSet is found.
@@ -2980,6 +3034,9 @@ type FileSetLocation struct {
 }
 
 // Options for CdkDeployAction.fromStackArtifact.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 type FromStackArtifactOptions struct {
 	// The CodePipeline artifact that holds the Cloud Assembly.
@@ -3283,6 +3340,9 @@ func (m *jsiiProxy_ManualApprovalStep) ToString() *string {
 }
 
 // Construction properties for a `ManualApprovalStep`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ManualApprovalStepProps struct {
 	// The comment to display with this manual approval.
@@ -3595,6 +3655,9 @@ func (p *jsiiProxy_PipelineBase) Validate() *[]*string {
 }
 
 // Properties for a `Pipeline`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type PipelineBaseProps struct {
 	// The build step that produces the CDK Cloud Assembly.
@@ -3609,6 +3672,9 @@ type PipelineBaseProps struct {
 }
 
 // Options for the `CodePipelineActionFactory.produce()` method.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ProduceActionOptions struct {
 	// Name the action should get.
@@ -3617,15 +3683,6 @@ type ProduceActionOptions struct {
 	// Helper object to translate FileSets to CodePipeline Artifacts.
 	// Experimental.
 	Artifacts ArtifactMap `json:"artifacts"`
-	// The pipeline the action is being generated for.
-	// Experimental.
-	Pipeline CodePipeline `json:"pipeline"`
-	// RunOrder the action should get.
-	// Experimental.
-	RunOrder *float64 `json:"runOrder"`
-	// Scope in which to create constructs.
-	// Experimental.
-	Scope constructs.Construct `json:"scope"`
 	// Whether or not this action is inserted before self mutation.
 	//
 	// If it is, the action should take care to reflect some part of
@@ -3643,6 +3700,15 @@ type ProduceActionOptions struct {
 	// Artifact passed here.
 	// Experimental.
 	FallbackArtifact awscodepipeline.Artifact `json:"fallbackArtifact"`
+	// The pipeline the action is being generated for.
+	// Experimental.
+	Pipeline CodePipeline `json:"pipeline"`
+	// RunOrder the action should get.
+	// Experimental.
+	RunOrder *float64 `json:"runOrder"`
+	// Scope in which to create constructs.
+	// Experimental.
+	Scope constructs.Construct `json:"scope"`
 }
 
 // Action to publish an asset in the pipeline.
@@ -3652,6 +3718,9 @@ type ProduceActionOptions struct {
 //
 // You do not need to instantiate this action -- it will automatically
 // be added by the pipeline when you add stacks that use assets.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 type PublishAssetsAction interface {
 	awscdk.Construct
@@ -3898,6 +3967,9 @@ func (p *jsiiProxy_PublishAssetsAction) Validate() *[]*string {
 }
 
 // Props for a PublishAssetsAction.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 type PublishAssetsActionProps struct {
 	// Name of publishing action.
@@ -3906,15 +3978,15 @@ type PublishAssetsActionProps struct {
 	// AssetType we're publishing.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	AssetType AssetType `json:"assetType"`
-	// The CodePipeline artifact that holds the Cloud Assembly.
-	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-	CloudAssemblyInput awscodepipeline.Artifact `json:"cloudAssemblyInput"`
 	// Custom BuildSpec that is merged with generated one.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	BuildSpec awscodebuild.BuildSpec `json:"buildSpec"`
 	// Version of CDK CLI to 'npm install'.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	CdkCliVersion *string `json:"cdkCliVersion"`
+	// The CodePipeline artifact that holds the Cloud Assembly.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CloudAssemblyInput awscodepipeline.Artifact `json:"cloudAssemblyInput"`
 	// Use a file buildspec written to the cloud assembly instead of an inline buildspec.
 	//
 	// This prevents size limitation errors as inline specs have a max length of 25600 characters
@@ -3943,6 +4015,9 @@ type PublishAssetsActionProps struct {
 }
 
 // Options for S3 sources.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type S3SourceOptions struct {
 	// The action name used for this source in the CodePipeline.
@@ -3959,6 +4034,9 @@ type S3SourceOptions struct {
 }
 
 // Validate a revision using shell commands.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 type ShellScriptAction interface {
 	awscodepipeline.IAction
@@ -4064,14 +4142,14 @@ func (s *jsiiProxy_ShellScriptAction) OnStateChange(name *string, target awseven
 }
 
 // Properties for ShellScriptAction.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 type ShellScriptActionProps struct {
 	// Name of the validation action in the pipeline.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	ActionName *string `json:"actionName"`
-	// Commands to run.
-	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-	Commands *[]*string `json:"commands"`
 	// Additional artifacts to use as input for the CodeBuild project.
 	//
 	// You can use these files to load more complex test sets into the
@@ -4090,6 +4168,9 @@ type ShellScriptActionProps struct {
 	// Bash options to set at the start of the script.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	BashOptions *string `json:"bashOptions"`
+	// Commands to run.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	Commands *[]*string `json:"commands"`
 	// The CodeBuild environment where scripts are executed.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	Environment *awscodebuild.BuildEnvironment `json:"environment"`
@@ -4587,14 +4668,11 @@ func (s *jsiiProxy_SimpleSynthAction) OnStateChange(name *string, target awseven
 }
 
 // Construction props for SimpleSynthAction.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 type SimpleSynthActionProps struct {
-	// The artifact where the CloudAssembly should be emitted.
-	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-	CloudAssemblyArtifact awscodepipeline.Artifact `json:"cloudAssemblyArtifact"`
-	// The source artifact of the CodePipeline.
-	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-	SourceArtifact awscodepipeline.Artifact `json:"sourceArtifact"`
 	// Name of the build action.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	ActionName *string `json:"actionName"`
@@ -4610,6 +4688,9 @@ type SimpleSynthActionProps struct {
 	// custom BuildSpec that is merged with the generated one.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	BuildSpec awscodebuild.BuildSpec `json:"buildSpec"`
+	// The artifact where the CloudAssembly should be emitted.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CloudAssemblyArtifact awscodepipeline.Artifact `json:"cloudAssemblyArtifact"`
 	// Environment variables to copy over from parent env.
 	//
 	// These are environment variables that are being used by the build.
@@ -4634,6 +4715,9 @@ type SimpleSynthActionProps struct {
 	// Can be used to add acces to a CodeArtifact repository etc.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	RolePolicyStatements *[]awsiam.PolicyStatement `json:"rolePolicyStatements"`
+	// The source artifact of the CodePipeline.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SourceArtifact awscodepipeline.Artifact `json:"sourceArtifact"`
 	// Directory inside the source where package.json and cdk.json are located.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	Subdirectory *string `json:"subdirectory"`
@@ -4645,9 +4729,6 @@ type SimpleSynthActionProps struct {
 	// The VPC where to execute the SimpleSynth.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	Vpc awsec2.IVpc `json:"vpc"`
-	// The synth command.
-	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-	SynthCommand *string `json:"synthCommand"`
 	// The build command.
 	//
 	// If your programming language requires a compilation step, put the
@@ -4674,6 +4755,9 @@ type SimpleSynthActionProps struct {
 	// `npm install -g aws-cdk`.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	InstallCommands *[]*string `json:"installCommands"`
+	// The synth command.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SynthCommand *string `json:"synthCommand"`
 	// Test commands.
 	//
 	// These commands are run after the build commands but before the
@@ -4683,14 +4767,11 @@ type SimpleSynthActionProps struct {
 }
 
 // Configuration options for a SimpleSynth.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 type SimpleSynthOptions struct {
-	// The artifact where the CloudAssembly should be emitted.
-	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-	CloudAssemblyArtifact awscodepipeline.Artifact `json:"cloudAssemblyArtifact"`
-	// The source artifact of the CodePipeline.
-	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-	SourceArtifact awscodepipeline.Artifact `json:"sourceArtifact"`
 	// Name of the build action.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	ActionName *string `json:"actionName"`
@@ -4706,6 +4787,9 @@ type SimpleSynthOptions struct {
 	// custom BuildSpec that is merged with the generated one.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	BuildSpec awscodebuild.BuildSpec `json:"buildSpec"`
+	// The artifact where the CloudAssembly should be emitted.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CloudAssemblyArtifact awscodepipeline.Artifact `json:"cloudAssemblyArtifact"`
 	// Environment variables to copy over from parent env.
 	//
 	// These are environment variables that are being used by the build.
@@ -4730,6 +4814,9 @@ type SimpleSynthOptions struct {
 	// Can be used to add acces to a CodeArtifact repository etc.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	RolePolicyStatements *[]awsiam.PolicyStatement `json:"rolePolicyStatements"`
+	// The source artifact of the CodePipeline.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SourceArtifact awscodepipeline.Artifact `json:"sourceArtifact"`
 	// Directory inside the source where package.json and cdk.json are located.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	Subdirectory *string `json:"subdirectory"`
@@ -4744,6 +4831,9 @@ type SimpleSynthOptions struct {
 }
 
 // An asset used by a Stack.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type StackAsset struct {
 	// Asset identifier.
@@ -4755,6 +4845,9 @@ type StackAsset struct {
 	// information is parsed we don't know about the root cloud assembly yet.
 	// Experimental.
 	AssetManifestPath *string `json:"assetManifestPath"`
+	// Role ARN to assume to publish.
+	// Experimental.
+	AssetPublishingRoleArn *string `json:"assetPublishingRoleArn"`
 	// Asset selector to pass to `cdk-assets`.
 	// Experimental.
 	AssetSelector *string `json:"assetSelector"`
@@ -4764,9 +4857,6 @@ type StackAsset struct {
 	// Does this asset represent the CloudFormation template for the stack.
 	// Experimental.
 	IsTemplate *bool `json:"isTemplate"`
-	// Role ARN to assume to publish.
-	// Experimental.
-	AssetPublishingRoleArn *string `json:"assetPublishingRoleArn"`
 }
 
 // Deployment of a single Stack.
@@ -4774,6 +4864,9 @@ type StackAsset struct {
 // You don't need to instantiate this class -- it will
 // be automatically instantiated as necessary when you
 // add a `Stage` to a pipeline.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type StackDeployment interface {
 	AbsoluteTemplatePath() *string
@@ -5000,20 +5093,14 @@ func (s *jsiiProxy_StackDeployment) AddStackSteps(pre *[]Step, changeSet *[]Step
 }
 
 // Properties for a `StackDeployment`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type StackDeploymentProps struct {
 	// Template path on disk to cloud assembly (cdk.out).
 	// Experimental.
 	AbsoluteTemplatePath *string `json:"absoluteTemplatePath"`
-	// Construct path for this stack.
-	// Experimental.
-	ConstructPath *string `json:"constructPath"`
-	// Artifact ID for this stack.
-	// Experimental.
-	StackArtifactId *string `json:"stackArtifactId"`
-	// Name for this stack.
-	// Experimental.
-	StackName *string `json:"stackName"`
 	// Account where the stack should be deployed.
 	// Experimental.
 	Account *string `json:"account"`
@@ -5023,12 +5110,21 @@ type StackDeploymentProps struct {
 	// Role to assume before deploying this stack.
 	// Experimental.
 	AssumeRoleArn *string `json:"assumeRoleArn"`
+	// Construct path for this stack.
+	// Experimental.
+	ConstructPath *string `json:"constructPath"`
 	// Execution role to pass to CloudFormation.
 	// Experimental.
 	ExecutionRoleArn *string `json:"executionRoleArn"`
 	// Region where the stack should be deployed.
 	// Experimental.
 	Region *string `json:"region"`
+	// Artifact ID for this stack.
+	// Experimental.
+	StackArtifactId *string `json:"stackArtifactId"`
+	// Name for this stack.
+	// Experimental.
+	StackName *string `json:"stackName"`
 	// Tags to apply to the stack.
 	// Experimental.
 	Tags *map[string]*string `json:"tags"`
@@ -5038,6 +5134,9 @@ type StackDeploymentProps struct {
 }
 
 // A single output of a Stack.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 type StackOutput interface {
 	ArtifactFile() awscodepipeline.ArtifactPath
@@ -5099,6 +5198,9 @@ func NewStackOutput_Override(s StackOutput, artifactFile awscodepipeline.Artifac
 }
 
 // A Reference to a Stack Output.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type StackOutputReference interface {
 	OutputName() *string
@@ -5165,11 +5267,11 @@ func (s *jsiiProxy_StackOutputReference) IsProducedBy(stack StackDeployment) *bo
 }
 
 // Instructions for additional steps that are run at stack level.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type StackSteps struct {
-	// The stack you want the steps to run in.
-	// Experimental.
-	Stack awscdk.Stack `json:"stack"`
 	// Steps that execute after stack is prepared but before stack is deployed.
 	// Experimental.
 	ChangeSet *[]Step `json:"changeSet"`
@@ -5179,12 +5281,18 @@ type StackSteps struct {
 	// Steps that execute before stack is prepared.
 	// Experimental.
 	Pre *[]Step `json:"pre"`
+	// The stack you want the steps to run in.
+	// Experimental.
+	Stack awscdk.Stack `json:"stack"`
 }
 
 // Deployment of a single `Stage`.
 //
 // A `Stage` consists of one or more `Stacks`, which will be
 // deployed in dependency order.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type StageDeployment interface {
 	Post() *[]Step
@@ -5303,6 +5411,9 @@ func (s *jsiiProxy_StageDeployment) AddPre(steps ...Step) {
 }
 
 // Properties for a `StageDeployment`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type StageDeploymentProps struct {
 	// Additional steps to run after all of the stacks in the stage.
@@ -5325,12 +5436,6 @@ type StageDeploymentProps struct {
 //
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 type StandardNpmSynthOptions struct {
-	// The artifact where the CloudAssembly should be emitted.
-	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-	CloudAssemblyArtifact awscodepipeline.Artifact `json:"cloudAssemblyArtifact"`
-	// The source artifact of the CodePipeline.
-	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-	SourceArtifact awscodepipeline.Artifact `json:"sourceArtifact"`
 	// Name of the build action.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	ActionName *string `json:"actionName"`
@@ -5346,6 +5451,9 @@ type StandardNpmSynthOptions struct {
 	// custom BuildSpec that is merged with the generated one.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	BuildSpec awscodebuild.BuildSpec `json:"buildSpec"`
+	// The artifact where the CloudAssembly should be emitted.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CloudAssemblyArtifact awscodepipeline.Artifact `json:"cloudAssemblyArtifact"`
 	// Environment variables to copy over from parent env.
 	//
 	// These are environment variables that are being used by the build.
@@ -5370,6 +5478,9 @@ type StandardNpmSynthOptions struct {
 	// Can be used to add acces to a CodeArtifact repository etc.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	RolePolicyStatements *[]awsiam.PolicyStatement `json:"rolePolicyStatements"`
+	// The source artifact of the CodePipeline.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SourceArtifact awscodepipeline.Artifact `json:"sourceArtifact"`
 	// Directory inside the source where package.json and cdk.json are located.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	Subdirectory *string `json:"subdirectory"`
@@ -5404,14 +5515,11 @@ type StandardNpmSynthOptions struct {
 }
 
 // Options for a convention-based synth using Yarn.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 type StandardYarnSynthOptions struct {
-	// The artifact where the CloudAssembly should be emitted.
-	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-	CloudAssemblyArtifact awscodepipeline.Artifact `json:"cloudAssemblyArtifact"`
-	// The source artifact of the CodePipeline.
-	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-	SourceArtifact awscodepipeline.Artifact `json:"sourceArtifact"`
 	// Name of the build action.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	ActionName *string `json:"actionName"`
@@ -5427,6 +5535,9 @@ type StandardYarnSynthOptions struct {
 	// custom BuildSpec that is merged with the generated one.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	BuildSpec awscodebuild.BuildSpec `json:"buildSpec"`
+	// The artifact where the CloudAssembly should be emitted.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CloudAssemblyArtifact awscodepipeline.Artifact `json:"cloudAssemblyArtifact"`
 	// Environment variables to copy over from parent env.
 	//
 	// These are environment variables that are being used by the build.
@@ -5451,6 +5562,9 @@ type StandardYarnSynthOptions struct {
 	// Can be used to add acces to a CodeArtifact repository etc.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	RolePolicyStatements *[]awsiam.PolicyStatement `json:"rolePolicyStatements"`
+	// The source artifact of the CodePipeline.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	SourceArtifact awscodepipeline.Artifact `json:"sourceArtifact"`
 	// Directory inside the source where package.json and cdk.json are located.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	Subdirectory *string `json:"subdirectory"`
@@ -5618,6 +5732,9 @@ func (s *jsiiProxy_Step) ToString() *string {
 //
 // You do not need to instantiate this action -- it will automatically
 // be added by the pipeline.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 type UpdatePipelineAction interface {
 	awscdk.Construct
@@ -5851,23 +5968,26 @@ func (u *jsiiProxy_UpdatePipelineAction) Validate() *[]*string {
 }
 
 // Props for the UpdatePipelineAction.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 type UpdatePipelineActionProps struct {
-	// The CodePipeline artifact that holds the Cloud Assembly.
-	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-	CloudAssemblyInput awscodepipeline.Artifact `json:"cloudAssemblyInput"`
-	// Hierarchical id of the pipeline stack.
-	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
-	PipelineStackHierarchicalId *string `json:"pipelineStackHierarchicalId"`
 	// Custom BuildSpec that is merged with generated one.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	BuildSpec awscodebuild.BuildSpec `json:"buildSpec"`
 	// Version of CDK CLI to 'npm install'.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	CdkCliVersion *string `json:"cdkCliVersion"`
+	// The CodePipeline artifact that holds the Cloud Assembly.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	CloudAssemblyInput awscodepipeline.Artifact `json:"cloudAssemblyInput"`
 	// Docker registries and associated credentials necessary during the pipeline self-update stage.
 	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
 	DockerCredentials *[]DockerCredential `json:"dockerCredentials"`
+	// Hierarchical id of the pipeline stack.
+	// Deprecated: This class is part of the old API. Use the API based on the `CodePipeline` class instead
+	PipelineStackHierarchicalId *string `json:"pipelineStackHierarchicalId"`
 	// Name of the pipeline stack.
 	// Deprecated: - Use `pipelineStackHierarchicalId` instead.
 	PipelineStackName *string `json:"pipelineStackName"`
@@ -6029,6 +6149,9 @@ type WaveOptions struct {
 }
 
 // Construction properties for a `Wave`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type WaveProps struct {
 	// Additional steps to run after all of the stages in the wave.

@@ -398,14 +398,17 @@ func (a *jsiiProxy_AccountRootPrincipal) WithConditions(conditions *map[string]i
 }
 
 // Result of calling `addToPrincipalPolicy`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AddToPrincipalPolicyResult struct {
-	// Whether the statement was added to the identity's policies.
-	// Experimental.
-	StatementAdded *bool `json:"statementAdded"`
 	// Dependable which allows depending on the policy change being applied.
 	// Experimental.
 	PolicyDependable awscdk.IDependable `json:"policyDependable"`
+	// Whether the statement was added to the identity's policies.
+	// Experimental.
+	StatementAdded *bool `json:"statementAdded"`
 }
 
 // Result of calling addToResourcePolicy.
@@ -414,12 +417,12 @@ type AddToPrincipalPolicyResult struct {
 //
 // Experimental.
 type AddToResourcePolicyResult struct {
-	// Whether the statement was added.
-	// Experimental.
-	StatementAdded *bool `json:"statementAdded"`
 	// Dependable which allows depending on the policy change being applied.
 	// Experimental.
 	PolicyDependable awscdk.IDependable `json:"policyDependable"`
+	// Whether the statement was added.
+	// Experimental.
+	StatementAdded *bool `json:"statementAdded"`
 }
 
 // A principal representing all AWS identities in all accounts.
@@ -613,6 +616,9 @@ func (a *jsiiProxy_AnyPrincipal) WithConditions(conditions *map[string]interface
 }
 
 // A principal representing all identities in all accounts.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: use `AnyPrincipal`
 type Anyone interface {
 	AnyPrincipal
@@ -989,6 +995,9 @@ func (a *jsiiProxy_ArnPrincipal) WithConditions(conditions *map[string]interface
 // https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
 //
 // for more details.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CanonicalUserPrincipal interface {
 	PrincipalBase
@@ -1169,6 +1178,9 @@ func (c *jsiiProxy_CanonicalUserPrincipal) WithConditions(conditions *map[string
 }
 
 // A CloudFormation `AWS::IAM::AccessKey`.
+//
+// TODO: EXAMPLE
+//
 type CfnAccessKey interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1806,16 +1818,22 @@ func (c *jsiiProxy_CfnAccessKey) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::IAM::AccessKey`.
+//
+// TODO: EXAMPLE
+//
 type CfnAccessKeyProps struct {
-	// `AWS::IAM::AccessKey.UserName`.
-	UserName *string `json:"userName"`
 	// `AWS::IAM::AccessKey.Serial`.
 	Serial *float64 `json:"serial"`
 	// `AWS::IAM::AccessKey.Status`.
 	Status *string `json:"status"`
+	// `AWS::IAM::AccessKey.UserName`.
+	UserName *string `json:"userName"`
 }
 
 // A CloudFormation `AWS::IAM::Group`.
+//
+// TODO: EXAMPLE
+//
 type CfnGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2472,6 +2490,8 @@ func (c *jsiiProxy_CfnGroup) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnGroup_PolicyProperty struct {
 	// `CfnGroup.PolicyProperty.PolicyDocument`.
 	PolicyDocument interface{} `json:"policyDocument"`
@@ -2480,6 +2500,9 @@ type CfnGroup_PolicyProperty struct {
 }
 
 // Properties for defining a `AWS::IAM::Group`.
+//
+// TODO: EXAMPLE
+//
 type CfnGroupProps struct {
 	// `AWS::IAM::Group.GroupName`.
 	GroupName *string `json:"groupName"`
@@ -2492,6 +2515,9 @@ type CfnGroupProps struct {
 }
 
 // A CloudFormation `AWS::IAM::InstanceProfile`.
+//
+// TODO: EXAMPLE
+//
 type CfnInstanceProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3129,16 +3155,22 @@ func (c *jsiiProxy_CfnInstanceProfile) ValidateProperties(_properties interface{
 }
 
 // Properties for defining a `AWS::IAM::InstanceProfile`.
+//
+// TODO: EXAMPLE
+//
 type CfnInstanceProfileProps struct {
-	// `AWS::IAM::InstanceProfile.Roles`.
-	Roles *[]*string `json:"roles"`
 	// `AWS::IAM::InstanceProfile.InstanceProfileName`.
 	InstanceProfileName *string `json:"instanceProfileName"`
 	// `AWS::IAM::InstanceProfile.Path`.
 	Path *string `json:"path"`
+	// `AWS::IAM::InstanceProfile.Roles`.
+	Roles *[]*string `json:"roles"`
 }
 
 // A CloudFormation `AWS::IAM::ManagedPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnManagedPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3845,9 +3877,10 @@ func (c *jsiiProxy_CfnManagedPolicy) ValidateProperties(_properties interface{})
 }
 
 // Properties for defining a `AWS::IAM::ManagedPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnManagedPolicyProps struct {
-	// `AWS::IAM::ManagedPolicy.PolicyDocument`.
-	PolicyDocument interface{} `json:"policyDocument"`
 	// `AWS::IAM::ManagedPolicy.Description`.
 	Description *string `json:"description"`
 	// `AWS::IAM::ManagedPolicy.Groups`.
@@ -3856,6 +3889,8 @@ type CfnManagedPolicyProps struct {
 	ManagedPolicyName *string `json:"managedPolicyName"`
 	// `AWS::IAM::ManagedPolicy.Path`.
 	Path *string `json:"path"`
+	// `AWS::IAM::ManagedPolicy.PolicyDocument`.
+	PolicyDocument interface{} `json:"policyDocument"`
 	// `AWS::IAM::ManagedPolicy.Roles`.
 	Roles *[]*string `json:"roles"`
 	// `AWS::IAM::ManagedPolicy.Users`.
@@ -3863,6 +3898,9 @@ type CfnManagedPolicyProps struct {
 }
 
 // A CloudFormation `AWS::IAM::OIDCProvider`.
+//
+// TODO: EXAMPLE
+//
 type CfnOIDCProvider interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4511,18 +4549,24 @@ func (c *jsiiProxy_CfnOIDCProvider) ValidateProperties(_properties interface{}) 
 }
 
 // Properties for defining a `AWS::IAM::OIDCProvider`.
+//
+// TODO: EXAMPLE
+//
 type CfnOIDCProviderProps struct {
-	// `AWS::IAM::OIDCProvider.ThumbprintList`.
-	ThumbprintList *[]*string `json:"thumbprintList"`
 	// `AWS::IAM::OIDCProvider.ClientIdList`.
 	ClientIdList *[]*string `json:"clientIdList"`
 	// `AWS::IAM::OIDCProvider.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::IAM::OIDCProvider.ThumbprintList`.
+	ThumbprintList *[]*string `json:"thumbprintList"`
 	// `AWS::IAM::OIDCProvider.Url`.
 	Url *string `json:"url"`
 }
 
 // A CloudFormation `AWS::IAM::Policy`.
+//
+// TODO: EXAMPLE
+//
 type CfnPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5189,13 +5233,16 @@ func (c *jsiiProxy_CfnPolicy) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::IAM::Policy`.
+//
+// TODO: EXAMPLE
+//
 type CfnPolicyProps struct {
+	// `AWS::IAM::Policy.Groups`.
+	Groups *[]*string `json:"groups"`
 	// `AWS::IAM::Policy.PolicyDocument`.
 	PolicyDocument interface{} `json:"policyDocument"`
 	// `AWS::IAM::Policy.PolicyName`.
 	PolicyName *string `json:"policyName"`
-	// `AWS::IAM::Policy.Groups`.
-	Groups *[]*string `json:"groups"`
 	// `AWS::IAM::Policy.Roles`.
 	Roles *[]*string `json:"roles"`
 	// `AWS::IAM::Policy.Users`.
@@ -5203,6 +5250,9 @@ type CfnPolicyProps struct {
 }
 
 // A CloudFormation `AWS::IAM::Role`.
+//
+// TODO: EXAMPLE
+//
 type CfnRole interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5961,6 +6011,8 @@ func (c *jsiiProxy_CfnRole) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnRole_PolicyProperty struct {
 	// `CfnRole.PolicyProperty.PolicyDocument`.
 	PolicyDocument interface{} `json:"policyDocument"`
@@ -5969,6 +6021,9 @@ type CfnRole_PolicyProperty struct {
 }
 
 // Properties for defining a `AWS::IAM::Role`.
+//
+// TODO: EXAMPLE
+//
 type CfnRoleProps struct {
 	// `AWS::IAM::Role.AssumeRolePolicyDocument`.
 	AssumeRolePolicyDocument interface{} `json:"assumeRolePolicyDocument"`
@@ -5991,6 +6046,9 @@ type CfnRoleProps struct {
 }
 
 // A CloudFormation `AWS::IAM::SAMLProvider`.
+//
+// TODO: EXAMPLE
+//
 type CfnSAMLProvider interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6619,16 +6677,22 @@ func (c *jsiiProxy_CfnSAMLProvider) ValidateProperties(_properties interface{}) 
 }
 
 // Properties for defining a `AWS::IAM::SAMLProvider`.
+//
+// TODO: EXAMPLE
+//
 type CfnSAMLProviderProps struct {
-	// `AWS::IAM::SAMLProvider.SamlMetadataDocument`.
-	SamlMetadataDocument *string `json:"samlMetadataDocument"`
 	// `AWS::IAM::SAMLProvider.Name`.
 	Name *string `json:"name"`
+	// `AWS::IAM::SAMLProvider.SamlMetadataDocument`.
+	SamlMetadataDocument *string `json:"samlMetadataDocument"`
 	// `AWS::IAM::SAMLProvider.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::IAM::ServerCertificate`.
+//
+// TODO: EXAMPLE
+//
 type CfnServerCertificate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -7317,6 +7381,9 @@ func (c *jsiiProxy_CfnServerCertificate) ValidateProperties(_properties interfac
 }
 
 // Properties for defining a `AWS::IAM::ServerCertificate`.
+//
+// TODO: EXAMPLE
+//
 type CfnServerCertificateProps struct {
 	// `AWS::IAM::ServerCertificate.CertificateBody`.
 	CertificateBody *string `json:"certificateBody"`
@@ -7975,6 +8042,9 @@ type CfnServiceLinkedRoleProps struct {
 }
 
 // A CloudFormation `AWS::IAM::User`.
+//
+// TODO: EXAMPLE
+//
 type CfnUser interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -8702,6 +8772,8 @@ func (c *jsiiProxy_CfnUser) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnUser_LoginProfileProperty struct {
 	// `CfnUser.LoginProfileProperty.Password`.
 	Password *string `json:"password"`
@@ -8709,6 +8781,8 @@ type CfnUser_LoginProfileProperty struct {
 	PasswordResetRequired interface{} `json:"passwordResetRequired"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUser_PolicyProperty struct {
 	// `CfnUser.PolicyProperty.PolicyDocument`.
 	PolicyDocument interface{} `json:"policyDocument"`
@@ -8717,6 +8791,9 @@ type CfnUser_PolicyProperty struct {
 }
 
 // Properties for defining a `AWS::IAM::User`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserProps struct {
 	// `AWS::IAM::User.Groups`.
 	Groups *[]*string `json:"groups"`
@@ -8737,6 +8814,9 @@ type CfnUserProps struct {
 }
 
 // A CloudFormation `AWS::IAM::UserToGroupAddition`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserToGroupAddition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -9343,6 +9423,9 @@ func (c *jsiiProxy_CfnUserToGroupAddition) ValidateProperties(_properties interf
 }
 
 // Properties for defining a `AWS::IAM::UserToGroupAddition`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserToGroupAdditionProps struct {
 	// `AWS::IAM::UserToGroupAddition.GroupName`.
 	GroupName *string `json:"groupName"`
@@ -9351,6 +9434,9 @@ type CfnUserToGroupAdditionProps struct {
 }
 
 // A CloudFormation `AWS::IAM::VirtualMFADevice`.
+//
+// TODO: EXAMPLE
+//
 type CfnVirtualMFADevice interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -9999,18 +10085,24 @@ func (c *jsiiProxy_CfnVirtualMFADevice) ValidateProperties(_properties interface
 }
 
 // Properties for defining a `AWS::IAM::VirtualMFADevice`.
+//
+// TODO: EXAMPLE
+//
 type CfnVirtualMFADeviceProps struct {
-	// `AWS::IAM::VirtualMFADevice.Users`.
-	Users *[]*string `json:"users"`
 	// `AWS::IAM::VirtualMFADevice.Path`.
 	Path *string `json:"path"`
 	// `AWS::IAM::VirtualMFADevice.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::IAM::VirtualMFADevice.Users`.
+	Users *[]*string `json:"users"`
 	// `AWS::IAM::VirtualMFADevice.VirtualMfaDeviceName`.
 	VirtualMfaDeviceName *string `json:"virtualMfaDeviceName"`
 }
 
 // Basic options for a grant operation.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CommonGrantOptions struct {
 	// The actions to grant.
@@ -10029,6 +10121,9 @@ type CommonGrantOptions struct {
 // Not as simple as eagerly getting the dependency roots from the
 // inner dependables, as they may be mutable so we need to defer
 // the query.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CompositeDependable interface {
 	awscdk.IDependable
@@ -10302,6 +10397,9 @@ const (
 //
 // Additional condition keys are available when the temporary security credentials are used to make a request.
 // You can use these keys to write policies that limit the access of federated users.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#condition-keys-wif
 //
 // Experimental.
@@ -10685,6 +10783,9 @@ func (g *jsiiProxy_Grant) AssertSuccess() {
 }
 
 // Options for a grant operation to both identity and resource.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type GrantOnPrincipalAndResourceOptions struct {
 	// The actions to grant.
@@ -10712,6 +10813,9 @@ type GrantOnPrincipalAndResourceOptions struct {
 }
 
 // Options for a grant operation that only applies to principals.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type GrantOnPrincipalOptions struct {
 	// The actions to grant.
@@ -10729,6 +10833,9 @@ type GrantOnPrincipalOptions struct {
 }
 
 // Options for a grant operation.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type GrantWithResourceOptions struct {
 	// The actions to grant.
@@ -11231,6 +11338,9 @@ func (g *jsiiProxy_Group) Validate() *[]*string {
 }
 
 // Properties for defining an IAM group.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type GroupProps struct {
 	// A name for the IAM group.
@@ -11827,6 +11937,9 @@ func (j *jsiiProxy_IUser) UserName() *string {
 // (such as when AutoScaling is configured). The role can be configured in one
 // place, but if it never gets used it doesn't get instantiated and will
 // not be synthesized or deployed.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LazyRole interface {
 	awscdk.Resource
@@ -12312,6 +12425,9 @@ func (l *jsiiProxy_LazyRole) Validate() *[]*string {
 }
 
 // Properties for defining a LazyRole.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LazyRoleProps struct {
 	// The IAM principal (i.e. `new ServicePrincipal('sns.amazonaws.com')`) which can assume this role.
@@ -13563,6 +13679,9 @@ type OpenIdConnectProviderProps struct {
 }
 
 // A principal that represents an AWS Organization.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type OrganizationPrincipal interface {
 	PrincipalBase
@@ -15156,6 +15275,9 @@ func (p *jsiiProxy_PrincipalBase) WithConditions(conditions *map[string]interfac
 // special type of principal that is just the string '*', which is treated
 // differently by some services. To represent that principal, `principalJson`
 // should contain `{ 'LiteralString': ['*'] }`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type PrincipalPolicyFragment interface {
 	Conditions() *map[string]interface{}
@@ -15218,6 +15340,9 @@ func NewPrincipalPolicyFragment_Override(p PrincipalPolicyFragment, principalJso
 //
 // For more information about conditions, see:
 // https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type PrincipalWithConditions interface {
 	IPrincipal
@@ -17058,6 +17183,9 @@ func (s *jsiiProxy_ServicePrincipal) WithConditions(conditions *map[string]inter
 }
 
 // Options for a service principal.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ServicePrincipalOpts struct {
 	// Additional conditions to add to the Service Principal.
@@ -17075,6 +17203,9 @@ type ServicePrincipalOpts struct {
 //
 // `StarPrincipal` renders to `Principal: *`. Most of the time, you
 // should use `AnyPrincipal` instead.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type StarPrincipal interface {
 	PrincipalBase
@@ -17252,6 +17383,9 @@ func (s *jsiiProxy_StarPrincipal) WithConditions(conditions *map[string]interfac
 // imported with them. When that happens, we use an instance of this class
 // instead, which will add user warnings when statements are attempted to be
 // added to it.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type UnknownPrincipal interface {
 	IPrincipal
@@ -17355,6 +17489,9 @@ func (u *jsiiProxy_UnknownPrincipal) AddToPrincipalPolicy(statement PolicyStatem
 }
 
 // Properties for an UnknownPrincipal.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type UnknownPrincipalProps struct {
 	// The resource the role proxy is for.
@@ -17897,6 +18034,9 @@ type UserAttributes struct {
 }
 
 // Properties for defining an IAM user.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type UserProps struct {
 	// Groups to add this user to.
@@ -18151,6 +18291,9 @@ func (w *jsiiProxy_WebIdentityPrincipal) WithConditions(conditions *map[string]i
 }
 
 // Options for the `withoutPolicyUpdates()` modifier of a Role.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type WithoutPolicyUpdatesOptions struct {
 	// Add grants to resources instead of dropping them.

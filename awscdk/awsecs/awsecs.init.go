@@ -962,9 +962,9 @@ func init() {
 		reflect.TypeOf((*Compatibility)(nil)).Elem(),
 		map[string]interface{}{
 			"EC2": Compatibility_EC2,
-			"FARGATE": Compatibility_FARGATE,
 			"EC2_AND_FARGATE": Compatibility_EC2_AND_FARGATE,
 			"EXTERNAL": Compatibility_EXTERNAL,
+			"FARGATE": Compatibility_FARGATE,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -1028,10 +1028,10 @@ func init() {
 		"monocdk.aws_ecs.ContainerDependencyCondition",
 		reflect.TypeOf((*ContainerDependencyCondition)(nil)).Elem(),
 		map[string]interface{}{
-			"START": ContainerDependencyCondition_START,
 			"COMPLETE": ContainerDependencyCondition_COMPLETE,
-			"SUCCESS": ContainerDependencyCondition_SUCCESS,
 			"HEALTHY": ContainerDependencyCondition_HEALTHY,
+			"START": ContainerDependencyCondition_START,
+			"SUCCESS": ContainerDependencyCondition_SUCCESS,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -1064,8 +1064,8 @@ func init() {
 		"monocdk.aws_ecs.DeploymentControllerType",
 		reflect.TypeOf((*DeploymentControllerType)(nil)).Elem(),
 		map[string]interface{}{
-			"ECS": DeploymentControllerType_ECS,
 			"CODE_DEPLOY": DeploymentControllerType_CODE_DEPLOY,
+			"ECS": DeploymentControllerType_ECS,
 			"EXTERNAL": DeploymentControllerType_EXTERNAL,
 		},
 	)
@@ -1077,9 +1077,9 @@ func init() {
 		"monocdk.aws_ecs.DevicePermission",
 		reflect.TypeOf((*DevicePermission)(nil)).Elem(),
 		map[string]interface{}{
+			"MKNOD": DevicePermission_MKNOD,
 			"READ": DevicePermission_READ,
 			"WRITE": DevicePermission_WRITE,
-			"MKNOD": DevicePermission_MKNOD,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -1291,8 +1291,8 @@ func init() {
 		"monocdk.aws_ecs.ExecuteCommandLogging",
 		reflect.TypeOf((*ExecuteCommandLogging)(nil)).Elem(),
 		map[string]interface{}{
-			"NONE": ExecuteCommandLogging_NONE,
 			"DEFAULT": ExecuteCommandLogging_DEFAULT,
+			"NONE": ExecuteCommandLogging_NONE,
 			"OVERRIDE": ExecuteCommandLogging_OVERRIDE,
 		},
 	)
@@ -1418,11 +1418,11 @@ func init() {
 		reflect.TypeOf((*FargatePlatformVersion)(nil)).Elem(),
 		map[string]interface{}{
 			"LATEST": FargatePlatformVersion_LATEST,
-			"VERSION1_4": FargatePlatformVersion_VERSION1_4,
-			"VERSION1_3": FargatePlatformVersion_VERSION1_3,
-			"VERSION1_2": FargatePlatformVersion_VERSION1_2,
-			"VERSION1_1": FargatePlatformVersion_VERSION1_1,
 			"VERSION1_0": FargatePlatformVersion_VERSION1_0,
+			"VERSION1_1": FargatePlatformVersion_VERSION1_1,
+			"VERSION1_2": FargatePlatformVersion_VERSION1_2,
+			"VERSION1_3": FargatePlatformVersion_VERSION1_3,
+			"VERSION1_4": FargatePlatformVersion_VERSION1_4,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -1566,8 +1566,8 @@ func init() {
 		"monocdk.aws_ecs.FirelensConfigFileType",
 		reflect.TypeOf((*FirelensConfigFileType)(nil)).Elem(),
 		map[string]interface{}{
-			"S3": FirelensConfigFileType_S3,
 			"FILE": FirelensConfigFileType_FILE,
+			"S3": FirelensConfigFileType_S3,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -1657,8 +1657,8 @@ func init() {
 		reflect.TypeOf((*GelfCompressionType)(nil)).Elem(),
 		map[string]interface{}{
 			"GZIP": GelfCompressionType_GZIP,
-			"ZLIB": GelfCompressionType_ZLIB,
 			"NONE": GelfCompressionType_NONE,
+			"ZLIB": GelfCompressionType_ZLIB,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -1927,8 +1927,8 @@ func init() {
 		"monocdk.aws_ecs.IpcMode",
 		reflect.TypeOf((*IpcMode)(nil)).Elem(),
 		map[string]interface{}{
-			"NONE": IpcMode_NONE,
 			"HOST": IpcMode_HOST,
+			"NONE": IpcMode_NONE,
 			"TASK": IpcMode_TASK,
 		},
 	)
@@ -1969,8 +1969,8 @@ func init() {
 		reflect.TypeOf((*LaunchType)(nil)).Elem(),
 		map[string]interface{}{
 			"EC2": LaunchType_EC2,
-			"FARGATE": LaunchType_FARGATE,
 			"EXTERNAL": LaunchType_EXTERNAL,
+			"FARGATE": LaunchType_FARGATE,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -2057,11 +2057,11 @@ func init() {
 		"monocdk.aws_ecs.NetworkMode",
 		reflect.TypeOf((*NetworkMode)(nil)).Elem(),
 		map[string]interface{}{
-			"NONE": NetworkMode_NONE,
-			"BRIDGE": NetworkMode_BRIDGE,
 			"AWS_VPC": NetworkMode_AWS_VPC,
+			"BRIDGE": NetworkMode_BRIDGE,
 			"HOST": NetworkMode_HOST,
 			"NAT": NetworkMode_NAT,
+			"NONE": NetworkMode_NONE,
 		},
 	)
 	_jsii_.RegisterEnum(
@@ -2100,9 +2100,9 @@ func init() {
 		"monocdk.aws_ecs.PropagatedTagSource",
 		reflect.TypeOf((*PropagatedTagSource)(nil)).Elem(),
 		map[string]interface{}{
+			"NONE": PropagatedTagSource_NONE,
 			"SERVICE": PropagatedTagSource_SERVICE,
 			"TASK_DEFINITION": PropagatedTagSource_TASK_DEFINITION,
-			"NONE": PropagatedTagSource_NONE,
 		},
 	)
 	_jsii_.RegisterEnum(
@@ -2200,8 +2200,8 @@ func init() {
 		"monocdk.aws_ecs.Scope",
 		reflect.TypeOf((*Scope)(nil)).Elem(),
 		map[string]interface{}{
-			"TASK": Scope_TASK,
 			"SHARED": Scope_SHARED,
+			"TASK": Scope_TASK,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -2346,45 +2346,45 @@ func init() {
 		"monocdk.aws_ecs.TmpfsMountOption",
 		reflect.TypeOf((*TmpfsMountOption)(nil)).Elem(),
 		map[string]interface{}{
-			"DEFAULTS": TmpfsMountOption_DEFAULTS,
-			"RO": TmpfsMountOption_RO,
-			"RW": TmpfsMountOption_RW,
-			"SUID": TmpfsMountOption_SUID,
-			"NOSUID": TmpfsMountOption_NOSUID,
-			"DEV": TmpfsMountOption_DEV,
-			"NODEV": TmpfsMountOption_NODEV,
-			"EXEC": TmpfsMountOption_EXEC,
-			"NOEXEC": TmpfsMountOption_NOEXEC,
-			"SYNC": TmpfsMountOption_SYNC,
 			"ASYNC": TmpfsMountOption_ASYNC,
-			"DIRSYNC": TmpfsMountOption_DIRSYNC,
-			"REMOUNT": TmpfsMountOption_REMOUNT,
-			"MAND": TmpfsMountOption_MAND,
-			"NOMAND": TmpfsMountOption_NOMAND,
 			"ATIME": TmpfsMountOption_ATIME,
-			"NOATIME": TmpfsMountOption_NOATIME,
-			"DIRATIME": TmpfsMountOption_DIRATIME,
-			"NODIRATIME": TmpfsMountOption_NODIRATIME,
 			"BIND": TmpfsMountOption_BIND,
-			"RBIND": TmpfsMountOption_RBIND,
-			"UNBINDABLE": TmpfsMountOption_UNBINDABLE,
-			"RUNBINDABLE": TmpfsMountOption_RUNBINDABLE,
-			"PRIVATE": TmpfsMountOption_PRIVATE,
-			"RPRIVATE": TmpfsMountOption_RPRIVATE,
-			"SHARED": TmpfsMountOption_SHARED,
-			"RSHARED": TmpfsMountOption_RSHARED,
-			"SLAVE": TmpfsMountOption_SLAVE,
-			"RSLAVE": TmpfsMountOption_RSLAVE,
-			"RELATIME": TmpfsMountOption_RELATIME,
-			"NORELATIME": TmpfsMountOption_NORELATIME,
-			"STRICTATIME": TmpfsMountOption_STRICTATIME,
-			"NOSTRICTATIME": TmpfsMountOption_NOSTRICTATIME,
-			"MODE": TmpfsMountOption_MODE,
-			"UID": TmpfsMountOption_UID,
+			"DEFAULTS": TmpfsMountOption_DEFAULTS,
+			"DEV": TmpfsMountOption_DEV,
+			"DIRATIME": TmpfsMountOption_DIRATIME,
+			"DIRSYNC": TmpfsMountOption_DIRSYNC,
+			"EXEC": TmpfsMountOption_EXEC,
 			"GID": TmpfsMountOption_GID,
-			"NR_INODES": TmpfsMountOption_NR_INODES,
-			"NR_BLOCKS": TmpfsMountOption_NR_BLOCKS,
+			"MAND": TmpfsMountOption_MAND,
+			"MODE": TmpfsMountOption_MODE,
 			"MPOL": TmpfsMountOption_MPOL,
+			"NOATIME": TmpfsMountOption_NOATIME,
+			"NODEV": TmpfsMountOption_NODEV,
+			"NODIRATIME": TmpfsMountOption_NODIRATIME,
+			"NOEXEC": TmpfsMountOption_NOEXEC,
+			"NOMAND": TmpfsMountOption_NOMAND,
+			"NORELATIME": TmpfsMountOption_NORELATIME,
+			"NOSTRICTATIME": TmpfsMountOption_NOSTRICTATIME,
+			"NOSUID": TmpfsMountOption_NOSUID,
+			"NR_BLOCKS": TmpfsMountOption_NR_BLOCKS,
+			"NR_INODES": TmpfsMountOption_NR_INODES,
+			"PRIVATE": TmpfsMountOption_PRIVATE,
+			"RBIND": TmpfsMountOption_RBIND,
+			"RELATIME": TmpfsMountOption_RELATIME,
+			"REMOUNT": TmpfsMountOption_REMOUNT,
+			"RO": TmpfsMountOption_RO,
+			"RPRIVATE": TmpfsMountOption_RPRIVATE,
+			"RSHARED": TmpfsMountOption_RSHARED,
+			"RSLAVE": TmpfsMountOption_RSLAVE,
+			"RUNBINDABLE": TmpfsMountOption_RUNBINDABLE,
+			"RW": TmpfsMountOption_RW,
+			"SHARED": TmpfsMountOption_SHARED,
+			"SLAVE": TmpfsMountOption_SLAVE,
+			"STRICTATIME": TmpfsMountOption_STRICTATIME,
+			"SUID": TmpfsMountOption_SUID,
+			"SYNC": TmpfsMountOption_SYNC,
+			"UID": TmpfsMountOption_UID,
+			"UNBINDABLE": TmpfsMountOption_UNBINDABLE,
 		},
 	)
 	_jsii_.RegisterStruct(

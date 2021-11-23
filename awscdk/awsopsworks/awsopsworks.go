@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::OpsWorks::App`.
+//
+// TODO: EXAMPLE
+//
 type CfnApp interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -815,6 +818,8 @@ func (c *jsiiProxy_CfnApp) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnApp_DataSourceProperty struct {
 	// `CfnApp.DataSourceProperty.Arn`.
 	Arn *string `json:"arn"`
@@ -824,15 +829,19 @@ type CfnApp_DataSourceProperty struct {
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApp_EnvironmentVariableProperty struct {
 	// `CfnApp.EnvironmentVariableProperty.Key`.
 	Key *string `json:"key"`
-	// `CfnApp.EnvironmentVariableProperty.Value`.
-	Value *string `json:"value"`
 	// `CfnApp.EnvironmentVariableProperty.Secure`.
 	Secure interface{} `json:"secure"`
+	// `CfnApp.EnvironmentVariableProperty.Value`.
+	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApp_SourceProperty struct {
 	// `CfnApp.SourceProperty.Password`.
 	Password *string `json:"password"`
@@ -848,6 +857,8 @@ type CfnApp_SourceProperty struct {
 	Username *string `json:"username"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApp_SslConfigurationProperty struct {
 	// `CfnApp.SslConfigurationProperty.Certificate`.
 	Certificate *string `json:"certificate"`
@@ -858,13 +869,10 @@ type CfnApp_SslConfigurationProperty struct {
 }
 
 // Properties for defining a `AWS::OpsWorks::App`.
+//
+// TODO: EXAMPLE
+//
 type CfnAppProps struct {
-	// `AWS::OpsWorks::App.Name`.
-	Name *string `json:"name"`
-	// `AWS::OpsWorks::App.StackId`.
-	StackId *string `json:"stackId"`
-	// `AWS::OpsWorks::App.Type`.
-	Type *string `json:"type"`
 	// `AWS::OpsWorks::App.AppSource`.
 	AppSource interface{} `json:"appSource"`
 	// `AWS::OpsWorks::App.Attributes`.
@@ -879,13 +887,22 @@ type CfnAppProps struct {
 	EnableSsl interface{} `json:"enableSsl"`
 	// `AWS::OpsWorks::App.Environment`.
 	Environment interface{} `json:"environment"`
+	// `AWS::OpsWorks::App.Name`.
+	Name *string `json:"name"`
 	// `AWS::OpsWorks::App.Shortname`.
 	Shortname *string `json:"shortname"`
 	// `AWS::OpsWorks::App.SslConfiguration`.
 	SslConfiguration interface{} `json:"sslConfiguration"`
+	// `AWS::OpsWorks::App.StackId`.
+	StackId *string `json:"stackId"`
+	// `AWS::OpsWorks::App.Type`.
+	Type *string `json:"type"`
 }
 
 // A CloudFormation `AWS::OpsWorks::ElasticLoadBalancerAttachment`.
+//
+// TODO: EXAMPLE
+//
 type CfnElasticLoadBalancerAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1492,6 +1509,9 @@ func (c *jsiiProxy_CfnElasticLoadBalancerAttachment) ValidateProperties(_propert
 }
 
 // Properties for defining a `AWS::OpsWorks::ElasticLoadBalancerAttachment`.
+//
+// TODO: EXAMPLE
+//
 type CfnElasticLoadBalancerAttachmentProps struct {
 	// `AWS::OpsWorks::ElasticLoadBalancerAttachment.ElasticLoadBalancerName`.
 	ElasticLoadBalancerName *string `json:"elasticLoadBalancerName"`
@@ -1500,6 +1520,9 @@ type CfnElasticLoadBalancerAttachmentProps struct {
 }
 
 // A CloudFormation `AWS::OpsWorks::Instance`.
+//
+// TODO: EXAMPLE
+//
 type CfnInstance interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2540,6 +2563,8 @@ func (c *jsiiProxy_CfnInstance) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_BlockDeviceMappingProperty struct {
 	// `CfnInstance.BlockDeviceMappingProperty.DeviceName`.
 	DeviceName *string `json:"deviceName"`
@@ -2551,6 +2576,8 @@ type CfnInstance_BlockDeviceMappingProperty struct {
 	VirtualName *string `json:"virtualName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_EbsBlockDeviceProperty struct {
 	// `CfnInstance.EbsBlockDeviceProperty.DeleteOnTermination`.
 	DeleteOnTermination interface{} `json:"deleteOnTermination"`
@@ -2564,6 +2591,8 @@ type CfnInstance_EbsBlockDeviceProperty struct {
 	VolumeType *string `json:"volumeType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_TimeBasedAutoScalingProperty struct {
 	// `CfnInstance.TimeBasedAutoScalingProperty.Friday`.
 	Friday interface{} `json:"friday"`
@@ -2582,13 +2611,10 @@ type CfnInstance_TimeBasedAutoScalingProperty struct {
 }
 
 // Properties for defining a `AWS::OpsWorks::Instance`.
+//
+// TODO: EXAMPLE
+//
 type CfnInstanceProps struct {
-	// `AWS::OpsWorks::Instance.InstanceType`.
-	InstanceType *string `json:"instanceType"`
-	// `AWS::OpsWorks::Instance.LayerIds`.
-	LayerIds *[]*string `json:"layerIds"`
-	// `AWS::OpsWorks::Instance.StackId`.
-	StackId *string `json:"stackId"`
 	// `AWS::OpsWorks::Instance.AgentVersion`.
 	AgentVersion *string `json:"agentVersion"`
 	// `AWS::OpsWorks::Instance.AmiId`.
@@ -2609,12 +2635,18 @@ type CfnInstanceProps struct {
 	Hostname *string `json:"hostname"`
 	// `AWS::OpsWorks::Instance.InstallUpdatesOnBoot`.
 	InstallUpdatesOnBoot interface{} `json:"installUpdatesOnBoot"`
+	// `AWS::OpsWorks::Instance.InstanceType`.
+	InstanceType *string `json:"instanceType"`
+	// `AWS::OpsWorks::Instance.LayerIds`.
+	LayerIds *[]*string `json:"layerIds"`
 	// `AWS::OpsWorks::Instance.Os`.
 	Os *string `json:"os"`
 	// `AWS::OpsWorks::Instance.RootDeviceType`.
 	RootDeviceType *string `json:"rootDeviceType"`
 	// `AWS::OpsWorks::Instance.SshKeyName`.
 	SshKeyName *string `json:"sshKeyName"`
+	// `AWS::OpsWorks::Instance.StackId`.
+	StackId *string `json:"stackId"`
 	// `AWS::OpsWorks::Instance.SubnetId`.
 	SubnetId *string `json:"subnetId"`
 	// `AWS::OpsWorks::Instance.Tenancy`.
@@ -2628,6 +2660,9 @@ type CfnInstanceProps struct {
 }
 
 // A CloudFormation `AWS::OpsWorks::Layer`.
+//
+// TODO: EXAMPLE
+//
 type CfnLayer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3564,6 +3599,8 @@ func (c *jsiiProxy_CfnLayer) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnLayer_AutoScalingThresholdsProperty struct {
 	// `CfnLayer.AutoScalingThresholdsProperty.CpuThreshold`.
 	CpuThreshold *float64 `json:"cpuThreshold"`
@@ -3579,11 +3616,15 @@ type CfnLayer_AutoScalingThresholdsProperty struct {
 	ThresholdsWaitTime *float64 `json:"thresholdsWaitTime"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLayer_LifecycleEventConfigurationProperty struct {
 	// `CfnLayer.LifecycleEventConfigurationProperty.ShutdownEventConfiguration`.
 	ShutdownEventConfiguration interface{} `json:"shutdownEventConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLayer_LoadBasedAutoScalingProperty struct {
 	// `CfnLayer.LoadBasedAutoScalingProperty.DownScaling`.
 	DownScaling interface{} `json:"downScaling"`
@@ -3593,6 +3634,8 @@ type CfnLayer_LoadBasedAutoScalingProperty struct {
 	UpScaling interface{} `json:"upScaling"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLayer_RecipesProperty struct {
 	// `CfnLayer.RecipesProperty.Configure`.
 	Configure *[]*string `json:"configure"`
@@ -3606,6 +3649,8 @@ type CfnLayer_RecipesProperty struct {
 	Undeploy *[]*string `json:"undeploy"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLayer_ShutdownEventConfigurationProperty struct {
 	// `CfnLayer.ShutdownEventConfigurationProperty.DelayUntilElbConnectionsDrained`.
 	DelayUntilElbConnectionsDrained interface{} `json:"delayUntilElbConnectionsDrained"`
@@ -3613,6 +3658,8 @@ type CfnLayer_ShutdownEventConfigurationProperty struct {
 	ExecutionTimeout *float64 `json:"executionTimeout"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLayer_VolumeConfigurationProperty struct {
 	// `CfnLayer.VolumeConfigurationProperty.Encrypted`.
 	Encrypted interface{} `json:"encrypted"`
@@ -3631,23 +3678,16 @@ type CfnLayer_VolumeConfigurationProperty struct {
 }
 
 // Properties for defining a `AWS::OpsWorks::Layer`.
+//
+// TODO: EXAMPLE
+//
 type CfnLayerProps struct {
+	// `AWS::OpsWorks::Layer.Attributes`.
+	Attributes interface{} `json:"attributes"`
 	// `AWS::OpsWorks::Layer.AutoAssignElasticIps`.
 	AutoAssignElasticIps interface{} `json:"autoAssignElasticIps"`
 	// `AWS::OpsWorks::Layer.AutoAssignPublicIps`.
 	AutoAssignPublicIps interface{} `json:"autoAssignPublicIps"`
-	// `AWS::OpsWorks::Layer.EnableAutoHealing`.
-	EnableAutoHealing interface{} `json:"enableAutoHealing"`
-	// `AWS::OpsWorks::Layer.Name`.
-	Name *string `json:"name"`
-	// `AWS::OpsWorks::Layer.Shortname`.
-	Shortname *string `json:"shortname"`
-	// `AWS::OpsWorks::Layer.StackId`.
-	StackId *string `json:"stackId"`
-	// `AWS::OpsWorks::Layer.Type`.
-	Type *string `json:"type"`
-	// `AWS::OpsWorks::Layer.Attributes`.
-	Attributes interface{} `json:"attributes"`
 	// `AWS::OpsWorks::Layer.CustomInstanceProfileArn`.
 	CustomInstanceProfileArn *string `json:"customInstanceProfileArn"`
 	// `AWS::OpsWorks::Layer.CustomJson`.
@@ -3656,16 +3696,26 @@ type CfnLayerProps struct {
 	CustomRecipes interface{} `json:"customRecipes"`
 	// `AWS::OpsWorks::Layer.CustomSecurityGroupIds`.
 	CustomSecurityGroupIds *[]*string `json:"customSecurityGroupIds"`
+	// `AWS::OpsWorks::Layer.EnableAutoHealing`.
+	EnableAutoHealing interface{} `json:"enableAutoHealing"`
 	// `AWS::OpsWorks::Layer.InstallUpdatesOnBoot`.
 	InstallUpdatesOnBoot interface{} `json:"installUpdatesOnBoot"`
 	// `AWS::OpsWorks::Layer.LifecycleEventConfiguration`.
 	LifecycleEventConfiguration interface{} `json:"lifecycleEventConfiguration"`
 	// `AWS::OpsWorks::Layer.LoadBasedAutoScaling`.
 	LoadBasedAutoScaling interface{} `json:"loadBasedAutoScaling"`
+	// `AWS::OpsWorks::Layer.Name`.
+	Name *string `json:"name"`
 	// `AWS::OpsWorks::Layer.Packages`.
 	Packages *[]*string `json:"packages"`
+	// `AWS::OpsWorks::Layer.Shortname`.
+	Shortname *string `json:"shortname"`
+	// `AWS::OpsWorks::Layer.StackId`.
+	StackId *string `json:"stackId"`
 	// `AWS::OpsWorks::Layer.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::OpsWorks::Layer.Type`.
+	Type *string `json:"type"`
 	// `AWS::OpsWorks::Layer.UseEbsOptimizedInstances`.
 	UseEbsOptimizedInstances interface{} `json:"useEbsOptimizedInstances"`
 	// `AWS::OpsWorks::Layer.VolumeConfigurations`.
@@ -3673,6 +3723,9 @@ type CfnLayerProps struct {
 }
 
 // A CloudFormation `AWS::OpsWorks::Stack`.
+//
+// TODO: EXAMPLE
+//
 type CfnStack interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4729,6 +4782,8 @@ func (c *jsiiProxy_CfnStack) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnStack_ChefConfigurationProperty struct {
 	// `CfnStack.ChefConfigurationProperty.BerkshelfVersion`.
 	BerkshelfVersion *string `json:"berkshelfVersion"`
@@ -4736,6 +4791,8 @@ type CfnStack_ChefConfigurationProperty struct {
 	ManageBerkshelf interface{} `json:"manageBerkshelf"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStack_ElasticIpProperty struct {
 	// `CfnStack.ElasticIpProperty.Ip`.
 	Ip *string `json:"ip"`
@@ -4743,6 +4800,8 @@ type CfnStack_ElasticIpProperty struct {
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStack_RdsDbInstanceProperty struct {
 	// `CfnStack.RdsDbInstanceProperty.DbPassword`.
 	DbPassword *string `json:"dbPassword"`
@@ -4752,6 +4811,8 @@ type CfnStack_RdsDbInstanceProperty struct {
 	RdsDbInstanceArn *string `json:"rdsDbInstanceArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStack_SourceProperty struct {
 	// `CfnStack.SourceProperty.Password`.
 	Password *string `json:"password"`
@@ -4767,6 +4828,8 @@ type CfnStack_SourceProperty struct {
 	Username *string `json:"username"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStack_StackConfigurationManagerProperty struct {
 	// `CfnStack.StackConfigurationManagerProperty.Name`.
 	Name *string `json:"name"`
@@ -4775,13 +4838,10 @@ type CfnStack_StackConfigurationManagerProperty struct {
 }
 
 // Properties for defining a `AWS::OpsWorks::Stack`.
+//
+// TODO: EXAMPLE
+//
 type CfnStackProps struct {
-	// `AWS::OpsWorks::Stack.DefaultInstanceProfileArn`.
-	DefaultInstanceProfileArn *string `json:"defaultInstanceProfileArn"`
-	// `AWS::OpsWorks::Stack.Name`.
-	Name *string `json:"name"`
-	// `AWS::OpsWorks::Stack.ServiceRoleArn`.
-	ServiceRoleArn *string `json:"serviceRoleArn"`
 	// `AWS::OpsWorks::Stack.AgentVersion`.
 	AgentVersion *string `json:"agentVersion"`
 	// `AWS::OpsWorks::Stack.Attributes`.
@@ -4800,6 +4860,8 @@ type CfnStackProps struct {
 	CustomJson interface{} `json:"customJson"`
 	// `AWS::OpsWorks::Stack.DefaultAvailabilityZone`.
 	DefaultAvailabilityZone *string `json:"defaultAvailabilityZone"`
+	// `AWS::OpsWorks::Stack.DefaultInstanceProfileArn`.
+	DefaultInstanceProfileArn *string `json:"defaultInstanceProfileArn"`
 	// `AWS::OpsWorks::Stack.DefaultOs`.
 	DefaultOs *string `json:"defaultOs"`
 	// `AWS::OpsWorks::Stack.DefaultRootDeviceType`.
@@ -4814,8 +4876,12 @@ type CfnStackProps struct {
 	ElasticIps interface{} `json:"elasticIps"`
 	// `AWS::OpsWorks::Stack.HostnameTheme`.
 	HostnameTheme *string `json:"hostnameTheme"`
+	// `AWS::OpsWorks::Stack.Name`.
+	Name *string `json:"name"`
 	// `AWS::OpsWorks::Stack.RdsDbInstances`.
 	RdsDbInstances interface{} `json:"rdsDbInstances"`
+	// `AWS::OpsWorks::Stack.ServiceRoleArn`.
+	ServiceRoleArn *string `json:"serviceRoleArn"`
 	// `AWS::OpsWorks::Stack.SourceStackId`.
 	SourceStackId *string `json:"sourceStackId"`
 	// `AWS::OpsWorks::Stack.Tags`.
@@ -4829,6 +4895,9 @@ type CfnStackProps struct {
 }
 
 // A CloudFormation `AWS::OpsWorks::UserProfile`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5486,11 +5555,14 @@ func (c *jsiiProxy_CfnUserProfile) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::OpsWorks::UserProfile`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserProfileProps struct {
-	// `AWS::OpsWorks::UserProfile.IamUserArn`.
-	IamUserArn *string `json:"iamUserArn"`
 	// `AWS::OpsWorks::UserProfile.AllowSelfManagement`.
 	AllowSelfManagement interface{} `json:"allowSelfManagement"`
+	// `AWS::OpsWorks::UserProfile.IamUserArn`.
+	IamUserArn *string `json:"iamUserArn"`
 	// `AWS::OpsWorks::UserProfile.SshPublicKey`.
 	SshPublicKey *string `json:"sshPublicKey"`
 	// `AWS::OpsWorks::UserProfile.SshUsername`.
@@ -5498,6 +5570,9 @@ type CfnUserProfileProps struct {
 }
 
 // A CloudFormation `AWS::OpsWorks::Volume`.
+//
+// TODO: EXAMPLE
+//
 type CfnVolume interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6144,14 +6219,17 @@ func (c *jsiiProxy_CfnVolume) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::OpsWorks::Volume`.
+//
+// TODO: EXAMPLE
+//
 type CfnVolumeProps struct {
 	// `AWS::OpsWorks::Volume.Ec2VolumeId`.
 	Ec2VolumeId *string `json:"ec2VolumeId"`
-	// `AWS::OpsWorks::Volume.StackId`.
-	StackId *string `json:"stackId"`
 	// `AWS::OpsWorks::Volume.MountPoint`.
 	MountPoint *string `json:"mountPoint"`
 	// `AWS::OpsWorks::Volume.Name`.
 	Name *string `json:"name"`
+	// `AWS::OpsWorks::Volume.StackId`.
+	StackId *string `json:"stackId"`
 }
 

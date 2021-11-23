@@ -68,6 +68,9 @@ type CapacityConfig struct {
 }
 
 // A CloudFormation `AWS::OpenSearchService::Domain`.
+//
+// TODO: EXAMPLE
+//
 type CfnDomain interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -957,6 +960,8 @@ func (c *jsiiProxy_CfnDomain) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDomain_AdvancedSecurityOptionsInputProperty struct {
 	// `CfnDomain.AdvancedSecurityOptionsInputProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
@@ -966,6 +971,8 @@ type CfnDomain_AdvancedSecurityOptionsInputProperty struct {
 	MasterUserOptions interface{} `json:"masterUserOptions"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDomain_ClusterConfigProperty struct {
 	// `CfnDomain.ClusterConfigProperty.DedicatedMasterCount`.
 	DedicatedMasterCount *float64 `json:"dedicatedMasterCount"`
@@ -989,6 +996,8 @@ type CfnDomain_ClusterConfigProperty struct {
 	ZoneAwarenessEnabled interface{} `json:"zoneAwarenessEnabled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDomain_CognitoOptionsProperty struct {
 	// `CfnDomain.CognitoOptionsProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
@@ -1000,6 +1009,8 @@ type CfnDomain_CognitoOptionsProperty struct {
 	UserPoolId *string `json:"userPoolId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDomain_DomainEndpointOptionsProperty struct {
 	// `CfnDomain.DomainEndpointOptionsProperty.CustomEndpoint`.
 	CustomEndpoint *string `json:"customEndpoint"`
@@ -1013,6 +1024,8 @@ type CfnDomain_DomainEndpointOptionsProperty struct {
 	TlsSecurityPolicy *string `json:"tlsSecurityPolicy"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDomain_EBSOptionsProperty struct {
 	// `CfnDomain.EBSOptionsProperty.EBSEnabled`.
 	EbsEnabled interface{} `json:"ebsEnabled"`
@@ -1024,6 +1037,8 @@ type CfnDomain_EBSOptionsProperty struct {
 	VolumeType *string `json:"volumeType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDomain_EncryptionAtRestOptionsProperty struct {
 	// `CfnDomain.EncryptionAtRestOptionsProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
@@ -1031,6 +1046,8 @@ type CfnDomain_EncryptionAtRestOptionsProperty struct {
 	KmsKeyId *string `json:"kmsKeyId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDomain_LogPublishingOptionProperty struct {
 	// `CfnDomain.LogPublishingOptionProperty.CloudWatchLogsLogGroupArn`.
 	CloudWatchLogsLogGroupArn *string `json:"cloudWatchLogsLogGroupArn"`
@@ -1038,6 +1055,8 @@ type CfnDomain_LogPublishingOptionProperty struct {
 	Enabled interface{} `json:"enabled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDomain_MasterUserOptionsProperty struct {
 	// `CfnDomain.MasterUserOptionsProperty.MasterUserARN`.
 	MasterUserArn *string `json:"masterUserArn"`
@@ -1047,16 +1066,22 @@ type CfnDomain_MasterUserOptionsProperty struct {
 	MasterUserPassword *string `json:"masterUserPassword"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDomain_NodeToNodeEncryptionOptionsProperty struct {
 	// `CfnDomain.NodeToNodeEncryptionOptionsProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDomain_SnapshotOptionsProperty struct {
 	// `CfnDomain.SnapshotOptionsProperty.AutomatedSnapshotStartHour`.
 	AutomatedSnapshotStartHour *float64 `json:"automatedSnapshotStartHour"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDomain_VPCOptionsProperty struct {
 	// `CfnDomain.VPCOptionsProperty.SecurityGroupIds`.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
@@ -1064,12 +1089,17 @@ type CfnDomain_VPCOptionsProperty struct {
 	SubnetIds *[]*string `json:"subnetIds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDomain_ZoneAwarenessConfigProperty struct {
 	// `CfnDomain.ZoneAwarenessConfigProperty.AvailabilityZoneCount`.
 	AvailabilityZoneCount *float64 `json:"availabilityZoneCount"`
 }
 
 // Properties for defining a `AWS::OpenSearchService::Domain`.
+//
+// TODO: EXAMPLE
+//
 type CfnDomainProps struct {
 	// `AWS::OpenSearchService::Domain.AccessPolicies`.
 	AccessPolicies interface{} `json:"accessPolicies"`
@@ -2008,6 +2038,9 @@ func (d *jsiiProxy_Domain) Validate() *[]*string {
 }
 
 // Reference to an Amazon OpenSearch Service domain.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DomainAttributes struct {
 	// The ARN of the Amazon OpenSearch Service domain.

@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::AppConfig::Application`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -635,6 +638,8 @@ func (c *jsiiProxy_CfnApplication) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_TagsProperty struct {
 	// `CfnApplication.TagsProperty.Key`.
 	Key *string `json:"key"`
@@ -643,16 +648,22 @@ type CfnApplication_TagsProperty struct {
 }
 
 // Properties for defining a `AWS::AppConfig::Application`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationProps struct {
-	// `AWS::AppConfig::Application.Name`.
-	Name *string `json:"name"`
 	// `AWS::AppConfig::Application.Description`.
 	Description *string `json:"description"`
+	// `AWS::AppConfig::Application.Name`.
+	Name *string `json:"name"`
 	// `AWS::AppConfig::Application.Tags`.
 	Tags *[]*CfnApplication_TagsProperty `json:"tags"`
 }
 
 // A CloudFormation `AWS::AppConfig::ConfigurationProfile`.
+//
+// TODO: EXAMPLE
+//
 type CfnConfigurationProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1378,6 +1389,8 @@ func (c *jsiiProxy_CfnConfigurationProfile) ValidateProperties(_properties inter
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfigurationProfile_TagsProperty struct {
 	// `CfnConfigurationProfile.TagsProperty.Key`.
 	Key *string `json:"key"`
@@ -1385,6 +1398,8 @@ type CfnConfigurationProfile_TagsProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfigurationProfile_ValidatorsProperty struct {
 	// `CfnConfigurationProfile.ValidatorsProperty.Content`.
 	Content *string `json:"content"`
@@ -1393,15 +1408,18 @@ type CfnConfigurationProfile_ValidatorsProperty struct {
 }
 
 // Properties for defining a `AWS::AppConfig::ConfigurationProfile`.
+//
+// TODO: EXAMPLE
+//
 type CfnConfigurationProfileProps struct {
 	// `AWS::AppConfig::ConfigurationProfile.ApplicationId`.
 	ApplicationId *string `json:"applicationId"`
+	// `AWS::AppConfig::ConfigurationProfile.Description`.
+	Description *string `json:"description"`
 	// `AWS::AppConfig::ConfigurationProfile.LocationUri`.
 	LocationUri *string `json:"locationUri"`
 	// `AWS::AppConfig::ConfigurationProfile.Name`.
 	Name *string `json:"name"`
-	// `AWS::AppConfig::ConfigurationProfile.Description`.
-	Description *string `json:"description"`
 	// `AWS::AppConfig::ConfigurationProfile.RetrievalRoleArn`.
 	RetrievalRoleArn *string `json:"retrievalRoleArn"`
 	// `AWS::AppConfig::ConfigurationProfile.Tags`.
@@ -1413,6 +1431,9 @@ type CfnConfigurationProfileProps struct {
 }
 
 // A CloudFormation `AWS::AppConfig::Deployment`.
+//
+// TODO: EXAMPLE
+//
 type CfnDeployment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2118,6 +2139,8 @@ func (c *jsiiProxy_CfnDeployment) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeployment_TagsProperty struct {
 	// `CfnDeployment.TagsProperty.Key`.
 	Key *string `json:"key"`
@@ -2126,6 +2149,9 @@ type CfnDeployment_TagsProperty struct {
 }
 
 // Properties for defining a `AWS::AppConfig::Deployment`.
+//
+// TODO: EXAMPLE
+//
 type CfnDeploymentProps struct {
 	// `AWS::AppConfig::Deployment.ApplicationId`.
 	ApplicationId *string `json:"applicationId"`
@@ -2135,15 +2161,18 @@ type CfnDeploymentProps struct {
 	ConfigurationVersion *string `json:"configurationVersion"`
 	// `AWS::AppConfig::Deployment.DeploymentStrategyId`.
 	DeploymentStrategyId *string `json:"deploymentStrategyId"`
-	// `AWS::AppConfig::Deployment.EnvironmentId`.
-	EnvironmentId *string `json:"environmentId"`
 	// `AWS::AppConfig::Deployment.Description`.
 	Description *string `json:"description"`
+	// `AWS::AppConfig::Deployment.EnvironmentId`.
+	EnvironmentId *string `json:"environmentId"`
 	// `AWS::AppConfig::Deployment.Tags`.
 	Tags *[]*CfnDeployment_TagsProperty `json:"tags"`
 }
 
 // A CloudFormation `AWS::AppConfig::DeploymentStrategy`.
+//
+// TODO: EXAMPLE
+//
 type CfnDeploymentStrategy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2869,6 +2898,8 @@ func (c *jsiiProxy_CfnDeploymentStrategy) ValidateProperties(_properties interfa
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeploymentStrategy_TagsProperty struct {
 	// `CfnDeploymentStrategy.TagsProperty.Key`.
 	Key *string `json:"key"`
@@ -2877,26 +2908,32 @@ type CfnDeploymentStrategy_TagsProperty struct {
 }
 
 // Properties for defining a `AWS::AppConfig::DeploymentStrategy`.
+//
+// TODO: EXAMPLE
+//
 type CfnDeploymentStrategyProps struct {
 	// `AWS::AppConfig::DeploymentStrategy.DeploymentDurationInMinutes`.
 	DeploymentDurationInMinutes *float64 `json:"deploymentDurationInMinutes"`
-	// `AWS::AppConfig::DeploymentStrategy.GrowthFactor`.
-	GrowthFactor *float64 `json:"growthFactor"`
-	// `AWS::AppConfig::DeploymentStrategy.Name`.
-	Name *string `json:"name"`
-	// `AWS::AppConfig::DeploymentStrategy.ReplicateTo`.
-	ReplicateTo *string `json:"replicateTo"`
 	// `AWS::AppConfig::DeploymentStrategy.Description`.
 	Description *string `json:"description"`
 	// `AWS::AppConfig::DeploymentStrategy.FinalBakeTimeInMinutes`.
 	FinalBakeTimeInMinutes *float64 `json:"finalBakeTimeInMinutes"`
+	// `AWS::AppConfig::DeploymentStrategy.GrowthFactor`.
+	GrowthFactor *float64 `json:"growthFactor"`
 	// `AWS::AppConfig::DeploymentStrategy.GrowthType`.
 	GrowthType *string `json:"growthType"`
+	// `AWS::AppConfig::DeploymentStrategy.Name`.
+	Name *string `json:"name"`
+	// `AWS::AppConfig::DeploymentStrategy.ReplicateTo`.
+	ReplicateTo *string `json:"replicateTo"`
 	// `AWS::AppConfig::DeploymentStrategy.Tags`.
 	Tags *[]*CfnDeploymentStrategy_TagsProperty `json:"tags"`
 }
 
 // A CloudFormation `AWS::AppConfig::Environment`.
+//
+// TODO: EXAMPLE
+//
 type CfnEnvironment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3562,6 +3599,8 @@ func (c *jsiiProxy_CfnEnvironment) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnEnvironment_MonitorsProperty struct {
 	// `CfnEnvironment.MonitorsProperty.AlarmArn`.
 	AlarmArn *string `json:"alarmArn"`
@@ -3569,6 +3608,8 @@ type CfnEnvironment_MonitorsProperty struct {
 	AlarmRoleArn *string `json:"alarmRoleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEnvironment_TagsProperty struct {
 	// `CfnEnvironment.TagsProperty.Key`.
 	Key *string `json:"key"`
@@ -3577,20 +3618,26 @@ type CfnEnvironment_TagsProperty struct {
 }
 
 // Properties for defining a `AWS::AppConfig::Environment`.
+//
+// TODO: EXAMPLE
+//
 type CfnEnvironmentProps struct {
 	// `AWS::AppConfig::Environment.ApplicationId`.
 	ApplicationId *string `json:"applicationId"`
-	// `AWS::AppConfig::Environment.Name`.
-	Name *string `json:"name"`
 	// `AWS::AppConfig::Environment.Description`.
 	Description *string `json:"description"`
 	// `AWS::AppConfig::Environment.Monitors`.
 	Monitors interface{} `json:"monitors"`
+	// `AWS::AppConfig::Environment.Name`.
+	Name *string `json:"name"`
 	// `AWS::AppConfig::Environment.Tags`.
 	Tags *[]*CfnEnvironment_TagsProperty `json:"tags"`
 }
 
 // A CloudFormation `AWS::AppConfig::HostedConfigurationVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnHostedConfigurationVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4277,6 +4324,9 @@ func (c *jsiiProxy_CfnHostedConfigurationVersion) ValidateProperties(_properties
 }
 
 // Properties for defining a `AWS::AppConfig::HostedConfigurationVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnHostedConfigurationVersionProps struct {
 	// `AWS::AppConfig::HostedConfigurationVersion.ApplicationId`.
 	ApplicationId *string `json:"applicationId"`

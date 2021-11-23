@@ -13,6 +13,9 @@ import (
 )
 
 // A CloudFormation `AWS::Logs::Destination`.
+//
+// TODO: EXAMPLE
+//
 type CfnDestination interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -670,6 +673,9 @@ func (c *jsiiProxy_CfnDestination) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Logs::Destination`.
+//
+// TODO: EXAMPLE
+//
 type CfnDestinationProps struct {
 	// `AWS::Logs::Destination.DestinationName`.
 	DestinationName *string `json:"destinationName"`
@@ -682,6 +688,9 @@ type CfnDestinationProps struct {
 }
 
 // A CloudFormation `AWS::Logs::LogGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnLogGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1330,6 +1339,9 @@ func (c *jsiiProxy_CfnLogGroup) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Logs::LogGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnLogGroupProps struct {
 	// `AWS::Logs::LogGroup.KmsKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
@@ -1342,6 +1354,9 @@ type CfnLogGroupProps struct {
 }
 
 // A CloudFormation `AWS::Logs::LogStream`.
+//
+// TODO: EXAMPLE
+//
 type CfnLogStream interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1948,6 +1963,9 @@ func (c *jsiiProxy_CfnLogStream) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Logs::LogStream`.
+//
+// TODO: EXAMPLE
+//
 type CfnLogStreamProps struct {
 	// `AWS::Logs::LogStream.LogGroupName`.
 	LogGroupName *string `json:"logGroupName"`
@@ -1956,6 +1974,9 @@ type CfnLogStreamProps struct {
 }
 
 // A CloudFormation `AWS::Logs::MetricFilter`.
+//
+// TODO: EXAMPLE
+//
 type CfnMetricFilter interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2581,18 +2602,23 @@ func (c *jsiiProxy_CfnMetricFilter) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnMetricFilter_MetricTransformationProperty struct {
+	// `CfnMetricFilter.MetricTransformationProperty.DefaultValue`.
+	DefaultValue *float64 `json:"defaultValue"`
 	// `CfnMetricFilter.MetricTransformationProperty.MetricName`.
 	MetricName *string `json:"metricName"`
 	// `CfnMetricFilter.MetricTransformationProperty.MetricNamespace`.
 	MetricNamespace *string `json:"metricNamespace"`
 	// `CfnMetricFilter.MetricTransformationProperty.MetricValue`.
 	MetricValue *string `json:"metricValue"`
-	// `CfnMetricFilter.MetricTransformationProperty.DefaultValue`.
-	DefaultValue *float64 `json:"defaultValue"`
 }
 
 // Properties for defining a `AWS::Logs::MetricFilter`.
+//
+// TODO: EXAMPLE
+//
 type CfnMetricFilterProps struct {
 	// `AWS::Logs::MetricFilter.FilterPattern`.
 	FilterPattern *string `json:"filterPattern"`
@@ -2603,6 +2629,9 @@ type CfnMetricFilterProps struct {
 }
 
 // A CloudFormation `AWS::Logs::QueryDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnQueryDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3240,16 +3269,22 @@ func (c *jsiiProxy_CfnQueryDefinition) ValidateProperties(_properties interface{
 }
 
 // Properties for defining a `AWS::Logs::QueryDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnQueryDefinitionProps struct {
+	// `AWS::Logs::QueryDefinition.LogGroupNames`.
+	LogGroupNames *[]*string `json:"logGroupNames"`
 	// `AWS::Logs::QueryDefinition.Name`.
 	Name *string `json:"name"`
 	// `AWS::Logs::QueryDefinition.QueryString`.
 	QueryString *string `json:"queryString"`
-	// `AWS::Logs::QueryDefinition.LogGroupNames`.
-	LogGroupNames *[]*string `json:"logGroupNames"`
 }
 
 // A CloudFormation `AWS::Logs::ResourcePolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourcePolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3856,6 +3891,9 @@ func (c *jsiiProxy_CfnResourcePolicy) ValidateProperties(_properties interface{}
 }
 
 // Properties for defining a `AWS::Logs::ResourcePolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourcePolicyProps struct {
 	// `AWS::Logs::ResourcePolicy.PolicyDocument`.
 	PolicyDocument *string `json:"policyDocument"`
@@ -3864,6 +3902,9 @@ type CfnResourcePolicyProps struct {
 }
 
 // A CloudFormation `AWS::Logs::SubscriptionFilter`.
+//
+// TODO: EXAMPLE
+//
 type CfnSubscriptionFilter interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4510,6 +4551,9 @@ func (c *jsiiProxy_CfnSubscriptionFilter) ValidateProperties(_properties interfa
 }
 
 // Properties for defining a `AWS::Logs::SubscriptionFilter`.
+//
+// TODO: EXAMPLE
+//
 type CfnSubscriptionFilterProps struct {
 	// `AWS::Logs::SubscriptionFilter.DestinationArn`.
 	DestinationArn *string `json:"destinationArn"`
@@ -4521,6 +4565,8 @@ type CfnSubscriptionFilterProps struct {
 	RoleArn *string `json:"roleArn"`
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type ColumnRestriction struct {
 	// Comparison operator to use.
@@ -4547,6 +4593,9 @@ type ColumnRestriction struct {
 // subscribe a Kinesis stream using the integration class in the
 // `@aws-cdk/aws-logs-destinations` package; if necessary, a
 // `CrossAccountDestination` will be created automatically.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CrossAccountDestination interface {
 	awscdk.Resource
@@ -4928,8 +4977,14 @@ func (c *jsiiProxy_CrossAccountDestination) Validate() *[]*string {
 }
 
 // Properties for a CrossAccountDestination.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CrossAccountDestinationProps struct {
+	// The name of the log destination.
+	// Experimental.
+	DestinationName *string `json:"destinationName"`
 	// The role to assume that grants permissions to write to 'target'.
 	//
 	// The role must be assumable by 'logs.{REGION}.amazonaws.com'.
@@ -4938,9 +4993,6 @@ type CrossAccountDestinationProps struct {
 	// The log destination target's ARN.
 	// Experimental.
 	TargetArn *string `json:"targetArn"`
-	// The name of the log destination.
-	// Experimental.
-	DestinationName *string `json:"destinationName"`
 }
 
 // A collection of static methods to generate appropriate ILogPatterns.
@@ -6126,6 +6178,9 @@ type LogGroupProps struct {
 // is removed when `retentionDays` is `undefined` or equal to `Infinity`.
 // Log group can be created in the region that is different from stack region by
 // specifying `logGroupRegion`
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LogRetention interface {
 	awscdk.Construct
@@ -6325,26 +6380,32 @@ func (l *jsiiProxy_LogRetention) Validate() *[]*string {
 }
 
 // Construction properties for a LogRetention.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LogRetentionProps struct {
 	// The log group name.
 	// Experimental.
 	LogGroupName *string `json:"logGroupName"`
-	// The number of days log events are kept in CloudWatch Logs.
-	// Experimental.
-	Retention RetentionDays `json:"retention"`
 	// The region where the log group should be created.
 	// Experimental.
 	LogGroupRegion *string `json:"logGroupRegion"`
 	// Retry options for all AWS API calls.
 	// Experimental.
 	LogRetentionRetryOptions *LogRetentionRetryOptions `json:"logRetentionRetryOptions"`
+	// The number of days log events are kept in CloudWatch Logs.
+	// Experimental.
+	Retention RetentionDays `json:"retention"`
 	// The IAM role for the Lambda function associated with the custom resource.
 	// Experimental.
 	Role awsiam.IRole `json:"role"`
 }
 
 // Retry options for all AWS API calls.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LogRetentionRetryOptions struct {
 	// The base duration to use in the exponential backoff for operation retries.
@@ -6356,6 +6417,9 @@ type LogRetentionRetryOptions struct {
 }
 
 // Define a Log Stream in a Log Group.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LogStream interface {
 	awscdk.Resource
@@ -6699,6 +6763,9 @@ func (l *jsiiProxy_LogStream) Validate() *[]*string {
 }
 
 // Properties for a LogStream.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LogStreamProps struct {
 	// The log group to create a log stream for.
@@ -6721,6 +6788,9 @@ type LogStreamProps struct {
 }
 
 // Properties returned by a Subscription destination.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LogSubscriptionDestinationConfig struct {
 	// The ARN of the subscription's destination.
@@ -7064,8 +7134,14 @@ func (m *jsiiProxy_MetricFilter) Validate() *[]*string {
 }
 
 // Properties for a MetricFilter created from a LogGroup.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type MetricFilterOptions struct {
+	// The value to emit if the pattern does not match a particular event.
+	// Experimental.
+	DefaultValue *float64 `json:"defaultValue"`
 	// Pattern to search for log events.
 	// Experimental.
 	FilterPattern IFilterPattern `json:"filterPattern"`
@@ -7075,9 +7151,6 @@ type MetricFilterOptions struct {
 	// The namespace of the metric to emit.
 	// Experimental.
 	MetricNamespace *string `json:"metricNamespace"`
-	// The value to emit if the pattern does not match a particular event.
-	// Experimental.
-	DefaultValue *float64 `json:"defaultValue"`
 	// The value to emit for the metric.
 	//
 	// Can either be a literal number (typically "1"), or the name of a field in the structure
@@ -7099,6 +7172,9 @@ type MetricFilterOptions struct {
 //
 // Experimental.
 type MetricFilterProps struct {
+	// The value to emit if the pattern does not match a particular event.
+	// Experimental.
+	DefaultValue *float64 `json:"defaultValue"`
 	// Pattern to search for log events.
 	// Experimental.
 	FilterPattern IFilterPattern `json:"filterPattern"`
@@ -7108,9 +7184,6 @@ type MetricFilterProps struct {
 	// The namespace of the metric to emit.
 	// Experimental.
 	MetricNamespace *string `json:"metricNamespace"`
-	// The value to emit if the pattern does not match a particular event.
-	// Experimental.
-	DefaultValue *float64 `json:"defaultValue"`
 	// The value to emit for the metric.
 	//
 	// Can either be a literal number (typically "1"), or the name of a field in the structure
@@ -7130,6 +7203,9 @@ type MetricFilterProps struct {
 }
 
 // Creates Cloudwatch log group resource policies.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ResourcePolicy interface {
 	awscdk.Resource
@@ -7454,6 +7530,9 @@ func (r *jsiiProxy_ResourcePolicy) Validate() *[]*string {
 }
 
 // Properties to define Cloudwatch log group resource policy.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ResourcePolicyProps struct {
 	// Initial statements to add to the resource policy.
@@ -7472,24 +7551,24 @@ type ResourcePolicyProps struct {
 type RetentionDays string
 
 const (
-	RetentionDays_ONE_DAY RetentionDays = "ONE_DAY"
-	RetentionDays_THREE_DAYS RetentionDays = "THREE_DAYS"
-	RetentionDays_FIVE_DAYS RetentionDays = "FIVE_DAYS"
-	RetentionDays_ONE_WEEK RetentionDays = "ONE_WEEK"
-	RetentionDays_TWO_WEEKS RetentionDays = "TWO_WEEKS"
-	RetentionDays_ONE_MONTH RetentionDays = "ONE_MONTH"
-	RetentionDays_TWO_MONTHS RetentionDays = "TWO_MONTHS"
-	RetentionDays_THREE_MONTHS RetentionDays = "THREE_MONTHS"
-	RetentionDays_FOUR_MONTHS RetentionDays = "FOUR_MONTHS"
-	RetentionDays_FIVE_MONTHS RetentionDays = "FIVE_MONTHS"
-	RetentionDays_SIX_MONTHS RetentionDays = "SIX_MONTHS"
-	RetentionDays_ONE_YEAR RetentionDays = "ONE_YEAR"
-	RetentionDays_THIRTEEN_MONTHS RetentionDays = "THIRTEEN_MONTHS"
 	RetentionDays_EIGHTEEN_MONTHS RetentionDays = "EIGHTEEN_MONTHS"
-	RetentionDays_TWO_YEARS RetentionDays = "TWO_YEARS"
+	RetentionDays_FIVE_DAYS RetentionDays = "FIVE_DAYS"
+	RetentionDays_FIVE_MONTHS RetentionDays = "FIVE_MONTHS"
 	RetentionDays_FIVE_YEARS RetentionDays = "FIVE_YEARS"
-	RetentionDays_TEN_YEARS RetentionDays = "TEN_YEARS"
+	RetentionDays_FOUR_MONTHS RetentionDays = "FOUR_MONTHS"
 	RetentionDays_INFINITE RetentionDays = "INFINITE"
+	RetentionDays_ONE_DAY RetentionDays = "ONE_DAY"
+	RetentionDays_ONE_MONTH RetentionDays = "ONE_MONTH"
+	RetentionDays_ONE_WEEK RetentionDays = "ONE_WEEK"
+	RetentionDays_ONE_YEAR RetentionDays = "ONE_YEAR"
+	RetentionDays_SIX_MONTHS RetentionDays = "SIX_MONTHS"
+	RetentionDays_TEN_YEARS RetentionDays = "TEN_YEARS"
+	RetentionDays_THIRTEEN_MONTHS RetentionDays = "THIRTEEN_MONTHS"
+	RetentionDays_THREE_DAYS RetentionDays = "THREE_DAYS"
+	RetentionDays_THREE_MONTHS RetentionDays = "THREE_MONTHS"
+	RetentionDays_TWO_MONTHS RetentionDays = "TWO_MONTHS"
+	RetentionDays_TWO_WEEKS RetentionDays = "TWO_WEEKS"
+	RetentionDays_TWO_YEARS RetentionDays = "TWO_YEARS"
 )
 
 // Space delimited text pattern.
@@ -7600,6 +7679,9 @@ func (s *jsiiProxy_SpaceDelimitedTextPattern) WhereString(columnName *string, co
 }
 
 // Properties for a new LogStream created from a LogGroup.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type StreamOptions struct {
 	// The name of the log stream to create.
@@ -7926,6 +8008,9 @@ func (s *jsiiProxy_SubscriptionFilter) Validate() *[]*string {
 }
 
 // Properties for a new SubscriptionFilter created from a LogGroup.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SubscriptionFilterOptions struct {
 	// The destination to send the filtered events to.

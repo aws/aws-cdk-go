@@ -694,6 +694,8 @@ func (a *jsiiProxy_Alias) Validate() *[]*string {
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type AliasAttributes struct {
 	// Experimental.
@@ -703,6 +705,9 @@ type AliasAttributes struct {
 }
 
 // Options for `lambda.Alias`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AliasOptions struct {
 	// The maximum age of a request that Lambda sends to a function for processing.
@@ -1166,6 +1171,9 @@ func (a *jsiiProxy_AssetCode) BindToResource(resource awscdk.CfnResource, option
 }
 
 // Represents an ECR image that will be constructed from the specified asset and can be bound as Lambda code.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AssetImageCode interface {
 	Code
@@ -1439,6 +1447,9 @@ func (a *jsiiProxy_AssetImageCode) BindToResource(resource awscdk.CfnResource, o
 }
 
 // Properties to initialize a new AssetImage.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AssetImageCodeProps struct {
 	// Glob patterns to exclude from the copy.
@@ -1520,6 +1531,9 @@ type AutoScalingOptions struct {
 }
 
 // A CloudFormation `AWS::Lambda::Alias`.
+//
+// TODO: EXAMPLE
+//
 type CfnAlias interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2205,16 +2219,22 @@ func (c *jsiiProxy_CfnAlias) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnAlias_AliasRoutingConfigurationProperty struct {
 	// `CfnAlias.AliasRoutingConfigurationProperty.AdditionalVersionWeights`.
 	AdditionalVersionWeights interface{} `json:"additionalVersionWeights"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAlias_ProvisionedConcurrencyConfigurationProperty struct {
 	// `CfnAlias.ProvisionedConcurrencyConfigurationProperty.ProvisionedConcurrentExecutions`.
 	ProvisionedConcurrentExecutions *float64 `json:"provisionedConcurrentExecutions"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAlias_VersionWeightProperty struct {
 	// `CfnAlias.VersionWeightProperty.FunctionVersion`.
 	FunctionVersion *string `json:"functionVersion"`
@@ -2223,15 +2243,18 @@ type CfnAlias_VersionWeightProperty struct {
 }
 
 // Properties for defining a `AWS::Lambda::Alias`.
+//
+// TODO: EXAMPLE
+//
 type CfnAliasProps struct {
+	// `AWS::Lambda::Alias.Description`.
+	Description *string `json:"description"`
 	// `AWS::Lambda::Alias.FunctionName`.
 	FunctionName *string `json:"functionName"`
 	// `AWS::Lambda::Alias.FunctionVersion`.
 	FunctionVersion *string `json:"functionVersion"`
 	// `AWS::Lambda::Alias.Name`.
 	Name *string `json:"name"`
-	// `AWS::Lambda::Alias.Description`.
-	Description *string `json:"description"`
 	// `AWS::Lambda::Alias.ProvisionedConcurrencyConfig`.
 	ProvisionedConcurrencyConfig interface{} `json:"provisionedConcurrencyConfig"`
 	// `AWS::Lambda::Alias.RoutingConfig`.
@@ -2239,6 +2262,9 @@ type CfnAliasProps struct {
 }
 
 // A CloudFormation `AWS::Lambda::CodeSigningConfig`.
+//
+// TODO: EXAMPLE
+//
 type CfnCodeSigningConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2886,17 +2912,24 @@ func (c *jsiiProxy_CfnCodeSigningConfig) ValidateProperties(_properties interfac
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnCodeSigningConfig_AllowedPublishersProperty struct {
 	// `CfnCodeSigningConfig.AllowedPublishersProperty.SigningProfileVersionArns`.
 	SigningProfileVersionArns *[]*string `json:"signingProfileVersionArns"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCodeSigningConfig_CodeSigningPoliciesProperty struct {
 	// `CfnCodeSigningConfig.CodeSigningPoliciesProperty.UntrustedArtifactOnDeployment`.
 	UntrustedArtifactOnDeployment *string `json:"untrustedArtifactOnDeployment"`
 }
 
 // Properties for defining a `AWS::Lambda::CodeSigningConfig`.
+//
+// TODO: EXAMPLE
+//
 type CfnCodeSigningConfigProps struct {
 	// `AWS::Lambda::CodeSigningConfig.AllowedPublishers`.
 	AllowedPublishers interface{} `json:"allowedPublishers"`
@@ -2907,6 +2940,9 @@ type CfnCodeSigningConfigProps struct {
 }
 
 // A CloudFormation `AWS::Lambda::EventInvokeConfig`.
+//
+// TODO: EXAMPLE
+//
 type CfnEventInvokeConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3572,6 +3608,8 @@ func (c *jsiiProxy_CfnEventInvokeConfig) ValidateProperties(_properties interfac
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnEventInvokeConfig_DestinationConfigProperty struct {
 	// `CfnEventInvokeConfig.DestinationConfigProperty.OnFailure`.
 	OnFailure interface{} `json:"onFailure"`
@@ -3579,31 +3617,41 @@ type CfnEventInvokeConfig_DestinationConfigProperty struct {
 	OnSuccess interface{} `json:"onSuccess"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEventInvokeConfig_OnFailureProperty struct {
 	// `CfnEventInvokeConfig.OnFailureProperty.Destination`.
 	Destination *string `json:"destination"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEventInvokeConfig_OnSuccessProperty struct {
 	// `CfnEventInvokeConfig.OnSuccessProperty.Destination`.
 	Destination *string `json:"destination"`
 }
 
 // Properties for defining a `AWS::Lambda::EventInvokeConfig`.
+//
+// TODO: EXAMPLE
+//
 type CfnEventInvokeConfigProps struct {
-	// `AWS::Lambda::EventInvokeConfig.FunctionName`.
-	FunctionName *string `json:"functionName"`
-	// `AWS::Lambda::EventInvokeConfig.Qualifier`.
-	Qualifier *string `json:"qualifier"`
 	// `AWS::Lambda::EventInvokeConfig.DestinationConfig`.
 	DestinationConfig interface{} `json:"destinationConfig"`
+	// `AWS::Lambda::EventInvokeConfig.FunctionName`.
+	FunctionName *string `json:"functionName"`
 	// `AWS::Lambda::EventInvokeConfig.MaximumEventAgeInSeconds`.
 	MaximumEventAgeInSeconds *float64 `json:"maximumEventAgeInSeconds"`
 	// `AWS::Lambda::EventInvokeConfig.MaximumRetryAttempts`.
 	MaximumRetryAttempts *float64 `json:"maximumRetryAttempts"`
+	// `AWS::Lambda::EventInvokeConfig.Qualifier`.
+	Qualifier *string `json:"qualifier"`
 }
 
 // A CloudFormation `AWS::Lambda::EventSourceMapping`.
+//
+// TODO: EXAMPLE
+//
 type CfnEventSourceMapping interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4560,26 +4608,36 @@ func (c *jsiiProxy_CfnEventSourceMapping) ValidateProperties(_properties interfa
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnEventSourceMapping_DestinationConfigProperty struct {
 	// `CfnEventSourceMapping.DestinationConfigProperty.OnFailure`.
 	OnFailure interface{} `json:"onFailure"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEventSourceMapping_EndpointsProperty struct {
 	// `CfnEventSourceMapping.EndpointsProperty.KafkaBootstrapServers`.
 	KafkaBootstrapServers *[]*string `json:"kafkaBootstrapServers"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEventSourceMapping_OnFailureProperty struct {
 	// `CfnEventSourceMapping.OnFailureProperty.Destination`.
 	Destination *string `json:"destination"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEventSourceMapping_SelfManagedEventSourceProperty struct {
 	// `CfnEventSourceMapping.SelfManagedEventSourceProperty.Endpoints`.
 	Endpoints interface{} `json:"endpoints"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEventSourceMapping_SourceAccessConfigurationProperty struct {
 	// `CfnEventSourceMapping.SourceAccessConfigurationProperty.Type`.
 	Type *string `json:"type"`
@@ -4588,9 +4646,10 @@ type CfnEventSourceMapping_SourceAccessConfigurationProperty struct {
 }
 
 // Properties for defining a `AWS::Lambda::EventSourceMapping`.
+//
+// TODO: EXAMPLE
+//
 type CfnEventSourceMappingProps struct {
-	// `AWS::Lambda::EventSourceMapping.FunctionName`.
-	FunctionName *string `json:"functionName"`
 	// `AWS::Lambda::EventSourceMapping.BatchSize`.
 	BatchSize *float64 `json:"batchSize"`
 	// `AWS::Lambda::EventSourceMapping.BisectBatchOnFunctionError`.
@@ -4603,6 +4662,8 @@ type CfnEventSourceMappingProps struct {
 	EventSourceArn *string `json:"eventSourceArn"`
 	// `AWS::Lambda::EventSourceMapping.FilterCriteria`.
 	FilterCriteria interface{} `json:"filterCriteria"`
+	// `AWS::Lambda::EventSourceMapping.FunctionName`.
+	FunctionName *string `json:"functionName"`
 	// `AWS::Lambda::EventSourceMapping.FunctionResponseTypes`.
 	FunctionResponseTypes *[]*string `json:"functionResponseTypes"`
 	// `AWS::Lambda::EventSourceMapping.MaximumBatchingWindowInSeconds`.
@@ -4630,6 +4691,9 @@ type CfnEventSourceMappingProps struct {
 }
 
 // A CloudFormation `AWS::Lambda::Function`.
+//
+// TODO: EXAMPLE
+//
 type CfnFunction interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5617,6 +5681,8 @@ func (c *jsiiProxy_CfnFunction) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_CodeProperty struct {
 	// `CfnFunction.CodeProperty.ImageUri`.
 	ImageUri *string `json:"imageUri"`
@@ -5630,16 +5696,22 @@ type CfnFunction_CodeProperty struct {
 	ZipFile *string `json:"zipFile"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_DeadLetterConfigProperty struct {
 	// `CfnFunction.DeadLetterConfigProperty.TargetArn`.
 	TargetArn *string `json:"targetArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_EnvironmentProperty struct {
 	// `CfnFunction.EnvironmentProperty.Variables`.
 	Variables interface{} `json:"variables"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_FileSystemConfigProperty struct {
 	// `CfnFunction.FileSystemConfigProperty.Arn`.
 	Arn *string `json:"arn"`
@@ -5647,6 +5719,8 @@ type CfnFunction_FileSystemConfigProperty struct {
 	LocalMountPath *string `json:"localMountPath"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_ImageConfigProperty struct {
 	// `CfnFunction.ImageConfigProperty.Command`.
 	Command *[]*string `json:"command"`
@@ -5656,11 +5730,15 @@ type CfnFunction_ImageConfigProperty struct {
 	WorkingDirectory *string `json:"workingDirectory"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_TracingConfigProperty struct {
 	// `CfnFunction.TracingConfigProperty.Mode`.
 	Mode *string `json:"mode"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_VpcConfigProperty struct {
 	// `CfnFunction.VpcConfigProperty.SecurityGroupIds`.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
@@ -5669,13 +5747,14 @@ type CfnFunction_VpcConfigProperty struct {
 }
 
 // Properties for defining a `AWS::Lambda::Function`.
+//
+// TODO: EXAMPLE
+//
 type CfnFunctionProps struct {
-	// `AWS::Lambda::Function.Code`.
-	Code interface{} `json:"code"`
-	// `AWS::Lambda::Function.Role`.
-	Role *string `json:"role"`
 	// `AWS::Lambda::Function.Architectures`.
 	Architectures *[]*string `json:"architectures"`
+	// `AWS::Lambda::Function.Code`.
+	Code interface{} `json:"code"`
 	// `AWS::Lambda::Function.CodeSigningConfigArn`.
 	CodeSigningConfigArn *string `json:"codeSigningConfigArn"`
 	// `AWS::Lambda::Function.DeadLetterConfig`.
@@ -5702,6 +5781,8 @@ type CfnFunctionProps struct {
 	PackageType *string `json:"packageType"`
 	// `AWS::Lambda::Function.ReservedConcurrentExecutions`.
 	ReservedConcurrentExecutions *float64 `json:"reservedConcurrentExecutions"`
+	// `AWS::Lambda::Function.Role`.
+	Role *string `json:"role"`
 	// `AWS::Lambda::Function.Runtime`.
 	Runtime *string `json:"runtime"`
 	// `AWS::Lambda::Function.Tags`.
@@ -5715,6 +5796,9 @@ type CfnFunctionProps struct {
 }
 
 // A CloudFormation `AWS::Lambda::LayerVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnLayerVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6400,6 +6484,8 @@ func (c *jsiiProxy_CfnLayerVersion) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnLayerVersion_ContentProperty struct {
 	// `CfnLayerVersion.ContentProperty.S3Bucket`.
 	S3Bucket *string `json:"s3Bucket"`
@@ -6410,6 +6496,9 @@ type CfnLayerVersion_ContentProperty struct {
 }
 
 // A CloudFormation `AWS::Lambda::LayerVersionPermission`.
+//
+// TODO: EXAMPLE
+//
 type CfnLayerVersionPermission interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -7056,25 +7145,31 @@ func (c *jsiiProxy_CfnLayerVersionPermission) ValidateProperties(_properties int
 }
 
 // Properties for defining a `AWS::Lambda::LayerVersionPermission`.
+//
+// TODO: EXAMPLE
+//
 type CfnLayerVersionPermissionProps struct {
 	// `AWS::Lambda::LayerVersionPermission.Action`.
 	Action *string `json:"action"`
 	// `AWS::Lambda::LayerVersionPermission.LayerVersionArn`.
 	LayerVersionArn *string `json:"layerVersionArn"`
-	// `AWS::Lambda::LayerVersionPermission.Principal`.
-	Principal *string `json:"principal"`
 	// `AWS::Lambda::LayerVersionPermission.OrganizationId`.
 	OrganizationId *string `json:"organizationId"`
+	// `AWS::Lambda::LayerVersionPermission.Principal`.
+	Principal *string `json:"principal"`
 }
 
 // Properties for defining a `AWS::Lambda::LayerVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnLayerVersionProps struct {
-	// `AWS::Lambda::LayerVersion.Content`.
-	Content interface{} `json:"content"`
 	// `AWS::Lambda::LayerVersion.CompatibleArchitectures`.
 	CompatibleArchitectures *[]*string `json:"compatibleArchitectures"`
 	// `AWS::Lambda::LayerVersion.CompatibleRuntimes`.
 	CompatibleRuntimes *[]*string `json:"compatibleRuntimes"`
+	// `AWS::Lambda::LayerVersion.Content`.
+	Content interface{} `json:"content"`
 	// `AWS::Lambda::LayerVersion.Description`.
 	Description *string `json:"description"`
 	// `AWS::Lambda::LayerVersion.LayerName`.
@@ -7409,6 +7504,9 @@ func (c *jsiiProxy_CfnParametersCode) BindToResource(_resource awscdk.CfnResourc
 }
 
 // Construction properties for {@link CfnParametersCode}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CfnParametersCodeProps struct {
 	// The CloudFormation parameter that represents the name of the S3 Bucket where the Lambda code will be located in.
@@ -7424,6 +7522,9 @@ type CfnParametersCodeProps struct {
 }
 
 // A CloudFormation `AWS::Lambda::Permission`.
+//
+// TODO: EXAMPLE
+//
 type CfnPermission interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -8110,15 +8211,18 @@ func (c *jsiiProxy_CfnPermission) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Lambda::Permission`.
+//
+// TODO: EXAMPLE
+//
 type CfnPermissionProps struct {
 	// `AWS::Lambda::Permission.Action`.
 	Action *string `json:"action"`
+	// `AWS::Lambda::Permission.EventSourceToken`.
+	EventSourceToken *string `json:"eventSourceToken"`
 	// `AWS::Lambda::Permission.FunctionName`.
 	FunctionName *string `json:"functionName"`
 	// `AWS::Lambda::Permission.Principal`.
 	Principal *string `json:"principal"`
-	// `AWS::Lambda::Permission.EventSourceToken`.
-	EventSourceToken *string `json:"eventSourceToken"`
 	// `AWS::Lambda::Permission.SourceAccount`.
 	SourceAccount *string `json:"sourceAccount"`
 	// `AWS::Lambda::Permission.SourceArn`.
@@ -8126,6 +8230,9 @@ type CfnPermissionProps struct {
 }
 
 // A CloudFormation `AWS::Lambda::Version`.
+//
+// TODO: EXAMPLE
+//
 type CfnVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -8782,19 +8889,24 @@ func (c *jsiiProxy_CfnVersion) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnVersion_ProvisionedConcurrencyConfigurationProperty struct {
 	// `CfnVersion.ProvisionedConcurrencyConfigurationProperty.ProvisionedConcurrentExecutions`.
 	ProvisionedConcurrentExecutions *float64 `json:"provisionedConcurrentExecutions"`
 }
 
 // Properties for defining a `AWS::Lambda::Version`.
+//
+// TODO: EXAMPLE
+//
 type CfnVersionProps struct {
-	// `AWS::Lambda::Version.FunctionName`.
-	FunctionName *string `json:"functionName"`
 	// `AWS::Lambda::Version.CodeSha256`.
 	CodeSha256 *string `json:"codeSha256"`
 	// `AWS::Lambda::Version.Description`.
 	Description *string `json:"description"`
+	// `AWS::Lambda::Version.FunctionName`.
+	FunctionName *string `json:"functionName"`
 	// `AWS::Lambda::Version.ProvisionedConcurrencyConfig`.
 	ProvisionedConcurrencyConfig interface{} `json:"provisionedConcurrencyConfig"`
 }
@@ -9060,6 +9172,9 @@ func (c *jsiiProxy_Code) BindToResource(_resource awscdk.CfnResource, _options *
 }
 
 // Result of binding `Code` into a `Function`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CodeConfig struct {
 	// Docker image configuration (mutually exclusive with `s3Location` and `inlineCode`).
@@ -9074,11 +9189,11 @@ type CodeConfig struct {
 }
 
 // Result of the bind when an ECR image is used.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CodeImageConfig struct {
-	// URI to the Docker image.
-	// Experimental.
-	ImageUri *string `json:"imageUri"`
 	// Specify or override the CMD on the specified Docker image or Dockerfile.
 	//
 	// This needs to be in the 'exec form', viz., `[ 'executable', 'param1', 'param2' ]`.
@@ -9094,6 +9209,9 @@ type CodeImageConfig struct {
 	//
 	// Experimental.
 	Entrypoint *[]*string `json:"entrypoint"`
+	// URI to the Docker image.
+	// Experimental.
+	ImageUri *string `json:"imageUri"`
 	// Specify or override the WORKDIR on the specified Docker image or Dockerfile.
 	//
 	// A WORKDIR allows you to configure the working directory the container will use.
@@ -9483,6 +9601,9 @@ type CodeSigningConfigProps struct {
 }
 
 // A destination configuration.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DestinationConfig struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
@@ -9491,6 +9612,9 @@ type DestinationConfig struct {
 }
 
 // Options when binding a destination to a function.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DestinationOptions struct {
 	// The destination type.
@@ -9508,6 +9632,9 @@ const (
 )
 
 // A destination configuration.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DlqDestinationConfig struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
@@ -9516,6 +9643,9 @@ type DlqDestinationConfig struct {
 }
 
 // Options when creating an asset from a Docker build.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DockerBuildAssetOptions struct {
 	// Build args.
@@ -10661,6 +10791,9 @@ type DockerImageFunctionProps struct {
 }
 
 // Represents a Docker image in ECR that can be bound as Lambda Code.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EcrImageCode interface {
 	Code
@@ -10934,6 +11067,9 @@ func (e *jsiiProxy_EcrImageCode) BindToResource(_resource awscdk.CfnResource, _o
 }
 
 // Properties to initialize a new EcrImageCode.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EcrImageCodeProps struct {
 	// Specify or override the CMD on the specified Docker image or Dockerfile.
@@ -10964,6 +11100,9 @@ type EcrImageCodeProps struct {
 }
 
 // Environment variables options.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EnvironmentOptions struct {
 	// When used in Lambda@Edge via edgeArn() API, these environment variables will be removed.
@@ -10981,6 +11120,9 @@ type EnvironmentOptions struct {
 // returns an error. It retains events in a queue for up to six hours. When an
 // event fails all processing attempts or stays in the asynchronous invocation
 // queue for too long, Lambda discards it.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EventInvokeConfig interface {
 	awscdk.Resource
@@ -11294,6 +11436,9 @@ func (e *jsiiProxy_EventInvokeConfig) Validate() *[]*string {
 }
 
 // Options to add an EventInvokeConfig to a function.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EventInvokeConfigOptions struct {
 	// The maximum age of a request that Lambda sends to a function for processing.
@@ -11317,6 +11462,9 @@ type EventInvokeConfigOptions struct {
 }
 
 // Properties for an EventInvokeConfig.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EventInvokeConfigProps struct {
 	// The maximum age of a request that Lambda sends to a function for processing.
@@ -11355,6 +11503,9 @@ type EventInvokeConfigProps struct {
 //
 // The `SqsEventSource` class will automatically create the mapping, and will also
 // modify the Lambda's execution role so it can consume messages from the queue.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EventSourceMapping interface {
 	awscdk.Resource
@@ -11697,6 +11848,8 @@ func (e *jsiiProxy_EventSourceMapping) Validate() *[]*string {
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type EventSourceMappingOptions struct {
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
@@ -11784,6 +11937,9 @@ type EventSourceMappingOptions struct {
 }
 
 // Properties for declaring a new event source mapping.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EventSourceMappingProps struct {
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
@@ -11942,20 +12098,23 @@ func FileSystem_FromEfsAccessPoint(ap awsefs.IAccessPoint, mountPath *string) Fi
 }
 
 // FileSystem configurations for the Lambda function.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FileSystemConfig struct {
 	// ARN of the access point.
 	// Experimental.
 	Arn *string `json:"arn"`
-	// mount path in the lambda runtime environment.
-	// Experimental.
-	LocalMountPath *string `json:"localMountPath"`
 	// connections object used to allow ingress traffic from lambda function.
 	// Experimental.
 	Connections awsec2.Connections `json:"connections"`
 	// array of IDependable that lambda function depends on.
 	// Experimental.
 	Dependency *[]awscdk.IDependable `json:"dependency"`
+	// mount path in the lambda runtime environment.
+	// Experimental.
+	LocalMountPath *string `json:"localMountPath"`
 	// additional IAM policies required for the lambda function.
 	// Experimental.
 	Policies *[]awsiam.PolicyStatement `json:"policies"`
@@ -12844,6 +13003,9 @@ func (f *jsiiProxy_Function) Validate() *[]*string {
 }
 
 // Represents a Lambda function defined outside of this stack.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FunctionAttributes struct {
 	// The ARN of the Lambda function.
@@ -13455,6 +13617,9 @@ func (f *jsiiProxy_FunctionBase) Validate() *[]*string {
 }
 
 // Non runtime options.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FunctionOptions struct {
 	// The maximum age of a request that Lambda sends to a function for processing.
@@ -14520,6 +14685,9 @@ func (j *jsiiProxy_IVersion) Version() *string {
 }
 
 // Lambda code from an inline string (limited to 4KiB).
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type InlineCode interface {
 	Code
@@ -14894,6 +15062,8 @@ func LambdaInsightsVersion_VERSION_1_0_98_0() LambdaInsightsVersion {
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type LambdaRuntimeProps struct {
 	// The Docker image name to be used for bundling in this runtime.
@@ -15302,17 +15472,23 @@ func (l *jsiiProxy_LayerVersion) Validate() *[]*string {
 }
 
 // Properties necessary to import a LayerVersion.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LayerVersionAttributes struct {
-	// The ARN of the LayerVersion.
-	// Experimental.
-	LayerVersionArn *string `json:"layerVersionArn"`
 	// The list of compatible runtimes with this Layer.
 	// Experimental.
 	CompatibleRuntimes *[]Runtime `json:"compatibleRuntimes"`
+	// The ARN of the LayerVersion.
+	// Experimental.
+	LayerVersionArn *string `json:"layerVersionArn"`
 }
 
 // Non runtime options.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LayerVersionOptions struct {
 	// The description the this Lambda Layer.
@@ -15330,6 +15506,9 @@ type LayerVersionOptions struct {
 }
 
 // Identification of an account (or organization) that is allowed to access a Lambda Layer Version.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LayerVersionPermission struct {
 	// The AWS Account id of the account that is authorized to use a Lambda Layer Version.
@@ -15378,6 +15557,9 @@ type LayerVersionProps struct {
 //
 // The log group is created if it doesn't already exist. The policy
 // is removed when `retentionDays` is `undefined` or equal to `Infinity`.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: use `LogRetention` from '
 type LogRetention interface {
 	awslogs.LogRetention
@@ -15577,26 +15759,32 @@ func (l *jsiiProxy_LogRetention) Validate() *[]*string {
 }
 
 // Construction properties for a LogRetention.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: use `LogRetentionProps` from '
 type LogRetentionProps struct {
 	// The log group name.
 	// Deprecated: use `LogRetentionProps` from '
 	LogGroupName *string `json:"logGroupName"`
-	// The number of days log events are kept in CloudWatch Logs.
-	// Deprecated: use `LogRetentionProps` from '
-	Retention awslogs.RetentionDays `json:"retention"`
 	// The region where the log group should be created.
 	// Deprecated: use `LogRetentionProps` from '
 	LogGroupRegion *string `json:"logGroupRegion"`
 	// Retry options for all AWS API calls.
 	// Deprecated: use `LogRetentionProps` from '
 	LogRetentionRetryOptions *awslogs.LogRetentionRetryOptions `json:"logRetentionRetryOptions"`
+	// The number of days log events are kept in CloudWatch Logs.
+	// Deprecated: use `LogRetentionProps` from '
+	Retention awslogs.RetentionDays `json:"retention"`
 	// The IAM role for the Lambda function associated with the custom resource.
 	// Deprecated: use `LogRetentionProps` from '
 	Role awsiam.IRole `json:"role"`
 }
 
 // Retry options for all AWS API calls.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LogRetentionRetryOptions struct {
 	// The base duration to use in the exponential backoff for operation retries.
@@ -15613,17 +15801,6 @@ type LogRetentionRetryOptions struct {
 //
 // Experimental.
 type Permission struct {
-	// The entity for which you are granting permission to invoke the Lambda function.
-	//
-	// This entity can be any valid AWS service principal, such as
-	// s3.amazonaws.com or sns.amazonaws.com, or, if you are granting
-	// cross-account permission, an AWS account ID. For example, you might want
-	// to allow a custom application in another AWS account to push events to
-	// Lambda by invoking your function.
-	//
-	// The principal can be either an AccountPrincipal or a ServicePrincipal.
-	// Experimental.
-	Principal awsiam.IPrincipal `json:"principal"`
 	// The Lambda actions that you want to allow in this statement.
 	//
 	// For example,
@@ -15636,6 +15813,17 @@ type Permission struct {
 	// A unique token that must be supplied by the principal invoking the function.
 	// Experimental.
 	EventSourceToken *string `json:"eventSourceToken"`
+	// The entity for which you are granting permission to invoke the Lambda function.
+	//
+	// This entity can be any valid AWS service principal, such as
+	// s3.amazonaws.com or sns.amazonaws.com, or, if you are granting
+	// cross-account permission, an AWS account ID. For example, you might want
+	// to allow a custom application in another AWS account to push events to
+	// Lambda by invoking your function.
+	//
+	// The principal can be either an AccountPrincipal or a ServicePrincipal.
+	// Experimental.
+	Principal awsiam.IPrincipal `json:"principal"`
 	// The scope to which the permission constructs be attached.
 	//
 	// The default is
@@ -16256,6 +16444,8 @@ func (q *jsiiProxy_QualifiedFunctionBase) Validate() *[]*string {
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type ResourceBindOptions struct {
 	// The name of the CloudFormation property to annotate with asset metadata.
@@ -16694,16 +16884,19 @@ func (r *jsiiProxy_Runtime) ToString() *string {
 type RuntimeFamily string
 
 const (
-	RuntimeFamily_NODEJS RuntimeFamily = "NODEJS"
-	RuntimeFamily_JAVA RuntimeFamily = "JAVA"
-	RuntimeFamily_PYTHON RuntimeFamily = "PYTHON"
 	RuntimeFamily_DOTNET_CORE RuntimeFamily = "DOTNET_CORE"
 	RuntimeFamily_GO RuntimeFamily = "GO"
-	RuntimeFamily_RUBY RuntimeFamily = "RUBY"
+	RuntimeFamily_JAVA RuntimeFamily = "JAVA"
+	RuntimeFamily_NODEJS RuntimeFamily = "NODEJS"
 	RuntimeFamily_OTHER RuntimeFamily = "OTHER"
+	RuntimeFamily_PYTHON RuntimeFamily = "PYTHON"
+	RuntimeFamily_RUBY RuntimeFamily = "RUBY"
 )
 
 // Lambda code from an S3 archive.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type S3Code interface {
 	Code
@@ -16982,6 +17175,9 @@ func (s *jsiiProxy_S3Code) BindToResource(_resource awscdk.CfnResource, _options
 // once and only once, irrespective of how many times the construct is declared to be part of the stack.
 // This is guaranteed as long as the `uuid` property and the optional `lambdaPurpose` property stay the same
 // whenever they're declared into the stack.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SingletonFunction interface {
 	FunctionBase
@@ -17660,6 +17856,9 @@ func (s *jsiiProxy_SingletonFunction) Validate() *[]*string {
 }
 
 // Properties for a newly created singleton Lambda.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SingletonFunctionProps struct {
 	// The maximum age of a request that Lambda sends to a function for processing.
@@ -17866,12 +18065,6 @@ type SingletonFunctionProps struct {
 	// Use `Runtime.FROM_IMAGE` when when defining a function from a Docker image.
 	// Experimental.
 	Runtime Runtime `json:"runtime"`
-	// A unique identifier to identify this lambda.
-	//
-	// The identifier should be unique across all custom resource providers.
-	// We recommend generating a UUID per provider.
-	// Experimental.
-	Uuid *string `json:"uuid"`
 	// A descriptive name for the purpose of this Lambda.
 	//
 	// If the Lambda does not have a physical name, this string will be
@@ -17879,9 +18072,18 @@ type SingletonFunctionProps struct {
 	// and uuid must be unique.
 	// Experimental.
 	LambdaPurpose *string `json:"lambdaPurpose"`
+	// A unique identifier to identify this lambda.
+	//
+	// The identifier should be unique across all custom resource providers.
+	// We recommend generating a UUID per provider.
+	// Experimental.
+	Uuid *string `json:"uuid"`
 }
 
 // Specific settings like the authentication protocol or the VPC components to secure access to your event source.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SourceAccessConfiguration struct {
 	// The type of authentication protocol or the VPC components for your event source.
@@ -17900,6 +18102,9 @@ type SourceAccessConfiguration struct {
 }
 
 // The type of authentication protocol or the VPC components for your event source's SourceAccessConfiguration.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/lambda/latest/dg/API_SourceAccessConfiguration.html#SSS-Type-SourceAccessConfiguration-Type
 //
 // Experimental.
@@ -18003,8 +18208,8 @@ func SourceAccessConfigurationType_VPC_SUBNET() SourceAccessConfigurationType {
 type StartingPosition string
 
 const (
-	StartingPosition_TRIM_HORIZON StartingPosition = "TRIM_HORIZON"
 	StartingPosition_LATEST StartingPosition = "LATEST"
+	StartingPosition_TRIM_HORIZON StartingPosition = "TRIM_HORIZON"
 )
 
 // X-Ray Tracing Modes (https://docs.aws.amazon.com/lambda/latest/dg/API_TracingConfig.html).
@@ -18016,8 +18221,8 @@ type Tracing string
 
 const (
 	Tracing_ACTIVE Tracing = "ACTIVE"
-	Tracing_PASS_THROUGH Tracing = "PASS_THROUGH"
 	Tracing_DISABLED Tracing = "DISABLED"
+	Tracing_PASS_THROUGH Tracing = "PASS_THROUGH"
 )
 
 // Code signing configuration policy for deployment validation failure.
@@ -18756,6 +18961,8 @@ func (v *jsiiProxy_Version) Validate() *[]*string {
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type VersionAttributes struct {
 	// The lambda function.
@@ -18850,6 +19057,9 @@ type VersionProps struct {
 }
 
 // A version/weight pair for routing traffic to Lambda functions.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type VersionWeight struct {
 	// The version to route traffic to.

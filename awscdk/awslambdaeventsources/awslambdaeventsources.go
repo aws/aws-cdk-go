@@ -17,6 +17,8 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/awssqs"
 )
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type ApiEventSource interface {
 	awslambda.IEventSource
@@ -167,9 +169,6 @@ func (d *jsiiProxy_DynamoEventSource) EnrichMappingOptions(options *awslambda.Ev
 //
 // Experimental.
 type DynamoEventSourceProps struct {
-	// Where to begin consuming the stream.
-	// Experimental.
-	StartingPosition awslambda.StartingPosition `json:"startingPosition"`
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
 	// Your function receives an
@@ -218,17 +217,20 @@ type DynamoEventSourceProps struct {
 	// Maximum number of retry attempts Valid Range: * Minimum value of 0 * Maximum value of 10000.
 	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
+	// Where to begin consuming the stream.
+	// Experimental.
+	StartingPosition awslambda.StartingPosition `json:"startingPosition"`
 	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis Valid Range: 0 - 15 minutes.
 	// Experimental.
 	TumblingWindow awscdk.Duration `json:"tumblingWindow"`
 }
 
 // Properties for a Kafka event source.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type KafkaEventSourceProps struct {
-	// Where to begin consuming the stream.
-	// Experimental.
-	StartingPosition awslambda.StartingPosition `json:"startingPosition"`
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
 	// Your function receives an
@@ -277,15 +279,18 @@ type KafkaEventSourceProps struct {
 	// Maximum number of retry attempts Valid Range: * Minimum value of 0 * Maximum value of 10000.
 	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
+	// Where to begin consuming the stream.
+	// Experimental.
+	StartingPosition awslambda.StartingPosition `json:"startingPosition"`
 	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis Valid Range: 0 - 15 minutes.
 	// Experimental.
 	TumblingWindow awscdk.Duration `json:"tumblingWindow"`
-	// The Kafka topic to subscribe to.
-	// Experimental.
-	Topic *string `json:"topic"`
 	// The secret with the Kafka credentials, see https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html for details This field is required if your Kafka brokers are accessed over the Internet.
 	// Experimental.
 	Secret awssecretsmanager.ISecret `json:"secret"`
+	// The Kafka topic to subscribe to.
+	// Experimental.
+	Topic *string `json:"topic"`
 }
 
 // Use an Amazon Kinesis stream as an event source for AWS Lambda.
@@ -392,9 +397,6 @@ func (k *jsiiProxy_KinesisEventSource) EnrichMappingOptions(options *awslambda.E
 //
 // Experimental.
 type KinesisEventSourceProps struct {
-	// Where to begin consuming the stream.
-	// Experimental.
-	StartingPosition awslambda.StartingPosition `json:"startingPosition"`
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
 	// Your function receives an
@@ -443,6 +445,9 @@ type KinesisEventSourceProps struct {
 	// Maximum number of retry attempts Valid Range: * Minimum value of 0 * Maximum value of 10000.
 	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
+	// Where to begin consuming the stream.
+	// Experimental.
+	StartingPosition awslambda.StartingPosition `json:"startingPosition"`
 	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis Valid Range: 0 - 15 minutes.
 	// Experimental.
 	TumblingWindow awscdk.Duration `json:"tumblingWindow"`
@@ -543,9 +548,6 @@ func (m *jsiiProxy_ManagedKafkaEventSource) EnrichMappingOptions(options *awslam
 //
 // Experimental.
 type ManagedKafkaEventSourceProps struct {
-	// Where to begin consuming the stream.
-	// Experimental.
-	StartingPosition awslambda.StartingPosition `json:"startingPosition"`
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
 	// Your function receives an
@@ -594,15 +596,18 @@ type ManagedKafkaEventSourceProps struct {
 	// Maximum number of retry attempts Valid Range: * Minimum value of 0 * Maximum value of 10000.
 	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
+	// Where to begin consuming the stream.
+	// Experimental.
+	StartingPosition awslambda.StartingPosition `json:"startingPosition"`
 	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis Valid Range: 0 - 15 minutes.
 	// Experimental.
 	TumblingWindow awscdk.Duration `json:"tumblingWindow"`
-	// The Kafka topic to subscribe to.
-	// Experimental.
-	Topic *string `json:"topic"`
 	// The secret with the Kafka credentials, see https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html for details This field is required if your Kafka brokers are accessed over the Internet.
 	// Experimental.
 	Secret awssecretsmanager.ISecret `json:"secret"`
+	// The Kafka topic to subscribe to.
+	// Experimental.
+	Topic *string `json:"topic"`
 	// An MSK cluster construct.
 	// Experimental.
 	ClusterArn *string `json:"clusterArn"`
@@ -773,9 +778,6 @@ func (s *jsiiProxy_SelfManagedKafkaEventSource) EnrichMappingOptions(options *aw
 //
 // Experimental.
 type SelfManagedKafkaEventSourceProps struct {
-	// Where to begin consuming the stream.
-	// Experimental.
-	StartingPosition awslambda.StartingPosition `json:"startingPosition"`
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
 	// Your function receives an
@@ -824,15 +826,18 @@ type SelfManagedKafkaEventSourceProps struct {
 	// Maximum number of retry attempts Valid Range: * Minimum value of 0 * Maximum value of 10000.
 	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
+	// Where to begin consuming the stream.
+	// Experimental.
+	StartingPosition awslambda.StartingPosition `json:"startingPosition"`
 	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis Valid Range: 0 - 15 minutes.
 	// Experimental.
 	TumblingWindow awscdk.Duration `json:"tumblingWindow"`
-	// The Kafka topic to subscribe to.
-	// Experimental.
-	Topic *string `json:"topic"`
 	// The secret with the Kafka credentials, see https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html for details This field is required if your Kafka brokers are accessed over the Internet.
 	// Experimental.
 	Secret awssecretsmanager.ISecret `json:"secret"`
+	// The Kafka topic to subscribe to.
+	// Experimental.
+	Topic *string `json:"topic"`
 	// The list of host and port pairs that are the addresses of the Kafka brokers in a "bootstrap" Kafka cluster that a Kafka client connects to initially to bootstrap itself.
 	//
 	// They are in the format `abc.xyz.com:xxxx`.
@@ -853,6 +858,9 @@ type SelfManagedKafkaEventSourceProps struct {
 }
 
 // An SNS dead letter queue destination configuration for a Lambda event source.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SnsDlq interface {
 	awslambda.IEventSourceDlq
@@ -1198,11 +1206,11 @@ func (s *jsiiProxy_StreamEventSource) EnrichMappingOptions(options *awslambda.Ev
 }
 
 // The set of properties for event sources that follow the streaming model, such as, Dynamo, Kinesis and Kafka.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type StreamEventSourceProps struct {
-	// Where to begin consuming the stream.
-	// Experimental.
-	StartingPosition awslambda.StartingPosition `json:"startingPosition"`
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
 	// Your function receives an
@@ -1251,6 +1259,9 @@ type StreamEventSourceProps struct {
 	// Maximum number of retry attempts Valid Range: * Minimum value of 0 * Maximum value of 10000.
 	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
+	// Where to begin consuming the stream.
+	// Experimental.
+	StartingPosition awslambda.StartingPosition `json:"startingPosition"`
 	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis Valid Range: 0 - 15 minutes.
 	// Experimental.
 	TumblingWindow awscdk.Duration `json:"tumblingWindow"`

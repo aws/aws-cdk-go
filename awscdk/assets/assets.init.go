@@ -19,10 +19,10 @@ func init() {
 		"monocdk.assets.FollowMode",
 		reflect.TypeOf((*FollowMode)(nil)).Elem(),
 		map[string]interface{}{
-			"NEVER": FollowMode_NEVER,
 			"ALWAYS": FollowMode_ALWAYS,
-			"EXTERNAL": FollowMode_EXTERNAL,
 			"BLOCK_EXTERNAL": FollowMode_BLOCK_EXTERNAL,
+			"EXTERNAL": FollowMode_EXTERNAL,
+			"NEVER": FollowMode_NEVER,
 		},
 	)
 	_jsii_.RegisterInterface(

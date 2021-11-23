@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::WorkSpaces::ConnectionAlias`.
+//
+// TODO: EXAMPLE
+//
 type CfnConnectionAlias interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -639,6 +642,8 @@ func (c *jsiiProxy_CfnConnectionAlias) ValidateProperties(_properties interface{
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectionAlias_ConnectionAliasAssociationProperty struct {
 	// `CfnConnectionAlias.ConnectionAliasAssociationProperty.AssociatedAccountId`.
 	AssociatedAccountId *string `json:"associatedAccountId"`
@@ -651,6 +656,9 @@ type CfnConnectionAlias_ConnectionAliasAssociationProperty struct {
 }
 
 // Properties for defining a `AWS::WorkSpaces::ConnectionAlias`.
+//
+// TODO: EXAMPLE
+//
 type CfnConnectionAliasProps struct {
 	// `AWS::WorkSpaces::ConnectionAlias.ConnectionString`.
 	ConnectionString *string `json:"connectionString"`
@@ -659,6 +667,9 @@ type CfnConnectionAliasProps struct {
 }
 
 // A CloudFormation `AWS::WorkSpaces::Workspace`.
+//
+// TODO: EXAMPLE
+//
 type CfnWorkspace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1375,6 +1386,8 @@ func (c *jsiiProxy_CfnWorkspace) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnWorkspace_WorkspacePropertiesProperty struct {
 	// `CfnWorkspace.WorkspacePropertiesProperty.ComputeTypeName`.
 	ComputeTypeName *string `json:"computeTypeName"`
@@ -1389,17 +1402,20 @@ type CfnWorkspace_WorkspacePropertiesProperty struct {
 }
 
 // Properties for defining a `AWS::WorkSpaces::Workspace`.
+//
+// TODO: EXAMPLE
+//
 type CfnWorkspaceProps struct {
 	// `AWS::WorkSpaces::Workspace.BundleId`.
 	BundleId *string `json:"bundleId"`
 	// `AWS::WorkSpaces::Workspace.DirectoryId`.
 	DirectoryId *string `json:"directoryId"`
-	// `AWS::WorkSpaces::Workspace.UserName`.
-	UserName *string `json:"userName"`
 	// `AWS::WorkSpaces::Workspace.RootVolumeEncryptionEnabled`.
 	RootVolumeEncryptionEnabled interface{} `json:"rootVolumeEncryptionEnabled"`
 	// `AWS::WorkSpaces::Workspace.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::WorkSpaces::Workspace.UserName`.
+	UserName *string `json:"userName"`
 	// `AWS::WorkSpaces::Workspace.UserVolumeEncryptionEnabled`.
 	UserVolumeEncryptionEnabled interface{} `json:"userVolumeEncryptionEnabled"`
 	// `AWS::WorkSpaces::Workspace.VolumeEncryptionKey`.

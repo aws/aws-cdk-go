@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::Route53RecoveryControl::Cluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -639,6 +642,8 @@ func (c *jsiiProxy_CfnCluster) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_ClusterEndpointProperty struct {
 	// `CfnCluster.ClusterEndpointProperty.Endpoint`.
 	Endpoint *string `json:"endpoint"`
@@ -647,6 +652,9 @@ type CfnCluster_ClusterEndpointProperty struct {
 }
 
 // Properties for defining a `AWS::Route53RecoveryControl::Cluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnClusterProps struct {
 	// `AWS::Route53RecoveryControl::Cluster.Name`.
 	Name *string `json:"name"`
@@ -655,6 +663,9 @@ type CfnClusterProps struct {
 }
 
 // A CloudFormation `AWS::Route53RecoveryControl::ControlPanel`.
+//
+// TODO: EXAMPLE
+//
 type CfnControlPanel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1316,16 +1327,22 @@ func (c *jsiiProxy_CfnControlPanel) ValidateProperties(_properties interface{}) 
 }
 
 // Properties for defining a `AWS::Route53RecoveryControl::ControlPanel`.
+//
+// TODO: EXAMPLE
+//
 type CfnControlPanelProps struct {
-	// `AWS::Route53RecoveryControl::ControlPanel.Name`.
-	Name *string `json:"name"`
 	// `AWS::Route53RecoveryControl::ControlPanel.ClusterArn`.
 	ClusterArn *string `json:"clusterArn"`
+	// `AWS::Route53RecoveryControl::ControlPanel.Name`.
+	Name *string `json:"name"`
 	// `AWS::Route53RecoveryControl::ControlPanel.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::Route53RecoveryControl::RoutingControl`.
+//
+// TODO: EXAMPLE
+//
 type CfnRoutingControl interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1974,16 +1991,22 @@ func (c *jsiiProxy_CfnRoutingControl) ValidateProperties(_properties interface{}
 }
 
 // Properties for defining a `AWS::Route53RecoveryControl::RoutingControl`.
+//
+// TODO: EXAMPLE
+//
 type CfnRoutingControlProps struct {
-	// `AWS::Route53RecoveryControl::RoutingControl.Name`.
-	Name *string `json:"name"`
 	// `AWS::Route53RecoveryControl::RoutingControl.ClusterArn`.
 	ClusterArn *string `json:"clusterArn"`
 	// `AWS::Route53RecoveryControl::RoutingControl.ControlPanelArn`.
 	ControlPanelArn *string `json:"controlPanelArn"`
+	// `AWS::Route53RecoveryControl::RoutingControl.Name`.
+	Name *string `json:"name"`
 }
 
 // A CloudFormation `AWS::Route53RecoveryControl::SafetyRule`.
+//
+// TODO: EXAMPLE
+//
 type CfnSafetyRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2682,6 +2705,8 @@ func (c *jsiiProxy_CfnSafetyRule) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnSafetyRule_AssertionRuleProperty struct {
 	// `CfnSafetyRule.AssertionRuleProperty.AssertedControls`.
 	AssertedControls *[]*string `json:"assertedControls"`
@@ -2689,6 +2714,8 @@ type CfnSafetyRule_AssertionRuleProperty struct {
 	WaitPeriodMs *float64 `json:"waitPeriodMs"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSafetyRule_GatingRuleProperty struct {
 	// `CfnSafetyRule.GatingRuleProperty.GatingControls`.
 	GatingControls *[]*string `json:"gatingControls"`
@@ -2698,6 +2725,8 @@ type CfnSafetyRule_GatingRuleProperty struct {
 	WaitPeriodMs *float64 `json:"waitPeriodMs"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSafetyRule_RuleConfigProperty struct {
 	// `CfnSafetyRule.RuleConfigProperty.Inverted`.
 	Inverted interface{} `json:"inverted"`
@@ -2708,17 +2737,20 @@ type CfnSafetyRule_RuleConfigProperty struct {
 }
 
 // Properties for defining a `AWS::Route53RecoveryControl::SafetyRule`.
+//
+// TODO: EXAMPLE
+//
 type CfnSafetyRuleProps struct {
+	// `AWS::Route53RecoveryControl::SafetyRule.AssertionRule`.
+	AssertionRule interface{} `json:"assertionRule"`
 	// `AWS::Route53RecoveryControl::SafetyRule.ControlPanelArn`.
 	ControlPanelArn *string `json:"controlPanelArn"`
+	// `AWS::Route53RecoveryControl::SafetyRule.GatingRule`.
+	GatingRule interface{} `json:"gatingRule"`
 	// `AWS::Route53RecoveryControl::SafetyRule.Name`.
 	Name *string `json:"name"`
 	// `AWS::Route53RecoveryControl::SafetyRule.RuleConfig`.
 	RuleConfig interface{} `json:"ruleConfig"`
-	// `AWS::Route53RecoveryControl::SafetyRule.AssertionRule`.
-	AssertionRule interface{} `json:"assertionRule"`
-	// `AWS::Route53RecoveryControl::SafetyRule.GatingRule`.
-	GatingRule interface{} `json:"gatingRule"`
 	// `AWS::Route53RecoveryControl::SafetyRule.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }

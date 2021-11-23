@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::QLDB::Ledger`.
+//
+// TODO: EXAMPLE
+//
 type CfnLedger interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -667,20 +670,26 @@ func (c *jsiiProxy_CfnLedger) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::QLDB::Ledger`.
+//
+// TODO: EXAMPLE
+//
 type CfnLedgerProps struct {
-	// `AWS::QLDB::Ledger.PermissionsMode`.
-	PermissionsMode *string `json:"permissionsMode"`
 	// `AWS::QLDB::Ledger.DeletionProtection`.
 	DeletionProtection interface{} `json:"deletionProtection"`
 	// `AWS::QLDB::Ledger.KmsKey`.
 	KmsKey *string `json:"kmsKey"`
 	// `AWS::QLDB::Ledger.Name`.
 	Name *string `json:"name"`
+	// `AWS::QLDB::Ledger.PermissionsMode`.
+	PermissionsMode *string `json:"permissionsMode"`
 	// `AWS::QLDB::Ledger.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::QLDB::Stream`.
+//
+// TODO: EXAMPLE
+//
 type CfnStream interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1399,6 +1408,8 @@ func (c *jsiiProxy_CfnStream) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnStream_KinesisConfigurationProperty struct {
 	// `CfnStream.KinesisConfigurationProperty.AggregationEnabled`.
 	AggregationEnabled interface{} `json:"aggregationEnabled"`
@@ -1407,7 +1418,12 @@ type CfnStream_KinesisConfigurationProperty struct {
 }
 
 // Properties for defining a `AWS::QLDB::Stream`.
+//
+// TODO: EXAMPLE
+//
 type CfnStreamProps struct {
+	// `AWS::QLDB::Stream.ExclusiveEndTime`.
+	ExclusiveEndTime *string `json:"exclusiveEndTime"`
 	// `AWS::QLDB::Stream.InclusiveStartTime`.
 	InclusiveStartTime *string `json:"inclusiveStartTime"`
 	// `AWS::QLDB::Stream.KinesisConfiguration`.
@@ -1418,8 +1434,6 @@ type CfnStreamProps struct {
 	RoleArn *string `json:"roleArn"`
 	// `AWS::QLDB::Stream.StreamName`.
 	StreamName *string `json:"streamName"`
-	// `AWS::QLDB::Stream.ExclusiveEndTime`.
-	ExclusiveEndTime *string `json:"exclusiveEndTime"`
 	// `AWS::QLDB::Stream.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }

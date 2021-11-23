@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::AutoScalingPlans::ScalingPlan`.
+//
+// TODO: EXAMPLE
+//
 type CfnScalingPlan interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -637,6 +640,8 @@ func (c *jsiiProxy_CfnScalingPlan) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnScalingPlan_ApplicationSourceProperty struct {
 	// `CfnScalingPlan.ApplicationSourceProperty.CloudFormationStackARN`.
 	CloudFormationStackArn *string `json:"cloudFormationStackArn"`
@@ -644,32 +649,38 @@ type CfnScalingPlan_ApplicationSourceProperty struct {
 	TagFilters interface{} `json:"tagFilters"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnScalingPlan_CustomizedLoadMetricSpecificationProperty struct {
+	// `CfnScalingPlan.CustomizedLoadMetricSpecificationProperty.Dimensions`.
+	Dimensions interface{} `json:"dimensions"`
 	// `CfnScalingPlan.CustomizedLoadMetricSpecificationProperty.MetricName`.
 	MetricName *string `json:"metricName"`
 	// `CfnScalingPlan.CustomizedLoadMetricSpecificationProperty.Namespace`.
 	Namespace *string `json:"namespace"`
 	// `CfnScalingPlan.CustomizedLoadMetricSpecificationProperty.Statistic`.
 	Statistic *string `json:"statistic"`
-	// `CfnScalingPlan.CustomizedLoadMetricSpecificationProperty.Dimensions`.
-	Dimensions interface{} `json:"dimensions"`
 	// `CfnScalingPlan.CustomizedLoadMetricSpecificationProperty.Unit`.
 	Unit *string `json:"unit"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnScalingPlan_CustomizedScalingMetricSpecificationProperty struct {
+	// `CfnScalingPlan.CustomizedScalingMetricSpecificationProperty.Dimensions`.
+	Dimensions interface{} `json:"dimensions"`
 	// `CfnScalingPlan.CustomizedScalingMetricSpecificationProperty.MetricName`.
 	MetricName *string `json:"metricName"`
 	// `CfnScalingPlan.CustomizedScalingMetricSpecificationProperty.Namespace`.
 	Namespace *string `json:"namespace"`
 	// `CfnScalingPlan.CustomizedScalingMetricSpecificationProperty.Statistic`.
 	Statistic *string `json:"statistic"`
-	// `CfnScalingPlan.CustomizedScalingMetricSpecificationProperty.Dimensions`.
-	Dimensions interface{} `json:"dimensions"`
 	// `CfnScalingPlan.CustomizedScalingMetricSpecificationProperty.Unit`.
 	Unit *string `json:"unit"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnScalingPlan_MetricDimensionProperty struct {
 	// `CfnScalingPlan.MetricDimensionProperty.Name`.
 	Name *string `json:"name"`
@@ -677,6 +688,8 @@ type CfnScalingPlan_MetricDimensionProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnScalingPlan_PredefinedLoadMetricSpecificationProperty struct {
 	// `CfnScalingPlan.PredefinedLoadMetricSpecificationProperty.PredefinedLoadMetricType`.
 	PredefinedLoadMetricType *string `json:"predefinedLoadMetricType"`
@@ -684,6 +697,8 @@ type CfnScalingPlan_PredefinedLoadMetricSpecificationProperty struct {
 	ResourceLabel *string `json:"resourceLabel"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnScalingPlan_PredefinedScalingMetricSpecificationProperty struct {
 	// `CfnScalingPlan.PredefinedScalingMetricSpecificationProperty.PredefinedScalingMetricType`.
 	PredefinedScalingMetricType *string `json:"predefinedScalingMetricType"`
@@ -691,23 +706,17 @@ type CfnScalingPlan_PredefinedScalingMetricSpecificationProperty struct {
 	ResourceLabel *string `json:"resourceLabel"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnScalingPlan_ScalingInstructionProperty struct {
-	// `CfnScalingPlan.ScalingInstructionProperty.MaxCapacity`.
-	MaxCapacity *float64 `json:"maxCapacity"`
-	// `CfnScalingPlan.ScalingInstructionProperty.MinCapacity`.
-	MinCapacity *float64 `json:"minCapacity"`
-	// `CfnScalingPlan.ScalingInstructionProperty.ResourceId`.
-	ResourceId *string `json:"resourceId"`
-	// `CfnScalingPlan.ScalingInstructionProperty.ScalableDimension`.
-	ScalableDimension *string `json:"scalableDimension"`
-	// `CfnScalingPlan.ScalingInstructionProperty.ServiceNamespace`.
-	ServiceNamespace *string `json:"serviceNamespace"`
-	// `CfnScalingPlan.ScalingInstructionProperty.TargetTrackingConfigurations`.
-	TargetTrackingConfigurations interface{} `json:"targetTrackingConfigurations"`
 	// `CfnScalingPlan.ScalingInstructionProperty.CustomizedLoadMetricSpecification`.
 	CustomizedLoadMetricSpecification interface{} `json:"customizedLoadMetricSpecification"`
 	// `CfnScalingPlan.ScalingInstructionProperty.DisableDynamicScaling`.
 	DisableDynamicScaling interface{} `json:"disableDynamicScaling"`
+	// `CfnScalingPlan.ScalingInstructionProperty.MaxCapacity`.
+	MaxCapacity *float64 `json:"maxCapacity"`
+	// `CfnScalingPlan.ScalingInstructionProperty.MinCapacity`.
+	MinCapacity *float64 `json:"minCapacity"`
 	// `CfnScalingPlan.ScalingInstructionProperty.PredefinedLoadMetricSpecification`.
 	PredefinedLoadMetricSpecification interface{} `json:"predefinedLoadMetricSpecification"`
 	// `CfnScalingPlan.ScalingInstructionProperty.PredictiveScalingMaxCapacityBehavior`.
@@ -716,12 +725,22 @@ type CfnScalingPlan_ScalingInstructionProperty struct {
 	PredictiveScalingMaxCapacityBuffer *float64 `json:"predictiveScalingMaxCapacityBuffer"`
 	// `CfnScalingPlan.ScalingInstructionProperty.PredictiveScalingMode`.
 	PredictiveScalingMode *string `json:"predictiveScalingMode"`
+	// `CfnScalingPlan.ScalingInstructionProperty.ResourceId`.
+	ResourceId *string `json:"resourceId"`
+	// `CfnScalingPlan.ScalingInstructionProperty.ScalableDimension`.
+	ScalableDimension *string `json:"scalableDimension"`
 	// `CfnScalingPlan.ScalingInstructionProperty.ScalingPolicyUpdateBehavior`.
 	ScalingPolicyUpdateBehavior *string `json:"scalingPolicyUpdateBehavior"`
 	// `CfnScalingPlan.ScalingInstructionProperty.ScheduledActionBufferTime`.
 	ScheduledActionBufferTime *float64 `json:"scheduledActionBufferTime"`
+	// `CfnScalingPlan.ScalingInstructionProperty.ServiceNamespace`.
+	ServiceNamespace *string `json:"serviceNamespace"`
+	// `CfnScalingPlan.ScalingInstructionProperty.TargetTrackingConfigurations`.
+	TargetTrackingConfigurations interface{} `json:"targetTrackingConfigurations"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnScalingPlan_TagFilterProperty struct {
 	// `CfnScalingPlan.TagFilterProperty.Key`.
 	Key *string `json:"key"`
@@ -729,9 +748,9 @@ type CfnScalingPlan_TagFilterProperty struct {
 	Values *[]*string `json:"values"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnScalingPlan_TargetTrackingConfigurationProperty struct {
-	// `CfnScalingPlan.TargetTrackingConfigurationProperty.TargetValue`.
-	TargetValue *float64 `json:"targetValue"`
 	// `CfnScalingPlan.TargetTrackingConfigurationProperty.CustomizedScalingMetricSpecification`.
 	CustomizedScalingMetricSpecification interface{} `json:"customizedScalingMetricSpecification"`
 	// `CfnScalingPlan.TargetTrackingConfigurationProperty.DisableScaleIn`.
@@ -744,9 +763,14 @@ type CfnScalingPlan_TargetTrackingConfigurationProperty struct {
 	ScaleInCooldown *float64 `json:"scaleInCooldown"`
 	// `CfnScalingPlan.TargetTrackingConfigurationProperty.ScaleOutCooldown`.
 	ScaleOutCooldown *float64 `json:"scaleOutCooldown"`
+	// `CfnScalingPlan.TargetTrackingConfigurationProperty.TargetValue`.
+	TargetValue *float64 `json:"targetValue"`
 }
 
 // Properties for defining a `AWS::AutoScalingPlans::ScalingPlan`.
+//
+// TODO: EXAMPLE
+//
 type CfnScalingPlanProps struct {
 	// `AWS::AutoScalingPlans::ScalingPlan.ApplicationSource`.
 	ApplicationSource interface{} `json:"applicationSource"`

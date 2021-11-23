@@ -1182,14 +1182,14 @@ func (b *jsiiProxy_Bucket) VirtualHostedUrlForObject(key *string, options *Virtu
 type BucketAccessControl string
 
 const (
+	BucketAccessControl_AUTHENTICATED_READ BucketAccessControl = "AUTHENTICATED_READ"
+	BucketAccessControl_AWS_EXEC_READ BucketAccessControl = "AWS_EXEC_READ"
+	BucketAccessControl_BUCKET_OWNER_FULL_CONTROL BucketAccessControl = "BUCKET_OWNER_FULL_CONTROL"
+	BucketAccessControl_BUCKET_OWNER_READ BucketAccessControl = "BUCKET_OWNER_READ"
+	BucketAccessControl_LOG_DELIVERY_WRITE BucketAccessControl = "LOG_DELIVERY_WRITE"
 	BucketAccessControl_PRIVATE BucketAccessControl = "PRIVATE"
 	BucketAccessControl_PUBLIC_READ BucketAccessControl = "PUBLIC_READ"
 	BucketAccessControl_PUBLIC_READ_WRITE BucketAccessControl = "PUBLIC_READ_WRITE"
-	BucketAccessControl_AUTHENTICATED_READ BucketAccessControl = "AUTHENTICATED_READ"
-	BucketAccessControl_LOG_DELIVERY_WRITE BucketAccessControl = "LOG_DELIVERY_WRITE"
-	BucketAccessControl_BUCKET_OWNER_READ BucketAccessControl = "BUCKET_OWNER_READ"
-	BucketAccessControl_BUCKET_OWNER_FULL_CONTROL BucketAccessControl = "BUCKET_OWNER_FULL_CONTROL"
-	BucketAccessControl_AWS_EXEC_READ BucketAccessControl = "AWS_EXEC_READ"
 )
 
 // A reference to a bucket.
@@ -2143,6 +2143,9 @@ const (
 )
 
 // Specifies a metrics configuration for the CloudWatch request metrics from an Amazon S3 bucket.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BucketMetrics struct {
 	// The ID used to identify the metrics configuration.
@@ -2159,17 +2162,20 @@ type BucketMetrics struct {
 }
 
 // Represents the properties of a notification destination.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BucketNotificationDestinationConfig struct {
 	// The ARN of the destination (i.e. Lambda, SNS, SQS).
 	// Experimental.
 	Arn *string `json:"arn"`
-	// The notification type.
-	// Experimental.
-	Type BucketNotificationDestinationType `json:"type"`
 	// Any additional dependencies that should be resolved before the bucket notification can be configured (for example, the SNS Topic Policy resource).
 	// Experimental.
 	Dependencies *[]awscdk.IDependable `json:"dependencies"`
+	// The notification type.
+	// Experimental.
+	Type BucketNotificationDestinationType `json:"type"`
 }
 
 // Supported types of notification destinations.
@@ -2183,6 +2189,9 @@ const (
 )
 
 // Applies an Amazon S3 bucket policy to an Amazon S3 bucket.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BucketPolicy interface {
 	awscdk.Resource
@@ -2498,6 +2507,8 @@ func (b *jsiiProxy_BucketPolicy) Validate() *[]*string {
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type BucketPolicyProps struct {
 	// The Amazon S3 bucket that the policy applies to.
@@ -2617,6 +2628,9 @@ type BucketProps struct {
 }
 
 // A CloudFormation `AWS::S3::AccessPoint`.
+//
+// TODO: EXAMPLE
+//
 type CfnAccessPoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3346,6 +3360,8 @@ func (c *jsiiProxy_CfnAccessPoint) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnAccessPoint_PublicAccessBlockConfigurationProperty struct {
 	// `CfnAccessPoint.PublicAccessBlockConfigurationProperty.BlockPublicAcls`.
 	BlockPublicAcls interface{} `json:"blockPublicAcls"`
@@ -3357,12 +3373,17 @@ type CfnAccessPoint_PublicAccessBlockConfigurationProperty struct {
 	RestrictPublicBuckets interface{} `json:"restrictPublicBuckets"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAccessPoint_VpcConfigurationProperty struct {
 	// `CfnAccessPoint.VpcConfigurationProperty.VpcId`.
 	VpcId *string `json:"vpcId"`
 }
 
 // Properties for defining a `AWS::S3::AccessPoint`.
+//
+// TODO: EXAMPLE
+//
 type CfnAccessPointProps struct {
 	// `AWS::S3::AccessPoint.Bucket`.
 	Bucket *string `json:"bucket"`
@@ -4393,49 +4414,63 @@ func (c *jsiiProxy_CfnBucket) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_AbortIncompleteMultipartUploadProperty struct {
 	// `CfnBucket.AbortIncompleteMultipartUploadProperty.DaysAfterInitiation`.
 	DaysAfterInitiation *float64 `json:"daysAfterInitiation"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_AccelerateConfigurationProperty struct {
 	// `CfnBucket.AccelerateConfigurationProperty.AccelerationStatus`.
 	AccelerationStatus *string `json:"accelerationStatus"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_AccessControlTranslationProperty struct {
 	// `CfnBucket.AccessControlTranslationProperty.Owner`.
 	Owner *string `json:"owner"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_AnalyticsConfigurationProperty struct {
 	// `CfnBucket.AnalyticsConfigurationProperty.Id`.
 	Id *string `json:"id"`
-	// `CfnBucket.AnalyticsConfigurationProperty.StorageClassAnalysis`.
-	StorageClassAnalysis interface{} `json:"storageClassAnalysis"`
 	// `CfnBucket.AnalyticsConfigurationProperty.Prefix`.
 	Prefix *string `json:"prefix"`
+	// `CfnBucket.AnalyticsConfigurationProperty.StorageClassAnalysis`.
+	StorageClassAnalysis interface{} `json:"storageClassAnalysis"`
 	// `CfnBucket.AnalyticsConfigurationProperty.TagFilters`.
 	TagFilters interface{} `json:"tagFilters"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_BucketEncryptionProperty struct {
 	// `CfnBucket.BucketEncryptionProperty.ServerSideEncryptionConfiguration`.
 	ServerSideEncryptionConfiguration interface{} `json:"serverSideEncryptionConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_CorsConfigurationProperty struct {
 	// `CfnBucket.CorsConfigurationProperty.CorsRules`.
 	CorsRules interface{} `json:"corsRules"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_CorsRuleProperty struct {
+	// `CfnBucket.CorsRuleProperty.AllowedHeaders`.
+	AllowedHeaders *[]*string `json:"allowedHeaders"`
 	// `CfnBucket.CorsRuleProperty.AllowedMethods`.
 	AllowedMethods *[]*string `json:"allowedMethods"`
 	// `CfnBucket.CorsRuleProperty.AllowedOrigins`.
 	AllowedOrigins *[]*string `json:"allowedOrigins"`
-	// `CfnBucket.CorsRuleProperty.AllowedHeaders`.
-	AllowedHeaders *[]*string `json:"allowedHeaders"`
 	// `CfnBucket.CorsRuleProperty.ExposedHeaders`.
 	ExposedHeaders *[]*string `json:"exposedHeaders"`
 	// `CfnBucket.CorsRuleProperty.Id`.
@@ -4444,6 +4479,8 @@ type CfnBucket_CorsRuleProperty struct {
 	MaxAge *float64 `json:"maxAge"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_DataExportProperty struct {
 	// `CfnBucket.DataExportProperty.Destination`.
 	Destination interface{} `json:"destination"`
@@ -4451,6 +4488,8 @@ type CfnBucket_DataExportProperty struct {
 	OutputSchemaVersion *string `json:"outputSchemaVersion"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_DefaultRetentionProperty struct {
 	// `CfnBucket.DefaultRetentionProperty.Days`.
 	Days *float64 `json:"days"`
@@ -4460,27 +4499,35 @@ type CfnBucket_DefaultRetentionProperty struct {
 	Years *float64 `json:"years"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_DeleteMarkerReplicationProperty struct {
 	// `CfnBucket.DeleteMarkerReplicationProperty.Status`.
 	Status *string `json:"status"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_DestinationProperty struct {
+	// `CfnBucket.DestinationProperty.BucketAccountId`.
+	BucketAccountId *string `json:"bucketAccountId"`
 	// `CfnBucket.DestinationProperty.BucketArn`.
 	BucketArn *string `json:"bucketArn"`
 	// `CfnBucket.DestinationProperty.Format`.
 	Format *string `json:"format"`
-	// `CfnBucket.DestinationProperty.BucketAccountId`.
-	BucketAccountId *string `json:"bucketAccountId"`
 	// `CfnBucket.DestinationProperty.Prefix`.
 	Prefix *string `json:"prefix"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_EncryptionConfigurationProperty struct {
 	// `CfnBucket.EncryptionConfigurationProperty.ReplicaKmsKeyID`.
 	ReplicaKmsKeyId *string `json:"replicaKmsKeyId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_FilterRuleProperty struct {
 	// `CfnBucket.FilterRuleProperty.Name`.
 	Name *string `json:"name"`
@@ -4488,19 +4535,23 @@ type CfnBucket_FilterRuleProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_IntelligentTieringConfigurationProperty struct {
 	// `CfnBucket.IntelligentTieringConfigurationProperty.Id`.
 	Id *string `json:"id"`
-	// `CfnBucket.IntelligentTieringConfigurationProperty.Status`.
-	Status *string `json:"status"`
-	// `CfnBucket.IntelligentTieringConfigurationProperty.Tierings`.
-	Tierings interface{} `json:"tierings"`
 	// `CfnBucket.IntelligentTieringConfigurationProperty.Prefix`.
 	Prefix *string `json:"prefix"`
+	// `CfnBucket.IntelligentTieringConfigurationProperty.Status`.
+	Status *string `json:"status"`
 	// `CfnBucket.IntelligentTieringConfigurationProperty.TagFilters`.
 	TagFilters interface{} `json:"tagFilters"`
+	// `CfnBucket.IntelligentTieringConfigurationProperty.Tierings`.
+	Tierings interface{} `json:"tierings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_InventoryConfigurationProperty struct {
 	// `CfnBucket.InventoryConfigurationProperty.Destination`.
 	Destination interface{} `json:"destination"`
@@ -4510,28 +4561,34 @@ type CfnBucket_InventoryConfigurationProperty struct {
 	Id *string `json:"id"`
 	// `CfnBucket.InventoryConfigurationProperty.IncludedObjectVersions`.
 	IncludedObjectVersions *string `json:"includedObjectVersions"`
-	// `CfnBucket.InventoryConfigurationProperty.ScheduleFrequency`.
-	ScheduleFrequency *string `json:"scheduleFrequency"`
 	// `CfnBucket.InventoryConfigurationProperty.OptionalFields`.
 	OptionalFields *[]*string `json:"optionalFields"`
 	// `CfnBucket.InventoryConfigurationProperty.Prefix`.
 	Prefix *string `json:"prefix"`
+	// `CfnBucket.InventoryConfigurationProperty.ScheduleFrequency`.
+	ScheduleFrequency *string `json:"scheduleFrequency"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_LambdaConfigurationProperty struct {
 	// `CfnBucket.LambdaConfigurationProperty.Event`.
 	Event *string `json:"event"`
-	// `CfnBucket.LambdaConfigurationProperty.Function`.
-	Function *string `json:"function"`
 	// `CfnBucket.LambdaConfigurationProperty.Filter`.
 	Filter interface{} `json:"filter"`
+	// `CfnBucket.LambdaConfigurationProperty.Function`.
+	Function *string `json:"function"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_LifecycleConfigurationProperty struct {
 	// `CfnBucket.LifecycleConfigurationProperty.Rules`.
 	Rules interface{} `json:"rules"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_LoggingConfigurationProperty struct {
 	// `CfnBucket.LoggingConfigurationProperty.DestinationBucketName`.
 	DestinationBucketName *string `json:"destinationBucketName"`
@@ -4539,24 +4596,30 @@ type CfnBucket_LoggingConfigurationProperty struct {
 	LogFilePrefix *string `json:"logFilePrefix"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_MetricsConfigurationProperty struct {
-	// `CfnBucket.MetricsConfigurationProperty.Id`.
-	Id *string `json:"id"`
 	// `CfnBucket.MetricsConfigurationProperty.AccessPointArn`.
 	AccessPointArn *string `json:"accessPointArn"`
+	// `CfnBucket.MetricsConfigurationProperty.Id`.
+	Id *string `json:"id"`
 	// `CfnBucket.MetricsConfigurationProperty.Prefix`.
 	Prefix *string `json:"prefix"`
 	// `CfnBucket.MetricsConfigurationProperty.TagFilters`.
 	TagFilters interface{} `json:"tagFilters"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_MetricsProperty struct {
-	// `CfnBucket.MetricsProperty.Status`.
-	Status *string `json:"status"`
 	// `CfnBucket.MetricsProperty.EventThreshold`.
 	EventThreshold interface{} `json:"eventThreshold"`
+	// `CfnBucket.MetricsProperty.Status`.
+	Status *string `json:"status"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_NoncurrentVersionTransitionProperty struct {
 	// `CfnBucket.NoncurrentVersionTransitionProperty.StorageClass`.
 	StorageClass *string `json:"storageClass"`
@@ -4564,6 +4627,8 @@ type CfnBucket_NoncurrentVersionTransitionProperty struct {
 	TransitionInDays *float64 `json:"transitionInDays"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_NotificationConfigurationProperty struct {
 	// `CfnBucket.NotificationConfigurationProperty.LambdaConfigurations`.
 	LambdaConfigurations interface{} `json:"lambdaConfigurations"`
@@ -4573,11 +4638,15 @@ type CfnBucket_NotificationConfigurationProperty struct {
 	TopicConfigurations interface{} `json:"topicConfigurations"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_NotificationFilterProperty struct {
 	// `CfnBucket.NotificationFilterProperty.S3Key`.
 	S3Key interface{} `json:"s3Key"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_ObjectLockConfigurationProperty struct {
 	// `CfnBucket.ObjectLockConfigurationProperty.ObjectLockEnabled`.
 	ObjectLockEnabled *string `json:"objectLockEnabled"`
@@ -4585,21 +4654,29 @@ type CfnBucket_ObjectLockConfigurationProperty struct {
 	Rule interface{} `json:"rule"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_ObjectLockRuleProperty struct {
 	// `CfnBucket.ObjectLockRuleProperty.DefaultRetention`.
 	DefaultRetention interface{} `json:"defaultRetention"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_OwnershipControlsProperty struct {
 	// `CfnBucket.OwnershipControlsProperty.Rules`.
 	Rules interface{} `json:"rules"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_OwnershipControlsRuleProperty struct {
 	// `CfnBucket.OwnershipControlsRuleProperty.ObjectOwnership`.
 	ObjectOwnership *string `json:"objectOwnership"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_PublicAccessBlockConfigurationProperty struct {
 	// `CfnBucket.PublicAccessBlockConfigurationProperty.BlockPublicAcls`.
 	BlockPublicAcls interface{} `json:"blockPublicAcls"`
@@ -4611,15 +4688,19 @@ type CfnBucket_PublicAccessBlockConfigurationProperty struct {
 	RestrictPublicBuckets interface{} `json:"restrictPublicBuckets"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_QueueConfigurationProperty struct {
 	// `CfnBucket.QueueConfigurationProperty.Event`.
 	Event *string `json:"event"`
-	// `CfnBucket.QueueConfigurationProperty.Queue`.
-	Queue *string `json:"queue"`
 	// `CfnBucket.QueueConfigurationProperty.Filter`.
 	Filter interface{} `json:"filter"`
+	// `CfnBucket.QueueConfigurationProperty.Queue`.
+	Queue *string `json:"queue"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_RedirectAllRequestsToProperty struct {
 	// `CfnBucket.RedirectAllRequestsToProperty.HostName`.
 	HostName *string `json:"hostName"`
@@ -4627,6 +4708,8 @@ type CfnBucket_RedirectAllRequestsToProperty struct {
 	Protocol *string `json:"protocol"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_RedirectRuleProperty struct {
 	// `CfnBucket.RedirectRuleProperty.HostName`.
 	HostName *string `json:"hostName"`
@@ -4640,11 +4723,15 @@ type CfnBucket_RedirectRuleProperty struct {
 	ReplaceKeyWith *string `json:"replaceKeyWith"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_ReplicaModificationsProperty struct {
 	// `CfnBucket.ReplicaModificationsProperty.Status`.
 	Status *string `json:"status"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_ReplicationConfigurationProperty struct {
 	// `CfnBucket.ReplicationConfigurationProperty.Role`.
 	Role *string `json:"role"`
@@ -4652,13 +4739,15 @@ type CfnBucket_ReplicationConfigurationProperty struct {
 	Rules interface{} `json:"rules"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_ReplicationDestinationProperty struct {
-	// `CfnBucket.ReplicationDestinationProperty.Bucket`.
-	Bucket *string `json:"bucket"`
 	// `CfnBucket.ReplicationDestinationProperty.AccessControlTranslation`.
 	AccessControlTranslation interface{} `json:"accessControlTranslation"`
 	// `CfnBucket.ReplicationDestinationProperty.Account`.
 	Account *string `json:"account"`
+	// `CfnBucket.ReplicationDestinationProperty.Bucket`.
+	Bucket *string `json:"bucket"`
 	// `CfnBucket.ReplicationDestinationProperty.EncryptionConfiguration`.
 	EncryptionConfiguration interface{} `json:"encryptionConfiguration"`
 	// `CfnBucket.ReplicationDestinationProperty.Metrics`.
@@ -4669,6 +4758,8 @@ type CfnBucket_ReplicationDestinationProperty struct {
 	StorageClass *string `json:"storageClass"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_ReplicationRuleAndOperatorProperty struct {
 	// `CfnBucket.ReplicationRuleAndOperatorProperty.Prefix`.
 	Prefix *string `json:"prefix"`
@@ -4676,6 +4767,8 @@ type CfnBucket_ReplicationRuleAndOperatorProperty struct {
 	TagFilters interface{} `json:"tagFilters"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_ReplicationRuleFilterProperty struct {
 	// `CfnBucket.ReplicationRuleFilterProperty.And`.
 	And interface{} `json:"and"`
@@ -4685,13 +4778,13 @@ type CfnBucket_ReplicationRuleFilterProperty struct {
 	TagFilter interface{} `json:"tagFilter"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_ReplicationRuleProperty struct {
-	// `CfnBucket.ReplicationRuleProperty.Destination`.
-	Destination interface{} `json:"destination"`
-	// `CfnBucket.ReplicationRuleProperty.Status`.
-	Status *string `json:"status"`
 	// `CfnBucket.ReplicationRuleProperty.DeleteMarkerReplication`.
 	DeleteMarkerReplication interface{} `json:"deleteMarkerReplication"`
+	// `CfnBucket.ReplicationRuleProperty.Destination`.
+	Destination interface{} `json:"destination"`
 	// `CfnBucket.ReplicationRuleProperty.Filter`.
 	Filter interface{} `json:"filter"`
 	// `CfnBucket.ReplicationRuleProperty.Id`.
@@ -4702,8 +4795,12 @@ type CfnBucket_ReplicationRuleProperty struct {
 	Priority *float64 `json:"priority"`
 	// `CfnBucket.ReplicationRuleProperty.SourceSelectionCriteria`.
 	SourceSelectionCriteria interface{} `json:"sourceSelectionCriteria"`
+	// `CfnBucket.ReplicationRuleProperty.Status`.
+	Status *string `json:"status"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_ReplicationTimeProperty struct {
 	// `CfnBucket.ReplicationTimeProperty.Status`.
 	Status *string `json:"status"`
@@ -4711,11 +4808,15 @@ type CfnBucket_ReplicationTimeProperty struct {
 	Time interface{} `json:"time"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_ReplicationTimeValueProperty struct {
 	// `CfnBucket.ReplicationTimeValueProperty.Minutes`.
 	Minutes *float64 `json:"minutes"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_RoutingRuleConditionProperty struct {
 	// `CfnBucket.RoutingRuleConditionProperty.HttpErrorCodeReturnedEquals`.
 	HttpErrorCodeReturnedEquals *string `json:"httpErrorCodeReturnedEquals"`
@@ -4723,6 +4824,8 @@ type CfnBucket_RoutingRuleConditionProperty struct {
 	KeyPrefixEquals *string `json:"keyPrefixEquals"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_RoutingRuleProperty struct {
 	// `CfnBucket.RoutingRuleProperty.RedirectRule`.
 	RedirectRule interface{} `json:"redirectRule"`
@@ -4730,9 +4833,9 @@ type CfnBucket_RoutingRuleProperty struct {
 	RoutingRuleCondition interface{} `json:"routingRuleCondition"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_RuleProperty struct {
-	// `CfnBucket.RuleProperty.Status`.
-	Status *string `json:"status"`
 	// `CfnBucket.RuleProperty.AbortIncompleteMultipartUpload`.
 	AbortIncompleteMultipartUpload interface{} `json:"abortIncompleteMultipartUpload"`
 	// `CfnBucket.RuleProperty.ExpirationDate`.
@@ -4751,6 +4854,8 @@ type CfnBucket_RuleProperty struct {
 	NoncurrentVersionTransitions interface{} `json:"noncurrentVersionTransitions"`
 	// `CfnBucket.RuleProperty.Prefix`.
 	Prefix *string `json:"prefix"`
+	// `CfnBucket.RuleProperty.Status`.
+	Status *string `json:"status"`
 	// `CfnBucket.RuleProperty.TagFilters`.
 	TagFilters interface{} `json:"tagFilters"`
 	// `CfnBucket.RuleProperty.Transition`.
@@ -4759,18 +4864,24 @@ type CfnBucket_RuleProperty struct {
 	Transitions interface{} `json:"transitions"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_S3KeyFilterProperty struct {
 	// `CfnBucket.S3KeyFilterProperty.Rules`.
 	Rules interface{} `json:"rules"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_ServerSideEncryptionByDefaultProperty struct {
-	// `CfnBucket.ServerSideEncryptionByDefaultProperty.SSEAlgorithm`.
-	SseAlgorithm *string `json:"sseAlgorithm"`
 	// `CfnBucket.ServerSideEncryptionByDefaultProperty.KMSMasterKeyID`.
 	KmsMasterKeyId *string `json:"kmsMasterKeyId"`
+	// `CfnBucket.ServerSideEncryptionByDefaultProperty.SSEAlgorithm`.
+	SseAlgorithm *string `json:"sseAlgorithm"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_ServerSideEncryptionRuleProperty struct {
 	// `CfnBucket.ServerSideEncryptionRuleProperty.BucketKeyEnabled`.
 	BucketKeyEnabled interface{} `json:"bucketKeyEnabled"`
@@ -4778,6 +4889,8 @@ type CfnBucket_ServerSideEncryptionRuleProperty struct {
 	ServerSideEncryptionByDefault interface{} `json:"serverSideEncryptionByDefault"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_SourceSelectionCriteriaProperty struct {
 	// `CfnBucket.SourceSelectionCriteriaProperty.ReplicaModifications`.
 	ReplicaModifications interface{} `json:"replicaModifications"`
@@ -4785,16 +4898,22 @@ type CfnBucket_SourceSelectionCriteriaProperty struct {
 	SseKmsEncryptedObjects interface{} `json:"sseKmsEncryptedObjects"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_SseKmsEncryptedObjectsProperty struct {
 	// `CfnBucket.SseKmsEncryptedObjectsProperty.Status`.
 	Status *string `json:"status"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_StorageClassAnalysisProperty struct {
 	// `CfnBucket.StorageClassAnalysisProperty.DataExport`.
 	DataExport interface{} `json:"dataExport"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_TagFilterProperty struct {
 	// `CfnBucket.TagFilterProperty.Key`.
 	Key *string `json:"key"`
@@ -4802,6 +4921,8 @@ type CfnBucket_TagFilterProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_TieringProperty struct {
 	// `CfnBucket.TieringProperty.AccessTier`.
 	AccessTier *string `json:"accessTier"`
@@ -4809,15 +4930,19 @@ type CfnBucket_TieringProperty struct {
 	Days *float64 `json:"days"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_TopicConfigurationProperty struct {
 	// `CfnBucket.TopicConfigurationProperty.Event`.
 	Event *string `json:"event"`
-	// `CfnBucket.TopicConfigurationProperty.Topic`.
-	Topic *string `json:"topic"`
 	// `CfnBucket.TopicConfigurationProperty.Filter`.
 	Filter interface{} `json:"filter"`
+	// `CfnBucket.TopicConfigurationProperty.Topic`.
+	Topic *string `json:"topic"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_TransitionProperty struct {
 	// `CfnBucket.TransitionProperty.StorageClass`.
 	StorageClass *string `json:"storageClass"`
@@ -4827,11 +4952,15 @@ type CfnBucket_TransitionProperty struct {
 	TransitionInDays *float64 `json:"transitionInDays"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_VersioningConfigurationProperty struct {
 	// `CfnBucket.VersioningConfigurationProperty.Status`.
 	Status *string `json:"status"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBucket_WebsiteConfigurationProperty struct {
 	// `CfnBucket.WebsiteConfigurationProperty.ErrorDocument`.
 	ErrorDocument *string `json:"errorDocument"`
@@ -4844,6 +4973,9 @@ type CfnBucket_WebsiteConfigurationProperty struct {
 }
 
 // A CloudFormation `AWS::S3::BucketPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnBucketPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5450,6 +5582,9 @@ func (c *jsiiProxy_CfnBucketPolicy) ValidateProperties(_properties interface{}) 
 }
 
 // Properties for defining a `AWS::S3::BucketPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnBucketPolicyProps struct {
 	// `AWS::S3::BucketPolicy.Bucket`.
 	Bucket *string `json:"bucket"`
@@ -5458,6 +5593,9 @@ type CfnBucketPolicyProps struct {
 }
 
 // Properties for defining a `AWS::S3::Bucket`.
+//
+// TODO: EXAMPLE
+//
 type CfnBucketProps struct {
 	// `AWS::S3::Bucket.AccelerateConfiguration`.
 	AccelerateConfiguration interface{} `json:"accelerateConfiguration"`
@@ -5502,6 +5640,9 @@ type CfnBucketProps struct {
 }
 
 // A CloudFormation `AWS::S3::MultiRegionAccessPoint`.
+//
+// TODO: EXAMPLE
+//
 type CfnMultiRegionAccessPoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6149,6 +6290,8 @@ func (c *jsiiProxy_CfnMultiRegionAccessPoint) ValidateProperties(_properties int
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnMultiRegionAccessPoint_PublicAccessBlockConfigurationProperty struct {
 	// `CfnMultiRegionAccessPoint.PublicAccessBlockConfigurationProperty.BlockPublicAcls`.
 	BlockPublicAcls interface{} `json:"blockPublicAcls"`
@@ -6160,12 +6303,17 @@ type CfnMultiRegionAccessPoint_PublicAccessBlockConfigurationProperty struct {
 	RestrictPublicBuckets interface{} `json:"restrictPublicBuckets"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMultiRegionAccessPoint_RegionProperty struct {
 	// `CfnMultiRegionAccessPoint.RegionProperty.Bucket`.
 	Bucket *string `json:"bucket"`
 }
 
 // A CloudFormation `AWS::S3::MultiRegionAccessPointPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnMultiRegionAccessPointPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6772,6 +6920,9 @@ func (c *jsiiProxy_CfnMultiRegionAccessPointPolicy) ValidateProperties(_properti
 }
 
 // Properties for defining a `AWS::S3::MultiRegionAccessPointPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnMultiRegionAccessPointPolicyProps struct {
 	// `AWS::S3::MultiRegionAccessPointPolicy.MrapName`.
 	MrapName *string `json:"mrapName"`
@@ -6780,16 +6931,22 @@ type CfnMultiRegionAccessPointPolicyProps struct {
 }
 
 // Properties for defining a `AWS::S3::MultiRegionAccessPoint`.
+//
+// TODO: EXAMPLE
+//
 type CfnMultiRegionAccessPointProps struct {
-	// `AWS::S3::MultiRegionAccessPoint.Regions`.
-	Regions interface{} `json:"regions"`
 	// `AWS::S3::MultiRegionAccessPoint.Name`.
 	Name *string `json:"name"`
 	// `AWS::S3::MultiRegionAccessPoint.PublicAccessBlockConfiguration`.
 	PublicAccessBlockConfiguration interface{} `json:"publicAccessBlockConfiguration"`
+	// `AWS::S3::MultiRegionAccessPoint.Regions`.
+	Regions interface{} `json:"regions"`
 }
 
 // A CloudFormation `AWS::S3::StorageLens`.
+//
+// TODO: EXAMPLE
+//
 type CfnStorageLens interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -7397,23 +7554,31 @@ func (c *jsiiProxy_CfnStorageLens) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnStorageLens_AccountLevelProperty struct {
-	// `CfnStorageLens.AccountLevelProperty.BucketLevel`.
-	BucketLevel interface{} `json:"bucketLevel"`
 	// `CfnStorageLens.AccountLevelProperty.ActivityMetrics`.
 	ActivityMetrics interface{} `json:"activityMetrics"`
+	// `CfnStorageLens.AccountLevelProperty.BucketLevel`.
+	BucketLevel interface{} `json:"bucketLevel"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStorageLens_ActivityMetricsProperty struct {
 	// `CfnStorageLens.ActivityMetricsProperty.IsEnabled`.
 	IsEnabled interface{} `json:"isEnabled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStorageLens_AwsOrgProperty struct {
 	// `CfnStorageLens.AwsOrgProperty.Arn`.
 	Arn *string `json:"arn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStorageLens_BucketLevelProperty struct {
 	// `CfnStorageLens.BucketLevelProperty.ActivityMetrics`.
 	ActivityMetrics interface{} `json:"activityMetrics"`
@@ -7421,6 +7586,8 @@ type CfnStorageLens_BucketLevelProperty struct {
 	PrefixLevel interface{} `json:"prefixLevel"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStorageLens_BucketsAndRegionsProperty struct {
 	// `CfnStorageLens.BucketsAndRegionsProperty.Buckets`.
 	Buckets *[]*string `json:"buckets"`
@@ -7428,19 +7595,27 @@ type CfnStorageLens_BucketsAndRegionsProperty struct {
 	Regions *[]*string `json:"regions"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStorageLens_DataExportProperty struct {
 	// `CfnStorageLens.DataExportProperty.S3BucketDestination`.
 	S3BucketDestination interface{} `json:"s3BucketDestination"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStorageLens_EncryptionProperty struct {
 }
 
+// TODO: EXAMPLE
+//
 type CfnStorageLens_PrefixLevelProperty struct {
 	// `CfnStorageLens.PrefixLevelProperty.StorageMetrics`.
 	StorageMetrics interface{} `json:"storageMetrics"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStorageLens_PrefixLevelStorageMetricsProperty struct {
 	// `CfnStorageLens.PrefixLevelStorageMetricsProperty.IsEnabled`.
 	IsEnabled interface{} `json:"isEnabled"`
@@ -7448,21 +7623,25 @@ type CfnStorageLens_PrefixLevelStorageMetricsProperty struct {
 	SelectionCriteria interface{} `json:"selectionCriteria"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStorageLens_S3BucketDestinationProperty struct {
 	// `CfnStorageLens.S3BucketDestinationProperty.AccountId`.
 	AccountId *string `json:"accountId"`
 	// `CfnStorageLens.S3BucketDestinationProperty.Arn`.
 	Arn *string `json:"arn"`
+	// `CfnStorageLens.S3BucketDestinationProperty.Encryption`.
+	Encryption interface{} `json:"encryption"`
 	// `CfnStorageLens.S3BucketDestinationProperty.Format`.
 	Format *string `json:"format"`
 	// `CfnStorageLens.S3BucketDestinationProperty.OutputSchemaVersion`.
 	OutputSchemaVersion *string `json:"outputSchemaVersion"`
-	// `CfnStorageLens.S3BucketDestinationProperty.Encryption`.
-	Encryption interface{} `json:"encryption"`
 	// `CfnStorageLens.S3BucketDestinationProperty.Prefix`.
 	Prefix *string `json:"prefix"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStorageLens_SelectionCriteriaProperty struct {
 	// `CfnStorageLens.SelectionCriteriaProperty.Delimiter`.
 	Delimiter *string `json:"delimiter"`
@@ -7472,26 +7651,31 @@ type CfnStorageLens_SelectionCriteriaProperty struct {
 	MinStorageBytesPercentage *float64 `json:"minStorageBytesPercentage"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStorageLens_StorageLensConfigurationProperty struct {
 	// `CfnStorageLens.StorageLensConfigurationProperty.AccountLevel`.
 	AccountLevel interface{} `json:"accountLevel"`
-	// `CfnStorageLens.StorageLensConfigurationProperty.Id`.
-	Id *string `json:"id"`
-	// `CfnStorageLens.StorageLensConfigurationProperty.IsEnabled`.
-	IsEnabled interface{} `json:"isEnabled"`
 	// `CfnStorageLens.StorageLensConfigurationProperty.AwsOrg`.
 	AwsOrg interface{} `json:"awsOrg"`
 	// `CfnStorageLens.StorageLensConfigurationProperty.DataExport`.
 	DataExport interface{} `json:"dataExport"`
 	// `CfnStorageLens.StorageLensConfigurationProperty.Exclude`.
 	Exclude interface{} `json:"exclude"`
+	// `CfnStorageLens.StorageLensConfigurationProperty.Id`.
+	Id *string `json:"id"`
 	// `CfnStorageLens.StorageLensConfigurationProperty.Include`.
 	Include interface{} `json:"include"`
+	// `CfnStorageLens.StorageLensConfigurationProperty.IsEnabled`.
+	IsEnabled interface{} `json:"isEnabled"`
 	// `CfnStorageLens.StorageLensConfigurationProperty.StorageLensArn`.
 	StorageLensArn *string `json:"storageLensArn"`
 }
 
 // Properties for defining a `AWS::S3::StorageLens`.
+//
+// TODO: EXAMPLE
+//
 type CfnStorageLensProps struct {
 	// `AWS::S3::StorageLens.StorageLensConfiguration`.
 	StorageLensConfiguration interface{} `json:"storageLensConfiguration"`
@@ -7500,17 +7684,20 @@ type CfnStorageLensProps struct {
 }
 
 // Specifies a cross-origin access rule for an Amazon S3 bucket.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CorsRule struct {
+	// Headers that are specified in the Access-Control-Request-Headers header.
+	// Experimental.
+	AllowedHeaders *[]*string `json:"allowedHeaders"`
 	// An HTTP method that you allow the origin to execute.
 	// Experimental.
 	AllowedMethods *[]HttpMethods `json:"allowedMethods"`
 	// One or more origins you want customers to be able to access the bucket from.
 	// Experimental.
 	AllowedOrigins *[]*string `json:"allowedOrigins"`
-	// Headers that are specified in the Access-Control-Request-Headers header.
-	// Experimental.
-	AllowedHeaders *[]*string `json:"allowedHeaders"`
 	// One or more headers in the response that you want customers to be able to access from their applications.
 	// Experimental.
 	ExposedHeaders *[]*string `json:"exposedHeaders"`
@@ -7531,20 +7718,20 @@ type EventType string
 
 const (
 	EventType_OBJECT_CREATED EventType = "OBJECT_CREATED"
-	EventType_OBJECT_CREATED_PUT EventType = "OBJECT_CREATED_PUT"
-	EventType_OBJECT_CREATED_POST EventType = "OBJECT_CREATED_POST"
-	EventType_OBJECT_CREATED_COPY EventType = "OBJECT_CREATED_COPY"
 	EventType_OBJECT_CREATED_COMPLETE_MULTIPART_UPLOAD EventType = "OBJECT_CREATED_COMPLETE_MULTIPART_UPLOAD"
+	EventType_OBJECT_CREATED_COPY EventType = "OBJECT_CREATED_COPY"
+	EventType_OBJECT_CREATED_POST EventType = "OBJECT_CREATED_POST"
+	EventType_OBJECT_CREATED_PUT EventType = "OBJECT_CREATED_PUT"
 	EventType_OBJECT_REMOVED EventType = "OBJECT_REMOVED"
 	EventType_OBJECT_REMOVED_DELETE EventType = "OBJECT_REMOVED_DELETE"
 	EventType_OBJECT_REMOVED_DELETE_MARKER_CREATED EventType = "OBJECT_REMOVED_DELETE_MARKER_CREATED"
-	EventType_OBJECT_RESTORE_POST EventType = "OBJECT_RESTORE_POST"
 	EventType_OBJECT_RESTORE_COMPLETED EventType = "OBJECT_RESTORE_COMPLETED"
+	EventType_OBJECT_RESTORE_POST EventType = "OBJECT_RESTORE_POST"
 	EventType_REDUCED_REDUNDANCY_LOST_OBJECT EventType = "REDUCED_REDUNDANCY_LOST_OBJECT"
 	EventType_REPLICATION_OPERATION_FAILED_REPLICATION EventType = "REPLICATION_OPERATION_FAILED_REPLICATION"
 	EventType_REPLICATION_OPERATION_MISSED_THRESHOLD EventType = "REPLICATION_OPERATION_MISSED_THRESHOLD"
-	EventType_REPLICATION_OPERATION_REPLICATED_AFTER_THRESHOLD EventType = "REPLICATION_OPERATION_REPLICATED_AFTER_THRESHOLD"
 	EventType_REPLICATION_OPERATION_NOT_TRACKED EventType = "REPLICATION_OPERATION_NOT_TRACKED"
+	EventType_REPLICATION_OPERATION_REPLICATED_AFTER_THRESHOLD EventType = "REPLICATION_OPERATION_REPLICATED_AFTER_THRESHOLD"
 )
 
 // All http request methods.
@@ -7552,11 +7739,11 @@ const (
 type HttpMethods string
 
 const (
+	HttpMethods_DELETE HttpMethods = "DELETE"
 	HttpMethods_GET HttpMethods = "GET"
-	HttpMethods_PUT HttpMethods = "PUT"
 	HttpMethods_HEAD HttpMethods = "HEAD"
 	HttpMethods_POST HttpMethods = "POST"
-	HttpMethods_DELETE HttpMethods = "DELETE"
+	HttpMethods_PUT HttpMethods = "PUT"
 )
 
 // Experimental.
@@ -8153,6 +8340,9 @@ func (i *jsiiProxy_IBucketNotificationDestination) Bind(scope awscdk.Construct, 
 }
 
 // Specifies the inventory configuration of an S3 Bucket.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-inventory.html
 //
 // Experimental.
@@ -8209,8 +8399,8 @@ type InventoryFormat string
 
 const (
 	InventoryFormat_CSV InventoryFormat = "CSV"
-	InventoryFormat_PARQUET InventoryFormat = "PARQUET"
 	InventoryFormat_ORC InventoryFormat = "ORC"
+	InventoryFormat_PARQUET InventoryFormat = "PARQUET"
 )
 
 // All supported inventory frequencies.
@@ -8238,6 +8428,9 @@ const (
 )
 
 // Declaration of a Life cycle rule.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LifecycleRule struct {
 	// Specifies a lifecycle rule that aborts incomplete multipart uploads to an Amazon S3 bucket.
@@ -8328,6 +8521,9 @@ type Location struct {
 }
 
 // Describes when noncurrent versions transition to a specified storage class.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NoncurrentVersionTransition struct {
 	// The storage class to which you want the object to transition.
@@ -8365,6 +8561,9 @@ const (
 )
 
 // Options for the onCloudTrailPutObject method.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type OnCloudTrailBucketEventOptions struct {
 	// A description of the rule's purpose.
@@ -8485,6 +8684,9 @@ func ReplaceKey_With(keyReplacement *string) ReplaceKey {
 }
 
 // Rule that define when a redirect is applied and the redirect behavior.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html
 //
 // Experimental.
@@ -8525,6 +8727,9 @@ type RoutingRuleCondition struct {
 }
 
 // Storage class to move an object to.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type StorageClass interface {
 	Value() *string
@@ -8643,6 +8848,9 @@ func (s *jsiiProxy_StorageClass) ToString() *string {
 }
 
 // Describes when an object transitions to a specified storage class.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Transition struct {
 	// The storage class to which you want the object to transition.

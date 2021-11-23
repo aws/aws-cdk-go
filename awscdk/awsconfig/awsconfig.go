@@ -504,6 +504,9 @@ func (a *jsiiProxy_AccessKeysRotated) Validate() *[]*string {
 }
 
 // Construction properties for a AccessKeysRotated.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AccessKeysRotatedProps struct {
 	// A name for the AWS Config rule.
@@ -527,6 +530,9 @@ type AccessKeysRotatedProps struct {
 }
 
 // A CloudFormation `AWS::Config::AggregationAuthorization`.
+//
+// TODO: EXAMPLE
+//
 type CfnAggregationAuthorization interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1155,6 +1161,9 @@ func (c *jsiiProxy_CfnAggregationAuthorization) ValidateProperties(_properties i
 }
 
 // Properties for defining a `AWS::Config::AggregationAuthorization`.
+//
+// TODO: EXAMPLE
+//
 type CfnAggregationAuthorizationProps struct {
 	// `AWS::Config::AggregationAuthorization.AuthorizedAccountId`.
 	AuthorizedAccountId *string `json:"authorizedAccountId"`
@@ -1165,6 +1174,9 @@ type CfnAggregationAuthorizationProps struct {
 }
 
 // A CloudFormation `AWS::Config::ConfigRule`.
+//
+// TODO: EXAMPLE
+//
 type CfnConfigRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1883,6 +1895,8 @@ func (c *jsiiProxy_CfnConfigRule) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfigRule_ScopeProperty struct {
 	// `CfnConfigRule.ScopeProperty.ComplianceResourceId`.
 	ComplianceResourceId *string `json:"complianceResourceId"`
@@ -1894,28 +1908,33 @@ type CfnConfigRule_ScopeProperty struct {
 	TagValue *string `json:"tagValue"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfigRule_SourceDetailProperty struct {
 	// `CfnConfigRule.SourceDetailProperty.EventSource`.
 	EventSource *string `json:"eventSource"`
-	// `CfnConfigRule.SourceDetailProperty.MessageType`.
-	MessageType *string `json:"messageType"`
 	// `CfnConfigRule.SourceDetailProperty.MaximumExecutionFrequency`.
 	MaximumExecutionFrequency *string `json:"maximumExecutionFrequency"`
+	// `CfnConfigRule.SourceDetailProperty.MessageType`.
+	MessageType *string `json:"messageType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfigRule_SourceProperty struct {
 	// `CfnConfigRule.SourceProperty.Owner`.
 	Owner *string `json:"owner"`
-	// `CfnConfigRule.SourceProperty.SourceIdentifier`.
-	SourceIdentifier *string `json:"sourceIdentifier"`
 	// `CfnConfigRule.SourceProperty.SourceDetails`.
 	SourceDetails interface{} `json:"sourceDetails"`
+	// `CfnConfigRule.SourceProperty.SourceIdentifier`.
+	SourceIdentifier *string `json:"sourceIdentifier"`
 }
 
 // Properties for defining a `AWS::Config::ConfigRule`.
+//
+// TODO: EXAMPLE
+//
 type CfnConfigRuleProps struct {
-	// `AWS::Config::ConfigRule.Source`.
-	Source interface{} `json:"source"`
 	// `AWS::Config::ConfigRule.ConfigRuleName`.
 	ConfigRuleName *string `json:"configRuleName"`
 	// `AWS::Config::ConfigRule.Description`.
@@ -1926,9 +1945,14 @@ type CfnConfigRuleProps struct {
 	MaximumExecutionFrequency *string `json:"maximumExecutionFrequency"`
 	// `AWS::Config::ConfigRule.Scope`.
 	Scope interface{} `json:"scope"`
+	// `AWS::Config::ConfigRule.Source`.
+	Source interface{} `json:"source"`
 }
 
 // A CloudFormation `AWS::Config::ConfigurationAggregator`.
+//
+// TODO: EXAMPLE
+//
 type CfnConfigurationAggregator interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2576,6 +2600,8 @@ func (c *jsiiProxy_CfnConfigurationAggregator) ValidateProperties(_properties in
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfigurationAggregator_AccountAggregationSourceProperty struct {
 	// `CfnConfigurationAggregator.AccountAggregationSourceProperty.AccountIds`.
 	AccountIds *[]*string `json:"accountIds"`
@@ -2585,16 +2611,21 @@ type CfnConfigurationAggregator_AccountAggregationSourceProperty struct {
 	AwsRegions *[]*string `json:"awsRegions"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfigurationAggregator_OrganizationAggregationSourceProperty struct {
-	// `CfnConfigurationAggregator.OrganizationAggregationSourceProperty.RoleArn`.
-	RoleArn *string `json:"roleArn"`
 	// `CfnConfigurationAggregator.OrganizationAggregationSourceProperty.AllAwsRegions`.
 	AllAwsRegions interface{} `json:"allAwsRegions"`
 	// `CfnConfigurationAggregator.OrganizationAggregationSourceProperty.AwsRegions`.
 	AwsRegions *[]*string `json:"awsRegions"`
+	// `CfnConfigurationAggregator.OrganizationAggregationSourceProperty.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 }
 
 // Properties for defining a `AWS::Config::ConfigurationAggregator`.
+//
+// TODO: EXAMPLE
+//
 type CfnConfigurationAggregatorProps struct {
 	// `AWS::Config::ConfigurationAggregator.AccountAggregationSources`.
 	AccountAggregationSources interface{} `json:"accountAggregationSources"`
@@ -2607,6 +2638,9 @@ type CfnConfigurationAggregatorProps struct {
 }
 
 // A CloudFormation `AWS::Config::ConfigurationRecorder`.
+//
+// TODO: EXAMPLE
+//
 type CfnConfigurationRecorder interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3232,6 +3266,8 @@ func (c *jsiiProxy_CfnConfigurationRecorder) ValidateProperties(_properties inte
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfigurationRecorder_RecordingGroupProperty struct {
 	// `CfnConfigurationRecorder.RecordingGroupProperty.AllSupported`.
 	AllSupported interface{} `json:"allSupported"`
@@ -3242,16 +3278,22 @@ type CfnConfigurationRecorder_RecordingGroupProperty struct {
 }
 
 // Properties for defining a `AWS::Config::ConfigurationRecorder`.
+//
+// TODO: EXAMPLE
+//
 type CfnConfigurationRecorderProps struct {
-	// `AWS::Config::ConfigurationRecorder.RoleARN`.
-	RoleArn *string `json:"roleArn"`
 	// `AWS::Config::ConfigurationRecorder.Name`.
 	Name *string `json:"name"`
 	// `AWS::Config::ConfigurationRecorder.RecordingGroup`.
 	RecordingGroup interface{} `json:"recordingGroup"`
+	// `AWS::Config::ConfigurationRecorder.RoleARN`.
+	RoleArn *string `json:"roleArn"`
 }
 
 // A CloudFormation `AWS::Config::ConformancePack`.
+//
+// TODO: EXAMPLE
+//
 type CfnConformancePack interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3937,6 +3979,8 @@ func (c *jsiiProxy_CfnConformancePack) ValidateProperties(_properties interface{
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnConformancePack_ConformancePackInputParameterProperty struct {
 	// `CfnConformancePack.ConformancePackInputParameterProperty.ParameterName`.
 	ParameterName *string `json:"parameterName"`
@@ -3945,11 +3989,14 @@ type CfnConformancePack_ConformancePackInputParameterProperty struct {
 }
 
 // Properties for defining a `AWS::Config::ConformancePack`.
+//
+// TODO: EXAMPLE
+//
 type CfnConformancePackProps struct {
-	// `AWS::Config::ConformancePack.ConformancePackName`.
-	ConformancePackName *string `json:"conformancePackName"`
 	// `AWS::Config::ConformancePack.ConformancePackInputParameters`.
 	ConformancePackInputParameters interface{} `json:"conformancePackInputParameters"`
+	// `AWS::Config::ConformancePack.ConformancePackName`.
+	ConformancePackName *string `json:"conformancePackName"`
 	// `AWS::Config::ConformancePack.DeliveryS3Bucket`.
 	DeliveryS3Bucket *string `json:"deliveryS3Bucket"`
 	// `AWS::Config::ConformancePack.DeliveryS3KeyPrefix`.
@@ -3961,6 +4008,9 @@ type CfnConformancePackProps struct {
 }
 
 // A CloudFormation `AWS::Config::DeliveryChannel`.
+//
+// TODO: EXAMPLE
+//
 type CfnDeliveryChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4646,19 +4696,24 @@ func (c *jsiiProxy_CfnDeliveryChannel) ValidateProperties(_properties interface{
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryChannel_ConfigSnapshotDeliveryPropertiesProperty struct {
 	// `CfnDeliveryChannel.ConfigSnapshotDeliveryPropertiesProperty.DeliveryFrequency`.
 	DeliveryFrequency *string `json:"deliveryFrequency"`
 }
 
 // Properties for defining a `AWS::Config::DeliveryChannel`.
+//
+// TODO: EXAMPLE
+//
 type CfnDeliveryChannelProps struct {
-	// `AWS::Config::DeliveryChannel.S3BucketName`.
-	S3BucketName *string `json:"s3BucketName"`
 	// `AWS::Config::DeliveryChannel.ConfigSnapshotDeliveryProperties`.
 	ConfigSnapshotDeliveryProperties interface{} `json:"configSnapshotDeliveryProperties"`
 	// `AWS::Config::DeliveryChannel.Name`.
 	Name *string `json:"name"`
+	// `AWS::Config::DeliveryChannel.S3BucketName`.
+	S3BucketName *string `json:"s3BucketName"`
 	// `AWS::Config::DeliveryChannel.S3KeyPrefix`.
 	S3KeyPrefix *string `json:"s3KeyPrefix"`
 	// `AWS::Config::DeliveryChannel.S3KmsKeyArn`.
@@ -4668,6 +4723,9 @@ type CfnDeliveryChannelProps struct {
 }
 
 // A CloudFormation `AWS::Config::OrganizationConfigRule`.
+//
+// TODO: EXAMPLE
+//
 type CfnOrganizationConfigRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5313,17 +5371,19 @@ func (c *jsiiProxy_CfnOrganizationConfigRule) ValidateProperties(_properties int
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnOrganizationConfigRule_OrganizationCustomRuleMetadataProperty struct {
-	// `CfnOrganizationConfigRule.OrganizationCustomRuleMetadataProperty.LambdaFunctionArn`.
-	LambdaFunctionArn *string `json:"lambdaFunctionArn"`
-	// `CfnOrganizationConfigRule.OrganizationCustomRuleMetadataProperty.OrganizationConfigRuleTriggerTypes`.
-	OrganizationConfigRuleTriggerTypes *[]*string `json:"organizationConfigRuleTriggerTypes"`
 	// `CfnOrganizationConfigRule.OrganizationCustomRuleMetadataProperty.Description`.
 	Description *string `json:"description"`
 	// `CfnOrganizationConfigRule.OrganizationCustomRuleMetadataProperty.InputParameters`.
 	InputParameters *string `json:"inputParameters"`
+	// `CfnOrganizationConfigRule.OrganizationCustomRuleMetadataProperty.LambdaFunctionArn`.
+	LambdaFunctionArn *string `json:"lambdaFunctionArn"`
 	// `CfnOrganizationConfigRule.OrganizationCustomRuleMetadataProperty.MaximumExecutionFrequency`.
 	MaximumExecutionFrequency *string `json:"maximumExecutionFrequency"`
+	// `CfnOrganizationConfigRule.OrganizationCustomRuleMetadataProperty.OrganizationConfigRuleTriggerTypes`.
+	OrganizationConfigRuleTriggerTypes *[]*string `json:"organizationConfigRuleTriggerTypes"`
 	// `CfnOrganizationConfigRule.OrganizationCustomRuleMetadataProperty.ResourceIdScope`.
 	ResourceIdScope *string `json:"resourceIdScope"`
 	// `CfnOrganizationConfigRule.OrganizationCustomRuleMetadataProperty.ResourceTypesScope`.
@@ -5334,9 +5394,9 @@ type CfnOrganizationConfigRule_OrganizationCustomRuleMetadataProperty struct {
 	TagValueScope *string `json:"tagValueScope"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnOrganizationConfigRule_OrganizationManagedRuleMetadataProperty struct {
-	// `CfnOrganizationConfigRule.OrganizationManagedRuleMetadataProperty.RuleIdentifier`.
-	RuleIdentifier *string `json:"ruleIdentifier"`
 	// `CfnOrganizationConfigRule.OrganizationManagedRuleMetadataProperty.Description`.
 	Description *string `json:"description"`
 	// `CfnOrganizationConfigRule.OrganizationManagedRuleMetadataProperty.InputParameters`.
@@ -5347,6 +5407,8 @@ type CfnOrganizationConfigRule_OrganizationManagedRuleMetadataProperty struct {
 	ResourceIdScope *string `json:"resourceIdScope"`
 	// `CfnOrganizationConfigRule.OrganizationManagedRuleMetadataProperty.ResourceTypesScope`.
 	ResourceTypesScope *[]*string `json:"resourceTypesScope"`
+	// `CfnOrganizationConfigRule.OrganizationManagedRuleMetadataProperty.RuleIdentifier`.
+	RuleIdentifier *string `json:"ruleIdentifier"`
 	// `CfnOrganizationConfigRule.OrganizationManagedRuleMetadataProperty.TagKeyScope`.
 	TagKeyScope *string `json:"tagKeyScope"`
 	// `CfnOrganizationConfigRule.OrganizationManagedRuleMetadataProperty.TagValueScope`.
@@ -5354,11 +5416,14 @@ type CfnOrganizationConfigRule_OrganizationManagedRuleMetadataProperty struct {
 }
 
 // Properties for defining a `AWS::Config::OrganizationConfigRule`.
+//
+// TODO: EXAMPLE
+//
 type CfnOrganizationConfigRuleProps struct {
-	// `AWS::Config::OrganizationConfigRule.OrganizationConfigRuleName`.
-	OrganizationConfigRuleName *string `json:"organizationConfigRuleName"`
 	// `AWS::Config::OrganizationConfigRule.ExcludedAccounts`.
 	ExcludedAccounts *[]*string `json:"excludedAccounts"`
+	// `AWS::Config::OrganizationConfigRule.OrganizationConfigRuleName`.
+	OrganizationConfigRuleName *string `json:"organizationConfigRuleName"`
 	// `AWS::Config::OrganizationConfigRule.OrganizationCustomRuleMetadata`.
 	OrganizationCustomRuleMetadata interface{} `json:"organizationCustomRuleMetadata"`
 	// `AWS::Config::OrganizationConfigRule.OrganizationManagedRuleMetadata`.
@@ -5366,6 +5431,9 @@ type CfnOrganizationConfigRuleProps struct {
 }
 
 // A CloudFormation `AWS::Config::OrganizationConformancePack`.
+//
+// TODO: EXAMPLE
+//
 type CfnOrganizationConformancePack interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6071,6 +6139,8 @@ func (c *jsiiProxy_CfnOrganizationConformancePack) ValidateProperties(_propertie
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnOrganizationConformancePack_ConformancePackInputParameterProperty struct {
 	// `CfnOrganizationConformancePack.ConformancePackInputParameterProperty.ParameterName`.
 	ParameterName *string `json:"parameterName"`
@@ -6079,9 +6149,10 @@ type CfnOrganizationConformancePack_ConformancePackInputParameterProperty struct
 }
 
 // Properties for defining a `AWS::Config::OrganizationConformancePack`.
+//
+// TODO: EXAMPLE
+//
 type CfnOrganizationConformancePackProps struct {
-	// `AWS::Config::OrganizationConformancePack.OrganizationConformancePackName`.
-	OrganizationConformancePackName *string `json:"organizationConformancePackName"`
 	// `AWS::Config::OrganizationConformancePack.ConformancePackInputParameters`.
 	ConformancePackInputParameters interface{} `json:"conformancePackInputParameters"`
 	// `AWS::Config::OrganizationConformancePack.DeliveryS3Bucket`.
@@ -6090,6 +6161,8 @@ type CfnOrganizationConformancePackProps struct {
 	DeliveryS3KeyPrefix *string `json:"deliveryS3KeyPrefix"`
 	// `AWS::Config::OrganizationConformancePack.ExcludedAccounts`.
 	ExcludedAccounts *[]*string `json:"excludedAccounts"`
+	// `AWS::Config::OrganizationConformancePack.OrganizationConformancePackName`.
+	OrganizationConformancePackName *string `json:"organizationConformancePackName"`
 	// `AWS::Config::OrganizationConformancePack.TemplateBody`.
 	TemplateBody *string `json:"templateBody"`
 	// `AWS::Config::OrganizationConformancePack.TemplateS3Uri`.
@@ -6097,6 +6170,9 @@ type CfnOrganizationConformancePackProps struct {
 }
 
 // A CloudFormation `AWS::Config::RemediationConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnRemediationConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6862,11 +6938,15 @@ func (c *jsiiProxy_CfnRemediationConfiguration) ValidateProperties(_properties i
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnRemediationConfiguration_ExecutionControlsProperty struct {
 	// `CfnRemediationConfiguration.ExecutionControlsProperty.SsmControls`.
 	SsmControls interface{} `json:"ssmControls"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRemediationConfiguration_RemediationParameterValueProperty struct {
 	// `CfnRemediationConfiguration.RemediationParameterValueProperty.ResourceValue`.
 	ResourceValue interface{} `json:"resourceValue"`
@@ -6874,11 +6954,15 @@ type CfnRemediationConfiguration_RemediationParameterValueProperty struct {
 	StaticValue interface{} `json:"staticValue"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRemediationConfiguration_ResourceValueProperty struct {
 	// `CfnRemediationConfiguration.ResourceValueProperty.Value`.
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRemediationConfiguration_SsmControlsProperty struct {
 	// `CfnRemediationConfiguration.SsmControlsProperty.ConcurrentExecutionRatePercentage`.
 	ConcurrentExecutionRatePercentage *float64 `json:"concurrentExecutionRatePercentage"`
@@ -6886,21 +6970,22 @@ type CfnRemediationConfiguration_SsmControlsProperty struct {
 	ErrorPercentage *float64 `json:"errorPercentage"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRemediationConfiguration_StaticValueProperty struct {
 	// `CfnRemediationConfiguration.StaticValueProperty.Values`.
 	Values *[]*string `json:"values"`
 }
 
 // Properties for defining a `AWS::Config::RemediationConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnRemediationConfigurationProps struct {
-	// `AWS::Config::RemediationConfiguration.ConfigRuleName`.
-	ConfigRuleName *string `json:"configRuleName"`
-	// `AWS::Config::RemediationConfiguration.TargetId`.
-	TargetId *string `json:"targetId"`
-	// `AWS::Config::RemediationConfiguration.TargetType`.
-	TargetType *string `json:"targetType"`
 	// `AWS::Config::RemediationConfiguration.Automatic`.
 	Automatic interface{} `json:"automatic"`
+	// `AWS::Config::RemediationConfiguration.ConfigRuleName`.
+	ConfigRuleName *string `json:"configRuleName"`
 	// `AWS::Config::RemediationConfiguration.ExecutionControls`.
 	ExecutionControls interface{} `json:"executionControls"`
 	// `AWS::Config::RemediationConfiguration.MaximumAutomaticAttempts`.
@@ -6911,11 +6996,18 @@ type CfnRemediationConfigurationProps struct {
 	ResourceType *string `json:"resourceType"`
 	// `AWS::Config::RemediationConfiguration.RetryAttemptSeconds`.
 	RetryAttemptSeconds *float64 `json:"retryAttemptSeconds"`
+	// `AWS::Config::RemediationConfiguration.TargetId`.
+	TargetId *string `json:"targetId"`
+	// `AWS::Config::RemediationConfiguration.TargetType`.
+	TargetType *string `json:"targetType"`
 	// `AWS::Config::RemediationConfiguration.TargetVersion`.
 	TargetVersion *string `json:"targetVersion"`
 }
 
 // A CloudFormation `AWS::Config::StoredQuery`.
+//
+// TODO: EXAMPLE
+//
 type CfnStoredQuery interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -7575,13 +7667,16 @@ func (c *jsiiProxy_CfnStoredQuery) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Config::StoredQuery`.
+//
+// TODO: EXAMPLE
+//
 type CfnStoredQueryProps struct {
+	// `AWS::Config::StoredQuery.QueryDescription`.
+	QueryDescription *string `json:"queryDescription"`
 	// `AWS::Config::StoredQuery.QueryExpression`.
 	QueryExpression *string `json:"queryExpression"`
 	// `AWS::Config::StoredQuery.QueryName`.
 	QueryName *string `json:"queryName"`
-	// `AWS::Config::StoredQuery.QueryDescription`.
-	QueryDescription *string `json:"queryDescription"`
 	// `AWS::Config::StoredQuery.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
@@ -11584,8 +11679,8 @@ type MaximumExecutionFrequency string
 
 const (
 	MaximumExecutionFrequency_ONE_HOUR MaximumExecutionFrequency = "ONE_HOUR"
-	MaximumExecutionFrequency_THREE_HOURS MaximumExecutionFrequency = "THREE_HOURS"
 	MaximumExecutionFrequency_SIX_HOURS MaximumExecutionFrequency = "SIX_HOURS"
+	MaximumExecutionFrequency_THREE_HOURS MaximumExecutionFrequency = "THREE_HOURS"
 	MaximumExecutionFrequency_TWELVE_HOURS MaximumExecutionFrequency = "TWELVE_HOURS"
 	MaximumExecutionFrequency_TWENTY_FOUR_HOURS MaximumExecutionFrequency = "TWENTY_FOUR_HOURS"
 )
@@ -12603,6 +12698,9 @@ func ResourceType_XRAY_ENCRYPTION_CONFIGURATION() ResourceType {
 }
 
 // Construction properties for a new rule.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type RuleProps struct {
 	// A name for the AWS Config rule.

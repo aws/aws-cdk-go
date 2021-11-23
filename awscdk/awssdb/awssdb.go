@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::SDB::Domain`.
+//
+// TODO: EXAMPLE
+//
 type CfnDomain interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -596,6 +599,9 @@ func (c *jsiiProxy_CfnDomain) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::SDB::Domain`.
+//
+// TODO: EXAMPLE
+//
 type CfnDomainProps struct {
 	// `AWS::SDB::Domain.Description`.
 	Description *string `json:"description"`

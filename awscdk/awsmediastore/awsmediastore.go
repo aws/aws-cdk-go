@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::MediaStore::Container`.
+//
+// TODO: EXAMPLE
+//
 type CfnContainer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -717,6 +720,8 @@ func (c *jsiiProxy_CfnContainer) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnContainer_CorsRuleProperty struct {
 	// `CfnContainer.CorsRuleProperty.AllowedHeaders`.
 	AllowedHeaders *[]*string `json:"allowedHeaders"`
@@ -730,6 +735,8 @@ type CfnContainer_CorsRuleProperty struct {
 	MaxAgeSeconds *float64 `json:"maxAgeSeconds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnContainer_MetricPolicyProperty struct {
 	// `CfnContainer.MetricPolicyProperty.ContainerLevelMetrics`.
 	ContainerLevelMetrics *string `json:"containerLevelMetrics"`
@@ -737,6 +744,8 @@ type CfnContainer_MetricPolicyProperty struct {
 	MetricPolicyRules interface{} `json:"metricPolicyRules"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnContainer_MetricPolicyRuleProperty struct {
 	// `CfnContainer.MetricPolicyRuleProperty.ObjectGroup`.
 	ObjectGroup *string `json:"objectGroup"`
@@ -745,11 +754,14 @@ type CfnContainer_MetricPolicyRuleProperty struct {
 }
 
 // Properties for defining a `AWS::MediaStore::Container`.
+//
+// TODO: EXAMPLE
+//
 type CfnContainerProps struct {
-	// `AWS::MediaStore::Container.ContainerName`.
-	ContainerName *string `json:"containerName"`
 	// `AWS::MediaStore::Container.AccessLoggingEnabled`.
 	AccessLoggingEnabled interface{} `json:"accessLoggingEnabled"`
+	// `AWS::MediaStore::Container.ContainerName`.
+	ContainerName *string `json:"containerName"`
 	// `AWS::MediaStore::Container.CorsPolicy`.
 	CorsPolicy interface{} `json:"corsPolicy"`
 	// `AWS::MediaStore::Container.LifecyclePolicy`.

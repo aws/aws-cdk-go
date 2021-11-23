@@ -205,8 +205,8 @@ func init() {
 		reflect.TypeOf((*RuntimeFamily)(nil)).Elem(),
 		map[string]interface{}{
 			"NODEJS": RuntimeFamily_NODEJS,
-			"PYTHON": RuntimeFamily_PYTHON,
 			"OTHER": RuntimeFamily_OTHER,
+			"PYTHON": RuntimeFamily_PYTHON,
 		},
 	)
 	_jsii_.RegisterClass(

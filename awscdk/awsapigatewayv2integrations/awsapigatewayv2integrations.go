@@ -340,6 +340,9 @@ type HttpNlbIntegrationProps struct {
 }
 
 // Base options for private integration.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HttpPrivateIntegrationOptions struct {
 	// The HTTP method that must be used to invoke the underlying HTTP proxy.

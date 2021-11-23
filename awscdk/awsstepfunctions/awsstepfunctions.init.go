@@ -505,8 +505,8 @@ func init() {
 		"monocdk.aws_stepfunctions.InputType",
 		reflect.TypeOf((*InputType)(nil)).Elem(),
 		map[string]interface{}{
-			"TEXT": InputType_TEXT,
 			"OBJECT": InputType_OBJECT,
+			"TEXT": InputType_TEXT,
 		},
 	)
 	_jsii_.RegisterEnum(

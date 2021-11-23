@@ -90,6 +90,9 @@ type AddHeaderProps struct {
 }
 
 // Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon SNS.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Bounce interface {
 	awsses.IReceiptRuleAction
@@ -143,6 +146,9 @@ func (b *jsiiProxy_Bounce) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleAc
 }
 
 // Construction properties for a bounce action.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BounceProps struct {
 	// The email address of the sender of the bounced email.
@@ -160,6 +166,9 @@ type BounceProps struct {
 }
 
 // A bounce template.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BounceTemplate interface {
 	Props() *BounceTemplateProps
@@ -263,6 +272,9 @@ func BounceTemplate_TEMPORARY_FAILURE() BounceTemplate {
 }
 
 // Construction properties for a BounceTemplate.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BounceTemplateProps struct {
 	// Human-readable text to include in the bounce message.
@@ -290,6 +302,9 @@ const (
 )
 
 // Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Lambda interface {
 	awsses.IReceiptRuleAction
@@ -352,6 +367,9 @@ const (
 )
 
 // Construction properties for a Lambda action.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LambdaProps struct {
 	// The Lambda function to invoke.
@@ -512,6 +530,9 @@ type SnsProps struct {
 }
 
 // Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Stop interface {
 	awsses.IReceiptRuleAction
@@ -565,6 +586,9 @@ func (s *jsiiProxy_Stop) Bind(_rule awsses.IReceiptRule) *awsses.ReceiptRuleActi
 }
 
 // Construction properties for a stop action.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type StopProps struct {
 	// The SNS topic to notify when the stop action is taken.

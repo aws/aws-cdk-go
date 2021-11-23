@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::AccessAnalyzer::Analyzer`.
+//
+// TODO: EXAMPLE
+//
 type CfnAnalyzer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -657,6 +660,8 @@ func (c *jsiiProxy_CfnAnalyzer) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnalyzer_ArchiveRuleProperty struct {
 	// `CfnAnalyzer.ArchiveRuleProperty.Filter`.
 	Filter interface{} `json:"filter"`
@@ -664,9 +669,9 @@ type CfnAnalyzer_ArchiveRuleProperty struct {
 	RuleName *string `json:"ruleName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnalyzer_FilterProperty struct {
-	// `CfnAnalyzer.FilterProperty.Property`.
-	Property *string `json:"property"`
 	// `CfnAnalyzer.FilterProperty.Contains`.
 	Contains *[]*string `json:"contains"`
 	// `CfnAnalyzer.FilterProperty.Eq`.
@@ -675,17 +680,22 @@ type CfnAnalyzer_FilterProperty struct {
 	Exists interface{} `json:"exists"`
 	// `CfnAnalyzer.FilterProperty.Neq`.
 	Neq *[]*string `json:"neq"`
+	// `CfnAnalyzer.FilterProperty.Property`.
+	Property *string `json:"property"`
 }
 
 // Properties for defining a `AWS::AccessAnalyzer::Analyzer`.
+//
+// TODO: EXAMPLE
+//
 type CfnAnalyzerProps struct {
-	// `AWS::AccessAnalyzer::Analyzer.Type`.
-	Type *string `json:"type"`
 	// `AWS::AccessAnalyzer::Analyzer.AnalyzerName`.
 	AnalyzerName *string `json:"analyzerName"`
 	// `AWS::AccessAnalyzer::Analyzer.ArchiveRules`.
 	ArchiveRules interface{} `json:"archiveRules"`
 	// `AWS::AccessAnalyzer::Analyzer.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::AccessAnalyzer::Analyzer.Type`.
+	Type *string `json:"type"`
 }
 

@@ -15,6 +15,9 @@ import (
 )
 
 // A CloudFormation `AWS::ServiceCatalog::AcceptedPortfolioShare`.
+//
+// TODO: EXAMPLE
+//
 type CfnAcceptedPortfolioShare interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -621,14 +624,20 @@ func (c *jsiiProxy_CfnAcceptedPortfolioShare) ValidateProperties(_properties int
 }
 
 // Properties for defining a `AWS::ServiceCatalog::AcceptedPortfolioShare`.
+//
+// TODO: EXAMPLE
+//
 type CfnAcceptedPortfolioShareProps struct {
-	// `AWS::ServiceCatalog::AcceptedPortfolioShare.PortfolioId`.
-	PortfolioId *string `json:"portfolioId"`
 	// `AWS::ServiceCatalog::AcceptedPortfolioShare.AcceptLanguage`.
 	AcceptLanguage *string `json:"acceptLanguage"`
+	// `AWS::ServiceCatalog::AcceptedPortfolioShare.PortfolioId`.
+	PortfolioId *string `json:"portfolioId"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::CloudFormationProduct`.
+//
+// TODO: EXAMPLE
+//
 type CfnCloudFormationProduct interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1438,31 +1447,36 @@ func (c *jsiiProxy_CfnCloudFormationProduct) ValidateProperties(_properties inte
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnCloudFormationProduct_ProvisioningArtifactPropertiesProperty struct {
-	// `CfnCloudFormationProduct.ProvisioningArtifactPropertiesProperty.Info`.
-	Info interface{} `json:"info"`
 	// `CfnCloudFormationProduct.ProvisioningArtifactPropertiesProperty.Description`.
 	Description *string `json:"description"`
 	// `CfnCloudFormationProduct.ProvisioningArtifactPropertiesProperty.DisableTemplateValidation`.
 	DisableTemplateValidation interface{} `json:"disableTemplateValidation"`
+	// `CfnCloudFormationProduct.ProvisioningArtifactPropertiesProperty.Info`.
+	Info interface{} `json:"info"`
 	// `CfnCloudFormationProduct.ProvisioningArtifactPropertiesProperty.Name`.
 	Name *string `json:"name"`
 }
 
 // Properties for defining a `AWS::ServiceCatalog::CloudFormationProduct`.
+//
+// TODO: EXAMPLE
+//
 type CfnCloudFormationProductProps struct {
-	// `AWS::ServiceCatalog::CloudFormationProduct.Name`.
-	Name *string `json:"name"`
-	// `AWS::ServiceCatalog::CloudFormationProduct.Owner`.
-	Owner *string `json:"owner"`
-	// `AWS::ServiceCatalog::CloudFormationProduct.ProvisioningArtifactParameters`.
-	ProvisioningArtifactParameters interface{} `json:"provisioningArtifactParameters"`
 	// `AWS::ServiceCatalog::CloudFormationProduct.AcceptLanguage`.
 	AcceptLanguage *string `json:"acceptLanguage"`
 	// `AWS::ServiceCatalog::CloudFormationProduct.Description`.
 	Description *string `json:"description"`
 	// `AWS::ServiceCatalog::CloudFormationProduct.Distributor`.
 	Distributor *string `json:"distributor"`
+	// `AWS::ServiceCatalog::CloudFormationProduct.Name`.
+	Name *string `json:"name"`
+	// `AWS::ServiceCatalog::CloudFormationProduct.Owner`.
+	Owner *string `json:"owner"`
+	// `AWS::ServiceCatalog::CloudFormationProduct.ProvisioningArtifactParameters`.
+	ProvisioningArtifactParameters interface{} `json:"provisioningArtifactParameters"`
 	// `AWS::ServiceCatalog::CloudFormationProduct.ReplaceProvisioningArtifacts`.
 	ReplaceProvisioningArtifacts interface{} `json:"replaceProvisioningArtifacts"`
 	// `AWS::ServiceCatalog::CloudFormationProduct.SupportDescription`.
@@ -1476,6 +1490,9 @@ type CfnCloudFormationProductProps struct {
 }
 
 // A CloudFormation `AWS::ServiceCatalog::CloudFormationProvisionedProduct`.
+//
+// TODO: EXAMPLE
+//
 type CfnCloudFormationProvisionedProduct interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2305,6 +2322,8 @@ func (c *jsiiProxy_CfnCloudFormationProvisionedProduct) ValidateProperties(_prop
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnCloudFormationProvisionedProduct_ProvisioningParameterProperty struct {
 	// `CfnCloudFormationProvisionedProduct.ProvisioningParameterProperty.Key`.
 	Key *string `json:"key"`
@@ -2312,6 +2331,8 @@ type CfnCloudFormationProvisionedProduct_ProvisioningParameterProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCloudFormationProvisionedProduct_ProvisioningPreferencesProperty struct {
 	// `CfnCloudFormationProvisionedProduct.ProvisioningPreferencesProperty.StackSetAccounts`.
 	StackSetAccounts *[]*string `json:"stackSetAccounts"`
@@ -2330,6 +2351,9 @@ type CfnCloudFormationProvisionedProduct_ProvisioningPreferencesProperty struct 
 }
 
 // Properties for defining a `AWS::ServiceCatalog::CloudFormationProvisionedProduct`.
+//
+// TODO: EXAMPLE
+//
 type CfnCloudFormationProvisionedProductProps struct {
 	// `AWS::ServiceCatalog::CloudFormationProvisionedProduct.AcceptLanguage`.
 	AcceptLanguage *string `json:"acceptLanguage"`
@@ -2358,6 +2382,9 @@ type CfnCloudFormationProvisionedProductProps struct {
 }
 
 // A CloudFormation `AWS::ServiceCatalog::LaunchNotificationConstraint`.
+//
+// TODO: EXAMPLE
+//
 type CfnLaunchNotificationConstraint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3024,20 +3051,26 @@ func (c *jsiiProxy_CfnLaunchNotificationConstraint) ValidateProperties(_properti
 }
 
 // Properties for defining a `AWS::ServiceCatalog::LaunchNotificationConstraint`.
+//
+// TODO: EXAMPLE
+//
 type CfnLaunchNotificationConstraintProps struct {
+	// `AWS::ServiceCatalog::LaunchNotificationConstraint.AcceptLanguage`.
+	AcceptLanguage *string `json:"acceptLanguage"`
+	// `AWS::ServiceCatalog::LaunchNotificationConstraint.Description`.
+	Description *string `json:"description"`
 	// `AWS::ServiceCatalog::LaunchNotificationConstraint.NotificationArns`.
 	NotificationArns *[]*string `json:"notificationArns"`
 	// `AWS::ServiceCatalog::LaunchNotificationConstraint.PortfolioId`.
 	PortfolioId *string `json:"portfolioId"`
 	// `AWS::ServiceCatalog::LaunchNotificationConstraint.ProductId`.
 	ProductId *string `json:"productId"`
-	// `AWS::ServiceCatalog::LaunchNotificationConstraint.AcceptLanguage`.
-	AcceptLanguage *string `json:"acceptLanguage"`
-	// `AWS::ServiceCatalog::LaunchNotificationConstraint.Description`.
-	Description *string `json:"description"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::LaunchRoleConstraint`.
+//
+// TODO: EXAMPLE
+//
 type CfnLaunchRoleConstraint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3724,22 +3757,28 @@ func (c *jsiiProxy_CfnLaunchRoleConstraint) ValidateProperties(_properties inter
 }
 
 // Properties for defining a `AWS::ServiceCatalog::LaunchRoleConstraint`.
+//
+// TODO: EXAMPLE
+//
 type CfnLaunchRoleConstraintProps struct {
-	// `AWS::ServiceCatalog::LaunchRoleConstraint.PortfolioId`.
-	PortfolioId *string `json:"portfolioId"`
-	// `AWS::ServiceCatalog::LaunchRoleConstraint.ProductId`.
-	ProductId *string `json:"productId"`
 	// `AWS::ServiceCatalog::LaunchRoleConstraint.AcceptLanguage`.
 	AcceptLanguage *string `json:"acceptLanguage"`
 	// `AWS::ServiceCatalog::LaunchRoleConstraint.Description`.
 	Description *string `json:"description"`
 	// `AWS::ServiceCatalog::LaunchRoleConstraint.LocalRoleName`.
 	LocalRoleName *string `json:"localRoleName"`
+	// `AWS::ServiceCatalog::LaunchRoleConstraint.PortfolioId`.
+	PortfolioId *string `json:"portfolioId"`
+	// `AWS::ServiceCatalog::LaunchRoleConstraint.ProductId`.
+	ProductId *string `json:"productId"`
 	// `AWS::ServiceCatalog::LaunchRoleConstraint.RoleArn`.
 	RoleArn *string `json:"roleArn"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::LaunchTemplateConstraint`.
+//
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplateConstraint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4406,20 +4445,26 @@ func (c *jsiiProxy_CfnLaunchTemplateConstraint) ValidateProperties(_properties i
 }
 
 // Properties for defining a `AWS::ServiceCatalog::LaunchTemplateConstraint`.
+//
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplateConstraintProps struct {
+	// `AWS::ServiceCatalog::LaunchTemplateConstraint.AcceptLanguage`.
+	AcceptLanguage *string `json:"acceptLanguage"`
+	// `AWS::ServiceCatalog::LaunchTemplateConstraint.Description`.
+	Description *string `json:"description"`
 	// `AWS::ServiceCatalog::LaunchTemplateConstraint.PortfolioId`.
 	PortfolioId *string `json:"portfolioId"`
 	// `AWS::ServiceCatalog::LaunchTemplateConstraint.ProductId`.
 	ProductId *string `json:"productId"`
 	// `AWS::ServiceCatalog::LaunchTemplateConstraint.Rules`.
 	Rules *string `json:"rules"`
-	// `AWS::ServiceCatalog::LaunchTemplateConstraint.AcceptLanguage`.
-	AcceptLanguage *string `json:"acceptLanguage"`
-	// `AWS::ServiceCatalog::LaunchTemplateConstraint.Description`.
-	Description *string `json:"description"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::Portfolio`.
+//
+// TODO: EXAMPLE
+//
 type CfnPortfolio interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5088,6 +5133,9 @@ func (c *jsiiProxy_CfnPortfolio) ValidateProperties(_properties interface{}) {
 }
 
 // A CloudFormation `AWS::ServiceCatalog::PortfolioPrincipalAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnPortfolioPrincipalAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5734,18 +5782,24 @@ func (c *jsiiProxy_CfnPortfolioPrincipalAssociation) ValidateProperties(_propert
 }
 
 // Properties for defining a `AWS::ServiceCatalog::PortfolioPrincipalAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnPortfolioPrincipalAssociationProps struct {
+	// `AWS::ServiceCatalog::PortfolioPrincipalAssociation.AcceptLanguage`.
+	AcceptLanguage *string `json:"acceptLanguage"`
 	// `AWS::ServiceCatalog::PortfolioPrincipalAssociation.PortfolioId`.
 	PortfolioId *string `json:"portfolioId"`
 	// `AWS::ServiceCatalog::PortfolioPrincipalAssociation.PrincipalARN`.
 	PrincipalArn *string `json:"principalArn"`
 	// `AWS::ServiceCatalog::PortfolioPrincipalAssociation.PrincipalType`.
 	PrincipalType *string `json:"principalType"`
-	// `AWS::ServiceCatalog::PortfolioPrincipalAssociation.AcceptLanguage`.
-	AcceptLanguage *string `json:"acceptLanguage"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::PortfolioProductAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnPortfolioProductAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6392,32 +6446,41 @@ func (c *jsiiProxy_CfnPortfolioProductAssociation) ValidateProperties(_propertie
 }
 
 // Properties for defining a `AWS::ServiceCatalog::PortfolioProductAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnPortfolioProductAssociationProps struct {
+	// `AWS::ServiceCatalog::PortfolioProductAssociation.AcceptLanguage`.
+	AcceptLanguage *string `json:"acceptLanguage"`
 	// `AWS::ServiceCatalog::PortfolioProductAssociation.PortfolioId`.
 	PortfolioId *string `json:"portfolioId"`
 	// `AWS::ServiceCatalog::PortfolioProductAssociation.ProductId`.
 	ProductId *string `json:"productId"`
-	// `AWS::ServiceCatalog::PortfolioProductAssociation.AcceptLanguage`.
-	AcceptLanguage *string `json:"acceptLanguage"`
 	// `AWS::ServiceCatalog::PortfolioProductAssociation.SourcePortfolioId`.
 	SourcePortfolioId *string `json:"sourcePortfolioId"`
 }
 
 // Properties for defining a `AWS::ServiceCatalog::Portfolio`.
+//
+// TODO: EXAMPLE
+//
 type CfnPortfolioProps struct {
-	// `AWS::ServiceCatalog::Portfolio.DisplayName`.
-	DisplayName *string `json:"displayName"`
-	// `AWS::ServiceCatalog::Portfolio.ProviderName`.
-	ProviderName *string `json:"providerName"`
 	// `AWS::ServiceCatalog::Portfolio.AcceptLanguage`.
 	AcceptLanguage *string `json:"acceptLanguage"`
 	// `AWS::ServiceCatalog::Portfolio.Description`.
 	Description *string `json:"description"`
+	// `AWS::ServiceCatalog::Portfolio.DisplayName`.
+	DisplayName *string `json:"displayName"`
+	// `AWS::ServiceCatalog::Portfolio.ProviderName`.
+	ProviderName *string `json:"providerName"`
 	// `AWS::ServiceCatalog::Portfolio.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::PortfolioShare`.
+//
+// TODO: EXAMPLE
+//
 type CfnPortfolioShare interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -7064,18 +7127,24 @@ func (c *jsiiProxy_CfnPortfolioShare) ValidateProperties(_properties interface{}
 }
 
 // Properties for defining a `AWS::ServiceCatalog::PortfolioShare`.
+//
+// TODO: EXAMPLE
+//
 type CfnPortfolioShareProps struct {
+	// `AWS::ServiceCatalog::PortfolioShare.AcceptLanguage`.
+	AcceptLanguage *string `json:"acceptLanguage"`
 	// `AWS::ServiceCatalog::PortfolioShare.AccountId`.
 	AccountId *string `json:"accountId"`
 	// `AWS::ServiceCatalog::PortfolioShare.PortfolioId`.
 	PortfolioId *string `json:"portfolioId"`
-	// `AWS::ServiceCatalog::PortfolioShare.AcceptLanguage`.
-	AcceptLanguage *string `json:"acceptLanguage"`
 	// `AWS::ServiceCatalog::PortfolioShare.ShareTagOptions`.
 	ShareTagOptions interface{} `json:"shareTagOptions"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::ResourceUpdateConstraint`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourceUpdateConstraint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -7742,20 +7811,26 @@ func (c *jsiiProxy_CfnResourceUpdateConstraint) ValidateProperties(_properties i
 }
 
 // Properties for defining a `AWS::ServiceCatalog::ResourceUpdateConstraint`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourceUpdateConstraintProps struct {
+	// `AWS::ServiceCatalog::ResourceUpdateConstraint.AcceptLanguage`.
+	AcceptLanguage *string `json:"acceptLanguage"`
+	// `AWS::ServiceCatalog::ResourceUpdateConstraint.Description`.
+	Description *string `json:"description"`
 	// `AWS::ServiceCatalog::ResourceUpdateConstraint.PortfolioId`.
 	PortfolioId *string `json:"portfolioId"`
 	// `AWS::ServiceCatalog::ResourceUpdateConstraint.ProductId`.
 	ProductId *string `json:"productId"`
 	// `AWS::ServiceCatalog::ResourceUpdateConstraint.TagUpdateOnProvisionedProduct`.
 	TagUpdateOnProvisionedProduct *string `json:"tagUpdateOnProvisionedProduct"`
-	// `AWS::ServiceCatalog::ResourceUpdateConstraint.AcceptLanguage`.
-	AcceptLanguage *string `json:"acceptLanguage"`
-	// `AWS::ServiceCatalog::ResourceUpdateConstraint.Description`.
-	Description *string `json:"description"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::ServiceAction`.
+//
+// TODO: EXAMPLE
+//
 type CfnServiceAction interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -8432,6 +8507,8 @@ func (c *jsiiProxy_CfnServiceAction) ValidateProperties(_properties interface{})
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnServiceAction_DefinitionParameterProperty struct {
 	// `CfnServiceAction.DefinitionParameterProperty.Key`.
 	Key *string `json:"key"`
@@ -8440,6 +8517,9 @@ type CfnServiceAction_DefinitionParameterProperty struct {
 }
 
 // A CloudFormation `AWS::ServiceCatalog::ServiceActionAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnServiceActionAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -9066,6 +9146,9 @@ func (c *jsiiProxy_CfnServiceActionAssociation) ValidateProperties(_properties i
 }
 
 // Properties for defining a `AWS::ServiceCatalog::ServiceActionAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnServiceActionAssociationProps struct {
 	// `AWS::ServiceCatalog::ServiceActionAssociation.ProductId`.
 	ProductId *string `json:"productId"`
@@ -9076,20 +9159,26 @@ type CfnServiceActionAssociationProps struct {
 }
 
 // Properties for defining a `AWS::ServiceCatalog::ServiceAction`.
+//
+// TODO: EXAMPLE
+//
 type CfnServiceActionProps struct {
+	// `AWS::ServiceCatalog::ServiceAction.AcceptLanguage`.
+	AcceptLanguage *string `json:"acceptLanguage"`
 	// `AWS::ServiceCatalog::ServiceAction.Definition`.
 	Definition interface{} `json:"definition"`
 	// `AWS::ServiceCatalog::ServiceAction.DefinitionType`.
 	DefinitionType *string `json:"definitionType"`
-	// `AWS::ServiceCatalog::ServiceAction.Name`.
-	Name *string `json:"name"`
-	// `AWS::ServiceCatalog::ServiceAction.AcceptLanguage`.
-	AcceptLanguage *string `json:"acceptLanguage"`
 	// `AWS::ServiceCatalog::ServiceAction.Description`.
 	Description *string `json:"description"`
+	// `AWS::ServiceCatalog::ServiceAction.Name`.
+	Name *string `json:"name"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::StackSetConstraint`.
+//
+// TODO: EXAMPLE
+//
 type CfnStackSetConstraint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -9836,7 +9925,12 @@ func (c *jsiiProxy_CfnStackSetConstraint) ValidateProperties(_properties interfa
 }
 
 // Properties for defining a `AWS::ServiceCatalog::StackSetConstraint`.
+//
+// TODO: EXAMPLE
+//
 type CfnStackSetConstraintProps struct {
+	// `AWS::ServiceCatalog::StackSetConstraint.AcceptLanguage`.
+	AcceptLanguage *string `json:"acceptLanguage"`
 	// `AWS::ServiceCatalog::StackSetConstraint.AccountList`.
 	AccountList *[]*string `json:"accountList"`
 	// `AWS::ServiceCatalog::StackSetConstraint.AdminRole`.
@@ -9853,11 +9947,12 @@ type CfnStackSetConstraintProps struct {
 	RegionList *[]*string `json:"regionList"`
 	// `AWS::ServiceCatalog::StackSetConstraint.StackInstanceControl`.
 	StackInstanceControl *string `json:"stackInstanceControl"`
-	// `AWS::ServiceCatalog::StackSetConstraint.AcceptLanguage`.
-	AcceptLanguage *string `json:"acceptLanguage"`
 }
 
 // A CloudFormation `AWS::ServiceCatalog::TagOption`.
+//
+// TODO: EXAMPLE
+//
 type CfnTagOption interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -10484,6 +10579,9 @@ func (c *jsiiProxy_CfnTagOption) ValidateProperties(_properties interface{}) {
 }
 
 // A CloudFormation `AWS::ServiceCatalog::TagOptionAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnTagOptionAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -11090,6 +11188,9 @@ func (c *jsiiProxy_CfnTagOptionAssociation) ValidateProperties(_properties inter
 }
 
 // Properties for defining a `AWS::ServiceCatalog::TagOptionAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnTagOptionAssociationProps struct {
 	// `AWS::ServiceCatalog::TagOptionAssociation.ResourceId`.
 	ResourceId *string `json:"resourceId"`
@@ -11098,13 +11199,16 @@ type CfnTagOptionAssociationProps struct {
 }
 
 // Properties for defining a `AWS::ServiceCatalog::TagOption`.
+//
+// TODO: EXAMPLE
+//
 type CfnTagOptionProps struct {
+	// `AWS::ServiceCatalog::TagOption.Active`.
+	Active interface{} `json:"active"`
 	// `AWS::ServiceCatalog::TagOption.Key`.
 	Key *string `json:"key"`
 	// `AWS::ServiceCatalog::TagOption.Value`.
 	Value *string `json:"value"`
-	// `AWS::ServiceCatalog::TagOption.Active`.
-	Active interface{} `json:"active"`
 }
 
 // A Service Catalog Cloudformation Product.
@@ -11503,6 +11607,9 @@ type CloudFormationProductProps struct {
 }
 
 // Properties of product version (also known as a provisioning artifact).
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CloudFormationProductVersion struct {
 	// The S3 template that points to the provisioning version template.
@@ -11632,6 +11739,9 @@ func (c *jsiiProxy_CloudFormationTemplate) Bind(scope awscdk.Construct) *CloudFo
 }
 
 // Result of binding `Template` into a `Product`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CloudFormationTemplateConfig struct {
 	// The http url of the template in S3.
@@ -12469,6 +12579,9 @@ type PortfolioProps struct {
 }
 
 // Options for portfolio share.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type PortfolioShareOptions struct {
 	// The message language of the share.
@@ -12482,6 +12595,9 @@ type PortfolioShareOptions struct {
 }
 
 // Abstract class for Service Catalog Product.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Product interface {
 	awscdk.Resource
@@ -13780,6 +13896,9 @@ type TemplateRule struct {
 }
 
 // An assertion within a template rule, defined by intrinsic functions.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type TemplateRuleAssertion struct {
 	// The assertion condition.

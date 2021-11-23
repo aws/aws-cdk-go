@@ -16,6 +16,9 @@ import (
 )
 
 // A CloudFormation `AWS::KinesisFirehose::DeliveryStream`.
+//
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -823,6 +826,8 @@ func (c *jsiiProxy_CfnDeliveryStream) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_AmazonopensearchserviceBufferingHintsProperty struct {
 	// `CfnDeliveryStream.AmazonopensearchserviceBufferingHintsProperty.IntervalInSeconds`.
 	IntervalInSeconds *float64 `json:"intervalInSeconds"`
@@ -830,13 +835,9 @@ type CfnDeliveryStream_AmazonopensearchserviceBufferingHintsProperty struct {
 	SizeInMBs *float64 `json:"sizeInMBs"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_AmazonopensearchserviceDestinationConfigurationProperty struct {
-	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.IndexName`.
-	IndexName *string `json:"indexName"`
-	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.RoleARN`.
-	RoleArn *string `json:"roleArn"`
-	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.S3Configuration`.
-	S3Configuration interface{} `json:"s3Configuration"`
 	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.BufferingHints`.
 	BufferingHints interface{} `json:"bufferingHints"`
 	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.CloudWatchLoggingOptions`.
@@ -845,25 +846,35 @@ type CfnDeliveryStream_AmazonopensearchserviceDestinationConfigurationProperty s
 	ClusterEndpoint *string `json:"clusterEndpoint"`
 	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.DomainARN`.
 	DomainArn *string `json:"domainArn"`
+	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.IndexName`.
+	IndexName *string `json:"indexName"`
 	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.IndexRotationPeriod`.
 	IndexRotationPeriod *string `json:"indexRotationPeriod"`
 	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.ProcessingConfiguration`.
 	ProcessingConfiguration interface{} `json:"processingConfiguration"`
 	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.RetryOptions`.
 	RetryOptions interface{} `json:"retryOptions"`
+	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.RoleARN`.
+	RoleArn *string `json:"roleArn"`
 	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.S3BackupMode`.
 	S3BackupMode *string `json:"s3BackupMode"`
+	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.S3Configuration`.
+	S3Configuration interface{} `json:"s3Configuration"`
 	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.TypeName`.
 	TypeName *string `json:"typeName"`
 	// `CfnDeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty.VpcConfiguration`.
 	VpcConfiguration interface{} `json:"vpcConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_AmazonopensearchserviceRetryOptionsProperty struct {
 	// `CfnDeliveryStream.AmazonopensearchserviceRetryOptionsProperty.DurationInSeconds`.
 	DurationInSeconds *float64 `json:"durationInSeconds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_BufferingHintsProperty struct {
 	// `CfnDeliveryStream.BufferingHintsProperty.IntervalInSeconds`.
 	IntervalInSeconds *float64 `json:"intervalInSeconds"`
@@ -871,6 +882,8 @@ type CfnDeliveryStream_BufferingHintsProperty struct {
 	SizeInMBs *float64 `json:"sizeInMBs"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_CloudWatchLoggingOptionsProperty struct {
 	// `CfnDeliveryStream.CloudWatchLoggingOptionsProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
@@ -880,15 +893,19 @@ type CfnDeliveryStream_CloudWatchLoggingOptionsProperty struct {
 	LogStreamName *string `json:"logStreamName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_CopyCommandProperty struct {
-	// `CfnDeliveryStream.CopyCommandProperty.DataTableName`.
-	DataTableName *string `json:"dataTableName"`
 	// `CfnDeliveryStream.CopyCommandProperty.CopyOptions`.
 	CopyOptions *string `json:"copyOptions"`
 	// `CfnDeliveryStream.CopyCommandProperty.DataTableColumns`.
 	DataTableColumns *string `json:"dataTableColumns"`
+	// `CfnDeliveryStream.CopyCommandProperty.DataTableName`.
+	DataTableName *string `json:"dataTableName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_DataFormatConversionConfigurationProperty struct {
 	// `CfnDeliveryStream.DataFormatConversionConfigurationProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
@@ -900,13 +917,17 @@ type CfnDeliveryStream_DataFormatConversionConfigurationProperty struct {
 	SchemaConfiguration interface{} `json:"schemaConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_DeliveryStreamEncryptionConfigurationInputProperty struct {
-	// `CfnDeliveryStream.DeliveryStreamEncryptionConfigurationInputProperty.KeyType`.
-	KeyType *string `json:"keyType"`
 	// `CfnDeliveryStream.DeliveryStreamEncryptionConfigurationInputProperty.KeyARN`.
 	KeyArn *string `json:"keyArn"`
+	// `CfnDeliveryStream.DeliveryStreamEncryptionConfigurationInputProperty.KeyType`.
+	KeyType *string `json:"keyType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_DeserializerProperty struct {
 	// `CfnDeliveryStream.DeserializerProperty.HiveJsonSerDe`.
 	HiveJsonSerDe interface{} `json:"hiveJsonSerDe"`
@@ -914,6 +935,8 @@ type CfnDeliveryStream_DeserializerProperty struct {
 	OpenXJsonSerDe interface{} `json:"openXJsonSerDe"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_DynamicPartitioningConfigurationProperty struct {
 	// `CfnDeliveryStream.DynamicPartitioningConfigurationProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
@@ -921,6 +944,8 @@ type CfnDeliveryStream_DynamicPartitioningConfigurationProperty struct {
 	RetryOptions interface{} `json:"retryOptions"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_ElasticsearchBufferingHintsProperty struct {
 	// `CfnDeliveryStream.ElasticsearchBufferingHintsProperty.IntervalInSeconds`.
 	IntervalInSeconds *float64 `json:"intervalInSeconds"`
@@ -928,13 +953,9 @@ type CfnDeliveryStream_ElasticsearchBufferingHintsProperty struct {
 	SizeInMBs *float64 `json:"sizeInMBs"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_ElasticsearchDestinationConfigurationProperty struct {
-	// `CfnDeliveryStream.ElasticsearchDestinationConfigurationProperty.IndexName`.
-	IndexName *string `json:"indexName"`
-	// `CfnDeliveryStream.ElasticsearchDestinationConfigurationProperty.RoleARN`.
-	RoleArn *string `json:"roleArn"`
-	// `CfnDeliveryStream.ElasticsearchDestinationConfigurationProperty.S3Configuration`.
-	S3Configuration interface{} `json:"s3Configuration"`
 	// `CfnDeliveryStream.ElasticsearchDestinationConfigurationProperty.BufferingHints`.
 	BufferingHints interface{} `json:"bufferingHints"`
 	// `CfnDeliveryStream.ElasticsearchDestinationConfigurationProperty.CloudWatchLoggingOptions`.
@@ -943,25 +964,35 @@ type CfnDeliveryStream_ElasticsearchDestinationConfigurationProperty struct {
 	ClusterEndpoint *string `json:"clusterEndpoint"`
 	// `CfnDeliveryStream.ElasticsearchDestinationConfigurationProperty.DomainARN`.
 	DomainArn *string `json:"domainArn"`
+	// `CfnDeliveryStream.ElasticsearchDestinationConfigurationProperty.IndexName`.
+	IndexName *string `json:"indexName"`
 	// `CfnDeliveryStream.ElasticsearchDestinationConfigurationProperty.IndexRotationPeriod`.
 	IndexRotationPeriod *string `json:"indexRotationPeriod"`
 	// `CfnDeliveryStream.ElasticsearchDestinationConfigurationProperty.ProcessingConfiguration`.
 	ProcessingConfiguration interface{} `json:"processingConfiguration"`
 	// `CfnDeliveryStream.ElasticsearchDestinationConfigurationProperty.RetryOptions`.
 	RetryOptions interface{} `json:"retryOptions"`
+	// `CfnDeliveryStream.ElasticsearchDestinationConfigurationProperty.RoleARN`.
+	RoleArn *string `json:"roleArn"`
 	// `CfnDeliveryStream.ElasticsearchDestinationConfigurationProperty.S3BackupMode`.
 	S3BackupMode *string `json:"s3BackupMode"`
+	// `CfnDeliveryStream.ElasticsearchDestinationConfigurationProperty.S3Configuration`.
+	S3Configuration interface{} `json:"s3Configuration"`
 	// `CfnDeliveryStream.ElasticsearchDestinationConfigurationProperty.TypeName`.
 	TypeName *string `json:"typeName"`
 	// `CfnDeliveryStream.ElasticsearchDestinationConfigurationProperty.VpcConfiguration`.
 	VpcConfiguration interface{} `json:"vpcConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_ElasticsearchRetryOptionsProperty struct {
 	// `CfnDeliveryStream.ElasticsearchRetryOptionsProperty.DurationInSeconds`.
 	DurationInSeconds *float64 `json:"durationInSeconds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_EncryptionConfigurationProperty struct {
 	// `CfnDeliveryStream.EncryptionConfigurationProperty.KMSEncryptionConfig`.
 	KmsEncryptionConfig interface{} `json:"kmsEncryptionConfig"`
@@ -969,11 +1000,11 @@ type CfnDeliveryStream_EncryptionConfigurationProperty struct {
 	NoEncryptionConfig *string `json:"noEncryptionConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_ExtendedS3DestinationConfigurationProperty struct {
 	// `CfnDeliveryStream.ExtendedS3DestinationConfigurationProperty.BucketARN`.
 	BucketArn *string `json:"bucketArn"`
-	// `CfnDeliveryStream.ExtendedS3DestinationConfigurationProperty.RoleARN`.
-	RoleArn *string `json:"roleArn"`
 	// `CfnDeliveryStream.ExtendedS3DestinationConfigurationProperty.BufferingHints`.
 	BufferingHints interface{} `json:"bufferingHints"`
 	// `CfnDeliveryStream.ExtendedS3DestinationConfigurationProperty.CloudWatchLoggingOptions`.
@@ -992,17 +1023,23 @@ type CfnDeliveryStream_ExtendedS3DestinationConfigurationProperty struct {
 	Prefix *string `json:"prefix"`
 	// `CfnDeliveryStream.ExtendedS3DestinationConfigurationProperty.ProcessingConfiguration`.
 	ProcessingConfiguration interface{} `json:"processingConfiguration"`
+	// `CfnDeliveryStream.ExtendedS3DestinationConfigurationProperty.RoleARN`.
+	RoleArn *string `json:"roleArn"`
 	// `CfnDeliveryStream.ExtendedS3DestinationConfigurationProperty.S3BackupConfiguration`.
 	S3BackupConfiguration interface{} `json:"s3BackupConfiguration"`
 	// `CfnDeliveryStream.ExtendedS3DestinationConfigurationProperty.S3BackupMode`.
 	S3BackupMode *string `json:"s3BackupMode"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_HiveJsonSerDeProperty struct {
 	// `CfnDeliveryStream.HiveJsonSerDeProperty.TimestampFormats`.
 	TimestampFormats *[]*string `json:"timestampFormats"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_HttpEndpointCommonAttributeProperty struct {
 	// `CfnDeliveryStream.HttpEndpointCommonAttributeProperty.AttributeName`.
 	AttributeName *string `json:"attributeName"`
@@ -1010,24 +1047,26 @@ type CfnDeliveryStream_HttpEndpointCommonAttributeProperty struct {
 	AttributeValue *string `json:"attributeValue"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_HttpEndpointConfigurationProperty struct {
-	// `CfnDeliveryStream.HttpEndpointConfigurationProperty.Url`.
-	Url *string `json:"url"`
 	// `CfnDeliveryStream.HttpEndpointConfigurationProperty.AccessKey`.
 	AccessKey *string `json:"accessKey"`
 	// `CfnDeliveryStream.HttpEndpointConfigurationProperty.Name`.
 	Name *string `json:"name"`
+	// `CfnDeliveryStream.HttpEndpointConfigurationProperty.Url`.
+	Url *string `json:"url"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_HttpEndpointDestinationConfigurationProperty struct {
-	// `CfnDeliveryStream.HttpEndpointDestinationConfigurationProperty.EndpointConfiguration`.
-	EndpointConfiguration interface{} `json:"endpointConfiguration"`
-	// `CfnDeliveryStream.HttpEndpointDestinationConfigurationProperty.S3Configuration`.
-	S3Configuration interface{} `json:"s3Configuration"`
 	// `CfnDeliveryStream.HttpEndpointDestinationConfigurationProperty.BufferingHints`.
 	BufferingHints interface{} `json:"bufferingHints"`
 	// `CfnDeliveryStream.HttpEndpointDestinationConfigurationProperty.CloudWatchLoggingOptions`.
 	CloudWatchLoggingOptions interface{} `json:"cloudWatchLoggingOptions"`
+	// `CfnDeliveryStream.HttpEndpointDestinationConfigurationProperty.EndpointConfiguration`.
+	EndpointConfiguration interface{} `json:"endpointConfiguration"`
 	// `CfnDeliveryStream.HttpEndpointDestinationConfigurationProperty.ProcessingConfiguration`.
 	ProcessingConfiguration interface{} `json:"processingConfiguration"`
 	// `CfnDeliveryStream.HttpEndpointDestinationConfigurationProperty.RequestConfiguration`.
@@ -1038,8 +1077,12 @@ type CfnDeliveryStream_HttpEndpointDestinationConfigurationProperty struct {
 	RoleArn *string `json:"roleArn"`
 	// `CfnDeliveryStream.HttpEndpointDestinationConfigurationProperty.S3BackupMode`.
 	S3BackupMode *string `json:"s3BackupMode"`
+	// `CfnDeliveryStream.HttpEndpointDestinationConfigurationProperty.S3Configuration`.
+	S3Configuration interface{} `json:"s3Configuration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_HttpEndpointRequestConfigurationProperty struct {
 	// `CfnDeliveryStream.HttpEndpointRequestConfigurationProperty.CommonAttributes`.
 	CommonAttributes interface{} `json:"commonAttributes"`
@@ -1047,16 +1090,22 @@ type CfnDeliveryStream_HttpEndpointRequestConfigurationProperty struct {
 	ContentEncoding *string `json:"contentEncoding"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_InputFormatConfigurationProperty struct {
 	// `CfnDeliveryStream.InputFormatConfigurationProperty.Deserializer`.
 	Deserializer interface{} `json:"deserializer"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_KMSEncryptionConfigProperty struct {
 	// `CfnDeliveryStream.KMSEncryptionConfigProperty.AWSKMSKeyARN`.
 	AwskmsKeyArn *string `json:"awskmsKeyArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_KinesisStreamSourceConfigurationProperty struct {
 	// `CfnDeliveryStream.KinesisStreamSourceConfigurationProperty.KinesisStreamARN`.
 	KinesisStreamArn *string `json:"kinesisStreamArn"`
@@ -1064,6 +1113,8 @@ type CfnDeliveryStream_KinesisStreamSourceConfigurationProperty struct {
 	RoleArn *string `json:"roleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_OpenXJsonSerDeProperty struct {
 	// `CfnDeliveryStream.OpenXJsonSerDeProperty.CaseInsensitive`.
 	CaseInsensitive interface{} `json:"caseInsensitive"`
@@ -1073,6 +1124,8 @@ type CfnDeliveryStream_OpenXJsonSerDeProperty struct {
 	ConvertDotsInJsonKeysToUnderscores interface{} `json:"convertDotsInJsonKeysToUnderscores"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_OrcSerDeProperty struct {
 	// `CfnDeliveryStream.OrcSerDeProperty.BlockSizeBytes`.
 	BlockSizeBytes *float64 `json:"blockSizeBytes"`
@@ -1096,11 +1149,15 @@ type CfnDeliveryStream_OrcSerDeProperty struct {
 	StripeSizeBytes *float64 `json:"stripeSizeBytes"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_OutputFormatConfigurationProperty struct {
 	// `CfnDeliveryStream.OutputFormatConfigurationProperty.Serializer`.
 	Serializer interface{} `json:"serializer"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_ParquetSerDeProperty struct {
 	// `CfnDeliveryStream.ParquetSerDeProperty.BlockSizeBytes`.
 	BlockSizeBytes *float64 `json:"blockSizeBytes"`
@@ -1116,6 +1173,8 @@ type CfnDeliveryStream_ParquetSerDeProperty struct {
 	WriterVersion *string `json:"writerVersion"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_ProcessingConfigurationProperty struct {
 	// `CfnDeliveryStream.ProcessingConfigurationProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
@@ -1123,6 +1182,8 @@ type CfnDeliveryStream_ProcessingConfigurationProperty struct {
 	Processors interface{} `json:"processors"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_ProcessorParameterProperty struct {
 	// `CfnDeliveryStream.ProcessorParameterProperty.ParameterName`.
 	ParameterName *string `json:"parameterName"`
@@ -1130,53 +1191,61 @@ type CfnDeliveryStream_ProcessorParameterProperty struct {
 	ParameterValue *string `json:"parameterValue"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_ProcessorProperty struct {
-	// `CfnDeliveryStream.ProcessorProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnDeliveryStream.ProcessorProperty.Parameters`.
 	Parameters interface{} `json:"parameters"`
+	// `CfnDeliveryStream.ProcessorProperty.Type`.
+	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_RedshiftDestinationConfigurationProperty struct {
+	// `CfnDeliveryStream.RedshiftDestinationConfigurationProperty.CloudWatchLoggingOptions`.
+	CloudWatchLoggingOptions interface{} `json:"cloudWatchLoggingOptions"`
 	// `CfnDeliveryStream.RedshiftDestinationConfigurationProperty.ClusterJDBCURL`.
 	ClusterJdbcurl *string `json:"clusterJdbcurl"`
 	// `CfnDeliveryStream.RedshiftDestinationConfigurationProperty.CopyCommand`.
 	CopyCommand interface{} `json:"copyCommand"`
 	// `CfnDeliveryStream.RedshiftDestinationConfigurationProperty.Password`.
 	Password *string `json:"password"`
-	// `CfnDeliveryStream.RedshiftDestinationConfigurationProperty.RoleARN`.
-	RoleArn *string `json:"roleArn"`
-	// `CfnDeliveryStream.RedshiftDestinationConfigurationProperty.S3Configuration`.
-	S3Configuration interface{} `json:"s3Configuration"`
-	// `CfnDeliveryStream.RedshiftDestinationConfigurationProperty.Username`.
-	Username *string `json:"username"`
-	// `CfnDeliveryStream.RedshiftDestinationConfigurationProperty.CloudWatchLoggingOptions`.
-	CloudWatchLoggingOptions interface{} `json:"cloudWatchLoggingOptions"`
 	// `CfnDeliveryStream.RedshiftDestinationConfigurationProperty.ProcessingConfiguration`.
 	ProcessingConfiguration interface{} `json:"processingConfiguration"`
 	// `CfnDeliveryStream.RedshiftDestinationConfigurationProperty.RetryOptions`.
 	RetryOptions interface{} `json:"retryOptions"`
+	// `CfnDeliveryStream.RedshiftDestinationConfigurationProperty.RoleARN`.
+	RoleArn *string `json:"roleArn"`
 	// `CfnDeliveryStream.RedshiftDestinationConfigurationProperty.S3BackupConfiguration`.
 	S3BackupConfiguration interface{} `json:"s3BackupConfiguration"`
 	// `CfnDeliveryStream.RedshiftDestinationConfigurationProperty.S3BackupMode`.
 	S3BackupMode *string `json:"s3BackupMode"`
+	// `CfnDeliveryStream.RedshiftDestinationConfigurationProperty.S3Configuration`.
+	S3Configuration interface{} `json:"s3Configuration"`
+	// `CfnDeliveryStream.RedshiftDestinationConfigurationProperty.Username`.
+	Username *string `json:"username"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_RedshiftRetryOptionsProperty struct {
 	// `CfnDeliveryStream.RedshiftRetryOptionsProperty.DurationInSeconds`.
 	DurationInSeconds *float64 `json:"durationInSeconds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_RetryOptionsProperty struct {
 	// `CfnDeliveryStream.RetryOptionsProperty.DurationInSeconds`.
 	DurationInSeconds *float64 `json:"durationInSeconds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_S3DestinationConfigurationProperty struct {
 	// `CfnDeliveryStream.S3DestinationConfigurationProperty.BucketARN`.
 	BucketArn *string `json:"bucketArn"`
-	// `CfnDeliveryStream.S3DestinationConfigurationProperty.RoleARN`.
-	RoleArn *string `json:"roleArn"`
 	// `CfnDeliveryStream.S3DestinationConfigurationProperty.BufferingHints`.
 	BufferingHints interface{} `json:"bufferingHints"`
 	// `CfnDeliveryStream.S3DestinationConfigurationProperty.CloudWatchLoggingOptions`.
@@ -1189,8 +1258,12 @@ type CfnDeliveryStream_S3DestinationConfigurationProperty struct {
 	ErrorOutputPrefix *string `json:"errorOutputPrefix"`
 	// `CfnDeliveryStream.S3DestinationConfigurationProperty.Prefix`.
 	Prefix *string `json:"prefix"`
+	// `CfnDeliveryStream.S3DestinationConfigurationProperty.RoleARN`.
+	RoleArn *string `json:"roleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_SchemaConfigurationProperty struct {
 	// `CfnDeliveryStream.SchemaConfigurationProperty.CatalogId`.
 	CatalogId *string `json:"catalogId"`
@@ -1206,6 +1279,8 @@ type CfnDeliveryStream_SchemaConfigurationProperty struct {
 	VersionId *string `json:"versionId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_SerializerProperty struct {
 	// `CfnDeliveryStream.SerializerProperty.OrcSerDe`.
 	OrcSerDe interface{} `json:"orcSerDe"`
@@ -1213,32 +1288,38 @@ type CfnDeliveryStream_SerializerProperty struct {
 	ParquetSerDe interface{} `json:"parquetSerDe"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_SplunkDestinationConfigurationProperty struct {
+	// `CfnDeliveryStream.SplunkDestinationConfigurationProperty.CloudWatchLoggingOptions`.
+	CloudWatchLoggingOptions interface{} `json:"cloudWatchLoggingOptions"`
+	// `CfnDeliveryStream.SplunkDestinationConfigurationProperty.HECAcknowledgmentTimeoutInSeconds`.
+	HecAcknowledgmentTimeoutInSeconds *float64 `json:"hecAcknowledgmentTimeoutInSeconds"`
 	// `CfnDeliveryStream.SplunkDestinationConfigurationProperty.HECEndpoint`.
 	HecEndpoint *string `json:"hecEndpoint"`
 	// `CfnDeliveryStream.SplunkDestinationConfigurationProperty.HECEndpointType`.
 	HecEndpointType *string `json:"hecEndpointType"`
 	// `CfnDeliveryStream.SplunkDestinationConfigurationProperty.HECToken`.
 	HecToken *string `json:"hecToken"`
-	// `CfnDeliveryStream.SplunkDestinationConfigurationProperty.S3Configuration`.
-	S3Configuration interface{} `json:"s3Configuration"`
-	// `CfnDeliveryStream.SplunkDestinationConfigurationProperty.CloudWatchLoggingOptions`.
-	CloudWatchLoggingOptions interface{} `json:"cloudWatchLoggingOptions"`
-	// `CfnDeliveryStream.SplunkDestinationConfigurationProperty.HECAcknowledgmentTimeoutInSeconds`.
-	HecAcknowledgmentTimeoutInSeconds *float64 `json:"hecAcknowledgmentTimeoutInSeconds"`
 	// `CfnDeliveryStream.SplunkDestinationConfigurationProperty.ProcessingConfiguration`.
 	ProcessingConfiguration interface{} `json:"processingConfiguration"`
 	// `CfnDeliveryStream.SplunkDestinationConfigurationProperty.RetryOptions`.
 	RetryOptions interface{} `json:"retryOptions"`
 	// `CfnDeliveryStream.SplunkDestinationConfigurationProperty.S3BackupMode`.
 	S3BackupMode *string `json:"s3BackupMode"`
+	// `CfnDeliveryStream.SplunkDestinationConfigurationProperty.S3Configuration`.
+	S3Configuration interface{} `json:"s3Configuration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_SplunkRetryOptionsProperty struct {
 	// `CfnDeliveryStream.SplunkRetryOptionsProperty.DurationInSeconds`.
 	DurationInSeconds *float64 `json:"durationInSeconds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeliveryStream_VpcConfigurationProperty struct {
 	// `CfnDeliveryStream.VpcConfigurationProperty.RoleARN`.
 	RoleArn *string `json:"roleArn"`
@@ -1249,6 +1330,9 @@ type CfnDeliveryStream_VpcConfigurationProperty struct {
 }
 
 // Properties for defining a `AWS::KinesisFirehose::DeliveryStream`.
+//
+// TODO: EXAMPLE
+//
 type CfnDeliveryStreamProps struct {
 	// `AWS::KinesisFirehose::DeliveryStream.AmazonopensearchserviceDestinationConfiguration`.
 	AmazonopensearchserviceDestinationConfiguration interface{} `json:"amazonopensearchserviceDestinationConfiguration"`
@@ -1277,6 +1361,9 @@ type CfnDeliveryStreamProps struct {
 }
 
 // Options when binding a DataProcessor to a delivery stream destination.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DataProcessorBindOptions struct {
 	// The IAM role assumed by Kinesis Data Firehose to write to the destination that this DataProcessor will bind to.
@@ -1285,6 +1372,9 @@ type DataProcessorBindOptions struct {
 }
 
 // The full configuration of a data processor.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DataProcessorConfig struct {
 	// The key-value pair that identifies the underlying processor resource.
@@ -1303,6 +1393,9 @@ type DataProcessorConfig struct {
 }
 
 // The key-value pair that identifies the underlying processor resource.
+//
+// TODO: EXAMPLE
+//
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html
 //
 // Experimental.
@@ -1895,6 +1988,9 @@ func (d *jsiiProxy_DeliveryStream) Validate() *[]*string {
 }
 
 // A full specification of a delivery stream that can be used to import it fluently into the CDK application.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DeliveryStreamAttributes struct {
 	// The ARN of the delivery stream.
@@ -1945,11 +2041,17 @@ type DeliveryStreamProps struct {
 }
 
 // Options when binding a destination to a delivery stream.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DestinationBindOptions struct {
 }
 
 // A Kinesis Data Firehose delivery stream destination configuration.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DestinationConfig struct {
 	// Any resources that were created by the destination when binding it to the stack that must be deployed before the delivery stream is deployed.

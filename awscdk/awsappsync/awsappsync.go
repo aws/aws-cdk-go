@@ -17,6 +17,9 @@ import (
 )
 
 // The options to add a field to an Intermediate Type.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AddFieldOptions struct {
 	// The resolvable field to add.
@@ -34,6 +37,9 @@ type AddFieldOptions struct {
 }
 
 // Configuration for API Key authorization in AppSync.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ApiKeyConfig struct {
 	// Description of API key.
@@ -433,6 +439,9 @@ func (a *jsiiProxy_AppsyncFunction) Validate() *[]*string {
 }
 
 // The attributes for imported AppSync Functions.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AppsyncFunctionAttributes struct {
 	// the ARN of the AppSync function.
@@ -446,12 +455,12 @@ type AppsyncFunctionAttributes struct {
 //
 // Experimental.
 type AppsyncFunctionProps struct {
-	// the name of the AppSync Function.
-	// Experimental.
-	Name *string `json:"name"`
 	// the description for this AppSync Function.
 	// Experimental.
 	Description *string `json:"description"`
+	// the name of the AppSync Function.
+	// Experimental.
+	Name *string `json:"name"`
 	// the request mapping template for the AppSync Function.
 	// Experimental.
 	RequestMappingTemplate MappingTemplate `json:"requestMappingTemplate"`
@@ -467,6 +476,9 @@ type AppsyncFunctionProps struct {
 }
 
 // Utility class representing the assigment of a value to an attribute.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Assign interface {
 	PutInMap(map_ *string) *string
@@ -622,6 +634,9 @@ func (a *jsiiProxy_AttributeValues) RenderVariables() *string {
 }
 
 // Utility class to allow assigning a value to an attribute.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AttributeValuesStep interface {
 	Is(val *string) AttributeValues
@@ -722,9 +737,9 @@ type AuthorizationType string
 const (
 	AuthorizationType_API_KEY AuthorizationType = "API_KEY"
 	AuthorizationType_IAM AuthorizationType = "IAM"
-	AuthorizationType_USER_POOL AuthorizationType = "USER_POOL"
-	AuthorizationType_OIDC AuthorizationType = "OIDC"
 	AuthorizationType_LAMBDA AuthorizationType = "LAMBDA"
+	AuthorizationType_OIDC AuthorizationType = "OIDC"
+	AuthorizationType_USER_POOL AuthorizationType = "USER_POOL"
 )
 
 // The authorization config in case the HTTP endpoint requires authorization.
@@ -1024,6 +1039,9 @@ func (b *jsiiProxy_BackedDataSource) Validate() *[]*string {
 }
 
 // properties for an AppSync datasource backed by a resource.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BackedDataSourceProps struct {
 	// The API to attach this data source to.
@@ -1041,14 +1059,17 @@ type BackedDataSourceProps struct {
 }
 
 // the base properties for AppSync Functions.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BaseAppsyncFunctionProps struct {
-	// the name of the AppSync Function.
-	// Experimental.
-	Name *string `json:"name"`
 	// the description for this AppSync Function.
 	// Experimental.
 	Description *string `json:"description"`
+	// the name of the AppSync Function.
+	// Experimental.
+	Name *string `json:"name"`
 	// the request mapping template for the AppSync Function.
 	// Experimental.
 	RequestMappingTemplate MappingTemplate `json:"requestMappingTemplate"`
@@ -1330,6 +1351,9 @@ func (b *jsiiProxy_BaseDataSource) Validate() *[]*string {
 }
 
 // Base properties for an AppSync datasource.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BaseDataSourceProps struct {
 	// The API to attach this data source to.
@@ -1352,9 +1376,6 @@ type BaseResolverProps struct {
 	// name of the GraphQL field in the given type this resolver is attached to.
 	// Experimental.
 	FieldName *string `json:"fieldName"`
-	// name of the GraphQL type this resolver is attached to.
-	// Experimental.
-	TypeName *string `json:"typeName"`
 	// configuration of the pipeline resolver.
 	// Experimental.
 	PipelineConfig *[]IAppsyncFunction `json:"pipelineConfig"`
@@ -1364,6 +1385,9 @@ type BaseResolverProps struct {
 	// The response mapping template for this resolver.
 	// Experimental.
 	ResponseMappingTemplate MappingTemplate `json:"responseMappingTemplate"`
+	// name of the GraphQL type this resolver is attached to.
+	// Experimental.
+	TypeName *string `json:"typeName"`
 }
 
 // Base options for GraphQL Types.
@@ -1384,6 +1408,9 @@ type BaseTypeOptions struct {
 }
 
 // A CloudFormation `AWS::AppSync::ApiCache`.
+//
+// TODO: EXAMPLE
+//
 type CfnApiCache interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2070,22 +2097,28 @@ func (c *jsiiProxy_CfnApiCache) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::AppSync::ApiCache`.
+//
+// TODO: EXAMPLE
+//
 type CfnApiCacheProps struct {
 	// `AWS::AppSync::ApiCache.ApiCachingBehavior`.
 	ApiCachingBehavior *string `json:"apiCachingBehavior"`
 	// `AWS::AppSync::ApiCache.ApiId`.
 	ApiId *string `json:"apiId"`
-	// `AWS::AppSync::ApiCache.Ttl`.
-	Ttl *float64 `json:"ttl"`
-	// `AWS::AppSync::ApiCache.Type`.
-	Type *string `json:"type"`
 	// `AWS::AppSync::ApiCache.AtRestEncryptionEnabled`.
 	AtRestEncryptionEnabled interface{} `json:"atRestEncryptionEnabled"`
 	// `AWS::AppSync::ApiCache.TransitEncryptionEnabled`.
 	TransitEncryptionEnabled interface{} `json:"transitEncryptionEnabled"`
+	// `AWS::AppSync::ApiCache.Ttl`.
+	Ttl *float64 `json:"ttl"`
+	// `AWS::AppSync::ApiCache.Type`.
+	Type *string `json:"type"`
 }
 
 // A CloudFormation `AWS::AppSync::ApiKey`.
+//
+// TODO: EXAMPLE
+//
 type CfnApiKey interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2754,6 +2787,9 @@ func (c *jsiiProxy_CfnApiKey) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::AppSync::ApiKey`.
+//
+// TODO: EXAMPLE
+//
 type CfnApiKeyProps struct {
 	// `AWS::AppSync::ApiKey.ApiId`.
 	ApiId *string `json:"apiId"`
@@ -2766,6 +2802,9 @@ type CfnApiKeyProps struct {
 }
 
 // A CloudFormation `AWS::AppSync::DataSource`.
+//
+// TODO: EXAMPLE
+//
 type CfnDataSource interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3573,6 +3612,8 @@ func (c *jsiiProxy_CfnDataSource) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_AuthorizationConfigProperty struct {
 	// `CfnDataSource.AuthorizationConfigProperty.AuthorizationType`.
 	AuthorizationType *string `json:"authorizationType"`
@@ -3580,6 +3621,8 @@ type CfnDataSource_AuthorizationConfigProperty struct {
 	AwsIamConfig interface{} `json:"awsIamConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_AwsIamConfigProperty struct {
 	// `CfnDataSource.AwsIamConfigProperty.SigningRegion`.
 	SigningRegion *string `json:"signingRegion"`
@@ -3587,6 +3630,8 @@ type CfnDataSource_AwsIamConfigProperty struct {
 	SigningServiceName *string `json:"signingServiceName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_DeltaSyncConfigProperty struct {
 	// `CfnDataSource.DeltaSyncConfigProperty.BaseTableTTL`.
 	BaseTableTtl *string `json:"baseTableTtl"`
@@ -3596,19 +3641,23 @@ type CfnDataSource_DeltaSyncConfigProperty struct {
 	DeltaSyncTableTtl *string `json:"deltaSyncTableTtl"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_DynamoDBConfigProperty struct {
 	// `CfnDataSource.DynamoDBConfigProperty.AwsRegion`.
 	AwsRegion *string `json:"awsRegion"`
-	// `CfnDataSource.DynamoDBConfigProperty.TableName`.
-	TableName *string `json:"tableName"`
 	// `CfnDataSource.DynamoDBConfigProperty.DeltaSyncConfig`.
 	DeltaSyncConfig interface{} `json:"deltaSyncConfig"`
+	// `CfnDataSource.DynamoDBConfigProperty.TableName`.
+	TableName *string `json:"tableName"`
 	// `CfnDataSource.DynamoDBConfigProperty.UseCallerCredentials`.
 	UseCallerCredentials interface{} `json:"useCallerCredentials"`
 	// `CfnDataSource.DynamoDBConfigProperty.Versioned`.
 	Versioned interface{} `json:"versioned"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_ElasticsearchConfigProperty struct {
 	// `CfnDataSource.ElasticsearchConfigProperty.AwsRegion`.
 	AwsRegion *string `json:"awsRegion"`
@@ -3616,18 +3665,24 @@ type CfnDataSource_ElasticsearchConfigProperty struct {
 	Endpoint *string `json:"endpoint"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_HttpConfigProperty struct {
-	// `CfnDataSource.HttpConfigProperty.Endpoint`.
-	Endpoint *string `json:"endpoint"`
 	// `CfnDataSource.HttpConfigProperty.AuthorizationConfig`.
 	AuthorizationConfig interface{} `json:"authorizationConfig"`
+	// `CfnDataSource.HttpConfigProperty.Endpoint`.
+	Endpoint *string `json:"endpoint"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_LambdaConfigProperty struct {
 	// `CfnDataSource.LambdaConfigProperty.LambdaFunctionArn`.
 	LambdaFunctionArn *string `json:"lambdaFunctionArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_OpenSearchServiceConfigProperty struct {
 	// `CfnDataSource.OpenSearchServiceConfigProperty.AwsRegion`.
 	AwsRegion *string `json:"awsRegion"`
@@ -3635,34 +3690,37 @@ type CfnDataSource_OpenSearchServiceConfigProperty struct {
 	Endpoint *string `json:"endpoint"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_RdsHttpEndpointConfigProperty struct {
 	// `CfnDataSource.RdsHttpEndpointConfigProperty.AwsRegion`.
 	AwsRegion *string `json:"awsRegion"`
 	// `CfnDataSource.RdsHttpEndpointConfigProperty.AwsSecretStoreArn`.
 	AwsSecretStoreArn *string `json:"awsSecretStoreArn"`
-	// `CfnDataSource.RdsHttpEndpointConfigProperty.DbClusterIdentifier`.
-	DbClusterIdentifier *string `json:"dbClusterIdentifier"`
 	// `CfnDataSource.RdsHttpEndpointConfigProperty.DatabaseName`.
 	DatabaseName *string `json:"databaseName"`
+	// `CfnDataSource.RdsHttpEndpointConfigProperty.DbClusterIdentifier`.
+	DbClusterIdentifier *string `json:"dbClusterIdentifier"`
 	// `CfnDataSource.RdsHttpEndpointConfigProperty.Schema`.
 	Schema *string `json:"schema"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataSource_RelationalDatabaseConfigProperty struct {
-	// `CfnDataSource.RelationalDatabaseConfigProperty.RelationalDatabaseSourceType`.
-	RelationalDatabaseSourceType *string `json:"relationalDatabaseSourceType"`
 	// `CfnDataSource.RelationalDatabaseConfigProperty.RdsHttpEndpointConfig`.
 	RdsHttpEndpointConfig interface{} `json:"rdsHttpEndpointConfig"`
+	// `CfnDataSource.RelationalDatabaseConfigProperty.RelationalDatabaseSourceType`.
+	RelationalDatabaseSourceType *string `json:"relationalDatabaseSourceType"`
 }
 
 // Properties for defining a `AWS::AppSync::DataSource`.
+//
+// TODO: EXAMPLE
+//
 type CfnDataSourceProps struct {
 	// `AWS::AppSync::DataSource.ApiId`.
 	ApiId *string `json:"apiId"`
-	// `AWS::AppSync::DataSource.Name`.
-	Name *string `json:"name"`
-	// `AWS::AppSync::DataSource.Type`.
-	Type *string `json:"type"`
 	// `AWS::AppSync::DataSource.Description`.
 	Description *string `json:"description"`
 	// `AWS::AppSync::DataSource.DynamoDBConfig`.
@@ -3673,15 +3731,22 @@ type CfnDataSourceProps struct {
 	HttpConfig interface{} `json:"httpConfig"`
 	// `AWS::AppSync::DataSource.LambdaConfig`.
 	LambdaConfig interface{} `json:"lambdaConfig"`
+	// `AWS::AppSync::DataSource.Name`.
+	Name *string `json:"name"`
 	// `AWS::AppSync::DataSource.OpenSearchServiceConfig`.
 	OpenSearchServiceConfig interface{} `json:"openSearchServiceConfig"`
 	// `AWS::AppSync::DataSource.RelationalDatabaseConfig`.
 	RelationalDatabaseConfig interface{} `json:"relationalDatabaseConfig"`
 	// `AWS::AppSync::DataSource.ServiceRoleArn`.
 	ServiceRoleArn *string `json:"serviceRoleArn"`
+	// `AWS::AppSync::DataSource.Type`.
+	Type *string `json:"type"`
 }
 
 // A CloudFormation `AWS::AppSync::FunctionConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnFunctionConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4491,11 +4556,15 @@ func (c *jsiiProxy_CfnFunctionConfiguration) ValidateProperties(_properties inte
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunctionConfiguration_LambdaConflictHandlerConfigProperty struct {
 	// `CfnFunctionConfiguration.LambdaConflictHandlerConfigProperty.LambdaConflictHandlerArn`.
 	LambdaConflictHandlerArn *string `json:"lambdaConflictHandlerArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunctionConfiguration_SyncConfigProperty struct {
 	// `CfnFunctionConfiguration.SyncConfigProperty.ConflictDetection`.
 	ConflictDetection *string `json:"conflictDetection"`
@@ -4506,17 +4575,20 @@ type CfnFunctionConfiguration_SyncConfigProperty struct {
 }
 
 // Properties for defining a `AWS::AppSync::FunctionConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnFunctionConfigurationProps struct {
 	// `AWS::AppSync::FunctionConfiguration.ApiId`.
 	ApiId *string `json:"apiId"`
 	// `AWS::AppSync::FunctionConfiguration.DataSourceName`.
 	DataSourceName *string `json:"dataSourceName"`
+	// `AWS::AppSync::FunctionConfiguration.Description`.
+	Description *string `json:"description"`
 	// `AWS::AppSync::FunctionConfiguration.FunctionVersion`.
 	FunctionVersion *string `json:"functionVersion"`
 	// `AWS::AppSync::FunctionConfiguration.Name`.
 	Name *string `json:"name"`
-	// `AWS::AppSync::FunctionConfiguration.Description`.
-	Description *string `json:"description"`
 	// `AWS::AppSync::FunctionConfiguration.RequestMappingTemplate`.
 	RequestMappingTemplate *string `json:"requestMappingTemplate"`
 	// `AWS::AppSync::FunctionConfiguration.RequestMappingTemplateS3Location`.
@@ -4530,6 +4602,9 @@ type CfnFunctionConfigurationProps struct {
 }
 
 // A CloudFormation `AWS::AppSync::GraphQLApi`.
+//
+// TODO: EXAMPLE
+//
 type CfnGraphQLApi interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5299,6 +5374,8 @@ func (c *jsiiProxy_CfnGraphQLApi) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnGraphQLApi_AdditionalAuthenticationProviderProperty struct {
 	// `CfnGraphQLApi.AdditionalAuthenticationProviderProperty.AuthenticationType`.
 	AuthenticationType *string `json:"authenticationType"`
@@ -5310,6 +5387,8 @@ type CfnGraphQLApi_AdditionalAuthenticationProviderProperty struct {
 	UserPoolConfig interface{} `json:"userPoolConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGraphQLApi_CognitoUserPoolConfigProperty struct {
 	// `CfnGraphQLApi.CognitoUserPoolConfigProperty.AppIdClientRegex`.
 	AppIdClientRegex *string `json:"appIdClientRegex"`
@@ -5319,6 +5398,8 @@ type CfnGraphQLApi_CognitoUserPoolConfigProperty struct {
 	UserPoolId *string `json:"userPoolId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGraphQLApi_LambdaAuthorizerConfigProperty struct {
 	// `CfnGraphQLApi.LambdaAuthorizerConfigProperty.AuthorizerResultTtlInSeconds`.
 	AuthorizerResultTtlInSeconds *float64 `json:"authorizerResultTtlInSeconds"`
@@ -5328,6 +5409,8 @@ type CfnGraphQLApi_LambdaAuthorizerConfigProperty struct {
 	IdentityValidationExpression *string `json:"identityValidationExpression"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGraphQLApi_LogConfigProperty struct {
 	// `CfnGraphQLApi.LogConfigProperty.CloudWatchLogsRoleArn`.
 	CloudWatchLogsRoleArn *string `json:"cloudWatchLogsRoleArn"`
@@ -5337,6 +5420,8 @@ type CfnGraphQLApi_LogConfigProperty struct {
 	FieldLogLevel *string `json:"fieldLogLevel"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGraphQLApi_OpenIDConnectConfigProperty struct {
 	// `CfnGraphQLApi.OpenIDConnectConfigProperty.AuthTTL`.
 	AuthTtl *float64 `json:"authTtl"`
@@ -5348,6 +5433,8 @@ type CfnGraphQLApi_OpenIDConnectConfigProperty struct {
 	Issuer *string `json:"issuer"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGraphQLApi_UserPoolConfigProperty struct {
 	// `CfnGraphQLApi.UserPoolConfigProperty.AppIdClientRegex`.
 	AppIdClientRegex *string `json:"appIdClientRegex"`
@@ -5360,17 +5447,20 @@ type CfnGraphQLApi_UserPoolConfigProperty struct {
 }
 
 // Properties for defining a `AWS::AppSync::GraphQLApi`.
+//
+// TODO: EXAMPLE
+//
 type CfnGraphQLApiProps struct {
-	// `AWS::AppSync::GraphQLApi.AuthenticationType`.
-	AuthenticationType *string `json:"authenticationType"`
-	// `AWS::AppSync::GraphQLApi.Name`.
-	Name *string `json:"name"`
 	// `AWS::AppSync::GraphQLApi.AdditionalAuthenticationProviders`.
 	AdditionalAuthenticationProviders interface{} `json:"additionalAuthenticationProviders"`
+	// `AWS::AppSync::GraphQLApi.AuthenticationType`.
+	AuthenticationType *string `json:"authenticationType"`
 	// `AWS::AppSync::GraphQLApi.LambdaAuthorizerConfig`.
 	LambdaAuthorizerConfig interface{} `json:"lambdaAuthorizerConfig"`
 	// `AWS::AppSync::GraphQLApi.LogConfig`.
 	LogConfig interface{} `json:"logConfig"`
+	// `AWS::AppSync::GraphQLApi.Name`.
+	Name *string `json:"name"`
 	// `AWS::AppSync::GraphQLApi.OpenIDConnectConfig`.
 	OpenIdConnectConfig interface{} `json:"openIdConnectConfig"`
 	// `AWS::AppSync::GraphQLApi.Tags`.
@@ -5382,6 +5472,9 @@ type CfnGraphQLApiProps struct {
 }
 
 // A CloudFormation `AWS::AppSync::GraphQLSchema`.
+//
+// TODO: EXAMPLE
+//
 type CfnGraphQLSchema interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6008,6 +6101,9 @@ func (c *jsiiProxy_CfnGraphQLSchema) ValidateProperties(_properties interface{})
 }
 
 // Properties for defining a `AWS::AppSync::GraphQLSchema`.
+//
+// TODO: EXAMPLE
+//
 type CfnGraphQLSchemaProps struct {
 	// `AWS::AppSync::GraphQLSchema.ApiId`.
 	ApiId *string `json:"apiId"`
@@ -6018,6 +6114,9 @@ type CfnGraphQLSchemaProps struct {
 }
 
 // A CloudFormation `AWS::AppSync::Resolver`.
+//
+// TODO: EXAMPLE
+//
 type CfnResolver interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6856,6 +6955,8 @@ func (c *jsiiProxy_CfnResolver) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnResolver_CachingConfigProperty struct {
 	// `CfnResolver.CachingConfigProperty.CachingKeys`.
 	CachingKeys *[]*string `json:"cachingKeys"`
@@ -6863,16 +6964,22 @@ type CfnResolver_CachingConfigProperty struct {
 	Ttl *float64 `json:"ttl"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResolver_LambdaConflictHandlerConfigProperty struct {
 	// `CfnResolver.LambdaConflictHandlerConfigProperty.LambdaConflictHandlerArn`.
 	LambdaConflictHandlerArn *string `json:"lambdaConflictHandlerArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResolver_PipelineConfigProperty struct {
 	// `CfnResolver.PipelineConfigProperty.Functions`.
 	Functions *[]*string `json:"functions"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResolver_SyncConfigProperty struct {
 	// `CfnResolver.SyncConfigProperty.ConflictDetection`.
 	ConflictDetection *string `json:"conflictDetection"`
@@ -6883,17 +6990,18 @@ type CfnResolver_SyncConfigProperty struct {
 }
 
 // Properties for defining a `AWS::AppSync::Resolver`.
+//
+// TODO: EXAMPLE
+//
 type CfnResolverProps struct {
 	// `AWS::AppSync::Resolver.ApiId`.
 	ApiId *string `json:"apiId"`
-	// `AWS::AppSync::Resolver.FieldName`.
-	FieldName *string `json:"fieldName"`
-	// `AWS::AppSync::Resolver.TypeName`.
-	TypeName *string `json:"typeName"`
 	// `AWS::AppSync::Resolver.CachingConfig`.
 	CachingConfig interface{} `json:"cachingConfig"`
 	// `AWS::AppSync::Resolver.DataSourceName`.
 	DataSourceName *string `json:"dataSourceName"`
+	// `AWS::AppSync::Resolver.FieldName`.
+	FieldName *string `json:"fieldName"`
 	// `AWS::AppSync::Resolver.Kind`.
 	Kind *string `json:"kind"`
 	// `AWS::AppSync::Resolver.PipelineConfig`.
@@ -6908,9 +7016,14 @@ type CfnResolverProps struct {
 	ResponseMappingTemplateS3Location *string `json:"responseMappingTemplateS3Location"`
 	// `AWS::AppSync::Resolver.SyncConfig`.
 	SyncConfig interface{} `json:"syncConfig"`
+	// `AWS::AppSync::Resolver.TypeName`.
+	TypeName *string `json:"typeName"`
 }
 
 // Optional configuration for data sources.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DataSourceOptions struct {
 	// The description of the data source.
@@ -7406,6 +7519,9 @@ func (d *jsiiProxy_DynamoDbDataSource) Validate() *[]*string {
 }
 
 // Properties for an AppSync DynamoDB datasource.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DynamoDbDataSourceProps struct {
 	// The API to attach this data source to.
@@ -7420,12 +7536,12 @@ type DynamoDbDataSourceProps struct {
 	// The IAM service role to be assumed by AppSync to interact with the data source.
 	// Experimental.
 	ServiceRole awsiam.IRole `json:"serviceRole"`
-	// The DynamoDB table backing this data source.
-	// Experimental.
-	Table awsdynamodb.ITable `json:"table"`
 	// Specify whether this DS is read only or has read and write permissions to the DynamoDB table.
 	// Experimental.
 	ReadOnlyAccess *bool `json:"readOnlyAccess"`
+	// The DynamoDB table backing this data source.
+	// Experimental.
+	Table awsdynamodb.ITable `json:"table"`
 	// use credentials of caller to access DynamoDB.
 	// Experimental.
 	UseCallerCredentials *bool `json:"useCallerCredentials"`
@@ -7728,6 +7844,9 @@ func (e *jsiiProxy_ElasticsearchDataSource) Validate() *[]*string {
 }
 
 // Properities for the Elasticsearch Data Source.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ElasticsearchDataSourceProps struct {
 	// The API to attach this data source to.
@@ -7890,11 +8009,11 @@ type EnumTypeOptions struct {
 // props used by implementations of BaseDataSource to provide configuration.
 //
 // Should not be used directly.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ExtendedDataSourceProps struct {
-	// the type of the AppSync datasource.
-	// Experimental.
-	Type *string `json:"type"`
 	// configuration for DynamoDB Datasource.
 	// Experimental.
 	DynamoDbConfig interface{} `json:"dynamoDbConfig"`
@@ -7910,17 +8029,20 @@ type ExtendedDataSourceProps struct {
 	// configuration for RDS Datasource.
 	// Experimental.
 	RelationalDatabaseConfig interface{} `json:"relationalDatabaseConfig"`
+	// the type of the AppSync datasource.
+	// Experimental.
+	Type *string `json:"type"`
 }
 
 // Additional property for an AppSync resolver for data source reference.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ExtendedResolverProps struct {
 	// name of the GraphQL field in the given type this resolver is attached to.
 	// Experimental.
 	FieldName *string `json:"fieldName"`
-	// name of the GraphQL type this resolver is attached to.
-	// Experimental.
-	TypeName *string `json:"typeName"`
 	// configuration of the pipeline resolver.
 	// Experimental.
 	PipelineConfig *[]IAppsyncFunction `json:"pipelineConfig"`
@@ -7930,6 +8052,9 @@ type ExtendedResolverProps struct {
 	// The response mapping template for this resolver.
 	// Experimental.
 	ResponseMappingTemplate MappingTemplate `json:"responseMappingTemplate"`
+	// name of the GraphQL type this resolver is attached to.
+	// Experimental.
+	TypeName *string `json:"typeName"`
 	// The data source this resolver is using.
 	// Experimental.
 	DataSource BaseDataSource `json:"dataSource"`
@@ -8366,9 +8491,9 @@ func (f *jsiiProxy_Field) ToString() *string {
 type FieldLogLevel string
 
 const (
-	FieldLogLevel_NONE FieldLogLevel = "NONE"
-	FieldLogLevel_ERROR FieldLogLevel = "ERROR"
 	FieldLogLevel_ALL FieldLogLevel = "ALL"
+	FieldLogLevel_ERROR FieldLogLevel = "ERROR"
+	FieldLogLevel_NONE FieldLogLevel = "NONE"
 )
 
 // Properties for configuring a field.
@@ -8377,9 +8502,6 @@ const (
 //
 // Experimental.
 type FieldOptions struct {
-	// The return type for this field.
-	// Experimental.
-	ReturnType GraphqlType `json:"returnType"`
 	// The arguments for this field.
 	//
 	// i.e. type Example (first: String second: String) {}
@@ -8390,6 +8512,9 @@ type FieldOptions struct {
 	// the directives for this field.
 	// Experimental.
 	Directives *[]Directive `json:"directives"`
+	// The return type for this field.
+	// Experimental.
+	ReturnType GraphqlType `json:"returnType"`
 }
 
 // An AppSync GraphQL API.
@@ -10021,6 +10146,9 @@ func (g *jsiiProxy_GraphqlType) ToString() *string {
 }
 
 // Options for GraphQL Types.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type GraphqlTypeOptions struct {
 	// property determining if this attribute is a list i.e. if true, attribute would be [Type].
@@ -10351,6 +10479,9 @@ type HttpDataSourceOptions struct {
 }
 
 // Properties for an AppSync http datasource.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HttpDataSourceProps struct {
 	// The API to attach this data source to.
@@ -10362,12 +10493,12 @@ type HttpDataSourceProps struct {
 	// The name of the data source.
 	// Experimental.
 	Name *string `json:"name"`
-	// The http endpoint.
-	// Experimental.
-	Endpoint *string `json:"endpoint"`
 	// The authorization config in case the HTTP endpoint requires authorization.
 	// Experimental.
 	AuthorizationConfig *AwsIamConfig `json:"authorizationConfig"`
+	// The http endpoint.
+	// Experimental.
+	Endpoint *string `json:"endpoint"`
 }
 
 // Interface for AppSync Functions.
@@ -11227,6 +11358,9 @@ type IntermediateTypeOptions struct {
 }
 
 // Factory class for DynamoDB key conditions.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type KeyCondition interface {
 	And(keyCond KeyCondition) KeyCondition
@@ -11419,6 +11553,9 @@ type LambdaAuthorizerConfig struct {
 }
 
 // An AppSync datasource backed by a Lambda function.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LambdaDataSource interface {
 	BackedDataSource
@@ -11712,6 +11849,9 @@ func (l *jsiiProxy_LambdaDataSource) Validate() *[]*string {
 }
 
 // Properties for an AppSync Lambda datasource.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LambdaDataSourceProps struct {
 	// The API to attach this data source to.
@@ -11732,6 +11872,9 @@ type LambdaDataSourceProps struct {
 }
 
 // Logging configuration for AppSync.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LogConfig struct {
 	// exclude verbose content.
@@ -11973,6 +12116,9 @@ func (m *jsiiProxy_MappingTemplate) RenderTemplate() *string {
 }
 
 // An AppSync dummy datasource.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NoneDataSource interface {
 	BaseDataSource
@@ -12255,6 +12401,9 @@ func (n *jsiiProxy_NoneDataSource) Validate() *[]*string {
 }
 
 // Properties for an AppSync dummy datasource.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NoneDataSourceProps struct {
 	// The API to attach this data source to.
@@ -12474,13 +12623,11 @@ type ObjectTypeOptions struct {
 }
 
 // Configuration for OpenID Connect authorization in AppSync.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type OpenIdConnectConfig struct {
-	// The issuer for the OIDC configuration.
-	//
-	// The issuer returned by discovery must exactly match the value of `iss` in the OIDC token.
-	// Experimental.
-	OidcProvider *string `json:"oidcProvider"`
 	// The client identifier of the Relying party at the OpenID identity provider.
 	//
 	// A regular expression can be specified so AppSync can validate against multiple client identifiers at a time.
@@ -12489,6 +12636,11 @@ type OpenIdConnectConfig struct {
 	//
 	// Experimental.
 	ClientId *string `json:"clientId"`
+	// The issuer for the OIDC configuration.
+	//
+	// The issuer returned by discovery must exactly match the value of `iss` in the OIDC token.
+	// Experimental.
+	OidcProvider *string `json:"oidcProvider"`
 	// The number of milliseconds an OIDC token is valid after being authenticated by OIDC provider.
 	//
 	// `auth_time` claim in OIDC token is required for this validation to work.
@@ -12505,6 +12657,9 @@ type OpenIdConnectConfig struct {
 //
 // It can be
 // enhanced with the assignment of the sort key.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type PartitionKey interface {
 	PrimaryKey
@@ -12603,6 +12758,9 @@ func (p *jsiiProxy_PartitionKey) Sort(key *string) SortKeyStep {
 }
 
 // Utility class to allow assigning a value or an auto-generated id to a partition key.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type PartitionKeyStep interface {
 	Auto() PartitionKey
@@ -13054,6 +13212,9 @@ func (r *jsiiProxy_RdsDataSource) Validate() *[]*string {
 }
 
 // Properties for an AppSync RDS datasource.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type RdsDataSourceProps struct {
 	// The API to attach this data source to.
@@ -13068,15 +13229,15 @@ type RdsDataSourceProps struct {
 	// The IAM service role to be assumed by AppSync to interact with the data source.
 	// Experimental.
 	ServiceRole awsiam.IRole `json:"serviceRole"`
+	// The name of the database to use within the cluster.
+	// Experimental.
+	DatabaseName *string `json:"databaseName"`
 	// The secret containing the credentials for the database.
 	// Experimental.
 	SecretStore awssecretsmanager.ISecret `json:"secretStore"`
 	// The serverless cluster to call to interact with this data source.
 	// Experimental.
 	ServerlessCluster awsrds.IServerlessCluster `json:"serverlessCluster"`
-	// The name of the database to use within the cluster.
-	// Experimental.
-	DatabaseName *string `json:"databaseName"`
 }
 
 // Resolvable Fields build upon Graphql Types and provide fields that can resolve into operations on a data source.
@@ -13511,9 +13672,6 @@ func (r *jsiiProxy_ResolvableField) ToString() *string {
 //
 // Experimental.
 type ResolvableFieldOptions struct {
-	// The return type for this field.
-	// Experimental.
-	ReturnType GraphqlType `json:"returnType"`
 	// The arguments for this field.
 	//
 	// i.e. type Example (first: String second: String) {}
@@ -13524,6 +13682,9 @@ type ResolvableFieldOptions struct {
 	// the directives for this field.
 	// Experimental.
 	Directives *[]Directive `json:"directives"`
+	// The return type for this field.
+	// Experimental.
+	ReturnType GraphqlType `json:"returnType"`
 	// The data source creating linked to this resolvable field.
 	// Experimental.
 	DataSource BaseDataSource `json:"dataSource"`
@@ -13749,9 +13910,6 @@ type ResolverProps struct {
 	// name of the GraphQL field in the given type this resolver is attached to.
 	// Experimental.
 	FieldName *string `json:"fieldName"`
-	// name of the GraphQL type this resolver is attached to.
-	// Experimental.
-	TypeName *string `json:"typeName"`
 	// configuration of the pipeline resolver.
 	// Experimental.
 	PipelineConfig *[]IAppsyncFunction `json:"pipelineConfig"`
@@ -13761,6 +13919,9 @@ type ResolverProps struct {
 	// The response mapping template for this resolver.
 	// Experimental.
 	ResponseMappingTemplate MappingTemplate `json:"responseMappingTemplate"`
+	// name of the GraphQL type this resolver is attached to.
+	// Experimental.
+	TypeName *string `json:"typeName"`
 	// The data source this resolver is using.
 	// Experimental.
 	DataSource BaseDataSource `json:"dataSource"`
@@ -13961,6 +14122,9 @@ func (s *jsiiProxy_Schema) Bind(api GraphqlApi) CfnGraphQLSchema {
 //
 // If no options are specified, then the schema will
 // be generated code-first.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SchemaOptions struct {
 	// The file path for the schema.
@@ -13973,6 +14137,9 @@ type SchemaOptions struct {
 }
 
 // Utility class to allow assigning a value or an auto-generated id to a sort key.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SortKeyStep interface {
 	Auto() PrimaryKey
@@ -14045,21 +14212,21 @@ func (s *jsiiProxy_SortKeyStep) Is(val *string) PrimaryKey {
 type Type string
 
 const (
-	Type_ID Type = "ID"
-	Type_STRING Type = "STRING"
-	Type_INT Type = "INT"
-	Type_FLOAT Type = "FLOAT"
-	Type_BOOLEAN Type = "BOOLEAN"
 	Type_AWS_DATE Type = "AWS_DATE"
-	Type_AWS_TIME Type = "AWS_TIME"
 	Type_AWS_DATE_TIME Type = "AWS_DATE_TIME"
-	Type_AWS_TIMESTAMP Type = "AWS_TIMESTAMP"
 	Type_AWS_EMAIL Type = "AWS_EMAIL"
-	Type_AWS_JSON Type = "AWS_JSON"
-	Type_AWS_URL Type = "AWS_URL"
-	Type_AWS_PHONE Type = "AWS_PHONE"
 	Type_AWS_IP_ADDRESS Type = "AWS_IP_ADDRESS"
+	Type_AWS_JSON Type = "AWS_JSON"
+	Type_AWS_PHONE Type = "AWS_PHONE"
+	Type_AWS_TIME Type = "AWS_TIME"
+	Type_AWS_TIMESTAMP Type = "AWS_TIMESTAMP"
+	Type_AWS_URL Type = "AWS_URL"
+	Type_BOOLEAN Type = "BOOLEAN"
+	Type_FLOAT Type = "FLOAT"
+	Type_ID Type = "ID"
+	Type_INT Type = "INT"
 	Type_INTERMEDIATE Type = "INTERMEDIATE"
+	Type_STRING Type = "STRING"
 )
 
 // Union Types are abstract types that are similar to Interface Types, but they cannot to specify any common fields between types.
@@ -14205,17 +14372,20 @@ type UnionTypeOptions struct {
 }
 
 // Configuration for Cognito user-pools in AppSync.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type UserPoolConfig struct {
-	// The Cognito user pool to use as identity source.
-	// Experimental.
-	UserPool awscognito.IUserPool `json:"userPool"`
 	// the optional app id regex.
 	// Experimental.
 	AppIdClientRegex *string `json:"appIdClientRegex"`
 	// Default auth action.
 	// Experimental.
 	DefaultAction UserPoolDefaultAction `json:"defaultAction"`
+	// The Cognito user pool to use as identity source.
+	// Experimental.
+	UserPool awscognito.IUserPool `json:"userPool"`
 }
 
 // enum with all possible values for Cognito user-pool default actions.

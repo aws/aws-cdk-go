@@ -144,6 +144,8 @@ type ActionArtifactBounds struct {
 	MinOutputs *float64 `json:"minOutputs"`
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type ActionBindOptions struct {
 	// Experimental.
@@ -158,35 +160,26 @@ type ActionBindOptions struct {
 type ActionCategory string
 
 const (
-	ActionCategory_SOURCE ActionCategory = "SOURCE"
-	ActionCategory_BUILD ActionCategory = "BUILD"
-	ActionCategory_TEST ActionCategory = "TEST"
 	ActionCategory_APPROVAL ActionCategory = "APPROVAL"
+	ActionCategory_BUILD ActionCategory = "BUILD"
 	ActionCategory_DEPLOY ActionCategory = "DEPLOY"
 	ActionCategory_INVOKE ActionCategory = "INVOKE"
+	ActionCategory_SOURCE ActionCategory = "SOURCE"
+	ActionCategory_TEST ActionCategory = "TEST"
 )
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type ActionConfig struct {
 	// Experimental.
 	Configuration interface{} `json:"configuration"`
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type ActionProperties struct {
-	// Experimental.
-	ActionName *string `json:"actionName"`
-	// Experimental.
-	ArtifactBounds *ActionArtifactBounds `json:"artifactBounds"`
-	// The category of the action.
-	//
-	// The category defines which action type the owner
-	// (the entity that performs the action) performs.
-	// Experimental.
-	Category ActionCategory `json:"category"`
-	// The service provider that the action calls.
-	// Experimental.
-	Provider *string `json:"provider"`
 	// The account the Action is supposed to live in.
 	//
 	// For Actions backed by resources,
@@ -198,11 +191,24 @@ type ActionProperties struct {
 	// Experimental.
 	Account *string `json:"account"`
 	// Experimental.
+	ActionName *string `json:"actionName"`
+	// Experimental.
+	ArtifactBounds *ActionArtifactBounds `json:"artifactBounds"`
+	// The category of the action.
+	//
+	// The category defines which action type the owner
+	// (the entity that performs the action) performs.
+	// Experimental.
+	Category ActionCategory `json:"category"`
+	// Experimental.
 	Inputs *[]Artifact `json:"inputs"`
 	// Experimental.
 	Outputs *[]Artifact `json:"outputs"`
 	// Experimental.
 	Owner *string `json:"owner"`
+	// The service provider that the action calls.
+	// Experimental.
+	Provider *string `json:"provider"`
 	// The AWS region the given Action resides in.
 	//
 	// Note that a cross-region Pipeline requires replication buckets to function correctly.
@@ -523,6 +529,9 @@ func ArtifactPath_ArtifactPath(artifactName *string, fileName *string) ArtifactP
 }
 
 // A CloudFormation `AWS::CodePipeline::CustomActionType`.
+//
+// TODO: EXAMPLE
+//
 type CfnCustomActionType interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1239,6 +1248,8 @@ func (c *jsiiProxy_CfnCustomActionType) ValidateProperties(_properties interface
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnCustomActionType_ArtifactDetailsProperty struct {
 	// `CfnCustomActionType.ArtifactDetailsProperty.MaximumCount`.
 	MaximumCount *float64 `json:"maximumCount"`
@@ -1246,23 +1257,27 @@ type CfnCustomActionType_ArtifactDetailsProperty struct {
 	MinimumCount *float64 `json:"minimumCount"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCustomActionType_ConfigurationPropertiesProperty struct {
+	// `CfnCustomActionType.ConfigurationPropertiesProperty.Description`.
+	Description *string `json:"description"`
 	// `CfnCustomActionType.ConfigurationPropertiesProperty.Key`.
 	Key interface{} `json:"key"`
 	// `CfnCustomActionType.ConfigurationPropertiesProperty.Name`.
 	Name *string `json:"name"`
+	// `CfnCustomActionType.ConfigurationPropertiesProperty.Queryable`.
+	Queryable interface{} `json:"queryable"`
 	// `CfnCustomActionType.ConfigurationPropertiesProperty.Required`.
 	Required interface{} `json:"required"`
 	// `CfnCustomActionType.ConfigurationPropertiesProperty.Secret`.
 	Secret interface{} `json:"secret"`
-	// `CfnCustomActionType.ConfigurationPropertiesProperty.Description`.
-	Description *string `json:"description"`
-	// `CfnCustomActionType.ConfigurationPropertiesProperty.Queryable`.
-	Queryable interface{} `json:"queryable"`
 	// `CfnCustomActionType.ConfigurationPropertiesProperty.Type`.
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCustomActionType_SettingsProperty struct {
 	// `CfnCustomActionType.SettingsProperty.EntityUrlTemplate`.
 	EntityUrlTemplate *string `json:"entityUrlTemplate"`
@@ -1275,26 +1290,32 @@ type CfnCustomActionType_SettingsProperty struct {
 }
 
 // Properties for defining a `AWS::CodePipeline::CustomActionType`.
+//
+// TODO: EXAMPLE
+//
 type CfnCustomActionTypeProps struct {
 	// `AWS::CodePipeline::CustomActionType.Category`.
 	Category *string `json:"category"`
+	// `AWS::CodePipeline::CustomActionType.ConfigurationProperties`.
+	ConfigurationProperties interface{} `json:"configurationProperties"`
 	// `AWS::CodePipeline::CustomActionType.InputArtifactDetails`.
 	InputArtifactDetails interface{} `json:"inputArtifactDetails"`
 	// `AWS::CodePipeline::CustomActionType.OutputArtifactDetails`.
 	OutputArtifactDetails interface{} `json:"outputArtifactDetails"`
 	// `AWS::CodePipeline::CustomActionType.Provider`.
 	Provider *string `json:"provider"`
-	// `AWS::CodePipeline::CustomActionType.Version`.
-	Version *string `json:"version"`
-	// `AWS::CodePipeline::CustomActionType.ConfigurationProperties`.
-	ConfigurationProperties interface{} `json:"configurationProperties"`
 	// `AWS::CodePipeline::CustomActionType.Settings`.
 	Settings interface{} `json:"settings"`
 	// `AWS::CodePipeline::CustomActionType.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::CodePipeline::CustomActionType.Version`.
+	Version *string `json:"version"`
 }
 
 // A CloudFormation `AWS::CodePipeline::Pipeline`.
+//
+// TODO: EXAMPLE
+//
 type CfnPipeline interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2022,15 +2043,17 @@ func (c *jsiiProxy_CfnPipeline) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnPipeline_ActionDeclarationProperty struct {
 	// `CfnPipeline.ActionDeclarationProperty.ActionTypeId`.
 	ActionTypeId interface{} `json:"actionTypeId"`
-	// `CfnPipeline.ActionDeclarationProperty.Name`.
-	Name *string `json:"name"`
 	// `CfnPipeline.ActionDeclarationProperty.Configuration`.
 	Configuration interface{} `json:"configuration"`
 	// `CfnPipeline.ActionDeclarationProperty.InputArtifacts`.
 	InputArtifacts interface{} `json:"inputArtifacts"`
+	// `CfnPipeline.ActionDeclarationProperty.Name`.
+	Name *string `json:"name"`
 	// `CfnPipeline.ActionDeclarationProperty.Namespace`.
 	Namespace *string `json:"namespace"`
 	// `CfnPipeline.ActionDeclarationProperty.OutputArtifacts`.
@@ -2043,6 +2066,8 @@ type CfnPipeline_ActionDeclarationProperty struct {
 	RunOrder *float64 `json:"runOrder"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPipeline_ActionTypeIdProperty struct {
 	// `CfnPipeline.ActionTypeIdProperty.Category`.
 	Category *string `json:"category"`
@@ -2054,6 +2079,8 @@ type CfnPipeline_ActionTypeIdProperty struct {
 	Version *string `json:"version"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPipeline_ArtifactStoreMapProperty struct {
 	// `CfnPipeline.ArtifactStoreMapProperty.ArtifactStore`.
 	ArtifactStore interface{} `json:"artifactStore"`
@@ -2061,15 +2088,19 @@ type CfnPipeline_ArtifactStoreMapProperty struct {
 	Region *string `json:"region"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPipeline_ArtifactStoreProperty struct {
+	// `CfnPipeline.ArtifactStoreProperty.EncryptionKey`.
+	EncryptionKey interface{} `json:"encryptionKey"`
 	// `CfnPipeline.ArtifactStoreProperty.Location`.
 	Location *string `json:"location"`
 	// `CfnPipeline.ArtifactStoreProperty.Type`.
 	Type *string `json:"type"`
-	// `CfnPipeline.ArtifactStoreProperty.EncryptionKey`.
-	EncryptionKey interface{} `json:"encryptionKey"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPipeline_BlockerDeclarationProperty struct {
 	// `CfnPipeline.BlockerDeclarationProperty.Name`.
 	Name *string `json:"name"`
@@ -2077,6 +2108,8 @@ type CfnPipeline_BlockerDeclarationProperty struct {
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPipeline_EncryptionKeyProperty struct {
 	// `CfnPipeline.EncryptionKeyProperty.Id`.
 	Id *string `json:"id"`
@@ -2084,25 +2117,33 @@ type CfnPipeline_EncryptionKeyProperty struct {
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPipeline_InputArtifactProperty struct {
 	// `CfnPipeline.InputArtifactProperty.Name`.
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPipeline_OutputArtifactProperty struct {
 	// `CfnPipeline.OutputArtifactProperty.Name`.
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPipeline_StageDeclarationProperty struct {
 	// `CfnPipeline.StageDeclarationProperty.Actions`.
 	Actions interface{} `json:"actions"`
-	// `CfnPipeline.StageDeclarationProperty.Name`.
-	Name *string `json:"name"`
 	// `CfnPipeline.StageDeclarationProperty.Blockers`.
 	Blockers interface{} `json:"blockers"`
+	// `CfnPipeline.StageDeclarationProperty.Name`.
+	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPipeline_StageTransitionProperty struct {
 	// `CfnPipeline.StageTransitionProperty.Reason`.
 	Reason *string `json:"reason"`
@@ -2111,11 +2152,10 @@ type CfnPipeline_StageTransitionProperty struct {
 }
 
 // Properties for defining a `AWS::CodePipeline::Pipeline`.
+//
+// TODO: EXAMPLE
+//
 type CfnPipelineProps struct {
-	// `AWS::CodePipeline::Pipeline.RoleArn`.
-	RoleArn *string `json:"roleArn"`
-	// `AWS::CodePipeline::Pipeline.Stages`.
-	Stages interface{} `json:"stages"`
 	// `AWS::CodePipeline::Pipeline.ArtifactStore`.
 	ArtifactStore interface{} `json:"artifactStore"`
 	// `AWS::CodePipeline::Pipeline.ArtifactStores`.
@@ -2126,11 +2166,18 @@ type CfnPipelineProps struct {
 	Name *string `json:"name"`
 	// `AWS::CodePipeline::Pipeline.RestartExecutionOnUpdate`.
 	RestartExecutionOnUpdate interface{} `json:"restartExecutionOnUpdate"`
+	// `AWS::CodePipeline::Pipeline.RoleArn`.
+	RoleArn *string `json:"roleArn"`
+	// `AWS::CodePipeline::Pipeline.Stages`.
+	Stages interface{} `json:"stages"`
 	// `AWS::CodePipeline::Pipeline.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::CodePipeline::Webhook`.
+//
+// TODO: EXAMPLE
+//
 type CfnWebhook interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2867,6 +2914,8 @@ func (c *jsiiProxy_CfnWebhook) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebhook_WebhookAuthConfigurationProperty struct {
 	// `CfnWebhook.WebhookAuthConfigurationProperty.AllowedIPRange`.
 	AllowedIpRange *string `json:"allowedIpRange"`
@@ -2874,6 +2923,8 @@ type CfnWebhook_WebhookAuthConfigurationProperty struct {
 	SecretToken *string `json:"secretToken"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebhook_WebhookFilterRuleProperty struct {
 	// `CfnWebhook.WebhookFilterRuleProperty.JsonPath`.
 	JsonPath *string `json:"jsonPath"`
@@ -2882,6 +2933,9 @@ type CfnWebhook_WebhookFilterRuleProperty struct {
 }
 
 // Properties for defining a `AWS::CodePipeline::Webhook`.
+//
+// TODO: EXAMPLE
+//
 type CfnWebhookProps struct {
 	// `AWS::CodePipeline::Webhook.Authentication`.
 	Authentication *string `json:"authentication"`
@@ -2889,19 +2943,22 @@ type CfnWebhookProps struct {
 	AuthenticationConfiguration interface{} `json:"authenticationConfiguration"`
 	// `AWS::CodePipeline::Webhook.Filters`.
 	Filters interface{} `json:"filters"`
+	// `AWS::CodePipeline::Webhook.Name`.
+	Name *string `json:"name"`
+	// `AWS::CodePipeline::Webhook.RegisterWithThirdParty`.
+	RegisterWithThirdParty interface{} `json:"registerWithThirdParty"`
 	// `AWS::CodePipeline::Webhook.TargetAction`.
 	TargetAction *string `json:"targetAction"`
 	// `AWS::CodePipeline::Webhook.TargetPipeline`.
 	TargetPipeline *string `json:"targetPipeline"`
 	// `AWS::CodePipeline::Webhook.TargetPipelineVersion`.
 	TargetPipelineVersion *float64 `json:"targetPipelineVersion"`
-	// `AWS::CodePipeline::Webhook.Name`.
-	Name *string `json:"name"`
-	// `AWS::CodePipeline::Webhook.RegisterWithThirdParty`.
-	RegisterWithThirdParty interface{} `json:"registerWithThirdParty"`
 }
 
 // Common properties shared by all Actions.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CommonActionProps struct {
 	// The physical, human-readable name of the Action.
@@ -2922,6 +2979,9 @@ type CommonActionProps struct {
 }
 
 // Common properties shared by all Actions whose {@link ActionProperties.owner} field is 'AWS' (or unset, as 'AWS' is the default).
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CommonAwsActionProps struct {
 	// The physical, human-readable name of the Action.
@@ -2953,6 +3013,9 @@ type CommonAwsActionProps struct {
 // An interface representing resources generated in order to support the cross-region capabilities of CodePipeline.
 //
 // You get instances of this interface from the {@link Pipeline#crossRegionSupport} property.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CrossRegionSupport struct {
 	// The replication Bucket used by CodePipeline to operate in this region.
@@ -2966,16 +3029,11 @@ type CrossRegionSupport struct {
 }
 
 // The creation attributes used for defining a configuration property of a custom Action.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CustomActionProperty struct {
-	// The name of the property.
-	//
-	// You use this name in the `configuration` attribute when defining your custom Action class.
-	// Experimental.
-	Name *string `json:"name"`
-	// Whether this property is required.
-	// Experimental.
-	Required *bool `json:"required"`
 	// The description of the property.
 	// Experimental.
 	Description *string `json:"description"`
@@ -2984,6 +3042,11 @@ type CustomActionProperty struct {
 	//
 	// Experimental.
 	Key *bool `json:"key"`
+	// The name of the property.
+	//
+	// You use this name in the `configuration` attribute when defining your custom Action class.
+	// Experimental.
+	Name *string `json:"name"`
 	// Whether this property is queryable.
 	//
 	// Note that only a single property of a custom Action can be queryable.
@@ -2991,6 +3054,9 @@ type CustomActionProperty struct {
 	//
 	// Experimental.
 	Queryable *bool `json:"queryable"`
+	// Whether this property is required.
+	// Experimental.
+	Required *bool `json:"required"`
 	// Whether this property is secret, like a password, or access key.
 	// Experimental.
 	Secret *bool `json:"secret"`
@@ -4230,27 +4296,30 @@ func (p *jsiiProxy_Pipeline) Validate() *[]*string {
 type PipelineNotificationEvents string
 
 const (
-	PipelineNotificationEvents_PIPELINE_EXECUTION_FAILED PipelineNotificationEvents = "PIPELINE_EXECUTION_FAILED"
-	PipelineNotificationEvents_PIPELINE_EXECUTION_CANCELED PipelineNotificationEvents = "PIPELINE_EXECUTION_CANCELED"
-	PipelineNotificationEvents_PIPELINE_EXECUTION_STARTED PipelineNotificationEvents = "PIPELINE_EXECUTION_STARTED"
-	PipelineNotificationEvents_PIPELINE_EXECUTION_RESUMED PipelineNotificationEvents = "PIPELINE_EXECUTION_RESUMED"
-	PipelineNotificationEvents_PIPELINE_EXECUTION_SUCCEEDED PipelineNotificationEvents = "PIPELINE_EXECUTION_SUCCEEDED"
-	PipelineNotificationEvents_PIPELINE_EXECUTION_SUPERSEDED PipelineNotificationEvents = "PIPELINE_EXECUTION_SUPERSEDED"
-	PipelineNotificationEvents_STAGE_EXECUTION_STARTED PipelineNotificationEvents = "STAGE_EXECUTION_STARTED"
-	PipelineNotificationEvents_STAGE_EXECUTION_SUCCEEDED PipelineNotificationEvents = "STAGE_EXECUTION_SUCCEEDED"
-	PipelineNotificationEvents_STAGE_EXECUTION_RESUMED PipelineNotificationEvents = "STAGE_EXECUTION_RESUMED"
-	PipelineNotificationEvents_STAGE_EXECUTION_CANCELED PipelineNotificationEvents = "STAGE_EXECUTION_CANCELED"
-	PipelineNotificationEvents_STAGE_EXECUTION_FAILED PipelineNotificationEvents = "STAGE_EXECUTION_FAILED"
-	PipelineNotificationEvents_ACTION_EXECUTION_SUCCEEDED PipelineNotificationEvents = "ACTION_EXECUTION_SUCCEEDED"
-	PipelineNotificationEvents_ACTION_EXECUTION_FAILED PipelineNotificationEvents = "ACTION_EXECUTION_FAILED"
 	PipelineNotificationEvents_ACTION_EXECUTION_CANCELED PipelineNotificationEvents = "ACTION_EXECUTION_CANCELED"
+	PipelineNotificationEvents_ACTION_EXECUTION_FAILED PipelineNotificationEvents = "ACTION_EXECUTION_FAILED"
 	PipelineNotificationEvents_ACTION_EXECUTION_STARTED PipelineNotificationEvents = "ACTION_EXECUTION_STARTED"
+	PipelineNotificationEvents_ACTION_EXECUTION_SUCCEEDED PipelineNotificationEvents = "ACTION_EXECUTION_SUCCEEDED"
 	PipelineNotificationEvents_MANUAL_APPROVAL_FAILED PipelineNotificationEvents = "MANUAL_APPROVAL_FAILED"
 	PipelineNotificationEvents_MANUAL_APPROVAL_NEEDED PipelineNotificationEvents = "MANUAL_APPROVAL_NEEDED"
 	PipelineNotificationEvents_MANUAL_APPROVAL_SUCCEEDED PipelineNotificationEvents = "MANUAL_APPROVAL_SUCCEEDED"
+	PipelineNotificationEvents_PIPELINE_EXECUTION_CANCELED PipelineNotificationEvents = "PIPELINE_EXECUTION_CANCELED"
+	PipelineNotificationEvents_PIPELINE_EXECUTION_FAILED PipelineNotificationEvents = "PIPELINE_EXECUTION_FAILED"
+	PipelineNotificationEvents_PIPELINE_EXECUTION_RESUMED PipelineNotificationEvents = "PIPELINE_EXECUTION_RESUMED"
+	PipelineNotificationEvents_PIPELINE_EXECUTION_STARTED PipelineNotificationEvents = "PIPELINE_EXECUTION_STARTED"
+	PipelineNotificationEvents_PIPELINE_EXECUTION_SUCCEEDED PipelineNotificationEvents = "PIPELINE_EXECUTION_SUCCEEDED"
+	PipelineNotificationEvents_PIPELINE_EXECUTION_SUPERSEDED PipelineNotificationEvents = "PIPELINE_EXECUTION_SUPERSEDED"
+	PipelineNotificationEvents_STAGE_EXECUTION_CANCELED PipelineNotificationEvents = "STAGE_EXECUTION_CANCELED"
+	PipelineNotificationEvents_STAGE_EXECUTION_FAILED PipelineNotificationEvents = "STAGE_EXECUTION_FAILED"
+	PipelineNotificationEvents_STAGE_EXECUTION_RESUMED PipelineNotificationEvents = "STAGE_EXECUTION_RESUMED"
+	PipelineNotificationEvents_STAGE_EXECUTION_STARTED PipelineNotificationEvents = "STAGE_EXECUTION_STARTED"
+	PipelineNotificationEvents_STAGE_EXECUTION_SUCCEEDED PipelineNotificationEvents = "STAGE_EXECUTION_SUCCEEDED"
 )
 
 // Additional options to pass to the notification rule.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type PipelineNotifyOnOptions struct {
 	// The level of detail to include in the notifications for this resource.
@@ -4331,14 +4400,14 @@ type PipelineProps struct {
 //
 // Experimental.
 type StageOptions struct {
-	// The physical, human-readable name to assign to this Pipeline Stage.
-	// Experimental.
-	StageName *string `json:"stageName"`
 	// The list of Actions to create this Stage with.
 	//
 	// You can always add more Actions later by calling {@link IStage#addAction}.
 	// Experimental.
 	Actions *[]IAction `json:"actions"`
+	// The physical, human-readable name to assign to this Pipeline Stage.
+	// Experimental.
+	StageName *string `json:"stageName"`
 	// Experimental.
 	Placement *StagePlacement `json:"placement"`
 }
@@ -4363,15 +4432,18 @@ type StagePlacement struct {
 }
 
 // Construction properties of a Pipeline Stage.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type StageProps struct {
-	// The physical, human-readable name to assign to this Pipeline Stage.
-	// Experimental.
-	StageName *string `json:"stageName"`
 	// The list of Actions to create this Stage with.
 	//
 	// You can always add more Actions later by calling {@link IStage#addAction}.
 	// Experimental.
 	Actions *[]IAction `json:"actions"`
+	// The physical, human-readable name to assign to this Pipeline Stage.
+	// Experimental.
+	StageName *string `json:"stageName"`
 }
 

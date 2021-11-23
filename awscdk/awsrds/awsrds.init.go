@@ -1677,9 +1677,9 @@ func init() {
 		"monocdk.aws_rds.LicenseModel",
 		reflect.TypeOf((*LicenseModel)(nil)).Elem(),
 		map[string]interface{}{
-			"LICENSE_INCLUDED": LicenseModel_LICENSE_INCLUDED,
 			"BRING_YOUR_OWN_LICENSE": LicenseModel_BRING_YOUR_OWN_LICENSE,
 			"GENERAL_PUBLIC_LICENSE": LicenseModel_GENERAL_PUBLIC_LICENSE,
+			"LICENSE_INCLUDED": LicenseModel_LICENSE_INCLUDED,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -2003,9 +2003,9 @@ func init() {
 		"monocdk.aws_rds.StorageType",
 		reflect.TypeOf((*StorageType)(nil)).Elem(),
 		map[string]interface{}{
-			"STANDARD": StorageType_STANDARD,
 			"GP2": StorageType_GP2,
 			"IO1": StorageType_IO1,
+			"STANDARD": StorageType_STANDARD,
 		},
 	)
 	_jsii_.RegisterClass(

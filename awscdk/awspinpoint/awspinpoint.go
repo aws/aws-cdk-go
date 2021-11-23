@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::Pinpoint::ADMChannel`.
+//
+// TODO: EXAMPLE
+//
 type CfnADMChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -656,6 +659,9 @@ func (c *jsiiProxy_CfnADMChannel) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Pinpoint::ADMChannel`.
+//
+// TODO: EXAMPLE
+//
 type CfnADMChannelProps struct {
 	// `AWS::Pinpoint::ADMChannel.ApplicationId`.
 	ApplicationId *string `json:"applicationId"`
@@ -668,6 +674,9 @@ type CfnADMChannelProps struct {
 }
 
 // A CloudFormation `AWS::Pinpoint::APNSChannel`.
+//
+// TODO: EXAMPLE
+//
 type CfnAPNSChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1414,6 +1423,9 @@ func (c *jsiiProxy_CfnAPNSChannel) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Pinpoint::APNSChannel`.
+//
+// TODO: EXAMPLE
+//
 type CfnAPNSChannelProps struct {
 	// `AWS::Pinpoint::APNSChannel.ApplicationId`.
 	ApplicationId *string `json:"applicationId"`
@@ -1436,6 +1448,9 @@ type CfnAPNSChannelProps struct {
 }
 
 // A CloudFormation `AWS::Pinpoint::APNSSandboxChannel`.
+//
+// TODO: EXAMPLE
+//
 type CfnAPNSSandboxChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2182,6 +2197,9 @@ func (c *jsiiProxy_CfnAPNSSandboxChannel) ValidateProperties(_properties interfa
 }
 
 // Properties for defining a `AWS::Pinpoint::APNSSandboxChannel`.
+//
+// TODO: EXAMPLE
+//
 type CfnAPNSSandboxChannelProps struct {
 	// `AWS::Pinpoint::APNSSandboxChannel.ApplicationId`.
 	ApplicationId *string `json:"applicationId"`
@@ -2204,6 +2222,9 @@ type CfnAPNSSandboxChannelProps struct {
 }
 
 // A CloudFormation `AWS::Pinpoint::APNSVoipChannel`.
+//
+// TODO: EXAMPLE
+//
 type CfnAPNSVoipChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2950,6 +2971,9 @@ func (c *jsiiProxy_CfnAPNSVoipChannel) ValidateProperties(_properties interface{
 }
 
 // Properties for defining a `AWS::Pinpoint::APNSVoipChannel`.
+//
+// TODO: EXAMPLE
+//
 type CfnAPNSVoipChannelProps struct {
 	// `AWS::Pinpoint::APNSVoipChannel.ApplicationId`.
 	ApplicationId *string `json:"applicationId"`
@@ -2972,6 +2996,9 @@ type CfnAPNSVoipChannelProps struct {
 }
 
 // A CloudFormation `AWS::Pinpoint::APNSVoipSandboxChannel`.
+//
+// TODO: EXAMPLE
+//
 type CfnAPNSVoipSandboxChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3718,6 +3745,9 @@ func (c *jsiiProxy_CfnAPNSVoipSandboxChannel) ValidateProperties(_properties int
 }
 
 // Properties for defining a `AWS::Pinpoint::APNSVoipSandboxChannel`.
+//
+// TODO: EXAMPLE
+//
 type CfnAPNSVoipSandboxChannelProps struct {
 	// `AWS::Pinpoint::APNSVoipSandboxChannel.ApplicationId`.
 	ApplicationId *string `json:"applicationId"`
@@ -3740,6 +3770,9 @@ type CfnAPNSVoipSandboxChannelProps struct {
 }
 
 // A CloudFormation `AWS::Pinpoint::App`.
+//
+// TODO: EXAMPLE
+//
 type CfnApp interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4348,6 +4381,9 @@ func (c *jsiiProxy_CfnApp) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Pinpoint::App`.
+//
+// TODO: EXAMPLE
+//
 type CfnAppProps struct {
 	// `AWS::Pinpoint::App.Name`.
 	Name *string `json:"name"`
@@ -4356,6 +4392,9 @@ type CfnAppProps struct {
 }
 
 // A CloudFormation `AWS::Pinpoint::ApplicationSettings`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationSettings interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5021,6 +5060,8 @@ func (c *jsiiProxy_CfnApplicationSettings) ValidateProperties(_properties interf
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationSettings_CampaignHookProperty struct {
 	// `CfnApplicationSettings.CampaignHookProperty.LambdaFunctionName`.
 	LambdaFunctionName *string `json:"lambdaFunctionName"`
@@ -5030,6 +5071,8 @@ type CfnApplicationSettings_CampaignHookProperty struct {
 	WebUrl *string `json:"webUrl"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationSettings_LimitsProperty struct {
 	// `CfnApplicationSettings.LimitsProperty.Daily`.
 	Daily *float64 `json:"daily"`
@@ -5041,6 +5084,8 @@ type CfnApplicationSettings_LimitsProperty struct {
 	Total *float64 `json:"total"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationSettings_QuietTimeProperty struct {
 	// `CfnApplicationSettings.QuietTimeProperty.End`.
 	End *string `json:"end"`
@@ -5049,6 +5094,9 @@ type CfnApplicationSettings_QuietTimeProperty struct {
 }
 
 // Properties for defining a `AWS::Pinpoint::ApplicationSettings`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationSettingsProps struct {
 	// `AWS::Pinpoint::ApplicationSettings.ApplicationId`.
 	ApplicationId *string `json:"applicationId"`
@@ -5063,6 +5111,9 @@ type CfnApplicationSettingsProps struct {
 }
 
 // A CloudFormation `AWS::Pinpoint::BaiduChannel`.
+//
+// TODO: EXAMPLE
+//
 type CfnBaiduChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5709,18 +5760,24 @@ func (c *jsiiProxy_CfnBaiduChannel) ValidateProperties(_properties interface{}) 
 }
 
 // Properties for defining a `AWS::Pinpoint::BaiduChannel`.
+//
+// TODO: EXAMPLE
+//
 type CfnBaiduChannelProps struct {
 	// `AWS::Pinpoint::BaiduChannel.ApiKey`.
 	ApiKey *string `json:"apiKey"`
 	// `AWS::Pinpoint::BaiduChannel.ApplicationId`.
 	ApplicationId *string `json:"applicationId"`
-	// `AWS::Pinpoint::BaiduChannel.SecretKey`.
-	SecretKey *string `json:"secretKey"`
 	// `AWS::Pinpoint::BaiduChannel.Enabled`.
 	Enabled interface{} `json:"enabled"`
+	// `AWS::Pinpoint::BaiduChannel.SecretKey`.
+	SecretKey *string `json:"secretKey"`
 }
 
 // A CloudFormation `AWS::Pinpoint::Campaign`.
+//
+// TODO: EXAMPLE
+//
 type CfnCampaign interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6619,6 +6676,8 @@ func (c *jsiiProxy_CfnCampaign) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnCampaign_AttributeDimensionProperty struct {
 	// `CfnCampaign.AttributeDimensionProperty.AttributeType`.
 	AttributeType *string `json:"attributeType"`
@@ -6626,6 +6685,8 @@ type CfnCampaign_AttributeDimensionProperty struct {
 	Values *[]*string `json:"values"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCampaign_CampaignEmailMessageProperty struct {
 	// `CfnCampaign.CampaignEmailMessageProperty.Body`.
 	Body *string `json:"body"`
@@ -6637,6 +6698,8 @@ type CfnCampaign_CampaignEmailMessageProperty struct {
 	Title *string `json:"title"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCampaign_CampaignEventFilterProperty struct {
 	// `CfnCampaign.CampaignEventFilterProperty.Dimensions`.
 	Dimensions interface{} `json:"dimensions"`
@@ -6644,6 +6707,8 @@ type CfnCampaign_CampaignEventFilterProperty struct {
 	FilterType *string `json:"filterType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCampaign_CampaignHookProperty struct {
 	// `CfnCampaign.CampaignHookProperty.LambdaFunctionName`.
 	LambdaFunctionName *string `json:"lambdaFunctionName"`
@@ -6653,6 +6718,8 @@ type CfnCampaign_CampaignHookProperty struct {
 	WebUrl *string `json:"webUrl"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCampaign_CampaignInAppMessageProperty struct {
 	// `CfnCampaign.CampaignInAppMessageProperty.Content`.
 	Content interface{} `json:"content"`
@@ -6662,6 +6729,8 @@ type CfnCampaign_CampaignInAppMessageProperty struct {
 	Layout *string `json:"layout"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCampaign_CampaignSmsMessageProperty struct {
 	// `CfnCampaign.CampaignSmsMessageProperty.Body`.
 	Body *string `json:"body"`
@@ -6677,6 +6746,8 @@ type CfnCampaign_CampaignSmsMessageProperty struct {
 	TemplateId *string `json:"templateId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCampaign_DefaultButtonConfigurationProperty struct {
 	// `CfnCampaign.DefaultButtonConfigurationProperty.BackgroundColor`.
 	BackgroundColor *string `json:"backgroundColor"`
@@ -6692,6 +6763,8 @@ type CfnCampaign_DefaultButtonConfigurationProperty struct {
 	TextColor *string `json:"textColor"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCampaign_EventDimensionsProperty struct {
 	// `CfnCampaign.EventDimensionsProperty.Attributes`.
 	Attributes interface{} `json:"attributes"`
@@ -6701,6 +6774,8 @@ type CfnCampaign_EventDimensionsProperty struct {
 	Metrics interface{} `json:"metrics"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCampaign_InAppMessageBodyConfigProperty struct {
 	// `CfnCampaign.InAppMessageBodyConfigProperty.Alignment`.
 	Alignment *string `json:"alignment"`
@@ -6710,6 +6785,8 @@ type CfnCampaign_InAppMessageBodyConfigProperty struct {
 	TextColor *string `json:"textColor"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCampaign_InAppMessageButtonProperty struct {
 	// `CfnCampaign.InAppMessageButtonProperty.Android`.
 	Android interface{} `json:"android"`
@@ -6721,6 +6798,8 @@ type CfnCampaign_InAppMessageButtonProperty struct {
 	Web interface{} `json:"web"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCampaign_InAppMessageContentProperty struct {
 	// `CfnCampaign.InAppMessageContentProperty.BackgroundColor`.
 	BackgroundColor *string `json:"backgroundColor"`
@@ -6736,6 +6815,8 @@ type CfnCampaign_InAppMessageContentProperty struct {
 	SecondaryBtn interface{} `json:"secondaryBtn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCampaign_InAppMessageHeaderConfigProperty struct {
 	// `CfnCampaign.InAppMessageHeaderConfigProperty.Alignment`.
 	Alignment *string `json:"alignment"`
@@ -6745,6 +6826,8 @@ type CfnCampaign_InAppMessageHeaderConfigProperty struct {
 	TextColor *string `json:"textColor"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCampaign_LimitsProperty struct {
 	// `CfnCampaign.LimitsProperty.Daily`.
 	Daily *float64 `json:"daily"`
@@ -6758,6 +6841,8 @@ type CfnCampaign_LimitsProperty struct {
 	Total *float64 `json:"total"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCampaign_MessageConfigurationProperty struct {
 	// `CfnCampaign.MessageConfigurationProperty.ADMMessage`.
 	AdmMessage interface{} `json:"admMessage"`
@@ -6777,6 +6862,8 @@ type CfnCampaign_MessageConfigurationProperty struct {
 	SmsMessage interface{} `json:"smsMessage"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCampaign_MessageProperty struct {
 	// `CfnCampaign.MessageProperty.Action`.
 	Action *string `json:"action"`
@@ -6804,6 +6891,8 @@ type CfnCampaign_MessageProperty struct {
 	Url *string `json:"url"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCampaign_MetricDimensionProperty struct {
 	// `CfnCampaign.MetricDimensionProperty.ComparisonOperator`.
 	ComparisonOperator *string `json:"comparisonOperator"`
@@ -6811,6 +6900,8 @@ type CfnCampaign_MetricDimensionProperty struct {
 	Value *float64 `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCampaign_OverrideButtonConfigurationProperty struct {
 	// `CfnCampaign.OverrideButtonConfigurationProperty.ButtonAction`.
 	ButtonAction *string `json:"buttonAction"`
@@ -6818,6 +6909,8 @@ type CfnCampaign_OverrideButtonConfigurationProperty struct {
 	Link *string `json:"link"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCampaign_QuietTimeProperty struct {
 	// `CfnCampaign.QuietTimeProperty.End`.
 	End *string `json:"end"`
@@ -6825,6 +6918,8 @@ type CfnCampaign_QuietTimeProperty struct {
 	Start *string `json:"start"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCampaign_ScheduleProperty struct {
 	// `CfnCampaign.ScheduleProperty.EndTime`.
 	EndTime *string `json:"endTime"`
@@ -6842,6 +6937,8 @@ type CfnCampaign_ScheduleProperty struct {
 	TimeZone *string `json:"timeZone"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCampaign_SetDimensionProperty struct {
 	// `CfnCampaign.SetDimensionProperty.DimensionType`.
 	DimensionType *string `json:"dimensionType"`
@@ -6849,6 +6946,8 @@ type CfnCampaign_SetDimensionProperty struct {
 	Values *[]*string `json:"values"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCampaign_WriteTreatmentResourceProperty struct {
 	// `CfnCampaign.WriteTreatmentResourceProperty.MessageConfiguration`.
 	MessageConfiguration interface{} `json:"messageConfiguration"`
@@ -6863,19 +6962,14 @@ type CfnCampaign_WriteTreatmentResourceProperty struct {
 }
 
 // Properties for defining a `AWS::Pinpoint::Campaign`.
+//
+// TODO: EXAMPLE
+//
 type CfnCampaignProps struct {
-	// `AWS::Pinpoint::Campaign.ApplicationId`.
-	ApplicationId *string `json:"applicationId"`
-	// `AWS::Pinpoint::Campaign.MessageConfiguration`.
-	MessageConfiguration interface{} `json:"messageConfiguration"`
-	// `AWS::Pinpoint::Campaign.Name`.
-	Name *string `json:"name"`
-	// `AWS::Pinpoint::Campaign.Schedule`.
-	Schedule interface{} `json:"schedule"`
-	// `AWS::Pinpoint::Campaign.SegmentId`.
-	SegmentId *string `json:"segmentId"`
 	// `AWS::Pinpoint::Campaign.AdditionalTreatments`.
 	AdditionalTreatments interface{} `json:"additionalTreatments"`
+	// `AWS::Pinpoint::Campaign.ApplicationId`.
+	ApplicationId *string `json:"applicationId"`
 	// `AWS::Pinpoint::Campaign.CampaignHook`.
 	CampaignHook interface{} `json:"campaignHook"`
 	// `AWS::Pinpoint::Campaign.Description`.
@@ -6886,8 +6980,16 @@ type CfnCampaignProps struct {
 	IsPaused interface{} `json:"isPaused"`
 	// `AWS::Pinpoint::Campaign.Limits`.
 	Limits interface{} `json:"limits"`
+	// `AWS::Pinpoint::Campaign.MessageConfiguration`.
+	MessageConfiguration interface{} `json:"messageConfiguration"`
+	// `AWS::Pinpoint::Campaign.Name`.
+	Name *string `json:"name"`
 	// `AWS::Pinpoint::Campaign.Priority`.
 	Priority *float64 `json:"priority"`
+	// `AWS::Pinpoint::Campaign.Schedule`.
+	Schedule interface{} `json:"schedule"`
+	// `AWS::Pinpoint::Campaign.SegmentId`.
+	SegmentId *string `json:"segmentId"`
 	// `AWS::Pinpoint::Campaign.SegmentVersion`.
 	SegmentVersion *float64 `json:"segmentVersion"`
 	// `AWS::Pinpoint::Campaign.Tags`.
@@ -6899,6 +7001,9 @@ type CfnCampaignProps struct {
 }
 
 // A CloudFormation `AWS::Pinpoint::EmailChannel`.
+//
+// TODO: EXAMPLE
+//
 type CfnEmailChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -7585,22 +7690,28 @@ func (c *jsiiProxy_CfnEmailChannel) ValidateProperties(_properties interface{}) 
 }
 
 // Properties for defining a `AWS::Pinpoint::EmailChannel`.
+//
+// TODO: EXAMPLE
+//
 type CfnEmailChannelProps struct {
 	// `AWS::Pinpoint::EmailChannel.ApplicationId`.
 	ApplicationId *string `json:"applicationId"`
-	// `AWS::Pinpoint::EmailChannel.FromAddress`.
-	FromAddress *string `json:"fromAddress"`
-	// `AWS::Pinpoint::EmailChannel.Identity`.
-	Identity *string `json:"identity"`
 	// `AWS::Pinpoint::EmailChannel.ConfigurationSet`.
 	ConfigurationSet *string `json:"configurationSet"`
 	// `AWS::Pinpoint::EmailChannel.Enabled`.
 	Enabled interface{} `json:"enabled"`
+	// `AWS::Pinpoint::EmailChannel.FromAddress`.
+	FromAddress *string `json:"fromAddress"`
+	// `AWS::Pinpoint::EmailChannel.Identity`.
+	Identity *string `json:"identity"`
 	// `AWS::Pinpoint::EmailChannel.RoleArn`.
 	RoleArn *string `json:"roleArn"`
 }
 
 // A CloudFormation `AWS::Pinpoint::EmailTemplate`.
+//
+// TODO: EXAMPLE
+//
 type CfnEmailTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -8309,24 +8420,30 @@ func (c *jsiiProxy_CfnEmailTemplate) ValidateProperties(_properties interface{})
 }
 
 // Properties for defining a `AWS::Pinpoint::EmailTemplate`.
+//
+// TODO: EXAMPLE
+//
 type CfnEmailTemplateProps struct {
-	// `AWS::Pinpoint::EmailTemplate.Subject`.
-	Subject *string `json:"subject"`
-	// `AWS::Pinpoint::EmailTemplate.TemplateName`.
-	TemplateName *string `json:"templateName"`
 	// `AWS::Pinpoint::EmailTemplate.DefaultSubstitutions`.
 	DefaultSubstitutions *string `json:"defaultSubstitutions"`
 	// `AWS::Pinpoint::EmailTemplate.HtmlPart`.
 	HtmlPart *string `json:"htmlPart"`
+	// `AWS::Pinpoint::EmailTemplate.Subject`.
+	Subject *string `json:"subject"`
 	// `AWS::Pinpoint::EmailTemplate.Tags`.
 	Tags interface{} `json:"tags"`
 	// `AWS::Pinpoint::EmailTemplate.TemplateDescription`.
 	TemplateDescription *string `json:"templateDescription"`
+	// `AWS::Pinpoint::EmailTemplate.TemplateName`.
+	TemplateName *string `json:"templateName"`
 	// `AWS::Pinpoint::EmailTemplate.TextPart`.
 	TextPart *string `json:"textPart"`
 }
 
 // A CloudFormation `AWS::Pinpoint::EventStream`.
+//
+// TODO: EXAMPLE
+//
 type CfnEventStream interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -8953,6 +9070,9 @@ func (c *jsiiProxy_CfnEventStream) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Pinpoint::EventStream`.
+//
+// TODO: EXAMPLE
+//
 type CfnEventStreamProps struct {
 	// `AWS::Pinpoint::EventStream.ApplicationId`.
 	ApplicationId *string `json:"applicationId"`
@@ -8963,6 +9083,9 @@ type CfnEventStreamProps struct {
 }
 
 // A CloudFormation `AWS::Pinpoint::GCMChannel`.
+//
+// TODO: EXAMPLE
+//
 type CfnGCMChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -9589,6 +9712,9 @@ func (c *jsiiProxy_CfnGCMChannel) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Pinpoint::GCMChannel`.
+//
+// TODO: EXAMPLE
+//
 type CfnGCMChannelProps struct {
 	// `AWS::Pinpoint::GCMChannel.ApiKey`.
 	ApiKey *string `json:"apiKey"`
@@ -9599,6 +9725,9 @@ type CfnGCMChannelProps struct {
 }
 
 // A CloudFormation `AWS::Pinpoint::InAppTemplate`.
+//
+// TODO: EXAMPLE
+//
 type CfnInAppTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -10286,6 +10415,8 @@ func (c *jsiiProxy_CfnInAppTemplate) ValidateProperties(_properties interface{})
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnInAppTemplate_BodyConfigProperty struct {
 	// `CfnInAppTemplate.BodyConfigProperty.Alignment`.
 	Alignment *string `json:"alignment"`
@@ -10295,6 +10426,8 @@ type CfnInAppTemplate_BodyConfigProperty struct {
 	TextColor *string `json:"textColor"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInAppTemplate_ButtonConfigProperty struct {
 	// `CfnInAppTemplate.ButtonConfigProperty.Android`.
 	Android interface{} `json:"android"`
@@ -10306,6 +10439,8 @@ type CfnInAppTemplate_ButtonConfigProperty struct {
 	Web interface{} `json:"web"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInAppTemplate_DefaultButtonConfigurationProperty struct {
 	// `CfnInAppTemplate.DefaultButtonConfigurationProperty.BackgroundColor`.
 	BackgroundColor *string `json:"backgroundColor"`
@@ -10321,6 +10456,8 @@ type CfnInAppTemplate_DefaultButtonConfigurationProperty struct {
 	TextColor *string `json:"textColor"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInAppTemplate_HeaderConfigProperty struct {
 	// `CfnInAppTemplate.HeaderConfigProperty.Alignment`.
 	Alignment *string `json:"alignment"`
@@ -10330,6 +10467,8 @@ type CfnInAppTemplate_HeaderConfigProperty struct {
 	TextColor *string `json:"textColor"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInAppTemplate_InAppMessageContentProperty struct {
 	// `CfnInAppTemplate.InAppMessageContentProperty.BackgroundColor`.
 	BackgroundColor *string `json:"backgroundColor"`
@@ -10345,6 +10484,8 @@ type CfnInAppTemplate_InAppMessageContentProperty struct {
 	SecondaryBtn interface{} `json:"secondaryBtn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInAppTemplate_OverrideButtonConfigurationProperty struct {
 	// `CfnInAppTemplate.OverrideButtonConfigurationProperty.ButtonAction`.
 	ButtonAction *string `json:"buttonAction"`
@@ -10353,9 +10494,10 @@ type CfnInAppTemplate_OverrideButtonConfigurationProperty struct {
 }
 
 // Properties for defining a `AWS::Pinpoint::InAppTemplate`.
+//
+// TODO: EXAMPLE
+//
 type CfnInAppTemplateProps struct {
-	// `AWS::Pinpoint::InAppTemplate.TemplateName`.
-	TemplateName *string `json:"templateName"`
 	// `AWS::Pinpoint::InAppTemplate.Content`.
 	Content interface{} `json:"content"`
 	// `AWS::Pinpoint::InAppTemplate.CustomConfig`.
@@ -10366,9 +10508,14 @@ type CfnInAppTemplateProps struct {
 	Tags interface{} `json:"tags"`
 	// `AWS::Pinpoint::InAppTemplate.TemplateDescription`.
 	TemplateDescription *string `json:"templateDescription"`
+	// `AWS::Pinpoint::InAppTemplate.TemplateName`.
+	TemplateName *string `json:"templateName"`
 }
 
 // A CloudFormation `AWS::Pinpoint::PushTemplate`.
+//
+// TODO: EXAMPLE
+//
 type CfnPushTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -11116,6 +11263,8 @@ func (c *jsiiProxy_CfnPushTemplate) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnPushTemplate_APNSPushNotificationTemplateProperty struct {
 	// `CfnPushTemplate.APNSPushNotificationTemplateProperty.Action`.
 	Action *string `json:"action"`
@@ -11131,6 +11280,8 @@ type CfnPushTemplate_APNSPushNotificationTemplateProperty struct {
 	Url *string `json:"url"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPushTemplate_AndroidPushNotificationTemplateProperty struct {
 	// `CfnPushTemplate.AndroidPushNotificationTemplateProperty.Action`.
 	Action *string `json:"action"`
@@ -11150,6 +11301,8 @@ type CfnPushTemplate_AndroidPushNotificationTemplateProperty struct {
 	Url *string `json:"url"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPushTemplate_DefaultPushNotificationTemplateProperty struct {
 	// `CfnPushTemplate.DefaultPushNotificationTemplateProperty.Action`.
 	Action *string `json:"action"`
@@ -11164,9 +11317,10 @@ type CfnPushTemplate_DefaultPushNotificationTemplateProperty struct {
 }
 
 // Properties for defining a `AWS::Pinpoint::PushTemplate`.
+//
+// TODO: EXAMPLE
+//
 type CfnPushTemplateProps struct {
-	// `AWS::Pinpoint::PushTemplate.TemplateName`.
-	TemplateName *string `json:"templateName"`
 	// `AWS::Pinpoint::PushTemplate.ADM`.
 	Adm interface{} `json:"adm"`
 	// `AWS::Pinpoint::PushTemplate.APNS`.
@@ -11183,9 +11337,14 @@ type CfnPushTemplateProps struct {
 	Tags interface{} `json:"tags"`
 	// `AWS::Pinpoint::PushTemplate.TemplateDescription`.
 	TemplateDescription *string `json:"templateDescription"`
+	// `AWS::Pinpoint::PushTemplate.TemplateName`.
+	TemplateName *string `json:"templateName"`
 }
 
 // A CloudFormation `AWS::Pinpoint::SMSChannel`.
+//
+// TODO: EXAMPLE
+//
 type CfnSMSChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -11832,6 +11991,9 @@ func (c *jsiiProxy_CfnSMSChannel) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Pinpoint::SMSChannel`.
+//
+// TODO: EXAMPLE
+//
 type CfnSMSChannelProps struct {
 	// `AWS::Pinpoint::SMSChannel.ApplicationId`.
 	ApplicationId *string `json:"applicationId"`
@@ -11844,6 +12006,9 @@ type CfnSMSChannelProps struct {
 }
 
 // A CloudFormation `AWS::Pinpoint::Segment`.
+//
+// TODO: EXAMPLE
+//
 type CfnSegment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -12522,6 +12687,8 @@ func (c *jsiiProxy_CfnSegment) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnSegment_AttributeDimensionProperty struct {
 	// `CfnSegment.AttributeDimensionProperty.AttributeType`.
 	AttributeType *string `json:"attributeType"`
@@ -12529,11 +12696,15 @@ type CfnSegment_AttributeDimensionProperty struct {
 	Values *[]*string `json:"values"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSegment_BehaviorProperty struct {
 	// `CfnSegment.BehaviorProperty.Recency`.
 	Recency interface{} `json:"recency"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSegment_CoordinatesProperty struct {
 	// `CfnSegment.CoordinatesProperty.Latitude`.
 	Latitude *float64 `json:"latitude"`
@@ -12541,6 +12712,8 @@ type CfnSegment_CoordinatesProperty struct {
 	Longitude *float64 `json:"longitude"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSegment_DemographicProperty struct {
 	// `CfnSegment.DemographicProperty.AppVersion`.
 	AppVersion interface{} `json:"appVersion"`
@@ -12556,6 +12729,8 @@ type CfnSegment_DemographicProperty struct {
 	Platform interface{} `json:"platform"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSegment_GPSPointProperty struct {
 	// `CfnSegment.GPSPointProperty.Coordinates`.
 	Coordinates interface{} `json:"coordinates"`
@@ -12563,6 +12738,8 @@ type CfnSegment_GPSPointProperty struct {
 	RangeInKilometers *float64 `json:"rangeInKilometers"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSegment_GroupsProperty struct {
 	// `CfnSegment.GroupsProperty.Dimensions`.
 	Dimensions interface{} `json:"dimensions"`
@@ -12574,6 +12751,8 @@ type CfnSegment_GroupsProperty struct {
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSegment_LocationProperty struct {
 	// `CfnSegment.LocationProperty.Country`.
 	Country interface{} `json:"country"`
@@ -12581,6 +12760,8 @@ type CfnSegment_LocationProperty struct {
 	GpsPoint interface{} `json:"gpsPoint"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSegment_RecencyProperty struct {
 	// `CfnSegment.RecencyProperty.Duration`.
 	Duration *string `json:"duration"`
@@ -12588,6 +12769,8 @@ type CfnSegment_RecencyProperty struct {
 	RecencyType *string `json:"recencyType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSegment_SegmentDimensionsProperty struct {
 	// `CfnSegment.SegmentDimensionsProperty.Attributes`.
 	Attributes interface{} `json:"attributes"`
@@ -12603,6 +12786,8 @@ type CfnSegment_SegmentDimensionsProperty struct {
 	UserAttributes interface{} `json:"userAttributes"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSegment_SegmentGroupsProperty struct {
 	// `CfnSegment.SegmentGroupsProperty.Groups`.
 	Groups interface{} `json:"groups"`
@@ -12610,6 +12795,8 @@ type CfnSegment_SegmentGroupsProperty struct {
 	Include *string `json:"include"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSegment_SetDimensionProperty struct {
 	// `CfnSegment.SetDimensionProperty.DimensionType`.
 	DimensionType *string `json:"dimensionType"`
@@ -12617,6 +12804,8 @@ type CfnSegment_SetDimensionProperty struct {
 	Values *[]*string `json:"values"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSegment_SourceSegmentsProperty struct {
 	// `CfnSegment.SourceSegmentsProperty.Id`.
 	Id *string `json:"id"`
@@ -12625,13 +12814,16 @@ type CfnSegment_SourceSegmentsProperty struct {
 }
 
 // Properties for defining a `AWS::Pinpoint::Segment`.
+//
+// TODO: EXAMPLE
+//
 type CfnSegmentProps struct {
 	// `AWS::Pinpoint::Segment.ApplicationId`.
 	ApplicationId *string `json:"applicationId"`
-	// `AWS::Pinpoint::Segment.Name`.
-	Name *string `json:"name"`
 	// `AWS::Pinpoint::Segment.Dimensions`.
 	Dimensions interface{} `json:"dimensions"`
+	// `AWS::Pinpoint::Segment.Name`.
+	Name *string `json:"name"`
 	// `AWS::Pinpoint::Segment.SegmentGroups`.
 	SegmentGroups interface{} `json:"segmentGroups"`
 	// `AWS::Pinpoint::Segment.Tags`.
@@ -12639,6 +12831,9 @@ type CfnSegmentProps struct {
 }
 
 // A CloudFormation `AWS::Pinpoint::SmsTemplate`.
+//
+// TODO: EXAMPLE
+//
 type CfnSmsTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -13307,20 +13502,26 @@ func (c *jsiiProxy_CfnSmsTemplate) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Pinpoint::SmsTemplate`.
+//
+// TODO: EXAMPLE
+//
 type CfnSmsTemplateProps struct {
 	// `AWS::Pinpoint::SmsTemplate.Body`.
 	Body *string `json:"body"`
-	// `AWS::Pinpoint::SmsTemplate.TemplateName`.
-	TemplateName *string `json:"templateName"`
 	// `AWS::Pinpoint::SmsTemplate.DefaultSubstitutions`.
 	DefaultSubstitutions *string `json:"defaultSubstitutions"`
 	// `AWS::Pinpoint::SmsTemplate.Tags`.
 	Tags interface{} `json:"tags"`
 	// `AWS::Pinpoint::SmsTemplate.TemplateDescription`.
 	TemplateDescription *string `json:"templateDescription"`
+	// `AWS::Pinpoint::SmsTemplate.TemplateName`.
+	TemplateName *string `json:"templateName"`
 }
 
 // A CloudFormation `AWS::Pinpoint::VoiceChannel`.
+//
+// TODO: EXAMPLE
+//
 type CfnVoiceChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -13927,6 +14128,9 @@ func (c *jsiiProxy_CfnVoiceChannel) ValidateProperties(_properties interface{}) 
 }
 
 // Properties for defining a `AWS::Pinpoint::VoiceChannel`.
+//
+// TODO: EXAMPLE
+//
 type CfnVoiceChannelProps struct {
 	// `AWS::Pinpoint::VoiceChannel.ApplicationId`.
 	ApplicationId *string `json:"applicationId"`

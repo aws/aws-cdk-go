@@ -344,9 +344,6 @@ func (a *jsiiProxy_ARecord) Validate() *[]*string {
 //
 // Experimental.
 type ARecordProps struct {
-	// The hosted zone in which to define the new record.
-	// Experimental.
-	Zone IHostedZone `json:"zone"`
 	// A comment to add on the record.
 	// Experimental.
 	Comment *string `json:"comment"`
@@ -356,6 +353,9 @@ type ARecordProps struct {
 	// The resource record cache time to live (TTL).
 	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
+	// The hosted zone in which to define the new record.
+	// Experimental.
+	Zone IHostedZone `json:"zone"`
 	// The target.
 	// Experimental.
 	Target RecordTarget `json:"target"`
@@ -694,9 +694,6 @@ func (a *jsiiProxy_AaaaRecord) Validate() *[]*string {
 //
 // Experimental.
 type AaaaRecordProps struct {
-	// The hosted zone in which to define the new record.
-	// Experimental.
-	Zone IHostedZone `json:"zone"`
 	// A comment to add on the record.
 	// Experimental.
 	Comment *string `json:"comment"`
@@ -706,12 +703,18 @@ type AaaaRecordProps struct {
 	// The resource record cache time to live (TTL).
 	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
+	// The hosted zone in which to define the new record.
+	// Experimental.
+	Zone IHostedZone `json:"zone"`
 	// The target.
 	// Experimental.
 	Target RecordTarget `json:"target"`
 }
 
 // Target for a DNS A Record.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: Use RecordTarget
 type AddressRecordTarget interface {
 	RecordTarget
@@ -833,6 +836,9 @@ func AddressRecordTarget_FromValues(values ...*string) RecordTarget {
 }
 
 // Represents the properties of an alias target destination.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AliasRecordTargetConfig struct {
 	// DNS name of the target.
@@ -847,6 +853,9 @@ type AliasRecordTargetConfig struct {
 //
 // A CAA record to restrict certificate authorities allowed
 // to issue certificates for a domain to Amazon only.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CaaAmazonRecord interface {
 	CaaRecord
@@ -1171,11 +1180,11 @@ func (c *jsiiProxy_CaaAmazonRecord) Validate() *[]*string {
 }
 
 // Construction properties for a CaaAmazonRecord.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CaaAmazonRecordProps struct {
-	// The hosted zone in which to define the new record.
-	// Experimental.
-	Zone IHostedZone `json:"zone"`
 	// A comment to add on the record.
 	// Experimental.
 	Comment *string `json:"comment"`
@@ -1185,9 +1194,15 @@ type CaaAmazonRecordProps struct {
 	// The resource record cache time to live (TTL).
 	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
+	// The hosted zone in which to define the new record.
+	// Experimental.
+	Zone IHostedZone `json:"zone"`
 }
 
 // A DNS CAA record.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CaaRecord interface {
 	RecordSet
@@ -1512,11 +1527,11 @@ func (c *jsiiProxy_CaaRecord) Validate() *[]*string {
 }
 
 // Construction properties for a CaaRecord.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CaaRecordProps struct {
-	// The hosted zone in which to define the new record.
-	// Experimental.
-	Zone IHostedZone `json:"zone"`
 	// A comment to add on the record.
 	// Experimental.
 	Comment *string `json:"comment"`
@@ -1526,12 +1541,18 @@ type CaaRecordProps struct {
 	// The resource record cache time to live (TTL).
 	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
+	// The hosted zone in which to define the new record.
+	// Experimental.
+	Zone IHostedZone `json:"zone"`
 	// The values.
 	// Experimental.
 	Values *[]*CaaRecordValue `json:"values"`
 }
 
 // Properties for a CAA record value.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CaaRecordValue struct {
 	// The flag.
@@ -1550,12 +1571,15 @@ type CaaRecordValue struct {
 type CaaTag string
 
 const (
+	CaaTag_IODEF CaaTag = "IODEF"
 	CaaTag_ISSUE CaaTag = "ISSUE"
 	CaaTag_ISSUEWILD CaaTag = "ISSUEWILD"
-	CaaTag_IODEF CaaTag = "IODEF"
 )
 
 // A CloudFormation `AWS::Route53::DNSSEC`.
+//
+// TODO: EXAMPLE
+//
 type CfnDNSSEC interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2142,12 +2166,18 @@ func (c *jsiiProxy_CfnDNSSEC) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Route53::DNSSEC`.
+//
+// TODO: EXAMPLE
+//
 type CfnDNSSECProps struct {
 	// `AWS::Route53::DNSSEC.HostedZoneId`.
 	HostedZoneId *string `json:"hostedZoneId"`
 }
 
 // A CloudFormation `AWS::Route53::HealthCheck`.
+//
+// TODO: EXAMPLE
+//
 type CfnHealthCheck interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2764,6 +2794,8 @@ func (c *jsiiProxy_CfnHealthCheck) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnHealthCheck_AlarmIdentifierProperty struct {
 	// `CfnHealthCheck.AlarmIdentifierProperty.Name`.
 	Name *string `json:"name"`
@@ -2771,9 +2803,9 @@ type CfnHealthCheck_AlarmIdentifierProperty struct {
 	Region *string `json:"region"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnHealthCheck_HealthCheckConfigProperty struct {
-	// `CfnHealthCheck.HealthCheckConfigProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnHealthCheck.HealthCheckConfigProperty.AlarmIdentifier`.
 	AlarmIdentifier interface{} `json:"alarmIdentifier"`
 	// `CfnHealthCheck.HealthCheckConfigProperty.ChildHealthChecks`.
@@ -2804,8 +2836,12 @@ type CfnHealthCheck_HealthCheckConfigProperty struct {
 	ResourcePath *string `json:"resourcePath"`
 	// `CfnHealthCheck.HealthCheckConfigProperty.SearchString`.
 	SearchString *string `json:"searchString"`
+	// `CfnHealthCheck.HealthCheckConfigProperty.Type`.
+	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnHealthCheck_HealthCheckTagProperty struct {
 	// `CfnHealthCheck.HealthCheckTagProperty.Key`.
 	Key *string `json:"key"`
@@ -2814,6 +2850,9 @@ type CfnHealthCheck_HealthCheckTagProperty struct {
 }
 
 // Properties for defining a `AWS::Route53::HealthCheck`.
+//
+// TODO: EXAMPLE
+//
 type CfnHealthCheckProps struct {
 	// `AWS::Route53::HealthCheck.HealthCheckConfig`.
 	HealthCheckConfig interface{} `json:"healthCheckConfig"`
@@ -2822,6 +2861,9 @@ type CfnHealthCheckProps struct {
 }
 
 // A CloudFormation `AWS::Route53::HostedZone`.
+//
+// TODO: EXAMPLE
+//
 type CfnHostedZone interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3500,11 +3542,15 @@ func (c *jsiiProxy_CfnHostedZone) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnHostedZone_HostedZoneConfigProperty struct {
 	// `CfnHostedZone.HostedZoneConfigProperty.Comment`.
 	Comment *string `json:"comment"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnHostedZone_HostedZoneTagProperty struct {
 	// `CfnHostedZone.HostedZoneTagProperty.Key`.
 	Key *string `json:"key"`
@@ -3512,11 +3558,15 @@ type CfnHostedZone_HostedZoneTagProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnHostedZone_QueryLoggingConfigProperty struct {
 	// `CfnHostedZone.QueryLoggingConfigProperty.CloudWatchLogsLogGroupArn`.
 	CloudWatchLogsLogGroupArn *string `json:"cloudWatchLogsLogGroupArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnHostedZone_VPCProperty struct {
 	// `CfnHostedZone.VPCProperty.VPCId`.
 	VpcId *string `json:"vpcId"`
@@ -3525,6 +3575,9 @@ type CfnHostedZone_VPCProperty struct {
 }
 
 // Properties for defining a `AWS::Route53::HostedZone`.
+//
+// TODO: EXAMPLE
+//
 type CfnHostedZoneProps struct {
 	// `AWS::Route53::HostedZone.HostedZoneConfig`.
 	HostedZoneConfig interface{} `json:"hostedZoneConfig"`
@@ -3539,6 +3592,9 @@ type CfnHostedZoneProps struct {
 }
 
 // A CloudFormation `AWS::Route53::KeySigningKey`.
+//
+// TODO: EXAMPLE
+//
 type CfnKeySigningKey interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4185,6 +4241,9 @@ func (c *jsiiProxy_CfnKeySigningKey) ValidateProperties(_properties interface{})
 }
 
 // Properties for defining a `AWS::Route53::KeySigningKey`.
+//
+// TODO: EXAMPLE
+//
 type CfnKeySigningKeyProps struct {
 	// `AWS::Route53::KeySigningKey.HostedZoneId`.
 	HostedZoneId *string `json:"hostedZoneId"`
@@ -4197,6 +4256,9 @@ type CfnKeySigningKeyProps struct {
 }
 
 // A CloudFormation `AWS::Route53::RecordSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnRecordSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5062,15 +5124,19 @@ func (c *jsiiProxy_CfnRecordSet) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnRecordSet_AliasTargetProperty struct {
 	// `CfnRecordSet.AliasTargetProperty.DNSName`.
 	DnsName *string `json:"dnsName"`
-	// `CfnRecordSet.AliasTargetProperty.HostedZoneId`.
-	HostedZoneId *string `json:"hostedZoneId"`
 	// `CfnRecordSet.AliasTargetProperty.EvaluateTargetHealth`.
 	EvaluateTargetHealth interface{} `json:"evaluateTargetHealth"`
+	// `CfnRecordSet.AliasTargetProperty.HostedZoneId`.
+	HostedZoneId *string `json:"hostedZoneId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRecordSet_GeoLocationProperty struct {
 	// `CfnRecordSet.GeoLocationProperty.ContinentCode`.
 	ContinentCode *string `json:"continentCode"`
@@ -5081,6 +5147,9 @@ type CfnRecordSet_GeoLocationProperty struct {
 }
 
 // A CloudFormation `AWS::Route53::RecordSetGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnRecordSetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5726,15 +5795,19 @@ func (c *jsiiProxy_CfnRecordSetGroup) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnRecordSetGroup_AliasTargetProperty struct {
 	// `CfnRecordSetGroup.AliasTargetProperty.DNSName`.
 	DnsName *string `json:"dnsName"`
-	// `CfnRecordSetGroup.AliasTargetProperty.HostedZoneId`.
-	HostedZoneId *string `json:"hostedZoneId"`
 	// `CfnRecordSetGroup.AliasTargetProperty.EvaluateTargetHealth`.
 	EvaluateTargetHealth interface{} `json:"evaluateTargetHealth"`
+	// `CfnRecordSetGroup.AliasTargetProperty.HostedZoneId`.
+	HostedZoneId *string `json:"hostedZoneId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRecordSetGroup_GeoLocationProperty struct {
 	// `CfnRecordSetGroup.GeoLocationProperty.ContinentCode`.
 	ContinentCode *string `json:"continentCode"`
@@ -5744,11 +5817,9 @@ type CfnRecordSetGroup_GeoLocationProperty struct {
 	SubdivisionCode *string `json:"subdivisionCode"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRecordSetGroup_RecordSetProperty struct {
-	// `CfnRecordSetGroup.RecordSetProperty.Name`.
-	Name *string `json:"name"`
-	// `CfnRecordSetGroup.RecordSetProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnRecordSetGroup.RecordSetProperty.AliasTarget`.
 	AliasTarget interface{} `json:"aliasTarget"`
 	// `CfnRecordSetGroup.RecordSetProperty.Comment`.
@@ -5765,6 +5836,8 @@ type CfnRecordSetGroup_RecordSetProperty struct {
 	HostedZoneName *string `json:"hostedZoneName"`
 	// `CfnRecordSetGroup.RecordSetProperty.MultiValueAnswer`.
 	MultiValueAnswer interface{} `json:"multiValueAnswer"`
+	// `CfnRecordSetGroup.RecordSetProperty.Name`.
+	Name *string `json:"name"`
 	// `CfnRecordSetGroup.RecordSetProperty.Region`.
 	Region *string `json:"region"`
 	// `CfnRecordSetGroup.RecordSetProperty.ResourceRecords`.
@@ -5773,11 +5846,16 @@ type CfnRecordSetGroup_RecordSetProperty struct {
 	SetIdentifier *string `json:"setIdentifier"`
 	// `CfnRecordSetGroup.RecordSetProperty.TTL`.
 	Ttl *string `json:"ttl"`
+	// `CfnRecordSetGroup.RecordSetProperty.Type`.
+	Type *string `json:"type"`
 	// `CfnRecordSetGroup.RecordSetProperty.Weight`.
 	Weight *float64 `json:"weight"`
 }
 
 // Properties for defining a `AWS::Route53::RecordSetGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnRecordSetGroupProps struct {
 	// `AWS::Route53::RecordSetGroup.Comment`.
 	Comment *string `json:"comment"`
@@ -5790,11 +5868,10 @@ type CfnRecordSetGroupProps struct {
 }
 
 // Properties for defining a `AWS::Route53::RecordSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnRecordSetProps struct {
-	// `AWS::Route53::RecordSet.Name`.
-	Name *string `json:"name"`
-	// `AWS::Route53::RecordSet.Type`.
-	Type *string `json:"type"`
 	// `AWS::Route53::RecordSet.AliasTarget`.
 	AliasTarget interface{} `json:"aliasTarget"`
 	// `AWS::Route53::RecordSet.Comment`.
@@ -5811,6 +5888,8 @@ type CfnRecordSetProps struct {
 	HostedZoneName *string `json:"hostedZoneName"`
 	// `AWS::Route53::RecordSet.MultiValueAnswer`.
 	MultiValueAnswer interface{} `json:"multiValueAnswer"`
+	// `AWS::Route53::RecordSet.Name`.
+	Name *string `json:"name"`
 	// `AWS::Route53::RecordSet.Region`.
 	Region *string `json:"region"`
 	// `AWS::Route53::RecordSet.ResourceRecords`.
@@ -5819,11 +5898,16 @@ type CfnRecordSetProps struct {
 	SetIdentifier *string `json:"setIdentifier"`
 	// `AWS::Route53::RecordSet.TTL`.
 	Ttl *string `json:"ttl"`
+	// `AWS::Route53::RecordSet.Type`.
+	Type *string `json:"type"`
 	// `AWS::Route53::RecordSet.Weight`.
 	Weight *float64 `json:"weight"`
 }
 
 // A DNS CNAME record.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CnameRecord interface {
 	RecordSet
@@ -6148,11 +6232,11 @@ func (c *jsiiProxy_CnameRecord) Validate() *[]*string {
 }
 
 // Construction properties for a CnameRecord.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CnameRecordProps struct {
-	// The hosted zone in which to define the new record.
-	// Experimental.
-	Zone IHostedZone `json:"zone"`
 	// A comment to add on the record.
 	// Experimental.
 	Comment *string `json:"comment"`
@@ -6162,26 +6246,32 @@ type CnameRecordProps struct {
 	// The resource record cache time to live (TTL).
 	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
+	// The hosted zone in which to define the new record.
+	// Experimental.
+	Zone IHostedZone `json:"zone"`
 	// The domain name.
 	// Experimental.
 	DomainName *string `json:"domainName"`
 }
 
 // Common properties to create a Route 53 hosted zone.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CommonHostedZoneProps struct {
-	// The name of the domain.
-	//
-	// For resource record types that include a domain
-	// name, specify a fully qualified domain name.
-	// Experimental.
-	ZoneName *string `json:"zoneName"`
 	// Any comments that you want to include about the hosted zone.
 	// Experimental.
 	Comment *string `json:"comment"`
 	// The Amazon Resource Name (ARN) for the log group that you want Amazon Route 53 to send query logs to.
 	// Experimental.
 	QueryLogsLogGroupArn *string `json:"queryLogsLogGroupArn"`
+	// The name of the domain.
+	//
+	// For resource record types that include a domain
+	// name, specify a fully qualified domain name.
+	// Experimental.
+	ZoneName *string `json:"zoneName"`
 }
 
 // A Cross Account Zone Delegation record.
@@ -6734,9 +6824,6 @@ func (d *jsiiProxy_DsRecord) Validate() *[]*string {
 //
 // Experimental.
 type DsRecordProps struct {
-	// The hosted zone in which to define the new record.
-	// Experimental.
-	Zone IHostedZone `json:"zone"`
 	// A comment to add on the record.
 	// Experimental.
 	Comment *string `json:"comment"`
@@ -6746,6 +6833,9 @@ type DsRecordProps struct {
 	// The resource record cache time to live (TTL).
 	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
+	// The hosted zone in which to define the new record.
+	// Experimental.
+	Zone IHostedZone `json:"zone"`
 	// The DS values.
 	// Experimental.
 	Values *[]*string `json:"values"`
@@ -7216,18 +7306,18 @@ type HostedZoneAttributes struct {
 //
 // Experimental.
 type HostedZoneProps struct {
-	// The name of the domain.
-	//
-	// For resource record types that include a domain
-	// name, specify a fully qualified domain name.
-	// Experimental.
-	ZoneName *string `json:"zoneName"`
 	// Any comments that you want to include about the hosted zone.
 	// Experimental.
 	Comment *string `json:"comment"`
 	// The Amazon Resource Name (ARN) for the log group that you want Amazon Route 53 to send query logs to.
 	// Experimental.
 	QueryLogsLogGroupArn *string `json:"queryLogsLogGroupArn"`
+	// The name of the domain.
+	//
+	// For resource record types that include a domain
+	// name, specify a fully qualified domain name.
+	// Experimental.
+	ZoneName *string `json:"zoneName"`
 	// A VPC that you want to associate with this hosted zone.
 	//
 	// When you specify
@@ -7396,6 +7486,9 @@ func (j *jsiiProxy_IRecordSet) DomainName() *string {
 }
 
 // A DNS MX record.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type MxRecord interface {
 	RecordSet
@@ -7720,11 +7813,11 @@ func (m *jsiiProxy_MxRecord) Validate() *[]*string {
 }
 
 // Construction properties for a MxRecord.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type MxRecordProps struct {
-	// The hosted zone in which to define the new record.
-	// Experimental.
-	Zone IHostedZone `json:"zone"`
 	// A comment to add on the record.
 	// Experimental.
 	Comment *string `json:"comment"`
@@ -7734,12 +7827,18 @@ type MxRecordProps struct {
 	// The resource record cache time to live (TTL).
 	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
+	// The hosted zone in which to define the new record.
+	// Experimental.
+	Zone IHostedZone `json:"zone"`
 	// The values.
 	// Experimental.
 	Values *[]*MxRecordValue `json:"values"`
 }
 
 // Properties for a MX record value.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type MxRecordValue struct {
 	// The mail server host name.
@@ -8083,9 +8182,6 @@ func (n *jsiiProxy_NsRecord) Validate() *[]*string {
 //
 // Experimental.
 type NsRecordProps struct {
-	// The hosted zone in which to define the new record.
-	// Experimental.
-	Zone IHostedZone `json:"zone"`
 	// A comment to add on the record.
 	// Experimental.
 	Comment *string `json:"comment"`
@@ -8095,6 +8191,9 @@ type NsRecordProps struct {
 	// The resource record cache time to live (TTL).
 	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
+	// The hosted zone in which to define the new record.
+	// Experimental.
+	Zone IHostedZone `json:"zone"`
 	// The NS values.
 	// Experimental.
 	Values *[]*string `json:"values"`
@@ -8571,18 +8670,18 @@ func (p *jsiiProxy_PrivateHostedZone) Validate() *[]*string {
 //
 // Experimental.
 type PrivateHostedZoneProps struct {
-	// The name of the domain.
-	//
-	// For resource record types that include a domain
-	// name, specify a fully qualified domain name.
-	// Experimental.
-	ZoneName *string `json:"zoneName"`
 	// Any comments that you want to include about the hosted zone.
 	// Experimental.
 	Comment *string `json:"comment"`
 	// The Amazon Resource Name (ARN) for the log group that you want Amazon Route 53 to send query logs to.
 	// Experimental.
 	QueryLogsLogGroupArn *string `json:"queryLogsLogGroupArn"`
+	// The name of the domain.
+	//
+	// For resource record types that include a domain
+	// name, specify a fully qualified domain name.
+	// Experimental.
+	ZoneName *string `json:"zoneName"`
 	// A VPC that you want to associate with this hosted zone.
 	//
 	// Private hosted zones must be associated with at least one VPC. You can
@@ -9081,18 +9180,18 @@ func (p *jsiiProxy_PublicHostedZone) Validate() *[]*string {
 //
 // Experimental.
 type PublicHostedZoneProps struct {
-	// The name of the domain.
-	//
-	// For resource record types that include a domain
-	// name, specify a fully qualified domain name.
-	// Experimental.
-	ZoneName *string `json:"zoneName"`
 	// Any comments that you want to include about the hosted zone.
 	// Experimental.
 	Comment *string `json:"comment"`
 	// The Amazon Resource Name (ARN) for the log group that you want Amazon Route 53 to send query logs to.
 	// Experimental.
 	QueryLogsLogGroupArn *string `json:"queryLogsLogGroupArn"`
+	// The name of the domain.
+	//
+	// For resource record types that include a domain
+	// name, specify a fully qualified domain name.
+	// Experimental.
+	ZoneName *string `json:"zoneName"`
 	// Whether to create a CAA record to restrict certificate authorities allowed to issue certificates for this domain to Amazon only.
 	// Experimental.
 	CaaAmazon *bool `json:"caaAmazon"`
@@ -9105,6 +9204,9 @@ type PublicHostedZoneProps struct {
 }
 
 // A record set.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type RecordSet interface {
 	awscdk.Resource
@@ -9431,11 +9533,11 @@ func (r *jsiiProxy_RecordSet) Validate() *[]*string {
 }
 
 // Options for a RecordSet.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type RecordSetOptions struct {
-	// The hosted zone in which to define the new record.
-	// Experimental.
-	Zone IHostedZone `json:"zone"`
 	// A comment to add on the record.
 	// Experimental.
 	Comment *string `json:"comment"`
@@ -9445,14 +9547,17 @@ type RecordSetOptions struct {
 	// The resource record cache time to live (TTL).
 	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
+	// The hosted zone in which to define the new record.
+	// Experimental.
+	Zone IHostedZone `json:"zone"`
 }
 
 // Construction properties for a RecordSet.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type RecordSetProps struct {
-	// The hosted zone in which to define the new record.
-	// Experimental.
-	Zone IHostedZone `json:"zone"`
 	// A comment to add on the record.
 	// Experimental.
 	Comment *string `json:"comment"`
@@ -9462,6 +9567,9 @@ type RecordSetProps struct {
 	// The resource record cache time to live (TTL).
 	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
+	// The hosted zone in which to define the new record.
+	// Experimental.
+	Zone IHostedZone `json:"zone"`
 	// The record type.
 	// Experimental.
 	RecordType RecordType `json:"recordType"`
@@ -9614,6 +9722,9 @@ const (
 )
 
 // A DNS SRV record.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SrvRecord interface {
 	RecordSet
@@ -9938,11 +10049,11 @@ func (s *jsiiProxy_SrvRecord) Validate() *[]*string {
 }
 
 // Construction properties for a SrvRecord.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SrvRecordProps struct {
-	// The hosted zone in which to define the new record.
-	// Experimental.
-	Zone IHostedZone `json:"zone"`
 	// A comment to add on the record.
 	// Experimental.
 	Comment *string `json:"comment"`
@@ -9952,12 +10063,18 @@ type SrvRecordProps struct {
 	// The resource record cache time to live (TTL).
 	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
+	// The hosted zone in which to define the new record.
+	// Experimental.
+	Zone IHostedZone `json:"zone"`
 	// The values.
 	// Experimental.
 	Values *[]*SrvRecordValue `json:"values"`
 }
 
 // Properties for a SRV record value.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SrvRecordValue struct {
 	// The server host name.
@@ -10307,9 +10424,6 @@ func (t *jsiiProxy_TxtRecord) Validate() *[]*string {
 //
 // Experimental.
 type TxtRecordProps struct {
-	// The hosted zone in which to define the new record.
-	// Experimental.
-	Zone IHostedZone `json:"zone"`
 	// A comment to add on the record.
 	// Experimental.
 	Comment *string `json:"comment"`
@@ -10319,6 +10433,9 @@ type TxtRecordProps struct {
 	// The resource record cache time to live (TTL).
 	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
+	// The hosted zone in which to define the new record.
+	// Experimental.
+	Zone IHostedZone `json:"zone"`
 	// The text values.
 	// Experimental.
 	Values *[]*string `json:"values"`
@@ -10559,6 +10676,9 @@ type VpcEndpointServiceDomainNameProps struct {
 }
 
 // Options available when creating a delegation relationship from one PublicHostedZone to another.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ZoneDelegationOptions struct {
 	// A comment to add on the DNS record created to incorporate the delegation.
@@ -10570,6 +10690,9 @@ type ZoneDelegationOptions struct {
 }
 
 // A record to delegate further lookups to a different set of name servers.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ZoneDelegationRecord interface {
 	RecordSet
@@ -10894,11 +11017,11 @@ func (z *jsiiProxy_ZoneDelegationRecord) Validate() *[]*string {
 }
 
 // Construction properties for a ZoneDelegationRecord.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ZoneDelegationRecordProps struct {
-	// The hosted zone in which to define the new record.
-	// Experimental.
-	Zone IHostedZone `json:"zone"`
 	// A comment to add on the record.
 	// Experimental.
 	Comment *string `json:"comment"`
@@ -10908,6 +11031,9 @@ type ZoneDelegationRecordProps struct {
 	// The resource record cache time to live (TTL).
 	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
+	// The hosted zone in which to define the new record.
+	// Experimental.
+	Zone IHostedZone `json:"zone"`
 	// The name servers to report in the delegation records.
 	// Experimental.
 	NameServers *[]*string `json:"nameServers"`

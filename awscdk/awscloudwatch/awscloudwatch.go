@@ -536,6 +536,9 @@ func (a *jsiiProxy_Alarm) Validate() *[]*string {
 }
 
 // Properties for an alarm action.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AlarmActionConfig struct {
 	// Return the ARN that should be used for a CloudWatch Alarm action.
@@ -1001,12 +1004,6 @@ func (a *jsiiProxy_AlarmBase) Validate() *[]*string {
 //
 // Experimental.
 type AlarmProps struct {
-	// The number of periods over which data is compared to the specified threshold.
-	// Experimental.
-	EvaluationPeriods *float64 `json:"evaluationPeriods"`
-	// The value against which the specified statistic is compared.
-	// Experimental.
-	Threshold *float64 `json:"threshold"`
 	// Whether the actions for this alarm are enabled.
 	// Experimental.
 	ActionsEnabled *bool `json:"actionsEnabled"`
@@ -1033,6 +1030,9 @@ type AlarmProps struct {
 	// Used only for alarms that are based on percentiles.
 	// Experimental.
 	EvaluateLowSampleCountPercentile *string `json:"evaluateLowSampleCountPercentile"`
+	// The number of periods over which data is compared to the specified threshold.
+	// Experimental.
+	EvaluationPeriods *float64 `json:"evaluationPeriods"`
 	// The period over which the specified statistic is applied.
 	//
 	// Cannot be used with `MathExpression` objects.
@@ -1052,6 +1052,9 @@ type AlarmProps struct {
 	// Cannot be used with `MathExpression` objects.
 	// Deprecated: Use `metric.with({ statistic: ... })` to encode the period into the Metric object
 	Statistic *string `json:"statistic"`
+	// The value against which the specified statistic is compared.
+	// Experimental.
+	Threshold *float64 `json:"threshold"`
 	// Sets how this alarm is to handle missing data points.
 	// Experimental.
 	TreatMissingData TreatMissingData `json:"treatMissingData"`
@@ -1534,6 +1537,9 @@ type AlarmWidgetProps struct {
 }
 
 // A CloudFormation `AWS::CloudWatch::Alarm`.
+//
+// TODO: EXAMPLE
+//
 type CfnAlarm interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2530,6 +2536,8 @@ func (c *jsiiProxy_CfnAlarm) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnAlarm_DimensionProperty struct {
 	// `CfnAlarm.DimensionProperty.Name`.
 	Name *string `json:"name"`
@@ -2537,13 +2545,15 @@ type CfnAlarm_DimensionProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAlarm_MetricDataQueryProperty struct {
-	// `CfnAlarm.MetricDataQueryProperty.Id`.
-	Id *string `json:"id"`
 	// `CfnAlarm.MetricDataQueryProperty.AccountId`.
 	AccountId *string `json:"accountId"`
 	// `CfnAlarm.MetricDataQueryProperty.Expression`.
 	Expression *string `json:"expression"`
+	// `CfnAlarm.MetricDataQueryProperty.Id`.
+	Id *string `json:"id"`
 	// `CfnAlarm.MetricDataQueryProperty.Label`.
 	Label *string `json:"label"`
 	// `CfnAlarm.MetricDataQueryProperty.MetricStat`.
@@ -2554,6 +2564,8 @@ type CfnAlarm_MetricDataQueryProperty struct {
 	ReturnData interface{} `json:"returnData"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAlarm_MetricProperty struct {
 	// `CfnAlarm.MetricProperty.Dimensions`.
 	Dimensions interface{} `json:"dimensions"`
@@ -2563,6 +2575,8 @@ type CfnAlarm_MetricProperty struct {
 	Namespace *string `json:"namespace"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAlarm_MetricStatProperty struct {
 	// `CfnAlarm.MetricStatProperty.Metric`.
 	Metric interface{} `json:"metric"`
@@ -2575,11 +2589,10 @@ type CfnAlarm_MetricStatProperty struct {
 }
 
 // Properties for defining a `AWS::CloudWatch::Alarm`.
+//
+// TODO: EXAMPLE
+//
 type CfnAlarmProps struct {
-	// `AWS::CloudWatch::Alarm.ComparisonOperator`.
-	ComparisonOperator *string `json:"comparisonOperator"`
-	// `AWS::CloudWatch::Alarm.EvaluationPeriods`.
-	EvaluationPeriods *float64 `json:"evaluationPeriods"`
 	// `AWS::CloudWatch::Alarm.ActionsEnabled`.
 	ActionsEnabled interface{} `json:"actionsEnabled"`
 	// `AWS::CloudWatch::Alarm.AlarmActions`.
@@ -2588,12 +2601,16 @@ type CfnAlarmProps struct {
 	AlarmDescription *string `json:"alarmDescription"`
 	// `AWS::CloudWatch::Alarm.AlarmName`.
 	AlarmName *string `json:"alarmName"`
+	// `AWS::CloudWatch::Alarm.ComparisonOperator`.
+	ComparisonOperator *string `json:"comparisonOperator"`
 	// `AWS::CloudWatch::Alarm.DatapointsToAlarm`.
 	DatapointsToAlarm *float64 `json:"datapointsToAlarm"`
 	// `AWS::CloudWatch::Alarm.Dimensions`.
 	Dimensions interface{} `json:"dimensions"`
 	// `AWS::CloudWatch::Alarm.EvaluateLowSampleCountPercentile`.
 	EvaluateLowSampleCountPercentile *string `json:"evaluateLowSampleCountPercentile"`
+	// `AWS::CloudWatch::Alarm.EvaluationPeriods`.
+	EvaluationPeriods *float64 `json:"evaluationPeriods"`
 	// `AWS::CloudWatch::Alarm.ExtendedStatistic`.
 	ExtendedStatistic *string `json:"extendedStatistic"`
 	// `AWS::CloudWatch::Alarm.InsufficientDataActions`.
@@ -2621,6 +2638,9 @@ type CfnAlarmProps struct {
 }
 
 // A CloudFormation `AWS::CloudWatch::AnomalyDetector`.
+//
+// TODO: EXAMPLE
+//
 type CfnAnomalyDetector interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3326,6 +3346,8 @@ func (c *jsiiProxy_CfnAnomalyDetector) ValidateProperties(_properties interface{
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnomalyDetector_ConfigurationProperty struct {
 	// `CfnAnomalyDetector.ConfigurationProperty.ExcludedTimeRanges`.
 	ExcludedTimeRanges interface{} `json:"excludedTimeRanges"`
@@ -3333,6 +3355,8 @@ type CfnAnomalyDetector_ConfigurationProperty struct {
 	MetricTimeZone *string `json:"metricTimeZone"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnomalyDetector_DimensionProperty struct {
 	// `CfnAnomalyDetector.DimensionProperty.Name`.
 	Name *string `json:"name"`
@@ -3340,13 +3364,15 @@ type CfnAnomalyDetector_DimensionProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnomalyDetector_MetricDataQueryProperty struct {
-	// `CfnAnomalyDetector.MetricDataQueryProperty.Id`.
-	Id *string `json:"id"`
 	// `CfnAnomalyDetector.MetricDataQueryProperty.AccountId`.
 	AccountId *string `json:"accountId"`
 	// `CfnAnomalyDetector.MetricDataQueryProperty.Expression`.
 	Expression *string `json:"expression"`
+	// `CfnAnomalyDetector.MetricDataQueryProperty.Id`.
+	Id *string `json:"id"`
 	// `CfnAnomalyDetector.MetricDataQueryProperty.Label`.
 	Label *string `json:"label"`
 	// `CfnAnomalyDetector.MetricDataQueryProperty.MetricStat`.
@@ -3357,20 +3383,26 @@ type CfnAnomalyDetector_MetricDataQueryProperty struct {
 	ReturnData interface{} `json:"returnData"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnomalyDetector_MetricMathAnomalyDetectorProperty struct {
 	// `CfnAnomalyDetector.MetricMathAnomalyDetectorProperty.MetricDataQueries`.
 	MetricDataQueries interface{} `json:"metricDataQueries"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnomalyDetector_MetricProperty struct {
+	// `CfnAnomalyDetector.MetricProperty.Dimensions`.
+	Dimensions interface{} `json:"dimensions"`
 	// `CfnAnomalyDetector.MetricProperty.MetricName`.
 	MetricName *string `json:"metricName"`
 	// `CfnAnomalyDetector.MetricProperty.Namespace`.
 	Namespace *string `json:"namespace"`
-	// `CfnAnomalyDetector.MetricProperty.Dimensions`.
-	Dimensions interface{} `json:"dimensions"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnomalyDetector_MetricStatProperty struct {
 	// `CfnAnomalyDetector.MetricStatProperty.Metric`.
 	Metric interface{} `json:"metric"`
@@ -3382,6 +3414,8 @@ type CfnAnomalyDetector_MetricStatProperty struct {
 	Unit *string `json:"unit"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnomalyDetector_RangeProperty struct {
 	// `CfnAnomalyDetector.RangeProperty.EndTime`.
 	EndTime *string `json:"endTime"`
@@ -3389,6 +3423,8 @@ type CfnAnomalyDetector_RangeProperty struct {
 	StartTime *string `json:"startTime"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnomalyDetector_SingleMetricAnomalyDetectorProperty struct {
 	// `CfnAnomalyDetector.SingleMetricAnomalyDetectorProperty.Dimensions`.
 	Dimensions interface{} `json:"dimensions"`
@@ -3401,6 +3437,9 @@ type CfnAnomalyDetector_SingleMetricAnomalyDetectorProperty struct {
 }
 
 // Properties for defining a `AWS::CloudWatch::AnomalyDetector`.
+//
+// TODO: EXAMPLE
+//
 type CfnAnomalyDetectorProps struct {
 	// `AWS::CloudWatch::AnomalyDetector.Configuration`.
 	Configuration interface{} `json:"configuration"`
@@ -3419,6 +3458,9 @@ type CfnAnomalyDetectorProps struct {
 }
 
 // A CloudFormation `AWS::CloudWatch::CompositeAlarm`.
+//
+// TODO: EXAMPLE
+//
 type CfnCompositeAlarm interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4136,17 +4178,20 @@ func (c *jsiiProxy_CfnCompositeAlarm) ValidateProperties(_properties interface{}
 }
 
 // Properties for defining a `AWS::CloudWatch::CompositeAlarm`.
+//
+// TODO: EXAMPLE
+//
 type CfnCompositeAlarmProps struct {
-	// `AWS::CloudWatch::CompositeAlarm.AlarmName`.
-	AlarmName *string `json:"alarmName"`
-	// `AWS::CloudWatch::CompositeAlarm.AlarmRule`.
-	AlarmRule *string `json:"alarmRule"`
 	// `AWS::CloudWatch::CompositeAlarm.ActionsEnabled`.
 	ActionsEnabled interface{} `json:"actionsEnabled"`
 	// `AWS::CloudWatch::CompositeAlarm.AlarmActions`.
 	AlarmActions *[]*string `json:"alarmActions"`
 	// `AWS::CloudWatch::CompositeAlarm.AlarmDescription`.
 	AlarmDescription *string `json:"alarmDescription"`
+	// `AWS::CloudWatch::CompositeAlarm.AlarmName`.
+	AlarmName *string `json:"alarmName"`
+	// `AWS::CloudWatch::CompositeAlarm.AlarmRule`.
+	AlarmRule *string `json:"alarmRule"`
 	// `AWS::CloudWatch::CompositeAlarm.InsufficientDataActions`.
 	InsufficientDataActions *[]*string `json:"insufficientDataActions"`
 	// `AWS::CloudWatch::CompositeAlarm.OKActions`.
@@ -4154,6 +4199,9 @@ type CfnCompositeAlarmProps struct {
 }
 
 // A CloudFormation `AWS::CloudWatch::Dashboard`.
+//
+// TODO: EXAMPLE
+//
 type CfnDashboard interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4760,6 +4808,9 @@ func (c *jsiiProxy_CfnDashboard) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::CloudWatch::Dashboard`.
+//
+// TODO: EXAMPLE
+//
 type CfnDashboardProps struct {
 	// `AWS::CloudWatch::Dashboard.DashboardBody`.
 	DashboardBody *string `json:"dashboardBody"`
@@ -4768,6 +4819,9 @@ type CfnDashboardProps struct {
 }
 
 // A CloudFormation `AWS::CloudWatch::InsightRule`.
+//
+// TODO: EXAMPLE
+//
 type CfnInsightRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5427,6 +5481,9 @@ func (c *jsiiProxy_CfnInsightRule) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::CloudWatch::InsightRule`.
+//
+// TODO: EXAMPLE
+//
 type CfnInsightRuleProps struct {
 	// `AWS::CloudWatch::InsightRule.RuleBody`.
 	RuleBody *string `json:"ruleBody"`
@@ -5439,6 +5496,9 @@ type CfnInsightRuleProps struct {
 }
 
 // A CloudFormation `AWS::CloudWatch::MetricStream`.
+//
+// TODO: EXAMPLE
+//
 type CfnMetricStream interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6179,25 +6239,30 @@ func (c *jsiiProxy_CfnMetricStream) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnMetricStream_MetricStreamFilterProperty struct {
 	// `CfnMetricStream.MetricStreamFilterProperty.Namespace`.
 	Namespace *string `json:"namespace"`
 }
 
 // Properties for defining a `AWS::CloudWatch::MetricStream`.
+//
+// TODO: EXAMPLE
+//
 type CfnMetricStreamProps struct {
-	// `AWS::CloudWatch::MetricStream.FirehoseArn`.
-	FirehoseArn *string `json:"firehoseArn"`
-	// `AWS::CloudWatch::MetricStream.OutputFormat`.
-	OutputFormat *string `json:"outputFormat"`
-	// `AWS::CloudWatch::MetricStream.RoleArn`.
-	RoleArn *string `json:"roleArn"`
 	// `AWS::CloudWatch::MetricStream.ExcludeFilters`.
 	ExcludeFilters interface{} `json:"excludeFilters"`
+	// `AWS::CloudWatch::MetricStream.FirehoseArn`.
+	FirehoseArn *string `json:"firehoseArn"`
 	// `AWS::CloudWatch::MetricStream.IncludeFilters`.
 	IncludeFilters interface{} `json:"includeFilters"`
 	// `AWS::CloudWatch::MetricStream.Name`.
 	Name *string `json:"name"`
+	// `AWS::CloudWatch::MetricStream.OutputFormat`.
+	OutputFormat *string `json:"outputFormat"`
+	// `AWS::CloudWatch::MetricStream.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 	// `AWS::CloudWatch::MetricStream.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
@@ -6332,6 +6397,9 @@ func Color_RED() *string {
 // A widget that contains other widgets in a vertical column.
 //
 // Widgets will be laid out next to each other
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Column interface {
 	IWidget
@@ -6429,6 +6497,9 @@ func (c *jsiiProxy_Column) ToJson() *[]interface{} {
 }
 
 // Options shared by most methods accepting metric options.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CommonMetricOptions struct {
 	// Account which this metric comes from.
@@ -6488,11 +6559,11 @@ type ComparisonOperator string
 const (
 	ComparisonOperator_GREATER_THAN_OR_EQUAL_TO_THRESHOLD ComparisonOperator = "GREATER_THAN_OR_EQUAL_TO_THRESHOLD"
 	ComparisonOperator_GREATER_THAN_THRESHOLD ComparisonOperator = "GREATER_THAN_THRESHOLD"
-	ComparisonOperator_LESS_THAN_THRESHOLD ComparisonOperator = "LESS_THAN_THRESHOLD"
-	ComparisonOperator_LESS_THAN_OR_EQUAL_TO_THRESHOLD ComparisonOperator = "LESS_THAN_OR_EQUAL_TO_THRESHOLD"
-	ComparisonOperator_LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD ComparisonOperator = "LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD"
 	ComparisonOperator_GREATER_THAN_UPPER_THRESHOLD ComparisonOperator = "GREATER_THAN_UPPER_THRESHOLD"
+	ComparisonOperator_LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD ComparisonOperator = "LESS_THAN_LOWER_OR_GREATER_THAN_UPPER_THRESHOLD"
 	ComparisonOperator_LESS_THAN_LOWER_THRESHOLD ComparisonOperator = "LESS_THAN_LOWER_THRESHOLD"
+	ComparisonOperator_LESS_THAN_OR_EQUAL_TO_THRESHOLD ComparisonOperator = "LESS_THAN_OR_EQUAL_TO_THRESHOLD"
+	ComparisonOperator_LESS_THAN_THRESHOLD ComparisonOperator = "LESS_THAN_THRESHOLD"
 )
 
 // A Composite Alarm based on Alarm Rule.
@@ -7137,12 +7208,6 @@ func (c *jsiiProxy_ConcreteWidget) ToJson() *[]interface{} {
 //
 // Experimental.
 type CreateAlarmOptions struct {
-	// The number of periods over which data is compared to the specified threshold.
-	// Experimental.
-	EvaluationPeriods *float64 `json:"evaluationPeriods"`
-	// The value against which the specified statistic is compared.
-	// Experimental.
-	Threshold *float64 `json:"threshold"`
 	// Whether the actions for this alarm are enabled.
 	// Experimental.
 	ActionsEnabled *bool `json:"actionsEnabled"`
@@ -7169,6 +7234,9 @@ type CreateAlarmOptions struct {
 	// Used only for alarms that are based on percentiles.
 	// Experimental.
 	EvaluateLowSampleCountPercentile *string `json:"evaluateLowSampleCountPercentile"`
+	// The number of periods over which data is compared to the specified threshold.
+	// Experimental.
+	EvaluationPeriods *float64 `json:"evaluationPeriods"`
 	// The period over which the specified statistic is applied.
 	//
 	// Cannot be used with `MathExpression` objects.
@@ -7188,12 +7256,18 @@ type CreateAlarmOptions struct {
 	// Cannot be used with `MathExpression` objects.
 	// Deprecated: Use `metric.with({ statistic: ... })` to encode the period into the Metric object
 	Statistic *string `json:"statistic"`
+	// The value against which the specified statistic is compared.
+	// Experimental.
+	Threshold *float64 `json:"threshold"`
 	// Sets how this alarm is to handle missing data points.
 	// Experimental.
 	TreatMissingData TreatMissingData `json:"treatMissingData"`
 }
 
 // A CloudWatch dashboard.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Dashboard interface {
 	awscdk.Resource
@@ -7529,6 +7603,9 @@ func (d *jsiiProxy_Dashboard) Validate() *[]*string {
 }
 
 // Properties for defining a CloudWatch Dashboard.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DashboardProps struct {
 	// Name of the dashboard.
@@ -7565,6 +7642,9 @@ type DashboardProps struct {
 }
 
 // Metric dimension.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-dimension.html
 //
 // Experimental.
@@ -7810,11 +7890,11 @@ const (
 )
 
 // Horizontal annotation to be added to a graph.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HorizontalAnnotation struct {
-	// The value of the annotation.
-	// Experimental.
-	Value *float64 `json:"value"`
 	// The hex color code, prefixed with '#' (e.g. '#00ff00'), to be used for the annotation. The `Color` class has a set of standard colors that can be used here.
 	// Experimental.
 	Color *string `json:"color"`
@@ -7824,6 +7904,9 @@ type HorizontalAnnotation struct {
 	// Label for the annotation.
 	// Experimental.
 	Label *string `json:"label"`
+	// The value of the annotation.
+	// Experimental.
+	Value *float64 `json:"value"`
 	// Whether the annotation is visible.
 	// Experimental.
 	Visible *bool `json:"visible"`
@@ -8512,6 +8595,9 @@ func (m *jsiiProxy_MathExpression) With(props *MathExpressionOptions) MathExpres
 }
 
 // Configurable options for MathExpressions.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type MathExpressionOptions struct {
 	// Color for this metric when added to a Graph in a Dashboard.
@@ -8890,8 +8976,17 @@ func (m *jsiiProxy_Metric) With(props *MetricOptions) Metric {
 }
 
 // Properties used to construct the Metric identifying part of an Alarm.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: Replaced by MetricConfig
 type MetricAlarmConfig struct {
+	// The dimensions to apply to the alarm.
+	// Deprecated: Replaced by MetricConfig
+	Dimensions *[]*Dimension `json:"dimensions"`
+	// Percentile aggregation function to use.
+	// Deprecated: Replaced by MetricConfig
+	ExtendedStatistic *string `json:"extendedStatistic"`
 	// Name of the metric.
 	// Deprecated: Replaced by MetricConfig
 	MetricName *string `json:"metricName"`
@@ -8901,12 +8996,6 @@ type MetricAlarmConfig struct {
 	// How many seconds to aggregate over.
 	// Deprecated: Replaced by MetricConfig
 	Period *float64 `json:"period"`
-	// The dimensions to apply to the alarm.
-	// Deprecated: Replaced by MetricConfig
-	Dimensions *[]*Dimension `json:"dimensions"`
-	// Percentile aggregation function to use.
-	// Deprecated: Replaced by MetricConfig
-	ExtendedStatistic *string `json:"extendedStatistic"`
 	// Simple aggregation function to use.
 	// Deprecated: Replaced by MetricConfig
 	Statistic Statistic `json:"statistic"`
@@ -8916,6 +9005,9 @@ type MetricAlarmConfig struct {
 }
 
 // Properties of a rendered metric.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type MetricConfig struct {
 	// In case the metric is a math expression, the details of the math expression.
@@ -8933,6 +9025,9 @@ type MetricConfig struct {
 }
 
 // Properties for a concrete metric.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type MetricExpressionConfig struct {
 	// Math expression for the metric.
@@ -8941,20 +9036,32 @@ type MetricExpressionConfig struct {
 	// How many seconds to aggregate over.
 	// Experimental.
 	Period *float64 `json:"period"`
-	// Metrics used in the math expression.
-	// Experimental.
-	UsingMetrics *map[string]IMetric `json:"usingMetrics"`
 	// Account to evaluate search expressions within.
 	// Experimental.
 	SearchAccount *string `json:"searchAccount"`
 	// Region to evaluate search expressions within.
 	// Experimental.
 	SearchRegion *string `json:"searchRegion"`
+	// Metrics used in the math expression.
+	// Experimental.
+	UsingMetrics *map[string]IMetric `json:"usingMetrics"`
 }
 
 // Properties used to construct the Metric identifying part of a Graph.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: Replaced by MetricConfig
 type MetricGraphConfig struct {
+	// Color for the graph line.
+	// Deprecated: Use `color` in `renderingProperties`
+	Color *string `json:"color"`
+	// The dimensions to apply to the alarm.
+	// Deprecated: Replaced by MetricConfig
+	Dimensions *[]*Dimension `json:"dimensions"`
+	// Label for the metric.
+	// Deprecated: Use `label` in `renderingProperties`
+	Label *string `json:"label"`
 	// Name of the metric.
 	// Deprecated: Replaced by MetricConfig
 	MetricName *string `json:"metricName"`
@@ -8967,15 +9074,6 @@ type MetricGraphConfig struct {
 	// Rendering properties override yAxis parameter of the widget object.
 	// Deprecated: Replaced by MetricConfig
 	RenderingProperties *MetricRenderingProperties `json:"renderingProperties"`
-	// Color for the graph line.
-	// Deprecated: Use `color` in `renderingProperties`
-	Color *string `json:"color"`
-	// The dimensions to apply to the alarm.
-	// Deprecated: Replaced by MetricConfig
-	Dimensions *[]*Dimension `json:"dimensions"`
-	// Label for the metric.
-	// Deprecated: Use `label` in `renderingProperties`
-	Label *string `json:"label"`
 	// Aggregation function to use (can be either simple or a percentile).
 	// Deprecated: Use `stat` in `renderingProperties`
 	Statistic *string `json:"statistic"`
@@ -9097,17 +9195,20 @@ type MetricProps struct {
 }
 
 // Custom rendering properties that override the default rendering properties specified in the yAxis parameter of the widget object.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: Replaced by MetricConfig.
 type MetricRenderingProperties struct {
-	// How many seconds to aggregate over.
-	// Deprecated: Replaced by MetricConfig.
-	Period *float64 `json:"period"`
 	// The hex color code, prefixed with '#' (e.g. '#00ff00'), to use when this metric is rendered on a graph. The `Color` class has a set of standard colors that can be used here.
 	// Deprecated: Replaced by MetricConfig.
 	Color *string `json:"color"`
 	// Label for the metric.
 	// Deprecated: Replaced by MetricConfig.
 	Label *string `json:"label"`
+	// How many seconds to aggregate over.
+	// Deprecated: Replaced by MetricConfig.
+	Period *float64 `json:"period"`
 	// Aggregation function to use (can be either simple or a percentile).
 	// Deprecated: Replaced by MetricConfig.
 	Stat *string `json:"stat"`
@@ -9117,8 +9218,17 @@ type MetricRenderingProperties struct {
 //
 // NOTE: `unit` is no longer on this object since it is only used for `Alarms`, and doesn't mean what one
 // would expect it to mean there anyway. It is most likely to be misused.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type MetricStatConfig struct {
+	// Account which this metric comes from.
+	// Experimental.
+	Account *string `json:"account"`
+	// The dimensions to apply to the alarm.
+	// Experimental.
+	Dimensions *[]*Dimension `json:"dimensions"`
 	// Name of the metric.
 	// Experimental.
 	MetricName *string `json:"metricName"`
@@ -9128,18 +9238,12 @@ type MetricStatConfig struct {
 	// How many seconds to aggregate over.
 	// Experimental.
 	Period awscdk.Duration `json:"period"`
-	// Aggregation function to use (can be either simple or a percentile).
-	// Experimental.
-	Statistic *string `json:"statistic"`
-	// Account which this metric comes from.
-	// Experimental.
-	Account *string `json:"account"`
-	// The dimensions to apply to the alarm.
-	// Experimental.
-	Dimensions *[]*Dimension `json:"dimensions"`
 	// Region which this metric comes from.
 	// Experimental.
 	Region *string `json:"region"`
+	// Aggregation function to use (can be either simple or a percentile).
+	// Experimental.
+	Statistic *string `json:"statistic"`
 	// Unit used to filter the metric stream.
 	//
 	// Only refer to datums emitted to the metric stream with the given unit and
@@ -9153,6 +9257,9 @@ type MetricStatConfig struct {
 }
 
 // Basic properties for widgets that display metrics.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type MetricWidgetProps struct {
 	// Height of the widget.
@@ -9181,6 +9288,9 @@ const (
 // A widget that contains other widgets in a horizontal row.
 //
 // Widgets will be laid out next to each other
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Row interface {
 	IWidget
@@ -9282,9 +9392,9 @@ func (r *jsiiProxy_Row) ToJson() *[]interface{} {
 type Shading string
 
 const (
-	Shading_NONE Shading = "NONE"
 	Shading_ABOVE Shading = "ABOVE"
 	Shading_BELOW Shading = "BELOW"
+	Shading_NONE Shading = "NONE"
 )
 
 // A dashboard widget that displays the most recent value for every metric.
@@ -9447,6 +9557,9 @@ type SingleValueWidgetProps struct {
 }
 
 // A widget that doesn't display anything but takes up space.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Spacer interface {
 	IWidget
@@ -9534,6 +9647,9 @@ func (s *jsiiProxy_Spacer) ToJson() *[]interface{} {
 }
 
 // Props of the spacer.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SpacerProps struct {
 	// Height of the spacer.
@@ -9552,11 +9668,11 @@ type SpacerProps struct {
 type Statistic string
 
 const (
-	Statistic_SAMPLE_COUNT Statistic = "SAMPLE_COUNT"
 	Statistic_AVERAGE Statistic = "AVERAGE"
-	Statistic_SUM Statistic = "SUM"
-	Statistic_MINIMUM Statistic = "MINIMUM"
 	Statistic_MAXIMUM Statistic = "MAXIMUM"
+	Statistic_MINIMUM Statistic = "MINIMUM"
+	Statistic_SAMPLE_COUNT Statistic = "SAMPLE_COUNT"
+	Statistic_SUM Statistic = "SUM"
 )
 
 // A dashboard widget that displays MarkDown.
@@ -9712,9 +9828,9 @@ type TreatMissingData string
 
 const (
 	TreatMissingData_BREACHING TreatMissingData = "BREACHING"
-	TreatMissingData_NOT_BREACHING TreatMissingData = "NOT_BREACHING"
 	TreatMissingData_IGNORE TreatMissingData = "IGNORE"
 	TreatMissingData_MISSING TreatMissingData = "MISSING"
+	TreatMissingData_NOT_BREACHING TreatMissingData = "NOT_BREACHING"
 )
 
 // Unit for metric.
@@ -9722,36 +9838,39 @@ const (
 type Unit string
 
 const (
-	Unit_SECONDS Unit = "SECONDS"
+	Unit_BITS Unit = "BITS"
+	Unit_BITS_PER_SECOND Unit = "BITS_PER_SECOND"
+	Unit_BYTES Unit = "BYTES"
+	Unit_BYTES_PER_SECOND Unit = "BYTES_PER_SECOND"
+	Unit_COUNT Unit = "COUNT"
+	Unit_COUNT_PER_SECOND Unit = "COUNT_PER_SECOND"
+	Unit_GIGABITS Unit = "GIGABITS"
+	Unit_GIGABITS_PER_SECOND Unit = "GIGABITS_PER_SECOND"
+	Unit_GIGABYTES Unit = "GIGABYTES"
+	Unit_GIGABYTES_PER_SECOND Unit = "GIGABYTES_PER_SECOND"
+	Unit_KILOBITS Unit = "KILOBITS"
+	Unit_KILOBITS_PER_SECOND Unit = "KILOBITS_PER_SECOND"
+	Unit_KILOBYTES Unit = "KILOBYTES"
+	Unit_KILOBYTES_PER_SECOND Unit = "KILOBYTES_PER_SECOND"
+	Unit_MEGABITS Unit = "MEGABITS"
+	Unit_MEGABITS_PER_SECOND Unit = "MEGABITS_PER_SECOND"
+	Unit_MEGABYTES Unit = "MEGABYTES"
+	Unit_MEGABYTES_PER_SECOND Unit = "MEGABYTES_PER_SECOND"
 	Unit_MICROSECONDS Unit = "MICROSECONDS"
 	Unit_MILLISECONDS Unit = "MILLISECONDS"
-	Unit_BYTES Unit = "BYTES"
-	Unit_KILOBYTES Unit = "KILOBYTES"
-	Unit_MEGABYTES Unit = "MEGABYTES"
-	Unit_GIGABYTES Unit = "GIGABYTES"
-	Unit_TERABYTES Unit = "TERABYTES"
-	Unit_BITS Unit = "BITS"
-	Unit_KILOBITS Unit = "KILOBITS"
-	Unit_MEGABITS Unit = "MEGABITS"
-	Unit_GIGABITS Unit = "GIGABITS"
-	Unit_TERABITS Unit = "TERABITS"
-	Unit_PERCENT Unit = "PERCENT"
-	Unit_COUNT Unit = "COUNT"
-	Unit_BYTES_PER_SECOND Unit = "BYTES_PER_SECOND"
-	Unit_KILOBYTES_PER_SECOND Unit = "KILOBYTES_PER_SECOND"
-	Unit_MEGABYTES_PER_SECOND Unit = "MEGABYTES_PER_SECOND"
-	Unit_GIGABYTES_PER_SECOND Unit = "GIGABYTES_PER_SECOND"
-	Unit_TERABYTES_PER_SECOND Unit = "TERABYTES_PER_SECOND"
-	Unit_BITS_PER_SECOND Unit = "BITS_PER_SECOND"
-	Unit_KILOBITS_PER_SECOND Unit = "KILOBITS_PER_SECOND"
-	Unit_MEGABITS_PER_SECOND Unit = "MEGABITS_PER_SECOND"
-	Unit_GIGABITS_PER_SECOND Unit = "GIGABITS_PER_SECOND"
-	Unit_TERABITS_PER_SECOND Unit = "TERABITS_PER_SECOND"
-	Unit_COUNT_PER_SECOND Unit = "COUNT_PER_SECOND"
 	Unit_NONE Unit = "NONE"
+	Unit_PERCENT Unit = "PERCENT"
+	Unit_SECONDS Unit = "SECONDS"
+	Unit_TERABITS Unit = "TERABITS"
+	Unit_TERABITS_PER_SECOND Unit = "TERABITS_PER_SECOND"
+	Unit_TERABYTES Unit = "TERABYTES"
+	Unit_TERABYTES_PER_SECOND Unit = "TERABYTES_PER_SECOND"
 )
 
 // Properties for a Y-Axis.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type YAxisProps struct {
 	// The label.

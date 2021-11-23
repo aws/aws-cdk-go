@@ -446,6 +446,9 @@ func (e *jsiiProxy_ElasticBeanstalkEnvironmentEndpointTarget) Bind(_record awsro
 }
 
 // Use a Global Accelerator domain name as an alias record target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type GlobalAcceleratorDomainTarget interface {
 	awsroute53.IAliasRecordTarget

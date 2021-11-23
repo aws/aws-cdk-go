@@ -66,6 +66,9 @@ type AddApplicationActionProps struct {
 }
 
 // Properties for adding a new target group to a listener.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AddApplicationTargetGroupsProps struct {
 	// Rule applies if matches the conditions.
@@ -221,6 +224,9 @@ type AddApplicationTargetsProps struct {
 }
 
 // Properties for adding a fixed response to a listener.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: Use `ApplicationListener.addAction` instead.
 type AddFixedResponseProps struct {
 	// Rule applies if matches the conditions.
@@ -264,18 +270,21 @@ type AddFixedResponseProps struct {
 	// Priorities must be unique.
 	// Deprecated: Use `ApplicationListener.addAction` instead.
 	Priority *float64 `json:"priority"`
-	// The HTTP response code (2XX, 4XX or 5XX).
-	// Deprecated: Use `ApplicationListener.addAction` instead.
-	StatusCode *string `json:"statusCode"`
 	// The content type.
 	// Deprecated: Use `ApplicationListener.addAction` instead.
 	ContentType ContentType `json:"contentType"`
 	// The message.
 	// Deprecated: Use `ApplicationListener.addAction` instead.
 	MessageBody *string `json:"messageBody"`
+	// The HTTP response code (2XX, 4XX or 5XX).
+	// Deprecated: Use `ApplicationListener.addAction` instead.
+	StatusCode *string `json:"statusCode"`
 }
 
 // Properties for adding a new action to a listener.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AddNetworkActionProps struct {
 	// Action to perform.
@@ -289,9 +298,6 @@ type AddNetworkActionProps struct {
 //
 // Experimental.
 type AddNetworkTargetsProps struct {
-	// The port on which the listener listens for requests.
-	// Experimental.
-	Port *float64 `json:"port"`
 	// The amount of time for Elastic Load Balancing to wait before deregistering a target.
 	//
 	// The range is 0-3600 seconds.
@@ -300,6 +306,9 @@ type AddNetworkTargetsProps struct {
 	// Health check configuration.
 	// Experimental.
 	HealthCheck *HealthCheck `json:"healthCheck"`
+	// The port on which the listener listens for requests.
+	// Experimental.
+	Port *float64 `json:"port"`
 	// Indicates whether client IP preservation is enabled.
 	// Experimental.
 	PreserveClientIp *bool `json:"preserveClientIp"`
@@ -326,6 +335,9 @@ type AddNetworkTargetsProps struct {
 }
 
 // Properties for adding a redirect response to a listener.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: Use `ApplicationListener.addAction` instead.
 type AddRedirectResponseProps struct {
 	// Rule applies if matches the conditions.
@@ -369,9 +381,6 @@ type AddRedirectResponseProps struct {
 	// Priorities must be unique.
 	// Deprecated: Use `ApplicationListener.addAction` instead.
 	Priority *float64 `json:"priority"`
-	// The HTTP redirect code (HTTP_301 or HTTP_302).
-	// Deprecated: Use `ApplicationListener.addAction` instead.
-	StatusCode *string `json:"statusCode"`
 	// The hostname.
 	//
 	// This component is not percent-encoded. The hostname can contain #{host}.
@@ -400,9 +409,15 @@ type AddRedirectResponseProps struct {
 	// You can specify any of the reserved keywords.
 	// Deprecated: Use `ApplicationListener.addAction` instead.
 	Query *string `json:"query"`
+	// The HTTP redirect code (HTTP_301 or HTTP_302).
+	// Deprecated: Use `ApplicationListener.addAction` instead.
+	StatusCode *string `json:"statusCode"`
 }
 
 // Properties for adding a conditional load balancing rule.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AddRuleProps struct {
 	// Rule applies if matches the conditions.
@@ -972,14 +987,17 @@ func (a *jsiiProxy_ApplicationListener) Validate() *[]*string {
 }
 
 // Properties to reference an existing listener.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ApplicationListenerAttributes struct {
-	// ARN of the listener.
-	// Experimental.
-	ListenerArn *string `json:"listenerArn"`
 	// The default port on which this listener is listening.
 	// Experimental.
 	DefaultPort *float64 `json:"defaultPort"`
+	// ARN of the listener.
+	// Experimental.
+	ListenerArn *string `json:"listenerArn"`
 	// Security group of the load balancer this listener is associated with.
 	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
@@ -994,6 +1012,9 @@ type ApplicationListenerAttributes struct {
 }
 
 // Add certificates to a listener.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ApplicationListenerCertificate interface {
 	awscdk.Construct
@@ -1182,11 +1203,11 @@ func (a *jsiiProxy_ApplicationListenerCertificate) Validate() *[]*string {
 }
 
 // Properties for adding a set of certificates to a listener.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ApplicationListenerCertificateProps struct {
-	// The listener to attach the rule to.
-	// Experimental.
-	Listener IApplicationListener `json:"listener"`
 	// ARNs of certificates to attach.
 	//
 	// Duplicates are not allowed.
@@ -1197,6 +1218,9 @@ type ApplicationListenerCertificateProps struct {
 	// Duplicates are not allowed.
 	// Experimental.
 	Certificates *[]IListenerCertificate `json:"certificates"`
+	// The listener to attach the rule to.
+	// Experimental.
+	Listener IApplicationListener `json:"listener"`
 }
 
 // Options for ApplicationListener lookup.
@@ -1223,6 +1247,9 @@ type ApplicationListenerLookupOptions struct {
 }
 
 // Properties for defining a standalone ApplicationListener.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ApplicationListenerProps struct {
 	// The certificates to use on this listener.
@@ -1278,6 +1305,9 @@ type ApplicationListenerProps struct {
 }
 
 // Define a new listener rule.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ApplicationListenerRule interface {
 	awscdk.Construct
@@ -1540,15 +1570,11 @@ func (a *jsiiProxy_ApplicationListenerRule) Validate() *[]*string {
 }
 
 // Properties for defining a listener rule.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ApplicationListenerRuleProps struct {
-	// Priority of the rule.
-	//
-	// The rule with the lowest priority will be used for every request.
-	//
-	// Priorities must be unique.
-	// Experimental.
-	Priority *float64 `json:"priority"`
 	// Action to perform when requests are received.
 	//
 	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
@@ -1583,6 +1609,13 @@ type ApplicationListenerRuleProps struct {
 	//
 	// Deprecated: Use `conditions` instead.
 	PathPatterns *[]*string `json:"pathPatterns"`
+	// Priority of the rule.
+	//
+	// The rule with the lowest priority will be used for every request.
+	//
+	// Priorities must be unique.
+	// Experimental.
+	Priority *float64 `json:"priority"`
 	// Redirect response to return.
 	//
 	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
@@ -2532,14 +2565,14 @@ func (a *jsiiProxy_ApplicationLoadBalancer) Validate() *[]*string {
 }
 
 // Properties to reference an existing load balancer.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ApplicationLoadBalancerAttributes struct {
 	// ARN of the load balancer.
 	// Experimental.
 	LoadBalancerArn *string `json:"loadBalancerArn"`
-	// ID of the load balancer's security group.
-	// Experimental.
-	SecurityGroupId *string `json:"securityGroupId"`
 	// The canonical hosted zone ID of this load balancer.
 	// Experimental.
 	LoadBalancerCanonicalHostedZoneId *string `json:"loadBalancerCanonicalHostedZoneId"`
@@ -2551,6 +2584,9 @@ type ApplicationLoadBalancerAttributes struct {
 	// Unless set to `false`, no egress rules will be added to the security group.
 	// Experimental.
 	SecurityGroupAllowsAllOutbound *bool `json:"securityGroupAllowsAllOutbound"`
+	// ID of the load balancer's security group.
+	// Experimental.
+	SecurityGroupId *string `json:"securityGroupId"`
 	// The VPC this load balancer has been created in, if available.
 	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
@@ -2576,9 +2612,6 @@ type ApplicationLoadBalancerLookupOptions struct {
 //
 // Experimental.
 type ApplicationLoadBalancerProps struct {
-	// The VPC network to place the load balancer in.
-	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
 	// Indicates whether deletion protection is enabled.
 	// Experimental.
 	DeletionProtection *bool `json:"deletionProtection"`
@@ -2588,6 +2621,9 @@ type ApplicationLoadBalancerProps struct {
 	// Name of the load balancer.
 	// Experimental.
 	LoadBalancerName *string `json:"loadBalancerName"`
+	// The VPC network to place the load balancer in.
+	// Experimental.
+	Vpc awsec2.IVpc `json:"vpc"`
 	// Which subnets place the load balancer in.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
@@ -3377,6 +3413,9 @@ type ApplicationTargetGroupProps struct {
 //
 // Experimental.
 type AuthenticateOidcOptions struct {
+	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
+	// Experimental.
+	AuthenticationRequestExtraParams *map[string]*string `json:"authenticationRequestExtraParams"`
 	// The authorization endpoint of the IdP.
 	//
 	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
@@ -3396,19 +3435,6 @@ type AuthenticateOidcOptions struct {
 	// What action to execute next.
 	// Experimental.
 	Next ListenerAction `json:"next"`
-	// The token endpoint of the IdP.
-	//
-	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
-	// Experimental.
-	TokenEndpoint *string `json:"tokenEndpoint"`
-	// The user info endpoint of the IdP.
-	//
-	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
-	// Experimental.
-	UserInfoEndpoint *string `json:"userInfoEndpoint"`
-	// The query parameters (up to 10) to include in the redirect request to the authorization endpoint.
-	// Experimental.
-	AuthenticationRequestExtraParams *map[string]*string `json:"authenticationRequestExtraParams"`
 	// The behavior if the user is not authenticated.
 	// Experimental.
 	OnUnauthenticatedRequest UnauthenticatedAction `json:"onUnauthenticatedRequest"`
@@ -3423,6 +3449,16 @@ type AuthenticateOidcOptions struct {
 	// The maximum duration of the authentication session.
 	// Experimental.
 	SessionTimeout awscdk.Duration `json:"sessionTimeout"`
+	// The token endpoint of the IdP.
+	//
+	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
+	// Experimental.
+	TokenEndpoint *string `json:"tokenEndpoint"`
+	// The user info endpoint of the IdP.
+	//
+	// This must be a full URL, including the HTTPS protocol, the domain, and the path.
+	// Experimental.
+	UserInfoEndpoint *string `json:"userInfoEndpoint"`
 }
 
 // Basic properties for an ApplicationListener.
@@ -3481,15 +3517,11 @@ type BaseApplicationListenerProps struct {
 }
 
 // Basic properties for defining a rule on a listener.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BaseApplicationListenerRuleProps struct {
-	// Priority of the rule.
-	//
-	// The rule with the lowest priority will be used for every request.
-	//
-	// Priorities must be unique.
-	// Experimental.
-	Priority *float64 `json:"priority"`
 	// Action to perform when requests are received.
 	//
 	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
@@ -3524,6 +3556,13 @@ type BaseApplicationListenerRuleProps struct {
 	//
 	// Deprecated: Use `conditions` instead.
 	PathPatterns *[]*string `json:"pathPatterns"`
+	// Priority of the rule.
+	//
+	// The rule with the lowest priority will be used for every request.
+	//
+	// Priorities must be unique.
+	// Experimental.
+	Priority *float64 `json:"priority"`
 	// Redirect response to return.
 	//
 	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
@@ -3843,6 +3882,9 @@ func (b *jsiiProxy_BaseListener) Validate() *[]*string {
 }
 
 // Options for listener lookup.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BaseListenerLookupOptions struct {
 	// Filter listeners by listener port.
@@ -4270,6 +4312,9 @@ func (b *jsiiProxy_BaseLoadBalancer) Validate() *[]*string {
 }
 
 // Options for looking up load balancers.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BaseLoadBalancerLookupOptions struct {
 	// Find by load balancer's ARN.
@@ -4281,11 +4326,11 @@ type BaseLoadBalancerLookupOptions struct {
 }
 
 // Shared properties of both Application and Network Load Balancers.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BaseLoadBalancerProps struct {
-	// The VPC network to place the load balancer in.
-	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
 	// Indicates whether deletion protection is enabled.
 	// Experimental.
 	DeletionProtection *bool `json:"deletionProtection"`
@@ -4295,6 +4340,9 @@ type BaseLoadBalancerProps struct {
 	// Name of the load balancer.
 	// Experimental.
 	LoadBalancerName *string `json:"loadBalancerName"`
+	// The VPC network to place the load balancer in.
+	// Experimental.
+	Vpc awsec2.IVpc `json:"vpc"`
 	// Which subnets place the load balancer in.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
@@ -4306,9 +4354,6 @@ type BaseLoadBalancerProps struct {
 //
 // Experimental.
 type BaseNetworkListenerProps struct {
-	// The port on which the listener listens for requests.
-	// Experimental.
-	Port *float64 `json:"port"`
 	// Application-Layer Protocol Negotiation (ALPN) is a TLS extension that is sent on the initial TLS handshake hello messages.
 	//
 	// ALPN enables the application layer to negotiate which protocols should be used over a secure connection, such as HTTP/1 and HTTP/2.
@@ -4339,6 +4384,9 @@ type BaseNetworkListenerProps struct {
 	// Cannot be specified together with `defaultAction`.
 	// Experimental.
 	DefaultTargetGroups *[]INetworkTargetGroup `json:"defaultTargetGroups"`
+	// The port on which the listener listens for requests.
+	// Experimental.
+	Port *float64 `json:"port"`
 	// Protocol for listener, expects TCP, TLS, UDP, or TCP_UDP.
 	// Experimental.
 	Protocol Protocol `json:"protocol"`
@@ -4348,6 +4396,9 @@ type BaseNetworkListenerProps struct {
 }
 
 // Basic properties of both Application and Network Target Groups.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BaseTargetGroupProps struct {
 	// The amount of time for Elastic Load Balancing to wait before deregistering a target.
@@ -4380,6 +4431,9 @@ type BaseTargetGroupProps struct {
 }
 
 // A CloudFormation `AWS::ElasticLoadBalancingV2::Listener`.
+//
+// TODO: EXAMPLE
+//
 type CfnListener interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5096,9 +5150,9 @@ func (c *jsiiProxy_CfnListener) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnListener_ActionProperty struct {
-	// `CfnListener.ActionProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnListener.ActionProperty.AuthenticateCognitoConfig`.
 	AuthenticateCognitoConfig interface{} `json:"authenticateCognitoConfig"`
 	// `CfnListener.ActionProperty.AuthenticateOidcConfig`.
@@ -5113,15 +5167,13 @@ type CfnListener_ActionProperty struct {
 	RedirectConfig interface{} `json:"redirectConfig"`
 	// `CfnListener.ActionProperty.TargetGroupArn`.
 	TargetGroupArn *string `json:"targetGroupArn"`
+	// `CfnListener.ActionProperty.Type`.
+	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnListener_AuthenticateCognitoConfigProperty struct {
-	// `CfnListener.AuthenticateCognitoConfigProperty.UserPoolArn`.
-	UserPoolArn *string `json:"userPoolArn"`
-	// `CfnListener.AuthenticateCognitoConfigProperty.UserPoolClientId`.
-	UserPoolClientId *string `json:"userPoolClientId"`
-	// `CfnListener.AuthenticateCognitoConfigProperty.UserPoolDomain`.
-	UserPoolDomain *string `json:"userPoolDomain"`
 	// `CfnListener.AuthenticateCognitoConfigProperty.AuthenticationRequestExtraParams`.
 	AuthenticationRequestExtraParams interface{} `json:"authenticationRequestExtraParams"`
 	// `CfnListener.AuthenticateCognitoConfigProperty.OnUnauthenticatedRequest`.
@@ -5132,9 +5184,19 @@ type CfnListener_AuthenticateCognitoConfigProperty struct {
 	SessionCookieName *string `json:"sessionCookieName"`
 	// `CfnListener.AuthenticateCognitoConfigProperty.SessionTimeout`.
 	SessionTimeout *string `json:"sessionTimeout"`
+	// `CfnListener.AuthenticateCognitoConfigProperty.UserPoolArn`.
+	UserPoolArn *string `json:"userPoolArn"`
+	// `CfnListener.AuthenticateCognitoConfigProperty.UserPoolClientId`.
+	UserPoolClientId *string `json:"userPoolClientId"`
+	// `CfnListener.AuthenticateCognitoConfigProperty.UserPoolDomain`.
+	UserPoolDomain *string `json:"userPoolDomain"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnListener_AuthenticateOidcConfigProperty struct {
+	// `CfnListener.AuthenticateOidcConfigProperty.AuthenticationRequestExtraParams`.
+	AuthenticationRequestExtraParams interface{} `json:"authenticationRequestExtraParams"`
 	// `CfnListener.AuthenticateOidcConfigProperty.AuthorizationEndpoint`.
 	AuthorizationEndpoint *string `json:"authorizationEndpoint"`
 	// `CfnListener.AuthenticateOidcConfigProperty.ClientId`.
@@ -5143,12 +5205,6 @@ type CfnListener_AuthenticateOidcConfigProperty struct {
 	ClientSecret *string `json:"clientSecret"`
 	// `CfnListener.AuthenticateOidcConfigProperty.Issuer`.
 	Issuer *string `json:"issuer"`
-	// `CfnListener.AuthenticateOidcConfigProperty.TokenEndpoint`.
-	TokenEndpoint *string `json:"tokenEndpoint"`
-	// `CfnListener.AuthenticateOidcConfigProperty.UserInfoEndpoint`.
-	UserInfoEndpoint *string `json:"userInfoEndpoint"`
-	// `CfnListener.AuthenticateOidcConfigProperty.AuthenticationRequestExtraParams`.
-	AuthenticationRequestExtraParams interface{} `json:"authenticationRequestExtraParams"`
 	// `CfnListener.AuthenticateOidcConfigProperty.OnUnauthenticatedRequest`.
 	OnUnauthenticatedRequest *string `json:"onUnauthenticatedRequest"`
 	// `CfnListener.AuthenticateOidcConfigProperty.Scope`.
@@ -5157,22 +5213,32 @@ type CfnListener_AuthenticateOidcConfigProperty struct {
 	SessionCookieName *string `json:"sessionCookieName"`
 	// `CfnListener.AuthenticateOidcConfigProperty.SessionTimeout`.
 	SessionTimeout *string `json:"sessionTimeout"`
+	// `CfnListener.AuthenticateOidcConfigProperty.TokenEndpoint`.
+	TokenEndpoint *string `json:"tokenEndpoint"`
+	// `CfnListener.AuthenticateOidcConfigProperty.UserInfoEndpoint`.
+	UserInfoEndpoint *string `json:"userInfoEndpoint"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnListener_CertificateProperty struct {
 	// `CfnListener.CertificateProperty.CertificateArn`.
 	CertificateArn *string `json:"certificateArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnListener_FixedResponseConfigProperty struct {
-	// `CfnListener.FixedResponseConfigProperty.StatusCode`.
-	StatusCode *string `json:"statusCode"`
 	// `CfnListener.FixedResponseConfigProperty.ContentType`.
 	ContentType *string `json:"contentType"`
 	// `CfnListener.FixedResponseConfigProperty.MessageBody`.
 	MessageBody *string `json:"messageBody"`
+	// `CfnListener.FixedResponseConfigProperty.StatusCode`.
+	StatusCode *string `json:"statusCode"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnListener_ForwardConfigProperty struct {
 	// `CfnListener.ForwardConfigProperty.TargetGroups`.
 	TargetGroups interface{} `json:"targetGroups"`
@@ -5180,9 +5246,9 @@ type CfnListener_ForwardConfigProperty struct {
 	TargetGroupStickinessConfig interface{} `json:"targetGroupStickinessConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnListener_RedirectConfigProperty struct {
-	// `CfnListener.RedirectConfigProperty.StatusCode`.
-	StatusCode *string `json:"statusCode"`
 	// `CfnListener.RedirectConfigProperty.Host`.
 	Host *string `json:"host"`
 	// `CfnListener.RedirectConfigProperty.Path`.
@@ -5193,8 +5259,12 @@ type CfnListener_RedirectConfigProperty struct {
 	Protocol *string `json:"protocol"`
 	// `CfnListener.RedirectConfigProperty.Query`.
 	Query *string `json:"query"`
+	// `CfnListener.RedirectConfigProperty.StatusCode`.
+	StatusCode *string `json:"statusCode"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnListener_TargetGroupStickinessConfigProperty struct {
 	// `CfnListener.TargetGroupStickinessConfigProperty.DurationSeconds`.
 	DurationSeconds *float64 `json:"durationSeconds"`
@@ -5202,6 +5272,8 @@ type CfnListener_TargetGroupStickinessConfigProperty struct {
 	Enabled interface{} `json:"enabled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnListener_TargetGroupTupleProperty struct {
 	// `CfnListener.TargetGroupTupleProperty.TargetGroupArn`.
 	TargetGroupArn *string `json:"targetGroupArn"`
@@ -5210,6 +5282,9 @@ type CfnListener_TargetGroupTupleProperty struct {
 }
 
 // A CloudFormation `AWS::ElasticLoadBalancingV2::ListenerCertificate`.
+//
+// TODO: EXAMPLE
+//
 type CfnListenerCertificate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5815,12 +5890,17 @@ func (c *jsiiProxy_CfnListenerCertificate) ValidateProperties(_properties interf
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnListenerCertificate_CertificateProperty struct {
 	// `CfnListenerCertificate.CertificateProperty.CertificateArn`.
 	CertificateArn *string `json:"certificateArn"`
 }
 
 // Properties for defining a `AWS::ElasticLoadBalancingV2::ListenerCertificate`.
+//
+// TODO: EXAMPLE
+//
 type CfnListenerCertificateProps struct {
 	// `AWS::ElasticLoadBalancingV2::ListenerCertificate.Certificates`.
 	Certificates interface{} `json:"certificates"`
@@ -5829,15 +5909,18 @@ type CfnListenerCertificateProps struct {
 }
 
 // Properties for defining a `AWS::ElasticLoadBalancingV2::Listener`.
+//
+// TODO: EXAMPLE
+//
 type CfnListenerProps struct {
-	// `AWS::ElasticLoadBalancingV2::Listener.DefaultActions`.
-	DefaultActions interface{} `json:"defaultActions"`
-	// `AWS::ElasticLoadBalancingV2::Listener.LoadBalancerArn`.
-	LoadBalancerArn *string `json:"loadBalancerArn"`
 	// `AWS::ElasticLoadBalancingV2::Listener.AlpnPolicy`.
 	AlpnPolicy *[]*string `json:"alpnPolicy"`
 	// `AWS::ElasticLoadBalancingV2::Listener.Certificates`.
 	Certificates interface{} `json:"certificates"`
+	// `AWS::ElasticLoadBalancingV2::Listener.DefaultActions`.
+	DefaultActions interface{} `json:"defaultActions"`
+	// `AWS::ElasticLoadBalancingV2::Listener.LoadBalancerArn`.
+	LoadBalancerArn *string `json:"loadBalancerArn"`
 	// `AWS::ElasticLoadBalancingV2::Listener.Port`.
 	Port *float64 `json:"port"`
 	// `AWS::ElasticLoadBalancingV2::Listener.Protocol`.
@@ -5847,6 +5930,9 @@ type CfnListenerProps struct {
 }
 
 // A CloudFormation `AWS::ElasticLoadBalancingV2::ListenerRule`.
+//
+// TODO: EXAMPLE
+//
 type CfnListenerRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6514,9 +6600,9 @@ func (c *jsiiProxy_CfnListenerRule) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnListenerRule_ActionProperty struct {
-	// `CfnListenerRule.ActionProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnListenerRule.ActionProperty.AuthenticateCognitoConfig`.
 	AuthenticateCognitoConfig interface{} `json:"authenticateCognitoConfig"`
 	// `CfnListenerRule.ActionProperty.AuthenticateOidcConfig`.
@@ -6531,15 +6617,13 @@ type CfnListenerRule_ActionProperty struct {
 	RedirectConfig interface{} `json:"redirectConfig"`
 	// `CfnListenerRule.ActionProperty.TargetGroupArn`.
 	TargetGroupArn *string `json:"targetGroupArn"`
+	// `CfnListenerRule.ActionProperty.Type`.
+	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnListenerRule_AuthenticateCognitoConfigProperty struct {
-	// `CfnListenerRule.AuthenticateCognitoConfigProperty.UserPoolArn`.
-	UserPoolArn *string `json:"userPoolArn"`
-	// `CfnListenerRule.AuthenticateCognitoConfigProperty.UserPoolClientId`.
-	UserPoolClientId *string `json:"userPoolClientId"`
-	// `CfnListenerRule.AuthenticateCognitoConfigProperty.UserPoolDomain`.
-	UserPoolDomain *string `json:"userPoolDomain"`
 	// `CfnListenerRule.AuthenticateCognitoConfigProperty.AuthenticationRequestExtraParams`.
 	AuthenticationRequestExtraParams interface{} `json:"authenticationRequestExtraParams"`
 	// `CfnListenerRule.AuthenticateCognitoConfigProperty.OnUnauthenticatedRequest`.
@@ -6550,9 +6634,19 @@ type CfnListenerRule_AuthenticateCognitoConfigProperty struct {
 	SessionCookieName *string `json:"sessionCookieName"`
 	// `CfnListenerRule.AuthenticateCognitoConfigProperty.SessionTimeout`.
 	SessionTimeout *float64 `json:"sessionTimeout"`
+	// `CfnListenerRule.AuthenticateCognitoConfigProperty.UserPoolArn`.
+	UserPoolArn *string `json:"userPoolArn"`
+	// `CfnListenerRule.AuthenticateCognitoConfigProperty.UserPoolClientId`.
+	UserPoolClientId *string `json:"userPoolClientId"`
+	// `CfnListenerRule.AuthenticateCognitoConfigProperty.UserPoolDomain`.
+	UserPoolDomain *string `json:"userPoolDomain"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnListenerRule_AuthenticateOidcConfigProperty struct {
+	// `CfnListenerRule.AuthenticateOidcConfigProperty.AuthenticationRequestExtraParams`.
+	AuthenticationRequestExtraParams interface{} `json:"authenticationRequestExtraParams"`
 	// `CfnListenerRule.AuthenticateOidcConfigProperty.AuthorizationEndpoint`.
 	AuthorizationEndpoint *string `json:"authorizationEndpoint"`
 	// `CfnListenerRule.AuthenticateOidcConfigProperty.ClientId`.
@@ -6561,12 +6655,6 @@ type CfnListenerRule_AuthenticateOidcConfigProperty struct {
 	ClientSecret *string `json:"clientSecret"`
 	// `CfnListenerRule.AuthenticateOidcConfigProperty.Issuer`.
 	Issuer *string `json:"issuer"`
-	// `CfnListenerRule.AuthenticateOidcConfigProperty.TokenEndpoint`.
-	TokenEndpoint *string `json:"tokenEndpoint"`
-	// `CfnListenerRule.AuthenticateOidcConfigProperty.UserInfoEndpoint`.
-	UserInfoEndpoint *string `json:"userInfoEndpoint"`
-	// `CfnListenerRule.AuthenticateOidcConfigProperty.AuthenticationRequestExtraParams`.
-	AuthenticationRequestExtraParams interface{} `json:"authenticationRequestExtraParams"`
 	// `CfnListenerRule.AuthenticateOidcConfigProperty.OnUnauthenticatedRequest`.
 	OnUnauthenticatedRequest *string `json:"onUnauthenticatedRequest"`
 	// `CfnListenerRule.AuthenticateOidcConfigProperty.Scope`.
@@ -6575,19 +6663,27 @@ type CfnListenerRule_AuthenticateOidcConfigProperty struct {
 	SessionCookieName *string `json:"sessionCookieName"`
 	// `CfnListenerRule.AuthenticateOidcConfigProperty.SessionTimeout`.
 	SessionTimeout *float64 `json:"sessionTimeout"`
+	// `CfnListenerRule.AuthenticateOidcConfigProperty.TokenEndpoint`.
+	TokenEndpoint *string `json:"tokenEndpoint"`
 	// `CfnListenerRule.AuthenticateOidcConfigProperty.UseExistingClientSecret`.
 	UseExistingClientSecret interface{} `json:"useExistingClientSecret"`
+	// `CfnListenerRule.AuthenticateOidcConfigProperty.UserInfoEndpoint`.
+	UserInfoEndpoint *string `json:"userInfoEndpoint"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnListenerRule_FixedResponseConfigProperty struct {
-	// `CfnListenerRule.FixedResponseConfigProperty.StatusCode`.
-	StatusCode *string `json:"statusCode"`
 	// `CfnListenerRule.FixedResponseConfigProperty.ContentType`.
 	ContentType *string `json:"contentType"`
 	// `CfnListenerRule.FixedResponseConfigProperty.MessageBody`.
 	MessageBody *string `json:"messageBody"`
+	// `CfnListenerRule.FixedResponseConfigProperty.StatusCode`.
+	StatusCode *string `json:"statusCode"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnListenerRule_ForwardConfigProperty struct {
 	// `CfnListenerRule.ForwardConfigProperty.TargetGroups`.
 	TargetGroups interface{} `json:"targetGroups"`
@@ -6595,11 +6691,15 @@ type CfnListenerRule_ForwardConfigProperty struct {
 	TargetGroupStickinessConfig interface{} `json:"targetGroupStickinessConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnListenerRule_HostHeaderConfigProperty struct {
 	// `CfnListenerRule.HostHeaderConfigProperty.Values`.
 	Values *[]*string `json:"values"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnListenerRule_HttpHeaderConfigProperty struct {
 	// `CfnListenerRule.HttpHeaderConfigProperty.HttpHeaderName`.
 	HttpHeaderName *string `json:"httpHeaderName"`
@@ -6607,21 +6707,29 @@ type CfnListenerRule_HttpHeaderConfigProperty struct {
 	Values *[]*string `json:"values"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnListenerRule_HttpRequestMethodConfigProperty struct {
 	// `CfnListenerRule.HttpRequestMethodConfigProperty.Values`.
 	Values *[]*string `json:"values"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnListenerRule_PathPatternConfigProperty struct {
 	// `CfnListenerRule.PathPatternConfigProperty.Values`.
 	Values *[]*string `json:"values"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnListenerRule_QueryStringConfigProperty struct {
 	// `CfnListenerRule.QueryStringConfigProperty.Values`.
 	Values interface{} `json:"values"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnListenerRule_QueryStringKeyValueProperty struct {
 	// `CfnListenerRule.QueryStringKeyValueProperty.Key`.
 	Key *string `json:"key"`
@@ -6629,9 +6737,9 @@ type CfnListenerRule_QueryStringKeyValueProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnListenerRule_RedirectConfigProperty struct {
-	// `CfnListenerRule.RedirectConfigProperty.StatusCode`.
-	StatusCode *string `json:"statusCode"`
 	// `CfnListenerRule.RedirectConfigProperty.Host`.
 	Host *string `json:"host"`
 	// `CfnListenerRule.RedirectConfigProperty.Path`.
@@ -6642,8 +6750,12 @@ type CfnListenerRule_RedirectConfigProperty struct {
 	Protocol *string `json:"protocol"`
 	// `CfnListenerRule.RedirectConfigProperty.Query`.
 	Query *string `json:"query"`
+	// `CfnListenerRule.RedirectConfigProperty.StatusCode`.
+	StatusCode *string `json:"statusCode"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnListenerRule_RuleConditionProperty struct {
 	// `CfnListenerRule.RuleConditionProperty.Field`.
 	Field *string `json:"field"`
@@ -6663,11 +6775,15 @@ type CfnListenerRule_RuleConditionProperty struct {
 	Values *[]*string `json:"values"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnListenerRule_SourceIpConfigProperty struct {
 	// `CfnListenerRule.SourceIpConfigProperty.Values`.
 	Values *[]*string `json:"values"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnListenerRule_TargetGroupStickinessConfigProperty struct {
 	// `CfnListenerRule.TargetGroupStickinessConfigProperty.DurationSeconds`.
 	DurationSeconds *float64 `json:"durationSeconds"`
@@ -6675,6 +6791,8 @@ type CfnListenerRule_TargetGroupStickinessConfigProperty struct {
 	Enabled interface{} `json:"enabled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnListenerRule_TargetGroupTupleProperty struct {
 	// `CfnListenerRule.TargetGroupTupleProperty.TargetGroupArn`.
 	TargetGroupArn *string `json:"targetGroupArn"`
@@ -6683,6 +6801,9 @@ type CfnListenerRule_TargetGroupTupleProperty struct {
 }
 
 // Properties for defining a `AWS::ElasticLoadBalancingV2::ListenerRule`.
+//
+// TODO: EXAMPLE
+//
 type CfnListenerRuleProps struct {
 	// `AWS::ElasticLoadBalancingV2::ListenerRule.Actions`.
 	Actions interface{} `json:"actions"`
@@ -6695,6 +6816,9 @@ type CfnListenerRuleProps struct {
 }
 
 // A CloudFormation `AWS::ElasticLoadBalancingV2::LoadBalancer`.
+//
+// TODO: EXAMPLE
+//
 type CfnLoadBalancer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -7486,6 +7610,8 @@ func (c *jsiiProxy_CfnLoadBalancer) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnLoadBalancer_LoadBalancerAttributeProperty struct {
 	// `CfnLoadBalancer.LoadBalancerAttributeProperty.Key`.
 	Key *string `json:"key"`
@@ -7493,18 +7619,23 @@ type CfnLoadBalancer_LoadBalancerAttributeProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLoadBalancer_SubnetMappingProperty struct {
-	// `CfnLoadBalancer.SubnetMappingProperty.SubnetId`.
-	SubnetId *string `json:"subnetId"`
 	// `CfnLoadBalancer.SubnetMappingProperty.AllocationId`.
 	AllocationId *string `json:"allocationId"`
 	// `CfnLoadBalancer.SubnetMappingProperty.IPv6Address`.
 	IPv6Address *string `json:"iPv6Address"`
 	// `CfnLoadBalancer.SubnetMappingProperty.PrivateIPv4Address`.
 	PrivateIPv4Address *string `json:"privateIPv4Address"`
+	// `CfnLoadBalancer.SubnetMappingProperty.SubnetId`.
+	SubnetId *string `json:"subnetId"`
 }
 
 // Properties for defining a `AWS::ElasticLoadBalancingV2::LoadBalancer`.
+//
+// TODO: EXAMPLE
+//
 type CfnLoadBalancerProps struct {
 	// `AWS::ElasticLoadBalancingV2::LoadBalancer.IpAddressType`.
 	IpAddressType *string `json:"ipAddressType"`
@@ -7527,6 +7658,9 @@ type CfnLoadBalancerProps struct {
 }
 
 // A CloudFormation `AWS::ElasticLoadBalancingV2::TargetGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnTargetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -8496,6 +8630,8 @@ func (c *jsiiProxy_CfnTargetGroup) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnTargetGroup_MatcherProperty struct {
 	// `CfnTargetGroup.MatcherProperty.GrpcCode`.
 	GrpcCode *string `json:"grpcCode"`
@@ -8503,15 +8639,19 @@ type CfnTargetGroup_MatcherProperty struct {
 	HttpCode *string `json:"httpCode"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTargetGroup_TargetDescriptionProperty struct {
-	// `CfnTargetGroup.TargetDescriptionProperty.Id`.
-	Id *string `json:"id"`
 	// `CfnTargetGroup.TargetDescriptionProperty.AvailabilityZone`.
 	AvailabilityZone *string `json:"availabilityZone"`
+	// `CfnTargetGroup.TargetDescriptionProperty.Id`.
+	Id *string `json:"id"`
 	// `CfnTargetGroup.TargetDescriptionProperty.Port`.
 	Port *float64 `json:"port"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTargetGroup_TargetGroupAttributeProperty struct {
 	// `CfnTargetGroup.TargetGroupAttributeProperty.Key`.
 	Key *string `json:"key"`
@@ -8520,6 +8660,9 @@ type CfnTargetGroup_TargetGroupAttributeProperty struct {
 }
 
 // Properties for defining a `AWS::ElasticLoadBalancingV2::TargetGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnTargetGroupProps struct {
 	// `AWS::ElasticLoadBalancingV2::TargetGroup.HealthCheckEnabled`.
 	HealthCheckEnabled interface{} `json:"healthCheckEnabled"`
@@ -8569,25 +8712,28 @@ type CfnTargetGroupProps struct {
 type ContentType string
 
 const (
-	ContentType_TEXT_PLAIN ContentType = "TEXT_PLAIN"
-	ContentType_TEXT_CSS ContentType = "TEXT_CSS"
-	ContentType_TEXT_HTML ContentType = "TEXT_HTML"
 	ContentType_APPLICATION_JAVASCRIPT ContentType = "APPLICATION_JAVASCRIPT"
 	ContentType_APPLICATION_JSON ContentType = "APPLICATION_JSON"
+	ContentType_TEXT_CSS ContentType = "TEXT_CSS"
+	ContentType_TEXT_HTML ContentType = "TEXT_HTML"
+	ContentType_TEXT_PLAIN ContentType = "TEXT_PLAIN"
 )
 
 // A fixed response.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: superceded by `ListenerAction.fixedResponse()`.
 type FixedResponse struct {
-	// The HTTP response code (2XX, 4XX or 5XX).
-	// Deprecated: superceded by `ListenerAction.fixedResponse()`.
-	StatusCode *string `json:"statusCode"`
 	// The content type.
 	// Deprecated: superceded by `ListenerAction.fixedResponse()`.
 	ContentType ContentType `json:"contentType"`
 	// The message.
 	// Deprecated: superceded by `ListenerAction.fixedResponse()`.
 	MessageBody *string `json:"messageBody"`
+	// The HTTP response code (2XX, 4XX or 5XX).
+	// Deprecated: superceded by `ListenerAction.fixedResponse()`.
+	StatusCode *string `json:"statusCode"`
 }
 
 // Options for `ListenerAction.fixedResponse()`.
@@ -8607,6 +8753,9 @@ type FixedResponseOptions struct {
 }
 
 // Options for `ListenerAction.forward()`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ForwardOptions struct {
 	// For how long clients should be directed to the same target group.
@@ -9420,6 +9569,9 @@ func (j *jsiiProxy_ITargetGroup) TargetGroupArn() *string {
 //
 // If you register a target of this type, you are responsible for making
 // sure the load balancer's security group can connect to the instance.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: Use IpTarget from the
 type InstanceTarget interface {
 	IApplicationLoadBalancerTarget
@@ -9503,8 +9655,8 @@ func (i *jsiiProxy_InstanceTarget) AttachToNetworkTargetGroup(targetGroup INetwo
 type IpAddressType string
 
 const (
-	IpAddressType_IPV4 IpAddressType = "IPV4"
 	IpAddressType_DUAL_STACK IpAddressType = "DUAL_STACK"
+	IpAddressType_IPV4 IpAddressType = "IPV4"
 )
 
 // An IP address that is a target for load balancing.
@@ -9516,6 +9668,9 @@ const (
 //
 // If you register a target of this type, you are responsible for making
 // sure the load balancer's security group can send packets to the IP address.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: Use IpTarget from the
 type IpTarget interface {
 	IApplicationLoadBalancerTarget
@@ -9860,6 +10015,9 @@ func (l *jsiiProxy_ListenerAction) Renumber(actions *[]*CfnListener_ActionProper
 }
 
 // A certificate source for an ELBv2 listener.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ListenerCertificate interface {
 	IListenerCertificate
@@ -10085,19 +10243,25 @@ func (l *jsiiProxy_ListenerCondition) RenderRawCondition() interface{} {
 }
 
 // Result of attaching a target to load balancer.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LoadBalancerTargetProps struct {
-	// What kind of target this is.
-	// Experimental.
-	TargetType TargetType `json:"targetType"`
 	// JSON representing the target's direct addition to the TargetGroup list.
 	//
 	// May be omitted if the target is going to register itself later.
 	// Experimental.
 	TargetJson interface{} `json:"targetJson"`
+	// What kind of target this is.
+	// Experimental.
+	TargetType TargetType `json:"targetType"`
 }
 
 // Options for `NetworkListenerAction.forward()`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NetworkForwardOptions struct {
 	// For how long clients should be directed to the same target group.
@@ -10547,6 +10711,9 @@ func (n *jsiiProxy_NetworkListener) Validate() *[]*string {
 //
 // If an action supports chaining, the next action can be indicated
 // by passing it in the `next` property.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NetworkListenerAction interface {
 	IListenerAction
@@ -10709,11 +10876,11 @@ type NetworkListenerLookupOptions struct {
 }
 
 // Properties for a Network Listener attached to a Load Balancer.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NetworkListenerProps struct {
-	// The port on which the listener listens for requests.
-	// Experimental.
-	Port *float64 `json:"port"`
 	// Application-Layer Protocol Negotiation (ALPN) is a TLS extension that is sent on the initial TLS handshake hello messages.
 	//
 	// ALPN enables the application layer to negotiate which protocols should be used over a secure connection, such as HTTP/1 and HTTP/2.
@@ -10744,6 +10911,9 @@ type NetworkListenerProps struct {
 	// Cannot be specified together with `defaultAction`.
 	// Experimental.
 	DefaultTargetGroups *[]INetworkTargetGroup `json:"defaultTargetGroups"`
+	// The port on which the listener listens for requests.
+	// Experimental.
+	Port *float64 `json:"port"`
 	// Protocol for listener, expects TCP, TLS, UDP, or TCP_UDP.
 	// Experimental.
 	Protocol Protocol `json:"protocol"`
@@ -11431,6 +11601,9 @@ type NetworkLoadBalancerAttributes struct {
 }
 
 // Options for looking up an NetworkLoadBalancer.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NetworkLoadBalancerLookupOptions struct {
 	// Find by load balancer's ARN.
@@ -11447,9 +11620,6 @@ type NetworkLoadBalancerLookupOptions struct {
 //
 // Experimental.
 type NetworkLoadBalancerProps struct {
-	// The VPC network to place the load balancer in.
-	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
 	// Indicates whether deletion protection is enabled.
 	// Experimental.
 	DeletionProtection *bool `json:"deletionProtection"`
@@ -11459,6 +11629,9 @@ type NetworkLoadBalancerProps struct {
 	// Name of the load balancer.
 	// Experimental.
 	LoadBalancerName *string `json:"loadBalancerName"`
+	// The VPC network to place the load balancer in.
+	// Experimental.
+	Vpc awsec2.IVpc `json:"vpc"`
 	// Which subnets place the load balancer in.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
@@ -11928,6 +12101,9 @@ func (n *jsiiProxy_NetworkTargetGroup) Validate() *[]*string {
 }
 
 // Properties for a new Network Target Group.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NetworkTargetGroupProps struct {
 	// The amount of time for Elastic Load Balancing to wait before deregistering a target.
@@ -11979,6 +12155,9 @@ type NetworkTargetGroupProps struct {
 }
 
 // A Target Group and weight combination.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NetworkWeightedTargetGroup struct {
 	// The target group.
@@ -12002,20 +12181,23 @@ const (
 	Protocol_HTTP Protocol = "HTTP"
 	Protocol_HTTPS Protocol = "HTTPS"
 	Protocol_TCP Protocol = "TCP"
+	Protocol_TCP_UDP Protocol = "TCP_UDP"
 	Protocol_TLS Protocol = "TLS"
 	Protocol_UDP Protocol = "UDP"
-	Protocol_TCP_UDP Protocol = "TCP_UDP"
 )
 
 // Properties for the key/value pair of the query string.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type QueryStringCondition struct {
-	// The query string value for the condition.
-	// Experimental.
-	Value *string `json:"value"`
 	// The query string key for the condition.
 	// Experimental.
 	Key *string `json:"key"`
+	// The query string value for the condition.
+	// Experimental.
+	Value *string `json:"value"`
 }
 
 // Options for `ListenerAction.redirect()`.
@@ -12035,6 +12217,9 @@ type QueryStringCondition struct {
 //
 // For example, you can change the path to "/new/#{path}", the hostname to
 // "example.#{host}", or the query to "#{query}&value=xyz".
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type RedirectOptions struct {
 	// The hostname.
@@ -12070,11 +12255,11 @@ type RedirectOptions struct {
 }
 
 // A redirect response.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: superceded by `ListenerAction.redirect()`.
 type RedirectResponse struct {
-	// The HTTP redirect code (HTTP_301 or HTTP_302).
-	// Deprecated: superceded by `ListenerAction.redirect()`.
-	StatusCode *string `json:"statusCode"`
 	// The hostname.
 	//
 	// This component is not percent-encoded. The hostname can contain #{host}.
@@ -12103,6 +12288,9 @@ type RedirectResponse struct {
 	// You can specify any of the reserved keywords.
 	// Deprecated: superceded by `ListenerAction.redirect()`.
 	Query *string `json:"query"`
+	// The HTTP redirect code (HTTP_301 or HTTP_302).
+	// Deprecated: superceded by `ListenerAction.redirect()`.
+	StatusCode *string `json:"statusCode"`
 }
 
 // Elastic Load Balancing provides the following security policies for Application Load Balancers.
@@ -12123,30 +12311,33 @@ type RedirectResponse struct {
 type SslPolicy string
 
 const (
-	SslPolicy_RECOMMENDED SslPolicy = "RECOMMENDED"
-	SslPolicy_FORWARD_SECRECY_TLS12_RES_GCM SslPolicy = "FORWARD_SECRECY_TLS12_RES_GCM"
-	SslPolicy_FORWARD_SECRECY_TLS12_RES SslPolicy = "FORWARD_SECRECY_TLS12_RES"
-	SslPolicy_FORWARD_SECRECY_TLS12 SslPolicy = "FORWARD_SECRECY_TLS12"
-	SslPolicy_FORWARD_SECRECY_TLS11 SslPolicy = "FORWARD_SECRECY_TLS11"
 	SslPolicy_FORWARD_SECRECY SslPolicy = "FORWARD_SECRECY"
+	SslPolicy_FORWARD_SECRECY_TLS11 SslPolicy = "FORWARD_SECRECY_TLS11"
+	SslPolicy_FORWARD_SECRECY_TLS12 SslPolicy = "FORWARD_SECRECY_TLS12"
+	SslPolicy_FORWARD_SECRECY_TLS12_RES SslPolicy = "FORWARD_SECRECY_TLS12_RES"
+	SslPolicy_FORWARD_SECRECY_TLS12_RES_GCM SslPolicy = "FORWARD_SECRECY_TLS12_RES_GCM"
+	SslPolicy_LEGACY SslPolicy = "LEGACY"
+	SslPolicy_RECOMMENDED SslPolicy = "RECOMMENDED"
+	SslPolicy_TLS11 SslPolicy = "TLS11"
 	SslPolicy_TLS12 SslPolicy = "TLS12"
 	SslPolicy_TLS12_EXT SslPolicy = "TLS12_EXT"
-	SslPolicy_TLS11 SslPolicy = "TLS11"
-	SslPolicy_LEGACY SslPolicy = "LEGACY"
 )
 
 // Properties to reference an existing target group.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type TargetGroupAttributes struct {
-	// ARN of the target group.
-	// Experimental.
-	TargetGroupArn *string `json:"targetGroupArn"`
 	// Port target group is listening on.
 	// Deprecated: - This property is unused and the wrong type. No need to use it.
 	DefaultPort *string `json:"defaultPort"`
 	// A Token representing the list of ARNs for the load balancer routing to this target group.
 	// Experimental.
 	LoadBalancerArns *string `json:"loadBalancerArns"`
+	// ARN of the target group.
+	// Experimental.
+	TargetGroupArn *string `json:"targetGroupArn"`
 }
 
 // Define the target of a load balancer.
@@ -12497,17 +12688,20 @@ func (t *jsiiProxy_TargetGroupBase) Validate() *[]*string {
 }
 
 // Properties to reference an existing target group.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: Use TargetGroupAttributes instead
 type TargetGroupImportProps struct {
-	// ARN of the target group.
-	// Deprecated: Use TargetGroupAttributes instead
-	TargetGroupArn *string `json:"targetGroupArn"`
 	// Port target group is listening on.
 	// Deprecated: - This property is unused and the wrong type. No need to use it.
 	DefaultPort *string `json:"defaultPort"`
 	// A Token representing the list of ARNs for the load balancer routing to this target group.
 	// Deprecated: Use TargetGroupAttributes instead
 	LoadBalancerArns *string `json:"loadBalancerArns"`
+	// ARN of the target group.
+	// Deprecated: Use TargetGroupAttributes instead
+	TargetGroupArn *string `json:"targetGroupArn"`
 }
 
 // Load balancing algorithmm type for target groups.
@@ -12515,8 +12709,8 @@ type TargetGroupImportProps struct {
 type TargetGroupLoadBalancingAlgorithmType string
 
 const (
-	TargetGroupLoadBalancingAlgorithmType_ROUND_ROBIN TargetGroupLoadBalancingAlgorithmType = "ROUND_ROBIN"
 	TargetGroupLoadBalancingAlgorithmType_LEAST_OUTSTANDING_REQUESTS TargetGroupLoadBalancingAlgorithmType = "LEAST_OUTSTANDING_REQUESTS"
+	TargetGroupLoadBalancingAlgorithmType_ROUND_ROBIN TargetGroupLoadBalancingAlgorithmType = "ROUND_ROBIN"
 )
 
 // How to interpret the load balancing target identifiers.
@@ -12527,10 +12721,10 @@ const (
 type TargetType string
 
 const (
+	TargetType_ALB TargetType = "ALB"
 	TargetType_INSTANCE TargetType = "INSTANCE"
 	TargetType_IP TargetType = "IP"
 	TargetType_LAMBDA TargetType = "LAMBDA"
-	TargetType_ALB TargetType = "ALB"
 )
 
 // What to do with unauthenticated requests.
@@ -12538,12 +12732,15 @@ const (
 type UnauthenticatedAction string
 
 const (
-	UnauthenticatedAction_DENY UnauthenticatedAction = "DENY"
 	UnauthenticatedAction_ALLOW UnauthenticatedAction = "ALLOW"
 	UnauthenticatedAction_AUTHENTICATE UnauthenticatedAction = "AUTHENTICATE"
+	UnauthenticatedAction_DENY UnauthenticatedAction = "DENY"
 )
 
 // A Target Group and weight combination.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type WeightedTargetGroup struct {
 	// The target group.

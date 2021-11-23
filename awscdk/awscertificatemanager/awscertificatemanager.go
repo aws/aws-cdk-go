@@ -525,6 +525,9 @@ func CertificateValidation_FromEmail(validationDomains *map[string]*string) Cert
 }
 
 // Properties for certificate validation.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CertificationValidationProps struct {
 	// Hosted zone to use for DNS validation.
@@ -542,6 +545,9 @@ type CertificationValidationProps struct {
 }
 
 // A CloudFormation `AWS::CertificateManager::Account`.
+//
+// TODO: EXAMPLE
+//
 type CfnAccount interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1138,18 +1144,26 @@ func (c *jsiiProxy_CfnAccount) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnAccount_ExpiryEventsConfigurationProperty struct {
 	// `CfnAccount.ExpiryEventsConfigurationProperty.DaysBeforeExpiry`.
 	DaysBeforeExpiry *float64 `json:"daysBeforeExpiry"`
 }
 
 // Properties for defining a `AWS::CertificateManager::Account`.
+//
+// TODO: EXAMPLE
+//
 type CfnAccountProps struct {
 	// `AWS::CertificateManager::Account.ExpiryEventsConfiguration`.
 	ExpiryEventsConfiguration interface{} `json:"expiryEventsConfiguration"`
 }
 
 // A CloudFormation `AWS::CertificateManager::Certificate`.
+//
+// TODO: EXAMPLE
+//
 type CfnCertificate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1846,6 +1860,8 @@ func (c *jsiiProxy_CfnCertificate) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnCertificate_DomainValidationOptionProperty struct {
 	// `CfnCertificate.DomainValidationOptionProperty.DomainName`.
 	DomainName *string `json:"domainName"`
@@ -1856,13 +1872,16 @@ type CfnCertificate_DomainValidationOptionProperty struct {
 }
 
 // Properties for defining a `AWS::CertificateManager::Certificate`.
+//
+// TODO: EXAMPLE
+//
 type CfnCertificateProps struct {
-	// `AWS::CertificateManager::Certificate.DomainName`.
-	DomainName *string `json:"domainName"`
 	// `AWS::CertificateManager::Certificate.CertificateAuthorityArn`.
 	CertificateAuthorityArn *string `json:"certificateAuthorityArn"`
 	// `AWS::CertificateManager::Certificate.CertificateTransparencyLoggingPreference`.
 	CertificateTransparencyLoggingPreference *string `json:"certificateTransparencyLoggingPreference"`
+	// `AWS::CertificateManager::Certificate.DomainName`.
+	DomainName *string `json:"domainName"`
 	// `AWS::CertificateManager::Certificate.DomainValidationOptions`.
 	DomainValidationOptions interface{} `json:"domainValidationOptions"`
 	// `AWS::CertificateManager::Certificate.SubjectAlternativeNames`.
@@ -2344,6 +2363,9 @@ func (j *jsiiProxy_ICertificate) CertificateArn() *string {
 }
 
 // A private certificate managed by AWS Certificate Manager.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type PrivateCertificate interface {
 	awscdk.Resource
@@ -2718,6 +2740,9 @@ func (p *jsiiProxy_PrivateCertificate) Validate() *[]*string {
 }
 
 // Properties for your private certificate.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type PrivateCertificateProps struct {
 	// Private certificate authority (CA) that will be used to issue the certificate.
@@ -2740,7 +2765,7 @@ type PrivateCertificateProps struct {
 type ValidationMethod string
 
 const (
-	ValidationMethod_EMAIL ValidationMethod = "EMAIL"
 	ValidationMethod_DNS ValidationMethod = "DNS"
+	ValidationMethod_EMAIL ValidationMethod = "EMAIL"
 )
 

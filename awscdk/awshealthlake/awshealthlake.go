@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::HealthLake::FHIRDatastore`.
+//
+// TODO: EXAMPLE
+//
 type CfnFHIRDatastore interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -710,6 +713,8 @@ func (c *jsiiProxy_CfnFHIRDatastore) ValidateProperties(_properties interface{})
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFHIRDatastore_KmsEncryptionConfigProperty struct {
 	// `CfnFHIRDatastore.KmsEncryptionConfigProperty.CmkType`.
 	CmkType *string `json:"cmkType"`
@@ -717,22 +722,29 @@ type CfnFHIRDatastore_KmsEncryptionConfigProperty struct {
 	KmsKeyId *string `json:"kmsKeyId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFHIRDatastore_PreloadDataConfigProperty struct {
 	// `CfnFHIRDatastore.PreloadDataConfigProperty.PreloadDataType`.
 	PreloadDataType *string `json:"preloadDataType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFHIRDatastore_SseConfigurationProperty struct {
 	// `CfnFHIRDatastore.SseConfigurationProperty.KmsEncryptionConfig`.
 	KmsEncryptionConfig interface{} `json:"kmsEncryptionConfig"`
 }
 
 // Properties for defining a `AWS::HealthLake::FHIRDatastore`.
+//
+// TODO: EXAMPLE
+//
 type CfnFHIRDatastoreProps struct {
-	// `AWS::HealthLake::FHIRDatastore.DatastoreTypeVersion`.
-	DatastoreTypeVersion *string `json:"datastoreTypeVersion"`
 	// `AWS::HealthLake::FHIRDatastore.DatastoreName`.
 	DatastoreName *string `json:"datastoreName"`
+	// `AWS::HealthLake::FHIRDatastore.DatastoreTypeVersion`.
+	DatastoreTypeVersion *string `json:"datastoreTypeVersion"`
 	// `AWS::HealthLake::FHIRDatastore.PreloadDataConfig`.
 	PreloadDataConfig interface{} `json:"preloadDataConfig"`
 	// `AWS::HealthLake::FHIRDatastore.SseConfiguration`.

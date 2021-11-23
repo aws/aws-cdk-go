@@ -96,8 +96,8 @@ func init() {
 		"monocdk.aws_apigateway.ApiKeySourceType",
 		reflect.TypeOf((*ApiKeySourceType)(nil)).Elem(),
 		map[string]interface{}{
-			"HEADER": ApiKeySourceType_HEADER,
 			"AUTHORIZER": ApiKeySourceType_AUTHORIZER,
+			"HEADER": ApiKeySourceType_HEADER,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -117,10 +117,10 @@ func init() {
 		"monocdk.aws_apigateway.AuthorizationType",
 		reflect.TypeOf((*AuthorizationType)(nil)).Elem(),
 		map[string]interface{}{
-			"NONE": AuthorizationType_NONE,
-			"IAM": AuthorizationType_IAM,
-			"CUSTOM": AuthorizationType_CUSTOM,
 			"COGNITO": AuthorizationType_COGNITO,
+			"CUSTOM": AuthorizationType_CUSTOM,
+			"IAM": AuthorizationType_IAM,
+			"NONE": AuthorizationType_NONE,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -2075,8 +2075,8 @@ func init() {
 		reflect.TypeOf((*EndpointType)(nil)).Elem(),
 		map[string]interface{}{
 			"EDGE": EndpointType_EDGE,
-			"REGIONAL": EndpointType_REGIONAL,
 			"PRIVATE": EndpointType_PRIVATE,
+			"REGIONAL": EndpointType_REGIONAL,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -2396,12 +2396,12 @@ func init() {
 		"monocdk.aws_apigateway.JsonSchemaType",
 		reflect.TypeOf((*JsonSchemaType)(nil)).Elem(),
 		map[string]interface{}{
-			"NULL": JsonSchemaType_NULL,
-			"BOOLEAN": JsonSchemaType_BOOLEAN,
-			"OBJECT": JsonSchemaType_OBJECT,
 			"ARRAY": JsonSchemaType_ARRAY,
-			"NUMBER": JsonSchemaType_NUMBER,
+			"BOOLEAN": JsonSchemaType_BOOLEAN,
 			"INTEGER": JsonSchemaType_INTEGER,
+			"NULL": JsonSchemaType_NULL,
+			"NUMBER": JsonSchemaType_NUMBER,
+			"OBJECT": JsonSchemaType_OBJECT,
 			"STRING": JsonSchemaType_STRING,
 		},
 	)
@@ -2551,9 +2551,9 @@ func init() {
 		"monocdk.aws_apigateway.MethodLoggingLevel",
 		reflect.TypeOf((*MethodLoggingLevel)(nil)).Elem(),
 		map[string]interface{}{
-			"OFF": MethodLoggingLevel_OFF,
 			"ERROR": MethodLoggingLevel_ERROR,
 			"INFO": MethodLoggingLevel_INFO,
+			"OFF": MethodLoggingLevel_OFF,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -2620,8 +2620,8 @@ func init() {
 		"monocdk.aws_apigateway.PassthroughBehavior",
 		reflect.TypeOf((*PassthroughBehavior)(nil)).Elem(),
 		map[string]interface{}{
-			"WHEN_NO_MATCH": PassthroughBehavior_WHEN_NO_MATCH,
 			"NEVER": PassthroughBehavior_NEVER,
+			"WHEN_NO_MATCH": PassthroughBehavior_WHEN_NO_MATCH,
 			"WHEN_NO_TEMPLATES": PassthroughBehavior_WHEN_NO_TEMPLATES,
 		},
 	)
@@ -2630,8 +2630,8 @@ func init() {
 		reflect.TypeOf((*Period)(nil)).Elem(),
 		map[string]interface{}{
 			"DAY": Period_DAY,
-			"WEEK": Period_WEEK,
 			"MONTH": Period_MONTH,
+			"WEEK": Period_WEEK,
 		},
 	)
 	_jsii_.RegisterClass(

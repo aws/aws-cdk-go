@@ -15,6 +15,476 @@ import (
 	"github.com/aws/constructs-go/constructs/v3"
 )
 
+// Construct for installing the AWS ALB Contoller on EKS clusters.
+//
+// Use the factory functions `get` and `getOrCreate` to obtain/create instances of this controller.
+//
+// TODO: EXAMPLE
+//
+// See: https://kubernetes-sigs.github.io/aws-load-balancer-controller
+//
+// Experimental.
+type AlbController interface {
+	awscdk.Construct
+	Node() awscdk.ConstructNode
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
+}
+
+// The jsii proxy struct for AlbController
+type jsiiProxy_AlbController struct {
+	internal.Type__awscdkConstruct
+}
+
+func (j *jsiiProxy_AlbController) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewAlbController(scope constructs.Construct, id *string, props *AlbControllerProps) AlbController {
+	_init_.Initialize()
+
+	j := jsiiProxy_AlbController{}
+
+	_jsii_.Create(
+		"monocdk.aws_eks.AlbController",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewAlbController_Override(a AlbController, scope constructs.Construct, id *string, props *AlbControllerProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_eks.AlbController",
+		[]interface{}{scope, id, props},
+		a,
+	)
+}
+
+// Create the controller construct associated with this cluster and scope.
+//
+// Singleton per stack/cluster.
+// Experimental.
+func AlbController_Create(scope constructs.Construct, props *AlbControllerProps) AlbController {
+	_init_.Initialize()
+
+	var returns AlbController
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_eks.AlbController",
+		"create",
+		[]interface{}{scope, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func AlbController_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_eks.AlbController",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_AlbController) OnPrepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_AlbController) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_AlbController) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_AlbController) Prepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_AlbController) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+// Experimental.
+func (a *jsiiProxy_AlbController) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		a,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_AlbController) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Options for `AlbController`.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type AlbControllerOptions struct {
+	// The IAM policy to apply to the service account.
+	//
+	// If you're using one of the built-in versions, this is not required since
+	// CDK ships with the appropriate policies for those versions.
+	//
+	// However, if you are using a custom version, this is required (and validated).
+	// Experimental.
+	Policy interface{} `json:"policy"`
+	// The repository to pull the controller image from.
+	//
+	// Note that the default repository works for most regions, but not all.
+	// If the repository is not applicable to your region, use a custom repository
+	// according to the information here: https://github.com/kubernetes-sigs/aws-load-balancer-controller/releases.
+	// Experimental.
+	Repository *string `json:"repository"`
+	// Version of the controller.
+	// Experimental.
+	Version AlbControllerVersion `json:"version"`
+}
+
+// Properties for `AlbController`.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type AlbControllerProps struct {
+	// The IAM policy to apply to the service account.
+	//
+	// If you're using one of the built-in versions, this is not required since
+	// CDK ships with the appropriate policies for those versions.
+	//
+	// However, if you are using a custom version, this is required (and validated).
+	// Experimental.
+	Policy interface{} `json:"policy"`
+	// The repository to pull the controller image from.
+	//
+	// Note that the default repository works for most regions, but not all.
+	// If the repository is not applicable to your region, use a custom repository
+	// according to the information here: https://github.com/kubernetes-sigs/aws-load-balancer-controller/releases.
+	// Experimental.
+	Repository *string `json:"repository"`
+	// Version of the controller.
+	// Experimental.
+	Version AlbControllerVersion `json:"version"`
+	// [disable-awslint:ref-via-interface] Cluster to install the controller onto.
+	// Experimental.
+	Cluster Cluster `json:"cluster"`
+}
+
+// Controller version.
+//
+// Corresponds to the image tag of 'amazon/aws-load-balancer-controller' image.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type AlbControllerVersion interface {
+	Custom() *bool
+	Version() *string
+}
+
+// The jsii proxy struct for AlbControllerVersion
+type jsiiProxy_AlbControllerVersion struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_AlbControllerVersion) Custom() *bool {
+	var returns *bool
+	_jsii_.Get(
+		j,
+		"custom",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_AlbControllerVersion) Version() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"version",
+		&returns,
+	)
+	return returns
+}
+
+
+// Specify a custom version.
+//
+// Use this if the version you need is not available in one of the predefined versions.
+// Note that in this case, you will also need to provide an IAM policy in the controller options.
+// Experimental.
+func AlbControllerVersion_Of(version *string) AlbControllerVersion {
+	_init_.Initialize()
+
+	var returns AlbControllerVersion
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_eks.AlbControllerVersion",
+		"of",
+		[]interface{}{version},
+		&returns,
+	)
+
+	return returns
+}
+
+func AlbControllerVersion_V2_0_0() AlbControllerVersion {
+	_init_.Initialize()
+	var returns AlbControllerVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_eks.AlbControllerVersion",
+		"V2_0_0",
+		&returns,
+	)
+	return returns
+}
+
+func AlbControllerVersion_V2_0_1() AlbControllerVersion {
+	_init_.Initialize()
+	var returns AlbControllerVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_eks.AlbControllerVersion",
+		"V2_0_1",
+		&returns,
+	)
+	return returns
+}
+
+func AlbControllerVersion_V2_1_0() AlbControllerVersion {
+	_init_.Initialize()
+	var returns AlbControllerVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_eks.AlbControllerVersion",
+		"V2_1_0",
+		&returns,
+	)
+	return returns
+}
+
+func AlbControllerVersion_V2_1_1() AlbControllerVersion {
+	_init_.Initialize()
+	var returns AlbControllerVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_eks.AlbControllerVersion",
+		"V2_1_1",
+		&returns,
+	)
+	return returns
+}
+
+func AlbControllerVersion_V2_1_2() AlbControllerVersion {
+	_init_.Initialize()
+	var returns AlbControllerVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_eks.AlbControllerVersion",
+		"V2_1_2",
+		&returns,
+	)
+	return returns
+}
+
+func AlbControllerVersion_V2_1_3() AlbControllerVersion {
+	_init_.Initialize()
+	var returns AlbControllerVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_eks.AlbControllerVersion",
+		"V2_1_3",
+		&returns,
+	)
+	return returns
+}
+
+func AlbControllerVersion_V2_2_0() AlbControllerVersion {
+	_init_.Initialize()
+	var returns AlbControllerVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_eks.AlbControllerVersion",
+		"V2_2_0",
+		&returns,
+	)
+	return returns
+}
+
+func AlbControllerVersion_V2_2_1() AlbControllerVersion {
+	_init_.Initialize()
+	var returns AlbControllerVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_eks.AlbControllerVersion",
+		"V2_2_1",
+		&returns,
+	)
+	return returns
+}
+
+func AlbControllerVersion_V2_2_2() AlbControllerVersion {
+	_init_.Initialize()
+	var returns AlbControllerVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_eks.AlbControllerVersion",
+		"V2_2_2",
+		&returns,
+	)
+	return returns
+}
+
+func AlbControllerVersion_V2_2_3() AlbControllerVersion {
+	_init_.Initialize()
+	var returns AlbControllerVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_eks.AlbControllerVersion",
+		"V2_2_3",
+		&returns,
+	)
+	return returns
+}
+
+func AlbControllerVersion_V2_2_4() AlbControllerVersion {
+	_init_.Initialize()
+	var returns AlbControllerVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_eks.AlbControllerVersion",
+		"V2_2_4",
+		&returns,
+	)
+	return returns
+}
+
+func AlbControllerVersion_V2_3_0() AlbControllerVersion {
+	_init_.Initialize()
+	var returns AlbControllerVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_eks.AlbControllerVersion",
+		"V2_3_0",
+		&returns,
+	)
+	return returns
+}
+
+// ALB Scheme.
+// See: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.3/guide/ingress/annotations/#scheme
+//
+// Experimental.
+type AlbScheme string
+
+const (
+	AlbScheme_INTERNAL AlbScheme = "INTERNAL"
+	AlbScheme_INTERNET_FACING AlbScheme = "INTERNET_FACING"
+)
+
 // Options for adding worker nodes.
 //
 // TODO: EXAMPLE
@@ -185,9 +655,6 @@ type AutoScalingGroupCapacityOptions struct {
 	// Where to place instances within the VPC.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
-	// Instance type of the instances to start.
-	// Experimental.
-	InstanceType awsec2.InstanceType `json:"instanceType"`
 	// Configures the EC2 user-data script for instances in this autoscaling group to bootstrap the node (invoke `/etc/eks/bootstrap.sh`) and associate it with the EKS cluster.
 	//
 	// If you wish to provide a custom user data script, set this to `false` and
@@ -197,6 +664,9 @@ type AutoScalingGroupCapacityOptions struct {
 	// EKS node bootstrapping options.
 	// Experimental.
 	BootstrapOptions *BootstrapOptions `json:"bootstrapOptions"`
+	// Instance type of the instances to start.
+	// Experimental.
+	InstanceType awsec2.InstanceType `json:"instanceType"`
 	// Machine image type.
 	// Experimental.
 	MachineImageType MachineImageType `json:"machineImageType"`
@@ -243,6 +713,9 @@ type AutoScalingGroupOptions struct {
 }
 
 // Manages mapping between IAM users and roles to Kubernetes RBAC configuration.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/en_us/eks/latest/userguide/add-user-role.html
 //
 // Experimental.
@@ -493,6 +966,9 @@ type AwsAuthMapping struct {
 }
 
 // Configuration props for the AwsAuth construct.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AwsAuthProps struct {
 	// The EKS cluster to apply this configuration to.
@@ -543,11 +1019,14 @@ type BootstrapOptions struct {
 type CapacityType string
 
 const (
-	CapacityType_SPOT CapacityType = "SPOT"
 	CapacityType_ON_DEMAND CapacityType = "ON_DEMAND"
+	CapacityType_SPOT CapacityType = "SPOT"
 )
 
 // A CloudFormation `AWS::EKS::Addon`.
+//
+// TODO: EXAMPLE
+//
 type CfnAddon interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1236,13 +1715,16 @@ func (c *jsiiProxy_CfnAddon) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::EKS::Addon`.
+//
+// TODO: EXAMPLE
+//
 type CfnAddonProps struct {
 	// `AWS::EKS::Addon.AddonName`.
 	AddonName *string `json:"addonName"`
-	// `AWS::EKS::Addon.ClusterName`.
-	ClusterName *string `json:"clusterName"`
 	// `AWS::EKS::Addon.AddonVersion`.
 	AddonVersion *string `json:"addonVersion"`
+	// `AWS::EKS::Addon.ClusterName`.
+	ClusterName *string `json:"clusterName"`
 	// `AWS::EKS::Addon.ResolveConflicts`.
 	ResolveConflicts *string `json:"resolveConflicts"`
 	// `AWS::EKS::Addon.ServiceAccountRoleArn`.
@@ -1252,6 +1734,9 @@ type CfnAddonProps struct {
 }
 
 // A CloudFormation `AWS::EKS::Cluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2034,11 +2519,15 @@ func (c *jsiiProxy_CfnCluster) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_ClusterLoggingProperty struct {
 	// `CfnCluster.ClusterLoggingProperty.EnabledTypes`.
 	EnabledTypes interface{} `json:"enabledTypes"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_EncryptionConfigProperty struct {
 	// `CfnCluster.EncryptionConfigProperty.Provider`.
 	Provider interface{} `json:"provider"`
@@ -2046,24 +2535,30 @@ type CfnCluster_EncryptionConfigProperty struct {
 	Resources *[]*string `json:"resources"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_KubernetesNetworkConfigProperty struct {
 	// `CfnCluster.KubernetesNetworkConfigProperty.ServiceIpv4Cidr`.
 	ServiceIpv4Cidr *string `json:"serviceIpv4Cidr"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_LoggingProperty struct {
 	// `CfnCluster.LoggingProperty.ClusterLogging`.
 	ClusterLogging interface{} `json:"clusterLogging"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_LoggingTypeConfigProperty struct {
 	// `CfnCluster.LoggingTypeConfigProperty.Type`.
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_ResourcesVpcConfigProperty struct {
-	// `CfnCluster.ResourcesVpcConfigProperty.SubnetIds`.
-	SubnetIds *[]*string `json:"subnetIds"`
 	// `CfnCluster.ResourcesVpcConfigProperty.EndpointPrivateAccess`.
 	EndpointPrivateAccess interface{} `json:"endpointPrivateAccess"`
 	// `CfnCluster.ResourcesVpcConfigProperty.EndpointPublicAccess`.
@@ -2072,14 +2567,15 @@ type CfnCluster_ResourcesVpcConfigProperty struct {
 	PublicAccessCidrs *[]*string `json:"publicAccessCidrs"`
 	// `CfnCluster.ResourcesVpcConfigProperty.SecurityGroupIds`.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
+	// `CfnCluster.ResourcesVpcConfigProperty.SubnetIds`.
+	SubnetIds *[]*string `json:"subnetIds"`
 }
 
 // Properties for defining a `AWS::EKS::Cluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnClusterProps struct {
-	// `AWS::EKS::Cluster.ResourcesVpcConfig`.
-	ResourcesVpcConfig interface{} `json:"resourcesVpcConfig"`
-	// `AWS::EKS::Cluster.RoleArn`.
-	RoleArn *string `json:"roleArn"`
 	// `AWS::EKS::Cluster.EncryptionConfig`.
 	EncryptionConfig interface{} `json:"encryptionConfig"`
 	// `AWS::EKS::Cluster.KubernetesNetworkConfig`.
@@ -2088,6 +2584,10 @@ type CfnClusterProps struct {
 	Logging interface{} `json:"logging"`
 	// `AWS::EKS::Cluster.Name`.
 	Name *string `json:"name"`
+	// `AWS::EKS::Cluster.ResourcesVpcConfig`.
+	ResourcesVpcConfig interface{} `json:"resourcesVpcConfig"`
+	// `AWS::EKS::Cluster.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 	// `AWS::EKS::Cluster.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::EKS::Cluster.Version`.
@@ -2095,6 +2595,9 @@ type CfnClusterProps struct {
 }
 
 // A CloudFormation `AWS::EKS::FargateProfile`.
+//
+// TODO: EXAMPLE
+//
 type CfnFargateProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2782,6 +3285,8 @@ func (c *jsiiProxy_CfnFargateProfile) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFargateProfile_LabelProperty struct {
 	// `CfnFargateProfile.LabelProperty.Key`.
 	Key *string `json:"key"`
@@ -2789,23 +3294,28 @@ type CfnFargateProfile_LabelProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFargateProfile_SelectorProperty struct {
-	// `CfnFargateProfile.SelectorProperty.Namespace`.
-	Namespace *string `json:"namespace"`
 	// `CfnFargateProfile.SelectorProperty.Labels`.
 	Labels interface{} `json:"labels"`
+	// `CfnFargateProfile.SelectorProperty.Namespace`.
+	Namespace *string `json:"namespace"`
 }
 
 // Properties for defining a `AWS::EKS::FargateProfile`.
+//
+// TODO: EXAMPLE
+//
 type CfnFargateProfileProps struct {
 	// `AWS::EKS::FargateProfile.ClusterName`.
 	ClusterName *string `json:"clusterName"`
+	// `AWS::EKS::FargateProfile.FargateProfileName`.
+	FargateProfileName *string `json:"fargateProfileName"`
 	// `AWS::EKS::FargateProfile.PodExecutionRoleArn`.
 	PodExecutionRoleArn *string `json:"podExecutionRoleArn"`
 	// `AWS::EKS::FargateProfile.Selectors`.
 	Selectors interface{} `json:"selectors"`
-	// `AWS::EKS::FargateProfile.FargateProfileName`.
-	FargateProfileName *string `json:"fargateProfileName"`
 	// `AWS::EKS::FargateProfile.Subnets`.
 	Subnets *[]*string `json:"subnets"`
 	// `AWS::EKS::FargateProfile.Tags`.
@@ -2813,6 +3323,9 @@ type CfnFargateProfileProps struct {
 }
 
 // A CloudFormation `AWS::EKS::Nodegroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnNodegroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3762,6 +4275,8 @@ func (c *jsiiProxy_CfnNodegroup) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnNodegroup_LaunchTemplateSpecificationProperty struct {
 	// `CfnNodegroup.LaunchTemplateSpecificationProperty.Id`.
 	Id *string `json:"id"`
@@ -3771,6 +4286,8 @@ type CfnNodegroup_LaunchTemplateSpecificationProperty struct {
 	Version *string `json:"version"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnNodegroup_RemoteAccessProperty struct {
 	// `CfnNodegroup.RemoteAccessProperty.Ec2SshKey`.
 	Ec2SshKey *string `json:"ec2SshKey"`
@@ -3778,6 +4295,8 @@ type CfnNodegroup_RemoteAccessProperty struct {
 	SourceSecurityGroups *[]*string `json:"sourceSecurityGroups"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnNodegroup_ScalingConfigProperty struct {
 	// `CfnNodegroup.ScalingConfigProperty.DesiredSize`.
 	DesiredSize *float64 `json:"desiredSize"`
@@ -3787,6 +4306,8 @@ type CfnNodegroup_ScalingConfigProperty struct {
 	MinSize *float64 `json:"minSize"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnNodegroup_TaintProperty struct {
 	// `CfnNodegroup.TaintProperty.Effect`.
 	Effect *string `json:"effect"`
@@ -3796,6 +4317,8 @@ type CfnNodegroup_TaintProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnNodegroup_UpdateConfigProperty struct {
 	// `CfnNodegroup.UpdateConfigProperty.MaxUnavailable`.
 	MaxUnavailable *float64 `json:"maxUnavailable"`
@@ -3804,17 +4327,16 @@ type CfnNodegroup_UpdateConfigProperty struct {
 }
 
 // Properties for defining a `AWS::EKS::Nodegroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnNodegroupProps struct {
-	// `AWS::EKS::Nodegroup.ClusterName`.
-	ClusterName *string `json:"clusterName"`
-	// `AWS::EKS::Nodegroup.NodeRole`.
-	NodeRole *string `json:"nodeRole"`
-	// `AWS::EKS::Nodegroup.Subnets`.
-	Subnets *[]*string `json:"subnets"`
 	// `AWS::EKS::Nodegroup.AmiType`.
 	AmiType *string `json:"amiType"`
 	// `AWS::EKS::Nodegroup.CapacityType`.
 	CapacityType *string `json:"capacityType"`
+	// `AWS::EKS::Nodegroup.ClusterName`.
+	ClusterName *string `json:"clusterName"`
 	// `AWS::EKS::Nodegroup.DiskSize`.
 	DiskSize *float64 `json:"diskSize"`
 	// `AWS::EKS::Nodegroup.ForceUpdateEnabled`.
@@ -3827,12 +4349,16 @@ type CfnNodegroupProps struct {
 	LaunchTemplate interface{} `json:"launchTemplate"`
 	// `AWS::EKS::Nodegroup.NodegroupName`.
 	NodegroupName *string `json:"nodegroupName"`
+	// `AWS::EKS::Nodegroup.NodeRole`.
+	NodeRole *string `json:"nodeRole"`
 	// `AWS::EKS::Nodegroup.ReleaseVersion`.
 	ReleaseVersion *string `json:"releaseVersion"`
 	// `AWS::EKS::Nodegroup.RemoteAccess`.
 	RemoteAccess interface{} `json:"remoteAccess"`
 	// `AWS::EKS::Nodegroup.ScalingConfig`.
 	ScalingConfig interface{} `json:"scalingConfig"`
+	// `AWS::EKS::Nodegroup.Subnets`.
+	Subnets *[]*string `json:"subnets"`
 	// `AWS::EKS::Nodegroup.Tags`.
 	Tags interface{} `json:"tags"`
 	// `AWS::EKS::Nodegroup.Taints`.
@@ -3855,6 +4381,7 @@ type Cluster interface {
 	awscdk.Resource
 	ICluster
 	AdminRole() awsiam.Role
+	AlbController() AlbController
 	AwsAuth() AwsAuth
 	ClusterArn() *string
 	ClusterCertificateAuthorityData() *string
@@ -3886,7 +4413,7 @@ type Cluster interface {
 	Stack() awscdk.Stack
 	Vpc() awsec2.IVpc
 	AddAutoScalingGroupCapacity(id *string, options *AutoScalingGroupCapacityOptions) awsautoscaling.AutoScalingGroup
-	AddCdk8sChart(id *string, chart constructs.Construct) KubernetesManifest
+	AddCdk8sChart(id *string, chart constructs.Construct, options *KubernetesManifestOptions) KubernetesManifest
 	AddFargateProfile(id *string, options *FargateProfileOptions) FargateProfile
 	AddHelmChart(id *string, options *HelmChartOptions) HelmChart
 	AddManifest(id *string, manifest ...*map[string]interface{}) KubernetesManifest
@@ -3895,6 +4422,7 @@ type Cluster interface {
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	ConnectAutoScalingGroupCapacity(autoScalingGroup awsautoscaling.AutoScalingGroup, options *AutoScalingGroupOptions)
 	GeneratePhysicalName() *string
+	GetIngressLoadBalancerAddress(ingressName *string, options *IngressLoadBalancerAddressOptions) *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
 	GetServiceLoadBalancerAddress(serviceName *string, options *ServiceLoadBalancerAddressOptions) *string
@@ -3918,6 +4446,16 @@ func (j *jsiiProxy_Cluster) AdminRole() awsiam.Role {
 	_jsii_.Get(
 		j,
 		"adminRole",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Cluster) AlbController() AlbController {
+	var returns AlbController
+	_jsii_.Get(
+		j,
+		"albController",
 		&returns,
 	)
 	return returns
@@ -4334,13 +4872,13 @@ func (c *jsiiProxy_Cluster) AddAutoScalingGroupCapacity(id *string, options *Aut
 //
 // Returns: a `KubernetesManifest` construct representing the chart.
 // Experimental.
-func (c *jsiiProxy_Cluster) AddCdk8sChart(id *string, chart constructs.Construct) KubernetesManifest {
+func (c *jsiiProxy_Cluster) AddCdk8sChart(id *string, chart constructs.Construct, options *KubernetesManifestOptions) KubernetesManifest {
 	var returns KubernetesManifest
 
 	_jsii_.Invoke(
 		c,
 		"addCdk8sChart",
-		[]interface{}{id, chart},
+		[]interface{}{id, chart, options},
 		&returns,
 	)
 
@@ -4490,6 +5028,21 @@ func (c *jsiiProxy_Cluster) GeneratePhysicalName() *string {
 		c,
 		"generatePhysicalName",
 		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Fetch the load balancer address of an ingress backed by a load balancer.
+// Experimental.
+func (c *jsiiProxy_Cluster) GetIngressLoadBalancerAddress(ingressName *string, options *IngressLoadBalancerAddressOptions) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		c,
+		"getIngressLoadBalancerAddress",
+		[]interface{}{ingressName, options},
 		&returns,
 	)
 
@@ -4671,9 +5224,6 @@ func (c *jsiiProxy_Cluster) Validate() *[]*string {
 //
 // Experimental.
 type ClusterAttributes struct {
-	// The physical name of the Cluster.
-	// Experimental.
-	ClusterName *string `json:"clusterName"`
 	// The certificate-authority-data for your cluster.
 	// Experimental.
 	ClusterCertificateAuthorityData *string `json:"clusterCertificateAuthorityData"`
@@ -4688,6 +5238,9 @@ type ClusterAttributes struct {
 	// The Cluster Handler's Lambdas are responsible for calling AWS's EKS API.
 	// Experimental.
 	ClusterHandlerSecurityGroupId *string `json:"clusterHandlerSecurityGroupId"`
+	// The physical name of the Cluster.
+	// Experimental.
+	ClusterName *string `json:"clusterName"`
 	// The cluster security group that was created by Amazon EKS for the cluster.
 	// Experimental.
 	ClusterSecurityGroupId *string `json:"clusterSecurityGroupId"`
@@ -4764,11 +5317,11 @@ type ClusterAttributes struct {
 }
 
 // Options for EKS clusters.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ClusterOptions struct {
-	// The Kubernetes version to run in the cluster.
-	// Experimental.
-	Version KubernetesVersion `json:"version"`
 	// Name for the cluster.
 	// Experimental.
 	ClusterName *string `json:"clusterName"`
@@ -4787,6 +5340,9 @@ type ClusterOptions struct {
 	// Security Group to use for Control Plane ENIs.
 	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
+	// The Kubernetes version to run in the cluster.
+	// Experimental.
+	Version KubernetesVersion `json:"version"`
 	// The VPC in which to create the Cluster.
 	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
@@ -4799,6 +5355,11 @@ type ClusterOptions struct {
 	// `vpcSubnets: [{ subnetType: ec2.SubnetType.PRIVATE }]`
 	// Experimental.
 	VpcSubnets *[]*awsec2.SubnetSelection `json:"vpcSubnets"`
+	// Install the AWS Load Balancer Controller onto the cluster.
+	// See: https://kubernetes-sigs.github.io/aws-load-balancer-controller
+	//
+	// Experimental.
+	AlbController *AlbControllerOptions `json:"albController"`
 	// Custom environment variables when interacting with the EKS endpoint to manage the cluster lifecycle.
 	// Experimental.
 	ClusterHandlerEnvironment *map[string]*string `json:"clusterHandlerEnvironment"`
@@ -4899,9 +5460,6 @@ type ClusterOptions struct {
 //
 // Experimental.
 type ClusterProps struct {
-	// The Kubernetes version to run in the cluster.
-	// Experimental.
-	Version KubernetesVersion `json:"version"`
 	// Name for the cluster.
 	// Experimental.
 	ClusterName *string `json:"clusterName"`
@@ -4920,6 +5478,9 @@ type ClusterProps struct {
 	// Security Group to use for Control Plane ENIs.
 	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
+	// The Kubernetes version to run in the cluster.
+	// Experimental.
+	Version KubernetesVersion `json:"version"`
 	// The VPC in which to create the Cluster.
 	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
@@ -4932,6 +5493,11 @@ type ClusterProps struct {
 	// `vpcSubnets: [{ subnetType: ec2.SubnetType.PRIVATE }]`
 	// Experimental.
 	VpcSubnets *[]*awsec2.SubnetSelection `json:"vpcSubnets"`
+	// Install the AWS Load Balancer Controller onto the cluster.
+	// See: https://kubernetes-sigs.github.io/aws-load-balancer-controller
+	//
+	// Experimental.
+	AlbController *AlbControllerOptions `json:"albController"`
 	// Custom environment variables when interacting with the EKS endpoint to manage the cluster lifecycle.
 	// Experimental.
 	ClusterHandlerEnvironment *map[string]*string `json:"clusterHandlerEnvironment"`
@@ -5048,11 +5614,11 @@ type ClusterProps struct {
 }
 
 // Options for configuring an EKS cluster.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CommonClusterOptions struct {
-	// The Kubernetes version to run in the cluster.
-	// Experimental.
-	Version KubernetesVersion `json:"version"`
 	// Name for the cluster.
 	// Experimental.
 	ClusterName *string `json:"clusterName"`
@@ -5071,6 +5637,9 @@ type CommonClusterOptions struct {
 	// Security Group to use for Control Plane ENIs.
 	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
+	// The Kubernetes version to run in the cluster.
+	// Experimental.
+	Version KubernetesVersion `json:"version"`
 	// The VPC in which to create the Cluster.
 	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
@@ -5111,11 +5680,14 @@ const (
 type DefaultCapacityType string
 
 const (
-	DefaultCapacityType_NODEGROUP DefaultCapacityType = "NODEGROUP"
 	DefaultCapacityType_EC2 DefaultCapacityType = "EC2"
+	DefaultCapacityType_NODEGROUP DefaultCapacityType = "NODEGROUP"
 )
 
 // Construct an Amazon Linux 2 image from the latest EKS Optimized AMI published in SSM.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EksOptimizedImage interface {
 	awsec2.IMachineImage
@@ -5171,6 +5743,9 @@ func (e *jsiiProxy_EksOptimizedImage) GetImage(scope awscdk.Construct) *awsec2.M
 }
 
 // Properties for EksOptimizedImage.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EksOptimizedImageProps struct {
 	// What cpu architecture to retrieve the image for (arm64 or x86_64).
@@ -5265,6 +5840,7 @@ func (e *jsiiProxy_EndpointAccess) OnlyFrom(cidr ...*string) EndpointAccess {
 type FargateCluster interface {
 	Cluster
 	AdminRole() awsiam.Role
+	AlbController() AlbController
 	AwsAuth() AwsAuth
 	ClusterArn() *string
 	ClusterCertificateAuthorityData() *string
@@ -5297,7 +5873,7 @@ type FargateCluster interface {
 	Stack() awscdk.Stack
 	Vpc() awsec2.IVpc
 	AddAutoScalingGroupCapacity(id *string, options *AutoScalingGroupCapacityOptions) awsautoscaling.AutoScalingGroup
-	AddCdk8sChart(id *string, chart constructs.Construct) KubernetesManifest
+	AddCdk8sChart(id *string, chart constructs.Construct, options *KubernetesManifestOptions) KubernetesManifest
 	AddFargateProfile(id *string, options *FargateProfileOptions) FargateProfile
 	AddHelmChart(id *string, options *HelmChartOptions) HelmChart
 	AddManifest(id *string, manifest ...*map[string]interface{}) KubernetesManifest
@@ -5306,6 +5882,7 @@ type FargateCluster interface {
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	ConnectAutoScalingGroupCapacity(autoScalingGroup awsautoscaling.AutoScalingGroup, options *AutoScalingGroupOptions)
 	GeneratePhysicalName() *string
+	GetIngressLoadBalancerAddress(ingressName *string, options *IngressLoadBalancerAddressOptions) *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
 	GetServiceLoadBalancerAddress(serviceName *string, options *ServiceLoadBalancerAddressOptions) *string
@@ -5328,6 +5905,16 @@ func (j *jsiiProxy_FargateCluster) AdminRole() awsiam.Role {
 	_jsii_.Get(
 		j,
 		"adminRole",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_FargateCluster) AlbController() AlbController {
+	var returns AlbController
+	_jsii_.Get(
+		j,
+		"albController",
 		&returns,
 	)
 	return returns
@@ -5752,13 +6339,13 @@ func (f *jsiiProxy_FargateCluster) AddAutoScalingGroupCapacity(id *string, optio
 //
 // Returns: a `KubernetesManifest` construct representing the chart.
 // Experimental.
-func (f *jsiiProxy_FargateCluster) AddCdk8sChart(id *string, chart constructs.Construct) KubernetesManifest {
+func (f *jsiiProxy_FargateCluster) AddCdk8sChart(id *string, chart constructs.Construct, options *KubernetesManifestOptions) KubernetesManifest {
 	var returns KubernetesManifest
 
 	_jsii_.Invoke(
 		f,
 		"addCdk8sChart",
-		[]interface{}{id, chart},
+		[]interface{}{id, chart, options},
 		&returns,
 	)
 
@@ -5908,6 +6495,21 @@ func (f *jsiiProxy_FargateCluster) GeneratePhysicalName() *string {
 		f,
 		"generatePhysicalName",
 		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Fetch the load balancer address of an ingress backed by a load balancer.
+// Experimental.
+func (f *jsiiProxy_FargateCluster) GetIngressLoadBalancerAddress(ingressName *string, options *IngressLoadBalancerAddressOptions) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		f,
+		"getIngressLoadBalancerAddress",
+		[]interface{}{ingressName, options},
 		&returns,
 	)
 
@@ -6089,9 +6691,6 @@ func (f *jsiiProxy_FargateCluster) Validate() *[]*string {
 //
 // Experimental.
 type FargateClusterProps struct {
-	// The Kubernetes version to run in the cluster.
-	// Experimental.
-	Version KubernetesVersion `json:"version"`
 	// Name for the cluster.
 	// Experimental.
 	ClusterName *string `json:"clusterName"`
@@ -6110,6 +6709,9 @@ type FargateClusterProps struct {
 	// Security Group to use for Control Plane ENIs.
 	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
+	// The Kubernetes version to run in the cluster.
+	// Experimental.
+	Version KubernetesVersion `json:"version"`
 	// The VPC in which to create the Cluster.
 	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
@@ -6122,6 +6724,11 @@ type FargateClusterProps struct {
 	// `vpcSubnets: [{ subnetType: ec2.SubnetType.PRIVATE }]`
 	// Experimental.
 	VpcSubnets *[]*awsec2.SubnetSelection `json:"vpcSubnets"`
+	// Install the AWS Load Balancer Controller onto the cluster.
+	// See: https://kubernetes-sigs.github.io/aws-load-balancer-controller
+	//
+	// Experimental.
+	AlbController *AlbControllerOptions `json:"albController"`
 	// Custom environment variables when interacting with the EKS endpoint to manage the cluster lifecycle.
 	// Experimental.
 	ClusterHandlerEnvironment *map[string]*string `json:"clusterHandlerEnvironment"`
@@ -6479,15 +7086,6 @@ func (f *jsiiProxy_FargateProfile) Validate() *[]*string {
 //
 // Experimental.
 type FargateProfileOptions struct {
-	// The selectors to match for pods to use this Fargate profile.
-	//
-	// Each selector
-	// must have an associated namespace. Optionally, you can also specify labels
-	// for a namespace.
-	//
-	// At least one selector is required and you may specify up to five selectors.
-	// Experimental.
-	Selectors *[]*Selector `json:"selectors"`
 	// The name of the Fargate profile.
 	// Experimental.
 	FargateProfileName *string `json:"fargateProfileName"`
@@ -6500,6 +7098,15 @@ type FargateProfileOptions struct {
 	//
 	// Experimental.
 	PodExecutionRole awsiam.IRole `json:"podExecutionRole"`
+	// The selectors to match for pods to use this Fargate profile.
+	//
+	// Each selector
+	// must have an associated namespace. Optionally, you can also specify labels
+	// for a namespace.
+	//
+	// At least one selector is required and you may specify up to five selectors.
+	// Experimental.
+	Selectors *[]*Selector `json:"selectors"`
 	// Select which subnets to launch your pods into.
 	//
 	// At this time, pods running
@@ -6523,15 +7130,6 @@ type FargateProfileOptions struct {
 //
 // Experimental.
 type FargateProfileProps struct {
-	// The selectors to match for pods to use this Fargate profile.
-	//
-	// Each selector
-	// must have an associated namespace. Optionally, you can also specify labels
-	// for a namespace.
-	//
-	// At least one selector is required and you may specify up to five selectors.
-	// Experimental.
-	Selectors *[]*Selector `json:"selectors"`
 	// The name of the Fargate profile.
 	// Experimental.
 	FargateProfileName *string `json:"fargateProfileName"`
@@ -6544,6 +7142,15 @@ type FargateProfileProps struct {
 	//
 	// Experimental.
 	PodExecutionRole awsiam.IRole `json:"podExecutionRole"`
+	// The selectors to match for pods to use this Fargate profile.
+	//
+	// Each selector
+	// must have an associated namespace. Optionally, you can also specify labels
+	// for a namespace.
+	//
+	// At least one selector is required and you may specify up to five selectors.
+	// Experimental.
+	Selectors *[]*Selector `json:"selectors"`
 	// Select which subnets to launch your pods into.
 	//
 	// At this time, pods running
@@ -6862,7 +7469,7 @@ type ICluster interface {
 	//
 	// Returns: a `KubernetesManifest` construct representing the chart.
 	// Experimental.
-	AddCdk8sChart(id *string, chart constructs.Construct) KubernetesManifest
+	AddCdk8sChart(id *string, chart constructs.Construct, options *KubernetesManifestOptions) KubernetesManifest
 	// Defines a Helm chart in this cluster.
 	//
 	// Returns: a `HelmChart` construct
@@ -6986,13 +7593,13 @@ type jsiiProxy_ICluster struct {
 	internal.Type__awscdkIResource
 }
 
-func (i *jsiiProxy_ICluster) AddCdk8sChart(id *string, chart constructs.Construct) KubernetesManifest {
+func (i *jsiiProxy_ICluster) AddCdk8sChart(id *string, chart constructs.Construct, options *KubernetesManifestOptions) KubernetesManifest {
 	var returns KubernetesManifest
 
 	_jsii_.Invoke(
 		i,
 		"addCdk8sChart",
-		[]interface{}{id, chart},
+		[]interface{}{id, chart, options},
 		&returns,
 	)
 
@@ -7305,6 +7912,20 @@ func (j *jsiiProxy_INodegroup) NodegroupName() *string {
 	return returns
 }
 
+// Options for fetching an IngressLoadBalancerAddress.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type IngressLoadBalancerAddressOptions struct {
+	// The namespace the service belongs to.
+	// Experimental.
+	Namespace *string `json:"namespace"`
+	// Timeout for waiting on the load balancer address.
+	// Experimental.
+	Timeout awscdk.Duration `json:"timeout"`
+}
+
 // Represents a manifest within the Kubernetes system.
 //
 // Alternatively, you can use `cluster.addManifest(resource[, resource, ...])`
@@ -7513,8 +8134,19 @@ func (k *jsiiProxy_KubernetesManifest) Validate() *[]*string {
 }
 
 // Options for `KubernetesManifest`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type KubernetesManifestOptions struct {
+	// Automatically detect `Ingress` resources in the manifest and annotate them so they are picked up by an ALB Ingress Controller.
+	// Experimental.
+	IngressAlb *bool `json:"ingressAlb"`
+	// Specify the ALB scheme that should be applied to `Ingress` resources.
+	//
+	// Only applicable if `ingressAlb` is set to `true`.
+	// Experimental.
+	IngressAlbScheme AlbScheme `json:"ingressAlbScheme"`
 	// When a resource is removed from a Kubernetes manifest, it no longer appears in the manifest, and there is no way to know that this resource needs to be deleted.
 	//
 	// To address this, `kubectl apply` has a `--prune` option which will
@@ -7545,6 +8177,14 @@ type KubernetesManifestOptions struct {
 //
 // Experimental.
 type KubernetesManifestProps struct {
+	// Automatically detect `Ingress` resources in the manifest and annotate them so they are picked up by an ALB Ingress Controller.
+	// Experimental.
+	IngressAlb *bool `json:"ingressAlb"`
+	// Specify the ALB scheme that should be applied to `Ingress` resources.
+	//
+	// Only applicable if `ingressAlb` is set to `true`.
+	// Experimental.
+	IngressAlbScheme AlbScheme `json:"ingressAlbScheme"`
 	// When a resource is removed from a Kubernetes manifest, it no longer appears in the manifest, and there is no way to know that this resource needs to be deleted.
 	//
 	// To address this, `kubectl apply` has a `--prune` option which will
@@ -8224,12 +8864,15 @@ const (
 type NodeType string
 
 const (
-	NodeType_STANDARD NodeType = "STANDARD"
 	NodeType_GPU NodeType = "GPU"
 	NodeType_INFERENTIA NodeType = "INFERENTIA"
+	NodeType_STANDARD NodeType = "STANDARD"
 )
 
 // The Nodegroup resource class.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Nodegroup interface {
 	awscdk.Resource
@@ -8617,9 +9260,9 @@ func (n *jsiiProxy_Nodegroup) Validate() *[]*string {
 type NodegroupAmiType string
 
 const (
+	NodegroupAmiType_AL2_ARM_64 NodegroupAmiType = "AL2_ARM_64"
 	NodegroupAmiType_AL2_X86_64 NodegroupAmiType = "AL2_X86_64"
 	NodegroupAmiType_AL2_X86_64_GPU NodegroupAmiType = "AL2_X86_64_GPU"
-	NodegroupAmiType_AL2_ARM_64 NodegroupAmiType = "AL2_ARM_64"
 	NodegroupAmiType_BOTTLEROCKET_ARM_64 NodegroupAmiType = "BOTTLEROCKET_ARM_64"
 	NodegroupAmiType_BOTTLEROCKET_X86_64 NodegroupAmiType = "BOTTLEROCKET_X86_64"
 )
@@ -8724,6 +9367,9 @@ type NodegroupOptions struct {
 }
 
 // NodeGroup properties interface.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NodegroupProps struct {
 	// The AMI type for your node group.
@@ -8823,13 +9469,13 @@ type NodegroupProps struct {
 }
 
 // The remote access (SSH) configuration to use with your node group.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-remoteaccess.html
 //
 // Experimental.
 type NodegroupRemoteAccess struct {
-	// The Amazon EC2 SSH key that provides access for SSH communication with the worker nodes in the managed node group.
-	// Experimental.
-	SshKeyName *string `json:"sshKeyName"`
 	// The security groups that are allowed SSH access (port 22) to the worker nodes.
 	//
 	// If you specify an Amazon EC2 SSH
@@ -8837,6 +9483,9 @@ type NodegroupRemoteAccess struct {
 	// nodes is opened to the internet (0.0.0.0/0).
 	// Experimental.
 	SourceSecurityGroups *[]awsec2.ISecurityGroup `json:"sourceSecurityGroups"`
+	// The Amazon EC2 SSH key that provides access for SSH communication with the worker nodes in the managed node group.
+	// Experimental.
+	SshKeyName *string `json:"sshKeyName"`
 }
 
 // IAM OIDC identity providers are entities in IAM that describe an external identity provider (IdP) service that supports the OpenID Connect (OIDC) standard, such as Google or Salesforce.
@@ -9236,15 +9885,11 @@ const (
 )
 
 // Fargate profile selector.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Selector struct {
-	// The Kubernetes namespace that the selector should match.
-	//
-	// You must specify a namespace for a selector. The selector only matches pods
-	// that are created in this namespace, but you can create multiple selectors
-	// to target multiple namespaces.
-	// Experimental.
-	Namespace *string `json:"namespace"`
 	// The Kubernetes labels that the selector should match.
 	//
 	// A pod must contain
@@ -9252,6 +9897,13 @@ type Selector struct {
 	// considered a match.
 	// Experimental.
 	Labels *map[string]*string `json:"labels"`
+	// The Kubernetes namespace that the selector should match.
+	//
+	// You must specify a namespace for a selector. The selector only matches pods
+	// that are created in this namespace, but you can create multiple selectors
+	// to target multiple namespaces.
+	// Experimental.
+	Namespace *string `json:"namespace"`
 }
 
 // Service Account.
@@ -9546,6 +10198,9 @@ func (s *jsiiProxy_ServiceAccount) Validate() *[]*string {
 }
 
 // Options for `ServiceAccount`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ServiceAccountOptions struct {
 	// The name of the service account.
@@ -9557,6 +10212,9 @@ type ServiceAccountOptions struct {
 }
 
 // Properties for defining service accounts.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ServiceAccountProps struct {
 	// The name of the service account.
@@ -9571,6 +10229,9 @@ type ServiceAccountProps struct {
 }
 
 // Options for fetching a ServiceLoadBalancerAddress.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ServiceLoadBalancerAddressOptions struct {
 	// The namespace the service belongs to.
@@ -9589,12 +10250,15 @@ type ServiceLoadBalancerAddressOptions struct {
 type TaintEffect string
 
 const (
+	TaintEffect_NO_EXECUTE TaintEffect = "NO_EXECUTE"
 	TaintEffect_NO_SCHEDULE TaintEffect = "NO_SCHEDULE"
 	TaintEffect_PREFER_NO_SCHEDULE TaintEffect = "PREFER_NO_SCHEDULE"
-	TaintEffect_NO_EXECUTE TaintEffect = "NO_EXECUTE"
 )
 
 // Taint interface.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type TaintSpec struct {
 	// Effect type.

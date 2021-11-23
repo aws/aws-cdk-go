@@ -642,10 +642,10 @@ func init() {
 		"monocdk.aws_ssm.ParameterType",
 		reflect.TypeOf((*ParameterType)(nil)).Elem(),
 		map[string]interface{}{
-			"STRING": ParameterType_STRING,
-			"SECURE_STRING": ParameterType_SECURE_STRING,
-			"STRING_LIST": ParameterType_STRING_LIST,
 			"AWS_EC2_IMAGE_ID": ParameterType_AWS_EC2_IMAGE_ID,
+			"SECURE_STRING": ParameterType_SECURE_STRING,
+			"STRING": ParameterType_STRING,
+			"STRING_LIST": ParameterType_STRING_LIST,
 		},
 	)
 	_jsii_.RegisterStruct(

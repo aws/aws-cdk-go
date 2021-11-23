@@ -617,6 +617,9 @@ func AuroraMysqlEngineVersion_VER_5_7_12() AuroraMysqlEngineVersion {
 // Creation properties of the Aurora PostgreSQL database cluster engine.
 //
 // Used in {@link DatabaseClusterEngine.auroraPostgres}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AuroraPostgresClusterEngineProps struct {
 	// The version of the Aurora PostgreSQL cluster engine.
@@ -625,6 +628,9 @@ type AuroraPostgresClusterEngineProps struct {
 }
 
 // Features supported by this version of the Aurora Postgres cluster engine.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AuroraPostgresEngineFeatures struct {
 	// Whether this version of the Aurora Postgres cluster engine supports the S3 data export feature.
@@ -636,6 +642,9 @@ type AuroraPostgresEngineFeatures struct {
 }
 
 // The versions for the Aurora PostgreSQL cluster engine (those returned by {@link DatabaseClusterEngine.auroraPostgres}).
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AuroraPostgresEngineVersion interface {
 	AuroraPostgresFullVersion() *string
@@ -1016,13 +1025,13 @@ func AuroraPostgresEngineVersion_VER_9_6_9() AuroraPostgresEngineVersion {
 }
 
 // Backup configuration for RDS databases.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow
 //
 // Experimental.
 type BackupProps struct {
-	// How many days to retain the backup.
-	// Experimental.
-	Retention awscdk.Duration `json:"retention"`
 	// A daily time range in 24-hours UTC format in which backups preferably execute.
 	//
 	// Must be at least 30 minutes long.
@@ -1030,9 +1039,15 @@ type BackupProps struct {
 	// Example: '01:00-02:00'
 	// Experimental.
 	PreferredWindow *string `json:"preferredWindow"`
+	// How many days to retain the backup.
+	// Experimental.
+	Retention awscdk.Duration `json:"retention"`
 }
 
 // A CloudFormation `AWS::RDS::DBCluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2282,13 +2297,17 @@ func (c *jsiiProxy_CfnDBCluster) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDBCluster_DBClusterRoleProperty struct {
-	// `CfnDBCluster.DBClusterRoleProperty.RoleArn`.
-	RoleArn *string `json:"roleArn"`
 	// `CfnDBCluster.DBClusterRoleProperty.FeatureName`.
 	FeatureName *string `json:"featureName"`
+	// `CfnDBCluster.DBClusterRoleProperty.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDBCluster_ScalingConfigurationProperty struct {
 	// `CfnDBCluster.ScalingConfigurationProperty.AutoPause`.
 	AutoPause interface{} `json:"autoPause"`
@@ -2301,6 +2320,9 @@ type CfnDBCluster_ScalingConfigurationProperty struct {
 }
 
 // A CloudFormation `AWS::RDS::DBClusterParameterGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBClusterParameterGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2938,6 +2960,9 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) ValidateProperties(_properties in
 }
 
 // Properties for defining a `AWS::RDS::DBClusterParameterGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBClusterParameterGroupProps struct {
 	// `AWS::RDS::DBClusterParameterGroup.Description`.
 	Description *string `json:"description"`
@@ -2950,9 +2975,10 @@ type CfnDBClusterParameterGroupProps struct {
 }
 
 // Properties for defining a `AWS::RDS::DBCluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBClusterProps struct {
-	// `AWS::RDS::DBCluster.Engine`.
-	Engine *string `json:"engine"`
 	// `AWS::RDS::DBCluster.AssociatedRoles`.
 	AssociatedRoles interface{} `json:"associatedRoles"`
 	// `AWS::RDS::DBCluster.AvailabilityZones`.
@@ -2979,6 +3005,8 @@ type CfnDBClusterProps struct {
 	EnableHttpEndpoint interface{} `json:"enableHttpEndpoint"`
 	// `AWS::RDS::DBCluster.EnableIAMDatabaseAuthentication`.
 	EnableIamDatabaseAuthentication interface{} `json:"enableIamDatabaseAuthentication"`
+	// `AWS::RDS::DBCluster.Engine`.
+	Engine *string `json:"engine"`
 	// `AWS::RDS::DBCluster.EngineMode`.
 	EngineMode *string `json:"engineMode"`
 	// `AWS::RDS::DBCluster.EngineVersion`.
@@ -3020,6 +3048,9 @@ type CfnDBClusterProps struct {
 }
 
 // A CloudFormation `AWS::RDS::DBInstance`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBInstance interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4638,6 +4669,8 @@ func (c *jsiiProxy_CfnDBInstance) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDBInstance_DBInstanceRoleProperty struct {
 	// `CfnDBInstance.DBInstanceRoleProperty.FeatureName`.
 	FeatureName *string `json:"featureName"`
@@ -4645,6 +4678,8 @@ type CfnDBInstance_DBInstanceRoleProperty struct {
 	RoleArn *string `json:"roleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDBInstance_ProcessorFeatureProperty struct {
 	// `CfnDBInstance.ProcessorFeatureProperty.Name`.
 	Name *string `json:"name"`
@@ -4653,9 +4688,10 @@ type CfnDBInstance_ProcessorFeatureProperty struct {
 }
 
 // Properties for defining a `AWS::RDS::DBInstance`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBInstanceProps struct {
-	// `AWS::RDS::DBInstance.DBInstanceClass`.
-	DbInstanceClass *string `json:"dbInstanceClass"`
 	// `AWS::RDS::DBInstance.AllocatedStorage`.
 	AllocatedStorage *string `json:"allocatedStorage"`
 	// `AWS::RDS::DBInstance.AllowMajorVersionUpgrade`.
@@ -4676,6 +4712,8 @@ type CfnDBInstanceProps struct {
 	CopyTagsToSnapshot interface{} `json:"copyTagsToSnapshot"`
 	// `AWS::RDS::DBInstance.DBClusterIdentifier`.
 	DbClusterIdentifier *string `json:"dbClusterIdentifier"`
+	// `AWS::RDS::DBInstance.DBInstanceClass`.
+	DbInstanceClass *string `json:"dbInstanceClass"`
 	// `AWS::RDS::DBInstance.DBInstanceIdentifier`.
 	DbInstanceIdentifier *string `json:"dbInstanceIdentifier"`
 	// `AWS::RDS::DBInstance.DBName`.
@@ -4761,6 +4799,9 @@ type CfnDBInstanceProps struct {
 }
 
 // A CloudFormation `AWS::RDS::DBParameterGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBParameterGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5398,6 +5439,9 @@ func (c *jsiiProxy_CfnDBParameterGroup) ValidateProperties(_properties interface
 }
 
 // Properties for defining a `AWS::RDS::DBParameterGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBParameterGroupProps struct {
 	// `AWS::RDS::DBParameterGroup.Description`.
 	Description *string `json:"description"`
@@ -5410,6 +5454,9 @@ type CfnDBParameterGroupProps struct {
 }
 
 // A CloudFormation `AWS::RDS::DBProxy`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBProxy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6208,6 +6255,8 @@ func (c *jsiiProxy_CfnDBProxy) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDBProxy_AuthFormatProperty struct {
 	// `CfnDBProxy.AuthFormatProperty.AuthScheme`.
 	AuthScheme *string `json:"authScheme"`
@@ -6221,6 +6270,8 @@ type CfnDBProxy_AuthFormatProperty struct {
 	UserName *string `json:"userName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDBProxy_TagFormatProperty struct {
 	// `CfnDBProxy.TagFormatProperty.Key`.
 	Key *string `json:"key"`
@@ -6229,6 +6280,9 @@ type CfnDBProxy_TagFormatProperty struct {
 }
 
 // A CloudFormation `AWS::RDS::DBProxyEndpoint`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBProxyEndpoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6958,6 +7012,8 @@ func (c *jsiiProxy_CfnDBProxyEndpoint) ValidateProperties(_properties interface{
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDBProxyEndpoint_TagFormatProperty struct {
 	// `CfnDBProxyEndpoint.TagFormatProperty.Key`.
 	Key *string `json:"key"`
@@ -6966,46 +7022,55 @@ type CfnDBProxyEndpoint_TagFormatProperty struct {
 }
 
 // Properties for defining a `AWS::RDS::DBProxyEndpoint`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBProxyEndpointProps struct {
 	// `AWS::RDS::DBProxyEndpoint.DBProxyEndpointName`.
 	DbProxyEndpointName *string `json:"dbProxyEndpointName"`
 	// `AWS::RDS::DBProxyEndpoint.DBProxyName`.
 	DbProxyName *string `json:"dbProxyName"`
-	// `AWS::RDS::DBProxyEndpoint.VpcSubnetIds`.
-	VpcSubnetIds *[]*string `json:"vpcSubnetIds"`
 	// `AWS::RDS::DBProxyEndpoint.Tags`.
 	Tags *[]*CfnDBProxyEndpoint_TagFormatProperty `json:"tags"`
 	// `AWS::RDS::DBProxyEndpoint.TargetRole`.
 	TargetRole *string `json:"targetRole"`
 	// `AWS::RDS::DBProxyEndpoint.VpcSecurityGroupIds`.
 	VpcSecurityGroupIds *[]*string `json:"vpcSecurityGroupIds"`
+	// `AWS::RDS::DBProxyEndpoint.VpcSubnetIds`.
+	VpcSubnetIds *[]*string `json:"vpcSubnetIds"`
 }
 
 // Properties for defining a `AWS::RDS::DBProxy`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBProxyProps struct {
 	// `AWS::RDS::DBProxy.Auth`.
 	Auth interface{} `json:"auth"`
 	// `AWS::RDS::DBProxy.DBProxyName`.
 	DbProxyName *string `json:"dbProxyName"`
-	// `AWS::RDS::DBProxy.EngineFamily`.
-	EngineFamily *string `json:"engineFamily"`
-	// `AWS::RDS::DBProxy.RoleArn`.
-	RoleArn *string `json:"roleArn"`
-	// `AWS::RDS::DBProxy.VpcSubnetIds`.
-	VpcSubnetIds *[]*string `json:"vpcSubnetIds"`
 	// `AWS::RDS::DBProxy.DebugLogging`.
 	DebugLogging interface{} `json:"debugLogging"`
+	// `AWS::RDS::DBProxy.EngineFamily`.
+	EngineFamily *string `json:"engineFamily"`
 	// `AWS::RDS::DBProxy.IdleClientTimeout`.
 	IdleClientTimeout *float64 `json:"idleClientTimeout"`
 	// `AWS::RDS::DBProxy.RequireTLS`.
 	RequireTls interface{} `json:"requireTls"`
+	// `AWS::RDS::DBProxy.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 	// `AWS::RDS::DBProxy.Tags`.
 	Tags *[]*CfnDBProxy_TagFormatProperty `json:"tags"`
 	// `AWS::RDS::DBProxy.VpcSecurityGroupIds`.
 	VpcSecurityGroupIds *[]*string `json:"vpcSecurityGroupIds"`
+	// `AWS::RDS::DBProxy.VpcSubnetIds`.
+	VpcSubnetIds *[]*string `json:"vpcSubnetIds"`
 }
 
 // A CloudFormation `AWS::RDS::DBProxyTargetGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBProxyTargetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -7682,6 +7747,8 @@ func (c *jsiiProxy_CfnDBProxyTargetGroup) ValidateProperties(_properties interfa
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDBProxyTargetGroup_ConnectionPoolConfigurationInfoFormatProperty struct {
 	// `CfnDBProxyTargetGroup.ConnectionPoolConfigurationInfoFormatProperty.ConnectionBorrowTimeout`.
 	ConnectionBorrowTimeout *float64 `json:"connectionBorrowTimeout"`
@@ -7696,20 +7763,26 @@ type CfnDBProxyTargetGroup_ConnectionPoolConfigurationInfoFormatProperty struct 
 }
 
 // Properties for defining a `AWS::RDS::DBProxyTargetGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBProxyTargetGroupProps struct {
-	// `AWS::RDS::DBProxyTargetGroup.DBProxyName`.
-	DbProxyName *string `json:"dbProxyName"`
-	// `AWS::RDS::DBProxyTargetGroup.TargetGroupName`.
-	TargetGroupName *string `json:"targetGroupName"`
 	// `AWS::RDS::DBProxyTargetGroup.ConnectionPoolConfigurationInfo`.
 	ConnectionPoolConfigurationInfo interface{} `json:"connectionPoolConfigurationInfo"`
 	// `AWS::RDS::DBProxyTargetGroup.DBClusterIdentifiers`.
 	DbClusterIdentifiers *[]*string `json:"dbClusterIdentifiers"`
 	// `AWS::RDS::DBProxyTargetGroup.DBInstanceIdentifiers`.
 	DbInstanceIdentifiers *[]*string `json:"dbInstanceIdentifiers"`
+	// `AWS::RDS::DBProxyTargetGroup.DBProxyName`.
+	DbProxyName *string `json:"dbProxyName"`
+	// `AWS::RDS::DBProxyTargetGroup.TargetGroupName`.
+	TargetGroupName *string `json:"targetGroupName"`
 }
 
 // A CloudFormation `AWS::RDS::DBSecurityGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBSecurityGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -8346,6 +8419,8 @@ func (c *jsiiProxy_CfnDBSecurityGroup) ValidateProperties(_properties interface{
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDBSecurityGroup_IngressProperty struct {
 	// `CfnDBSecurityGroup.IngressProperty.CIDRIP`.
 	Cidrip *string `json:"cidrip"`
@@ -8358,6 +8433,9 @@ type CfnDBSecurityGroup_IngressProperty struct {
 }
 
 // A CloudFormation `AWS::RDS::DBSecurityGroupIngress`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBSecurityGroupIngress interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -9024,11 +9102,14 @@ func (c *jsiiProxy_CfnDBSecurityGroupIngress) ValidateProperties(_properties int
 }
 
 // Properties for defining a `AWS::RDS::DBSecurityGroupIngress`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBSecurityGroupIngressProps struct {
-	// `AWS::RDS::DBSecurityGroupIngress.DBSecurityGroupName`.
-	DbSecurityGroupName *string `json:"dbSecurityGroupName"`
 	// `AWS::RDS::DBSecurityGroupIngress.CIDRIP`.
 	Cidrip *string `json:"cidrip"`
+	// `AWS::RDS::DBSecurityGroupIngress.DBSecurityGroupName`.
+	DbSecurityGroupName *string `json:"dbSecurityGroupName"`
 	// `AWS::RDS::DBSecurityGroupIngress.EC2SecurityGroupId`.
 	Ec2SecurityGroupId *string `json:"ec2SecurityGroupId"`
 	// `AWS::RDS::DBSecurityGroupIngress.EC2SecurityGroupName`.
@@ -9038,18 +9119,24 @@ type CfnDBSecurityGroupIngressProps struct {
 }
 
 // Properties for defining a `AWS::RDS::DBSecurityGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBSecurityGroupProps struct {
 	// `AWS::RDS::DBSecurityGroup.DBSecurityGroupIngress`.
 	DbSecurityGroupIngress interface{} `json:"dbSecurityGroupIngress"`
-	// `AWS::RDS::DBSecurityGroup.GroupDescription`.
-	GroupDescription *string `json:"groupDescription"`
 	// `AWS::RDS::DBSecurityGroup.EC2VpcId`.
 	Ec2VpcId *string `json:"ec2VpcId"`
+	// `AWS::RDS::DBSecurityGroup.GroupDescription`.
+	GroupDescription *string `json:"groupDescription"`
 	// `AWS::RDS::DBSecurityGroup.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::RDS::DBSubnetGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBSubnetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -9687,18 +9774,24 @@ func (c *jsiiProxy_CfnDBSubnetGroup) ValidateProperties(_properties interface{})
 }
 
 // Properties for defining a `AWS::RDS::DBSubnetGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBSubnetGroupProps struct {
 	// `AWS::RDS::DBSubnetGroup.DBSubnetGroupDescription`.
 	DbSubnetGroupDescription *string `json:"dbSubnetGroupDescription"`
-	// `AWS::RDS::DBSubnetGroup.SubnetIds`.
-	SubnetIds *[]*string `json:"subnetIds"`
 	// `AWS::RDS::DBSubnetGroup.DBSubnetGroupName`.
 	DbSubnetGroupName *string `json:"dbSubnetGroupName"`
+	// `AWS::RDS::DBSubnetGroup.SubnetIds`.
+	SubnetIds *[]*string `json:"subnetIds"`
 	// `AWS::RDS::DBSubnetGroup.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::RDS::EventSubscription`.
+//
+// TODO: EXAMPLE
+//
 type CfnEventSubscription interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -10365,13 +10458,16 @@ func (c *jsiiProxy_CfnEventSubscription) ValidateProperties(_properties interfac
 }
 
 // Properties for defining a `AWS::RDS::EventSubscription`.
+//
+// TODO: EXAMPLE
+//
 type CfnEventSubscriptionProps struct {
-	// `AWS::RDS::EventSubscription.SnsTopicArn`.
-	SnsTopicArn *string `json:"snsTopicArn"`
 	// `AWS::RDS::EventSubscription.Enabled`.
 	Enabled interface{} `json:"enabled"`
 	// `AWS::RDS::EventSubscription.EventCategories`.
 	EventCategories *[]*string `json:"eventCategories"`
+	// `AWS::RDS::EventSubscription.SnsTopicArn`.
+	SnsTopicArn *string `json:"snsTopicArn"`
 	// `AWS::RDS::EventSubscription.SourceIds`.
 	SourceIds *[]*string `json:"sourceIds"`
 	// `AWS::RDS::EventSubscription.SourceType`.
@@ -10379,6 +10475,9 @@ type CfnEventSubscriptionProps struct {
 }
 
 // A CloudFormation `AWS::RDS::GlobalCluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnGlobalCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -11065,6 +11164,9 @@ func (c *jsiiProxy_CfnGlobalCluster) ValidateProperties(_properties interface{})
 }
 
 // Properties for defining a `AWS::RDS::GlobalCluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnGlobalClusterProps struct {
 	// `AWS::RDS::GlobalCluster.DeletionProtection`.
 	DeletionProtection interface{} `json:"deletionProtection"`
@@ -11081,6 +11183,9 @@ type CfnGlobalClusterProps struct {
 }
 
 // A CloudFormation `AWS::RDS::OptionGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnOptionGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -11737,11 +11842,13 @@ func (c *jsiiProxy_CfnOptionGroup) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnOptionGroup_OptionConfigurationProperty struct {
-	// `CfnOptionGroup.OptionConfigurationProperty.OptionName`.
-	OptionName *string `json:"optionName"`
 	// `CfnOptionGroup.OptionConfigurationProperty.DBSecurityGroupMemberships`.
 	DbSecurityGroupMemberships *[]*string `json:"dbSecurityGroupMemberships"`
+	// `CfnOptionGroup.OptionConfigurationProperty.OptionName`.
+	OptionName *string `json:"optionName"`
 	// `CfnOptionGroup.OptionConfigurationProperty.OptionSettings`.
 	OptionSettings interface{} `json:"optionSettings"`
 	// `CfnOptionGroup.OptionConfigurationProperty.OptionVersion`.
@@ -11752,6 +11859,8 @@ type CfnOptionGroup_OptionConfigurationProperty struct {
 	VpcSecurityGroupMemberships *[]*string `json:"vpcSecurityGroupMemberships"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnOptionGroup_OptionSettingProperty struct {
 	// `CfnOptionGroup.OptionSettingProperty.Name`.
 	Name *string `json:"name"`
@@ -11760,6 +11869,9 @@ type CfnOptionGroup_OptionSettingProperty struct {
 }
 
 // Properties for defining a `AWS::RDS::OptionGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnOptionGroupProps struct {
 	// `AWS::RDS::OptionGroup.EngineName`.
 	EngineName *string `json:"engineName"`
@@ -11774,6 +11886,9 @@ type CfnOptionGroupProps struct {
 }
 
 // The extra options passed to the {@link IClusterEngine.bindToCluster} method.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ClusterEngineBindOptions struct {
 	// The customer-provided ParameterGroup.
@@ -11788,6 +11903,9 @@ type ClusterEngineBindOptions struct {
 }
 
 // The type returned from the {@link IClusterEngine.bindToCluster} method.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ClusterEngineConfig struct {
 	// Features supported by the database engine.
@@ -11804,6 +11922,9 @@ type ClusterEngineConfig struct {
 }
 
 // Represents Database Engine features.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ClusterEngineFeatures struct {
 	// Feature name for the DB instance that the IAM role to export to S3 bucket is to be associated with.
@@ -12031,6 +12152,9 @@ type CredentialsBaseOptions struct {
 }
 
 // Options for creating Credentials from a username.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CredentialsFromUsernameOptions struct {
 	// KMS encryption key to encrypt the generated secret.
@@ -12841,14 +12965,17 @@ func (d *jsiiProxy_DatabaseCluster) Validate() *[]*string {
 }
 
 // Properties that describe an existing cluster instance.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DatabaseClusterAttributes struct {
-	// Identifier for the cluster.
-	// Experimental.
-	ClusterIdentifier *string `json:"clusterIdentifier"`
 	// Cluster endpoint address.
 	// Experimental.
 	ClusterEndpointAddress *string `json:"clusterEndpointAddress"`
+	// Identifier for the cluster.
+	// Experimental.
+	ClusterIdentifier *string `json:"clusterIdentifier"`
 	// The engine of the existing Cluster.
 	// Experimental.
 	Engine IClusterEngine `json:"engine"`
@@ -15404,8 +15531,14 @@ func (d *jsiiProxy_DatabaseInstance) Validate() *[]*string {
 }
 
 // Properties that describe an existing instance.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DatabaseInstanceAttributes struct {
+	// The engine of the existing database Instance.
+	// Experimental.
+	Engine IInstanceEngine `json:"engine"`
 	// The endpoint address.
 	// Experimental.
 	InstanceEndpointAddress *string `json:"instanceEndpointAddress"`
@@ -15418,12 +15551,12 @@ type DatabaseInstanceAttributes struct {
 	// The security groups of the instance.
 	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
-	// The engine of the existing database Instance.
-	// Experimental.
-	Engine IInstanceEngine `json:"engine"`
 }
 
 // A new or imported database instance.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DatabaseInstanceBase interface {
 	awscdk.Resource
@@ -17115,9 +17248,6 @@ func (d *jsiiProxy_DatabaseInstanceFromSnapshot) Validate() *[]*string {
 //
 // Experimental.
 type DatabaseInstanceFromSnapshotProps struct {
-	// The VPC network where the DB subnet group should be created.
-	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
 	// Indicates that minor engine upgrades are applied automatically to the DB instance during the maintenance window.
 	// Experimental.
 	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade"`
@@ -17282,15 +17412,15 @@ type DatabaseInstanceFromSnapshotProps struct {
 	// Existing subnet group for the instance.
 	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup"`
+	// The VPC network where the DB subnet group should be created.
+	// Experimental.
+	Vpc awsec2.IVpc `json:"vpc"`
 	// The type of subnets to add to the created DB subnet group.
 	// Deprecated: use `vpcSubnets`
 	VpcPlacement *awsec2.SubnetSelection `json:"vpcPlacement"`
 	// The type of subnets to add to the created DB subnet group.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
-	// The database engine.
-	// Experimental.
-	Engine IInstanceEngine `json:"engine"`
 	// The allocated storage size, specified in gigabytes (GB).
 	// Experimental.
 	AllocatedStorage *float64 `json:"allocatedStorage"`
@@ -17300,6 +17430,9 @@ type DatabaseInstanceFromSnapshotProps struct {
 	// The name of the database.
 	// Experimental.
 	DatabaseName *string `json:"databaseName"`
+	// The database engine.
+	// Experimental.
+	Engine IInstanceEngine `json:"engine"`
 	// The name of the compute and memory capacity for the instance.
 	// Experimental.
 	InstanceType awsec2.InstanceType `json:"instanceType"`
@@ -17329,11 +17462,11 @@ type DatabaseInstanceFromSnapshotProps struct {
 }
 
 // Construction properties for a DatabaseInstanceNew.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DatabaseInstanceNewProps struct {
-	// The VPC network where the DB subnet group should be created.
-	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
 	// Indicates that minor engine upgrades are applied automatically to the DB instance during the maintenance window.
 	// Experimental.
 	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade"`
@@ -17498,6 +17631,9 @@ type DatabaseInstanceNewProps struct {
 	// Existing subnet group for the instance.
 	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup"`
+	// The VPC network where the DB subnet group should be created.
+	// Experimental.
+	Vpc awsec2.IVpc `json:"vpc"`
 	// The type of subnets to add to the created DB subnet group.
 	// Deprecated: use `vpcSubnets`
 	VpcPlacement *awsec2.SubnetSelection `json:"vpcPlacement"`
@@ -17512,9 +17648,6 @@ type DatabaseInstanceNewProps struct {
 //
 // Experimental.
 type DatabaseInstanceProps struct {
-	// The VPC network where the DB subnet group should be created.
-	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
 	// Indicates that minor engine upgrades are applied automatically to the DB instance during the maintenance window.
 	// Experimental.
 	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade"`
@@ -17679,15 +17812,15 @@ type DatabaseInstanceProps struct {
 	// Existing subnet group for the instance.
 	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup"`
+	// The VPC network where the DB subnet group should be created.
+	// Experimental.
+	Vpc awsec2.IVpc `json:"vpc"`
 	// The type of subnets to add to the created DB subnet group.
 	// Deprecated: use `vpcSubnets`
 	VpcPlacement *awsec2.SubnetSelection `json:"vpcPlacement"`
 	// The type of subnets to add to the created DB subnet group.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
-	// The database engine.
-	// Experimental.
-	Engine IInstanceEngine `json:"engine"`
 	// The allocated storage size, specified in gigabytes (GB).
 	// Experimental.
 	AllocatedStorage *float64 `json:"allocatedStorage"`
@@ -17697,6 +17830,9 @@ type DatabaseInstanceProps struct {
 	// The name of the database.
 	// Experimental.
 	DatabaseName *string `json:"databaseName"`
+	// The database engine.
+	// Experimental.
+	Engine IInstanceEngine `json:"engine"`
 	// The name of the compute and memory capacity for the instance.
 	// Experimental.
 	InstanceType awsec2.InstanceType `json:"instanceType"`
@@ -18408,9 +18544,6 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) Validate() *[]*string {
 //
 // Experimental.
 type DatabaseInstanceReadReplicaProps struct {
-	// The VPC network where the DB subnet group should be created.
-	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
 	// Indicates that minor engine upgrades are applied automatically to the DB instance during the maintenance window.
 	// Experimental.
 	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade"`
@@ -18575,6 +18708,9 @@ type DatabaseInstanceReadReplicaProps struct {
 	// Existing subnet group for the instance.
 	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup"`
+	// The VPC network where the DB subnet group should be created.
+	// Experimental.
+	Vpc awsec2.IVpc `json:"vpc"`
 	// The type of subnets to add to the created DB subnet group.
 	// Deprecated: use `vpcSubnets`
 	VpcPlacement *awsec2.SubnetSelection `json:"vpcPlacement"`
@@ -18599,11 +18735,11 @@ type DatabaseInstanceReadReplicaProps struct {
 }
 
 // Construction properties for a DatabaseInstanceSource.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DatabaseInstanceSourceProps struct {
-	// The VPC network where the DB subnet group should be created.
-	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
 	// Indicates that minor engine upgrades are applied automatically to the DB instance during the maintenance window.
 	// Experimental.
 	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade"`
@@ -18768,15 +18904,15 @@ type DatabaseInstanceSourceProps struct {
 	// Existing subnet group for the instance.
 	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup"`
+	// The VPC network where the DB subnet group should be created.
+	// Experimental.
+	Vpc awsec2.IVpc `json:"vpc"`
 	// The type of subnets to add to the created DB subnet group.
 	// Deprecated: use `vpcSubnets`
 	VpcPlacement *awsec2.SubnetSelection `json:"vpcPlacement"`
 	// The type of subnets to add to the created DB subnet group.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
-	// The database engine.
-	// Experimental.
-	Engine IInstanceEngine `json:"engine"`
 	// The allocated storage size, specified in gigabytes (GB).
 	// Experimental.
 	AllocatedStorage *float64 `json:"allocatedStorage"`
@@ -18786,6 +18922,9 @@ type DatabaseInstanceSourceProps struct {
 	// The name of the database.
 	// Experimental.
 	DatabaseName *string `json:"databaseName"`
+	// The database engine.
+	// Experimental.
+	Engine IInstanceEngine `json:"engine"`
 	// The name of the compute and memory capacity for the instance.
 	// Experimental.
 	InstanceType awsec2.InstanceType `json:"instanceType"`
@@ -19218,6 +19357,9 @@ func (d *jsiiProxy_DatabaseProxy) Validate() *[]*string {
 }
 
 // Properties that describe an existing DB Proxy.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DatabaseProxyAttributes struct {
 	// DB Proxy ARN.
@@ -19240,15 +19382,6 @@ type DatabaseProxyAttributes struct {
 //
 // Experimental.
 type DatabaseProxyOptions struct {
-	// The secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster.
-	//
-	// These secrets are stored within Amazon Secrets Manager.
-	// One or more secrets are required.
-	// Experimental.
-	Secrets *[]awssecretsmanager.ISecret `json:"secrets"`
-	// The VPC to associate with the new proxy.
-	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
 	// The duration for a proxy to wait for a connection to become available in the connection pool.
 	//
 	// Only applies when the proxy has opened its maximum number of connections and all connections are busy with client
@@ -19317,6 +19450,12 @@ type DatabaseProxyOptions struct {
 	// IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 	// Experimental.
 	Role awsiam.IRole `json:"role"`
+	// The secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster.
+	//
+	// These secrets are stored within Amazon Secrets Manager.
+	// One or more secrets are required.
+	// Experimental.
+	Secrets *[]awssecretsmanager.ISecret `json:"secrets"`
 	// One or more VPC security groups to associate with the new proxy.
 	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
@@ -19325,6 +19464,9 @@ type DatabaseProxyOptions struct {
 	// Including an item in the list exempts that class of SQL operations from the pinning behavior.
 	// Experimental.
 	SessionPinningFilters *[]SessionPinningFilter `json:"sessionPinningFilters"`
+	// The VPC to associate with the new proxy.
+	// Experimental.
+	Vpc awsec2.IVpc `json:"vpc"`
 	// The subnets used by the proxy.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
@@ -19336,15 +19478,6 @@ type DatabaseProxyOptions struct {
 //
 // Experimental.
 type DatabaseProxyProps struct {
-	// The secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster.
-	//
-	// These secrets are stored within Amazon Secrets Manager.
-	// One or more secrets are required.
-	// Experimental.
-	Secrets *[]awssecretsmanager.ISecret `json:"secrets"`
-	// The VPC to associate with the new proxy.
-	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
 	// The duration for a proxy to wait for a connection to become available in the connection pool.
 	//
 	// Only applies when the proxy has opened its maximum number of connections and all connections are busy with client
@@ -19413,6 +19546,12 @@ type DatabaseProxyProps struct {
 	// IAM role that the proxy uses to access secrets in AWS Secrets Manager.
 	// Experimental.
 	Role awsiam.IRole `json:"role"`
+	// The secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster.
+	//
+	// These secrets are stored within Amazon Secrets Manager.
+	// One or more secrets are required.
+	// Experimental.
+	Secrets *[]awssecretsmanager.ISecret `json:"secrets"`
 	// One or more VPC security groups to associate with the new proxy.
 	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
@@ -19421,6 +19560,9 @@ type DatabaseProxyProps struct {
 	// Including an item in the list exempts that class of SQL operations from the pinning behavior.
 	// Experimental.
 	SessionPinningFilters *[]SessionPinningFilter `json:"sessionPinningFilters"`
+	// The VPC to associate with the new proxy.
+	// Experimental.
+	Vpc awsec2.IVpc `json:"vpc"`
 	// The subnets used by the proxy.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
@@ -20110,6 +20252,9 @@ type DatabaseSecretProps struct {
 // Connection endpoint of a database cluster or instance.
 //
 // Consists of a combination of hostname and port.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Endpoint interface {
 	Hostname() *string
@@ -20180,14 +20325,17 @@ func NewEndpoint_Override(e Endpoint, address *string, port *float64) {
 }
 
 // A version of an engine - for either a cluster, or instance.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EngineVersion struct {
-	// The major version of the engine, for example, "5.6". Used in specifying the ParameterGroup family and OptionGroup version for this engine.
-	// Experimental.
-	MajorVersion *string `json:"majorVersion"`
 	// The full version string of the engine, for example, "5.6.mysql_aurora.1.22.1". It can be undefined, which means RDS should use whatever version it deems appropriate for the given engine type.
 	// Experimental.
 	FullVersion *string `json:"fullVersion"`
+	// The major version of the engine, for example, "5.6". Used in specifying the ParameterGroup family and OptionGroup version for this engine.
+	// Experimental.
+	MajorVersion *string `json:"majorVersion"`
 }
 
 // The interface representing a database cluster (as opposed to instance) engine.
@@ -21508,6 +21656,9 @@ func (j *jsiiProxy_ISubnetGroup) SubnetGroupName() *string {
 }
 
 // The options passed to {@link IInstanceEngine.bind}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type InstanceEngineBindOptions struct {
 	// The Active Directory directory ID to create the DB instance in.
@@ -21528,6 +21679,9 @@ type InstanceEngineBindOptions struct {
 }
 
 // The type returned from the {@link IInstanceEngine.bind} method.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type InstanceEngineConfig struct {
 	// Features supported by the database engine.
@@ -21541,6 +21695,9 @@ type InstanceEngineConfig struct {
 }
 
 // Represents Database Engine features.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type InstanceEngineFeatures struct {
 	// Feature name for the DB instance that the IAM role to export to S3 bucket is to be associated with.
@@ -21602,12 +21759,15 @@ type InstanceProps struct {
 type LicenseModel string
 
 const (
-	LicenseModel_LICENSE_INCLUDED LicenseModel = "LICENSE_INCLUDED"
 	LicenseModel_BRING_YOUR_OWN_LICENSE LicenseModel = "BRING_YOUR_OWN_LICENSE"
 	LicenseModel_GENERAL_PUBLIC_LICENSE LicenseModel = "GENERAL_PUBLIC_LICENSE"
+	LicenseModel_LICENSE_INCLUDED LicenseModel = "LICENSE_INCLUDED"
 )
 
 // The versions for the MariaDB instance engines (those returned by {@link DatabaseInstanceEngine.mariaDb}).
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type MariaDbEngineVersion interface {
 	MariaDbFullVersion() *string
@@ -22100,6 +22260,9 @@ func MariaDbEngineVersion_VER_10_5_9() MariaDbEngineVersion {
 // Properties for MariaDB instance engines.
 //
 // Used in {@link DatabaseInstanceEngine.mariaDb}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type MariaDbInstanceEngineProps struct {
 	// The exact version of the engine to use.
@@ -22680,6 +22843,9 @@ func MysqlEngineVersion_VER_8_0_26() MysqlEngineVersion {
 }
 
 // Configuration properties for an option.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type OptionConfiguration struct {
 	// The name of the option.
@@ -23105,6 +23271,9 @@ type OptionGroupProps struct {
 // Properties for Oracle Enterprise Edition instance engines.
 //
 // Used in {@link DatabaseInstanceEngine.oracleEe}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type OracleEeInstanceEngineProps struct {
 	// The exact version of the engine to use.
@@ -23749,6 +23918,9 @@ func OracleEngineVersion_VER_19_0_0_0_2021_04_R1() OracleEngineVersion {
 }
 
 // The versions for the legacy Oracle instance engines (those returned by {@link DatabaseInstanceEngine.oracleSe} and {@link DatabaseInstanceEngine.oracleSe1}). Note: RDS will stop allowing creating new databases with this version in August 2020.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: instances can no longer be created with these engine versions. See https://forums.aws.amazon.com/ann.jspa?annID=7341
 type OracleLegacyEngineVersion interface {
 	OracleLegacyFullVersion() *string
@@ -24070,6 +24242,9 @@ func OracleLegacyEngineVersion_VER_11_2_0_4_V9() OracleLegacyEngineVersion {
 // Properties for Oracle Standard Edition 1 instance engines.
 //
 // Used in {@link DatabaseInstanceEngine.oracleSe1}.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: instances can no longer be created with this engine. See https://forums.aws.amazon.com/ann.jspa?annID=7341
 type OracleSe1InstanceEngineProps struct {
 	// The exact version of the engine to use.
@@ -24093,6 +24268,9 @@ type OracleSe2InstanceEngineProps struct {
 // Properties for Oracle Standard Edition instance engines.
 //
 // Used in {@link DatabaseInstanceEngine.oracleSe}.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: instances can no longer be created with this engine. See https://forums.aws.amazon.com/ann.jspa?annID=7341
 type OracleSeInstanceEngineProps struct {
 	// The exact version of the engine to use.
@@ -24487,11 +24665,17 @@ func (p *jsiiProxy_ParameterGroup) Validate() *[]*string {
 }
 
 // Options for {@link IParameterGroup.bindToCluster}. Empty for now, but can be extended later.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ParameterGroupClusterBindOptions struct {
 }
 
 // The type returned from {@link IParameterGroup.bindToCluster}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ParameterGroupClusterConfig struct {
 	// The name of this parameter group.
@@ -24500,11 +24684,17 @@ type ParameterGroupClusterConfig struct {
 }
 
 // Options for {@link IParameterGroup.bindToInstance}. Empty for now, but can be extended later.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ParameterGroupInstanceBindOptions struct {
 }
 
 // The type returned from {@link IParameterGroup.bindToInstance}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ParameterGroupInstanceConfig struct {
 	// The name of this parameter group.
@@ -24513,14 +24703,17 @@ type ParameterGroupInstanceConfig struct {
 }
 
 // Properties for a parameter group.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ParameterGroupProps struct {
-	// The database engine for this parameter group.
-	// Experimental.
-	Engine IEngine `json:"engine"`
 	// Description for this parameter group.
 	// Experimental.
 	Description *string `json:"description"`
+	// The database engine for this parameter group.
+	// Experimental.
+	Engine IEngine `json:"engine"`
 	// The parameters in this parameter group.
 	// Experimental.
 	Parameters *map[string]*string `json:"parameters"`
@@ -24536,6 +24729,9 @@ const (
 )
 
 // Features supported by the Postgres database engine.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type PostgresEngineFeatures struct {
 	// Whether this version of the Postgres engine supports the S3 data export feature.
@@ -25537,6 +25733,9 @@ type PostgresInstanceEngineProps struct {
 }
 
 // The processor features.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ProcessorFeatures struct {
 	// The number of CPU core.
@@ -25614,11 +25813,11 @@ func (p *jsiiProxy_ProxyTarget) Bind(proxy DatabaseProxy) *ProxyTargetConfig {
 }
 
 // The result of binding a `ProxyTarget` to a `DatabaseProxy`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ProxyTargetConfig struct {
-	// The engine family of the database instance or cluster this proxy connects with.
-	// Experimental.
-	EngineFamily *string `json:"engineFamily"`
 	// The database clusters to which this proxy connects.
 	//
 	// Either this or `dbInstances` will be set and the other `undefined`.
@@ -25629,6 +25828,9 @@ type ProxyTargetConfig struct {
 	// Either this or `dbClusters` will be set and the other `undefined`.
 	// Experimental.
 	DbInstances *[]IDatabaseInstance `json:"dbInstances"`
+	// The engine family of the database instance or cluster this proxy connects with.
+	// Experimental.
+	EngineFamily *string `json:"engineFamily"`
 }
 
 // Options to add the multi user rotation.
@@ -26183,14 +26385,17 @@ func (s *jsiiProxy_ServerlessCluster) Validate() *[]*string {
 }
 
 // Properties that describe an existing cluster instance.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ServerlessClusterAttributes struct {
-	// Identifier for the cluster.
-	// Experimental.
-	ClusterIdentifier *string `json:"clusterIdentifier"`
 	// Cluster endpoint address.
 	// Experimental.
 	ClusterEndpointAddress *string `json:"clusterEndpointAddress"`
+	// Identifier for the cluster.
+	// Experimental.
+	ClusterIdentifier *string `json:"clusterIdentifier"`
 	// The database port.
 	// Experimental.
 	Port *float64 `json:"port"`
@@ -26290,6 +26495,9 @@ type ServerlessScalingOptions struct {
 }
 
 // SessionPinningFilter.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html#rds-proxy-pinning
 //
 // Experimental.
@@ -26342,6 +26550,9 @@ func SessionPinningFilter_EXCLUDE_VARIABLE_SETS() SessionPinningFilter {
 }
 
 // Credentials to update the password for a ``DatabaseInstanceFromSnapshot``.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SnapshotCredentials interface {
 	EncryptionKey() awskms.IKey
@@ -26536,6 +26747,9 @@ func SnapshotCredentials_FromSecret(secret awssecretsmanager.Secret) SnapshotCre
 }
 
 // Options used in the {@link SnapshotCredentials.fromGeneratedPassword} method.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SnapshotCredentialsFromGeneratedPasswordOptions struct {
 	// KMS encryption key to encrypt the generated secret.
@@ -26552,6 +26766,9 @@ type SnapshotCredentialsFromGeneratedPasswordOptions struct {
 // Properties for SQL Server Enterprise Edition instance engines.
 //
 // Used in {@link DatabaseInstanceEngine.sqlServerEe}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SqlServerEeInstanceEngineProps struct {
 	// The exact version of the engine to use.
@@ -26560,6 +26777,9 @@ type SqlServerEeInstanceEngineProps struct {
 }
 
 // The versions for the SQL Server instance engines (those returned by {@link DatabaseInstanceEngine.sqlServerSe}, {@link DatabaseInstanceEngine.sqlServerEx}, {@link DatabaseInstanceEngine.sqlServerWeb} and {@link DatabaseInstanceEngine.sqlServerEe}).
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SqlServerEngineVersion interface {
 	SqlServerFullVersion() *string
@@ -27063,6 +27283,9 @@ func SqlServerEngineVersion_VER_15_00_4073_23_V1() SqlServerEngineVersion {
 // Properties for SQL Server Express Edition instance engines.
 //
 // Used in {@link DatabaseInstanceEngine.sqlServerEx}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SqlServerExInstanceEngineProps struct {
 	// The exact version of the engine to use.
@@ -27073,6 +27296,9 @@ type SqlServerExInstanceEngineProps struct {
 // Properties for SQL Server Standard Edition instance engines.
 //
 // Used in {@link DatabaseInstanceEngine.sqlServerSe}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SqlServerSeInstanceEngineProps struct {
 	// The exact version of the engine to use.
@@ -27083,6 +27309,9 @@ type SqlServerSeInstanceEngineProps struct {
 // Properties for SQL Server Web Edition instance engines.
 //
 // Used in {@link DatabaseInstanceEngine.sqlServerWeb}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SqlServerWebInstanceEngineProps struct {
 	// The exact version of the engine to use.
@@ -27095,12 +27324,15 @@ type SqlServerWebInstanceEngineProps struct {
 type StorageType string
 
 const (
-	StorageType_STANDARD StorageType = "STANDARD"
 	StorageType_GP2 StorageType = "GP2"
 	StorageType_IO1 StorageType = "IO1"
+	StorageType_STANDARD StorageType = "STANDARD"
 )
 
 // Class for creating a RDS DB subnet group.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SubnetGroup interface {
 	awscdk.Resource
@@ -27444,20 +27676,23 @@ func (s *jsiiProxy_SubnetGroup) Validate() *[]*string {
 }
 
 // Properties for creating a SubnetGroup.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SubnetGroupProps struct {
 	// Description of the subnet group.
 	// Experimental.
 	Description *string `json:"description"`
-	// The VPC to place the subnet group in.
-	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
 	// The removal policy to apply when the subnet group are removed from the stack or replaced during an update.
 	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// The name of the subnet group.
 	// Experimental.
 	SubnetGroupName *string `json:"subnetGroupName"`
+	// The VPC to place the subnet group in.
+	// Experimental.
+	Vpc awsec2.IVpc `json:"vpc"`
 	// Which subnets within the VPC to associate with this group.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`

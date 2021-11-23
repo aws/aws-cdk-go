@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::EMR::Cluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1017,6 +1020,8 @@ func (c *jsiiProxy_CfnCluster) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_ApplicationProperty struct {
 	// `CfnCluster.ApplicationProperty.AdditionalInfo`.
 	AdditionalInfo interface{} `json:"additionalInfo"`
@@ -1028,6 +1033,8 @@ type CfnCluster_ApplicationProperty struct {
 	Version *string `json:"version"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_AutoScalingPolicyProperty struct {
 	// `CfnCluster.AutoScalingPolicyProperty.Constraints`.
 	Constraints interface{} `json:"constraints"`
@@ -1035,6 +1042,8 @@ type CfnCluster_AutoScalingPolicyProperty struct {
 	Rules interface{} `json:"rules"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_BootstrapActionConfigProperty struct {
 	// `CfnCluster.BootstrapActionConfigProperty.Name`.
 	Name *string `json:"name"`
@@ -1042,40 +1051,46 @@ type CfnCluster_BootstrapActionConfigProperty struct {
 	ScriptBootstrapAction interface{} `json:"scriptBootstrapAction"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_CloudWatchAlarmDefinitionProperty struct {
 	// `CfnCluster.CloudWatchAlarmDefinitionProperty.ComparisonOperator`.
 	ComparisonOperator *string `json:"comparisonOperator"`
-	// `CfnCluster.CloudWatchAlarmDefinitionProperty.MetricName`.
-	MetricName *string `json:"metricName"`
-	// `CfnCluster.CloudWatchAlarmDefinitionProperty.Period`.
-	Period *float64 `json:"period"`
-	// `CfnCluster.CloudWatchAlarmDefinitionProperty.Threshold`.
-	Threshold *float64 `json:"threshold"`
 	// `CfnCluster.CloudWatchAlarmDefinitionProperty.Dimensions`.
 	Dimensions interface{} `json:"dimensions"`
 	// `CfnCluster.CloudWatchAlarmDefinitionProperty.EvaluationPeriods`.
 	EvaluationPeriods *float64 `json:"evaluationPeriods"`
+	// `CfnCluster.CloudWatchAlarmDefinitionProperty.MetricName`.
+	MetricName *string `json:"metricName"`
 	// `CfnCluster.CloudWatchAlarmDefinitionProperty.Namespace`.
 	Namespace *string `json:"namespace"`
+	// `CfnCluster.CloudWatchAlarmDefinitionProperty.Period`.
+	Period *float64 `json:"period"`
 	// `CfnCluster.CloudWatchAlarmDefinitionProperty.Statistic`.
 	Statistic *string `json:"statistic"`
+	// `CfnCluster.CloudWatchAlarmDefinitionProperty.Threshold`.
+	Threshold *float64 `json:"threshold"`
 	// `CfnCluster.CloudWatchAlarmDefinitionProperty.Unit`.
 	Unit *string `json:"unit"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_ComputeLimitsProperty struct {
 	// `CfnCluster.ComputeLimitsProperty.MaximumCapacityUnits`.
 	MaximumCapacityUnits *float64 `json:"maximumCapacityUnits"`
-	// `CfnCluster.ComputeLimitsProperty.MinimumCapacityUnits`.
-	MinimumCapacityUnits *float64 `json:"minimumCapacityUnits"`
-	// `CfnCluster.ComputeLimitsProperty.UnitType`.
-	UnitType *string `json:"unitType"`
 	// `CfnCluster.ComputeLimitsProperty.MaximumCoreCapacityUnits`.
 	MaximumCoreCapacityUnits *float64 `json:"maximumCoreCapacityUnits"`
 	// `CfnCluster.ComputeLimitsProperty.MaximumOnDemandCapacityUnits`.
 	MaximumOnDemandCapacityUnits *float64 `json:"maximumOnDemandCapacityUnits"`
+	// `CfnCluster.ComputeLimitsProperty.MinimumCapacityUnits`.
+	MinimumCapacityUnits *float64 `json:"minimumCapacityUnits"`
+	// `CfnCluster.ComputeLimitsProperty.UnitType`.
+	UnitType *string `json:"unitType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_ConfigurationProperty struct {
 	// `CfnCluster.ConfigurationProperty.Classification`.
 	Classification *string `json:"classification"`
@@ -1085,6 +1100,8 @@ type CfnCluster_ConfigurationProperty struct {
 	Configurations interface{} `json:"configurations"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_EbsBlockDeviceConfigProperty struct {
 	// `CfnCluster.EbsBlockDeviceConfigProperty.VolumeSpecification`.
 	VolumeSpecification interface{} `json:"volumeSpecification"`
@@ -1092,6 +1109,8 @@ type CfnCluster_EbsBlockDeviceConfigProperty struct {
 	VolumesPerInstance *float64 `json:"volumesPerInstance"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_EbsConfigurationProperty struct {
 	// `CfnCluster.EbsConfigurationProperty.EbsBlockDeviceConfigs`.
 	EbsBlockDeviceConfigs interface{} `json:"ebsBlockDeviceConfigs"`
@@ -1099,17 +1118,21 @@ type CfnCluster_EbsConfigurationProperty struct {
 	EbsOptimized interface{} `json:"ebsOptimized"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_HadoopJarStepConfigProperty struct {
-	// `CfnCluster.HadoopJarStepConfigProperty.Jar`.
-	Jar *string `json:"jar"`
 	// `CfnCluster.HadoopJarStepConfigProperty.Args`.
 	Args *[]*string `json:"args"`
+	// `CfnCluster.HadoopJarStepConfigProperty.Jar`.
+	Jar *string `json:"jar"`
 	// `CfnCluster.HadoopJarStepConfigProperty.MainClass`.
 	MainClass *string `json:"mainClass"`
 	// `CfnCluster.HadoopJarStepConfigProperty.StepProperties`.
 	StepProperties interface{} `json:"stepProperties"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_InstanceFleetConfigProperty struct {
 	// `CfnCluster.InstanceFleetConfigProperty.InstanceTypeConfigs`.
 	InstanceTypeConfigs interface{} `json:"instanceTypeConfigs"`
@@ -1123,6 +1146,8 @@ type CfnCluster_InstanceFleetConfigProperty struct {
 	TargetSpotCapacity *float64 `json:"targetSpotCapacity"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_InstanceFleetProvisioningSpecificationsProperty struct {
 	// `CfnCluster.InstanceFleetProvisioningSpecificationsProperty.OnDemandSpecification`.
 	OnDemandSpecification interface{} `json:"onDemandSpecification"`
@@ -1130,11 +1155,9 @@ type CfnCluster_InstanceFleetProvisioningSpecificationsProperty struct {
 	SpotSpecification interface{} `json:"spotSpecification"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_InstanceGroupConfigProperty struct {
-	// `CfnCluster.InstanceGroupConfigProperty.InstanceCount`.
-	InstanceCount *float64 `json:"instanceCount"`
-	// `CfnCluster.InstanceGroupConfigProperty.InstanceType`.
-	InstanceType *string `json:"instanceType"`
 	// `CfnCluster.InstanceGroupConfigProperty.AutoScalingPolicy`.
 	AutoScalingPolicy interface{} `json:"autoScalingPolicy"`
 	// `CfnCluster.InstanceGroupConfigProperty.BidPrice`.
@@ -1143,15 +1166,19 @@ type CfnCluster_InstanceGroupConfigProperty struct {
 	Configurations interface{} `json:"configurations"`
 	// `CfnCluster.InstanceGroupConfigProperty.EbsConfiguration`.
 	EbsConfiguration interface{} `json:"ebsConfiguration"`
+	// `CfnCluster.InstanceGroupConfigProperty.InstanceCount`.
+	InstanceCount *float64 `json:"instanceCount"`
+	// `CfnCluster.InstanceGroupConfigProperty.InstanceType`.
+	InstanceType *string `json:"instanceType"`
 	// `CfnCluster.InstanceGroupConfigProperty.Market`.
 	Market *string `json:"market"`
 	// `CfnCluster.InstanceGroupConfigProperty.Name`.
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_InstanceTypeConfigProperty struct {
-	// `CfnCluster.InstanceTypeConfigProperty.InstanceType`.
-	InstanceType *string `json:"instanceType"`
 	// `CfnCluster.InstanceTypeConfigProperty.BidPrice`.
 	BidPrice *string `json:"bidPrice"`
 	// `CfnCluster.InstanceTypeConfigProperty.BidPriceAsPercentageOfOnDemandPrice`.
@@ -1160,10 +1187,14 @@ type CfnCluster_InstanceTypeConfigProperty struct {
 	Configurations interface{} `json:"configurations"`
 	// `CfnCluster.InstanceTypeConfigProperty.EbsConfiguration`.
 	EbsConfiguration interface{} `json:"ebsConfiguration"`
+	// `CfnCluster.InstanceTypeConfigProperty.InstanceType`.
+	InstanceType *string `json:"instanceType"`
 	// `CfnCluster.InstanceTypeConfigProperty.WeightedCapacity`.
 	WeightedCapacity *float64 `json:"weightedCapacity"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_JobFlowInstancesConfigProperty struct {
 	// `CfnCluster.JobFlowInstancesConfigProperty.AdditionalMasterSecurityGroups`.
 	AdditionalMasterSecurityGroups *[]*string `json:"additionalMasterSecurityGroups"`
@@ -1199,19 +1230,23 @@ type CfnCluster_JobFlowInstancesConfigProperty struct {
 	TerminationProtected interface{} `json:"terminationProtected"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_KerberosAttributesProperty struct {
-	// `CfnCluster.KerberosAttributesProperty.KdcAdminPassword`.
-	KdcAdminPassword *string `json:"kdcAdminPassword"`
-	// `CfnCluster.KerberosAttributesProperty.Realm`.
-	Realm *string `json:"realm"`
 	// `CfnCluster.KerberosAttributesProperty.ADDomainJoinPassword`.
 	AdDomainJoinPassword *string `json:"adDomainJoinPassword"`
 	// `CfnCluster.KerberosAttributesProperty.ADDomainJoinUser`.
 	AdDomainJoinUser *string `json:"adDomainJoinUser"`
 	// `CfnCluster.KerberosAttributesProperty.CrossRealmTrustPrincipalPassword`.
 	CrossRealmTrustPrincipalPassword *string `json:"crossRealmTrustPrincipalPassword"`
+	// `CfnCluster.KerberosAttributesProperty.KdcAdminPassword`.
+	KdcAdminPassword *string `json:"kdcAdminPassword"`
+	// `CfnCluster.KerberosAttributesProperty.Realm`.
+	Realm *string `json:"realm"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_KeyValueProperty struct {
 	// `CfnCluster.KeyValueProperty.Key`.
 	Key *string `json:"key"`
@@ -1219,11 +1254,15 @@ type CfnCluster_KeyValueProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_ManagedScalingPolicyProperty struct {
 	// `CfnCluster.ManagedScalingPolicyProperty.ComputeLimits`.
 	ComputeLimits interface{} `json:"computeLimits"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_MetricDimensionProperty struct {
 	// `CfnCluster.MetricDimensionProperty.Key`.
 	Key *string `json:"key"`
@@ -1231,23 +1270,31 @@ type CfnCluster_MetricDimensionProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_OnDemandProvisioningSpecificationProperty struct {
 	// `CfnCluster.OnDemandProvisioningSpecificationProperty.AllocationStrategy`.
 	AllocationStrategy *string `json:"allocationStrategy"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_PlacementTypeProperty struct {
 	// `CfnCluster.PlacementTypeProperty.AvailabilityZone`.
 	AvailabilityZone *string `json:"availabilityZone"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_ScalingActionProperty struct {
-	// `CfnCluster.ScalingActionProperty.SimpleScalingPolicyConfiguration`.
-	SimpleScalingPolicyConfiguration interface{} `json:"simpleScalingPolicyConfiguration"`
 	// `CfnCluster.ScalingActionProperty.Market`.
 	Market *string `json:"market"`
+	// `CfnCluster.ScalingActionProperty.SimpleScalingPolicyConfiguration`.
+	SimpleScalingPolicyConfiguration interface{} `json:"simpleScalingPolicyConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_ScalingConstraintsProperty struct {
 	// `CfnCluster.ScalingConstraintsProperty.MaxCapacity`.
 	MaxCapacity *float64 `json:"maxCapacity"`
@@ -1255,77 +1302,86 @@ type CfnCluster_ScalingConstraintsProperty struct {
 	MinCapacity *float64 `json:"minCapacity"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_ScalingRuleProperty struct {
 	// `CfnCluster.ScalingRuleProperty.Action`.
 	Action interface{} `json:"action"`
+	// `CfnCluster.ScalingRuleProperty.Description`.
+	Description *string `json:"description"`
 	// `CfnCluster.ScalingRuleProperty.Name`.
 	Name *string `json:"name"`
 	// `CfnCluster.ScalingRuleProperty.Trigger`.
 	Trigger interface{} `json:"trigger"`
-	// `CfnCluster.ScalingRuleProperty.Description`.
-	Description *string `json:"description"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_ScalingTriggerProperty struct {
 	// `CfnCluster.ScalingTriggerProperty.CloudWatchAlarmDefinition`.
 	CloudWatchAlarmDefinition interface{} `json:"cloudWatchAlarmDefinition"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_ScriptBootstrapActionConfigProperty struct {
-	// `CfnCluster.ScriptBootstrapActionConfigProperty.Path`.
-	Path *string `json:"path"`
 	// `CfnCluster.ScriptBootstrapActionConfigProperty.Args`.
 	Args *[]*string `json:"args"`
+	// `CfnCluster.ScriptBootstrapActionConfigProperty.Path`.
+	Path *string `json:"path"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_SimpleScalingPolicyConfigurationProperty struct {
-	// `CfnCluster.SimpleScalingPolicyConfigurationProperty.ScalingAdjustment`.
-	ScalingAdjustment *float64 `json:"scalingAdjustment"`
 	// `CfnCluster.SimpleScalingPolicyConfigurationProperty.AdjustmentType`.
 	AdjustmentType *string `json:"adjustmentType"`
 	// `CfnCluster.SimpleScalingPolicyConfigurationProperty.CoolDown`.
 	CoolDown *float64 `json:"coolDown"`
+	// `CfnCluster.SimpleScalingPolicyConfigurationProperty.ScalingAdjustment`.
+	ScalingAdjustment *float64 `json:"scalingAdjustment"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_SpotProvisioningSpecificationProperty struct {
-	// `CfnCluster.SpotProvisioningSpecificationProperty.TimeoutAction`.
-	TimeoutAction *string `json:"timeoutAction"`
-	// `CfnCluster.SpotProvisioningSpecificationProperty.TimeoutDurationMinutes`.
-	TimeoutDurationMinutes *float64 `json:"timeoutDurationMinutes"`
 	// `CfnCluster.SpotProvisioningSpecificationProperty.AllocationStrategy`.
 	AllocationStrategy *string `json:"allocationStrategy"`
 	// `CfnCluster.SpotProvisioningSpecificationProperty.BlockDurationMinutes`.
 	BlockDurationMinutes *float64 `json:"blockDurationMinutes"`
+	// `CfnCluster.SpotProvisioningSpecificationProperty.TimeoutAction`.
+	TimeoutAction *string `json:"timeoutAction"`
+	// `CfnCluster.SpotProvisioningSpecificationProperty.TimeoutDurationMinutes`.
+	TimeoutDurationMinutes *float64 `json:"timeoutDurationMinutes"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_StepConfigProperty struct {
+	// `CfnCluster.StepConfigProperty.ActionOnFailure`.
+	ActionOnFailure *string `json:"actionOnFailure"`
 	// `CfnCluster.StepConfigProperty.HadoopJarStep`.
 	HadoopJarStep interface{} `json:"hadoopJarStep"`
 	// `CfnCluster.StepConfigProperty.Name`.
 	Name *string `json:"name"`
-	// `CfnCluster.StepConfigProperty.ActionOnFailure`.
-	ActionOnFailure *string `json:"actionOnFailure"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_VolumeSpecificationProperty struct {
+	// `CfnCluster.VolumeSpecificationProperty.Iops`.
+	Iops *float64 `json:"iops"`
 	// `CfnCluster.VolumeSpecificationProperty.SizeInGB`.
 	SizeInGb *float64 `json:"sizeInGb"`
 	// `CfnCluster.VolumeSpecificationProperty.VolumeType`.
 	VolumeType *string `json:"volumeType"`
-	// `CfnCluster.VolumeSpecificationProperty.Iops`.
-	Iops *float64 `json:"iops"`
 }
 
 // Properties for defining a `AWS::EMR::Cluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnClusterProps struct {
-	// `AWS::EMR::Cluster.Instances`.
-	Instances interface{} `json:"instances"`
-	// `AWS::EMR::Cluster.JobFlowRole`.
-	JobFlowRole *string `json:"jobFlowRole"`
-	// `AWS::EMR::Cluster.Name`.
-	Name *string `json:"name"`
-	// `AWS::EMR::Cluster.ServiceRole`.
-	ServiceRole *string `json:"serviceRole"`
 	// `AWS::EMR::Cluster.AdditionalInfo`.
 	AdditionalInfo interface{} `json:"additionalInfo"`
 	// `AWS::EMR::Cluster.Applications`.
@@ -1340,6 +1396,10 @@ type CfnClusterProps struct {
 	CustomAmiId *string `json:"customAmiId"`
 	// `AWS::EMR::Cluster.EbsRootVolumeSize`.
 	EbsRootVolumeSize *float64 `json:"ebsRootVolumeSize"`
+	// `AWS::EMR::Cluster.Instances`.
+	Instances interface{} `json:"instances"`
+	// `AWS::EMR::Cluster.JobFlowRole`.
+	JobFlowRole *string `json:"jobFlowRole"`
 	// `AWS::EMR::Cluster.KerberosAttributes`.
 	KerberosAttributes interface{} `json:"kerberosAttributes"`
 	// `AWS::EMR::Cluster.LogEncryptionKmsKeyId`.
@@ -1348,12 +1408,16 @@ type CfnClusterProps struct {
 	LogUri *string `json:"logUri"`
 	// `AWS::EMR::Cluster.ManagedScalingPolicy`.
 	ManagedScalingPolicy interface{} `json:"managedScalingPolicy"`
+	// `AWS::EMR::Cluster.Name`.
+	Name *string `json:"name"`
 	// `AWS::EMR::Cluster.ReleaseLabel`.
 	ReleaseLabel *string `json:"releaseLabel"`
 	// `AWS::EMR::Cluster.ScaleDownBehavior`.
 	ScaleDownBehavior *string `json:"scaleDownBehavior"`
 	// `AWS::EMR::Cluster.SecurityConfiguration`.
 	SecurityConfiguration *string `json:"securityConfiguration"`
+	// `AWS::EMR::Cluster.ServiceRole`.
+	ServiceRole *string `json:"serviceRole"`
 	// `AWS::EMR::Cluster.StepConcurrencyLevel`.
 	StepConcurrencyLevel *float64 `json:"stepConcurrencyLevel"`
 	// `AWS::EMR::Cluster.Steps`.
@@ -1365,6 +1429,9 @@ type CfnClusterProps struct {
 }
 
 // A CloudFormation `AWS::EMR::InstanceFleetConfig`.
+//
+// TODO: EXAMPLE
+//
 type CfnInstanceFleetConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2070,6 +2137,8 @@ func (c *jsiiProxy_CfnInstanceFleetConfig) ValidateProperties(_properties interf
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstanceFleetConfig_ConfigurationProperty struct {
 	// `CfnInstanceFleetConfig.ConfigurationProperty.Classification`.
 	Classification *string `json:"classification"`
@@ -2079,6 +2148,8 @@ type CfnInstanceFleetConfig_ConfigurationProperty struct {
 	Configurations interface{} `json:"configurations"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstanceFleetConfig_EbsBlockDeviceConfigProperty struct {
 	// `CfnInstanceFleetConfig.EbsBlockDeviceConfigProperty.VolumeSpecification`.
 	VolumeSpecification interface{} `json:"volumeSpecification"`
@@ -2086,6 +2157,8 @@ type CfnInstanceFleetConfig_EbsBlockDeviceConfigProperty struct {
 	VolumesPerInstance *float64 `json:"volumesPerInstance"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstanceFleetConfig_EbsConfigurationProperty struct {
 	// `CfnInstanceFleetConfig.EbsConfigurationProperty.EbsBlockDeviceConfigs`.
 	EbsBlockDeviceConfigs interface{} `json:"ebsBlockDeviceConfigs"`
@@ -2093,6 +2166,8 @@ type CfnInstanceFleetConfig_EbsConfigurationProperty struct {
 	EbsOptimized interface{} `json:"ebsOptimized"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstanceFleetConfig_InstanceFleetProvisioningSpecificationsProperty struct {
 	// `CfnInstanceFleetConfig.InstanceFleetProvisioningSpecificationsProperty.OnDemandSpecification`.
 	OnDemandSpecification interface{} `json:"onDemandSpecification"`
@@ -2100,9 +2175,9 @@ type CfnInstanceFleetConfig_InstanceFleetProvisioningSpecificationsProperty stru
 	SpotSpecification interface{} `json:"spotSpecification"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstanceFleetConfig_InstanceTypeConfigProperty struct {
-	// `CfnInstanceFleetConfig.InstanceTypeConfigProperty.InstanceType`.
-	InstanceType *string `json:"instanceType"`
 	// `CfnInstanceFleetConfig.InstanceTypeConfigProperty.BidPrice`.
 	BidPrice *string `json:"bidPrice"`
 	// `CfnInstanceFleetConfig.InstanceTypeConfigProperty.BidPriceAsPercentageOfOnDemandPrice`.
@@ -2111,36 +2186,47 @@ type CfnInstanceFleetConfig_InstanceTypeConfigProperty struct {
 	Configurations interface{} `json:"configurations"`
 	// `CfnInstanceFleetConfig.InstanceTypeConfigProperty.EbsConfiguration`.
 	EbsConfiguration interface{} `json:"ebsConfiguration"`
+	// `CfnInstanceFleetConfig.InstanceTypeConfigProperty.InstanceType`.
+	InstanceType *string `json:"instanceType"`
 	// `CfnInstanceFleetConfig.InstanceTypeConfigProperty.WeightedCapacity`.
 	WeightedCapacity *float64 `json:"weightedCapacity"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstanceFleetConfig_OnDemandProvisioningSpecificationProperty struct {
 	// `CfnInstanceFleetConfig.OnDemandProvisioningSpecificationProperty.AllocationStrategy`.
 	AllocationStrategy *string `json:"allocationStrategy"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstanceFleetConfig_SpotProvisioningSpecificationProperty struct {
-	// `CfnInstanceFleetConfig.SpotProvisioningSpecificationProperty.TimeoutAction`.
-	TimeoutAction *string `json:"timeoutAction"`
-	// `CfnInstanceFleetConfig.SpotProvisioningSpecificationProperty.TimeoutDurationMinutes`.
-	TimeoutDurationMinutes *float64 `json:"timeoutDurationMinutes"`
 	// `CfnInstanceFleetConfig.SpotProvisioningSpecificationProperty.AllocationStrategy`.
 	AllocationStrategy *string `json:"allocationStrategy"`
 	// `CfnInstanceFleetConfig.SpotProvisioningSpecificationProperty.BlockDurationMinutes`.
 	BlockDurationMinutes *float64 `json:"blockDurationMinutes"`
+	// `CfnInstanceFleetConfig.SpotProvisioningSpecificationProperty.TimeoutAction`.
+	TimeoutAction *string `json:"timeoutAction"`
+	// `CfnInstanceFleetConfig.SpotProvisioningSpecificationProperty.TimeoutDurationMinutes`.
+	TimeoutDurationMinutes *float64 `json:"timeoutDurationMinutes"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstanceFleetConfig_VolumeSpecificationProperty struct {
+	// `CfnInstanceFleetConfig.VolumeSpecificationProperty.Iops`.
+	Iops *float64 `json:"iops"`
 	// `CfnInstanceFleetConfig.VolumeSpecificationProperty.SizeInGB`.
 	SizeInGb *float64 `json:"sizeInGb"`
 	// `CfnInstanceFleetConfig.VolumeSpecificationProperty.VolumeType`.
 	VolumeType *string `json:"volumeType"`
-	// `CfnInstanceFleetConfig.VolumeSpecificationProperty.Iops`.
-	Iops *float64 `json:"iops"`
 }
 
 // Properties for defining a `AWS::EMR::InstanceFleetConfig`.
+//
+// TODO: EXAMPLE
+//
 type CfnInstanceFleetConfigProps struct {
 	// `AWS::EMR::InstanceFleetConfig.ClusterId`.
 	ClusterId *string `json:"clusterId"`
@@ -2159,6 +2245,9 @@ type CfnInstanceFleetConfigProps struct {
 }
 
 // A CloudFormation `AWS::EMR::InstanceGroupConfig`.
+//
+// TODO: EXAMPLE
+//
 type CfnInstanceGroupConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2924,6 +3013,8 @@ func (c *jsiiProxy_CfnInstanceGroupConfig) ValidateProperties(_properties interf
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstanceGroupConfig_AutoScalingPolicyProperty struct {
 	// `CfnInstanceGroupConfig.AutoScalingPolicyProperty.Constraints`.
 	Constraints interface{} `json:"constraints"`
@@ -2931,27 +3022,31 @@ type CfnInstanceGroupConfig_AutoScalingPolicyProperty struct {
 	Rules interface{} `json:"rules"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstanceGroupConfig_CloudWatchAlarmDefinitionProperty struct {
 	// `CfnInstanceGroupConfig.CloudWatchAlarmDefinitionProperty.ComparisonOperator`.
 	ComparisonOperator *string `json:"comparisonOperator"`
-	// `CfnInstanceGroupConfig.CloudWatchAlarmDefinitionProperty.MetricName`.
-	MetricName *string `json:"metricName"`
-	// `CfnInstanceGroupConfig.CloudWatchAlarmDefinitionProperty.Period`.
-	Period *float64 `json:"period"`
-	// `CfnInstanceGroupConfig.CloudWatchAlarmDefinitionProperty.Threshold`.
-	Threshold *float64 `json:"threshold"`
 	// `CfnInstanceGroupConfig.CloudWatchAlarmDefinitionProperty.Dimensions`.
 	Dimensions interface{} `json:"dimensions"`
 	// `CfnInstanceGroupConfig.CloudWatchAlarmDefinitionProperty.EvaluationPeriods`.
 	EvaluationPeriods *float64 `json:"evaluationPeriods"`
+	// `CfnInstanceGroupConfig.CloudWatchAlarmDefinitionProperty.MetricName`.
+	MetricName *string `json:"metricName"`
 	// `CfnInstanceGroupConfig.CloudWatchAlarmDefinitionProperty.Namespace`.
 	Namespace *string `json:"namespace"`
+	// `CfnInstanceGroupConfig.CloudWatchAlarmDefinitionProperty.Period`.
+	Period *float64 `json:"period"`
 	// `CfnInstanceGroupConfig.CloudWatchAlarmDefinitionProperty.Statistic`.
 	Statistic *string `json:"statistic"`
+	// `CfnInstanceGroupConfig.CloudWatchAlarmDefinitionProperty.Threshold`.
+	Threshold *float64 `json:"threshold"`
 	// `CfnInstanceGroupConfig.CloudWatchAlarmDefinitionProperty.Unit`.
 	Unit *string `json:"unit"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstanceGroupConfig_ConfigurationProperty struct {
 	// `CfnInstanceGroupConfig.ConfigurationProperty.Classification`.
 	Classification *string `json:"classification"`
@@ -2961,6 +3056,8 @@ type CfnInstanceGroupConfig_ConfigurationProperty struct {
 	Configurations interface{} `json:"configurations"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstanceGroupConfig_EbsBlockDeviceConfigProperty struct {
 	// `CfnInstanceGroupConfig.EbsBlockDeviceConfigProperty.VolumeSpecification`.
 	VolumeSpecification interface{} `json:"volumeSpecification"`
@@ -2968,6 +3065,8 @@ type CfnInstanceGroupConfig_EbsBlockDeviceConfigProperty struct {
 	VolumesPerInstance *float64 `json:"volumesPerInstance"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstanceGroupConfig_EbsConfigurationProperty struct {
 	// `CfnInstanceGroupConfig.EbsConfigurationProperty.EbsBlockDeviceConfigs`.
 	EbsBlockDeviceConfigs interface{} `json:"ebsBlockDeviceConfigs"`
@@ -2975,6 +3074,8 @@ type CfnInstanceGroupConfig_EbsConfigurationProperty struct {
 	EbsOptimized interface{} `json:"ebsOptimized"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstanceGroupConfig_MetricDimensionProperty struct {
 	// `CfnInstanceGroupConfig.MetricDimensionProperty.Key`.
 	Key *string `json:"key"`
@@ -2982,13 +3083,17 @@ type CfnInstanceGroupConfig_MetricDimensionProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstanceGroupConfig_ScalingActionProperty struct {
-	// `CfnInstanceGroupConfig.ScalingActionProperty.SimpleScalingPolicyConfiguration`.
-	SimpleScalingPolicyConfiguration interface{} `json:"simpleScalingPolicyConfiguration"`
 	// `CfnInstanceGroupConfig.ScalingActionProperty.Market`.
 	Market *string `json:"market"`
+	// `CfnInstanceGroupConfig.ScalingActionProperty.SimpleScalingPolicyConfiguration`.
+	SimpleScalingPolicyConfiguration interface{} `json:"simpleScalingPolicyConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstanceGroupConfig_ScalingConstraintsProperty struct {
 	// `CfnInstanceGroupConfig.ScalingConstraintsProperty.MaxCapacity`.
 	MaxCapacity *float64 `json:"maxCapacity"`
@@ -2996,50 +3101,53 @@ type CfnInstanceGroupConfig_ScalingConstraintsProperty struct {
 	MinCapacity *float64 `json:"minCapacity"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstanceGroupConfig_ScalingRuleProperty struct {
 	// `CfnInstanceGroupConfig.ScalingRuleProperty.Action`.
 	Action interface{} `json:"action"`
+	// `CfnInstanceGroupConfig.ScalingRuleProperty.Description`.
+	Description *string `json:"description"`
 	// `CfnInstanceGroupConfig.ScalingRuleProperty.Name`.
 	Name *string `json:"name"`
 	// `CfnInstanceGroupConfig.ScalingRuleProperty.Trigger`.
 	Trigger interface{} `json:"trigger"`
-	// `CfnInstanceGroupConfig.ScalingRuleProperty.Description`.
-	Description *string `json:"description"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstanceGroupConfig_ScalingTriggerProperty struct {
 	// `CfnInstanceGroupConfig.ScalingTriggerProperty.CloudWatchAlarmDefinition`.
 	CloudWatchAlarmDefinition interface{} `json:"cloudWatchAlarmDefinition"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstanceGroupConfig_SimpleScalingPolicyConfigurationProperty struct {
-	// `CfnInstanceGroupConfig.SimpleScalingPolicyConfigurationProperty.ScalingAdjustment`.
-	ScalingAdjustment *float64 `json:"scalingAdjustment"`
 	// `CfnInstanceGroupConfig.SimpleScalingPolicyConfigurationProperty.AdjustmentType`.
 	AdjustmentType *string `json:"adjustmentType"`
 	// `CfnInstanceGroupConfig.SimpleScalingPolicyConfigurationProperty.CoolDown`.
 	CoolDown *float64 `json:"coolDown"`
+	// `CfnInstanceGroupConfig.SimpleScalingPolicyConfigurationProperty.ScalingAdjustment`.
+	ScalingAdjustment *float64 `json:"scalingAdjustment"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstanceGroupConfig_VolumeSpecificationProperty struct {
+	// `CfnInstanceGroupConfig.VolumeSpecificationProperty.Iops`.
+	Iops *float64 `json:"iops"`
 	// `CfnInstanceGroupConfig.VolumeSpecificationProperty.SizeInGB`.
 	SizeInGb *float64 `json:"sizeInGb"`
 	// `CfnInstanceGroupConfig.VolumeSpecificationProperty.VolumeType`.
 	VolumeType *string `json:"volumeType"`
-	// `CfnInstanceGroupConfig.VolumeSpecificationProperty.Iops`.
-	Iops *float64 `json:"iops"`
 }
 
 // Properties for defining a `AWS::EMR::InstanceGroupConfig`.
+//
+// TODO: EXAMPLE
+//
 type CfnInstanceGroupConfigProps struct {
-	// `AWS::EMR::InstanceGroupConfig.InstanceCount`.
-	InstanceCount *float64 `json:"instanceCount"`
-	// `AWS::EMR::InstanceGroupConfig.InstanceRole`.
-	InstanceRole *string `json:"instanceRole"`
-	// `AWS::EMR::InstanceGroupConfig.InstanceType`.
-	InstanceType *string `json:"instanceType"`
-	// `AWS::EMR::InstanceGroupConfig.JobFlowId`.
-	JobFlowId *string `json:"jobFlowId"`
 	// `AWS::EMR::InstanceGroupConfig.AutoScalingPolicy`.
 	AutoScalingPolicy interface{} `json:"autoScalingPolicy"`
 	// `AWS::EMR::InstanceGroupConfig.BidPrice`.
@@ -3048,6 +3156,14 @@ type CfnInstanceGroupConfigProps struct {
 	Configurations interface{} `json:"configurations"`
 	// `AWS::EMR::InstanceGroupConfig.EbsConfiguration`.
 	EbsConfiguration interface{} `json:"ebsConfiguration"`
+	// `AWS::EMR::InstanceGroupConfig.InstanceCount`.
+	InstanceCount *float64 `json:"instanceCount"`
+	// `AWS::EMR::InstanceGroupConfig.InstanceRole`.
+	InstanceRole *string `json:"instanceRole"`
+	// `AWS::EMR::InstanceGroupConfig.InstanceType`.
+	InstanceType *string `json:"instanceType"`
+	// `AWS::EMR::InstanceGroupConfig.JobFlowId`.
+	JobFlowId *string `json:"jobFlowId"`
 	// `AWS::EMR::InstanceGroupConfig.Market`.
 	Market *string `json:"market"`
 	// `AWS::EMR::InstanceGroupConfig.Name`.
@@ -3055,6 +3171,9 @@ type CfnInstanceGroupConfigProps struct {
 }
 
 // A CloudFormation `AWS::EMR::SecurityConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnSecurityConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3661,14 +3780,20 @@ func (c *jsiiProxy_CfnSecurityConfiguration) ValidateProperties(_properties inte
 }
 
 // Properties for defining a `AWS::EMR::SecurityConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnSecurityConfigurationProps struct {
-	// `AWS::EMR::SecurityConfiguration.SecurityConfiguration`.
-	SecurityConfiguration interface{} `json:"securityConfiguration"`
 	// `AWS::EMR::SecurityConfiguration.Name`.
 	Name *string `json:"name"`
+	// `AWS::EMR::SecurityConfiguration.SecurityConfiguration`.
+	SecurityConfiguration interface{} `json:"securityConfiguration"`
 }
 
 // A CloudFormation `AWS::EMR::Step`.
+//
+// TODO: EXAMPLE
+//
 type CfnStep interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4314,17 +4439,21 @@ func (c *jsiiProxy_CfnStep) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnStep_HadoopJarStepConfigProperty struct {
-	// `CfnStep.HadoopJarStepConfigProperty.Jar`.
-	Jar *string `json:"jar"`
 	// `CfnStep.HadoopJarStepConfigProperty.Args`.
 	Args *[]*string `json:"args"`
+	// `CfnStep.HadoopJarStepConfigProperty.Jar`.
+	Jar *string `json:"jar"`
 	// `CfnStep.HadoopJarStepConfigProperty.MainClass`.
 	MainClass *string `json:"mainClass"`
 	// `CfnStep.HadoopJarStepConfigProperty.StepProperties`.
 	StepProperties interface{} `json:"stepProperties"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStep_KeyValueProperty struct {
 	// `CfnStep.KeyValueProperty.Key`.
 	Key *string `json:"key"`
@@ -4333,6 +4462,9 @@ type CfnStep_KeyValueProperty struct {
 }
 
 // Properties for defining a `AWS::EMR::Step`.
+//
+// TODO: EXAMPLE
+//
 type CfnStepProps struct {
 	// `AWS::EMR::Step.ActionOnFailure`.
 	ActionOnFailure *string `json:"actionOnFailure"`
@@ -4345,6 +4477,9 @@ type CfnStepProps struct {
 }
 
 // A CloudFormation `AWS::EMR::Studio`.
+//
+// TODO: EXAMPLE
+//
 type CfnStudio interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5195,36 +5330,42 @@ func (c *jsiiProxy_CfnStudio) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::EMR::Studio`.
+//
+// TODO: EXAMPLE
+//
 type CfnStudioProps struct {
 	// `AWS::EMR::Studio.AuthMode`.
 	AuthMode *string `json:"authMode"`
 	// `AWS::EMR::Studio.DefaultS3Location`.
 	DefaultS3Location *string `json:"defaultS3Location"`
+	// `AWS::EMR::Studio.Description`.
+	Description *string `json:"description"`
 	// `AWS::EMR::Studio.EngineSecurityGroupId`.
 	EngineSecurityGroupId *string `json:"engineSecurityGroupId"`
+	// `AWS::EMR::Studio.IdpAuthUrl`.
+	IdpAuthUrl *string `json:"idpAuthUrl"`
+	// `AWS::EMR::Studio.IdpRelayStateParameterName`.
+	IdpRelayStateParameterName *string `json:"idpRelayStateParameterName"`
 	// `AWS::EMR::Studio.Name`.
 	Name *string `json:"name"`
 	// `AWS::EMR::Studio.ServiceRole`.
 	ServiceRole *string `json:"serviceRole"`
 	// `AWS::EMR::Studio.SubnetIds`.
 	SubnetIds *[]*string `json:"subnetIds"`
-	// `AWS::EMR::Studio.VpcId`.
-	VpcId *string `json:"vpcId"`
-	// `AWS::EMR::Studio.WorkspaceSecurityGroupId`.
-	WorkspaceSecurityGroupId *string `json:"workspaceSecurityGroupId"`
-	// `AWS::EMR::Studio.Description`.
-	Description *string `json:"description"`
-	// `AWS::EMR::Studio.IdpAuthUrl`.
-	IdpAuthUrl *string `json:"idpAuthUrl"`
-	// `AWS::EMR::Studio.IdpRelayStateParameterName`.
-	IdpRelayStateParameterName *string `json:"idpRelayStateParameterName"`
 	// `AWS::EMR::Studio.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::EMR::Studio.UserRole`.
 	UserRole *string `json:"userRole"`
+	// `AWS::EMR::Studio.VpcId`.
+	VpcId *string `json:"vpcId"`
+	// `AWS::EMR::Studio.WorkspaceSecurityGroupId`.
+	WorkspaceSecurityGroupId *string `json:"workspaceSecurityGroupId"`
 }
 
 // A CloudFormation `AWS::EMR::StudioSessionMapping`.
+//
+// TODO: EXAMPLE
+//
 type CfnStudioSessionMapping interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5871,6 +6012,9 @@ func (c *jsiiProxy_CfnStudioSessionMapping) ValidateProperties(_properties inter
 }
 
 // Properties for defining a `AWS::EMR::StudioSessionMapping`.
+//
+// TODO: EXAMPLE
+//
 type CfnStudioSessionMappingProps struct {
 	// `AWS::EMR::StudioSessionMapping.IdentityName`.
 	IdentityName *string `json:"identityName"`

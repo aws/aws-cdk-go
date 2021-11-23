@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::RoboMaker::Fleet`.
+//
+// TODO: EXAMPLE
+//
 type CfnFleet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -618,6 +621,9 @@ func (c *jsiiProxy_CfnFleet) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::RoboMaker::Fleet`.
+//
+// TODO: EXAMPLE
+//
 type CfnFleetProps struct {
 	// `AWS::RoboMaker::Fleet.Name`.
 	Name *string `json:"name"`
@@ -626,6 +632,9 @@ type CfnFleetProps struct {
 }
 
 // A CloudFormation `AWS::RoboMaker::Robot`.
+//
+// TODO: EXAMPLE
+//
 type CfnRobot interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1294,6 +1303,9 @@ func (c *jsiiProxy_CfnRobot) ValidateProperties(_properties interface{}) {
 }
 
 // A CloudFormation `AWS::RoboMaker::RobotApplication`.
+//
+// TODO: EXAMPLE
+//
 type CfnRobotApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1972,6 +1984,8 @@ func (c *jsiiProxy_CfnRobotApplication) ValidateProperties(_properties interface
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnRobotApplication_RobotSoftwareSuiteProperty struct {
 	// `CfnRobotApplication.RobotSoftwareSuiteProperty.Name`.
 	Name *string `json:"name"`
@@ -1979,6 +1993,8 @@ type CfnRobotApplication_RobotSoftwareSuiteProperty struct {
 	Version *string `json:"version"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRobotApplication_SourceConfigProperty struct {
 	// `CfnRobotApplication.SourceConfigProperty.Architecture`.
 	Architecture *string `json:"architecture"`
@@ -1989,20 +2005,26 @@ type CfnRobotApplication_SourceConfigProperty struct {
 }
 
 // Properties for defining a `AWS::RoboMaker::RobotApplication`.
+//
+// TODO: EXAMPLE
+//
 type CfnRobotApplicationProps struct {
-	// `AWS::RoboMaker::RobotApplication.RobotSoftwareSuite`.
-	RobotSoftwareSuite interface{} `json:"robotSoftwareSuite"`
-	// `AWS::RoboMaker::RobotApplication.Sources`.
-	Sources interface{} `json:"sources"`
 	// `AWS::RoboMaker::RobotApplication.CurrentRevisionId`.
 	CurrentRevisionId *string `json:"currentRevisionId"`
 	// `AWS::RoboMaker::RobotApplication.Name`.
 	Name *string `json:"name"`
+	// `AWS::RoboMaker::RobotApplication.RobotSoftwareSuite`.
+	RobotSoftwareSuite interface{} `json:"robotSoftwareSuite"`
+	// `AWS::RoboMaker::RobotApplication.Sources`.
+	Sources interface{} `json:"sources"`
 	// `AWS::RoboMaker::RobotApplication.Tags`.
 	Tags interface{} `json:"tags"`
 }
 
 // A CloudFormation `AWS::RoboMaker::RobotApplicationVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnRobotApplicationVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2631,6 +2653,9 @@ func (c *jsiiProxy_CfnRobotApplicationVersion) ValidateProperties(_properties in
 }
 
 // Properties for defining a `AWS::RoboMaker::RobotApplicationVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnRobotApplicationVersionProps struct {
 	// `AWS::RoboMaker::RobotApplicationVersion.Application`.
 	Application *string `json:"application"`
@@ -2639,13 +2664,16 @@ type CfnRobotApplicationVersionProps struct {
 }
 
 // Properties for defining a `AWS::RoboMaker::Robot`.
+//
+// TODO: EXAMPLE
+//
 type CfnRobotProps struct {
 	// `AWS::RoboMaker::Robot.Architecture`.
 	Architecture *string `json:"architecture"`
-	// `AWS::RoboMaker::Robot.GreengrassGroupId`.
-	GreengrassGroupId *string `json:"greengrassGroupId"`
 	// `AWS::RoboMaker::Robot.Fleet`.
 	Fleet *string `json:"fleet"`
+	// `AWS::RoboMaker::Robot.GreengrassGroupId`.
+	GreengrassGroupId *string `json:"greengrassGroupId"`
 	// `AWS::RoboMaker::Robot.Name`.
 	Name *string `json:"name"`
 	// `AWS::RoboMaker::Robot.Tags`.
@@ -2653,6 +2681,9 @@ type CfnRobotProps struct {
 }
 
 // A CloudFormation `AWS::RoboMaker::SimulationApplication`.
+//
+// TODO: EXAMPLE
+//
 type CfnSimulationApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3391,6 +3422,8 @@ func (c *jsiiProxy_CfnSimulationApplication) ValidateProperties(_properties inte
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnSimulationApplication_RenderingEngineProperty struct {
 	// `CfnSimulationApplication.RenderingEngineProperty.Name`.
 	Name *string `json:"name"`
@@ -3398,6 +3431,8 @@ type CfnSimulationApplication_RenderingEngineProperty struct {
 	Version *string `json:"version"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSimulationApplication_RobotSoftwareSuiteProperty struct {
 	// `CfnSimulationApplication.RobotSoftwareSuiteProperty.Name`.
 	Name *string `json:"name"`
@@ -3405,6 +3440,8 @@ type CfnSimulationApplication_RobotSoftwareSuiteProperty struct {
 	Version *string `json:"version"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSimulationApplication_SimulationSoftwareSuiteProperty struct {
 	// `CfnSimulationApplication.SimulationSoftwareSuiteProperty.Name`.
 	Name *string `json:"name"`
@@ -3412,6 +3449,8 @@ type CfnSimulationApplication_SimulationSoftwareSuiteProperty struct {
 	Version *string `json:"version"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSimulationApplication_SourceConfigProperty struct {
 	// `CfnSimulationApplication.SourceConfigProperty.Architecture`.
 	Architecture *string `json:"architecture"`
@@ -3422,11 +3461,10 @@ type CfnSimulationApplication_SourceConfigProperty struct {
 }
 
 // Properties for defining a `AWS::RoboMaker::SimulationApplication`.
+//
+// TODO: EXAMPLE
+//
 type CfnSimulationApplicationProps struct {
-	// `AWS::RoboMaker::SimulationApplication.RobotSoftwareSuite`.
-	RobotSoftwareSuite interface{} `json:"robotSoftwareSuite"`
-	// `AWS::RoboMaker::SimulationApplication.SimulationSoftwareSuite`.
-	SimulationSoftwareSuite interface{} `json:"simulationSoftwareSuite"`
 	// `AWS::RoboMaker::SimulationApplication.CurrentRevisionId`.
 	CurrentRevisionId *string `json:"currentRevisionId"`
 	// `AWS::RoboMaker::SimulationApplication.Environment`.
@@ -3435,6 +3473,10 @@ type CfnSimulationApplicationProps struct {
 	Name *string `json:"name"`
 	// `AWS::RoboMaker::SimulationApplication.RenderingEngine`.
 	RenderingEngine interface{} `json:"renderingEngine"`
+	// `AWS::RoboMaker::SimulationApplication.RobotSoftwareSuite`.
+	RobotSoftwareSuite interface{} `json:"robotSoftwareSuite"`
+	// `AWS::RoboMaker::SimulationApplication.SimulationSoftwareSuite`.
+	SimulationSoftwareSuite interface{} `json:"simulationSoftwareSuite"`
 	// `AWS::RoboMaker::SimulationApplication.Sources`.
 	Sources interface{} `json:"sources"`
 	// `AWS::RoboMaker::SimulationApplication.Tags`.
@@ -3442,6 +3484,9 @@ type CfnSimulationApplicationProps struct {
 }
 
 // A CloudFormation `AWS::RoboMaker::SimulationApplicationVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnSimulationApplicationVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4070,6 +4115,9 @@ func (c *jsiiProxy_CfnSimulationApplicationVersion) ValidateProperties(_properti
 }
 
 // Properties for defining a `AWS::RoboMaker::SimulationApplicationVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnSimulationApplicationVersionProps struct {
 	// `AWS::RoboMaker::SimulationApplicationVersion.Application`.
 	Application *string `json:"application"`

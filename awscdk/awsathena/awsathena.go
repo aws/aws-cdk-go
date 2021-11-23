@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::Athena::DataCatalog`.
+//
+// TODO: EXAMPLE
+//
 type CfnDataCatalog interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -667,20 +670,26 @@ func (c *jsiiProxy_CfnDataCatalog) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Athena::DataCatalog`.
+//
+// TODO: EXAMPLE
+//
 type CfnDataCatalogProps struct {
-	// `AWS::Athena::DataCatalog.Name`.
-	Name *string `json:"name"`
-	// `AWS::Athena::DataCatalog.Type`.
-	Type *string `json:"type"`
 	// `AWS::Athena::DataCatalog.Description`.
 	Description *string `json:"description"`
+	// `AWS::Athena::DataCatalog.Name`.
+	Name *string `json:"name"`
 	// `AWS::Athena::DataCatalog.Parameters`.
 	Parameters interface{} `json:"parameters"`
 	// `AWS::Athena::DataCatalog.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::Athena::DataCatalog.Type`.
+	Type *string `json:"type"`
 }
 
 // A CloudFormation `AWS::Athena::NamedQuery`.
+//
+// TODO: EXAMPLE
+//
 type CfnNamedQuery interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1358,20 +1367,26 @@ func (c *jsiiProxy_CfnNamedQuery) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Athena::NamedQuery`.
+//
+// TODO: EXAMPLE
+//
 type CfnNamedQueryProps struct {
 	// `AWS::Athena::NamedQuery.Database`.
 	Database *string `json:"database"`
-	// `AWS::Athena::NamedQuery.QueryString`.
-	QueryString *string `json:"queryString"`
 	// `AWS::Athena::NamedQuery.Description`.
 	Description *string `json:"description"`
 	// `AWS::Athena::NamedQuery.Name`.
 	Name *string `json:"name"`
+	// `AWS::Athena::NamedQuery.QueryString`.
+	QueryString *string `json:"queryString"`
 	// `AWS::Athena::NamedQuery.WorkGroup`.
 	WorkGroup *string `json:"workGroup"`
 }
 
 // A CloudFormation `AWS::Athena::PreparedStatement`.
+//
+// TODO: EXAMPLE
+//
 type CfnPreparedStatement interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2018,18 +2033,24 @@ func (c *jsiiProxy_CfnPreparedStatement) ValidateProperties(_properties interfac
 }
 
 // Properties for defining a `AWS::Athena::PreparedStatement`.
+//
+// TODO: EXAMPLE
+//
 type CfnPreparedStatementProps struct {
+	// `AWS::Athena::PreparedStatement.Description`.
+	Description *string `json:"description"`
 	// `AWS::Athena::PreparedStatement.QueryStatement`.
 	QueryStatement *string `json:"queryStatement"`
 	// `AWS::Athena::PreparedStatement.StatementName`.
 	StatementName *string `json:"statementName"`
 	// `AWS::Athena::PreparedStatement.WorkGroup`.
 	WorkGroup *string `json:"workGroup"`
-	// `AWS::Athena::PreparedStatement.Description`.
-	Description *string `json:"description"`
 }
 
 // A CloudFormation `AWS::Athena::WorkGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnWorkGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2759,6 +2780,8 @@ func (c *jsiiProxy_CfnWorkGroup) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnWorkGroup_EncryptionConfigurationProperty struct {
 	// `CfnWorkGroup.EncryptionConfigurationProperty.EncryptionOption`.
 	EncryptionOption *string `json:"encryptionOption"`
@@ -2766,6 +2789,8 @@ type CfnWorkGroup_EncryptionConfigurationProperty struct {
 	KmsKey *string `json:"kmsKey"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWorkGroup_EngineVersionProperty struct {
 	// `CfnWorkGroup.EngineVersionProperty.EffectiveEngineVersion`.
 	EffectiveEngineVersion *string `json:"effectiveEngineVersion"`
@@ -2773,6 +2798,8 @@ type CfnWorkGroup_EngineVersionProperty struct {
 	SelectedEngineVersion *string `json:"selectedEngineVersion"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWorkGroup_ResultConfigurationProperty struct {
 	// `CfnWorkGroup.ResultConfigurationProperty.EncryptionConfiguration`.
 	EncryptionConfiguration interface{} `json:"encryptionConfiguration"`
@@ -2780,6 +2807,8 @@ type CfnWorkGroup_ResultConfigurationProperty struct {
 	OutputLocation *string `json:"outputLocation"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWorkGroup_ResultConfigurationUpdatesProperty struct {
 	// `CfnWorkGroup.ResultConfigurationUpdatesProperty.EncryptionConfiguration`.
 	EncryptionConfiguration interface{} `json:"encryptionConfiguration"`
@@ -2791,6 +2820,8 @@ type CfnWorkGroup_ResultConfigurationUpdatesProperty struct {
 	RemoveOutputLocation interface{} `json:"removeOutputLocation"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWorkGroup_WorkGroupConfigurationProperty struct {
 	// `CfnWorkGroup.WorkGroupConfigurationProperty.BytesScannedCutoffPerQuery`.
 	BytesScannedCutoffPerQuery *float64 `json:"bytesScannedCutoffPerQuery"`
@@ -2806,6 +2837,8 @@ type CfnWorkGroup_WorkGroupConfigurationProperty struct {
 	ResultConfiguration interface{} `json:"resultConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWorkGroup_WorkGroupConfigurationUpdatesProperty struct {
 	// `CfnWorkGroup.WorkGroupConfigurationUpdatesProperty.BytesScannedCutoffPerQuery`.
 	BytesScannedCutoffPerQuery *float64 `json:"bytesScannedCutoffPerQuery"`
@@ -2824,11 +2857,14 @@ type CfnWorkGroup_WorkGroupConfigurationUpdatesProperty struct {
 }
 
 // Properties for defining a `AWS::Athena::WorkGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnWorkGroupProps struct {
-	// `AWS::Athena::WorkGroup.Name`.
-	Name *string `json:"name"`
 	// `AWS::Athena::WorkGroup.Description`.
 	Description *string `json:"description"`
+	// `AWS::Athena::WorkGroup.Name`.
+	Name *string `json:"name"`
 	// `AWS::Athena::WorkGroup.RecursiveDeleteOption`.
 	RecursiveDeleteOption interface{} `json:"recursiveDeleteOption"`
 	// `AWS::Athena::WorkGroup.State`.

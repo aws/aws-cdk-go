@@ -18,6 +18,9 @@ import (
 )
 
 // An adjustment.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AdjustmentTier struct {
 	// What number to adjust the capacity with.
@@ -52,11 +55,14 @@ type AdjustmentType string
 
 const (
 	AdjustmentType_CHANGE_IN_CAPACITY AdjustmentType = "CHANGE_IN_CAPACITY"
-	AdjustmentType_PERCENT_CHANGE_IN_CAPACITY AdjustmentType = "PERCENT_CHANGE_IN_CAPACITY"
 	AdjustmentType_EXACT_CAPACITY AdjustmentType = "EXACT_CAPACITY"
+	AdjustmentType_PERCENT_CHANGE_IN_CAPACITY AdjustmentType = "PERCENT_CHANGE_IN_CAPACITY"
 )
 
 // Options for applying CloudFormation init to an instance or instance group.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ApplyCloudFormationInitOptions struct {
 	// ConfigSet to activate.
@@ -1026,15 +1032,6 @@ type AutoScalingGroupProps struct {
 	// Where to place instances within the VPC.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
-	// Type of instance to launch.
-	// Experimental.
-	InstanceType awsec2.InstanceType `json:"instanceType"`
-	// AMI to launch.
-	// Experimental.
-	MachineImage awsec2.IMachineImage `json:"machineImage"`
-	// VPC to launch these instances in.
-	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
 	// Apply the given CloudFormation Init configuration to the instances in the AutoScalingGroup at startup.
 	//
 	// If you specify `init`, you must also specify `signals` to configure
@@ -1047,6 +1044,12 @@ type AutoScalingGroupProps struct {
 	// Describes the configsets to use and the timeout to wait
 	// Experimental.
 	InitOptions *ApplyCloudFormationInitOptions `json:"initOptions"`
+	// Type of instance to launch.
+	// Experimental.
+	InstanceType awsec2.InstanceType `json:"instanceType"`
+	// AMI to launch.
+	// Experimental.
+	MachineImage awsec2.IMachineImage `json:"machineImage"`
 	// Whether IMDSv2 should be required on launched instances.
 	// Experimental.
 	RequireImdsv2 *bool `json:"requireImdsv2"`
@@ -1066,6 +1069,9 @@ type AutoScalingGroupProps struct {
 	// The UserData may still be mutated after creation.
 	// Experimental.
 	UserData awsec2.UserData `json:"userData"`
+	// VPC to launch these instances in.
+	// Experimental.
+	Vpc awsec2.IVpc `json:"vpc"`
 }
 
 // Aspect that makes IMDSv2 required on instances deployed by AutoScalingGroups.
@@ -1136,6 +1142,9 @@ func (a *jsiiProxy_AutoScalingGroupRequireImdsv2Aspect) Warn(node awscdk.IConstr
 // except the ones relating to the metric and to the scalable target.
 //
 // This interface is reused by more specific target tracking props objects.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BaseTargetTrackingProps struct {
 	// Period after a scaling completes before another scaling activity can start.
@@ -1155,14 +1164,11 @@ type BaseTargetTrackingProps struct {
 }
 
 // Basic properties for a lifecycle hook.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BasicLifecycleHookProps struct {
-	// The state of the Amazon EC2 instance to which you want to attach the lifecycle hook.
-	// Experimental.
-	LifecycleTransition LifecycleTransition `json:"lifecycleTransition"`
-	// The target of the lifecycle hook.
-	// Experimental.
-	NotificationTarget ILifecycleHookTarget `json:"notificationTarget"`
 	// The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs.
 	// Experimental.
 	DefaultResult DefaultResult `json:"defaultResult"`
@@ -1174,9 +1180,15 @@ type BasicLifecycleHookProps struct {
 	// Name of the lifecycle hook.
 	// Experimental.
 	LifecycleHookName *string `json:"lifecycleHookName"`
+	// The state of the Amazon EC2 instance to which you want to attach the lifecycle hook.
+	// Experimental.
+	LifecycleTransition LifecycleTransition `json:"lifecycleTransition"`
 	// Additional data to pass to the lifecycle hook target.
 	// Experimental.
 	NotificationMetadata *string `json:"notificationMetadata"`
+	// The target of the lifecycle hook.
+	// Experimental.
+	NotificationTarget ILifecycleHookTarget `json:"notificationTarget"`
 	// The role that allows publishing to the notification target.
 	// Experimental.
 	Role awsiam.IRole `json:"role"`
@@ -1188,13 +1200,6 @@ type BasicLifecycleHookProps struct {
 //
 // Experimental.
 type BasicScheduledActionProps struct {
-	// When to perform this action.
-	//
-	// Supports cron expressions.
-	//
-	// For more information about cron expressions, see https://en.wikipedia.org/wiki/Cron.
-	// Experimental.
-	Schedule Schedule `json:"schedule"`
 	// The new desired capacity.
 	//
 	// At the scheduled time, set the desired capacity to the given capacity.
@@ -1219,6 +1224,13 @@ type BasicScheduledActionProps struct {
 	// At least one of maxCapacity, minCapacity, or desiredCapacity must be supplied.
 	// Experimental.
 	MinCapacity *float64 `json:"minCapacity"`
+	// When to perform this action.
+	//
+	// Supports cron expressions.
+	//
+	// For more information about cron expressions, see https://en.wikipedia.org/wiki/Cron.
+	// Experimental.
+	Schedule Schedule `json:"schedule"`
 	// When this scheduled action becomes active.
 	// Experimental.
 	StartTime *time.Time `json:"startTime"`
@@ -1237,14 +1249,6 @@ type BasicScheduledActionProps struct {
 //
 // Experimental.
 type BasicStepScalingPolicyProps struct {
-	// Metric to scale on.
-	// Experimental.
-	Metric awscloudwatch.IMetric `json:"metric"`
-	// The intervals for scaling.
-	//
-	// Maps a range of metric values to a particular scaling behavior.
-	// Experimental.
-	ScalingSteps *[]*ScalingInterval `json:"scalingSteps"`
 	// How the adjustment numbers inside 'intervals' are interpreted.
 	// Experimental.
 	AdjustmentType AdjustmentType `json:"adjustmentType"`
@@ -1260,6 +1264,9 @@ type BasicStepScalingPolicyProps struct {
 	// of slower response times.
 	// Experimental.
 	EvaluationPeriods *float64 `json:"evaluationPeriods"`
+	// Metric to scale on.
+	// Experimental.
+	Metric awscloudwatch.IMetric `json:"metric"`
 	// Aggregation to apply to all data points over the evaluation periods.
 	//
 	// Only has meaning if `evaluationPeriods != 1`.
@@ -1271,9 +1278,17 @@ type BasicStepScalingPolicyProps struct {
 	// the minimum absolute effect size.
 	// Experimental.
 	MinAdjustmentMagnitude *float64 `json:"minAdjustmentMagnitude"`
+	// The intervals for scaling.
+	//
+	// Maps a range of metric values to a particular scaling behavior.
+	// Experimental.
+	ScalingSteps *[]*ScalingInterval `json:"scalingSteps"`
 }
 
 // Properties for a Target Tracking policy that include the metric but exclude the target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BasicTargetTrackingScalingPolicyProps struct {
 	// Period after a scaling completes before another scaling activity can start.
@@ -1290,9 +1305,6 @@ type BasicTargetTrackingScalingPolicyProps struct {
 	// Estimated time until a newly launched instance can send metrics to CloudWatch.
 	// Experimental.
 	EstimatedInstanceWarmup awscdk.Duration `json:"estimatedInstanceWarmup"`
-	// The target value for the metric.
-	// Experimental.
-	TargetValue *float64 `json:"targetValue"`
 	// A custom metric for application autoscaling.
 	//
 	// The metric must track utilization. Scaling out will happen if the metric is higher than
@@ -1317,9 +1329,15 @@ type BasicTargetTrackingScalingPolicyProps struct {
 	// app/<load-balancer-name>/<load-balancer-id>/targetgroup/<target-group-name>/<target-group-id>
 	// Experimental.
 	ResourceLabel *string `json:"resourceLabel"`
+	// The target value for the metric.
+	// Experimental.
+	TargetValue *float64 `json:"targetValue"`
 }
 
 // Block device.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BlockDevice struct {
 	// The device name exposed to the EC2 instance.
@@ -1329,20 +1347,23 @@ type BlockDevice struct {
 	//
 	// Experimental.
 	DeviceName *string `json:"deviceName"`
-	// Defines the block device volume, to be either an Amazon EBS volume or an ephemeral instance store volume.
-	//
-	// Supply a value like `BlockDeviceVolume.ebs(15)`, `BlockDeviceVolume.ephemeral(0)`.
-	// Experimental.
-	Volume BlockDeviceVolume `json:"volume"`
 	// If false, the device mapping will be suppressed.
 	//
 	// If set to false for the root device, the instance might fail the Amazon EC2 health check.
 	// Amazon EC2 Auto Scaling launches a replacement instance if the instance fails the health check.
 	// Deprecated: use `BlockDeviceVolume.noDevice()` as the volume to supress a mapping.
 	MappingEnabled *bool `json:"mappingEnabled"`
+	// Defines the block device volume, to be either an Amazon EBS volume or an ephemeral instance store volume.
+	//
+	// Supply a value like `BlockDeviceVolume.ebs(15)`, `BlockDeviceVolume.ephemeral(0)`.
+	// Experimental.
+	Volume BlockDeviceVolume `json:"volume"`
 }
 
 // Describes a block device mapping for an EC2 instance or Auto Scaling group.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BlockDeviceVolume interface {
 	EbsDevice() *EbsDeviceProps
@@ -1472,6 +1493,9 @@ func BlockDeviceVolume_NoDevice() BlockDeviceVolume {
 }
 
 // A CloudFormation `AWS::AutoScaling::AutoScalingGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnAutoScalingGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2568,6 +2592,8 @@ func (c *jsiiProxy_CfnAutoScalingGroup) ValidateProperties(_properties interface
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnAutoScalingGroup_AcceleratorCountRequestProperty struct {
 	// `CfnAutoScalingGroup.AcceleratorCountRequestProperty.Max`.
 	Max *float64 `json:"max"`
@@ -2575,6 +2601,8 @@ type CfnAutoScalingGroup_AcceleratorCountRequestProperty struct {
 	Min *float64 `json:"min"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAutoScalingGroup_AcceleratorTotalMemoryMiBRequestProperty struct {
 	// `CfnAutoScalingGroup.AcceleratorTotalMemoryMiBRequestProperty.Max`.
 	Max *float64 `json:"max"`
@@ -2582,6 +2610,8 @@ type CfnAutoScalingGroup_AcceleratorTotalMemoryMiBRequestProperty struct {
 	Min *float64 `json:"min"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAutoScalingGroup_BaselineEbsBandwidthMbpsRequestProperty struct {
 	// `CfnAutoScalingGroup.BaselineEbsBandwidthMbpsRequestProperty.Max`.
 	Max *float64 `json:"max"`
@@ -2589,6 +2619,8 @@ type CfnAutoScalingGroup_BaselineEbsBandwidthMbpsRequestProperty struct {
 	Min *float64 `json:"min"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAutoScalingGroup_InstanceRequirementsProperty struct {
 	// `CfnAutoScalingGroup.InstanceRequirementsProperty.AcceleratorCount`.
 	AcceleratorCount interface{} `json:"acceleratorCount"`
@@ -2634,6 +2666,8 @@ type CfnAutoScalingGroup_InstanceRequirementsProperty struct {
 	VCpuCount interface{} `json:"vCpuCount"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAutoScalingGroup_InstancesDistributionProperty struct {
 	// `CfnAutoScalingGroup.InstancesDistributionProperty.OnDemandAllocationStrategy`.
 	OnDemandAllocationStrategy *string `json:"onDemandAllocationStrategy"`
@@ -2649,6 +2683,8 @@ type CfnAutoScalingGroup_InstancesDistributionProperty struct {
 	SpotMaxPrice *string `json:"spotMaxPrice"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAutoScalingGroup_LaunchTemplateOverridesProperty struct {
 	// `CfnAutoScalingGroup.LaunchTemplateOverridesProperty.InstanceRequirements`.
 	InstanceRequirements interface{} `json:"instanceRequirements"`
@@ -2660,6 +2696,8 @@ type CfnAutoScalingGroup_LaunchTemplateOverridesProperty struct {
 	WeightedCapacity *string `json:"weightedCapacity"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAutoScalingGroup_LaunchTemplateProperty struct {
 	// `CfnAutoScalingGroup.LaunchTemplateProperty.LaunchTemplateSpecification`.
 	LaunchTemplateSpecification interface{} `json:"launchTemplateSpecification"`
@@ -2667,24 +2705,28 @@ type CfnAutoScalingGroup_LaunchTemplateProperty struct {
 	Overrides interface{} `json:"overrides"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAutoScalingGroup_LaunchTemplateSpecificationProperty struct {
-	// `CfnAutoScalingGroup.LaunchTemplateSpecificationProperty.Version`.
-	Version *string `json:"version"`
 	// `CfnAutoScalingGroup.LaunchTemplateSpecificationProperty.LaunchTemplateId`.
 	LaunchTemplateId *string `json:"launchTemplateId"`
 	// `CfnAutoScalingGroup.LaunchTemplateSpecificationProperty.LaunchTemplateName`.
 	LaunchTemplateName *string `json:"launchTemplateName"`
+	// `CfnAutoScalingGroup.LaunchTemplateSpecificationProperty.Version`.
+	Version *string `json:"version"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAutoScalingGroup_LifecycleHookSpecificationProperty struct {
-	// `CfnAutoScalingGroup.LifecycleHookSpecificationProperty.LifecycleHookName`.
-	LifecycleHookName *string `json:"lifecycleHookName"`
-	// `CfnAutoScalingGroup.LifecycleHookSpecificationProperty.LifecycleTransition`.
-	LifecycleTransition *string `json:"lifecycleTransition"`
 	// `CfnAutoScalingGroup.LifecycleHookSpecificationProperty.DefaultResult`.
 	DefaultResult *string `json:"defaultResult"`
 	// `CfnAutoScalingGroup.LifecycleHookSpecificationProperty.HeartbeatTimeout`.
 	HeartbeatTimeout *float64 `json:"heartbeatTimeout"`
+	// `CfnAutoScalingGroup.LifecycleHookSpecificationProperty.LifecycleHookName`.
+	LifecycleHookName *string `json:"lifecycleHookName"`
+	// `CfnAutoScalingGroup.LifecycleHookSpecificationProperty.LifecycleTransition`.
+	LifecycleTransition *string `json:"lifecycleTransition"`
 	// `CfnAutoScalingGroup.LifecycleHookSpecificationProperty.NotificationMetadata`.
 	NotificationMetadata *string `json:"notificationMetadata"`
 	// `CfnAutoScalingGroup.LifecycleHookSpecificationProperty.NotificationTargetARN`.
@@ -2693,6 +2735,8 @@ type CfnAutoScalingGroup_LifecycleHookSpecificationProperty struct {
 	RoleArn *string `json:"roleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAutoScalingGroup_MemoryGiBPerVCpuRequestProperty struct {
 	// `CfnAutoScalingGroup.MemoryGiBPerVCpuRequestProperty.Max`.
 	Max *float64 `json:"max"`
@@ -2700,6 +2744,8 @@ type CfnAutoScalingGroup_MemoryGiBPerVCpuRequestProperty struct {
 	Min *float64 `json:"min"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAutoScalingGroup_MemoryMiBRequestProperty struct {
 	// `CfnAutoScalingGroup.MemoryMiBRequestProperty.Max`.
 	Max *float64 `json:"max"`
@@ -2707,6 +2753,8 @@ type CfnAutoScalingGroup_MemoryMiBRequestProperty struct {
 	Min *float64 `json:"min"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAutoScalingGroup_MetricsCollectionProperty struct {
 	// `CfnAutoScalingGroup.MetricsCollectionProperty.Granularity`.
 	Granularity *string `json:"granularity"`
@@ -2714,13 +2762,17 @@ type CfnAutoScalingGroup_MetricsCollectionProperty struct {
 	Metrics *[]*string `json:"metrics"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAutoScalingGroup_MixedInstancesPolicyProperty struct {
-	// `CfnAutoScalingGroup.MixedInstancesPolicyProperty.LaunchTemplate`.
-	LaunchTemplate interface{} `json:"launchTemplate"`
 	// `CfnAutoScalingGroup.MixedInstancesPolicyProperty.InstancesDistribution`.
 	InstancesDistribution interface{} `json:"instancesDistribution"`
+	// `CfnAutoScalingGroup.MixedInstancesPolicyProperty.LaunchTemplate`.
+	LaunchTemplate interface{} `json:"launchTemplate"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAutoScalingGroup_NetworkInterfaceCountRequestProperty struct {
 	// `CfnAutoScalingGroup.NetworkInterfaceCountRequestProperty.Max`.
 	Max *float64 `json:"max"`
@@ -2728,13 +2780,17 @@ type CfnAutoScalingGroup_NetworkInterfaceCountRequestProperty struct {
 	Min *float64 `json:"min"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAutoScalingGroup_NotificationConfigurationProperty struct {
-	// `CfnAutoScalingGroup.NotificationConfigurationProperty.TopicARN`.
-	TopicArn *string `json:"topicArn"`
 	// `CfnAutoScalingGroup.NotificationConfigurationProperty.NotificationTypes`.
 	NotificationTypes *[]*string `json:"notificationTypes"`
+	// `CfnAutoScalingGroup.NotificationConfigurationProperty.TopicARN`.
+	TopicArn *string `json:"topicArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAutoScalingGroup_TagPropertyProperty struct {
 	// `CfnAutoScalingGroup.TagPropertyProperty.Key`.
 	Key *string `json:"key"`
@@ -2744,6 +2800,8 @@ type CfnAutoScalingGroup_TagPropertyProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAutoScalingGroup_TotalLocalStorageGBRequestProperty struct {
 	// `CfnAutoScalingGroup.TotalLocalStorageGBRequestProperty.Max`.
 	Max *float64 `json:"max"`
@@ -2751,6 +2809,8 @@ type CfnAutoScalingGroup_TotalLocalStorageGBRequestProperty struct {
 	Min *float64 `json:"min"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAutoScalingGroup_VCpuCountRequestProperty struct {
 	// `CfnAutoScalingGroup.VCpuCountRequestProperty.Max`.
 	Max *float64 `json:"max"`
@@ -2759,11 +2819,10 @@ type CfnAutoScalingGroup_VCpuCountRequestProperty struct {
 }
 
 // Properties for defining a `AWS::AutoScaling::AutoScalingGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnAutoScalingGroupProps struct {
-	// `AWS::AutoScaling::AutoScalingGroup.MaxSize`.
-	MaxSize *string `json:"maxSize"`
-	// `AWS::AutoScaling::AutoScalingGroup.MinSize`.
-	MinSize *string `json:"minSize"`
 	// `AWS::AutoScaling::AutoScalingGroup.AutoScalingGroupName`.
 	AutoScalingGroupName *string `json:"autoScalingGroupName"`
 	// `AWS::AutoScaling::AutoScalingGroup.AvailabilityZones`.
@@ -2794,8 +2853,12 @@ type CfnAutoScalingGroupProps struct {
 	LoadBalancerNames *[]*string `json:"loadBalancerNames"`
 	// `AWS::AutoScaling::AutoScalingGroup.MaxInstanceLifetime`.
 	MaxInstanceLifetime *float64 `json:"maxInstanceLifetime"`
+	// `AWS::AutoScaling::AutoScalingGroup.MaxSize`.
+	MaxSize *string `json:"maxSize"`
 	// `AWS::AutoScaling::AutoScalingGroup.MetricsCollection`.
 	MetricsCollection interface{} `json:"metricsCollection"`
+	// `AWS::AutoScaling::AutoScalingGroup.MinSize`.
+	MinSize *string `json:"minSize"`
 	// `AWS::AutoScaling::AutoScalingGroup.MixedInstancesPolicy`.
 	MixedInstancesPolicy interface{} `json:"mixedInstancesPolicy"`
 	// `AWS::AutoScaling::AutoScalingGroup.NewInstancesProtectedFromScaleIn`.
@@ -2817,6 +2880,9 @@ type CfnAutoScalingGroupProps struct {
 }
 
 // A CloudFormation `AWS::AutoScaling::LaunchConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnLaunchConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3762,6 +3828,8 @@ func (c *jsiiProxy_CfnLaunchConfiguration) ValidateProperties(_properties interf
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchConfiguration_BlockDeviceMappingProperty struct {
 	// `CfnLaunchConfiguration.BlockDeviceMappingProperty.DeviceName`.
 	DeviceName *string `json:"deviceName"`
@@ -3773,6 +3841,8 @@ type CfnLaunchConfiguration_BlockDeviceMappingProperty struct {
 	VirtualName *string `json:"virtualName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchConfiguration_BlockDeviceProperty struct {
 	// `CfnLaunchConfiguration.BlockDeviceProperty.DeleteOnTermination`.
 	DeleteOnTermination interface{} `json:"deleteOnTermination"`
@@ -3790,6 +3860,8 @@ type CfnLaunchConfiguration_BlockDeviceProperty struct {
 	VolumeType *string `json:"volumeType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchConfiguration_MetadataOptionsProperty struct {
 	// `CfnLaunchConfiguration.MetadataOptionsProperty.HttpEndpoint`.
 	HttpEndpoint *string `json:"httpEndpoint"`
@@ -3800,11 +3872,10 @@ type CfnLaunchConfiguration_MetadataOptionsProperty struct {
 }
 
 // Properties for defining a `AWS::AutoScaling::LaunchConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnLaunchConfigurationProps struct {
-	// `AWS::AutoScaling::LaunchConfiguration.ImageId`.
-	ImageId *string `json:"imageId"`
-	// `AWS::AutoScaling::LaunchConfiguration.InstanceType`.
-	InstanceType *string `json:"instanceType"`
 	// `AWS::AutoScaling::LaunchConfiguration.AssociatePublicIpAddress`.
 	AssociatePublicIpAddress interface{} `json:"associatePublicIpAddress"`
 	// `AWS::AutoScaling::LaunchConfiguration.BlockDeviceMappings`.
@@ -3817,10 +3888,14 @@ type CfnLaunchConfigurationProps struct {
 	EbsOptimized interface{} `json:"ebsOptimized"`
 	// `AWS::AutoScaling::LaunchConfiguration.IamInstanceProfile`.
 	IamInstanceProfile *string `json:"iamInstanceProfile"`
+	// `AWS::AutoScaling::LaunchConfiguration.ImageId`.
+	ImageId *string `json:"imageId"`
 	// `AWS::AutoScaling::LaunchConfiguration.InstanceId`.
 	InstanceId *string `json:"instanceId"`
 	// `AWS::AutoScaling::LaunchConfiguration.InstanceMonitoring`.
 	InstanceMonitoring interface{} `json:"instanceMonitoring"`
+	// `AWS::AutoScaling::LaunchConfiguration.InstanceType`.
+	InstanceType *string `json:"instanceType"`
 	// `AWS::AutoScaling::LaunchConfiguration.KernelId`.
 	KernelId *string `json:"kernelId"`
 	// `AWS::AutoScaling::LaunchConfiguration.KeyName`.
@@ -3842,6 +3917,9 @@ type CfnLaunchConfigurationProps struct {
 }
 
 // A CloudFormation `AWS::AutoScaling::LifecycleHook`.
+//
+// TODO: EXAMPLE
+//
 type CfnLifecycleHook interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4568,17 +4646,20 @@ func (c *jsiiProxy_CfnLifecycleHook) ValidateProperties(_properties interface{})
 }
 
 // Properties for defining a `AWS::AutoScaling::LifecycleHook`.
+//
+// TODO: EXAMPLE
+//
 type CfnLifecycleHookProps struct {
 	// `AWS::AutoScaling::LifecycleHook.AutoScalingGroupName`.
 	AutoScalingGroupName *string `json:"autoScalingGroupName"`
-	// `AWS::AutoScaling::LifecycleHook.LifecycleTransition`.
-	LifecycleTransition *string `json:"lifecycleTransition"`
 	// `AWS::AutoScaling::LifecycleHook.DefaultResult`.
 	DefaultResult *string `json:"defaultResult"`
 	// `AWS::AutoScaling::LifecycleHook.HeartbeatTimeout`.
 	HeartbeatTimeout *float64 `json:"heartbeatTimeout"`
 	// `AWS::AutoScaling::LifecycleHook.LifecycleHookName`.
 	LifecycleHookName *string `json:"lifecycleHookName"`
+	// `AWS::AutoScaling::LifecycleHook.LifecycleTransition`.
+	LifecycleTransition *string `json:"lifecycleTransition"`
 	// `AWS::AutoScaling::LifecycleHook.NotificationMetadata`.
 	NotificationMetadata *string `json:"notificationMetadata"`
 	// `AWS::AutoScaling::LifecycleHook.NotificationTargetARN`.
@@ -4588,6 +4669,9 @@ type CfnLifecycleHookProps struct {
 }
 
 // A CloudFormation `AWS::AutoScaling::ScalingPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnScalingPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5373,19 +5457,23 @@ func (c *jsiiProxy_CfnScalingPolicy) ValidateProperties(_properties interface{})
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnScalingPolicy_CustomizedMetricSpecificationProperty struct {
+	// `CfnScalingPolicy.CustomizedMetricSpecificationProperty.Dimensions`.
+	Dimensions interface{} `json:"dimensions"`
 	// `CfnScalingPolicy.CustomizedMetricSpecificationProperty.MetricName`.
 	MetricName *string `json:"metricName"`
 	// `CfnScalingPolicy.CustomizedMetricSpecificationProperty.Namespace`.
 	Namespace *string `json:"namespace"`
 	// `CfnScalingPolicy.CustomizedMetricSpecificationProperty.Statistic`.
 	Statistic *string `json:"statistic"`
-	// `CfnScalingPolicy.CustomizedMetricSpecificationProperty.Dimensions`.
-	Dimensions interface{} `json:"dimensions"`
 	// `CfnScalingPolicy.CustomizedMetricSpecificationProperty.Unit`.
 	Unit *string `json:"unit"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnScalingPolicy_MetricDimensionProperty struct {
 	// `CfnScalingPolicy.MetricDimensionProperty.Name`.
 	Name *string `json:"name"`
@@ -5393,6 +5481,8 @@ type CfnScalingPolicy_MetricDimensionProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnScalingPolicy_PredefinedMetricSpecificationProperty struct {
 	// `CfnScalingPolicy.PredefinedMetricSpecificationProperty.PredefinedMetricType`.
 	PredefinedMetricType *string `json:"predefinedMetricType"`
@@ -5400,30 +5490,36 @@ type CfnScalingPolicy_PredefinedMetricSpecificationProperty struct {
 	ResourceLabel *string `json:"resourceLabel"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnScalingPolicy_PredictiveScalingConfigurationProperty struct {
-	// `CfnScalingPolicy.PredictiveScalingConfigurationProperty.MetricSpecifications`.
-	MetricSpecifications interface{} `json:"metricSpecifications"`
 	// `CfnScalingPolicy.PredictiveScalingConfigurationProperty.MaxCapacityBreachBehavior`.
 	MaxCapacityBreachBehavior *string `json:"maxCapacityBreachBehavior"`
 	// `CfnScalingPolicy.PredictiveScalingConfigurationProperty.MaxCapacityBuffer`.
 	MaxCapacityBuffer *float64 `json:"maxCapacityBuffer"`
+	// `CfnScalingPolicy.PredictiveScalingConfigurationProperty.MetricSpecifications`.
+	MetricSpecifications interface{} `json:"metricSpecifications"`
 	// `CfnScalingPolicy.PredictiveScalingConfigurationProperty.Mode`.
 	Mode *string `json:"mode"`
 	// `CfnScalingPolicy.PredictiveScalingConfigurationProperty.SchedulingBufferTime`.
 	SchedulingBufferTime *float64 `json:"schedulingBufferTime"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnScalingPolicy_PredictiveScalingMetricSpecificationProperty struct {
-	// `CfnScalingPolicy.PredictiveScalingMetricSpecificationProperty.TargetValue`.
-	TargetValue *float64 `json:"targetValue"`
 	// `CfnScalingPolicy.PredictiveScalingMetricSpecificationProperty.PredefinedLoadMetricSpecification`.
 	PredefinedLoadMetricSpecification interface{} `json:"predefinedLoadMetricSpecification"`
 	// `CfnScalingPolicy.PredictiveScalingMetricSpecificationProperty.PredefinedMetricPairSpecification`.
 	PredefinedMetricPairSpecification interface{} `json:"predefinedMetricPairSpecification"`
 	// `CfnScalingPolicy.PredictiveScalingMetricSpecificationProperty.PredefinedScalingMetricSpecification`.
 	PredefinedScalingMetricSpecification interface{} `json:"predefinedScalingMetricSpecification"`
+	// `CfnScalingPolicy.PredictiveScalingMetricSpecificationProperty.TargetValue`.
+	TargetValue *float64 `json:"targetValue"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnScalingPolicy_PredictiveScalingPredefinedLoadMetricProperty struct {
 	// `CfnScalingPolicy.PredictiveScalingPredefinedLoadMetricProperty.PredefinedMetricType`.
 	PredefinedMetricType *string `json:"predefinedMetricType"`
@@ -5431,6 +5527,8 @@ type CfnScalingPolicy_PredictiveScalingPredefinedLoadMetricProperty struct {
 	ResourceLabel *string `json:"resourceLabel"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnScalingPolicy_PredictiveScalingPredefinedMetricPairProperty struct {
 	// `CfnScalingPolicy.PredictiveScalingPredefinedMetricPairProperty.PredefinedMetricType`.
 	PredefinedMetricType *string `json:"predefinedMetricType"`
@@ -5438,6 +5536,8 @@ type CfnScalingPolicy_PredictiveScalingPredefinedMetricPairProperty struct {
 	ResourceLabel *string `json:"resourceLabel"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnScalingPolicy_PredictiveScalingPredefinedScalingMetricProperty struct {
 	// `CfnScalingPolicy.PredictiveScalingPredefinedScalingMetricProperty.PredefinedMetricType`.
 	PredefinedMetricType *string `json:"predefinedMetricType"`
@@ -5445,32 +5545,39 @@ type CfnScalingPolicy_PredictiveScalingPredefinedScalingMetricProperty struct {
 	ResourceLabel *string `json:"resourceLabel"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnScalingPolicy_StepAdjustmentProperty struct {
-	// `CfnScalingPolicy.StepAdjustmentProperty.ScalingAdjustment`.
-	ScalingAdjustment *float64 `json:"scalingAdjustment"`
 	// `CfnScalingPolicy.StepAdjustmentProperty.MetricIntervalLowerBound`.
 	MetricIntervalLowerBound *float64 `json:"metricIntervalLowerBound"`
 	// `CfnScalingPolicy.StepAdjustmentProperty.MetricIntervalUpperBound`.
 	MetricIntervalUpperBound *float64 `json:"metricIntervalUpperBound"`
+	// `CfnScalingPolicy.StepAdjustmentProperty.ScalingAdjustment`.
+	ScalingAdjustment *float64 `json:"scalingAdjustment"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnScalingPolicy_TargetTrackingConfigurationProperty struct {
-	// `CfnScalingPolicy.TargetTrackingConfigurationProperty.TargetValue`.
-	TargetValue *float64 `json:"targetValue"`
 	// `CfnScalingPolicy.TargetTrackingConfigurationProperty.CustomizedMetricSpecification`.
 	CustomizedMetricSpecification interface{} `json:"customizedMetricSpecification"`
 	// `CfnScalingPolicy.TargetTrackingConfigurationProperty.DisableScaleIn`.
 	DisableScaleIn interface{} `json:"disableScaleIn"`
 	// `CfnScalingPolicy.TargetTrackingConfigurationProperty.PredefinedMetricSpecification`.
 	PredefinedMetricSpecification interface{} `json:"predefinedMetricSpecification"`
+	// `CfnScalingPolicy.TargetTrackingConfigurationProperty.TargetValue`.
+	TargetValue *float64 `json:"targetValue"`
 }
 
 // Properties for defining a `AWS::AutoScaling::ScalingPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnScalingPolicyProps struct {
-	// `AWS::AutoScaling::ScalingPolicy.AutoScalingGroupName`.
-	AutoScalingGroupName *string `json:"autoScalingGroupName"`
 	// `AWS::AutoScaling::ScalingPolicy.AdjustmentType`.
 	AdjustmentType *string `json:"adjustmentType"`
+	// `AWS::AutoScaling::ScalingPolicy.AutoScalingGroupName`.
+	AutoScalingGroupName *string `json:"autoScalingGroupName"`
 	// `AWS::AutoScaling::ScalingPolicy.Cooldown`.
 	Cooldown *string `json:"cooldown"`
 	// `AWS::AutoScaling::ScalingPolicy.EstimatedInstanceWarmup`.
@@ -5492,6 +5599,9 @@ type CfnScalingPolicyProps struct {
 }
 
 // A CloudFormation `AWS::AutoScaling::ScheduledAction`.
+//
+// TODO: EXAMPLE
+//
 type CfnScheduledAction interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6218,6 +6328,9 @@ func (c *jsiiProxy_CfnScheduledAction) ValidateProperties(_properties interface{
 }
 
 // Properties for defining a `AWS::AutoScaling::ScheduledAction`.
+//
+// TODO: EXAMPLE
+//
 type CfnScheduledActionProps struct {
 	// `AWS::AutoScaling::ScheduledAction.AutoScalingGroupName`.
 	AutoScalingGroupName *string `json:"autoScalingGroupName"`
@@ -6238,6 +6351,9 @@ type CfnScheduledActionProps struct {
 }
 
 // A CloudFormation `AWS::AutoScaling::WarmPool`.
+//
+// TODO: EXAMPLE
+//
 type CfnWarmPool interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6884,6 +7000,9 @@ func (c *jsiiProxy_CfnWarmPool) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::AutoScaling::WarmPool`.
+//
+// TODO: EXAMPLE
+//
 type CfnWarmPoolProps struct {
 	// `AWS::AutoScaling::WarmPool.AutoScalingGroupName`.
 	AutoScalingGroupName *string `json:"autoScalingGroupName"`
@@ -6899,6 +7018,9 @@ type CfnWarmPoolProps struct {
 //
 // Constructs that want to create AutoScalingGroups can inherit
 // this interface and specialize the essential parts in various ways.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CommonAutoScalingGroupProps struct {
 	// Whether the instances can initiate connections to anywhere by default.
@@ -7124,11 +7246,14 @@ type CronOptions struct {
 type DefaultResult string
 
 const (
-	DefaultResult_CONTINUE DefaultResult = "CONTINUE"
 	DefaultResult_ABANDON DefaultResult = "ABANDON"
+	DefaultResult_CONTINUE DefaultResult = "CONTINUE"
 )
 
 // Block device options for an EBS volume.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EbsDeviceOptions struct {
 	// Indicates whether to delete the volume when the instance is terminated.
@@ -7159,6 +7284,9 @@ type EbsDeviceOptions struct {
 }
 
 // Base block device options for an EBS volume.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EbsDeviceOptionsBase struct {
 	// Indicates whether to delete the volume when the instance is terminated.
@@ -7182,6 +7310,9 @@ type EbsDeviceOptionsBase struct {
 }
 
 // Properties of an EBS block device.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EbsDeviceProps struct {
 	// Indicates whether to delete the volume when the instance is terminated.
@@ -7213,6 +7344,9 @@ type EbsDeviceProps struct {
 }
 
 // Block device options for an EBS volume created from a snapshot.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EbsDeviceSnapshotOptions struct {
 	// Indicates whether to delete the volume when the instance is terminated.
@@ -7245,15 +7379,18 @@ type EbsDeviceSnapshotOptions struct {
 type EbsDeviceVolumeType string
 
 const (
-	EbsDeviceVolumeType_STANDARD EbsDeviceVolumeType = "STANDARD"
-	EbsDeviceVolumeType_IO1 EbsDeviceVolumeType = "IO1"
 	EbsDeviceVolumeType_GP2 EbsDeviceVolumeType = "GP2"
 	EbsDeviceVolumeType_GP3 EbsDeviceVolumeType = "GP3"
-	EbsDeviceVolumeType_ST1 EbsDeviceVolumeType = "ST1"
+	EbsDeviceVolumeType_IO1 EbsDeviceVolumeType = "IO1"
 	EbsDeviceVolumeType_SC1 EbsDeviceVolumeType = "SC1"
+	EbsDeviceVolumeType_ST1 EbsDeviceVolumeType = "ST1"
+	EbsDeviceVolumeType_STANDARD EbsDeviceVolumeType = "STANDARD"
 )
 
 // EC2 Heath check options.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Ec2HealthCheckOptions struct {
 	// Specified the time Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
@@ -7262,6 +7399,9 @@ type Ec2HealthCheckOptions struct {
 }
 
 // ELB Heath check options.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ElbHealthCheckOptions struct {
 	// Specified the time Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
@@ -7477,6 +7617,9 @@ func GroupMetrics_All() GroupMetrics {
 }
 
 // Health check settings.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HealthCheck interface {
 	GracePeriod() awscdk.Duration
@@ -7821,6 +7964,9 @@ func (i *jsiiProxy_ILifecycleHookTarget) Bind(scope awscdk.Construct, lifecycleH
 }
 
 // Define a life cycle hook.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LifecycleHook interface {
 	awscdk.Resource
@@ -8158,14 +8304,11 @@ func (l *jsiiProxy_LifecycleHook) Validate() *[]*string {
 }
 
 // Properties for a Lifecycle hook.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LifecycleHookProps struct {
-	// The state of the Amazon EC2 instance to which you want to attach the lifecycle hook.
-	// Experimental.
-	LifecycleTransition LifecycleTransition `json:"lifecycleTransition"`
-	// The target of the lifecycle hook.
-	// Experimental.
-	NotificationTarget ILifecycleHookTarget `json:"notificationTarget"`
 	// The action the Auto Scaling group takes when the lifecycle hook timeout elapses or if an unexpected failure occurs.
 	// Experimental.
 	DefaultResult DefaultResult `json:"defaultResult"`
@@ -8177,9 +8320,15 @@ type LifecycleHookProps struct {
 	// Name of the lifecycle hook.
 	// Experimental.
 	LifecycleHookName *string `json:"lifecycleHookName"`
+	// The state of the Amazon EC2 instance to which you want to attach the lifecycle hook.
+	// Experimental.
+	LifecycleTransition LifecycleTransition `json:"lifecycleTransition"`
 	// Additional data to pass to the lifecycle hook target.
 	// Experimental.
 	NotificationMetadata *string `json:"notificationMetadata"`
+	// The target of the lifecycle hook.
+	// Experimental.
+	NotificationTarget ILifecycleHookTarget `json:"notificationTarget"`
 	// The role that allows publishing to the notification target.
 	// Experimental.
 	Role awsiam.IRole `json:"role"`
@@ -8189,6 +8338,9 @@ type LifecycleHookProps struct {
 }
 
 // Properties to add the target to a lifecycle hook.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LifecycleHookTargetConfig struct {
 	// The ARN to use as the notification target.
@@ -8211,11 +8363,14 @@ type MetricAggregationType string
 
 const (
 	MetricAggregationType_AVERAGE MetricAggregationType = "AVERAGE"
-	MetricAggregationType_MINIMUM MetricAggregationType = "MINIMUM"
 	MetricAggregationType_MAXIMUM MetricAggregationType = "MAXIMUM"
+	MetricAggregationType_MINIMUM MetricAggregationType = "MINIMUM"
 )
 
 // Properties for enabling tracking of an arbitrary metric.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type MetricTargetTrackingProps struct {
 	// Period after a scaling completes before another scaling activity can start.
@@ -8281,14 +8436,17 @@ type NetworkUtilizationScalingProps struct {
 // AutoScalingGroup fleet change notifications configurations.
 //
 // You can configure AutoScaling to send an SNS notification whenever your Auto Scaling group scales.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NotificationConfiguration struct {
-	// SNS topic to send notifications about fleet scaling events.
-	// Experimental.
-	Topic awssns.ITopic `json:"topic"`
 	// Which fleet scaling events triggers a notification.
 	// Experimental.
 	ScalingEvents ScalingEvents `json:"scalingEvents"`
+	// SNS topic to send notifications about fleet scaling events.
+	// Experimental.
+	Topic awssns.ITopic `json:"topic"`
 }
 
 // One of the predefined autoscaling metrics.
@@ -8296,13 +8454,16 @@ type NotificationConfiguration struct {
 type PredefinedMetric string
 
 const (
+	PredefinedMetric_ALB_REQUEST_COUNT_PER_TARGET PredefinedMetric = "ALB_REQUEST_COUNT_PER_TARGET"
 	PredefinedMetric_ASG_AVERAGE_CPU_UTILIZATION PredefinedMetric = "ASG_AVERAGE_CPU_UTILIZATION"
 	PredefinedMetric_ASG_AVERAGE_NETWORK_IN PredefinedMetric = "ASG_AVERAGE_NETWORK_IN"
 	PredefinedMetric_ASG_AVERAGE_NETWORK_OUT PredefinedMetric = "ASG_AVERAGE_NETWORK_OUT"
-	PredefinedMetric_ALB_REQUEST_COUNT_PER_TARGET PredefinedMetric = "ALB_REQUEST_COUNT_PER_TARGET"
 )
 
 // Input for Signals.renderCreationPolicy.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type RenderSignalsOptions struct {
 	// The desiredCapacity of the ASG.
@@ -8342,6 +8503,9 @@ type RequestCountScalingProps struct {
 }
 
 // Additional settings when a rolling update is selected.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: use `UpdatePolicy.rollingUpdate()`
 type RollingUpdateConfiguration struct {
 	// The maximum number of instances that AWS CloudFormation updates at once.
@@ -8393,6 +8557,9 @@ type RollingUpdateConfiguration struct {
 }
 
 // Options for customizing the rolling update.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type RollingUpdateOptions struct {
 	// The maximum number of instances that AWS CloudFormation updates at once.
@@ -8428,13 +8595,16 @@ type ScalingEvent string
 
 const (
 	ScalingEvent_INSTANCE_LAUNCH ScalingEvent = "INSTANCE_LAUNCH"
+	ScalingEvent_INSTANCE_LAUNCH_ERROR ScalingEvent = "INSTANCE_LAUNCH_ERROR"
 	ScalingEvent_INSTANCE_TERMINATE ScalingEvent = "INSTANCE_TERMINATE"
 	ScalingEvent_INSTANCE_TERMINATE_ERROR ScalingEvent = "INSTANCE_TERMINATE_ERROR"
-	ScalingEvent_INSTANCE_LAUNCH_ERROR ScalingEvent = "INSTANCE_LAUNCH_ERROR"
 	ScalingEvent_TEST_NOTIFICATION ScalingEvent = "TEST_NOTIFICATION"
 )
 
 // A list of ScalingEvents, you can use one of the predefined lists, such as ScalingEvents.ERRORS or create a custom group by instantiating a `NotificationTypes` object, e.g: `new NotificationTypes(`NotificationType.INSTANCE_LAUNCH`)`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ScalingEvents interface {
 }
@@ -8525,6 +8695,9 @@ func ScalingEvents_TERMINATION_EVENTS() ScalingEvents {
 }
 
 // A range of metric values in which to apply a certain scaling operation.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ScalingInterval struct {
 	// The capacity adjustment to apply in this interval.
@@ -8555,14 +8728,14 @@ type ScalingInterval struct {
 type ScalingProcess string
 
 const (
-	ScalingProcess_LAUNCH ScalingProcess = "LAUNCH"
-	ScalingProcess_TERMINATE ScalingProcess = "TERMINATE"
-	ScalingProcess_HEALTH_CHECK ScalingProcess = "HEALTH_CHECK"
-	ScalingProcess_REPLACE_UNHEALTHY ScalingProcess = "REPLACE_UNHEALTHY"
-	ScalingProcess_AZ_REBALANCE ScalingProcess = "AZ_REBALANCE"
-	ScalingProcess_ALARM_NOTIFICATION ScalingProcess = "ALARM_NOTIFICATION"
-	ScalingProcess_SCHEDULED_ACTIONS ScalingProcess = "SCHEDULED_ACTIONS"
 	ScalingProcess_ADD_TO_LOAD_BALANCER ScalingProcess = "ADD_TO_LOAD_BALANCER"
+	ScalingProcess_ALARM_NOTIFICATION ScalingProcess = "ALARM_NOTIFICATION"
+	ScalingProcess_AZ_REBALANCE ScalingProcess = "AZ_REBALANCE"
+	ScalingProcess_HEALTH_CHECK ScalingProcess = "HEALTH_CHECK"
+	ScalingProcess_LAUNCH ScalingProcess = "LAUNCH"
+	ScalingProcess_REPLACE_UNHEALTHY ScalingProcess = "REPLACE_UNHEALTHY"
+	ScalingProcess_SCHEDULED_ACTIONS ScalingProcess = "SCHEDULED_ACTIONS"
+	ScalingProcess_TERMINATE ScalingProcess = "TERMINATE"
 )
 
 // Schedule for scheduled scaling actions.
@@ -8638,6 +8811,9 @@ func Schedule_Expression(expression *string) Schedule {
 }
 
 // Define a scheduled scaling action.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ScheduledAction interface {
 	awscdk.Resource
@@ -8951,15 +9127,11 @@ func (s *jsiiProxy_ScheduledAction) Validate() *[]*string {
 }
 
 // Properties for a scheduled action on an AutoScalingGroup.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ScheduledActionProps struct {
-	// When to perform this action.
-	//
-	// Supports cron expressions.
-	//
-	// For more information about cron expressions, see https://en.wikipedia.org/wiki/Cron.
-	// Experimental.
-	Schedule Schedule `json:"schedule"`
 	// The new desired capacity.
 	//
 	// At the scheduled time, set the desired capacity to the given capacity.
@@ -8984,6 +9156,13 @@ type ScheduledActionProps struct {
 	// At least one of maxCapacity, minCapacity, or desiredCapacity must be supplied.
 	// Experimental.
 	MinCapacity *float64 `json:"minCapacity"`
+	// When to perform this action.
+	//
+	// Supports cron expressions.
+	//
+	// For more information about cron expressions, see https://en.wikipedia.org/wiki/Cron.
+	// Experimental.
+	Schedule Schedule `json:"schedule"`
 	// When this scheduled action becomes active.
 	// Experimental.
 	StartTime *time.Time `json:"startTime"`
@@ -9155,6 +9334,9 @@ type SignalsOptions struct {
 // to its alarm threshold.
 //
 // This Action must be used as the target of a CloudWatch alarm to take effect.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type StepScalingAction interface {
 	awscdk.Construct
@@ -9365,14 +9547,17 @@ func (s *jsiiProxy_StepScalingAction) Validate() *[]*string {
 }
 
 // Properties for a scaling policy.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type StepScalingActionProps struct {
-	// The auto scaling group.
-	// Experimental.
-	AutoScalingGroup IAutoScalingGroup `json:"autoScalingGroup"`
 	// How the adjustment numbers are interpreted.
 	// Experimental.
 	AdjustmentType AdjustmentType `json:"adjustmentType"`
+	// The auto scaling group.
+	// Experimental.
+	AutoScalingGroup IAutoScalingGroup `json:"autoScalingGroup"`
 	// Period after a scaling completes before another scaling activity can start.
 	// Experimental.
 	Cooldown awscdk.Duration `json:"cooldown"`
@@ -9395,6 +9580,9 @@ type StepScalingActionProps struct {
 // You can specify the scaling behavior for various values of the metric.
 //
 // Implemented using one or more CloudWatch alarms and Step Scaling Policies.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type StepScalingPolicy interface {
 	awscdk.Construct
@@ -9626,16 +9814,10 @@ func (s *jsiiProxy_StepScalingPolicy) Validate() *[]*string {
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type StepScalingPolicyProps struct {
-	// Metric to scale on.
-	// Experimental.
-	Metric awscloudwatch.IMetric `json:"metric"`
-	// The intervals for scaling.
-	//
-	// Maps a range of metric values to a particular scaling behavior.
-	// Experimental.
-	ScalingSteps *[]*ScalingInterval `json:"scalingSteps"`
 	// How the adjustment numbers inside 'intervals' are interpreted.
 	// Experimental.
 	AdjustmentType AdjustmentType `json:"adjustmentType"`
@@ -9651,6 +9833,9 @@ type StepScalingPolicyProps struct {
 	// of slower response times.
 	// Experimental.
 	EvaluationPeriods *float64 `json:"evaluationPeriods"`
+	// Metric to scale on.
+	// Experimental.
+	Metric awscloudwatch.IMetric `json:"metric"`
 	// Aggregation to apply to all data points over the evaluation periods.
 	//
 	// Only has meaning if `evaluationPeriods != 1`.
@@ -9662,11 +9847,18 @@ type StepScalingPolicyProps struct {
 	// the minimum absolute effect size.
 	// Experimental.
 	MinAdjustmentMagnitude *float64 `json:"minAdjustmentMagnitude"`
+	// The intervals for scaling.
+	//
+	// Maps a range of metric values to a particular scaling behavior.
+	// Experimental.
+	ScalingSteps *[]*ScalingInterval `json:"scalingSteps"`
 	// The auto scaling group.
 	// Experimental.
 	AutoScalingGroup IAutoScalingGroup `json:"autoScalingGroup"`
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type TargetTrackingScalingPolicy interface {
 	awscdk.Construct
@@ -9868,6 +10060,9 @@ func (t *jsiiProxy_TargetTrackingScalingPolicy) Validate() *[]*string {
 // Properties for a concrete TargetTrackingPolicy.
 //
 // Adds the scalingTarget.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type TargetTrackingScalingPolicyProps struct {
 	// Period after a scaling completes before another scaling activity can start.
@@ -9884,9 +10079,6 @@ type TargetTrackingScalingPolicyProps struct {
 	// Estimated time until a newly launched instance can send metrics to CloudWatch.
 	// Experimental.
 	EstimatedInstanceWarmup awscdk.Duration `json:"estimatedInstanceWarmup"`
-	// The target value for the metric.
-	// Experimental.
-	TargetValue *float64 `json:"targetValue"`
 	// A custom metric for application autoscaling.
 	//
 	// The metric must track utilization. Scaling out will happen if the metric is higher than
@@ -9911,11 +10103,17 @@ type TargetTrackingScalingPolicyProps struct {
 	// app/<load-balancer-name>/<load-balancer-id>/targetgroup/<target-group-name>/<target-group-id>
 	// Experimental.
 	ResourceLabel *string `json:"resourceLabel"`
+	// The target value for the metric.
+	// Experimental.
+	TargetValue *float64 `json:"targetValue"`
 	// Experimental.
 	AutoScalingGroup IAutoScalingGroup `json:"autoScalingGroup"`
 }
 
 // How existing instances should be updated.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type UpdatePolicy interface {
 }

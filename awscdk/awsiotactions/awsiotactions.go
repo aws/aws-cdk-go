@@ -70,6 +70,9 @@ func (c *jsiiProxy_CloudWatchLogsAction) Bind(rule awsiot.ITopicRule) *awsiot.Ac
 }
 
 // Configuration properties of an action for CloudWatch Logs.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CloudWatchLogsActionProps struct {
 	// The IAM role that allows access to AWS service.
@@ -78,6 +81,9 @@ type CloudWatchLogsActionProps struct {
 }
 
 // Common properties shared by Actions it access to AWS service.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CommonActionProps struct {
 	// The IAM role that allows access to AWS service.
@@ -289,6 +295,9 @@ func (s *jsiiProxy_S3PutObjectAction) Bind(rule awsiot.ITopicRule) *awsiot.Actio
 }
 
 // Configuration properties of an action for s3.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type S3PutObjectActionProps struct {
 	// The IAM role that allows access to AWS service.

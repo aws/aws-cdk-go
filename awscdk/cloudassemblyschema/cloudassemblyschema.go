@@ -6,6 +6,9 @@ import (
 )
 
 // Query to AMI context provider.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AmiContextQuery struct {
 	// Account to query.
@@ -26,6 +29,9 @@ type AmiContextQuery struct {
 }
 
 // A manifest for a single artifact within the cloud assembly.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ArtifactManifest struct {
 	// IDs of artifacts that must be deployed before this artifact.
@@ -76,6 +82,9 @@ const (
 )
 
 // A manifest which describes the cloud assembly.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AssemblyManifest struct {
 	// The set of artifacts in this assembly.
@@ -96,20 +105,26 @@ type AssemblyManifest struct {
 }
 
 // Definitions for the asset manifest.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AssetManifest struct {
-	// Version of the manifest.
-	// Experimental.
-	Version *string `json:"version"`
 	// The Docker image assets in this manifest.
 	// Experimental.
 	DockerImages *map[string]*DockerImageAsset `json:"dockerImages"`
 	// The file assets in this manifest.
 	// Experimental.
 	Files *map[string]*FileAsset `json:"files"`
+	// Version of the manifest.
+	// Experimental.
+	Version *string `json:"version"`
 }
 
 // Artifact properties for the Asset Manifest.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AssetManifestProperties struct {
 	// SSM parameter where the bootstrap stack version number can be found.
@@ -130,6 +145,9 @@ type AssetManifestProperties struct {
 }
 
 // Query to availability zone context provider.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AvailabilityZonesContextQuery struct {
 	// Query account.
@@ -144,6 +162,9 @@ type AvailabilityZonesContextQuery struct {
 }
 
 // Artifact properties for CloudFormation stacks.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AwsCloudFormationStackProperties struct {
 	// The role that needs to be assumed to deploy the stack.
@@ -193,6 +214,9 @@ type AwsCloudFormationStackProperties struct {
 }
 
 // Destination for assets that need to be uploaded to AWS.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AwsDestination struct {
 	// The role that needs to be assumed while publishing this asset.
@@ -207,6 +231,9 @@ type AwsDestination struct {
 }
 
 // Metadata Entry spec for container images.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ContainerImageAssetMetadataEntry struct {
 	// Build args to pass to the `docker build` command.
@@ -268,6 +295,9 @@ const (
 )
 
 // A file asset.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DockerImageAsset struct {
 	// Destinations for this file asset.
@@ -279,6 +309,9 @@ type DockerImageAsset struct {
 }
 
 // Where to publish docker images.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DockerImageDestination struct {
 	// The role that needs to be assumed while publishing this asset.
@@ -299,6 +332,9 @@ type DockerImageDestination struct {
 }
 
 // Properties for how to produce a Docker image from a source.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DockerImageSource struct {
 	// The directory containing the Docker image build instructions.
@@ -327,6 +363,9 @@ type DockerImageSource struct {
 }
 
 // Query to endpoint service context provider.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EndpointServiceAvailabilityZonesContextQuery struct {
 	// Query account.
@@ -344,6 +383,9 @@ type EndpointServiceAvailabilityZonesContextQuery struct {
 }
 
 // A file asset.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FileAsset struct {
 	// Destinations for this file asset.
@@ -355,6 +397,9 @@ type FileAsset struct {
 }
 
 // Metadata Entry spec for files.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FileAssetMetadataEntry struct {
 	// The name of the parameter where the hash of the bundled asset should be passed in.
@@ -390,6 +435,9 @@ const (
 )
 
 // Where in S3 a file asset needs to be published.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FileDestination struct {
 	// The role that needs to be assumed while publishing this asset.
@@ -410,6 +458,9 @@ type FileDestination struct {
 }
 
 // Describe the source of a file asset.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FileSource struct {
 	// External command which will produce the file asset to upload.
@@ -428,6 +479,9 @@ type FileSource struct {
 }
 
 // Query to hosted zone context provider.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HostedZoneContextQuery struct {
 	// Query account.
@@ -454,6 +508,9 @@ type HostedZoneContextQuery struct {
 }
 
 // Query input for looking up a KMS Key.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type KeyContextQuery struct {
 	// Query account.
@@ -471,6 +528,9 @@ type KeyContextQuery struct {
 }
 
 // Query input for looking up a load balancer.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LoadBalancerContextQuery struct {
 	// Find by load balancer's ARN.
@@ -494,6 +554,9 @@ type LoadBalancerContextQuery struct {
 }
 
 // Filters for selecting load balancers.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LoadBalancerFilter struct {
 	// Find by load balancer's ARN.
@@ -508,6 +571,9 @@ type LoadBalancerFilter struct {
 }
 
 // Query input for looking up a load balancer listener.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LoadBalancerListenerContextQuery struct {
 	// Find by load balancer's ARN.
@@ -676,6 +742,9 @@ func Manifest_Version() *string {
 }
 
 // A metadata entry in a cloud assembly artifact.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type MetadataEntry struct {
 	// The data.
@@ -690,6 +759,9 @@ type MetadataEntry struct {
 }
 
 // Represents a missing piece of context.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type MissingContext struct {
 	// The missing context key.
@@ -704,6 +776,9 @@ type MissingContext struct {
 }
 
 // Artifact properties for nested cloud assemblies.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NestedCloudAssemblyProperties struct {
 	// Relative path to the nested cloud assembly.
@@ -715,6 +790,9 @@ type NestedCloudAssemblyProperties struct {
 }
 
 // Information about the application's runtime components.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type RuntimeInfo struct {
 	// The list of libraries loaded in the application, associated with their versions.
@@ -723,6 +801,9 @@ type RuntimeInfo struct {
 }
 
 // Query to SSM Parameter Context Provider.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SSMParameterContextQuery struct {
 	// Query account.
@@ -740,6 +821,9 @@ type SSMParameterContextQuery struct {
 }
 
 // Query input for looking up a security group.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SecurityGroupContextQuery struct {
 	// Query account.
@@ -763,6 +847,9 @@ type SecurityGroupContextQuery struct {
 }
 
 // Metadata Entry spec for stack tag.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Tag struct {
 	// Tag key.
@@ -782,6 +869,9 @@ type Tag struct {
 }
 
 // Artifact properties for the Construct Tree Artifact.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type TreeArtifactProperties struct {
 	// Filename of the tree artifact.
@@ -790,6 +880,9 @@ type TreeArtifactProperties struct {
 }
 
 // Query input for looking up a VPC.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type VpcContextQuery struct {
 	// Query account.

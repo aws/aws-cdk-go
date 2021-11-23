@@ -255,8 +255,8 @@ func init() {
 		"monocdk.aws_certificatemanager.ValidationMethod",
 		reflect.TypeOf((*ValidationMethod)(nil)).Elem(),
 		map[string]interface{}{
-			"EMAIL": ValidationMethod_EMAIL,
 			"DNS": ValidationMethod_DNS,
+			"EMAIL": ValidationMethod_EMAIL,
 		},
 	)
 }

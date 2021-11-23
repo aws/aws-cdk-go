@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::Greengrass::ConnectorDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnConnectorDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -670,11 +673,15 @@ func (c *jsiiProxy_CfnConnectorDefinition) ValidateProperties(_properties interf
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorDefinition_ConnectorDefinitionVersionProperty struct {
 	// `CfnConnectorDefinition.ConnectorDefinitionVersionProperty.Connectors`.
 	Connectors interface{} `json:"connectors"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorDefinition_ConnectorProperty struct {
 	// `CfnConnectorDefinition.ConnectorProperty.ConnectorArn`.
 	ConnectorArn *string `json:"connectorArn"`
@@ -685,16 +692,22 @@ type CfnConnectorDefinition_ConnectorProperty struct {
 }
 
 // Properties for defining a `AWS::Greengrass::ConnectorDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnConnectorDefinitionProps struct {
-	// `AWS::Greengrass::ConnectorDefinition.Name`.
-	Name *string `json:"name"`
 	// `AWS::Greengrass::ConnectorDefinition.InitialVersion`.
 	InitialVersion interface{} `json:"initialVersion"`
+	// `AWS::Greengrass::ConnectorDefinition.Name`.
+	Name *string `json:"name"`
 	// `AWS::Greengrass::ConnectorDefinition.Tags`.
 	Tags interface{} `json:"tags"`
 }
 
 // A CloudFormation `AWS::Greengrass::ConnectorDefinitionVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnConnectorDefinitionVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1300,6 +1313,8 @@ func (c *jsiiProxy_CfnConnectorDefinitionVersion) ValidateProperties(_properties
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnectorDefinitionVersion_ConnectorProperty struct {
 	// `CfnConnectorDefinitionVersion.ConnectorProperty.ConnectorArn`.
 	ConnectorArn *string `json:"connectorArn"`
@@ -1310,6 +1325,9 @@ type CfnConnectorDefinitionVersion_ConnectorProperty struct {
 }
 
 // Properties for defining a `AWS::Greengrass::ConnectorDefinitionVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnConnectorDefinitionVersionProps struct {
 	// `AWS::Greengrass::ConnectorDefinitionVersion.ConnectorDefinitionId`.
 	ConnectorDefinitionId *string `json:"connectorDefinitionId"`
@@ -1318,6 +1336,9 @@ type CfnConnectorDefinitionVersionProps struct {
 }
 
 // A CloudFormation `AWS::Greengrass::CoreDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnCoreDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1978,33 +1999,43 @@ func (c *jsiiProxy_CfnCoreDefinition) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnCoreDefinition_CoreDefinitionVersionProperty struct {
 	// `CfnCoreDefinition.CoreDefinitionVersionProperty.Cores`.
 	Cores interface{} `json:"cores"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCoreDefinition_CoreProperty struct {
 	// `CfnCoreDefinition.CoreProperty.CertificateArn`.
 	CertificateArn *string `json:"certificateArn"`
 	// `CfnCoreDefinition.CoreProperty.Id`.
 	Id *string `json:"id"`
-	// `CfnCoreDefinition.CoreProperty.ThingArn`.
-	ThingArn *string `json:"thingArn"`
 	// `CfnCoreDefinition.CoreProperty.SyncShadow`.
 	SyncShadow interface{} `json:"syncShadow"`
+	// `CfnCoreDefinition.CoreProperty.ThingArn`.
+	ThingArn *string `json:"thingArn"`
 }
 
 // Properties for defining a `AWS::Greengrass::CoreDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnCoreDefinitionProps struct {
-	// `AWS::Greengrass::CoreDefinition.Name`.
-	Name *string `json:"name"`
 	// `AWS::Greengrass::CoreDefinition.InitialVersion`.
 	InitialVersion interface{} `json:"initialVersion"`
+	// `AWS::Greengrass::CoreDefinition.Name`.
+	Name *string `json:"name"`
 	// `AWS::Greengrass::CoreDefinition.Tags`.
 	Tags interface{} `json:"tags"`
 }
 
 // A CloudFormation `AWS::Greengrass::CoreDefinitionVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnCoreDefinitionVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2610,18 +2641,23 @@ func (c *jsiiProxy_CfnCoreDefinitionVersion) ValidateProperties(_properties inte
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnCoreDefinitionVersion_CoreProperty struct {
 	// `CfnCoreDefinitionVersion.CoreProperty.CertificateArn`.
 	CertificateArn *string `json:"certificateArn"`
 	// `CfnCoreDefinitionVersion.CoreProperty.Id`.
 	Id *string `json:"id"`
-	// `CfnCoreDefinitionVersion.CoreProperty.ThingArn`.
-	ThingArn *string `json:"thingArn"`
 	// `CfnCoreDefinitionVersion.CoreProperty.SyncShadow`.
 	SyncShadow interface{} `json:"syncShadow"`
+	// `CfnCoreDefinitionVersion.CoreProperty.ThingArn`.
+	ThingArn *string `json:"thingArn"`
 }
 
 // Properties for defining a `AWS::Greengrass::CoreDefinitionVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnCoreDefinitionVersionProps struct {
 	// `AWS::Greengrass::CoreDefinitionVersion.CoreDefinitionId`.
 	CoreDefinitionId *string `json:"coreDefinitionId"`
@@ -2630,6 +2666,9 @@ type CfnCoreDefinitionVersionProps struct {
 }
 
 // A CloudFormation `AWS::Greengrass::DeviceDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnDeviceDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3290,33 +3329,43 @@ func (c *jsiiProxy_CfnDeviceDefinition) ValidateProperties(_properties interface
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeviceDefinition_DeviceDefinitionVersionProperty struct {
 	// `CfnDeviceDefinition.DeviceDefinitionVersionProperty.Devices`.
 	Devices interface{} `json:"devices"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeviceDefinition_DeviceProperty struct {
 	// `CfnDeviceDefinition.DeviceProperty.CertificateArn`.
 	CertificateArn *string `json:"certificateArn"`
 	// `CfnDeviceDefinition.DeviceProperty.Id`.
 	Id *string `json:"id"`
-	// `CfnDeviceDefinition.DeviceProperty.ThingArn`.
-	ThingArn *string `json:"thingArn"`
 	// `CfnDeviceDefinition.DeviceProperty.SyncShadow`.
 	SyncShadow interface{} `json:"syncShadow"`
+	// `CfnDeviceDefinition.DeviceProperty.ThingArn`.
+	ThingArn *string `json:"thingArn"`
 }
 
 // Properties for defining a `AWS::Greengrass::DeviceDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnDeviceDefinitionProps struct {
-	// `AWS::Greengrass::DeviceDefinition.Name`.
-	Name *string `json:"name"`
 	// `AWS::Greengrass::DeviceDefinition.InitialVersion`.
 	InitialVersion interface{} `json:"initialVersion"`
+	// `AWS::Greengrass::DeviceDefinition.Name`.
+	Name *string `json:"name"`
 	// `AWS::Greengrass::DeviceDefinition.Tags`.
 	Tags interface{} `json:"tags"`
 }
 
 // A CloudFormation `AWS::Greengrass::DeviceDefinitionVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnDeviceDefinitionVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3922,18 +3971,23 @@ func (c *jsiiProxy_CfnDeviceDefinitionVersion) ValidateProperties(_properties in
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeviceDefinitionVersion_DeviceProperty struct {
 	// `CfnDeviceDefinitionVersion.DeviceProperty.CertificateArn`.
 	CertificateArn *string `json:"certificateArn"`
 	// `CfnDeviceDefinitionVersion.DeviceProperty.Id`.
 	Id *string `json:"id"`
-	// `CfnDeviceDefinitionVersion.DeviceProperty.ThingArn`.
-	ThingArn *string `json:"thingArn"`
 	// `CfnDeviceDefinitionVersion.DeviceProperty.SyncShadow`.
 	SyncShadow interface{} `json:"syncShadow"`
+	// `CfnDeviceDefinitionVersion.DeviceProperty.ThingArn`.
+	ThingArn *string `json:"thingArn"`
 }
 
 // Properties for defining a `AWS::Greengrass::DeviceDefinitionVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnDeviceDefinitionVersionProps struct {
 	// `AWS::Greengrass::DeviceDefinitionVersion.DeviceDefinitionId`.
 	DeviceDefinitionId *string `json:"deviceDefinitionId"`
@@ -3942,6 +3996,9 @@ type CfnDeviceDefinitionVersionProps struct {
 }
 
 // A CloudFormation `AWS::Greengrass::FunctionDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnFunctionDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4602,11 +4659,15 @@ func (c *jsiiProxy_CfnFunctionDefinition) ValidateProperties(_properties interfa
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunctionDefinition_DefaultConfigProperty struct {
 	// `CfnFunctionDefinition.DefaultConfigProperty.Execution`.
 	Execution interface{} `json:"execution"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunctionDefinition_EnvironmentProperty struct {
 	// `CfnFunctionDefinition.EnvironmentProperty.AccessSysfs`.
 	AccessSysfs interface{} `json:"accessSysfs"`
@@ -4618,6 +4679,8 @@ type CfnFunctionDefinition_EnvironmentProperty struct {
 	Variables interface{} `json:"variables"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunctionDefinition_ExecutionProperty struct {
 	// `CfnFunctionDefinition.ExecutionProperty.IsolationMode`.
 	IsolationMode *string `json:"isolationMode"`
@@ -4625,6 +4688,8 @@ type CfnFunctionDefinition_ExecutionProperty struct {
 	RunAs interface{} `json:"runAs"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunctionDefinition_FunctionConfigurationProperty struct {
 	// `CfnFunctionDefinition.FunctionConfigurationProperty.EncodingType`.
 	EncodingType *string `json:"encodingType"`
@@ -4642,13 +4707,17 @@ type CfnFunctionDefinition_FunctionConfigurationProperty struct {
 	Timeout *float64 `json:"timeout"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunctionDefinition_FunctionDefinitionVersionProperty struct {
-	// `CfnFunctionDefinition.FunctionDefinitionVersionProperty.Functions`.
-	Functions interface{} `json:"functions"`
 	// `CfnFunctionDefinition.FunctionDefinitionVersionProperty.DefaultConfig`.
 	DefaultConfig interface{} `json:"defaultConfig"`
+	// `CfnFunctionDefinition.FunctionDefinitionVersionProperty.Functions`.
+	Functions interface{} `json:"functions"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunctionDefinition_FunctionProperty struct {
 	// `CfnFunctionDefinition.FunctionProperty.FunctionArn`.
 	FunctionArn *string `json:"functionArn"`
@@ -4658,13 +4727,17 @@ type CfnFunctionDefinition_FunctionProperty struct {
 	Id *string `json:"id"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunctionDefinition_ResourceAccessPolicyProperty struct {
-	// `CfnFunctionDefinition.ResourceAccessPolicyProperty.ResourceId`.
-	ResourceId *string `json:"resourceId"`
 	// `CfnFunctionDefinition.ResourceAccessPolicyProperty.Permission`.
 	Permission *string `json:"permission"`
+	// `CfnFunctionDefinition.ResourceAccessPolicyProperty.ResourceId`.
+	ResourceId *string `json:"resourceId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunctionDefinition_RunAsProperty struct {
 	// `CfnFunctionDefinition.RunAsProperty.Gid`.
 	Gid *float64 `json:"gid"`
@@ -4673,16 +4746,22 @@ type CfnFunctionDefinition_RunAsProperty struct {
 }
 
 // Properties for defining a `AWS::Greengrass::FunctionDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnFunctionDefinitionProps struct {
-	// `AWS::Greengrass::FunctionDefinition.Name`.
-	Name *string `json:"name"`
 	// `AWS::Greengrass::FunctionDefinition.InitialVersion`.
 	InitialVersion interface{} `json:"initialVersion"`
+	// `AWS::Greengrass::FunctionDefinition.Name`.
+	Name *string `json:"name"`
 	// `AWS::Greengrass::FunctionDefinition.Tags`.
 	Tags interface{} `json:"tags"`
 }
 
 // A CloudFormation `AWS::Greengrass::FunctionDefinitionVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnFunctionDefinitionVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5308,11 +5387,15 @@ func (c *jsiiProxy_CfnFunctionDefinitionVersion) ValidateProperties(_properties 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunctionDefinitionVersion_DefaultConfigProperty struct {
 	// `CfnFunctionDefinitionVersion.DefaultConfigProperty.Execution`.
 	Execution interface{} `json:"execution"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunctionDefinitionVersion_EnvironmentProperty struct {
 	// `CfnFunctionDefinitionVersion.EnvironmentProperty.AccessSysfs`.
 	AccessSysfs interface{} `json:"accessSysfs"`
@@ -5324,6 +5407,8 @@ type CfnFunctionDefinitionVersion_EnvironmentProperty struct {
 	Variables interface{} `json:"variables"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunctionDefinitionVersion_ExecutionProperty struct {
 	// `CfnFunctionDefinitionVersion.ExecutionProperty.IsolationMode`.
 	IsolationMode *string `json:"isolationMode"`
@@ -5331,6 +5416,8 @@ type CfnFunctionDefinitionVersion_ExecutionProperty struct {
 	RunAs interface{} `json:"runAs"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunctionDefinitionVersion_FunctionConfigurationProperty struct {
 	// `CfnFunctionDefinitionVersion.FunctionConfigurationProperty.EncodingType`.
 	EncodingType *string `json:"encodingType"`
@@ -5348,6 +5435,8 @@ type CfnFunctionDefinitionVersion_FunctionConfigurationProperty struct {
 	Timeout *float64 `json:"timeout"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunctionDefinitionVersion_FunctionProperty struct {
 	// `CfnFunctionDefinitionVersion.FunctionProperty.FunctionArn`.
 	FunctionArn *string `json:"functionArn"`
@@ -5357,13 +5446,17 @@ type CfnFunctionDefinitionVersion_FunctionProperty struct {
 	Id *string `json:"id"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunctionDefinitionVersion_ResourceAccessPolicyProperty struct {
-	// `CfnFunctionDefinitionVersion.ResourceAccessPolicyProperty.ResourceId`.
-	ResourceId *string `json:"resourceId"`
 	// `CfnFunctionDefinitionVersion.ResourceAccessPolicyProperty.Permission`.
 	Permission *string `json:"permission"`
+	// `CfnFunctionDefinitionVersion.ResourceAccessPolicyProperty.ResourceId`.
+	ResourceId *string `json:"resourceId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunctionDefinitionVersion_RunAsProperty struct {
 	// `CfnFunctionDefinitionVersion.RunAsProperty.Gid`.
 	Gid *float64 `json:"gid"`
@@ -5372,16 +5465,22 @@ type CfnFunctionDefinitionVersion_RunAsProperty struct {
 }
 
 // Properties for defining a `AWS::Greengrass::FunctionDefinitionVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnFunctionDefinitionVersionProps struct {
+	// `AWS::Greengrass::FunctionDefinitionVersion.DefaultConfig`.
+	DefaultConfig interface{} `json:"defaultConfig"`
 	// `AWS::Greengrass::FunctionDefinitionVersion.FunctionDefinitionId`.
 	FunctionDefinitionId *string `json:"functionDefinitionId"`
 	// `AWS::Greengrass::FunctionDefinitionVersion.Functions`.
 	Functions interface{} `json:"functions"`
-	// `AWS::Greengrass::FunctionDefinitionVersion.DefaultConfig`.
-	DefaultConfig interface{} `json:"defaultConfig"`
 }
 
 // A CloudFormation `AWS::Greengrass::Group`.
+//
+// TODO: EXAMPLE
+//
 type CfnGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6084,6 +6183,8 @@ func (c *jsiiProxy_CfnGroup) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnGroup_GroupVersionProperty struct {
 	// `CfnGroup.GroupVersionProperty.ConnectorDefinitionVersionArn`.
 	ConnectorDefinitionVersionArn *string `json:"connectorDefinitionVersionArn"`
@@ -6102,11 +6203,14 @@ type CfnGroup_GroupVersionProperty struct {
 }
 
 // Properties for defining a `AWS::Greengrass::Group`.
+//
+// TODO: EXAMPLE
+//
 type CfnGroupProps struct {
-	// `AWS::Greengrass::Group.Name`.
-	Name *string `json:"name"`
 	// `AWS::Greengrass::Group.InitialVersion`.
 	InitialVersion interface{} `json:"initialVersion"`
+	// `AWS::Greengrass::Group.Name`.
+	Name *string `json:"name"`
 	// `AWS::Greengrass::Group.RoleArn`.
 	RoleArn *string `json:"roleArn"`
 	// `AWS::Greengrass::Group.Tags`.
@@ -6114,6 +6218,9 @@ type CfnGroupProps struct {
 }
 
 // A CloudFormation `AWS::Greengrass::GroupVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnGroupVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6840,9 +6947,10 @@ func (c *jsiiProxy_CfnGroupVersion) ValidateProperties(_properties interface{}) 
 }
 
 // Properties for defining a `AWS::Greengrass::GroupVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnGroupVersionProps struct {
-	// `AWS::Greengrass::GroupVersion.GroupId`.
-	GroupId *string `json:"groupId"`
 	// `AWS::Greengrass::GroupVersion.ConnectorDefinitionVersionArn`.
 	ConnectorDefinitionVersionArn *string `json:"connectorDefinitionVersionArn"`
 	// `AWS::Greengrass::GroupVersion.CoreDefinitionVersionArn`.
@@ -6851,6 +6959,8 @@ type CfnGroupVersionProps struct {
 	DeviceDefinitionVersionArn *string `json:"deviceDefinitionVersionArn"`
 	// `AWS::Greengrass::GroupVersion.FunctionDefinitionVersionArn`.
 	FunctionDefinitionVersionArn *string `json:"functionDefinitionVersionArn"`
+	// `AWS::Greengrass::GroupVersion.GroupId`.
+	GroupId *string `json:"groupId"`
 	// `AWS::Greengrass::GroupVersion.LoggerDefinitionVersionArn`.
 	LoggerDefinitionVersionArn *string `json:"loggerDefinitionVersionArn"`
 	// `AWS::Greengrass::GroupVersion.ResourceDefinitionVersionArn`.
@@ -6860,6 +6970,9 @@ type CfnGroupVersionProps struct {
 }
 
 // A CloudFormation `AWS::Greengrass::LoggerDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnLoggerDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -7520,11 +7633,15 @@ func (c *jsiiProxy_CfnLoggerDefinition) ValidateProperties(_properties interface
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnLoggerDefinition_LoggerDefinitionVersionProperty struct {
 	// `CfnLoggerDefinition.LoggerDefinitionVersionProperty.Loggers`.
 	Loggers interface{} `json:"loggers"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLoggerDefinition_LoggerProperty struct {
 	// `CfnLoggerDefinition.LoggerProperty.Component`.
 	Component *string `json:"component"`
@@ -7532,23 +7649,29 @@ type CfnLoggerDefinition_LoggerProperty struct {
 	Id *string `json:"id"`
 	// `CfnLoggerDefinition.LoggerProperty.Level`.
 	Level *string `json:"level"`
-	// `CfnLoggerDefinition.LoggerProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnLoggerDefinition.LoggerProperty.Space`.
 	Space *float64 `json:"space"`
+	// `CfnLoggerDefinition.LoggerProperty.Type`.
+	Type *string `json:"type"`
 }
 
 // Properties for defining a `AWS::Greengrass::LoggerDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnLoggerDefinitionProps struct {
-	// `AWS::Greengrass::LoggerDefinition.Name`.
-	Name *string `json:"name"`
 	// `AWS::Greengrass::LoggerDefinition.InitialVersion`.
 	InitialVersion interface{} `json:"initialVersion"`
+	// `AWS::Greengrass::LoggerDefinition.Name`.
+	Name *string `json:"name"`
 	// `AWS::Greengrass::LoggerDefinition.Tags`.
 	Tags interface{} `json:"tags"`
 }
 
 // A CloudFormation `AWS::Greengrass::LoggerDefinitionVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnLoggerDefinitionVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -8154,6 +8277,8 @@ func (c *jsiiProxy_CfnLoggerDefinitionVersion) ValidateProperties(_properties in
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnLoggerDefinitionVersion_LoggerProperty struct {
 	// `CfnLoggerDefinitionVersion.LoggerProperty.Component`.
 	Component *string `json:"component"`
@@ -8161,13 +8286,16 @@ type CfnLoggerDefinitionVersion_LoggerProperty struct {
 	Id *string `json:"id"`
 	// `CfnLoggerDefinitionVersion.LoggerProperty.Level`.
 	Level *string `json:"level"`
-	// `CfnLoggerDefinitionVersion.LoggerProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnLoggerDefinitionVersion.LoggerProperty.Space`.
 	Space *float64 `json:"space"`
+	// `CfnLoggerDefinitionVersion.LoggerProperty.Type`.
+	Type *string `json:"type"`
 }
 
 // Properties for defining a `AWS::Greengrass::LoggerDefinitionVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnLoggerDefinitionVersionProps struct {
 	// `AWS::Greengrass::LoggerDefinitionVersion.LoggerDefinitionId`.
 	LoggerDefinitionId *string `json:"loggerDefinitionId"`
@@ -8176,6 +8304,9 @@ type CfnLoggerDefinitionVersionProps struct {
 }
 
 // A CloudFormation `AWS::Greengrass::ResourceDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourceDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -8836,6 +8967,8 @@ func (c *jsiiProxy_CfnResourceDefinition) ValidateProperties(_properties interfa
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceDefinition_GroupOwnerSettingProperty struct {
 	// `CfnResourceDefinition.GroupOwnerSettingProperty.AutoAddGroupOwner`.
 	AutoAddGroupOwner interface{} `json:"autoAddGroupOwner"`
@@ -8843,22 +8976,28 @@ type CfnResourceDefinition_GroupOwnerSettingProperty struct {
 	GroupOwner *string `json:"groupOwner"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceDefinition_LocalDeviceResourceDataProperty struct {
-	// `CfnResourceDefinition.LocalDeviceResourceDataProperty.SourcePath`.
-	SourcePath *string `json:"sourcePath"`
 	// `CfnResourceDefinition.LocalDeviceResourceDataProperty.GroupOwnerSetting`.
 	GroupOwnerSetting interface{} `json:"groupOwnerSetting"`
+	// `CfnResourceDefinition.LocalDeviceResourceDataProperty.SourcePath`.
+	SourcePath *string `json:"sourcePath"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceDefinition_LocalVolumeResourceDataProperty struct {
 	// `CfnResourceDefinition.LocalVolumeResourceDataProperty.DestinationPath`.
 	DestinationPath *string `json:"destinationPath"`
-	// `CfnResourceDefinition.LocalVolumeResourceDataProperty.SourcePath`.
-	SourcePath *string `json:"sourcePath"`
 	// `CfnResourceDefinition.LocalVolumeResourceDataProperty.GroupOwnerSetting`.
 	GroupOwnerSetting interface{} `json:"groupOwnerSetting"`
+	// `CfnResourceDefinition.LocalVolumeResourceDataProperty.SourcePath`.
+	SourcePath *string `json:"sourcePath"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceDefinition_ResourceDataContainerProperty struct {
 	// `CfnResourceDefinition.ResourceDataContainerProperty.LocalDeviceResourceData`.
 	LocalDeviceResourceData interface{} `json:"localDeviceResourceData"`
@@ -8872,11 +9011,15 @@ type CfnResourceDefinition_ResourceDataContainerProperty struct {
 	SecretsManagerSecretResourceData interface{} `json:"secretsManagerSecretResourceData"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceDefinition_ResourceDefinitionVersionProperty struct {
 	// `CfnResourceDefinition.ResourceDefinitionVersionProperty.Resources`.
 	Resources interface{} `json:"resources"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceDefinition_ResourceDownloadOwnerSettingProperty struct {
 	// `CfnResourceDefinition.ResourceDownloadOwnerSettingProperty.GroupOwner`.
 	GroupOwner *string `json:"groupOwner"`
@@ -8884,6 +9027,8 @@ type CfnResourceDefinition_ResourceDownloadOwnerSettingProperty struct {
 	GroupPermission *string `json:"groupPermission"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceDefinition_ResourceInstanceProperty struct {
 	// `CfnResourceDefinition.ResourceInstanceProperty.Id`.
 	Id *string `json:"id"`
@@ -8893,42 +9038,54 @@ type CfnResourceDefinition_ResourceInstanceProperty struct {
 	ResourceDataContainer interface{} `json:"resourceDataContainer"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceDefinition_S3MachineLearningModelResourceDataProperty struct {
 	// `CfnResourceDefinition.S3MachineLearningModelResourceDataProperty.DestinationPath`.
 	DestinationPath *string `json:"destinationPath"`
-	// `CfnResourceDefinition.S3MachineLearningModelResourceDataProperty.S3Uri`.
-	S3Uri *string `json:"s3Uri"`
 	// `CfnResourceDefinition.S3MachineLearningModelResourceDataProperty.OwnerSetting`.
 	OwnerSetting interface{} `json:"ownerSetting"`
+	// `CfnResourceDefinition.S3MachineLearningModelResourceDataProperty.S3Uri`.
+	S3Uri *string `json:"s3Uri"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceDefinition_SageMakerMachineLearningModelResourceDataProperty struct {
 	// `CfnResourceDefinition.SageMakerMachineLearningModelResourceDataProperty.DestinationPath`.
 	DestinationPath *string `json:"destinationPath"`
-	// `CfnResourceDefinition.SageMakerMachineLearningModelResourceDataProperty.SageMakerJobArn`.
-	SageMakerJobArn *string `json:"sageMakerJobArn"`
 	// `CfnResourceDefinition.SageMakerMachineLearningModelResourceDataProperty.OwnerSetting`.
 	OwnerSetting interface{} `json:"ownerSetting"`
+	// `CfnResourceDefinition.SageMakerMachineLearningModelResourceDataProperty.SageMakerJobArn`.
+	SageMakerJobArn *string `json:"sageMakerJobArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceDefinition_SecretsManagerSecretResourceDataProperty struct {
-	// `CfnResourceDefinition.SecretsManagerSecretResourceDataProperty.ARN`.
-	Arn *string `json:"arn"`
 	// `CfnResourceDefinition.SecretsManagerSecretResourceDataProperty.AdditionalStagingLabelsToDownload`.
 	AdditionalStagingLabelsToDownload *[]*string `json:"additionalStagingLabelsToDownload"`
+	// `CfnResourceDefinition.SecretsManagerSecretResourceDataProperty.ARN`.
+	Arn *string `json:"arn"`
 }
 
 // Properties for defining a `AWS::Greengrass::ResourceDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourceDefinitionProps struct {
-	// `AWS::Greengrass::ResourceDefinition.Name`.
-	Name *string `json:"name"`
 	// `AWS::Greengrass::ResourceDefinition.InitialVersion`.
 	InitialVersion interface{} `json:"initialVersion"`
+	// `AWS::Greengrass::ResourceDefinition.Name`.
+	Name *string `json:"name"`
 	// `AWS::Greengrass::ResourceDefinition.Tags`.
 	Tags interface{} `json:"tags"`
 }
 
 // A CloudFormation `AWS::Greengrass::ResourceDefinitionVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourceDefinitionVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -9534,6 +9691,8 @@ func (c *jsiiProxy_CfnResourceDefinitionVersion) ValidateProperties(_properties 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceDefinitionVersion_GroupOwnerSettingProperty struct {
 	// `CfnResourceDefinitionVersion.GroupOwnerSettingProperty.AutoAddGroupOwner`.
 	AutoAddGroupOwner interface{} `json:"autoAddGroupOwner"`
@@ -9541,22 +9700,28 @@ type CfnResourceDefinitionVersion_GroupOwnerSettingProperty struct {
 	GroupOwner *string `json:"groupOwner"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceDefinitionVersion_LocalDeviceResourceDataProperty struct {
-	// `CfnResourceDefinitionVersion.LocalDeviceResourceDataProperty.SourcePath`.
-	SourcePath *string `json:"sourcePath"`
 	// `CfnResourceDefinitionVersion.LocalDeviceResourceDataProperty.GroupOwnerSetting`.
 	GroupOwnerSetting interface{} `json:"groupOwnerSetting"`
+	// `CfnResourceDefinitionVersion.LocalDeviceResourceDataProperty.SourcePath`.
+	SourcePath *string `json:"sourcePath"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceDefinitionVersion_LocalVolumeResourceDataProperty struct {
 	// `CfnResourceDefinitionVersion.LocalVolumeResourceDataProperty.DestinationPath`.
 	DestinationPath *string `json:"destinationPath"`
-	// `CfnResourceDefinitionVersion.LocalVolumeResourceDataProperty.SourcePath`.
-	SourcePath *string `json:"sourcePath"`
 	// `CfnResourceDefinitionVersion.LocalVolumeResourceDataProperty.GroupOwnerSetting`.
 	GroupOwnerSetting interface{} `json:"groupOwnerSetting"`
+	// `CfnResourceDefinitionVersion.LocalVolumeResourceDataProperty.SourcePath`.
+	SourcePath *string `json:"sourcePath"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceDefinitionVersion_ResourceDataContainerProperty struct {
 	// `CfnResourceDefinitionVersion.ResourceDataContainerProperty.LocalDeviceResourceData`.
 	LocalDeviceResourceData interface{} `json:"localDeviceResourceData"`
@@ -9570,6 +9735,8 @@ type CfnResourceDefinitionVersion_ResourceDataContainerProperty struct {
 	SecretsManagerSecretResourceData interface{} `json:"secretsManagerSecretResourceData"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceDefinitionVersion_ResourceDownloadOwnerSettingProperty struct {
 	// `CfnResourceDefinitionVersion.ResourceDownloadOwnerSettingProperty.GroupOwner`.
 	GroupOwner *string `json:"groupOwner"`
@@ -9577,6 +9744,8 @@ type CfnResourceDefinitionVersion_ResourceDownloadOwnerSettingProperty struct {
 	GroupPermission *string `json:"groupPermission"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceDefinitionVersion_ResourceInstanceProperty struct {
 	// `CfnResourceDefinitionVersion.ResourceInstanceProperty.Id`.
 	Id *string `json:"id"`
@@ -9586,32 +9755,41 @@ type CfnResourceDefinitionVersion_ResourceInstanceProperty struct {
 	ResourceDataContainer interface{} `json:"resourceDataContainer"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceDefinitionVersion_S3MachineLearningModelResourceDataProperty struct {
 	// `CfnResourceDefinitionVersion.S3MachineLearningModelResourceDataProperty.DestinationPath`.
 	DestinationPath *string `json:"destinationPath"`
-	// `CfnResourceDefinitionVersion.S3MachineLearningModelResourceDataProperty.S3Uri`.
-	S3Uri *string `json:"s3Uri"`
 	// `CfnResourceDefinitionVersion.S3MachineLearningModelResourceDataProperty.OwnerSetting`.
 	OwnerSetting interface{} `json:"ownerSetting"`
+	// `CfnResourceDefinitionVersion.S3MachineLearningModelResourceDataProperty.S3Uri`.
+	S3Uri *string `json:"s3Uri"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceDefinitionVersion_SageMakerMachineLearningModelResourceDataProperty struct {
 	// `CfnResourceDefinitionVersion.SageMakerMachineLearningModelResourceDataProperty.DestinationPath`.
 	DestinationPath *string `json:"destinationPath"`
-	// `CfnResourceDefinitionVersion.SageMakerMachineLearningModelResourceDataProperty.SageMakerJobArn`.
-	SageMakerJobArn *string `json:"sageMakerJobArn"`
 	// `CfnResourceDefinitionVersion.SageMakerMachineLearningModelResourceDataProperty.OwnerSetting`.
 	OwnerSetting interface{} `json:"ownerSetting"`
+	// `CfnResourceDefinitionVersion.SageMakerMachineLearningModelResourceDataProperty.SageMakerJobArn`.
+	SageMakerJobArn *string `json:"sageMakerJobArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceDefinitionVersion_SecretsManagerSecretResourceDataProperty struct {
-	// `CfnResourceDefinitionVersion.SecretsManagerSecretResourceDataProperty.ARN`.
-	Arn *string `json:"arn"`
 	// `CfnResourceDefinitionVersion.SecretsManagerSecretResourceDataProperty.AdditionalStagingLabelsToDownload`.
 	AdditionalStagingLabelsToDownload *[]*string `json:"additionalStagingLabelsToDownload"`
+	// `CfnResourceDefinitionVersion.SecretsManagerSecretResourceDataProperty.ARN`.
+	Arn *string `json:"arn"`
 }
 
 // Properties for defining a `AWS::Greengrass::ResourceDefinitionVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourceDefinitionVersionProps struct {
 	// `AWS::Greengrass::ResourceDefinitionVersion.ResourceDefinitionId`.
 	ResourceDefinitionId *string `json:"resourceDefinitionId"`
@@ -9620,6 +9798,9 @@ type CfnResourceDefinitionVersionProps struct {
 }
 
 // A CloudFormation `AWS::Greengrass::SubscriptionDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnSubscriptionDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -10280,11 +10461,15 @@ func (c *jsiiProxy_CfnSubscriptionDefinition) ValidateProperties(_properties int
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnSubscriptionDefinition_SubscriptionDefinitionVersionProperty struct {
 	// `CfnSubscriptionDefinition.SubscriptionDefinitionVersionProperty.Subscriptions`.
 	Subscriptions interface{} `json:"subscriptions"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSubscriptionDefinition_SubscriptionProperty struct {
 	// `CfnSubscriptionDefinition.SubscriptionProperty.Id`.
 	Id *string `json:"id"`
@@ -10297,16 +10482,22 @@ type CfnSubscriptionDefinition_SubscriptionProperty struct {
 }
 
 // Properties for defining a `AWS::Greengrass::SubscriptionDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnSubscriptionDefinitionProps struct {
-	// `AWS::Greengrass::SubscriptionDefinition.Name`.
-	Name *string `json:"name"`
 	// `AWS::Greengrass::SubscriptionDefinition.InitialVersion`.
 	InitialVersion interface{} `json:"initialVersion"`
+	// `AWS::Greengrass::SubscriptionDefinition.Name`.
+	Name *string `json:"name"`
 	// `AWS::Greengrass::SubscriptionDefinition.Tags`.
 	Tags interface{} `json:"tags"`
 }
 
 // A CloudFormation `AWS::Greengrass::SubscriptionDefinitionVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnSubscriptionDefinitionVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -10912,6 +11103,8 @@ func (c *jsiiProxy_CfnSubscriptionDefinitionVersion) ValidateProperties(_propert
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnSubscriptionDefinitionVersion_SubscriptionProperty struct {
 	// `CfnSubscriptionDefinitionVersion.SubscriptionProperty.Id`.
 	Id *string `json:"id"`
@@ -10924,6 +11117,9 @@ type CfnSubscriptionDefinitionVersion_SubscriptionProperty struct {
 }
 
 // Properties for defining a `AWS::Greengrass::SubscriptionDefinitionVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnSubscriptionDefinitionVersionProps struct {
 	// `AWS::Greengrass::SubscriptionDefinitionVersion.SubscriptionDefinitionId`.
 	SubscriptionDefinitionId *string `json:"subscriptionDefinitionId"`

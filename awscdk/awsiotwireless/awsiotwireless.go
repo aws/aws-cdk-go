@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::IoTWireless::Destination`.
+//
+// TODO: EXAMPLE
+//
 type CfnDestination interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -698,7 +701,12 @@ func (c *jsiiProxy_CfnDestination) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::IoTWireless::Destination`.
+//
+// TODO: EXAMPLE
+//
 type CfnDestinationProps struct {
+	// `AWS::IoTWireless::Destination.Description`.
+	Description *string `json:"description"`
 	// `AWS::IoTWireless::Destination.Expression`.
 	Expression *string `json:"expression"`
 	// `AWS::IoTWireless::Destination.ExpressionType`.
@@ -707,13 +715,14 @@ type CfnDestinationProps struct {
 	Name *string `json:"name"`
 	// `AWS::IoTWireless::Destination.RoleArn`.
 	RoleArn *string `json:"roleArn"`
-	// `AWS::IoTWireless::Destination.Description`.
-	Description *string `json:"description"`
 	// `AWS::IoTWireless::Destination.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::IoTWireless::DeviceProfile`.
+//
+// TODO: EXAMPLE
+//
 type CfnDeviceProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1352,6 +1361,8 @@ func (c *jsiiProxy_CfnDeviceProfile) ValidateProperties(_properties interface{})
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeviceProfile_LoRaWANDeviceProfileProperty struct {
 	// `CfnDeviceProfile.LoRaWANDeviceProfileProperty.ClassBTimeout`.
 	ClassBTimeout *float64 `json:"classBTimeout"`
@@ -1384,6 +1395,9 @@ type CfnDeviceProfile_LoRaWANDeviceProfileProperty struct {
 }
 
 // Properties for defining a `AWS::IoTWireless::DeviceProfile`.
+//
+// TODO: EXAMPLE
+//
 type CfnDeviceProfileProps struct {
 	// `AWS::IoTWireless::DeviceProfile.LoRaWAN`.
 	LoRaWan interface{} `json:"loRaWan"`
@@ -1394,6 +1408,9 @@ type CfnDeviceProfileProps struct {
 }
 
 // A CloudFormation `AWS::IoTWireless::FuotaTask`.
+//
+// TODO: EXAMPLE
+//
 type CfnFuotaTask interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2194,6 +2211,8 @@ func (c *jsiiProxy_CfnFuotaTask) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFuotaTask_LoRaWANProperty struct {
 	// `CfnFuotaTask.LoRaWANProperty.RfRegion`.
 	RfRegion *string `json:"rfRegion"`
@@ -2202,13 +2221,10 @@ type CfnFuotaTask_LoRaWANProperty struct {
 }
 
 // Properties for defining a `AWS::IoTWireless::FuotaTask`.
+//
+// TODO: EXAMPLE
+//
 type CfnFuotaTaskProps struct {
-	// `AWS::IoTWireless::FuotaTask.FirmwareUpdateImage`.
-	FirmwareUpdateImage *string `json:"firmwareUpdateImage"`
-	// `AWS::IoTWireless::FuotaTask.FirmwareUpdateRole`.
-	FirmwareUpdateRole *string `json:"firmwareUpdateRole"`
-	// `AWS::IoTWireless::FuotaTask.LoRaWAN`.
-	LoRaWan interface{} `json:"loRaWan"`
 	// `AWS::IoTWireless::FuotaTask.AssociateMulticastGroup`.
 	AssociateMulticastGroup *string `json:"associateMulticastGroup"`
 	// `AWS::IoTWireless::FuotaTask.AssociateWirelessDevice`.
@@ -2219,6 +2235,12 @@ type CfnFuotaTaskProps struct {
 	DisassociateMulticastGroup *string `json:"disassociateMulticastGroup"`
 	// `AWS::IoTWireless::FuotaTask.DisassociateWirelessDevice`.
 	DisassociateWirelessDevice *string `json:"disassociateWirelessDevice"`
+	// `AWS::IoTWireless::FuotaTask.FirmwareUpdateImage`.
+	FirmwareUpdateImage *string `json:"firmwareUpdateImage"`
+	// `AWS::IoTWireless::FuotaTask.FirmwareUpdateRole`.
+	FirmwareUpdateRole *string `json:"firmwareUpdateRole"`
+	// `AWS::IoTWireless::FuotaTask.LoRaWAN`.
+	LoRaWan interface{} `json:"loRaWan"`
 	// `AWS::IoTWireless::FuotaTask.Name`.
 	Name *string `json:"name"`
 	// `AWS::IoTWireless::FuotaTask.Tags`.
@@ -2226,6 +2248,9 @@ type CfnFuotaTaskProps struct {
 }
 
 // A CloudFormation `AWS::IoTWireless::MulticastGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnMulticastGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2957,27 +2982,32 @@ func (c *jsiiProxy_CfnMulticastGroup) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnMulticastGroup_LoRaWANProperty struct {
 	// `CfnMulticastGroup.LoRaWANProperty.DlClass`.
 	DlClass *string `json:"dlClass"`
-	// `CfnMulticastGroup.LoRaWANProperty.RfRegion`.
-	RfRegion *string `json:"rfRegion"`
 	// `CfnMulticastGroup.LoRaWANProperty.NumberOfDevicesInGroup`.
 	NumberOfDevicesInGroup *float64 `json:"numberOfDevicesInGroup"`
 	// `CfnMulticastGroup.LoRaWANProperty.NumberOfDevicesRequested`.
 	NumberOfDevicesRequested *float64 `json:"numberOfDevicesRequested"`
+	// `CfnMulticastGroup.LoRaWANProperty.RfRegion`.
+	RfRegion *string `json:"rfRegion"`
 }
 
 // Properties for defining a `AWS::IoTWireless::MulticastGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnMulticastGroupProps struct {
-	// `AWS::IoTWireless::MulticastGroup.LoRaWAN`.
-	LoRaWan interface{} `json:"loRaWan"`
 	// `AWS::IoTWireless::MulticastGroup.AssociateWirelessDevice`.
 	AssociateWirelessDevice *string `json:"associateWirelessDevice"`
 	// `AWS::IoTWireless::MulticastGroup.Description`.
 	Description *string `json:"description"`
 	// `AWS::IoTWireless::MulticastGroup.DisassociateWirelessDevice`.
 	DisassociateWirelessDevice *string `json:"disassociateWirelessDevice"`
+	// `AWS::IoTWireless::MulticastGroup.LoRaWAN`.
+	LoRaWan interface{} `json:"loRaWan"`
 	// `AWS::IoTWireless::MulticastGroup.Name`.
 	Name *string `json:"name"`
 	// `AWS::IoTWireless::MulticastGroup.Tags`.
@@ -2985,6 +3015,9 @@ type CfnMulticastGroupProps struct {
 }
 
 // A CloudFormation `AWS::IoTWireless::PartnerAccount`.
+//
+// TODO: EXAMPLE
+//
 type CfnPartnerAccount interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3692,17 +3725,24 @@ func (c *jsiiProxy_CfnPartnerAccount) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnPartnerAccount_SidewalkAccountInfoProperty struct {
 	// `CfnPartnerAccount.SidewalkAccountInfoProperty.AppServerPrivateKey`.
 	AppServerPrivateKey *string `json:"appServerPrivateKey"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPartnerAccount_SidewalkUpdateAccountProperty struct {
 	// `CfnPartnerAccount.SidewalkUpdateAccountProperty.AppServerPrivateKey`.
 	AppServerPrivateKey *string `json:"appServerPrivateKey"`
 }
 
 // Properties for defining a `AWS::IoTWireless::PartnerAccount`.
+//
+// TODO: EXAMPLE
+//
 type CfnPartnerAccountProps struct {
 	// `AWS::IoTWireless::PartnerAccount.AccountLinked`.
 	AccountLinked interface{} `json:"accountLinked"`
@@ -3721,6 +3761,9 @@ type CfnPartnerAccountProps struct {
 }
 
 // A CloudFormation `AWS::IoTWireless::ServiceProfile`.
+//
+// TODO: EXAMPLE
+//
 type CfnServiceProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4568,6 +4611,8 @@ func (c *jsiiProxy_CfnServiceProfile) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnServiceProfile_LoRaWANServiceProfileProperty struct {
 	// `CfnServiceProfile.LoRaWANServiceProfileProperty.AddGwMetadata`.
 	AddGwMetadata interface{} `json:"addGwMetadata"`
@@ -4610,6 +4655,9 @@ type CfnServiceProfile_LoRaWANServiceProfileProperty struct {
 }
 
 // Properties for defining a `AWS::IoTWireless::ServiceProfile`.
+//
+// TODO: EXAMPLE
+//
 type CfnServiceProfileProps struct {
 	// `AWS::IoTWireless::ServiceProfile.LoRaWAN`.
 	LoRaWan interface{} `json:"loRaWan"`
@@ -4620,6 +4668,9 @@ type CfnServiceProfileProps struct {
 }
 
 // A CloudFormation `AWS::IoTWireless::TaskDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5318,6 +5369,8 @@ func (c *jsiiProxy_CfnTaskDefinition) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_LoRaWANGatewayVersionProperty struct {
 	// `CfnTaskDefinition.LoRaWANGatewayVersionProperty.Model`.
 	Model *string `json:"model"`
@@ -5327,6 +5380,8 @@ type CfnTaskDefinition_LoRaWANGatewayVersionProperty struct {
 	Station *string `json:"station"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_LoRaWANUpdateGatewayTaskCreateProperty struct {
 	// `CfnTaskDefinition.LoRaWANUpdateGatewayTaskCreateProperty.CurrentVersion`.
 	CurrentVersion interface{} `json:"currentVersion"`
@@ -5338,6 +5393,8 @@ type CfnTaskDefinition_LoRaWANUpdateGatewayTaskCreateProperty struct {
 	UpdateVersion interface{} `json:"updateVersion"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_LoRaWANUpdateGatewayTaskEntryProperty struct {
 	// `CfnTaskDefinition.LoRaWANUpdateGatewayTaskEntryProperty.CurrentVersion`.
 	CurrentVersion interface{} `json:"currentVersion"`
@@ -5345,6 +5402,8 @@ type CfnTaskDefinition_LoRaWANUpdateGatewayTaskEntryProperty struct {
 	UpdateVersion interface{} `json:"updateVersion"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_UpdateWirelessGatewayTaskCreateProperty struct {
 	// `CfnTaskDefinition.UpdateWirelessGatewayTaskCreateProperty.LoRaWAN`.
 	LoRaWan interface{} `json:"loRaWan"`
@@ -5355,6 +5414,9 @@ type CfnTaskDefinition_UpdateWirelessGatewayTaskCreateProperty struct {
 }
 
 // Properties for defining a `AWS::IoTWireless::TaskDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnTaskDefinitionProps struct {
 	// `AWS::IoTWireless::TaskDefinition.AutoCreateTasks`.
 	AutoCreateTasks interface{} `json:"autoCreateTasks"`
@@ -5371,6 +5433,9 @@ type CfnTaskDefinitionProps struct {
 }
 
 // A CloudFormation `AWS::IoTWireless::WirelessDevice`.
+//
+// TODO: EXAMPLE
+//
 type CfnWirelessDevice interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6120,6 +6185,8 @@ func (c *jsiiProxy_CfnWirelessDevice) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnWirelessDevice_AbpV10xProperty struct {
 	// `CfnWirelessDevice.AbpV10xProperty.DevAddr`.
 	DevAddr *string `json:"devAddr"`
@@ -6127,6 +6194,8 @@ type CfnWirelessDevice_AbpV10xProperty struct {
 	SessionKeys interface{} `json:"sessionKeys"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWirelessDevice_AbpV11Property struct {
 	// `CfnWirelessDevice.AbpV11Property.DevAddr`.
 	DevAddr *string `json:"devAddr"`
@@ -6134,6 +6203,8 @@ type CfnWirelessDevice_AbpV11Property struct {
 	SessionKeys interface{} `json:"sessionKeys"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWirelessDevice_LoRaWANDeviceProperty struct {
 	// `CfnWirelessDevice.LoRaWANDeviceProperty.AbpV10x`.
 	AbpV10X interface{} `json:"abpV10X"`
@@ -6151,6 +6222,8 @@ type CfnWirelessDevice_LoRaWANDeviceProperty struct {
 	ServiceProfileId *string `json:"serviceProfileId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWirelessDevice_OtaaV10xProperty struct {
 	// `CfnWirelessDevice.OtaaV10xProperty.AppEui`.
 	AppEui *string `json:"appEui"`
@@ -6158,6 +6231,8 @@ type CfnWirelessDevice_OtaaV10xProperty struct {
 	AppKey *string `json:"appKey"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWirelessDevice_OtaaV11Property struct {
 	// `CfnWirelessDevice.OtaaV11Property.AppKey`.
 	AppKey *string `json:"appKey"`
@@ -6167,6 +6242,8 @@ type CfnWirelessDevice_OtaaV11Property struct {
 	NwkKey *string `json:"nwkKey"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWirelessDevice_SessionKeysAbpV10xProperty struct {
 	// `CfnWirelessDevice.SessionKeysAbpV10xProperty.AppSKey`.
 	AppSKey *string `json:"appSKey"`
@@ -6174,6 +6251,8 @@ type CfnWirelessDevice_SessionKeysAbpV10xProperty struct {
 	NwkSKey *string `json:"nwkSKey"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWirelessDevice_SessionKeysAbpV11Property struct {
 	// `CfnWirelessDevice.SessionKeysAbpV11Property.AppSKey`.
 	AppSKey *string `json:"appSKey"`
@@ -6186,13 +6265,14 @@ type CfnWirelessDevice_SessionKeysAbpV11Property struct {
 }
 
 // Properties for defining a `AWS::IoTWireless::WirelessDevice`.
+//
+// TODO: EXAMPLE
+//
 type CfnWirelessDeviceProps struct {
-	// `AWS::IoTWireless::WirelessDevice.DestinationName`.
-	DestinationName *string `json:"destinationName"`
-	// `AWS::IoTWireless::WirelessDevice.Type`.
-	Type *string `json:"type"`
 	// `AWS::IoTWireless::WirelessDevice.Description`.
 	Description *string `json:"description"`
+	// `AWS::IoTWireless::WirelessDevice.DestinationName`.
+	DestinationName *string `json:"destinationName"`
 	// `AWS::IoTWireless::WirelessDevice.LastUplinkReceivedAt`.
 	LastUplinkReceivedAt *string `json:"lastUplinkReceivedAt"`
 	// `AWS::IoTWireless::WirelessDevice.LoRaWAN`.
@@ -6203,9 +6283,14 @@ type CfnWirelessDeviceProps struct {
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::IoTWireless::WirelessDevice.ThingArn`.
 	ThingArn *string `json:"thingArn"`
+	// `AWS::IoTWireless::WirelessDevice.Type`.
+	Type *string `json:"type"`
 }
 
 // A CloudFormation `AWS::IoTWireless::WirelessGateway`.
+//
+// TODO: EXAMPLE
+//
 type CfnWirelessGateway interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6915,6 +7000,8 @@ func (c *jsiiProxy_CfnWirelessGateway) ValidateProperties(_properties interface{
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnWirelessGateway_LoRaWANGatewayProperty struct {
 	// `CfnWirelessGateway.LoRaWANGatewayProperty.GatewayEui`.
 	GatewayEui *string `json:"gatewayEui"`
@@ -6923,13 +7010,16 @@ type CfnWirelessGateway_LoRaWANGatewayProperty struct {
 }
 
 // Properties for defining a `AWS::IoTWireless::WirelessGateway`.
+//
+// TODO: EXAMPLE
+//
 type CfnWirelessGatewayProps struct {
-	// `AWS::IoTWireless::WirelessGateway.LoRaWAN`.
-	LoRaWan interface{} `json:"loRaWan"`
 	// `AWS::IoTWireless::WirelessGateway.Description`.
 	Description *string `json:"description"`
 	// `AWS::IoTWireless::WirelessGateway.LastUplinkReceivedAt`.
 	LastUplinkReceivedAt *string `json:"lastUplinkReceivedAt"`
+	// `AWS::IoTWireless::WirelessGateway.LoRaWAN`.
+	LoRaWan interface{} `json:"loRaWan"`
 	// `AWS::IoTWireless::WirelessGateway.Name`.
 	Name *string `json:"name"`
 	// `AWS::IoTWireless::WirelessGateway.Tags`.

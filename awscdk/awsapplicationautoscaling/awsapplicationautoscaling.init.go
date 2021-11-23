@@ -16,8 +16,8 @@ func init() {
 		reflect.TypeOf((*AdjustmentType)(nil)).Elem(),
 		map[string]interface{}{
 			"CHANGE_IN_CAPACITY": AdjustmentType_CHANGE_IN_CAPACITY,
-			"PERCENT_CHANGE_IN_CAPACITY": AdjustmentType_PERCENT_CHANGE_IN_CAPACITY,
 			"EXACT_CAPACITY": AdjustmentType_EXACT_CAPACITY,
+			"PERCENT_CHANGE_IN_CAPACITY": AdjustmentType_PERCENT_CHANGE_IN_CAPACITY,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -231,27 +231,27 @@ func init() {
 		reflect.TypeOf((*MetricAggregationType)(nil)).Elem(),
 		map[string]interface{}{
 			"AVERAGE": MetricAggregationType_AVERAGE,
-			"MINIMUM": MetricAggregationType_MINIMUM,
 			"MAXIMUM": MetricAggregationType_MAXIMUM,
+			"MINIMUM": MetricAggregationType_MINIMUM,
 		},
 	)
 	_jsii_.RegisterEnum(
 		"monocdk.aws_applicationautoscaling.PredefinedMetric",
 		reflect.TypeOf((*PredefinedMetric)(nil)).Elem(),
 		map[string]interface{}{
-			"DYNAMODB_READ_CAPACITY_UTILIZATION": PredefinedMetric_DYNAMODB_READ_CAPACITY_UTILIZATION,
-			"DYANMODB_WRITE_CAPACITY_UTILIZATION": PredefinedMetric_DYANMODB_WRITE_CAPACITY_UTILIZATION,
 			"ALB_REQUEST_COUNT_PER_TARGET": PredefinedMetric_ALB_REQUEST_COUNT_PER_TARGET,
-			"RDS_READER_AVERAGE_CPU_UTILIZATION": PredefinedMetric_RDS_READER_AVERAGE_CPU_UTILIZATION,
-			"RDS_READER_AVERAGE_DATABASE_CONNECTIONS": PredefinedMetric_RDS_READER_AVERAGE_DATABASE_CONNECTIONS,
+			"DYANMODB_WRITE_CAPACITY_UTILIZATION": PredefinedMetric_DYANMODB_WRITE_CAPACITY_UTILIZATION,
+			"DYNAMODB_READ_CAPACITY_UTILIZATION": PredefinedMetric_DYNAMODB_READ_CAPACITY_UTILIZATION,
 			"EC2_SPOT_FLEET_REQUEST_AVERAGE_CPU_UTILIZATION": PredefinedMetric_EC2_SPOT_FLEET_REQUEST_AVERAGE_CPU_UTILIZATION,
 			"EC2_SPOT_FLEET_REQUEST_AVERAGE_NETWORK_IN": PredefinedMetric_EC2_SPOT_FLEET_REQUEST_AVERAGE_NETWORK_IN,
 			"EC2_SPOT_FLEET_REQUEST_AVERAGE_NETWORK_OUT": PredefinedMetric_EC2_SPOT_FLEET_REQUEST_AVERAGE_NETWORK_OUT,
-			"SAGEMAKER_VARIANT_INVOCATIONS_PER_INSTANCE": PredefinedMetric_SAGEMAKER_VARIANT_INVOCATIONS_PER_INSTANCE,
 			"ECS_SERVICE_AVERAGE_CPU_UTILIZATION": PredefinedMetric_ECS_SERVICE_AVERAGE_CPU_UTILIZATION,
 			"ECS_SERVICE_AVERAGE_MEMORY_UTILIZATION": PredefinedMetric_ECS_SERVICE_AVERAGE_MEMORY_UTILIZATION,
-			"LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION": PredefinedMetric_LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION,
 			"KAFKA_BROKER_STORAGE_UTILIZATION": PredefinedMetric_KAFKA_BROKER_STORAGE_UTILIZATION,
+			"LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION": PredefinedMetric_LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION,
+			"RDS_READER_AVERAGE_CPU_UTILIZATION": PredefinedMetric_RDS_READER_AVERAGE_CPU_UTILIZATION,
+			"RDS_READER_AVERAGE_DATABASE_CONNECTIONS": PredefinedMetric_RDS_READER_AVERAGE_DATABASE_CONNECTIONS,
+			"SAGEMAKER_VARIANT_INVOCATIONS_PER_INSTANCE": PredefinedMetric_SAGEMAKER_VARIANT_INVOCATIONS_PER_INSTANCE,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -313,17 +313,17 @@ func init() {
 		"monocdk.aws_applicationautoscaling.ServiceNamespace",
 		reflect.TypeOf((*ServiceNamespace)(nil)).Elem(),
 		map[string]interface{}{
+			"APPSTREAM": ServiceNamespace_APPSTREAM,
+			"COMPREHEND": ServiceNamespace_COMPREHEND,
+			"CUSTOM_RESOURCE": ServiceNamespace_CUSTOM_RESOURCE,
+			"DYNAMODB": ServiceNamespace_DYNAMODB,
+			"EC2": ServiceNamespace_EC2,
 			"ECS": ServiceNamespace_ECS,
 			"ELASTIC_MAP_REDUCE": ServiceNamespace_ELASTIC_MAP_REDUCE,
-			"EC2": ServiceNamespace_EC2,
-			"APPSTREAM": ServiceNamespace_APPSTREAM,
-			"DYNAMODB": ServiceNamespace_DYNAMODB,
+			"KAFKA": ServiceNamespace_KAFKA,
+			"LAMBDA": ServiceNamespace_LAMBDA,
 			"RDS": ServiceNamespace_RDS,
 			"SAGEMAKER": ServiceNamespace_SAGEMAKER,
-			"CUSTOM_RESOURCE": ServiceNamespace_CUSTOM_RESOURCE,
-			"LAMBDA": ServiceNamespace_LAMBDA,
-			"COMPREHEND": ServiceNamespace_COMPREHEND,
-			"KAFKA": ServiceNamespace_KAFKA,
 		},
 	)
 	_jsii_.RegisterClass(

@@ -156,9 +156,9 @@ func init() {
 		"monocdk.aws_route53.CaaTag",
 		reflect.TypeOf((*CaaTag)(nil)).Elem(),
 		map[string]interface{}{
+			"IODEF": CaaTag_IODEF,
 			"ISSUE": CaaTag_ISSUE,
 			"ISSUEWILD": CaaTag_ISSUEWILD,
-			"IODEF": CaaTag_IODEF,
 		},
 	)
 	_jsii_.RegisterClass(

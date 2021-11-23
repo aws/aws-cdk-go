@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::Lightsail::Database`.
+//
+// TODO: EXAMPLE
+//
 type CfnDatabase interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -877,6 +880,8 @@ func (c *jsiiProxy_CfnDatabase) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDatabase_RelationalDatabaseParameterProperty struct {
 	// `CfnDatabase.RelationalDatabaseParameterProperty.AllowedValues`.
 	AllowedValues *string `json:"allowedValues"`
@@ -897,23 +902,20 @@ type CfnDatabase_RelationalDatabaseParameterProperty struct {
 }
 
 // Properties for defining a `AWS::Lightsail::Database`.
+//
+// TODO: EXAMPLE
+//
 type CfnDatabaseProps struct {
-	// `AWS::Lightsail::Database.MasterDatabaseName`.
-	MasterDatabaseName *string `json:"masterDatabaseName"`
-	// `AWS::Lightsail::Database.MasterUsername`.
-	MasterUsername *string `json:"masterUsername"`
-	// `AWS::Lightsail::Database.RelationalDatabaseBlueprintId`.
-	RelationalDatabaseBlueprintId *string `json:"relationalDatabaseBlueprintId"`
-	// `AWS::Lightsail::Database.RelationalDatabaseBundleId`.
-	RelationalDatabaseBundleId *string `json:"relationalDatabaseBundleId"`
-	// `AWS::Lightsail::Database.RelationalDatabaseName`.
-	RelationalDatabaseName *string `json:"relationalDatabaseName"`
 	// `AWS::Lightsail::Database.AvailabilityZone`.
 	AvailabilityZone *string `json:"availabilityZone"`
 	// `AWS::Lightsail::Database.BackupRetention`.
 	BackupRetention interface{} `json:"backupRetention"`
 	// `AWS::Lightsail::Database.CaCertificateIdentifier`.
 	CaCertificateIdentifier *string `json:"caCertificateIdentifier"`
+	// `AWS::Lightsail::Database.MasterDatabaseName`.
+	MasterDatabaseName *string `json:"masterDatabaseName"`
+	// `AWS::Lightsail::Database.MasterUsername`.
+	MasterUsername *string `json:"masterUsername"`
 	// `AWS::Lightsail::Database.MasterUserPassword`.
 	MasterUserPassword *string `json:"masterUserPassword"`
 	// `AWS::Lightsail::Database.PreferredBackupWindow`.
@@ -922,6 +924,12 @@ type CfnDatabaseProps struct {
 	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
 	// `AWS::Lightsail::Database.PubliclyAccessible`.
 	PubliclyAccessible interface{} `json:"publiclyAccessible"`
+	// `AWS::Lightsail::Database.RelationalDatabaseBlueprintId`.
+	RelationalDatabaseBlueprintId *string `json:"relationalDatabaseBlueprintId"`
+	// `AWS::Lightsail::Database.RelationalDatabaseBundleId`.
+	RelationalDatabaseBundleId *string `json:"relationalDatabaseBundleId"`
+	// `AWS::Lightsail::Database.RelationalDatabaseName`.
+	RelationalDatabaseName *string `json:"relationalDatabaseName"`
 	// `AWS::Lightsail::Database.RelationalDatabaseParameters`.
 	RelationalDatabaseParameters interface{} `json:"relationalDatabaseParameters"`
 	// `AWS::Lightsail::Database.RotateMasterUserPassword`.
@@ -931,6 +939,9 @@ type CfnDatabaseProps struct {
 }
 
 // A CloudFormation `AWS::Lightsail::Disk`.
+//
+// TODO: EXAMPLE
+//
 type CfnDisk interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1686,6 +1697,8 @@ func (c *jsiiProxy_CfnDisk) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDisk_AddOnProperty struct {
 	// `CfnDisk.AddOnProperty.AddOnType`.
 	AddOnType *string `json:"addOnType"`
@@ -1695,26 +1708,34 @@ type CfnDisk_AddOnProperty struct {
 	Status *string `json:"status"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDisk_AutoSnapshotAddOnProperty struct {
 	// `CfnDisk.AutoSnapshotAddOnProperty.SnapshotTimeOfDay`.
 	SnapshotTimeOfDay *string `json:"snapshotTimeOfDay"`
 }
 
 // Properties for defining a `AWS::Lightsail::Disk`.
+//
+// TODO: EXAMPLE
+//
 type CfnDiskProps struct {
-	// `AWS::Lightsail::Disk.DiskName`.
-	DiskName *string `json:"diskName"`
-	// `AWS::Lightsail::Disk.SizeInGb`.
-	SizeInGb *float64 `json:"sizeInGb"`
 	// `AWS::Lightsail::Disk.AddOns`.
 	AddOns interface{} `json:"addOns"`
 	// `AWS::Lightsail::Disk.AvailabilityZone`.
 	AvailabilityZone *string `json:"availabilityZone"`
+	// `AWS::Lightsail::Disk.DiskName`.
+	DiskName *string `json:"diskName"`
+	// `AWS::Lightsail::Disk.SizeInGb`.
+	SizeInGb *float64 `json:"sizeInGb"`
 	// `AWS::Lightsail::Disk.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::Lightsail::Instance`.
+//
+// TODO: EXAMPLE
+//
 type CfnInstance interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2636,6 +2657,8 @@ func (c *jsiiProxy_CfnInstance) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_AddOnProperty struct {
 	// `CfnInstance.AddOnProperty.AddOnType`.
 	AddOnType *string `json:"addOnType"`
@@ -2645,28 +2668,34 @@ type CfnInstance_AddOnProperty struct {
 	Status *string `json:"status"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_AutoSnapshotAddOnProperty struct {
 	// `CfnInstance.AutoSnapshotAddOnProperty.SnapshotTimeOfDay`.
 	SnapshotTimeOfDay *string `json:"snapshotTimeOfDay"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_DiskProperty struct {
-	// `CfnInstance.DiskProperty.DiskName`.
-	DiskName *string `json:"diskName"`
-	// `CfnInstance.DiskProperty.Path`.
-	Path *string `json:"path"`
 	// `CfnInstance.DiskProperty.AttachedTo`.
 	AttachedTo *string `json:"attachedTo"`
 	// `CfnInstance.DiskProperty.AttachmentState`.
 	AttachmentState *string `json:"attachmentState"`
+	// `CfnInstance.DiskProperty.DiskName`.
+	DiskName *string `json:"diskName"`
 	// `CfnInstance.DiskProperty.IOPS`.
 	Iops *float64 `json:"iops"`
 	// `CfnInstance.DiskProperty.IsSystemDisk`.
 	IsSystemDisk interface{} `json:"isSystemDisk"`
+	// `CfnInstance.DiskProperty.Path`.
+	Path *string `json:"path"`
 	// `CfnInstance.DiskProperty.SizeInGb`.
 	SizeInGb *string `json:"sizeInGb"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_HardwareProperty struct {
 	// `CfnInstance.HardwareProperty.CpuCount`.
 	CpuCount *float64 `json:"cpuCount"`
@@ -2676,6 +2705,8 @@ type CfnInstance_HardwareProperty struct {
 	RamSizeInGb *float64 `json:"ramSizeInGb"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_LocationProperty struct {
 	// `CfnInstance.LocationProperty.AvailabilityZone`.
 	AvailabilityZone *string `json:"availabilityZone"`
@@ -2683,18 +2714,24 @@ type CfnInstance_LocationProperty struct {
 	RegionName *string `json:"regionName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_MonthlyTransferProperty struct {
 	// `CfnInstance.MonthlyTransferProperty.GbPerMonthAllocated`.
 	GbPerMonthAllocated *string `json:"gbPerMonthAllocated"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_NetworkingProperty struct {
-	// `CfnInstance.NetworkingProperty.Ports`.
-	Ports interface{} `json:"ports"`
 	// `CfnInstance.NetworkingProperty.MonthlyTransfer`.
 	MonthlyTransfer *float64 `json:"monthlyTransfer"`
+	// `CfnInstance.NetworkingProperty.Ports`.
+	Ports interface{} `json:"ports"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_PortProperty struct {
 	// `CfnInstance.PortProperty.AccessDirection`.
 	AccessDirection *string `json:"accessDirection"`
@@ -2718,6 +2755,8 @@ type CfnInstance_PortProperty struct {
 	ToPort *float64 `json:"toPort"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_StateProperty struct {
 	// `CfnInstance.StateProperty.Code`.
 	Code *float64 `json:"code"`
@@ -2726,19 +2765,22 @@ type CfnInstance_StateProperty struct {
 }
 
 // Properties for defining a `AWS::Lightsail::Instance`.
+//
+// TODO: EXAMPLE
+//
 type CfnInstanceProps struct {
-	// `AWS::Lightsail::Instance.BlueprintId`.
-	BlueprintId *string `json:"blueprintId"`
-	// `AWS::Lightsail::Instance.BundleId`.
-	BundleId *string `json:"bundleId"`
-	// `AWS::Lightsail::Instance.InstanceName`.
-	InstanceName *string `json:"instanceName"`
 	// `AWS::Lightsail::Instance.AddOns`.
 	AddOns interface{} `json:"addOns"`
 	// `AWS::Lightsail::Instance.AvailabilityZone`.
 	AvailabilityZone *string `json:"availabilityZone"`
+	// `AWS::Lightsail::Instance.BlueprintId`.
+	BlueprintId *string `json:"blueprintId"`
+	// `AWS::Lightsail::Instance.BundleId`.
+	BundleId *string `json:"bundleId"`
 	// `AWS::Lightsail::Instance.Hardware`.
 	Hardware interface{} `json:"hardware"`
+	// `AWS::Lightsail::Instance.InstanceName`.
+	InstanceName *string `json:"instanceName"`
 	// `AWS::Lightsail::Instance.KeyPairName`.
 	KeyPairName *string `json:"keyPairName"`
 	// `AWS::Lightsail::Instance.Networking`.
@@ -2750,6 +2792,9 @@ type CfnInstanceProps struct {
 }
 
 // A CloudFormation `AWS::Lightsail::StaticIp`.
+//
+// TODO: EXAMPLE
+//
 type CfnStaticIp interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3389,10 +3434,13 @@ func (c *jsiiProxy_CfnStaticIp) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Lightsail::StaticIp`.
+//
+// TODO: EXAMPLE
+//
 type CfnStaticIpProps struct {
-	// `AWS::Lightsail::StaticIp.StaticIpName`.
-	StaticIpName *string `json:"staticIpName"`
 	// `AWS::Lightsail::StaticIp.AttachedTo`.
 	AttachedTo *string `json:"attachedTo"`
+	// `AWS::Lightsail::StaticIp.StaticIpName`.
+	StaticIpName *string `json:"staticIpName"`
 }
 

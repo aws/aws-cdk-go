@@ -13,6 +13,9 @@ import (
 )
 
 // Use an ApplicationAutoScaling StepScalingAction as an Alarm Action.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ApplicationScalingAction interface {
 	awscloudwatch.IAlarmAction
@@ -66,6 +69,9 @@ func (a *jsiiProxy_ApplicationScalingAction) Bind(_scope awscdk.Construct, _alar
 }
 
 // Use an AutoScaling StepScalingAction as an Alarm Action.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AutoScalingAction interface {
 	awscloudwatch.IAlarmAction
@@ -119,6 +125,9 @@ func (a *jsiiProxy_AutoScalingAction) Bind(_scope awscdk.Construct, _alarm awscl
 }
 
 // Use an EC2 action as an Alarm action.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Ec2Action interface {
 	awscloudwatch.IAlarmAction
@@ -176,10 +185,10 @@ func (e *jsiiProxy_Ec2Action) Bind(_scope awscdk.Construct, _alarm awscloudwatch
 type Ec2InstanceAction string
 
 const (
+	Ec2InstanceAction_REBOOT Ec2InstanceAction = "REBOOT"
+	Ec2InstanceAction_RECOVER Ec2InstanceAction = "RECOVER"
 	Ec2InstanceAction_STOP Ec2InstanceAction = "STOP"
 	Ec2InstanceAction_TERMINATE Ec2InstanceAction = "TERMINATE"
-	Ec2InstanceAction_RECOVER Ec2InstanceAction = "RECOVER"
-	Ec2InstanceAction_REBOOT Ec2InstanceAction = "REBOOT"
 )
 
 // Use an SNS topic as an alarm action.

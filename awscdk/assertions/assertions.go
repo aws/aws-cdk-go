@@ -371,6 +371,9 @@ func Match_SerializedJson(pattern interface{}) Matcher {
 }
 
 // The result of `Match.test()`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type MatchResult interface {
 	FailCount() *float64

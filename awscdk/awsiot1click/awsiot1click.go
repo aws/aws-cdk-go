@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::IoT1Click::Device`.
+//
+// TODO: EXAMPLE
+//
 type CfnDevice interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -649,6 +652,9 @@ func (c *jsiiProxy_CfnDevice) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::IoT1Click::Device`.
+//
+// TODO: EXAMPLE
+//
 type CfnDeviceProps struct {
 	// `AWS::IoT1Click::Device.DeviceId`.
 	DeviceId *string `json:"deviceId"`
@@ -657,6 +663,9 @@ type CfnDeviceProps struct {
 }
 
 // A CloudFormation `AWS::IoT1Click::Placement`.
+//
+// TODO: EXAMPLE
+//
 type CfnPlacement interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1325,18 +1334,24 @@ func (c *jsiiProxy_CfnPlacement) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::IoT1Click::Placement`.
+//
+// TODO: EXAMPLE
+//
 type CfnPlacementProps struct {
-	// `AWS::IoT1Click::Placement.ProjectName`.
-	ProjectName *string `json:"projectName"`
 	// `AWS::IoT1Click::Placement.AssociatedDevices`.
 	AssociatedDevices interface{} `json:"associatedDevices"`
 	// `AWS::IoT1Click::Placement.Attributes`.
 	Attributes interface{} `json:"attributes"`
 	// `AWS::IoT1Click::Placement.PlacementName`.
 	PlacementName *string `json:"placementName"`
+	// `AWS::IoT1Click::Placement.ProjectName`.
+	ProjectName *string `json:"projectName"`
 }
 
 // A CloudFormation `AWS::IoT1Click::Project`.
+//
+// TODO: EXAMPLE
+//
 type CfnProject interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1984,6 +1999,8 @@ func (c *jsiiProxy_CfnProject) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnProject_DeviceTemplateProperty struct {
 	// `CfnProject.DeviceTemplateProperty.CallbackOverrides`.
 	CallbackOverrides interface{} `json:"callbackOverrides"`
@@ -1991,6 +2008,8 @@ type CfnProject_DeviceTemplateProperty struct {
 	DeviceType *string `json:"deviceType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnProject_PlacementTemplateProperty struct {
 	// `CfnProject.PlacementTemplateProperty.DefaultAttributes`.
 	DefaultAttributes interface{} `json:"defaultAttributes"`
@@ -1999,11 +2018,14 @@ type CfnProject_PlacementTemplateProperty struct {
 }
 
 // Properties for defining a `AWS::IoT1Click::Project`.
+//
+// TODO: EXAMPLE
+//
 type CfnProjectProps struct {
-	// `AWS::IoT1Click::Project.PlacementTemplate`.
-	PlacementTemplate interface{} `json:"placementTemplate"`
 	// `AWS::IoT1Click::Project.Description`.
 	Description *string `json:"description"`
+	// `AWS::IoT1Click::Project.PlacementTemplate`.
+	PlacementTemplate interface{} `json:"placementTemplate"`
 	// `AWS::IoT1Click::Project.ProjectName`.
 	ProjectName *string `json:"projectName"`
 }

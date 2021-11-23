@@ -18,6 +18,9 @@ import (
 )
 
 // Job Code from a local file.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AssetCode interface {
 	Code
@@ -105,6 +108,9 @@ func (a *jsiiProxy_AssetCode) Bind(scope constructs.Construct, grantable awsiam.
 }
 
 // A CloudFormation `AWS::Glue::Classifier`.
+//
+// TODO: EXAMPLE
+//
 type CfnClassifier interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -750,6 +756,8 @@ func (c *jsiiProxy_CfnClassifier) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnClassifier_CsvClassifierProperty struct {
 	// `CfnClassifier.CsvClassifierProperty.AllowSingleColumn`.
 	AllowSingleColumn interface{} `json:"allowSingleColumn"`
@@ -767,17 +775,21 @@ type CfnClassifier_CsvClassifierProperty struct {
 	QuoteSymbol *string `json:"quoteSymbol"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnClassifier_GrokClassifierProperty struct {
 	// `CfnClassifier.GrokClassifierProperty.Classification`.
 	Classification *string `json:"classification"`
-	// `CfnClassifier.GrokClassifierProperty.GrokPattern`.
-	GrokPattern *string `json:"grokPattern"`
 	// `CfnClassifier.GrokClassifierProperty.CustomPatterns`.
 	CustomPatterns *string `json:"customPatterns"`
+	// `CfnClassifier.GrokClassifierProperty.GrokPattern`.
+	GrokPattern *string `json:"grokPattern"`
 	// `CfnClassifier.GrokClassifierProperty.Name`.
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnClassifier_JsonClassifierProperty struct {
 	// `CfnClassifier.JsonClassifierProperty.JsonPath`.
 	JsonPath *string `json:"jsonPath"`
@@ -785,16 +797,21 @@ type CfnClassifier_JsonClassifierProperty struct {
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnClassifier_XMLClassifierProperty struct {
 	// `CfnClassifier.XMLClassifierProperty.Classification`.
 	Classification *string `json:"classification"`
-	// `CfnClassifier.XMLClassifierProperty.RowTag`.
-	RowTag *string `json:"rowTag"`
 	// `CfnClassifier.XMLClassifierProperty.Name`.
 	Name *string `json:"name"`
+	// `CfnClassifier.XMLClassifierProperty.RowTag`.
+	RowTag *string `json:"rowTag"`
 }
 
 // Properties for defining a `AWS::Glue::Classifier`.
+//
+// TODO: EXAMPLE
+//
 type CfnClassifierProps struct {
 	// `AWS::Glue::Classifier.CsvClassifier`.
 	CsvClassifier interface{} `json:"csvClassifier"`
@@ -807,6 +824,9 @@ type CfnClassifierProps struct {
 }
 
 // A CloudFormation `AWS::Glue::Connection`.
+//
+// TODO: EXAMPLE
+//
 type CfnConnection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1412,11 +1432,13 @@ func (c *jsiiProxy_CfnConnection) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnection_ConnectionInputProperty struct {
-	// `CfnConnection.ConnectionInputProperty.ConnectionType`.
-	ConnectionType *string `json:"connectionType"`
 	// `CfnConnection.ConnectionInputProperty.ConnectionProperties`.
 	ConnectionProperties interface{} `json:"connectionProperties"`
+	// `CfnConnection.ConnectionInputProperty.ConnectionType`.
+	ConnectionType *string `json:"connectionType"`
 	// `CfnConnection.ConnectionInputProperty.Description`.
 	Description *string `json:"description"`
 	// `CfnConnection.ConnectionInputProperty.MatchCriteria`.
@@ -1427,6 +1449,8 @@ type CfnConnection_ConnectionInputProperty struct {
 	PhysicalConnectionRequirements interface{} `json:"physicalConnectionRequirements"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConnection_PhysicalConnectionRequirementsProperty struct {
 	// `CfnConnection.PhysicalConnectionRequirementsProperty.AvailabilityZone`.
 	AvailabilityZone *string `json:"availabilityZone"`
@@ -1437,6 +1461,9 @@ type CfnConnection_PhysicalConnectionRequirementsProperty struct {
 }
 
 // Properties for defining a `AWS::Glue::Connection`.
+//
+// TODO: EXAMPLE
+//
 type CfnConnectionProps struct {
 	// `AWS::Glue::Connection.CatalogId`.
 	CatalogId *string `json:"catalogId"`
@@ -1445,6 +1472,9 @@ type CfnConnectionProps struct {
 }
 
 // A CloudFormation `AWS::Glue::Crawler`.
+//
+// TODO: EXAMPLE
+//
 type CfnCrawler interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2261,6 +2291,8 @@ func (c *jsiiProxy_CfnCrawler) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnCrawler_CatalogTargetProperty struct {
 	// `CfnCrawler.CatalogTargetProperty.DatabaseName`.
 	DatabaseName *string `json:"databaseName"`
@@ -2268,11 +2300,15 @@ type CfnCrawler_CatalogTargetProperty struct {
 	Tables *[]*string `json:"tables"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCrawler_DynamoDBTargetProperty struct {
 	// `CfnCrawler.DynamoDBTargetProperty.Path`.
 	Path *string `json:"path"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCrawler_JdbcTargetProperty struct {
 	// `CfnCrawler.JdbcTargetProperty.ConnectionName`.
 	ConnectionName *string `json:"connectionName"`
@@ -2282,11 +2318,15 @@ type CfnCrawler_JdbcTargetProperty struct {
 	Path *string `json:"path"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCrawler_RecrawlPolicyProperty struct {
 	// `CfnCrawler.RecrawlPolicyProperty.RecrawlBehavior`.
 	RecrawlBehavior *string `json:"recrawlBehavior"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCrawler_S3TargetProperty struct {
 	// `CfnCrawler.S3TargetProperty.ConnectionName`.
 	ConnectionName *string `json:"connectionName"`
@@ -2296,11 +2336,15 @@ type CfnCrawler_S3TargetProperty struct {
 	Path *string `json:"path"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCrawler_ScheduleProperty struct {
 	// `CfnCrawler.ScheduleProperty.ScheduleExpression`.
 	ScheduleExpression *string `json:"scheduleExpression"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCrawler_SchemaChangePolicyProperty struct {
 	// `CfnCrawler.SchemaChangePolicyProperty.DeleteBehavior`.
 	DeleteBehavior *string `json:"deleteBehavior"`
@@ -2308,6 +2352,8 @@ type CfnCrawler_SchemaChangePolicyProperty struct {
 	UpdateBehavior *string `json:"updateBehavior"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCrawler_TargetsProperty struct {
 	// `CfnCrawler.TargetsProperty.CatalogTargets`.
 	CatalogTargets interface{} `json:"catalogTargets"`
@@ -2320,11 +2366,10 @@ type CfnCrawler_TargetsProperty struct {
 }
 
 // Properties for defining a `AWS::Glue::Crawler`.
+//
+// TODO: EXAMPLE
+//
 type CfnCrawlerProps struct {
-	// `AWS::Glue::Crawler.Role`.
-	Role *string `json:"role"`
-	// `AWS::Glue::Crawler.Targets`.
-	Targets interface{} `json:"targets"`
 	// `AWS::Glue::Crawler.Classifiers`.
 	Classifiers *[]*string `json:"classifiers"`
 	// `AWS::Glue::Crawler.Configuration`.
@@ -2339,6 +2384,8 @@ type CfnCrawlerProps struct {
 	Name *string `json:"name"`
 	// `AWS::Glue::Crawler.RecrawlPolicy`.
 	RecrawlPolicy interface{} `json:"recrawlPolicy"`
+	// `AWS::Glue::Crawler.Role`.
+	Role *string `json:"role"`
 	// `AWS::Glue::Crawler.Schedule`.
 	Schedule interface{} `json:"schedule"`
 	// `AWS::Glue::Crawler.SchemaChangePolicy`.
@@ -2347,9 +2394,14 @@ type CfnCrawlerProps struct {
 	TablePrefix *string `json:"tablePrefix"`
 	// `AWS::Glue::Crawler.Tags`.
 	Tags interface{} `json:"tags"`
+	// `AWS::Glue::Crawler.Targets`.
+	Targets interface{} `json:"targets"`
 }
 
 // A CloudFormation `AWS::Glue::DataCatalogEncryptionSettings`.
+//
+// TODO: EXAMPLE
+//
 type CfnDataCatalogEncryptionSettings interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2955,6 +3007,8 @@ func (c *jsiiProxy_CfnDataCatalogEncryptionSettings) ValidateProperties(_propert
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataCatalogEncryptionSettings_ConnectionPasswordEncryptionProperty struct {
 	// `CfnDataCatalogEncryptionSettings.ConnectionPasswordEncryptionProperty.KmsKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
@@ -2962,6 +3016,8 @@ type CfnDataCatalogEncryptionSettings_ConnectionPasswordEncryptionProperty struc
 	ReturnConnectionPasswordEncrypted interface{} `json:"returnConnectionPasswordEncrypted"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataCatalogEncryptionSettings_DataCatalogEncryptionSettingsProperty struct {
 	// `CfnDataCatalogEncryptionSettings.DataCatalogEncryptionSettingsProperty.ConnectionPasswordEncryption`.
 	ConnectionPasswordEncryption interface{} `json:"connectionPasswordEncryption"`
@@ -2969,6 +3025,8 @@ type CfnDataCatalogEncryptionSettings_DataCatalogEncryptionSettingsProperty stru
 	EncryptionAtRest interface{} `json:"encryptionAtRest"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataCatalogEncryptionSettings_EncryptionAtRestProperty struct {
 	// `CfnDataCatalogEncryptionSettings.EncryptionAtRestProperty.CatalogEncryptionMode`.
 	CatalogEncryptionMode *string `json:"catalogEncryptionMode"`
@@ -2977,6 +3035,9 @@ type CfnDataCatalogEncryptionSettings_EncryptionAtRestProperty struct {
 }
 
 // Properties for defining a `AWS::Glue::DataCatalogEncryptionSettings`.
+//
+// TODO: EXAMPLE
+//
 type CfnDataCatalogEncryptionSettingsProps struct {
 	// `AWS::Glue::DataCatalogEncryptionSettings.CatalogId`.
 	CatalogId *string `json:"catalogId"`
@@ -2985,6 +3046,9 @@ type CfnDataCatalogEncryptionSettingsProps struct {
 }
 
 // A CloudFormation `AWS::Glue::Database`.
+//
+// TODO: EXAMPLE
+//
 type CfnDatabase interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3590,11 +3654,15 @@ func (c *jsiiProxy_CfnDatabase) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDatabase_DataLakePrincipalProperty struct {
 	// `CfnDatabase.DataLakePrincipalProperty.DataLakePrincipalIdentifier`.
 	DataLakePrincipalIdentifier *string `json:"dataLakePrincipalIdentifier"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDatabase_DatabaseIdentifierProperty struct {
 	// `CfnDatabase.DatabaseIdentifierProperty.CatalogId`.
 	CatalogId *string `json:"catalogId"`
@@ -3602,6 +3670,8 @@ type CfnDatabase_DatabaseIdentifierProperty struct {
 	DatabaseName *string `json:"databaseName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDatabase_DatabaseInputProperty struct {
 	// `CfnDatabase.DatabaseInputProperty.CreateTableDefaultPermissions`.
 	CreateTableDefaultPermissions interface{} `json:"createTableDefaultPermissions"`
@@ -3617,6 +3687,8 @@ type CfnDatabase_DatabaseInputProperty struct {
 	TargetDatabase interface{} `json:"targetDatabase"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDatabase_PrincipalPrivilegesProperty struct {
 	// `CfnDatabase.PrincipalPrivilegesProperty.Permissions`.
 	Permissions *[]*string `json:"permissions"`
@@ -3625,6 +3697,9 @@ type CfnDatabase_PrincipalPrivilegesProperty struct {
 }
 
 // Properties for defining a `AWS::Glue::Database`.
+//
+// TODO: EXAMPLE
+//
 type CfnDatabaseProps struct {
 	// `AWS::Glue::Database.CatalogId`.
 	CatalogId *string `json:"catalogId"`
@@ -3633,6 +3708,9 @@ type CfnDatabaseProps struct {
 }
 
 // A CloudFormation `AWS::Glue::DevEndpoint`.
+//
+// TODO: EXAMPLE
+//
 type CfnDevEndpoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4490,9 +4568,10 @@ func (c *jsiiProxy_CfnDevEndpoint) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Glue::DevEndpoint`.
+//
+// TODO: EXAMPLE
+//
 type CfnDevEndpointProps struct {
-	// `AWS::Glue::DevEndpoint.RoleArn`.
-	RoleArn *string `json:"roleArn"`
 	// `AWS::Glue::DevEndpoint.Arguments`.
 	Arguments interface{} `json:"arguments"`
 	// `AWS::Glue::DevEndpoint.EndpointName`.
@@ -4511,6 +4590,8 @@ type CfnDevEndpointProps struct {
 	PublicKey *string `json:"publicKey"`
 	// `AWS::Glue::DevEndpoint.PublicKeys`.
 	PublicKeys *[]*string `json:"publicKeys"`
+	// `AWS::Glue::DevEndpoint.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 	// `AWS::Glue::DevEndpoint.SecurityConfiguration`.
 	SecurityConfiguration *string `json:"securityConfiguration"`
 	// `AWS::Glue::DevEndpoint.SecurityGroupIds`.
@@ -4524,6 +4605,9 @@ type CfnDevEndpointProps struct {
 }
 
 // A CloudFormation `AWS::Glue::Job`.
+//
+// TODO: EXAMPLE
+//
 type CfnJob interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5440,16 +5524,22 @@ func (c *jsiiProxy_CfnJob) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnJob_ConnectionsListProperty struct {
 	// `CfnJob.ConnectionsListProperty.Connections`.
 	Connections *[]*string `json:"connections"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnJob_ExecutionPropertyProperty struct {
 	// `CfnJob.ExecutionPropertyProperty.MaxConcurrentRuns`.
 	MaxConcurrentRuns *float64 `json:"maxConcurrentRuns"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnJob_JobCommandProperty struct {
 	// `CfnJob.JobCommandProperty.Name`.
 	Name *string `json:"name"`
@@ -5459,19 +5549,22 @@ type CfnJob_JobCommandProperty struct {
 	ScriptLocation *string `json:"scriptLocation"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnJob_NotificationPropertyProperty struct {
 	// `CfnJob.NotificationPropertyProperty.NotifyDelayAfter`.
 	NotifyDelayAfter *float64 `json:"notifyDelayAfter"`
 }
 
 // Properties for defining a `AWS::Glue::Job`.
+//
+// TODO: EXAMPLE
+//
 type CfnJobProps struct {
-	// `AWS::Glue::Job.Command`.
-	Command interface{} `json:"command"`
-	// `AWS::Glue::Job.Role`.
-	Role *string `json:"role"`
 	// `AWS::Glue::Job.AllocatedCapacity`.
 	AllocatedCapacity *float64 `json:"allocatedCapacity"`
+	// `AWS::Glue::Job.Command`.
+	Command interface{} `json:"command"`
 	// `AWS::Glue::Job.Connections`.
 	Connections interface{} `json:"connections"`
 	// `AWS::Glue::Job.DefaultArguments`.
@@ -5494,6 +5587,8 @@ type CfnJobProps struct {
 	NotificationProperty interface{} `json:"notificationProperty"`
 	// `AWS::Glue::Job.NumberOfWorkers`.
 	NumberOfWorkers *float64 `json:"numberOfWorkers"`
+	// `AWS::Glue::Job.Role`.
+	Role *string `json:"role"`
 	// `AWS::Glue::Job.SecurityConfiguration`.
 	SecurityConfiguration *string `json:"securityConfiguration"`
 	// `AWS::Glue::Job.Tags`.
@@ -5505,6 +5600,9 @@ type CfnJobProps struct {
 }
 
 // A CloudFormation `AWS::Glue::MLTransform`.
+//
+// TODO: EXAMPLE
+//
 type CfnMLTransform interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6321,40 +6419,50 @@ func (c *jsiiProxy_CfnMLTransform) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnMLTransform_FindMatchesParametersProperty struct {
-	// `CfnMLTransform.FindMatchesParametersProperty.PrimaryKeyColumnName`.
-	PrimaryKeyColumnName *string `json:"primaryKeyColumnName"`
 	// `CfnMLTransform.FindMatchesParametersProperty.AccuracyCostTradeoff`.
 	AccuracyCostTradeoff *float64 `json:"accuracyCostTradeoff"`
 	// `CfnMLTransform.FindMatchesParametersProperty.EnforceProvidedLabels`.
 	EnforceProvidedLabels interface{} `json:"enforceProvidedLabels"`
 	// `CfnMLTransform.FindMatchesParametersProperty.PrecisionRecallTradeoff`.
 	PrecisionRecallTradeoff *float64 `json:"precisionRecallTradeoff"`
+	// `CfnMLTransform.FindMatchesParametersProperty.PrimaryKeyColumnName`.
+	PrimaryKeyColumnName *string `json:"primaryKeyColumnName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMLTransform_GlueTablesProperty struct {
-	// `CfnMLTransform.GlueTablesProperty.DatabaseName`.
-	DatabaseName *string `json:"databaseName"`
-	// `CfnMLTransform.GlueTablesProperty.TableName`.
-	TableName *string `json:"tableName"`
 	// `CfnMLTransform.GlueTablesProperty.CatalogId`.
 	CatalogId *string `json:"catalogId"`
 	// `CfnMLTransform.GlueTablesProperty.ConnectionName`.
 	ConnectionName *string `json:"connectionName"`
+	// `CfnMLTransform.GlueTablesProperty.DatabaseName`.
+	DatabaseName *string `json:"databaseName"`
+	// `CfnMLTransform.GlueTablesProperty.TableName`.
+	TableName *string `json:"tableName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMLTransform_InputRecordTablesProperty struct {
 	// `CfnMLTransform.InputRecordTablesProperty.GlueTables`.
 	GlueTables interface{} `json:"glueTables"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMLTransform_MLUserDataEncryptionProperty struct {
-	// `CfnMLTransform.MLUserDataEncryptionProperty.MLUserDataEncryptionMode`.
-	MlUserDataEncryptionMode *string `json:"mlUserDataEncryptionMode"`
 	// `CfnMLTransform.MLUserDataEncryptionProperty.KmsKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
+	// `CfnMLTransform.MLUserDataEncryptionProperty.MLUserDataEncryptionMode`.
+	MlUserDataEncryptionMode *string `json:"mlUserDataEncryptionMode"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMLTransform_TransformEncryptionProperty struct {
 	// `CfnMLTransform.TransformEncryptionProperty.MLUserDataEncryption`.
 	MlUserDataEncryption interface{} `json:"mlUserDataEncryption"`
@@ -6362,25 +6470,26 @@ type CfnMLTransform_TransformEncryptionProperty struct {
 	TaskRunSecurityConfigurationName *string `json:"taskRunSecurityConfigurationName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMLTransform_TransformParametersProperty struct {
-	// `CfnMLTransform.TransformParametersProperty.TransformType`.
-	TransformType *string `json:"transformType"`
 	// `CfnMLTransform.TransformParametersProperty.FindMatchesParameters`.
 	FindMatchesParameters interface{} `json:"findMatchesParameters"`
+	// `CfnMLTransform.TransformParametersProperty.TransformType`.
+	TransformType *string `json:"transformType"`
 }
 
 // Properties for defining a `AWS::Glue::MLTransform`.
+//
+// TODO: EXAMPLE
+//
 type CfnMLTransformProps struct {
-	// `AWS::Glue::MLTransform.InputRecordTables`.
-	InputRecordTables interface{} `json:"inputRecordTables"`
-	// `AWS::Glue::MLTransform.Role`.
-	Role *string `json:"role"`
-	// `AWS::Glue::MLTransform.TransformParameters`.
-	TransformParameters interface{} `json:"transformParameters"`
 	// `AWS::Glue::MLTransform.Description`.
 	Description *string `json:"description"`
 	// `AWS::Glue::MLTransform.GlueVersion`.
 	GlueVersion *string `json:"glueVersion"`
+	// `AWS::Glue::MLTransform.InputRecordTables`.
+	InputRecordTables interface{} `json:"inputRecordTables"`
 	// `AWS::Glue::MLTransform.MaxCapacity`.
 	MaxCapacity *float64 `json:"maxCapacity"`
 	// `AWS::Glue::MLTransform.MaxRetries`.
@@ -6389,17 +6498,24 @@ type CfnMLTransformProps struct {
 	Name *string `json:"name"`
 	// `AWS::Glue::MLTransform.NumberOfWorkers`.
 	NumberOfWorkers *float64 `json:"numberOfWorkers"`
+	// `AWS::Glue::MLTransform.Role`.
+	Role *string `json:"role"`
 	// `AWS::Glue::MLTransform.Tags`.
 	Tags interface{} `json:"tags"`
 	// `AWS::Glue::MLTransform.Timeout`.
 	Timeout *float64 `json:"timeout"`
 	// `AWS::Glue::MLTransform.TransformEncryption`.
 	TransformEncryption interface{} `json:"transformEncryption"`
+	// `AWS::Glue::MLTransform.TransformParameters`.
+	TransformParameters interface{} `json:"transformParameters"`
 	// `AWS::Glue::MLTransform.WorkerType`.
 	WorkerType *string `json:"workerType"`
 }
 
 // A CloudFormation `AWS::Glue::Partition`.
+//
+// TODO: EXAMPLE
+//
 type CfnPartition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -7045,15 +7161,19 @@ func (c *jsiiProxy_CfnPartition) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnPartition_ColumnProperty struct {
-	// `CfnPartition.ColumnProperty.Name`.
-	Name *string `json:"name"`
 	// `CfnPartition.ColumnProperty.Comment`.
 	Comment *string `json:"comment"`
+	// `CfnPartition.ColumnProperty.Name`.
+	Name *string `json:"name"`
 	// `CfnPartition.ColumnProperty.Type`.
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPartition_OrderProperty struct {
 	// `CfnPartition.OrderProperty.Column`.
 	Column *string `json:"column"`
@@ -7061,15 +7181,19 @@ type CfnPartition_OrderProperty struct {
 	SortOrder *float64 `json:"sortOrder"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPartition_PartitionInputProperty struct {
-	// `CfnPartition.PartitionInputProperty.Values`.
-	Values *[]*string `json:"values"`
 	// `CfnPartition.PartitionInputProperty.Parameters`.
 	Parameters interface{} `json:"parameters"`
 	// `CfnPartition.PartitionInputProperty.StorageDescriptor`.
 	StorageDescriptor interface{} `json:"storageDescriptor"`
+	// `CfnPartition.PartitionInputProperty.Values`.
+	Values *[]*string `json:"values"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPartition_SchemaIdProperty struct {
 	// `CfnPartition.SchemaIdProperty.RegistryName`.
 	RegistryName *string `json:"registryName"`
@@ -7079,6 +7203,8 @@ type CfnPartition_SchemaIdProperty struct {
 	SchemaName *string `json:"schemaName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPartition_SchemaReferenceProperty struct {
 	// `CfnPartition.SchemaReferenceProperty.SchemaId`.
 	SchemaId interface{} `json:"schemaId"`
@@ -7088,6 +7214,8 @@ type CfnPartition_SchemaReferenceProperty struct {
 	SchemaVersionNumber *float64 `json:"schemaVersionNumber"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPartition_SerdeInfoProperty struct {
 	// `CfnPartition.SerdeInfoProperty.Name`.
 	Name *string `json:"name"`
@@ -7097,6 +7225,8 @@ type CfnPartition_SerdeInfoProperty struct {
 	SerializationLibrary *string `json:"serializationLibrary"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPartition_SkewedInfoProperty struct {
 	// `CfnPartition.SkewedInfoProperty.SkewedColumnNames`.
 	SkewedColumnNames *[]*string `json:"skewedColumnNames"`
@@ -7106,6 +7236,8 @@ type CfnPartition_SkewedInfoProperty struct {
 	SkewedColumnValues *[]*string `json:"skewedColumnValues"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPartition_StorageDescriptorProperty struct {
 	// `CfnPartition.StorageDescriptorProperty.BucketColumns`.
 	BucketColumns *[]*string `json:"bucketColumns"`
@@ -7136,6 +7268,9 @@ type CfnPartition_StorageDescriptorProperty struct {
 }
 
 // Properties for defining a `AWS::Glue::Partition`.
+//
+// TODO: EXAMPLE
+//
 type CfnPartitionProps struct {
 	// `AWS::Glue::Partition.CatalogId`.
 	CatalogId *string `json:"catalogId"`
@@ -7148,6 +7283,9 @@ type CfnPartitionProps struct {
 }
 
 // A CloudFormation `AWS::Glue::Registry`.
+//
+// TODO: EXAMPLE
+//
 type CfnRegistry interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -7776,16 +7914,22 @@ func (c *jsiiProxy_CfnRegistry) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Glue::Registry`.
+//
+// TODO: EXAMPLE
+//
 type CfnRegistryProps struct {
-	// `AWS::Glue::Registry.Name`.
-	Name *string `json:"name"`
 	// `AWS::Glue::Registry.Description`.
 	Description *string `json:"description"`
+	// `AWS::Glue::Registry.Name`.
+	Name *string `json:"name"`
 	// `AWS::Glue::Registry.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::Glue::Schema`.
+//
+// TODO: EXAMPLE
+//
 type CfnSchema interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -8524,6 +8668,8 @@ func (c *jsiiProxy_CfnSchema) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnSchema_RegistryProperty struct {
 	// `CfnSchema.RegistryProperty.Arn`.
 	Arn *string `json:"arn"`
@@ -8531,6 +8677,8 @@ type CfnSchema_RegistryProperty struct {
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSchema_SchemaVersionProperty struct {
 	// `CfnSchema.SchemaVersionProperty.IsLatest`.
 	IsLatest interface{} `json:"isLatest"`
@@ -8539,26 +8687,32 @@ type CfnSchema_SchemaVersionProperty struct {
 }
 
 // Properties for defining a `AWS::Glue::Schema`.
+//
+// TODO: EXAMPLE
+//
 type CfnSchemaProps struct {
+	// `AWS::Glue::Schema.CheckpointVersion`.
+	CheckpointVersion interface{} `json:"checkpointVersion"`
 	// `AWS::Glue::Schema.Compatibility`.
 	Compatibility *string `json:"compatibility"`
 	// `AWS::Glue::Schema.DataFormat`.
 	DataFormat *string `json:"dataFormat"`
-	// `AWS::Glue::Schema.Name`.
-	Name *string `json:"name"`
-	// `AWS::Glue::Schema.SchemaDefinition`.
-	SchemaDefinition *string `json:"schemaDefinition"`
-	// `AWS::Glue::Schema.CheckpointVersion`.
-	CheckpointVersion interface{} `json:"checkpointVersion"`
 	// `AWS::Glue::Schema.Description`.
 	Description *string `json:"description"`
+	// `AWS::Glue::Schema.Name`.
+	Name *string `json:"name"`
 	// `AWS::Glue::Schema.Registry`.
 	Registry interface{} `json:"registry"`
+	// `AWS::Glue::Schema.SchemaDefinition`.
+	SchemaDefinition *string `json:"schemaDefinition"`
 	// `AWS::Glue::Schema.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::Glue::SchemaVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnSchemaVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -9175,6 +9329,8 @@ func (c *jsiiProxy_CfnSchemaVersion) ValidateProperties(_properties interface{})
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnSchemaVersion_SchemaProperty struct {
 	// `CfnSchemaVersion.SchemaProperty.RegistryName`.
 	RegistryName *string `json:"registryName"`
@@ -9185,6 +9341,9 @@ type CfnSchemaVersion_SchemaProperty struct {
 }
 
 // A CloudFormation `AWS::Glue::SchemaVersionMetadata`.
+//
+// TODO: EXAMPLE
+//
 type CfnSchemaVersionMetadata interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -9811,6 +9970,9 @@ func (c *jsiiProxy_CfnSchemaVersionMetadata) ValidateProperties(_properties inte
 }
 
 // Properties for defining a `AWS::Glue::SchemaVersionMetadata`.
+//
+// TODO: EXAMPLE
+//
 type CfnSchemaVersionMetadataProps struct {
 	// `AWS::Glue::SchemaVersionMetadata.Key`.
 	Key *string `json:"key"`
@@ -9821,6 +9983,9 @@ type CfnSchemaVersionMetadataProps struct {
 }
 
 // Properties for defining a `AWS::Glue::SchemaVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnSchemaVersionProps struct {
 	// `AWS::Glue::SchemaVersion.Schema`.
 	Schema interface{} `json:"schema"`
@@ -9829,6 +9994,9 @@ type CfnSchemaVersionProps struct {
 }
 
 // A CloudFormation `AWS::Glue::SecurityConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnSecurityConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -10434,6 +10602,8 @@ func (c *jsiiProxy_CfnSecurityConfiguration) ValidateProperties(_properties inte
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnSecurityConfiguration_CloudWatchEncryptionProperty struct {
 	// `CfnSecurityConfiguration.CloudWatchEncryptionProperty.CloudWatchEncryptionMode`.
 	CloudWatchEncryptionMode *string `json:"cloudWatchEncryptionMode"`
@@ -10441,6 +10611,8 @@ type CfnSecurityConfiguration_CloudWatchEncryptionProperty struct {
 	KmsKeyArn *string `json:"kmsKeyArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSecurityConfiguration_EncryptionConfigurationProperty struct {
 	// `CfnSecurityConfiguration.EncryptionConfigurationProperty.CloudWatchEncryption`.
 	CloudWatchEncryption interface{} `json:"cloudWatchEncryption"`
@@ -10450,6 +10622,8 @@ type CfnSecurityConfiguration_EncryptionConfigurationProperty struct {
 	S3Encryptions interface{} `json:"s3Encryptions"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSecurityConfiguration_JobBookmarksEncryptionProperty struct {
 	// `CfnSecurityConfiguration.JobBookmarksEncryptionProperty.JobBookmarksEncryptionMode`.
 	JobBookmarksEncryptionMode *string `json:"jobBookmarksEncryptionMode"`
@@ -10457,6 +10631,8 @@ type CfnSecurityConfiguration_JobBookmarksEncryptionProperty struct {
 	KmsKeyArn *string `json:"kmsKeyArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSecurityConfiguration_S3EncryptionProperty struct {
 	// `CfnSecurityConfiguration.S3EncryptionProperty.KmsKeyArn`.
 	KmsKeyArn *string `json:"kmsKeyArn"`
@@ -10465,6 +10641,9 @@ type CfnSecurityConfiguration_S3EncryptionProperty struct {
 }
 
 // Properties for defining a `AWS::Glue::SecurityConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnSecurityConfigurationProps struct {
 	// `AWS::Glue::SecurityConfiguration.EncryptionConfiguration`.
 	EncryptionConfiguration interface{} `json:"encryptionConfiguration"`
@@ -10473,6 +10652,9 @@ type CfnSecurityConfigurationProps struct {
 }
 
 // A CloudFormation `AWS::Glue::Table`.
+//
+// TODO: EXAMPLE
+//
 type CfnTable interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -11098,15 +11280,19 @@ func (c *jsiiProxy_CfnTable) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnTable_ColumnProperty struct {
-	// `CfnTable.ColumnProperty.Name`.
-	Name *string `json:"name"`
 	// `CfnTable.ColumnProperty.Comment`.
 	Comment *string `json:"comment"`
+	// `CfnTable.ColumnProperty.Name`.
+	Name *string `json:"name"`
 	// `CfnTable.ColumnProperty.Type`.
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTable_OrderProperty struct {
 	// `CfnTable.OrderProperty.Column`.
 	Column *string `json:"column"`
@@ -11114,6 +11300,8 @@ type CfnTable_OrderProperty struct {
 	SortOrder *float64 `json:"sortOrder"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTable_SchemaIdProperty struct {
 	// `CfnTable.SchemaIdProperty.RegistryName`.
 	RegistryName *string `json:"registryName"`
@@ -11123,6 +11311,8 @@ type CfnTable_SchemaIdProperty struct {
 	SchemaName *string `json:"schemaName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTable_SchemaReferenceProperty struct {
 	// `CfnTable.SchemaReferenceProperty.SchemaId`.
 	SchemaId interface{} `json:"schemaId"`
@@ -11132,6 +11322,8 @@ type CfnTable_SchemaReferenceProperty struct {
 	SchemaVersionNumber *float64 `json:"schemaVersionNumber"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTable_SerdeInfoProperty struct {
 	// `CfnTable.SerdeInfoProperty.Name`.
 	Name *string `json:"name"`
@@ -11141,6 +11333,8 @@ type CfnTable_SerdeInfoProperty struct {
 	SerializationLibrary *string `json:"serializationLibrary"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTable_SkewedInfoProperty struct {
 	// `CfnTable.SkewedInfoProperty.SkewedColumnNames`.
 	SkewedColumnNames *[]*string `json:"skewedColumnNames"`
@@ -11150,6 +11344,8 @@ type CfnTable_SkewedInfoProperty struct {
 	SkewedColumnValues *[]*string `json:"skewedColumnValues"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTable_StorageDescriptorProperty struct {
 	// `CfnTable.StorageDescriptorProperty.BucketColumns`.
 	BucketColumns *[]*string `json:"bucketColumns"`
@@ -11179,6 +11375,8 @@ type CfnTable_StorageDescriptorProperty struct {
 	StoredAsSubDirectories interface{} `json:"storedAsSubDirectories"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTable_TableIdentifierProperty struct {
 	// `CfnTable.TableIdentifierProperty.CatalogId`.
 	CatalogId *string `json:"catalogId"`
@@ -11188,6 +11386,8 @@ type CfnTable_TableIdentifierProperty struct {
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTable_TableInputProperty struct {
 	// `CfnTable.TableInputProperty.Description`.
 	Description *string `json:"description"`
@@ -11214,6 +11414,9 @@ type CfnTable_TableInputProperty struct {
 }
 
 // Properties for defining a `AWS::Glue::Table`.
+//
+// TODO: EXAMPLE
+//
 type CfnTableProps struct {
 	// `AWS::Glue::Table.CatalogId`.
 	CatalogId *string `json:"catalogId"`
@@ -11224,6 +11427,9 @@ type CfnTableProps struct {
 }
 
 // A CloudFormation `AWS::Glue::Trigger`.
+//
+// TODO: EXAMPLE
+//
 type CfnTrigger interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -11960,6 +12166,8 @@ func (c *jsiiProxy_CfnTrigger) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnTrigger_ActionProperty struct {
 	// `CfnTrigger.ActionProperty.Arguments`.
 	Arguments interface{} `json:"arguments"`
@@ -11975,6 +12183,8 @@ type CfnTrigger_ActionProperty struct {
 	Timeout *float64 `json:"timeout"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTrigger_ConditionProperty struct {
 	// `CfnTrigger.ConditionProperty.CrawlerName`.
 	CrawlerName *string `json:"crawlerName"`
@@ -11988,11 +12198,15 @@ type CfnTrigger_ConditionProperty struct {
 	State *string `json:"state"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTrigger_NotificationPropertyProperty struct {
 	// `CfnTrigger.NotificationPropertyProperty.NotifyDelayAfter`.
 	NotifyDelayAfter *float64 `json:"notifyDelayAfter"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTrigger_PredicateProperty struct {
 	// `CfnTrigger.PredicateProperty.Conditions`.
 	Conditions interface{} `json:"conditions"`
@@ -12001,11 +12215,12 @@ type CfnTrigger_PredicateProperty struct {
 }
 
 // Properties for defining a `AWS::Glue::Trigger`.
+//
+// TODO: EXAMPLE
+//
 type CfnTriggerProps struct {
 	// `AWS::Glue::Trigger.Actions`.
 	Actions interface{} `json:"actions"`
-	// `AWS::Glue::Trigger.Type`.
-	Type *string `json:"type"`
 	// `AWS::Glue::Trigger.Description`.
 	Description *string `json:"description"`
 	// `AWS::Glue::Trigger.Name`.
@@ -12018,11 +12233,16 @@ type CfnTriggerProps struct {
 	StartOnCreation interface{} `json:"startOnCreation"`
 	// `AWS::Glue::Trigger.Tags`.
 	Tags interface{} `json:"tags"`
+	// `AWS::Glue::Trigger.Type`.
+	Type *string `json:"type"`
 	// `AWS::Glue::Trigger.WorkflowName`.
 	WorkflowName *string `json:"workflowName"`
 }
 
 // A CloudFormation `AWS::Glue::Workflow`.
+//
+// TODO: EXAMPLE
+//
 type CfnWorkflow interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -12660,6 +12880,9 @@ func (c *jsiiProxy_CfnWorkflow) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Glue::Workflow`.
+//
+// TODO: EXAMPLE
+//
 type CfnWorkflowProps struct {
 	// `AWS::Glue::Workflow.DefaultRunProperties`.
 	DefaultRunProperties interface{} `json:"defaultRunProperties"`
@@ -12672,6 +12895,9 @@ type CfnWorkflowProps struct {
 }
 
 // Classification string given to tables with this data format.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/glue/latest/dg/add-classifier.html#classifier-built-in
 //
 // Experimental.
@@ -12886,6 +13112,9 @@ func (c *jsiiProxy_Code) Bind(scope constructs.Construct, grantable awsiam.IGran
 }
 
 // Result of binding `Code` into a `Job`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CodeConfig struct {
 	// The location of the code in S3.
@@ -12894,17 +13123,20 @@ type CodeConfig struct {
 }
 
 // A column of a table.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Column struct {
+	// Coment describing the column.
+	// Experimental.
+	Comment *string `json:"comment"`
 	// Name of the column.
 	// Experimental.
 	Name *string `json:"name"`
 	// Type of the column.
 	// Experimental.
 	Type *Type `json:"type"`
-	// Coment describing the column.
-	// Experimental.
-	Comment *string `json:"comment"`
 }
 
 // An AWS Glue connection to a data source.
@@ -13293,6 +13525,9 @@ func (c *jsiiProxy_Connection) Validate() *[]*string {
 }
 
 // Base Connection Options.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ConnectionOptions struct {
 	// The name of the connection.
@@ -13471,18 +13706,21 @@ func (c *jsiiProxy_ConnectionType) ToString() *string {
 }
 
 // Properties for enabling Continuous Logging for Glue Jobs.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 //
 // Experimental.
 type ContinuousLoggingProps struct {
-	// Enable continouous logging.
-	// Experimental.
-	Enabled *bool `json:"enabled"`
 	// Apply the provided conversion pattern.
 	//
 	// This is a Log4j Conversion Pattern to customize driver and executor logs.
 	// Experimental.
 	ConversionPattern *string `json:"conversionPattern"`
+	// Enable continouous logging.
+	// Experimental.
+	Enabled *bool `json:"enabled"`
 	// Specify a custom CloudWatch log group name.
 	// Experimental.
 	LogGroup awslogs.ILogGroup `json:"logGroup"`
@@ -13678,8 +13916,14 @@ func DataFormat_TSV() DataFormat {
 }
 
 // Properties of a DataFormat instance.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DataFormatProps struct {
+	// Classification string given to tables with this data format.
+	// Experimental.
+	ClassificationString ClassificationString `json:"classificationString"`
 	// `InputFormat` for this data format.
 	// Experimental.
 	InputFormat InputFormat `json:"inputFormat"`
@@ -13689,9 +13933,6 @@ type DataFormatProps struct {
 	// Serialization library for this data format.
 	// Experimental.
 	SerializationLibrary SerializationLibrary `json:"serializationLibrary"`
-	// Classification string given to tables with this data format.
-	// Experimental.
-	ClassificationString ClassificationString `json:"classificationString"`
 }
 
 // A Glue database.
@@ -14581,6 +14822,9 @@ func (j *jsiiProxy_ITable) TableName() *string {
 }
 
 // Absolute class name of the Hadoop `InputFormat` to use when reading table files.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type InputFormat interface {
 	ClassName() *string
@@ -15228,6 +15472,9 @@ func (j *jsiiProxy_Job) Validate() *[]*string {
 }
 
 // Attributes for importing {@link Job}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type JobAttributes struct {
 	// The name of the job.
@@ -15394,24 +15641,11 @@ func (j *jsiiProxy_JobExecutable) Bind() *JobExecutableConfig {
 }
 
 // Result of binding a `JobExecutable` into a `Job`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type JobExecutableConfig struct {
-	// Glue version.
-	// See: https://docs.aws.amazon.com/glue/latest/dg/release-notes.html
-	//
-	// Experimental.
-	GlueVersion GlueVersion `json:"glueVersion"`
-	// The language of the job (Scala or Python).
-	// See: `--job-language` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
-	//
-	// Experimental.
-	Language JobLanguage `json:"language"`
-	// The script that is executed by a job.
-	// Experimental.
-	Script Code `json:"script"`
-	// Specify the type of the job whether it's an Apache Spark ETL or streaming one or if it's a Python shell job.
-	// Experimental.
-	Type JobType `json:"type"`
 	// The Scala class that serves as the entry point for the job.
 	//
 	// This applies only if your the job langauage is Scala.
@@ -15439,9 +15673,25 @@ type JobExecutableConfig struct {
 	//
 	// Experimental.
 	ExtraPythonFiles *[]Code `json:"extraPythonFiles"`
+	// Glue version.
+	// See: https://docs.aws.amazon.com/glue/latest/dg/release-notes.html
+	//
+	// Experimental.
+	GlueVersion GlueVersion `json:"glueVersion"`
+	// The language of the job (Scala or Python).
+	// See: `--job-language` in https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
+	//
+	// Experimental.
+	Language JobLanguage `json:"language"`
 	// The Python version to use.
 	// Experimental.
 	PythonVersion PythonVersion `json:"pythonVersion"`
+	// The script that is executed by a job.
+	// Experimental.
+	Script Code `json:"script"`
+	// Specify the type of the job whether it's an Apache Spark ETL or streaming one or if it's a Python shell job.
+	// Experimental.
+	Type JobType `json:"type"`
 }
 
 // Runtime language of the Glue job.
@@ -15449,8 +15699,8 @@ type JobExecutableConfig struct {
 type JobLanguage string
 
 const (
-	JobLanguage_SCALA JobLanguage = "SCALA"
 	JobLanguage_PYTHON JobLanguage = "PYTHON"
+	JobLanguage_SCALA JobLanguage = "SCALA"
 )
 
 // Construction properties for {@link Job}.
@@ -15553,6 +15803,9 @@ const (
 //
 // If you need to use a JobType that doesn't exist as a static member, you
 // can instantiate a `JobType` object, e.g: `JobType.of('other name')`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type JobType interface {
 	Name() *string
@@ -15636,6 +15889,9 @@ const (
 )
 
 // Absolute class name of the Hadoop `OutputFormat` to use when writing table files.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type OutputFormat interface {
 	ClassName() *string
@@ -15811,11 +16067,14 @@ type PythonSparkJobExecutableProps struct {
 type PythonVersion string
 
 const (
-	PythonVersion_TWO PythonVersion = "TWO"
 	PythonVersion_THREE PythonVersion = "THREE"
+	PythonVersion_TWO PythonVersion = "TWO"
 )
 
 // Glue job Code from an S3 bucket.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type S3Code interface {
 	Code
@@ -16638,6 +16897,9 @@ type SecurityConfigurationProps struct {
 }
 
 // Serialization library to use when serializing/deserializing (SerDe) table records.
+//
+// TODO: EXAMPLE
+//
 // See: https://cwiki.apache.org/confluence/display/Hive/SerDe
 //
 // Experimental.
@@ -16798,6 +17060,9 @@ func SerializationLibrary_REGEXP() SerializationLibrary {
 }
 
 // The Spark UI logging location.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 //
 // Experimental.
@@ -16811,16 +17076,19 @@ type SparkUILoggingLocation struct {
 }
 
 // Properties for enabling Spark UI monitoring feature for Spark-based Glue jobs.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html
 //
 // Experimental.
 type SparkUIProps struct {
-	// Enable Spark UI.
-	// Experimental.
-	Enabled *bool `json:"enabled"`
 	// The bucket where the Glue job stores the logs.
 	// Experimental.
 	Bucket awss3.IBucket `json:"bucket"`
+	// Enable Spark UI.
+	// Experimental.
+	Enabled *bool `json:"enabled"`
 	// The path inside the bucket (objects prefix) where the Glue job stores the logs.
 	// Experimental.
 	Prefix *string `json:"prefix"`
@@ -17346,6 +17614,8 @@ func (t *jsiiProxy_Table) Validate() *[]*string {
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type TableAttributes struct {
 	// Experimental.
@@ -17438,6 +17708,9 @@ type Type struct {
 //
 // If you need to use a WorkerType that doesn't exist as a static member, you
 // can instantiate a `WorkerType` object, e.g: `WorkerType.of('other type')`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type WorkerType interface {
 	Name() *string

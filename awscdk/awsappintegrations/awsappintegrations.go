@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::AppIntegrations::EventIntegration`.
+//
+// TODO: EXAMPLE
+//
 type CfnEventIntegration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -688,11 +691,15 @@ func (c *jsiiProxy_CfnEventIntegration) ValidateProperties(_properties interface
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnEventIntegration_EventFilterProperty struct {
 	// `CfnEventIntegration.EventFilterProperty.Source`.
 	Source *string `json:"source"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEventIntegration_EventIntegrationAssociationProperty struct {
 	// `CfnEventIntegration.EventIntegrationAssociationProperty.ClientAssociationMetadata`.
 	ClientAssociationMetadata interface{} `json:"clientAssociationMetadata"`
@@ -706,6 +713,8 @@ type CfnEventIntegration_EventIntegrationAssociationProperty struct {
 	EventIntegrationAssociationId *string `json:"eventIntegrationAssociationId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEventIntegration_MetadataProperty struct {
 	// `CfnEventIntegration.MetadataProperty.Key`.
 	Key *string `json:"key"`
@@ -714,15 +723,18 @@ type CfnEventIntegration_MetadataProperty struct {
 }
 
 // Properties for defining a `AWS::AppIntegrations::EventIntegration`.
+//
+// TODO: EXAMPLE
+//
 type CfnEventIntegrationProps struct {
+	// `AWS::AppIntegrations::EventIntegration.Description`.
+	Description *string `json:"description"`
 	// `AWS::AppIntegrations::EventIntegration.EventBridgeBus`.
 	EventBridgeBus *string `json:"eventBridgeBus"`
 	// `AWS::AppIntegrations::EventIntegration.EventFilter`.
 	EventFilter interface{} `json:"eventFilter"`
 	// `AWS::AppIntegrations::EventIntegration.Name`.
 	Name *string `json:"name"`
-	// `AWS::AppIntegrations::EventIntegration.Description`.
-	Description *string `json:"description"`
 	// `AWS::AppIntegrations::EventIntegration.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }

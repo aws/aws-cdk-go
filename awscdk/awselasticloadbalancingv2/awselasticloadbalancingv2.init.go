@@ -809,11 +809,11 @@ func init() {
 		"monocdk.aws_elasticloadbalancingv2.ContentType",
 		reflect.TypeOf((*ContentType)(nil)).Elem(),
 		map[string]interface{}{
-			"TEXT_PLAIN": ContentType_TEXT_PLAIN,
-			"TEXT_CSS": ContentType_TEXT_CSS,
-			"TEXT_HTML": ContentType_TEXT_HTML,
 			"APPLICATION_JAVASCRIPT": ContentType_APPLICATION_JAVASCRIPT,
 			"APPLICATION_JSON": ContentType_APPLICATION_JSON,
+			"TEXT_CSS": ContentType_TEXT_CSS,
+			"TEXT_HTML": ContentType_TEXT_HTML,
+			"TEXT_PLAIN": ContentType_TEXT_PLAIN,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -1067,8 +1067,8 @@ func init() {
 		"monocdk.aws_elasticloadbalancingv2.IpAddressType",
 		reflect.TypeOf((*IpAddressType)(nil)).Elem(),
 		map[string]interface{}{
-			"IPV4": IpAddressType_IPV4,
 			"DUAL_STACK": IpAddressType_DUAL_STACK,
+			"IPV4": IpAddressType_IPV4,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -1298,9 +1298,9 @@ func init() {
 			"HTTP": Protocol_HTTP,
 			"HTTPS": Protocol_HTTPS,
 			"TCP": Protocol_TCP,
+			"TCP_UDP": Protocol_TCP_UDP,
 			"TLS": Protocol_TLS,
 			"UDP": Protocol_UDP,
-			"TCP_UDP": Protocol_TCP_UDP,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -1319,16 +1319,16 @@ func init() {
 		"monocdk.aws_elasticloadbalancingv2.SslPolicy",
 		reflect.TypeOf((*SslPolicy)(nil)).Elem(),
 		map[string]interface{}{
-			"RECOMMENDED": SslPolicy_RECOMMENDED,
-			"FORWARD_SECRECY_TLS12_RES_GCM": SslPolicy_FORWARD_SECRECY_TLS12_RES_GCM,
-			"FORWARD_SECRECY_TLS12_RES": SslPolicy_FORWARD_SECRECY_TLS12_RES,
-			"FORWARD_SECRECY_TLS12": SslPolicy_FORWARD_SECRECY_TLS12,
-			"FORWARD_SECRECY_TLS11": SslPolicy_FORWARD_SECRECY_TLS11,
 			"FORWARD_SECRECY": SslPolicy_FORWARD_SECRECY,
+			"FORWARD_SECRECY_TLS11": SslPolicy_FORWARD_SECRECY_TLS11,
+			"FORWARD_SECRECY_TLS12": SslPolicy_FORWARD_SECRECY_TLS12,
+			"FORWARD_SECRECY_TLS12_RES": SslPolicy_FORWARD_SECRECY_TLS12_RES,
+			"FORWARD_SECRECY_TLS12_RES_GCM": SslPolicy_FORWARD_SECRECY_TLS12_RES_GCM,
+			"LEGACY": SslPolicy_LEGACY,
+			"RECOMMENDED": SslPolicy_RECOMMENDED,
+			"TLS11": SslPolicy_TLS11,
 			"TLS12": SslPolicy_TLS12,
 			"TLS12_EXT": SslPolicy_TLS12_EXT,
-			"TLS11": SslPolicy_TLS11,
-			"LEGACY": SslPolicy_LEGACY,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -1377,27 +1377,27 @@ func init() {
 		"monocdk.aws_elasticloadbalancingv2.TargetGroupLoadBalancingAlgorithmType",
 		reflect.TypeOf((*TargetGroupLoadBalancingAlgorithmType)(nil)).Elem(),
 		map[string]interface{}{
-			"ROUND_ROBIN": TargetGroupLoadBalancingAlgorithmType_ROUND_ROBIN,
 			"LEAST_OUTSTANDING_REQUESTS": TargetGroupLoadBalancingAlgorithmType_LEAST_OUTSTANDING_REQUESTS,
+			"ROUND_ROBIN": TargetGroupLoadBalancingAlgorithmType_ROUND_ROBIN,
 		},
 	)
 	_jsii_.RegisterEnum(
 		"monocdk.aws_elasticloadbalancingv2.TargetType",
 		reflect.TypeOf((*TargetType)(nil)).Elem(),
 		map[string]interface{}{
+			"ALB": TargetType_ALB,
 			"INSTANCE": TargetType_INSTANCE,
 			"IP": TargetType_IP,
 			"LAMBDA": TargetType_LAMBDA,
-			"ALB": TargetType_ALB,
 		},
 	)
 	_jsii_.RegisterEnum(
 		"monocdk.aws_elasticloadbalancingv2.UnauthenticatedAction",
 		reflect.TypeOf((*UnauthenticatedAction)(nil)).Elem(),
 		map[string]interface{}{
-			"DENY": UnauthenticatedAction_DENY,
 			"ALLOW": UnauthenticatedAction_ALLOW,
 			"AUTHENTICATE": UnauthenticatedAction_AUTHENTICATE,
+			"DENY": UnauthenticatedAction_DENY,
 		},
 	)
 	_jsii_.RegisterStruct(

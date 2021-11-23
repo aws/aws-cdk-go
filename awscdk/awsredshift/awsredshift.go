@@ -15,6 +15,9 @@ import (
 )
 
 // A CloudFormation `AWS::Redshift::Cluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1555,6 +1558,8 @@ func (c *jsiiProxy_CfnCluster) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_EndpointProperty struct {
 	// `CfnCluster.EndpointProperty.Address`.
 	Address *string `json:"address"`
@@ -1562,6 +1567,8 @@ type CfnCluster_EndpointProperty struct {
 	Port *string `json:"port"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_LoggingPropertiesProperty struct {
 	// `CfnCluster.LoggingPropertiesProperty.BucketName`.
 	BucketName *string `json:"bucketName"`
@@ -1570,6 +1577,9 @@ type CfnCluster_LoggingPropertiesProperty struct {
 }
 
 // A CloudFormation `AWS::Redshift::ClusterParameterGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnClusterParameterGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2206,6 +2216,8 @@ func (c *jsiiProxy_CfnClusterParameterGroup) ValidateProperties(_properties inte
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnClusterParameterGroup_ParameterProperty struct {
 	// `CfnClusterParameterGroup.ParameterProperty.ParameterName`.
 	ParameterName *string `json:"parameterName"`
@@ -2214,6 +2226,9 @@ type CfnClusterParameterGroup_ParameterProperty struct {
 }
 
 // Properties for defining a `AWS::Redshift::ClusterParameterGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnClusterParameterGroupProps struct {
 	// `AWS::Redshift::ClusterParameterGroup.Description`.
 	Description *string `json:"description"`
@@ -2226,17 +2241,10 @@ type CfnClusterParameterGroupProps struct {
 }
 
 // Properties for defining a `AWS::Redshift::Cluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnClusterProps struct {
-	// `AWS::Redshift::Cluster.ClusterType`.
-	ClusterType *string `json:"clusterType"`
-	// `AWS::Redshift::Cluster.DBName`.
-	DbName *string `json:"dbName"`
-	// `AWS::Redshift::Cluster.MasterUsername`.
-	MasterUsername *string `json:"masterUsername"`
-	// `AWS::Redshift::Cluster.MasterUserPassword`.
-	MasterUserPassword *string `json:"masterUserPassword"`
-	// `AWS::Redshift::Cluster.NodeType`.
-	NodeType *string `json:"nodeType"`
 	// `AWS::Redshift::Cluster.AllowVersionUpgrade`.
 	AllowVersionUpgrade interface{} `json:"allowVersionUpgrade"`
 	// `AWS::Redshift::Cluster.AquaConfigurationStatus`.
@@ -2259,8 +2267,12 @@ type CfnClusterProps struct {
 	ClusterSecurityGroups *[]*string `json:"clusterSecurityGroups"`
 	// `AWS::Redshift::Cluster.ClusterSubnetGroupName`.
 	ClusterSubnetGroupName *string `json:"clusterSubnetGroupName"`
+	// `AWS::Redshift::Cluster.ClusterType`.
+	ClusterType *string `json:"clusterType"`
 	// `AWS::Redshift::Cluster.ClusterVersion`.
 	ClusterVersion *string `json:"clusterVersion"`
+	// `AWS::Redshift::Cluster.DBName`.
+	DbName *string `json:"dbName"`
 	// `AWS::Redshift::Cluster.DeferMaintenance`.
 	DeferMaintenance interface{} `json:"deferMaintenance"`
 	// `AWS::Redshift::Cluster.DeferMaintenanceDuration`.
@@ -2291,6 +2303,12 @@ type CfnClusterProps struct {
 	MaintenanceTrackName *string `json:"maintenanceTrackName"`
 	// `AWS::Redshift::Cluster.ManualSnapshotRetentionPeriod`.
 	ManualSnapshotRetentionPeriod *float64 `json:"manualSnapshotRetentionPeriod"`
+	// `AWS::Redshift::Cluster.MasterUsername`.
+	MasterUsername *string `json:"masterUsername"`
+	// `AWS::Redshift::Cluster.MasterUserPassword`.
+	MasterUserPassword *string `json:"masterUserPassword"`
+	// `AWS::Redshift::Cluster.NodeType`.
+	NodeType *string `json:"nodeType"`
 	// `AWS::Redshift::Cluster.NumberOfNodes`.
 	NumberOfNodes *float64 `json:"numberOfNodes"`
 	// `AWS::Redshift::Cluster.OwnerAccount`.
@@ -2324,6 +2342,9 @@ type CfnClusterProps struct {
 }
 
 // A CloudFormation `AWS::Redshift::ClusterSecurityGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnClusterSecurityGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2921,6 +2942,9 @@ func (c *jsiiProxy_CfnClusterSecurityGroup) ValidateProperties(_properties inter
 }
 
 // A CloudFormation `AWS::Redshift::ClusterSecurityGroupIngress`.
+//
+// TODO: EXAMPLE
+//
 type CfnClusterSecurityGroupIngress interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3567,11 +3591,14 @@ func (c *jsiiProxy_CfnClusterSecurityGroupIngress) ValidateProperties(_propertie
 }
 
 // Properties for defining a `AWS::Redshift::ClusterSecurityGroupIngress`.
+//
+// TODO: EXAMPLE
+//
 type CfnClusterSecurityGroupIngressProps struct {
-	// `AWS::Redshift::ClusterSecurityGroupIngress.ClusterSecurityGroupName`.
-	ClusterSecurityGroupName *string `json:"clusterSecurityGroupName"`
 	// `AWS::Redshift::ClusterSecurityGroupIngress.CIDRIP`.
 	Cidrip *string `json:"cidrip"`
+	// `AWS::Redshift::ClusterSecurityGroupIngress.ClusterSecurityGroupName`.
+	ClusterSecurityGroupName *string `json:"clusterSecurityGroupName"`
 	// `AWS::Redshift::ClusterSecurityGroupIngress.EC2SecurityGroupName`.
 	Ec2SecurityGroupName *string `json:"ec2SecurityGroupName"`
 	// `AWS::Redshift::ClusterSecurityGroupIngress.EC2SecurityGroupOwnerId`.
@@ -3579,6 +3606,9 @@ type CfnClusterSecurityGroupIngressProps struct {
 }
 
 // Properties for defining a `AWS::Redshift::ClusterSecurityGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnClusterSecurityGroupProps struct {
 	// `AWS::Redshift::ClusterSecurityGroup.Description`.
 	Description *string `json:"description"`
@@ -3587,6 +3617,9 @@ type CfnClusterSecurityGroupProps struct {
 }
 
 // A CloudFormation `AWS::Redshift::ClusterSubnetGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnClusterSubnetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4204,6 +4237,9 @@ func (c *jsiiProxy_CfnClusterSubnetGroup) ValidateProperties(_properties interfa
 }
 
 // Properties for defining a `AWS::Redshift::ClusterSubnetGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnClusterSubnetGroupProps struct {
 	// `AWS::Redshift::ClusterSubnetGroup.Description`.
 	Description *string `json:"description"`
@@ -4214,6 +4250,9 @@ type CfnClusterSubnetGroupProps struct {
 }
 
 // A CloudFormation `AWS::Redshift::EndpointAccess`.
+//
+// TODO: EXAMPLE
+//
 type CfnEndpointAccess interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4934,6 +4973,8 @@ func (c *jsiiProxy_CfnEndpointAccess) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpointAccess_VpcSecurityGroupProperty struct {
 	// `CfnEndpointAccess.VpcSecurityGroupProperty.Status`.
 	Status *string `json:"status"`
@@ -4942,20 +4983,26 @@ type CfnEndpointAccess_VpcSecurityGroupProperty struct {
 }
 
 // Properties for defining a `AWS::Redshift::EndpointAccess`.
+//
+// TODO: EXAMPLE
+//
 type CfnEndpointAccessProps struct {
-	// `AWS::Redshift::EndpointAccess.EndpointName`.
-	EndpointName *string `json:"endpointName"`
-	// `AWS::Redshift::EndpointAccess.VpcSecurityGroupIds`.
-	VpcSecurityGroupIds *[]*string `json:"vpcSecurityGroupIds"`
 	// `AWS::Redshift::EndpointAccess.ClusterIdentifier`.
 	ClusterIdentifier *string `json:"clusterIdentifier"`
+	// `AWS::Redshift::EndpointAccess.EndpointName`.
+	EndpointName *string `json:"endpointName"`
 	// `AWS::Redshift::EndpointAccess.ResourceOwner`.
 	ResourceOwner *string `json:"resourceOwner"`
 	// `AWS::Redshift::EndpointAccess.SubnetGroupName`.
 	SubnetGroupName *string `json:"subnetGroupName"`
+	// `AWS::Redshift::EndpointAccess.VpcSecurityGroupIds`.
+	VpcSecurityGroupIds *[]*string `json:"vpcSecurityGroupIds"`
 }
 
 // A CloudFormation `AWS::Redshift::EndpointAuthorization`.
+//
+// TODO: EXAMPLE
+//
 type CfnEndpointAuthorization interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5690,6 +5737,9 @@ func (c *jsiiProxy_CfnEndpointAuthorization) ValidateProperties(_properties inte
 }
 
 // Properties for defining a `AWS::Redshift::EndpointAuthorization`.
+//
+// TODO: EXAMPLE
+//
 type CfnEndpointAuthorizationProps struct {
 	// `AWS::Redshift::EndpointAuthorization.Account`.
 	Account *string `json:"account"`
@@ -5702,6 +5752,9 @@ type CfnEndpointAuthorizationProps struct {
 }
 
 // A CloudFormation `AWS::Redshift::EventSubscription`.
+//
+// TODO: EXAMPLE
+//
 type CfnEventSubscription interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6485,9 +6538,10 @@ func (c *jsiiProxy_CfnEventSubscription) ValidateProperties(_properties interfac
 }
 
 // Properties for defining a `AWS::Redshift::EventSubscription`.
+//
+// TODO: EXAMPLE
+//
 type CfnEventSubscriptionProps struct {
-	// `AWS::Redshift::EventSubscription.SubscriptionName`.
-	SubscriptionName *string `json:"subscriptionName"`
 	// `AWS::Redshift::EventSubscription.Enabled`.
 	Enabled interface{} `json:"enabled"`
 	// `AWS::Redshift::EventSubscription.EventCategories`.
@@ -6500,11 +6554,16 @@ type CfnEventSubscriptionProps struct {
 	SourceIds *[]*string `json:"sourceIds"`
 	// `AWS::Redshift::EventSubscription.SourceType`.
 	SourceType *string `json:"sourceType"`
+	// `AWS::Redshift::EventSubscription.SubscriptionName`.
+	SubscriptionName *string `json:"subscriptionName"`
 	// `AWS::Redshift::EventSubscription.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::Redshift::ScheduledAction`.
+//
+// TODO: EXAMPLE
+//
 type CfnScheduledAction interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -7252,16 +7311,20 @@ func (c *jsiiProxy_CfnScheduledAction) ValidateProperties(_properties interface{
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnScheduledAction_PauseClusterMessageProperty struct {
 	// `CfnScheduledAction.PauseClusterMessageProperty.ClusterIdentifier`.
 	ClusterIdentifier *string `json:"clusterIdentifier"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnScheduledAction_ResizeClusterMessageProperty struct {
-	// `CfnScheduledAction.ResizeClusterMessageProperty.ClusterIdentifier`.
-	ClusterIdentifier *string `json:"clusterIdentifier"`
 	// `CfnScheduledAction.ResizeClusterMessageProperty.Classic`.
 	Classic interface{} `json:"classic"`
+	// `CfnScheduledAction.ResizeClusterMessageProperty.ClusterIdentifier`.
+	ClusterIdentifier *string `json:"clusterIdentifier"`
 	// `CfnScheduledAction.ResizeClusterMessageProperty.ClusterType`.
 	ClusterType *string `json:"clusterType"`
 	// `CfnScheduledAction.ResizeClusterMessageProperty.NodeType`.
@@ -7270,11 +7333,15 @@ type CfnScheduledAction_ResizeClusterMessageProperty struct {
 	NumberOfNodes *float64 `json:"numberOfNodes"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnScheduledAction_ResumeClusterMessageProperty struct {
 	// `CfnScheduledAction.ResumeClusterMessageProperty.ClusterIdentifier`.
 	ClusterIdentifier *string `json:"clusterIdentifier"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnScheduledAction_ScheduledActionTypeProperty struct {
 	// `CfnScheduledAction.ScheduledActionTypeProperty.PauseCluster`.
 	PauseCluster interface{} `json:"pauseCluster"`
@@ -7285,9 +7352,10 @@ type CfnScheduledAction_ScheduledActionTypeProperty struct {
 }
 
 // Properties for defining a `AWS::Redshift::ScheduledAction`.
+//
+// TODO: EXAMPLE
+//
 type CfnScheduledActionProps struct {
-	// `AWS::Redshift::ScheduledAction.ScheduledActionName`.
-	ScheduledActionName *string `json:"scheduledActionName"`
 	// `AWS::Redshift::ScheduledAction.Enable`.
 	Enable interface{} `json:"enable"`
 	// `AWS::Redshift::ScheduledAction.EndTime`.
@@ -7298,6 +7366,8 @@ type CfnScheduledActionProps struct {
 	Schedule *string `json:"schedule"`
 	// `AWS::Redshift::ScheduledAction.ScheduledActionDescription`.
 	ScheduledActionDescription *string `json:"scheduledActionDescription"`
+	// `AWS::Redshift::ScheduledAction.ScheduledActionName`.
+	ScheduledActionName *string `json:"scheduledActionName"`
 	// `AWS::Redshift::ScheduledAction.StartTime`.
 	StartTime *string `json:"startTime"`
 	// `AWS::Redshift::ScheduledAction.TargetAction`.
@@ -7732,6 +7802,9 @@ func (c *jsiiProxy_Cluster) Validate() *[]*string {
 }
 
 // Properties that describe an existing cluster instance.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ClusterAttributes struct {
 	// Cluster endpoint address.
@@ -7749,6 +7822,9 @@ type ClusterAttributes struct {
 }
 
 // A cluster parameter group.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ClusterParameterGroup interface {
 	awscdk.Resource
@@ -8092,14 +8168,17 @@ func (c *jsiiProxy_ClusterParameterGroup) Validate() *[]*string {
 }
 
 // Properties for a parameter group.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ClusterParameterGroupProps struct {
-	// The parameters in this parameter group.
-	// Experimental.
-	Parameters *map[string]*string `json:"parameters"`
 	// Description for this parameter group.
 	// Experimental.
 	Description *string `json:"description"`
+	// The parameters in this parameter group.
+	// Experimental.
+	Parameters *map[string]*string `json:"parameters"`
 }
 
 // Properties for a new database cluster.
@@ -8181,6 +8260,9 @@ type ClusterProps struct {
 }
 
 // Class for creating a Redshift cluster subnet group.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ClusterSubnetGroup interface {
 	awscdk.Resource
@@ -8524,17 +8606,20 @@ func (c *jsiiProxy_ClusterSubnetGroup) Validate() *[]*string {
 }
 
 // Properties for creating a ClusterSubnetGroup.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ClusterSubnetGroupProps struct {
 	// Description of the subnet group.
 	// Experimental.
 	Description *string `json:"description"`
-	// The VPC to place the subnet group in.
-	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
 	// The removal policy to apply when the subnet group are removed from the stack or replaced during an update.
 	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
+	// The VPC to place the subnet group in.
+	// Experimental.
+	Vpc awsec2.IVpc `json:"vpc"`
 	// Which subnets within the VPC to associate with this group.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
@@ -8552,39 +8637,48 @@ const (
 )
 
 // A column in a Redshift table.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Column struct {
 	// The data type of the column.
 	// Experimental.
 	DataType *string `json:"dataType"`
-	// The name of the column.
-	// Experimental.
-	Name *string `json:"name"`
 	// Boolean value that indicates whether the column is to be configured as DISTKEY.
 	// Experimental.
 	DistKey *bool `json:"distKey"`
+	// The name of the column.
+	// Experimental.
+	Name *string `json:"name"`
 	// Boolean value that indicates whether the column is to be configured as SORTKEY.
 	// Experimental.
 	SortKey *bool `json:"sortKey"`
 }
 
 // Properties for accessing a Redshift database.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DatabaseOptions struct {
+	// The secret containing credentials to a Redshift user with administrator privileges.
+	//
+	// Secret JSON schema: `{ username: string; password: string }`.
+	// Experimental.
+	AdminUser awssecretsmanager.ISecret `json:"adminUser"`
 	// The cluster containing the database.
 	// Experimental.
 	Cluster ICluster `json:"cluster"`
 	// The name of the database.
 	// Experimental.
 	DatabaseName *string `json:"databaseName"`
-	// The secret containing credentials to a Redshift user with administrator privileges.
-	//
-	// Secret JSON schema: `{ username: string; password: string }`.
-	// Experimental.
-	AdminUser awssecretsmanager.ISecret `json:"adminUser"`
 }
 
 // A database secret.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DatabaseSecret interface {
 	awssecretsmanager.Secret
@@ -9226,19 +9320,25 @@ func (d *jsiiProxy_DatabaseSecret) Validate() *[]*string {
 }
 
 // Construction properties for a DatabaseSecret.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DatabaseSecretProps struct {
-	// The username.
-	// Experimental.
-	Username *string `json:"username"`
 	// The KMS key to use to encrypt the secret.
 	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	// The username.
+	// Experimental.
+	Username *string `json:"username"`
 }
 
 // Connection endpoint of a redshift cluster.
 //
 // Consists of a combination of hostname and port.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Endpoint interface {
 	Hostname() *string
@@ -10020,17 +10120,17 @@ const (
 //
 // Experimental.
 type TableProps struct {
+	// The secret containing credentials to a Redshift user with administrator privileges.
+	//
+	// Secret JSON schema: `{ username: string; password: string }`.
+	// Experimental.
+	AdminUser awssecretsmanager.ISecret `json:"adminUser"`
 	// The cluster containing the database.
 	// Experimental.
 	Cluster ICluster `json:"cluster"`
 	// The name of the database.
 	// Experimental.
 	DatabaseName *string `json:"databaseName"`
-	// The secret containing credentials to a Redshift user with administrator privileges.
-	//
-	// Secret JSON schema: `{ username: string; password: string }`.
-	// Experimental.
-	AdminUser awssecretsmanager.ISecret `json:"adminUser"`
 	// The columns of the table.
 	// Experimental.
 	TableColumns *[]*Column `json:"tableColumns"`
@@ -10378,17 +10478,17 @@ func (u *jsiiProxy_User) Validate() *[]*string {
 //
 // Experimental.
 type UserAttributes struct {
+	// The secret containing credentials to a Redshift user with administrator privileges.
+	//
+	// Secret JSON schema: `{ username: string; password: string }`.
+	// Experimental.
+	AdminUser awssecretsmanager.ISecret `json:"adminUser"`
 	// The cluster containing the database.
 	// Experimental.
 	Cluster ICluster `json:"cluster"`
 	// The name of the database.
 	// Experimental.
 	DatabaseName *string `json:"databaseName"`
-	// The secret containing credentials to a Redshift user with administrator privileges.
-	//
-	// Secret JSON schema: `{ username: string; password: string }`.
-	// Experimental.
-	AdminUser awssecretsmanager.ISecret `json:"adminUser"`
 	// The password of the user.
 	//
 	// Do not put passwords in CDK code directly.
@@ -10405,17 +10505,17 @@ type UserAttributes struct {
 //
 // Experimental.
 type UserProps struct {
+	// The secret containing credentials to a Redshift user with administrator privileges.
+	//
+	// Secret JSON schema: `{ username: string; password: string }`.
+	// Experimental.
+	AdminUser awssecretsmanager.ISecret `json:"adminUser"`
 	// The cluster containing the database.
 	// Experimental.
 	Cluster ICluster `json:"cluster"`
 	// The name of the database.
 	// Experimental.
 	DatabaseName *string `json:"databaseName"`
-	// The secret containing credentials to a Redshift user with administrator privileges.
-	//
-	// Secret JSON schema: `{ username: string; password: string }`.
-	// Experimental.
-	AdminUser awssecretsmanager.ISecret `json:"adminUser"`
 	// KMS key to encrypt the generated secret.
 	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey"`

@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::CE::AnomalyMonitor`.
+//
+// TODO: EXAMPLE
+//
 type CfnAnomalyMonitor interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -711,18 +714,24 @@ func (c *jsiiProxy_CfnAnomalyMonitor) ValidateProperties(_properties interface{}
 }
 
 // Properties for defining a `AWS::CE::AnomalyMonitor`.
+//
+// TODO: EXAMPLE
+//
 type CfnAnomalyMonitorProps struct {
-	// `AWS::CE::AnomalyMonitor.MonitorName`.
-	MonitorName *string `json:"monitorName"`
-	// `AWS::CE::AnomalyMonitor.MonitorType`.
-	MonitorType *string `json:"monitorType"`
 	// `AWS::CE::AnomalyMonitor.MonitorDimension`.
 	MonitorDimension *string `json:"monitorDimension"`
+	// `AWS::CE::AnomalyMonitor.MonitorName`.
+	MonitorName *string `json:"monitorName"`
 	// `AWS::CE::AnomalyMonitor.MonitorSpecification`.
 	MonitorSpecification *string `json:"monitorSpecification"`
+	// `AWS::CE::AnomalyMonitor.MonitorType`.
+	MonitorType *string `json:"monitorType"`
 }
 
 // A CloudFormation `AWS::CE::AnomalySubscription`.
+//
+// TODO: EXAMPLE
+//
 type CfnAnomalySubscription interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1410,16 +1419,21 @@ func (c *jsiiProxy_CfnAnomalySubscription) ValidateProperties(_properties interf
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnAnomalySubscription_SubscriberProperty struct {
 	// `CfnAnomalySubscription.SubscriberProperty.Address`.
 	Address *string `json:"address"`
-	// `CfnAnomalySubscription.SubscriberProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnAnomalySubscription.SubscriberProperty.Status`.
 	Status *string `json:"status"`
+	// `CfnAnomalySubscription.SubscriberProperty.Type`.
+	Type *string `json:"type"`
 }
 
 // Properties for defining a `AWS::CE::AnomalySubscription`.
+//
+// TODO: EXAMPLE
+//
 type CfnAnomalySubscriptionProps struct {
 	// `AWS::CE::AnomalySubscription.Frequency`.
 	Frequency *string `json:"frequency"`
@@ -1434,6 +1448,9 @@ type CfnAnomalySubscriptionProps struct {
 }
 
 // A CloudFormation `AWS::CE::CostCategory`.
+//
+// TODO: EXAMPLE
+//
 type CfnCostCategory interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2122,15 +2139,18 @@ func (c *jsiiProxy_CfnCostCategory) ValidateProperties(_properties interface{}) 
 }
 
 // Properties for defining a `AWS::CE::CostCategory`.
+//
+// TODO: EXAMPLE
+//
 type CfnCostCategoryProps struct {
+	// `AWS::CE::CostCategory.DefaultValue`.
+	DefaultValue *string `json:"defaultValue"`
 	// `AWS::CE::CostCategory.Name`.
 	Name *string `json:"name"`
 	// `AWS::CE::CostCategory.Rules`.
 	Rules *string `json:"rules"`
 	// `AWS::CE::CostCategory.RuleVersion`.
 	RuleVersion *string `json:"ruleVersion"`
-	// `AWS::CE::CostCategory.DefaultValue`.
-	DefaultValue *string `json:"defaultValue"`
 	// `AWS::CE::CostCategory.SplitChargeRules`.
 	SplitChargeRules *string `json:"splitChargeRules"`
 }

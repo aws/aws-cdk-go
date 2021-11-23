@@ -320,8 +320,8 @@ func init() {
 		"monocdk.aws_stepfunctions_tasks.AuthType",
 		reflect.TypeOf((*AuthType)(nil)).Elem(),
 		map[string]interface{}{
-			"NO_AUTH": AuthType_NO_AUTH,
 			"IAM_ROLE": AuthType_IAM_ROLE,
+			"NO_AUTH": AuthType_NO_AUTH,
 			"RESOURCE_POLICY": AuthType_RESOURCE_POLICY,
 		},
 	)
@@ -700,8 +700,8 @@ func init() {
 		"monocdk.aws_stepfunctions_tasks.CompressionType",
 		reflect.TypeOf((*CompressionType)(nil)).Elem(),
 		map[string]interface{}{
-			"NONE": CompressionType_NONE,
 			"GZIP": CompressionType_GZIP,
+			"NONE": CompressionType_NONE,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -1476,8 +1476,8 @@ func init() {
 		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.CloudWatchAlarmComparisonOperator",
 		reflect.TypeOf((*EmrCreateCluster_CloudWatchAlarmComparisonOperator)(nil)).Elem(),
 		map[string]interface{}{
-			"GREATER_THAN_OR_EQUAL": EmrCreateCluster_CloudWatchAlarmComparisonOperator_GREATER_THAN_OR_EQUAL,
 			"GREATER_THAN": EmrCreateCluster_CloudWatchAlarmComparisonOperator_GREATER_THAN,
+			"GREATER_THAN_OR_EQUAL": EmrCreateCluster_CloudWatchAlarmComparisonOperator_GREATER_THAN_OR_EQUAL,
 			"LESS_THAN": EmrCreateCluster_CloudWatchAlarmComparisonOperator_LESS_THAN,
 			"LESS_THAN_OR_EQUAL": EmrCreateCluster_CloudWatchAlarmComparisonOperator_LESS_THAN_OR_EQUAL,
 		},
@@ -1490,44 +1490,44 @@ func init() {
 		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.CloudWatchAlarmStatistic",
 		reflect.TypeOf((*EmrCreateCluster_CloudWatchAlarmStatistic)(nil)).Elem(),
 		map[string]interface{}{
-			"SAMPLE_COUNT": EmrCreateCluster_CloudWatchAlarmStatistic_SAMPLE_COUNT,
 			"AVERAGE": EmrCreateCluster_CloudWatchAlarmStatistic_AVERAGE,
-			"SUM": EmrCreateCluster_CloudWatchAlarmStatistic_SUM,
-			"MINIMUM": EmrCreateCluster_CloudWatchAlarmStatistic_MINIMUM,
 			"MAXIMUM": EmrCreateCluster_CloudWatchAlarmStatistic_MAXIMUM,
+			"MINIMUM": EmrCreateCluster_CloudWatchAlarmStatistic_MINIMUM,
+			"SAMPLE_COUNT": EmrCreateCluster_CloudWatchAlarmStatistic_SAMPLE_COUNT,
+			"SUM": EmrCreateCluster_CloudWatchAlarmStatistic_SUM,
 		},
 	)
 	_jsii_.RegisterEnum(
 		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.CloudWatchAlarmUnit",
 		reflect.TypeOf((*EmrCreateCluster_CloudWatchAlarmUnit)(nil)).Elem(),
 		map[string]interface{}{
-			"NONE": EmrCreateCluster_CloudWatchAlarmUnit_NONE,
-			"SECONDS": EmrCreateCluster_CloudWatchAlarmUnit_SECONDS,
+			"BITS": EmrCreateCluster_CloudWatchAlarmUnit_BITS,
+			"BITS_PER_SECOND": EmrCreateCluster_CloudWatchAlarmUnit_BITS_PER_SECOND,
+			"BYTES": EmrCreateCluster_CloudWatchAlarmUnit_BYTES,
+			"BYTES_PER_SECOND": EmrCreateCluster_CloudWatchAlarmUnit_BYTES_PER_SECOND,
+			"COUNT": EmrCreateCluster_CloudWatchAlarmUnit_COUNT,
+			"COUNT_PER_SECOND": EmrCreateCluster_CloudWatchAlarmUnit_COUNT_PER_SECOND,
+			"GIGA_BITS": EmrCreateCluster_CloudWatchAlarmUnit_GIGA_BITS,
+			"GIGA_BITS_PER_SECOND": EmrCreateCluster_CloudWatchAlarmUnit_GIGA_BITS_PER_SECOND,
+			"GIGA_BYTES": EmrCreateCluster_CloudWatchAlarmUnit_GIGA_BYTES,
+			"GIGA_BYTES_PER_SECOND": EmrCreateCluster_CloudWatchAlarmUnit_GIGA_BYTES_PER_SECOND,
+			"KILO_BITS": EmrCreateCluster_CloudWatchAlarmUnit_KILO_BITS,
+			"KILO_BITS_PER_SECOND": EmrCreateCluster_CloudWatchAlarmUnit_KILO_BITS_PER_SECOND,
+			"KILO_BYTES": EmrCreateCluster_CloudWatchAlarmUnit_KILO_BYTES,
+			"KILO_BYTES_PER_SECOND": EmrCreateCluster_CloudWatchAlarmUnit_KILO_BYTES_PER_SECOND,
+			"MEGA_BITS": EmrCreateCluster_CloudWatchAlarmUnit_MEGA_BITS,
+			"MEGA_BITS_PER_SECOND": EmrCreateCluster_CloudWatchAlarmUnit_MEGA_BITS_PER_SECOND,
+			"MEGA_BYTES": EmrCreateCluster_CloudWatchAlarmUnit_MEGA_BYTES,
+			"MEGA_BYTES_PER_SECOND": EmrCreateCluster_CloudWatchAlarmUnit_MEGA_BYTES_PER_SECOND,
 			"MICRO_SECONDS": EmrCreateCluster_CloudWatchAlarmUnit_MICRO_SECONDS,
 			"MILLI_SECONDS": EmrCreateCluster_CloudWatchAlarmUnit_MILLI_SECONDS,
-			"BYTES": EmrCreateCluster_CloudWatchAlarmUnit_BYTES,
-			"KILO_BYTES": EmrCreateCluster_CloudWatchAlarmUnit_KILO_BYTES,
-			"MEGA_BYTES": EmrCreateCluster_CloudWatchAlarmUnit_MEGA_BYTES,
-			"GIGA_BYTES": EmrCreateCluster_CloudWatchAlarmUnit_GIGA_BYTES,
-			"TERA_BYTES": EmrCreateCluster_CloudWatchAlarmUnit_TERA_BYTES,
-			"BITS": EmrCreateCluster_CloudWatchAlarmUnit_BITS,
-			"KILO_BITS": EmrCreateCluster_CloudWatchAlarmUnit_KILO_BITS,
-			"MEGA_BITS": EmrCreateCluster_CloudWatchAlarmUnit_MEGA_BITS,
-			"GIGA_BITS": EmrCreateCluster_CloudWatchAlarmUnit_GIGA_BITS,
-			"TERA_BITS": EmrCreateCluster_CloudWatchAlarmUnit_TERA_BITS,
+			"NONE": EmrCreateCluster_CloudWatchAlarmUnit_NONE,
 			"PERCENT": EmrCreateCluster_CloudWatchAlarmUnit_PERCENT,
-			"COUNT": EmrCreateCluster_CloudWatchAlarmUnit_COUNT,
-			"BYTES_PER_SECOND": EmrCreateCluster_CloudWatchAlarmUnit_BYTES_PER_SECOND,
-			"KILO_BYTES_PER_SECOND": EmrCreateCluster_CloudWatchAlarmUnit_KILO_BYTES_PER_SECOND,
-			"MEGA_BYTES_PER_SECOND": EmrCreateCluster_CloudWatchAlarmUnit_MEGA_BYTES_PER_SECOND,
-			"GIGA_BYTES_PER_SECOND": EmrCreateCluster_CloudWatchAlarmUnit_GIGA_BYTES_PER_SECOND,
-			"TERA_BYTES_PER_SECOND": EmrCreateCluster_CloudWatchAlarmUnit_TERA_BYTES_PER_SECOND,
-			"BITS_PER_SECOND": EmrCreateCluster_CloudWatchAlarmUnit_BITS_PER_SECOND,
-			"KILO_BITS_PER_SECOND": EmrCreateCluster_CloudWatchAlarmUnit_KILO_BITS_PER_SECOND,
-			"MEGA_BITS_PER_SECOND": EmrCreateCluster_CloudWatchAlarmUnit_MEGA_BITS_PER_SECOND,
-			"GIGA_BITS_PER_SECOND": EmrCreateCluster_CloudWatchAlarmUnit_GIGA_BITS_PER_SECOND,
+			"SECONDS": EmrCreateCluster_CloudWatchAlarmUnit_SECONDS,
+			"TERA_BITS": EmrCreateCluster_CloudWatchAlarmUnit_TERA_BITS,
 			"TERA_BITS_PER_SECOND": EmrCreateCluster_CloudWatchAlarmUnit_TERA_BITS_PER_SECOND,
-			"COUNT_PER_SECOND": EmrCreateCluster_CloudWatchAlarmUnit_COUNT_PER_SECOND,
+			"TERA_BYTES": EmrCreateCluster_CloudWatchAlarmUnit_TERA_BYTES,
+			"TERA_BYTES_PER_SECOND": EmrCreateCluster_CloudWatchAlarmUnit_TERA_BYTES_PER_SECOND,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -1583,8 +1583,8 @@ func init() {
 		"monocdk.aws_stepfunctions_tasks.EmrCreateCluster.InstanceRoleType",
 		reflect.TypeOf((*EmrCreateCluster_InstanceRoleType)(nil)).Elem(),
 		map[string]interface{}{
-			"MASTER": EmrCreateCluster_InstanceRoleType_MASTER,
 			"CORE": EmrCreateCluster_InstanceRoleType_CORE,
+			"MASTER": EmrCreateCluster_InstanceRoleType_MASTER,
 			"TASK": EmrCreateCluster_InstanceRoleType_TASK,
 		},
 	)
@@ -1617,8 +1617,8 @@ func init() {
 		reflect.TypeOf((*EmrCreateCluster_ScalingAdjustmentType)(nil)).Elem(),
 		map[string]interface{}{
 			"CHANGE_IN_CAPACITY": EmrCreateCluster_ScalingAdjustmentType_CHANGE_IN_CAPACITY,
-			"PERCENT_CHANGE_IN_CAPACITY": EmrCreateCluster_ScalingAdjustmentType_PERCENT_CHANGE_IN_CAPACITY,
 			"EXACT_CAPACITY": EmrCreateCluster_ScalingAdjustmentType_EXACT_CAPACITY,
+			"PERCENT_CHANGE_IN_CAPACITY": EmrCreateCluster_ScalingAdjustmentType_PERCENT_CHANGE_IN_CAPACITY,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -2237,13 +2237,13 @@ func init() {
 		"monocdk.aws_stepfunctions_tasks.HttpMethod",
 		reflect.TypeOf((*HttpMethod)(nil)).Elem(),
 		map[string]interface{}{
-			"GET": HttpMethod_GET,
-			"POST": HttpMethod_POST,
-			"PUT": HttpMethod_PUT,
 			"DELETE": HttpMethod_DELETE,
-			"PATCH": HttpMethod_PATCH,
+			"GET": HttpMethod_GET,
 			"HEAD": HttpMethod_HEAD,
 			"OPTIONS": HttpMethod_OPTIONS,
+			"PATCH": HttpMethod_PATCH,
+			"POST": HttpMethod_POST,
+			"PUT": HttpMethod_PUT,
 		},
 	)
 	_jsii_.RegisterEnum(
@@ -2294,17 +2294,17 @@ func init() {
 		"monocdk.aws_stepfunctions_tasks.InputMode",
 		reflect.TypeOf((*InputMode)(nil)).Elem(),
 		map[string]interface{}{
-			"PIPE": InputMode_PIPE,
 			"FILE": InputMode_FILE,
+			"PIPE": InputMode_PIPE,
 		},
 	)
 	_jsii_.RegisterEnum(
 		"monocdk.aws_stepfunctions_tasks.InvocationType",
 		reflect.TypeOf((*InvocationType)(nil)).Elem(),
 		map[string]interface{}{
-			"REQUEST_RESPONSE": InvocationType_REQUEST_RESPONSE,
-			"EVENT": InvocationType_EVENT,
 			"DRY_RUN": InvocationType_DRY_RUN,
+			"EVENT": InvocationType_EVENT,
+			"REQUEST_RESPONSE": InvocationType_REQUEST_RESPONSE,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -2597,9 +2597,9 @@ func init() {
 		"monocdk.aws_stepfunctions_tasks.S3DataType",
 		reflect.TypeOf((*S3DataType)(nil)).Elem(),
 		map[string]interface{}{
+			"AUGMENTED_MANIFEST_FILE": S3DataType_AUGMENTED_MANIFEST_FILE,
 			"MANIFEST_FILE": S3DataType_MANIFEST_FILE,
 			"S3_PREFIX": S3DataType_S3_PREFIX,
-			"AUGMENTED_MANIFEST_FILE": S3DataType_AUGMENTED_MANIFEST_FILE,
 		},
 	)
 	_jsii_.RegisterClass(

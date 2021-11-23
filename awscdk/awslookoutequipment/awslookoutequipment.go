@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::LookoutEquipment::InferenceScheduler`.
+//
+// TODO: EXAMPLE
+//
 type CfnInferenceScheduler interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -758,21 +761,24 @@ func (c *jsiiProxy_CfnInferenceScheduler) ValidateProperties(_properties interfa
 }
 
 // Properties for defining a `AWS::LookoutEquipment::InferenceScheduler`.
+//
+// TODO: EXAMPLE
+//
 type CfnInferenceSchedulerProps struct {
+	// `AWS::LookoutEquipment::InferenceScheduler.DataDelayOffsetInMinutes`.
+	DataDelayOffsetInMinutes *float64 `json:"dataDelayOffsetInMinutes"`
 	// `AWS::LookoutEquipment::InferenceScheduler.DataInputConfiguration`.
 	DataInputConfiguration interface{} `json:"dataInputConfiguration"`
 	// `AWS::LookoutEquipment::InferenceScheduler.DataOutputConfiguration`.
 	DataOutputConfiguration interface{} `json:"dataOutputConfiguration"`
 	// `AWS::LookoutEquipment::InferenceScheduler.DataUploadFrequency`.
 	DataUploadFrequency *string `json:"dataUploadFrequency"`
+	// `AWS::LookoutEquipment::InferenceScheduler.InferenceSchedulerName`.
+	InferenceSchedulerName *string `json:"inferenceSchedulerName"`
 	// `AWS::LookoutEquipment::InferenceScheduler.ModelName`.
 	ModelName *string `json:"modelName"`
 	// `AWS::LookoutEquipment::InferenceScheduler.RoleArn`.
 	RoleArn *string `json:"roleArn"`
-	// `AWS::LookoutEquipment::InferenceScheduler.DataDelayOffsetInMinutes`.
-	DataDelayOffsetInMinutes *float64 `json:"dataDelayOffsetInMinutes"`
-	// `AWS::LookoutEquipment::InferenceScheduler.InferenceSchedulerName`.
-	InferenceSchedulerName *string `json:"inferenceSchedulerName"`
 	// `AWS::LookoutEquipment::InferenceScheduler.ServerSideKmsKeyId`.
 	ServerSideKmsKeyId *string `json:"serverSideKmsKeyId"`
 	// `AWS::LookoutEquipment::InferenceScheduler.Tags`.

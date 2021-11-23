@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::IoTThingsGraph::FlowTemplate`.
+//
+// TODO: EXAMPLE
+//
 type CfnFlowTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -615,6 +618,8 @@ func (c *jsiiProxy_CfnFlowTemplate) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlowTemplate_DefinitionDocumentProperty struct {
 	// `CfnFlowTemplate.DefinitionDocumentProperty.Language`.
 	Language *string `json:"language"`
@@ -623,10 +628,13 @@ type CfnFlowTemplate_DefinitionDocumentProperty struct {
 }
 
 // Properties for defining a `AWS::IoTThingsGraph::FlowTemplate`.
+//
+// TODO: EXAMPLE
+//
 type CfnFlowTemplateProps struct {
-	// `AWS::IoTThingsGraph::FlowTemplate.Definition`.
-	Definition interface{} `json:"definition"`
 	// `AWS::IoTThingsGraph::FlowTemplate.CompatibleNamespaceVersion`.
 	CompatibleNamespaceVersion *float64 `json:"compatibleNamespaceVersion"`
+	// `AWS::IoTThingsGraph::FlowTemplate.Definition`.
+	Definition interface{} `json:"definition"`
 }
 

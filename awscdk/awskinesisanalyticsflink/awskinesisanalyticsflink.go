@@ -501,6 +501,9 @@ func (a *jsiiProxy_ApplicationCode) Bind(scope awscdk.Construct) *ApplicationCod
 }
 
 // The return type of {@link ApplicationCode.bind}. This represents CloudFormation configuration and an s3 bucket holding the Flink application JAR file.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ApplicationCodeConfig struct {
 	// Low-level Cloudformation ApplicationConfigurationProperty.

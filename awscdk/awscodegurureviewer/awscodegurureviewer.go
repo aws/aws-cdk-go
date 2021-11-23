@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::CodeGuruReviewer::RepositoryAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnRepositoryAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -698,18 +701,21 @@ func (c *jsiiProxy_CfnRepositoryAssociation) ValidateProperties(_properties inte
 }
 
 // Properties for defining a `AWS::CodeGuruReviewer::RepositoryAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnRepositoryAssociationProps struct {
-	// `AWS::CodeGuruReviewer::RepositoryAssociation.Name`.
-	Name *string `json:"name"`
-	// `AWS::CodeGuruReviewer::RepositoryAssociation.Type`.
-	Type *string `json:"type"`
 	// `AWS::CodeGuruReviewer::RepositoryAssociation.BucketName`.
 	BucketName *string `json:"bucketName"`
 	// `AWS::CodeGuruReviewer::RepositoryAssociation.ConnectionArn`.
 	ConnectionArn *string `json:"connectionArn"`
+	// `AWS::CodeGuruReviewer::RepositoryAssociation.Name`.
+	Name *string `json:"name"`
 	// `AWS::CodeGuruReviewer::RepositoryAssociation.Owner`.
 	Owner *string `json:"owner"`
 	// `AWS::CodeGuruReviewer::RepositoryAssociation.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::CodeGuruReviewer::RepositoryAssociation.Type`.
+	Type *string `json:"type"`
 }
 

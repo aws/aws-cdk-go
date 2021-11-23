@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::Macie::CustomDataIdentifier`.
+//
+// TODO: EXAMPLE
+//
 type CfnCustomDataIdentifier interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -718,11 +721,10 @@ func (c *jsiiProxy_CfnCustomDataIdentifier) ValidateProperties(_properties inter
 }
 
 // Properties for defining a `AWS::Macie::CustomDataIdentifier`.
+//
+// TODO: EXAMPLE
+//
 type CfnCustomDataIdentifierProps struct {
-	// `AWS::Macie::CustomDataIdentifier.Name`.
-	Name *string `json:"name"`
-	// `AWS::Macie::CustomDataIdentifier.Regex`.
-	Regex *string `json:"regex"`
 	// `AWS::Macie::CustomDataIdentifier.Description`.
 	Description *string `json:"description"`
 	// `AWS::Macie::CustomDataIdentifier.IgnoreWords`.
@@ -731,9 +733,16 @@ type CfnCustomDataIdentifierProps struct {
 	Keywords *[]*string `json:"keywords"`
 	// `AWS::Macie::CustomDataIdentifier.MaximumMatchDistance`.
 	MaximumMatchDistance *float64 `json:"maximumMatchDistance"`
+	// `AWS::Macie::CustomDataIdentifier.Name`.
+	Name *string `json:"name"`
+	// `AWS::Macie::CustomDataIdentifier.Regex`.
+	Regex *string `json:"regex"`
 }
 
 // A CloudFormation `AWS::Macie::FindingsFilter`.
+//
+// TODO: EXAMPLE
+//
 type CfnFindingsFilter interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1432,14 +1441,20 @@ func (c *jsiiProxy_CfnFindingsFilter) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFindingsFilter_CriterionProperty struct {
 }
 
+// TODO: EXAMPLE
+//
 type CfnFindingsFilter_FindingCriteriaProperty struct {
 	// `CfnFindingsFilter.FindingCriteriaProperty.Criterion`.
 	Criterion interface{} `json:"criterion"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFindingsFilter_FindingsFilterListItemProperty struct {
 	// `CfnFindingsFilter.FindingsFilterListItemProperty.Id`.
 	Id *string `json:"id"`
@@ -1448,20 +1463,26 @@ type CfnFindingsFilter_FindingsFilterListItemProperty struct {
 }
 
 // Properties for defining a `AWS::Macie::FindingsFilter`.
+//
+// TODO: EXAMPLE
+//
 type CfnFindingsFilterProps struct {
-	// `AWS::Macie::FindingsFilter.FindingCriteria`.
-	FindingCriteria interface{} `json:"findingCriteria"`
-	// `AWS::Macie::FindingsFilter.Name`.
-	Name *string `json:"name"`
 	// `AWS::Macie::FindingsFilter.Action`.
 	Action *string `json:"action"`
 	// `AWS::Macie::FindingsFilter.Description`.
 	Description *string `json:"description"`
+	// `AWS::Macie::FindingsFilter.FindingCriteria`.
+	FindingCriteria interface{} `json:"findingCriteria"`
+	// `AWS::Macie::FindingsFilter.Name`.
+	Name *string `json:"name"`
 	// `AWS::Macie::FindingsFilter.Position`.
 	Position *float64 `json:"position"`
 }
 
 // A CloudFormation `AWS::Macie::Session`.
+//
+// TODO: EXAMPLE
+//
 type CfnSession interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2090,6 +2111,9 @@ func (c *jsiiProxy_CfnSession) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Macie::Session`.
+//
+// TODO: EXAMPLE
+//
 type CfnSessionProps struct {
 	// `AWS::Macie::Session.FindingPublishingFrequency`.
 	FindingPublishingFrequency *string `json:"findingPublishingFrequency"`

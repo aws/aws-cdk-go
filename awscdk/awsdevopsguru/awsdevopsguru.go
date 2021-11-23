@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::DevOpsGuru::NotificationChannel`.
+//
+// TODO: EXAMPLE
+//
 type CfnNotificationChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -606,23 +609,33 @@ func (c *jsiiProxy_CfnNotificationChannel) ValidateProperties(_properties interf
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnNotificationChannel_NotificationChannelConfigProperty struct {
 	// `CfnNotificationChannel.NotificationChannelConfigProperty.Sns`.
 	Sns interface{} `json:"sns"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnNotificationChannel_SnsChannelConfigProperty struct {
 	// `CfnNotificationChannel.SnsChannelConfigProperty.TopicArn`.
 	TopicArn *string `json:"topicArn"`
 }
 
 // Properties for defining a `AWS::DevOpsGuru::NotificationChannel`.
+//
+// TODO: EXAMPLE
+//
 type CfnNotificationChannelProps struct {
 	// `AWS::DevOpsGuru::NotificationChannel.Config`.
 	Config interface{} `json:"config"`
 }
 
 // A CloudFormation `AWS::DevOpsGuru::ResourceCollection`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourceCollection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1219,17 +1232,24 @@ func (c *jsiiProxy_CfnResourceCollection) ValidateProperties(_properties interfa
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceCollection_CloudFormationCollectionFilterProperty struct {
 	// `CfnResourceCollection.CloudFormationCollectionFilterProperty.StackNames`.
 	StackNames *[]*string `json:"stackNames"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResourceCollection_ResourceCollectionFilterProperty struct {
 	// `CfnResourceCollection.ResourceCollectionFilterProperty.CloudFormation`.
 	CloudFormation interface{} `json:"cloudFormation"`
 }
 
 // Properties for defining a `AWS::DevOpsGuru::ResourceCollection`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourceCollectionProps struct {
 	// `AWS::DevOpsGuru::ResourceCollection.ResourceCollectionFilter`.
 	ResourceCollectionFilter interface{} `json:"resourceCollectionFilter"`

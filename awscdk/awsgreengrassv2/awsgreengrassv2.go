@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::GreengrassV2::ComponentVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnComponentVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -659,6 +662,8 @@ func (c *jsiiProxy_CfnComponentVersion) ValidateProperties(_properties interface
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnComponentVersion_ComponentDependencyRequirementProperty struct {
 	// `CfnComponentVersion.ComponentDependencyRequirementProperty.DependencyType`.
 	DependencyType *string `json:"dependencyType"`
@@ -666,6 +671,8 @@ type CfnComponentVersion_ComponentDependencyRequirementProperty struct {
 	VersionRequirement *string `json:"versionRequirement"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnComponentVersion_ComponentPlatformProperty struct {
 	// `CfnComponentVersion.ComponentPlatformProperty.Attributes`.
 	Attributes interface{} `json:"attributes"`
@@ -673,6 +680,8 @@ type CfnComponentVersion_ComponentPlatformProperty struct {
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnComponentVersion_LambdaContainerParamsProperty struct {
 	// `CfnComponentVersion.LambdaContainerParamsProperty.Devices`.
 	Devices interface{} `json:"devices"`
@@ -684,6 +693,8 @@ type CfnComponentVersion_LambdaContainerParamsProperty struct {
 	Volumes interface{} `json:"volumes"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnComponentVersion_LambdaDeviceMountProperty struct {
 	// `CfnComponentVersion.LambdaDeviceMountProperty.AddGroupOwner`.
 	AddGroupOwner interface{} `json:"addGroupOwner"`
@@ -693,6 +704,8 @@ type CfnComponentVersion_LambdaDeviceMountProperty struct {
 	Permission *string `json:"permission"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnComponentVersion_LambdaEventSourceProperty struct {
 	// `CfnComponentVersion.LambdaEventSourceProperty.Topic`.
 	Topic *string `json:"topic"`
@@ -700,6 +713,8 @@ type CfnComponentVersion_LambdaEventSourceProperty struct {
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnComponentVersion_LambdaExecutionParametersProperty struct {
 	// `CfnComponentVersion.LambdaExecutionParametersProperty.EnvironmentVariables`.
 	EnvironmentVariables interface{} `json:"environmentVariables"`
@@ -725,6 +740,8 @@ type CfnComponentVersion_LambdaExecutionParametersProperty struct {
 	TimeoutInSeconds *float64 `json:"timeoutInSeconds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnComponentVersion_LambdaFunctionRecipeSourceProperty struct {
 	// `CfnComponentVersion.LambdaFunctionRecipeSourceProperty.ComponentDependencies`.
 	ComponentDependencies interface{} `json:"componentDependencies"`
@@ -740,6 +757,8 @@ type CfnComponentVersion_LambdaFunctionRecipeSourceProperty struct {
 	LambdaArn *string `json:"lambdaArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnComponentVersion_LambdaLinuxProcessParamsProperty struct {
 	// `CfnComponentVersion.LambdaLinuxProcessParamsProperty.ContainerParams`.
 	ContainerParams interface{} `json:"containerParams"`
@@ -747,6 +766,8 @@ type CfnComponentVersion_LambdaLinuxProcessParamsProperty struct {
 	IsolationMode *string `json:"isolationMode"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnComponentVersion_LambdaVolumeMountProperty struct {
 	// `CfnComponentVersion.LambdaVolumeMountProperty.AddGroupOwner`.
 	AddGroupOwner interface{} `json:"addGroupOwner"`
@@ -759,6 +780,9 @@ type CfnComponentVersion_LambdaVolumeMountProperty struct {
 }
 
 // Properties for defining a `AWS::GreengrassV2::ComponentVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnComponentVersionProps struct {
 	// `AWS::GreengrassV2::ComponentVersion.InlineRecipe`.
 	InlineRecipe *string `json:"inlineRecipe"`

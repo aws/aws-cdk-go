@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::CodeStarNotifications::NotificationRule`.
+//
+// TODO: EXAMPLE
+//
 type CfnNotificationRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -777,6 +780,8 @@ func (c *jsiiProxy_CfnNotificationRule) ValidateProperties(_properties interface
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnNotificationRule_TargetProperty struct {
 	// `CfnNotificationRule.TargetProperty.TargetAddress`.
 	TargetAddress *string `json:"targetAddress"`
@@ -785,27 +790,30 @@ type CfnNotificationRule_TargetProperty struct {
 }
 
 // Properties for defining a `AWS::CodeStarNotifications::NotificationRule`.
+//
+// TODO: EXAMPLE
+//
 type CfnNotificationRuleProps struct {
+	// `AWS::CodeStarNotifications::NotificationRule.CreatedBy`.
+	CreatedBy *string `json:"createdBy"`
 	// `AWS::CodeStarNotifications::NotificationRule.DetailType`.
 	DetailType *string `json:"detailType"`
+	// `AWS::CodeStarNotifications::NotificationRule.EventTypeId`.
+	EventTypeId *string `json:"eventTypeId"`
 	// `AWS::CodeStarNotifications::NotificationRule.EventTypeIds`.
 	EventTypeIds *[]*string `json:"eventTypeIds"`
 	// `AWS::CodeStarNotifications::NotificationRule.Name`.
 	Name *string `json:"name"`
 	// `AWS::CodeStarNotifications::NotificationRule.Resource`.
 	Resource *string `json:"resource"`
-	// `AWS::CodeStarNotifications::NotificationRule.Targets`.
-	Targets interface{} `json:"targets"`
-	// `AWS::CodeStarNotifications::NotificationRule.CreatedBy`.
-	CreatedBy *string `json:"createdBy"`
-	// `AWS::CodeStarNotifications::NotificationRule.EventTypeId`.
-	EventTypeId *string `json:"eventTypeId"`
 	// `AWS::CodeStarNotifications::NotificationRule.Status`.
 	Status *string `json:"status"`
 	// `AWS::CodeStarNotifications::NotificationRule.Tags`.
 	Tags interface{} `json:"tags"`
 	// `AWS::CodeStarNotifications::NotificationRule.TargetAddress`.
 	TargetAddress *string `json:"targetAddress"`
+	// `AWS::CodeStarNotifications::NotificationRule.Targets`.
+	Targets interface{} `json:"targets"`
 }
 
 // The level of detail to include in the notifications for this resource.
@@ -1274,6 +1282,9 @@ func (n *jsiiProxy_NotificationRule) Validate() *[]*string {
 }
 
 // Standard set of options for `notifyOnXxx` codestar notification handler on construct.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NotificationRuleOptions struct {
 	// The level of detail to include in the notifications for this resource.
@@ -1336,6 +1347,9 @@ type NotificationRuleProps struct {
 }
 
 // Information about the Codebuild or CodePipeline associated with a notification source.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NotificationRuleSourceConfig struct {
 	// The Amazon Resource Name (ARN) of the notification source.
@@ -1344,6 +1358,9 @@ type NotificationRuleSourceConfig struct {
 }
 
 // Information about the SNS topic or AWS Chatbot client associated with a notification target.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NotificationRuleTargetConfig struct {
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic or AWS Chatbot client.

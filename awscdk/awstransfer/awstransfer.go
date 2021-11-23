@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::Transfer::Server`.
+//
+// TODO: EXAMPLE
+//
 type CfnServer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -828,6 +831,8 @@ func (c *jsiiProxy_CfnServer) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnServer_EndpointDetailsProperty struct {
 	// `CfnServer.EndpointDetailsProperty.AddressAllocationIds`.
 	AddressAllocationIds *[]*string `json:"addressAllocationIds"`
@@ -841,6 +846,8 @@ type CfnServer_EndpointDetailsProperty struct {
 	VpcId *string `json:"vpcId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnServer_IdentityProviderDetailsProperty struct {
 	// `CfnServer.IdentityProviderDetailsProperty.DirectoryId`.
 	DirectoryId *string `json:"directoryId"`
@@ -852,11 +859,15 @@ type CfnServer_IdentityProviderDetailsProperty struct {
 	Url *string `json:"url"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnServer_ProtocolDetailsProperty struct {
 	// `CfnServer.ProtocolDetailsProperty.PassiveIp`.
 	PassiveIp *string `json:"passiveIp"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnServer_WorkflowDetailProperty struct {
 	// `CfnServer.WorkflowDetailProperty.ExecutionRole`.
 	ExecutionRole *string `json:"executionRole"`
@@ -864,12 +875,17 @@ type CfnServer_WorkflowDetailProperty struct {
 	WorkflowId *string `json:"workflowId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnServer_WorkflowDetailsProperty struct {
 	// `CfnServer.WorkflowDetailsProperty.OnUpload`.
 	OnUpload interface{} `json:"onUpload"`
 }
 
 // Properties for defining a `AWS::Transfer::Server`.
+//
+// TODO: EXAMPLE
+//
 type CfnServerProps struct {
 	// `AWS::Transfer::Server.Certificate`.
 	Certificate *string `json:"certificate"`
@@ -898,6 +914,9 @@ type CfnServerProps struct {
 }
 
 // A CloudFormation `AWS::Transfer::User`.
+//
+// TODO: EXAMPLE
+//
 type CfnUser interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1687,6 +1706,8 @@ func (c *jsiiProxy_CfnUser) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnUser_HomeDirectoryMapEntryProperty struct {
 	// `CfnUser.HomeDirectoryMapEntryProperty.Entry`.
 	Entry *string `json:"entry"`
@@ -1694,23 +1715,22 @@ type CfnUser_HomeDirectoryMapEntryProperty struct {
 	Target *string `json:"target"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUser_PosixProfileProperty struct {
 	// `CfnUser.PosixProfileProperty.Gid`.
 	Gid *float64 `json:"gid"`
-	// `CfnUser.PosixProfileProperty.Uid`.
-	Uid *float64 `json:"uid"`
 	// `CfnUser.PosixProfileProperty.SecondaryGids`.
 	SecondaryGids interface{} `json:"secondaryGids"`
+	// `CfnUser.PosixProfileProperty.Uid`.
+	Uid *float64 `json:"uid"`
 }
 
 // Properties for defining a `AWS::Transfer::User`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserProps struct {
-	// `AWS::Transfer::User.Role`.
-	Role *string `json:"role"`
-	// `AWS::Transfer::User.ServerId`.
-	ServerId *string `json:"serverId"`
-	// `AWS::Transfer::User.UserName`.
-	UserName *string `json:"userName"`
 	// `AWS::Transfer::User.HomeDirectory`.
 	HomeDirectory *string `json:"homeDirectory"`
 	// `AWS::Transfer::User.HomeDirectoryMappings`.
@@ -1721,9 +1741,15 @@ type CfnUserProps struct {
 	Policy *string `json:"policy"`
 	// `AWS::Transfer::User.PosixProfile`.
 	PosixProfile interface{} `json:"posixProfile"`
+	// `AWS::Transfer::User.Role`.
+	Role *string `json:"role"`
+	// `AWS::Transfer::User.ServerId`.
+	ServerId *string `json:"serverId"`
 	// `AWS::Transfer::User.SshPublicKeys`.
 	SshPublicKeys *[]*string `json:"sshPublicKeys"`
 	// `AWS::Transfer::User.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::Transfer::User.UserName`.
+	UserName *string `json:"userName"`
 }
 

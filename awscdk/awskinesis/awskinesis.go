@@ -13,6 +13,9 @@ import (
 )
 
 // A CloudFormation `AWS::Kinesis::Stream`.
+//
+// TODO: EXAMPLE
+//
 type CfnStream interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -680,6 +683,8 @@ func (c *jsiiProxy_CfnStream) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnStream_StreamEncryptionProperty struct {
 	// `CfnStream.StreamEncryptionProperty.EncryptionType`.
 	EncryptionType *string `json:"encryptionType"`
@@ -688,6 +693,9 @@ type CfnStream_StreamEncryptionProperty struct {
 }
 
 // A CloudFormation `AWS::Kinesis::StreamConsumer`.
+//
+// TODO: EXAMPLE
+//
 type CfnStreamConsumer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1349,6 +1357,9 @@ func (c *jsiiProxy_CfnStreamConsumer) ValidateProperties(_properties interface{}
 }
 
 // Properties for defining a `AWS::Kinesis::StreamConsumer`.
+//
+// TODO: EXAMPLE
+//
 type CfnStreamConsumerProps struct {
 	// `AWS::Kinesis::StreamConsumer.ConsumerName`.
 	ConsumerName *string `json:"consumerName"`
@@ -1357,13 +1368,16 @@ type CfnStreamConsumerProps struct {
 }
 
 // Properties for defining a `AWS::Kinesis::Stream`.
+//
+// TODO: EXAMPLE
+//
 type CfnStreamProps struct {
-	// `AWS::Kinesis::Stream.ShardCount`.
-	ShardCount *float64 `json:"shardCount"`
 	// `AWS::Kinesis::Stream.Name`.
 	Name *string `json:"name"`
 	// `AWS::Kinesis::Stream.RetentionPeriodHours`.
 	RetentionPeriodHours *float64 `json:"retentionPeriodHours"`
+	// `AWS::Kinesis::Stream.ShardCount`.
+	ShardCount *float64 `json:"shardCount"`
 	// `AWS::Kinesis::Stream.StreamEncryption`.
 	StreamEncryption interface{} `json:"streamEncryption"`
 	// `AWS::Kinesis::Stream.Tags`.

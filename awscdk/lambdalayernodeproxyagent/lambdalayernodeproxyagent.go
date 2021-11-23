@@ -11,6 +11,9 @@ import (
 )
 
 // An AWS Lambda layer that includes the NPM dependency `proxy-agent`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NodeProxyAgentLayer interface {
 	awslambda.LayerVersion

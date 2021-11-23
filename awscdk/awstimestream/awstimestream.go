@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::Timestream::Database`.
+//
+// TODO: EXAMPLE
+//
 type CfnDatabase interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -638,6 +641,9 @@ func (c *jsiiProxy_CfnDatabase) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Timestream::Database`.
+//
+// TODO: EXAMPLE
+//
 type CfnDatabaseProps struct {
 	// `AWS::Timestream::Database.DatabaseName`.
 	DatabaseName *string `json:"databaseName"`
@@ -648,6 +654,9 @@ type CfnDatabaseProps struct {
 }
 
 // A CloudFormation `AWS::Timestream::Table`.
+//
+// TODO: EXAMPLE
+//
 type CfnTable interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1307,6 +1316,9 @@ func (c *jsiiProxy_CfnTable) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Timestream::Table`.
+//
+// TODO: EXAMPLE
+//
 type CfnTableProps struct {
 	// `AWS::Timestream::Table.DatabaseName`.
 	DatabaseName *string `json:"databaseName"`

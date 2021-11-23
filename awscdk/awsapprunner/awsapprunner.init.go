@@ -144,8 +144,8 @@ func init() {
 		"monocdk.aws_apprunner.ConfigurationSourceType",
 		reflect.TypeOf((*ConfigurationSourceType)(nil)).Elem(),
 		map[string]interface{}{
-			"REPOSITORY": ConfigurationSourceType_REPOSITORY,
 			"API": ConfigurationSourceType_API,
+			"REPOSITORY": ConfigurationSourceType_REPOSITORY,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -244,8 +244,8 @@ func init() {
 		"monocdk.aws_apprunner.ImageRepositoryType",
 		reflect.TypeOf((*ImageRepositoryType)(nil)).Elem(),
 		map[string]interface{}{
-			"ECR_PUBLIC": ImageRepositoryType_ECR_PUBLIC,
 			"ECR": ImageRepositoryType_ECR,
+			"ECR_PUBLIC": ImageRepositoryType_ECR_PUBLIC,
 		},
 	)
 	_jsii_.RegisterClass(

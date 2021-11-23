@@ -10,6 +10,9 @@ import (
 )
 
 // Obtains applied when copying directories into the staging location.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: see `core.CopyOptions`
 type CopyOptions struct {
 	// Glob patterns to exclude from the copy.
@@ -24,6 +27,9 @@ type CopyOptions struct {
 }
 
 // Options related to calculating source hash.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: see `core.FingerprintOptions`
 type FingerprintOptions struct {
 	// Glob patterns to exclude from the copy.
@@ -45,10 +51,10 @@ type FingerprintOptions struct {
 type FollowMode string
 
 const (
-	FollowMode_NEVER FollowMode = "NEVER"
 	FollowMode_ALWAYS FollowMode = "ALWAYS"
-	FollowMode_EXTERNAL FollowMode = "EXTERNAL"
 	FollowMode_BLOCK_EXTERNAL FollowMode = "BLOCK_EXTERNAL"
+	FollowMode_EXTERNAL FollowMode = "EXTERNAL"
+	FollowMode_NEVER FollowMode = "NEVER"
 )
 
 // Common interface for all assets.
@@ -79,6 +85,9 @@ func (j *jsiiProxy_IAsset) SourceHash() *string {
 }
 
 // Deprecated.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: use `core.AssetStaging`
 type Staging interface {
 	awscdk.AssetStaging
@@ -413,6 +422,9 @@ func (s *jsiiProxy_Staging) Validate() *[]*string {
 }
 
 // Deprecated.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: use `core.AssetStagingProps`
 type StagingProps struct {
 	// Glob patterns to exclude from the copy.

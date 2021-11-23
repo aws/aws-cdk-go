@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::CustomerProfiles::Domain`.
+//
+// TODO: EXAMPLE
+//
 type CfnDomain interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -689,20 +692,26 @@ func (c *jsiiProxy_CfnDomain) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::CustomerProfiles::Domain`.
+//
+// TODO: EXAMPLE
+//
 type CfnDomainProps struct {
-	// `AWS::CustomerProfiles::Domain.DomainName`.
-	DomainName *string `json:"domainName"`
 	// `AWS::CustomerProfiles::Domain.DeadLetterQueueUrl`.
 	DeadLetterQueueUrl *string `json:"deadLetterQueueUrl"`
 	// `AWS::CustomerProfiles::Domain.DefaultEncryptionKey`.
 	DefaultEncryptionKey *string `json:"defaultEncryptionKey"`
 	// `AWS::CustomerProfiles::Domain.DefaultExpirationDays`.
 	DefaultExpirationDays *float64 `json:"defaultExpirationDays"`
+	// `AWS::CustomerProfiles::Domain.DomainName`.
+	DomainName *string `json:"domainName"`
 	// `AWS::CustomerProfiles::Domain.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::CustomerProfiles::Integration`.
+//
+// TODO: EXAMPLE
+//
 type CfnIntegration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1381,6 +1390,8 @@ func (c *jsiiProxy_CfnIntegration) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnIntegration_ConnectorOperatorProperty struct {
 	// `CfnIntegration.ConnectorOperatorProperty.Marketo`.
 	Marketo *string `json:"marketo"`
@@ -1394,7 +1405,11 @@ type CfnIntegration_ConnectorOperatorProperty struct {
 	Zendesk *string `json:"zendesk"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIntegration_FlowDefinitionProperty struct {
+	// `CfnIntegration.FlowDefinitionProperty.Description`.
+	Description *string `json:"description"`
 	// `CfnIntegration.FlowDefinitionProperty.FlowName`.
 	FlowName *string `json:"flowName"`
 	// `CfnIntegration.FlowDefinitionProperty.KmsArn`.
@@ -1405,20 +1420,24 @@ type CfnIntegration_FlowDefinitionProperty struct {
 	Tasks interface{} `json:"tasks"`
 	// `CfnIntegration.FlowDefinitionProperty.TriggerConfig`.
 	TriggerConfig interface{} `json:"triggerConfig"`
-	// `CfnIntegration.FlowDefinitionProperty.Description`.
-	Description *string `json:"description"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIntegration_IncrementalPullConfigProperty struct {
 	// `CfnIntegration.IncrementalPullConfigProperty.DatetimeTypeFieldName`.
 	DatetimeTypeFieldName *string `json:"datetimeTypeFieldName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIntegration_MarketoSourcePropertiesProperty struct {
 	// `CfnIntegration.MarketoSourcePropertiesProperty.Object`.
 	Object *string `json:"object"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIntegration_S3SourcePropertiesProperty struct {
 	// `CfnIntegration.S3SourcePropertiesProperty.BucketName`.
 	BucketName *string `json:"bucketName"`
@@ -1426,24 +1445,28 @@ type CfnIntegration_S3SourcePropertiesProperty struct {
 	BucketPrefix *string `json:"bucketPrefix"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIntegration_SalesforceSourcePropertiesProperty struct {
-	// `CfnIntegration.SalesforceSourcePropertiesProperty.Object`.
-	Object *string `json:"object"`
 	// `CfnIntegration.SalesforceSourcePropertiesProperty.EnableDynamicFieldUpdate`.
 	EnableDynamicFieldUpdate interface{} `json:"enableDynamicFieldUpdate"`
 	// `CfnIntegration.SalesforceSourcePropertiesProperty.IncludeDeletedRecords`.
 	IncludeDeletedRecords interface{} `json:"includeDeletedRecords"`
+	// `CfnIntegration.SalesforceSourcePropertiesProperty.Object`.
+	Object *string `json:"object"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIntegration_ScheduledTriggerPropertiesProperty struct {
-	// `CfnIntegration.ScheduledTriggerPropertiesProperty.ScheduleExpression`.
-	ScheduleExpression *string `json:"scheduleExpression"`
 	// `CfnIntegration.ScheduledTriggerPropertiesProperty.DataPullMode`.
 	DataPullMode *string `json:"dataPullMode"`
 	// `CfnIntegration.ScheduledTriggerPropertiesProperty.FirstExecutionFrom`.
 	FirstExecutionFrom *float64 `json:"firstExecutionFrom"`
 	// `CfnIntegration.ScheduledTriggerPropertiesProperty.ScheduleEndTime`.
 	ScheduleEndTime *float64 `json:"scheduleEndTime"`
+	// `CfnIntegration.ScheduledTriggerPropertiesProperty.ScheduleExpression`.
+	ScheduleExpression *string `json:"scheduleExpression"`
 	// `CfnIntegration.ScheduledTriggerPropertiesProperty.ScheduleOffset`.
 	ScheduleOffset *float64 `json:"scheduleOffset"`
 	// `CfnIntegration.ScheduledTriggerPropertiesProperty.ScheduleStartTime`.
@@ -1452,11 +1475,15 @@ type CfnIntegration_ScheduledTriggerPropertiesProperty struct {
 	Timezone *string `json:"timezone"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIntegration_ServiceNowSourcePropertiesProperty struct {
 	// `CfnIntegration.ServiceNowSourcePropertiesProperty.Object`.
 	Object *string `json:"object"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIntegration_SourceConnectorPropertiesProperty struct {
 	// `CfnIntegration.SourceConnectorPropertiesProperty.Marketo`.
 	Marketo interface{} `json:"marketo"`
@@ -1470,17 +1497,21 @@ type CfnIntegration_SourceConnectorPropertiesProperty struct {
 	Zendesk interface{} `json:"zendesk"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIntegration_SourceFlowConfigProperty struct {
-	// `CfnIntegration.SourceFlowConfigProperty.ConnectorType`.
-	ConnectorType *string `json:"connectorType"`
-	// `CfnIntegration.SourceFlowConfigProperty.SourceConnectorProperties`.
-	SourceConnectorProperties interface{} `json:"sourceConnectorProperties"`
 	// `CfnIntegration.SourceFlowConfigProperty.ConnectorProfileName`.
 	ConnectorProfileName *string `json:"connectorProfileName"`
+	// `CfnIntegration.SourceFlowConfigProperty.ConnectorType`.
+	ConnectorType *string `json:"connectorType"`
 	// `CfnIntegration.SourceFlowConfigProperty.IncrementalPullConfig`.
 	IncrementalPullConfig interface{} `json:"incrementalPullConfig"`
+	// `CfnIntegration.SourceFlowConfigProperty.SourceConnectorProperties`.
+	SourceConnectorProperties interface{} `json:"sourceConnectorProperties"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIntegration_TaskPropertiesMapProperty struct {
 	// `CfnIntegration.TaskPropertiesMapProperty.OperatorPropertyKey`.
 	OperatorPropertyKey *string `json:"operatorPropertyKey"`
@@ -1488,44 +1519,55 @@ type CfnIntegration_TaskPropertiesMapProperty struct {
 	Property *string `json:"property"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIntegration_TaskProperty struct {
-	// `CfnIntegration.TaskProperty.SourceFields`.
-	SourceFields *[]*string `json:"sourceFields"`
-	// `CfnIntegration.TaskProperty.TaskType`.
-	TaskType *string `json:"taskType"`
 	// `CfnIntegration.TaskProperty.ConnectorOperator`.
 	ConnectorOperator interface{} `json:"connectorOperator"`
 	// `CfnIntegration.TaskProperty.DestinationField`.
 	DestinationField *string `json:"destinationField"`
+	// `CfnIntegration.TaskProperty.SourceFields`.
+	SourceFields *[]*string `json:"sourceFields"`
 	// `CfnIntegration.TaskProperty.TaskProperties`.
 	TaskProperties interface{} `json:"taskProperties"`
+	// `CfnIntegration.TaskProperty.TaskType`.
+	TaskType *string `json:"taskType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIntegration_TriggerConfigProperty struct {
-	// `CfnIntegration.TriggerConfigProperty.TriggerType`.
-	TriggerType *string `json:"triggerType"`
 	// `CfnIntegration.TriggerConfigProperty.TriggerProperties`.
 	TriggerProperties interface{} `json:"triggerProperties"`
+	// `CfnIntegration.TriggerConfigProperty.TriggerType`.
+	TriggerType *string `json:"triggerType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIntegration_TriggerPropertiesProperty struct {
 	// `CfnIntegration.TriggerPropertiesProperty.Scheduled`.
 	Scheduled interface{} `json:"scheduled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIntegration_ZendeskSourcePropertiesProperty struct {
 	// `CfnIntegration.ZendeskSourcePropertiesProperty.Object`.
 	Object *string `json:"object"`
 }
 
 // Properties for defining a `AWS::CustomerProfiles::Integration`.
+//
+// TODO: EXAMPLE
+//
 type CfnIntegrationProps struct {
 	// `AWS::CustomerProfiles::Integration.DomainName`.
 	DomainName *string `json:"domainName"`
-	// `AWS::CustomerProfiles::Integration.ObjectTypeName`.
-	ObjectTypeName *string `json:"objectTypeName"`
 	// `AWS::CustomerProfiles::Integration.FlowDefinition`.
 	FlowDefinition interface{} `json:"flowDefinition"`
+	// `AWS::CustomerProfiles::Integration.ObjectTypeName`.
+	ObjectTypeName *string `json:"objectTypeName"`
 	// `AWS::CustomerProfiles::Integration.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::CustomerProfiles::Integration.Uri`.
@@ -1533,6 +1575,9 @@ type CfnIntegrationProps struct {
 }
 
 // A CloudFormation `AWS::CustomerProfiles::ObjectType`.
+//
+// TODO: EXAMPLE
+//
 type CfnObjectType interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2311,6 +2356,8 @@ func (c *jsiiProxy_CfnObjectType) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnObjectType_FieldMapProperty struct {
 	// `CfnObjectType.FieldMapProperty.Name`.
 	Name *string `json:"name"`
@@ -2318,6 +2365,8 @@ type CfnObjectType_FieldMapProperty struct {
 	ObjectTypeField interface{} `json:"objectTypeField"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnObjectType_KeyMapProperty struct {
 	// `CfnObjectType.KeyMapProperty.Name`.
 	Name *string `json:"name"`
@@ -2325,6 +2374,8 @@ type CfnObjectType_KeyMapProperty struct {
 	ObjectTypeKeyList interface{} `json:"objectTypeKeyList"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnObjectType_ObjectTypeFieldProperty struct {
 	// `CfnObjectType.ObjectTypeFieldProperty.ContentType`.
 	ContentType *string `json:"contentType"`
@@ -2334,6 +2385,8 @@ type CfnObjectType_ObjectTypeFieldProperty struct {
 	Target *string `json:"target"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnObjectType_ObjectTypeKeyProperty struct {
 	// `CfnObjectType.ObjectTypeKeyProperty.FieldNames`.
 	FieldNames *[]*string `json:"fieldNames"`
@@ -2342,13 +2395,16 @@ type CfnObjectType_ObjectTypeKeyProperty struct {
 }
 
 // Properties for defining a `AWS::CustomerProfiles::ObjectType`.
+//
+// TODO: EXAMPLE
+//
 type CfnObjectTypeProps struct {
-	// `AWS::CustomerProfiles::ObjectType.DomainName`.
-	DomainName *string `json:"domainName"`
 	// `AWS::CustomerProfiles::ObjectType.AllowProfileCreation`.
 	AllowProfileCreation interface{} `json:"allowProfileCreation"`
 	// `AWS::CustomerProfiles::ObjectType.Description`.
 	Description *string `json:"description"`
+	// `AWS::CustomerProfiles::ObjectType.DomainName`.
+	DomainName *string `json:"domainName"`
 	// `AWS::CustomerProfiles::ObjectType.EncryptionKey`.
 	EncryptionKey *string `json:"encryptionKey"`
 	// `AWS::CustomerProfiles::ObjectType.ExpirationDays`.

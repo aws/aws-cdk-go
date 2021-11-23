@@ -10,6 +10,9 @@ import (
 )
 
 // Properties for an topic rule action.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ActionConfig struct {
 	// The configuration for this action.
@@ -18,6 +21,9 @@ type ActionConfig struct {
 }
 
 // A CloudFormation `AWS::IoT::AccountAuditConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnAccountAuditConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -663,11 +669,15 @@ func (c *jsiiProxy_CfnAccountAuditConfiguration) ValidateProperties(_properties 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnAccountAuditConfiguration_AuditCheckConfigurationProperty struct {
 	// `CfnAccountAuditConfiguration.AuditCheckConfigurationProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAccountAuditConfiguration_AuditCheckConfigurationsProperty struct {
 	// `CfnAccountAuditConfiguration.AuditCheckConfigurationsProperty.AuthenticatedCognitoRoleOverlyPermissiveCheck`.
 	AuthenticatedCognitoRoleOverlyPermissiveCheck interface{} `json:"authenticatedCognitoRoleOverlyPermissiveCheck"`
@@ -699,11 +709,15 @@ type CfnAccountAuditConfiguration_AuditCheckConfigurationsProperty struct {
 	UnauthenticatedCognitoRoleOverlyPermissiveCheck interface{} `json:"unauthenticatedCognitoRoleOverlyPermissiveCheck"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAccountAuditConfiguration_AuditNotificationTargetConfigurationsProperty struct {
 	// `CfnAccountAuditConfiguration.AuditNotificationTargetConfigurationsProperty.Sns`.
 	Sns interface{} `json:"sns"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAccountAuditConfiguration_AuditNotificationTargetProperty struct {
 	// `CfnAccountAuditConfiguration.AuditNotificationTargetProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
@@ -714,18 +728,24 @@ type CfnAccountAuditConfiguration_AuditNotificationTargetProperty struct {
 }
 
 // Properties for defining a `AWS::IoT::AccountAuditConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnAccountAuditConfigurationProps struct {
 	// `AWS::IoT::AccountAuditConfiguration.AccountId`.
 	AccountId *string `json:"accountId"`
 	// `AWS::IoT::AccountAuditConfiguration.AuditCheckConfigurations`.
 	AuditCheckConfigurations interface{} `json:"auditCheckConfigurations"`
-	// `AWS::IoT::AccountAuditConfiguration.RoleArn`.
-	RoleArn *string `json:"roleArn"`
 	// `AWS::IoT::AccountAuditConfiguration.AuditNotificationTargetConfigurations`.
 	AuditNotificationTargetConfigurations interface{} `json:"auditNotificationTargetConfigurations"`
+	// `AWS::IoT::AccountAuditConfiguration.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 }
 
 // A CloudFormation `AWS::IoT::Authorizer`.
+//
+// TODO: EXAMPLE
+//
 type CfnAuthorizer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1434,6 +1454,9 @@ func (c *jsiiProxy_CfnAuthorizer) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::IoT::Authorizer`.
+//
+// TODO: EXAMPLE
+//
 type CfnAuthorizerProps struct {
 	// `AWS::IoT::Authorizer.AuthorizerFunctionArn`.
 	AuthorizerFunctionArn *string `json:"authorizerFunctionArn"`
@@ -1452,6 +1475,9 @@ type CfnAuthorizerProps struct {
 }
 
 // A CloudFormation `AWS::IoT::Certificate`.
+//
+// TODO: EXAMPLE
+//
 type CfnCertificate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2140,9 +2166,10 @@ func (c *jsiiProxy_CfnCertificate) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::IoT::Certificate`.
+//
+// TODO: EXAMPLE
+//
 type CfnCertificateProps struct {
-	// `AWS::IoT::Certificate.Status`.
-	Status *string `json:"status"`
 	// `AWS::IoT::Certificate.CACertificatePem`.
 	CaCertificatePem *string `json:"caCertificatePem"`
 	// `AWS::IoT::Certificate.CertificateMode`.
@@ -2151,9 +2178,14 @@ type CfnCertificateProps struct {
 	CertificatePem *string `json:"certificatePem"`
 	// `AWS::IoT::Certificate.CertificateSigningRequest`.
 	CertificateSigningRequest *string `json:"certificateSigningRequest"`
+	// `AWS::IoT::Certificate.Status`.
+	Status *string `json:"status"`
 }
 
 // A CloudFormation `AWS::IoT::CustomMetric`.
+//
+// TODO: EXAMPLE
+//
 type CfnCustomMetric interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2802,18 +2834,24 @@ func (c *jsiiProxy_CfnCustomMetric) ValidateProperties(_properties interface{}) 
 }
 
 // Properties for defining a `AWS::IoT::CustomMetric`.
+//
+// TODO: EXAMPLE
+//
 type CfnCustomMetricProps struct {
-	// `AWS::IoT::CustomMetric.MetricType`.
-	MetricType *string `json:"metricType"`
 	// `AWS::IoT::CustomMetric.DisplayName`.
 	DisplayName *string `json:"displayName"`
 	// `AWS::IoT::CustomMetric.MetricName`.
 	MetricName *string `json:"metricName"`
+	// `AWS::IoT::CustomMetric.MetricType`.
+	MetricType *string `json:"metricType"`
 	// `AWS::IoT::CustomMetric.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::IoT::Dimension`.
+//
+// TODO: EXAMPLE
+//
 type CfnDimension interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3462,18 +3500,24 @@ func (c *jsiiProxy_CfnDimension) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::IoT::Dimension`.
+//
+// TODO: EXAMPLE
+//
 type CfnDimensionProps struct {
-	// `AWS::IoT::Dimension.StringValues`.
-	StringValues *[]*string `json:"stringValues"`
-	// `AWS::IoT::Dimension.Type`.
-	Type *string `json:"type"`
 	// `AWS::IoT::Dimension.Name`.
 	Name *string `json:"name"`
+	// `AWS::IoT::Dimension.StringValues`.
+	StringValues *[]*string `json:"stringValues"`
 	// `AWS::IoT::Dimension.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::IoT::Dimension.Type`.
+	Type *string `json:"type"`
 }
 
 // A CloudFormation `AWS::IoT::DomainConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnDomainConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4223,6 +4267,8 @@ func (c *jsiiProxy_CfnDomainConfiguration) ValidateProperties(_properties interf
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDomainConfiguration_AuthorizerConfigProperty struct {
 	// `CfnDomainConfiguration.AuthorizerConfigProperty.AllowAuthorizerOverride`.
 	AllowAuthorizerOverride interface{} `json:"allowAuthorizerOverride"`
@@ -4230,6 +4276,8 @@ type CfnDomainConfiguration_AuthorizerConfigProperty struct {
 	DefaultAuthorizerName *string `json:"defaultAuthorizerName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDomainConfiguration_ServerCertificateSummaryProperty struct {
 	// `CfnDomainConfiguration.ServerCertificateSummaryProperty.ServerCertificateArn`.
 	ServerCertificateArn *string `json:"serverCertificateArn"`
@@ -4240,6 +4288,9 @@ type CfnDomainConfiguration_ServerCertificateSummaryProperty struct {
 }
 
 // Properties for defining a `AWS::IoT::DomainConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnDomainConfigurationProps struct {
 	// `AWS::IoT::DomainConfiguration.AuthorizerConfig`.
 	AuthorizerConfig interface{} `json:"authorizerConfig"`
@@ -4260,6 +4311,9 @@ type CfnDomainConfigurationProps struct {
 }
 
 // A CloudFormation `AWS::IoT::FleetMetric`.
+//
+// TODO: EXAMPLE
+//
 type CfnFleetMetric interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5060,6 +5114,8 @@ func (c *jsiiProxy_CfnFleetMetric) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFleetMetric_AggregationTypeProperty struct {
 	// `CfnFleetMetric.AggregationTypeProperty.Name`.
 	Name *string `json:"name"`
@@ -5068,9 +5124,10 @@ type CfnFleetMetric_AggregationTypeProperty struct {
 }
 
 // Properties for defining a `AWS::IoT::FleetMetric`.
+//
+// TODO: EXAMPLE
+//
 type CfnFleetMetricProps struct {
-	// `AWS::IoT::FleetMetric.MetricName`.
-	MetricName *string `json:"metricName"`
 	// `AWS::IoT::FleetMetric.AggregationField`.
 	AggregationField *string `json:"aggregationField"`
 	// `AWS::IoT::FleetMetric.AggregationType`.
@@ -5079,6 +5136,8 @@ type CfnFleetMetricProps struct {
 	Description *string `json:"description"`
 	// `AWS::IoT::FleetMetric.IndexName`.
 	IndexName *string `json:"indexName"`
+	// `AWS::IoT::FleetMetric.MetricName`.
+	MetricName *string `json:"metricName"`
 	// `AWS::IoT::FleetMetric.Period`.
 	Period *float64 `json:"period"`
 	// `AWS::IoT::FleetMetric.QueryString`.
@@ -5092,6 +5151,9 @@ type CfnFleetMetricProps struct {
 }
 
 // A CloudFormation `AWS::IoT::JobTemplate`.
+//
+// TODO: EXAMPLE
+//
 type CfnJobTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5860,13 +5922,14 @@ func (c *jsiiProxy_CfnJobTemplate) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::IoT::JobTemplate`.
+//
+// TODO: EXAMPLE
+//
 type CfnJobTemplateProps struct {
-	// `AWS::IoT::JobTemplate.Description`.
-	Description *string `json:"description"`
-	// `AWS::IoT::JobTemplate.JobTemplateId`.
-	JobTemplateId *string `json:"jobTemplateId"`
 	// `AWS::IoT::JobTemplate.AbortConfig`.
 	AbortConfig interface{} `json:"abortConfig"`
+	// `AWS::IoT::JobTemplate.Description`.
+	Description *string `json:"description"`
 	// `AWS::IoT::JobTemplate.Document`.
 	Document *string `json:"document"`
 	// `AWS::IoT::JobTemplate.DocumentSource`.
@@ -5875,6 +5938,8 @@ type CfnJobTemplateProps struct {
 	JobArn *string `json:"jobArn"`
 	// `AWS::IoT::JobTemplate.JobExecutionsRolloutConfig`.
 	JobExecutionsRolloutConfig interface{} `json:"jobExecutionsRolloutConfig"`
+	// `AWS::IoT::JobTemplate.JobTemplateId`.
+	JobTemplateId *string `json:"jobTemplateId"`
 	// `AWS::IoT::JobTemplate.PresignedUrlConfig`.
 	PresignedUrlConfig interface{} `json:"presignedUrlConfig"`
 	// `AWS::IoT::JobTemplate.Tags`.
@@ -5884,6 +5949,9 @@ type CfnJobTemplateProps struct {
 }
 
 // A CloudFormation `AWS::IoT::Logging`.
+//
+// TODO: EXAMPLE
+//
 type CfnLogging interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6510,6 +6578,9 @@ func (c *jsiiProxy_CfnLogging) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::IoT::Logging`.
+//
+// TODO: EXAMPLE
+//
 type CfnLoggingProps struct {
 	// `AWS::IoT::Logging.AccountId`.
 	AccountId *string `json:"accountId"`
@@ -6520,6 +6591,9 @@ type CfnLoggingProps struct {
 }
 
 // A CloudFormation `AWS::IoT::MitigationAction`.
+//
+// TODO: EXAMPLE
+//
 type CfnMitigationAction interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -7178,6 +7252,8 @@ func (c *jsiiProxy_CfnMitigationAction) ValidateProperties(_properties interface
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnMitigationAction_ActionParamsProperty struct {
 	// `CfnMitigationAction.ActionParamsProperty.AddThingsToThingGroupParams`.
 	AddThingsToThingGroupParams interface{} `json:"addThingsToThingGroupParams"`
@@ -7193,13 +7269,17 @@ type CfnMitigationAction_ActionParamsProperty struct {
 	UpdateDeviceCertificateParams interface{} `json:"updateDeviceCertificateParams"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMitigationAction_AddThingsToThingGroupParamsProperty struct {
-	// `CfnMitigationAction.AddThingsToThingGroupParamsProperty.ThingGroupNames`.
-	ThingGroupNames *[]*string `json:"thingGroupNames"`
 	// `CfnMitigationAction.AddThingsToThingGroupParamsProperty.OverrideDynamicGroups`.
 	OverrideDynamicGroups interface{} `json:"overrideDynamicGroups"`
+	// `CfnMitigationAction.AddThingsToThingGroupParamsProperty.ThingGroupNames`.
+	ThingGroupNames *[]*string `json:"thingGroupNames"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMitigationAction_EnableIoTLoggingParamsProperty struct {
 	// `CfnMitigationAction.EnableIoTLoggingParamsProperty.LogLevel`.
 	LogLevel *string `json:"logLevel"`
@@ -7207,39 +7287,53 @@ type CfnMitigationAction_EnableIoTLoggingParamsProperty struct {
 	RoleArnForLogging *string `json:"roleArnForLogging"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMitigationAction_PublishFindingToSnsParamsProperty struct {
 	// `CfnMitigationAction.PublishFindingToSnsParamsProperty.TopicArn`.
 	TopicArn *string `json:"topicArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMitigationAction_ReplaceDefaultPolicyVersionParamsProperty struct {
 	// `CfnMitigationAction.ReplaceDefaultPolicyVersionParamsProperty.TemplateName`.
 	TemplateName *string `json:"templateName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMitigationAction_UpdateCACertificateParamsProperty struct {
 	// `CfnMitigationAction.UpdateCACertificateParamsProperty.Action`.
 	Action *string `json:"action"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMitigationAction_UpdateDeviceCertificateParamsProperty struct {
 	// `CfnMitigationAction.UpdateDeviceCertificateParamsProperty.Action`.
 	Action *string `json:"action"`
 }
 
 // Properties for defining a `AWS::IoT::MitigationAction`.
+//
+// TODO: EXAMPLE
+//
 type CfnMitigationActionProps struct {
+	// `AWS::IoT::MitigationAction.ActionName`.
+	ActionName *string `json:"actionName"`
 	// `AWS::IoT::MitigationAction.ActionParams`.
 	ActionParams interface{} `json:"actionParams"`
 	// `AWS::IoT::MitigationAction.RoleArn`.
 	RoleArn *string `json:"roleArn"`
-	// `AWS::IoT::MitigationAction.ActionName`.
-	ActionName *string `json:"actionName"`
 	// `AWS::IoT::MitigationAction.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::IoT::Policy`.
+//
+// TODO: EXAMPLE
+//
 type CfnPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -7857,6 +7951,9 @@ func (c *jsiiProxy_CfnPolicy) ValidateProperties(_properties interface{}) {
 }
 
 // A CloudFormation `AWS::IoT::PolicyPrincipalAttachment`.
+//
+// TODO: EXAMPLE
+//
 type CfnPolicyPrincipalAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -8463,6 +8560,9 @@ func (c *jsiiProxy_CfnPolicyPrincipalAttachment) ValidateProperties(_properties 
 }
 
 // Properties for defining a `AWS::IoT::PolicyPrincipalAttachment`.
+//
+// TODO: EXAMPLE
+//
 type CfnPolicyPrincipalAttachmentProps struct {
 	// `AWS::IoT::PolicyPrincipalAttachment.PolicyName`.
 	PolicyName *string `json:"policyName"`
@@ -8471,6 +8571,9 @@ type CfnPolicyPrincipalAttachmentProps struct {
 }
 
 // Properties for defining a `AWS::IoT::Policy`.
+//
+// TODO: EXAMPLE
+//
 type CfnPolicyProps struct {
 	// `AWS::IoT::Policy.PolicyDocument`.
 	PolicyDocument interface{} `json:"policyDocument"`
@@ -8479,6 +8582,9 @@ type CfnPolicyProps struct {
 }
 
 // A CloudFormation `AWS::IoT::ProvisioningTemplate`.
+//
+// TODO: EXAMPLE
+//
 type CfnProvisioningTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -9186,6 +9292,8 @@ func (c *jsiiProxy_CfnProvisioningTemplate) ValidateProperties(_properties inter
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnProvisioningTemplate_ProvisioningHookProperty struct {
 	// `CfnProvisioningTemplate.ProvisioningHookProperty.PayloadVersion`.
 	PayloadVersion *string `json:"payloadVersion"`
@@ -9194,24 +9302,30 @@ type CfnProvisioningTemplate_ProvisioningHookProperty struct {
 }
 
 // Properties for defining a `AWS::IoT::ProvisioningTemplate`.
+//
+// TODO: EXAMPLE
+//
 type CfnProvisioningTemplateProps struct {
-	// `AWS::IoT::ProvisioningTemplate.ProvisioningRoleArn`.
-	ProvisioningRoleArn *string `json:"provisioningRoleArn"`
-	// `AWS::IoT::ProvisioningTemplate.TemplateBody`.
-	TemplateBody *string `json:"templateBody"`
 	// `AWS::IoT::ProvisioningTemplate.Description`.
 	Description *string `json:"description"`
 	// `AWS::IoT::ProvisioningTemplate.Enabled`.
 	Enabled interface{} `json:"enabled"`
 	// `AWS::IoT::ProvisioningTemplate.PreProvisioningHook`.
 	PreProvisioningHook interface{} `json:"preProvisioningHook"`
+	// `AWS::IoT::ProvisioningTemplate.ProvisioningRoleArn`.
+	ProvisioningRoleArn *string `json:"provisioningRoleArn"`
 	// `AWS::IoT::ProvisioningTemplate.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::IoT::ProvisioningTemplate.TemplateBody`.
+	TemplateBody *string `json:"templateBody"`
 	// `AWS::IoT::ProvisioningTemplate.TemplateName`.
 	TemplateName *string `json:"templateName"`
 }
 
 // A CloudFormation `AWS::IoT::ResourceSpecificLogging`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourceSpecificLogging interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -9849,6 +9963,9 @@ func (c *jsiiProxy_CfnResourceSpecificLogging) ValidateProperties(_properties in
 }
 
 // Properties for defining a `AWS::IoT::ResourceSpecificLogging`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourceSpecificLoggingProps struct {
 	// `AWS::IoT::ResourceSpecificLogging.LogLevel`.
 	LogLevel *string `json:"logLevel"`
@@ -9859,6 +9976,9 @@ type CfnResourceSpecificLoggingProps struct {
 }
 
 // A CloudFormation `AWS::IoT::ScheduledAudit`.
+//
+// TODO: EXAMPLE
+//
 type CfnScheduledAudit interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -10547,22 +10667,28 @@ func (c *jsiiProxy_CfnScheduledAudit) ValidateProperties(_properties interface{}
 }
 
 // Properties for defining a `AWS::IoT::ScheduledAudit`.
+//
+// TODO: EXAMPLE
+//
 type CfnScheduledAuditProps struct {
-	// `AWS::IoT::ScheduledAudit.Frequency`.
-	Frequency *string `json:"frequency"`
-	// `AWS::IoT::ScheduledAudit.TargetCheckNames`.
-	TargetCheckNames *[]*string `json:"targetCheckNames"`
 	// `AWS::IoT::ScheduledAudit.DayOfMonth`.
 	DayOfMonth *string `json:"dayOfMonth"`
 	// `AWS::IoT::ScheduledAudit.DayOfWeek`.
 	DayOfWeek *string `json:"dayOfWeek"`
+	// `AWS::IoT::ScheduledAudit.Frequency`.
+	Frequency *string `json:"frequency"`
 	// `AWS::IoT::ScheduledAudit.ScheduledAuditName`.
 	ScheduledAuditName *string `json:"scheduledAuditName"`
 	// `AWS::IoT::ScheduledAudit.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::IoT::ScheduledAudit.TargetCheckNames`.
+	TargetCheckNames *[]*string `json:"targetCheckNames"`
 }
 
 // A CloudFormation `AWS::IoT::SecurityProfile`.
+//
+// TODO: EXAMPLE
+//
 type CfnSecurityProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -11270,6 +11396,8 @@ func (c *jsiiProxy_CfnSecurityProfile) ValidateProperties(_properties interface{
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnSecurityProfile_AlertTargetProperty struct {
 	// `CfnSecurityProfile.AlertTargetProperty.AlertTargetArn`.
 	AlertTargetArn *string `json:"alertTargetArn"`
@@ -11277,6 +11405,8 @@ type CfnSecurityProfile_AlertTargetProperty struct {
 	RoleArn *string `json:"roleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSecurityProfile_BehaviorCriteriaProperty struct {
 	// `CfnSecurityProfile.BehaviorCriteriaProperty.ComparisonOperator`.
 	ComparisonOperator *string `json:"comparisonOperator"`
@@ -11294,24 +11424,30 @@ type CfnSecurityProfile_BehaviorCriteriaProperty struct {
 	Value interface{} `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSecurityProfile_BehaviorProperty struct {
-	// `CfnSecurityProfile.BehaviorProperty.Name`.
-	Name *string `json:"name"`
 	// `CfnSecurityProfile.BehaviorProperty.Criteria`.
 	Criteria interface{} `json:"criteria"`
 	// `CfnSecurityProfile.BehaviorProperty.Metric`.
 	Metric *string `json:"metric"`
 	// `CfnSecurityProfile.BehaviorProperty.MetricDimension`.
 	MetricDimension interface{} `json:"metricDimension"`
+	// `CfnSecurityProfile.BehaviorProperty.Name`.
+	Name *string `json:"name"`
 	// `CfnSecurityProfile.BehaviorProperty.SuppressAlerts`.
 	SuppressAlerts interface{} `json:"suppressAlerts"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSecurityProfile_MachineLearningDetectionConfigProperty struct {
 	// `CfnSecurityProfile.MachineLearningDetectionConfigProperty.ConfidenceLevel`.
 	ConfidenceLevel *string `json:"confidenceLevel"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSecurityProfile_MetricDimensionProperty struct {
 	// `CfnSecurityProfile.MetricDimensionProperty.DimensionName`.
 	DimensionName *string `json:"dimensionName"`
@@ -11319,6 +11455,8 @@ type CfnSecurityProfile_MetricDimensionProperty struct {
 	Operator *string `json:"operator"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSecurityProfile_MetricToRetainProperty struct {
 	// `CfnSecurityProfile.MetricToRetainProperty.Metric`.
 	Metric *string `json:"metric"`
@@ -11326,6 +11464,8 @@ type CfnSecurityProfile_MetricToRetainProperty struct {
 	MetricDimension interface{} `json:"metricDimension"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSecurityProfile_MetricValueProperty struct {
 	// `CfnSecurityProfile.MetricValueProperty.Cidrs`.
 	Cidrs *[]*string `json:"cidrs"`
@@ -11341,12 +11481,17 @@ type CfnSecurityProfile_MetricValueProperty struct {
 	Strings *[]*string `json:"strings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSecurityProfile_StatisticalThresholdProperty struct {
 	// `CfnSecurityProfile.StatisticalThresholdProperty.Statistic`.
 	Statistic *string `json:"statistic"`
 }
 
 // Properties for defining a `AWS::IoT::SecurityProfile`.
+//
+// TODO: EXAMPLE
+//
 type CfnSecurityProfileProps struct {
 	// `AWS::IoT::SecurityProfile.AdditionalMetricsToRetainV2`.
 	AdditionalMetricsToRetainV2 interface{} `json:"additionalMetricsToRetainV2"`
@@ -11365,6 +11510,9 @@ type CfnSecurityProfileProps struct {
 }
 
 // A CloudFormation `AWS::IoT::Thing`.
+//
+// TODO: EXAMPLE
+//
 type CfnThing interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -11970,12 +12118,17 @@ func (c *jsiiProxy_CfnThing) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnThing_AttributePayloadProperty struct {
 	// `CfnThing.AttributePayloadProperty.Attributes`.
 	Attributes interface{} `json:"attributes"`
 }
 
 // A CloudFormation `AWS::IoT::ThingPrincipalAttachment`.
+//
+// TODO: EXAMPLE
+//
 type CfnThingPrincipalAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -12582,6 +12735,9 @@ func (c *jsiiProxy_CfnThingPrincipalAttachment) ValidateProperties(_properties i
 }
 
 // Properties for defining a `AWS::IoT::ThingPrincipalAttachment`.
+//
+// TODO: EXAMPLE
+//
 type CfnThingPrincipalAttachmentProps struct {
 	// `AWS::IoT::ThingPrincipalAttachment.Principal`.
 	Principal *string `json:"principal"`
@@ -12590,6 +12746,9 @@ type CfnThingPrincipalAttachmentProps struct {
 }
 
 // Properties for defining a `AWS::IoT::Thing`.
+//
+// TODO: EXAMPLE
+//
 type CfnThingProps struct {
 	// `AWS::IoT::Thing.AttributePayload`.
 	AttributePayload interface{} `json:"attributePayload"`
@@ -12598,6 +12757,9 @@ type CfnThingProps struct {
 }
 
 // A CloudFormation `AWS::IoT::TopicRule`.
+//
+// TODO: EXAMPLE
+//
 type CfnTopicRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -13225,6 +13387,8 @@ func (c *jsiiProxy_CfnTopicRule) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_ActionProperty struct {
 	// `CfnTopicRule.ActionProperty.CloudwatchAlarm`.
 	CloudwatchAlarm interface{} `json:"cloudwatchAlarm"`
@@ -13270,22 +13434,28 @@ type CfnTopicRule_ActionProperty struct {
 	Timestream interface{} `json:"timestream"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_AssetPropertyTimestampProperty struct {
-	// `CfnTopicRule.AssetPropertyTimestampProperty.TimeInSeconds`.
-	TimeInSeconds *string `json:"timeInSeconds"`
 	// `CfnTopicRule.AssetPropertyTimestampProperty.OffsetInNanos`.
 	OffsetInNanos *string `json:"offsetInNanos"`
+	// `CfnTopicRule.AssetPropertyTimestampProperty.TimeInSeconds`.
+	TimeInSeconds *string `json:"timeInSeconds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_AssetPropertyValueProperty struct {
+	// `CfnTopicRule.AssetPropertyValueProperty.Quality`.
+	Quality *string `json:"quality"`
 	// `CfnTopicRule.AssetPropertyValueProperty.Timestamp`.
 	Timestamp interface{} `json:"timestamp"`
 	// `CfnTopicRule.AssetPropertyValueProperty.Value`.
 	Value interface{} `json:"value"`
-	// `CfnTopicRule.AssetPropertyValueProperty.Quality`.
-	Quality *string `json:"quality"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_AssetPropertyVariantProperty struct {
 	// `CfnTopicRule.AssetPropertyVariantProperty.BooleanValue`.
 	BooleanValue *string `json:"booleanValue"`
@@ -13297,6 +13467,8 @@ type CfnTopicRule_AssetPropertyVariantProperty struct {
 	StringValue *string `json:"stringValue"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_CloudwatchAlarmActionProperty struct {
 	// `CfnTopicRule.CloudwatchAlarmActionProperty.AlarmName`.
 	AlarmName *string `json:"alarmName"`
@@ -13308,6 +13480,8 @@ type CfnTopicRule_CloudwatchAlarmActionProperty struct {
 	StateValue *string `json:"stateValue"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_CloudwatchLogsActionProperty struct {
 	// `CfnTopicRule.CloudwatchLogsActionProperty.LogGroupName`.
 	LogGroupName *string `json:"logGroupName"`
@@ -13315,32 +13489,32 @@ type CfnTopicRule_CloudwatchLogsActionProperty struct {
 	RoleArn *string `json:"roleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_CloudwatchMetricActionProperty struct {
 	// `CfnTopicRule.CloudwatchMetricActionProperty.MetricName`.
 	MetricName *string `json:"metricName"`
 	// `CfnTopicRule.CloudwatchMetricActionProperty.MetricNamespace`.
 	MetricNamespace *string `json:"metricNamespace"`
+	// `CfnTopicRule.CloudwatchMetricActionProperty.MetricTimestamp`.
+	MetricTimestamp *string `json:"metricTimestamp"`
 	// `CfnTopicRule.CloudwatchMetricActionProperty.MetricUnit`.
 	MetricUnit *string `json:"metricUnit"`
 	// `CfnTopicRule.CloudwatchMetricActionProperty.MetricValue`.
 	MetricValue *string `json:"metricValue"`
 	// `CfnTopicRule.CloudwatchMetricActionProperty.RoleArn`.
 	RoleArn *string `json:"roleArn"`
-	// `CfnTopicRule.CloudwatchMetricActionProperty.MetricTimestamp`.
-	MetricTimestamp *string `json:"metricTimestamp"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_DynamoDBActionProperty struct {
 	// `CfnTopicRule.DynamoDBActionProperty.HashKeyField`.
 	HashKeyField *string `json:"hashKeyField"`
-	// `CfnTopicRule.DynamoDBActionProperty.HashKeyValue`.
-	HashKeyValue *string `json:"hashKeyValue"`
-	// `CfnTopicRule.DynamoDBActionProperty.RoleArn`.
-	RoleArn *string `json:"roleArn"`
-	// `CfnTopicRule.DynamoDBActionProperty.TableName`.
-	TableName *string `json:"tableName"`
 	// `CfnTopicRule.DynamoDBActionProperty.HashKeyType`.
 	HashKeyType *string `json:"hashKeyType"`
+	// `CfnTopicRule.DynamoDBActionProperty.HashKeyValue`.
+	HashKeyValue *string `json:"hashKeyValue"`
 	// `CfnTopicRule.DynamoDBActionProperty.PayloadField`.
 	PayloadField *string `json:"payloadField"`
 	// `CfnTopicRule.DynamoDBActionProperty.RangeKeyField`.
@@ -13349,8 +13523,14 @@ type CfnTopicRule_DynamoDBActionProperty struct {
 	RangeKeyType *string `json:"rangeKeyType"`
 	// `CfnTopicRule.DynamoDBActionProperty.RangeKeyValue`.
 	RangeKeyValue *string `json:"rangeKeyValue"`
+	// `CfnTopicRule.DynamoDBActionProperty.RoleArn`.
+	RoleArn *string `json:"roleArn"`
+	// `CfnTopicRule.DynamoDBActionProperty.TableName`.
+	TableName *string `json:"tableName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_DynamoDBv2ActionProperty struct {
 	// `CfnTopicRule.DynamoDBv2ActionProperty.PutItem`.
 	PutItem interface{} `json:"putItem"`
@@ -13358,6 +13538,8 @@ type CfnTopicRule_DynamoDBv2ActionProperty struct {
 	RoleArn *string `json:"roleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_ElasticsearchActionProperty struct {
 	// `CfnTopicRule.ElasticsearchActionProperty.Endpoint`.
 	Endpoint *string `json:"endpoint"`
@@ -13371,17 +13553,21 @@ type CfnTopicRule_ElasticsearchActionProperty struct {
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_FirehoseActionProperty struct {
+	// `CfnTopicRule.FirehoseActionProperty.BatchMode`.
+	BatchMode interface{} `json:"batchMode"`
 	// `CfnTopicRule.FirehoseActionProperty.DeliveryStreamName`.
 	DeliveryStreamName *string `json:"deliveryStreamName"`
 	// `CfnTopicRule.FirehoseActionProperty.RoleArn`.
 	RoleArn *string `json:"roleArn"`
-	// `CfnTopicRule.FirehoseActionProperty.BatchMode`.
-	BatchMode interface{} `json:"batchMode"`
 	// `CfnTopicRule.FirehoseActionProperty.Separator`.
 	Separator *string `json:"separator"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_HttpActionHeaderProperty struct {
 	// `CfnTopicRule.HttpActionHeaderProperty.Key`.
 	Key *string `json:"key"`
@@ -13389,42 +13575,52 @@ type CfnTopicRule_HttpActionHeaderProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_HttpActionProperty struct {
-	// `CfnTopicRule.HttpActionProperty.Url`.
-	Url *string `json:"url"`
 	// `CfnTopicRule.HttpActionProperty.Auth`.
 	Auth interface{} `json:"auth"`
 	// `CfnTopicRule.HttpActionProperty.ConfirmationUrl`.
 	ConfirmationUrl *string `json:"confirmationUrl"`
 	// `CfnTopicRule.HttpActionProperty.Headers`.
 	Headers interface{} `json:"headers"`
+	// `CfnTopicRule.HttpActionProperty.Url`.
+	Url *string `json:"url"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_HttpAuthorizationProperty struct {
 	// `CfnTopicRule.HttpAuthorizationProperty.Sigv4`.
 	Sigv4 interface{} `json:"sigv4"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_IotAnalyticsActionProperty struct {
+	// `CfnTopicRule.IotAnalyticsActionProperty.BatchMode`.
+	BatchMode interface{} `json:"batchMode"`
 	// `CfnTopicRule.IotAnalyticsActionProperty.ChannelName`.
 	ChannelName *string `json:"channelName"`
 	// `CfnTopicRule.IotAnalyticsActionProperty.RoleArn`.
 	RoleArn *string `json:"roleArn"`
-	// `CfnTopicRule.IotAnalyticsActionProperty.BatchMode`.
-	BatchMode interface{} `json:"batchMode"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_IotEventsActionProperty struct {
-	// `CfnTopicRule.IotEventsActionProperty.InputName`.
-	InputName *string `json:"inputName"`
-	// `CfnTopicRule.IotEventsActionProperty.RoleArn`.
-	RoleArn *string `json:"roleArn"`
 	// `CfnTopicRule.IotEventsActionProperty.BatchMode`.
 	BatchMode interface{} `json:"batchMode"`
+	// `CfnTopicRule.IotEventsActionProperty.InputName`.
+	InputName *string `json:"inputName"`
 	// `CfnTopicRule.IotEventsActionProperty.MessageId`.
 	MessageId *string `json:"messageId"`
+	// `CfnTopicRule.IotEventsActionProperty.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_IotSiteWiseActionProperty struct {
 	// `CfnTopicRule.IotSiteWiseActionProperty.PutAssetPropertyValueEntries`.
 	PutAssetPropertyValueEntries interface{} `json:"putAssetPropertyValueEntries"`
@@ -13432,33 +13628,41 @@ type CfnTopicRule_IotSiteWiseActionProperty struct {
 	RoleArn *string `json:"roleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_KafkaActionProperty struct {
 	// `CfnTopicRule.KafkaActionProperty.ClientProperties`.
 	ClientProperties interface{} `json:"clientProperties"`
 	// `CfnTopicRule.KafkaActionProperty.DestinationArn`.
 	DestinationArn *string `json:"destinationArn"`
-	// `CfnTopicRule.KafkaActionProperty.Topic`.
-	Topic *string `json:"topic"`
 	// `CfnTopicRule.KafkaActionProperty.Key`.
 	Key *string `json:"key"`
 	// `CfnTopicRule.KafkaActionProperty.Partition`.
 	Partition *string `json:"partition"`
+	// `CfnTopicRule.KafkaActionProperty.Topic`.
+	Topic *string `json:"topic"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_KinesisActionProperty struct {
+	// `CfnTopicRule.KinesisActionProperty.PartitionKey`.
+	PartitionKey *string `json:"partitionKey"`
 	// `CfnTopicRule.KinesisActionProperty.RoleArn`.
 	RoleArn *string `json:"roleArn"`
 	// `CfnTopicRule.KinesisActionProperty.StreamName`.
 	StreamName *string `json:"streamName"`
-	// `CfnTopicRule.KinesisActionProperty.PartitionKey`.
-	PartitionKey *string `json:"partitionKey"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_LambdaActionProperty struct {
 	// `CfnTopicRule.LambdaActionProperty.FunctionArn`.
 	FunctionArn *string `json:"functionArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_OpenSearchActionProperty struct {
 	// `CfnTopicRule.OpenSearchActionProperty.Endpoint`.
 	Endpoint *string `json:"endpoint"`
@@ -13472,9 +13676,9 @@ type CfnTopicRule_OpenSearchActionProperty struct {
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_PutAssetPropertyValueEntryProperty struct {
-	// `CfnTopicRule.PutAssetPropertyValueEntryProperty.PropertyValues`.
-	PropertyValues interface{} `json:"propertyValues"`
 	// `CfnTopicRule.PutAssetPropertyValueEntryProperty.AssetId`.
 	AssetId *string `json:"assetId"`
 	// `CfnTopicRule.PutAssetPropertyValueEntryProperty.EntryId`.
@@ -13483,33 +13687,43 @@ type CfnTopicRule_PutAssetPropertyValueEntryProperty struct {
 	PropertyAlias *string `json:"propertyAlias"`
 	// `CfnTopicRule.PutAssetPropertyValueEntryProperty.PropertyId`.
 	PropertyId *string `json:"propertyId"`
+	// `CfnTopicRule.PutAssetPropertyValueEntryProperty.PropertyValues`.
+	PropertyValues interface{} `json:"propertyValues"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_PutItemInputProperty struct {
 	// `CfnTopicRule.PutItemInputProperty.TableName`.
 	TableName *string `json:"tableName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_RepublishActionProperty struct {
+	// `CfnTopicRule.RepublishActionProperty.Qos`.
+	Qos *float64 `json:"qos"`
 	// `CfnTopicRule.RepublishActionProperty.RoleArn`.
 	RoleArn *string `json:"roleArn"`
 	// `CfnTopicRule.RepublishActionProperty.Topic`.
 	Topic *string `json:"topic"`
-	// `CfnTopicRule.RepublishActionProperty.Qos`.
-	Qos *float64 `json:"qos"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_S3ActionProperty struct {
 	// `CfnTopicRule.S3ActionProperty.BucketName`.
 	BucketName *string `json:"bucketName"`
+	// `CfnTopicRule.S3ActionProperty.CannedAcl`.
+	CannedAcl *string `json:"cannedAcl"`
 	// `CfnTopicRule.S3ActionProperty.Key`.
 	Key *string `json:"key"`
 	// `CfnTopicRule.S3ActionProperty.RoleArn`.
 	RoleArn *string `json:"roleArn"`
-	// `CfnTopicRule.S3ActionProperty.CannedAcl`.
-	CannedAcl *string `json:"cannedAcl"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_SigV4AuthorizationProperty struct {
 	// `CfnTopicRule.SigV4AuthorizationProperty.RoleArn`.
 	RoleArn *string `json:"roleArn"`
@@ -13519,15 +13733,19 @@ type CfnTopicRule_SigV4AuthorizationProperty struct {
 	SigningRegion *string `json:"signingRegion"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_SnsActionProperty struct {
+	// `CfnTopicRule.SnsActionProperty.MessageFormat`.
+	MessageFormat *string `json:"messageFormat"`
 	// `CfnTopicRule.SnsActionProperty.RoleArn`.
 	RoleArn *string `json:"roleArn"`
 	// `CfnTopicRule.SnsActionProperty.TargetArn`.
 	TargetArn *string `json:"targetArn"`
-	// `CfnTopicRule.SnsActionProperty.MessageFormat`.
-	MessageFormat *string `json:"messageFormat"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_SqsActionProperty struct {
 	// `CfnTopicRule.SqsActionProperty.QueueUrl`.
 	QueueUrl *string `json:"queueUrl"`
@@ -13537,16 +13755,22 @@ type CfnTopicRule_SqsActionProperty struct {
 	UseBase64 interface{} `json:"useBase64"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_StepFunctionsActionProperty struct {
+	// `CfnTopicRule.StepFunctionsActionProperty.ExecutionNamePrefix`.
+	ExecutionNamePrefix *string `json:"executionNamePrefix"`
 	// `CfnTopicRule.StepFunctionsActionProperty.RoleArn`.
 	RoleArn *string `json:"roleArn"`
 	// `CfnTopicRule.StepFunctionsActionProperty.StateMachineName`.
 	StateMachineName *string `json:"stateMachineName"`
-	// `CfnTopicRule.StepFunctionsActionProperty.ExecutionNamePrefix`.
-	ExecutionNamePrefix *string `json:"executionNamePrefix"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_TimestreamActionProperty struct {
+	// `CfnTopicRule.TimestreamActionProperty.BatchMode`.
+	BatchMode interface{} `json:"batchMode"`
 	// `CfnTopicRule.TimestreamActionProperty.DatabaseName`.
 	DatabaseName *string `json:"databaseName"`
 	// `CfnTopicRule.TimestreamActionProperty.Dimensions`.
@@ -13555,12 +13779,12 @@ type CfnTopicRule_TimestreamActionProperty struct {
 	RoleArn *string `json:"roleArn"`
 	// `CfnTopicRule.TimestreamActionProperty.TableName`.
 	TableName *string `json:"tableName"`
-	// `CfnTopicRule.TimestreamActionProperty.BatchMode`.
-	BatchMode interface{} `json:"batchMode"`
 	// `CfnTopicRule.TimestreamActionProperty.Timestamp`.
 	Timestamp interface{} `json:"timestamp"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_TimestreamDimensionProperty struct {
 	// `CfnTopicRule.TimestreamDimensionProperty.Name`.
 	Name *string `json:"name"`
@@ -13568,6 +13792,8 @@ type CfnTopicRule_TimestreamDimensionProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_TimestreamTimestampProperty struct {
 	// `CfnTopicRule.TimestreamTimestampProperty.Unit`.
 	Unit *string `json:"unit"`
@@ -13575,11 +13801,11 @@ type CfnTopicRule_TimestreamTimestampProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRule_TopicRulePayloadProperty struct {
 	// `CfnTopicRule.TopicRulePayloadProperty.Actions`.
 	Actions interface{} `json:"actions"`
-	// `CfnTopicRule.TopicRulePayloadProperty.Sql`.
-	Sql *string `json:"sql"`
 	// `CfnTopicRule.TopicRulePayloadProperty.AwsIotSqlVersion`.
 	AwsIotSqlVersion *string `json:"awsIotSqlVersion"`
 	// `CfnTopicRule.TopicRulePayloadProperty.Description`.
@@ -13588,9 +13814,14 @@ type CfnTopicRule_TopicRulePayloadProperty struct {
 	ErrorAction interface{} `json:"errorAction"`
 	// `CfnTopicRule.TopicRulePayloadProperty.RuleDisabled`.
 	RuleDisabled interface{} `json:"ruleDisabled"`
+	// `CfnTopicRule.TopicRulePayloadProperty.Sql`.
+	Sql *string `json:"sql"`
 }
 
 // A CloudFormation `AWS::IoT::TopicRuleDestination`.
+//
+// TODO: EXAMPLE
+//
 type CfnTopicRuleDestination interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -14238,11 +14469,15 @@ func (c *jsiiProxy_CfnTopicRuleDestination) ValidateProperties(_properties inter
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRuleDestination_HttpUrlDestinationSummaryProperty struct {
 	// `CfnTopicRuleDestination.HttpUrlDestinationSummaryProperty.ConfirmationUrl`.
 	ConfirmationUrl *string `json:"confirmationUrl"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopicRuleDestination_VpcDestinationPropertiesProperty struct {
 	// `CfnTopicRuleDestination.VpcDestinationPropertiesProperty.RoleArn`.
 	RoleArn *string `json:"roleArn"`
@@ -14255,6 +14490,9 @@ type CfnTopicRuleDestination_VpcDestinationPropertiesProperty struct {
 }
 
 // Properties for defining a `AWS::IoT::TopicRuleDestination`.
+//
+// TODO: EXAMPLE
+//
 type CfnTopicRuleDestinationProps struct {
 	// `AWS::IoT::TopicRuleDestination.HttpUrlProperties`.
 	HttpUrlProperties interface{} `json:"httpUrlProperties"`
@@ -14265,13 +14503,16 @@ type CfnTopicRuleDestinationProps struct {
 }
 
 // Properties for defining a `AWS::IoT::TopicRule`.
+//
+// TODO: EXAMPLE
+//
 type CfnTopicRuleProps struct {
-	// `AWS::IoT::TopicRule.TopicRulePayload`.
-	TopicRulePayload interface{} `json:"topicRulePayload"`
 	// `AWS::IoT::TopicRule.RuleName`.
 	RuleName *string `json:"ruleName"`
 	// `AWS::IoT::TopicRule.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::IoT::TopicRule.TopicRulePayload`.
+	TopicRulePayload interface{} `json:"topicRulePayload"`
 }
 
 // An abstract action for TopicRule.
@@ -14438,6 +14679,9 @@ func (i *jsiiProxy_IotSql) Bind(scope constructs.Construct) *IotSqlConfig {
 }
 
 // The type returned from the `bind()` method in {@link IotSql}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type IotSqlConfig struct {
 	// The version of the SQL rules engine to use when evaluating the rule.

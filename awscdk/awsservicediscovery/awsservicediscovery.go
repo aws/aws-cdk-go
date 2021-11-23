@@ -15,6 +15,9 @@ import (
 //
 // Currently, the only resource types supported are Elastic Load
 // Balancers.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AliasTargetInstance interface {
 	InstanceBase
@@ -376,6 +379,8 @@ func (a *jsiiProxy_AliasTargetInstance) Validate() *[]*string {
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type AliasTargetInstanceProps struct {
 	// Custom attributes of the instance.
@@ -393,6 +398,9 @@ type AliasTargetInstanceProps struct {
 }
 
 // Used when the resource that's associated with the service instance is accessible using values other than an IP address or a domain name (CNAME), i.e. for non-ip-instances.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BaseInstanceProps struct {
 	// Custom attributes of the instance.
@@ -403,19 +411,24 @@ type BaseInstanceProps struct {
 	InstanceId *string `json:"instanceId"`
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type BaseNamespaceProps struct {
-	// A name for the Namespace.
-	// Experimental.
-	Name *string `json:"name"`
 	// A description of the Namespace.
 	// Experimental.
 	Description *string `json:"description"`
+	// A name for the Namespace.
+	// Experimental.
+	Name *string `json:"name"`
 }
 
 // Basic props needed to create a service in a given namespace.
 //
 // Used by HttpNamespace.createService
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BaseServiceProps struct {
 	// Structure containing failure threshold for a custom health checker.
@@ -441,6 +454,9 @@ type BaseServiceProps struct {
 }
 
 // A CloudFormation `AWS::ServiceDiscovery::HttpNamespace`.
+//
+// TODO: EXAMPLE
+//
 type CfnHttpNamespace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1080,16 +1096,22 @@ func (c *jsiiProxy_CfnHttpNamespace) ValidateProperties(_properties interface{})
 }
 
 // Properties for defining a `AWS::ServiceDiscovery::HttpNamespace`.
+//
+// TODO: EXAMPLE
+//
 type CfnHttpNamespaceProps struct {
-	// `AWS::ServiceDiscovery::HttpNamespace.Name`.
-	Name *string `json:"name"`
 	// `AWS::ServiceDiscovery::HttpNamespace.Description`.
 	Description *string `json:"description"`
+	// `AWS::ServiceDiscovery::HttpNamespace.Name`.
+	Name *string `json:"name"`
 	// `AWS::ServiceDiscovery::HttpNamespace.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::ServiceDiscovery::Instance`.
+//
+// TODO: EXAMPLE
+//
 type CfnInstance interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1716,16 +1738,22 @@ func (c *jsiiProxy_CfnInstance) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::ServiceDiscovery::Instance`.
+//
+// TODO: EXAMPLE
+//
 type CfnInstanceProps struct {
 	// `AWS::ServiceDiscovery::Instance.InstanceAttributes`.
 	InstanceAttributes interface{} `json:"instanceAttributes"`
-	// `AWS::ServiceDiscovery::Instance.ServiceId`.
-	ServiceId *string `json:"serviceId"`
 	// `AWS::ServiceDiscovery::Instance.InstanceId`.
 	InstanceId *string `json:"instanceId"`
+	// `AWS::ServiceDiscovery::Instance.ServiceId`.
+	ServiceId *string `json:"serviceId"`
 }
 
 // A CloudFormation `AWS::ServiceDiscovery::PrivateDnsNamespace`.
+//
+// TODO: EXAMPLE
+//
 type CfnPrivateDnsNamespace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2404,36 +2432,48 @@ func (c *jsiiProxy_CfnPrivateDnsNamespace) ValidateProperties(_properties interf
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnPrivateDnsNamespace_PrivateDnsPropertiesMutableProperty struct {
 	// `CfnPrivateDnsNamespace.PrivateDnsPropertiesMutableProperty.SOA`.
 	Soa interface{} `json:"soa"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPrivateDnsNamespace_PropertiesProperty struct {
 	// `CfnPrivateDnsNamespace.PropertiesProperty.DnsProperties`.
 	DnsProperties interface{} `json:"dnsProperties"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPrivateDnsNamespace_SOAProperty struct {
 	// `CfnPrivateDnsNamespace.SOAProperty.TTL`.
 	Ttl *float64 `json:"ttl"`
 }
 
 // Properties for defining a `AWS::ServiceDiscovery::PrivateDnsNamespace`.
+//
+// TODO: EXAMPLE
+//
 type CfnPrivateDnsNamespaceProps struct {
-	// `AWS::ServiceDiscovery::PrivateDnsNamespace.Name`.
-	Name *string `json:"name"`
-	// `AWS::ServiceDiscovery::PrivateDnsNamespace.Vpc`.
-	Vpc *string `json:"vpc"`
 	// `AWS::ServiceDiscovery::PrivateDnsNamespace.Description`.
 	Description *string `json:"description"`
+	// `AWS::ServiceDiscovery::PrivateDnsNamespace.Name`.
+	Name *string `json:"name"`
 	// `AWS::ServiceDiscovery::PrivateDnsNamespace.Properties`.
 	Properties interface{} `json:"properties"`
 	// `AWS::ServiceDiscovery::PrivateDnsNamespace.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::ServiceDiscovery::PrivateDnsNamespace.Vpc`.
+	Vpc *string `json:"vpc"`
 }
 
 // A CloudFormation `AWS::ServiceDiscovery::PublicDnsNamespace`.
+//
+// TODO: EXAMPLE
+//
 type CfnPublicDnsNamespace interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3092,27 +3132,36 @@ func (c *jsiiProxy_CfnPublicDnsNamespace) ValidateProperties(_properties interfa
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnPublicDnsNamespace_PropertiesProperty struct {
 	// `CfnPublicDnsNamespace.PropertiesProperty.DnsProperties`.
 	DnsProperties interface{} `json:"dnsProperties"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPublicDnsNamespace_PublicDnsPropertiesMutableProperty struct {
 	// `CfnPublicDnsNamespace.PublicDnsPropertiesMutableProperty.SOA`.
 	Soa interface{} `json:"soa"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPublicDnsNamespace_SOAProperty struct {
 	// `CfnPublicDnsNamespace.SOAProperty.TTL`.
 	Ttl *float64 `json:"ttl"`
 }
 
 // Properties for defining a `AWS::ServiceDiscovery::PublicDnsNamespace`.
+//
+// TODO: EXAMPLE
+//
 type CfnPublicDnsNamespaceProps struct {
-	// `AWS::ServiceDiscovery::PublicDnsNamespace.Name`.
-	Name *string `json:"name"`
 	// `AWS::ServiceDiscovery::PublicDnsNamespace.Description`.
 	Description *string `json:"description"`
+	// `AWS::ServiceDiscovery::PublicDnsNamespace.Name`.
+	Name *string `json:"name"`
 	// `AWS::ServiceDiscovery::PublicDnsNamespace.Properties`.
 	Properties interface{} `json:"properties"`
 	// `AWS::ServiceDiscovery::PublicDnsNamespace.Tags`.
@@ -3120,6 +3169,9 @@ type CfnPublicDnsNamespaceProps struct {
 }
 
 // A CloudFormation `AWS::ServiceDiscovery::Service`.
+//
+// TODO: EXAMPLE
+//
 type CfnService interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3869,6 +3921,8 @@ func (c *jsiiProxy_CfnService) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnService_DnsConfigProperty struct {
 	// `CfnService.DnsConfigProperty.DnsRecords`.
 	DnsRecords interface{} `json:"dnsRecords"`
@@ -3878,6 +3932,8 @@ type CfnService_DnsConfigProperty struct {
 	RoutingPolicy *string `json:"routingPolicy"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnService_DnsRecordProperty struct {
 	// `CfnService.DnsRecordProperty.TTL`.
 	Ttl *float64 `json:"ttl"`
@@ -3885,21 +3941,28 @@ type CfnService_DnsRecordProperty struct {
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnService_HealthCheckConfigProperty struct {
-	// `CfnService.HealthCheckConfigProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnService.HealthCheckConfigProperty.FailureThreshold`.
 	FailureThreshold *float64 `json:"failureThreshold"`
 	// `CfnService.HealthCheckConfigProperty.ResourcePath`.
 	ResourcePath *string `json:"resourcePath"`
+	// `CfnService.HealthCheckConfigProperty.Type`.
+	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnService_HealthCheckCustomConfigProperty struct {
 	// `CfnService.HealthCheckCustomConfigProperty.FailureThreshold`.
 	FailureThreshold *float64 `json:"failureThreshold"`
 }
 
 // Properties for defining a `AWS::ServiceDiscovery::Service`.
+//
+// TODO: EXAMPLE
+//
 type CfnServiceProps struct {
 	// `AWS::ServiceDiscovery::Service.Description`.
 	Description *string `json:"description"`
@@ -3920,6 +3983,9 @@ type CfnServiceProps struct {
 }
 
 // Instance that is accessible using a domain name (CNAME).
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CnameInstance interface {
 	InstanceBase
@@ -4281,6 +4347,8 @@ func (c *jsiiProxy_CnameInstance) Validate() *[]*string {
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type CnameInstanceBaseProps struct {
 	// Custom attributes of the instance.
@@ -4294,6 +4362,8 @@ type CnameInstanceBaseProps struct {
 	InstanceCname *string `json:"instanceCname"`
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type CnameInstanceProps struct {
 	// Custom attributes of the instance.
@@ -4317,16 +4387,19 @@ type DnsRecordType string
 
 const (
 	DnsRecordType_A DnsRecordType = "A"
-	DnsRecordType_AAAA DnsRecordType = "AAAA"
 	DnsRecordType_A_AAAA DnsRecordType = "A_AAAA"
-	DnsRecordType_SRV DnsRecordType = "SRV"
+	DnsRecordType_AAAA DnsRecordType = "AAAA"
 	DnsRecordType_CNAME DnsRecordType = "CNAME"
+	DnsRecordType_SRV DnsRecordType = "SRV"
 )
 
 // Service props needed to create a service in a given namespace.
 //
 // Used by createService() for PrivateDnsNamespace and
 // PublicDnsNamespace
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DnsServiceProps struct {
 	// Structure containing failure threshold for a custom health checker.
@@ -4373,6 +4446,9 @@ type DnsServiceProps struct {
 //
 // If you specify settings for a health check, AWS Cloud Map
 // associates the health check with all the records that you specify in DnsConfig. Only valid with a PublicDnsNamespace.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HealthCheckConfig struct {
 	// The number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa.
@@ -4391,6 +4467,9 @@ type HealthCheckConfig struct {
 }
 
 // Specifies information about an optional custom health check.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HealthCheckCustomConfig struct {
 	// The number of 30-second intervals that you want Cloud Map to wait after receiving an UpdateInstanceCustomHealthStatus request before it changes the health status of a service instance.
@@ -4408,6 +4487,9 @@ const (
 )
 
 // Define an HTTP Namespace.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HttpNamespace interface {
 	awscdk.Resource
@@ -4831,6 +4913,8 @@ func (h *jsiiProxy_HttpNamespace) Validate() *[]*string {
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type HttpNamespaceAttributes struct {
 	// Namespace ARN for the Namespace.
@@ -4844,14 +4928,16 @@ type HttpNamespaceAttributes struct {
 	NamespaceName *string `json:"namespaceName"`
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type HttpNamespaceProps struct {
-	// A name for the Namespace.
-	// Experimental.
-	Name *string `json:"name"`
 	// A description of the Namespace.
 	// Experimental.
 	Description *string `json:"description"`
+	// A name for the Namespace.
+	// Experimental.
+	Name *string `json:"name"`
 }
 
 // Experimental.
@@ -5408,6 +5494,9 @@ func (i *jsiiProxy_InstanceBase) Validate() *[]*string {
 }
 
 // Instance that is accessible using an IP address.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type IpInstance interface {
 	InstanceBase
@@ -5791,6 +5880,8 @@ func (i *jsiiProxy_IpInstance) Validate() *[]*string {
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type IpInstanceBaseProps struct {
 	// Custom attributes of the instance.
@@ -5814,6 +5905,8 @@ type IpInstanceBaseProps struct {
 	Port *float64 `json:"port"`
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type IpInstanceProps struct {
 	// Custom attributes of the instance.
@@ -5844,14 +5937,17 @@ type IpInstanceProps struct {
 type NamespaceType string
 
 const (
-	NamespaceType_HTTP NamespaceType = "HTTP"
 	NamespaceType_DNS_PRIVATE NamespaceType = "DNS_PRIVATE"
 	NamespaceType_DNS_PUBLIC NamespaceType = "DNS_PUBLIC"
+	NamespaceType_HTTP NamespaceType = "HTTP"
 )
 
 // Instance accessible using values other than an IP address or a domain name (CNAME).
 //
 // Specify the other values in Custom attributes.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NonIpInstance interface {
 	InstanceBase
@@ -6202,6 +6298,8 @@ func (n *jsiiProxy_NonIpInstance) Validate() *[]*string {
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type NonIpInstanceBaseProps struct {
 	// Custom attributes of the instance.
@@ -6212,6 +6310,8 @@ type NonIpInstanceBaseProps struct {
 	InstanceId *string `json:"instanceId"`
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type NonIpInstanceProps struct {
 	// Custom attributes of the instance.
@@ -6652,6 +6752,8 @@ func (p *jsiiProxy_PrivateDnsNamespace) Validate() *[]*string {
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type PrivateDnsNamespaceAttributes struct {
 	// Namespace ARN for the Namespace.
@@ -6669,18 +6771,21 @@ type PrivateDnsNamespaceAttributes struct {
 //
 // Experimental.
 type PrivateDnsNamespaceProps struct {
-	// A name for the Namespace.
-	// Experimental.
-	Name *string `json:"name"`
 	// A description of the Namespace.
 	// Experimental.
 	Description *string `json:"description"`
+	// A name for the Namespace.
+	// Experimental.
+	Name *string `json:"name"`
 	// The Amazon VPC that you want to associate the namespace with.
 	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 }
 
 // Define a Public DNS Namespace.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type PublicDnsNamespace interface {
 	awscdk.Resource
@@ -7104,6 +7209,8 @@ func (p *jsiiProxy_PublicDnsNamespace) Validate() *[]*string {
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type PublicDnsNamespaceAttributes struct {
 	// Namespace ARN for the Namespace.
@@ -7117,22 +7224,24 @@ type PublicDnsNamespaceAttributes struct {
 	NamespaceName *string `json:"namespaceName"`
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type PublicDnsNamespaceProps struct {
-	// A name for the Namespace.
-	// Experimental.
-	Name *string `json:"name"`
 	// A description of the Namespace.
 	// Experimental.
 	Description *string `json:"description"`
+	// A name for the Namespace.
+	// Experimental.
+	Name *string `json:"name"`
 }
 
 // Experimental.
 type RoutingPolicy string
 
 const (
-	RoutingPolicy_WEIGHTED RoutingPolicy = "WEIGHTED"
 	RoutingPolicy_MULTIVALUE RoutingPolicy = "MULTIVALUE"
+	RoutingPolicy_WEIGHTED RoutingPolicy = "WEIGHTED"
 )
 
 // Define a CloudMap Service.
@@ -7599,6 +7708,8 @@ func (s *jsiiProxy_Service) Validate() *[]*string {
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type ServiceAttributes struct {
 	// Experimental.
@@ -7615,6 +7726,8 @@ type ServiceAttributes struct {
 	ServiceName *string `json:"serviceName"`
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type ServiceProps struct {
 	// Structure containing failure threshold for a custom health checker.

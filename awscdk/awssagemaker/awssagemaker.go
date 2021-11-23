@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::SageMaker::App`.
+//
+// TODO: EXAMPLE
+//
 type CfnApp interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -697,6 +700,8 @@ func (c *jsiiProxy_CfnApp) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnApp_ResourceSpecProperty struct {
 	// `CfnApp.ResourceSpecProperty.InstanceType`.
 	InstanceType *string `json:"instanceType"`
@@ -707,6 +712,9 @@ type CfnApp_ResourceSpecProperty struct {
 }
 
 // A CloudFormation `AWS::SageMaker::AppImageConfig`.
+//
+// TODO: EXAMPLE
+//
 type CfnAppImageConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1334,6 +1342,8 @@ func (c *jsiiProxy_CfnAppImageConfig) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnAppImageConfig_FileSystemConfigProperty struct {
 	// `CfnAppImageConfig.FileSystemConfigProperty.DefaultGid`.
 	DefaultGid *float64 `json:"defaultGid"`
@@ -1343,21 +1353,28 @@ type CfnAppImageConfig_FileSystemConfigProperty struct {
 	MountPath *string `json:"mountPath"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAppImageConfig_KernelGatewayImageConfigProperty struct {
-	// `CfnAppImageConfig.KernelGatewayImageConfigProperty.KernelSpecs`.
-	KernelSpecs interface{} `json:"kernelSpecs"`
 	// `CfnAppImageConfig.KernelGatewayImageConfigProperty.FileSystemConfig`.
 	FileSystemConfig interface{} `json:"fileSystemConfig"`
+	// `CfnAppImageConfig.KernelGatewayImageConfigProperty.KernelSpecs`.
+	KernelSpecs interface{} `json:"kernelSpecs"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAppImageConfig_KernelSpecProperty struct {
-	// `CfnAppImageConfig.KernelSpecProperty.Name`.
-	Name *string `json:"name"`
 	// `CfnAppImageConfig.KernelSpecProperty.DisplayName`.
 	DisplayName *string `json:"displayName"`
+	// `CfnAppImageConfig.KernelSpecProperty.Name`.
+	Name *string `json:"name"`
 }
 
 // Properties for defining a `AWS::SageMaker::AppImageConfig`.
+//
+// TODO: EXAMPLE
+//
 type CfnAppImageConfigProps struct {
 	// `AWS::SageMaker::AppImageConfig.AppImageConfigName`.
 	AppImageConfigName *string `json:"appImageConfigName"`
@@ -1368,6 +1385,9 @@ type CfnAppImageConfigProps struct {
 }
 
 // Properties for defining a `AWS::SageMaker::App`.
+//
+// TODO: EXAMPLE
+//
 type CfnAppProps struct {
 	// `AWS::SageMaker::App.AppName`.
 	AppName *string `json:"appName"`
@@ -1375,15 +1395,18 @@ type CfnAppProps struct {
 	AppType *string `json:"appType"`
 	// `AWS::SageMaker::App.DomainId`.
 	DomainId *string `json:"domainId"`
-	// `AWS::SageMaker::App.UserProfileName`.
-	UserProfileName *string `json:"userProfileName"`
 	// `AWS::SageMaker::App.ResourceSpec`.
 	ResourceSpec interface{} `json:"resourceSpec"`
 	// `AWS::SageMaker::App.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::SageMaker::App.UserProfileName`.
+	UserProfileName *string `json:"userProfileName"`
 }
 
 // A CloudFormation `AWS::SageMaker::CodeRepository`.
+//
+// TODO: EXAMPLE
+//
 type CfnCodeRepository interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2011,26 +2034,34 @@ func (c *jsiiProxy_CfnCodeRepository) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnCodeRepository_GitConfigProperty struct {
-	// `CfnCodeRepository.GitConfigProperty.RepositoryUrl`.
-	RepositoryUrl *string `json:"repositoryUrl"`
 	// `CfnCodeRepository.GitConfigProperty.Branch`.
 	Branch *string `json:"branch"`
+	// `CfnCodeRepository.GitConfigProperty.RepositoryUrl`.
+	RepositoryUrl *string `json:"repositoryUrl"`
 	// `CfnCodeRepository.GitConfigProperty.SecretArn`.
 	SecretArn *string `json:"secretArn"`
 }
 
 // Properties for defining a `AWS::SageMaker::CodeRepository`.
+//
+// TODO: EXAMPLE
+//
 type CfnCodeRepositoryProps struct {
-	// `AWS::SageMaker::CodeRepository.GitConfig`.
-	GitConfig interface{} `json:"gitConfig"`
 	// `AWS::SageMaker::CodeRepository.CodeRepositoryName`.
 	CodeRepositoryName *string `json:"codeRepositoryName"`
+	// `AWS::SageMaker::CodeRepository.GitConfig`.
+	GitConfig interface{} `json:"gitConfig"`
 	// `AWS::SageMaker::CodeRepository.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::SageMaker::DataQualityJobDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnDataQualityJobDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2809,37 +2840,45 @@ func (c *jsiiProxy_CfnDataQualityJobDefinition) ValidateProperties(_properties i
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataQualityJobDefinition_ClusterConfigProperty struct {
 	// `CfnDataQualityJobDefinition.ClusterConfigProperty.InstanceCount`.
 	InstanceCount *float64 `json:"instanceCount"`
 	// `CfnDataQualityJobDefinition.ClusterConfigProperty.InstanceType`.
 	InstanceType *string `json:"instanceType"`
-	// `CfnDataQualityJobDefinition.ClusterConfigProperty.VolumeSizeInGB`.
-	VolumeSizeInGb *float64 `json:"volumeSizeInGb"`
 	// `CfnDataQualityJobDefinition.ClusterConfigProperty.VolumeKmsKeyId`.
 	VolumeKmsKeyId *string `json:"volumeKmsKeyId"`
+	// `CfnDataQualityJobDefinition.ClusterConfigProperty.VolumeSizeInGB`.
+	VolumeSizeInGb *float64 `json:"volumeSizeInGb"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataQualityJobDefinition_ConstraintsResourceProperty struct {
 	// `CfnDataQualityJobDefinition.ConstraintsResourceProperty.S3Uri`.
 	S3Uri *string `json:"s3Uri"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataQualityJobDefinition_DataQualityAppSpecificationProperty struct {
-	// `CfnDataQualityJobDefinition.DataQualityAppSpecificationProperty.ImageUri`.
-	ImageUri *string `json:"imageUri"`
 	// `CfnDataQualityJobDefinition.DataQualityAppSpecificationProperty.ContainerArguments`.
 	ContainerArguments *[]*string `json:"containerArguments"`
 	// `CfnDataQualityJobDefinition.DataQualityAppSpecificationProperty.ContainerEntrypoint`.
 	ContainerEntrypoint *[]*string `json:"containerEntrypoint"`
 	// `CfnDataQualityJobDefinition.DataQualityAppSpecificationProperty.Environment`.
 	Environment interface{} `json:"environment"`
+	// `CfnDataQualityJobDefinition.DataQualityAppSpecificationProperty.ImageUri`.
+	ImageUri *string `json:"imageUri"`
 	// `CfnDataQualityJobDefinition.DataQualityAppSpecificationProperty.PostAnalyticsProcessorSourceUri`.
 	PostAnalyticsProcessorSourceUri *string `json:"postAnalyticsProcessorSourceUri"`
 	// `CfnDataQualityJobDefinition.DataQualityAppSpecificationProperty.RecordPreprocessorSourceUri`.
 	RecordPreprocessorSourceUri *string `json:"recordPreprocessorSourceUri"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataQualityJobDefinition_DataQualityBaselineConfigProperty struct {
 	// `CfnDataQualityJobDefinition.DataQualityBaselineConfigProperty.BaseliningJobName`.
 	BaseliningJobName *string `json:"baseliningJobName"`
@@ -2849,11 +2888,15 @@ type CfnDataQualityJobDefinition_DataQualityBaselineConfigProperty struct {
 	StatisticsResource interface{} `json:"statisticsResource"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataQualityJobDefinition_DataQualityJobInputProperty struct {
 	// `CfnDataQualityJobDefinition.DataQualityJobInputProperty.EndpointInput`.
 	EndpointInput interface{} `json:"endpointInput"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataQualityJobDefinition_EndpointInputProperty struct {
 	// `CfnDataQualityJobDefinition.EndpointInputProperty.EndpointName`.
 	EndpointName *string `json:"endpointName"`
@@ -2865,23 +2908,31 @@ type CfnDataQualityJobDefinition_EndpointInputProperty struct {
 	S3InputMode *string `json:"s3InputMode"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataQualityJobDefinition_MonitoringOutputConfigProperty struct {
-	// `CfnDataQualityJobDefinition.MonitoringOutputConfigProperty.MonitoringOutputs`.
-	MonitoringOutputs interface{} `json:"monitoringOutputs"`
 	// `CfnDataQualityJobDefinition.MonitoringOutputConfigProperty.KmsKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
+	// `CfnDataQualityJobDefinition.MonitoringOutputConfigProperty.MonitoringOutputs`.
+	MonitoringOutputs interface{} `json:"monitoringOutputs"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataQualityJobDefinition_MonitoringOutputProperty struct {
 	// `CfnDataQualityJobDefinition.MonitoringOutputProperty.S3Output`.
 	S3Output interface{} `json:"s3Output"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataQualityJobDefinition_MonitoringResourcesProperty struct {
 	// `CfnDataQualityJobDefinition.MonitoringResourcesProperty.ClusterConfig`.
 	ClusterConfig interface{} `json:"clusterConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataQualityJobDefinition_NetworkConfigProperty struct {
 	// `CfnDataQualityJobDefinition.NetworkConfigProperty.EnableInterContainerTrafficEncryption`.
 	EnableInterContainerTrafficEncryption interface{} `json:"enableInterContainerTrafficEncryption"`
@@ -2891,25 +2942,33 @@ type CfnDataQualityJobDefinition_NetworkConfigProperty struct {
 	VpcConfig interface{} `json:"vpcConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataQualityJobDefinition_S3OutputProperty struct {
 	// `CfnDataQualityJobDefinition.S3OutputProperty.LocalPath`.
 	LocalPath *string `json:"localPath"`
-	// `CfnDataQualityJobDefinition.S3OutputProperty.S3Uri`.
-	S3Uri *string `json:"s3Uri"`
 	// `CfnDataQualityJobDefinition.S3OutputProperty.S3UploadMode`.
 	S3UploadMode *string `json:"s3UploadMode"`
+	// `CfnDataQualityJobDefinition.S3OutputProperty.S3Uri`.
+	S3Uri *string `json:"s3Uri"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataQualityJobDefinition_StatisticsResourceProperty struct {
 	// `CfnDataQualityJobDefinition.StatisticsResourceProperty.S3Uri`.
 	S3Uri *string `json:"s3Uri"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataQualityJobDefinition_StoppingConditionProperty struct {
 	// `CfnDataQualityJobDefinition.StoppingConditionProperty.MaxRuntimeInSeconds`.
 	MaxRuntimeInSeconds *float64 `json:"maxRuntimeInSeconds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataQualityJobDefinition_VpcConfigProperty struct {
 	// `CfnDataQualityJobDefinition.VpcConfigProperty.SecurityGroupIds`.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
@@ -2918,23 +2977,26 @@ type CfnDataQualityJobDefinition_VpcConfigProperty struct {
 }
 
 // Properties for defining a `AWS::SageMaker::DataQualityJobDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnDataQualityJobDefinitionProps struct {
 	// `AWS::SageMaker::DataQualityJobDefinition.DataQualityAppSpecification`.
 	DataQualityAppSpecification interface{} `json:"dataQualityAppSpecification"`
+	// `AWS::SageMaker::DataQualityJobDefinition.DataQualityBaselineConfig`.
+	DataQualityBaselineConfig interface{} `json:"dataQualityBaselineConfig"`
 	// `AWS::SageMaker::DataQualityJobDefinition.DataQualityJobInput`.
 	DataQualityJobInput interface{} `json:"dataQualityJobInput"`
 	// `AWS::SageMaker::DataQualityJobDefinition.DataQualityJobOutputConfig`.
 	DataQualityJobOutputConfig interface{} `json:"dataQualityJobOutputConfig"`
-	// `AWS::SageMaker::DataQualityJobDefinition.JobResources`.
-	JobResources interface{} `json:"jobResources"`
-	// `AWS::SageMaker::DataQualityJobDefinition.RoleArn`.
-	RoleArn *string `json:"roleArn"`
-	// `AWS::SageMaker::DataQualityJobDefinition.DataQualityBaselineConfig`.
-	DataQualityBaselineConfig interface{} `json:"dataQualityBaselineConfig"`
 	// `AWS::SageMaker::DataQualityJobDefinition.JobDefinitionName`.
 	JobDefinitionName *string `json:"jobDefinitionName"`
+	// `AWS::SageMaker::DataQualityJobDefinition.JobResources`.
+	JobResources interface{} `json:"jobResources"`
 	// `AWS::SageMaker::DataQualityJobDefinition.NetworkConfig`.
 	NetworkConfig interface{} `json:"networkConfig"`
+	// `AWS::SageMaker::DataQualityJobDefinition.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 	// `AWS::SageMaker::DataQualityJobDefinition.StoppingCondition`.
 	StoppingCondition interface{} `json:"stoppingCondition"`
 	// `AWS::SageMaker::DataQualityJobDefinition.Tags`.
@@ -2942,6 +3004,9 @@ type CfnDataQualityJobDefinitionProps struct {
 }
 
 // A CloudFormation `AWS::SageMaker::Device`.
+//
+// TODO: EXAMPLE
+//
 type CfnDevice interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3558,16 +3623,21 @@ func (c *jsiiProxy_CfnDevice) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDevice_DeviceProperty struct {
-	// `CfnDevice.DeviceProperty.DeviceName`.
-	DeviceName *string `json:"deviceName"`
 	// `CfnDevice.DeviceProperty.Description`.
 	Description *string `json:"description"`
+	// `CfnDevice.DeviceProperty.DeviceName`.
+	DeviceName *string `json:"deviceName"`
 	// `CfnDevice.DeviceProperty.IotThingName`.
 	IotThingName *string `json:"iotThingName"`
 }
 
 // A CloudFormation `AWS::SageMaker::DeviceFleet`.
+//
+// TODO: EXAMPLE
+//
 type CfnDeviceFleet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4224,38 +4294,49 @@ func (c *jsiiProxy_CfnDeviceFleet) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeviceFleet_EdgeOutputConfigProperty struct {
-	// `CfnDeviceFleet.EdgeOutputConfigProperty.S3OutputLocation`.
-	S3OutputLocation *string `json:"s3OutputLocation"`
 	// `CfnDeviceFleet.EdgeOutputConfigProperty.KmsKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
+	// `CfnDeviceFleet.EdgeOutputConfigProperty.S3OutputLocation`.
+	S3OutputLocation *string `json:"s3OutputLocation"`
 }
 
 // Properties for defining a `AWS::SageMaker::DeviceFleet`.
+//
+// TODO: EXAMPLE
+//
 type CfnDeviceFleetProps struct {
+	// `AWS::SageMaker::DeviceFleet.Description`.
+	Description *string `json:"description"`
 	// `AWS::SageMaker::DeviceFleet.DeviceFleetName`.
 	DeviceFleetName *string `json:"deviceFleetName"`
 	// `AWS::SageMaker::DeviceFleet.OutputConfig`.
 	OutputConfig interface{} `json:"outputConfig"`
 	// `AWS::SageMaker::DeviceFleet.RoleArn`.
 	RoleArn *string `json:"roleArn"`
-	// `AWS::SageMaker::DeviceFleet.Description`.
-	Description *string `json:"description"`
 	// `AWS::SageMaker::DeviceFleet.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // Properties for defining a `AWS::SageMaker::Device`.
+//
+// TODO: EXAMPLE
+//
 type CfnDeviceProps struct {
-	// `AWS::SageMaker::Device.DeviceFleetName`.
-	DeviceFleetName *string `json:"deviceFleetName"`
 	// `AWS::SageMaker::Device.Device`.
 	Device interface{} `json:"device"`
+	// `AWS::SageMaker::Device.DeviceFleetName`.
+	DeviceFleetName *string `json:"deviceFleetName"`
 	// `AWS::SageMaker::Device.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::SageMaker::Domain`.
+//
+// TODO: EXAMPLE
+//
 type CfnDomain interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5027,6 +5108,8 @@ func (c *jsiiProxy_CfnDomain) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDomain_CustomImageProperty struct {
 	// `CfnDomain.CustomImageProperty.AppImageConfigName`.
 	AppImageConfigName *string `json:"appImageConfigName"`
@@ -5036,11 +5119,15 @@ type CfnDomain_CustomImageProperty struct {
 	ImageVersionNumber *float64 `json:"imageVersionNumber"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDomain_JupyterServerAppSettingsProperty struct {
 	// `CfnDomain.JupyterServerAppSettingsProperty.DefaultResourceSpec`.
 	DefaultResourceSpec interface{} `json:"defaultResourceSpec"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDomain_KernelGatewayAppSettingsProperty struct {
 	// `CfnDomain.KernelGatewayAppSettingsProperty.CustomImages`.
 	CustomImages interface{} `json:"customImages"`
@@ -5048,6 +5135,8 @@ type CfnDomain_KernelGatewayAppSettingsProperty struct {
 	DefaultResourceSpec interface{} `json:"defaultResourceSpec"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDomain_ResourceSpecProperty struct {
 	// `CfnDomain.ResourceSpecProperty.InstanceType`.
 	InstanceType *string `json:"instanceType"`
@@ -5057,6 +5146,8 @@ type CfnDomain_ResourceSpecProperty struct {
 	SageMakerImageVersionArn *string `json:"sageMakerImageVersionArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDomain_SharingSettingsProperty struct {
 	// `CfnDomain.SharingSettingsProperty.NotebookOutputOption`.
 	NotebookOutputOption *string `json:"notebookOutputOption"`
@@ -5066,6 +5157,8 @@ type CfnDomain_SharingSettingsProperty struct {
 	S3OutputPath *string `json:"s3OutputPath"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDomain_UserSettingsProperty struct {
 	// `CfnDomain.UserSettingsProperty.ExecutionRole`.
 	ExecutionRole *string `json:"executionRole"`
@@ -5080,26 +5173,32 @@ type CfnDomain_UserSettingsProperty struct {
 }
 
 // Properties for defining a `AWS::SageMaker::Domain`.
+//
+// TODO: EXAMPLE
+//
 type CfnDomainProps struct {
+	// `AWS::SageMaker::Domain.AppNetworkAccessType`.
+	AppNetworkAccessType *string `json:"appNetworkAccessType"`
 	// `AWS::SageMaker::Domain.AuthMode`.
 	AuthMode *string `json:"authMode"`
 	// `AWS::SageMaker::Domain.DefaultUserSettings`.
 	DefaultUserSettings interface{} `json:"defaultUserSettings"`
 	// `AWS::SageMaker::Domain.DomainName`.
 	DomainName *string `json:"domainName"`
-	// `AWS::SageMaker::Domain.SubnetIds`.
-	SubnetIds *[]*string `json:"subnetIds"`
-	// `AWS::SageMaker::Domain.VpcId`.
-	VpcId *string `json:"vpcId"`
-	// `AWS::SageMaker::Domain.AppNetworkAccessType`.
-	AppNetworkAccessType *string `json:"appNetworkAccessType"`
 	// `AWS::SageMaker::Domain.KmsKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
+	// `AWS::SageMaker::Domain.SubnetIds`.
+	SubnetIds *[]*string `json:"subnetIds"`
 	// `AWS::SageMaker::Domain.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::SageMaker::Domain.VpcId`.
+	VpcId *string `json:"vpcId"`
 }
 
 // A CloudFormation `AWS::SageMaker::Endpoint`.
+//
+// TODO: EXAMPLE
+//
 type CfnEndpoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5807,25 +5906,33 @@ func (c *jsiiProxy_CfnEndpoint) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpoint_AlarmProperty struct {
 	// `CfnEndpoint.AlarmProperty.AlarmName`.
 	AlarmName *string `json:"alarmName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpoint_AutoRollbackConfigProperty struct {
 	// `CfnEndpoint.AutoRollbackConfigProperty.Alarms`.
 	Alarms interface{} `json:"alarms"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpoint_BlueGreenUpdatePolicyProperty struct {
-	// `CfnEndpoint.BlueGreenUpdatePolicyProperty.TrafficRoutingConfiguration`.
-	TrafficRoutingConfiguration interface{} `json:"trafficRoutingConfiguration"`
 	// `CfnEndpoint.BlueGreenUpdatePolicyProperty.MaximumExecutionTimeoutInSeconds`.
 	MaximumExecutionTimeoutInSeconds *float64 `json:"maximumExecutionTimeoutInSeconds"`
 	// `CfnEndpoint.BlueGreenUpdatePolicyProperty.TerminationWaitInSeconds`.
 	TerminationWaitInSeconds *float64 `json:"terminationWaitInSeconds"`
+	// `CfnEndpoint.BlueGreenUpdatePolicyProperty.TrafficRoutingConfiguration`.
+	TrafficRoutingConfiguration interface{} `json:"trafficRoutingConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpoint_CapacitySizeProperty struct {
 	// `CfnEndpoint.CapacitySizeProperty.Type`.
 	Type *string `json:"type"`
@@ -5833,30 +5940,39 @@ type CfnEndpoint_CapacitySizeProperty struct {
 	Value *float64 `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpoint_DeploymentConfigProperty struct {
-	// `CfnEndpoint.DeploymentConfigProperty.BlueGreenUpdatePolicy`.
-	BlueGreenUpdatePolicy interface{} `json:"blueGreenUpdatePolicy"`
 	// `CfnEndpoint.DeploymentConfigProperty.AutoRollbackConfiguration`.
 	AutoRollbackConfiguration interface{} `json:"autoRollbackConfiguration"`
+	// `CfnEndpoint.DeploymentConfigProperty.BlueGreenUpdatePolicy`.
+	BlueGreenUpdatePolicy interface{} `json:"blueGreenUpdatePolicy"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpoint_TrafficRoutingConfigProperty struct {
-	// `CfnEndpoint.TrafficRoutingConfigProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnEndpoint.TrafficRoutingConfigProperty.CanarySize`.
 	CanarySize interface{} `json:"canarySize"`
 	// `CfnEndpoint.TrafficRoutingConfigProperty.LinearStepSize`.
 	LinearStepSize interface{} `json:"linearStepSize"`
+	// `CfnEndpoint.TrafficRoutingConfigProperty.Type`.
+	Type *string `json:"type"`
 	// `CfnEndpoint.TrafficRoutingConfigProperty.WaitIntervalInSeconds`.
 	WaitIntervalInSeconds *float64 `json:"waitIntervalInSeconds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpoint_VariantPropertyProperty struct {
 	// `CfnEndpoint.VariantPropertyProperty.VariantPropertyType`.
 	VariantPropertyType *string `json:"variantPropertyType"`
 }
 
 // A CloudFormation `AWS::SageMaker::EndpointConfig`.
+//
+// TODO: EXAMPLE
+//
 type CfnEndpointConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6544,18 +6660,24 @@ func (c *jsiiProxy_CfnEndpointConfig) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpointConfig_AsyncInferenceClientConfigProperty struct {
 	// `CfnEndpointConfig.AsyncInferenceClientConfigProperty.MaxConcurrentInvocationsPerInstance`.
 	MaxConcurrentInvocationsPerInstance *float64 `json:"maxConcurrentInvocationsPerInstance"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpointConfig_AsyncInferenceConfigProperty struct {
-	// `CfnEndpointConfig.AsyncInferenceConfigProperty.OutputConfig`.
-	OutputConfig interface{} `json:"outputConfig"`
 	// `CfnEndpointConfig.AsyncInferenceConfigProperty.ClientConfig`.
 	ClientConfig interface{} `json:"clientConfig"`
+	// `CfnEndpointConfig.AsyncInferenceConfigProperty.OutputConfig`.
+	OutputConfig interface{} `json:"outputConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpointConfig_AsyncInferenceNotificationConfigProperty struct {
 	// `CfnEndpointConfig.AsyncInferenceNotificationConfigProperty.ErrorTopic`.
 	ErrorTopic *string `json:"errorTopic"`
@@ -6563,15 +6685,19 @@ type CfnEndpointConfig_AsyncInferenceNotificationConfigProperty struct {
 	SuccessTopic *string `json:"successTopic"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpointConfig_AsyncInferenceOutputConfigProperty struct {
-	// `CfnEndpointConfig.AsyncInferenceOutputConfigProperty.S3OutputPath`.
-	S3OutputPath *string `json:"s3OutputPath"`
 	// `CfnEndpointConfig.AsyncInferenceOutputConfigProperty.KmsKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
 	// `CfnEndpointConfig.AsyncInferenceOutputConfigProperty.NotificationConfig`.
 	NotificationConfig interface{} `json:"notificationConfig"`
+	// `CfnEndpointConfig.AsyncInferenceOutputConfigProperty.S3OutputPath`.
+	S3OutputPath *string `json:"s3OutputPath"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpointConfig_CaptureContentTypeHeaderProperty struct {
 	// `CfnEndpointConfig.CaptureContentTypeHeaderProperty.CsvContentTypes`.
 	CsvContentTypes *[]*string `json:"csvContentTypes"`
@@ -6579,27 +6705,35 @@ type CfnEndpointConfig_CaptureContentTypeHeaderProperty struct {
 	JsonContentTypes *[]*string `json:"jsonContentTypes"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpointConfig_CaptureOptionProperty struct {
 	// `CfnEndpointConfig.CaptureOptionProperty.CaptureMode`.
 	CaptureMode *string `json:"captureMode"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpointConfig_DataCaptureConfigProperty struct {
+	// `CfnEndpointConfig.DataCaptureConfigProperty.CaptureContentTypeHeader`.
+	CaptureContentTypeHeader interface{} `json:"captureContentTypeHeader"`
 	// `CfnEndpointConfig.DataCaptureConfigProperty.CaptureOptions`.
 	CaptureOptions interface{} `json:"captureOptions"`
 	// `CfnEndpointConfig.DataCaptureConfigProperty.DestinationS3Uri`.
 	DestinationS3Uri *string `json:"destinationS3Uri"`
-	// `CfnEndpointConfig.DataCaptureConfigProperty.InitialSamplingPercentage`.
-	InitialSamplingPercentage *float64 `json:"initialSamplingPercentage"`
-	// `CfnEndpointConfig.DataCaptureConfigProperty.CaptureContentTypeHeader`.
-	CaptureContentTypeHeader interface{} `json:"captureContentTypeHeader"`
 	// `CfnEndpointConfig.DataCaptureConfigProperty.EnableCapture`.
 	EnableCapture interface{} `json:"enableCapture"`
+	// `CfnEndpointConfig.DataCaptureConfigProperty.InitialSamplingPercentage`.
+	InitialSamplingPercentage *float64 `json:"initialSamplingPercentage"`
 	// `CfnEndpointConfig.DataCaptureConfigProperty.KmsKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpointConfig_ProductionVariantProperty struct {
+	// `CfnEndpointConfig.ProductionVariantProperty.AcceleratorType`.
+	AcceleratorType *string `json:"acceleratorType"`
 	// `CfnEndpointConfig.ProductionVariantProperty.InitialInstanceCount`.
 	InitialInstanceCount *float64 `json:"initialInstanceCount"`
 	// `CfnEndpointConfig.ProductionVariantProperty.InitialVariantWeight`.
@@ -6610,14 +6744,13 @@ type CfnEndpointConfig_ProductionVariantProperty struct {
 	ModelName *string `json:"modelName"`
 	// `CfnEndpointConfig.ProductionVariantProperty.VariantName`.
 	VariantName *string `json:"variantName"`
-	// `CfnEndpointConfig.ProductionVariantProperty.AcceleratorType`.
-	AcceleratorType *string `json:"acceleratorType"`
 }
 
 // Properties for defining a `AWS::SageMaker::EndpointConfig`.
+//
+// TODO: EXAMPLE
+//
 type CfnEndpointConfigProps struct {
-	// `AWS::SageMaker::EndpointConfig.ProductionVariants`.
-	ProductionVariants interface{} `json:"productionVariants"`
 	// `AWS::SageMaker::EndpointConfig.AsyncInferenceConfig`.
 	AsyncInferenceConfig interface{} `json:"asyncInferenceConfig"`
 	// `AWS::SageMaker::EndpointConfig.DataCaptureConfig`.
@@ -6626,16 +6759,21 @@ type CfnEndpointConfigProps struct {
 	EndpointConfigName *string `json:"endpointConfigName"`
 	// `AWS::SageMaker::EndpointConfig.KmsKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
+	// `AWS::SageMaker::EndpointConfig.ProductionVariants`.
+	ProductionVariants interface{} `json:"productionVariants"`
 	// `AWS::SageMaker::EndpointConfig.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // Properties for defining a `AWS::SageMaker::Endpoint`.
+//
+// TODO: EXAMPLE
+//
 type CfnEndpointProps struct {
-	// `AWS::SageMaker::Endpoint.EndpointConfigName`.
-	EndpointConfigName *string `json:"endpointConfigName"`
 	// `AWS::SageMaker::Endpoint.DeploymentConfig`.
 	DeploymentConfig interface{} `json:"deploymentConfig"`
+	// `AWS::SageMaker::Endpoint.EndpointConfigName`.
+	EndpointConfigName *string `json:"endpointConfigName"`
 	// `AWS::SageMaker::Endpoint.EndpointName`.
 	EndpointName *string `json:"endpointName"`
 	// `AWS::SageMaker::Endpoint.ExcludeRetainedVariantProperties`.
@@ -6649,6 +6787,9 @@ type CfnEndpointProps struct {
 }
 
 // A CloudFormation `AWS::SageMaker::FeatureGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnFeatureGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -7385,6 +7526,8 @@ func (c *jsiiProxy_CfnFeatureGroup) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFeatureGroup_FeatureDefinitionProperty struct {
 	// `CfnFeatureGroup.FeatureDefinitionProperty.FeatureName`.
 	FeatureName *string `json:"featureName"`
@@ -7393,21 +7536,24 @@ type CfnFeatureGroup_FeatureDefinitionProperty struct {
 }
 
 // Properties for defining a `AWS::SageMaker::FeatureGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnFeatureGroupProps struct {
+	// `AWS::SageMaker::FeatureGroup.Description`.
+	Description *string `json:"description"`
 	// `AWS::SageMaker::FeatureGroup.EventTimeFeatureName`.
 	EventTimeFeatureName *string `json:"eventTimeFeatureName"`
 	// `AWS::SageMaker::FeatureGroup.FeatureDefinitions`.
 	FeatureDefinitions interface{} `json:"featureDefinitions"`
 	// `AWS::SageMaker::FeatureGroup.FeatureGroupName`.
 	FeatureGroupName *string `json:"featureGroupName"`
-	// `AWS::SageMaker::FeatureGroup.RecordIdentifierFeatureName`.
-	RecordIdentifierFeatureName *string `json:"recordIdentifierFeatureName"`
-	// `AWS::SageMaker::FeatureGroup.Description`.
-	Description *string `json:"description"`
 	// `AWS::SageMaker::FeatureGroup.OfflineStoreConfig`.
 	OfflineStoreConfig interface{} `json:"offlineStoreConfig"`
 	// `AWS::SageMaker::FeatureGroup.OnlineStoreConfig`.
 	OnlineStoreConfig interface{} `json:"onlineStoreConfig"`
+	// `AWS::SageMaker::FeatureGroup.RecordIdentifierFeatureName`.
+	RecordIdentifierFeatureName *string `json:"recordIdentifierFeatureName"`
 	// `AWS::SageMaker::FeatureGroup.RoleArn`.
 	RoleArn *string `json:"roleArn"`
 	// `AWS::SageMaker::FeatureGroup.Tags`.
@@ -7415,6 +7561,9 @@ type CfnFeatureGroupProps struct {
 }
 
 // A CloudFormation `AWS::SageMaker::Image`.
+//
+// TODO: EXAMPLE
+//
 type CfnImage interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -8083,20 +8232,26 @@ func (c *jsiiProxy_CfnImage) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::SageMaker::Image`.
+//
+// TODO: EXAMPLE
+//
 type CfnImageProps struct {
-	// `AWS::SageMaker::Image.ImageName`.
-	ImageName *string `json:"imageName"`
-	// `AWS::SageMaker::Image.ImageRoleArn`.
-	ImageRoleArn *string `json:"imageRoleArn"`
 	// `AWS::SageMaker::Image.ImageDescription`.
 	ImageDescription *string `json:"imageDescription"`
 	// `AWS::SageMaker::Image.ImageDisplayName`.
 	ImageDisplayName *string `json:"imageDisplayName"`
+	// `AWS::SageMaker::Image.ImageName`.
+	ImageName *string `json:"imageName"`
+	// `AWS::SageMaker::Image.ImageRoleArn`.
+	ImageRoleArn *string `json:"imageRoleArn"`
 	// `AWS::SageMaker::Image.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::SageMaker::ImageVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnImageVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -8747,6 +8902,9 @@ func (c *jsiiProxy_CfnImageVersion) ValidateProperties(_properties interface{}) 
 }
 
 // Properties for defining a `AWS::SageMaker::ImageVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnImageVersionProps struct {
 	// `AWS::SageMaker::ImageVersion.BaseImage`.
 	BaseImage *string `json:"baseImage"`
@@ -8755,6 +8913,9 @@ type CfnImageVersionProps struct {
 }
 
 // A CloudFormation `AWS::SageMaker::Model`.
+//
+// TODO: EXAMPLE
+//
 type CfnModel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -9482,6 +9643,8 @@ func (c *jsiiProxy_CfnModel) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnModel_ContainerDefinitionProperty struct {
 	// `CfnModel.ContainerDefinitionProperty.ContainerHostname`.
 	ContainerHostname *string `json:"containerHostname"`
@@ -9501,6 +9664,8 @@ type CfnModel_ContainerDefinitionProperty struct {
 	MultiModelConfig interface{} `json:"multiModelConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModel_ImageConfigProperty struct {
 	// `CfnModel.ImageConfigProperty.RepositoryAccessMode`.
 	RepositoryAccessMode *string `json:"repositoryAccessMode"`
@@ -9508,21 +9673,29 @@ type CfnModel_ImageConfigProperty struct {
 	RepositoryAuthConfig interface{} `json:"repositoryAuthConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModel_InferenceExecutionConfigProperty struct {
 	// `CfnModel.InferenceExecutionConfigProperty.Mode`.
 	Mode *string `json:"mode"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModel_MultiModelConfigProperty struct {
 	// `CfnModel.MultiModelConfigProperty.ModelCacheSetting`.
 	ModelCacheSetting *string `json:"modelCacheSetting"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModel_RepositoryAuthConfigProperty struct {
 	// `CfnModel.RepositoryAuthConfigProperty.RepositoryCredentialsProviderArn`.
 	RepositoryCredentialsProviderArn *string `json:"repositoryCredentialsProviderArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModel_VpcConfigProperty struct {
 	// `CfnModel.VpcConfigProperty.SecurityGroupIds`.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
@@ -9531,6 +9704,9 @@ type CfnModel_VpcConfigProperty struct {
 }
 
 // A CloudFormation `AWS::SageMaker::ModelBiasJobDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnModelBiasJobDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -10309,33 +10485,39 @@ func (c *jsiiProxy_CfnModelBiasJobDefinition) ValidateProperties(_properties int
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelBiasJobDefinition_ClusterConfigProperty struct {
 	// `CfnModelBiasJobDefinition.ClusterConfigProperty.InstanceCount`.
 	InstanceCount *float64 `json:"instanceCount"`
 	// `CfnModelBiasJobDefinition.ClusterConfigProperty.InstanceType`.
 	InstanceType *string `json:"instanceType"`
-	// `CfnModelBiasJobDefinition.ClusterConfigProperty.VolumeSizeInGB`.
-	VolumeSizeInGb *float64 `json:"volumeSizeInGb"`
 	// `CfnModelBiasJobDefinition.ClusterConfigProperty.VolumeKmsKeyId`.
 	VolumeKmsKeyId *string `json:"volumeKmsKeyId"`
+	// `CfnModelBiasJobDefinition.ClusterConfigProperty.VolumeSizeInGB`.
+	VolumeSizeInGb *float64 `json:"volumeSizeInGb"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelBiasJobDefinition_ConstraintsResourceProperty struct {
 	// `CfnModelBiasJobDefinition.ConstraintsResourceProperty.S3Uri`.
 	S3Uri *string `json:"s3Uri"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelBiasJobDefinition_EndpointInputProperty struct {
 	// `CfnModelBiasJobDefinition.EndpointInputProperty.EndpointName`.
 	EndpointName *string `json:"endpointName"`
-	// `CfnModelBiasJobDefinition.EndpointInputProperty.LocalPath`.
-	LocalPath *string `json:"localPath"`
 	// `CfnModelBiasJobDefinition.EndpointInputProperty.EndTimeOffset`.
 	EndTimeOffset *string `json:"endTimeOffset"`
 	// `CfnModelBiasJobDefinition.EndpointInputProperty.FeaturesAttribute`.
 	FeaturesAttribute *string `json:"featuresAttribute"`
 	// `CfnModelBiasJobDefinition.EndpointInputProperty.InferenceAttribute`.
 	InferenceAttribute *string `json:"inferenceAttribute"`
+	// `CfnModelBiasJobDefinition.EndpointInputProperty.LocalPath`.
+	LocalPath *string `json:"localPath"`
 	// `CfnModelBiasJobDefinition.EndpointInputProperty.ProbabilityAttribute`.
 	ProbabilityAttribute *string `json:"probabilityAttribute"`
 	// `CfnModelBiasJobDefinition.EndpointInputProperty.ProbabilityThresholdAttribute`.
@@ -10348,15 +10530,19 @@ type CfnModelBiasJobDefinition_EndpointInputProperty struct {
 	StartTimeOffset *string `json:"startTimeOffset"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelBiasJobDefinition_ModelBiasAppSpecificationProperty struct {
 	// `CfnModelBiasJobDefinition.ModelBiasAppSpecificationProperty.ConfigUri`.
 	ConfigUri *string `json:"configUri"`
-	// `CfnModelBiasJobDefinition.ModelBiasAppSpecificationProperty.ImageUri`.
-	ImageUri *string `json:"imageUri"`
 	// `CfnModelBiasJobDefinition.ModelBiasAppSpecificationProperty.Environment`.
 	Environment interface{} `json:"environment"`
+	// `CfnModelBiasJobDefinition.ModelBiasAppSpecificationProperty.ImageUri`.
+	ImageUri *string `json:"imageUri"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelBiasJobDefinition_ModelBiasBaselineConfigProperty struct {
 	// `CfnModelBiasJobDefinition.ModelBiasBaselineConfigProperty.BaseliningJobName`.
 	BaseliningJobName *string `json:"baseliningJobName"`
@@ -10364,6 +10550,8 @@ type CfnModelBiasJobDefinition_ModelBiasBaselineConfigProperty struct {
 	ConstraintsResource interface{} `json:"constraintsResource"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelBiasJobDefinition_ModelBiasJobInputProperty struct {
 	// `CfnModelBiasJobDefinition.ModelBiasJobInputProperty.EndpointInput`.
 	EndpointInput interface{} `json:"endpointInput"`
@@ -10371,28 +10559,38 @@ type CfnModelBiasJobDefinition_ModelBiasJobInputProperty struct {
 	GroundTruthS3Input interface{} `json:"groundTruthS3Input"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelBiasJobDefinition_MonitoringGroundTruthS3InputProperty struct {
 	// `CfnModelBiasJobDefinition.MonitoringGroundTruthS3InputProperty.S3Uri`.
 	S3Uri *string `json:"s3Uri"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelBiasJobDefinition_MonitoringOutputConfigProperty struct {
-	// `CfnModelBiasJobDefinition.MonitoringOutputConfigProperty.MonitoringOutputs`.
-	MonitoringOutputs interface{} `json:"monitoringOutputs"`
 	// `CfnModelBiasJobDefinition.MonitoringOutputConfigProperty.KmsKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
+	// `CfnModelBiasJobDefinition.MonitoringOutputConfigProperty.MonitoringOutputs`.
+	MonitoringOutputs interface{} `json:"monitoringOutputs"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelBiasJobDefinition_MonitoringOutputProperty struct {
 	// `CfnModelBiasJobDefinition.MonitoringOutputProperty.S3Output`.
 	S3Output interface{} `json:"s3Output"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelBiasJobDefinition_MonitoringResourcesProperty struct {
 	// `CfnModelBiasJobDefinition.MonitoringResourcesProperty.ClusterConfig`.
 	ClusterConfig interface{} `json:"clusterConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelBiasJobDefinition_NetworkConfigProperty struct {
 	// `CfnModelBiasJobDefinition.NetworkConfigProperty.EnableInterContainerTrafficEncryption`.
 	EnableInterContainerTrafficEncryption interface{} `json:"enableInterContainerTrafficEncryption"`
@@ -10402,20 +10600,26 @@ type CfnModelBiasJobDefinition_NetworkConfigProperty struct {
 	VpcConfig interface{} `json:"vpcConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelBiasJobDefinition_S3OutputProperty struct {
 	// `CfnModelBiasJobDefinition.S3OutputProperty.LocalPath`.
 	LocalPath *string `json:"localPath"`
-	// `CfnModelBiasJobDefinition.S3OutputProperty.S3Uri`.
-	S3Uri *string `json:"s3Uri"`
 	// `CfnModelBiasJobDefinition.S3OutputProperty.S3UploadMode`.
 	S3UploadMode *string `json:"s3UploadMode"`
+	// `CfnModelBiasJobDefinition.S3OutputProperty.S3Uri`.
+	S3Uri *string `json:"s3Uri"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelBiasJobDefinition_StoppingConditionProperty struct {
 	// `CfnModelBiasJobDefinition.StoppingConditionProperty.MaxRuntimeInSeconds`.
 	MaxRuntimeInSeconds *float64 `json:"maxRuntimeInSeconds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelBiasJobDefinition_VpcConfigProperty struct {
 	// `CfnModelBiasJobDefinition.VpcConfigProperty.SecurityGroupIds`.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
@@ -10424,23 +10628,26 @@ type CfnModelBiasJobDefinition_VpcConfigProperty struct {
 }
 
 // Properties for defining a `AWS::SageMaker::ModelBiasJobDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnModelBiasJobDefinitionProps struct {
+	// `AWS::SageMaker::ModelBiasJobDefinition.JobDefinitionName`.
+	JobDefinitionName *string `json:"jobDefinitionName"`
 	// `AWS::SageMaker::ModelBiasJobDefinition.JobResources`.
 	JobResources interface{} `json:"jobResources"`
 	// `AWS::SageMaker::ModelBiasJobDefinition.ModelBiasAppSpecification`.
 	ModelBiasAppSpecification interface{} `json:"modelBiasAppSpecification"`
+	// `AWS::SageMaker::ModelBiasJobDefinition.ModelBiasBaselineConfig`.
+	ModelBiasBaselineConfig interface{} `json:"modelBiasBaselineConfig"`
 	// `AWS::SageMaker::ModelBiasJobDefinition.ModelBiasJobInput`.
 	ModelBiasJobInput interface{} `json:"modelBiasJobInput"`
 	// `AWS::SageMaker::ModelBiasJobDefinition.ModelBiasJobOutputConfig`.
 	ModelBiasJobOutputConfig interface{} `json:"modelBiasJobOutputConfig"`
-	// `AWS::SageMaker::ModelBiasJobDefinition.RoleArn`.
-	RoleArn *string `json:"roleArn"`
-	// `AWS::SageMaker::ModelBiasJobDefinition.JobDefinitionName`.
-	JobDefinitionName *string `json:"jobDefinitionName"`
-	// `AWS::SageMaker::ModelBiasJobDefinition.ModelBiasBaselineConfig`.
-	ModelBiasBaselineConfig interface{} `json:"modelBiasBaselineConfig"`
 	// `AWS::SageMaker::ModelBiasJobDefinition.NetworkConfig`.
 	NetworkConfig interface{} `json:"networkConfig"`
+	// `AWS::SageMaker::ModelBiasJobDefinition.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 	// `AWS::SageMaker::ModelBiasJobDefinition.StoppingCondition`.
 	StoppingCondition interface{} `json:"stoppingCondition"`
 	// `AWS::SageMaker::ModelBiasJobDefinition.Tags`.
@@ -10448,6 +10655,9 @@ type CfnModelBiasJobDefinitionProps struct {
 }
 
 // A CloudFormation `AWS::SageMaker::ModelExplainabilityJobDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnModelExplainabilityJobDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -11226,31 +11436,37 @@ func (c *jsiiProxy_CfnModelExplainabilityJobDefinition) ValidateProperties(_prop
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelExplainabilityJobDefinition_ClusterConfigProperty struct {
 	// `CfnModelExplainabilityJobDefinition.ClusterConfigProperty.InstanceCount`.
 	InstanceCount *float64 `json:"instanceCount"`
 	// `CfnModelExplainabilityJobDefinition.ClusterConfigProperty.InstanceType`.
 	InstanceType *string `json:"instanceType"`
-	// `CfnModelExplainabilityJobDefinition.ClusterConfigProperty.VolumeSizeInGB`.
-	VolumeSizeInGb *float64 `json:"volumeSizeInGb"`
 	// `CfnModelExplainabilityJobDefinition.ClusterConfigProperty.VolumeKmsKeyId`.
 	VolumeKmsKeyId *string `json:"volumeKmsKeyId"`
+	// `CfnModelExplainabilityJobDefinition.ClusterConfigProperty.VolumeSizeInGB`.
+	VolumeSizeInGb *float64 `json:"volumeSizeInGb"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelExplainabilityJobDefinition_ConstraintsResourceProperty struct {
 	// `CfnModelExplainabilityJobDefinition.ConstraintsResourceProperty.S3Uri`.
 	S3Uri *string `json:"s3Uri"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelExplainabilityJobDefinition_EndpointInputProperty struct {
 	// `CfnModelExplainabilityJobDefinition.EndpointInputProperty.EndpointName`.
 	EndpointName *string `json:"endpointName"`
-	// `CfnModelExplainabilityJobDefinition.EndpointInputProperty.LocalPath`.
-	LocalPath *string `json:"localPath"`
 	// `CfnModelExplainabilityJobDefinition.EndpointInputProperty.FeaturesAttribute`.
 	FeaturesAttribute *string `json:"featuresAttribute"`
 	// `CfnModelExplainabilityJobDefinition.EndpointInputProperty.InferenceAttribute`.
 	InferenceAttribute *string `json:"inferenceAttribute"`
+	// `CfnModelExplainabilityJobDefinition.EndpointInputProperty.LocalPath`.
+	LocalPath *string `json:"localPath"`
 	// `CfnModelExplainabilityJobDefinition.EndpointInputProperty.ProbabilityAttribute`.
 	ProbabilityAttribute *string `json:"probabilityAttribute"`
 	// `CfnModelExplainabilityJobDefinition.EndpointInputProperty.S3DataDistributionType`.
@@ -11259,15 +11475,19 @@ type CfnModelExplainabilityJobDefinition_EndpointInputProperty struct {
 	S3InputMode *string `json:"s3InputMode"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelExplainabilityJobDefinition_ModelExplainabilityAppSpecificationProperty struct {
 	// `CfnModelExplainabilityJobDefinition.ModelExplainabilityAppSpecificationProperty.ConfigUri`.
 	ConfigUri *string `json:"configUri"`
-	// `CfnModelExplainabilityJobDefinition.ModelExplainabilityAppSpecificationProperty.ImageUri`.
-	ImageUri *string `json:"imageUri"`
 	// `CfnModelExplainabilityJobDefinition.ModelExplainabilityAppSpecificationProperty.Environment`.
 	Environment interface{} `json:"environment"`
+	// `CfnModelExplainabilityJobDefinition.ModelExplainabilityAppSpecificationProperty.ImageUri`.
+	ImageUri *string `json:"imageUri"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelExplainabilityJobDefinition_ModelExplainabilityBaselineConfigProperty struct {
 	// `CfnModelExplainabilityJobDefinition.ModelExplainabilityBaselineConfigProperty.BaseliningJobName`.
 	BaseliningJobName *string `json:"baseliningJobName"`
@@ -11275,28 +11495,38 @@ type CfnModelExplainabilityJobDefinition_ModelExplainabilityBaselineConfigProper
 	ConstraintsResource interface{} `json:"constraintsResource"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelExplainabilityJobDefinition_ModelExplainabilityJobInputProperty struct {
 	// `CfnModelExplainabilityJobDefinition.ModelExplainabilityJobInputProperty.EndpointInput`.
 	EndpointInput interface{} `json:"endpointInput"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelExplainabilityJobDefinition_MonitoringOutputConfigProperty struct {
-	// `CfnModelExplainabilityJobDefinition.MonitoringOutputConfigProperty.MonitoringOutputs`.
-	MonitoringOutputs interface{} `json:"monitoringOutputs"`
 	// `CfnModelExplainabilityJobDefinition.MonitoringOutputConfigProperty.KmsKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
+	// `CfnModelExplainabilityJobDefinition.MonitoringOutputConfigProperty.MonitoringOutputs`.
+	MonitoringOutputs interface{} `json:"monitoringOutputs"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelExplainabilityJobDefinition_MonitoringOutputProperty struct {
 	// `CfnModelExplainabilityJobDefinition.MonitoringOutputProperty.S3Output`.
 	S3Output interface{} `json:"s3Output"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelExplainabilityJobDefinition_MonitoringResourcesProperty struct {
 	// `CfnModelExplainabilityJobDefinition.MonitoringResourcesProperty.ClusterConfig`.
 	ClusterConfig interface{} `json:"clusterConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelExplainabilityJobDefinition_NetworkConfigProperty struct {
 	// `CfnModelExplainabilityJobDefinition.NetworkConfigProperty.EnableInterContainerTrafficEncryption`.
 	EnableInterContainerTrafficEncryption interface{} `json:"enableInterContainerTrafficEncryption"`
@@ -11306,20 +11536,26 @@ type CfnModelExplainabilityJobDefinition_NetworkConfigProperty struct {
 	VpcConfig interface{} `json:"vpcConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelExplainabilityJobDefinition_S3OutputProperty struct {
 	// `CfnModelExplainabilityJobDefinition.S3OutputProperty.LocalPath`.
 	LocalPath *string `json:"localPath"`
-	// `CfnModelExplainabilityJobDefinition.S3OutputProperty.S3Uri`.
-	S3Uri *string `json:"s3Uri"`
 	// `CfnModelExplainabilityJobDefinition.S3OutputProperty.S3UploadMode`.
 	S3UploadMode *string `json:"s3UploadMode"`
+	// `CfnModelExplainabilityJobDefinition.S3OutputProperty.S3Uri`.
+	S3Uri *string `json:"s3Uri"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelExplainabilityJobDefinition_StoppingConditionProperty struct {
 	// `CfnModelExplainabilityJobDefinition.StoppingConditionProperty.MaxRuntimeInSeconds`.
 	MaxRuntimeInSeconds *float64 `json:"maxRuntimeInSeconds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelExplainabilityJobDefinition_VpcConfigProperty struct {
 	// `CfnModelExplainabilityJobDefinition.VpcConfigProperty.SecurityGroupIds`.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
@@ -11328,23 +11564,26 @@ type CfnModelExplainabilityJobDefinition_VpcConfigProperty struct {
 }
 
 // Properties for defining a `AWS::SageMaker::ModelExplainabilityJobDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnModelExplainabilityJobDefinitionProps struct {
+	// `AWS::SageMaker::ModelExplainabilityJobDefinition.JobDefinitionName`.
+	JobDefinitionName *string `json:"jobDefinitionName"`
 	// `AWS::SageMaker::ModelExplainabilityJobDefinition.JobResources`.
 	JobResources interface{} `json:"jobResources"`
 	// `AWS::SageMaker::ModelExplainabilityJobDefinition.ModelExplainabilityAppSpecification`.
 	ModelExplainabilityAppSpecification interface{} `json:"modelExplainabilityAppSpecification"`
+	// `AWS::SageMaker::ModelExplainabilityJobDefinition.ModelExplainabilityBaselineConfig`.
+	ModelExplainabilityBaselineConfig interface{} `json:"modelExplainabilityBaselineConfig"`
 	// `AWS::SageMaker::ModelExplainabilityJobDefinition.ModelExplainabilityJobInput`.
 	ModelExplainabilityJobInput interface{} `json:"modelExplainabilityJobInput"`
 	// `AWS::SageMaker::ModelExplainabilityJobDefinition.ModelExplainabilityJobOutputConfig`.
 	ModelExplainabilityJobOutputConfig interface{} `json:"modelExplainabilityJobOutputConfig"`
-	// `AWS::SageMaker::ModelExplainabilityJobDefinition.RoleArn`.
-	RoleArn *string `json:"roleArn"`
-	// `AWS::SageMaker::ModelExplainabilityJobDefinition.JobDefinitionName`.
-	JobDefinitionName *string `json:"jobDefinitionName"`
-	// `AWS::SageMaker::ModelExplainabilityJobDefinition.ModelExplainabilityBaselineConfig`.
-	ModelExplainabilityBaselineConfig interface{} `json:"modelExplainabilityBaselineConfig"`
 	// `AWS::SageMaker::ModelExplainabilityJobDefinition.NetworkConfig`.
 	NetworkConfig interface{} `json:"networkConfig"`
+	// `AWS::SageMaker::ModelExplainabilityJobDefinition.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 	// `AWS::SageMaker::ModelExplainabilityJobDefinition.StoppingCondition`.
 	StoppingCondition interface{} `json:"stoppingCondition"`
 	// `AWS::SageMaker::ModelExplainabilityJobDefinition.Tags`.
@@ -11352,6 +11591,9 @@ type CfnModelExplainabilityJobDefinitionProps struct {
 }
 
 // A CloudFormation `AWS::SageMaker::ModelPackageGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnModelPackageGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -12022,11 +12264,14 @@ func (c *jsiiProxy_CfnModelPackageGroup) ValidateProperties(_properties interfac
 }
 
 // Properties for defining a `AWS::SageMaker::ModelPackageGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnModelPackageGroupProps struct {
-	// `AWS::SageMaker::ModelPackageGroup.ModelPackageGroupName`.
-	ModelPackageGroupName *string `json:"modelPackageGroupName"`
 	// `AWS::SageMaker::ModelPackageGroup.ModelPackageGroupDescription`.
 	ModelPackageGroupDescription *string `json:"modelPackageGroupDescription"`
+	// `AWS::SageMaker::ModelPackageGroup.ModelPackageGroupName`.
+	ModelPackageGroupName *string `json:"modelPackageGroupName"`
 	// `AWS::SageMaker::ModelPackageGroup.ModelPackageGroupPolicy`.
 	ModelPackageGroupPolicy interface{} `json:"modelPackageGroupPolicy"`
 	// `AWS::SageMaker::ModelPackageGroup.Tags`.
@@ -12034,13 +12279,16 @@ type CfnModelPackageGroupProps struct {
 }
 
 // Properties for defining a `AWS::SageMaker::Model`.
+//
+// TODO: EXAMPLE
+//
 type CfnModelProps struct {
-	// `AWS::SageMaker::Model.ExecutionRoleArn`.
-	ExecutionRoleArn *string `json:"executionRoleArn"`
 	// `AWS::SageMaker::Model.Containers`.
 	Containers interface{} `json:"containers"`
 	// `AWS::SageMaker::Model.EnableNetworkIsolation`.
 	EnableNetworkIsolation interface{} `json:"enableNetworkIsolation"`
+	// `AWS::SageMaker::Model.ExecutionRoleArn`.
+	ExecutionRoleArn *string `json:"executionRoleArn"`
 	// `AWS::SageMaker::Model.InferenceExecutionConfig`.
 	InferenceExecutionConfig interface{} `json:"inferenceExecutionConfig"`
 	// `AWS::SageMaker::Model.ModelName`.
@@ -12054,6 +12302,9 @@ type CfnModelProps struct {
 }
 
 // A CloudFormation `AWS::SageMaker::ModelQualityJobDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnModelQualityJobDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -12832,31 +13083,37 @@ func (c *jsiiProxy_CfnModelQualityJobDefinition) ValidateProperties(_properties 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelQualityJobDefinition_ClusterConfigProperty struct {
 	// `CfnModelQualityJobDefinition.ClusterConfigProperty.InstanceCount`.
 	InstanceCount *float64 `json:"instanceCount"`
 	// `CfnModelQualityJobDefinition.ClusterConfigProperty.InstanceType`.
 	InstanceType *string `json:"instanceType"`
-	// `CfnModelQualityJobDefinition.ClusterConfigProperty.VolumeSizeInGB`.
-	VolumeSizeInGb *float64 `json:"volumeSizeInGb"`
 	// `CfnModelQualityJobDefinition.ClusterConfigProperty.VolumeKmsKeyId`.
 	VolumeKmsKeyId *string `json:"volumeKmsKeyId"`
+	// `CfnModelQualityJobDefinition.ClusterConfigProperty.VolumeSizeInGB`.
+	VolumeSizeInGb *float64 `json:"volumeSizeInGb"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelQualityJobDefinition_ConstraintsResourceProperty struct {
 	// `CfnModelQualityJobDefinition.ConstraintsResourceProperty.S3Uri`.
 	S3Uri *string `json:"s3Uri"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelQualityJobDefinition_EndpointInputProperty struct {
 	// `CfnModelQualityJobDefinition.EndpointInputProperty.EndpointName`.
 	EndpointName *string `json:"endpointName"`
-	// `CfnModelQualityJobDefinition.EndpointInputProperty.LocalPath`.
-	LocalPath *string `json:"localPath"`
 	// `CfnModelQualityJobDefinition.EndpointInputProperty.EndTimeOffset`.
 	EndTimeOffset *string `json:"endTimeOffset"`
 	// `CfnModelQualityJobDefinition.EndpointInputProperty.InferenceAttribute`.
 	InferenceAttribute *string `json:"inferenceAttribute"`
+	// `CfnModelQualityJobDefinition.EndpointInputProperty.LocalPath`.
+	LocalPath *string `json:"localPath"`
 	// `CfnModelQualityJobDefinition.EndpointInputProperty.ProbabilityAttribute`.
 	ProbabilityAttribute *string `json:"probabilityAttribute"`
 	// `CfnModelQualityJobDefinition.EndpointInputProperty.ProbabilityThresholdAttribute`.
@@ -12869,23 +13126,27 @@ type CfnModelQualityJobDefinition_EndpointInputProperty struct {
 	StartTimeOffset *string `json:"startTimeOffset"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelQualityJobDefinition_ModelQualityAppSpecificationProperty struct {
-	// `CfnModelQualityJobDefinition.ModelQualityAppSpecificationProperty.ImageUri`.
-	ImageUri *string `json:"imageUri"`
-	// `CfnModelQualityJobDefinition.ModelQualityAppSpecificationProperty.ProblemType`.
-	ProblemType *string `json:"problemType"`
 	// `CfnModelQualityJobDefinition.ModelQualityAppSpecificationProperty.ContainerArguments`.
 	ContainerArguments *[]*string `json:"containerArguments"`
 	// `CfnModelQualityJobDefinition.ModelQualityAppSpecificationProperty.ContainerEntrypoint`.
 	ContainerEntrypoint *[]*string `json:"containerEntrypoint"`
 	// `CfnModelQualityJobDefinition.ModelQualityAppSpecificationProperty.Environment`.
 	Environment interface{} `json:"environment"`
+	// `CfnModelQualityJobDefinition.ModelQualityAppSpecificationProperty.ImageUri`.
+	ImageUri *string `json:"imageUri"`
 	// `CfnModelQualityJobDefinition.ModelQualityAppSpecificationProperty.PostAnalyticsProcessorSourceUri`.
 	PostAnalyticsProcessorSourceUri *string `json:"postAnalyticsProcessorSourceUri"`
+	// `CfnModelQualityJobDefinition.ModelQualityAppSpecificationProperty.ProblemType`.
+	ProblemType *string `json:"problemType"`
 	// `CfnModelQualityJobDefinition.ModelQualityAppSpecificationProperty.RecordPreprocessorSourceUri`.
 	RecordPreprocessorSourceUri *string `json:"recordPreprocessorSourceUri"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelQualityJobDefinition_ModelQualityBaselineConfigProperty struct {
 	// `CfnModelQualityJobDefinition.ModelQualityBaselineConfigProperty.BaseliningJobName`.
 	BaseliningJobName *string `json:"baseliningJobName"`
@@ -12893,6 +13154,8 @@ type CfnModelQualityJobDefinition_ModelQualityBaselineConfigProperty struct {
 	ConstraintsResource interface{} `json:"constraintsResource"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelQualityJobDefinition_ModelQualityJobInputProperty struct {
 	// `CfnModelQualityJobDefinition.ModelQualityJobInputProperty.EndpointInput`.
 	EndpointInput interface{} `json:"endpointInput"`
@@ -12900,28 +13163,38 @@ type CfnModelQualityJobDefinition_ModelQualityJobInputProperty struct {
 	GroundTruthS3Input interface{} `json:"groundTruthS3Input"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelQualityJobDefinition_MonitoringGroundTruthS3InputProperty struct {
 	// `CfnModelQualityJobDefinition.MonitoringGroundTruthS3InputProperty.S3Uri`.
 	S3Uri *string `json:"s3Uri"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelQualityJobDefinition_MonitoringOutputConfigProperty struct {
-	// `CfnModelQualityJobDefinition.MonitoringOutputConfigProperty.MonitoringOutputs`.
-	MonitoringOutputs interface{} `json:"monitoringOutputs"`
 	// `CfnModelQualityJobDefinition.MonitoringOutputConfigProperty.KmsKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
+	// `CfnModelQualityJobDefinition.MonitoringOutputConfigProperty.MonitoringOutputs`.
+	MonitoringOutputs interface{} `json:"monitoringOutputs"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelQualityJobDefinition_MonitoringOutputProperty struct {
 	// `CfnModelQualityJobDefinition.MonitoringOutputProperty.S3Output`.
 	S3Output interface{} `json:"s3Output"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelQualityJobDefinition_MonitoringResourcesProperty struct {
 	// `CfnModelQualityJobDefinition.MonitoringResourcesProperty.ClusterConfig`.
 	ClusterConfig interface{} `json:"clusterConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelQualityJobDefinition_NetworkConfigProperty struct {
 	// `CfnModelQualityJobDefinition.NetworkConfigProperty.EnableInterContainerTrafficEncryption`.
 	EnableInterContainerTrafficEncryption interface{} `json:"enableInterContainerTrafficEncryption"`
@@ -12931,20 +13204,26 @@ type CfnModelQualityJobDefinition_NetworkConfigProperty struct {
 	VpcConfig interface{} `json:"vpcConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelQualityJobDefinition_S3OutputProperty struct {
 	// `CfnModelQualityJobDefinition.S3OutputProperty.LocalPath`.
 	LocalPath *string `json:"localPath"`
-	// `CfnModelQualityJobDefinition.S3OutputProperty.S3Uri`.
-	S3Uri *string `json:"s3Uri"`
 	// `CfnModelQualityJobDefinition.S3OutputProperty.S3UploadMode`.
 	S3UploadMode *string `json:"s3UploadMode"`
+	// `CfnModelQualityJobDefinition.S3OutputProperty.S3Uri`.
+	S3Uri *string `json:"s3Uri"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelQualityJobDefinition_StoppingConditionProperty struct {
 	// `CfnModelQualityJobDefinition.StoppingConditionProperty.MaxRuntimeInSeconds`.
 	MaxRuntimeInSeconds *float64 `json:"maxRuntimeInSeconds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnModelQualityJobDefinition_VpcConfigProperty struct {
 	// `CfnModelQualityJobDefinition.VpcConfigProperty.SecurityGroupIds`.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
@@ -12953,23 +13232,26 @@ type CfnModelQualityJobDefinition_VpcConfigProperty struct {
 }
 
 // Properties for defining a `AWS::SageMaker::ModelQualityJobDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnModelQualityJobDefinitionProps struct {
+	// `AWS::SageMaker::ModelQualityJobDefinition.JobDefinitionName`.
+	JobDefinitionName *string `json:"jobDefinitionName"`
 	// `AWS::SageMaker::ModelQualityJobDefinition.JobResources`.
 	JobResources interface{} `json:"jobResources"`
 	// `AWS::SageMaker::ModelQualityJobDefinition.ModelQualityAppSpecification`.
 	ModelQualityAppSpecification interface{} `json:"modelQualityAppSpecification"`
+	// `AWS::SageMaker::ModelQualityJobDefinition.ModelQualityBaselineConfig`.
+	ModelQualityBaselineConfig interface{} `json:"modelQualityBaselineConfig"`
 	// `AWS::SageMaker::ModelQualityJobDefinition.ModelQualityJobInput`.
 	ModelQualityJobInput interface{} `json:"modelQualityJobInput"`
 	// `AWS::SageMaker::ModelQualityJobDefinition.ModelQualityJobOutputConfig`.
 	ModelQualityJobOutputConfig interface{} `json:"modelQualityJobOutputConfig"`
-	// `AWS::SageMaker::ModelQualityJobDefinition.RoleArn`.
-	RoleArn *string `json:"roleArn"`
-	// `AWS::SageMaker::ModelQualityJobDefinition.JobDefinitionName`.
-	JobDefinitionName *string `json:"jobDefinitionName"`
-	// `AWS::SageMaker::ModelQualityJobDefinition.ModelQualityBaselineConfig`.
-	ModelQualityBaselineConfig interface{} `json:"modelQualityBaselineConfig"`
 	// `AWS::SageMaker::ModelQualityJobDefinition.NetworkConfig`.
 	NetworkConfig interface{} `json:"networkConfig"`
+	// `AWS::SageMaker::ModelQualityJobDefinition.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 	// `AWS::SageMaker::ModelQualityJobDefinition.StoppingCondition`.
 	StoppingCondition interface{} `json:"stoppingCondition"`
 	// `AWS::SageMaker::ModelQualityJobDefinition.Tags`.
@@ -12977,6 +13259,9 @@ type CfnModelQualityJobDefinitionProps struct {
 }
 
 // A CloudFormation `AWS::SageMaker::MonitoringSchedule`.
+//
+// TODO: EXAMPLE
+//
 type CfnMonitoringSchedule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -13706,6 +13991,8 @@ func (c *jsiiProxy_CfnMonitoringSchedule) ValidateProperties(_properties interfa
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnMonitoringSchedule_BaselineConfigProperty struct {
 	// `CfnMonitoringSchedule.BaselineConfigProperty.ConstraintsResource`.
 	ConstraintsResource interface{} `json:"constraintsResource"`
@@ -13713,22 +14000,28 @@ type CfnMonitoringSchedule_BaselineConfigProperty struct {
 	StatisticsResource interface{} `json:"statisticsResource"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMonitoringSchedule_ClusterConfigProperty struct {
 	// `CfnMonitoringSchedule.ClusterConfigProperty.InstanceCount`.
 	InstanceCount *float64 `json:"instanceCount"`
 	// `CfnMonitoringSchedule.ClusterConfigProperty.InstanceType`.
 	InstanceType *string `json:"instanceType"`
-	// `CfnMonitoringSchedule.ClusterConfigProperty.VolumeSizeInGB`.
-	VolumeSizeInGb *float64 `json:"volumeSizeInGb"`
 	// `CfnMonitoringSchedule.ClusterConfigProperty.VolumeKmsKeyId`.
 	VolumeKmsKeyId *string `json:"volumeKmsKeyId"`
+	// `CfnMonitoringSchedule.ClusterConfigProperty.VolumeSizeInGB`.
+	VolumeSizeInGb *float64 `json:"volumeSizeInGb"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMonitoringSchedule_ConstraintsResourceProperty struct {
 	// `CfnMonitoringSchedule.ConstraintsResourceProperty.S3Uri`.
 	S3Uri *string `json:"s3Uri"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMonitoringSchedule_EndpointInputProperty struct {
 	// `CfnMonitoringSchedule.EndpointInputProperty.EndpointName`.
 	EndpointName *string `json:"endpointName"`
@@ -13740,44 +14033,56 @@ type CfnMonitoringSchedule_EndpointInputProperty struct {
 	S3InputMode *string `json:"s3InputMode"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMonitoringSchedule_MonitoringAppSpecificationProperty struct {
-	// `CfnMonitoringSchedule.MonitoringAppSpecificationProperty.ImageUri`.
-	ImageUri *string `json:"imageUri"`
 	// `CfnMonitoringSchedule.MonitoringAppSpecificationProperty.ContainerArguments`.
 	ContainerArguments *[]*string `json:"containerArguments"`
 	// `CfnMonitoringSchedule.MonitoringAppSpecificationProperty.ContainerEntrypoint`.
 	ContainerEntrypoint *[]*string `json:"containerEntrypoint"`
+	// `CfnMonitoringSchedule.MonitoringAppSpecificationProperty.ImageUri`.
+	ImageUri *string `json:"imageUri"`
 	// `CfnMonitoringSchedule.MonitoringAppSpecificationProperty.PostAnalyticsProcessorSourceUri`.
 	PostAnalyticsProcessorSourceUri *string `json:"postAnalyticsProcessorSourceUri"`
 	// `CfnMonitoringSchedule.MonitoringAppSpecificationProperty.RecordPreprocessorSourceUri`.
 	RecordPreprocessorSourceUri *string `json:"recordPreprocessorSourceUri"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMonitoringSchedule_MonitoringExecutionSummaryProperty struct {
 	// `CfnMonitoringSchedule.MonitoringExecutionSummaryProperty.CreationTime`.
 	CreationTime *string `json:"creationTime"`
+	// `CfnMonitoringSchedule.MonitoringExecutionSummaryProperty.EndpointName`.
+	EndpointName *string `json:"endpointName"`
+	// `CfnMonitoringSchedule.MonitoringExecutionSummaryProperty.FailureReason`.
+	FailureReason *string `json:"failureReason"`
 	// `CfnMonitoringSchedule.MonitoringExecutionSummaryProperty.LastModifiedTime`.
 	LastModifiedTime *string `json:"lastModifiedTime"`
 	// `CfnMonitoringSchedule.MonitoringExecutionSummaryProperty.MonitoringExecutionStatus`.
 	MonitoringExecutionStatus *string `json:"monitoringExecutionStatus"`
 	// `CfnMonitoringSchedule.MonitoringExecutionSummaryProperty.MonitoringScheduleName`.
 	MonitoringScheduleName *string `json:"monitoringScheduleName"`
-	// `CfnMonitoringSchedule.MonitoringExecutionSummaryProperty.ScheduledTime`.
-	ScheduledTime *string `json:"scheduledTime"`
-	// `CfnMonitoringSchedule.MonitoringExecutionSummaryProperty.EndpointName`.
-	EndpointName *string `json:"endpointName"`
-	// `CfnMonitoringSchedule.MonitoringExecutionSummaryProperty.FailureReason`.
-	FailureReason *string `json:"failureReason"`
 	// `CfnMonitoringSchedule.MonitoringExecutionSummaryProperty.ProcessingJobArn`.
 	ProcessingJobArn *string `json:"processingJobArn"`
+	// `CfnMonitoringSchedule.MonitoringExecutionSummaryProperty.ScheduledTime`.
+	ScheduledTime *string `json:"scheduledTime"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMonitoringSchedule_MonitoringInputProperty struct {
 	// `CfnMonitoringSchedule.MonitoringInputProperty.EndpointInput`.
 	EndpointInput interface{} `json:"endpointInput"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMonitoringSchedule_MonitoringJobDefinitionProperty struct {
+	// `CfnMonitoringSchedule.MonitoringJobDefinitionProperty.BaselineConfig`.
+	BaselineConfig interface{} `json:"baselineConfig"`
+	// `CfnMonitoringSchedule.MonitoringJobDefinitionProperty.Environment`.
+	Environment interface{} `json:"environment"`
 	// `CfnMonitoringSchedule.MonitoringJobDefinitionProperty.MonitoringAppSpecification`.
 	MonitoringAppSpecification interface{} `json:"monitoringAppSpecification"`
 	// `CfnMonitoringSchedule.MonitoringJobDefinitionProperty.MonitoringInputs`.
@@ -13786,35 +14091,39 @@ type CfnMonitoringSchedule_MonitoringJobDefinitionProperty struct {
 	MonitoringOutputConfig interface{} `json:"monitoringOutputConfig"`
 	// `CfnMonitoringSchedule.MonitoringJobDefinitionProperty.MonitoringResources`.
 	MonitoringResources interface{} `json:"monitoringResources"`
-	// `CfnMonitoringSchedule.MonitoringJobDefinitionProperty.RoleArn`.
-	RoleArn *string `json:"roleArn"`
-	// `CfnMonitoringSchedule.MonitoringJobDefinitionProperty.BaselineConfig`.
-	BaselineConfig interface{} `json:"baselineConfig"`
-	// `CfnMonitoringSchedule.MonitoringJobDefinitionProperty.Environment`.
-	Environment interface{} `json:"environment"`
 	// `CfnMonitoringSchedule.MonitoringJobDefinitionProperty.NetworkConfig`.
 	NetworkConfig interface{} `json:"networkConfig"`
+	// `CfnMonitoringSchedule.MonitoringJobDefinitionProperty.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 	// `CfnMonitoringSchedule.MonitoringJobDefinitionProperty.StoppingCondition`.
 	StoppingCondition interface{} `json:"stoppingCondition"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMonitoringSchedule_MonitoringOutputConfigProperty struct {
-	// `CfnMonitoringSchedule.MonitoringOutputConfigProperty.MonitoringOutputs`.
-	MonitoringOutputs interface{} `json:"monitoringOutputs"`
 	// `CfnMonitoringSchedule.MonitoringOutputConfigProperty.KmsKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
+	// `CfnMonitoringSchedule.MonitoringOutputConfigProperty.MonitoringOutputs`.
+	MonitoringOutputs interface{} `json:"monitoringOutputs"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMonitoringSchedule_MonitoringOutputProperty struct {
 	// `CfnMonitoringSchedule.MonitoringOutputProperty.S3Output`.
 	S3Output interface{} `json:"s3Output"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMonitoringSchedule_MonitoringResourcesProperty struct {
 	// `CfnMonitoringSchedule.MonitoringResourcesProperty.ClusterConfig`.
 	ClusterConfig interface{} `json:"clusterConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMonitoringSchedule_MonitoringScheduleConfigProperty struct {
 	// `CfnMonitoringSchedule.MonitoringScheduleConfigProperty.MonitoringJobDefinition`.
 	MonitoringJobDefinition interface{} `json:"monitoringJobDefinition"`
@@ -13826,6 +14135,8 @@ type CfnMonitoringSchedule_MonitoringScheduleConfigProperty struct {
 	ScheduleConfig interface{} `json:"scheduleConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMonitoringSchedule_NetworkConfigProperty struct {
 	// `CfnMonitoringSchedule.NetworkConfigProperty.EnableInterContainerTrafficEncryption`.
 	EnableInterContainerTrafficEncryption interface{} `json:"enableInterContainerTrafficEncryption"`
@@ -13835,30 +14146,40 @@ type CfnMonitoringSchedule_NetworkConfigProperty struct {
 	VpcConfig interface{} `json:"vpcConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMonitoringSchedule_S3OutputProperty struct {
 	// `CfnMonitoringSchedule.S3OutputProperty.LocalPath`.
 	LocalPath *string `json:"localPath"`
-	// `CfnMonitoringSchedule.S3OutputProperty.S3Uri`.
-	S3Uri *string `json:"s3Uri"`
 	// `CfnMonitoringSchedule.S3OutputProperty.S3UploadMode`.
 	S3UploadMode *string `json:"s3UploadMode"`
+	// `CfnMonitoringSchedule.S3OutputProperty.S3Uri`.
+	S3Uri *string `json:"s3Uri"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMonitoringSchedule_ScheduleConfigProperty struct {
 	// `CfnMonitoringSchedule.ScheduleConfigProperty.ScheduleExpression`.
 	ScheduleExpression *string `json:"scheduleExpression"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMonitoringSchedule_StatisticsResourceProperty struct {
 	// `CfnMonitoringSchedule.StatisticsResourceProperty.S3Uri`.
 	S3Uri *string `json:"s3Uri"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMonitoringSchedule_StoppingConditionProperty struct {
 	// `CfnMonitoringSchedule.StoppingConditionProperty.MaxRuntimeInSeconds`.
 	MaxRuntimeInSeconds *float64 `json:"maxRuntimeInSeconds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMonitoringSchedule_VpcConfigProperty struct {
 	// `CfnMonitoringSchedule.VpcConfigProperty.SecurityGroupIds`.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
@@ -13867,17 +14188,20 @@ type CfnMonitoringSchedule_VpcConfigProperty struct {
 }
 
 // Properties for defining a `AWS::SageMaker::MonitoringSchedule`.
+//
+// TODO: EXAMPLE
+//
 type CfnMonitoringScheduleProps struct {
-	// `AWS::SageMaker::MonitoringSchedule.MonitoringScheduleConfig`.
-	MonitoringScheduleConfig interface{} `json:"monitoringScheduleConfig"`
-	// `AWS::SageMaker::MonitoringSchedule.MonitoringScheduleName`.
-	MonitoringScheduleName *string `json:"monitoringScheduleName"`
 	// `AWS::SageMaker::MonitoringSchedule.EndpointName`.
 	EndpointName *string `json:"endpointName"`
 	// `AWS::SageMaker::MonitoringSchedule.FailureReason`.
 	FailureReason *string `json:"failureReason"`
 	// `AWS::SageMaker::MonitoringSchedule.LastMonitoringExecutionSummary`.
 	LastMonitoringExecutionSummary interface{} `json:"lastMonitoringExecutionSummary"`
+	// `AWS::SageMaker::MonitoringSchedule.MonitoringScheduleConfig`.
+	MonitoringScheduleConfig interface{} `json:"monitoringScheduleConfig"`
+	// `AWS::SageMaker::MonitoringSchedule.MonitoringScheduleName`.
+	MonitoringScheduleName *string `json:"monitoringScheduleName"`
 	// `AWS::SageMaker::MonitoringSchedule.MonitoringScheduleStatus`.
 	MonitoringScheduleStatus *string `json:"monitoringScheduleStatus"`
 	// `AWS::SageMaker::MonitoringSchedule.Tags`.
@@ -13885,6 +14209,9 @@ type CfnMonitoringScheduleProps struct {
 }
 
 // A CloudFormation `AWS::SageMaker::NotebookInstance`.
+//
+// TODO: EXAMPLE
+//
 type CfnNotebookInstance interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -14753,6 +15080,9 @@ func (c *jsiiProxy_CfnNotebookInstance) ValidateProperties(_properties interface
 }
 
 // A CloudFormation `AWS::SageMaker::NotebookInstanceLifecycleConfig`.
+//
+// TODO: EXAMPLE
+//
 type CfnNotebookInstanceLifecycleConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -15389,12 +15719,17 @@ func (c *jsiiProxy_CfnNotebookInstanceLifecycleConfig) ValidateProperties(_prope
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnNotebookInstanceLifecycleConfig_NotebookInstanceLifecycleHookProperty struct {
 	// `CfnNotebookInstanceLifecycleConfig.NotebookInstanceLifecycleHookProperty.Content`.
 	Content *string `json:"content"`
 }
 
 // Properties for defining a `AWS::SageMaker::NotebookInstanceLifecycleConfig`.
+//
+// TODO: EXAMPLE
+//
 type CfnNotebookInstanceLifecycleConfigProps struct {
 	// `AWS::SageMaker::NotebookInstanceLifecycleConfig.NotebookInstanceLifecycleConfigName`.
 	NotebookInstanceLifecycleConfigName *string `json:"notebookInstanceLifecycleConfigName"`
@@ -15405,11 +15740,10 @@ type CfnNotebookInstanceLifecycleConfigProps struct {
 }
 
 // Properties for defining a `AWS::SageMaker::NotebookInstance`.
+//
+// TODO: EXAMPLE
+//
 type CfnNotebookInstanceProps struct {
-	// `AWS::SageMaker::NotebookInstance.InstanceType`.
-	InstanceType *string `json:"instanceType"`
-	// `AWS::SageMaker::NotebookInstance.RoleArn`.
-	RoleArn *string `json:"roleArn"`
 	// `AWS::SageMaker::NotebookInstance.AcceleratorTypes`.
 	AcceleratorTypes *[]*string `json:"acceleratorTypes"`
 	// `AWS::SageMaker::NotebookInstance.AdditionalCodeRepositories`.
@@ -15418,6 +15752,8 @@ type CfnNotebookInstanceProps struct {
 	DefaultCodeRepository *string `json:"defaultCodeRepository"`
 	// `AWS::SageMaker::NotebookInstance.DirectInternetAccess`.
 	DirectInternetAccess *string `json:"directInternetAccess"`
+	// `AWS::SageMaker::NotebookInstance.InstanceType`.
+	InstanceType *string `json:"instanceType"`
 	// `AWS::SageMaker::NotebookInstance.KmsKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
 	// `AWS::SageMaker::NotebookInstance.LifecycleConfigName`.
@@ -15426,6 +15762,8 @@ type CfnNotebookInstanceProps struct {
 	NotebookInstanceName *string `json:"notebookInstanceName"`
 	// `AWS::SageMaker::NotebookInstance.PlatformIdentifier`.
 	PlatformIdentifier *string `json:"platformIdentifier"`
+	// `AWS::SageMaker::NotebookInstance.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 	// `AWS::SageMaker::NotebookInstance.RootAccess`.
 	RootAccess *string `json:"rootAccess"`
 	// `AWS::SageMaker::NotebookInstance.SecurityGroupIds`.
@@ -15439,6 +15777,9 @@ type CfnNotebookInstanceProps struct {
 }
 
 // A CloudFormation `AWS::SageMaker::Pipeline`.
+//
+// TODO: EXAMPLE
+//
 type CfnPipeline interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -16116,22 +16457,28 @@ func (c *jsiiProxy_CfnPipeline) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::SageMaker::Pipeline`.
+//
+// TODO: EXAMPLE
+//
 type CfnPipelineProps struct {
 	// `AWS::SageMaker::Pipeline.PipelineDefinition`.
 	PipelineDefinition interface{} `json:"pipelineDefinition"`
-	// `AWS::SageMaker::Pipeline.PipelineName`.
-	PipelineName *string `json:"pipelineName"`
-	// `AWS::SageMaker::Pipeline.RoleArn`.
-	RoleArn *string `json:"roleArn"`
 	// `AWS::SageMaker::Pipeline.PipelineDescription`.
 	PipelineDescription *string `json:"pipelineDescription"`
 	// `AWS::SageMaker::Pipeline.PipelineDisplayName`.
 	PipelineDisplayName *string `json:"pipelineDisplayName"`
+	// `AWS::SageMaker::Pipeline.PipelineName`.
+	PipelineName *string `json:"pipelineName"`
+	// `AWS::SageMaker::Pipeline.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 	// `AWS::SageMaker::Pipeline.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::SageMaker::Project`.
+//
+// TODO: EXAMPLE
+//
 type CfnProject interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -16813,18 +17160,24 @@ func (c *jsiiProxy_CfnProject) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::SageMaker::Project`.
+//
+// TODO: EXAMPLE
+//
 type CfnProjectProps struct {
+	// `AWS::SageMaker::Project.ProjectDescription`.
+	ProjectDescription *string `json:"projectDescription"`
 	// `AWS::SageMaker::Project.ProjectName`.
 	ProjectName *string `json:"projectName"`
 	// `AWS::SageMaker::Project.ServiceCatalogProvisioningDetails`.
 	ServiceCatalogProvisioningDetails interface{} `json:"serviceCatalogProvisioningDetails"`
-	// `AWS::SageMaker::Project.ProjectDescription`.
-	ProjectDescription *string `json:"projectDescription"`
 	// `AWS::SageMaker::Project.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::SageMaker::UserProfile`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -17512,6 +17865,8 @@ func (c *jsiiProxy_CfnUserProfile) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserProfile_CustomImageProperty struct {
 	// `CfnUserProfile.CustomImageProperty.AppImageConfigName`.
 	AppImageConfigName *string `json:"appImageConfigName"`
@@ -17521,11 +17876,15 @@ type CfnUserProfile_CustomImageProperty struct {
 	ImageVersionNumber *float64 `json:"imageVersionNumber"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserProfile_JupyterServerAppSettingsProperty struct {
 	// `CfnUserProfile.JupyterServerAppSettingsProperty.DefaultResourceSpec`.
 	DefaultResourceSpec interface{} `json:"defaultResourceSpec"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserProfile_KernelGatewayAppSettingsProperty struct {
 	// `CfnUserProfile.KernelGatewayAppSettingsProperty.CustomImages`.
 	CustomImages interface{} `json:"customImages"`
@@ -17533,6 +17892,8 @@ type CfnUserProfile_KernelGatewayAppSettingsProperty struct {
 	DefaultResourceSpec interface{} `json:"defaultResourceSpec"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserProfile_ResourceSpecProperty struct {
 	// `CfnUserProfile.ResourceSpecProperty.InstanceType`.
 	InstanceType *string `json:"instanceType"`
@@ -17542,6 +17903,8 @@ type CfnUserProfile_ResourceSpecProperty struct {
 	SageMakerImageVersionArn *string `json:"sageMakerImageVersionArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserProfile_SharingSettingsProperty struct {
 	// `CfnUserProfile.SharingSettingsProperty.NotebookOutputOption`.
 	NotebookOutputOption *string `json:"notebookOutputOption"`
@@ -17551,6 +17914,8 @@ type CfnUserProfile_SharingSettingsProperty struct {
 	S3OutputPath *string `json:"s3OutputPath"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUserProfile_UserSettingsProperty struct {
 	// `CfnUserProfile.UserSettingsProperty.ExecutionRole`.
 	ExecutionRole *string `json:"executionRole"`
@@ -17565,22 +17930,28 @@ type CfnUserProfile_UserSettingsProperty struct {
 }
 
 // Properties for defining a `AWS::SageMaker::UserProfile`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserProfileProps struct {
 	// `AWS::SageMaker::UserProfile.DomainId`.
 	DomainId *string `json:"domainId"`
-	// `AWS::SageMaker::UserProfile.UserProfileName`.
-	UserProfileName *string `json:"userProfileName"`
 	// `AWS::SageMaker::UserProfile.SingleSignOnUserIdentifier`.
 	SingleSignOnUserIdentifier *string `json:"singleSignOnUserIdentifier"`
 	// `AWS::SageMaker::UserProfile.SingleSignOnUserValue`.
 	SingleSignOnUserValue *string `json:"singleSignOnUserValue"`
 	// `AWS::SageMaker::UserProfile.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::SageMaker::UserProfile.UserProfileName`.
+	UserProfileName *string `json:"userProfileName"`
 	// `AWS::SageMaker::UserProfile.UserSettings`.
 	UserSettings interface{} `json:"userSettings"`
 }
 
 // A CloudFormation `AWS::SageMaker::Workteam`.
+//
+// TODO: EXAMPLE
+//
 type CfnWorkteam interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -18248,6 +18619,8 @@ func (c *jsiiProxy_CfnWorkteam) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnWorkteam_CognitoMemberDefinitionProperty struct {
 	// `CfnWorkteam.CognitoMemberDefinitionProperty.CognitoClientId`.
 	CognitoClientId *string `json:"cognitoClientId"`
@@ -18257,17 +18630,24 @@ type CfnWorkteam_CognitoMemberDefinitionProperty struct {
 	CognitoUserPool *string `json:"cognitoUserPool"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWorkteam_MemberDefinitionProperty struct {
 	// `CfnWorkteam.MemberDefinitionProperty.CognitoMemberDefinition`.
 	CognitoMemberDefinition interface{} `json:"cognitoMemberDefinition"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWorkteam_NotificationConfigurationProperty struct {
 	// `CfnWorkteam.NotificationConfigurationProperty.NotificationTopicArn`.
 	NotificationTopicArn *string `json:"notificationTopicArn"`
 }
 
 // Properties for defining a `AWS::SageMaker::Workteam`.
+//
+// TODO: EXAMPLE
+//
 type CfnWorkteamProps struct {
 	// `AWS::SageMaker::Workteam.Description`.
 	Description *string `json:"description"`

@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::FinSpace::Environment`.
+//
+// TODO: EXAMPLE
+//
 type CfnEnvironment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -792,6 +795,8 @@ func (c *jsiiProxy_CfnEnvironment) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnEnvironment_FederationParametersProperty struct {
 	// `CfnEnvironment.FederationParametersProperty.ApplicationCallBackURL`.
 	ApplicationCallBackUrl *string `json:"applicationCallBackUrl"`
@@ -807,6 +812,8 @@ type CfnEnvironment_FederationParametersProperty struct {
 	SamlMetadataUrl *string `json:"samlMetadataUrl"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEnvironment_SuperuserParametersProperty struct {
 	// `CfnEnvironment.SuperuserParametersProperty.EmailAddress`.
 	EmailAddress *string `json:"emailAddress"`
@@ -817,9 +824,10 @@ type CfnEnvironment_SuperuserParametersProperty struct {
 }
 
 // Properties for defining a `AWS::FinSpace::Environment`.
+//
+// TODO: EXAMPLE
+//
 type CfnEnvironmentProps struct {
-	// `AWS::FinSpace::Environment.Name`.
-	Name *string `json:"name"`
 	// `AWS::FinSpace::Environment.DataBundles`.
 	DataBundles *[]*string `json:"dataBundles"`
 	// `AWS::FinSpace::Environment.Description`.
@@ -830,6 +838,8 @@ type CfnEnvironmentProps struct {
 	FederationParameters interface{} `json:"federationParameters"`
 	// `AWS::FinSpace::Environment.KmsKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
+	// `AWS::FinSpace::Environment.Name`.
+	Name *string `json:"name"`
 	// `AWS::FinSpace::Environment.SuperuserParameters`.
 	SuperuserParameters interface{} `json:"superuserParameters"`
 }

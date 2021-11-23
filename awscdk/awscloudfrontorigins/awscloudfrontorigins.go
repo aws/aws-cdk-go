@@ -100,6 +100,9 @@ func (h *jsiiProxy_HttpOrigin) RenderS3OriginConfig() *awscloudfront.CfnDistribu
 }
 
 // Properties for an Origin backed by an S3 website-configured bucket, load balancer, or custom HTTP server.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HttpOriginProps struct {
 	// The number of times that CloudFront attempts to connect to the origin;
@@ -238,6 +241,9 @@ func (l *jsiiProxy_LoadBalancerV2Origin) RenderS3OriginConfig() *awscloudfront.C
 }
 
 // Properties for an Origin backed by a v2 load balancer.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LoadBalancerV2OriginProps struct {
 	// The number of times that CloudFront attempts to connect to the origin;
@@ -291,6 +297,9 @@ type LoadBalancerV2OriginProps struct {
 //
 // Consists of a primary Origin,
 // and a fallback Origin called when the primary returns one of the provided HTTP status codes.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type OriginGroup interface {
 	awscloudfront.IOrigin
@@ -344,17 +353,20 @@ func (o *jsiiProxy_OriginGroup) Bind(scope awscdk.Construct, options *awscloudfr
 }
 
 // Construction properties for {@link OriginGroup}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type OriginGroupProps struct {
 	// The fallback origin that should serve requests when the primary fails.
 	// Experimental.
 	FallbackOrigin awscloudfront.IOrigin `json:"fallbackOrigin"`
-	// The primary origin that should serve requests for this group.
-	// Experimental.
-	PrimaryOrigin awscloudfront.IOrigin `json:"primaryOrigin"`
 	// The list of HTTP status codes that, when returned from the primary origin, would cause querying the fallback origin.
 	// Experimental.
 	FallbackStatusCodes *[]*float64 `json:"fallbackStatusCodes"`
+	// The primary origin that should serve requests for this group.
+	// Experimental.
+	PrimaryOrigin awscloudfront.IOrigin `json:"primaryOrigin"`
 }
 
 // An Origin that is backed by an S3 bucket.

@@ -716,10 +716,10 @@ func init() {
 		"monocdk.aws_cloudformation.CloudFormationCapabilities",
 		reflect.TypeOf((*CloudFormationCapabilities)(nil)).Elem(),
 		map[string]interface{}{
-			"NONE": CloudFormationCapabilities_NONE,
 			"ANONYMOUS_IAM": CloudFormationCapabilities_ANONYMOUS_IAM,
-			"NAMED_IAM": CloudFormationCapabilities_NAMED_IAM,
 			"AUTO_EXPAND": CloudFormationCapabilities_AUTO_EXPAND,
+			"NAMED_IAM": CloudFormationCapabilities_NAMED_IAM,
+			"NONE": CloudFormationCapabilities_NONE,
 		},
 	)
 	_jsii_.RegisterClass(

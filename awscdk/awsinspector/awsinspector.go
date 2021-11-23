@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::Inspector::AssessmentTarget`.
+//
+// TODO: EXAMPLE
+//
 type CfnAssessmentTarget interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -627,6 +630,9 @@ func (c *jsiiProxy_CfnAssessmentTarget) ValidateProperties(_properties interface
 }
 
 // Properties for defining a `AWS::Inspector::AssessmentTarget`.
+//
+// TODO: EXAMPLE
+//
 type CfnAssessmentTargetProps struct {
 	// `AWS::Inspector::AssessmentTarget.AssessmentTargetName`.
 	AssessmentTargetName *string `json:"assessmentTargetName"`
@@ -635,6 +641,9 @@ type CfnAssessmentTargetProps struct {
 }
 
 // A CloudFormation `AWS::Inspector::AssessmentTemplate`.
+//
+// TODO: EXAMPLE
+//
 type CfnAssessmentTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1312,20 +1321,26 @@ func (c *jsiiProxy_CfnAssessmentTemplate) ValidateProperties(_properties interfa
 }
 
 // Properties for defining a `AWS::Inspector::AssessmentTemplate`.
+//
+// TODO: EXAMPLE
+//
 type CfnAssessmentTemplateProps struct {
 	// `AWS::Inspector::AssessmentTemplate.AssessmentTargetArn`.
 	AssessmentTargetArn *string `json:"assessmentTargetArn"`
+	// `AWS::Inspector::AssessmentTemplate.AssessmentTemplateName`.
+	AssessmentTemplateName *string `json:"assessmentTemplateName"`
 	// `AWS::Inspector::AssessmentTemplate.DurationInSeconds`.
 	DurationInSeconds *float64 `json:"durationInSeconds"`
 	// `AWS::Inspector::AssessmentTemplate.RulesPackageArns`.
 	RulesPackageArns *[]*string `json:"rulesPackageArns"`
-	// `AWS::Inspector::AssessmentTemplate.AssessmentTemplateName`.
-	AssessmentTemplateName *string `json:"assessmentTemplateName"`
 	// `AWS::Inspector::AssessmentTemplate.UserAttributesForFindings`.
 	UserAttributesForFindings interface{} `json:"userAttributesForFindings"`
 }
 
 // A CloudFormation `AWS::Inspector::ResourceGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourceGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1923,6 +1938,9 @@ func (c *jsiiProxy_CfnResourceGroup) ValidateProperties(_properties interface{})
 }
 
 // Properties for defining a `AWS::Inspector::ResourceGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourceGroupProps struct {
 	// `AWS::Inspector::ResourceGroup.ResourceGroupTags`.
 	ResourceGroupTags interface{} `json:"resourceGroupTags"`

@@ -33,6 +33,9 @@ type AutoRollbackConfig struct {
 }
 
 // A CloudFormation `AWS::CodeDeploy::Application`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -650,6 +653,9 @@ func (c *jsiiProxy_CfnApplication) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::CodeDeploy::Application`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationProps struct {
 	// `AWS::CodeDeploy::Application.ApplicationName`.
 	ApplicationName *string `json:"applicationName"`
@@ -660,6 +666,9 @@ type CfnApplicationProps struct {
 }
 
 // A CloudFormation `AWS::CodeDeploy::DeploymentConfig`.
+//
+// TODO: EXAMPLE
+//
 type CfnDeploymentConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1305,6 +1314,8 @@ func (c *jsiiProxy_CfnDeploymentConfig) ValidateProperties(_properties interface
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeploymentConfig_MinimumHealthyHostsProperty struct {
 	// `CfnDeploymentConfig.MinimumHealthyHostsProperty.Type`.
 	Type *string `json:"type"`
@@ -1312,6 +1323,8 @@ type CfnDeploymentConfig_MinimumHealthyHostsProperty struct {
 	Value *float64 `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeploymentConfig_TimeBasedCanaryProperty struct {
 	// `CfnDeploymentConfig.TimeBasedCanaryProperty.CanaryInterval`.
 	CanaryInterval *float64 `json:"canaryInterval"`
@@ -1319,6 +1332,8 @@ type CfnDeploymentConfig_TimeBasedCanaryProperty struct {
 	CanaryPercentage *float64 `json:"canaryPercentage"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeploymentConfig_TimeBasedLinearProperty struct {
 	// `CfnDeploymentConfig.TimeBasedLinearProperty.LinearInterval`.
 	LinearInterval *float64 `json:"linearInterval"`
@@ -1326,16 +1341,21 @@ type CfnDeploymentConfig_TimeBasedLinearProperty struct {
 	LinearPercentage *float64 `json:"linearPercentage"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeploymentConfig_TrafficRoutingConfigProperty struct {
-	// `CfnDeploymentConfig.TrafficRoutingConfigProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnDeploymentConfig.TrafficRoutingConfigProperty.TimeBasedCanary`.
 	TimeBasedCanary interface{} `json:"timeBasedCanary"`
 	// `CfnDeploymentConfig.TrafficRoutingConfigProperty.TimeBasedLinear`.
 	TimeBasedLinear interface{} `json:"timeBasedLinear"`
+	// `CfnDeploymentConfig.TrafficRoutingConfigProperty.Type`.
+	Type *string `json:"type"`
 }
 
 // Properties for defining a `AWS::CodeDeploy::DeploymentConfig`.
+//
+// TODO: EXAMPLE
+//
 type CfnDeploymentConfigProps struct {
 	// `AWS::CodeDeploy::DeploymentConfig.ComputePlatform`.
 	ComputePlatform *string `json:"computePlatform"`
@@ -1348,6 +1368,9 @@ type CfnDeploymentConfigProps struct {
 }
 
 // A CloudFormation `AWS::CodeDeploy::DeploymentGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnDeploymentGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2253,6 +2276,8 @@ func (c *jsiiProxy_CfnDeploymentGroup) ValidateProperties(_properties interface{
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeploymentGroup_AlarmConfigurationProperty struct {
 	// `CfnDeploymentGroup.AlarmConfigurationProperty.Alarms`.
 	Alarms interface{} `json:"alarms"`
@@ -2262,11 +2287,15 @@ type CfnDeploymentGroup_AlarmConfigurationProperty struct {
 	IgnorePollAlarmFailure interface{} `json:"ignorePollAlarmFailure"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeploymentGroup_AlarmProperty struct {
 	// `CfnDeploymentGroup.AlarmProperty.Name`.
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeploymentGroup_AutoRollbackConfigurationProperty struct {
 	// `CfnDeploymentGroup.AutoRollbackConfigurationProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
@@ -2274,6 +2303,8 @@ type CfnDeploymentGroup_AutoRollbackConfigurationProperty struct {
 	Events *[]*string `json:"events"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeploymentGroup_BlueGreenDeploymentConfigurationProperty struct {
 	// `CfnDeploymentGroup.BlueGreenDeploymentConfigurationProperty.DeploymentReadyOption`.
 	DeploymentReadyOption interface{} `json:"deploymentReadyOption"`
@@ -2283,6 +2314,8 @@ type CfnDeploymentGroup_BlueGreenDeploymentConfigurationProperty struct {
 	TerminateBlueInstancesOnDeploymentSuccess interface{} `json:"terminateBlueInstancesOnDeploymentSuccess"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeploymentGroup_BlueInstanceTerminationOptionProperty struct {
 	// `CfnDeploymentGroup.BlueInstanceTerminationOptionProperty.Action`.
 	Action *string `json:"action"`
@@ -2290,15 +2323,19 @@ type CfnDeploymentGroup_BlueInstanceTerminationOptionProperty struct {
 	TerminationWaitTimeInMinutes *float64 `json:"terminationWaitTimeInMinutes"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeploymentGroup_DeploymentProperty struct {
-	// `CfnDeploymentGroup.DeploymentProperty.Revision`.
-	Revision interface{} `json:"revision"`
 	// `CfnDeploymentGroup.DeploymentProperty.Description`.
 	Description *string `json:"description"`
 	// `CfnDeploymentGroup.DeploymentProperty.IgnoreApplicationStopFailures`.
 	IgnoreApplicationStopFailures interface{} `json:"ignoreApplicationStopFailures"`
+	// `CfnDeploymentGroup.DeploymentProperty.Revision`.
+	Revision interface{} `json:"revision"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeploymentGroup_DeploymentReadyOptionProperty struct {
 	// `CfnDeploymentGroup.DeploymentReadyOptionProperty.ActionOnTimeout`.
 	ActionOnTimeout *string `json:"actionOnTimeout"`
@@ -2306,6 +2343,8 @@ type CfnDeploymentGroup_DeploymentReadyOptionProperty struct {
 	WaitTimeInMinutes *float64 `json:"waitTimeInMinutes"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeploymentGroup_DeploymentStyleProperty struct {
 	// `CfnDeploymentGroup.DeploymentStyleProperty.DeploymentOption`.
 	DeploymentOption *string `json:"deploymentOption"`
@@ -2313,6 +2352,8 @@ type CfnDeploymentGroup_DeploymentStyleProperty struct {
 	DeploymentType *string `json:"deploymentType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeploymentGroup_EC2TagFilterProperty struct {
 	// `CfnDeploymentGroup.EC2TagFilterProperty.Key`.
 	Key *string `json:"key"`
@@ -2322,16 +2363,22 @@ type CfnDeploymentGroup_EC2TagFilterProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeploymentGroup_EC2TagSetListObjectProperty struct {
 	// `CfnDeploymentGroup.EC2TagSetListObjectProperty.Ec2TagGroup`.
 	Ec2TagGroup interface{} `json:"ec2TagGroup"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeploymentGroup_EC2TagSetProperty struct {
 	// `CfnDeploymentGroup.EC2TagSetProperty.Ec2TagSetList`.
 	Ec2TagSetList interface{} `json:"ec2TagSetList"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeploymentGroup_ECSServiceProperty struct {
 	// `CfnDeploymentGroup.ECSServiceProperty.ClusterName`.
 	ClusterName *string `json:"clusterName"`
@@ -2339,11 +2386,15 @@ type CfnDeploymentGroup_ECSServiceProperty struct {
 	ServiceName *string `json:"serviceName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeploymentGroup_ELBInfoProperty struct {
 	// `CfnDeploymentGroup.ELBInfoProperty.Name`.
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeploymentGroup_GitHubLocationProperty struct {
 	// `CfnDeploymentGroup.GitHubLocationProperty.CommitId`.
 	CommitId *string `json:"commitId"`
@@ -2351,11 +2402,15 @@ type CfnDeploymentGroup_GitHubLocationProperty struct {
 	Repository *string `json:"repository"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeploymentGroup_GreenFleetProvisioningOptionProperty struct {
 	// `CfnDeploymentGroup.GreenFleetProvisioningOptionProperty.Action`.
 	Action *string `json:"action"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeploymentGroup_LoadBalancerInfoProperty struct {
 	// `CfnDeploymentGroup.LoadBalancerInfoProperty.ElbInfoList`.
 	ElbInfoList interface{} `json:"elbInfoList"`
@@ -2363,16 +2418,22 @@ type CfnDeploymentGroup_LoadBalancerInfoProperty struct {
 	TargetGroupInfoList interface{} `json:"targetGroupInfoList"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeploymentGroup_OnPremisesTagSetListObjectProperty struct {
 	// `CfnDeploymentGroup.OnPremisesTagSetListObjectProperty.OnPremisesTagGroup`.
 	OnPremisesTagGroup interface{} `json:"onPremisesTagGroup"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeploymentGroup_OnPremisesTagSetProperty struct {
 	// `CfnDeploymentGroup.OnPremisesTagSetProperty.OnPremisesTagSetList`.
 	OnPremisesTagSetList interface{} `json:"onPremisesTagSetList"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeploymentGroup_RevisionLocationProperty struct {
 	// `CfnDeploymentGroup.RevisionLocationProperty.GitHubLocation`.
 	GitHubLocation interface{} `json:"gitHubLocation"`
@@ -2382,19 +2443,23 @@ type CfnDeploymentGroup_RevisionLocationProperty struct {
 	S3Location interface{} `json:"s3Location"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeploymentGroup_S3LocationProperty struct {
 	// `CfnDeploymentGroup.S3LocationProperty.Bucket`.
 	Bucket *string `json:"bucket"`
-	// `CfnDeploymentGroup.S3LocationProperty.Key`.
-	Key *string `json:"key"`
 	// `CfnDeploymentGroup.S3LocationProperty.BundleType`.
 	BundleType *string `json:"bundleType"`
 	// `CfnDeploymentGroup.S3LocationProperty.ETag`.
 	ETag *string `json:"eTag"`
+	// `CfnDeploymentGroup.S3LocationProperty.Key`.
+	Key *string `json:"key"`
 	// `CfnDeploymentGroup.S3LocationProperty.Version`.
 	Version *string `json:"version"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeploymentGroup_TagFilterProperty struct {
 	// `CfnDeploymentGroup.TagFilterProperty.Key`.
 	Key *string `json:"key"`
@@ -2404,11 +2469,15 @@ type CfnDeploymentGroup_TagFilterProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeploymentGroup_TargetGroupInfoProperty struct {
 	// `CfnDeploymentGroup.TargetGroupInfoProperty.Name`.
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDeploymentGroup_TriggerConfigProperty struct {
 	// `CfnDeploymentGroup.TriggerConfigProperty.TriggerEvents`.
 	TriggerEvents *[]*string `json:"triggerEvents"`
@@ -2419,13 +2488,14 @@ type CfnDeploymentGroup_TriggerConfigProperty struct {
 }
 
 // Properties for defining a `AWS::CodeDeploy::DeploymentGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnDeploymentGroupProps struct {
-	// `AWS::CodeDeploy::DeploymentGroup.ApplicationName`.
-	ApplicationName *string `json:"applicationName"`
-	// `AWS::CodeDeploy::DeploymentGroup.ServiceRoleArn`.
-	ServiceRoleArn *string `json:"serviceRoleArn"`
 	// `AWS::CodeDeploy::DeploymentGroup.AlarmConfiguration`.
 	AlarmConfiguration interface{} `json:"alarmConfiguration"`
+	// `AWS::CodeDeploy::DeploymentGroup.ApplicationName`.
+	ApplicationName *string `json:"applicationName"`
 	// `AWS::CodeDeploy::DeploymentGroup.AutoRollbackConfiguration`.
 	AutoRollbackConfiguration interface{} `json:"autoRollbackConfiguration"`
 	// `AWS::CodeDeploy::DeploymentGroup.AutoScalingGroups`.
@@ -2452,6 +2522,8 @@ type CfnDeploymentGroupProps struct {
 	OnPremisesInstanceTagFilters interface{} `json:"onPremisesInstanceTagFilters"`
 	// `AWS::CodeDeploy::DeploymentGroup.OnPremisesTagSet`.
 	OnPremisesTagSet interface{} `json:"onPremisesTagSet"`
+	// `AWS::CodeDeploy::DeploymentGroup.ServiceRoleArn`.
+	ServiceRoleArn *string `json:"serviceRoleArn"`
 	// `AWS::CodeDeploy::DeploymentGroup.TriggerConfigurations`.
 	TriggerConfigurations interface{} `json:"triggerConfigurations"`
 }
@@ -2832,6 +2904,9 @@ const (
 )
 
 // A CodeDeploy Application that deploys to an Amazon ECS service.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EcsApplication interface {
 	awscdk.Resource
@@ -3188,6 +3263,9 @@ func (e *jsiiProxy_EcsApplication) Validate() *[]*string {
 }
 
 // Construction properties for {@link EcsApplication}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EcsApplicationProps struct {
 	// The physical, human-readable name of the CodeDeploy Application.
@@ -3272,6 +3350,9 @@ func EcsDeploymentGroup_FromEcsDeploymentGroupAttributes(scope constructs.Constr
 }
 
 // Properties of a reference to a CodeDeploy ECS Deployment Group.
+//
+// TODO: EXAMPLE
+//
 // See: EcsDeploymentGroup#fromEcsDeploymentGroupAttributes
 //
 // Experimental.
@@ -3279,12 +3360,12 @@ type EcsDeploymentGroupAttributes struct {
 	// The reference to the CodeDeploy ECS Application that this Deployment Group belongs to.
 	// Experimental.
 	Application IEcsApplication `json:"application"`
-	// The physical, human-readable name of the CodeDeploy ECS Deployment Group that we are referencing.
-	// Experimental.
-	DeploymentGroupName *string `json:"deploymentGroupName"`
 	// The Deployment Configuration this Deployment Group uses.
 	// Experimental.
 	DeploymentConfig IEcsDeploymentConfig `json:"deploymentConfig"`
+	// The physical, human-readable name of the CodeDeploy ECS Deployment Group that we are referencing.
+	// Experimental.
+	DeploymentGroupName *string `json:"deploymentGroupName"`
 }
 
 // Represents a reference to a CodeDeploy Application deploying to Amazon ECS.
@@ -4313,6 +4394,9 @@ func LambdaDeploymentConfig_LINEAR_10PERCENT_EVERY_3MINUTES() ILambdaDeploymentC
 }
 
 // Properties of a reference to a CodeDeploy Lambda Deployment Configuration.
+//
+// TODO: EXAMPLE
+//
 // See: LambdaDeploymentConfig#import
 //
 // Experimental.

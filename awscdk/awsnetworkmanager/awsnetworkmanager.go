@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::NetworkManager::CustomerGatewayAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnCustomerGatewayAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -656,6 +659,9 @@ func (c *jsiiProxy_CfnCustomerGatewayAssociation) ValidateProperties(_properties
 }
 
 // Properties for defining a `AWS::NetworkManager::CustomerGatewayAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnCustomerGatewayAssociationProps struct {
 	// `AWS::NetworkManager::CustomerGatewayAssociation.CustomerGatewayArn`.
 	CustomerGatewayArn *string `json:"customerGatewayArn"`
@@ -668,6 +674,9 @@ type CfnCustomerGatewayAssociationProps struct {
 }
 
 // A CloudFormation `AWS::NetworkManager::Device`.
+//
+// TODO: EXAMPLE
+//
 type CfnDevice interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1426,6 +1435,8 @@ func (c *jsiiProxy_CfnDevice) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDevice_LocationProperty struct {
 	// `CfnDevice.LocationProperty.Address`.
 	Address *string `json:"address"`
@@ -1436,11 +1447,14 @@ type CfnDevice_LocationProperty struct {
 }
 
 // Properties for defining a `AWS::NetworkManager::Device`.
+//
+// TODO: EXAMPLE
+//
 type CfnDeviceProps struct {
-	// `AWS::NetworkManager::Device.GlobalNetworkId`.
-	GlobalNetworkId *string `json:"globalNetworkId"`
 	// `AWS::NetworkManager::Device.Description`.
 	Description *string `json:"description"`
+	// `AWS::NetworkManager::Device.GlobalNetworkId`.
+	GlobalNetworkId *string `json:"globalNetworkId"`
 	// `AWS::NetworkManager::Device.Location`.
 	Location interface{} `json:"location"`
 	// `AWS::NetworkManager::Device.Model`.
@@ -1458,6 +1472,9 @@ type CfnDeviceProps struct {
 }
 
 // A CloudFormation `AWS::NetworkManager::GlobalNetwork`.
+//
+// TODO: EXAMPLE
+//
 type CfnGlobalNetwork interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2077,6 +2094,9 @@ func (c *jsiiProxy_CfnGlobalNetwork) ValidateProperties(_properties interface{})
 }
 
 // Properties for defining a `AWS::NetworkManager::GlobalNetwork`.
+//
+// TODO: EXAMPLE
+//
 type CfnGlobalNetworkProps struct {
 	// `AWS::NetworkManager::GlobalNetwork.Description`.
 	Description *string `json:"description"`
@@ -2085,6 +2105,9 @@ type CfnGlobalNetworkProps struct {
 }
 
 // A CloudFormation `AWS::NetworkManager::Link`.
+//
+// TODO: EXAMPLE
+//
 type CfnLink interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2803,6 +2826,8 @@ func (c *jsiiProxy_CfnLink) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnLink_BandwidthProperty struct {
 	// `CfnLink.BandwidthProperty.DownloadSpeed`.
 	DownloadSpeed *float64 `json:"downloadSpeed"`
@@ -2811,6 +2836,9 @@ type CfnLink_BandwidthProperty struct {
 }
 
 // A CloudFormation `AWS::NetworkManager::LinkAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnLinkAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3437,6 +3465,9 @@ func (c *jsiiProxy_CfnLinkAssociation) ValidateProperties(_properties interface{
 }
 
 // Properties for defining a `AWS::NetworkManager::LinkAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnLinkAssociationProps struct {
 	// `AWS::NetworkManager::LinkAssociation.DeviceId`.
 	DeviceId *string `json:"deviceId"`
@@ -3447,17 +3478,20 @@ type CfnLinkAssociationProps struct {
 }
 
 // Properties for defining a `AWS::NetworkManager::Link`.
+//
+// TODO: EXAMPLE
+//
 type CfnLinkProps struct {
 	// `AWS::NetworkManager::Link.Bandwidth`.
 	Bandwidth interface{} `json:"bandwidth"`
-	// `AWS::NetworkManager::Link.GlobalNetworkId`.
-	GlobalNetworkId *string `json:"globalNetworkId"`
-	// `AWS::NetworkManager::Link.SiteId`.
-	SiteId *string `json:"siteId"`
 	// `AWS::NetworkManager::Link.Description`.
 	Description *string `json:"description"`
+	// `AWS::NetworkManager::Link.GlobalNetworkId`.
+	GlobalNetworkId *string `json:"globalNetworkId"`
 	// `AWS::NetworkManager::Link.Provider`.
 	Provider *string `json:"provider"`
+	// `AWS::NetworkManager::Link.SiteId`.
+	SiteId *string `json:"siteId"`
 	// `AWS::NetworkManager::Link.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::NetworkManager::Link.Type`.
@@ -3465,6 +3499,9 @@ type CfnLinkProps struct {
 }
 
 // A CloudFormation `AWS::NetworkManager::Site`.
+//
+// TODO: EXAMPLE
+//
 type CfnSite interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4123,6 +4160,8 @@ func (c *jsiiProxy_CfnSite) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnSite_LocationProperty struct {
 	// `CfnSite.LocationProperty.Address`.
 	Address *string `json:"address"`
@@ -4133,11 +4172,14 @@ type CfnSite_LocationProperty struct {
 }
 
 // Properties for defining a `AWS::NetworkManager::Site`.
+//
+// TODO: EXAMPLE
+//
 type CfnSiteProps struct {
-	// `AWS::NetworkManager::Site.GlobalNetworkId`.
-	GlobalNetworkId *string `json:"globalNetworkId"`
 	// `AWS::NetworkManager::Site.Description`.
 	Description *string `json:"description"`
+	// `AWS::NetworkManager::Site.GlobalNetworkId`.
+	GlobalNetworkId *string `json:"globalNetworkId"`
 	// `AWS::NetworkManager::Site.Location`.
 	Location interface{} `json:"location"`
 	// `AWS::NetworkManager::Site.Tags`.
@@ -4145,6 +4187,9 @@ type CfnSiteProps struct {
 }
 
 // A CloudFormation `AWS::NetworkManager::TransitGatewayRegistration`.
+//
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayRegistration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4751,6 +4796,9 @@ func (c *jsiiProxy_CfnTransitGatewayRegistration) ValidateProperties(_properties
 }
 
 // Properties for defining a `AWS::NetworkManager::TransitGatewayRegistration`.
+//
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayRegistrationProps struct {
 	// `AWS::NetworkManager::TransitGatewayRegistration.GlobalNetworkId`.
 	GlobalNetworkId *string `json:"globalNetworkId"`

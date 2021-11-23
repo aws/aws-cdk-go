@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::MediaConnect::Flow`.
+//
+// TODO: EXAMPLE
+//
 type CfnFlow interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -710,9 +713,9 @@ func (c *jsiiProxy_CfnFlow) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_EncryptionProperty struct {
-	// `CfnFlow.EncryptionProperty.RoleArn`.
-	RoleArn *string `json:"roleArn"`
 	// `CfnFlow.EncryptionProperty.Algorithm`.
 	Algorithm *string `json:"algorithm"`
 	// `CfnFlow.EncryptionProperty.ConstantInitializationVector`.
@@ -725,12 +728,16 @@ type CfnFlow_EncryptionProperty struct {
 	Region *string `json:"region"`
 	// `CfnFlow.EncryptionProperty.ResourceId`.
 	ResourceId *string `json:"resourceId"`
+	// `CfnFlow.EncryptionProperty.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 	// `CfnFlow.EncryptionProperty.SecretArn`.
 	SecretArn *string `json:"secretArn"`
 	// `CfnFlow.EncryptionProperty.Url`.
 	Url *string `json:"url"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_FailoverConfigProperty struct {
 	// `CfnFlow.FailoverConfigProperty.RecoveryWindow`.
 	RecoveryWindow *float64 `json:"recoveryWindow"`
@@ -738,6 +745,8 @@ type CfnFlow_FailoverConfigProperty struct {
 	State *string `json:"state"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlow_SourceProperty struct {
 	// `CfnFlow.SourceProperty.Decryption`.
 	Decryption interface{} `json:"decryption"`
@@ -772,6 +781,9 @@ type CfnFlow_SourceProperty struct {
 }
 
 // A CloudFormation `AWS::MediaConnect::FlowEntitlement`.
+//
+// TODO: EXAMPLE
+//
 type CfnFlowEntitlement interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1488,11 +1500,11 @@ func (c *jsiiProxy_CfnFlowEntitlement) ValidateProperties(_properties interface{
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlowEntitlement_EncryptionProperty struct {
 	// `CfnFlowEntitlement.EncryptionProperty.Algorithm`.
 	Algorithm *string `json:"algorithm"`
-	// `CfnFlowEntitlement.EncryptionProperty.RoleArn`.
-	RoleArn *string `json:"roleArn"`
 	// `CfnFlowEntitlement.EncryptionProperty.ConstantInitializationVector`.
 	ConstantInitializationVector *string `json:"constantInitializationVector"`
 	// `CfnFlowEntitlement.EncryptionProperty.DeviceId`.
@@ -1503,6 +1515,8 @@ type CfnFlowEntitlement_EncryptionProperty struct {
 	Region *string `json:"region"`
 	// `CfnFlowEntitlement.EncryptionProperty.ResourceId`.
 	ResourceId *string `json:"resourceId"`
+	// `CfnFlowEntitlement.EncryptionProperty.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 	// `CfnFlowEntitlement.EncryptionProperty.SecretArn`.
 	SecretArn *string `json:"secretArn"`
 	// `CfnFlowEntitlement.EncryptionProperty.Url`.
@@ -1510,24 +1524,30 @@ type CfnFlowEntitlement_EncryptionProperty struct {
 }
 
 // Properties for defining a `AWS::MediaConnect::FlowEntitlement`.
+//
+// TODO: EXAMPLE
+//
 type CfnFlowEntitlementProps struct {
+	// `AWS::MediaConnect::FlowEntitlement.DataTransferSubscriberFeePercent`.
+	DataTransferSubscriberFeePercent *float64 `json:"dataTransferSubscriberFeePercent"`
 	// `AWS::MediaConnect::FlowEntitlement.Description`.
 	Description *string `json:"description"`
+	// `AWS::MediaConnect::FlowEntitlement.Encryption`.
+	Encryption interface{} `json:"encryption"`
+	// `AWS::MediaConnect::FlowEntitlement.EntitlementStatus`.
+	EntitlementStatus *string `json:"entitlementStatus"`
 	// `AWS::MediaConnect::FlowEntitlement.FlowArn`.
 	FlowArn *string `json:"flowArn"`
 	// `AWS::MediaConnect::FlowEntitlement.Name`.
 	Name *string `json:"name"`
 	// `AWS::MediaConnect::FlowEntitlement.Subscribers`.
 	Subscribers *[]*string `json:"subscribers"`
-	// `AWS::MediaConnect::FlowEntitlement.DataTransferSubscriberFeePercent`.
-	DataTransferSubscriberFeePercent *float64 `json:"dataTransferSubscriberFeePercent"`
-	// `AWS::MediaConnect::FlowEntitlement.Encryption`.
-	Encryption interface{} `json:"encryption"`
-	// `AWS::MediaConnect::FlowEntitlement.EntitlementStatus`.
-	EntitlementStatus *string `json:"entitlementStatus"`
 }
 
 // A CloudFormation `AWS::MediaConnect::FlowOutput`.
+//
+// TODO: EXAMPLE
+//
 type CfnFlowOutput interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2384,28 +2404,31 @@ func (c *jsiiProxy_CfnFlowOutput) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlowOutput_EncryptionProperty struct {
-	// `CfnFlowOutput.EncryptionProperty.RoleArn`.
-	RoleArn *string `json:"roleArn"`
-	// `CfnFlowOutput.EncryptionProperty.SecretArn`.
-	SecretArn *string `json:"secretArn"`
 	// `CfnFlowOutput.EncryptionProperty.Algorithm`.
 	Algorithm *string `json:"algorithm"`
 	// `CfnFlowOutput.EncryptionProperty.KeyType`.
 	KeyType *string `json:"keyType"`
+	// `CfnFlowOutput.EncryptionProperty.RoleArn`.
+	RoleArn *string `json:"roleArn"`
+	// `CfnFlowOutput.EncryptionProperty.SecretArn`.
+	SecretArn *string `json:"secretArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlowOutput_VpcInterfaceAttachmentProperty struct {
 	// `CfnFlowOutput.VpcInterfaceAttachmentProperty.VpcInterfaceName`.
 	VpcInterfaceName *string `json:"vpcInterfaceName"`
 }
 
 // Properties for defining a `AWS::MediaConnect::FlowOutput`.
+//
+// TODO: EXAMPLE
+//
 type CfnFlowOutputProps struct {
-	// `AWS::MediaConnect::FlowOutput.FlowArn`.
-	FlowArn *string `json:"flowArn"`
-	// `AWS::MediaConnect::FlowOutput.Protocol`.
-	Protocol *string `json:"protocol"`
 	// `AWS::MediaConnect::FlowOutput.CidrAllowList`.
 	CidrAllowList *[]*string `json:"cidrAllowList"`
 	// `AWS::MediaConnect::FlowOutput.Description`.
@@ -2414,6 +2437,8 @@ type CfnFlowOutputProps struct {
 	Destination *string `json:"destination"`
 	// `AWS::MediaConnect::FlowOutput.Encryption`.
 	Encryption interface{} `json:"encryption"`
+	// `AWS::MediaConnect::FlowOutput.FlowArn`.
+	FlowArn *string `json:"flowArn"`
 	// `AWS::MediaConnect::FlowOutput.MaxLatency`.
 	MaxLatency *float64 `json:"maxLatency"`
 	// `AWS::MediaConnect::FlowOutput.MinLatency`.
@@ -2422,6 +2447,8 @@ type CfnFlowOutputProps struct {
 	Name *string `json:"name"`
 	// `AWS::MediaConnect::FlowOutput.Port`.
 	Port *float64 `json:"port"`
+	// `AWS::MediaConnect::FlowOutput.Protocol`.
+	Protocol *string `json:"protocol"`
 	// `AWS::MediaConnect::FlowOutput.RemoteId`.
 	RemoteId *string `json:"remoteId"`
 	// `AWS::MediaConnect::FlowOutput.SmoothingLatency`.
@@ -2433,18 +2460,24 @@ type CfnFlowOutputProps struct {
 }
 
 // Properties for defining a `AWS::MediaConnect::Flow`.
+//
+// TODO: EXAMPLE
+//
 type CfnFlowProps struct {
+	// `AWS::MediaConnect::Flow.AvailabilityZone`.
+	AvailabilityZone *string `json:"availabilityZone"`
 	// `AWS::MediaConnect::Flow.Name`.
 	Name *string `json:"name"`
 	// `AWS::MediaConnect::Flow.Source`.
 	Source interface{} `json:"source"`
-	// `AWS::MediaConnect::Flow.AvailabilityZone`.
-	AvailabilityZone *string `json:"availabilityZone"`
 	// `AWS::MediaConnect::Flow.SourceFailoverConfig`.
 	SourceFailoverConfig interface{} `json:"sourceFailoverConfig"`
 }
 
 // A CloudFormation `AWS::MediaConnect::FlowSource`.
+//
+// TODO: EXAMPLE
+//
 type CfnFlowSource interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3283,11 +3316,11 @@ func (c *jsiiProxy_CfnFlowSource) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFlowSource_EncryptionProperty struct {
 	// `CfnFlowSource.EncryptionProperty.Algorithm`.
 	Algorithm *string `json:"algorithm"`
-	// `CfnFlowSource.EncryptionProperty.RoleArn`.
-	RoleArn *string `json:"roleArn"`
 	// `CfnFlowSource.EncryptionProperty.ConstantInitializationVector`.
 	ConstantInitializationVector *string `json:"constantInitializationVector"`
 	// `CfnFlowSource.EncryptionProperty.DeviceId`.
@@ -3298,6 +3331,8 @@ type CfnFlowSource_EncryptionProperty struct {
 	Region *string `json:"region"`
 	// `CfnFlowSource.EncryptionProperty.ResourceId`.
 	ResourceId *string `json:"resourceId"`
+	// `CfnFlowSource.EncryptionProperty.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 	// `CfnFlowSource.EncryptionProperty.SecretArn`.
 	SecretArn *string `json:"secretArn"`
 	// `CfnFlowSource.EncryptionProperty.Url`.
@@ -3305,13 +3340,14 @@ type CfnFlowSource_EncryptionProperty struct {
 }
 
 // Properties for defining a `AWS::MediaConnect::FlowSource`.
+//
+// TODO: EXAMPLE
+//
 type CfnFlowSourceProps struct {
-	// `AWS::MediaConnect::FlowSource.Description`.
-	Description *string `json:"description"`
-	// `AWS::MediaConnect::FlowSource.Name`.
-	Name *string `json:"name"`
 	// `AWS::MediaConnect::FlowSource.Decryption`.
 	Decryption interface{} `json:"decryption"`
+	// `AWS::MediaConnect::FlowSource.Description`.
+	Description *string `json:"description"`
 	// `AWS::MediaConnect::FlowSource.EntitlementArn`.
 	EntitlementArn *string `json:"entitlementArn"`
 	// `AWS::MediaConnect::FlowSource.FlowArn`.
@@ -3322,6 +3358,8 @@ type CfnFlowSourceProps struct {
 	MaxBitrate *float64 `json:"maxBitrate"`
 	// `AWS::MediaConnect::FlowSource.MaxLatency`.
 	MaxLatency *float64 `json:"maxLatency"`
+	// `AWS::MediaConnect::FlowSource.Name`.
+	Name *string `json:"name"`
 	// `AWS::MediaConnect::FlowSource.Protocol`.
 	Protocol *string `json:"protocol"`
 	// `AWS::MediaConnect::FlowSource.StreamId`.
@@ -3333,6 +3371,9 @@ type CfnFlowSourceProps struct {
 }
 
 // A CloudFormation `AWS::MediaConnect::FlowVpcInterface`.
+//
+// TODO: EXAMPLE
+//
 type CfnFlowVpcInterface interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4010,6 +4051,9 @@ func (c *jsiiProxy_CfnFlowVpcInterface) ValidateProperties(_properties interface
 }
 
 // Properties for defining a `AWS::MediaConnect::FlowVpcInterface`.
+//
+// TODO: EXAMPLE
+//
 type CfnFlowVpcInterfaceProps struct {
 	// `AWS::MediaConnect::FlowVpcInterface.FlowArn`.
 	FlowArn *string `json:"flowArn"`

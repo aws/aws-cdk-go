@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::ManagedBlockchain::Member`.
+//
+// TODO: EXAMPLE
+//
 type CfnMember interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -677,6 +680,8 @@ func (c *jsiiProxy_CfnMember) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnMember_ApprovalThresholdPolicyProperty struct {
 	// `CfnMember.ApprovalThresholdPolicyProperty.ProposalDurationInHours`.
 	ProposalDurationInHours *float64 `json:"proposalDurationInHours"`
@@ -686,15 +691,19 @@ type CfnMember_ApprovalThresholdPolicyProperty struct {
 	ThresholdPercentage *float64 `json:"thresholdPercentage"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMember_MemberConfigurationProperty struct {
-	// `CfnMember.MemberConfigurationProperty.Name`.
-	Name *string `json:"name"`
 	// `CfnMember.MemberConfigurationProperty.Description`.
 	Description *string `json:"description"`
 	// `CfnMember.MemberConfigurationProperty.MemberFrameworkConfiguration`.
 	MemberFrameworkConfiguration interface{} `json:"memberFrameworkConfiguration"`
+	// `CfnMember.MemberConfigurationProperty.Name`.
+	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMember_MemberFabricConfigurationProperty struct {
 	// `CfnMember.MemberFabricConfigurationProperty.AdminPassword`.
 	AdminPassword *string `json:"adminPassword"`
@@ -702,47 +711,60 @@ type CfnMember_MemberFabricConfigurationProperty struct {
 	AdminUsername *string `json:"adminUsername"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMember_MemberFrameworkConfigurationProperty struct {
 	// `CfnMember.MemberFrameworkConfigurationProperty.MemberFabricConfiguration`.
 	MemberFabricConfiguration interface{} `json:"memberFabricConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMember_NetworkConfigurationProperty struct {
+	// `CfnMember.NetworkConfigurationProperty.Description`.
+	Description *string `json:"description"`
 	// `CfnMember.NetworkConfigurationProperty.Framework`.
 	Framework *string `json:"framework"`
 	// `CfnMember.NetworkConfigurationProperty.FrameworkVersion`.
 	FrameworkVersion *string `json:"frameworkVersion"`
 	// `CfnMember.NetworkConfigurationProperty.Name`.
 	Name *string `json:"name"`
-	// `CfnMember.NetworkConfigurationProperty.VotingPolicy`.
-	VotingPolicy interface{} `json:"votingPolicy"`
-	// `CfnMember.NetworkConfigurationProperty.Description`.
-	Description *string `json:"description"`
 	// `CfnMember.NetworkConfigurationProperty.NetworkFrameworkConfiguration`.
 	NetworkFrameworkConfiguration interface{} `json:"networkFrameworkConfiguration"`
+	// `CfnMember.NetworkConfigurationProperty.VotingPolicy`.
+	VotingPolicy interface{} `json:"votingPolicy"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMember_NetworkFabricConfigurationProperty struct {
 	// `CfnMember.NetworkFabricConfigurationProperty.Edition`.
 	Edition *string `json:"edition"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMember_NetworkFrameworkConfigurationProperty struct {
 	// `CfnMember.NetworkFrameworkConfigurationProperty.NetworkFabricConfiguration`.
 	NetworkFabricConfiguration interface{} `json:"networkFabricConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMember_VotingPolicyProperty struct {
 	// `CfnMember.VotingPolicyProperty.ApprovalThresholdPolicy`.
 	ApprovalThresholdPolicy interface{} `json:"approvalThresholdPolicy"`
 }
 
 // Properties for defining a `AWS::ManagedBlockchain::Member`.
+//
+// TODO: EXAMPLE
+//
 type CfnMemberProps struct {
-	// `AWS::ManagedBlockchain::Member.MemberConfiguration`.
-	MemberConfiguration interface{} `json:"memberConfiguration"`
 	// `AWS::ManagedBlockchain::Member.InvitationId`.
 	InvitationId *string `json:"invitationId"`
+	// `AWS::ManagedBlockchain::Member.MemberConfiguration`.
+	MemberConfiguration interface{} `json:"memberConfiguration"`
 	// `AWS::ManagedBlockchain::Member.NetworkConfiguration`.
 	NetworkConfiguration interface{} `json:"networkConfiguration"`
 	// `AWS::ManagedBlockchain::Member.NetworkId`.
@@ -750,6 +772,9 @@ type CfnMemberProps struct {
 }
 
 // A CloudFormation `AWS::ManagedBlockchain::Node`.
+//
+// TODO: EXAMPLE
+//
 type CfnNode interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1419,6 +1444,8 @@ func (c *jsiiProxy_CfnNode) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnNode_NodeConfigurationProperty struct {
 	// `CfnNode.NodeConfigurationProperty.AvailabilityZone`.
 	AvailabilityZone *string `json:"availabilityZone"`
@@ -1427,12 +1454,15 @@ type CfnNode_NodeConfigurationProperty struct {
 }
 
 // Properties for defining a `AWS::ManagedBlockchain::Node`.
+//
+// TODO: EXAMPLE
+//
 type CfnNodeProps struct {
+	// `AWS::ManagedBlockchain::Node.MemberId`.
+	MemberId *string `json:"memberId"`
 	// `AWS::ManagedBlockchain::Node.NetworkId`.
 	NetworkId *string `json:"networkId"`
 	// `AWS::ManagedBlockchain::Node.NodeConfiguration`.
 	NodeConfiguration interface{} `json:"nodeConfiguration"`
-	// `AWS::ManagedBlockchain::Node.MemberId`.
-	MemberId *string `json:"memberId"`
 }
 

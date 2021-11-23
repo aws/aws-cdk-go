@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::WAFv2::IPSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnIPSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -709,22 +712,28 @@ func (c *jsiiProxy_CfnIPSet) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::WAFv2::IPSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnIPSetProps struct {
 	// `AWS::WAFv2::IPSet.Addresses`.
 	Addresses *[]*string `json:"addresses"`
-	// `AWS::WAFv2::IPSet.IPAddressVersion`.
-	IpAddressVersion *string `json:"ipAddressVersion"`
-	// `AWS::WAFv2::IPSet.Scope`.
-	Scope *string `json:"scope"`
 	// `AWS::WAFv2::IPSet.Description`.
 	Description *string `json:"description"`
+	// `AWS::WAFv2::IPSet.IPAddressVersion`.
+	IpAddressVersion *string `json:"ipAddressVersion"`
 	// `AWS::WAFv2::IPSet.Name`.
 	Name *string `json:"name"`
+	// `AWS::WAFv2::IPSet.Scope`.
+	Scope *string `json:"scope"`
 	// `AWS::WAFv2::IPSet.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::WAFv2::LoggingConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnLoggingConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1381,6 +1390,8 @@ func (c *jsiiProxy_CfnLoggingConfiguration) ValidateProperties(_properties inter
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnLoggingConfiguration_FieldToMatchProperty struct {
 	// `CfnLoggingConfiguration.FieldToMatchProperty.JsonBody`.
 	JsonBody interface{} `json:"jsonBody"`
@@ -1395,18 +1406,24 @@ type CfnLoggingConfiguration_FieldToMatchProperty struct {
 }
 
 // Properties for defining a `AWS::WAFv2::LoggingConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnLoggingConfigurationProps struct {
 	// `AWS::WAFv2::LoggingConfiguration.LogDestinationConfigs`.
 	LogDestinationConfigs *[]*string `json:"logDestinationConfigs"`
-	// `AWS::WAFv2::LoggingConfiguration.ResourceArn`.
-	ResourceArn *string `json:"resourceArn"`
 	// `AWS::WAFv2::LoggingConfiguration.LoggingFilter`.
 	LoggingFilter interface{} `json:"loggingFilter"`
 	// `AWS::WAFv2::LoggingConfiguration.RedactedFields`.
 	RedactedFields interface{} `json:"redactedFields"`
+	// `AWS::WAFv2::LoggingConfiguration.ResourceArn`.
+	ResourceArn *string `json:"resourceArn"`
 }
 
 // A CloudFormation `AWS::WAFv2::RegexPatternSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnRegexPatternSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2086,20 +2103,26 @@ func (c *jsiiProxy_CfnRegexPatternSet) ValidateProperties(_properties interface{
 }
 
 // Properties for defining a `AWS::WAFv2::RegexPatternSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnRegexPatternSetProps struct {
-	// `AWS::WAFv2::RegexPatternSet.RegularExpressionList`.
-	RegularExpressionList *[]*string `json:"regularExpressionList"`
-	// `AWS::WAFv2::RegexPatternSet.Scope`.
-	Scope *string `json:"scope"`
 	// `AWS::WAFv2::RegexPatternSet.Description`.
 	Description *string `json:"description"`
 	// `AWS::WAFv2::RegexPatternSet.Name`.
 	Name *string `json:"name"`
+	// `AWS::WAFv2::RegexPatternSet.RegularExpressionList`.
+	RegularExpressionList *[]*string `json:"regularExpressionList"`
+	// `AWS::WAFv2::RegexPatternSet.Scope`.
+	Scope *string `json:"scope"`
 	// `AWS::WAFv2::RegexPatternSet.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::WAFv2::RuleGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnRuleGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2871,24 +2894,30 @@ func (c *jsiiProxy_CfnRuleGroup) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_AndStatementProperty struct {
 	// `CfnRuleGroup.AndStatementProperty.Statements`.
 	Statements interface{} `json:"statements"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_ByteMatchStatementProperty struct {
 	// `CfnRuleGroup.ByteMatchStatementProperty.FieldToMatch`.
 	FieldToMatch interface{} `json:"fieldToMatch"`
 	// `CfnRuleGroup.ByteMatchStatementProperty.PositionalConstraint`.
 	PositionalConstraint *string `json:"positionalConstraint"`
-	// `CfnRuleGroup.ByteMatchStatementProperty.TextTransformations`.
-	TextTransformations interface{} `json:"textTransformations"`
 	// `CfnRuleGroup.ByteMatchStatementProperty.SearchString`.
 	SearchString *string `json:"searchString"`
 	// `CfnRuleGroup.ByteMatchStatementProperty.SearchStringBase64`.
 	SearchStringBase64 *string `json:"searchStringBase64"`
+	// `CfnRuleGroup.ByteMatchStatementProperty.TextTransformations`.
+	TextTransformations interface{} `json:"textTransformations"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_CustomResponseBodyProperty struct {
 	// `CfnRuleGroup.CustomResponseBodyProperty.Content`.
 	Content *string `json:"content"`
@@ -2896,6 +2925,8 @@ type CfnRuleGroup_CustomResponseBodyProperty struct {
 	ContentType *string `json:"contentType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_FieldToMatchProperty struct {
 	// `CfnRuleGroup.FieldToMatchProperty.AllQueryArguments`.
 	AllQueryArguments interface{} `json:"allQueryArguments"`
@@ -2915,6 +2946,8 @@ type CfnRuleGroup_FieldToMatchProperty struct {
 	UriPath interface{} `json:"uriPath"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_ForwardedIPConfigurationProperty struct {
 	// `CfnRuleGroup.ForwardedIPConfigurationProperty.FallbackBehavior`.
 	FallbackBehavior *string `json:"fallbackBehavior"`
@@ -2922,6 +2955,8 @@ type CfnRuleGroup_ForwardedIPConfigurationProperty struct {
 	HeaderName *string `json:"headerName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_GeoMatchStatementProperty struct {
 	// `CfnRuleGroup.GeoMatchStatementProperty.CountryCodes`.
 	CountryCodes *[]*string `json:"countryCodes"`
@@ -3005,15 +3040,19 @@ func (j *jsiiProxy_CfnRuleGroup_IPSetReferenceStatementProperty) IpSetForwardedI
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_JsonBodyProperty struct {
+	// `CfnRuleGroup.JsonBodyProperty.InvalidFallbackBehavior`.
+	InvalidFallbackBehavior *string `json:"invalidFallbackBehavior"`
 	// `CfnRuleGroup.JsonBodyProperty.MatchPattern`.
 	MatchPattern interface{} `json:"matchPattern"`
 	// `CfnRuleGroup.JsonBodyProperty.MatchScope`.
 	MatchScope *string `json:"matchScope"`
-	// `CfnRuleGroup.JsonBodyProperty.InvalidFallbackBehavior`.
-	InvalidFallbackBehavior *string `json:"invalidFallbackBehavior"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_JsonMatchPatternProperty struct {
 	// `CfnRuleGroup.JsonMatchPatternProperty.All`.
 	All interface{} `json:"all"`
@@ -3021,6 +3060,8 @@ type CfnRuleGroup_JsonMatchPatternProperty struct {
 	IncludedPaths *[]*string `json:"includedPaths"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_LabelMatchStatementProperty struct {
 	// `CfnRuleGroup.LabelMatchStatementProperty.Key`.
 	Key *string `json:"key"`
@@ -3028,37 +3069,49 @@ type CfnRuleGroup_LabelMatchStatementProperty struct {
 	Scope *string `json:"scope"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_LabelProperty struct {
 	// `CfnRuleGroup.LabelProperty.Name`.
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_LabelSummaryProperty struct {
 	// `CfnRuleGroup.LabelSummaryProperty.Name`.
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_NotStatementProperty struct {
 	// `CfnRuleGroup.NotStatementProperty.Statement`.
 	Statement interface{} `json:"statement"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_OrStatementProperty struct {
 	// `CfnRuleGroup.OrStatementProperty.Statements`.
 	Statements interface{} `json:"statements"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_RateBasedStatementProperty struct {
 	// `CfnRuleGroup.RateBasedStatementProperty.AggregateKeyType`.
 	AggregateKeyType *string `json:"aggregateKeyType"`
-	// `CfnRuleGroup.RateBasedStatementProperty.Limit`.
-	Limit *float64 `json:"limit"`
 	// `CfnRuleGroup.RateBasedStatementProperty.ForwardedIPConfig`.
 	ForwardedIpConfig interface{} `json:"forwardedIpConfig"`
+	// `CfnRuleGroup.RateBasedStatementProperty.Limit`.
+	Limit *float64 `json:"limit"`
 	// `CfnRuleGroup.RateBasedStatementProperty.ScopeDownStatement`.
 	ScopeDownStatement interface{} `json:"scopeDownStatement"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_RegexPatternSetReferenceStatementProperty struct {
 	// `CfnRuleGroup.RegexPatternSetReferenceStatementProperty.Arn`.
 	Arn *string `json:"arn"`
@@ -3068,6 +3121,8 @@ type CfnRuleGroup_RegexPatternSetReferenceStatementProperty struct {
 	TextTransformations interface{} `json:"textTransformations"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_RuleActionProperty struct {
 	// `CfnRuleGroup.RuleActionProperty.Allow`.
 	Allow interface{} `json:"allow"`
@@ -3077,21 +3132,25 @@ type CfnRuleGroup_RuleActionProperty struct {
 	Count interface{} `json:"count"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_RuleProperty struct {
+	// `CfnRuleGroup.RuleProperty.Action`.
+	Action interface{} `json:"action"`
 	// `CfnRuleGroup.RuleProperty.Name`.
 	Name *string `json:"name"`
 	// `CfnRuleGroup.RuleProperty.Priority`.
 	Priority *float64 `json:"priority"`
+	// `CfnRuleGroup.RuleProperty.RuleLabels`.
+	RuleLabels interface{} `json:"ruleLabels"`
 	// `CfnRuleGroup.RuleProperty.Statement`.
 	Statement interface{} `json:"statement"`
 	// `CfnRuleGroup.RuleProperty.VisibilityConfig`.
 	VisibilityConfig interface{} `json:"visibilityConfig"`
-	// `CfnRuleGroup.RuleProperty.Action`.
-	Action interface{} `json:"action"`
-	// `CfnRuleGroup.RuleProperty.RuleLabels`.
-	RuleLabels interface{} `json:"ruleLabels"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_SizeConstraintStatementProperty struct {
 	// `CfnRuleGroup.SizeConstraintStatementProperty.ComparisonOperator`.
 	ComparisonOperator *string `json:"comparisonOperator"`
@@ -3103,6 +3162,8 @@ type CfnRuleGroup_SizeConstraintStatementProperty struct {
 	TextTransformations interface{} `json:"textTransformations"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_SqliMatchStatementProperty struct {
 	// `CfnRuleGroup.SqliMatchStatementProperty.FieldToMatch`.
 	FieldToMatch interface{} `json:"fieldToMatch"`
@@ -3110,6 +3171,8 @@ type CfnRuleGroup_SqliMatchStatementProperty struct {
 	TextTransformations interface{} `json:"textTransformations"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_StatementProperty struct {
 	// `CfnRuleGroup.StatementProperty.AndStatement`.
 	AndStatement interface{} `json:"andStatement"`
@@ -3137,6 +3200,8 @@ type CfnRuleGroup_StatementProperty struct {
 	XssMatchStatement interface{} `json:"xssMatchStatement"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_TextTransformationProperty struct {
 	// `CfnRuleGroup.TextTransformationProperty.Priority`.
 	Priority *float64 `json:"priority"`
@@ -3144,6 +3209,8 @@ type CfnRuleGroup_TextTransformationProperty struct {
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_VisibilityConfigProperty struct {
 	// `CfnRuleGroup.VisibilityConfigProperty.CloudWatchMetricsEnabled`.
 	CloudWatchMetricsEnabled interface{} `json:"cloudWatchMetricsEnabled"`
@@ -3153,6 +3220,8 @@ type CfnRuleGroup_VisibilityConfigProperty struct {
 	SampledRequestsEnabled interface{} `json:"sampledRequestsEnabled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_XssMatchStatementProperty struct {
 	// `CfnRuleGroup.XssMatchStatementProperty.FieldToMatch`.
 	FieldToMatch interface{} `json:"fieldToMatch"`
@@ -3161,13 +3230,12 @@ type CfnRuleGroup_XssMatchStatementProperty struct {
 }
 
 // Properties for defining a `AWS::WAFv2::RuleGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnRuleGroupProps struct {
 	// `AWS::WAFv2::RuleGroup.Capacity`.
 	Capacity *float64 `json:"capacity"`
-	// `AWS::WAFv2::RuleGroup.Scope`.
-	Scope *string `json:"scope"`
-	// `AWS::WAFv2::RuleGroup.VisibilityConfig`.
-	VisibilityConfig interface{} `json:"visibilityConfig"`
 	// `AWS::WAFv2::RuleGroup.CustomResponseBodies`.
 	CustomResponseBodies interface{} `json:"customResponseBodies"`
 	// `AWS::WAFv2::RuleGroup.Description`.
@@ -3176,11 +3244,18 @@ type CfnRuleGroupProps struct {
 	Name *string `json:"name"`
 	// `AWS::WAFv2::RuleGroup.Rules`.
 	Rules interface{} `json:"rules"`
+	// `AWS::WAFv2::RuleGroup.Scope`.
+	Scope *string `json:"scope"`
 	// `AWS::WAFv2::RuleGroup.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::WAFv2::RuleGroup.VisibilityConfig`.
+	VisibilityConfig interface{} `json:"visibilityConfig"`
 }
 
 // A CloudFormation `AWS::WAFv2::WebACL`.
+//
+// TODO: EXAMPLE
+//
 type CfnWebACL interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3941,39 +4016,51 @@ func (c *jsiiProxy_CfnWebACL) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_AllowActionProperty struct {
 	// `CfnWebACL.AllowActionProperty.CustomRequestHandling`.
 	CustomRequestHandling interface{} `json:"customRequestHandling"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_AndStatementProperty struct {
 	// `CfnWebACL.AndStatementProperty.Statements`.
 	Statements interface{} `json:"statements"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_BlockActionProperty struct {
 	// `CfnWebACL.BlockActionProperty.CustomResponse`.
 	CustomResponse interface{} `json:"customResponse"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_ByteMatchStatementProperty struct {
 	// `CfnWebACL.ByteMatchStatementProperty.FieldToMatch`.
 	FieldToMatch interface{} `json:"fieldToMatch"`
 	// `CfnWebACL.ByteMatchStatementProperty.PositionalConstraint`.
 	PositionalConstraint *string `json:"positionalConstraint"`
-	// `CfnWebACL.ByteMatchStatementProperty.TextTransformations`.
-	TextTransformations interface{} `json:"textTransformations"`
 	// `CfnWebACL.ByteMatchStatementProperty.SearchString`.
 	SearchString *string `json:"searchString"`
 	// `CfnWebACL.ByteMatchStatementProperty.SearchStringBase64`.
 	SearchStringBase64 *string `json:"searchStringBase64"`
+	// `CfnWebACL.ByteMatchStatementProperty.TextTransformations`.
+	TextTransformations interface{} `json:"textTransformations"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_CountActionProperty struct {
 	// `CfnWebACL.CountActionProperty.CustomRequestHandling`.
 	CustomRequestHandling interface{} `json:"customRequestHandling"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_CustomHTTPHeaderProperty struct {
 	// `CfnWebACL.CustomHTTPHeaderProperty.Name`.
 	Name *string `json:"name"`
@@ -3981,11 +4068,15 @@ type CfnWebACL_CustomHTTPHeaderProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_CustomRequestHandlingProperty struct {
 	// `CfnWebACL.CustomRequestHandlingProperty.InsertHeaders`.
 	InsertHeaders interface{} `json:"insertHeaders"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_CustomResponseBodyProperty struct {
 	// `CfnWebACL.CustomResponseBodyProperty.Content`.
 	Content *string `json:"content"`
@@ -3993,15 +4084,19 @@ type CfnWebACL_CustomResponseBodyProperty struct {
 	ContentType *string `json:"contentType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_CustomResponseProperty struct {
-	// `CfnWebACL.CustomResponseProperty.ResponseCode`.
-	ResponseCode *float64 `json:"responseCode"`
 	// `CfnWebACL.CustomResponseProperty.CustomResponseBodyKey`.
 	CustomResponseBodyKey *string `json:"customResponseBodyKey"`
+	// `CfnWebACL.CustomResponseProperty.ResponseCode`.
+	ResponseCode *float64 `json:"responseCode"`
 	// `CfnWebACL.CustomResponseProperty.ResponseHeaders`.
 	ResponseHeaders interface{} `json:"responseHeaders"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_DefaultActionProperty struct {
 	// `CfnWebACL.DefaultActionProperty.Allow`.
 	Allow interface{} `json:"allow"`
@@ -4009,11 +4104,15 @@ type CfnWebACL_DefaultActionProperty struct {
 	Block interface{} `json:"block"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_ExcludedRuleProperty struct {
 	// `CfnWebACL.ExcludedRuleProperty.Name`.
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_FieldToMatchProperty struct {
 	// `CfnWebACL.FieldToMatchProperty.AllQueryArguments`.
 	AllQueryArguments interface{} `json:"allQueryArguments"`
@@ -4033,6 +4132,8 @@ type CfnWebACL_FieldToMatchProperty struct {
 	UriPath interface{} `json:"uriPath"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_ForwardedIPConfigurationProperty struct {
 	// `CfnWebACL.ForwardedIPConfigurationProperty.FallbackBehavior`.
 	FallbackBehavior *string `json:"fallbackBehavior"`
@@ -4040,6 +4141,8 @@ type CfnWebACL_ForwardedIPConfigurationProperty struct {
 	HeaderName *string `json:"headerName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_GeoMatchStatementProperty struct {
 	// `CfnWebACL.GeoMatchStatementProperty.CountryCodes`.
 	CountryCodes *[]*string `json:"countryCodes"`
@@ -4123,15 +4226,19 @@ func (j *jsiiProxy_CfnWebACL_IPSetReferenceStatementProperty) IpSetForwardedIpCo
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_JsonBodyProperty struct {
+	// `CfnWebACL.JsonBodyProperty.InvalidFallbackBehavior`.
+	InvalidFallbackBehavior *string `json:"invalidFallbackBehavior"`
 	// `CfnWebACL.JsonBodyProperty.MatchPattern`.
 	MatchPattern interface{} `json:"matchPattern"`
 	// `CfnWebACL.JsonBodyProperty.MatchScope`.
 	MatchScope *string `json:"matchScope"`
-	// `CfnWebACL.JsonBodyProperty.InvalidFallbackBehavior`.
-	InvalidFallbackBehavior *string `json:"invalidFallbackBehavior"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_JsonMatchPatternProperty struct {
 	// `CfnWebACL.JsonMatchPatternProperty.All`.
 	All interface{} `json:"all"`
@@ -4139,6 +4246,8 @@ type CfnWebACL_JsonMatchPatternProperty struct {
 	IncludedPaths *[]*string `json:"includedPaths"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_LabelMatchStatementProperty struct {
 	// `CfnWebACL.LabelMatchStatementProperty.Key`.
 	Key *string `json:"key"`
@@ -4146,34 +4255,44 @@ type CfnWebACL_LabelMatchStatementProperty struct {
 	Scope *string `json:"scope"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_LabelProperty struct {
 	// `CfnWebACL.LabelProperty.Name`.
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_ManagedRuleGroupStatementProperty struct {
-	// `CfnWebACL.ManagedRuleGroupStatementProperty.Name`.
-	Name *string `json:"name"`
-	// `CfnWebACL.ManagedRuleGroupStatementProperty.VendorName`.
-	VendorName *string `json:"vendorName"`
 	// `CfnWebACL.ManagedRuleGroupStatementProperty.ExcludedRules`.
 	ExcludedRules interface{} `json:"excludedRules"`
+	// `CfnWebACL.ManagedRuleGroupStatementProperty.Name`.
+	Name *string `json:"name"`
 	// `CfnWebACL.ManagedRuleGroupStatementProperty.ScopeDownStatement`.
 	ScopeDownStatement interface{} `json:"scopeDownStatement"`
+	// `CfnWebACL.ManagedRuleGroupStatementProperty.VendorName`.
+	VendorName *string `json:"vendorName"`
 	// `CfnWebACL.ManagedRuleGroupStatementProperty.Version`.
 	Version *string `json:"version"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_NotStatementProperty struct {
 	// `CfnWebACL.NotStatementProperty.Statement`.
 	Statement interface{} `json:"statement"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_OrStatementProperty struct {
 	// `CfnWebACL.OrStatementProperty.Statements`.
 	Statements interface{} `json:"statements"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_OverrideActionProperty struct {
 	// `CfnWebACL.OverrideActionProperty.Count`.
 	Count interface{} `json:"count"`
@@ -4181,17 +4300,21 @@ type CfnWebACL_OverrideActionProperty struct {
 	None interface{} `json:"none"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_RateBasedStatementProperty struct {
 	// `CfnWebACL.RateBasedStatementProperty.AggregateKeyType`.
 	AggregateKeyType *string `json:"aggregateKeyType"`
-	// `CfnWebACL.RateBasedStatementProperty.Limit`.
-	Limit *float64 `json:"limit"`
 	// `CfnWebACL.RateBasedStatementProperty.ForwardedIPConfig`.
 	ForwardedIpConfig interface{} `json:"forwardedIpConfig"`
+	// `CfnWebACL.RateBasedStatementProperty.Limit`.
+	Limit *float64 `json:"limit"`
 	// `CfnWebACL.RateBasedStatementProperty.ScopeDownStatement`.
 	ScopeDownStatement interface{} `json:"scopeDownStatement"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_RegexPatternSetReferenceStatementProperty struct {
 	// `CfnWebACL.RegexPatternSetReferenceStatementProperty.Arn`.
 	Arn *string `json:"arn"`
@@ -4201,6 +4324,8 @@ type CfnWebACL_RegexPatternSetReferenceStatementProperty struct {
 	TextTransformations interface{} `json:"textTransformations"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_RuleActionProperty struct {
 	// `CfnWebACL.RuleActionProperty.Allow`.
 	Allow interface{} `json:"allow"`
@@ -4210,6 +4335,8 @@ type CfnWebACL_RuleActionProperty struct {
 	Count interface{} `json:"count"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_RuleGroupReferenceStatementProperty struct {
 	// `CfnWebACL.RuleGroupReferenceStatementProperty.Arn`.
 	Arn *string `json:"arn"`
@@ -4217,23 +4344,27 @@ type CfnWebACL_RuleGroupReferenceStatementProperty struct {
 	ExcludedRules interface{} `json:"excludedRules"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_RuleProperty struct {
+	// `CfnWebACL.RuleProperty.Action`.
+	Action interface{} `json:"action"`
 	// `CfnWebACL.RuleProperty.Name`.
 	Name *string `json:"name"`
+	// `CfnWebACL.RuleProperty.OverrideAction`.
+	OverrideAction interface{} `json:"overrideAction"`
 	// `CfnWebACL.RuleProperty.Priority`.
 	Priority *float64 `json:"priority"`
+	// `CfnWebACL.RuleProperty.RuleLabels`.
+	RuleLabels interface{} `json:"ruleLabels"`
 	// `CfnWebACL.RuleProperty.Statement`.
 	Statement interface{} `json:"statement"`
 	// `CfnWebACL.RuleProperty.VisibilityConfig`.
 	VisibilityConfig interface{} `json:"visibilityConfig"`
-	// `CfnWebACL.RuleProperty.Action`.
-	Action interface{} `json:"action"`
-	// `CfnWebACL.RuleProperty.OverrideAction`.
-	OverrideAction interface{} `json:"overrideAction"`
-	// `CfnWebACL.RuleProperty.RuleLabels`.
-	RuleLabels interface{} `json:"ruleLabels"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_SizeConstraintStatementProperty struct {
 	// `CfnWebACL.SizeConstraintStatementProperty.ComparisonOperator`.
 	ComparisonOperator *string `json:"comparisonOperator"`
@@ -4245,6 +4376,8 @@ type CfnWebACL_SizeConstraintStatementProperty struct {
 	TextTransformations interface{} `json:"textTransformations"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_SqliMatchStatementProperty struct {
 	// `CfnWebACL.SqliMatchStatementProperty.FieldToMatch`.
 	FieldToMatch interface{} `json:"fieldToMatch"`
@@ -4252,6 +4385,8 @@ type CfnWebACL_SqliMatchStatementProperty struct {
 	TextTransformations interface{} `json:"textTransformations"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_StatementProperty struct {
 	// `CfnWebACL.StatementProperty.AndStatement`.
 	AndStatement interface{} `json:"andStatement"`
@@ -4283,6 +4418,8 @@ type CfnWebACL_StatementProperty struct {
 	XssMatchStatement interface{} `json:"xssMatchStatement"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_TextTransformationProperty struct {
 	// `CfnWebACL.TextTransformationProperty.Priority`.
 	Priority *float64 `json:"priority"`
@@ -4290,6 +4427,8 @@ type CfnWebACL_TextTransformationProperty struct {
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_VisibilityConfigProperty struct {
 	// `CfnWebACL.VisibilityConfigProperty.CloudWatchMetricsEnabled`.
 	CloudWatchMetricsEnabled interface{} `json:"cloudWatchMetricsEnabled"`
@@ -4299,6 +4438,8 @@ type CfnWebACL_VisibilityConfigProperty struct {
 	SampledRequestsEnabled interface{} `json:"sampledRequestsEnabled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_XssMatchStatementProperty struct {
 	// `CfnWebACL.XssMatchStatementProperty.FieldToMatch`.
 	FieldToMatch interface{} `json:"fieldToMatch"`
@@ -4307,6 +4448,9 @@ type CfnWebACL_XssMatchStatementProperty struct {
 }
 
 // A CloudFormation `AWS::WAFv2::WebACLAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnWebACLAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4913,6 +5057,9 @@ func (c *jsiiProxy_CfnWebACLAssociation) ValidateProperties(_properties interfac
 }
 
 // Properties for defining a `AWS::WAFv2::WebACLAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnWebACLAssociationProps struct {
 	// `AWS::WAFv2::WebACLAssociation.ResourceArn`.
 	ResourceArn *string `json:"resourceArn"`
@@ -4921,22 +5068,25 @@ type CfnWebACLAssociationProps struct {
 }
 
 // Properties for defining a `AWS::WAFv2::WebACL`.
+//
+// TODO: EXAMPLE
+//
 type CfnWebACLProps struct {
-	// `AWS::WAFv2::WebACL.DefaultAction`.
-	DefaultAction interface{} `json:"defaultAction"`
-	// `AWS::WAFv2::WebACL.Scope`.
-	Scope *string `json:"scope"`
-	// `AWS::WAFv2::WebACL.VisibilityConfig`.
-	VisibilityConfig interface{} `json:"visibilityConfig"`
 	// `AWS::WAFv2::WebACL.CustomResponseBodies`.
 	CustomResponseBodies interface{} `json:"customResponseBodies"`
+	// `AWS::WAFv2::WebACL.DefaultAction`.
+	DefaultAction interface{} `json:"defaultAction"`
 	// `AWS::WAFv2::WebACL.Description`.
 	Description *string `json:"description"`
 	// `AWS::WAFv2::WebACL.Name`.
 	Name *string `json:"name"`
 	// `AWS::WAFv2::WebACL.Rules`.
 	Rules interface{} `json:"rules"`
+	// `AWS::WAFv2::WebACL.Scope`.
+	Scope *string `json:"scope"`
 	// `AWS::WAFv2::WebACL.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::WAFv2::WebACL.VisibilityConfig`.
+	VisibilityConfig interface{} `json:"visibilityConfig"`
 }
 

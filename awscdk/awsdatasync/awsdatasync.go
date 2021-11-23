@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::DataSync::Agent`.
+//
+// TODO: EXAMPLE
+//
 type CfnAgent interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -709,6 +712,9 @@ func (c *jsiiProxy_CfnAgent) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::DataSync::Agent`.
+//
+// TODO: EXAMPLE
+//
 type CfnAgentProps struct {
 	// `AWS::DataSync::Agent.ActivationKey`.
 	ActivationKey *string `json:"activationKey"`
@@ -725,6 +731,9 @@ type CfnAgentProps struct {
 }
 
 // A CloudFormation `AWS::DataSync::LocationEFS`.
+//
+// TODO: EXAMPLE
+//
 type CfnLocationEFS interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1383,6 +1392,8 @@ func (c *jsiiProxy_CfnLocationEFS) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnLocationEFS_Ec2ConfigProperty struct {
 	// `CfnLocationEFS.Ec2ConfigProperty.SecurityGroupArns`.
 	SecurityGroupArns *[]*string `json:"securityGroupArns"`
@@ -1391,6 +1402,9 @@ type CfnLocationEFS_Ec2ConfigProperty struct {
 }
 
 // Properties for defining a `AWS::DataSync::LocationEFS`.
+//
+// TODO: EXAMPLE
+//
 type CfnLocationEFSProps struct {
 	// `AWS::DataSync::LocationEFS.Ec2Config`.
 	Ec2Config interface{} `json:"ec2Config"`
@@ -1403,6 +1417,9 @@ type CfnLocationEFSProps struct {
 }
 
 // A CloudFormation `AWS::DataSync::LocationFSxWindows`.
+//
+// TODO: EXAMPLE
+//
 type CfnLocationFSxWindows interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2122,24 +2139,30 @@ func (c *jsiiProxy_CfnLocationFSxWindows) ValidateProperties(_properties interfa
 }
 
 // Properties for defining a `AWS::DataSync::LocationFSxWindows`.
+//
+// TODO: EXAMPLE
+//
 type CfnLocationFSxWindowsProps struct {
+	// `AWS::DataSync::LocationFSxWindows.Domain`.
+	Domain *string `json:"domain"`
 	// `AWS::DataSync::LocationFSxWindows.FsxFilesystemArn`.
 	FsxFilesystemArn *string `json:"fsxFilesystemArn"`
 	// `AWS::DataSync::LocationFSxWindows.Password`.
 	Password *string `json:"password"`
 	// `AWS::DataSync::LocationFSxWindows.SecurityGroupArns`.
 	SecurityGroupArns *[]*string `json:"securityGroupArns"`
-	// `AWS::DataSync::LocationFSxWindows.User`.
-	User *string `json:"user"`
-	// `AWS::DataSync::LocationFSxWindows.Domain`.
-	Domain *string `json:"domain"`
 	// `AWS::DataSync::LocationFSxWindows.Subdirectory`.
 	Subdirectory *string `json:"subdirectory"`
 	// `AWS::DataSync::LocationFSxWindows.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::DataSync::LocationFSxWindows.User`.
+	User *string `json:"user"`
 }
 
 // A CloudFormation `AWS::DataSync::LocationHDFS`.
+//
+// TODO: EXAMPLE
+//
 type CfnLocationHDFS interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2978,6 +3001,8 @@ func (c *jsiiProxy_CfnLocationHDFS) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnLocationHDFS_NameNodeProperty struct {
 	// `CfnLocationHDFS.NameNodeProperty.Hostname`.
 	Hostname *string `json:"hostname"`
@@ -2985,6 +3010,8 @@ type CfnLocationHDFS_NameNodeProperty struct {
 	Port *float64 `json:"port"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLocationHDFS_QopConfigurationProperty struct {
 	// `CfnLocationHDFS.QopConfigurationProperty.DataTransferProtection`.
 	DataTransferProtection *string `json:"dataTransferProtection"`
@@ -2993,13 +3020,14 @@ type CfnLocationHDFS_QopConfigurationProperty struct {
 }
 
 // Properties for defining a `AWS::DataSync::LocationHDFS`.
+//
+// TODO: EXAMPLE
+//
 type CfnLocationHDFSProps struct {
 	// `AWS::DataSync::LocationHDFS.AgentArns`.
 	AgentArns *[]*string `json:"agentArns"`
 	// `AWS::DataSync::LocationHDFS.AuthenticationType`.
 	AuthenticationType *string `json:"authenticationType"`
-	// `AWS::DataSync::LocationHDFS.NameNodes`.
-	NameNodes interface{} `json:"nameNodes"`
 	// `AWS::DataSync::LocationHDFS.BlockSize`.
 	BlockSize *float64 `json:"blockSize"`
 	// `AWS::DataSync::LocationHDFS.KerberosKeytab`.
@@ -3010,6 +3038,8 @@ type CfnLocationHDFSProps struct {
 	KerberosPrincipal *string `json:"kerberosPrincipal"`
 	// `AWS::DataSync::LocationHDFS.KmsKeyProviderUri`.
 	KmsKeyProviderUri *string `json:"kmsKeyProviderUri"`
+	// `AWS::DataSync::LocationHDFS.NameNodes`.
+	NameNodes interface{} `json:"nameNodes"`
 	// `AWS::DataSync::LocationHDFS.QopConfiguration`.
 	QopConfiguration interface{} `json:"qopConfiguration"`
 	// `AWS::DataSync::LocationHDFS.ReplicationFactor`.
@@ -3023,6 +3053,9 @@ type CfnLocationHDFSProps struct {
 }
 
 // A CloudFormation `AWS::DataSync::LocationNFS`.
+//
+// TODO: EXAMPLE
+//
 type CfnLocationNFS interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3701,31 +3734,41 @@ func (c *jsiiProxy_CfnLocationNFS) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnLocationNFS_MountOptionsProperty struct {
 	// `CfnLocationNFS.MountOptionsProperty.Version`.
 	Version *string `json:"version"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLocationNFS_OnPremConfigProperty struct {
 	// `CfnLocationNFS.OnPremConfigProperty.AgentArns`.
 	AgentArns *[]*string `json:"agentArns"`
 }
 
 // Properties for defining a `AWS::DataSync::LocationNFS`.
+//
+// TODO: EXAMPLE
+//
 type CfnLocationNFSProps struct {
+	// `AWS::DataSync::LocationNFS.MountOptions`.
+	MountOptions interface{} `json:"mountOptions"`
 	// `AWS::DataSync::LocationNFS.OnPremConfig`.
 	OnPremConfig interface{} `json:"onPremConfig"`
 	// `AWS::DataSync::LocationNFS.ServerHostname`.
 	ServerHostname *string `json:"serverHostname"`
 	// `AWS::DataSync::LocationNFS.Subdirectory`.
 	Subdirectory *string `json:"subdirectory"`
-	// `AWS::DataSync::LocationNFS.MountOptions`.
-	MountOptions interface{} `json:"mountOptions"`
 	// `AWS::DataSync::LocationNFS.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::DataSync::LocationObjectStorage`.
+//
+// TODO: EXAMPLE
+//
 type CfnLocationObjectStorage interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4485,17 +4528,20 @@ func (c *jsiiProxy_CfnLocationObjectStorage) ValidateProperties(_properties inte
 }
 
 // Properties for defining a `AWS::DataSync::LocationObjectStorage`.
+//
+// TODO: EXAMPLE
+//
 type CfnLocationObjectStorageProps struct {
+	// `AWS::DataSync::LocationObjectStorage.AccessKey`.
+	AccessKey *string `json:"accessKey"`
 	// `AWS::DataSync::LocationObjectStorage.AgentArns`.
 	AgentArns *[]*string `json:"agentArns"`
 	// `AWS::DataSync::LocationObjectStorage.BucketName`.
 	BucketName *string `json:"bucketName"`
-	// `AWS::DataSync::LocationObjectStorage.ServerHostname`.
-	ServerHostname *string `json:"serverHostname"`
-	// `AWS::DataSync::LocationObjectStorage.AccessKey`.
-	AccessKey *string `json:"accessKey"`
 	// `AWS::DataSync::LocationObjectStorage.SecretKey`.
 	SecretKey *string `json:"secretKey"`
+	// `AWS::DataSync::LocationObjectStorage.ServerHostname`.
+	ServerHostname *string `json:"serverHostname"`
 	// `AWS::DataSync::LocationObjectStorage.ServerPort`.
 	ServerPort *float64 `json:"serverPort"`
 	// `AWS::DataSync::LocationObjectStorage.ServerProtocol`.
@@ -4507,6 +4553,9 @@ type CfnLocationObjectStorageProps struct {
 }
 
 // A CloudFormation `AWS::DataSync::LocationS3`.
+//
+// TODO: EXAMPLE
+//
 type CfnLocationS3 interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5185,12 +5234,17 @@ func (c *jsiiProxy_CfnLocationS3) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnLocationS3_S3ConfigProperty struct {
 	// `CfnLocationS3.S3ConfigProperty.BucketAccessRoleArn`.
 	BucketAccessRoleArn *string `json:"bucketAccessRoleArn"`
 }
 
 // Properties for defining a `AWS::DataSync::LocationS3`.
+//
+// TODO: EXAMPLE
+//
 type CfnLocationS3Props struct {
 	// `AWS::DataSync::LocationS3.S3BucketArn`.
 	S3BucketArn *string `json:"s3BucketArn"`
@@ -5205,6 +5259,9 @@ type CfnLocationS3Props struct {
 }
 
 // A CloudFormation `AWS::DataSync::LocationSMB`.
+//
+// TODO: EXAMPLE
+//
 type CfnLocationSMB interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5943,32 +6000,40 @@ func (c *jsiiProxy_CfnLocationSMB) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnLocationSMB_MountOptionsProperty struct {
 	// `CfnLocationSMB.MountOptionsProperty.Version`.
 	Version *string `json:"version"`
 }
 
 // Properties for defining a `AWS::DataSync::LocationSMB`.
+//
+// TODO: EXAMPLE
+//
 type CfnLocationSMBProps struct {
 	// `AWS::DataSync::LocationSMB.AgentArns`.
 	AgentArns *[]*string `json:"agentArns"`
+	// `AWS::DataSync::LocationSMB.Domain`.
+	Domain *string `json:"domain"`
+	// `AWS::DataSync::LocationSMB.MountOptions`.
+	MountOptions interface{} `json:"mountOptions"`
 	// `AWS::DataSync::LocationSMB.Password`.
 	Password *string `json:"password"`
 	// `AWS::DataSync::LocationSMB.ServerHostname`.
 	ServerHostname *string `json:"serverHostname"`
 	// `AWS::DataSync::LocationSMB.Subdirectory`.
 	Subdirectory *string `json:"subdirectory"`
-	// `AWS::DataSync::LocationSMB.User`.
-	User *string `json:"user"`
-	// `AWS::DataSync::LocationSMB.Domain`.
-	Domain *string `json:"domain"`
-	// `AWS::DataSync::LocationSMB.MountOptions`.
-	MountOptions interface{} `json:"mountOptions"`
 	// `AWS::DataSync::LocationSMB.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::DataSync::LocationSMB.User`.
+	User *string `json:"user"`
 }
 
 // A CloudFormation `AWS::DataSync::Task`.
+//
+// TODO: EXAMPLE
+//
 type CfnTask interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6771,6 +6836,8 @@ func (c *jsiiProxy_CfnTask) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnTask_FilterRuleProperty struct {
 	// `CfnTask.FilterRuleProperty.FilterType`.
 	FilterType *string `json:"filterType"`
@@ -6778,6 +6845,8 @@ type CfnTask_FilterRuleProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTask_OptionsProperty struct {
 	// `CfnTask.OptionsProperty.Atime`.
 	Atime *string `json:"atime"`
@@ -6809,19 +6878,22 @@ type CfnTask_OptionsProperty struct {
 	VerifyMode *string `json:"verifyMode"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTask_TaskScheduleProperty struct {
 	// `CfnTask.TaskScheduleProperty.ScheduleExpression`.
 	ScheduleExpression *string `json:"scheduleExpression"`
 }
 
 // Properties for defining a `AWS::DataSync::Task`.
+//
+// TODO: EXAMPLE
+//
 type CfnTaskProps struct {
-	// `AWS::DataSync::Task.DestinationLocationArn`.
-	DestinationLocationArn *string `json:"destinationLocationArn"`
-	// `AWS::DataSync::Task.SourceLocationArn`.
-	SourceLocationArn *string `json:"sourceLocationArn"`
 	// `AWS::DataSync::Task.CloudWatchLogGroupArn`.
 	CloudWatchLogGroupArn *string `json:"cloudWatchLogGroupArn"`
+	// `AWS::DataSync::Task.DestinationLocationArn`.
+	DestinationLocationArn *string `json:"destinationLocationArn"`
 	// `AWS::DataSync::Task.Excludes`.
 	Excludes interface{} `json:"excludes"`
 	// `AWS::DataSync::Task.Includes`.
@@ -6832,6 +6904,8 @@ type CfnTaskProps struct {
 	Options interface{} `json:"options"`
 	// `AWS::DataSync::Task.Schedule`.
 	Schedule interface{} `json:"schedule"`
+	// `AWS::DataSync::Task.SourceLocationArn`.
+	SourceLocationArn *string `json:"sourceLocationArn"`
 	// `AWS::DataSync::Task.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }

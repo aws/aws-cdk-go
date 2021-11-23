@@ -27,6 +27,9 @@ const (
 )
 
 // Generic properties for defining a delivery stream destination.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CommonDestinationProps struct {
 	// If true, log errors when data transformation or data delivery fails.
@@ -51,6 +54,9 @@ type CommonDestinationProps struct {
 }
 
 // Common properties for defining a backup, intermediary, or final S3 destination for a Kinesis Data Firehose delivery stream.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CommonDestinationS3Props struct {
 	// The length of time that Firehose buffers incoming data before delivering it to the S3 bucket.

@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::Panorama::ApplicationInstance`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationInstance interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -854,30 +857,37 @@ func (c *jsiiProxy_CfnApplicationInstance) ValidateProperties(_properties interf
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationInstance_ManifestOverridesPayloadProperty struct {
 	// `CfnApplicationInstance.ManifestOverridesPayloadProperty.PayloadData`.
 	PayloadData *string `json:"payloadData"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationInstance_ManifestPayloadProperty struct {
 	// `CfnApplicationInstance.ManifestPayloadProperty.PayloadData`.
 	PayloadData *string `json:"payloadData"`
 }
 
 // Properties for defining a `AWS::Panorama::ApplicationInstance`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationInstanceProps struct {
-	// `AWS::Panorama::ApplicationInstance.DefaultRuntimeContextDevice`.
-	DefaultRuntimeContextDevice *string `json:"defaultRuntimeContextDevice"`
-	// `AWS::Panorama::ApplicationInstance.ManifestPayload`.
-	ManifestPayload interface{} `json:"manifestPayload"`
 	// `AWS::Panorama::ApplicationInstance.ApplicationInstanceIdToReplace`.
 	ApplicationInstanceIdToReplace *string `json:"applicationInstanceIdToReplace"`
+	// `AWS::Panorama::ApplicationInstance.DefaultRuntimeContextDevice`.
+	DefaultRuntimeContextDevice *string `json:"defaultRuntimeContextDevice"`
 	// `AWS::Panorama::ApplicationInstance.Description`.
 	Description *string `json:"description"`
 	// `AWS::Panorama::ApplicationInstance.DeviceId`.
 	DeviceId *string `json:"deviceId"`
 	// `AWS::Panorama::ApplicationInstance.ManifestOverridesPayload`.
 	ManifestOverridesPayload interface{} `json:"manifestOverridesPayload"`
+	// `AWS::Panorama::ApplicationInstance.ManifestPayload`.
+	ManifestPayload interface{} `json:"manifestPayload"`
 	// `AWS::Panorama::ApplicationInstance.Name`.
 	Name *string `json:"name"`
 	// `AWS::Panorama::ApplicationInstance.RuntimeRoleArn`.
@@ -889,6 +899,9 @@ type CfnApplicationInstanceProps struct {
 }
 
 // A CloudFormation `AWS::Panorama::Package`.
+//
+// TODO: EXAMPLE
+//
 type CfnPackage interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1519,6 +1532,9 @@ func (c *jsiiProxy_CfnPackage) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Panorama::Package`.
+//
+// TODO: EXAMPLE
+//
 type CfnPackageProps struct {
 	// `AWS::Panorama::Package.PackageName`.
 	PackageName *string `json:"packageName"`
@@ -1527,6 +1543,9 @@ type CfnPackageProps struct {
 }
 
 // A CloudFormation `AWS::Panorama::PackageVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnPackageVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2279,17 +2298,20 @@ func (c *jsiiProxy_CfnPackageVersion) ValidateProperties(_properties interface{}
 }
 
 // Properties for defining a `AWS::Panorama::PackageVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnPackageVersionProps struct {
+	// `AWS::Panorama::PackageVersion.MarkLatest`.
+	MarkLatest interface{} `json:"markLatest"`
+	// `AWS::Panorama::PackageVersion.OwnerAccount`.
+	OwnerAccount *string `json:"ownerAccount"`
 	// `AWS::Panorama::PackageVersion.PackageId`.
 	PackageId *string `json:"packageId"`
 	// `AWS::Panorama::PackageVersion.PackageVersion`.
 	PackageVersion *string `json:"packageVersion"`
 	// `AWS::Panorama::PackageVersion.PatchVersion`.
 	PatchVersion *string `json:"patchVersion"`
-	// `AWS::Panorama::PackageVersion.MarkLatest`.
-	MarkLatest interface{} `json:"markLatest"`
-	// `AWS::Panorama::PackageVersion.OwnerAccount`.
-	OwnerAccount *string `json:"ownerAccount"`
 	// `AWS::Panorama::PackageVersion.UpdatedLatestPatchVersion`.
 	UpdatedLatestPatchVersion *string `json:"updatedLatestPatchVersion"`
 }

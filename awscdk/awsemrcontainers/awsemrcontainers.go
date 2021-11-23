@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::EMRContainers::VirtualCluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnVirtualCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -648,11 +651,15 @@ func (c *jsiiProxy_CfnVirtualCluster) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualCluster_ContainerInfoProperty struct {
 	// `CfnVirtualCluster.ContainerInfoProperty.EksInfo`.
 	EksInfo interface{} `json:"eksInfo"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualCluster_ContainerProviderProperty struct {
 	// `CfnVirtualCluster.ContainerProviderProperty.Id`.
 	Id *string `json:"id"`
@@ -662,12 +669,17 @@ type CfnVirtualCluster_ContainerProviderProperty struct {
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualCluster_EksInfoProperty struct {
 	// `CfnVirtualCluster.EksInfoProperty.Namespace`.
 	Namespace *string `json:"namespace"`
 }
 
 // Properties for defining a `AWS::EMRContainers::VirtualCluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnVirtualClusterProps struct {
 	// `AWS::EMRContainers::VirtualCluster.ContainerProvider`.
 	ContainerProvider interface{} `json:"containerProvider"`

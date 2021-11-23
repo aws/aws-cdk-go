@@ -184,8 +184,8 @@ func init() {
 		"monocdk.cx_api.LoadBalancerIpAddressType",
 		reflect.TypeOf((*LoadBalancerIpAddressType)(nil)).Elem(),
 		map[string]interface{}{
-			"IPV4": LoadBalancerIpAddressType_IPV4,
 			"DUAL_STACK": LoadBalancerIpAddressType_DUAL_STACK,
+			"IPV4": LoadBalancerIpAddressType_IPV4,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -282,9 +282,9 @@ func init() {
 		"monocdk.cx_api.VpcSubnetGroupType",
 		reflect.TypeOf((*VpcSubnetGroupType)(nil)).Elem(),
 		map[string]interface{}{
-			"PUBLIC": VpcSubnetGroupType_PUBLIC,
-			"PRIVATE": VpcSubnetGroupType_PRIVATE,
 			"ISOLATED": VpcSubnetGroupType_ISOLATED,
+			"PRIVATE": VpcSubnetGroupType_PRIVATE,
+			"PUBLIC": VpcSubnetGroupType_PUBLIC,
 		},
 	)
 }

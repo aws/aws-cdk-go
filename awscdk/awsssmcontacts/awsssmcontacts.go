@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::SSMContacts::Contact`.
+//
+// TODO: EXAMPLE
+//
 type CfnContact interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -666,6 +669,8 @@ func (c *jsiiProxy_CfnContact) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnContact_ChannelTargetInfoProperty struct {
 	// `CfnContact.ChannelTargetInfoProperty.ChannelId`.
 	ChannelId *string `json:"channelId"`
@@ -673,6 +678,8 @@ type CfnContact_ChannelTargetInfoProperty struct {
 	RetryIntervalInMinutes *float64 `json:"retryIntervalInMinutes"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnContact_ContactTargetInfoProperty struct {
 	// `CfnContact.ContactTargetInfoProperty.ContactId`.
 	ContactId *string `json:"contactId"`
@@ -680,6 +687,8 @@ type CfnContact_ContactTargetInfoProperty struct {
 	IsEssential interface{} `json:"isEssential"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnContact_StageProperty struct {
 	// `CfnContact.StageProperty.DurationInMinutes`.
 	DurationInMinutes *float64 `json:"durationInMinutes"`
@@ -687,6 +696,8 @@ type CfnContact_StageProperty struct {
 	Targets interface{} `json:"targets"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnContact_TargetsProperty struct {
 	// `CfnContact.TargetsProperty.ChannelTargetInfo`.
 	ChannelTargetInfo interface{} `json:"channelTargetInfo"`
@@ -695,6 +706,9 @@ type CfnContact_TargetsProperty struct {
 }
 
 // A CloudFormation `AWS::SSMContacts::ContactChannel`.
+//
+// TODO: EXAMPLE
+//
 type CfnContactChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1372,6 +1386,9 @@ func (c *jsiiProxy_CfnContactChannel) ValidateProperties(_properties interface{}
 }
 
 // Properties for defining a `AWS::SSMContacts::ContactChannel`.
+//
+// TODO: EXAMPLE
+//
 type CfnContactChannelProps struct {
 	// `AWS::SSMContacts::ContactChannel.ChannelAddress`.
 	ChannelAddress *string `json:"channelAddress"`
@@ -1386,6 +1403,9 @@ type CfnContactChannelProps struct {
 }
 
 // Properties for defining a `AWS::SSMContacts::Contact`.
+//
+// TODO: EXAMPLE
+//
 type CfnContactProps struct {
 	// `AWS::SSMContacts::Contact.Alias`.
 	Alias *string `json:"alias"`

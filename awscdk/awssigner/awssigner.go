@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::Signer::ProfilePermission`.
+//
+// TODO: EXAMPLE
+//
 type CfnProfilePermission interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -676,6 +679,9 @@ func (c *jsiiProxy_CfnProfilePermission) ValidateProperties(_properties interfac
 }
 
 // Properties for defining a `AWS::Signer::ProfilePermission`.
+//
+// TODO: EXAMPLE
+//
 type CfnProfilePermissionProps struct {
 	// `AWS::Signer::ProfilePermission.Action`.
 	Action *string `json:"action"`
@@ -683,13 +689,16 @@ type CfnProfilePermissionProps struct {
 	Principal *string `json:"principal"`
 	// `AWS::Signer::ProfilePermission.ProfileName`.
 	ProfileName *string `json:"profileName"`
-	// `AWS::Signer::ProfilePermission.StatementId`.
-	StatementId *string `json:"statementId"`
 	// `AWS::Signer::ProfilePermission.ProfileVersion`.
 	ProfileVersion *string `json:"profileVersion"`
+	// `AWS::Signer::ProfilePermission.StatementId`.
+	StatementId *string `json:"statementId"`
 }
 
 // A CloudFormation `AWS::Signer::SigningProfile`.
+//
+// TODO: EXAMPLE
+//
 type CfnSigningProfile interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1350,6 +1359,8 @@ func (c *jsiiProxy_CfnSigningProfile) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnSigningProfile_SignatureValidityPeriodProperty struct {
 	// `CfnSigningProfile.SignatureValidityPeriodProperty.Type`.
 	Type *string `json:"type"`
@@ -1358,6 +1369,9 @@ type CfnSigningProfile_SignatureValidityPeriodProperty struct {
 }
 
 // Properties for defining a `AWS::Signer::SigningProfile`.
+//
+// TODO: EXAMPLE
+//
 type CfnSigningProfileProps struct {
 	// `AWS::Signer::SigningProfile.PlatformId`.
 	PlatformId *string `json:"platformId"`
@@ -1881,6 +1895,9 @@ func (s *jsiiProxy_SigningProfile) Validate() *[]*string {
 }
 
 // A reference to a Signing Profile.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SigningProfileAttributes struct {
 	// The name of signing profile.

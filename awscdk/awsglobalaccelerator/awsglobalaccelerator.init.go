@@ -278,9 +278,9 @@ func init() {
 		"monocdk.aws_globalaccelerator.HealthCheckProtocol",
 		reflect.TypeOf((*HealthCheckProtocol)(nil)).Elem(),
 		map[string]interface{}{
-			"TCP": HealthCheckProtocol_TCP,
 			"HTTP": HealthCheckProtocol_HTTP,
 			"HTTPS": HealthCheckProtocol_HTTPS,
+			"TCP": HealthCheckProtocol_TCP,
 		},
 	)
 	_jsii_.RegisterInterface(

@@ -15,12 +15,12 @@ func init() {
 		"monocdk.aws_secretsmanager.AttachmentTargetType",
 		reflect.TypeOf((*AttachmentTargetType)(nil)).Elem(),
 		map[string]interface{}{
-			"INSTANCE": AttachmentTargetType_INSTANCE,
 			"CLUSTER": AttachmentTargetType_CLUSTER,
+			"DOCDB_DB_CLUSTER": AttachmentTargetType_DOCDB_DB_CLUSTER,
+			"DOCDB_DB_INSTANCE": AttachmentTargetType_DOCDB_DB_INSTANCE,
+			"INSTANCE": AttachmentTargetType_INSTANCE,
 			"RDS_DB_PROXY": AttachmentTargetType_RDS_DB_PROXY,
 			"REDSHIFT_CLUSTER": AttachmentTargetType_REDSHIFT_CLUSTER,
-			"DOCDB_DB_INSTANCE": AttachmentTargetType_DOCDB_DB_INSTANCE,
-			"DOCDB_DB_CLUSTER": AttachmentTargetType_DOCDB_DB_CLUSTER,
 		},
 	)
 	_jsii_.RegisterClass(

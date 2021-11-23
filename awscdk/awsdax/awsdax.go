@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::DAX::Cluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -879,19 +882,18 @@ func (c *jsiiProxy_CfnCluster) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_SSESpecificationProperty struct {
 	// `CfnCluster.SSESpecificationProperty.SSEEnabled`.
 	SseEnabled interface{} `json:"sseEnabled"`
 }
 
 // Properties for defining a `AWS::DAX::Cluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnClusterProps struct {
-	// `AWS::DAX::Cluster.IAMRoleARN`.
-	IamRoleArn *string `json:"iamRoleArn"`
-	// `AWS::DAX::Cluster.NodeType`.
-	NodeType *string `json:"nodeType"`
-	// `AWS::DAX::Cluster.ReplicationFactor`.
-	ReplicationFactor *float64 `json:"replicationFactor"`
 	// `AWS::DAX::Cluster.AvailabilityZones`.
 	AvailabilityZones *[]*string `json:"availabilityZones"`
 	// `AWS::DAX::Cluster.ClusterEndpointEncryptionType`.
@@ -900,12 +902,18 @@ type CfnClusterProps struct {
 	ClusterName *string `json:"clusterName"`
 	// `AWS::DAX::Cluster.Description`.
 	Description *string `json:"description"`
+	// `AWS::DAX::Cluster.IAMRoleARN`.
+	IamRoleArn *string `json:"iamRoleArn"`
+	// `AWS::DAX::Cluster.NodeType`.
+	NodeType *string `json:"nodeType"`
 	// `AWS::DAX::Cluster.NotificationTopicARN`.
 	NotificationTopicArn *string `json:"notificationTopicArn"`
 	// `AWS::DAX::Cluster.ParameterGroupName`.
 	ParameterGroupName *string `json:"parameterGroupName"`
 	// `AWS::DAX::Cluster.PreferredMaintenanceWindow`.
 	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
+	// `AWS::DAX::Cluster.ReplicationFactor`.
+	ReplicationFactor *float64 `json:"replicationFactor"`
 	// `AWS::DAX::Cluster.SecurityGroupIds`.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
 	// `AWS::DAX::Cluster.SSESpecification`.
@@ -917,6 +925,9 @@ type CfnClusterProps struct {
 }
 
 // A CloudFormation `AWS::DAX::ParameterGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnParameterGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1543,6 +1554,9 @@ func (c *jsiiProxy_CfnParameterGroup) ValidateProperties(_properties interface{}
 }
 
 // Properties for defining a `AWS::DAX::ParameterGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnParameterGroupProps struct {
 	// `AWS::DAX::ParameterGroup.Description`.
 	Description *string `json:"description"`
@@ -1553,6 +1567,9 @@ type CfnParameterGroupProps struct {
 }
 
 // A CloudFormation `AWS::DAX::SubnetGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnSubnetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2179,12 +2196,15 @@ func (c *jsiiProxy_CfnSubnetGroup) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::DAX::SubnetGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnSubnetGroupProps struct {
-	// `AWS::DAX::SubnetGroup.SubnetIds`.
-	SubnetIds *[]*string `json:"subnetIds"`
 	// `AWS::DAX::SubnetGroup.Description`.
 	Description *string `json:"description"`
 	// `AWS::DAX::SubnetGroup.SubnetGroupName`.
 	SubnetGroupName *string `json:"subnetGroupName"`
+	// `AWS::DAX::SubnetGroup.SubnetIds`.
+	SubnetIds *[]*string `json:"subnetIds"`
 }
 

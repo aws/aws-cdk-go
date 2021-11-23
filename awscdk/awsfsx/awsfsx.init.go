@@ -150,9 +150,9 @@ func init() {
 		"monocdk.aws_fsx.LustreDeploymentType",
 		reflect.TypeOf((*LustreDeploymentType)(nil)).Elem(),
 		map[string]interface{}{
+			"PERSISTENT_1": LustreDeploymentType_PERSISTENT_1,
 			"SCRATCH_1": LustreDeploymentType_SCRATCH_1,
 			"SCRATCH_2": LustreDeploymentType_SCRATCH_2,
-			"PERSISTENT_1": LustreDeploymentType_PERSISTENT_1,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -207,13 +207,13 @@ func init() {
 		"monocdk.aws_fsx.Weekday",
 		reflect.TypeOf((*Weekday)(nil)).Elem(),
 		map[string]interface{}{
-			"MONDAY": Weekday_MONDAY,
-			"TUESDAY": Weekday_TUESDAY,
-			"WEDNESDAY": Weekday_WEDNESDAY,
-			"THURSDAY": Weekday_THURSDAY,
 			"FRIDAY": Weekday_FRIDAY,
+			"MONDAY": Weekday_MONDAY,
 			"SATURDAY": Weekday_SATURDAY,
 			"SUNDAY": Weekday_SUNDAY,
+			"THURSDAY": Weekday_THURSDAY,
+			"TUESDAY": Weekday_TUESDAY,
+			"WEDNESDAY": Weekday_WEDNESDAY,
 		},
 	)
 }

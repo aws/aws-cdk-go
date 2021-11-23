@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::Connect::HoursOfOperation`.
+//
+// TODO: EXAMPLE
+//
 type CfnHoursOfOperation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -697,6 +700,8 @@ func (c *jsiiProxy_CfnHoursOfOperation) ValidateProperties(_properties interface
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnHoursOfOperation_HoursOfOperationConfigProperty struct {
 	// `CfnHoursOfOperation.HoursOfOperationConfigProperty.Day`.
 	Day *string `json:"day"`
@@ -706,6 +711,8 @@ type CfnHoursOfOperation_HoursOfOperationConfigProperty struct {
 	StartTime interface{} `json:"startTime"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnHoursOfOperation_HoursOfOperationTimeSliceProperty struct {
 	// `CfnHoursOfOperation.HoursOfOperationTimeSliceProperty.Hours`.
 	Hours *float64 `json:"hours"`
@@ -714,22 +721,28 @@ type CfnHoursOfOperation_HoursOfOperationTimeSliceProperty struct {
 }
 
 // Properties for defining a `AWS::Connect::HoursOfOperation`.
+//
+// TODO: EXAMPLE
+//
 type CfnHoursOfOperationProps struct {
 	// `AWS::Connect::HoursOfOperation.Config`.
 	Config interface{} `json:"config"`
+	// `AWS::Connect::HoursOfOperation.Description`.
+	Description *string `json:"description"`
 	// `AWS::Connect::HoursOfOperation.InstanceArn`.
 	InstanceArn *string `json:"instanceArn"`
 	// `AWS::Connect::HoursOfOperation.Name`.
 	Name *string `json:"name"`
-	// `AWS::Connect::HoursOfOperation.TimeZone`.
-	TimeZone *string `json:"timeZone"`
-	// `AWS::Connect::HoursOfOperation.Description`.
-	Description *string `json:"description"`
 	// `AWS::Connect::HoursOfOperation.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::Connect::HoursOfOperation.TimeZone`.
+	TimeZone *string `json:"timeZone"`
 }
 
 // A CloudFormation `AWS::Connect::QuickConnect`.
+//
+// TODO: EXAMPLE
+//
 type CfnQuickConnect interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1397,11 +1410,15 @@ func (c *jsiiProxy_CfnQuickConnect) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnQuickConnect_PhoneNumberQuickConnectConfigProperty struct {
 	// `CfnQuickConnect.PhoneNumberQuickConnectConfigProperty.PhoneNumber`.
 	PhoneNumber *string `json:"phoneNumber"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnQuickConnect_QueueQuickConnectConfigProperty struct {
 	// `CfnQuickConnect.QueueQuickConnectConfigProperty.ContactFlowArn`.
 	ContactFlowArn *string `json:"contactFlowArn"`
@@ -1409,17 +1426,21 @@ type CfnQuickConnect_QueueQuickConnectConfigProperty struct {
 	QueueArn *string `json:"queueArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnQuickConnect_QuickConnectConfigProperty struct {
-	// `CfnQuickConnect.QuickConnectConfigProperty.QuickConnectType`.
-	QuickConnectType *string `json:"quickConnectType"`
 	// `CfnQuickConnect.QuickConnectConfigProperty.PhoneConfig`.
 	PhoneConfig interface{} `json:"phoneConfig"`
 	// `CfnQuickConnect.QuickConnectConfigProperty.QueueConfig`.
 	QueueConfig interface{} `json:"queueConfig"`
+	// `CfnQuickConnect.QuickConnectConfigProperty.QuickConnectType`.
+	QuickConnectType *string `json:"quickConnectType"`
 	// `CfnQuickConnect.QuickConnectConfigProperty.UserConfig`.
 	UserConfig interface{} `json:"userConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnQuickConnect_UserQuickConnectConfigProperty struct {
 	// `CfnQuickConnect.UserQuickConnectConfigProperty.ContactFlowArn`.
 	ContactFlowArn *string `json:"contactFlowArn"`
@@ -1428,20 +1449,26 @@ type CfnQuickConnect_UserQuickConnectConfigProperty struct {
 }
 
 // Properties for defining a `AWS::Connect::QuickConnect`.
+//
+// TODO: EXAMPLE
+//
 type CfnQuickConnectProps struct {
+	// `AWS::Connect::QuickConnect.Description`.
+	Description *string `json:"description"`
 	// `AWS::Connect::QuickConnect.InstanceArn`.
 	InstanceArn *string `json:"instanceArn"`
 	// `AWS::Connect::QuickConnect.Name`.
 	Name *string `json:"name"`
 	// `AWS::Connect::QuickConnect.QuickConnectConfig`.
 	QuickConnectConfig interface{} `json:"quickConnectConfig"`
-	// `AWS::Connect::QuickConnect.Description`.
-	Description *string `json:"description"`
 	// `AWS::Connect::QuickConnect.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::Connect::User`.
+//
+// TODO: EXAMPLE
+//
 type CfnUser interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2209,6 +2236,8 @@ func (c *jsiiProxy_CfnUser) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnUser_UserIdentityInfoProperty struct {
 	// `CfnUser.UserIdentityInfoProperty.Email`.
 	Email *string `json:"email"`
@@ -2218,18 +2247,23 @@ type CfnUser_UserIdentityInfoProperty struct {
 	LastName *string `json:"lastName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnUser_UserPhoneConfigProperty struct {
-	// `CfnUser.UserPhoneConfigProperty.PhoneType`.
-	PhoneType *string `json:"phoneType"`
 	// `CfnUser.UserPhoneConfigProperty.AfterContactWorkTimeLimit`.
 	AfterContactWorkTimeLimit *float64 `json:"afterContactWorkTimeLimit"`
 	// `CfnUser.UserPhoneConfigProperty.AutoAccept`.
 	AutoAccept interface{} `json:"autoAccept"`
 	// `CfnUser.UserPhoneConfigProperty.DeskPhoneNumber`.
 	DeskPhoneNumber *string `json:"deskPhoneNumber"`
+	// `CfnUser.UserPhoneConfigProperty.PhoneType`.
+	PhoneType *string `json:"phoneType"`
 }
 
 // A CloudFormation `AWS::Connect::UserHierarchyGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserHierarchyGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2867,6 +2901,9 @@ func (c *jsiiProxy_CfnUserHierarchyGroup) ValidateProperties(_properties interfa
 }
 
 // Properties for defining a `AWS::Connect::UserHierarchyGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserHierarchyGroupProps struct {
 	// `AWS::Connect::UserHierarchyGroup.InstanceArn`.
 	InstanceArn *string `json:"instanceArn"`
@@ -2877,26 +2914,29 @@ type CfnUserHierarchyGroupProps struct {
 }
 
 // Properties for defining a `AWS::Connect::User`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserProps struct {
-	// `AWS::Connect::User.InstanceArn`.
-	InstanceArn *string `json:"instanceArn"`
-	// `AWS::Connect::User.PhoneConfig`.
-	PhoneConfig interface{} `json:"phoneConfig"`
-	// `AWS::Connect::User.RoutingProfileArn`.
-	RoutingProfileArn *string `json:"routingProfileArn"`
-	// `AWS::Connect::User.SecurityProfileArns`.
-	SecurityProfileArns *[]*string `json:"securityProfileArns"`
-	// `AWS::Connect::User.Username`.
-	Username *string `json:"username"`
 	// `AWS::Connect::User.DirectoryUserId`.
 	DirectoryUserId *string `json:"directoryUserId"`
 	// `AWS::Connect::User.HierarchyGroupArn`.
 	HierarchyGroupArn *string `json:"hierarchyGroupArn"`
 	// `AWS::Connect::User.IdentityInfo`.
 	IdentityInfo interface{} `json:"identityInfo"`
+	// `AWS::Connect::User.InstanceArn`.
+	InstanceArn *string `json:"instanceArn"`
 	// `AWS::Connect::User.Password`.
 	Password *string `json:"password"`
+	// `AWS::Connect::User.PhoneConfig`.
+	PhoneConfig interface{} `json:"phoneConfig"`
+	// `AWS::Connect::User.RoutingProfileArn`.
+	RoutingProfileArn *string `json:"routingProfileArn"`
+	// `AWS::Connect::User.SecurityProfileArns`.
+	SecurityProfileArns *[]*string `json:"securityProfileArns"`
 	// `AWS::Connect::User.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::Connect::User.Username`.
+	Username *string `json:"username"`
 }
 

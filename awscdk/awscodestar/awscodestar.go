@@ -11,6 +11,9 @@ import (
 )
 
 // A CloudFormation `AWS::CodeStar::GitHubRepository`.
+//
+// TODO: EXAMPLE
+//
 type CfnGitHubRepository interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -736,11 +739,15 @@ func (c *jsiiProxy_CfnGitHubRepository) ValidateProperties(_properties interface
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnGitHubRepository_CodeProperty struct {
 	// `CfnGitHubRepository.CodeProperty.S3`.
 	S3 interface{} `json:"s3"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGitHubRepository_S3Property struct {
 	// `CfnGitHubRepository.S3Property.Bucket`.
 	Bucket *string `json:"bucket"`
@@ -751,11 +758,10 @@ type CfnGitHubRepository_S3Property struct {
 }
 
 // Properties for defining a `AWS::CodeStar::GitHubRepository`.
+//
+// TODO: EXAMPLE
+//
 type CfnGitHubRepositoryProps struct {
-	// `AWS::CodeStar::GitHubRepository.RepositoryName`.
-	RepositoryName *string `json:"repositoryName"`
-	// `AWS::CodeStar::GitHubRepository.RepositoryOwner`.
-	RepositoryOwner *string `json:"repositoryOwner"`
 	// `AWS::CodeStar::GitHubRepository.Code`.
 	Code interface{} `json:"code"`
 	// `AWS::CodeStar::GitHubRepository.ConnectionArn`.
@@ -768,6 +774,10 @@ type CfnGitHubRepositoryProps struct {
 	RepositoryAccessToken *string `json:"repositoryAccessToken"`
 	// `AWS::CodeStar::GitHubRepository.RepositoryDescription`.
 	RepositoryDescription *string `json:"repositoryDescription"`
+	// `AWS::CodeStar::GitHubRepository.RepositoryName`.
+	RepositoryName *string `json:"repositoryName"`
+	// `AWS::CodeStar::GitHubRepository.RepositoryOwner`.
+	RepositoryOwner *string `json:"repositoryOwner"`
 }
 
 // The GitHubRepository resource.

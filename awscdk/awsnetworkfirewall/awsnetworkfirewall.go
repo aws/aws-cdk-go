@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::NetworkFirewall::Firewall`.
+//
+// TODO: EXAMPLE
+//
 type CfnFirewall interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -779,12 +782,17 @@ func (c *jsiiProxy_CfnFirewall) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFirewall_SubnetMappingProperty struct {
 	// `CfnFirewall.SubnetMappingProperty.SubnetId`.
 	SubnetId *string `json:"subnetId"`
 }
 
 // A CloudFormation `AWS::NetworkFirewall::FirewallPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnFirewallPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1443,11 +1451,15 @@ func (c *jsiiProxy_CfnFirewallPolicy) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFirewallPolicy_ActionDefinitionProperty struct {
 	// `CfnFirewallPolicy.ActionDefinitionProperty.PublishMetricAction`.
 	PublishMetricAction interface{} `json:"publishMetricAction"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFirewallPolicy_CustomActionProperty struct {
 	// `CfnFirewallPolicy.CustomActionProperty.ActionDefinition`.
 	ActionDefinition interface{} `json:"actionDefinition"`
@@ -1455,16 +1467,16 @@ type CfnFirewallPolicy_CustomActionProperty struct {
 	ActionName *string `json:"actionName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFirewallPolicy_DimensionProperty struct {
 	// `CfnFirewallPolicy.DimensionProperty.Value`.
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFirewallPolicy_FirewallPolicyProperty struct {
-	// `CfnFirewallPolicy.FirewallPolicyProperty.StatelessDefaultActions`.
-	StatelessDefaultActions *[]*string `json:"statelessDefaultActions"`
-	// `CfnFirewallPolicy.FirewallPolicyProperty.StatelessFragmentDefaultActions`.
-	StatelessFragmentDefaultActions *[]*string `json:"statelessFragmentDefaultActions"`
 	// `CfnFirewallPolicy.FirewallPolicyProperty.StatefulDefaultActions`.
 	StatefulDefaultActions *[]*string `json:"statefulDefaultActions"`
 	// `CfnFirewallPolicy.FirewallPolicyProperty.StatefulEngineOptions`.
@@ -1473,27 +1485,39 @@ type CfnFirewallPolicy_FirewallPolicyProperty struct {
 	StatefulRuleGroupReferences interface{} `json:"statefulRuleGroupReferences"`
 	// `CfnFirewallPolicy.FirewallPolicyProperty.StatelessCustomActions`.
 	StatelessCustomActions interface{} `json:"statelessCustomActions"`
+	// `CfnFirewallPolicy.FirewallPolicyProperty.StatelessDefaultActions`.
+	StatelessDefaultActions *[]*string `json:"statelessDefaultActions"`
+	// `CfnFirewallPolicy.FirewallPolicyProperty.StatelessFragmentDefaultActions`.
+	StatelessFragmentDefaultActions *[]*string `json:"statelessFragmentDefaultActions"`
 	// `CfnFirewallPolicy.FirewallPolicyProperty.StatelessRuleGroupReferences`.
 	StatelessRuleGroupReferences interface{} `json:"statelessRuleGroupReferences"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFirewallPolicy_PublishMetricActionProperty struct {
 	// `CfnFirewallPolicy.PublishMetricActionProperty.Dimensions`.
 	Dimensions interface{} `json:"dimensions"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFirewallPolicy_StatefulEngineOptionsProperty struct {
 	// `CfnFirewallPolicy.StatefulEngineOptionsProperty.RuleOrder`.
 	RuleOrder *string `json:"ruleOrder"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFirewallPolicy_StatefulRuleGroupReferenceProperty struct {
-	// `CfnFirewallPolicy.StatefulRuleGroupReferenceProperty.ResourceArn`.
-	ResourceArn *string `json:"resourceArn"`
 	// `CfnFirewallPolicy.StatefulRuleGroupReferenceProperty.Priority`.
 	Priority *float64 `json:"priority"`
+	// `CfnFirewallPolicy.StatefulRuleGroupReferenceProperty.ResourceArn`.
+	ResourceArn *string `json:"resourceArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFirewallPolicy_StatelessRuleGroupReferenceProperty struct {
 	// `CfnFirewallPolicy.StatelessRuleGroupReferenceProperty.Priority`.
 	Priority *float64 `json:"priority"`
@@ -1502,40 +1526,49 @@ type CfnFirewallPolicy_StatelessRuleGroupReferenceProperty struct {
 }
 
 // Properties for defining a `AWS::NetworkFirewall::FirewallPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnFirewallPolicyProps struct {
+	// `AWS::NetworkFirewall::FirewallPolicy.Description`.
+	Description *string `json:"description"`
 	// `AWS::NetworkFirewall::FirewallPolicy.FirewallPolicy`.
 	FirewallPolicy interface{} `json:"firewallPolicy"`
 	// `AWS::NetworkFirewall::FirewallPolicy.FirewallPolicyName`.
 	FirewallPolicyName *string `json:"firewallPolicyName"`
-	// `AWS::NetworkFirewall::FirewallPolicy.Description`.
-	Description *string `json:"description"`
 	// `AWS::NetworkFirewall::FirewallPolicy.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // Properties for defining a `AWS::NetworkFirewall::Firewall`.
+//
+// TODO: EXAMPLE
+//
 type CfnFirewallProps struct {
-	// `AWS::NetworkFirewall::Firewall.FirewallName`.
-	FirewallName *string `json:"firewallName"`
-	// `AWS::NetworkFirewall::Firewall.FirewallPolicyArn`.
-	FirewallPolicyArn *string `json:"firewallPolicyArn"`
-	// `AWS::NetworkFirewall::Firewall.SubnetMappings`.
-	SubnetMappings interface{} `json:"subnetMappings"`
-	// `AWS::NetworkFirewall::Firewall.VpcId`.
-	VpcId *string `json:"vpcId"`
 	// `AWS::NetworkFirewall::Firewall.DeleteProtection`.
 	DeleteProtection interface{} `json:"deleteProtection"`
 	// `AWS::NetworkFirewall::Firewall.Description`.
 	Description *string `json:"description"`
+	// `AWS::NetworkFirewall::Firewall.FirewallName`.
+	FirewallName *string `json:"firewallName"`
+	// `AWS::NetworkFirewall::Firewall.FirewallPolicyArn`.
+	FirewallPolicyArn *string `json:"firewallPolicyArn"`
 	// `AWS::NetworkFirewall::Firewall.FirewallPolicyChangeProtection`.
 	FirewallPolicyChangeProtection interface{} `json:"firewallPolicyChangeProtection"`
 	// `AWS::NetworkFirewall::Firewall.SubnetChangeProtection`.
 	SubnetChangeProtection interface{} `json:"subnetChangeProtection"`
+	// `AWS::NetworkFirewall::Firewall.SubnetMappings`.
+	SubnetMappings interface{} `json:"subnetMappings"`
 	// `AWS::NetworkFirewall::Firewall.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::NetworkFirewall::Firewall.VpcId`.
+	VpcId *string `json:"vpcId"`
 }
 
 // A CloudFormation `AWS::NetworkFirewall::LoggingConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnLoggingConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2161,6 +2194,8 @@ func (c *jsiiProxy_CfnLoggingConfiguration) ValidateProperties(_properties inter
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnLoggingConfiguration_LogDestinationConfigProperty struct {
 	// `CfnLoggingConfiguration.LogDestinationConfigProperty.LogDestination`.
 	LogDestination interface{} `json:"logDestination"`
@@ -2170,22 +2205,30 @@ type CfnLoggingConfiguration_LogDestinationConfigProperty struct {
 	LogType *string `json:"logType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLoggingConfiguration_LoggingConfigurationProperty struct {
 	// `CfnLoggingConfiguration.LoggingConfigurationProperty.LogDestinationConfigs`.
 	LogDestinationConfigs interface{} `json:"logDestinationConfigs"`
 }
 
 // Properties for defining a `AWS::NetworkFirewall::LoggingConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnLoggingConfigurationProps struct {
 	// `AWS::NetworkFirewall::LoggingConfiguration.FirewallArn`.
 	FirewallArn *string `json:"firewallArn"`
-	// `AWS::NetworkFirewall::LoggingConfiguration.LoggingConfiguration`.
-	LoggingConfiguration interface{} `json:"loggingConfiguration"`
 	// `AWS::NetworkFirewall::LoggingConfiguration.FirewallName`.
 	FirewallName *string `json:"firewallName"`
+	// `AWS::NetworkFirewall::LoggingConfiguration.LoggingConfiguration`.
+	LoggingConfiguration interface{} `json:"loggingConfiguration"`
 }
 
 // A CloudFormation `AWS::NetworkFirewall::RuleGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnRuleGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2884,16 +2927,22 @@ func (c *jsiiProxy_CfnRuleGroup) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_ActionDefinitionProperty struct {
 	// `CfnRuleGroup.ActionDefinitionProperty.PublishMetricAction`.
 	PublishMetricAction interface{} `json:"publishMetricAction"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_AddressProperty struct {
 	// `CfnRuleGroup.AddressProperty.AddressDefinition`.
 	AddressDefinition *string `json:"addressDefinition"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_CustomActionProperty struct {
 	// `CfnRuleGroup.CustomActionProperty.ActionDefinition`.
 	ActionDefinition interface{} `json:"actionDefinition"`
@@ -2901,11 +2950,15 @@ type CfnRuleGroup_CustomActionProperty struct {
 	ActionName *string `json:"actionName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_DimensionProperty struct {
 	// `CfnRuleGroup.DimensionProperty.Value`.
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_HeaderProperty struct {
 	// `CfnRuleGroup.HeaderProperty.Destination`.
 	Destination *string `json:"destination"`
@@ -2941,6 +2994,8 @@ func (j *jsiiProxy_CfnRuleGroup_IPSetProperty) Definition() *[]*string {
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_MatchAttributesProperty struct {
 	// `CfnRuleGroup.MatchAttributesProperty.DestinationPorts`.
 	DestinationPorts interface{} `json:"destinationPorts"`
@@ -2956,6 +3011,8 @@ type CfnRuleGroup_MatchAttributesProperty struct {
 	TcpFlags interface{} `json:"tcpFlags"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_PortRangeProperty struct {
 	// `CfnRuleGroup.PortRangeProperty.FromPort`.
 	FromPort *float64 `json:"fromPort"`
@@ -2963,16 +3020,22 @@ type CfnRuleGroup_PortRangeProperty struct {
 	ToPort *float64 `json:"toPort"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_PortSetProperty struct {
 	// `CfnRuleGroup.PortSetProperty.Definition`.
 	Definition *[]*string `json:"definition"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_PublishMetricActionProperty struct {
 	// `CfnRuleGroup.PublishMetricActionProperty.Dimensions`.
 	Dimensions interface{} `json:"dimensions"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_RuleDefinitionProperty struct {
 	// `CfnRuleGroup.RuleDefinitionProperty.Actions`.
 	Actions *[]*string `json:"actions"`
@@ -2980,6 +3043,8 @@ type CfnRuleGroup_RuleDefinitionProperty struct {
 	MatchAttributes interface{} `json:"matchAttributes"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_RuleGroupProperty struct {
 	// `CfnRuleGroup.RuleGroupProperty.RulesSource`.
 	RulesSource interface{} `json:"rulesSource"`
@@ -2989,6 +3054,8 @@ type CfnRuleGroup_RuleGroupProperty struct {
 	StatefulRuleOptions interface{} `json:"statefulRuleOptions"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_RuleOptionProperty struct {
 	// `CfnRuleGroup.RuleOptionProperty.Keyword`.
 	Keyword *string `json:"keyword"`
@@ -2996,6 +3063,8 @@ type CfnRuleGroup_RuleOptionProperty struct {
 	Settings *[]*string `json:"settings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_RuleVariablesProperty struct {
 	// `CfnRuleGroup.RuleVariablesProperty.IPSets`.
 	IpSets interface{} `json:"ipSets"`
@@ -3003,6 +3072,8 @@ type CfnRuleGroup_RuleVariablesProperty struct {
 	PortSets interface{} `json:"portSets"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_RulesSourceListProperty struct {
 	// `CfnRuleGroup.RulesSourceListProperty.GeneratedRulesType`.
 	GeneratedRulesType *string `json:"generatedRulesType"`
@@ -3012,6 +3083,8 @@ type CfnRuleGroup_RulesSourceListProperty struct {
 	TargetTypes *[]*string `json:"targetTypes"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_RulesSourceProperty struct {
 	// `CfnRuleGroup.RulesSourceProperty.RulesSourceList`.
 	RulesSourceList interface{} `json:"rulesSourceList"`
@@ -3023,11 +3096,15 @@ type CfnRuleGroup_RulesSourceProperty struct {
 	StatelessRulesAndCustomActions interface{} `json:"statelessRulesAndCustomActions"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_StatefulRuleOptionsProperty struct {
 	// `CfnRuleGroup.StatefulRuleOptionsProperty.RuleOrder`.
 	RuleOrder *string `json:"ruleOrder"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_StatefulRuleProperty struct {
 	// `CfnRuleGroup.StatefulRuleProperty.Action`.
 	Action *string `json:"action"`
@@ -3037,6 +3114,8 @@ type CfnRuleGroup_StatefulRuleProperty struct {
 	RuleOptions interface{} `json:"ruleOptions"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_StatelessRuleProperty struct {
 	// `CfnRuleGroup.StatelessRuleProperty.Priority`.
 	Priority *float64 `json:"priority"`
@@ -3044,13 +3123,17 @@ type CfnRuleGroup_StatelessRuleProperty struct {
 	RuleDefinition interface{} `json:"ruleDefinition"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_StatelessRulesAndCustomActionsProperty struct {
-	// `CfnRuleGroup.StatelessRulesAndCustomActionsProperty.StatelessRules`.
-	StatelessRules interface{} `json:"statelessRules"`
 	// `CfnRuleGroup.StatelessRulesAndCustomActionsProperty.CustomActions`.
 	CustomActions interface{} `json:"customActions"`
+	// `CfnRuleGroup.StatelessRulesAndCustomActionsProperty.StatelessRules`.
+	StatelessRules interface{} `json:"statelessRules"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_TCPFlagFieldProperty struct {
 	// `CfnRuleGroup.TCPFlagFieldProperty.Flags`.
 	Flags *[]*string `json:"flags"`
@@ -3059,18 +3142,21 @@ type CfnRuleGroup_TCPFlagFieldProperty struct {
 }
 
 // Properties for defining a `AWS::NetworkFirewall::RuleGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnRuleGroupProps struct {
 	// `AWS::NetworkFirewall::RuleGroup.Capacity`.
 	Capacity *float64 `json:"capacity"`
-	// `AWS::NetworkFirewall::RuleGroup.RuleGroupName`.
-	RuleGroupName *string `json:"ruleGroupName"`
-	// `AWS::NetworkFirewall::RuleGroup.Type`.
-	Type *string `json:"type"`
 	// `AWS::NetworkFirewall::RuleGroup.Description`.
 	Description *string `json:"description"`
 	// `AWS::NetworkFirewall::RuleGroup.RuleGroup`.
 	RuleGroup interface{} `json:"ruleGroup"`
+	// `AWS::NetworkFirewall::RuleGroup.RuleGroupName`.
+	RuleGroupName *string `json:"ruleGroupName"`
 	// `AWS::NetworkFirewall::RuleGroup.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::NetworkFirewall::RuleGroup.Type`.
+	Type *string `json:"type"`
 }
 

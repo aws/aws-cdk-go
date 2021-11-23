@@ -13,6 +13,9 @@ import (
 )
 
 // Properties of the image repository for `Source.fromAsset()`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AssetProps struct {
 	// Represents the docker image asset.
@@ -26,6 +29,9 @@ type AssetProps struct {
 }
 
 // Represents the source from local assets.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AssetSource interface {
 	Source
@@ -147,6 +153,9 @@ func (a *jsiiProxy_AssetSource) Bind(_scope constructs.Construct) *SourceConfig 
 }
 
 // A CloudFormation `AWS::AppRunner::Service`.
+//
+// TODO: EXAMPLE
+//
 type CfnService interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -887,6 +896,8 @@ func (c *jsiiProxy_CfnService) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnService_AuthenticationConfigurationProperty struct {
 	// `CfnService.AuthenticationConfigurationProperty.AccessRoleArn`.
 	AccessRoleArn *string `json:"accessRoleArn"`
@@ -894,40 +905,50 @@ type CfnService_AuthenticationConfigurationProperty struct {
 	ConnectionArn *string `json:"connectionArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnService_CodeConfigurationProperty struct {
-	// `CfnService.CodeConfigurationProperty.ConfigurationSource`.
-	ConfigurationSource *string `json:"configurationSource"`
 	// `CfnService.CodeConfigurationProperty.CodeConfigurationValues`.
 	CodeConfigurationValues interface{} `json:"codeConfigurationValues"`
+	// `CfnService.CodeConfigurationProperty.ConfigurationSource`.
+	ConfigurationSource *string `json:"configurationSource"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnService_CodeConfigurationValuesProperty struct {
-	// `CfnService.CodeConfigurationValuesProperty.Runtime`.
-	Runtime *string `json:"runtime"`
 	// `CfnService.CodeConfigurationValuesProperty.BuildCommand`.
 	BuildCommand *string `json:"buildCommand"`
 	// `CfnService.CodeConfigurationValuesProperty.Port`.
 	Port *string `json:"port"`
+	// `CfnService.CodeConfigurationValuesProperty.Runtime`.
+	Runtime *string `json:"runtime"`
 	// `CfnService.CodeConfigurationValuesProperty.RuntimeEnvironmentVariables`.
 	RuntimeEnvironmentVariables interface{} `json:"runtimeEnvironmentVariables"`
 	// `CfnService.CodeConfigurationValuesProperty.StartCommand`.
 	StartCommand *string `json:"startCommand"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnService_CodeRepositoryProperty struct {
+	// `CfnService.CodeRepositoryProperty.CodeConfiguration`.
+	CodeConfiguration interface{} `json:"codeConfiguration"`
 	// `CfnService.CodeRepositoryProperty.RepositoryUrl`.
 	RepositoryUrl *string `json:"repositoryUrl"`
 	// `CfnService.CodeRepositoryProperty.SourceCodeVersion`.
 	SourceCodeVersion interface{} `json:"sourceCodeVersion"`
-	// `CfnService.CodeRepositoryProperty.CodeConfiguration`.
-	CodeConfiguration interface{} `json:"codeConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnService_EncryptionConfigurationProperty struct {
 	// `CfnService.EncryptionConfigurationProperty.KmsKey`.
 	KmsKey *string `json:"kmsKey"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnService_HealthCheckConfigurationProperty struct {
 	// `CfnService.HealthCheckConfigurationProperty.HealthyThreshold`.
 	HealthyThreshold *float64 `json:"healthyThreshold"`
@@ -943,6 +964,8 @@ type CfnService_HealthCheckConfigurationProperty struct {
 	UnhealthyThreshold *float64 `json:"unhealthyThreshold"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnService_ImageConfigurationProperty struct {
 	// `CfnService.ImageConfigurationProperty.Port`.
 	Port *string `json:"port"`
@@ -952,15 +975,19 @@ type CfnService_ImageConfigurationProperty struct {
 	StartCommand *string `json:"startCommand"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnService_ImageRepositoryProperty struct {
+	// `CfnService.ImageRepositoryProperty.ImageConfiguration`.
+	ImageConfiguration interface{} `json:"imageConfiguration"`
 	// `CfnService.ImageRepositoryProperty.ImageIdentifier`.
 	ImageIdentifier *string `json:"imageIdentifier"`
 	// `CfnService.ImageRepositoryProperty.ImageRepositoryType`.
 	ImageRepositoryType *string `json:"imageRepositoryType"`
-	// `CfnService.ImageRepositoryProperty.ImageConfiguration`.
-	ImageConfiguration interface{} `json:"imageConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnService_InstanceConfigurationProperty struct {
 	// `CfnService.InstanceConfigurationProperty.Cpu`.
 	Cpu *string `json:"cpu"`
@@ -970,6 +997,8 @@ type CfnService_InstanceConfigurationProperty struct {
 	Memory *string `json:"memory"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnService_KeyValuePairProperty struct {
 	// `CfnService.KeyValuePairProperty.Name`.
 	Name *string `json:"name"`
@@ -977,6 +1006,8 @@ type CfnService_KeyValuePairProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnService_SourceCodeVersionProperty struct {
 	// `CfnService.SourceCodeVersionProperty.Type`.
 	Type *string `json:"type"`
@@ -984,6 +1015,8 @@ type CfnService_SourceCodeVersionProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnService_SourceConfigurationProperty struct {
 	// `CfnService.SourceConfigurationProperty.AuthenticationConfiguration`.
 	AuthenticationConfiguration interface{} `json:"authenticationConfiguration"`
@@ -996,9 +1029,10 @@ type CfnService_SourceConfigurationProperty struct {
 }
 
 // Properties for defining a `AWS::AppRunner::Service`.
+//
+// TODO: EXAMPLE
+//
 type CfnServiceProps struct {
-	// `AWS::AppRunner::Service.SourceConfiguration`.
-	SourceConfiguration interface{} `json:"sourceConfiguration"`
 	// `AWS::AppRunner::Service.AutoScalingConfigurationArn`.
 	AutoScalingConfigurationArn *string `json:"autoScalingConfigurationArn"`
 	// `AWS::AppRunner::Service.EncryptionConfiguration`.
@@ -1009,11 +1043,16 @@ type CfnServiceProps struct {
 	InstanceConfiguration interface{} `json:"instanceConfiguration"`
 	// `AWS::AppRunner::Service.ServiceName`.
 	ServiceName *string `json:"serviceName"`
+	// `AWS::AppRunner::Service.SourceConfiguration`.
+	SourceConfiguration interface{} `json:"sourceConfiguration"`
 	// `AWS::AppRunner::Service.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // Describes the configuration that AWS App Runner uses to build and run an App Runner service from a source code repository.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-codeconfiguration.html
 //
 // Experimental.
@@ -1033,14 +1072,11 @@ type CodeConfiguration struct {
 //
 // This type doesn't support the full set of possible configuration options. Fur full configuration capabilities,
 // use a `apprunner.yaml` file in the source code repository.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CodeConfigurationValues struct {
-	// A runtime environment type for building and running an App Runner service.
-	//
-	// It represents
-	// a programming language runtime.
-	// Experimental.
-	Runtime Runtime `json:"runtime"`
 	// The command App Runner runs to build your application.
 	// Experimental.
 	BuildCommand *string `json:"buildCommand"`
@@ -1050,12 +1086,21 @@ type CodeConfigurationValues struct {
 	// The port that your application listens to in the container.
 	// Experimental.
 	Port *string `json:"port"`
+	// A runtime environment type for building and running an App Runner service.
+	//
+	// It represents
+	// a programming language runtime.
+	// Experimental.
+	Runtime Runtime `json:"runtime"`
 	// The command App Runner runs to start your application.
 	// Experimental.
 	StartCommand *string `json:"startCommand"`
 }
 
 // Properties of the CodeRepository.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CodeRepositoryProps struct {
 	// Configuration for building and running the service from a source code repository.
@@ -1077,11 +1122,14 @@ type CodeRepositoryProps struct {
 type ConfigurationSourceType string
 
 const (
-	ConfigurationSourceType_REPOSITORY ConfigurationSourceType = "REPOSITORY"
 	ConfigurationSourceType_API ConfigurationSourceType = "API"
+	ConfigurationSourceType_REPOSITORY ConfigurationSourceType = "REPOSITORY"
 )
 
 // The number of CPU units reserved for each instance of your App Runner service.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Cpu interface {
 	Unit() *string
@@ -1145,35 +1193,44 @@ func Cpu_TWO_VCPU() Cpu {
 }
 
 // Properties of the image repository for `Source.fromEcr()`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EcrProps struct {
-	// Represents the ECR repository.
-	// Experimental.
-	Repository awsecr.IRepository `json:"repository"`
 	// The image configuration for the image from ECR.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-port
 	//
 	// Experimental.
 	ImageConfiguration *ImageConfiguration `json:"imageConfiguration"`
+	// Represents the ECR repository.
+	// Experimental.
+	Repository awsecr.IRepository `json:"repository"`
 	// Image tag.
 	// Experimental.
 	Tag *string `json:"tag"`
 }
 
 // Properties of the image repository for `Source.fromEcrPublic()`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EcrPublicProps struct {
-	// The ECR Public image URI.
-	// Experimental.
-	ImageIdentifier *string `json:"imageIdentifier"`
 	// The image configuration for the image from ECR Public.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-port
 	//
 	// Experimental.
 	ImageConfiguration *ImageConfiguration `json:"imageConfiguration"`
+	// The ECR Public image URI.
+	// Experimental.
+	ImageIdentifier *string `json:"imageIdentifier"`
 }
 
 // Represents the service source from ECR Public.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EcrPublicSource interface {
 	Source
@@ -1295,6 +1352,9 @@ func (e *jsiiProxy_EcrPublicSource) Bind(_scope constructs.Construct) *SourceCon
 }
 
 // Represents the service source from ECR.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EcrSource interface {
 	Source
@@ -1418,6 +1478,9 @@ func (e *jsiiProxy_EcrSource) Bind(_scope constructs.Construct) *SourceConfig {
 // Represents the App Runner connection that enables the App Runner service to connect to a source repository.
 //
 // It's required for GitHub code repositories.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type GitHubConnection interface {
 	ConnectionArn() *string
@@ -1485,8 +1548,19 @@ func GitHubConnection_FromConnectionArn(arn *string) GitHubConnection {
 }
 
 // Properties of the Github repository for `Source.fromGitHub()`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type GithubRepositoryProps struct {
+	// The branch name that represents a specific version for the repository.
+	// Experimental.
+	Branch *string `json:"branch"`
+	// The code configuration values.
+	//
+	// Will be ignored if configurationSource is `REPOSITORY`.
+	// Experimental.
+	CodeConfigurationValues *CodeConfigurationValues `json:"codeConfigurationValues"`
 	// The source of the App Runner configuration.
 	// Experimental.
 	ConfigurationSource ConfigurationSourceType `json:"configurationSource"`
@@ -1498,17 +1572,12 @@ type GithubRepositoryProps struct {
 	// The location of the repository that contains the source code.
 	// Experimental.
 	RepositoryUrl *string `json:"repositoryUrl"`
-	// The branch name that represents a specific version for the repository.
-	// Experimental.
-	Branch *string `json:"branch"`
-	// The code configuration values.
-	//
-	// Will be ignored if configurationSource is `REPOSITORY`.
-	// Experimental.
-	CodeConfigurationValues *CodeConfigurationValues `json:"codeConfigurationValues"`
 }
 
 // Represents the service source from a Github repository.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type GithubSource interface {
 	Source
@@ -1667,6 +1736,9 @@ func (j *jsiiProxy_IService) ServiceName() *string {
 }
 
 // Describes the configuration that AWS App Runner uses to run an App Runner service using an image pulled from a source image repository.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html
 //
 // Experimental.
@@ -1685,10 +1757,18 @@ type ImageConfiguration struct {
 }
 
 // Describes a source image repository.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imagerepository.html
 //
 // Experimental.
 type ImageRepository struct {
+	// Configuration for running the identified image.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-port
+	//
+	// Experimental.
+	ImageConfiguration *ImageConfiguration `json:"imageConfiguration"`
 	// The identifier of the image.
 	//
 	// For `ECR_PUBLIC` imageRepositoryType, the identifier domain should
@@ -1704,11 +1784,6 @@ type ImageRepository struct {
 	// the repository is private or public.
 	// Experimental.
 	ImageRepositoryType ImageRepositoryType `json:"imageRepositoryType"`
-	// Configuration for running the identified image.
-	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-imageconfiguration.html#cfn-apprunner-service-imageconfiguration-port
-	//
-	// Experimental.
-	ImageConfiguration *ImageConfiguration `json:"imageConfiguration"`
 }
 
 // The image repository types.
@@ -1716,11 +1791,14 @@ type ImageRepository struct {
 type ImageRepositoryType string
 
 const (
-	ImageRepositoryType_ECR_PUBLIC ImageRepositoryType = "ECR_PUBLIC"
 	ImageRepositoryType_ECR ImageRepositoryType = "ECR"
+	ImageRepositoryType_ECR_PUBLIC ImageRepositoryType = "ECR_PUBLIC"
 )
 
 // The amount of memory reserved for each instance of your App Runner service.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Memory interface {
 	Unit() *string
@@ -1795,6 +1873,9 @@ func Memory_TWO_GB() Memory {
 }
 
 // The code runtimes.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Runtime interface {
 	Name() *string
@@ -1858,6 +1939,9 @@ func Runtime_PYTHON_3() Runtime {
 }
 
 // The App Runner Service.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Service interface {
 	awscdk.Resource
@@ -2260,6 +2344,9 @@ func (s *jsiiProxy_Service) Validate() *[]*string {
 }
 
 // Attributes for the App Runner Service.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ServiceAttributes struct {
 	// The ARN of the service.
@@ -2277,11 +2364,11 @@ type ServiceAttributes struct {
 }
 
 // Properties of the AppRunner Service.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ServiceProps struct {
-	// The source of the repository for the service.
-	// Experimental.
-	Source Source `json:"source"`
 	// The IAM role that grants the App Runner service access to a source repository.
 	//
 	// It's required for ECR image repositories (but not for ECR Public repositories).
@@ -2301,6 +2388,9 @@ type ServiceProps struct {
 	// Name of the service.
 	// Experimental.
 	ServiceName *string `json:"serviceName"`
+	// The source of the repository for the service.
+	// Experimental.
+	Source Source `json:"source"`
 }
 
 // Represents the App Runner service source.
@@ -2409,6 +2499,9 @@ func (s *jsiiProxy_Source) Bind(scope constructs.Construct) *SourceConfig {
 }
 
 // Identifies a version of code that AWS App Runner refers to within a source code repository.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-sourcecodeversion.html
 //
 // Experimental.
@@ -2422,6 +2515,9 @@ type SourceCodeVersion struct {
 }
 
 // Result of binding `Source` into a `Service`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SourceConfig struct {
 	// The code repository configuration (mutually exclusive  with `imageRepository`).

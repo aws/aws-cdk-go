@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `Alexa::ASK::Skill`.
+//
+// TODO: EXAMPLE
+//
 type CfnSkill interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -635,6 +638,8 @@ func (c *jsiiProxy_CfnSkill) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnSkill_AuthenticationConfigurationProperty struct {
 	// `CfnSkill.AuthenticationConfigurationProperty.ClientId`.
 	ClientId *string `json:"clientId"`
@@ -644,25 +649,32 @@ type CfnSkill_AuthenticationConfigurationProperty struct {
 	RefreshToken *string `json:"refreshToken"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSkill_OverridesProperty struct {
 	// `CfnSkill.OverridesProperty.Manifest`.
 	Manifest interface{} `json:"manifest"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSkill_SkillPackageProperty struct {
-	// `CfnSkill.SkillPackageProperty.S3Bucket`.
-	S3Bucket *string `json:"s3Bucket"`
-	// `CfnSkill.SkillPackageProperty.S3Key`.
-	S3Key *string `json:"s3Key"`
 	// `CfnSkill.SkillPackageProperty.Overrides`.
 	Overrides interface{} `json:"overrides"`
+	// `CfnSkill.SkillPackageProperty.S3Bucket`.
+	S3Bucket *string `json:"s3Bucket"`
 	// `CfnSkill.SkillPackageProperty.S3BucketRole`.
 	S3BucketRole *string `json:"s3BucketRole"`
+	// `CfnSkill.SkillPackageProperty.S3Key`.
+	S3Key *string `json:"s3Key"`
 	// `CfnSkill.SkillPackageProperty.S3ObjectVersion`.
 	S3ObjectVersion *string `json:"s3ObjectVersion"`
 }
 
 // Properties for defining a `Alexa::ASK::Skill`.
+//
+// TODO: EXAMPLE
+//
 type CfnSkillProps struct {
 	// `Alexa::ASK::Skill.AuthenticationConfiguration`.
 	AuthenticationConfiguration interface{} `json:"authenticationConfiguration"`

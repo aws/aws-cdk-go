@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::AmazonMQ::Broker`.
+//
+// TODO: EXAMPLE
+//
 type CfnBroker interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1025,6 +1028,8 @@ func (c *jsiiProxy_CfnBroker) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnBroker_ConfigurationIdProperty struct {
 	// `CfnBroker.ConfigurationIdProperty.Id`.
 	Id *string `json:"id"`
@@ -1032,38 +1037,44 @@ type CfnBroker_ConfigurationIdProperty struct {
 	Revision *float64 `json:"revision"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBroker_EncryptionOptionsProperty struct {
-	// `CfnBroker.EncryptionOptionsProperty.UseAwsOwnedKey`.
-	UseAwsOwnedKey interface{} `json:"useAwsOwnedKey"`
 	// `CfnBroker.EncryptionOptionsProperty.KmsKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
+	// `CfnBroker.EncryptionOptionsProperty.UseAwsOwnedKey`.
+	UseAwsOwnedKey interface{} `json:"useAwsOwnedKey"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBroker_LdapServerMetadataProperty struct {
 	// `CfnBroker.LdapServerMetadataProperty.Hosts`.
 	Hosts *[]*string `json:"hosts"`
 	// `CfnBroker.LdapServerMetadataProperty.RoleBase`.
 	RoleBase *string `json:"roleBase"`
+	// `CfnBroker.LdapServerMetadataProperty.RoleName`.
+	RoleName *string `json:"roleName"`
 	// `CfnBroker.LdapServerMetadataProperty.RoleSearchMatching`.
 	RoleSearchMatching *string `json:"roleSearchMatching"`
+	// `CfnBroker.LdapServerMetadataProperty.RoleSearchSubtree`.
+	RoleSearchSubtree interface{} `json:"roleSearchSubtree"`
 	// `CfnBroker.LdapServerMetadataProperty.ServiceAccountPassword`.
 	ServiceAccountPassword *string `json:"serviceAccountPassword"`
 	// `CfnBroker.LdapServerMetadataProperty.ServiceAccountUsername`.
 	ServiceAccountUsername *string `json:"serviceAccountUsername"`
 	// `CfnBroker.LdapServerMetadataProperty.UserBase`.
 	UserBase *string `json:"userBase"`
-	// `CfnBroker.LdapServerMetadataProperty.UserSearchMatching`.
-	UserSearchMatching *string `json:"userSearchMatching"`
-	// `CfnBroker.LdapServerMetadataProperty.RoleName`.
-	RoleName *string `json:"roleName"`
-	// `CfnBroker.LdapServerMetadataProperty.RoleSearchSubtree`.
-	RoleSearchSubtree interface{} `json:"roleSearchSubtree"`
 	// `CfnBroker.LdapServerMetadataProperty.UserRoleName`.
 	UserRoleName *string `json:"userRoleName"`
+	// `CfnBroker.LdapServerMetadataProperty.UserSearchMatching`.
+	UserSearchMatching *string `json:"userSearchMatching"`
 	// `CfnBroker.LdapServerMetadataProperty.UserSearchSubtree`.
 	UserSearchSubtree interface{} `json:"userSearchSubtree"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBroker_LogListProperty struct {
 	// `CfnBroker.LogListProperty.Audit`.
 	Audit interface{} `json:"audit"`
@@ -1071,6 +1082,8 @@ type CfnBroker_LogListProperty struct {
 	General interface{} `json:"general"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBroker_MaintenanceWindowProperty struct {
 	// `CfnBroker.MaintenanceWindowProperty.DayOfWeek`.
 	DayOfWeek *string `json:"dayOfWeek"`
@@ -1080,6 +1093,8 @@ type CfnBroker_MaintenanceWindowProperty struct {
 	TimeZone *string `json:"timeZone"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBroker_TagsEntryProperty struct {
 	// `CfnBroker.TagsEntryProperty.Key`.
 	Key *string `json:"key"`
@@ -1087,47 +1102,50 @@ type CfnBroker_TagsEntryProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBroker_UserProperty struct {
-	// `CfnBroker.UserProperty.Password`.
-	Password *string `json:"password"`
-	// `CfnBroker.UserProperty.Username`.
-	Username *string `json:"username"`
 	// `CfnBroker.UserProperty.ConsoleAccess`.
 	ConsoleAccess interface{} `json:"consoleAccess"`
 	// `CfnBroker.UserProperty.Groups`.
 	Groups *[]*string `json:"groups"`
+	// `CfnBroker.UserProperty.Password`.
+	Password *string `json:"password"`
+	// `CfnBroker.UserProperty.Username`.
+	Username *string `json:"username"`
 }
 
 // Properties for defining a `AWS::AmazonMQ::Broker`.
+//
+// TODO: EXAMPLE
+//
 type CfnBrokerProps struct {
+	// `AWS::AmazonMQ::Broker.AuthenticationStrategy`.
+	AuthenticationStrategy *string `json:"authenticationStrategy"`
 	// `AWS::AmazonMQ::Broker.AutoMinorVersionUpgrade`.
 	AutoMinorVersionUpgrade interface{} `json:"autoMinorVersionUpgrade"`
 	// `AWS::AmazonMQ::Broker.BrokerName`.
 	BrokerName *string `json:"brokerName"`
+	// `AWS::AmazonMQ::Broker.Configuration`.
+	Configuration interface{} `json:"configuration"`
 	// `AWS::AmazonMQ::Broker.DeploymentMode`.
 	DeploymentMode *string `json:"deploymentMode"`
+	// `AWS::AmazonMQ::Broker.EncryptionOptions`.
+	EncryptionOptions interface{} `json:"encryptionOptions"`
 	// `AWS::AmazonMQ::Broker.EngineType`.
 	EngineType *string `json:"engineType"`
 	// `AWS::AmazonMQ::Broker.EngineVersion`.
 	EngineVersion *string `json:"engineVersion"`
 	// `AWS::AmazonMQ::Broker.HostInstanceType`.
 	HostInstanceType *string `json:"hostInstanceType"`
-	// `AWS::AmazonMQ::Broker.PubliclyAccessible`.
-	PubliclyAccessible interface{} `json:"publiclyAccessible"`
-	// `AWS::AmazonMQ::Broker.Users`.
-	Users interface{} `json:"users"`
-	// `AWS::AmazonMQ::Broker.AuthenticationStrategy`.
-	AuthenticationStrategy *string `json:"authenticationStrategy"`
-	// `AWS::AmazonMQ::Broker.Configuration`.
-	Configuration interface{} `json:"configuration"`
-	// `AWS::AmazonMQ::Broker.EncryptionOptions`.
-	EncryptionOptions interface{} `json:"encryptionOptions"`
 	// `AWS::AmazonMQ::Broker.LdapServerMetadata`.
 	LdapServerMetadata interface{} `json:"ldapServerMetadata"`
 	// `AWS::AmazonMQ::Broker.Logs`.
 	Logs interface{} `json:"logs"`
 	// `AWS::AmazonMQ::Broker.MaintenanceWindowStartTime`.
 	MaintenanceWindowStartTime interface{} `json:"maintenanceWindowStartTime"`
+	// `AWS::AmazonMQ::Broker.PubliclyAccessible`.
+	PubliclyAccessible interface{} `json:"publiclyAccessible"`
 	// `AWS::AmazonMQ::Broker.SecurityGroups`.
 	SecurityGroups *[]*string `json:"securityGroups"`
 	// `AWS::AmazonMQ::Broker.StorageType`.
@@ -1136,9 +1154,14 @@ type CfnBrokerProps struct {
 	SubnetIds *[]*string `json:"subnetIds"`
 	// `AWS::AmazonMQ::Broker.Tags`.
 	Tags *[]*CfnBroker_TagsEntryProperty `json:"tags"`
+	// `AWS::AmazonMQ::Broker.Users`.
+	Users interface{} `json:"users"`
 }
 
 // A CloudFormation `AWS::AmazonMQ::Configuration`.
+//
+// TODO: EXAMPLE
+//
 type CfnConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1868,6 +1891,8 @@ func (c *jsiiProxy_CfnConfiguration) ValidateProperties(_properties interface{})
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfiguration_TagsEntryProperty struct {
 	// `CfnConfiguration.TagsEntryProperty.Key`.
 	Key *string `json:"key"`
@@ -1876,6 +1901,9 @@ type CfnConfiguration_TagsEntryProperty struct {
 }
 
 // A CloudFormation `AWS::AmazonMQ::ConfigurationAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnConfigurationAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2481,6 +2509,8 @@ func (c *jsiiProxy_CfnConfigurationAssociation) ValidateProperties(_properties i
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfigurationAssociation_ConfigurationIdProperty struct {
 	// `CfnConfigurationAssociation.ConfigurationIdProperty.Id`.
 	Id *string `json:"id"`
@@ -2489,6 +2519,9 @@ type CfnConfigurationAssociation_ConfigurationIdProperty struct {
 }
 
 // Properties for defining a `AWS::AmazonMQ::ConfigurationAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnConfigurationAssociationProps struct {
 	// `AWS::AmazonMQ::ConfigurationAssociation.Broker`.
 	Broker *string `json:"broker"`
@@ -2497,19 +2530,22 @@ type CfnConfigurationAssociationProps struct {
 }
 
 // Properties for defining a `AWS::AmazonMQ::Configuration`.
+//
+// TODO: EXAMPLE
+//
 type CfnConfigurationProps struct {
+	// `AWS::AmazonMQ::Configuration.AuthenticationStrategy`.
+	AuthenticationStrategy *string `json:"authenticationStrategy"`
 	// `AWS::AmazonMQ::Configuration.Data`.
 	Data *string `json:"data"`
+	// `AWS::AmazonMQ::Configuration.Description`.
+	Description *string `json:"description"`
 	// `AWS::AmazonMQ::Configuration.EngineType`.
 	EngineType *string `json:"engineType"`
 	// `AWS::AmazonMQ::Configuration.EngineVersion`.
 	EngineVersion *string `json:"engineVersion"`
 	// `AWS::AmazonMQ::Configuration.Name`.
 	Name *string `json:"name"`
-	// `AWS::AmazonMQ::Configuration.AuthenticationStrategy`.
-	AuthenticationStrategy *string `json:"authenticationStrategy"`
-	// `AWS::AmazonMQ::Configuration.Description`.
-	Description *string `json:"description"`
 	// `AWS::AmazonMQ::Configuration.Tags`.
 	Tags *[]*CfnConfiguration_TagsEntryProperty `json:"tags"`
 }

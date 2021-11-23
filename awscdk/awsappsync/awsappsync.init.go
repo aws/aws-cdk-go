@@ -101,9 +101,9 @@ func init() {
 		map[string]interface{}{
 			"API_KEY": AuthorizationType_API_KEY,
 			"IAM": AuthorizationType_IAM,
-			"USER_POOL": AuthorizationType_USER_POOL,
-			"OIDC": AuthorizationType_OIDC,
 			"LAMBDA": AuthorizationType_LAMBDA,
+			"OIDC": AuthorizationType_OIDC,
+			"USER_POOL": AuthorizationType_USER_POOL,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -792,9 +792,9 @@ func init() {
 		"monocdk.aws_appsync.FieldLogLevel",
 		reflect.TypeOf((*FieldLogLevel)(nil)).Elem(),
 		map[string]interface{}{
-			"NONE": FieldLogLevel_NONE,
-			"ERROR": FieldLogLevel_ERROR,
 			"ALL": FieldLogLevel_ALL,
+			"ERROR": FieldLogLevel_ERROR,
+			"NONE": FieldLogLevel_NONE,
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -1346,21 +1346,21 @@ func init() {
 		"monocdk.aws_appsync.Type",
 		reflect.TypeOf((*Type)(nil)).Elem(),
 		map[string]interface{}{
-			"ID": Type_ID,
-			"STRING": Type_STRING,
-			"INT": Type_INT,
-			"FLOAT": Type_FLOAT,
-			"BOOLEAN": Type_BOOLEAN,
 			"AWS_DATE": Type_AWS_DATE,
-			"AWS_TIME": Type_AWS_TIME,
 			"AWS_DATE_TIME": Type_AWS_DATE_TIME,
-			"AWS_TIMESTAMP": Type_AWS_TIMESTAMP,
 			"AWS_EMAIL": Type_AWS_EMAIL,
-			"AWS_JSON": Type_AWS_JSON,
-			"AWS_URL": Type_AWS_URL,
-			"AWS_PHONE": Type_AWS_PHONE,
 			"AWS_IP_ADDRESS": Type_AWS_IP_ADDRESS,
+			"AWS_JSON": Type_AWS_JSON,
+			"AWS_PHONE": Type_AWS_PHONE,
+			"AWS_TIME": Type_AWS_TIME,
+			"AWS_TIMESTAMP": Type_AWS_TIMESTAMP,
+			"AWS_URL": Type_AWS_URL,
+			"BOOLEAN": Type_BOOLEAN,
+			"FLOAT": Type_FLOAT,
+			"ID": Type_ID,
+			"INT": Type_INT,
 			"INTERMEDIATE": Type_INTERMEDIATE,
+			"STRING": Type_STRING,
 		},
 	)
 	_jsii_.RegisterClass(

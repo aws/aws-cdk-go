@@ -72,6 +72,9 @@ type AddBehaviorOptions struct {
 // "cloudfront.net" domain. To use this feature you must provide the list of
 // additional domains, and the ACM Certificate that CloudFront should use for
 // these additional domains.
+//
+// TODO: EXAMPLE
+//
 // Deprecated: see {@link CloudFrontWebDistributionProps#viewerCertificate} with {@link ViewerCertificate#acmCertificate}
 type AliasConfiguration struct {
 	// ARN of an AWS Certificate Manager (ACM) certificate.
@@ -156,6 +159,9 @@ func AllowedMethods_ALLOW_GET_HEAD_OPTIONS() AllowedMethods {
 }
 
 // A CloudFront behavior wrapper.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Behavior struct {
 	// The method this CloudFront distribution responds do.
@@ -1021,6 +1027,9 @@ func CacheQueryStringBehavior_None() CacheQueryStringBehavior {
 }
 
 // The HTTP methods that the Behavior will cache requests on.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CachedMethods interface {
 	Methods() *[]*string
@@ -1065,6 +1074,9 @@ func CachedMethods_CACHE_GET_HEAD_OPTIONS() CachedMethods {
 }
 
 // A CloudFormation `AWS::CloudFront::CachePolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnCachePolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1672,7 +1684,11 @@ func (c *jsiiProxy_CfnCachePolicy) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnCachePolicy_CachePolicyConfigProperty struct {
+	// `CfnCachePolicy.CachePolicyConfigProperty.Comment`.
+	Comment *string `json:"comment"`
 	// `CfnCachePolicy.CachePolicyConfigProperty.DefaultTTL`.
 	DefaultTtl *float64 `json:"defaultTtl"`
 	// `CfnCachePolicy.CachePolicyConfigProperty.MaxTTL`.
@@ -1683,10 +1699,10 @@ type CfnCachePolicy_CachePolicyConfigProperty struct {
 	Name *string `json:"name"`
 	// `CfnCachePolicy.CachePolicyConfigProperty.ParametersInCacheKeyAndForwardedToOrigin`.
 	ParametersInCacheKeyAndForwardedToOrigin interface{} `json:"parametersInCacheKeyAndForwardedToOrigin"`
-	// `CfnCachePolicy.CachePolicyConfigProperty.Comment`.
-	Comment *string `json:"comment"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCachePolicy_CookiesConfigProperty struct {
 	// `CfnCachePolicy.CookiesConfigProperty.CookieBehavior`.
 	CookieBehavior *string `json:"cookieBehavior"`
@@ -1694,6 +1710,8 @@ type CfnCachePolicy_CookiesConfigProperty struct {
 	Cookies *[]*string `json:"cookies"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCachePolicy_HeadersConfigProperty struct {
 	// `CfnCachePolicy.HeadersConfigProperty.HeaderBehavior`.
 	HeaderBehavior *string `json:"headerBehavior"`
@@ -1701,19 +1719,23 @@ type CfnCachePolicy_HeadersConfigProperty struct {
 	Headers *[]*string `json:"headers"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCachePolicy_ParametersInCacheKeyAndForwardedToOriginProperty struct {
 	// `CfnCachePolicy.ParametersInCacheKeyAndForwardedToOriginProperty.CookiesConfig`.
 	CookiesConfig interface{} `json:"cookiesConfig"`
+	// `CfnCachePolicy.ParametersInCacheKeyAndForwardedToOriginProperty.EnableAcceptEncodingBrotli`.
+	EnableAcceptEncodingBrotli interface{} `json:"enableAcceptEncodingBrotli"`
 	// `CfnCachePolicy.ParametersInCacheKeyAndForwardedToOriginProperty.EnableAcceptEncodingGzip`.
 	EnableAcceptEncodingGzip interface{} `json:"enableAcceptEncodingGzip"`
 	// `CfnCachePolicy.ParametersInCacheKeyAndForwardedToOriginProperty.HeadersConfig`.
 	HeadersConfig interface{} `json:"headersConfig"`
 	// `CfnCachePolicy.ParametersInCacheKeyAndForwardedToOriginProperty.QueryStringsConfig`.
 	QueryStringsConfig interface{} `json:"queryStringsConfig"`
-	// `CfnCachePolicy.ParametersInCacheKeyAndForwardedToOriginProperty.EnableAcceptEncodingBrotli`.
-	EnableAcceptEncodingBrotli interface{} `json:"enableAcceptEncodingBrotli"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCachePolicy_QueryStringsConfigProperty struct {
 	// `CfnCachePolicy.QueryStringsConfigProperty.QueryStringBehavior`.
 	QueryStringBehavior *string `json:"queryStringBehavior"`
@@ -1722,12 +1744,18 @@ type CfnCachePolicy_QueryStringsConfigProperty struct {
 }
 
 // Properties for defining a `AWS::CloudFront::CachePolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnCachePolicyProps struct {
 	// `AWS::CloudFront::CachePolicy.CachePolicyConfig`.
 	CachePolicyConfig interface{} `json:"cachePolicyConfig"`
 }
 
 // A CloudFormation `AWS::CloudFront::CloudFrontOriginAccessIdentity`.
+//
+// TODO: EXAMPLE
+//
 type CfnCloudFrontOriginAccessIdentity interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2335,18 +2363,26 @@ func (c *jsiiProxy_CfnCloudFrontOriginAccessIdentity) ValidateProperties(_proper
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnCloudFrontOriginAccessIdentity_CloudFrontOriginAccessIdentityConfigProperty struct {
 	// `CfnCloudFrontOriginAccessIdentity.CloudFrontOriginAccessIdentityConfigProperty.Comment`.
 	Comment *string `json:"comment"`
 }
 
 // Properties for defining a `AWS::CloudFront::CloudFrontOriginAccessIdentity`.
+//
+// TODO: EXAMPLE
+//
 type CfnCloudFrontOriginAccessIdentityProps struct {
 	// `AWS::CloudFront::CloudFrontOriginAccessIdentity.CloudFrontOriginAccessIdentityConfig`.
 	CloudFrontOriginAccessIdentityConfig interface{} `json:"cloudFrontOriginAccessIdentityConfig"`
 }
 
 // A CloudFormation `AWS::CloudFront::Distribution`.
+//
+// TODO: EXAMPLE
+//
 type CfnDistribution interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2965,13 +3001,9 @@ func (c *jsiiProxy_CfnDistribution) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDistribution_CacheBehaviorProperty struct {
-	// `CfnDistribution.CacheBehaviorProperty.PathPattern`.
-	PathPattern *string `json:"pathPattern"`
-	// `CfnDistribution.CacheBehaviorProperty.TargetOriginId`.
-	TargetOriginId *string `json:"targetOriginId"`
-	// `CfnDistribution.CacheBehaviorProperty.ViewerProtocolPolicy`.
-	ViewerProtocolPolicy *string `json:"viewerProtocolPolicy"`
 	// `CfnDistribution.CacheBehaviorProperty.AllowedMethods`.
 	AllowedMethods *[]*string `json:"allowedMethods"`
 	// `CfnDistribution.CacheBehaviorProperty.CachedMethods`.
@@ -2996,18 +3028,26 @@ type CfnDistribution_CacheBehaviorProperty struct {
 	MinTtl *float64 `json:"minTtl"`
 	// `CfnDistribution.CacheBehaviorProperty.OriginRequestPolicyId`.
 	OriginRequestPolicyId *string `json:"originRequestPolicyId"`
+	// `CfnDistribution.CacheBehaviorProperty.PathPattern`.
+	PathPattern *string `json:"pathPattern"`
 	// `CfnDistribution.CacheBehaviorProperty.RealtimeLogConfigArn`.
 	RealtimeLogConfigArn *string `json:"realtimeLogConfigArn"`
 	// `CfnDistribution.CacheBehaviorProperty.ResponseHeadersPolicyId`.
 	ResponseHeadersPolicyId *string `json:"responseHeadersPolicyId"`
 	// `CfnDistribution.CacheBehaviorProperty.SmoothStreaming`.
 	SmoothStreaming interface{} `json:"smoothStreaming"`
+	// `CfnDistribution.CacheBehaviorProperty.TargetOriginId`.
+	TargetOriginId *string `json:"targetOriginId"`
 	// `CfnDistribution.CacheBehaviorProperty.TrustedKeyGroups`.
 	TrustedKeyGroups *[]*string `json:"trustedKeyGroups"`
 	// `CfnDistribution.CacheBehaviorProperty.TrustedSigners`.
 	TrustedSigners *[]*string `json:"trustedSigners"`
+	// `CfnDistribution.CacheBehaviorProperty.ViewerProtocolPolicy`.
+	ViewerProtocolPolicy *string `json:"viewerProtocolPolicy"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDistribution_CookiesProperty struct {
 	// `CfnDistribution.CookiesProperty.Forward`.
 	Forward *string `json:"forward"`
@@ -3015,37 +3055,39 @@ type CfnDistribution_CookiesProperty struct {
 	WhitelistedNames *[]*string `json:"whitelistedNames"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDistribution_CustomErrorResponseProperty struct {
-	// `CfnDistribution.CustomErrorResponseProperty.ErrorCode`.
-	ErrorCode *float64 `json:"errorCode"`
 	// `CfnDistribution.CustomErrorResponseProperty.ErrorCachingMinTTL`.
 	ErrorCachingMinTtl *float64 `json:"errorCachingMinTtl"`
+	// `CfnDistribution.CustomErrorResponseProperty.ErrorCode`.
+	ErrorCode *float64 `json:"errorCode"`
 	// `CfnDistribution.CustomErrorResponseProperty.ResponseCode`.
 	ResponseCode *float64 `json:"responseCode"`
 	// `CfnDistribution.CustomErrorResponseProperty.ResponsePagePath`.
 	ResponsePagePath *string `json:"responsePagePath"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDistribution_CustomOriginConfigProperty struct {
-	// `CfnDistribution.CustomOriginConfigProperty.OriginProtocolPolicy`.
-	OriginProtocolPolicy *string `json:"originProtocolPolicy"`
 	// `CfnDistribution.CustomOriginConfigProperty.HTTPPort`.
 	HttpPort *float64 `json:"httpPort"`
 	// `CfnDistribution.CustomOriginConfigProperty.HTTPSPort`.
 	HttpsPort *float64 `json:"httpsPort"`
 	// `CfnDistribution.CustomOriginConfigProperty.OriginKeepaliveTimeout`.
 	OriginKeepaliveTimeout *float64 `json:"originKeepaliveTimeout"`
+	// `CfnDistribution.CustomOriginConfigProperty.OriginProtocolPolicy`.
+	OriginProtocolPolicy *string `json:"originProtocolPolicy"`
 	// `CfnDistribution.CustomOriginConfigProperty.OriginReadTimeout`.
 	OriginReadTimeout *float64 `json:"originReadTimeout"`
 	// `CfnDistribution.CustomOriginConfigProperty.OriginSSLProtocols`.
 	OriginSslProtocols *[]*string `json:"originSslProtocols"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDistribution_DefaultCacheBehaviorProperty struct {
-	// `CfnDistribution.DefaultCacheBehaviorProperty.TargetOriginId`.
-	TargetOriginId *string `json:"targetOriginId"`
-	// `CfnDistribution.DefaultCacheBehaviorProperty.ViewerProtocolPolicy`.
-	ViewerProtocolPolicy *string `json:"viewerProtocolPolicy"`
 	// `CfnDistribution.DefaultCacheBehaviorProperty.AllowedMethods`.
 	AllowedMethods *[]*string `json:"allowedMethods"`
 	// `CfnDistribution.DefaultCacheBehaviorProperty.CachedMethods`.
@@ -3076,15 +3118,19 @@ type CfnDistribution_DefaultCacheBehaviorProperty struct {
 	ResponseHeadersPolicyId *string `json:"responseHeadersPolicyId"`
 	// `CfnDistribution.DefaultCacheBehaviorProperty.SmoothStreaming`.
 	SmoothStreaming interface{} `json:"smoothStreaming"`
+	// `CfnDistribution.DefaultCacheBehaviorProperty.TargetOriginId`.
+	TargetOriginId *string `json:"targetOriginId"`
 	// `CfnDistribution.DefaultCacheBehaviorProperty.TrustedKeyGroups`.
 	TrustedKeyGroups *[]*string `json:"trustedKeyGroups"`
 	// `CfnDistribution.DefaultCacheBehaviorProperty.TrustedSigners`.
 	TrustedSigners *[]*string `json:"trustedSigners"`
+	// `CfnDistribution.DefaultCacheBehaviorProperty.ViewerProtocolPolicy`.
+	ViewerProtocolPolicy *string `json:"viewerProtocolPolicy"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDistribution_DistributionConfigProperty struct {
-	// `CfnDistribution.DistributionConfigProperty.Enabled`.
-	Enabled interface{} `json:"enabled"`
 	// `CfnDistribution.DistributionConfigProperty.Aliases`.
 	Aliases *[]*string `json:"aliases"`
 	// `CfnDistribution.DistributionConfigProperty.CacheBehaviors`.
@@ -3101,6 +3147,8 @@ type CfnDistribution_DistributionConfigProperty struct {
 	DefaultCacheBehavior interface{} `json:"defaultCacheBehavior"`
 	// `CfnDistribution.DistributionConfigProperty.DefaultRootObject`.
 	DefaultRootObject *string `json:"defaultRootObject"`
+	// `CfnDistribution.DistributionConfigProperty.Enabled`.
+	Enabled interface{} `json:"enabled"`
 	// `CfnDistribution.DistributionConfigProperty.HttpVersion`.
 	HttpVersion *string `json:"httpVersion"`
 	// `CfnDistribution.DistributionConfigProperty.IPV6Enabled`.
@@ -3123,17 +3171,21 @@ type CfnDistribution_DistributionConfigProperty struct {
 	WebAclId *string `json:"webAclId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDistribution_ForwardedValuesProperty struct {
-	// `CfnDistribution.ForwardedValuesProperty.QueryString`.
-	QueryString interface{} `json:"queryString"`
 	// `CfnDistribution.ForwardedValuesProperty.Cookies`.
 	Cookies interface{} `json:"cookies"`
 	// `CfnDistribution.ForwardedValuesProperty.Headers`.
 	Headers *[]*string `json:"headers"`
+	// `CfnDistribution.ForwardedValuesProperty.QueryString`.
+	QueryString interface{} `json:"queryString"`
 	// `CfnDistribution.ForwardedValuesProperty.QueryStringCacheKeys`.
 	QueryStringCacheKeys *[]*string `json:"queryStringCacheKeys"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDistribution_FunctionAssociationProperty struct {
 	// `CfnDistribution.FunctionAssociationProperty.EventType`.
 	EventType *string `json:"eventType"`
@@ -3141,13 +3193,17 @@ type CfnDistribution_FunctionAssociationProperty struct {
 	FunctionArn *string `json:"functionArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDistribution_GeoRestrictionProperty struct {
-	// `CfnDistribution.GeoRestrictionProperty.RestrictionType`.
-	RestrictionType *string `json:"restrictionType"`
 	// `CfnDistribution.GeoRestrictionProperty.Locations`.
 	Locations *[]*string `json:"locations"`
+	// `CfnDistribution.GeoRestrictionProperty.RestrictionType`.
+	RestrictionType *string `json:"restrictionType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDistribution_LambdaFunctionAssociationProperty struct {
 	// `CfnDistribution.LambdaFunctionAssociationProperty.EventType`.
 	EventType *string `json:"eventType"`
@@ -3157,19 +3213,23 @@ type CfnDistribution_LambdaFunctionAssociationProperty struct {
 	LambdaFunctionArn *string `json:"lambdaFunctionArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDistribution_LegacyCustomOriginProperty struct {
 	// `CfnDistribution.LegacyCustomOriginProperty.DNSName`.
 	DnsName *string `json:"dnsName"`
-	// `CfnDistribution.LegacyCustomOriginProperty.OriginProtocolPolicy`.
-	OriginProtocolPolicy *string `json:"originProtocolPolicy"`
-	// `CfnDistribution.LegacyCustomOriginProperty.OriginSSLProtocols`.
-	OriginSslProtocols *[]*string `json:"originSslProtocols"`
 	// `CfnDistribution.LegacyCustomOriginProperty.HTTPPort`.
 	HttpPort *float64 `json:"httpPort"`
 	// `CfnDistribution.LegacyCustomOriginProperty.HTTPSPort`.
 	HttpsPort *float64 `json:"httpsPort"`
+	// `CfnDistribution.LegacyCustomOriginProperty.OriginProtocolPolicy`.
+	OriginProtocolPolicy *string `json:"originProtocolPolicy"`
+	// `CfnDistribution.LegacyCustomOriginProperty.OriginSSLProtocols`.
+	OriginSslProtocols *[]*string `json:"originSslProtocols"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDistribution_LegacyS3OriginProperty struct {
 	// `CfnDistribution.LegacyS3OriginProperty.DNSName`.
 	DnsName *string `json:"dnsName"`
@@ -3177,6 +3237,8 @@ type CfnDistribution_LegacyS3OriginProperty struct {
 	OriginAccessIdentity *string `json:"originAccessIdentity"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDistribution_LoggingProperty struct {
 	// `CfnDistribution.LoggingProperty.Bucket`.
 	Bucket *string `json:"bucket"`
@@ -3186,6 +3248,8 @@ type CfnDistribution_LoggingProperty struct {
 	Prefix *string `json:"prefix"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDistribution_OriginCustomHeaderProperty struct {
 	// `CfnDistribution.OriginCustomHeaderProperty.HeaderName`.
 	HeaderName *string `json:"headerName"`
@@ -3193,16 +3257,22 @@ type CfnDistribution_OriginCustomHeaderProperty struct {
 	HeaderValue *string `json:"headerValue"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDistribution_OriginGroupFailoverCriteriaProperty struct {
 	// `CfnDistribution.OriginGroupFailoverCriteriaProperty.StatusCodes`.
 	StatusCodes interface{} `json:"statusCodes"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDistribution_OriginGroupMemberProperty struct {
 	// `CfnDistribution.OriginGroupMemberProperty.OriginId`.
 	OriginId *string `json:"originId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDistribution_OriginGroupMembersProperty struct {
 	// `CfnDistribution.OriginGroupMembersProperty.Items`.
 	Items interface{} `json:"items"`
@@ -3210,6 +3280,8 @@ type CfnDistribution_OriginGroupMembersProperty struct {
 	Quantity *float64 `json:"quantity"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDistribution_OriginGroupProperty struct {
 	// `CfnDistribution.OriginGroupProperty.FailoverCriteria`.
 	FailoverCriteria interface{} `json:"failoverCriteria"`
@@ -3219,24 +3291,28 @@ type CfnDistribution_OriginGroupProperty struct {
 	Members interface{} `json:"members"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDistribution_OriginGroupsProperty struct {
-	// `CfnDistribution.OriginGroupsProperty.Quantity`.
-	Quantity *float64 `json:"quantity"`
 	// `CfnDistribution.OriginGroupsProperty.Items`.
 	Items interface{} `json:"items"`
+	// `CfnDistribution.OriginGroupsProperty.Quantity`.
+	Quantity *float64 `json:"quantity"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDistribution_OriginProperty struct {
-	// `CfnDistribution.OriginProperty.DomainName`.
-	DomainName *string `json:"domainName"`
-	// `CfnDistribution.OriginProperty.Id`.
-	Id *string `json:"id"`
 	// `CfnDistribution.OriginProperty.ConnectionAttempts`.
 	ConnectionAttempts *float64 `json:"connectionAttempts"`
 	// `CfnDistribution.OriginProperty.ConnectionTimeout`.
 	ConnectionTimeout *float64 `json:"connectionTimeout"`
 	// `CfnDistribution.OriginProperty.CustomOriginConfig`.
 	CustomOriginConfig interface{} `json:"customOriginConfig"`
+	// `CfnDistribution.OriginProperty.DomainName`.
+	DomainName *string `json:"domainName"`
+	// `CfnDistribution.OriginProperty.Id`.
+	Id *string `json:"id"`
 	// `CfnDistribution.OriginProperty.OriginCustomHeaders`.
 	OriginCustomHeaders interface{} `json:"originCustomHeaders"`
 	// `CfnDistribution.OriginProperty.OriginPath`.
@@ -3247,6 +3323,8 @@ type CfnDistribution_OriginProperty struct {
 	S3OriginConfig interface{} `json:"s3OriginConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDistribution_OriginShieldProperty struct {
 	// `CfnDistribution.OriginShieldProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
@@ -3254,16 +3332,22 @@ type CfnDistribution_OriginShieldProperty struct {
 	OriginShieldRegion *string `json:"originShieldRegion"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDistribution_RestrictionsProperty struct {
 	// `CfnDistribution.RestrictionsProperty.GeoRestriction`.
 	GeoRestriction interface{} `json:"geoRestriction"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDistribution_S3OriginConfigProperty struct {
 	// `CfnDistribution.S3OriginConfigProperty.OriginAccessIdentity`.
 	OriginAccessIdentity *string `json:"originAccessIdentity"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDistribution_StatusCodesProperty struct {
 	// `CfnDistribution.StatusCodesProperty.Items`.
 	Items interface{} `json:"items"`
@@ -3271,6 +3355,8 @@ type CfnDistribution_StatusCodesProperty struct {
 	Quantity *float64 `json:"quantity"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDistribution_ViewerCertificateProperty struct {
 	// `CfnDistribution.ViewerCertificateProperty.AcmCertificateArn`.
 	AcmCertificateArn *string `json:"acmCertificateArn"`
@@ -3285,6 +3371,9 @@ type CfnDistribution_ViewerCertificateProperty struct {
 }
 
 // Properties for defining a `AWS::CloudFront::Distribution`.
+//
+// TODO: EXAMPLE
+//
 type CfnDistributionProps struct {
 	// `AWS::CloudFront::Distribution.DistributionConfig`.
 	DistributionConfig interface{} `json:"distributionConfig"`
@@ -3293,6 +3382,9 @@ type CfnDistributionProps struct {
 }
 
 // A CloudFormation `AWS::CloudFront::Function`.
+//
+// TODO: EXAMPLE
+//
 type CfnFunction interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3971,6 +4063,8 @@ func (c *jsiiProxy_CfnFunction) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_FunctionConfigProperty struct {
 	// `CfnFunction.FunctionConfigProperty.Comment`.
 	Comment *string `json:"comment"`
@@ -3978,24 +4072,32 @@ type CfnFunction_FunctionConfigProperty struct {
 	Runtime *string `json:"runtime"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFunction_FunctionMetadataProperty struct {
 	// `CfnFunction.FunctionMetadataProperty.FunctionARN`.
 	FunctionArn *string `json:"functionArn"`
 }
 
 // Properties for defining a `AWS::CloudFront::Function`.
+//
+// TODO: EXAMPLE
+//
 type CfnFunctionProps struct {
-	// `AWS::CloudFront::Function.Name`.
-	Name *string `json:"name"`
 	// `AWS::CloudFront::Function.AutoPublish`.
 	AutoPublish interface{} `json:"autoPublish"`
 	// `AWS::CloudFront::Function.FunctionCode`.
 	FunctionCode *string `json:"functionCode"`
 	// `AWS::CloudFront::Function.FunctionConfig`.
 	FunctionConfig interface{} `json:"functionConfig"`
+	// `AWS::CloudFront::Function.Name`.
+	Name *string `json:"name"`
 }
 
 // A CloudFormation `AWS::CloudFront::KeyGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnKeyGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4603,22 +4705,30 @@ func (c *jsiiProxy_CfnKeyGroup) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnKeyGroup_KeyGroupConfigProperty struct {
+	// `CfnKeyGroup.KeyGroupConfigProperty.Comment`.
+	Comment *string `json:"comment"`
 	// `CfnKeyGroup.KeyGroupConfigProperty.Items`.
 	Items *[]*string `json:"items"`
 	// `CfnKeyGroup.KeyGroupConfigProperty.Name`.
 	Name *string `json:"name"`
-	// `CfnKeyGroup.KeyGroupConfigProperty.Comment`.
-	Comment *string `json:"comment"`
 }
 
 // Properties for defining a `AWS::CloudFront::KeyGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnKeyGroupProps struct {
 	// `AWS::CloudFront::KeyGroup.KeyGroupConfig`.
 	KeyGroupConfig interface{} `json:"keyGroupConfig"`
 }
 
 // A CloudFormation `AWS::CloudFront::OriginRequestPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnOriginRequestPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5226,6 +5336,8 @@ func (c *jsiiProxy_CfnOriginRequestPolicy) ValidateProperties(_properties interf
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnOriginRequestPolicy_CookiesConfigProperty struct {
 	// `CfnOriginRequestPolicy.CookiesConfigProperty.CookieBehavior`.
 	CookieBehavior *string `json:"cookieBehavior"`
@@ -5233,6 +5345,8 @@ type CfnOriginRequestPolicy_CookiesConfigProperty struct {
 	Cookies *[]*string `json:"cookies"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnOriginRequestPolicy_HeadersConfigProperty struct {
 	// `CfnOriginRequestPolicy.HeadersConfigProperty.HeaderBehavior`.
 	HeaderBehavior *string `json:"headerBehavior"`
@@ -5240,7 +5354,11 @@ type CfnOriginRequestPolicy_HeadersConfigProperty struct {
 	Headers *[]*string `json:"headers"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnOriginRequestPolicy_OriginRequestPolicyConfigProperty struct {
+	// `CfnOriginRequestPolicy.OriginRequestPolicyConfigProperty.Comment`.
+	Comment *string `json:"comment"`
 	// `CfnOriginRequestPolicy.OriginRequestPolicyConfigProperty.CookiesConfig`.
 	CookiesConfig interface{} `json:"cookiesConfig"`
 	// `CfnOriginRequestPolicy.OriginRequestPolicyConfigProperty.HeadersConfig`.
@@ -5249,10 +5367,10 @@ type CfnOriginRequestPolicy_OriginRequestPolicyConfigProperty struct {
 	Name *string `json:"name"`
 	// `CfnOriginRequestPolicy.OriginRequestPolicyConfigProperty.QueryStringsConfig`.
 	QueryStringsConfig interface{} `json:"queryStringsConfig"`
-	// `CfnOriginRequestPolicy.OriginRequestPolicyConfigProperty.Comment`.
-	Comment *string `json:"comment"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnOriginRequestPolicy_QueryStringsConfigProperty struct {
 	// `CfnOriginRequestPolicy.QueryStringsConfigProperty.QueryStringBehavior`.
 	QueryStringBehavior *string `json:"queryStringBehavior"`
@@ -5261,12 +5379,18 @@ type CfnOriginRequestPolicy_QueryStringsConfigProperty struct {
 }
 
 // Properties for defining a `AWS::CloudFront::OriginRequestPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnOriginRequestPolicyProps struct {
 	// `AWS::CloudFront::OriginRequestPolicy.OriginRequestPolicyConfig`.
 	OriginRequestPolicyConfig interface{} `json:"originRequestPolicyConfig"`
 }
 
 // A CloudFormation `AWS::CloudFront::PublicKey`.
+//
+// TODO: EXAMPLE
+//
 type CfnPublicKey interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5874,24 +5998,32 @@ func (c *jsiiProxy_CfnPublicKey) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnPublicKey_PublicKeyConfigProperty struct {
 	// `CfnPublicKey.PublicKeyConfigProperty.CallerReference`.
 	CallerReference *string `json:"callerReference"`
+	// `CfnPublicKey.PublicKeyConfigProperty.Comment`.
+	Comment *string `json:"comment"`
 	// `CfnPublicKey.PublicKeyConfigProperty.EncodedKey`.
 	EncodedKey *string `json:"encodedKey"`
 	// `CfnPublicKey.PublicKeyConfigProperty.Name`.
 	Name *string `json:"name"`
-	// `CfnPublicKey.PublicKeyConfigProperty.Comment`.
-	Comment *string `json:"comment"`
 }
 
 // Properties for defining a `AWS::CloudFront::PublicKey`.
+//
+// TODO: EXAMPLE
+//
 type CfnPublicKeyProps struct {
 	// `AWS::CloudFront::PublicKey.PublicKeyConfig`.
 	PublicKeyConfig interface{} `json:"publicKeyConfig"`
 }
 
 // A CloudFormation `AWS::CloudFront::RealtimeLogConfig`.
+//
+// TODO: EXAMPLE
+//
 type CfnRealtimeLogConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6548,6 +6680,8 @@ func (c *jsiiProxy_CfnRealtimeLogConfig) ValidateProperties(_properties interfac
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnRealtimeLogConfig_EndPointProperty struct {
 	// `CfnRealtimeLogConfig.EndPointProperty.KinesisStreamConfig`.
 	KinesisStreamConfig interface{} `json:"kinesisStreamConfig"`
@@ -6555,6 +6689,8 @@ type CfnRealtimeLogConfig_EndPointProperty struct {
 	StreamType *string `json:"streamType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRealtimeLogConfig_KinesisStreamConfigProperty struct {
 	// `CfnRealtimeLogConfig.KinesisStreamConfigProperty.RoleArn`.
 	RoleArn *string `json:"roleArn"`
@@ -6563,6 +6699,9 @@ type CfnRealtimeLogConfig_KinesisStreamConfigProperty struct {
 }
 
 // Properties for defining a `AWS::CloudFront::RealtimeLogConfig`.
+//
+// TODO: EXAMPLE
+//
 type CfnRealtimeLogConfigProps struct {
 	// `AWS::CloudFront::RealtimeLogConfig.EndPoints`.
 	EndPoints interface{} `json:"endPoints"`
@@ -6575,6 +6714,9 @@ type CfnRealtimeLogConfigProps struct {
 }
 
 // A CloudFormation `AWS::CloudFront::ResponseHeadersPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnResponseHeadersPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -7182,26 +7324,36 @@ func (c *jsiiProxy_CfnResponseHeadersPolicy) ValidateProperties(_properties inte
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnResponseHeadersPolicy_AccessControlAllowHeadersProperty struct {
 	// `CfnResponseHeadersPolicy.AccessControlAllowHeadersProperty.Items`.
 	Items *[]*string `json:"items"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResponseHeadersPolicy_AccessControlAllowMethodsProperty struct {
 	// `CfnResponseHeadersPolicy.AccessControlAllowMethodsProperty.Items`.
 	Items *[]*string `json:"items"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResponseHeadersPolicy_AccessControlAllowOriginsProperty struct {
 	// `CfnResponseHeadersPolicy.AccessControlAllowOriginsProperty.Items`.
 	Items *[]*string `json:"items"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResponseHeadersPolicy_AccessControlExposeHeadersProperty struct {
 	// `CfnResponseHeadersPolicy.AccessControlExposeHeadersProperty.Items`.
 	Items *[]*string `json:"items"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResponseHeadersPolicy_ContentSecurityPolicyProperty struct {
 	// `CfnResponseHeadersPolicy.ContentSecurityPolicyProperty.ContentSecurityPolicy`.
 	ContentSecurityPolicy *string `json:"contentSecurityPolicy"`
@@ -7209,11 +7361,15 @@ type CfnResponseHeadersPolicy_ContentSecurityPolicyProperty struct {
 	Override interface{} `json:"override"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResponseHeadersPolicy_ContentTypeOptionsProperty struct {
 	// `CfnResponseHeadersPolicy.ContentTypeOptionsProperty.Override`.
 	Override interface{} `json:"override"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResponseHeadersPolicy_CorsConfigProperty struct {
 	// `CfnResponseHeadersPolicy.CorsConfigProperty.AccessControlAllowCredentials`.
 	AccessControlAllowCredentials interface{} `json:"accessControlAllowCredentials"`
@@ -7223,14 +7379,16 @@ type CfnResponseHeadersPolicy_CorsConfigProperty struct {
 	AccessControlAllowMethods interface{} `json:"accessControlAllowMethods"`
 	// `CfnResponseHeadersPolicy.CorsConfigProperty.AccessControlAllowOrigins`.
 	AccessControlAllowOrigins interface{} `json:"accessControlAllowOrigins"`
-	// `CfnResponseHeadersPolicy.CorsConfigProperty.OriginOverride`.
-	OriginOverride interface{} `json:"originOverride"`
 	// `CfnResponseHeadersPolicy.CorsConfigProperty.AccessControlExposeHeaders`.
 	AccessControlExposeHeaders interface{} `json:"accessControlExposeHeaders"`
 	// `CfnResponseHeadersPolicy.CorsConfigProperty.AccessControlMaxAgeSec`.
 	AccessControlMaxAgeSec *float64 `json:"accessControlMaxAgeSec"`
+	// `CfnResponseHeadersPolicy.CorsConfigProperty.OriginOverride`.
+	OriginOverride interface{} `json:"originOverride"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResponseHeadersPolicy_CustomHeaderProperty struct {
 	// `CfnResponseHeadersPolicy.CustomHeaderProperty.Header`.
 	Header *string `json:"header"`
@@ -7240,11 +7398,15 @@ type CfnResponseHeadersPolicy_CustomHeaderProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResponseHeadersPolicy_CustomHeadersConfigProperty struct {
 	// `CfnResponseHeadersPolicy.CustomHeadersConfigProperty.Items`.
 	Items interface{} `json:"items"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResponseHeadersPolicy_FrameOptionsProperty struct {
 	// `CfnResponseHeadersPolicy.FrameOptionsProperty.FrameOption`.
 	FrameOption *string `json:"frameOption"`
@@ -7252,6 +7414,8 @@ type CfnResponseHeadersPolicy_FrameOptionsProperty struct {
 	Override interface{} `json:"override"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResponseHeadersPolicy_ReferrerPolicyProperty struct {
 	// `CfnResponseHeadersPolicy.ReferrerPolicyProperty.Override`.
 	Override interface{} `json:"override"`
@@ -7259,19 +7423,23 @@ type CfnResponseHeadersPolicy_ReferrerPolicyProperty struct {
 	ReferrerPolicy *string `json:"referrerPolicy"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResponseHeadersPolicy_ResponseHeadersPolicyConfigProperty struct {
-	// `CfnResponseHeadersPolicy.ResponseHeadersPolicyConfigProperty.Name`.
-	Name *string `json:"name"`
 	// `CfnResponseHeadersPolicy.ResponseHeadersPolicyConfigProperty.Comment`.
 	Comment *string `json:"comment"`
 	// `CfnResponseHeadersPolicy.ResponseHeadersPolicyConfigProperty.CorsConfig`.
 	CorsConfig interface{} `json:"corsConfig"`
 	// `CfnResponseHeadersPolicy.ResponseHeadersPolicyConfigProperty.CustomHeadersConfig`.
 	CustomHeadersConfig interface{} `json:"customHeadersConfig"`
+	// `CfnResponseHeadersPolicy.ResponseHeadersPolicyConfigProperty.Name`.
+	Name *string `json:"name"`
 	// `CfnResponseHeadersPolicy.ResponseHeadersPolicyConfigProperty.SecurityHeadersConfig`.
 	SecurityHeadersConfig interface{} `json:"securityHeadersConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResponseHeadersPolicy_SecurityHeadersConfigProperty struct {
 	// `CfnResponseHeadersPolicy.SecurityHeadersConfigProperty.ContentSecurityPolicy`.
 	ContentSecurityPolicy interface{} `json:"contentSecurityPolicy"`
@@ -7287,35 +7455,45 @@ type CfnResponseHeadersPolicy_SecurityHeadersConfigProperty struct {
 	XssProtection interface{} `json:"xssProtection"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResponseHeadersPolicy_StrictTransportSecurityProperty struct {
 	// `CfnResponseHeadersPolicy.StrictTransportSecurityProperty.AccessControlMaxAgeSec`.
 	AccessControlMaxAgeSec *float64 `json:"accessControlMaxAgeSec"`
-	// `CfnResponseHeadersPolicy.StrictTransportSecurityProperty.Override`.
-	Override interface{} `json:"override"`
 	// `CfnResponseHeadersPolicy.StrictTransportSecurityProperty.IncludeSubdomains`.
 	IncludeSubdomains interface{} `json:"includeSubdomains"`
+	// `CfnResponseHeadersPolicy.StrictTransportSecurityProperty.Override`.
+	Override interface{} `json:"override"`
 	// `CfnResponseHeadersPolicy.StrictTransportSecurityProperty.Preload`.
 	Preload interface{} `json:"preload"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResponseHeadersPolicy_XSSProtectionProperty struct {
+	// `CfnResponseHeadersPolicy.XSSProtectionProperty.ModeBlock`.
+	ModeBlock interface{} `json:"modeBlock"`
 	// `CfnResponseHeadersPolicy.XSSProtectionProperty.Override`.
 	Override interface{} `json:"override"`
 	// `CfnResponseHeadersPolicy.XSSProtectionProperty.Protection`.
 	Protection interface{} `json:"protection"`
-	// `CfnResponseHeadersPolicy.XSSProtectionProperty.ModeBlock`.
-	ModeBlock interface{} `json:"modeBlock"`
 	// `CfnResponseHeadersPolicy.XSSProtectionProperty.ReportUri`.
 	ReportUri *string `json:"reportUri"`
 }
 
 // Properties for defining a `AWS::CloudFront::ResponseHeadersPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnResponseHeadersPolicyProps struct {
 	// `AWS::CloudFront::ResponseHeadersPolicy.ResponseHeadersPolicyConfig`.
 	ResponseHeadersPolicyConfig interface{} `json:"responseHeadersPolicyConfig"`
 }
 
 // A CloudFormation `AWS::CloudFront::StreamingDistribution`.
+//
+// TODO: EXAMPLE
+//
 type CfnStreamingDistribution interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -7923,6 +8101,8 @@ func (c *jsiiProxy_CfnStreamingDistribution) ValidateProperties(_properties inte
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnStreamingDistribution_LoggingProperty struct {
 	// `CfnStreamingDistribution.LoggingProperty.Bucket`.
 	Bucket *string `json:"bucket"`
@@ -7932,6 +8112,8 @@ type CfnStreamingDistribution_LoggingProperty struct {
 	Prefix *string `json:"prefix"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStreamingDistribution_S3OriginProperty struct {
 	// `CfnStreamingDistribution.S3OriginProperty.DomainName`.
 	DomainName *string `json:"domainName"`
@@ -7939,31 +8121,38 @@ type CfnStreamingDistribution_S3OriginProperty struct {
 	OriginAccessIdentity *string `json:"originAccessIdentity"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStreamingDistribution_StreamingDistributionConfigProperty struct {
+	// `CfnStreamingDistribution.StreamingDistributionConfigProperty.Aliases`.
+	Aliases *[]*string `json:"aliases"`
 	// `CfnStreamingDistribution.StreamingDistributionConfigProperty.Comment`.
 	Comment *string `json:"comment"`
 	// `CfnStreamingDistribution.StreamingDistributionConfigProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
-	// `CfnStreamingDistribution.StreamingDistributionConfigProperty.S3Origin`.
-	S3Origin interface{} `json:"s3Origin"`
-	// `CfnStreamingDistribution.StreamingDistributionConfigProperty.TrustedSigners`.
-	TrustedSigners interface{} `json:"trustedSigners"`
-	// `CfnStreamingDistribution.StreamingDistributionConfigProperty.Aliases`.
-	Aliases *[]*string `json:"aliases"`
 	// `CfnStreamingDistribution.StreamingDistributionConfigProperty.Logging`.
 	Logging interface{} `json:"logging"`
 	// `CfnStreamingDistribution.StreamingDistributionConfigProperty.PriceClass`.
 	PriceClass *string `json:"priceClass"`
+	// `CfnStreamingDistribution.StreamingDistributionConfigProperty.S3Origin`.
+	S3Origin interface{} `json:"s3Origin"`
+	// `CfnStreamingDistribution.StreamingDistributionConfigProperty.TrustedSigners`.
+	TrustedSigners interface{} `json:"trustedSigners"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStreamingDistribution_TrustedSignersProperty struct {
-	// `CfnStreamingDistribution.TrustedSignersProperty.Enabled`.
-	Enabled interface{} `json:"enabled"`
 	// `CfnStreamingDistribution.TrustedSignersProperty.AwsAccountNumbers`.
 	AwsAccountNumbers *[]*string `json:"awsAccountNumbers"`
+	// `CfnStreamingDistribution.TrustedSignersProperty.Enabled`.
+	Enabled interface{} `json:"enabled"`
 }
 
 // Properties for defining a `AWS::CloudFront::StreamingDistribution`.
+//
+// TODO: EXAMPLE
+//
 type CfnStreamingDistributionProps struct {
 	// `AWS::CloudFront::StreamingDistribution.StreamingDistributionConfig`.
 	StreamingDistributionConfig interface{} `json:"streamingDistributionConfig"`
@@ -7985,9 +8174,9 @@ const (
 type CloudFrontAllowedMethods string
 
 const (
+	CloudFrontAllowedMethods_ALL CloudFrontAllowedMethods = "ALL"
 	CloudFrontAllowedMethods_GET_HEAD CloudFrontAllowedMethods = "GET_HEAD"
 	CloudFrontAllowedMethods_GET_HEAD_OPTIONS CloudFrontAllowedMethods = "GET_HEAD_OPTIONS"
-	CloudFrontAllowedMethods_ALL CloudFrontAllowedMethods = "ALL"
 )
 
 // Amazon CloudFront is a global content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to your viewers with low latency and high transfer speeds.
@@ -8393,6 +8582,9 @@ func (c *jsiiProxy_CloudFrontWebDistribution) Validate() *[]*string {
 }
 
 // Attributes used to import a Distribution.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CloudFrontWebDistributionAttributes struct {
 	// The distribution ID for this distribution.
@@ -8469,16 +8661,19 @@ type CloudFrontWebDistributionProps struct {
 }
 
 // A custom origin configuration.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CustomOriginConfig struct {
+	// The SSL versions to use when interacting with the origin.
+	// Experimental.
+	AllowedOriginSSLVersions *[]OriginSslPolicy `json:"allowedOriginSSLVersions"`
 	// The domain name of the custom origin.
 	//
 	// Should not include the path - that should be in the parent SourceConfiguration
 	// Experimental.
 	DomainName *string `json:"domainName"`
-	// The SSL versions to use when interacting with the origin.
-	// Experimental.
-	AllowedOriginSSLVersions *[]OriginSslPolicy `json:"allowedOriginSSLVersions"`
 	// The origin HTTP port.
 	// Experimental.
 	HttpPort *float64 `json:"httpPort"`
@@ -8987,6 +9182,9 @@ type DistributionProps struct {
 // Represents a Lambda function version and event type when using Lambda@Edge.
 //
 // The type of the {@link AddBehaviorOptions.edgeLambdas} property.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EdgeLambda struct {
 	// The type of event in response to which should the function be invoked.
@@ -9006,6 +9204,9 @@ type EdgeLambda struct {
 }
 
 // Options for configuring custom error responses.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ErrorResponse struct {
 	// The HTTP status code for which you want to specify a custom error page and/or a caching duration.
@@ -9032,15 +9233,18 @@ type ErrorResponse struct {
 type FailoverStatusCode string
 
 const (
-	FailoverStatusCode_FORBIDDEN FailoverStatusCode = "FORBIDDEN"
-	FailoverStatusCode_NOT_FOUND FailoverStatusCode = "NOT_FOUND"
-	FailoverStatusCode_INTERNAL_SERVER_ERROR FailoverStatusCode = "INTERNAL_SERVER_ERROR"
 	FailoverStatusCode_BAD_GATEWAY FailoverStatusCode = "BAD_GATEWAY"
-	FailoverStatusCode_SERVICE_UNAVAILABLE FailoverStatusCode = "SERVICE_UNAVAILABLE"
+	FailoverStatusCode_FORBIDDEN FailoverStatusCode = "FORBIDDEN"
 	FailoverStatusCode_GATEWAY_TIMEOUT FailoverStatusCode = "GATEWAY_TIMEOUT"
+	FailoverStatusCode_INTERNAL_SERVER_ERROR FailoverStatusCode = "INTERNAL_SERVER_ERROR"
+	FailoverStatusCode_NOT_FOUND FailoverStatusCode = "NOT_FOUND"
+	FailoverStatusCode_SERVICE_UNAVAILABLE FailoverStatusCode = "SERVICE_UNAVAILABLE"
 )
 
 // Options when reading the function's code from an external file.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FileCodeOptions struct {
 	// The path of the file to read the code from.
@@ -9419,6 +9623,9 @@ func (f *jsiiProxy_Function) Validate() *[]*string {
 // Represents a CloudFront function and event type when using CF Functions.
 //
 // The type of the {@link AddBehaviorOptions.functionAssociations} property.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FunctionAssociation struct {
 	// The type of event which should invoke the function.
@@ -9430,6 +9637,9 @@ type FunctionAssociation struct {
 }
 
 // Attributes of an existing CloudFront Function to import it.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FunctionAttributes struct {
 	// The ARN of the function.
@@ -10332,23 +10542,28 @@ const (
 	LambdaEdgeEventType_VIEWER_RESPONSE LambdaEdgeEventType = "VIEWER_RESPONSE"
 )
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type LambdaFunctionAssociation struct {
 	// The lambda event type defines at which event the lambda is called during the request lifecycle.
 	// Experimental.
 	EventType LambdaEdgeEventType `json:"eventType"`
-	// A version of the lambda to associate.
-	// Experimental.
-	LambdaFunction awslambda.IVersion `json:"lambdaFunction"`
 	// Allows a Lambda function to have read access to the body content.
 	//
 	// Only valid for "request" event types (`ORIGIN_REQUEST` or `VIEWER_REQUEST`).
 	// See https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-include-body-access.html
 	// Experimental.
 	IncludeBody *bool `json:"includeBody"`
+	// A version of the lambda to associate.
+	// Experimental.
+	LambdaFunction awslambda.IVersion `json:"lambdaFunction"`
 }
 
 // Logging configuration for incoming requests.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LoggingConfiguration struct {
 	// Bucket to log requests to.
@@ -10363,6 +10578,9 @@ type LoggingConfiguration struct {
 }
 
 // An origin access identity is a special CloudFront user that you can associate with Amazon S3 origins, so that you can secure all or just some of your Amazon S3 content.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type OriginAccessIdentity interface {
 	awscdk.Resource
@@ -10744,6 +10962,9 @@ func (o *jsiiProxy_OriginAccessIdentity) Validate() *[]*string {
 }
 
 // Properties of CloudFront OriginAccessIdentity.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type OriginAccessIdentityProps struct {
 	// Any comments you want to include about the origin access identity.
@@ -10822,6 +11043,9 @@ func (o *jsiiProxy_OriginBase) RenderS3OriginConfig() *CfnDistribution_S3OriginC
 }
 
 // The struct returned from {@link IOrigin.bind}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type OriginBindConfig struct {
 	// The failover configuration for this Origin.
@@ -10833,6 +11057,9 @@ type OriginBindConfig struct {
 }
 
 // Options passed to Origin.bind().
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type OriginBindOptions struct {
 	// The identifier of this Origin, as assigned by the Distribution this Origin has been used added to.
@@ -10841,6 +11068,9 @@ type OriginBindOptions struct {
 }
 
 // The failover configuration used for Origin Groups, returned in {@link OriginBindConfig.failoverConfig}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type OriginFailoverConfig struct {
 	// The origin to use as the fallback origin.
@@ -10852,6 +11082,9 @@ type OriginFailoverConfig struct {
 }
 
 // Properties to define an Origin.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type OriginProps struct {
 	// The number of times that CloudFront attempts to connect to the origin;
@@ -10885,8 +11118,8 @@ type OriginProtocolPolicy string
 
 const (
 	OriginProtocolPolicy_HTTP_ONLY OriginProtocolPolicy = "HTTP_ONLY"
-	OriginProtocolPolicy_MATCH_VIEWER OriginProtocolPolicy = "MATCH_VIEWER"
 	OriginProtocolPolicy_HTTPS_ONLY OriginProtocolPolicy = "HTTPS_ONLY"
+	OriginProtocolPolicy_MATCH_VIEWER OriginProtocolPolicy = "MATCH_VIEWER"
 )
 
 // Determines whether any cookies in viewer requests (and if so, which cookies) are included in requests that CloudFront sends to the origin.
@@ -12003,9 +12236,6 @@ type PublicKeyProps struct {
 //
 // Experimental.
 type S3OriginConfig struct {
-	// The source bucket to serve content from.
-	// Experimental.
-	S3BucketSource awss3.IBucket `json:"s3BucketSource"`
 	// The optional Origin Access Identity of the origin identity cloudfront will use when calling your s3 bucket.
 	// Experimental.
 	OriginAccessIdentity IOriginAccessIdentity `json:"originAccessIdentity"`
@@ -12018,6 +12248,9 @@ type S3OriginConfig struct {
 	// When you enable Origin Shield in the AWS Region that has the lowest latency to your origin, you can get better network performance.
 	// Experimental.
 	OriginShieldRegion *string `json:"originShieldRegion"`
+	// The source bucket to serve content from.
+	// Experimental.
+	S3BucketSource awss3.IBucket `json:"s3BucketSource"`
 }
 
 // The SSL method CloudFront will use for your distribution.
@@ -12053,11 +12286,11 @@ type SecurityPolicyProtocol string
 const (
 	SecurityPolicyProtocol_SSL_V3 SecurityPolicyProtocol = "SSL_V3"
 	SecurityPolicyProtocol_TLS_V1 SecurityPolicyProtocol = "TLS_V1"
-	SecurityPolicyProtocol_TLS_V1_2016 SecurityPolicyProtocol = "TLS_V1_2016"
 	SecurityPolicyProtocol_TLS_V1_1_2016 SecurityPolicyProtocol = "TLS_V1_1_2016"
 	SecurityPolicyProtocol_TLS_V1_2_2018 SecurityPolicyProtocol = "TLS_V1_2_2018"
 	SecurityPolicyProtocol_TLS_V1_2_2019 SecurityPolicyProtocol = "TLS_V1_2_2019"
 	SecurityPolicyProtocol_TLS_V1_2_2021 SecurityPolicyProtocol = "TLS_V1_2_2021"
+	SecurityPolicyProtocol_TLS_V1_2016 SecurityPolicyProtocol = "TLS_V1_2016"
 )
 
 // A source configuration is a wrapper for CloudFront origins and behaviors.
@@ -12067,6 +12300,9 @@ const (
 // If you're using s3 as a source - pass the `s3Origin` property, otherwise, pass the `customOriginSource` property.
 //
 // One or the other must be passed, and it is invalid to pass both in the same SourceConfiguration.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SourceConfiguration struct {
 	// The behaviors associated with this source.
@@ -12113,6 +12349,9 @@ type SourceConfiguration struct {
 }
 
 // Viewer certificate configuration class.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ViewerCertificate interface {
 	Aliases() *[]*string
@@ -12201,6 +12440,8 @@ func ViewerCertificate_FromIamCertificate(iamCertificateId *string, options *Vie
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type ViewerCertificateOptions struct {
 	// Domain names on the certificate (both main domain name and Subject Alternative names).
@@ -12229,8 +12470,8 @@ type ViewerCertificateOptions struct {
 type ViewerProtocolPolicy string
 
 const (
+	ViewerProtocolPolicy_ALLOW_ALL ViewerProtocolPolicy = "ALLOW_ALL"
 	ViewerProtocolPolicy_HTTPS_ONLY ViewerProtocolPolicy = "HTTPS_ONLY"
 	ViewerProtocolPolicy_REDIRECT_TO_HTTPS ViewerProtocolPolicy = "REDIRECT_TO_HTTPS"
-	ViewerProtocolPolicy_ALLOW_ALL ViewerProtocolPolicy = "ALLOW_ALL"
 )
 

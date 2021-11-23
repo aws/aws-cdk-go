@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::IoTAnalytics::Channel`.
+//
+// TODO: EXAMPLE
+//
 type CfnChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -646,6 +649,8 @@ func (c *jsiiProxy_CfnChannel) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_ChannelStorageProperty struct {
 	// `CfnChannel.ChannelStorageProperty.CustomerManagedS3`.
 	CustomerManagedS3 interface{} `json:"customerManagedS3"`
@@ -653,15 +658,19 @@ type CfnChannel_ChannelStorageProperty struct {
 	ServiceManagedS3 interface{} `json:"serviceManagedS3"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_CustomerManagedS3Property struct {
 	// `CfnChannel.CustomerManagedS3Property.Bucket`.
 	Bucket *string `json:"bucket"`
-	// `CfnChannel.CustomerManagedS3Property.RoleArn`.
-	RoleArn *string `json:"roleArn"`
 	// `CfnChannel.CustomerManagedS3Property.KeyPrefix`.
 	KeyPrefix *string `json:"keyPrefix"`
+	// `CfnChannel.CustomerManagedS3Property.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_RetentionPeriodProperty struct {
 	// `CfnChannel.RetentionPeriodProperty.NumberOfDays`.
 	NumberOfDays *float64 `json:"numberOfDays"`
@@ -669,10 +678,15 @@ type CfnChannel_RetentionPeriodProperty struct {
 	Unlimited interface{} `json:"unlimited"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnChannel_ServiceManagedS3Property struct {
 }
 
 // Properties for defining a `AWS::IoTAnalytics::Channel`.
+//
+// TODO: EXAMPLE
+//
 type CfnChannelProps struct {
 	// `AWS::IoTAnalytics::Channel.ChannelName`.
 	ChannelName *string `json:"channelName"`
@@ -685,6 +699,9 @@ type CfnChannelProps struct {
 }
 
 // A CloudFormation `AWS::IoTAnalytics::Dataset`.
+//
+// TODO: EXAMPLE
+//
 type CfnDataset interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1401,6 +1418,8 @@ func (c *jsiiProxy_CfnDataset) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataset_ActionProperty struct {
 	// `CfnDataset.ActionProperty.ActionName`.
 	ActionName *string `json:"actionName"`
@@ -1410,6 +1429,8 @@ type CfnDataset_ActionProperty struct {
 	QueryAction interface{} `json:"queryAction"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataset_ContainerActionProperty struct {
 	// `CfnDataset.ContainerActionProperty.ExecutionRoleArn`.
 	ExecutionRoleArn *string `json:"executionRoleArn"`
@@ -1421,6 +1442,8 @@ type CfnDataset_ContainerActionProperty struct {
 	Variables interface{} `json:"variables"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataset_DatasetContentDeliveryRuleDestinationProperty struct {
 	// `CfnDataset.DatasetContentDeliveryRuleDestinationProperty.IotEventsDestinationConfiguration`.
 	IotEventsDestinationConfiguration interface{} `json:"iotEventsDestinationConfiguration"`
@@ -1428,6 +1451,8 @@ type CfnDataset_DatasetContentDeliveryRuleDestinationProperty struct {
 	S3DestinationConfiguration interface{} `json:"s3DestinationConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataset_DatasetContentDeliveryRuleProperty struct {
 	// `CfnDataset.DatasetContentDeliveryRuleProperty.Destination`.
 	Destination interface{} `json:"destination"`
@@ -1435,11 +1460,15 @@ type CfnDataset_DatasetContentDeliveryRuleProperty struct {
 	EntryName *string `json:"entryName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataset_DatasetContentVersionValueProperty struct {
 	// `CfnDataset.DatasetContentVersionValueProperty.DatasetName`.
 	DatasetName *string `json:"datasetName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataset_DeltaTimeProperty struct {
 	// `CfnDataset.DeltaTimeProperty.OffsetSeconds`.
 	OffsetSeconds *float64 `json:"offsetSeconds"`
@@ -1447,16 +1476,22 @@ type CfnDataset_DeltaTimeProperty struct {
 	TimeExpression *string `json:"timeExpression"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataset_DeltaTimeSessionWindowConfigurationProperty struct {
 	// `CfnDataset.DeltaTimeSessionWindowConfigurationProperty.TimeoutInMinutes`.
 	TimeoutInMinutes *float64 `json:"timeoutInMinutes"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataset_FilterProperty struct {
 	// `CfnDataset.FilterProperty.DeltaTime`.
 	DeltaTime interface{} `json:"deltaTime"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataset_GlueConfigurationProperty struct {
 	// `CfnDataset.GlueConfigurationProperty.DatabaseName`.
 	DatabaseName *string `json:"databaseName"`
@@ -1464,6 +1499,8 @@ type CfnDataset_GlueConfigurationProperty struct {
 	TableName *string `json:"tableName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataset_IotEventsDestinationConfigurationProperty struct {
 	// `CfnDataset.IotEventsDestinationConfigurationProperty.InputName`.
 	InputName *string `json:"inputName"`
@@ -1471,11 +1508,15 @@ type CfnDataset_IotEventsDestinationConfigurationProperty struct {
 	RoleArn *string `json:"roleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataset_LateDataRuleConfigurationProperty struct {
 	// `CfnDataset.LateDataRuleConfigurationProperty.DeltaTimeSessionWindowConfiguration`.
 	DeltaTimeSessionWindowConfiguration interface{} `json:"deltaTimeSessionWindowConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataset_LateDataRuleProperty struct {
 	// `CfnDataset.LateDataRuleProperty.RuleConfiguration`.
 	RuleConfiguration interface{} `json:"ruleConfiguration"`
@@ -1483,18 +1524,24 @@ type CfnDataset_LateDataRuleProperty struct {
 	RuleName *string `json:"ruleName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataset_OutputFileUriValueProperty struct {
 	// `CfnDataset.OutputFileUriValueProperty.FileName`.
 	FileName *string `json:"fileName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataset_QueryActionProperty struct {
-	// `CfnDataset.QueryActionProperty.SqlQuery`.
-	SqlQuery *string `json:"sqlQuery"`
 	// `CfnDataset.QueryActionProperty.Filters`.
 	Filters interface{} `json:"filters"`
+	// `CfnDataset.QueryActionProperty.SqlQuery`.
+	SqlQuery *string `json:"sqlQuery"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataset_ResourceConfigurationProperty struct {
 	// `CfnDataset.ResourceConfigurationProperty.ComputeType`.
 	ComputeType *string `json:"computeType"`
@@ -1502,6 +1549,8 @@ type CfnDataset_ResourceConfigurationProperty struct {
 	VolumeSizeInGb *float64 `json:"volumeSizeInGb"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataset_RetentionPeriodProperty struct {
 	// `CfnDataset.RetentionPeriodProperty.NumberOfDays`.
 	NumberOfDays *float64 `json:"numberOfDays"`
@@ -1509,22 +1558,28 @@ type CfnDataset_RetentionPeriodProperty struct {
 	Unlimited interface{} `json:"unlimited"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataset_S3DestinationConfigurationProperty struct {
 	// `CfnDataset.S3DestinationConfigurationProperty.Bucket`.
 	Bucket *string `json:"bucket"`
+	// `CfnDataset.S3DestinationConfigurationProperty.GlueConfiguration`.
+	GlueConfiguration interface{} `json:"glueConfiguration"`
 	// `CfnDataset.S3DestinationConfigurationProperty.Key`.
 	Key *string `json:"key"`
 	// `CfnDataset.S3DestinationConfigurationProperty.RoleArn`.
 	RoleArn *string `json:"roleArn"`
-	// `CfnDataset.S3DestinationConfigurationProperty.GlueConfiguration`.
-	GlueConfiguration interface{} `json:"glueConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataset_ScheduleProperty struct {
 	// `CfnDataset.ScheduleProperty.ScheduleExpression`.
 	ScheduleExpression *string `json:"scheduleExpression"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataset_TriggerProperty struct {
 	// `CfnDataset.TriggerProperty.Schedule`.
 	Schedule interface{} `json:"schedule"`
@@ -1532,14 +1587,16 @@ type CfnDataset_TriggerProperty struct {
 	TriggeringDataset interface{} `json:"triggeringDataset"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataset_TriggeringDatasetProperty struct {
 	// `CfnDataset.TriggeringDatasetProperty.DatasetName`.
 	DatasetName *string `json:"datasetName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataset_VariableProperty struct {
-	// `CfnDataset.VariableProperty.VariableName`.
-	VariableName *string `json:"variableName"`
 	// `CfnDataset.VariableProperty.DatasetContentVersionValue`.
 	DatasetContentVersionValue interface{} `json:"datasetContentVersionValue"`
 	// `CfnDataset.VariableProperty.DoubleValue`.
@@ -1548,8 +1605,12 @@ type CfnDataset_VariableProperty struct {
 	OutputFileUriValue interface{} `json:"outputFileUriValue"`
 	// `CfnDataset.VariableProperty.StringValue`.
 	StringValue *string `json:"stringValue"`
+	// `CfnDataset.VariableProperty.VariableName`.
+	VariableName *string `json:"variableName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDataset_VersioningConfigurationProperty struct {
 	// `CfnDataset.VersioningConfigurationProperty.MaxVersions`.
 	MaxVersions *float64 `json:"maxVersions"`
@@ -1558,6 +1619,9 @@ type CfnDataset_VersioningConfigurationProperty struct {
 }
 
 // Properties for defining a `AWS::IoTAnalytics::Dataset`.
+//
+// TODO: EXAMPLE
+//
 type CfnDatasetProps struct {
 	// `AWS::IoTAnalytics::Dataset.Actions`.
 	Actions interface{} `json:"actions"`
@@ -1578,6 +1642,9 @@ type CfnDatasetProps struct {
 }
 
 // A CloudFormation `AWS::IoTAnalytics::Datastore`.
+//
+// TODO: EXAMPLE
+//
 type CfnDatastore interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2254,6 +2321,8 @@ func (c *jsiiProxy_CfnDatastore) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDatastore_ColumnProperty struct {
 	// `CfnDatastore.ColumnProperty.Name`.
 	Name *string `json:"name"`
@@ -2261,15 +2330,19 @@ type CfnDatastore_ColumnProperty struct {
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDatastore_CustomerManagedS3Property struct {
 	// `CfnDatastore.CustomerManagedS3Property.Bucket`.
 	Bucket *string `json:"bucket"`
-	// `CfnDatastore.CustomerManagedS3Property.RoleArn`.
-	RoleArn *string `json:"roleArn"`
 	// `CfnDatastore.CustomerManagedS3Property.KeyPrefix`.
 	KeyPrefix *string `json:"keyPrefix"`
+	// `CfnDatastore.CustomerManagedS3Property.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDatastore_CustomerManagedS3StorageProperty struct {
 	// `CfnDatastore.CustomerManagedS3StorageProperty.Bucket`.
 	Bucket *string `json:"bucket"`
@@ -2277,6 +2350,8 @@ type CfnDatastore_CustomerManagedS3StorageProperty struct {
 	KeyPrefix *string `json:"keyPrefix"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDatastore_DatastorePartitionProperty struct {
 	// `CfnDatastore.DatastorePartitionProperty.Partition`.
 	Partition interface{} `json:"partition"`
@@ -2284,11 +2359,15 @@ type CfnDatastore_DatastorePartitionProperty struct {
 	TimestampPartition interface{} `json:"timestampPartition"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDatastore_DatastorePartitionsProperty struct {
 	// `CfnDatastore.DatastorePartitionsProperty.Partitions`.
 	Partitions interface{} `json:"partitions"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDatastore_DatastoreStorageProperty struct {
 	// `CfnDatastore.DatastoreStorageProperty.CustomerManagedS3`.
 	CustomerManagedS3 interface{} `json:"customerManagedS3"`
@@ -2298,6 +2377,8 @@ type CfnDatastore_DatastoreStorageProperty struct {
 	ServiceManagedS3 interface{} `json:"serviceManagedS3"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDatastore_FileFormatConfigurationProperty struct {
 	// `CfnDatastore.FileFormatConfigurationProperty.JsonConfiguration`.
 	JsonConfiguration interface{} `json:"jsonConfiguration"`
@@ -2305,24 +2386,34 @@ type CfnDatastore_FileFormatConfigurationProperty struct {
 	ParquetConfiguration interface{} `json:"parquetConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDatastore_IotSiteWiseMultiLayerStorageProperty struct {
 	// `CfnDatastore.IotSiteWiseMultiLayerStorageProperty.CustomerManagedS3Storage`.
 	CustomerManagedS3Storage interface{} `json:"customerManagedS3Storage"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDatastore_JsonConfigurationProperty struct {
 }
 
+// TODO: EXAMPLE
+//
 type CfnDatastore_ParquetConfigurationProperty struct {
 	// `CfnDatastore.ParquetConfigurationProperty.SchemaDefinition`.
 	SchemaDefinition interface{} `json:"schemaDefinition"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDatastore_PartitionProperty struct {
 	// `CfnDatastore.PartitionProperty.AttributeName`.
 	AttributeName *string `json:"attributeName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDatastore_RetentionPeriodProperty struct {
 	// `CfnDatastore.RetentionPeriodProperty.NumberOfDays`.
 	NumberOfDays *float64 `json:"numberOfDays"`
@@ -2330,14 +2421,20 @@ type CfnDatastore_RetentionPeriodProperty struct {
 	Unlimited interface{} `json:"unlimited"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDatastore_SchemaDefinitionProperty struct {
 	// `CfnDatastore.SchemaDefinitionProperty.Columns`.
 	Columns interface{} `json:"columns"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDatastore_ServiceManagedS3Property struct {
 }
 
+// TODO: EXAMPLE
+//
 type CfnDatastore_TimestampPartitionProperty struct {
 	// `CfnDatastore.TimestampPartitionProperty.AttributeName`.
 	AttributeName *string `json:"attributeName"`
@@ -2346,6 +2443,9 @@ type CfnDatastore_TimestampPartitionProperty struct {
 }
 
 // Properties for defining a `AWS::IoTAnalytics::Datastore`.
+//
+// TODO: EXAMPLE
+//
 type CfnDatastoreProps struct {
 	// `AWS::IoTAnalytics::Datastore.DatastoreName`.
 	DatastoreName *string `json:"datastoreName"`
@@ -2362,6 +2462,9 @@ type CfnDatastoreProps struct {
 }
 
 // A CloudFormation `AWS::IoTAnalytics::Pipeline`.
+//
+// TODO: EXAMPLE
+//
 type CfnPipeline interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2978,6 +3081,8 @@ func (c *jsiiProxy_CfnPipeline) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnPipeline_ActivityProperty struct {
 	// `CfnPipeline.ActivityProperty.AddAttributes`.
 	AddAttributes interface{} `json:"addAttributes"`
@@ -3001,6 +3106,8 @@ type CfnPipeline_ActivityProperty struct {
 	SelectAttributes interface{} `json:"selectAttributes"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPipeline_AddAttributesProperty struct {
 	// `CfnPipeline.AddAttributesProperty.Attributes`.
 	Attributes interface{} `json:"attributes"`
@@ -3010,6 +3117,8 @@ type CfnPipeline_AddAttributesProperty struct {
 	Next *string `json:"next"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPipeline_ChannelProperty struct {
 	// `CfnPipeline.ChannelProperty.ChannelName`.
 	ChannelName *string `json:"channelName"`
@@ -3019,6 +3128,8 @@ type CfnPipeline_ChannelProperty struct {
 	Next *string `json:"next"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPipeline_DatastoreProperty struct {
 	// `CfnPipeline.DatastoreProperty.DatastoreName`.
 	DatastoreName *string `json:"datastoreName"`
@@ -3026,6 +3137,8 @@ type CfnPipeline_DatastoreProperty struct {
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPipeline_DeviceRegistryEnrichProperty struct {
 	// `CfnPipeline.DeviceRegistryEnrichProperty.Attribute`.
 	Attribute *string `json:"attribute"`
@@ -3039,6 +3152,8 @@ type CfnPipeline_DeviceRegistryEnrichProperty struct {
 	ThingName *string `json:"thingName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPipeline_DeviceShadowEnrichProperty struct {
 	// `CfnPipeline.DeviceShadowEnrichProperty.Attribute`.
 	Attribute *string `json:"attribute"`
@@ -3052,6 +3167,8 @@ type CfnPipeline_DeviceShadowEnrichProperty struct {
 	ThingName *string `json:"thingName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPipeline_FilterProperty struct {
 	// `CfnPipeline.FilterProperty.Filter`.
 	Filter *string `json:"filter"`
@@ -3061,6 +3178,8 @@ type CfnPipeline_FilterProperty struct {
 	Next *string `json:"next"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPipeline_LambdaProperty struct {
 	// `CfnPipeline.LambdaProperty.BatchSize`.
 	BatchSize *float64 `json:"batchSize"`
@@ -3072,6 +3191,8 @@ type CfnPipeline_LambdaProperty struct {
 	Next *string `json:"next"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPipeline_MathProperty struct {
 	// `CfnPipeline.MathProperty.Attribute`.
 	Attribute *string `json:"attribute"`
@@ -3083,6 +3204,8 @@ type CfnPipeline_MathProperty struct {
 	Next *string `json:"next"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPipeline_RemoveAttributesProperty struct {
 	// `CfnPipeline.RemoveAttributesProperty.Attributes`.
 	Attributes *[]*string `json:"attributes"`
@@ -3092,6 +3215,8 @@ type CfnPipeline_RemoveAttributesProperty struct {
 	Next *string `json:"next"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPipeline_SelectAttributesProperty struct {
 	// `CfnPipeline.SelectAttributesProperty.Attributes`.
 	Attributes *[]*string `json:"attributes"`
@@ -3102,6 +3227,9 @@ type CfnPipeline_SelectAttributesProperty struct {
 }
 
 // Properties for defining a `AWS::IoTAnalytics::Pipeline`.
+//
+// TODO: EXAMPLE
+//
 type CfnPipelineProps struct {
 	// `AWS::IoTAnalytics::Pipeline.PipelineActivities`.
 	PipelineActivities interface{} `json:"pipelineActivities"`

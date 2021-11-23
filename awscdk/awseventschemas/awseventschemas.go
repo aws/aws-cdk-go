@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::EventSchemas::Discoverer`.
+//
+// TODO: EXAMPLE
+//
 type CfnDiscoverer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -679,6 +682,8 @@ func (c *jsiiProxy_CfnDiscoverer) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDiscoverer_TagsEntryProperty struct {
 	// `CfnDiscoverer.TagsEntryProperty.Key`.
 	Key *string `json:"key"`
@@ -687,18 +692,24 @@ type CfnDiscoverer_TagsEntryProperty struct {
 }
 
 // Properties for defining a `AWS::EventSchemas::Discoverer`.
+//
+// TODO: EXAMPLE
+//
 type CfnDiscovererProps struct {
-	// `AWS::EventSchemas::Discoverer.SourceArn`.
-	SourceArn *string `json:"sourceArn"`
 	// `AWS::EventSchemas::Discoverer.CrossAccount`.
 	CrossAccount interface{} `json:"crossAccount"`
 	// `AWS::EventSchemas::Discoverer.Description`.
 	Description *string `json:"description"`
+	// `AWS::EventSchemas::Discoverer.SourceArn`.
+	SourceArn *string `json:"sourceArn"`
 	// `AWS::EventSchemas::Discoverer.Tags`.
 	Tags *[]*CfnDiscoverer_TagsEntryProperty `json:"tags"`
 }
 
 // A CloudFormation `AWS::EventSchemas::Registry`.
+//
+// TODO: EXAMPLE
+//
 type CfnRegistry interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1337,6 +1348,8 @@ func (c *jsiiProxy_CfnRegistry) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnRegistry_TagsEntryProperty struct {
 	// `CfnRegistry.TagsEntryProperty.Key`.
 	Key *string `json:"key"`
@@ -1345,6 +1358,9 @@ type CfnRegistry_TagsEntryProperty struct {
 }
 
 // A CloudFormation `AWS::EventSchemas::RegistryPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnRegistryPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1982,6 +1998,9 @@ func (c *jsiiProxy_CfnRegistryPolicy) ValidateProperties(_properties interface{}
 }
 
 // Properties for defining a `AWS::EventSchemas::RegistryPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnRegistryPolicyProps struct {
 	// `AWS::EventSchemas::RegistryPolicy.Policy`.
 	Policy interface{} `json:"policy"`
@@ -1992,6 +2011,9 @@ type CfnRegistryPolicyProps struct {
 }
 
 // Properties for defining a `AWS::EventSchemas::Registry`.
+//
+// TODO: EXAMPLE
+//
 type CfnRegistryProps struct {
 	// `AWS::EventSchemas::Registry.Description`.
 	Description *string `json:"description"`
@@ -2002,6 +2024,9 @@ type CfnRegistryProps struct {
 }
 
 // A CloudFormation `AWS::EventSchemas::Schema`.
+//
+// TODO: EXAMPLE
+//
 type CfnSchema interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2711,6 +2736,8 @@ func (c *jsiiProxy_CfnSchema) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnSchema_TagsEntryProperty struct {
 	// `CfnSchema.TagsEntryProperty.Key`.
 	Key *string `json:"key"`
@@ -2719,18 +2746,21 @@ type CfnSchema_TagsEntryProperty struct {
 }
 
 // Properties for defining a `AWS::EventSchemas::Schema`.
+//
+// TODO: EXAMPLE
+//
 type CfnSchemaProps struct {
 	// `AWS::EventSchemas::Schema.Content`.
 	Content *string `json:"content"`
-	// `AWS::EventSchemas::Schema.RegistryName`.
-	RegistryName *string `json:"registryName"`
-	// `AWS::EventSchemas::Schema.Type`.
-	Type *string `json:"type"`
 	// `AWS::EventSchemas::Schema.Description`.
 	Description *string `json:"description"`
+	// `AWS::EventSchemas::Schema.RegistryName`.
+	RegistryName *string `json:"registryName"`
 	// `AWS::EventSchemas::Schema.SchemaName`.
 	SchemaName *string `json:"schemaName"`
 	// `AWS::EventSchemas::Schema.Tags`.
 	Tags *[]*CfnSchema_TagsEntryProperty `json:"tags"`
+	// `AWS::EventSchemas::Schema.Type`.
+	Type *string `json:"type"`
 }
 

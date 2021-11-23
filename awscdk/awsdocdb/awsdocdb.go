@@ -14,13 +14,13 @@ import (
 )
 
 // Backup configuration for DocumentDB databases.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/documentdb/latest/developerguide/backup-restore.db-cluster-snapshots.html#backup-restore.backup-window
 //
 // Experimental.
 type BackupProps struct {
-	// How many days to retain the backup.
-	// Experimental.
-	Retention awscdk.Duration `json:"retention"`
 	// A daily time range in 24-hours UTC format in which backups preferably execute.
 	//
 	// Must be at least 30 minutes long.
@@ -28,9 +28,15 @@ type BackupProps struct {
 	// Example: '01:00-02:00'
 	// Experimental.
 	PreferredWindow *string `json:"preferredWindow"`
+	// How many days to retain the backup.
+	// Experimental.
+	Retention awscdk.Duration `json:"retention"`
 }
 
 // A CloudFormation `AWS::DocDB::DBCluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -992,6 +998,9 @@ func (c *jsiiProxy_CfnDBCluster) ValidateProperties(_properties interface{}) {
 }
 
 // A CloudFormation `AWS::DocDB::DBClusterParameterGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBClusterParameterGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1649,25 +1658,27 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) ValidateProperties(_properties in
 }
 
 // Properties for defining a `AWS::DocDB::DBClusterParameterGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBClusterParameterGroupProps struct {
 	// `AWS::DocDB::DBClusterParameterGroup.Description`.
 	Description *string `json:"description"`
 	// `AWS::DocDB::DBClusterParameterGroup.Family`.
 	Family *string `json:"family"`
-	// `AWS::DocDB::DBClusterParameterGroup.Parameters`.
-	Parameters interface{} `json:"parameters"`
 	// `AWS::DocDB::DBClusterParameterGroup.Name`.
 	Name *string `json:"name"`
+	// `AWS::DocDB::DBClusterParameterGroup.Parameters`.
+	Parameters interface{} `json:"parameters"`
 	// `AWS::DocDB::DBClusterParameterGroup.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // Properties for defining a `AWS::DocDB::DBCluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBClusterProps struct {
-	// `AWS::DocDB::DBCluster.MasterUsername`.
-	MasterUsername *string `json:"masterUsername"`
-	// `AWS::DocDB::DBCluster.MasterUserPassword`.
-	MasterUserPassword *string `json:"masterUserPassword"`
 	// `AWS::DocDB::DBCluster.AvailabilityZones`.
 	AvailabilityZones *[]*string `json:"availabilityZones"`
 	// `AWS::DocDB::DBCluster.BackupRetentionPeriod`.
@@ -1686,6 +1697,10 @@ type CfnDBClusterProps struct {
 	EngineVersion *string `json:"engineVersion"`
 	// `AWS::DocDB::DBCluster.KmsKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
+	// `AWS::DocDB::DBCluster.MasterUsername`.
+	MasterUsername *string `json:"masterUsername"`
+	// `AWS::DocDB::DBCluster.MasterUserPassword`.
+	MasterUserPassword *string `json:"masterUserPassword"`
 	// `AWS::DocDB::DBCluster.Port`.
 	Port *float64 `json:"port"`
 	// `AWS::DocDB::DBCluster.PreferredBackupWindow`.
@@ -1703,6 +1718,9 @@ type CfnDBClusterProps struct {
 }
 
 // A CloudFormation `AWS::DocDB::DBInstance`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBInstance interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2422,15 +2440,18 @@ func (c *jsiiProxy_CfnDBInstance) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::DocDB::DBInstance`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBInstanceProps struct {
-	// `AWS::DocDB::DBInstance.DBClusterIdentifier`.
-	DbClusterIdentifier *string `json:"dbClusterIdentifier"`
-	// `AWS::DocDB::DBInstance.DBInstanceClass`.
-	DbInstanceClass *string `json:"dbInstanceClass"`
 	// `AWS::DocDB::DBInstance.AutoMinorVersionUpgrade`.
 	AutoMinorVersionUpgrade interface{} `json:"autoMinorVersionUpgrade"`
 	// `AWS::DocDB::DBInstance.AvailabilityZone`.
 	AvailabilityZone *string `json:"availabilityZone"`
+	// `AWS::DocDB::DBInstance.DBClusterIdentifier`.
+	DbClusterIdentifier *string `json:"dbClusterIdentifier"`
+	// `AWS::DocDB::DBInstance.DBInstanceClass`.
+	DbInstanceClass *string `json:"dbInstanceClass"`
 	// `AWS::DocDB::DBInstance.DBInstanceIdentifier`.
 	DbInstanceIdentifier *string `json:"dbInstanceIdentifier"`
 	// `AWS::DocDB::DBInstance.PreferredMaintenanceWindow`.
@@ -2440,6 +2461,9 @@ type CfnDBInstanceProps struct {
 }
 
 // A CloudFormation `AWS::DocDB::DBSubnetGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBSubnetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3077,18 +3101,24 @@ func (c *jsiiProxy_CfnDBSubnetGroup) ValidateProperties(_properties interface{})
 }
 
 // Properties for defining a `AWS::DocDB::DBSubnetGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBSubnetGroupProps struct {
 	// `AWS::DocDB::DBSubnetGroup.DBSubnetGroupDescription`.
 	DbSubnetGroupDescription *string `json:"dbSubnetGroupDescription"`
-	// `AWS::DocDB::DBSubnetGroup.SubnetIds`.
-	SubnetIds *[]*string `json:"subnetIds"`
 	// `AWS::DocDB::DBSubnetGroup.DBSubnetGroupName`.
 	DbSubnetGroupName *string `json:"dbSubnetGroupName"`
+	// `AWS::DocDB::DBSubnetGroup.SubnetIds`.
+	SubnetIds *[]*string `json:"subnetIds"`
 	// `AWS::DocDB::DBSubnetGroup.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A cluster parameter group.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ClusterParameterGroup interface {
 	awscdk.Resource
@@ -3432,23 +3462,29 @@ func (c *jsiiProxy_ClusterParameterGroup) Validate() *[]*string {
 }
 
 // Properties for a cluster parameter group.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ClusterParameterGroupProps struct {
-	// Database family of this parameter group.
-	// Experimental.
-	Family *string `json:"family"`
-	// The parameters in this parameter group.
-	// Experimental.
-	Parameters *map[string]*string `json:"parameters"`
 	// The name of the cluster parameter group.
 	// Experimental.
 	DbClusterParameterGroupName *string `json:"dbClusterParameterGroupName"`
 	// Description for this parameter group.
 	// Experimental.
 	Description *string `json:"description"`
+	// Database family of this parameter group.
+	// Experimental.
+	Family *string `json:"family"`
+	// The parameters in this parameter group.
+	// Experimental.
+	Parameters *map[string]*string `json:"parameters"`
 }
 
 // Create a clustered database with a given number of instances.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DatabaseCluster interface {
 	awscdk.Resource
@@ -3966,6 +4002,9 @@ func (d *jsiiProxy_DatabaseCluster) Validate() *[]*string {
 }
 
 // Properties that describe an existing cluster instance.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DatabaseClusterAttributes struct {
 	// Cluster endpoint address.
@@ -3992,19 +4031,11 @@ type DatabaseClusterAttributes struct {
 }
 
 // Properties for a new database cluster.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DatabaseClusterProps struct {
-	// What type of instance to start for the replicas.
-	// Experimental.
-	InstanceType awsec2.InstanceType `json:"instanceType"`
-	// Username and password for the administrative user.
-	// Experimental.
-	MasterUser *Login `json:"masterUser"`
-	// What subnets to run the DocumentDB instances in.
-	//
-	// Must be at least 2 subnets in two different AZs.
-	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
 	// Backup settings.
 	// See: https://docs.aws.amazon.com/documentdb/latest/developerguide/backup-restore.db-cluster-snapshots.html#backup-restore.backup-window
 	//
@@ -4032,9 +4063,15 @@ type DatabaseClusterProps struct {
 	// Number of DocDB compute instances.
 	// Experimental.
 	Instances *float64 `json:"instances"`
+	// What type of instance to start for the replicas.
+	// Experimental.
+	InstanceType awsec2.InstanceType `json:"instanceType"`
 	// The KMS key for storage encryption.
 	// Experimental.
 	KmsKey awskms.IKey `json:"kmsKey"`
+	// Username and password for the administrative user.
+	// Experimental.
+	MasterUser *Login `json:"masterUser"`
 	// The DB parameter group to associate with the instance.
 	// Experimental.
 	ParameterGroup IClusterParameterGroup `json:"parameterGroup"`
@@ -4063,12 +4100,20 @@ type DatabaseClusterProps struct {
 	// Whether to enable storage encryption.
 	// Experimental.
 	StorageEncrypted *bool `json:"storageEncrypted"`
+	// What subnets to run the DocumentDB instances in.
+	//
+	// Must be at least 2 subnets in two different AZs.
+	// Experimental.
+	Vpc awsec2.IVpc `json:"vpc"`
 	// Where to place the instances within the VPC.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 }
 
 // A database instance.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DatabaseInstance interface {
 	awscdk.Resource
@@ -4467,6 +4512,9 @@ func (d *jsiiProxy_DatabaseInstance) Validate() *[]*string {
 }
 
 // Properties that describe an existing instance.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DatabaseInstanceAttributes struct {
 	// The endpoint address.
@@ -4481,26 +4529,29 @@ type DatabaseInstanceAttributes struct {
 }
 
 // Construction properties for a DatabaseInstanceNew.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DatabaseInstanceProps struct {
-	// The DocumentDB database cluster the instance should launch into.
-	// Experimental.
-	Cluster IDatabaseCluster `json:"cluster"`
-	// The name of the compute and memory capacity classes.
-	// Experimental.
-	InstanceType awsec2.InstanceType `json:"instanceType"`
 	// Indicates that minor engine upgrades are applied automatically to the DB instance during the maintenance window.
 	// Experimental.
 	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade"`
 	// The name of the Availability Zone where the DB instance will be located.
 	// Experimental.
 	AvailabilityZone *string `json:"availabilityZone"`
+	// The DocumentDB database cluster the instance should launch into.
+	// Experimental.
+	Cluster IDatabaseCluster `json:"cluster"`
 	// A name for the DB instance.
 	//
 	// If you specify a name, AWS CloudFormation
 	// converts it to lowercase.
 	// Experimental.
 	DbInstanceName *string `json:"dbInstanceName"`
+	// The name of the compute and memory capacity classes.
+	// Experimental.
+	InstanceType awsec2.InstanceType `json:"instanceType"`
 	// The weekly time range (in UTC) during which system maintenance can occur.
 	//
 	// Format: `ddd:hh24:mi-ddd:hh24:mi`
@@ -4513,6 +4564,9 @@ type DatabaseInstanceProps struct {
 }
 
 // A database secret.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DatabaseSecret interface {
 	awssecretsmanager.Secret
@@ -5154,11 +5208,11 @@ func (d *jsiiProxy_DatabaseSecret) Validate() *[]*string {
 }
 
 // Construction properties for a DatabaseSecret.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DatabaseSecretProps struct {
-	// The username.
-	// Experimental.
-	Username *string `json:"username"`
 	// The KMS key to use to encrypt the secret.
 	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey"`
@@ -5171,11 +5225,17 @@ type DatabaseSecretProps struct {
 	// The physical name of the secret.
 	// Experimental.
 	SecretName *string `json:"secretName"`
+	// The username.
+	// Experimental.
+	Username *string `json:"username"`
 }
 
 // Connection endpoint of a database cluster or instance.
 //
 // Consists of a combination of hostname and port.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Endpoint interface {
 	Hostname() *string
@@ -5516,11 +5576,11 @@ func (j *jsiiProxy_IDatabaseInstance) InstanceIdentifier() *string {
 }
 
 // Login credentials for a database cluster.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Login struct {
-	// Username.
-	// Experimental.
-	Username *string `json:"username"`
 	// Specifies characters to not include in generated passwords.
 	// Experimental.
 	ExcludeCharacters *string `json:"excludeCharacters"`
@@ -5532,11 +5592,23 @@ type Login struct {
 	// Do not put passwords in your CDK code directly.
 	// Experimental.
 	Password awscdk.SecretValue `json:"password"`
+	// The physical name of the secret, that will be generated.
+	// Experimental.
+	SecretName *string `json:"secretName"`
+	// Username.
+	// Experimental.
+	Username *string `json:"username"`
 }
 
 // Options to add the multi user rotation.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type RotationMultiUserOptions struct {
+	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
+	// Experimental.
+	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter"`
 	// The secret to rotate.
 	//
 	// It must be a JSON string with the following format:
@@ -5555,8 +5627,5 @@ type RotationMultiUserOptions struct {
 	// ```
 	// Experimental.
 	Secret awssecretsmanager.ISecret `json:"secret"`
-	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
-	// Experimental.
-	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter"`
 }
 

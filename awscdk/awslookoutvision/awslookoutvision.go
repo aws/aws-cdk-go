@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::LookoutVision::Project`.
+//
+// TODO: EXAMPLE
+//
 type CfnProject interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -607,6 +610,9 @@ func (c *jsiiProxy_CfnProject) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::LookoutVision::Project`.
+//
+// TODO: EXAMPLE
+//
 type CfnProjectProps struct {
 	// `AWS::LookoutVision::Project.ProjectName`.
 	ProjectName *string `json:"projectName"`

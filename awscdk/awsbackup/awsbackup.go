@@ -490,6 +490,9 @@ func (b *jsiiProxy_BackupPlan) Validate() *[]*string {
 }
 
 // Properties for a BackupPlan.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BackupPlanProps struct {
 	// The display name of the backup plan.
@@ -866,6 +869,9 @@ func BackupResource_FromTag(key *string, value *string, operation TagOperation) 
 }
 
 // A backup selection.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BackupSelection interface {
 	awscdk.Resource
@@ -1219,11 +1225,6 @@ func (b *jsiiProxy_BackupSelection) Validate() *[]*string {
 //
 // Experimental.
 type BackupSelectionOptions struct {
-	// The resources to backup.
-	//
-	// Use the helper static methods defined on `BackupResource`.
-	// Experimental.
-	Resources *[]BackupResource `json:"resources"`
 	// Whether to automatically give restores permissions to the role that AWS Backup uses.
 	//
 	// If `true`, the `AWSBackupServiceRolePolicyForRestores` managed
@@ -1233,6 +1234,11 @@ type BackupSelectionOptions struct {
 	// The name for this selection.
 	// Experimental.
 	BackupSelectionName *string `json:"backupSelectionName"`
+	// The resources to backup.
+	//
+	// Use the helper static methods defined on `BackupResource`.
+	// Experimental.
+	Resources *[]BackupResource `json:"resources"`
 	// The role that AWS Backup uses to authenticate when backuping or restoring the resources.
 	//
 	// The `AWSBackupServiceRolePolicyForBackup` managed policy
@@ -1242,13 +1248,11 @@ type BackupSelectionOptions struct {
 }
 
 // Properties for a BackupSelection.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BackupSelectionProps struct {
-	// The resources to backup.
-	//
-	// Use the helper static methods defined on `BackupResource`.
-	// Experimental.
-	Resources *[]BackupResource `json:"resources"`
 	// Whether to automatically give restores permissions to the role that AWS Backup uses.
 	//
 	// If `true`, the `AWSBackupServiceRolePolicyForRestores` managed
@@ -1258,6 +1262,11 @@ type BackupSelectionProps struct {
 	// The name for this selection.
 	// Experimental.
 	BackupSelectionName *string `json:"backupSelectionName"`
+	// The resources to backup.
+	//
+	// Use the helper static methods defined on `BackupResource`.
+	// Experimental.
+	Resources *[]BackupResource `json:"resources"`
 	// The role that AWS Backup uses to authenticate when backuping or restoring the resources.
 	//
 	// The `AWSBackupServiceRolePolicyForBackup` managed policy
@@ -1749,6 +1758,9 @@ type BackupVaultProps struct {
 }
 
 // A CloudFormation `AWS::Backup::BackupPlan`.
+//
+// TODO: EXAMPLE
+//
 type CfnBackupPlan interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2387,6 +2399,8 @@ func (c *jsiiProxy_CfnBackupPlan) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnBackupPlan_AdvancedBackupSettingResourceTypeProperty struct {
 	// `CfnBackupPlan.AdvancedBackupSettingResourceTypeProperty.BackupOptions`.
 	BackupOptions interface{} `json:"backupOptions"`
@@ -2394,20 +2408,20 @@ type CfnBackupPlan_AdvancedBackupSettingResourceTypeProperty struct {
 	ResourceType *string `json:"resourceType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBackupPlan_BackupPlanResourceTypeProperty struct {
+	// `CfnBackupPlan.BackupPlanResourceTypeProperty.AdvancedBackupSettings`.
+	AdvancedBackupSettings interface{} `json:"advancedBackupSettings"`
 	// `CfnBackupPlan.BackupPlanResourceTypeProperty.BackupPlanName`.
 	BackupPlanName *string `json:"backupPlanName"`
 	// `CfnBackupPlan.BackupPlanResourceTypeProperty.BackupPlanRule`.
 	BackupPlanRule interface{} `json:"backupPlanRule"`
-	// `CfnBackupPlan.BackupPlanResourceTypeProperty.AdvancedBackupSettings`.
-	AdvancedBackupSettings interface{} `json:"advancedBackupSettings"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBackupPlan_BackupRuleResourceTypeProperty struct {
-	// `CfnBackupPlan.BackupRuleResourceTypeProperty.RuleName`.
-	RuleName *string `json:"ruleName"`
-	// `CfnBackupPlan.BackupRuleResourceTypeProperty.TargetBackupVault`.
-	TargetBackupVault *string `json:"targetBackupVault"`
 	// `CfnBackupPlan.BackupRuleResourceTypeProperty.CompletionWindowMinutes`.
 	CompletionWindowMinutes *float64 `json:"completionWindowMinutes"`
 	// `CfnBackupPlan.BackupRuleResourceTypeProperty.CopyActions`.
@@ -2418,12 +2432,18 @@ type CfnBackupPlan_BackupRuleResourceTypeProperty struct {
 	Lifecycle interface{} `json:"lifecycle"`
 	// `CfnBackupPlan.BackupRuleResourceTypeProperty.RecoveryPointTags`.
 	RecoveryPointTags interface{} `json:"recoveryPointTags"`
+	// `CfnBackupPlan.BackupRuleResourceTypeProperty.RuleName`.
+	RuleName *string `json:"ruleName"`
 	// `CfnBackupPlan.BackupRuleResourceTypeProperty.ScheduleExpression`.
 	ScheduleExpression *string `json:"scheduleExpression"`
 	// `CfnBackupPlan.BackupRuleResourceTypeProperty.StartWindowMinutes`.
 	StartWindowMinutes *float64 `json:"startWindowMinutes"`
+	// `CfnBackupPlan.BackupRuleResourceTypeProperty.TargetBackupVault`.
+	TargetBackupVault *string `json:"targetBackupVault"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBackupPlan_CopyActionResourceTypeProperty struct {
 	// `CfnBackupPlan.CopyActionResourceTypeProperty.DestinationBackupVaultArn`.
 	DestinationBackupVaultArn *string `json:"destinationBackupVaultArn"`
@@ -2431,6 +2451,8 @@ type CfnBackupPlan_CopyActionResourceTypeProperty struct {
 	Lifecycle interface{} `json:"lifecycle"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBackupPlan_LifecycleResourceTypeProperty struct {
 	// `CfnBackupPlan.LifecycleResourceTypeProperty.DeleteAfterDays`.
 	DeleteAfterDays *float64 `json:"deleteAfterDays"`
@@ -2439,6 +2461,9 @@ type CfnBackupPlan_LifecycleResourceTypeProperty struct {
 }
 
 // Properties for defining a `AWS::Backup::BackupPlan`.
+//
+// TODO: EXAMPLE
+//
 type CfnBackupPlanProps struct {
 	// `AWS::Backup::BackupPlan.BackupPlan`.
 	BackupPlan interface{} `json:"backupPlan"`
@@ -2447,6 +2472,9 @@ type CfnBackupPlanProps struct {
 }
 
 // A CloudFormation `AWS::Backup::BackupSelection`.
+//
+// TODO: EXAMPLE
+//
 type CfnBackupSelection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3085,21 +3113,25 @@ func (c *jsiiProxy_CfnBackupSelection) ValidateProperties(_properties interface{
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnBackupSelection_BackupSelectionResourceTypeProperty struct {
-	// `CfnBackupSelection.BackupSelectionResourceTypeProperty.IamRoleArn`.
-	IamRoleArn *string `json:"iamRoleArn"`
-	// `CfnBackupSelection.BackupSelectionResourceTypeProperty.SelectionName`.
-	SelectionName *string `json:"selectionName"`
 	// `CfnBackupSelection.BackupSelectionResourceTypeProperty.Conditions`.
 	Conditions interface{} `json:"conditions"`
+	// `CfnBackupSelection.BackupSelectionResourceTypeProperty.IamRoleArn`.
+	IamRoleArn *string `json:"iamRoleArn"`
 	// `CfnBackupSelection.BackupSelectionResourceTypeProperty.ListOfTags`.
 	ListOfTags interface{} `json:"listOfTags"`
 	// `CfnBackupSelection.BackupSelectionResourceTypeProperty.NotResources`.
 	NotResources *[]*string `json:"notResources"`
 	// `CfnBackupSelection.BackupSelectionResourceTypeProperty.Resources`.
 	Resources *[]*string `json:"resources"`
+	// `CfnBackupSelection.BackupSelectionResourceTypeProperty.SelectionName`.
+	SelectionName *string `json:"selectionName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBackupSelection_ConditionResourceTypeProperty struct {
 	// `CfnBackupSelection.ConditionResourceTypeProperty.ConditionKey`.
 	ConditionKey *string `json:"conditionKey"`
@@ -3110,6 +3142,9 @@ type CfnBackupSelection_ConditionResourceTypeProperty struct {
 }
 
 // Properties for defining a `AWS::Backup::BackupSelection`.
+//
+// TODO: EXAMPLE
+//
 type CfnBackupSelectionProps struct {
 	// `AWS::Backup::BackupSelection.BackupPlanId`.
 	BackupPlanId *string `json:"backupPlanId"`
@@ -3118,6 +3153,9 @@ type CfnBackupSelectionProps struct {
 }
 
 // A CloudFormation `AWS::Backup::BackupVault`.
+//
+// TODO: EXAMPLE
+//
 type CfnBackupVault interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3825,15 +3863,19 @@ func (c *jsiiProxy_CfnBackupVault) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnBackupVault_LockConfigurationTypeProperty struct {
-	// `CfnBackupVault.LockConfigurationTypeProperty.MinRetentionDays`.
-	MinRetentionDays *float64 `json:"minRetentionDays"`
 	// `CfnBackupVault.LockConfigurationTypeProperty.ChangeableForDays`.
 	ChangeableForDays *float64 `json:"changeableForDays"`
 	// `CfnBackupVault.LockConfigurationTypeProperty.MaxRetentionDays`.
 	MaxRetentionDays *float64 `json:"maxRetentionDays"`
+	// `CfnBackupVault.LockConfigurationTypeProperty.MinRetentionDays`.
+	MinRetentionDays *float64 `json:"minRetentionDays"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBackupVault_NotificationObjectTypeProperty struct {
 	// `CfnBackupVault.NotificationObjectTypeProperty.BackupVaultEvents`.
 	BackupVaultEvents *[]*string `json:"backupVaultEvents"`
@@ -3842,11 +3884,14 @@ type CfnBackupVault_NotificationObjectTypeProperty struct {
 }
 
 // Properties for defining a `AWS::Backup::BackupVault`.
+//
+// TODO: EXAMPLE
+//
 type CfnBackupVaultProps struct {
-	// `AWS::Backup::BackupVault.BackupVaultName`.
-	BackupVaultName *string `json:"backupVaultName"`
 	// `AWS::Backup::BackupVault.AccessPolicy`.
 	AccessPolicy interface{} `json:"accessPolicy"`
+	// `AWS::Backup::BackupVault.BackupVaultName`.
+	BackupVaultName *string `json:"backupVaultName"`
 	// `AWS::Backup::BackupVault.BackupVaultTags`.
 	BackupVaultTags interface{} `json:"backupVaultTags"`
 	// `AWS::Backup::BackupVault.EncryptionKeyArn`.
@@ -3858,6 +3903,9 @@ type CfnBackupVaultProps struct {
 }
 
 // A CloudFormation `AWS::Backup::Framework`.
+//
+// TODO: EXAMPLE
+//
 type CfnFramework interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4547,6 +4595,8 @@ func (c *jsiiProxy_CfnFramework) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFramework_ControlInputParameterProperty struct {
 	// `CfnFramework.ControlInputParameterProperty.ParameterName`.
 	ParameterName *string `json:"parameterName"`
@@ -4554,16 +4604,21 @@ type CfnFramework_ControlInputParameterProperty struct {
 	ParameterValue *string `json:"parameterValue"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFramework_FrameworkControlProperty struct {
-	// `CfnFramework.FrameworkControlProperty.ControlName`.
-	ControlName *string `json:"controlName"`
 	// `CfnFramework.FrameworkControlProperty.ControlInputParameters`.
 	ControlInputParameters interface{} `json:"controlInputParameters"`
+	// `CfnFramework.FrameworkControlProperty.ControlName`.
+	ControlName *string `json:"controlName"`
 	// `CfnFramework.FrameworkControlProperty.ControlScope`.
 	ControlScope interface{} `json:"controlScope"`
 }
 
 // Properties for defining a `AWS::Backup::Framework`.
+//
+// TODO: EXAMPLE
+//
 type CfnFrameworkProps struct {
 	// `AWS::Backup::Framework.FrameworkControls`.
 	FrameworkControls interface{} `json:"frameworkControls"`
@@ -4576,6 +4631,9 @@ type CfnFrameworkProps struct {
 }
 
 // A CloudFormation `AWS::Backup::ReportPlan`.
+//
+// TODO: EXAMPLE
+//
 type CfnReportPlan interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5253,17 +5311,20 @@ func (c *jsiiProxy_CfnReportPlan) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Backup::ReportPlan`.
+//
+// TODO: EXAMPLE
+//
 type CfnReportPlanProps struct {
 	// `AWS::Backup::ReportPlan.ReportDeliveryChannel`.
 	ReportDeliveryChannel interface{} `json:"reportDeliveryChannel"`
-	// `AWS::Backup::ReportPlan.ReportSetting`.
-	ReportSetting interface{} `json:"reportSetting"`
 	// `AWS::Backup::ReportPlan.ReportPlanDescription`.
 	ReportPlanDescription *string `json:"reportPlanDescription"`
 	// `AWS::Backup::ReportPlan.ReportPlanName`.
 	ReportPlanName *string `json:"reportPlanName"`
 	// `AWS::Backup::ReportPlan.ReportPlanTags`.
 	ReportPlanTags interface{} `json:"reportPlanTags"`
+	// `AWS::Backup::ReportPlan.ReportSetting`.
+	ReportSetting interface{} `json:"reportSetting"`
 }
 
 // A backup plan.
@@ -5349,6 +5410,9 @@ func (j *jsiiProxy_IBackupVault) BackupVaultName() *string {
 }
 
 // A tag condition.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type TagCondition struct {
 	// The key in a key-value pair.
@@ -5357,15 +5421,15 @@ type TagCondition struct {
 	// `ec2:ResourceTag/Department` is the key.
 	// Experimental.
 	Key *string `json:"key"`
+	// An operation that is applied to a key-value pair used to filter resources in a selection.
+	// Experimental.
+	Operation TagOperation `json:"operation"`
 	// The value in a key-value pair.
 	//
 	// For example, in `"ec2:ResourceTag/Department": "accounting"`,
 	// `accounting` is the value.
 	// Experimental.
 	Value *string `json:"value"`
-	// An operation that is applied to a key-value pair used to filter resources in a selection.
-	// Experimental.
-	Operation TagOperation `json:"operation"`
 }
 
 // An operation that is applied to a key-value pair.
@@ -5373,7 +5437,7 @@ type TagCondition struct {
 type TagOperation string
 
 const (
-	TagOperation_STRING_EQUALS TagOperation = "STRING_EQUALS"
 	TagOperation_DUMMY TagOperation = "DUMMY"
+	TagOperation_STRING_EQUALS TagOperation = "STRING_EQUALS"
 )
 

@@ -12,6 +12,9 @@ import (
 )
 
 // A CloudFormation `AWS::Cloud9::EnvironmentEC2`.
+//
+// TODO: EXAMPLE
+//
 type CfnEnvironmentEC2 interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -790,6 +793,8 @@ func (c *jsiiProxy_CfnEnvironmentEC2) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnEnvironmentEC2_RepositoryProperty struct {
 	// `CfnEnvironmentEC2.RepositoryProperty.PathComponent`.
 	PathComponent *string `json:"pathComponent"`
@@ -798,9 +803,10 @@ type CfnEnvironmentEC2_RepositoryProperty struct {
 }
 
 // Properties for defining a `AWS::Cloud9::EnvironmentEC2`.
+//
+// TODO: EXAMPLE
+//
 type CfnEnvironmentEC2Props struct {
-	// `AWS::Cloud9::EnvironmentEC2.InstanceType`.
-	InstanceType *string `json:"instanceType"`
 	// `AWS::Cloud9::EnvironmentEC2.AutomaticStopTimeMinutes`.
 	AutomaticStopTimeMinutes *float64 `json:"automaticStopTimeMinutes"`
 	// `AWS::Cloud9::EnvironmentEC2.ConnectionType`.
@@ -809,6 +815,8 @@ type CfnEnvironmentEC2Props struct {
 	Description *string `json:"description"`
 	// `AWS::Cloud9::EnvironmentEC2.ImageId`.
 	ImageId *string `json:"imageId"`
+	// `AWS::Cloud9::EnvironmentEC2.InstanceType`.
+	InstanceType *string `json:"instanceType"`
 	// `AWS::Cloud9::EnvironmentEC2.Name`.
 	Name *string `json:"name"`
 	// `AWS::Cloud9::EnvironmentEC2.OwnerArn`.
@@ -822,6 +830,9 @@ type CfnEnvironmentEC2Props struct {
 }
 
 // The class for different repository providers.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CloneRepository interface {
 	PathComponent() *string

@@ -74,6 +74,9 @@ func (a *jsiiProxy_AccessLog) Bind(scope awscdk.Construct) *AccessLogConfig {
 }
 
 // All Properties for Envoy Access logs for mesh endpoints.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AccessLogConfig struct {
 	// VirtualGateway CFN configuration for Access Logging.
@@ -142,6 +145,9 @@ func (b *jsiiProxy_Backend) Bind(_scope awscdk.Construct) *BackendConfig {
 }
 
 // Properties for a backend.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BackendConfig struct {
 	// Config for a Virtual Service backend.
@@ -161,6 +167,9 @@ type BackendDefaults struct {
 }
 
 // A CloudFormation `AWS::AppMesh::GatewayRoute`.
+//
+// TODO: EXAMPLE
+//
 type CfnGatewayRoute interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -914,6 +923,8 @@ func (c *jsiiProxy_CfnGatewayRoute) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnGatewayRoute_GatewayRouteHostnameMatchProperty struct {
 	// `CfnGatewayRoute.GatewayRouteHostnameMatchProperty.Exact`.
 	Exact *string `json:"exact"`
@@ -921,11 +932,15 @@ type CfnGatewayRoute_GatewayRouteHostnameMatchProperty struct {
 	Suffix *string `json:"suffix"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGatewayRoute_GatewayRouteHostnameRewriteProperty struct {
 	// `CfnGatewayRoute.GatewayRouteHostnameRewriteProperty.DefaultTargetHostname`.
 	DefaultTargetHostname *string `json:"defaultTargetHostname"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGatewayRoute_GatewayRouteMetadataMatchProperty struct {
 	// `CfnGatewayRoute.GatewayRouteMetadataMatchProperty.Exact`.
 	Exact *string `json:"exact"`
@@ -939,6 +954,8 @@ type CfnGatewayRoute_GatewayRouteMetadataMatchProperty struct {
 	Suffix *string `json:"suffix"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGatewayRoute_GatewayRouteRangeMatchProperty struct {
 	// `CfnGatewayRoute.GatewayRouteRangeMatchProperty.End`.
 	End *float64 `json:"end"`
@@ -946,6 +963,8 @@ type CfnGatewayRoute_GatewayRouteRangeMatchProperty struct {
 	Start *float64 `json:"start"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGatewayRoute_GatewayRouteSpecProperty struct {
 	// `CfnGatewayRoute.GatewayRouteSpecProperty.GrpcRoute`.
 	GrpcRoute interface{} `json:"grpcRoute"`
@@ -957,23 +976,31 @@ type CfnGatewayRoute_GatewayRouteSpecProperty struct {
 	Priority *float64 `json:"priority"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGatewayRoute_GatewayRouteTargetProperty struct {
 	// `CfnGatewayRoute.GatewayRouteTargetProperty.VirtualService`.
 	VirtualService interface{} `json:"virtualService"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGatewayRoute_GatewayRouteVirtualServiceProperty struct {
 	// `CfnGatewayRoute.GatewayRouteVirtualServiceProperty.VirtualServiceName`.
 	VirtualServiceName *string `json:"virtualServiceName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGatewayRoute_GrpcGatewayRouteActionProperty struct {
-	// `CfnGatewayRoute.GrpcGatewayRouteActionProperty.Target`.
-	Target interface{} `json:"target"`
 	// `CfnGatewayRoute.GrpcGatewayRouteActionProperty.Rewrite`.
 	Rewrite interface{} `json:"rewrite"`
+	// `CfnGatewayRoute.GrpcGatewayRouteActionProperty.Target`.
+	Target interface{} `json:"target"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGatewayRoute_GrpcGatewayRouteMatchProperty struct {
 	// `CfnGatewayRoute.GrpcGatewayRouteMatchProperty.Hostname`.
 	Hostname interface{} `json:"hostname"`
@@ -983,15 +1010,19 @@ type CfnGatewayRoute_GrpcGatewayRouteMatchProperty struct {
 	ServiceName *string `json:"serviceName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGatewayRoute_GrpcGatewayRouteMetadataProperty struct {
-	// `CfnGatewayRoute.GrpcGatewayRouteMetadataProperty.Name`.
-	Name *string `json:"name"`
 	// `CfnGatewayRoute.GrpcGatewayRouteMetadataProperty.Invert`.
 	Invert interface{} `json:"invert"`
 	// `CfnGatewayRoute.GrpcGatewayRouteMetadataProperty.Match`.
 	Match interface{} `json:"match"`
+	// `CfnGatewayRoute.GrpcGatewayRouteMetadataProperty.Name`.
+	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGatewayRoute_GrpcGatewayRouteProperty struct {
 	// `CfnGatewayRoute.GrpcGatewayRouteProperty.Action`.
 	Action interface{} `json:"action"`
@@ -999,18 +1030,24 @@ type CfnGatewayRoute_GrpcGatewayRouteProperty struct {
 	Match interface{} `json:"match"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGatewayRoute_GrpcGatewayRouteRewriteProperty struct {
 	// `CfnGatewayRoute.GrpcGatewayRouteRewriteProperty.Hostname`.
 	Hostname interface{} `json:"hostname"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGatewayRoute_HttpGatewayRouteActionProperty struct {
-	// `CfnGatewayRoute.HttpGatewayRouteActionProperty.Target`.
-	Target interface{} `json:"target"`
 	// `CfnGatewayRoute.HttpGatewayRouteActionProperty.Rewrite`.
 	Rewrite interface{} `json:"rewrite"`
+	// `CfnGatewayRoute.HttpGatewayRouteActionProperty.Target`.
+	Target interface{} `json:"target"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGatewayRoute_HttpGatewayRouteHeaderMatchProperty struct {
 	// `CfnGatewayRoute.HttpGatewayRouteHeaderMatchProperty.Exact`.
 	Exact *string `json:"exact"`
@@ -1024,15 +1061,19 @@ type CfnGatewayRoute_HttpGatewayRouteHeaderMatchProperty struct {
 	Suffix *string `json:"suffix"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGatewayRoute_HttpGatewayRouteHeaderProperty struct {
-	// `CfnGatewayRoute.HttpGatewayRouteHeaderProperty.Name`.
-	Name *string `json:"name"`
 	// `CfnGatewayRoute.HttpGatewayRouteHeaderProperty.Invert`.
 	Invert interface{} `json:"invert"`
 	// `CfnGatewayRoute.HttpGatewayRouteHeaderProperty.Match`.
 	Match interface{} `json:"match"`
+	// `CfnGatewayRoute.HttpGatewayRouteHeaderProperty.Name`.
+	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGatewayRoute_HttpGatewayRouteMatchProperty struct {
 	// `CfnGatewayRoute.HttpGatewayRouteMatchProperty.Headers`.
 	Headers interface{} `json:"headers"`
@@ -1048,11 +1089,15 @@ type CfnGatewayRoute_HttpGatewayRouteMatchProperty struct {
 	QueryParameters interface{} `json:"queryParameters"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGatewayRoute_HttpGatewayRoutePathRewriteProperty struct {
 	// `CfnGatewayRoute.HttpGatewayRoutePathRewriteProperty.Exact`.
 	Exact *string `json:"exact"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGatewayRoute_HttpGatewayRoutePrefixRewriteProperty struct {
 	// `CfnGatewayRoute.HttpGatewayRoutePrefixRewriteProperty.DefaultPrefix`.
 	DefaultPrefix *string `json:"defaultPrefix"`
@@ -1060,6 +1105,8 @@ type CfnGatewayRoute_HttpGatewayRoutePrefixRewriteProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGatewayRoute_HttpGatewayRouteProperty struct {
 	// `CfnGatewayRoute.HttpGatewayRouteProperty.Action`.
 	Action interface{} `json:"action"`
@@ -1067,6 +1114,8 @@ type CfnGatewayRoute_HttpGatewayRouteProperty struct {
 	Match interface{} `json:"match"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGatewayRoute_HttpGatewayRouteRewriteProperty struct {
 	// `CfnGatewayRoute.HttpGatewayRouteRewriteProperty.Hostname`.
 	Hostname interface{} `json:"hostname"`
@@ -1076,6 +1125,8 @@ type CfnGatewayRoute_HttpGatewayRouteRewriteProperty struct {
 	Prefix interface{} `json:"prefix"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGatewayRoute_HttpPathMatchProperty struct {
 	// `CfnGatewayRoute.HttpPathMatchProperty.Exact`.
 	Exact *string `json:"exact"`
@@ -1083,35 +1134,45 @@ type CfnGatewayRoute_HttpPathMatchProperty struct {
 	Regex *string `json:"regex"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGatewayRoute_HttpQueryParameterMatchProperty struct {
 	// `CfnGatewayRoute.HttpQueryParameterMatchProperty.Exact`.
 	Exact *string `json:"exact"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGatewayRoute_QueryParameterProperty struct {
-	// `CfnGatewayRoute.QueryParameterProperty.Name`.
-	Name *string `json:"name"`
 	// `CfnGatewayRoute.QueryParameterProperty.Match`.
 	Match interface{} `json:"match"`
+	// `CfnGatewayRoute.QueryParameterProperty.Name`.
+	Name *string `json:"name"`
 }
 
 // Properties for defining a `AWS::AppMesh::GatewayRoute`.
+//
+// TODO: EXAMPLE
+//
 type CfnGatewayRouteProps struct {
-	// `AWS::AppMesh::GatewayRoute.MeshName`.
-	MeshName *string `json:"meshName"`
-	// `AWS::AppMesh::GatewayRoute.Spec`.
-	Spec interface{} `json:"spec"`
-	// `AWS::AppMesh::GatewayRoute.VirtualGatewayName`.
-	VirtualGatewayName *string `json:"virtualGatewayName"`
 	// `AWS::AppMesh::GatewayRoute.GatewayRouteName`.
 	GatewayRouteName *string `json:"gatewayRouteName"`
+	// `AWS::AppMesh::GatewayRoute.MeshName`.
+	MeshName *string `json:"meshName"`
 	// `AWS::AppMesh::GatewayRoute.MeshOwner`.
 	MeshOwner *string `json:"meshOwner"`
+	// `AWS::AppMesh::GatewayRoute.Spec`.
+	Spec interface{} `json:"spec"`
 	// `AWS::AppMesh::GatewayRoute.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::AppMesh::GatewayRoute.VirtualGatewayName`.
+	VirtualGatewayName *string `json:"virtualGatewayName"`
 }
 
 // A CloudFormation `AWS::AppMesh::Mesh`.
+//
+// TODO: EXAMPLE
+//
 type CfnMesh interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1783,17 +1844,24 @@ func (c *jsiiProxy_CfnMesh) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnMesh_EgressFilterProperty struct {
 	// `CfnMesh.EgressFilterProperty.Type`.
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnMesh_MeshSpecProperty struct {
 	// `CfnMesh.MeshSpecProperty.EgressFilter`.
 	EgressFilter interface{} `json:"egressFilter"`
 }
 
 // Properties for defining a `AWS::AppMesh::Mesh`.
+//
+// TODO: EXAMPLE
+//
 type CfnMeshProps struct {
 	// `AWS::AppMesh::Mesh.MeshName`.
 	MeshName *string `json:"meshName"`
@@ -1804,6 +1872,9 @@ type CfnMeshProps struct {
 }
 
 // A CloudFormation `AWS::AppMesh::Route`.
+//
+// TODO: EXAMPLE
+//
 type CfnRoute interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2557,6 +2628,8 @@ func (c *jsiiProxy_CfnRoute) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnRoute_DurationProperty struct {
 	// `CfnRoute.DurationProperty.Unit`.
 	Unit *string `json:"unit"`
@@ -2564,24 +2637,30 @@ type CfnRoute_DurationProperty struct {
 	Value *float64 `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRoute_GrpcRetryPolicyProperty struct {
-	// `CfnRoute.GrpcRetryPolicyProperty.MaxRetries`.
-	MaxRetries *float64 `json:"maxRetries"`
-	// `CfnRoute.GrpcRetryPolicyProperty.PerRetryTimeout`.
-	PerRetryTimeout interface{} `json:"perRetryTimeout"`
 	// `CfnRoute.GrpcRetryPolicyProperty.GrpcRetryEvents`.
 	GrpcRetryEvents *[]*string `json:"grpcRetryEvents"`
 	// `CfnRoute.GrpcRetryPolicyProperty.HttpRetryEvents`.
 	HttpRetryEvents *[]*string `json:"httpRetryEvents"`
+	// `CfnRoute.GrpcRetryPolicyProperty.MaxRetries`.
+	MaxRetries *float64 `json:"maxRetries"`
+	// `CfnRoute.GrpcRetryPolicyProperty.PerRetryTimeout`.
+	PerRetryTimeout interface{} `json:"perRetryTimeout"`
 	// `CfnRoute.GrpcRetryPolicyProperty.TcpRetryEvents`.
 	TcpRetryEvents *[]*string `json:"tcpRetryEvents"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRoute_GrpcRouteActionProperty struct {
 	// `CfnRoute.GrpcRouteActionProperty.WeightedTargets`.
 	WeightedTargets interface{} `json:"weightedTargets"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRoute_GrpcRouteMatchProperty struct {
 	// `CfnRoute.GrpcRouteMatchProperty.Metadata`.
 	Metadata interface{} `json:"metadata"`
@@ -2591,6 +2670,8 @@ type CfnRoute_GrpcRouteMatchProperty struct {
 	ServiceName *string `json:"serviceName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRoute_GrpcRouteMetadataMatchMethodProperty struct {
 	// `CfnRoute.GrpcRouteMetadataMatchMethodProperty.Exact`.
 	Exact *string `json:"exact"`
@@ -2604,15 +2685,19 @@ type CfnRoute_GrpcRouteMetadataMatchMethodProperty struct {
 	Suffix *string `json:"suffix"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRoute_GrpcRouteMetadataProperty struct {
-	// `CfnRoute.GrpcRouteMetadataProperty.Name`.
-	Name *string `json:"name"`
 	// `CfnRoute.GrpcRouteMetadataProperty.Invert`.
 	Invert interface{} `json:"invert"`
 	// `CfnRoute.GrpcRouteMetadataProperty.Match`.
 	Match interface{} `json:"match"`
+	// `CfnRoute.GrpcRouteMetadataProperty.Name`.
+	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRoute_GrpcRouteProperty struct {
 	// `CfnRoute.GrpcRouteProperty.Action`.
 	Action interface{} `json:"action"`
@@ -2624,6 +2709,8 @@ type CfnRoute_GrpcRouteProperty struct {
 	Timeout interface{} `json:"timeout"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRoute_GrpcTimeoutProperty struct {
 	// `CfnRoute.GrpcTimeoutProperty.Idle`.
 	Idle interface{} `json:"idle"`
@@ -2631,6 +2718,8 @@ type CfnRoute_GrpcTimeoutProperty struct {
 	PerRequest interface{} `json:"perRequest"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRoute_HeaderMatchMethodProperty struct {
 	// `CfnRoute.HeaderMatchMethodProperty.Exact`.
 	Exact *string `json:"exact"`
@@ -2644,6 +2733,8 @@ type CfnRoute_HeaderMatchMethodProperty struct {
 	Suffix *string `json:"suffix"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRoute_HttpPathMatchProperty struct {
 	// `CfnRoute.HttpPathMatchProperty.Exact`.
 	Exact *string `json:"exact"`
@@ -2651,36 +2742,46 @@ type CfnRoute_HttpPathMatchProperty struct {
 	Regex *string `json:"regex"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRoute_HttpQueryParameterMatchProperty struct {
 	// `CfnRoute.HttpQueryParameterMatchProperty.Exact`.
 	Exact *string `json:"exact"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRoute_HttpRetryPolicyProperty struct {
+	// `CfnRoute.HttpRetryPolicyProperty.HttpRetryEvents`.
+	HttpRetryEvents *[]*string `json:"httpRetryEvents"`
 	// `CfnRoute.HttpRetryPolicyProperty.MaxRetries`.
 	MaxRetries *float64 `json:"maxRetries"`
 	// `CfnRoute.HttpRetryPolicyProperty.PerRetryTimeout`.
 	PerRetryTimeout interface{} `json:"perRetryTimeout"`
-	// `CfnRoute.HttpRetryPolicyProperty.HttpRetryEvents`.
-	HttpRetryEvents *[]*string `json:"httpRetryEvents"`
 	// `CfnRoute.HttpRetryPolicyProperty.TcpRetryEvents`.
 	TcpRetryEvents *[]*string `json:"tcpRetryEvents"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRoute_HttpRouteActionProperty struct {
 	// `CfnRoute.HttpRouteActionProperty.WeightedTargets`.
 	WeightedTargets interface{} `json:"weightedTargets"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRoute_HttpRouteHeaderProperty struct {
-	// `CfnRoute.HttpRouteHeaderProperty.Name`.
-	Name *string `json:"name"`
 	// `CfnRoute.HttpRouteHeaderProperty.Invert`.
 	Invert interface{} `json:"invert"`
 	// `CfnRoute.HttpRouteHeaderProperty.Match`.
 	Match interface{} `json:"match"`
+	// `CfnRoute.HttpRouteHeaderProperty.Name`.
+	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRoute_HttpRouteMatchProperty struct {
 	// `CfnRoute.HttpRouteMatchProperty.Headers`.
 	Headers interface{} `json:"headers"`
@@ -2696,6 +2797,8 @@ type CfnRoute_HttpRouteMatchProperty struct {
 	Scheme *string `json:"scheme"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRoute_HttpRouteProperty struct {
 	// `CfnRoute.HttpRouteProperty.Action`.
 	Action interface{} `json:"action"`
@@ -2707,6 +2810,8 @@ type CfnRoute_HttpRouteProperty struct {
 	Timeout interface{} `json:"timeout"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRoute_HttpTimeoutProperty struct {
 	// `CfnRoute.HttpTimeoutProperty.Idle`.
 	Idle interface{} `json:"idle"`
@@ -2714,6 +2819,8 @@ type CfnRoute_HttpTimeoutProperty struct {
 	PerRequest interface{} `json:"perRequest"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRoute_MatchRangeProperty struct {
 	// `CfnRoute.MatchRangeProperty.End`.
 	End *float64 `json:"end"`
@@ -2721,13 +2828,17 @@ type CfnRoute_MatchRangeProperty struct {
 	Start *float64 `json:"start"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRoute_QueryParameterProperty struct {
-	// `CfnRoute.QueryParameterProperty.Name`.
-	Name *string `json:"name"`
 	// `CfnRoute.QueryParameterProperty.Match`.
 	Match interface{} `json:"match"`
+	// `CfnRoute.QueryParameterProperty.Name`.
+	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRoute_RouteSpecProperty struct {
 	// `CfnRoute.RouteSpecProperty.GrpcRoute`.
 	GrpcRoute interface{} `json:"grpcRoute"`
@@ -2741,11 +2852,15 @@ type CfnRoute_RouteSpecProperty struct {
 	TcpRoute interface{} `json:"tcpRoute"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRoute_TcpRouteActionProperty struct {
 	// `CfnRoute.TcpRouteActionProperty.WeightedTargets`.
 	WeightedTargets interface{} `json:"weightedTargets"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRoute_TcpRouteProperty struct {
 	// `CfnRoute.TcpRouteProperty.Action`.
 	Action interface{} `json:"action"`
@@ -2753,11 +2868,15 @@ type CfnRoute_TcpRouteProperty struct {
 	Timeout interface{} `json:"timeout"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRoute_TcpTimeoutProperty struct {
 	// `CfnRoute.TcpTimeoutProperty.Idle`.
 	Idle interface{} `json:"idle"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRoute_WeightedTargetProperty struct {
 	// `CfnRoute.WeightedTargetProperty.VirtualNode`.
 	VirtualNode *string `json:"virtualNode"`
@@ -2766,22 +2885,28 @@ type CfnRoute_WeightedTargetProperty struct {
 }
 
 // Properties for defining a `AWS::AppMesh::Route`.
+//
+// TODO: EXAMPLE
+//
 type CfnRouteProps struct {
 	// `AWS::AppMesh::Route.MeshName`.
 	MeshName *string `json:"meshName"`
-	// `AWS::AppMesh::Route.Spec`.
-	Spec interface{} `json:"spec"`
-	// `AWS::AppMesh::Route.VirtualRouterName`.
-	VirtualRouterName *string `json:"virtualRouterName"`
 	// `AWS::AppMesh::Route.MeshOwner`.
 	MeshOwner *string `json:"meshOwner"`
 	// `AWS::AppMesh::Route.RouteName`.
 	RouteName *string `json:"routeName"`
+	// `AWS::AppMesh::Route.Spec`.
+	Spec interface{} `json:"spec"`
 	// `AWS::AppMesh::Route.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::AppMesh::Route.VirtualRouterName`.
+	VirtualRouterName *string `json:"virtualRouterName"`
 }
 
 // A CloudFormation `AWS::AppMesh::VirtualGateway`.
+//
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3504,42 +3629,56 @@ func (c *jsiiProxy_CfnVirtualGateway) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_SubjectAlternativeNameMatchersProperty struct {
 	// `CfnVirtualGateway.SubjectAlternativeNameMatchersProperty.Exact`.
 	Exact *[]*string `json:"exact"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_SubjectAlternativeNamesProperty struct {
 	// `CfnVirtualGateway.SubjectAlternativeNamesProperty.Match`.
 	Match interface{} `json:"match"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_VirtualGatewayAccessLogProperty struct {
 	// `CfnVirtualGateway.VirtualGatewayAccessLogProperty.File`.
 	File interface{} `json:"file"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_VirtualGatewayBackendDefaultsProperty struct {
 	// `CfnVirtualGateway.VirtualGatewayBackendDefaultsProperty.ClientPolicy`.
 	ClientPolicy interface{} `json:"clientPolicy"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_VirtualGatewayClientPolicyProperty struct {
 	// `CfnVirtualGateway.VirtualGatewayClientPolicyProperty.TLS`.
 	Tls interface{} `json:"tls"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_VirtualGatewayClientPolicyTlsProperty struct {
-	// `CfnVirtualGateway.VirtualGatewayClientPolicyTlsProperty.Validation`.
-	Validation interface{} `json:"validation"`
 	// `CfnVirtualGateway.VirtualGatewayClientPolicyTlsProperty.Certificate`.
 	Certificate interface{} `json:"certificate"`
 	// `CfnVirtualGateway.VirtualGatewayClientPolicyTlsProperty.Enforce`.
 	Enforce interface{} `json:"enforce"`
 	// `CfnVirtualGateway.VirtualGatewayClientPolicyTlsProperty.Ports`.
 	Ports interface{} `json:"ports"`
+	// `CfnVirtualGateway.VirtualGatewayClientPolicyTlsProperty.Validation`.
+	Validation interface{} `json:"validation"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_VirtualGatewayClientTlsCertificateProperty struct {
 	// `CfnVirtualGateway.VirtualGatewayClientTlsCertificateProperty.File`.
 	File interface{} `json:"file"`
@@ -3547,6 +3686,8 @@ type CfnVirtualGateway_VirtualGatewayClientTlsCertificateProperty struct {
 	Sds interface{} `json:"sds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_VirtualGatewayConnectionPoolProperty struct {
 	// `CfnVirtualGateway.VirtualGatewayConnectionPoolProperty.GRPC`.
 	Grpc interface{} `json:"grpc"`
@@ -3556,38 +3697,48 @@ type CfnVirtualGateway_VirtualGatewayConnectionPoolProperty struct {
 	Http2 interface{} `json:"http2"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_VirtualGatewayFileAccessLogProperty struct {
 	// `CfnVirtualGateway.VirtualGatewayFileAccessLogProperty.Path`.
 	Path *string `json:"path"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_VirtualGatewayGrpcConnectionPoolProperty struct {
 	// `CfnVirtualGateway.VirtualGatewayGrpcConnectionPoolProperty.MaxRequests`.
 	MaxRequests *float64 `json:"maxRequests"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_VirtualGatewayHealthCheckPolicyProperty struct {
 	// `CfnVirtualGateway.VirtualGatewayHealthCheckPolicyProperty.HealthyThreshold`.
 	HealthyThreshold *float64 `json:"healthyThreshold"`
 	// `CfnVirtualGateway.VirtualGatewayHealthCheckPolicyProperty.IntervalMillis`.
 	IntervalMillis *float64 `json:"intervalMillis"`
+	// `CfnVirtualGateway.VirtualGatewayHealthCheckPolicyProperty.Path`.
+	Path *string `json:"path"`
+	// `CfnVirtualGateway.VirtualGatewayHealthCheckPolicyProperty.Port`.
+	Port *float64 `json:"port"`
 	// `CfnVirtualGateway.VirtualGatewayHealthCheckPolicyProperty.Protocol`.
 	Protocol *string `json:"protocol"`
 	// `CfnVirtualGateway.VirtualGatewayHealthCheckPolicyProperty.TimeoutMillis`.
 	TimeoutMillis *float64 `json:"timeoutMillis"`
 	// `CfnVirtualGateway.VirtualGatewayHealthCheckPolicyProperty.UnhealthyThreshold`.
 	UnhealthyThreshold *float64 `json:"unhealthyThreshold"`
-	// `CfnVirtualGateway.VirtualGatewayHealthCheckPolicyProperty.Path`.
-	Path *string `json:"path"`
-	// `CfnVirtualGateway.VirtualGatewayHealthCheckPolicyProperty.Port`.
-	Port *float64 `json:"port"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_VirtualGatewayHttp2ConnectionPoolProperty struct {
 	// `CfnVirtualGateway.VirtualGatewayHttp2ConnectionPoolProperty.MaxRequests`.
 	MaxRequests *float64 `json:"maxRequests"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_VirtualGatewayHttpConnectionPoolProperty struct {
 	// `CfnVirtualGateway.VirtualGatewayHttpConnectionPoolProperty.MaxConnections`.
 	MaxConnections *float64 `json:"maxConnections"`
@@ -3595,22 +3746,28 @@ type CfnVirtualGateway_VirtualGatewayHttpConnectionPoolProperty struct {
 	MaxPendingRequests *float64 `json:"maxPendingRequests"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_VirtualGatewayListenerProperty struct {
-	// `CfnVirtualGateway.VirtualGatewayListenerProperty.PortMapping`.
-	PortMapping interface{} `json:"portMapping"`
 	// `CfnVirtualGateway.VirtualGatewayListenerProperty.ConnectionPool`.
 	ConnectionPool interface{} `json:"connectionPool"`
 	// `CfnVirtualGateway.VirtualGatewayListenerProperty.HealthCheck`.
 	HealthCheck interface{} `json:"healthCheck"`
+	// `CfnVirtualGateway.VirtualGatewayListenerProperty.PortMapping`.
+	PortMapping interface{} `json:"portMapping"`
 	// `CfnVirtualGateway.VirtualGatewayListenerProperty.TLS`.
 	Tls interface{} `json:"tls"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_VirtualGatewayListenerTlsAcmCertificateProperty struct {
 	// `CfnVirtualGateway.VirtualGatewayListenerTlsAcmCertificateProperty.CertificateArn`.
 	CertificateArn *string `json:"certificateArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_VirtualGatewayListenerTlsCertificateProperty struct {
 	// `CfnVirtualGateway.VirtualGatewayListenerTlsCertificateProperty.ACM`.
 	Acm interface{} `json:"acm"`
@@ -3620,6 +3777,8 @@ type CfnVirtualGateway_VirtualGatewayListenerTlsCertificateProperty struct {
 	Sds interface{} `json:"sds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_VirtualGatewayListenerTlsFileCertificateProperty struct {
 	// `CfnVirtualGateway.VirtualGatewayListenerTlsFileCertificateProperty.CertificateChain`.
 	CertificateChain *string `json:"certificateChain"`
@@ -3627,6 +3786,8 @@ type CfnVirtualGateway_VirtualGatewayListenerTlsFileCertificateProperty struct {
 	PrivateKey *string `json:"privateKey"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_VirtualGatewayListenerTlsProperty struct {
 	// `CfnVirtualGateway.VirtualGatewayListenerTlsProperty.Certificate`.
 	Certificate interface{} `json:"certificate"`
@@ -3636,18 +3797,24 @@ type CfnVirtualGateway_VirtualGatewayListenerTlsProperty struct {
 	Validation interface{} `json:"validation"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_VirtualGatewayListenerTlsSdsCertificateProperty struct {
 	// `CfnVirtualGateway.VirtualGatewayListenerTlsSdsCertificateProperty.SecretName`.
 	SecretName *string `json:"secretName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_VirtualGatewayListenerTlsValidationContextProperty struct {
-	// `CfnVirtualGateway.VirtualGatewayListenerTlsValidationContextProperty.Trust`.
-	Trust interface{} `json:"trust"`
 	// `CfnVirtualGateway.VirtualGatewayListenerTlsValidationContextProperty.SubjectAlternativeNames`.
 	SubjectAlternativeNames interface{} `json:"subjectAlternativeNames"`
+	// `CfnVirtualGateway.VirtualGatewayListenerTlsValidationContextProperty.Trust`.
+	Trust interface{} `json:"trust"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_VirtualGatewayListenerTlsValidationContextTrustProperty struct {
 	// `CfnVirtualGateway.VirtualGatewayListenerTlsValidationContextTrustProperty.File`.
 	File interface{} `json:"file"`
@@ -3655,11 +3822,15 @@ type CfnVirtualGateway_VirtualGatewayListenerTlsValidationContextTrustProperty s
 	Sds interface{} `json:"sds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_VirtualGatewayLoggingProperty struct {
 	// `CfnVirtualGateway.VirtualGatewayLoggingProperty.AccessLog`.
 	AccessLog interface{} `json:"accessLog"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_VirtualGatewayPortMappingProperty struct {
 	// `CfnVirtualGateway.VirtualGatewayPortMappingProperty.Port`.
 	Port *float64 `json:"port"`
@@ -3667,37 +3838,49 @@ type CfnVirtualGateway_VirtualGatewayPortMappingProperty struct {
 	Protocol *string `json:"protocol"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_VirtualGatewaySpecProperty struct {
-	// `CfnVirtualGateway.VirtualGatewaySpecProperty.Listeners`.
-	Listeners interface{} `json:"listeners"`
 	// `CfnVirtualGateway.VirtualGatewaySpecProperty.BackendDefaults`.
 	BackendDefaults interface{} `json:"backendDefaults"`
+	// `CfnVirtualGateway.VirtualGatewaySpecProperty.Listeners`.
+	Listeners interface{} `json:"listeners"`
 	// `CfnVirtualGateway.VirtualGatewaySpecProperty.Logging`.
 	Logging interface{} `json:"logging"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_VirtualGatewayTlsValidationContextAcmTrustProperty struct {
 	// `CfnVirtualGateway.VirtualGatewayTlsValidationContextAcmTrustProperty.CertificateAuthorityArns`.
 	CertificateAuthorityArns *[]*string `json:"certificateAuthorityArns"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_VirtualGatewayTlsValidationContextFileTrustProperty struct {
 	// `CfnVirtualGateway.VirtualGatewayTlsValidationContextFileTrustProperty.CertificateChain`.
 	CertificateChain *string `json:"certificateChain"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_VirtualGatewayTlsValidationContextProperty struct {
-	// `CfnVirtualGateway.VirtualGatewayTlsValidationContextProperty.Trust`.
-	Trust interface{} `json:"trust"`
 	// `CfnVirtualGateway.VirtualGatewayTlsValidationContextProperty.SubjectAlternativeNames`.
 	SubjectAlternativeNames interface{} `json:"subjectAlternativeNames"`
+	// `CfnVirtualGateway.VirtualGatewayTlsValidationContextProperty.Trust`.
+	Trust interface{} `json:"trust"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_VirtualGatewayTlsValidationContextSdsTrustProperty struct {
 	// `CfnVirtualGateway.VirtualGatewayTlsValidationContextSdsTrustProperty.SecretName`.
 	SecretName *string `json:"secretName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualGateway_VirtualGatewayTlsValidationContextTrustProperty struct {
 	// `CfnVirtualGateway.VirtualGatewayTlsValidationContextTrustProperty.ACM`.
 	Acm interface{} `json:"acm"`
@@ -3708,13 +3891,16 @@ type CfnVirtualGateway_VirtualGatewayTlsValidationContextTrustProperty struct {
 }
 
 // Properties for defining a `AWS::AppMesh::VirtualGateway`.
+//
+// TODO: EXAMPLE
+//
 type CfnVirtualGatewayProps struct {
 	// `AWS::AppMesh::VirtualGateway.MeshName`.
 	MeshName *string `json:"meshName"`
-	// `AWS::AppMesh::VirtualGateway.Spec`.
-	Spec interface{} `json:"spec"`
 	// `AWS::AppMesh::VirtualGateway.MeshOwner`.
 	MeshOwner *string `json:"meshOwner"`
+	// `AWS::AppMesh::VirtualGateway.Spec`.
+	Spec interface{} `json:"spec"`
 	// `AWS::AppMesh::VirtualGateway.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::AppMesh::VirtualGateway.VirtualGatewayName`.
@@ -3722,6 +3908,9 @@ type CfnVirtualGatewayProps struct {
 }
 
 // A CloudFormation `AWS::AppMesh::VirtualNode`.
+//
+// TODO: EXAMPLE
+//
 type CfnVirtualNode interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4444,11 +4633,15 @@ func (c *jsiiProxy_CfnVirtualNode) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_AccessLogProperty struct {
 	// `CfnVirtualNode.AccessLogProperty.File`.
 	File interface{} `json:"file"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_AwsCloudMapInstanceAttributeProperty struct {
 	// `CfnVirtualNode.AwsCloudMapInstanceAttributeProperty.Key`.
 	Key *string `json:"key"`
@@ -4456,41 +4649,53 @@ type CfnVirtualNode_AwsCloudMapInstanceAttributeProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_AwsCloudMapServiceDiscoveryProperty struct {
+	// `CfnVirtualNode.AwsCloudMapServiceDiscoveryProperty.Attributes`.
+	Attributes interface{} `json:"attributes"`
 	// `CfnVirtualNode.AwsCloudMapServiceDiscoveryProperty.NamespaceName`.
 	NamespaceName *string `json:"namespaceName"`
 	// `CfnVirtualNode.AwsCloudMapServiceDiscoveryProperty.ServiceName`.
 	ServiceName *string `json:"serviceName"`
-	// `CfnVirtualNode.AwsCloudMapServiceDiscoveryProperty.Attributes`.
-	Attributes interface{} `json:"attributes"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_BackendDefaultsProperty struct {
 	// `CfnVirtualNode.BackendDefaultsProperty.ClientPolicy`.
 	ClientPolicy interface{} `json:"clientPolicy"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_BackendProperty struct {
 	// `CfnVirtualNode.BackendProperty.VirtualService`.
 	VirtualService interface{} `json:"virtualService"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_ClientPolicyProperty struct {
 	// `CfnVirtualNode.ClientPolicyProperty.TLS`.
 	Tls interface{} `json:"tls"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_ClientPolicyTlsProperty struct {
-	// `CfnVirtualNode.ClientPolicyTlsProperty.Validation`.
-	Validation interface{} `json:"validation"`
 	// `CfnVirtualNode.ClientPolicyTlsProperty.Certificate`.
 	Certificate interface{} `json:"certificate"`
 	// `CfnVirtualNode.ClientPolicyTlsProperty.Enforce`.
 	Enforce interface{} `json:"enforce"`
 	// `CfnVirtualNode.ClientPolicyTlsProperty.Ports`.
 	Ports interface{} `json:"ports"`
+	// `CfnVirtualNode.ClientPolicyTlsProperty.Validation`.
+	Validation interface{} `json:"validation"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_ClientTlsCertificateProperty struct {
 	// `CfnVirtualNode.ClientTlsCertificateProperty.File`.
 	File interface{} `json:"file"`
@@ -4498,6 +4703,8 @@ type CfnVirtualNode_ClientTlsCertificateProperty struct {
 	Sds interface{} `json:"sds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_DnsServiceDiscoveryProperty struct {
 	// `CfnVirtualNode.DnsServiceDiscoveryProperty.Hostname`.
 	Hostname *string `json:"hostname"`
@@ -4505,6 +4712,8 @@ type CfnVirtualNode_DnsServiceDiscoveryProperty struct {
 	ResponseType *string `json:"responseType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_DurationProperty struct {
 	// `CfnVirtualNode.DurationProperty.Unit`.
 	Unit *string `json:"unit"`
@@ -4512,11 +4721,15 @@ type CfnVirtualNode_DurationProperty struct {
 	Value *float64 `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_FileAccessLogProperty struct {
 	// `CfnVirtualNode.FileAccessLogProperty.Path`.
 	Path *string `json:"path"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_GrpcTimeoutProperty struct {
 	// `CfnVirtualNode.GrpcTimeoutProperty.Idle`.
 	Idle interface{} `json:"idle"`
@@ -4524,23 +4737,27 @@ type CfnVirtualNode_GrpcTimeoutProperty struct {
 	PerRequest interface{} `json:"perRequest"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_HealthCheckProperty struct {
 	// `CfnVirtualNode.HealthCheckProperty.HealthyThreshold`.
 	HealthyThreshold *float64 `json:"healthyThreshold"`
 	// `CfnVirtualNode.HealthCheckProperty.IntervalMillis`.
 	IntervalMillis *float64 `json:"intervalMillis"`
+	// `CfnVirtualNode.HealthCheckProperty.Path`.
+	Path *string `json:"path"`
+	// `CfnVirtualNode.HealthCheckProperty.Port`.
+	Port *float64 `json:"port"`
 	// `CfnVirtualNode.HealthCheckProperty.Protocol`.
 	Protocol *string `json:"protocol"`
 	// `CfnVirtualNode.HealthCheckProperty.TimeoutMillis`.
 	TimeoutMillis *float64 `json:"timeoutMillis"`
 	// `CfnVirtualNode.HealthCheckProperty.UnhealthyThreshold`.
 	UnhealthyThreshold *float64 `json:"unhealthyThreshold"`
-	// `CfnVirtualNode.HealthCheckProperty.Path`.
-	Path *string `json:"path"`
-	// `CfnVirtualNode.HealthCheckProperty.Port`.
-	Port *float64 `json:"port"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_HttpTimeoutProperty struct {
 	// `CfnVirtualNode.HttpTimeoutProperty.Idle`.
 	Idle interface{} `json:"idle"`
@@ -4548,21 +4765,25 @@ type CfnVirtualNode_HttpTimeoutProperty struct {
 	PerRequest interface{} `json:"perRequest"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_ListenerProperty struct {
-	// `CfnVirtualNode.ListenerProperty.PortMapping`.
-	PortMapping interface{} `json:"portMapping"`
 	// `CfnVirtualNode.ListenerProperty.ConnectionPool`.
 	ConnectionPool interface{} `json:"connectionPool"`
 	// `CfnVirtualNode.ListenerProperty.HealthCheck`.
 	HealthCheck interface{} `json:"healthCheck"`
 	// `CfnVirtualNode.ListenerProperty.OutlierDetection`.
 	OutlierDetection interface{} `json:"outlierDetection"`
+	// `CfnVirtualNode.ListenerProperty.PortMapping`.
+	PortMapping interface{} `json:"portMapping"`
 	// `CfnVirtualNode.ListenerProperty.Timeout`.
 	Timeout interface{} `json:"timeout"`
 	// `CfnVirtualNode.ListenerProperty.TLS`.
 	Tls interface{} `json:"tls"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_ListenerTimeoutProperty struct {
 	// `CfnVirtualNode.ListenerTimeoutProperty.GRPC`.
 	Grpc interface{} `json:"grpc"`
@@ -4574,11 +4795,15 @@ type CfnVirtualNode_ListenerTimeoutProperty struct {
 	Tcp interface{} `json:"tcp"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_ListenerTlsAcmCertificateProperty struct {
 	// `CfnVirtualNode.ListenerTlsAcmCertificateProperty.CertificateArn`.
 	CertificateArn *string `json:"certificateArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_ListenerTlsCertificateProperty struct {
 	// `CfnVirtualNode.ListenerTlsCertificateProperty.ACM`.
 	Acm interface{} `json:"acm"`
@@ -4588,6 +4813,8 @@ type CfnVirtualNode_ListenerTlsCertificateProperty struct {
 	Sds interface{} `json:"sds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_ListenerTlsFileCertificateProperty struct {
 	// `CfnVirtualNode.ListenerTlsFileCertificateProperty.CertificateChain`.
 	CertificateChain *string `json:"certificateChain"`
@@ -4595,6 +4822,8 @@ type CfnVirtualNode_ListenerTlsFileCertificateProperty struct {
 	PrivateKey *string `json:"privateKey"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_ListenerTlsProperty struct {
 	// `CfnVirtualNode.ListenerTlsProperty.Certificate`.
 	Certificate interface{} `json:"certificate"`
@@ -4604,18 +4833,24 @@ type CfnVirtualNode_ListenerTlsProperty struct {
 	Validation interface{} `json:"validation"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_ListenerTlsSdsCertificateProperty struct {
 	// `CfnVirtualNode.ListenerTlsSdsCertificateProperty.SecretName`.
 	SecretName *string `json:"secretName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_ListenerTlsValidationContextProperty struct {
-	// `CfnVirtualNode.ListenerTlsValidationContextProperty.Trust`.
-	Trust interface{} `json:"trust"`
 	// `CfnVirtualNode.ListenerTlsValidationContextProperty.SubjectAlternativeNames`.
 	SubjectAlternativeNames interface{} `json:"subjectAlternativeNames"`
+	// `CfnVirtualNode.ListenerTlsValidationContextProperty.Trust`.
+	Trust interface{} `json:"trust"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_ListenerTlsValidationContextTrustProperty struct {
 	// `CfnVirtualNode.ListenerTlsValidationContextTrustProperty.File`.
 	File interface{} `json:"file"`
@@ -4623,11 +4858,15 @@ type CfnVirtualNode_ListenerTlsValidationContextTrustProperty struct {
 	Sds interface{} `json:"sds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_LoggingProperty struct {
 	// `CfnVirtualNode.LoggingProperty.AccessLog`.
 	AccessLog interface{} `json:"accessLog"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_OutlierDetectionProperty struct {
 	// `CfnVirtualNode.OutlierDetectionProperty.BaseEjectionDuration`.
 	BaseEjectionDuration interface{} `json:"baseEjectionDuration"`
@@ -4639,6 +4878,8 @@ type CfnVirtualNode_OutlierDetectionProperty struct {
 	MaxServerErrors *float64 `json:"maxServerErrors"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_PortMappingProperty struct {
 	// `CfnVirtualNode.PortMappingProperty.Port`.
 	Port *float64 `json:"port"`
@@ -4646,6 +4887,8 @@ type CfnVirtualNode_PortMappingProperty struct {
 	Protocol *string `json:"protocol"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_ServiceDiscoveryProperty struct {
 	// `CfnVirtualNode.ServiceDiscoveryProperty.AWSCloudMap`.
 	AwsCloudMap interface{} `json:"awsCloudMap"`
@@ -4653,43 +4896,59 @@ type CfnVirtualNode_ServiceDiscoveryProperty struct {
 	Dns interface{} `json:"dns"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_SubjectAlternativeNameMatchersProperty struct {
 	// `CfnVirtualNode.SubjectAlternativeNameMatchersProperty.Exact`.
 	Exact *[]*string `json:"exact"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_SubjectAlternativeNamesProperty struct {
 	// `CfnVirtualNode.SubjectAlternativeNamesProperty.Match`.
 	Match interface{} `json:"match"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_TcpTimeoutProperty struct {
 	// `CfnVirtualNode.TcpTimeoutProperty.Idle`.
 	Idle interface{} `json:"idle"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_TlsValidationContextAcmTrustProperty struct {
 	// `CfnVirtualNode.TlsValidationContextAcmTrustProperty.CertificateAuthorityArns`.
 	CertificateAuthorityArns *[]*string `json:"certificateAuthorityArns"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_TlsValidationContextFileTrustProperty struct {
 	// `CfnVirtualNode.TlsValidationContextFileTrustProperty.CertificateChain`.
 	CertificateChain *string `json:"certificateChain"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_TlsValidationContextProperty struct {
-	// `CfnVirtualNode.TlsValidationContextProperty.Trust`.
-	Trust interface{} `json:"trust"`
 	// `CfnVirtualNode.TlsValidationContextProperty.SubjectAlternativeNames`.
 	SubjectAlternativeNames interface{} `json:"subjectAlternativeNames"`
+	// `CfnVirtualNode.TlsValidationContextProperty.Trust`.
+	Trust interface{} `json:"trust"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_TlsValidationContextSdsTrustProperty struct {
 	// `CfnVirtualNode.TlsValidationContextSdsTrustProperty.SecretName`.
 	SecretName *string `json:"secretName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_TlsValidationContextTrustProperty struct {
 	// `CfnVirtualNode.TlsValidationContextTrustProperty.ACM`.
 	Acm interface{} `json:"acm"`
@@ -4699,6 +4958,8 @@ type CfnVirtualNode_TlsValidationContextTrustProperty struct {
 	Sds interface{} `json:"sds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_VirtualNodeConnectionPoolProperty struct {
 	// `CfnVirtualNode.VirtualNodeConnectionPoolProperty.GRPC`.
 	Grpc interface{} `json:"grpc"`
@@ -4710,16 +4971,22 @@ type CfnVirtualNode_VirtualNodeConnectionPoolProperty struct {
 	Tcp interface{} `json:"tcp"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_VirtualNodeGrpcConnectionPoolProperty struct {
 	// `CfnVirtualNode.VirtualNodeGrpcConnectionPoolProperty.MaxRequests`.
 	MaxRequests *float64 `json:"maxRequests"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_VirtualNodeHttp2ConnectionPoolProperty struct {
 	// `CfnVirtualNode.VirtualNodeHttp2ConnectionPoolProperty.MaxRequests`.
 	MaxRequests *float64 `json:"maxRequests"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_VirtualNodeHttpConnectionPoolProperty struct {
 	// `CfnVirtualNode.VirtualNodeHttpConnectionPoolProperty.MaxConnections`.
 	MaxConnections *float64 `json:"maxConnections"`
@@ -4727,6 +4994,8 @@ type CfnVirtualNode_VirtualNodeHttpConnectionPoolProperty struct {
 	MaxPendingRequests *float64 `json:"maxPendingRequests"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_VirtualNodeSpecProperty struct {
 	// `CfnVirtualNode.VirtualNodeSpecProperty.BackendDefaults`.
 	BackendDefaults interface{} `json:"backendDefaults"`
@@ -4740,26 +5009,33 @@ type CfnVirtualNode_VirtualNodeSpecProperty struct {
 	ServiceDiscovery interface{} `json:"serviceDiscovery"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_VirtualNodeTcpConnectionPoolProperty struct {
 	// `CfnVirtualNode.VirtualNodeTcpConnectionPoolProperty.MaxConnections`.
 	MaxConnections *float64 `json:"maxConnections"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualNode_VirtualServiceBackendProperty struct {
-	// `CfnVirtualNode.VirtualServiceBackendProperty.VirtualServiceName`.
-	VirtualServiceName *string `json:"virtualServiceName"`
 	// `CfnVirtualNode.VirtualServiceBackendProperty.ClientPolicy`.
 	ClientPolicy interface{} `json:"clientPolicy"`
+	// `CfnVirtualNode.VirtualServiceBackendProperty.VirtualServiceName`.
+	VirtualServiceName *string `json:"virtualServiceName"`
 }
 
 // Properties for defining a `AWS::AppMesh::VirtualNode`.
+//
+// TODO: EXAMPLE
+//
 type CfnVirtualNodeProps struct {
 	// `AWS::AppMesh::VirtualNode.MeshName`.
 	MeshName *string `json:"meshName"`
-	// `AWS::AppMesh::VirtualNode.Spec`.
-	Spec interface{} `json:"spec"`
 	// `AWS::AppMesh::VirtualNode.MeshOwner`.
 	MeshOwner *string `json:"meshOwner"`
+	// `AWS::AppMesh::VirtualNode.Spec`.
+	Spec interface{} `json:"spec"`
 	// `AWS::AppMesh::VirtualNode.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::AppMesh::VirtualNode.VirtualNodeName`.
@@ -4767,6 +5043,9 @@ type CfnVirtualNodeProps struct {
 }
 
 // A CloudFormation `AWS::AppMesh::VirtualRouter`.
+//
+// TODO: EXAMPLE
+//
 type CfnVirtualRouter interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5489,6 +5768,8 @@ func (c *jsiiProxy_CfnVirtualRouter) ValidateProperties(_properties interface{})
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualRouter_PortMappingProperty struct {
 	// `CfnVirtualRouter.PortMappingProperty.Port`.
 	Port *float64 `json:"port"`
@@ -5496,24 +5777,31 @@ type CfnVirtualRouter_PortMappingProperty struct {
 	Protocol *string `json:"protocol"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualRouter_VirtualRouterListenerProperty struct {
 	// `CfnVirtualRouter.VirtualRouterListenerProperty.PortMapping`.
 	PortMapping interface{} `json:"portMapping"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualRouter_VirtualRouterSpecProperty struct {
 	// `CfnVirtualRouter.VirtualRouterSpecProperty.Listeners`.
 	Listeners interface{} `json:"listeners"`
 }
 
 // Properties for defining a `AWS::AppMesh::VirtualRouter`.
+//
+// TODO: EXAMPLE
+//
 type CfnVirtualRouterProps struct {
 	// `AWS::AppMesh::VirtualRouter.MeshName`.
 	MeshName *string `json:"meshName"`
-	// `AWS::AppMesh::VirtualRouter.Spec`.
-	Spec interface{} `json:"spec"`
 	// `AWS::AppMesh::VirtualRouter.MeshOwner`.
 	MeshOwner *string `json:"meshOwner"`
+	// `AWS::AppMesh::VirtualRouter.Spec`.
+	Spec interface{} `json:"spec"`
 	// `AWS::AppMesh::VirtualRouter.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::AppMesh::VirtualRouter.VirtualRouterName`.
@@ -5521,6 +5809,9 @@ type CfnVirtualRouterProps struct {
 }
 
 // A CloudFormation `AWS::AppMesh::VirtualService`.
+//
+// TODO: EXAMPLE
+//
 type CfnVirtualService interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6243,16 +6534,22 @@ func (c *jsiiProxy_CfnVirtualService) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualService_VirtualNodeServiceProviderProperty struct {
 	// `CfnVirtualService.VirtualNodeServiceProviderProperty.VirtualNodeName`.
 	VirtualNodeName *string `json:"virtualNodeName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualService_VirtualRouterServiceProviderProperty struct {
 	// `CfnVirtualService.VirtualRouterServiceProviderProperty.VirtualRouterName`.
 	VirtualRouterName *string `json:"virtualRouterName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualService_VirtualServiceProviderProperty struct {
 	// `CfnVirtualService.VirtualServiceProviderProperty.VirtualNode`.
 	VirtualNode interface{} `json:"virtualNode"`
@@ -6260,23 +6557,28 @@ type CfnVirtualService_VirtualServiceProviderProperty struct {
 	VirtualRouter interface{} `json:"virtualRouter"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnVirtualService_VirtualServiceSpecProperty struct {
 	// `CfnVirtualService.VirtualServiceSpecProperty.Provider`.
 	Provider interface{} `json:"provider"`
 }
 
 // Properties for defining a `AWS::AppMesh::VirtualService`.
+//
+// TODO: EXAMPLE
+//
 type CfnVirtualServiceProps struct {
 	// `AWS::AppMesh::VirtualService.MeshName`.
 	MeshName *string `json:"meshName"`
-	// `AWS::AppMesh::VirtualService.Spec`.
-	Spec interface{} `json:"spec"`
-	// `AWS::AppMesh::VirtualService.VirtualServiceName`.
-	VirtualServiceName *string `json:"virtualServiceName"`
 	// `AWS::AppMesh::VirtualService.MeshOwner`.
 	MeshOwner *string `json:"meshOwner"`
+	// `AWS::AppMesh::VirtualService.Spec`.
+	Spec interface{} `json:"spec"`
 	// `AWS::AppMesh::VirtualService.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::AppMesh::VirtualService.VirtualServiceName`.
+	VirtualServiceName *string `json:"virtualServiceName"`
 }
 
 // Enum of DNS service discovery response type.
@@ -6287,11 +6589,14 @@ type CfnVirtualServiceProps struct {
 type DnsResponseType string
 
 const (
-	DnsResponseType_LOAD_BALANCER DnsResponseType = "LOAD_BALANCER"
 	DnsResponseType_ENDPOINTS DnsResponseType = "ENDPOINTS"
+	DnsResponseType_LOAD_BALANCER DnsResponseType = "LOAD_BALANCER"
 )
 
 // GatewayRoute represents a new or existing gateway route attached to a VirtualGateway and Mesh.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/app-mesh/latest/userguide/gateway-routes.html
 //
 // Experimental.
@@ -6676,6 +6981,9 @@ func (g *jsiiProxy_GatewayRoute) Validate() *[]*string {
 }
 
 // Interface with properties necessary to import a reusable GatewayRoute.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type GatewayRouteAttributes struct {
 	// The name of the GatewayRoute.
@@ -6692,12 +7000,12 @@ type GatewayRouteAttributes struct {
 //
 // Experimental.
 type GatewayRouteBaseProps struct {
-	// What protocol the route uses.
-	// Experimental.
-	RouteSpec GatewayRouteSpec `json:"routeSpec"`
 	// The name of the GatewayRoute.
 	// Experimental.
 	GatewayRouteName *string `json:"gatewayRouteName"`
+	// What protocol the route uses.
+	// Experimental.
+	RouteSpec GatewayRouteSpec `json:"routeSpec"`
 }
 
 // Used to generate host name matching methods.
@@ -6775,6 +7083,9 @@ func (g *jsiiProxy_GatewayRouteHostnameMatch) Bind(scope awscdk.Construct) *Gate
 }
 
 // Configuration for gateway route host name match.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type GatewayRouteHostnameMatchConfig struct {
 	// GatewayRoute CFN configuration for host name match.
@@ -6783,14 +7094,17 @@ type GatewayRouteHostnameMatchConfig struct {
 }
 
 // Properties to define a new GatewayRoute.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type GatewayRouteProps struct {
-	// What protocol the route uses.
-	// Experimental.
-	RouteSpec GatewayRouteSpec `json:"routeSpec"`
 	// The name of the GatewayRoute.
 	// Experimental.
 	GatewayRouteName *string `json:"gatewayRouteName"`
+	// What protocol the route uses.
+	// Experimental.
+	RouteSpec GatewayRouteSpec `json:"routeSpec"`
 	// The VirtualGateway this GatewayRoute is associated with.
 	// Experimental.
 	VirtualGateway IVirtualGateway `json:"virtualGateway"`
@@ -6891,6 +7205,9 @@ func (g *jsiiProxy_GatewayRouteSpec) Bind(scope awscdk.Construct) *GatewayRouteS
 }
 
 // All Properties for GatewayRoute Specs.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type GatewayRouteSpecConfig struct {
 	// The spec for a grpc gateway route.
@@ -6974,6 +7291,9 @@ type GrpcGatewayRouteSpecOptions struct {
 }
 
 // Properties used to define GRPC Based healthchecks.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type GrpcHealthCheckOptions struct {
 	// The number of consecutive successful health checks that must occur before declaring listener healthy.
@@ -7011,18 +7331,18 @@ const (
 //
 // Experimental.
 type GrpcRetryPolicy struct {
-	// The maximum number of retry attempts.
-	// Experimental.
-	RetryAttempts *float64 `json:"retryAttempts"`
-	// The timeout for each retry attempt.
-	// Experimental.
-	RetryTimeout awscdk.Duration `json:"retryTimeout"`
 	// Specify HTTP events on which to retry.
 	//
 	// You must specify at least one value
 	// for at least one types of retry events.
 	// Experimental.
 	HttpRetryEvents *[]HttpRetryEvent `json:"httpRetryEvents"`
+	// The maximum number of retry attempts.
+	// Experimental.
+	RetryAttempts *float64 `json:"retryAttempts"`
+	// The timeout for each retry attempt.
+	// Experimental.
+	RetryTimeout awscdk.Duration `json:"retryTimeout"`
 	// TCP events on which to retry.
 	//
 	// The event occurs before any processing of a
@@ -7077,15 +7397,15 @@ type GrpcRouteSpecOptions struct {
 	// The criterion for determining a request match for this Route.
 	// Experimental.
 	Match *GrpcRouteMatch `json:"match"`
-	// List of targets that traffic is routed to when a request matches the route.
-	// Experimental.
-	WeightedTargets *[]*WeightedTarget `json:"weightedTargets"`
 	// The retry policy.
 	// Experimental.
 	RetryPolicy *GrpcRetryPolicy `json:"retryPolicy"`
 	// An object that represents a grpc timeout.
 	// Experimental.
 	Timeout *GrpcTimeout `json:"timeout"`
+	// List of targets that traffic is routed to when a request matches the route.
+	// Experimental.
+	WeightedTargets *[]*WeightedTarget `json:"weightedTargets"`
 }
 
 // Represents timeouts for GRPC protocols.
@@ -7341,6 +7661,9 @@ func (h *jsiiProxy_HeaderMatch) Bind(scope awscdk.Construct) *HeaderMatchConfig 
 }
 
 // Configuration for `HeaderMatch`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HeaderMatchConfig struct {
 	// Route CFN configuration for the route header match.
@@ -7460,6 +7783,9 @@ func (h *jsiiProxy_HealthCheck) Bind(scope awscdk.Construct, options *HealthChec
 }
 
 // Options used for creating the Health Check object.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HealthCheckBindOptions struct {
 	// Port for Health Check interface.
@@ -7468,6 +7794,9 @@ type HealthCheckBindOptions struct {
 }
 
 // All Properties for Health Checks for mesh endpoints.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HealthCheckConfig struct {
 	// VirtualGateway CFN configuration for Health Checks.
@@ -7479,6 +7808,9 @@ type HealthCheckConfig struct {
 }
 
 // Connection pool properties for HTTP2 listeners.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Http2ConnectionPool struct {
 	// The maximum requests in the pool.
@@ -7507,6 +7839,9 @@ type Http2GatewayListenerOptions struct {
 }
 
 // Represent the HTTP2 Node Listener prorperty.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Http2VirtualNodeListenerOptions struct {
 	// Connection pool for http2 listeners.
@@ -7690,6 +8025,9 @@ func (h *jsiiProxy_HttpGatewayRoutePathMatch) Bind(scope awscdk.Construct) *Http
 }
 
 // The type returned from the `bind()` method in {@link HttpGatewayRoutePathMatch}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HttpGatewayRoutePathMatchConfig struct {
 	// Gateway route configuration for matching on the prefix of the URL path of the request.
@@ -7712,14 +8050,14 @@ type HttpGatewayRoutePathMatchConfig struct {
 //
 // Experimental.
 type HttpGatewayRouteSpecOptions struct {
-	// The VirtualService this GatewayRoute directs traffic to.
-	// Experimental.
-	RouteTarget IVirtualService `json:"routeTarget"`
 	// The criterion for determining a request match for this GatewayRoute.
 	//
 	// When path match is defined, this may optionally determine the path rewrite configuration.
 	// Experimental.
 	Match *HttpGatewayRouteMatch `json:"match"`
+	// The VirtualService this GatewayRoute directs traffic to.
+	// Experimental.
+	RouteTarget IVirtualService `json:"routeTarget"`
 }
 
 // Properties used to define HTTP Based healthchecks.
@@ -7753,9 +8091,9 @@ type HttpHealthCheckOptions struct {
 type HttpRetryEvent string
 
 const (
-	HttpRetryEvent_SERVER_ERROR HttpRetryEvent = "SERVER_ERROR"
-	HttpRetryEvent_GATEWAY_ERROR HttpRetryEvent = "GATEWAY_ERROR"
 	HttpRetryEvent_CLIENT_ERROR HttpRetryEvent = "CLIENT_ERROR"
+	HttpRetryEvent_GATEWAY_ERROR HttpRetryEvent = "GATEWAY_ERROR"
+	HttpRetryEvent_SERVER_ERROR HttpRetryEvent = "SERVER_ERROR"
 	HttpRetryEvent_STREAM_ERROR HttpRetryEvent = "STREAM_ERROR"
 )
 
@@ -7765,18 +8103,18 @@ const (
 //
 // Experimental.
 type HttpRetryPolicy struct {
-	// The maximum number of retry attempts.
-	// Experimental.
-	RetryAttempts *float64 `json:"retryAttempts"`
-	// The timeout for each retry attempt.
-	// Experimental.
-	RetryTimeout awscdk.Duration `json:"retryTimeout"`
 	// Specify HTTP events on which to retry.
 	//
 	// You must specify at least one value
 	// for at least one types of retry events.
 	// Experimental.
 	HttpRetryEvents *[]HttpRetryEvent `json:"httpRetryEvents"`
+	// The maximum number of retry attempts.
+	// Experimental.
+	RetryAttempts *float64 `json:"retryAttempts"`
+	// The timeout for each retry attempt.
+	// Experimental.
+	RetryTimeout awscdk.Duration `json:"retryTimeout"`
 	// TCP events on which to retry.
 	//
 	// The event occurs before any processing of a
@@ -7825,15 +8163,15 @@ type HttpRouteMatch struct {
 type HttpRouteMethod string
 
 const (
+	HttpRouteMethod_CONNECT HttpRouteMethod = "CONNECT"
+	HttpRouteMethod_DELETE HttpRouteMethod = "DELETE"
 	HttpRouteMethod_GET HttpRouteMethod = "GET"
 	HttpRouteMethod_HEAD HttpRouteMethod = "HEAD"
+	HttpRouteMethod_OPTIONS HttpRouteMethod = "OPTIONS"
+	HttpRouteMethod_PATCH HttpRouteMethod = "PATCH"
 	HttpRouteMethod_POST HttpRouteMethod = "POST"
 	HttpRouteMethod_PUT HttpRouteMethod = "PUT"
-	HttpRouteMethod_DELETE HttpRouteMethod = "DELETE"
-	HttpRouteMethod_CONNECT HttpRouteMethod = "CONNECT"
-	HttpRouteMethod_OPTIONS HttpRouteMethod = "OPTIONS"
 	HttpRouteMethod_TRACE HttpRouteMethod = "TRACE"
-	HttpRouteMethod_PATCH HttpRouteMethod = "PATCH"
 )
 
 // Defines HTTP route matching based on the URL path of the request.
@@ -7930,6 +8268,9 @@ func (h *jsiiProxy_HttpRoutePathMatch) Bind(scope awscdk.Construct) *HttpRoutePa
 }
 
 // The type returned from the `bind()` method in {@link HttpRoutePathMatch}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HttpRoutePathMatchConfig struct {
 	// Route configuration for matching on the prefix of the URL path of the request.
@@ -7964,9 +8305,6 @@ type HttpRouteSpecOptions struct {
 	// value, where 0 is the highest priority.
 	// Experimental.
 	Priority *float64 `json:"priority"`
-	// List of targets that traffic is routed to when a request matches the route.
-	// Experimental.
-	WeightedTargets *[]*WeightedTarget `json:"weightedTargets"`
 	// The criterion for determining a request match for this Route.
 	// Experimental.
 	Match *HttpRouteMatch `json:"match"`
@@ -7976,6 +8314,9 @@ type HttpRouteSpecOptions struct {
 	// An object that represents a http timeout.
 	// Experimental.
 	Timeout *HttpTimeout `json:"timeout"`
+	// List of targets that traffic is routed to when a request matches the route.
+	// Experimental.
+	WeightedTargets *[]*WeightedTarget `json:"weightedTargets"`
 }
 
 // Represents timeouts for HTTP protocols.
@@ -9061,14 +9402,14 @@ func (m *jsiiProxy_MutualTlsCertificate) Bind(_scope awscdk.Construct) *TlsCerti
 //
 // Experimental.
 type MutualTlsValidation struct {
-	// Reference to where to retrieve the trust chain.
-	// Experimental.
-	Trust MutualTlsValidationTrust `json:"trust"`
 	// Represents the subject alternative names (SANs) secured by the certificate.
 	//
 	// SANs must be in the FQDN or URI format.
 	// Experimental.
 	SubjectAlternativeNames SubjectAlternativeNames `json:"subjectAlternativeNames"`
+	// Reference to where to retrieve the trust chain.
+	// Experimental.
+	Trust MutualTlsValidationTrust `json:"trust"`
 }
 
 // Represents a TLS Validation Context Trust that is supported for mutual TLS authentication.
@@ -9267,6 +9608,9 @@ func (q *jsiiProxy_QueryParameterMatch) Bind(scope awscdk.Construct) *QueryParam
 }
 
 // Configuration for `QueryParameterMatch`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type QueryParameterMatchConfig struct {
 	// Route CFN configuration for route query parameter match.
@@ -9275,6 +9619,9 @@ type QueryParameterMatchConfig struct {
 }
 
 // Route represents a new or existing route attached to a VirtualRouter and Mesh.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/app-mesh/latest/userguide/routes.html
 //
 // Experimental.
@@ -9659,6 +10006,9 @@ func (r *jsiiProxy_Route) Validate() *[]*string {
 }
 
 // Interface with properties ncecessary to import a reusable Route.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type RouteAttributes struct {
 	// The name of the Route.
@@ -9675,23 +10025,26 @@ type RouteAttributes struct {
 //
 // Experimental.
 type RouteBaseProps struct {
-	// Protocol specific spec.
-	// Experimental.
-	RouteSpec RouteSpec `json:"routeSpec"`
 	// The name of the route.
 	// Experimental.
 	RouteName *string `json:"routeName"`
+	// Protocol specific spec.
+	// Experimental.
+	RouteSpec RouteSpec `json:"routeSpec"`
 }
 
 // Properties to define new Routes.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type RouteProps struct {
-	// Protocol specific spec.
-	// Experimental.
-	RouteSpec RouteSpec `json:"routeSpec"`
 	// The name of the route.
 	// Experimental.
 	RouteName *string `json:"routeName"`
+	// Protocol specific spec.
+	// Experimental.
+	RouteSpec RouteSpec `json:"routeSpec"`
 	// The service mesh to define the route in.
 	// Experimental.
 	Mesh IMesh `json:"mesh"`
@@ -9812,6 +10165,9 @@ func (r *jsiiProxy_RouteSpec) Bind(scope awscdk.Construct) *RouteSpecConfig {
 }
 
 // All Properties for Route Specs.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type RouteSpecConfig struct {
 	// The spec for a grpc route.
@@ -9835,6 +10191,9 @@ type RouteSpecConfig struct {
 }
 
 // Base options for all route specs.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type RouteSpecOptionsBase struct {
 	// The priority for the route.
@@ -9920,6 +10279,9 @@ func (s *jsiiProxy_ServiceDiscovery) Bind(scope awscdk.Construct) *ServiceDiscov
 }
 
 // Properties for VirtualNode Service Discovery.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ServiceDiscoveryConfig struct {
 	// Cloud Map based Service Discovery.
@@ -9993,6 +10355,9 @@ func (s *jsiiProxy_SubjectAlternativeNames) Bind(scope awscdk.Construct) *Subjec
 }
 
 // All Properties for Subject Alternative Names Matcher for both Client Policy and Listener.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SubjectAlternativeNamesMatcherConfig struct {
 	// VirtualNode CFN configuration for subject alternative names secured by the certificate.
@@ -10001,6 +10366,9 @@ type SubjectAlternativeNamesMatcherConfig struct {
 }
 
 // Connection pool properties for TCP listeners.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type TcpConnectionPool struct {
 	// The maximum connections in the pool.
@@ -10009,6 +10377,9 @@ type TcpConnectionPool struct {
 }
 
 // Properties used to define TCP Based healthchecks.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type TcpHealthCheckOptions struct {
 	// The number of consecutive successful health checks that must occur before declaring listener healthy.
@@ -10034,6 +10405,9 @@ const (
 )
 
 // Properties specific for a TCP Based Routes.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type TcpRouteSpecOptions struct {
 	// The priority for the route.
@@ -10042,15 +10416,18 @@ type TcpRouteSpecOptions struct {
 	// value, where 0 is the highest priority.
 	// Experimental.
 	Priority *float64 `json:"priority"`
-	// List of targets that traffic is routed to when a request matches the route.
-	// Experimental.
-	WeightedTargets *[]*WeightedTarget `json:"weightedTargets"`
 	// An object that represents a tcp timeout.
 	// Experimental.
 	Timeout *TcpTimeout `json:"timeout"`
+	// List of targets that traffic is routed to when a request matches the route.
+	// Experimental.
+	WeightedTargets *[]*WeightedTarget `json:"weightedTargets"`
 }
 
 // Represents timeouts for TCP protocols.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type TcpTimeout struct {
 	// Represents an idle timeout.
@@ -10061,6 +10438,9 @@ type TcpTimeout struct {
 }
 
 // Represent the TCP Node Listener prorperty.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type TcpVirtualNodeListenerOptions struct {
 	// Connection pool for http listeners.
@@ -10175,6 +10555,9 @@ func (t *jsiiProxy_TlsCertificate) Bind(_scope awscdk.Construct) *TlsCertificate
 }
 
 // A wrapper for the tls config returned by {@link TlsCertificate.bind}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type TlsCertificateConfig struct {
 	// The CFN shape for a TLS certificate.
@@ -10188,9 +10571,6 @@ type TlsCertificateConfig struct {
 //
 // Experimental.
 type TlsClientPolicy struct {
-	// Represents the object for TLS validation context.
-	// Experimental.
-	Validation *TlsValidation `json:"validation"`
 	// Whether the policy is enforced.
 	// Experimental.
 	Enforce *bool `json:"enforce"`
@@ -10204,6 +10584,9 @@ type TlsClientPolicy struct {
 	// If no ports are specified, TLS will be enforced on all the ports.
 	// Experimental.
 	Ports *[]*float64 `json:"ports"`
+	// Represents the object for TLS validation context.
+	// Experimental.
+	Validation *TlsValidation `json:"validation"`
 }
 
 // Enum of supported TLS modes.
@@ -10214,9 +10597,9 @@ type TlsClientPolicy struct {
 type TlsMode string
 
 const (
-	TlsMode_STRICT TlsMode = "STRICT"
-	TlsMode_PERMISSIVE TlsMode = "PERMISSIVE"
 	TlsMode_DISABLED TlsMode = "DISABLED"
+	TlsMode_PERMISSIVE TlsMode = "PERMISSIVE"
+	TlsMode_STRICT TlsMode = "STRICT"
 )
 
 // Represents the properties needed to define TLS Validation context.
@@ -10225,14 +10608,14 @@ const (
 //
 // Experimental.
 type TlsValidation struct {
-	// Reference to where to retrieve the trust chain.
-	// Experimental.
-	Trust TlsValidationTrust `json:"trust"`
 	// Represents the subject alternative names (SANs) secured by the certificate.
 	//
 	// SANs must be in the FQDN or URI format.
 	// Experimental.
 	SubjectAlternativeNames SubjectAlternativeNames `json:"subjectAlternativeNames"`
+	// Reference to where to retrieve the trust chain.
+	// Experimental.
+	Trust TlsValidationTrust `json:"trust"`
 }
 
 // Defines the TLS Validation Context Trust.
@@ -10327,6 +10710,9 @@ func (t *jsiiProxy_TlsValidationTrust) Bind(scope awscdk.Construct) *TlsValidati
 }
 
 // All Properties for TLS Validation Trusts for both Client Policy and Listener.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type TlsValidationTrustConfig struct {
 	// VirtualNode CFN configuration for client policy's TLS Validation Trust.
@@ -10768,6 +11154,9 @@ func (v *jsiiProxy_VirtualGateway) Validate() *[]*string {
 }
 
 // Unterface with properties necessary to import a reusable VirtualGateway.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type VirtualGatewayAttributes struct {
 	// The Mesh that the VirtualGateway belongs to.
@@ -10895,6 +11284,9 @@ func (v *jsiiProxy_VirtualGatewayListener) Bind(scope awscdk.Construct) *Virtual
 }
 
 // Properties for a VirtualGateway listener.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type VirtualGatewayListenerConfig struct {
 	// Single listener config for a VirtualGateway.
@@ -11512,6 +11904,9 @@ func (v *jsiiProxy_VirtualNodeListener) Bind(scope awscdk.Construct) *VirtualNod
 }
 
 // Properties for a VirtualNode listener.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type VirtualNodeListenerConfig struct {
 	// Single listener config for a VirtualNode.
@@ -11948,6 +12343,9 @@ func (v *jsiiProxy_VirtualRouter) Validate() *[]*string {
 }
 
 // Interface with properties ncecessary to import a reusable VirtualRouter.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type VirtualRouterAttributes struct {
 	// The Mesh which the VirtualRouter belongs to.
@@ -12084,6 +12482,9 @@ func (v *jsiiProxy_VirtualRouterListener) Bind(scope awscdk.Construct) *VirtualR
 }
 
 // Properties for a VirtualRouter listener.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type VirtualRouterListenerConfig struct {
 	// Single listener config for a VirtualRouter.
@@ -12498,6 +12899,9 @@ func (v *jsiiProxy_VirtualService) Validate() *[]*string {
 }
 
 // Interface with properties ncecessary to import a reusable VirtualService.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type VirtualServiceAttributes struct {
 	// The Mesh which the VirtualService belongs to.
@@ -12509,6 +12913,9 @@ type VirtualServiceAttributes struct {
 }
 
 // Represents the properties needed to define a Virtual Service backend.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type VirtualServiceBackendOptions struct {
 	// TLS properties for  Client policy for the backend.
@@ -12630,6 +13037,9 @@ func (v *jsiiProxy_VirtualServiceProvider) Bind(_construct constructs.Construct)
 }
 
 // Properties for a VirtualService provider.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type VirtualServiceProviderConfig struct {
 	// Mesh the Provider is using.
@@ -12644,6 +13054,9 @@ type VirtualServiceProviderConfig struct {
 }
 
 // Properties for the Weighted Targets in the route.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type WeightedTarget struct {
 	// The VirtualNode the route points to.

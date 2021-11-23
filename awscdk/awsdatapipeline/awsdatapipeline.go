@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::DataPipeline::Pipeline`.
+//
+// TODO: EXAMPLE
+//
 type CfnPipeline interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -715,6 +718,8 @@ func (c *jsiiProxy_CfnPipeline) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnPipeline_FieldProperty struct {
 	// `CfnPipeline.FieldProperty.Key`.
 	Key *string `json:"key"`
@@ -724,6 +729,8 @@ type CfnPipeline_FieldProperty struct {
 	StringValue *string `json:"stringValue"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPipeline_ParameterAttributeProperty struct {
 	// `CfnPipeline.ParameterAttributeProperty.Key`.
 	Key *string `json:"key"`
@@ -731,6 +738,8 @@ type CfnPipeline_ParameterAttributeProperty struct {
 	StringValue *string `json:"stringValue"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPipeline_ParameterObjectProperty struct {
 	// `CfnPipeline.ParameterObjectProperty.Attributes`.
 	Attributes interface{} `json:"attributes"`
@@ -738,6 +747,8 @@ type CfnPipeline_ParameterObjectProperty struct {
 	Id *string `json:"id"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPipeline_ParameterValueProperty struct {
 	// `CfnPipeline.ParameterValueProperty.Id`.
 	Id *string `json:"id"`
@@ -745,6 +756,8 @@ type CfnPipeline_ParameterValueProperty struct {
 	StringValue *string `json:"stringValue"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPipeline_PipelineObjectProperty struct {
 	// `CfnPipeline.PipelineObjectProperty.Fields`.
 	Fields interface{} `json:"fields"`
@@ -754,6 +767,8 @@ type CfnPipeline_PipelineObjectProperty struct {
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnPipeline_PipelineTagProperty struct {
 	// `CfnPipeline.PipelineTagProperty.Key`.
 	Key *string `json:"key"`
@@ -762,15 +777,18 @@ type CfnPipeline_PipelineTagProperty struct {
 }
 
 // Properties for defining a `AWS::DataPipeline::Pipeline`.
+//
+// TODO: EXAMPLE
+//
 type CfnPipelineProps struct {
-	// `AWS::DataPipeline::Pipeline.Name`.
-	Name *string `json:"name"`
-	// `AWS::DataPipeline::Pipeline.ParameterObjects`.
-	ParameterObjects interface{} `json:"parameterObjects"`
 	// `AWS::DataPipeline::Pipeline.Activate`.
 	Activate interface{} `json:"activate"`
 	// `AWS::DataPipeline::Pipeline.Description`.
 	Description *string `json:"description"`
+	// `AWS::DataPipeline::Pipeline.Name`.
+	Name *string `json:"name"`
+	// `AWS::DataPipeline::Pipeline.ParameterObjects`.
+	ParameterObjects interface{} `json:"parameterObjects"`
 	// `AWS::DataPipeline::Pipeline.ParameterValues`.
 	ParameterValues interface{} `json:"parameterValues"`
 	// `AWS::DataPipeline::Pipeline.PipelineObjects`.

@@ -270,15 +270,15 @@ func init() {
 		"monocdk.aws_sns.SubscriptionProtocol",
 		reflect.TypeOf((*SubscriptionProtocol)(nil)).Elem(),
 		map[string]interface{}{
-			"HTTP": SubscriptionProtocol_HTTP,
-			"HTTPS": SubscriptionProtocol_HTTPS,
+			"APPLICATION": SubscriptionProtocol_APPLICATION,
 			"EMAIL": SubscriptionProtocol_EMAIL,
 			"EMAIL_JSON": SubscriptionProtocol_EMAIL_JSON,
+			"FIREHOSE": SubscriptionProtocol_FIREHOSE,
+			"HTTP": SubscriptionProtocol_HTTP,
+			"HTTPS": SubscriptionProtocol_HTTPS,
+			"LAMBDA": SubscriptionProtocol_LAMBDA,
 			"SMS": SubscriptionProtocol_SMS,
 			"SQS": SubscriptionProtocol_SQS,
-			"APPLICATION": SubscriptionProtocol_APPLICATION,
-			"LAMBDA": SubscriptionProtocol_LAMBDA,
-			"FIREHOSE": SubscriptionProtocol_FIREHOSE,
 		},
 	)
 	_jsii_.RegisterClass(

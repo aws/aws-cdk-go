@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::Budgets::Budget`.
+//
+// TODO: EXAMPLE
+//
 type CfnBudget interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -615,15 +618,15 @@ func (c *jsiiProxy_CfnBudget) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnBudget_BudgetDataProperty struct {
-	// `CfnBudget.BudgetDataProperty.BudgetType`.
-	BudgetType *string `json:"budgetType"`
-	// `CfnBudget.BudgetDataProperty.TimeUnit`.
-	TimeUnit *string `json:"timeUnit"`
 	// `CfnBudget.BudgetDataProperty.BudgetLimit`.
 	BudgetLimit interface{} `json:"budgetLimit"`
 	// `CfnBudget.BudgetDataProperty.BudgetName`.
 	BudgetName *string `json:"budgetName"`
+	// `CfnBudget.BudgetDataProperty.BudgetType`.
+	BudgetType *string `json:"budgetType"`
 	// `CfnBudget.BudgetDataProperty.CostFilters`.
 	CostFilters interface{} `json:"costFilters"`
 	// `CfnBudget.BudgetDataProperty.CostTypes`.
@@ -632,8 +635,12 @@ type CfnBudget_BudgetDataProperty struct {
 	PlannedBudgetLimits interface{} `json:"plannedBudgetLimits"`
 	// `CfnBudget.BudgetDataProperty.TimePeriod`.
 	TimePeriod interface{} `json:"timePeriod"`
+	// `CfnBudget.BudgetDataProperty.TimeUnit`.
+	TimeUnit *string `json:"timeUnit"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBudget_CostTypesProperty struct {
 	// `CfnBudget.CostTypesProperty.IncludeCredit`.
 	IncludeCredit interface{} `json:"includeCredit"`
@@ -659,6 +666,8 @@ type CfnBudget_CostTypesProperty struct {
 	UseBlended interface{} `json:"useBlended"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBudget_NotificationProperty struct {
 	// `CfnBudget.NotificationProperty.ComparisonOperator`.
 	ComparisonOperator *string `json:"comparisonOperator"`
@@ -670,6 +679,8 @@ type CfnBudget_NotificationProperty struct {
 	ThresholdType *string `json:"thresholdType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBudget_NotificationWithSubscribersProperty struct {
 	// `CfnBudget.NotificationWithSubscribersProperty.Notification`.
 	Notification interface{} `json:"notification"`
@@ -677,6 +688,8 @@ type CfnBudget_NotificationWithSubscribersProperty struct {
 	Subscribers interface{} `json:"subscribers"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBudget_SpendProperty struct {
 	// `CfnBudget.SpendProperty.Amount`.
 	Amount *float64 `json:"amount"`
@@ -684,6 +697,8 @@ type CfnBudget_SpendProperty struct {
 	Unit *string `json:"unit"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBudget_SubscriberProperty struct {
 	// `CfnBudget.SubscriberProperty.Address`.
 	Address *string `json:"address"`
@@ -691,6 +706,8 @@ type CfnBudget_SubscriberProperty struct {
 	SubscriptionType *string `json:"subscriptionType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBudget_TimePeriodProperty struct {
 	// `CfnBudget.TimePeriodProperty.End`.
 	End *string `json:"end"`
@@ -699,6 +716,9 @@ type CfnBudget_TimePeriodProperty struct {
 }
 
 // Properties for defining a `AWS::Budgets::Budget`.
+//
+// TODO: EXAMPLE
+//
 type CfnBudgetProps struct {
 	// `AWS::Budgets::Budget.Budget`.
 	Budget interface{} `json:"budget"`
@@ -707,6 +727,9 @@ type CfnBudgetProps struct {
 }
 
 // A CloudFormation `AWS::Budgets::BudgetsAction`.
+//
+// TODO: EXAMPLE
+//
 type CfnBudgetsAction interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1443,6 +1466,8 @@ func (c *jsiiProxy_CfnBudgetsAction) ValidateProperties(_properties interface{})
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnBudgetsAction_ActionThresholdProperty struct {
 	// `CfnBudgetsAction.ActionThresholdProperty.Type`.
 	Type *string `json:"type"`
@@ -1450,6 +1475,8 @@ type CfnBudgetsAction_ActionThresholdProperty struct {
 	Value *float64 `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBudgetsAction_DefinitionProperty struct {
 	// `CfnBudgetsAction.DefinitionProperty.IamActionDefinition`.
 	IamActionDefinition interface{} `json:"iamActionDefinition"`
@@ -1459,17 +1486,21 @@ type CfnBudgetsAction_DefinitionProperty struct {
 	SsmActionDefinition interface{} `json:"ssmActionDefinition"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBudgetsAction_IamActionDefinitionProperty struct {
-	// `CfnBudgetsAction.IamActionDefinitionProperty.PolicyArn`.
-	PolicyArn *string `json:"policyArn"`
 	// `CfnBudgetsAction.IamActionDefinitionProperty.Groups`.
 	Groups *[]*string `json:"groups"`
+	// `CfnBudgetsAction.IamActionDefinitionProperty.PolicyArn`.
+	PolicyArn *string `json:"policyArn"`
 	// `CfnBudgetsAction.IamActionDefinitionProperty.Roles`.
 	Roles *[]*string `json:"roles"`
 	// `CfnBudgetsAction.IamActionDefinitionProperty.Users`.
 	Users *[]*string `json:"users"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBudgetsAction_ScpActionDefinitionProperty struct {
 	// `CfnBudgetsAction.ScpActionDefinitionProperty.PolicyId`.
 	PolicyId *string `json:"policyId"`
@@ -1477,6 +1508,8 @@ type CfnBudgetsAction_ScpActionDefinitionProperty struct {
 	TargetIds *[]*string `json:"targetIds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBudgetsAction_SsmActionDefinitionProperty struct {
 	// `CfnBudgetsAction.SsmActionDefinitionProperty.InstanceIds`.
 	InstanceIds *[]*string `json:"instanceIds"`
@@ -1486,6 +1519,8 @@ type CfnBudgetsAction_SsmActionDefinitionProperty struct {
 	Subtype *string `json:"subtype"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnBudgetsAction_SubscriberProperty struct {
 	// `CfnBudgetsAction.SubscriberProperty.Address`.
 	Address *string `json:"address"`
@@ -1494,11 +1529,16 @@ type CfnBudgetsAction_SubscriberProperty struct {
 }
 
 // Properties for defining a `AWS::Budgets::BudgetsAction`.
+//
+// TODO: EXAMPLE
+//
 type CfnBudgetsActionProps struct {
 	// `AWS::Budgets::BudgetsAction.ActionThreshold`.
 	ActionThreshold interface{} `json:"actionThreshold"`
 	// `AWS::Budgets::BudgetsAction.ActionType`.
 	ActionType *string `json:"actionType"`
+	// `AWS::Budgets::BudgetsAction.ApprovalModel`.
+	ApprovalModel *string `json:"approvalModel"`
 	// `AWS::Budgets::BudgetsAction.BudgetName`.
 	BudgetName *string `json:"budgetName"`
 	// `AWS::Budgets::BudgetsAction.Definition`.
@@ -1509,7 +1549,5 @@ type CfnBudgetsActionProps struct {
 	NotificationType *string `json:"notificationType"`
 	// `AWS::Budgets::BudgetsAction.Subscribers`.
 	Subscribers interface{} `json:"subscribers"`
-	// `AWS::Budgets::BudgetsAction.ApprovalModel`.
-	ApprovalModel *string `json:"approvalModel"`
 }
 

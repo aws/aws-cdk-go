@@ -15,6 +15,9 @@ import (
 )
 
 // Configuration details related to broker logs.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BrokerLogging struct {
 	// The CloudWatch Logs group that is the destination for broker logs.
@@ -29,6 +32,9 @@ type BrokerLogging struct {
 }
 
 // A CloudFormation `AWS::MSK::Cluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -805,6 +811,8 @@ func (c *jsiiProxy_CfnCluster) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_BrokerLogsProperty struct {
 	// `CfnCluster.BrokerLogsProperty.CloudWatchLogs`.
 	CloudWatchLogs interface{} `json:"cloudWatchLogs"`
@@ -814,21 +822,25 @@ type CfnCluster_BrokerLogsProperty struct {
 	S3 interface{} `json:"s3"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_BrokerNodeGroupInfoProperty struct {
-	// `CfnCluster.BrokerNodeGroupInfoProperty.ClientSubnets`.
-	ClientSubnets *[]*string `json:"clientSubnets"`
-	// `CfnCluster.BrokerNodeGroupInfoProperty.InstanceType`.
-	InstanceType *string `json:"instanceType"`
 	// `CfnCluster.BrokerNodeGroupInfoProperty.BrokerAZDistribution`.
 	BrokerAzDistribution *string `json:"brokerAzDistribution"`
+	// `CfnCluster.BrokerNodeGroupInfoProperty.ClientSubnets`.
+	ClientSubnets *[]*string `json:"clientSubnets"`
 	// `CfnCluster.BrokerNodeGroupInfoProperty.ConnectivityInfo`.
 	ConnectivityInfo interface{} `json:"connectivityInfo"`
+	// `CfnCluster.BrokerNodeGroupInfoProperty.InstanceType`.
+	InstanceType *string `json:"instanceType"`
 	// `CfnCluster.BrokerNodeGroupInfoProperty.SecurityGroups`.
 	SecurityGroups *[]*string `json:"securityGroups"`
 	// `CfnCluster.BrokerNodeGroupInfoProperty.StorageInfo`.
 	StorageInfo interface{} `json:"storageInfo"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_ClientAuthenticationProperty struct {
 	// `CfnCluster.ClientAuthenticationProperty.Sasl`.
 	Sasl interface{} `json:"sasl"`
@@ -838,6 +850,8 @@ type CfnCluster_ClientAuthenticationProperty struct {
 	Unauthenticated interface{} `json:"unauthenticated"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_CloudWatchLogsProperty struct {
 	// `CfnCluster.CloudWatchLogsProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
@@ -845,6 +859,8 @@ type CfnCluster_CloudWatchLogsProperty struct {
 	LogGroup *string `json:"logGroup"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_ConfigurationInfoProperty struct {
 	// `CfnCluster.ConfigurationInfoProperty.Arn`.
 	Arn *string `json:"arn"`
@@ -852,21 +868,29 @@ type CfnCluster_ConfigurationInfoProperty struct {
 	Revision *float64 `json:"revision"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_ConnectivityInfoProperty struct {
 	// `CfnCluster.ConnectivityInfoProperty.PublicAccess`.
 	PublicAccess interface{} `json:"publicAccess"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_EBSStorageInfoProperty struct {
 	// `CfnCluster.EBSStorageInfoProperty.VolumeSize`.
 	VolumeSize *float64 `json:"volumeSize"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_EncryptionAtRestProperty struct {
 	// `CfnCluster.EncryptionAtRestProperty.DataVolumeKMSKeyId`.
 	DataVolumeKmsKeyId *string `json:"dataVolumeKmsKeyId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_EncryptionInTransitProperty struct {
 	// `CfnCluster.EncryptionInTransitProperty.ClientBroker`.
 	ClientBroker *string `json:"clientBroker"`
@@ -874,6 +898,8 @@ type CfnCluster_EncryptionInTransitProperty struct {
 	InCluster interface{} `json:"inCluster"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_EncryptionInfoProperty struct {
 	// `CfnCluster.EncryptionInfoProperty.EncryptionAtRest`.
 	EncryptionAtRest interface{} `json:"encryptionAtRest"`
@@ -881,38 +907,52 @@ type CfnCluster_EncryptionInfoProperty struct {
 	EncryptionInTransit interface{} `json:"encryptionInTransit"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_FirehoseProperty struct {
-	// `CfnCluster.FirehoseProperty.Enabled`.
-	Enabled interface{} `json:"enabled"`
 	// `CfnCluster.FirehoseProperty.DeliveryStream`.
 	DeliveryStream *string `json:"deliveryStream"`
+	// `CfnCluster.FirehoseProperty.Enabled`.
+	Enabled interface{} `json:"enabled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_IamProperty struct {
 	// `CfnCluster.IamProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_JmxExporterProperty struct {
 	// `CfnCluster.JmxExporterProperty.EnabledInBroker`.
 	EnabledInBroker interface{} `json:"enabledInBroker"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_LoggingInfoProperty struct {
 	// `CfnCluster.LoggingInfoProperty.BrokerLogs`.
 	BrokerLogs interface{} `json:"brokerLogs"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_NodeExporterProperty struct {
 	// `CfnCluster.NodeExporterProperty.EnabledInBroker`.
 	EnabledInBroker interface{} `json:"enabledInBroker"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_OpenMonitoringProperty struct {
 	// `CfnCluster.OpenMonitoringProperty.Prometheus`.
 	Prometheus interface{} `json:"prometheus"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_PrometheusProperty struct {
 	// `CfnCluster.PrometheusProperty.JmxExporter`.
 	JmxExporter interface{} `json:"jmxExporter"`
@@ -920,20 +960,26 @@ type CfnCluster_PrometheusProperty struct {
 	NodeExporter interface{} `json:"nodeExporter"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_PublicAccessProperty struct {
 	// `CfnCluster.PublicAccessProperty.Type`.
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_S3Property struct {
-	// `CfnCluster.S3Property.Enabled`.
-	Enabled interface{} `json:"enabled"`
 	// `CfnCluster.S3Property.Bucket`.
 	Bucket *string `json:"bucket"`
+	// `CfnCluster.S3Property.Enabled`.
+	Enabled interface{} `json:"enabled"`
 	// `CfnCluster.S3Property.Prefix`.
 	Prefix *string `json:"prefix"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_SaslProperty struct {
 	// `CfnCluster.SaslProperty.Iam`.
 	Iam interface{} `json:"iam"`
@@ -941,16 +987,22 @@ type CfnCluster_SaslProperty struct {
 	Scram interface{} `json:"scram"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_ScramProperty struct {
 	// `CfnCluster.ScramProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_StorageInfoProperty struct {
 	// `CfnCluster.StorageInfoProperty.EBSStorageInfo`.
 	EbsStorageInfo interface{} `json:"ebsStorageInfo"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_TlsProperty struct {
 	// `CfnCluster.TlsProperty.CertificateAuthorityArnList`.
 	CertificateAuthorityArnList *[]*string `json:"certificateAuthorityArnList"`
@@ -958,31 +1010,36 @@ type CfnCluster_TlsProperty struct {
 	Enabled interface{} `json:"enabled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_UnauthenticatedProperty struct {
 	// `CfnCluster.UnauthenticatedProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
 }
 
 // Properties for defining a `AWS::MSK::Cluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnClusterProps struct {
 	// `AWS::MSK::Cluster.BrokerNodeGroupInfo`.
 	BrokerNodeGroupInfo interface{} `json:"brokerNodeGroupInfo"`
-	// `AWS::MSK::Cluster.ClusterName`.
-	ClusterName *string `json:"clusterName"`
-	// `AWS::MSK::Cluster.KafkaVersion`.
-	KafkaVersion *string `json:"kafkaVersion"`
-	// `AWS::MSK::Cluster.NumberOfBrokerNodes`.
-	NumberOfBrokerNodes *float64 `json:"numberOfBrokerNodes"`
 	// `AWS::MSK::Cluster.ClientAuthentication`.
 	ClientAuthentication interface{} `json:"clientAuthentication"`
+	// `AWS::MSK::Cluster.ClusterName`.
+	ClusterName *string `json:"clusterName"`
 	// `AWS::MSK::Cluster.ConfigurationInfo`.
 	ConfigurationInfo interface{} `json:"configurationInfo"`
 	// `AWS::MSK::Cluster.EncryptionInfo`.
 	EncryptionInfo interface{} `json:"encryptionInfo"`
 	// `AWS::MSK::Cluster.EnhancedMonitoring`.
 	EnhancedMonitoring *string `json:"enhancedMonitoring"`
+	// `AWS::MSK::Cluster.KafkaVersion`.
+	KafkaVersion *string `json:"kafkaVersion"`
 	// `AWS::MSK::Cluster.LoggingInfo`.
 	LoggingInfo interface{} `json:"loggingInfo"`
+	// `AWS::MSK::Cluster.NumberOfBrokerNodes`.
+	NumberOfBrokerNodes *float64 `json:"numberOfBrokerNodes"`
 	// `AWS::MSK::Cluster.OpenMonitoring`.
 	OpenMonitoring interface{} `json:"openMonitoring"`
 	// `AWS::MSK::Cluster.Tags`.
@@ -990,6 +1047,9 @@ type CfnClusterProps struct {
 }
 
 // Configuration properties for client authentication.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ClientAuthentication interface {
 	SaslProps() *SaslAuthProps
@@ -1057,16 +1117,22 @@ func ClientAuthentication_Tls(props *TlsAuthProps) ClientAuthentication {
 }
 
 // Indicates the encryption setting for data in transit between clients and brokers.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ClientBrokerEncryption string
 
 const (
+	ClientBrokerEncryption_PLAINTEXT ClientBrokerEncryption = "PLAINTEXT"
 	ClientBrokerEncryption_TLS ClientBrokerEncryption = "TLS"
 	ClientBrokerEncryption_TLS_PLAINTEXT ClientBrokerEncryption = "TLS_PLAINTEXT"
-	ClientBrokerEncryption_PLAINTEXT ClientBrokerEncryption = "PLAINTEXT"
 )
 
 // Create a MSK Cluster.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Cluster interface {
 	awscdk.Resource
@@ -1521,6 +1587,9 @@ func (c *jsiiProxy_Cluster) Validate() *[]*string {
 // The Amazon MSK configuration to use for the cluster.
 //
 // Note: There is currently no Cloudformation Resource to create a Configuration
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ClusterConfigurationInfo struct {
 	// The Amazon Resource Name (ARN) of the MSK configuration to use.
@@ -1547,6 +1616,9 @@ const (
 )
 
 // Properties for a MSK Cluster.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ClusterProps struct {
 	// The physical name of the cluster.
@@ -1604,6 +1676,9 @@ type ClusterProps struct {
 }
 
 // EBS volume information.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EbsStorageInfo struct {
 	// The AWS KMS key for encrypting data at rest.
@@ -1615,6 +1690,9 @@ type EbsStorageInfo struct {
 }
 
 // The settings for encrypting data in transit.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/msk/latest/developerguide/msk-encryption.html#msk-encryption-in-transit
 //
 // Experimental.
@@ -1825,6 +1903,17 @@ func KafkaVersion_V2_6_1() KafkaVersion {
 	return returns
 }
 
+func KafkaVersion_V2_6_2() KafkaVersion {
+	_init_.Initialize()
+	var returns KafkaVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_msk.KafkaVersion",
+		"V2_6_2",
+		&returns,
+	)
+	return returns
+}
+
 func KafkaVersion_V2_7_0() KafkaVersion {
 	_init_.Initialize()
 	var returns KafkaVersion
@@ -1859,6 +1948,9 @@ func KafkaVersion_V2_8_1() KafkaVersion {
 }
 
 // Monitoring Configuration.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type MonitoringConfiguration struct {
 	// Specifies the level of monitoring for the MSK cluster.
@@ -1875,6 +1967,9 @@ type MonitoringConfiguration struct {
 }
 
 // Details of the Amazon S3 destination for broker logs.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type S3LoggingConfiguration struct {
 	// The S3 bucket that is the destination for broker logs.
@@ -1886,6 +1981,9 @@ type S3LoggingConfiguration struct {
 }
 
 // SASL authentication properties.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SaslAuthProps struct {
 	// Enable IAM access control.
@@ -1903,6 +2001,9 @@ type SaslAuthProps struct {
 }
 
 // TLS authentication properties.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type TlsAuthProps struct {
 	// List of ACM Certificate Authorities to enable TLS authentication.

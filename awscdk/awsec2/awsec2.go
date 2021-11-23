@@ -17,6 +17,9 @@ import (
 )
 
 // Either an IPv4 or an IPv6 CIDR.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AclCidr interface {
 	ToCidrConfig() *AclCidrConfig
@@ -121,6 +124,9 @@ func (a *jsiiProxy_AclCidr) ToCidrConfig() *AclCidrConfig {
 }
 
 // Acl Configuration for CIDR.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AclCidrConfig struct {
 	// Ipv4 CIDR.
@@ -132,6 +138,9 @@ type AclCidrConfig struct {
 }
 
 // Properties to create Icmp.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AclIcmp struct {
 	// The Internet Control Message Protocol (ICMP) code.
@@ -150,6 +159,9 @@ type AclIcmp struct {
 }
 
 // Properties to create PortRange.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AclPortRange struct {
 	// The first port in the range.
@@ -165,6 +177,9 @@ type AclPortRange struct {
 }
 
 // The traffic that is configured using a Network ACL entry.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AclTraffic interface {
 	ToTrafficConfig() *AclTrafficConfig
@@ -322,8 +337,17 @@ func (a *jsiiProxy_AclTraffic) ToTrafficConfig() *AclTrafficConfig {
 }
 
 // Acl Configuration for traffic.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AclTrafficConfig struct {
+	// The Internet Control Message Protocol (ICMP) code and type.
+	// Experimental.
+	Icmp *AclIcmp `json:"icmp"`
+	// The range of port numbers for the UDP/TCP protocol.
+	// Experimental.
+	PortRange *AclPortRange `json:"portRange"`
 	// The protocol number.
 	//
 	// A value of "-1" means all protocols.
@@ -338,12 +362,6 @@ type AclTrafficConfig struct {
 	// block, you must specify an ICMP type and code.
 	// Experimental.
 	Protocol *float64 `json:"protocol"`
-	// The Internet Control Message Protocol (ICMP) code and type.
-	// Experimental.
-	Icmp *AclIcmp `json:"icmp"`
-	// The range of port numbers for the UDP/TCP protocol.
-	// Experimental.
-	PortRange *AclPortRange `json:"portRange"`
 }
 
 // What action to apply to traffic matching the ACL.
@@ -361,14 +379,6 @@ const (
 //
 // Experimental.
 type AddRouteOptions struct {
-	// The ID of the router.
-	//
-	// Can be an instance ID, gateway ID, etc, depending on the router type.
-	// Experimental.
-	RouterId *string `json:"routerId"`
-	// What type of router to route this traffic to.
-	// Experimental.
-	RouterType RouterType `json:"routerType"`
 	// IPv4 range this route applies to.
 	// Experimental.
 	DestinationCidrBlock *string `json:"destinationCidrBlock"`
@@ -381,6 +391,14 @@ type AddRouteOptions struct {
 	// on internet connectivity in the VPC will be created.
 	// Experimental.
 	EnablesInternetConnectivity *bool `json:"enablesInternetConnectivity"`
+	// The ID of the router.
+	//
+	// Can be an instance ID, gateway ID, etc, depending on the router type.
+	// Experimental.
+	RouterId *string `json:"routerId"`
+	// What type of router to route this traffic to.
+	// Experimental.
+	RouterType RouterType `json:"routerType"`
 }
 
 // CPU type.
@@ -397,8 +415,8 @@ const (
 type AmazonLinuxEdition string
 
 const (
-	AmazonLinuxEdition_STANDARD AmazonLinuxEdition = "STANDARD"
 	AmazonLinuxEdition_MINIMAL AmazonLinuxEdition = "MINIMAL"
+	AmazonLinuxEdition_STANDARD AmazonLinuxEdition = "STANDARD"
 )
 
 // What generation of Amazon Linux to use.
@@ -506,6 +524,9 @@ func (a *jsiiProxy_AmazonLinuxImage) GetImage(scope awscdk.Construct) *MachineIm
 }
 
 // Amazon Linux image properties.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AmazonLinuxImageProps struct {
 	// Whether the AMI ID is cached to be stable between deployments.
@@ -624,17 +645,11 @@ type ApplyCloudFormationInitOptions struct {
 }
 
 // Options for attaching a CloudFormationInit to a resource.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AttachInitOptions struct {
-	// Instance role of the consuming instance or fleet.
-	// Experimental.
-	InstanceRole awsiam.IRole `json:"instanceRole"`
-	// OS Platform the init config will be used for.
-	// Experimental.
-	Platform OperatingSystemType `json:"platform"`
-	// UserData to add commands to.
-	// Experimental.
-	UserData UserData `json:"userData"`
 	// ConfigSet to activate.
 	// Experimental.
 	ConfigSets *[]*string `json:"configSets"`
@@ -665,6 +680,12 @@ type AttachInitOptions struct {
 	// e.g. https://cloudformation.us-east-1.amazonaws.com
 	// Experimental.
 	IncludeUrl *bool `json:"includeUrl"`
+	// Instance role of the consuming instance or fleet.
+	// Experimental.
+	InstanceRole awsiam.IRole `json:"instanceRole"`
+	// OS Platform the init config will be used for.
+	// Experimental.
+	Platform OperatingSystemType `json:"platform"`
 	// Print the results of running cfn-init to the Instance System Log.
 	//
 	// By default, the output of running cfn-init is written to a log file
@@ -681,6 +702,9 @@ type AttachInitOptions struct {
 	// You can use this to support signaling LaunchTemplate while attaching AutoScalingGroup
 	// Experimental.
 	SignalResource awscdk.CfnResource `json:"signalResource"`
+	// UserData to add commands to.
+	// Experimental.
+	UserData UserData `json:"userData"`
 }
 
 // This creates a linux bastion host you can use to connect to other instances or services in your VPC.
@@ -1179,6 +1203,9 @@ type BastionHostLinuxProps struct {
 }
 
 // Block device.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BlockDevice struct {
 	// The device name exposed to the EC2 instance.
@@ -1188,17 +1215,17 @@ type BlockDevice struct {
 	//
 	// Experimental.
 	DeviceName *string `json:"deviceName"`
-	// Defines the block device volume, to be either an Amazon EBS volume or an ephemeral instance store volume.
-	//
-	// For example, a value like `BlockDeviceVolume.ebs(15)`, `BlockDeviceVolume.ephemeral(0)`.
-	// Experimental.
-	Volume BlockDeviceVolume `json:"volume"`
 	// If false, the device mapping will be suppressed.
 	//
 	// If set to false for the root device, the instance might fail the Amazon EC2 health check.
 	// Amazon EC2 Auto Scaling launches a replacement instance if the instance fails the health check.
 	// Experimental.
 	MappingEnabled *bool `json:"mappingEnabled"`
+	// Defines the block device volume, to be either an Amazon EBS volume or an ephemeral instance store volume.
+	//
+	// For example, a value like `BlockDeviceVolume.ebs(15)`, `BlockDeviceVolume.ephemeral(0)`.
+	// Experimental.
+	Volume BlockDeviceVolume `json:"volume"`
 }
 
 // Describes a block device mapping for an EC2 instance or Auto Scaling group.
@@ -1317,6 +1344,9 @@ func BlockDeviceVolume_Ephemeral(volumeIndex *float64) BlockDeviceVolume {
 }
 
 // A CloudFormation `AWS::EC2::CapacityReservation`.
+//
+// TODO: EXAMPLE
+//
 type CfnCapacityReservation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2197,6 +2227,8 @@ func (c *jsiiProxy_CfnCapacityReservation) ValidateProperties(_properties interf
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnCapacityReservation_TagSpecificationProperty struct {
 	// `CfnCapacityReservation.TagSpecificationProperty.ResourceType`.
 	ResourceType *string `json:"resourceType"`
@@ -2205,6 +2237,9 @@ type CfnCapacityReservation_TagSpecificationProperty struct {
 }
 
 // A CloudFormation `AWS::EC2::CapacityReservationFleet`.
+//
+// TODO: EXAMPLE
+//
 type CfnCapacityReservationFleet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2961,6 +2996,8 @@ func (c *jsiiProxy_CfnCapacityReservationFleet) ValidateProperties(_properties i
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnCapacityReservationFleet_InstanceTypeSpecificationProperty struct {
 	// `CfnCapacityReservationFleet.InstanceTypeSpecificationProperty.AvailabilityZone`.
 	AvailabilityZone *string `json:"availabilityZone"`
@@ -2978,6 +3015,8 @@ type CfnCapacityReservationFleet_InstanceTypeSpecificationProperty struct {
 	Weight *float64 `json:"weight"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCapacityReservationFleet_TagSpecificationProperty struct {
 	// `CfnCapacityReservationFleet.TagSpecificationProperty.ResourceType`.
 	ResourceType *string `json:"resourceType"`
@@ -2986,6 +3025,9 @@ type CfnCapacityReservationFleet_TagSpecificationProperty struct {
 }
 
 // Properties for defining a `AWS::EC2::CapacityReservationFleet`.
+//
+// TODO: EXAMPLE
+//
 type CfnCapacityReservationFleetProps struct {
 	// `AWS::EC2::CapacityReservationFleet.AllocationStrategy`.
 	AllocationStrategy *string `json:"allocationStrategy"`
@@ -3008,15 +3050,12 @@ type CfnCapacityReservationFleetProps struct {
 }
 
 // Properties for defining a `AWS::EC2::CapacityReservation`.
+//
+// TODO: EXAMPLE
+//
 type CfnCapacityReservationProps struct {
 	// `AWS::EC2::CapacityReservation.AvailabilityZone`.
 	AvailabilityZone *string `json:"availabilityZone"`
-	// `AWS::EC2::CapacityReservation.InstanceCount`.
-	InstanceCount *float64 `json:"instanceCount"`
-	// `AWS::EC2::CapacityReservation.InstancePlatform`.
-	InstancePlatform *string `json:"instancePlatform"`
-	// `AWS::EC2::CapacityReservation.InstanceType`.
-	InstanceType *string `json:"instanceType"`
 	// `AWS::EC2::CapacityReservation.EbsOptimized`.
 	EbsOptimized interface{} `json:"ebsOptimized"`
 	// `AWS::EC2::CapacityReservation.EndDate`.
@@ -3025,8 +3064,14 @@ type CfnCapacityReservationProps struct {
 	EndDateType *string `json:"endDateType"`
 	// `AWS::EC2::CapacityReservation.EphemeralStorage`.
 	EphemeralStorage interface{} `json:"ephemeralStorage"`
+	// `AWS::EC2::CapacityReservation.InstanceCount`.
+	InstanceCount *float64 `json:"instanceCount"`
 	// `AWS::EC2::CapacityReservation.InstanceMatchCriteria`.
 	InstanceMatchCriteria *string `json:"instanceMatchCriteria"`
+	// `AWS::EC2::CapacityReservation.InstancePlatform`.
+	InstancePlatform *string `json:"instancePlatform"`
+	// `AWS::EC2::CapacityReservation.InstanceType`.
+	InstanceType *string `json:"instanceType"`
 	// `AWS::EC2::CapacityReservation.OutPostArn`.
 	OutPostArn *string `json:"outPostArn"`
 	// `AWS::EC2::CapacityReservation.PlacementGroupArn`.
@@ -3038,6 +3083,9 @@ type CfnCapacityReservationProps struct {
 }
 
 // A CloudFormation `AWS::EC2::CarrierGateway`.
+//
+// TODO: EXAMPLE
+//
 type CfnCarrierGateway interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3668,14 +3716,20 @@ func (c *jsiiProxy_CfnCarrierGateway) ValidateProperties(_properties interface{}
 }
 
 // Properties for defining a `AWS::EC2::CarrierGateway`.
+//
+// TODO: EXAMPLE
+//
 type CfnCarrierGatewayProps struct {
-	// `AWS::EC2::CarrierGateway.VpcId`.
-	VpcId *string `json:"vpcId"`
 	// `AWS::EC2::CarrierGateway.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::EC2::CarrierGateway.VpcId`.
+	VpcId *string `json:"vpcId"`
 }
 
 // A CloudFormation `AWS::EC2::ClientVpnAuthorizationRule`.
+//
+// TODO: EXAMPLE
+//
 type CfnClientVpnAuthorizationRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4342,20 +4396,26 @@ func (c *jsiiProxy_CfnClientVpnAuthorizationRule) ValidateProperties(_properties
 }
 
 // Properties for defining a `AWS::EC2::ClientVpnAuthorizationRule`.
+//
+// TODO: EXAMPLE
+//
 type CfnClientVpnAuthorizationRuleProps struct {
-	// `AWS::EC2::ClientVpnAuthorizationRule.ClientVpnEndpointId`.
-	ClientVpnEndpointId *string `json:"clientVpnEndpointId"`
-	// `AWS::EC2::ClientVpnAuthorizationRule.TargetNetworkCidr`.
-	TargetNetworkCidr *string `json:"targetNetworkCidr"`
 	// `AWS::EC2::ClientVpnAuthorizationRule.AccessGroupId`.
 	AccessGroupId *string `json:"accessGroupId"`
 	// `AWS::EC2::ClientVpnAuthorizationRule.AuthorizeAllGroups`.
 	AuthorizeAllGroups interface{} `json:"authorizeAllGroups"`
+	// `AWS::EC2::ClientVpnAuthorizationRule.ClientVpnEndpointId`.
+	ClientVpnEndpointId *string `json:"clientVpnEndpointId"`
 	// `AWS::EC2::ClientVpnAuthorizationRule.Description`.
 	Description *string `json:"description"`
+	// `AWS::EC2::ClientVpnAuthorizationRule.TargetNetworkCidr`.
+	TargetNetworkCidr *string `json:"targetNetworkCidr"`
 }
 
 // A CloudFormation `AWS::EC2::ClientVpnEndpoint`.
+//
+// TODO: EXAMPLE
+//
 type CfnClientVpnEndpoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5201,22 +5261,28 @@ func (c *jsiiProxy_CfnClientVpnEndpoint) ValidateProperties(_properties interfac
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnClientVpnEndpoint_CertificateAuthenticationRequestProperty struct {
 	// `CfnClientVpnEndpoint.CertificateAuthenticationRequestProperty.ClientRootCertificateChainArn`.
 	ClientRootCertificateChainArn *string `json:"clientRootCertificateChainArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnClientVpnEndpoint_ClientAuthenticationRequestProperty struct {
-	// `CfnClientVpnEndpoint.ClientAuthenticationRequestProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnClientVpnEndpoint.ClientAuthenticationRequestProperty.ActiveDirectory`.
 	ActiveDirectory interface{} `json:"activeDirectory"`
 	// `CfnClientVpnEndpoint.ClientAuthenticationRequestProperty.FederatedAuthentication`.
 	FederatedAuthentication interface{} `json:"federatedAuthentication"`
 	// `CfnClientVpnEndpoint.ClientAuthenticationRequestProperty.MutualAuthentication`.
 	MutualAuthentication interface{} `json:"mutualAuthentication"`
+	// `CfnClientVpnEndpoint.ClientAuthenticationRequestProperty.Type`.
+	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnClientVpnEndpoint_ClientConnectOptionsProperty struct {
 	// `CfnClientVpnEndpoint.ClientConnectOptionsProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
@@ -5224,20 +5290,26 @@ type CfnClientVpnEndpoint_ClientConnectOptionsProperty struct {
 	LambdaFunctionArn *string `json:"lambdaFunctionArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnClientVpnEndpoint_ConnectionLogOptionsProperty struct {
-	// `CfnClientVpnEndpoint.ConnectionLogOptionsProperty.Enabled`.
-	Enabled interface{} `json:"enabled"`
 	// `CfnClientVpnEndpoint.ConnectionLogOptionsProperty.CloudwatchLogGroup`.
 	CloudwatchLogGroup *string `json:"cloudwatchLogGroup"`
 	// `CfnClientVpnEndpoint.ConnectionLogOptionsProperty.CloudwatchLogStream`.
 	CloudwatchLogStream *string `json:"cloudwatchLogStream"`
+	// `CfnClientVpnEndpoint.ConnectionLogOptionsProperty.Enabled`.
+	Enabled interface{} `json:"enabled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnClientVpnEndpoint_DirectoryServiceAuthenticationRequestProperty struct {
 	// `CfnClientVpnEndpoint.DirectoryServiceAuthenticationRequestProperty.DirectoryId`.
 	DirectoryId *string `json:"directoryId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnClientVpnEndpoint_FederatedAuthenticationRequestProperty struct {
 	// `CfnClientVpnEndpoint.FederatedAuthenticationRequestProperty.SAMLProviderArn`.
 	SamlProviderArn *string `json:"samlProviderArn"`
@@ -5245,6 +5317,8 @@ type CfnClientVpnEndpoint_FederatedAuthenticationRequestProperty struct {
 	SelfServiceSamlProviderArn *string `json:"selfServiceSamlProviderArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnClientVpnEndpoint_TagSpecificationProperty struct {
 	// `CfnClientVpnEndpoint.TagSpecificationProperty.ResourceType`.
 	ResourceType *string `json:"resourceType"`
@@ -5253,17 +5327,18 @@ type CfnClientVpnEndpoint_TagSpecificationProperty struct {
 }
 
 // Properties for defining a `AWS::EC2::ClientVpnEndpoint`.
+//
+// TODO: EXAMPLE
+//
 type CfnClientVpnEndpointProps struct {
 	// `AWS::EC2::ClientVpnEndpoint.AuthenticationOptions`.
 	AuthenticationOptions interface{} `json:"authenticationOptions"`
 	// `AWS::EC2::ClientVpnEndpoint.ClientCidrBlock`.
 	ClientCidrBlock *string `json:"clientCidrBlock"`
-	// `AWS::EC2::ClientVpnEndpoint.ConnectionLogOptions`.
-	ConnectionLogOptions interface{} `json:"connectionLogOptions"`
-	// `AWS::EC2::ClientVpnEndpoint.ServerCertificateArn`.
-	ServerCertificateArn *string `json:"serverCertificateArn"`
 	// `AWS::EC2::ClientVpnEndpoint.ClientConnectOptions`.
 	ClientConnectOptions interface{} `json:"clientConnectOptions"`
+	// `AWS::EC2::ClientVpnEndpoint.ConnectionLogOptions`.
+	ConnectionLogOptions interface{} `json:"connectionLogOptions"`
 	// `AWS::EC2::ClientVpnEndpoint.Description`.
 	Description *string `json:"description"`
 	// `AWS::EC2::ClientVpnEndpoint.DnsServers`.
@@ -5272,6 +5347,8 @@ type CfnClientVpnEndpointProps struct {
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
 	// `AWS::EC2::ClientVpnEndpoint.SelfServicePortal`.
 	SelfServicePortal *string `json:"selfServicePortal"`
+	// `AWS::EC2::ClientVpnEndpoint.ServerCertificateArn`.
+	ServerCertificateArn *string `json:"serverCertificateArn"`
 	// `AWS::EC2::ClientVpnEndpoint.SplitTunnel`.
 	SplitTunnel interface{} `json:"splitTunnel"`
 	// `AWS::EC2::ClientVpnEndpoint.TagSpecifications`.
@@ -5285,6 +5362,9 @@ type CfnClientVpnEndpointProps struct {
 }
 
 // A CloudFormation `AWS::EC2::ClientVpnRoute`.
+//
+// TODO: EXAMPLE
+//
 type CfnClientVpnRoute interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5931,18 +6011,24 @@ func (c *jsiiProxy_CfnClientVpnRoute) ValidateProperties(_properties interface{}
 }
 
 // Properties for defining a `AWS::EC2::ClientVpnRoute`.
+//
+// TODO: EXAMPLE
+//
 type CfnClientVpnRouteProps struct {
 	// `AWS::EC2::ClientVpnRoute.ClientVpnEndpointId`.
 	ClientVpnEndpointId *string `json:"clientVpnEndpointId"`
+	// `AWS::EC2::ClientVpnRoute.Description`.
+	Description *string `json:"description"`
 	// `AWS::EC2::ClientVpnRoute.DestinationCidrBlock`.
 	DestinationCidrBlock *string `json:"destinationCidrBlock"`
 	// `AWS::EC2::ClientVpnRoute.TargetVpcSubnetId`.
 	TargetVpcSubnetId *string `json:"targetVpcSubnetId"`
-	// `AWS::EC2::ClientVpnRoute.Description`.
-	Description *string `json:"description"`
 }
 
 // A CloudFormation `AWS::EC2::ClientVpnTargetNetworkAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnClientVpnTargetNetworkAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6549,6 +6635,9 @@ func (c *jsiiProxy_CfnClientVpnTargetNetworkAssociation) ValidateProperties(_pro
 }
 
 // Properties for defining a `AWS::EC2::ClientVpnTargetNetworkAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnClientVpnTargetNetworkAssociationProps struct {
 	// `AWS::EC2::ClientVpnTargetNetworkAssociation.ClientVpnEndpointId`.
 	ClientVpnEndpointId *string `json:"clientVpnEndpointId"`
@@ -6557,6 +6646,9 @@ type CfnClientVpnTargetNetworkAssociationProps struct {
 }
 
 // A CloudFormation `AWS::EC2::CustomerGateway`.
+//
+// TODO: EXAMPLE
+//
 type CfnCustomerGateway interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -7194,18 +7286,24 @@ func (c *jsiiProxy_CfnCustomerGateway) ValidateProperties(_properties interface{
 }
 
 // Properties for defining a `AWS::EC2::CustomerGateway`.
+//
+// TODO: EXAMPLE
+//
 type CfnCustomerGatewayProps struct {
 	// `AWS::EC2::CustomerGateway.BgpAsn`.
 	BgpAsn *float64 `json:"bgpAsn"`
 	// `AWS::EC2::CustomerGateway.IpAddress`.
 	IpAddress *string `json:"ipAddress"`
-	// `AWS::EC2::CustomerGateway.Type`.
-	Type *string `json:"type"`
 	// `AWS::EC2::CustomerGateway.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::EC2::CustomerGateway.Type`.
+	Type *string `json:"type"`
 }
 
 // A CloudFormation `AWS::EC2::DHCPOptions`.
+//
+// TODO: EXAMPLE
+//
 type CfnDHCPOptions interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -7894,6 +7992,9 @@ func (c *jsiiProxy_CfnDHCPOptions) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::EC2::DHCPOptions`.
+//
+// TODO: EXAMPLE
+//
 type CfnDHCPOptionsProps struct {
 	// `AWS::EC2::DHCPOptions.DomainName`.
 	DomainName *string `json:"domainName"`
@@ -7910,6 +8011,9 @@ type CfnDHCPOptionsProps struct {
 }
 
 // A CloudFormation `AWS::EC2::EC2Fleet`.
+//
+// TODO: EXAMPLE
+//
 type CfnEC2Fleet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -8726,6 +8830,8 @@ func (c *jsiiProxy_CfnEC2Fleet) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnEC2Fleet_AcceleratorCountRequestProperty struct {
 	// `CfnEC2Fleet.AcceleratorCountRequestProperty.Max`.
 	Max *float64 `json:"max"`
@@ -8733,6 +8839,8 @@ type CfnEC2Fleet_AcceleratorCountRequestProperty struct {
 	Min *float64 `json:"min"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEC2Fleet_AcceleratorTotalMemoryMiBRequestProperty struct {
 	// `CfnEC2Fleet.AcceleratorTotalMemoryMiBRequestProperty.Max`.
 	Max *float64 `json:"max"`
@@ -8740,6 +8848,8 @@ type CfnEC2Fleet_AcceleratorTotalMemoryMiBRequestProperty struct {
 	Min *float64 `json:"min"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEC2Fleet_BaselineEbsBandwidthMbpsRequestProperty struct {
 	// `CfnEC2Fleet.BaselineEbsBandwidthMbpsRequestProperty.Max`.
 	Max *float64 `json:"max"`
@@ -8747,6 +8857,8 @@ type CfnEC2Fleet_BaselineEbsBandwidthMbpsRequestProperty struct {
 	Min *float64 `json:"min"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEC2Fleet_CapacityRebalanceProperty struct {
 	// `CfnEC2Fleet.CapacityRebalanceProperty.ReplacementStrategy`.
 	ReplacementStrategy *string `json:"replacementStrategy"`
@@ -8754,11 +8866,15 @@ type CfnEC2Fleet_CapacityRebalanceProperty struct {
 	TerminationDelay *float64 `json:"terminationDelay"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEC2Fleet_CapacityReservationOptionsRequestProperty struct {
 	// `CfnEC2Fleet.CapacityReservationOptionsRequestProperty.UsageStrategy`.
 	UsageStrategy *string `json:"usageStrategy"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEC2Fleet_FleetLaunchTemplateConfigRequestProperty struct {
 	// `CfnEC2Fleet.FleetLaunchTemplateConfigRequestProperty.LaunchTemplateSpecification`.
 	LaunchTemplateSpecification interface{} `json:"launchTemplateSpecification"`
@@ -8766,6 +8882,8 @@ type CfnEC2Fleet_FleetLaunchTemplateConfigRequestProperty struct {
 	Overrides interface{} `json:"overrides"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEC2Fleet_FleetLaunchTemplateOverridesRequestProperty struct {
 	// `CfnEC2Fleet.FleetLaunchTemplateOverridesRequestProperty.AvailabilityZone`.
 	AvailabilityZone *string `json:"availabilityZone"`
@@ -8785,6 +8903,8 @@ type CfnEC2Fleet_FleetLaunchTemplateOverridesRequestProperty struct {
 	WeightedCapacity *float64 `json:"weightedCapacity"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEC2Fleet_FleetLaunchTemplateSpecificationRequestProperty struct {
 	// `CfnEC2Fleet.FleetLaunchTemplateSpecificationRequestProperty.LaunchTemplateId`.
 	LaunchTemplateId *string `json:"launchTemplateId"`
@@ -8794,6 +8914,8 @@ type CfnEC2Fleet_FleetLaunchTemplateSpecificationRequestProperty struct {
 	Version *string `json:"version"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 	// `CfnEC2Fleet.InstanceRequirementsRequestProperty.AcceleratorCount`.
 	AcceleratorCount interface{} `json:"acceleratorCount"`
@@ -8839,11 +8961,15 @@ type CfnEC2Fleet_InstanceRequirementsRequestProperty struct {
 	VCpuCount interface{} `json:"vCpuCount"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEC2Fleet_MaintenanceStrategiesProperty struct {
 	// `CfnEC2Fleet.MaintenanceStrategiesProperty.CapacityRebalance`.
 	CapacityRebalance interface{} `json:"capacityRebalance"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEC2Fleet_MemoryGiBPerVCpuRequestProperty struct {
 	// `CfnEC2Fleet.MemoryGiBPerVCpuRequestProperty.Max`.
 	Max *float64 `json:"max"`
@@ -8851,6 +8977,8 @@ type CfnEC2Fleet_MemoryGiBPerVCpuRequestProperty struct {
 	Min *float64 `json:"min"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEC2Fleet_MemoryMiBRequestProperty struct {
 	// `CfnEC2Fleet.MemoryMiBRequestProperty.Max`.
 	Max *float64 `json:"max"`
@@ -8858,6 +8986,8 @@ type CfnEC2Fleet_MemoryMiBRequestProperty struct {
 	Min *float64 `json:"min"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEC2Fleet_NetworkInterfaceCountRequestProperty struct {
 	// `CfnEC2Fleet.NetworkInterfaceCountRequestProperty.Max`.
 	Max *float64 `json:"max"`
@@ -8865,6 +8995,8 @@ type CfnEC2Fleet_NetworkInterfaceCountRequestProperty struct {
 	Min *float64 `json:"min"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEC2Fleet_OnDemandOptionsRequestProperty struct {
 	// `CfnEC2Fleet.OnDemandOptionsRequestProperty.AllocationStrategy`.
 	AllocationStrategy *string `json:"allocationStrategy"`
@@ -8880,6 +9012,8 @@ type CfnEC2Fleet_OnDemandOptionsRequestProperty struct {
 	SingleInstanceType interface{} `json:"singleInstanceType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEC2Fleet_PlacementProperty struct {
 	// `CfnEC2Fleet.PlacementProperty.Affinity`.
 	Affinity *string `json:"affinity"`
@@ -8899,6 +9033,8 @@ type CfnEC2Fleet_PlacementProperty struct {
 	Tenancy *string `json:"tenancy"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEC2Fleet_SpotOptionsRequestProperty struct {
 	// `CfnEC2Fleet.SpotOptionsRequestProperty.AllocationStrategy`.
 	AllocationStrategy *string `json:"allocationStrategy"`
@@ -8918,6 +9054,8 @@ type CfnEC2Fleet_SpotOptionsRequestProperty struct {
 	SingleInstanceType interface{} `json:"singleInstanceType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEC2Fleet_TagSpecificationProperty struct {
 	// `CfnEC2Fleet.TagSpecificationProperty.ResourceType`.
 	ResourceType *string `json:"resourceType"`
@@ -8925,9 +9063,9 @@ type CfnEC2Fleet_TagSpecificationProperty struct {
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEC2Fleet_TargetCapacitySpecificationRequestProperty struct {
-	// `CfnEC2Fleet.TargetCapacitySpecificationRequestProperty.TotalTargetCapacity`.
-	TotalTargetCapacity *float64 `json:"totalTargetCapacity"`
 	// `CfnEC2Fleet.TargetCapacitySpecificationRequestProperty.DefaultTargetCapacityType`.
 	DefaultTargetCapacityType *string `json:"defaultTargetCapacityType"`
 	// `CfnEC2Fleet.TargetCapacitySpecificationRequestProperty.OnDemandTargetCapacity`.
@@ -8936,8 +9074,12 @@ type CfnEC2Fleet_TargetCapacitySpecificationRequestProperty struct {
 	SpotTargetCapacity *float64 `json:"spotTargetCapacity"`
 	// `CfnEC2Fleet.TargetCapacitySpecificationRequestProperty.TargetCapacityUnitType`.
 	TargetCapacityUnitType *string `json:"targetCapacityUnitType"`
+	// `CfnEC2Fleet.TargetCapacitySpecificationRequestProperty.TotalTargetCapacity`.
+	TotalTargetCapacity *float64 `json:"totalTargetCapacity"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEC2Fleet_TotalLocalStorageGBRequestProperty struct {
 	// `CfnEC2Fleet.TotalLocalStorageGBRequestProperty.Max`.
 	Max *float64 `json:"max"`
@@ -8945,6 +9087,8 @@ type CfnEC2Fleet_TotalLocalStorageGBRequestProperty struct {
 	Min *float64 `json:"min"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEC2Fleet_VCpuCountRangeRequestProperty struct {
 	// `CfnEC2Fleet.VCpuCountRangeRequestProperty.Max`.
 	Max *float64 `json:"max"`
@@ -8953,15 +9097,16 @@ type CfnEC2Fleet_VCpuCountRangeRequestProperty struct {
 }
 
 // Properties for defining a `AWS::EC2::EC2Fleet`.
+//
+// TODO: EXAMPLE
+//
 type CfnEC2FleetProps struct {
-	// `AWS::EC2::EC2Fleet.LaunchTemplateConfigs`.
-	LaunchTemplateConfigs interface{} `json:"launchTemplateConfigs"`
-	// `AWS::EC2::EC2Fleet.TargetCapacitySpecification`.
-	TargetCapacitySpecification interface{} `json:"targetCapacitySpecification"`
 	// `AWS::EC2::EC2Fleet.Context`.
 	Context *string `json:"context"`
 	// `AWS::EC2::EC2Fleet.ExcessCapacityTerminationPolicy`.
 	ExcessCapacityTerminationPolicy *string `json:"excessCapacityTerminationPolicy"`
+	// `AWS::EC2::EC2Fleet.LaunchTemplateConfigs`.
+	LaunchTemplateConfigs interface{} `json:"launchTemplateConfigs"`
 	// `AWS::EC2::EC2Fleet.OnDemandOptions`.
 	OnDemandOptions interface{} `json:"onDemandOptions"`
 	// `AWS::EC2::EC2Fleet.ReplaceUnhealthyInstances`.
@@ -8970,6 +9115,8 @@ type CfnEC2FleetProps struct {
 	SpotOptions interface{} `json:"spotOptions"`
 	// `AWS::EC2::EC2Fleet.TagSpecifications`.
 	TagSpecifications interface{} `json:"tagSpecifications"`
+	// `AWS::EC2::EC2Fleet.TargetCapacitySpecification`.
+	TargetCapacitySpecification interface{} `json:"targetCapacitySpecification"`
 	// `AWS::EC2::EC2Fleet.TerminateInstancesWithExpiration`.
 	TerminateInstancesWithExpiration interface{} `json:"terminateInstancesWithExpiration"`
 	// `AWS::EC2::EC2Fleet.Type`.
@@ -9632,6 +9779,9 @@ func (c *jsiiProxy_CfnEIP) ValidateProperties(_properties interface{}) {
 }
 
 // A CloudFormation `AWS::EC2::EIPAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnEIPAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -10298,6 +10448,9 @@ func (c *jsiiProxy_CfnEIPAssociation) ValidateProperties(_properties interface{}
 }
 
 // Properties for defining a `AWS::EC2::EIPAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnEIPAssociationProps struct {
 	// `AWS::EC2::EIPAssociation.AllocationId`.
 	AllocationId *string `json:"allocationId"`
@@ -10327,6 +10480,9 @@ type CfnEIPProps struct {
 }
 
 // A CloudFormation `AWS::EC2::EgressOnlyInternetGateway`.
+//
+// TODO: EXAMPLE
+//
 type CfnEgressOnlyInternetGateway interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -10924,12 +11080,18 @@ func (c *jsiiProxy_CfnEgressOnlyInternetGateway) ValidateProperties(_properties 
 }
 
 // Properties for defining a `AWS::EC2::EgressOnlyInternetGateway`.
+//
+// TODO: EXAMPLE
+//
 type CfnEgressOnlyInternetGatewayProps struct {
 	// `AWS::EC2::EgressOnlyInternetGateway.VpcId`.
 	VpcId *string `json:"vpcId"`
 }
 
 // A CloudFormation `AWS::EC2::EnclaveCertificateIamRoleAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnEnclaveCertificateIamRoleAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -11569,6 +11731,9 @@ func (c *jsiiProxy_CfnEnclaveCertificateIamRoleAssociation) ValidateProperties(_
 }
 
 // Properties for defining a `AWS::EC2::EnclaveCertificateIamRoleAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnEnclaveCertificateIamRoleAssociationProps struct {
 	// `AWS::EC2::EnclaveCertificateIamRoleAssociation.CertificateArn`.
 	CertificateArn *string `json:"certificateArn"`
@@ -11577,6 +11742,9 @@ type CfnEnclaveCertificateIamRoleAssociationProps struct {
 }
 
 // A CloudFormation `AWS::EC2::FlowLog`.
+//
+// TODO: EXAMPLE
+//
 type CfnFlowLog interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -12345,13 +12513,10 @@ func (c *jsiiProxy_CfnFlowLog) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::EC2::FlowLog`.
+//
+// TODO: EXAMPLE
+//
 type CfnFlowLogProps struct {
-	// `AWS::EC2::FlowLog.ResourceId`.
-	ResourceId *string `json:"resourceId"`
-	// `AWS::EC2::FlowLog.ResourceType`.
-	ResourceType *string `json:"resourceType"`
-	// `AWS::EC2::FlowLog.TrafficType`.
-	TrafficType *string `json:"trafficType"`
 	// `AWS::EC2::FlowLog.DeliverLogsPermissionArn`.
 	DeliverLogsPermissionArn *string `json:"deliverLogsPermissionArn"`
 	// `AWS::EC2::FlowLog.LogDestination`.
@@ -12364,11 +12529,20 @@ type CfnFlowLogProps struct {
 	LogGroupName *string `json:"logGroupName"`
 	// `AWS::EC2::FlowLog.MaxAggregationInterval`.
 	MaxAggregationInterval *float64 `json:"maxAggregationInterval"`
+	// `AWS::EC2::FlowLog.ResourceId`.
+	ResourceId *string `json:"resourceId"`
+	// `AWS::EC2::FlowLog.ResourceType`.
+	ResourceType *string `json:"resourceType"`
 	// `AWS::EC2::FlowLog.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::EC2::FlowLog.TrafficType`.
+	TrafficType *string `json:"trafficType"`
 }
 
 // A CloudFormation `AWS::EC2::GatewayRouteTableAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnGatewayRouteTableAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -12986,6 +13160,9 @@ func (c *jsiiProxy_CfnGatewayRouteTableAssociation) ValidateProperties(_properti
 }
 
 // Properties for defining a `AWS::EC2::GatewayRouteTableAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnGatewayRouteTableAssociationProps struct {
 	// `AWS::EC2::GatewayRouteTableAssociation.GatewayId`.
 	GatewayId *string `json:"gatewayId"`
@@ -12994,6 +13171,9 @@ type CfnGatewayRouteTableAssociationProps struct {
 }
 
 // A CloudFormation `AWS::EC2::Host`.
+//
+// TODO: EXAMPLE
+//
 type CfnHost interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -13640,18 +13820,24 @@ func (c *jsiiProxy_CfnHost) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::EC2::Host`.
+//
+// TODO: EXAMPLE
+//
 type CfnHostProps struct {
-	// `AWS::EC2::Host.AvailabilityZone`.
-	AvailabilityZone *string `json:"availabilityZone"`
-	// `AWS::EC2::Host.InstanceType`.
-	InstanceType *string `json:"instanceType"`
 	// `AWS::EC2::Host.AutoPlacement`.
 	AutoPlacement *string `json:"autoPlacement"`
+	// `AWS::EC2::Host.AvailabilityZone`.
+	AvailabilityZone *string `json:"availabilityZone"`
 	// `AWS::EC2::Host.HostRecovery`.
 	HostRecovery *string `json:"hostRecovery"`
+	// `AWS::EC2::Host.InstanceType`.
+	InstanceType *string `json:"instanceType"`
 }
 
 // A CloudFormation `AWS::EC2::Instance`.
+//
+// TODO: EXAMPLE
+//
 type CfnInstance interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -15023,6 +15209,8 @@ func (c *jsiiProxy_CfnInstance) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_AssociationParameterProperty struct {
 	// `CfnInstance.AssociationParameterProperty.Key`.
 	Key *string `json:"key"`
@@ -15030,6 +15218,8 @@ type CfnInstance_AssociationParameterProperty struct {
 	Value *[]*string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_BlockDeviceMappingProperty struct {
 	// `CfnInstance.BlockDeviceMappingProperty.DeviceName`.
 	DeviceName *string `json:"deviceName"`
@@ -15041,6 +15231,8 @@ type CfnInstance_BlockDeviceMappingProperty struct {
 	VirtualName *string `json:"virtualName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_CpuOptionsProperty struct {
 	// `CfnInstance.CpuOptionsProperty.CoreCount`.
 	CoreCount *float64 `json:"coreCount"`
@@ -15048,11 +15240,15 @@ type CfnInstance_CpuOptionsProperty struct {
 	ThreadsPerCore *float64 `json:"threadsPerCore"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_CreditSpecificationProperty struct {
 	// `CfnInstance.CreditSpecificationProperty.CPUCredits`.
 	CpuCredits *string `json:"cpuCredits"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_EbsProperty struct {
 	// `CfnInstance.EbsProperty.DeleteOnTermination`.
 	DeleteOnTermination interface{} `json:"deleteOnTermination"`
@@ -15070,56 +15266,72 @@ type CfnInstance_EbsProperty struct {
 	VolumeType *string `json:"volumeType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_ElasticGpuSpecificationProperty struct {
 	// `CfnInstance.ElasticGpuSpecificationProperty.Type`.
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_ElasticInferenceAcceleratorProperty struct {
-	// `CfnInstance.ElasticInferenceAcceleratorProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnInstance.ElasticInferenceAcceleratorProperty.Count`.
 	Count *float64 `json:"count"`
+	// `CfnInstance.ElasticInferenceAcceleratorProperty.Type`.
+	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_EnclaveOptionsProperty struct {
 	// `CfnInstance.EnclaveOptionsProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_HibernationOptionsProperty struct {
 	// `CfnInstance.HibernationOptionsProperty.Configured`.
 	Configured interface{} `json:"configured"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_InstanceIpv6AddressProperty struct {
 	// `CfnInstance.InstanceIpv6AddressProperty.Ipv6Address`.
 	Ipv6Address *string `json:"ipv6Address"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_LaunchTemplateSpecificationProperty struct {
-	// `CfnInstance.LaunchTemplateSpecificationProperty.Version`.
-	Version *string `json:"version"`
 	// `CfnInstance.LaunchTemplateSpecificationProperty.LaunchTemplateId`.
 	LaunchTemplateId *string `json:"launchTemplateId"`
 	// `CfnInstance.LaunchTemplateSpecificationProperty.LaunchTemplateName`.
 	LaunchTemplateName *string `json:"launchTemplateName"`
+	// `CfnInstance.LaunchTemplateSpecificationProperty.Version`.
+	Version *string `json:"version"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_LicenseSpecificationProperty struct {
 	// `CfnInstance.LicenseSpecificationProperty.LicenseConfigurationArn`.
 	LicenseConfigurationArn *string `json:"licenseConfigurationArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_NetworkInterfaceProperty struct {
-	// `CfnInstance.NetworkInterfaceProperty.DeviceIndex`.
-	DeviceIndex *string `json:"deviceIndex"`
 	// `CfnInstance.NetworkInterfaceProperty.AssociatePublicIpAddress`.
 	AssociatePublicIpAddress interface{} `json:"associatePublicIpAddress"`
 	// `CfnInstance.NetworkInterfaceProperty.DeleteOnTermination`.
 	DeleteOnTermination interface{} `json:"deleteOnTermination"`
 	// `CfnInstance.NetworkInterfaceProperty.Description`.
 	Description *string `json:"description"`
+	// `CfnInstance.NetworkInterfaceProperty.DeviceIndex`.
+	DeviceIndex *string `json:"deviceIndex"`
 	// `CfnInstance.NetworkInterfaceProperty.GroupSet`.
 	GroupSet *[]*string `json:"groupSet"`
 	// `CfnInstance.NetworkInterfaceProperty.Ipv6AddressCount`.
@@ -15138,9 +15350,13 @@ type CfnInstance_NetworkInterfaceProperty struct {
 	SubnetId *string `json:"subnetId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_NoDeviceProperty struct {
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_PrivateIpAddressSpecificationProperty struct {
 	// `CfnInstance.PrivateIpAddressSpecificationProperty.Primary`.
 	Primary interface{} `json:"primary"`
@@ -15148,13 +15364,17 @@ type CfnInstance_PrivateIpAddressSpecificationProperty struct {
 	PrivateIpAddress *string `json:"privateIpAddress"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_SsmAssociationProperty struct {
-	// `CfnInstance.SsmAssociationProperty.DocumentName`.
-	DocumentName *string `json:"documentName"`
 	// `CfnInstance.SsmAssociationProperty.AssociationParameters`.
 	AssociationParameters interface{} `json:"associationParameters"`
+	// `CfnInstance.SsmAssociationProperty.DocumentName`.
+	DocumentName *string `json:"documentName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnInstance_VolumeProperty struct {
 	// `CfnInstance.VolumeProperty.Device`.
 	Device *string `json:"device"`
@@ -15163,6 +15383,9 @@ type CfnInstance_VolumeProperty struct {
 }
 
 // Properties for defining a `AWS::EC2::Instance`.
+//
+// TODO: EXAMPLE
+//
 type CfnInstanceProps struct {
 	// `AWS::EC2::Instance.AdditionalInfo`.
 	AdditionalInfo *string `json:"additionalInfo"`
@@ -15243,6 +15466,9 @@ type CfnInstanceProps struct {
 }
 
 // A CloudFormation `AWS::EC2::InternetGateway`.
+//
+// TODO: EXAMPLE
+//
 type CfnInternetGateway interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -15831,6 +16057,9 @@ func (c *jsiiProxy_CfnInternetGateway) ValidateProperties(_properties interface{
 }
 
 // Properties for defining a `AWS::EC2::InternetGateway`.
+//
+// TODO: EXAMPLE
+//
 type CfnInternetGatewayProps struct {
 	// `AWS::EC2::InternetGateway.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
@@ -16487,6 +16716,8 @@ func (c *jsiiProxy_CfnLaunchTemplate) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_AcceleratorCountProperty struct {
 	// `CfnLaunchTemplate.AcceleratorCountProperty.Max`.
 	Max *float64 `json:"max"`
@@ -16494,6 +16725,8 @@ type CfnLaunchTemplate_AcceleratorCountProperty struct {
 	Min *float64 `json:"min"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_AcceleratorTotalMemoryMiBProperty struct {
 	// `CfnLaunchTemplate.AcceleratorTotalMemoryMiBProperty.Max`.
 	Max *float64 `json:"max"`
@@ -16501,6 +16734,8 @@ type CfnLaunchTemplate_AcceleratorTotalMemoryMiBProperty struct {
 	Min *float64 `json:"min"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_BaselineEbsBandwidthMbpsProperty struct {
 	// `CfnLaunchTemplate.BaselineEbsBandwidthMbpsProperty.Max`.
 	Max *float64 `json:"max"`
@@ -16508,6 +16743,8 @@ type CfnLaunchTemplate_BaselineEbsBandwidthMbpsProperty struct {
 	Min *float64 `json:"min"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_BlockDeviceMappingProperty struct {
 	// `CfnLaunchTemplate.BlockDeviceMappingProperty.DeviceName`.
 	DeviceName *string `json:"deviceName"`
@@ -16519,6 +16756,8 @@ type CfnLaunchTemplate_BlockDeviceMappingProperty struct {
 	VirtualName *string `json:"virtualName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_CapacityReservationSpecificationProperty struct {
 	// `CfnLaunchTemplate.CapacityReservationSpecificationProperty.CapacityReservationPreference`.
 	CapacityReservationPreference *string `json:"capacityReservationPreference"`
@@ -16526,6 +16765,8 @@ type CfnLaunchTemplate_CapacityReservationSpecificationProperty struct {
 	CapacityReservationTarget interface{} `json:"capacityReservationTarget"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_CapacityReservationTargetProperty struct {
 	// `CfnLaunchTemplate.CapacityReservationTargetProperty.CapacityReservationId`.
 	CapacityReservationId *string `json:"capacityReservationId"`
@@ -16533,6 +16774,8 @@ type CfnLaunchTemplate_CapacityReservationTargetProperty struct {
 	CapacityReservationResourceGroupArn *string `json:"capacityReservationResourceGroupArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_CpuOptionsProperty struct {
 	// `CfnLaunchTemplate.CpuOptionsProperty.CoreCount`.
 	CoreCount *float64 `json:"coreCount"`
@@ -16540,11 +16783,15 @@ type CfnLaunchTemplate_CpuOptionsProperty struct {
 	ThreadsPerCore *float64 `json:"threadsPerCore"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_CreditSpecificationProperty struct {
 	// `CfnLaunchTemplate.CreditSpecificationProperty.CpuCredits`.
 	CpuCredits *string `json:"cpuCredits"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_EbsProperty struct {
 	// `CfnLaunchTemplate.EbsProperty.DeleteOnTermination`.
 	DeleteOnTermination interface{} `json:"deleteOnTermination"`
@@ -16564,21 +16811,29 @@ type CfnLaunchTemplate_EbsProperty struct {
 	VolumeType *string `json:"volumeType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_ElasticGpuSpecificationProperty struct {
 	// `CfnLaunchTemplate.ElasticGpuSpecificationProperty.Type`.
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_EnclaveOptionsProperty struct {
 	// `CfnLaunchTemplate.EnclaveOptionsProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_HibernationOptionsProperty struct {
 	// `CfnLaunchTemplate.HibernationOptionsProperty.Configured`.
 	Configured interface{} `json:"configured"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_IamInstanceProfileProperty struct {
 	// `CfnLaunchTemplate.IamInstanceProfileProperty.Arn`.
 	Arn *string `json:"arn"`
@@ -16586,6 +16841,8 @@ type CfnLaunchTemplate_IamInstanceProfileProperty struct {
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_InstanceMarketOptionsProperty struct {
 	// `CfnLaunchTemplate.InstanceMarketOptionsProperty.MarketType`.
 	MarketType *string `json:"marketType"`
@@ -16593,11 +16850,15 @@ type CfnLaunchTemplate_InstanceMarketOptionsProperty struct {
 	SpotOptions interface{} `json:"spotOptions"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_Ipv6AddProperty struct {
 	// `CfnLaunchTemplate.Ipv6AddProperty.Ipv6Address`.
 	Ipv6Address *string `json:"ipv6Address"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_LaunchTemplateDataProperty struct {
 	// `CfnLaunchTemplate.LaunchTemplateDataProperty.BlockDeviceMappings`.
 	BlockDeviceMappings interface{} `json:"blockDeviceMappings"`
@@ -16655,6 +16916,8 @@ type CfnLaunchTemplate_LaunchTemplateDataProperty struct {
 	UserData *string `json:"userData"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_LaunchTemplateElasticInferenceAcceleratorProperty struct {
 	// `CfnLaunchTemplate.LaunchTemplateElasticInferenceAcceleratorProperty.Count`.
 	Count *float64 `json:"count"`
@@ -16662,6 +16925,8 @@ type CfnLaunchTemplate_LaunchTemplateElasticInferenceAcceleratorProperty struct 
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_LaunchTemplateTagSpecificationProperty struct {
 	// `CfnLaunchTemplate.LaunchTemplateTagSpecificationProperty.ResourceType`.
 	ResourceType *string `json:"resourceType"`
@@ -16669,11 +16934,15 @@ type CfnLaunchTemplate_LaunchTemplateTagSpecificationProperty struct {
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_LicenseSpecificationProperty struct {
 	// `CfnLaunchTemplate.LicenseSpecificationProperty.LicenseConfigurationArn`.
 	LicenseConfigurationArn *string `json:"licenseConfigurationArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_MemoryGiBPerVCpuProperty struct {
 	// `CfnLaunchTemplate.MemoryGiBPerVCpuProperty.Max`.
 	Max *float64 `json:"max"`
@@ -16681,6 +16950,8 @@ type CfnLaunchTemplate_MemoryGiBPerVCpuProperty struct {
 	Min *float64 `json:"min"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_MemoryMiBProperty struct {
 	// `CfnLaunchTemplate.MemoryMiBProperty.Max`.
 	Max *float64 `json:"max"`
@@ -16688,6 +16959,8 @@ type CfnLaunchTemplate_MemoryMiBProperty struct {
 	Min *float64 `json:"min"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_MetadataOptionsProperty struct {
 	// `CfnLaunchTemplate.MetadataOptionsProperty.HttpEndpoint`.
 	HttpEndpoint *string `json:"httpEndpoint"`
@@ -16699,11 +16972,15 @@ type CfnLaunchTemplate_MetadataOptionsProperty struct {
 	HttpTokens *string `json:"httpTokens"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_MonitoringProperty struct {
 	// `CfnLaunchTemplate.MonitoringProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_NetworkInterfaceCountProperty struct {
 	// `CfnLaunchTemplate.NetworkInterfaceCountProperty.Max`.
 	Max *float64 `json:"max"`
@@ -16711,6 +16988,8 @@ type CfnLaunchTemplate_NetworkInterfaceCountProperty struct {
 	Min *float64 `json:"min"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_NetworkInterfaceProperty struct {
 	// `CfnLaunchTemplate.NetworkInterfaceProperty.AssociateCarrierIpAddress`.
 	AssociateCarrierIpAddress interface{} `json:"associateCarrierIpAddress"`
@@ -16744,6 +17023,8 @@ type CfnLaunchTemplate_NetworkInterfaceProperty struct {
 	SubnetId *string `json:"subnetId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_PlacementProperty struct {
 	// `CfnLaunchTemplate.PlacementProperty.Affinity`.
 	Affinity *string `json:"affinity"`
@@ -16763,6 +17044,8 @@ type CfnLaunchTemplate_PlacementProperty struct {
 	Tenancy *string `json:"tenancy"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_PrivateIpAddProperty struct {
 	// `CfnLaunchTemplate.PrivateIpAddProperty.Primary`.
 	Primary interface{} `json:"primary"`
@@ -16770,6 +17053,8 @@ type CfnLaunchTemplate_PrivateIpAddProperty struct {
 	PrivateIpAddress *string `json:"privateIpAddress"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_SpotOptionsProperty struct {
 	// `CfnLaunchTemplate.SpotOptionsProperty.BlockDurationMinutes`.
 	BlockDurationMinutes *float64 `json:"blockDurationMinutes"`
@@ -16783,6 +17068,8 @@ type CfnLaunchTemplate_SpotOptionsProperty struct {
 	ValidUntil *string `json:"validUntil"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_TagSpecificationProperty struct {
 	// `CfnLaunchTemplate.TagSpecificationProperty.ResourceType`.
 	ResourceType *string `json:"resourceType"`
@@ -16790,6 +17077,8 @@ type CfnLaunchTemplate_TagSpecificationProperty struct {
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_TotalLocalStorageGBProperty struct {
 	// `CfnLaunchTemplate.TotalLocalStorageGBProperty.Max`.
 	Max *float64 `json:"max"`
@@ -16797,6 +17086,8 @@ type CfnLaunchTemplate_TotalLocalStorageGBProperty struct {
 	Min *float64 `json:"min"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLaunchTemplate_VCpuCountProperty struct {
 	// `CfnLaunchTemplate.VCpuCountProperty.Max`.
 	Max *float64 `json:"max"`
@@ -16818,6 +17109,9 @@ type CfnLaunchTemplateProps struct {
 }
 
 // A CloudFormation `AWS::EC2::LocalGatewayRoute`.
+//
+// TODO: EXAMPLE
+//
 type CfnLocalGatewayRoute interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -17466,6 +17760,9 @@ func (c *jsiiProxy_CfnLocalGatewayRoute) ValidateProperties(_properties interfac
 }
 
 // Properties for defining a `AWS::EC2::LocalGatewayRoute`.
+//
+// TODO: EXAMPLE
+//
 type CfnLocalGatewayRouteProps struct {
 	// `AWS::EC2::LocalGatewayRoute.DestinationCidrBlock`.
 	DestinationCidrBlock *string `json:"destinationCidrBlock"`
@@ -17476,6 +17773,9 @@ type CfnLocalGatewayRouteProps struct {
 }
 
 // A CloudFormation `AWS::EC2::LocalGatewayRouteTableVPCAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnLocalGatewayRouteTableVPCAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -18126,16 +18426,22 @@ func (c *jsiiProxy_CfnLocalGatewayRouteTableVPCAssociation) ValidateProperties(_
 }
 
 // Properties for defining a `AWS::EC2::LocalGatewayRouteTableVPCAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnLocalGatewayRouteTableVPCAssociationProps struct {
 	// `AWS::EC2::LocalGatewayRouteTableVPCAssociation.LocalGatewayRouteTableId`.
 	LocalGatewayRouteTableId *string `json:"localGatewayRouteTableId"`
-	// `AWS::EC2::LocalGatewayRouteTableVPCAssociation.VpcId`.
-	VpcId *string `json:"vpcId"`
 	// `AWS::EC2::LocalGatewayRouteTableVPCAssociation.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::EC2::LocalGatewayRouteTableVPCAssociation.VpcId`.
+	VpcId *string `json:"vpcId"`
 }
 
 // A CloudFormation `AWS::EC2::NatGateway`.
+//
+// TODO: EXAMPLE
+//
 type CfnNatGateway interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -18773,18 +19079,24 @@ func (c *jsiiProxy_CfnNatGateway) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::EC2::NatGateway`.
+//
+// TODO: EXAMPLE
+//
 type CfnNatGatewayProps struct {
-	// `AWS::EC2::NatGateway.SubnetId`.
-	SubnetId *string `json:"subnetId"`
 	// `AWS::EC2::NatGateway.AllocationId`.
 	AllocationId *string `json:"allocationId"`
 	// `AWS::EC2::NatGateway.ConnectivityType`.
 	ConnectivityType *string `json:"connectivityType"`
+	// `AWS::EC2::NatGateway.SubnetId`.
+	SubnetId *string `json:"subnetId"`
 	// `AWS::EC2::NatGateway.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::NetworkAcl`.
+//
+// TODO: EXAMPLE
+//
 type CfnNetworkAcl interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -19393,6 +19705,9 @@ func (c *jsiiProxy_CfnNetworkAcl) ValidateProperties(_properties interface{}) {
 }
 
 // A CloudFormation `AWS::EC2::NetworkAclEntry`.
+//
+// TODO: EXAMPLE
+//
 type CfnNetworkAclEntry interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -20149,6 +20464,8 @@ func (c *jsiiProxy_CfnNetworkAclEntry) ValidateProperties(_properties interface{
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnNetworkAclEntry_IcmpProperty struct {
 	// `CfnNetworkAclEntry.IcmpProperty.Code`.
 	Code *float64 `json:"code"`
@@ -20156,6 +20473,8 @@ type CfnNetworkAclEntry_IcmpProperty struct {
 	Type *float64 `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnNetworkAclEntry_PortRangeProperty struct {
 	// `CfnNetworkAclEntry.PortRangeProperty.From`.
 	From *float64 `json:"from"`
@@ -20164,15 +20483,10 @@ type CfnNetworkAclEntry_PortRangeProperty struct {
 }
 
 // Properties for defining a `AWS::EC2::NetworkAclEntry`.
+//
+// TODO: EXAMPLE
+//
 type CfnNetworkAclEntryProps struct {
-	// `AWS::EC2::NetworkAclEntry.NetworkAclId`.
-	NetworkAclId *string `json:"networkAclId"`
-	// `AWS::EC2::NetworkAclEntry.Protocol`.
-	Protocol *float64 `json:"protocol"`
-	// `AWS::EC2::NetworkAclEntry.RuleAction`.
-	RuleAction *string `json:"ruleAction"`
-	// `AWS::EC2::NetworkAclEntry.RuleNumber`.
-	RuleNumber *float64 `json:"ruleNumber"`
 	// `AWS::EC2::NetworkAclEntry.CidrBlock`.
 	CidrBlock *string `json:"cidrBlock"`
 	// `AWS::EC2::NetworkAclEntry.Egress`.
@@ -20181,19 +20495,33 @@ type CfnNetworkAclEntryProps struct {
 	Icmp interface{} `json:"icmp"`
 	// `AWS::EC2::NetworkAclEntry.Ipv6CidrBlock`.
 	Ipv6CidrBlock *string `json:"ipv6CidrBlock"`
+	// `AWS::EC2::NetworkAclEntry.NetworkAclId`.
+	NetworkAclId *string `json:"networkAclId"`
 	// `AWS::EC2::NetworkAclEntry.PortRange`.
 	PortRange interface{} `json:"portRange"`
+	// `AWS::EC2::NetworkAclEntry.Protocol`.
+	Protocol *float64 `json:"protocol"`
+	// `AWS::EC2::NetworkAclEntry.RuleAction`.
+	RuleAction *string `json:"ruleAction"`
+	// `AWS::EC2::NetworkAclEntry.RuleNumber`.
+	RuleNumber *float64 `json:"ruleNumber"`
 }
 
 // Properties for defining a `AWS::EC2::NetworkAcl`.
+//
+// TODO: EXAMPLE
+//
 type CfnNetworkAclProps struct {
-	// `AWS::EC2::NetworkAcl.VpcId`.
-	VpcId *string `json:"vpcId"`
 	// `AWS::EC2::NetworkAcl.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::EC2::NetworkAcl.VpcId`.
+	VpcId *string `json:"vpcId"`
 }
 
 // A CloudFormation `AWS::EC2::NetworkInsightsAnalysis`.
+//
+// TODO: EXAMPLE
+//
 type CfnNetworkInsightsAnalysis interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -20920,6 +21248,8 @@ func (c *jsiiProxy_CfnNetworkInsightsAnalysis) ValidateProperties(_properties in
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnNetworkInsightsAnalysis_AlternatePathHintProperty struct {
 	// `CfnNetworkInsightsAnalysis.AlternatePathHintProperty.ComponentArn`.
 	ComponentArn *string `json:"componentArn"`
@@ -20927,6 +21257,8 @@ type CfnNetworkInsightsAnalysis_AlternatePathHintProperty struct {
 	ComponentId *string `json:"componentId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnNetworkInsightsAnalysis_AnalysisAclRuleProperty struct {
 	// `CfnNetworkInsightsAnalysis.AnalysisAclRuleProperty.Cidr`.
 	Cidr *string `json:"cidr"`
@@ -20942,6 +21274,8 @@ type CfnNetworkInsightsAnalysis_AnalysisAclRuleProperty struct {
 	RuleNumber *float64 `json:"ruleNumber"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnNetworkInsightsAnalysis_AnalysisComponentProperty struct {
 	// `CfnNetworkInsightsAnalysis.AnalysisComponentProperty.Arn`.
 	Arn *string `json:"arn"`
@@ -20949,6 +21283,8 @@ type CfnNetworkInsightsAnalysis_AnalysisComponentProperty struct {
 	Id *string `json:"id"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnNetworkInsightsAnalysis_AnalysisLoadBalancerListenerProperty struct {
 	// `CfnNetworkInsightsAnalysis.AnalysisLoadBalancerListenerProperty.InstancePort`.
 	InstancePort *float64 `json:"instancePort"`
@@ -20956,6 +21292,8 @@ type CfnNetworkInsightsAnalysis_AnalysisLoadBalancerListenerProperty struct {
 	LoadBalancerPort *float64 `json:"loadBalancerPort"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnNetworkInsightsAnalysis_AnalysisLoadBalancerTargetProperty struct {
 	// `CfnNetworkInsightsAnalysis.AnalysisLoadBalancerTargetProperty.Address`.
 	Address *string `json:"address"`
@@ -20967,6 +21305,8 @@ type CfnNetworkInsightsAnalysis_AnalysisLoadBalancerTargetProperty struct {
 	Port *float64 `json:"port"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnNetworkInsightsAnalysis_AnalysisPacketHeaderProperty struct {
 	// `CfnNetworkInsightsAnalysis.AnalysisPacketHeaderProperty.DestinationAddresses`.
 	DestinationAddresses *[]*string `json:"destinationAddresses"`
@@ -20980,6 +21320,8 @@ type CfnNetworkInsightsAnalysis_AnalysisPacketHeaderProperty struct {
 	SourcePortRanges interface{} `json:"sourcePortRanges"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnNetworkInsightsAnalysis_AnalysisRouteTableRouteProperty struct {
 	// `CfnNetworkInsightsAnalysis.AnalysisRouteTableRouteProperty.destinationCidr`.
 	DestinationCidr *string `json:"destinationCidr"`
@@ -21003,6 +21345,8 @@ type CfnNetworkInsightsAnalysis_AnalysisRouteTableRouteProperty struct {
 	VpcPeeringConnectionId *string `json:"vpcPeeringConnectionId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnNetworkInsightsAnalysis_AnalysisSecurityGroupRuleProperty struct {
 	// `CfnNetworkInsightsAnalysis.AnalysisSecurityGroupRuleProperty.Cidr`.
 	Cidr *string `json:"cidr"`
@@ -21018,6 +21362,8 @@ type CfnNetworkInsightsAnalysis_AnalysisSecurityGroupRuleProperty struct {
 	SecurityGroupId *string `json:"securityGroupId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnNetworkInsightsAnalysis_ExplanationProperty struct {
 	// `CfnNetworkInsightsAnalysis.ExplanationProperty.Acl`.
 	Acl interface{} `json:"acl"`
@@ -21111,6 +21457,8 @@ type CfnNetworkInsightsAnalysis_ExplanationProperty struct {
 	VpnGateway interface{} `json:"vpnGateway"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnNetworkInsightsAnalysis_PathComponentProperty struct {
 	// `CfnNetworkInsightsAnalysis.PathComponentProperty.AclRule`.
 	AclRule interface{} `json:"aclRule"`
@@ -21136,6 +21484,8 @@ type CfnNetworkInsightsAnalysis_PathComponentProperty struct {
 	Vpc interface{} `json:"vpc"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnNetworkInsightsAnalysis_PortRangeProperty struct {
 	// `CfnNetworkInsightsAnalysis.PortRangeProperty.From`.
 	From *float64 `json:"from"`
@@ -21144,16 +21494,22 @@ type CfnNetworkInsightsAnalysis_PortRangeProperty struct {
 }
 
 // Properties for defining a `AWS::EC2::NetworkInsightsAnalysis`.
+//
+// TODO: EXAMPLE
+//
 type CfnNetworkInsightsAnalysisProps struct {
-	// `AWS::EC2::NetworkInsightsAnalysis.NetworkInsightsPathId`.
-	NetworkInsightsPathId *string `json:"networkInsightsPathId"`
 	// `AWS::EC2::NetworkInsightsAnalysis.FilterInArns`.
 	FilterInArns *[]*string `json:"filterInArns"`
+	// `AWS::EC2::NetworkInsightsAnalysis.NetworkInsightsPathId`.
+	NetworkInsightsPathId *string `json:"networkInsightsPathId"`
 	// `AWS::EC2::NetworkInsightsAnalysis.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::NetworkInsightsPath`.
+//
+// TODO: EXAMPLE
+//
 type CfnNetworkInsightsPath interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -21884,17 +22240,20 @@ func (c *jsiiProxy_CfnNetworkInsightsPath) ValidateProperties(_properties interf
 }
 
 // Properties for defining a `AWS::EC2::NetworkInsightsPath`.
+//
+// TODO: EXAMPLE
+//
 type CfnNetworkInsightsPathProps struct {
 	// `AWS::EC2::NetworkInsightsPath.Destination`.
 	Destination *string `json:"destination"`
-	// `AWS::EC2::NetworkInsightsPath.Protocol`.
-	Protocol *string `json:"protocol"`
-	// `AWS::EC2::NetworkInsightsPath.Source`.
-	Source *string `json:"source"`
 	// `AWS::EC2::NetworkInsightsPath.DestinationIp`.
 	DestinationIp *string `json:"destinationIp"`
 	// `AWS::EC2::NetworkInsightsPath.DestinationPort`.
 	DestinationPort *float64 `json:"destinationPort"`
+	// `AWS::EC2::NetworkInsightsPath.Protocol`.
+	Protocol *string `json:"protocol"`
+	// `AWS::EC2::NetworkInsightsPath.Source`.
+	Source *string `json:"source"`
 	// `AWS::EC2::NetworkInsightsPath.SourceIp`.
 	SourceIp *string `json:"sourceIp"`
 	// `AWS::EC2::NetworkInsightsPath.Tags`.
@@ -21902,6 +22261,9 @@ type CfnNetworkInsightsPathProps struct {
 }
 
 // A CloudFormation `AWS::EC2::NetworkInterface`.
+//
+// TODO: EXAMPLE
+//
 type CfnNetworkInterface interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -22700,11 +23062,15 @@ func (c *jsiiProxy_CfnNetworkInterface) ValidateProperties(_properties interface
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnNetworkInterface_InstanceIpv6AddressProperty struct {
 	// `CfnNetworkInterface.InstanceIpv6AddressProperty.Ipv6Address`.
 	Ipv6Address *string `json:"ipv6Address"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnNetworkInterface_PrivateIpAddressSpecificationProperty struct {
 	// `CfnNetworkInterface.PrivateIpAddressSpecificationProperty.Primary`.
 	Primary interface{} `json:"primary"`
@@ -22713,6 +23079,9 @@ type CfnNetworkInterface_PrivateIpAddressSpecificationProperty struct {
 }
 
 // A CloudFormation `AWS::EC2::NetworkInterfaceAttachment`.
+//
+// TODO: EXAMPLE
+//
 type CfnNetworkInterfaceAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -23359,18 +23728,24 @@ func (c *jsiiProxy_CfnNetworkInterfaceAttachment) ValidateProperties(_properties
 }
 
 // Properties for defining a `AWS::EC2::NetworkInterfaceAttachment`.
+//
+// TODO: EXAMPLE
+//
 type CfnNetworkInterfaceAttachmentProps struct {
+	// `AWS::EC2::NetworkInterfaceAttachment.DeleteOnTermination`.
+	DeleteOnTermination interface{} `json:"deleteOnTermination"`
 	// `AWS::EC2::NetworkInterfaceAttachment.DeviceIndex`.
 	DeviceIndex *string `json:"deviceIndex"`
 	// `AWS::EC2::NetworkInterfaceAttachment.InstanceId`.
 	InstanceId *string `json:"instanceId"`
 	// `AWS::EC2::NetworkInterfaceAttachment.NetworkInterfaceId`.
 	NetworkInterfaceId *string `json:"networkInterfaceId"`
-	// `AWS::EC2::NetworkInterfaceAttachment.DeleteOnTermination`.
-	DeleteOnTermination interface{} `json:"deleteOnTermination"`
 }
 
 // A CloudFormation `AWS::EC2::NetworkInterfacePermission`.
+//
+// TODO: EXAMPLE
+//
 type CfnNetworkInterfacePermission interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -23997,6 +24372,9 @@ func (c *jsiiProxy_CfnNetworkInterfacePermission) ValidateProperties(_properties
 }
 
 // Properties for defining a `AWS::EC2::NetworkInterfacePermission`.
+//
+// TODO: EXAMPLE
+//
 type CfnNetworkInterfacePermissionProps struct {
 	// `AWS::EC2::NetworkInterfacePermission.AwsAccountId`.
 	AwsAccountId *string `json:"awsAccountId"`
@@ -24007,9 +24385,10 @@ type CfnNetworkInterfacePermissionProps struct {
 }
 
 // Properties for defining a `AWS::EC2::NetworkInterface`.
+//
+// TODO: EXAMPLE
+//
 type CfnNetworkInterfaceProps struct {
-	// `AWS::EC2::NetworkInterface.SubnetId`.
-	SubnetId *string `json:"subnetId"`
 	// `AWS::EC2::NetworkInterface.Description`.
 	Description *string `json:"description"`
 	// `AWS::EC2::NetworkInterface.GroupSet`.
@@ -24028,11 +24407,16 @@ type CfnNetworkInterfaceProps struct {
 	SecondaryPrivateIpAddressCount *float64 `json:"secondaryPrivateIpAddressCount"`
 	// `AWS::EC2::NetworkInterface.SourceDestCheck`.
 	SourceDestCheck interface{} `json:"sourceDestCheck"`
+	// `AWS::EC2::NetworkInterface.SubnetId`.
+	SubnetId *string `json:"subnetId"`
 	// `AWS::EC2::NetworkInterface.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::PlacementGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnPlacementGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -24619,12 +25003,18 @@ func (c *jsiiProxy_CfnPlacementGroup) ValidateProperties(_properties interface{}
 }
 
 // Properties for defining a `AWS::EC2::PlacementGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnPlacementGroupProps struct {
 	// `AWS::EC2::PlacementGroup.Strategy`.
 	Strategy *string `json:"strategy"`
 }
 
 // A CloudFormation `AWS::EC2::PrefixList`.
+//
+// TODO: EXAMPLE
+//
 type CfnPrefixList interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -25325,6 +25715,8 @@ func (c *jsiiProxy_CfnPrefixList) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnPrefixList_EntryProperty struct {
 	// `CfnPrefixList.EntryProperty.Cidr`.
 	Cidr *string `json:"cidr"`
@@ -25333,20 +25725,26 @@ type CfnPrefixList_EntryProperty struct {
 }
 
 // Properties for defining a `AWS::EC2::PrefixList`.
+//
+// TODO: EXAMPLE
+//
 type CfnPrefixListProps struct {
 	// `AWS::EC2::PrefixList.AddressFamily`.
 	AddressFamily *string `json:"addressFamily"`
+	// `AWS::EC2::PrefixList.Entries`.
+	Entries interface{} `json:"entries"`
 	// `AWS::EC2::PrefixList.MaxEntries`.
 	MaxEntries *float64 `json:"maxEntries"`
 	// `AWS::EC2::PrefixList.PrefixListName`.
 	PrefixListName *string `json:"prefixListName"`
-	// `AWS::EC2::PrefixList.Entries`.
-	Entries interface{} `json:"entries"`
 	// `AWS::EC2::PrefixList.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::Route`.
+//
+// TODO: EXAMPLE
+//
 type CfnRoute interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -26173,9 +26571,10 @@ func (c *jsiiProxy_CfnRoute) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::EC2::Route`.
+//
+// TODO: EXAMPLE
+//
 type CfnRouteProps struct {
-	// `AWS::EC2::Route.RouteTableId`.
-	RouteTableId *string `json:"routeTableId"`
 	// `AWS::EC2::Route.CarrierGatewayId`.
 	CarrierGatewayId *string `json:"carrierGatewayId"`
 	// `AWS::EC2::Route.DestinationCidrBlock`.
@@ -26194,6 +26593,8 @@ type CfnRouteProps struct {
 	NatGatewayId *string `json:"natGatewayId"`
 	// `AWS::EC2::Route.NetworkInterfaceId`.
 	NetworkInterfaceId *string `json:"networkInterfaceId"`
+	// `AWS::EC2::Route.RouteTableId`.
+	RouteTableId *string `json:"routeTableId"`
 	// `AWS::EC2::Route.TransitGatewayId`.
 	TransitGatewayId *string `json:"transitGatewayId"`
 	// `AWS::EC2::Route.VpcEndpointId`.
@@ -26203,6 +26604,9 @@ type CfnRouteProps struct {
 }
 
 // A CloudFormation `AWS::EC2::RouteTable`.
+//
+// TODO: EXAMPLE
+//
 type CfnRouteTable interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -26811,14 +27215,20 @@ func (c *jsiiProxy_CfnRouteTable) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::EC2::RouteTable`.
+//
+// TODO: EXAMPLE
+//
 type CfnRouteTableProps struct {
-	// `AWS::EC2::RouteTable.VpcId`.
-	VpcId *string `json:"vpcId"`
 	// `AWS::EC2::RouteTable.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::EC2::RouteTable.VpcId`.
+	VpcId *string `json:"vpcId"`
 }
 
 // A CloudFormation `AWS::EC2::SecurityGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnSecurityGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -27517,9 +27927,9 @@ func (c *jsiiProxy_CfnSecurityGroup) ValidateProperties(_properties interface{})
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnSecurityGroup_EgressProperty struct {
-	// `CfnSecurityGroup.EgressProperty.IpProtocol`.
-	IpProtocol *string `json:"ipProtocol"`
 	// `CfnSecurityGroup.EgressProperty.CidrIp`.
 	CidrIp *string `json:"cidrIp"`
 	// `CfnSecurityGroup.EgressProperty.CidrIpv6`.
@@ -27532,13 +27942,15 @@ type CfnSecurityGroup_EgressProperty struct {
 	DestinationSecurityGroupId *string `json:"destinationSecurityGroupId"`
 	// `CfnSecurityGroup.EgressProperty.FromPort`.
 	FromPort *float64 `json:"fromPort"`
+	// `CfnSecurityGroup.EgressProperty.IpProtocol`.
+	IpProtocol *string `json:"ipProtocol"`
 	// `CfnSecurityGroup.EgressProperty.ToPort`.
 	ToPort *float64 `json:"toPort"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSecurityGroup_IngressProperty struct {
-	// `CfnSecurityGroup.IngressProperty.IpProtocol`.
-	IpProtocol *string `json:"ipProtocol"`
 	// `CfnSecurityGroup.IngressProperty.CidrIp`.
 	CidrIp *string `json:"cidrIp"`
 	// `CfnSecurityGroup.IngressProperty.CidrIpv6`.
@@ -27547,6 +27959,8 @@ type CfnSecurityGroup_IngressProperty struct {
 	Description *string `json:"description"`
 	// `CfnSecurityGroup.IngressProperty.FromPort`.
 	FromPort *float64 `json:"fromPort"`
+	// `CfnSecurityGroup.IngressProperty.IpProtocol`.
+	IpProtocol *string `json:"ipProtocol"`
 	// `CfnSecurityGroup.IngressProperty.SourcePrefixListId`.
 	SourcePrefixListId *string `json:"sourcePrefixListId"`
 	// `CfnSecurityGroup.IngressProperty.SourceSecurityGroupId`.
@@ -27560,6 +27974,9 @@ type CfnSecurityGroup_IngressProperty struct {
 }
 
 // A CloudFormation `AWS::EC2::SecurityGroupEgress`.
+//
+// TODO: EXAMPLE
+//
 type CfnSecurityGroupEgress interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -28306,11 +28723,10 @@ func (c *jsiiProxy_CfnSecurityGroupEgress) ValidateProperties(_properties interf
 }
 
 // Properties for defining a `AWS::EC2::SecurityGroupEgress`.
+//
+// TODO: EXAMPLE
+//
 type CfnSecurityGroupEgressProps struct {
-	// `AWS::EC2::SecurityGroupEgress.GroupId`.
-	GroupId *string `json:"groupId"`
-	// `AWS::EC2::SecurityGroupEgress.IpProtocol`.
-	IpProtocol *string `json:"ipProtocol"`
 	// `AWS::EC2::SecurityGroupEgress.CidrIp`.
 	CidrIp *string `json:"cidrIp"`
 	// `AWS::EC2::SecurityGroupEgress.CidrIpv6`.
@@ -28323,11 +28739,18 @@ type CfnSecurityGroupEgressProps struct {
 	DestinationSecurityGroupId *string `json:"destinationSecurityGroupId"`
 	// `AWS::EC2::SecurityGroupEgress.FromPort`.
 	FromPort *float64 `json:"fromPort"`
+	// `AWS::EC2::SecurityGroupEgress.GroupId`.
+	GroupId *string `json:"groupId"`
+	// `AWS::EC2::SecurityGroupEgress.IpProtocol`.
+	IpProtocol *string `json:"ipProtocol"`
 	// `AWS::EC2::SecurityGroupEgress.ToPort`.
 	ToPort *float64 `json:"toPort"`
 }
 
 // A CloudFormation `AWS::EC2::SecurityGroupIngress`.
+//
+// TODO: EXAMPLE
+//
 type CfnSecurityGroupIngress interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -29134,9 +29557,10 @@ func (c *jsiiProxy_CfnSecurityGroupIngress) ValidateProperties(_properties inter
 }
 
 // Properties for defining a `AWS::EC2::SecurityGroupIngress`.
+//
+// TODO: EXAMPLE
+//
 type CfnSecurityGroupIngressProps struct {
-	// `AWS::EC2::SecurityGroupIngress.IpProtocol`.
-	IpProtocol *string `json:"ipProtocol"`
 	// `AWS::EC2::SecurityGroupIngress.CidrIp`.
 	CidrIp *string `json:"cidrIp"`
 	// `AWS::EC2::SecurityGroupIngress.CidrIpv6`.
@@ -29149,6 +29573,8 @@ type CfnSecurityGroupIngressProps struct {
 	GroupId *string `json:"groupId"`
 	// `AWS::EC2::SecurityGroupIngress.GroupName`.
 	GroupName *string `json:"groupName"`
+	// `AWS::EC2::SecurityGroupIngress.IpProtocol`.
+	IpProtocol *string `json:"ipProtocol"`
 	// `AWS::EC2::SecurityGroupIngress.SourcePrefixListId`.
 	SourcePrefixListId *string `json:"sourcePrefixListId"`
 	// `AWS::EC2::SecurityGroupIngress.SourceSecurityGroupId`.
@@ -29162,6 +29588,9 @@ type CfnSecurityGroupIngressProps struct {
 }
 
 // Properties for defining a `AWS::EC2::SecurityGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnSecurityGroupProps struct {
 	// `AWS::EC2::SecurityGroup.GroupDescription`.
 	GroupDescription *string `json:"groupDescription"`
@@ -29178,6 +29607,9 @@ type CfnSecurityGroupProps struct {
 }
 
 // A CloudFormation `AWS::EC2::SpotFleet`.
+//
+// TODO: EXAMPLE
+//
 type CfnSpotFleet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -29774,6 +30206,8 @@ func (c *jsiiProxy_CfnSpotFleet) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_AcceleratorCountRequestProperty struct {
 	// `CfnSpotFleet.AcceleratorCountRequestProperty.Max`.
 	Max *float64 `json:"max"`
@@ -29781,6 +30215,8 @@ type CfnSpotFleet_AcceleratorCountRequestProperty struct {
 	Min *float64 `json:"min"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_AcceleratorTotalMemoryMiBRequestProperty struct {
 	// `CfnSpotFleet.AcceleratorTotalMemoryMiBRequestProperty.Max`.
 	Max *float64 `json:"max"`
@@ -29788,6 +30224,8 @@ type CfnSpotFleet_AcceleratorTotalMemoryMiBRequestProperty struct {
 	Min *float64 `json:"min"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_BaselineEbsBandwidthMbpsRequestProperty struct {
 	// `CfnSpotFleet.BaselineEbsBandwidthMbpsRequestProperty.Max`.
 	Max *float64 `json:"max"`
@@ -29795,6 +30233,8 @@ type CfnSpotFleet_BaselineEbsBandwidthMbpsRequestProperty struct {
 	Min *float64 `json:"min"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_BlockDeviceMappingProperty struct {
 	// `CfnSpotFleet.BlockDeviceMappingProperty.DeviceName`.
 	DeviceName *string `json:"deviceName"`
@@ -29806,16 +30246,22 @@ type CfnSpotFleet_BlockDeviceMappingProperty struct {
 	VirtualName *string `json:"virtualName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_ClassicLoadBalancerProperty struct {
 	// `CfnSpotFleet.ClassicLoadBalancerProperty.Name`.
 	Name *string `json:"name"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_ClassicLoadBalancersConfigProperty struct {
 	// `CfnSpotFleet.ClassicLoadBalancersConfigProperty.ClassicLoadBalancers`.
 	ClassicLoadBalancers interface{} `json:"classicLoadBalancers"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_EbsBlockDeviceProperty struct {
 	// `CfnSpotFleet.EbsBlockDeviceProperty.DeleteOnTermination`.
 	DeleteOnTermination interface{} `json:"deleteOnTermination"`
@@ -29831,30 +30277,40 @@ type CfnSpotFleet_EbsBlockDeviceProperty struct {
 	VolumeType *string `json:"volumeType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_FleetLaunchTemplateSpecificationProperty struct {
-	// `CfnSpotFleet.FleetLaunchTemplateSpecificationProperty.Version`.
-	Version *string `json:"version"`
 	// `CfnSpotFleet.FleetLaunchTemplateSpecificationProperty.LaunchTemplateId`.
 	LaunchTemplateId *string `json:"launchTemplateId"`
 	// `CfnSpotFleet.FleetLaunchTemplateSpecificationProperty.LaunchTemplateName`.
 	LaunchTemplateName *string `json:"launchTemplateName"`
+	// `CfnSpotFleet.FleetLaunchTemplateSpecificationProperty.Version`.
+	Version *string `json:"version"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_GroupIdentifierProperty struct {
 	// `CfnSpotFleet.GroupIdentifierProperty.GroupId`.
 	GroupId *string `json:"groupId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_IamInstanceProfileSpecificationProperty struct {
 	// `CfnSpotFleet.IamInstanceProfileSpecificationProperty.Arn`.
 	Arn *string `json:"arn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_InstanceIpv6AddressProperty struct {
 	// `CfnSpotFleet.InstanceIpv6AddressProperty.Ipv6Address`.
 	Ipv6Address *string `json:"ipv6Address"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_InstanceNetworkInterfaceSpecificationProperty struct {
 	// `CfnSpotFleet.InstanceNetworkInterfaceSpecificationProperty.AssociatePublicIpAddress`.
 	AssociatePublicIpAddress interface{} `json:"associatePublicIpAddress"`
@@ -29880,6 +30336,8 @@ type CfnSpotFleet_InstanceNetworkInterfaceSpecificationProperty struct {
 	SubnetId *string `json:"subnetId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_InstanceRequirementsRequestProperty struct {
 	// `CfnSpotFleet.InstanceRequirementsRequestProperty.AcceleratorCount`.
 	AcceleratorCount interface{} `json:"acceleratorCount"`
@@ -29925,6 +30383,8 @@ type CfnSpotFleet_InstanceRequirementsRequestProperty struct {
 	VCpuCount interface{} `json:"vCpuCount"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_LaunchTemplateConfigProperty struct {
 	// `CfnSpotFleet.LaunchTemplateConfigProperty.LaunchTemplateSpecification`.
 	LaunchTemplateSpecification interface{} `json:"launchTemplateSpecification"`
@@ -29932,6 +30392,8 @@ type CfnSpotFleet_LaunchTemplateConfigProperty struct {
 	Overrides interface{} `json:"overrides"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_LaunchTemplateOverridesProperty struct {
 	// `CfnSpotFleet.LaunchTemplateOverridesProperty.AvailabilityZone`.
 	AvailabilityZone *string `json:"availabilityZone"`
@@ -29947,6 +30409,8 @@ type CfnSpotFleet_LaunchTemplateOverridesProperty struct {
 	WeightedCapacity *float64 `json:"weightedCapacity"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_LoadBalancersConfigProperty struct {
 	// `CfnSpotFleet.LoadBalancersConfigProperty.ClassicLoadBalancersConfig`.
 	ClassicLoadBalancersConfig interface{} `json:"classicLoadBalancersConfig"`
@@ -29954,6 +30418,8 @@ type CfnSpotFleet_LoadBalancersConfigProperty struct {
 	TargetGroupsConfig interface{} `json:"targetGroupsConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_MemoryGiBPerVCpuRequestProperty struct {
 	// `CfnSpotFleet.MemoryGiBPerVCpuRequestProperty.Max`.
 	Max *float64 `json:"max"`
@@ -29961,6 +30427,8 @@ type CfnSpotFleet_MemoryGiBPerVCpuRequestProperty struct {
 	Min *float64 `json:"min"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_MemoryMiBRequestProperty struct {
 	// `CfnSpotFleet.MemoryMiBRequestProperty.Max`.
 	Max *float64 `json:"max"`
@@ -29968,6 +30436,8 @@ type CfnSpotFleet_MemoryMiBRequestProperty struct {
 	Min *float64 `json:"min"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_NetworkInterfaceCountRequestProperty struct {
 	// `CfnSpotFleet.NetworkInterfaceCountRequestProperty.Max`.
 	Max *float64 `json:"max"`
@@ -29975,13 +30445,17 @@ type CfnSpotFleet_NetworkInterfaceCountRequestProperty struct {
 	Min *float64 `json:"min"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_PrivateIpAddressSpecificationProperty struct {
-	// `CfnSpotFleet.PrivateIpAddressSpecificationProperty.PrivateIpAddress`.
-	PrivateIpAddress *string `json:"privateIpAddress"`
 	// `CfnSpotFleet.PrivateIpAddressSpecificationProperty.Primary`.
 	Primary interface{} `json:"primary"`
+	// `CfnSpotFleet.PrivateIpAddressSpecificationProperty.PrivateIpAddress`.
+	PrivateIpAddress *string `json:"privateIpAddress"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_SpotCapacityRebalanceProperty struct {
 	// `CfnSpotFleet.SpotCapacityRebalanceProperty.ReplacementStrategy`.
 	ReplacementStrategy *string `json:"replacementStrategy"`
@@ -29989,15 +30463,17 @@ type CfnSpotFleet_SpotCapacityRebalanceProperty struct {
 	TerminationDelay *float64 `json:"terminationDelay"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_SpotFleetLaunchSpecificationProperty struct {
-	// `CfnSpotFleet.SpotFleetLaunchSpecificationProperty.ImageId`.
-	ImageId *string `json:"imageId"`
 	// `CfnSpotFleet.SpotFleetLaunchSpecificationProperty.BlockDeviceMappings`.
 	BlockDeviceMappings interface{} `json:"blockDeviceMappings"`
 	// `CfnSpotFleet.SpotFleetLaunchSpecificationProperty.EbsOptimized`.
 	EbsOptimized interface{} `json:"ebsOptimized"`
 	// `CfnSpotFleet.SpotFleetLaunchSpecificationProperty.IamInstanceProfile`.
 	IamInstanceProfile interface{} `json:"iamInstanceProfile"`
+	// `CfnSpotFleet.SpotFleetLaunchSpecificationProperty.ImageId`.
+	ImageId *string `json:"imageId"`
 	// `CfnSpotFleet.SpotFleetLaunchSpecificationProperty.InstanceRequirements`.
 	InstanceRequirements interface{} `json:"instanceRequirements"`
 	// `CfnSpotFleet.SpotFleetLaunchSpecificationProperty.InstanceType`.
@@ -30028,22 +30504,24 @@ type CfnSpotFleet_SpotFleetLaunchSpecificationProperty struct {
 	WeightedCapacity *float64 `json:"weightedCapacity"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_SpotFleetMonitoringProperty struct {
 	// `CfnSpotFleet.SpotFleetMonitoringProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_SpotFleetRequestConfigDataProperty struct {
-	// `CfnSpotFleet.SpotFleetRequestConfigDataProperty.IamFleetRole`.
-	IamFleetRole *string `json:"iamFleetRole"`
-	// `CfnSpotFleet.SpotFleetRequestConfigDataProperty.TargetCapacity`.
-	TargetCapacity *float64 `json:"targetCapacity"`
 	// `CfnSpotFleet.SpotFleetRequestConfigDataProperty.AllocationStrategy`.
 	AllocationStrategy *string `json:"allocationStrategy"`
 	// `CfnSpotFleet.SpotFleetRequestConfigDataProperty.Context`.
 	Context *string `json:"context"`
 	// `CfnSpotFleet.SpotFleetRequestConfigDataProperty.ExcessCapacityTerminationPolicy`.
 	ExcessCapacityTerminationPolicy *string `json:"excessCapacityTerminationPolicy"`
+	// `CfnSpotFleet.SpotFleetRequestConfigDataProperty.IamFleetRole`.
+	IamFleetRole *string `json:"iamFleetRole"`
 	// `CfnSpotFleet.SpotFleetRequestConfigDataProperty.InstanceInterruptionBehavior`.
 	InstanceInterruptionBehavior *string `json:"instanceInterruptionBehavior"`
 	// `CfnSpotFleet.SpotFleetRequestConfigDataProperty.InstancePoolsToUseCount`.
@@ -30068,6 +30546,8 @@ type CfnSpotFleet_SpotFleetRequestConfigDataProperty struct {
 	SpotMaxTotalPrice *string `json:"spotMaxTotalPrice"`
 	// `CfnSpotFleet.SpotFleetRequestConfigDataProperty.SpotPrice`.
 	SpotPrice *string `json:"spotPrice"`
+	// `CfnSpotFleet.SpotFleetRequestConfigDataProperty.TargetCapacity`.
+	TargetCapacity *float64 `json:"targetCapacity"`
 	// `CfnSpotFleet.SpotFleetRequestConfigDataProperty.TargetCapacityUnitType`.
 	TargetCapacityUnitType *string `json:"targetCapacityUnitType"`
 	// `CfnSpotFleet.SpotFleetRequestConfigDataProperty.TerminateInstancesWithExpiration`.
@@ -30080,6 +30560,8 @@ type CfnSpotFleet_SpotFleetRequestConfigDataProperty struct {
 	ValidUntil *string `json:"validUntil"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_SpotFleetTagSpecificationProperty struct {
 	// `CfnSpotFleet.SpotFleetTagSpecificationProperty.ResourceType`.
 	ResourceType *string `json:"resourceType"`
@@ -30087,11 +30569,15 @@ type CfnSpotFleet_SpotFleetTagSpecificationProperty struct {
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_SpotMaintenanceStrategiesProperty struct {
 	// `CfnSpotFleet.SpotMaintenanceStrategiesProperty.CapacityRebalance`.
 	CapacityRebalance interface{} `json:"capacityRebalance"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_SpotPlacementProperty struct {
 	// `CfnSpotFleet.SpotPlacementProperty.AvailabilityZone`.
 	AvailabilityZone *string `json:"availabilityZone"`
@@ -30101,16 +30587,22 @@ type CfnSpotFleet_SpotPlacementProperty struct {
 	Tenancy *string `json:"tenancy"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_TargetGroupProperty struct {
 	// `CfnSpotFleet.TargetGroupProperty.Arn`.
 	Arn *string `json:"arn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_TargetGroupsConfigProperty struct {
 	// `CfnSpotFleet.TargetGroupsConfigProperty.TargetGroups`.
 	TargetGroups interface{} `json:"targetGroups"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_TotalLocalStorageGBRequestProperty struct {
 	// `CfnSpotFleet.TotalLocalStorageGBRequestProperty.Max`.
 	Max *float64 `json:"max"`
@@ -30118,6 +30610,8 @@ type CfnSpotFleet_TotalLocalStorageGBRequestProperty struct {
 	Min *float64 `json:"min"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSpotFleet_VCpuCountRangeRequestProperty struct {
 	// `CfnSpotFleet.VCpuCountRangeRequestProperty.Max`.
 	Max *float64 `json:"max"`
@@ -30126,12 +30620,18 @@ type CfnSpotFleet_VCpuCountRangeRequestProperty struct {
 }
 
 // Properties for defining a `AWS::EC2::SpotFleet`.
+//
+// TODO: EXAMPLE
+//
 type CfnSpotFleetProps struct {
 	// `AWS::EC2::SpotFleet.SpotFleetRequestConfigData`.
 	SpotFleetRequestConfigData interface{} `json:"spotFleetRequestConfigData"`
 }
 
 // A CloudFormation `AWS::EC2::Subnet`.
+//
+// TODO: EXAMPLE
+//
 type CfnSubnet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -30904,6 +31404,9 @@ func (c *jsiiProxy_CfnSubnet) ValidateProperties(_properties interface{}) {
 }
 
 // A CloudFormation `AWS::EC2::SubnetCidrBlock`.
+//
+// TODO: EXAMPLE
+//
 type CfnSubnetCidrBlock interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -31510,6 +32013,9 @@ func (c *jsiiProxy_CfnSubnetCidrBlock) ValidateProperties(_properties interface{
 }
 
 // Properties for defining a `AWS::EC2::SubnetCidrBlock`.
+//
+// TODO: EXAMPLE
+//
 type CfnSubnetCidrBlockProps struct {
 	// `AWS::EC2::SubnetCidrBlock.Ipv6CidrBlock`.
 	Ipv6CidrBlock *string `json:"ipv6CidrBlock"`
@@ -31518,6 +32024,9 @@ type CfnSubnetCidrBlockProps struct {
 }
 
 // A CloudFormation `AWS::EC2::SubnetNetworkAclAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnSubnetNetworkAclAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -32135,6 +32644,9 @@ func (c *jsiiProxy_CfnSubnetNetworkAclAssociation) ValidateProperties(_propertie
 }
 
 // Properties for defining a `AWS::EC2::SubnetNetworkAclAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnSubnetNetworkAclAssociationProps struct {
 	// `AWS::EC2::SubnetNetworkAclAssociation.NetworkAclId`.
 	NetworkAclId *string `json:"networkAclId"`
@@ -32143,15 +32655,16 @@ type CfnSubnetNetworkAclAssociationProps struct {
 }
 
 // Properties for defining a `AWS::EC2::Subnet`.
+//
+// TODO: EXAMPLE
+//
 type CfnSubnetProps struct {
-	// `AWS::EC2::Subnet.CidrBlock`.
-	CidrBlock *string `json:"cidrBlock"`
-	// `AWS::EC2::Subnet.VpcId`.
-	VpcId *string `json:"vpcId"`
 	// `AWS::EC2::Subnet.AssignIpv6AddressOnCreation`.
 	AssignIpv6AddressOnCreation interface{} `json:"assignIpv6AddressOnCreation"`
 	// `AWS::EC2::Subnet.AvailabilityZone`.
 	AvailabilityZone *string `json:"availabilityZone"`
+	// `AWS::EC2::Subnet.CidrBlock`.
+	CidrBlock *string `json:"cidrBlock"`
 	// `AWS::EC2::Subnet.Ipv6CidrBlock`.
 	Ipv6CidrBlock *string `json:"ipv6CidrBlock"`
 	// `AWS::EC2::Subnet.MapPublicIpOnLaunch`.
@@ -32160,9 +32673,14 @@ type CfnSubnetProps struct {
 	OutpostArn *string `json:"outpostArn"`
 	// `AWS::EC2::Subnet.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::EC2::Subnet.VpcId`.
+	VpcId *string `json:"vpcId"`
 }
 
 // A CloudFormation `AWS::EC2::SubnetRouteTableAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnSubnetRouteTableAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -32769,6 +33287,9 @@ func (c *jsiiProxy_CfnSubnetRouteTableAssociation) ValidateProperties(_propertie
 }
 
 // Properties for defining a `AWS::EC2::SubnetRouteTableAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnSubnetRouteTableAssociationProps struct {
 	// `AWS::EC2::SubnetRouteTableAssociation.RouteTableId`.
 	RouteTableId *string `json:"routeTableId"`
@@ -32777,6 +33298,9 @@ type CfnSubnetRouteTableAssociationProps struct {
 }
 
 // A CloudFormation `AWS::EC2::TrafficMirrorFilter`.
+//
+// TODO: EXAMPLE
+//
 type CfnTrafficMirrorFilter interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -33394,6 +33918,9 @@ func (c *jsiiProxy_CfnTrafficMirrorFilter) ValidateProperties(_properties interf
 }
 
 // Properties for defining a `AWS::EC2::TrafficMirrorFilter`.
+//
+// TODO: EXAMPLE
+//
 type CfnTrafficMirrorFilterProps struct {
 	// `AWS::EC2::TrafficMirrorFilter.Description`.
 	Description *string `json:"description"`
@@ -33404,6 +33931,9 @@ type CfnTrafficMirrorFilterProps struct {
 }
 
 // A CloudFormation `AWS::EC2::TrafficMirrorFilterRule`.
+//
+// TODO: EXAMPLE
+//
 type CfnTrafficMirrorFilterRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -34169,6 +34699,8 @@ func (c *jsiiProxy_CfnTrafficMirrorFilterRule) ValidateProperties(_properties in
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnTrafficMirrorFilterRule_TrafficMirrorPortRangeProperty struct {
 	// `CfnTrafficMirrorFilterRule.TrafficMirrorPortRangeProperty.FromPort`.
 	FromPort *float64 `json:"fromPort"`
@@ -34177,30 +34709,36 @@ type CfnTrafficMirrorFilterRule_TrafficMirrorPortRangeProperty struct {
 }
 
 // Properties for defining a `AWS::EC2::TrafficMirrorFilterRule`.
+//
+// TODO: EXAMPLE
+//
 type CfnTrafficMirrorFilterRuleProps struct {
+	// `AWS::EC2::TrafficMirrorFilterRule.Description`.
+	Description *string `json:"description"`
 	// `AWS::EC2::TrafficMirrorFilterRule.DestinationCidrBlock`.
 	DestinationCidrBlock *string `json:"destinationCidrBlock"`
+	// `AWS::EC2::TrafficMirrorFilterRule.DestinationPortRange`.
+	DestinationPortRange interface{} `json:"destinationPortRange"`
+	// `AWS::EC2::TrafficMirrorFilterRule.Protocol`.
+	Protocol *float64 `json:"protocol"`
 	// `AWS::EC2::TrafficMirrorFilterRule.RuleAction`.
 	RuleAction *string `json:"ruleAction"`
 	// `AWS::EC2::TrafficMirrorFilterRule.RuleNumber`.
 	RuleNumber *float64 `json:"ruleNumber"`
 	// `AWS::EC2::TrafficMirrorFilterRule.SourceCidrBlock`.
 	SourceCidrBlock *string `json:"sourceCidrBlock"`
+	// `AWS::EC2::TrafficMirrorFilterRule.SourcePortRange`.
+	SourcePortRange interface{} `json:"sourcePortRange"`
 	// `AWS::EC2::TrafficMirrorFilterRule.TrafficDirection`.
 	TrafficDirection *string `json:"trafficDirection"`
 	// `AWS::EC2::TrafficMirrorFilterRule.TrafficMirrorFilterId`.
 	TrafficMirrorFilterId *string `json:"trafficMirrorFilterId"`
-	// `AWS::EC2::TrafficMirrorFilterRule.Description`.
-	Description *string `json:"description"`
-	// `AWS::EC2::TrafficMirrorFilterRule.DestinationPortRange`.
-	DestinationPortRange interface{} `json:"destinationPortRange"`
-	// `AWS::EC2::TrafficMirrorFilterRule.Protocol`.
-	Protocol *float64 `json:"protocol"`
-	// `AWS::EC2::TrafficMirrorFilterRule.SourcePortRange`.
-	SourcePortRange interface{} `json:"sourcePortRange"`
 }
 
 // A CloudFormation `AWS::EC2::TrafficMirrorSession`.
+//
+// TODO: EXAMPLE
+//
 type CfnTrafficMirrorSession interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -34918,26 +35456,32 @@ func (c *jsiiProxy_CfnTrafficMirrorSession) ValidateProperties(_properties inter
 }
 
 // Properties for defining a `AWS::EC2::TrafficMirrorSession`.
+//
+// TODO: EXAMPLE
+//
 type CfnTrafficMirrorSessionProps struct {
+	// `AWS::EC2::TrafficMirrorSession.Description`.
+	Description *string `json:"description"`
 	// `AWS::EC2::TrafficMirrorSession.NetworkInterfaceId`.
 	NetworkInterfaceId *string `json:"networkInterfaceId"`
+	// `AWS::EC2::TrafficMirrorSession.PacketLength`.
+	PacketLength *float64 `json:"packetLength"`
 	// `AWS::EC2::TrafficMirrorSession.SessionNumber`.
 	SessionNumber *float64 `json:"sessionNumber"`
+	// `AWS::EC2::TrafficMirrorSession.Tags`.
+	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::EC2::TrafficMirrorSession.TrafficMirrorFilterId`.
 	TrafficMirrorFilterId *string `json:"trafficMirrorFilterId"`
 	// `AWS::EC2::TrafficMirrorSession.TrafficMirrorTargetId`.
 	TrafficMirrorTargetId *string `json:"trafficMirrorTargetId"`
-	// `AWS::EC2::TrafficMirrorSession.Description`.
-	Description *string `json:"description"`
-	// `AWS::EC2::TrafficMirrorSession.PacketLength`.
-	PacketLength *float64 `json:"packetLength"`
-	// `AWS::EC2::TrafficMirrorSession.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::EC2::TrafficMirrorSession.VirtualNetworkId`.
 	VirtualNetworkId *float64 `json:"virtualNetworkId"`
 }
 
 // A CloudFormation `AWS::EC2::TrafficMirrorTarget`.
+//
+// TODO: EXAMPLE
+//
 type CfnTrafficMirrorTarget interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -35575,6 +36119,9 @@ func (c *jsiiProxy_CfnTrafficMirrorTarget) ValidateProperties(_properties interf
 }
 
 // Properties for defining a `AWS::EC2::TrafficMirrorTarget`.
+//
+// TODO: EXAMPLE
+//
 type CfnTrafficMirrorTargetProps struct {
 	// `AWS::EC2::TrafficMirrorTarget.Description`.
 	Description *string `json:"description"`
@@ -35587,6 +36134,9 @@ type CfnTrafficMirrorTargetProps struct {
 }
 
 // A CloudFormation `AWS::EC2::TransitGateway`.
+//
+// TODO: EXAMPLE
+//
 type CfnTransitGateway interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -36395,6 +36945,9 @@ func (c *jsiiProxy_CfnTransitGateway) ValidateProperties(_properties interface{}
 }
 
 // A CloudFormation `AWS::EC2::TransitGatewayAttachment`.
+//
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -37032,18 +37585,24 @@ func (c *jsiiProxy_CfnTransitGatewayAttachment) ValidateProperties(_properties i
 }
 
 // Properties for defining a `AWS::EC2::TransitGatewayAttachment`.
+//
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayAttachmentProps struct {
 	// `AWS::EC2::TransitGatewayAttachment.SubnetIds`.
 	SubnetIds *[]*string `json:"subnetIds"`
+	// `AWS::EC2::TransitGatewayAttachment.Tags`.
+	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::EC2::TransitGatewayAttachment.TransitGatewayId`.
 	TransitGatewayId *string `json:"transitGatewayId"`
 	// `AWS::EC2::TransitGatewayAttachment.VpcId`.
 	VpcId *string `json:"vpcId"`
-	// `AWS::EC2::TransitGatewayAttachment.Tags`.
-	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::EC2::TransitGatewayConnect`.
+//
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayConnect interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -37704,22 +38263,30 @@ func (c *jsiiProxy_CfnTransitGatewayConnect) ValidateProperties(_properties inte
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayConnect_TransitGatewayConnectOptionsProperty struct {
 	// `CfnTransitGatewayConnect.TransitGatewayConnectOptionsProperty.Protocol`.
 	Protocol *string `json:"protocol"`
 }
 
 // Properties for defining a `AWS::EC2::TransitGatewayConnect`.
+//
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayConnectProps struct {
 	// `AWS::EC2::TransitGatewayConnect.Options`.
 	Options interface{} `json:"options"`
-	// `AWS::EC2::TransitGatewayConnect.TransportTransitGatewayAttachmentId`.
-	TransportTransitGatewayAttachmentId *string `json:"transportTransitGatewayAttachmentId"`
 	// `AWS::EC2::TransitGatewayConnect.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::EC2::TransitGatewayConnect.TransportTransitGatewayAttachmentId`.
+	TransportTransitGatewayAttachmentId *string `json:"transportTransitGatewayAttachmentId"`
 }
 
 // A CloudFormation `AWS::EC2::TransitGatewayMulticastDomain`.
+//
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayMulticastDomain interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -38381,6 +38948,9 @@ func (c *jsiiProxy_CfnTransitGatewayMulticastDomain) ValidateProperties(_propert
 }
 
 // A CloudFormation `AWS::EC2::TransitGatewayMulticastDomainAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayMulticastDomainAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -39040,6 +39610,9 @@ func (c *jsiiProxy_CfnTransitGatewayMulticastDomainAssociation) ValidateProperti
 }
 
 // Properties for defining a `AWS::EC2::TransitGatewayMulticastDomainAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayMulticastDomainAssociationProps struct {
 	// `AWS::EC2::TransitGatewayMulticastDomainAssociation.SubnetId`.
 	SubnetId *string `json:"subnetId"`
@@ -39050,16 +39623,22 @@ type CfnTransitGatewayMulticastDomainAssociationProps struct {
 }
 
 // Properties for defining a `AWS::EC2::TransitGatewayMulticastDomain`.
+//
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayMulticastDomainProps struct {
-	// `AWS::EC2::TransitGatewayMulticastDomain.TransitGatewayId`.
-	TransitGatewayId *string `json:"transitGatewayId"`
 	// `AWS::EC2::TransitGatewayMulticastDomain.Options`.
 	Options interface{} `json:"options"`
 	// `AWS::EC2::TransitGatewayMulticastDomain.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::EC2::TransitGatewayMulticastDomain.TransitGatewayId`.
+	TransitGatewayId *string `json:"transitGatewayId"`
 }
 
 // A CloudFormation `AWS::EC2::TransitGatewayMulticastGroupMember`.
+//
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayMulticastGroupMember interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -39774,6 +40353,9 @@ func (c *jsiiProxy_CfnTransitGatewayMulticastGroupMember) ValidateProperties(_pr
 }
 
 // Properties for defining a `AWS::EC2::TransitGatewayMulticastGroupMember`.
+//
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayMulticastGroupMemberProps struct {
 	// `AWS::EC2::TransitGatewayMulticastGroupMember.GroupIpAddress`.
 	GroupIpAddress *string `json:"groupIpAddress"`
@@ -39784,6 +40366,9 @@ type CfnTransitGatewayMulticastGroupMemberProps struct {
 }
 
 // A CloudFormation `AWS::EC2::TransitGatewayMulticastGroupSource`.
+//
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayMulticastGroupSource interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -40498,6 +41083,9 @@ func (c *jsiiProxy_CfnTransitGatewayMulticastGroupSource) ValidateProperties(_pr
 }
 
 // Properties for defining a `AWS::EC2::TransitGatewayMulticastGroupSource`.
+//
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayMulticastGroupSourceProps struct {
 	// `AWS::EC2::TransitGatewayMulticastGroupSource.GroupIpAddress`.
 	GroupIpAddress *string `json:"groupIpAddress"`
@@ -40508,6 +41096,9 @@ type CfnTransitGatewayMulticastGroupSourceProps struct {
 }
 
 // A CloudFormation `AWS::EC2::TransitGatewayPeeringAttachment`.
+//
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayPeeringAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -41217,28 +41808,36 @@ func (c *jsiiProxy_CfnTransitGatewayPeeringAttachment) ValidateProperties(_prope
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayPeeringAttachment_TransitGatewayPeeringAttachmentOptionsProperty struct {
 	// `CfnTransitGatewayPeeringAttachment.TransitGatewayPeeringAttachmentOptionsProperty.DynamicRouting`.
 	DynamicRouting *string `json:"dynamicRouting"`
 }
 
 // Properties for defining a `AWS::EC2::TransitGatewayPeeringAttachment`.
+//
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayPeeringAttachmentProps struct {
+	// `AWS::EC2::TransitGatewayPeeringAttachment.Options`.
+	Options interface{} `json:"options"`
 	// `AWS::EC2::TransitGatewayPeeringAttachment.PeerAccountId`.
 	PeerAccountId *string `json:"peerAccountId"`
 	// `AWS::EC2::TransitGatewayPeeringAttachment.PeerRegion`.
 	PeerRegion *string `json:"peerRegion"`
 	// `AWS::EC2::TransitGatewayPeeringAttachment.PeerTransitGatewayId`.
 	PeerTransitGatewayId *string `json:"peerTransitGatewayId"`
-	// `AWS::EC2::TransitGatewayPeeringAttachment.TransitGatewayId`.
-	TransitGatewayId *string `json:"transitGatewayId"`
-	// `AWS::EC2::TransitGatewayPeeringAttachment.Options`.
-	Options interface{} `json:"options"`
 	// `AWS::EC2::TransitGatewayPeeringAttachment.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::EC2::TransitGatewayPeeringAttachment.TransitGatewayId`.
+	TransitGatewayId *string `json:"transitGatewayId"`
 }
 
 // Properties for defining a `AWS::EC2::TransitGateway`.
+//
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayProps struct {
 	// `AWS::EC2::TransitGateway.AmazonSideAsn`.
 	AmazonSideAsn *float64 `json:"amazonSideAsn"`
@@ -41267,6 +41866,9 @@ type CfnTransitGatewayProps struct {
 }
 
 // A CloudFormation `AWS::EC2::TransitGatewayRoute`.
+//
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayRoute interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -41913,18 +42515,24 @@ func (c *jsiiProxy_CfnTransitGatewayRoute) ValidateProperties(_properties interf
 }
 
 // Properties for defining a `AWS::EC2::TransitGatewayRoute`.
+//
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayRouteProps struct {
-	// `AWS::EC2::TransitGatewayRoute.TransitGatewayRouteTableId`.
-	TransitGatewayRouteTableId *string `json:"transitGatewayRouteTableId"`
 	// `AWS::EC2::TransitGatewayRoute.Blackhole`.
 	Blackhole interface{} `json:"blackhole"`
 	// `AWS::EC2::TransitGatewayRoute.DestinationCidrBlock`.
 	DestinationCidrBlock *string `json:"destinationCidrBlock"`
 	// `AWS::EC2::TransitGatewayRoute.TransitGatewayAttachmentId`.
 	TransitGatewayAttachmentId *string `json:"transitGatewayAttachmentId"`
+	// `AWS::EC2::TransitGatewayRoute.TransitGatewayRouteTableId`.
+	TransitGatewayRouteTableId *string `json:"transitGatewayRouteTableId"`
 }
 
 // A CloudFormation `AWS::EC2::TransitGatewayRouteTable`.
+//
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayRouteTable interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -42522,6 +43130,9 @@ func (c *jsiiProxy_CfnTransitGatewayRouteTable) ValidateProperties(_properties i
 }
 
 // A CloudFormation `AWS::EC2::TransitGatewayRouteTableAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayRouteTableAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -43128,6 +43739,9 @@ func (c *jsiiProxy_CfnTransitGatewayRouteTableAssociation) ValidateProperties(_p
 }
 
 // Properties for defining a `AWS::EC2::TransitGatewayRouteTableAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayRouteTableAssociationProps struct {
 	// `AWS::EC2::TransitGatewayRouteTableAssociation.TransitGatewayAttachmentId`.
 	TransitGatewayAttachmentId *string `json:"transitGatewayAttachmentId"`
@@ -43136,6 +43750,9 @@ type CfnTransitGatewayRouteTableAssociationProps struct {
 }
 
 // A CloudFormation `AWS::EC2::TransitGatewayRouteTablePropagation`.
+//
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayRouteTablePropagation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -43742,6 +44359,9 @@ func (c *jsiiProxy_CfnTransitGatewayRouteTablePropagation) ValidateProperties(_p
 }
 
 // Properties for defining a `AWS::EC2::TransitGatewayRouteTablePropagation`.
+//
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayRouteTablePropagationProps struct {
 	// `AWS::EC2::TransitGatewayRouteTablePropagation.TransitGatewayAttachmentId`.
 	TransitGatewayAttachmentId *string `json:"transitGatewayAttachmentId"`
@@ -43750,14 +44370,20 @@ type CfnTransitGatewayRouteTablePropagationProps struct {
 }
 
 // Properties for defining a `AWS::EC2::TransitGatewayRouteTable`.
+//
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayRouteTableProps struct {
-	// `AWS::EC2::TransitGatewayRouteTable.TransitGatewayId`.
-	TransitGatewayId *string `json:"transitGatewayId"`
 	// `AWS::EC2::TransitGatewayRouteTable.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::EC2::TransitGatewayRouteTable.TransitGatewayId`.
+	TransitGatewayId *string `json:"transitGatewayId"`
 }
 
 // A CloudFormation `AWS::EC2::TransitGatewayVpcAttachment`.
+//
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayVpcAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -44466,6 +45092,9 @@ func (c *jsiiProxy_CfnTransitGatewayVpcAttachment) ValidateProperties(_propertie
 }
 
 // Properties for defining a `AWS::EC2::TransitGatewayVpcAttachment`.
+//
+// TODO: EXAMPLE
+//
 type CfnTransitGatewayVpcAttachmentProps struct {
 	// `AWS::EC2::TransitGatewayVpcAttachment.AddSubnetIds`.
 	AddSubnetIds *[]*string `json:"addSubnetIds"`
@@ -45199,6 +45828,9 @@ func (c *jsiiProxy_CfnVPC) ValidateProperties(_properties interface{}) {
 }
 
 // A CloudFormation `AWS::EC2::VPCCidrBlock`.
+//
+// TODO: EXAMPLE
+//
 type CfnVPCCidrBlock interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -45865,9 +46497,10 @@ func (c *jsiiProxy_CfnVPCCidrBlock) ValidateProperties(_properties interface{}) 
 }
 
 // Properties for defining a `AWS::EC2::VPCCidrBlock`.
+//
+// TODO: EXAMPLE
+//
 type CfnVPCCidrBlockProps struct {
-	// `AWS::EC2::VPCCidrBlock.VpcId`.
-	VpcId *string `json:"vpcId"`
 	// `AWS::EC2::VPCCidrBlock.AmazonProvidedIpv6CidrBlock`.
 	AmazonProvidedIpv6CidrBlock interface{} `json:"amazonProvidedIpv6CidrBlock"`
 	// `AWS::EC2::VPCCidrBlock.CidrBlock`.
@@ -45876,9 +46509,14 @@ type CfnVPCCidrBlockProps struct {
 	Ipv6CidrBlock *string `json:"ipv6CidrBlock"`
 	// `AWS::EC2::VPCCidrBlock.Ipv6Pool`.
 	Ipv6Pool *string `json:"ipv6Pool"`
+	// `AWS::EC2::VPCCidrBlock.VpcId`.
+	VpcId *string `json:"vpcId"`
 }
 
 // A CloudFormation `AWS::EC2::VPCDHCPOptionsAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnVPCDHCPOptionsAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -46496,6 +47134,9 @@ func (c *jsiiProxy_CfnVPCDHCPOptionsAssociation) ValidateProperties(_properties 
 }
 
 // Properties for defining a `AWS::EC2::VPCDHCPOptionsAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnVPCDHCPOptionsAssociationProps struct {
 	// `AWS::EC2::VPCDHCPOptionsAssociation.DhcpOptionsId`.
 	DhcpOptionsId *string `json:"dhcpOptionsId"`
@@ -46504,6 +47145,9 @@ type CfnVPCDHCPOptionsAssociationProps struct {
 }
 
 // A CloudFormation `AWS::EC2::VPCEndpoint`.
+//
+// TODO: EXAMPLE
+//
 type CfnVPCEndpoint interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -47263,6 +47907,9 @@ func (c *jsiiProxy_CfnVPCEndpoint) ValidateProperties(_properties interface{}) {
 }
 
 // A CloudFormation `AWS::EC2::VPCEndpointConnectionNotification`.
+//
+// TODO: EXAMPLE
+//
 type CfnVPCEndpointConnectionNotification interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -47909,6 +48556,9 @@ func (c *jsiiProxy_CfnVPCEndpointConnectionNotification) ValidateProperties(_pro
 }
 
 // Properties for defining a `AWS::EC2::VPCEndpointConnectionNotification`.
+//
+// TODO: EXAMPLE
+//
 type CfnVPCEndpointConnectionNotificationProps struct {
 	// `AWS::EC2::VPCEndpointConnectionNotification.ConnectionEvents`.
 	ConnectionEvents *[]*string `json:"connectionEvents"`
@@ -47921,11 +48571,10 @@ type CfnVPCEndpointConnectionNotificationProps struct {
 }
 
 // Properties for defining a `AWS::EC2::VPCEndpoint`.
+//
+// TODO: EXAMPLE
+//
 type CfnVPCEndpointProps struct {
-	// `AWS::EC2::VPCEndpoint.ServiceName`.
-	ServiceName *string `json:"serviceName"`
-	// `AWS::EC2::VPCEndpoint.VpcId`.
-	VpcId *string `json:"vpcId"`
 	// `AWS::EC2::VPCEndpoint.PolicyDocument`.
 	PolicyDocument interface{} `json:"policyDocument"`
 	// `AWS::EC2::VPCEndpoint.PrivateDnsEnabled`.
@@ -47934,13 +48583,20 @@ type CfnVPCEndpointProps struct {
 	RouteTableIds *[]*string `json:"routeTableIds"`
 	// `AWS::EC2::VPCEndpoint.SecurityGroupIds`.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
+	// `AWS::EC2::VPCEndpoint.ServiceName`.
+	ServiceName *string `json:"serviceName"`
 	// `AWS::EC2::VPCEndpoint.SubnetIds`.
 	SubnetIds *[]*string `json:"subnetIds"`
 	// `AWS::EC2::VPCEndpoint.VpcEndpointType`.
 	VpcEndpointType *string `json:"vpcEndpointType"`
+	// `AWS::EC2::VPCEndpoint.VpcId`.
+	VpcId *string `json:"vpcId"`
 }
 
 // A CloudFormation `AWS::EC2::VPCEndpointService`.
+//
+// TODO: EXAMPLE
+//
 type CfnVPCEndpointService interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -48567,6 +49223,9 @@ func (c *jsiiProxy_CfnVPCEndpointService) ValidateProperties(_properties interfa
 }
 
 // A CloudFormation `AWS::EC2::VPCEndpointServicePermissions`.
+//
+// TODO: EXAMPLE
+//
 type CfnVPCEndpointServicePermissions interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -49173,14 +49832,20 @@ func (c *jsiiProxy_CfnVPCEndpointServicePermissions) ValidateProperties(_propert
 }
 
 // Properties for defining a `AWS::EC2::VPCEndpointServicePermissions`.
+//
+// TODO: EXAMPLE
+//
 type CfnVPCEndpointServicePermissionsProps struct {
-	// `AWS::EC2::VPCEndpointServicePermissions.ServiceId`.
-	ServiceId *string `json:"serviceId"`
 	// `AWS::EC2::VPCEndpointServicePermissions.AllowedPrincipals`.
 	AllowedPrincipals *[]*string `json:"allowedPrincipals"`
+	// `AWS::EC2::VPCEndpointServicePermissions.ServiceId`.
+	ServiceId *string `json:"serviceId"`
 }
 
 // Properties for defining a `AWS::EC2::VPCEndpointService`.
+//
+// TODO: EXAMPLE
+//
 type CfnVPCEndpointServiceProps struct {
 	// `AWS::EC2::VPCEndpointService.AcceptanceRequired`.
 	AcceptanceRequired interface{} `json:"acceptanceRequired"`
@@ -49191,6 +49856,9 @@ type CfnVPCEndpointServiceProps struct {
 }
 
 // A CloudFormation `AWS::EC2::VPCGatewayAttachment`.
+//
+// TODO: EXAMPLE
+//
 type CfnVPCGatewayAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -49817,16 +50485,22 @@ func (c *jsiiProxy_CfnVPCGatewayAttachment) ValidateProperties(_properties inter
 }
 
 // Properties for defining a `AWS::EC2::VPCGatewayAttachment`.
+//
+// TODO: EXAMPLE
+//
 type CfnVPCGatewayAttachmentProps struct {
-	// `AWS::EC2::VPCGatewayAttachment.VpcId`.
-	VpcId *string `json:"vpcId"`
 	// `AWS::EC2::VPCGatewayAttachment.InternetGatewayId`.
 	InternetGatewayId *string `json:"internetGatewayId"`
+	// `AWS::EC2::VPCGatewayAttachment.VpcId`.
+	VpcId *string `json:"vpcId"`
 	// `AWS::EC2::VPCGatewayAttachment.VpnGatewayId`.
 	VpnGatewayId *string `json:"vpnGatewayId"`
 }
 
 // A CloudFormation `AWS::EC2::VPCPeeringConnection`.
+//
+// TODO: EXAMPLE
+//
 type CfnVPCPeeringConnection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -50504,22 +51178,28 @@ func (c *jsiiProxy_CfnVPCPeeringConnection) ValidateProperties(_properties inter
 }
 
 // Properties for defining a `AWS::EC2::VPCPeeringConnection`.
+//
+// TODO: EXAMPLE
+//
 type CfnVPCPeeringConnectionProps struct {
-	// `AWS::EC2::VPCPeeringConnection.PeerVpcId`.
-	PeerVpcId *string `json:"peerVpcId"`
-	// `AWS::EC2::VPCPeeringConnection.VpcId`.
-	VpcId *string `json:"vpcId"`
 	// `AWS::EC2::VPCPeeringConnection.PeerOwnerId`.
 	PeerOwnerId *string `json:"peerOwnerId"`
 	// `AWS::EC2::VPCPeeringConnection.PeerRegion`.
 	PeerRegion *string `json:"peerRegion"`
 	// `AWS::EC2::VPCPeeringConnection.PeerRoleArn`.
 	PeerRoleArn *string `json:"peerRoleArn"`
+	// `AWS::EC2::VPCPeeringConnection.PeerVpcId`.
+	PeerVpcId *string `json:"peerVpcId"`
 	// `AWS::EC2::VPCPeeringConnection.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::EC2::VPCPeeringConnection.VpcId`.
+	VpcId *string `json:"vpcId"`
 }
 
 // Properties for defining a `AWS::EC2::VPC`.
+//
+// TODO: EXAMPLE
+//
 type CfnVPCProps struct {
 	// `AWS::EC2::VPC.CidrBlock`.
 	CidrBlock *string `json:"cidrBlock"`
@@ -50534,6 +51214,9 @@ type CfnVPCProps struct {
 }
 
 // A CloudFormation `AWS::EC2::VPNConnection`.
+//
+// TODO: EXAMPLE
+//
 type CfnVPNConnection interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -51230,6 +51913,8 @@ func (c *jsiiProxy_CfnVPNConnection) ValidateProperties(_properties interface{})
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnVPNConnection_VpnTunnelOptionsSpecificationProperty struct {
 	// `CfnVPNConnection.VpnTunnelOptionsSpecificationProperty.PreSharedKey`.
 	PreSharedKey *string `json:"preSharedKey"`
@@ -51238,17 +51923,20 @@ type CfnVPNConnection_VpnTunnelOptionsSpecificationProperty struct {
 }
 
 // Properties for defining a `AWS::EC2::VPNConnection`.
+//
+// TODO: EXAMPLE
+//
 type CfnVPNConnectionProps struct {
 	// `AWS::EC2::VPNConnection.CustomerGatewayId`.
 	CustomerGatewayId *string `json:"customerGatewayId"`
-	// `AWS::EC2::VPNConnection.Type`.
-	Type *string `json:"type"`
 	// `AWS::EC2::VPNConnection.StaticRoutesOnly`.
 	StaticRoutesOnly interface{} `json:"staticRoutesOnly"`
 	// `AWS::EC2::VPNConnection.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::EC2::VPNConnection.TransitGatewayId`.
 	TransitGatewayId *string `json:"transitGatewayId"`
+	// `AWS::EC2::VPNConnection.Type`.
+	Type *string `json:"type"`
 	// `AWS::EC2::VPNConnection.VpnGatewayId`.
 	VpnGatewayId *string `json:"vpnGatewayId"`
 	// `AWS::EC2::VPNConnection.VpnTunnelOptionsSpecifications`.
@@ -51256,6 +51944,9 @@ type CfnVPNConnectionProps struct {
 }
 
 // A CloudFormation `AWS::EC2::VPNConnectionRoute`.
+//
+// TODO: EXAMPLE
+//
 type CfnVPNConnectionRoute interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -51862,6 +52553,9 @@ func (c *jsiiProxy_CfnVPNConnectionRoute) ValidateProperties(_properties interfa
 }
 
 // Properties for defining a `AWS::EC2::VPNConnectionRoute`.
+//
+// TODO: EXAMPLE
+//
 type CfnVPNConnectionRouteProps struct {
 	// `AWS::EC2::VPNConnectionRoute.DestinationCidrBlock`.
 	DestinationCidrBlock *string `json:"destinationCidrBlock"`
@@ -51870,6 +52564,9 @@ type CfnVPNConnectionRouteProps struct {
 }
 
 // A CloudFormation `AWS::EC2::VPNGateway`.
+//
+// TODO: EXAMPLE
+//
 type CfnVPNGateway interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -52487,16 +53184,22 @@ func (c *jsiiProxy_CfnVPNGateway) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::EC2::VPNGateway`.
+//
+// TODO: EXAMPLE
+//
 type CfnVPNGatewayProps struct {
-	// `AWS::EC2::VPNGateway.Type`.
-	Type *string `json:"type"`
 	// `AWS::EC2::VPNGateway.AmazonSideAsn`.
 	AmazonSideAsn *float64 `json:"amazonSideAsn"`
 	// `AWS::EC2::VPNGateway.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
+	// `AWS::EC2::VPNGateway.Type`.
+	Type *string `json:"type"`
 }
 
 // A CloudFormation `AWS::EC2::VPNGatewayRoutePropagation`.
+//
+// TODO: EXAMPLE
+//
 type CfnVPNGatewayRoutePropagation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -53103,6 +53806,9 @@ func (c *jsiiProxy_CfnVPNGatewayRoutePropagation) ValidateProperties(_properties
 }
 
 // Properties for defining a `AWS::EC2::VPNGatewayRoutePropagation`.
+//
+// TODO: EXAMPLE
+//
 type CfnVPNGatewayRoutePropagationProps struct {
 	// `AWS::EC2::VPNGatewayRoutePropagation.RouteTableIds`.
 	RouteTableIds *[]*string `json:"routeTableIds"`
@@ -53111,6 +53817,9 @@ type CfnVPNGatewayRoutePropagationProps struct {
 }
 
 // A CloudFormation `AWS::EC2::Volume`.
+//
+// TODO: EXAMPLE
+//
 type CfnVolume interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -53908,6 +54617,9 @@ func (c *jsiiProxy_CfnVolume) ValidateProperties(_properties interface{}) {
 }
 
 // A CloudFormation `AWS::EC2::VolumeAttachment`.
+//
+// TODO: EXAMPLE
+//
 type CfnVolumeAttachment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -54534,6 +55246,9 @@ func (c *jsiiProxy_CfnVolumeAttachment) ValidateProperties(_properties interface
 }
 
 // Properties for defining a `AWS::EC2::VolumeAttachment`.
+//
+// TODO: EXAMPLE
+//
 type CfnVolumeAttachmentProps struct {
 	// `AWS::EC2::VolumeAttachment.Device`.
 	Device *string `json:"device"`
@@ -54544,11 +55259,14 @@ type CfnVolumeAttachmentProps struct {
 }
 
 // Properties for defining a `AWS::EC2::Volume`.
+//
+// TODO: EXAMPLE
+//
 type CfnVolumeProps struct {
-	// `AWS::EC2::Volume.AvailabilityZone`.
-	AvailabilityZone *string `json:"availabilityZone"`
 	// `AWS::EC2::Volume.AutoEnableIO`.
 	AutoEnableIo interface{} `json:"autoEnableIo"`
+	// `AWS::EC2::Volume.AvailabilityZone`.
+	AvailabilityZone *string `json:"availabilityZone"`
 	// `AWS::EC2::Volume.Encrypted`.
 	Encrypted interface{} `json:"encrypted"`
 	// `AWS::EC2::Volume.Iops`.
@@ -54572,6 +55290,9 @@ type CfnVolumeProps struct {
 }
 
 // A client VPN authorization rule.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ClientVpnAuthorizationRule interface {
 	awscdk.Resource
@@ -54902,6 +55623,9 @@ type ClientVpnAuthorizationRuleOptions struct {
 }
 
 // Properties for a ClientVpnAuthorizationRule.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ClientVpnAuthorizationRuleProps struct {
 	// The IPv4 address range, in CIDR notation, of the network for which access is being authorized.
@@ -55322,6 +56046,9 @@ func (c *jsiiProxy_ClientVpnEndpoint) Validate() *[]*string {
 }
 
 // Attributes when importing an existing client VPN endpoint.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ClientVpnEndpointAttributes struct {
 	// The endpoint ID.
@@ -55338,6 +56065,12 @@ type ClientVpnEndpointAttributes struct {
 //
 // Experimental.
 type ClientVpnEndpointOptions struct {
+	// Whether to authorize all users to the VPC CIDR.
+	//
+	// This automatically creates an authorization rule. Set this to `false` and
+	// use `addAuthorizationRule()` to create your own rules instead.
+	// Experimental.
+	AuthorizeAllUsersToVpcCidr *bool `json:"authorizeAllUsersToVpcCidr"`
 	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses.
 	//
 	// The address range cannot overlap with the local CIDR of the VPC
@@ -55348,15 +56081,6 @@ type ClientVpnEndpointOptions struct {
 	// The CIDR block should be /22 or greater.
 	// Experimental.
 	Cidr *string `json:"cidr"`
-	// The ARN of the server certificate.
-	// Experimental.
-	ServerCertificateArn *string `json:"serverCertificateArn"`
-	// Whether to authorize all users to the VPC CIDR.
-	//
-	// This automatically creates an authorization rule. Set this to `false` and
-	// use `addAuthorizationRule()` to create your own rules instead.
-	// Experimental.
-	AuthorizeAllUsersToVpcCidr *bool `json:"authorizeAllUsersToVpcCidr"`
 	// The ARN of the client certificate for mutual authentication.
 	//
 	// The certificate must be signed by a certificate authority (CA) and it must
@@ -55394,6 +56118,9 @@ type ClientVpnEndpointOptions struct {
 	// Specify whether to enable the self-service portal for the Client VPN endpoint.
 	// Experimental.
 	SelfServicePortal *bool `json:"selfServicePortal"`
+	// The ARN of the server certificate.
+	// Experimental.
+	ServerCertificateArn *string `json:"serverCertificateArn"`
 	// Indicates whether split-tunnel is enabled on the AWS Client VPN endpoint.
 	// See: https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html
 	//
@@ -55413,8 +56140,17 @@ type ClientVpnEndpointOptions struct {
 }
 
 // Properties for a client VPN endpoint.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ClientVpnEndpointProps struct {
+	// Whether to authorize all users to the VPC CIDR.
+	//
+	// This automatically creates an authorization rule. Set this to `false` and
+	// use `addAuthorizationRule()` to create your own rules instead.
+	// Experimental.
+	AuthorizeAllUsersToVpcCidr *bool `json:"authorizeAllUsersToVpcCidr"`
 	// The IPv4 address range, in CIDR notation, from which to assign client IP addresses.
 	//
 	// The address range cannot overlap with the local CIDR of the VPC
@@ -55425,15 +56161,6 @@ type ClientVpnEndpointProps struct {
 	// The CIDR block should be /22 or greater.
 	// Experimental.
 	Cidr *string `json:"cidr"`
-	// The ARN of the server certificate.
-	// Experimental.
-	ServerCertificateArn *string `json:"serverCertificateArn"`
-	// Whether to authorize all users to the VPC CIDR.
-	//
-	// This automatically creates an authorization rule. Set this to `false` and
-	// use `addAuthorizationRule()` to create your own rules instead.
-	// Experimental.
-	AuthorizeAllUsersToVpcCidr *bool `json:"authorizeAllUsersToVpcCidr"`
 	// The ARN of the client certificate for mutual authentication.
 	//
 	// The certificate must be signed by a certificate authority (CA) and it must
@@ -55471,6 +56198,9 @@ type ClientVpnEndpointProps struct {
 	// Specify whether to enable the self-service portal for the Client VPN endpoint.
 	// Experimental.
 	SelfServicePortal *bool `json:"selfServicePortal"`
+	// The ARN of the server certificate.
+	// Experimental.
+	ServerCertificateArn *string `json:"serverCertificateArn"`
 	// Indicates whether split-tunnel is enabled on the AWS Client VPN endpoint.
 	// See: https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html
 	//
@@ -55493,6 +56223,9 @@ type ClientVpnEndpointProps struct {
 }
 
 // A client VPN route.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ClientVpnRoute interface {
 	awscdk.Resource
@@ -55821,15 +56554,18 @@ type ClientVpnRouteOptions struct {
 	//    - To add a route for the local network, enter the client CIDR range
 	// Experimental.
 	Cidr *string `json:"cidr"`
-	// The target for the route.
-	// Experimental.
-	Target ClientVpnRouteTarget `json:"target"`
 	// A brief description of the authorization rule.
 	// Experimental.
 	Description *string `json:"description"`
+	// The target for the route.
+	// Experimental.
+	Target ClientVpnRouteTarget `json:"target"`
 }
 
 // Properties for a ClientVpnRoute.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ClientVpnRouteProps struct {
 	// The IPv4 address range, in CIDR notation, of the route destination.
@@ -55842,12 +56578,12 @@ type ClientVpnRouteProps struct {
 	//    - To add a route for the local network, enter the client CIDR range
 	// Experimental.
 	Cidr *string `json:"cidr"`
-	// The target for the route.
-	// Experimental.
-	Target ClientVpnRouteTarget `json:"target"`
 	// A brief description of the authorization rule.
 	// Experimental.
 	Description *string `json:"description"`
+	// The target for the route.
+	// Experimental.
+	Target ClientVpnRouteTarget `json:"target"`
 	// The client VPN endpoint to which to add the route.
 	// Deprecated: Use `clientVpnEndpoint` instead
 	ClientVpnEndoint IClientVpnEndpoint `json:"clientVpnEndoint"`
@@ -56121,20 +56857,14 @@ func (c *jsiiProxy_CloudFormationInit) Attach(attachedResource awscdk.CfnResourc
 }
 
 // Basic NetworkACL entry props.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CommonNetworkAclEntryOptions struct {
 	// The CIDR range to allow or deny.
 	// Experimental.
 	Cidr AclCidr `json:"cidr"`
-	// Rule number to assign to the entry, such as 100.
-	//
-	// ACL entries are processed in ascending order by rule number.
-	// Entries can't use the same rule number unless one is an egress rule and the other is an ingress rule.
-	// Experimental.
-	RuleNumber *float64 `json:"ruleNumber"`
-	// What kind of traffic this ACL rule applies to.
-	// Experimental.
-	Traffic AclTraffic `json:"traffic"`
 	// Traffic direction, with respect to the subnet, this rule applies to.
 	// Experimental.
 	Direction TrafficDirection `json:"direction"`
@@ -56149,6 +56879,15 @@ type CommonNetworkAclEntryOptions struct {
 	// ACL, all traffic is automatically allowed in a default ACL.
 	// Experimental.
 	RuleAction Action `json:"ruleAction"`
+	// Rule number to assign to the entry, such as 100.
+	//
+	// ACL entries are processed in ascending order by rule number.
+	// Entries can't use the same rule number unless one is an egress rule and the other is an ingress rule.
+	// Experimental.
+	RuleNumber *float64 `json:"ruleNumber"`
+	// What kind of traffic this ACL rule applies to.
+	// Experimental.
+	Traffic AclTraffic `json:"traffic"`
 }
 
 // Options for CloudFormationInit.withConfigSets.
@@ -56166,6 +56905,9 @@ type ConfigSetProps struct {
 }
 
 // Options passed by the VPC when NAT needs to be configured.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ConfigureNatOptions struct {
 	// The public subnets where the NAT providers need to be placed.
@@ -56181,20 +56923,22 @@ type ConfigureNatOptions struct {
 	Vpc Vpc `json:"vpc"`
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type ConnectionRule struct {
-	// Start of port range for the TCP and UDP protocols, or an ICMP type number.
-	//
-	// If you specify icmp for the IpProtocol property, you can specify
-	// -1 as a wildcard (i.e., any ICMP type number).
-	// Experimental.
-	FromPort *float64 `json:"fromPort"`
 	// Description of this connection.
 	//
 	// It is applied to both the ingress rule
 	// and the egress rule.
 	// Experimental.
 	Description *string `json:"description"`
+	// Start of port range for the TCP and UDP protocols, or an ICMP type number.
+	//
+	// If you specify icmp for the IpProtocol property, you can specify
+	// -1 as a wildcard (i.e., any ICMP type number).
+	// Experimental.
+	FromPort *float64 `json:"fromPort"`
 	// The IP protocol name (tcp, udp, icmp) or number (see Protocol Numbers).
 	//
 	// Use -1 to specify all protocols. If you specify -1, or a protocol number
@@ -56222,6 +56966,9 @@ type ConnectionRule struct {
 // add rules in both security groups
 //
 // This object can manage one or more security groups.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Connections interface {
 	IConnectable
@@ -56423,6 +57170,9 @@ func (c *jsiiProxy_Connections) AllowToDefaultPort(other IConnectable, descripti
 }
 
 // Properties to intialize a new Connections object.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ConnectionsProps struct {
 	// Default port range for initiating connections to and from this object.
@@ -56454,8 +57204,8 @@ const (
 type DefaultInstanceTenancy string
 
 const (
-	DefaultInstanceTenancy_DEFAULT DefaultInstanceTenancy = "DEFAULT"
 	DefaultInstanceTenancy_DEDICATED DefaultInstanceTenancy = "DEDICATED"
+	DefaultInstanceTenancy_DEFAULT DefaultInstanceTenancy = "DEFAULT"
 )
 
 // Block device options for an EBS volume.
@@ -56492,6 +57242,9 @@ type EbsDeviceOptions struct {
 }
 
 // Base block device options for an EBS volume.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EbsDeviceOptionsBase struct {
 	// Indicates whether to delete the volume when the instance is terminated.
@@ -56515,6 +57268,9 @@ type EbsDeviceOptionsBase struct {
 }
 
 // Properties of an EBS block device.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EbsDeviceProps struct {
 	// Indicates whether to delete the volume when the instance is terminated.
@@ -56546,6 +57302,9 @@ type EbsDeviceProps struct {
 }
 
 // Block device options for an EBS volume created from a snapshot.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EbsDeviceSnapshotOptions struct {
 	// Indicates whether to delete the volume when the instance is terminated.
@@ -56581,24 +57340,27 @@ type EbsDeviceSnapshotOptions struct {
 type EbsDeviceVolumeType string
 
 const (
-	EbsDeviceVolumeType_STANDARD EbsDeviceVolumeType = "STANDARD"
-	EbsDeviceVolumeType_IO1 EbsDeviceVolumeType = "IO1"
-	EbsDeviceVolumeType_IO2 EbsDeviceVolumeType = "IO2"
 	EbsDeviceVolumeType_GP2 EbsDeviceVolumeType = "GP2"
 	EbsDeviceVolumeType_GP3 EbsDeviceVolumeType = "GP3"
-	EbsDeviceVolumeType_ST1 EbsDeviceVolumeType = "ST1"
+	EbsDeviceVolumeType_IO1 EbsDeviceVolumeType = "IO1"
+	EbsDeviceVolumeType_IO2 EbsDeviceVolumeType = "IO2"
 	EbsDeviceVolumeType_SC1 EbsDeviceVolumeType = "SC1"
+	EbsDeviceVolumeType_ST1 EbsDeviceVolumeType = "ST1"
+	EbsDeviceVolumeType_STANDARD EbsDeviceVolumeType = "STANDARD"
 )
 
 // Options for the Vpc.enableVpnGateway() method.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EnableVpnGatewayOptions struct {
-	// Default type ipsec.1.
-	// Experimental.
-	Type *string `json:"type"`
 	// Explicitly specify an Asn or let aws pick an Asn for you.
 	// Experimental.
 	AmazonSideAsn *float64 `json:"amazonSideAsn"`
+	// Default type ipsec.1.
+	// Experimental.
+	Type *string `json:"type"`
 	// Provide an array of subnets where the route propagation should be added.
 	// Experimental.
 	VpnRoutePropagation *[]*SubnetSelection `json:"vpnRoutePropagation"`
@@ -56610,12 +57372,12 @@ type EnableVpnGatewayOptions struct {
 //
 // Experimental.
 type ExecuteFileOptions struct {
-	// The path to the file.
-	// Experimental.
-	FilePath *string `json:"filePath"`
 	// The arguments to be passed to the file.
 	// Experimental.
 	Arguments *string `json:"arguments"`
+	// The path to the file.
+	// Experimental.
+	FilePath *string `json:"filePath"`
 }
 
 // A VPC flow log.
@@ -57083,17 +57845,20 @@ func (f *jsiiProxy_FlowLogDestination) Bind(scope awscdk.Construct, flowLog Flow
 }
 
 // Flow Log Destination configuration.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FlowLogDestinationConfig struct {
-	// The type of destination to publish the flow logs to.
-	// Experimental.
-	LogDestinationType FlowLogDestinationType `json:"logDestinationType"`
 	// The IAM Role that has access to publish to CloudWatch logs.
 	// Experimental.
 	IamRole awsiam.IRole `json:"iamRole"`
 	// S3 bucket key prefix to publish the flow logs to.
 	// Experimental.
 	KeyPrefix *string `json:"keyPrefix"`
+	// The type of destination to publish the flow logs to.
+	// Experimental.
+	LogDestinationType FlowLogDestinationType `json:"logDestinationType"`
 	// The CloudWatch Logs Log Group to publish the flow logs to.
 	// Experimental.
 	LogGroup awslogs.ILogGroup `json:"logGroup"`
@@ -57145,14 +57910,14 @@ type FlowLogProps struct {
 	// You can log traffic that the resource accepts or rejects, or all traffic.
 	// Experimental.
 	TrafficType FlowLogTrafficType `json:"trafficType"`
-	// The type of resource for which to create the flow log.
-	// Experimental.
-	ResourceType FlowLogResourceType `json:"resourceType"`
 	// The name of the FlowLog.
 	//
 	// It is not recommended to use an explicit name.
 	// Experimental.
 	FlowLogName *string `json:"flowLogName"`
+	// The type of resource for which to create the flow log.
+	// Experimental.
+	ResourceType FlowLogResourceType `json:"resourceType"`
 }
 
 // The type of resource to create the flow log for.
@@ -57285,6 +58050,9 @@ const (
 )
 
 // Pair represents a gateway created by NAT Provider.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type GatewayConfig struct {
 	// Availability Zone.
@@ -57296,6 +58064,9 @@ type GatewayConfig struct {
 }
 
 // A gateway VPC endpoint.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type GatewayVpcEndpoint interface {
 	VpcEndpoint
@@ -57799,6 +58570,9 @@ type GatewayVpcEndpointOptions struct {
 }
 
 // Construction properties for a GatewayVpcEndpoint.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type GatewayVpcEndpointProps struct {
 	// The service to use for this gateway VPC endpoint.
@@ -57878,6 +58652,9 @@ func (g *jsiiProxy_GenericLinuxImage) GetImage(scope awscdk.Construct) *MachineI
 }
 
 // Configuration options for GenericLinuxImage.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type GenericLinuxImageProps struct {
 	// Initial user data.
@@ -57893,6 +58670,9 @@ type GenericLinuxImageProps struct {
 // on the instance if you are using this image.
 //
 // The AMI ID is selected using the values published to the SSM parameter store.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type GenericSSMParameterImage interface {
 	IMachineImage
@@ -57960,6 +58740,9 @@ func (g *jsiiProxy_GenericSSMParameterImage) GetImage(scope awscdk.Construct) *M
 // Construct a Windows machine image from an AMI map.
 //
 // Allows you to create a generic Windows EC2 , manually specify an AMI map.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type GenericWindowsImage interface {
 	IMachineImage
@@ -58013,6 +58796,9 @@ func (g *jsiiProxy_GenericWindowsImage) GetImage(scope awscdk.Construct) *Machin
 }
 
 // Configuration options for GenericWindowsImage.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type GenericWindowsImageProps struct {
 	// Initial user data.
@@ -59716,6 +60502,9 @@ type InitCommandOptions struct {
 }
 
 // Represents a duration to wait after a command has finished, in case of a reboot (Windows only).
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type InitCommandWaitDuration interface {
 }
@@ -60077,6 +60866,9 @@ func InitFile_Symlink(fileName *string, target *string, options *InitFileOptions
 }
 
 // Additional options for creating an InitFile from an asset.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type InitFileAssetOptions struct {
 	// True if the inlined content (from a string or file) should be treated as base64 encoded.
@@ -60709,6 +61501,9 @@ func InitSource_FromUrl(targetDirectory *string, url *string, options *InitSourc
 }
 
 // Additional options for an InitSource that builds an asset from local files.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type InitSourceAssetOptions struct {
 	// Restart the given services after this archive has been extracted.
@@ -60860,6 +61655,9 @@ func InitUser_FromName(userName *string, options *InitUserOptions) InitUser {
 }
 
 // Optional parameters used when creating a user.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type InitUserOptions struct {
 	// A list of group names.
@@ -61392,61 +62190,61 @@ const (
 type InstanceClass string
 
 const (
-	InstanceClass_STANDARD3 InstanceClass = "STANDARD3"
-	InstanceClass_STANDARD4 InstanceClass = "STANDARD4"
-	InstanceClass_STANDARD5 InstanceClass = "STANDARD5"
-	InstanceClass_STANDARD5_NVME_DRIVE InstanceClass = "STANDARD5_NVME_DRIVE"
-	InstanceClass_STANDARD5_AMD InstanceClass = "STANDARD5_AMD"
-	InstanceClass_STANDARD5_AMD_NVME_DRIVE InstanceClass = "STANDARD5_AMD_NVME_DRIVE"
-	InstanceClass_STANDARD5_HIGH_PERFORMANCE InstanceClass = "STANDARD5_HIGH_PERFORMANCE"
-	InstanceClass_STANDARD5_NVME_DRIVE_HIGH_PERFORMANCE InstanceClass = "STANDARD5_NVME_DRIVE_HIGH_PERFORMANCE"
-	InstanceClass_MEMORY3 InstanceClass = "MEMORY3"
-	InstanceClass_MEMORY4 InstanceClass = "MEMORY4"
-	InstanceClass_MEMORY5 InstanceClass = "MEMORY5"
-	InstanceClass_MEMORY5_HIGH_PERFORMANCE InstanceClass = "MEMORY5_HIGH_PERFORMANCE"
-	InstanceClass_MEMORY5_NVME_DRIVE InstanceClass = "MEMORY5_NVME_DRIVE"
-	InstanceClass_MEMORY5_NVME_DRIVE_HIGH_PERFORMANCE InstanceClass = "MEMORY5_NVME_DRIVE_HIGH_PERFORMANCE"
-	InstanceClass_MEMORY5_AMD InstanceClass = "MEMORY5_AMD"
-	InstanceClass_MEMORY5_AMD_NVME_DRIVE InstanceClass = "MEMORY5_AMD_NVME_DRIVE"
-	InstanceClass_MEMORY5_EBS_OPTIMIZED InstanceClass = "MEMORY5_EBS_OPTIMIZED"
-	InstanceClass_MEMORY6_GRAVITON InstanceClass = "MEMORY6_GRAVITON"
-	InstanceClass_MEMORY6_GRAVITON2_NVME_DRIVE InstanceClass = "MEMORY6_GRAVITON2_NVME_DRIVE"
-	InstanceClass_COMPUTE3 InstanceClass = "COMPUTE3"
-	InstanceClass_COMPUTE4 InstanceClass = "COMPUTE4"
-	InstanceClass_COMPUTE5 InstanceClass = "COMPUTE5"
-	InstanceClass_COMPUTE6_INTEL InstanceClass = "COMPUTE6_INTEL"
-	InstanceClass_COMPUTE5_NVME_DRIVE InstanceClass = "COMPUTE5_NVME_DRIVE"
-	InstanceClass_COMPUTE5_AMD InstanceClass = "COMPUTE5_AMD"
-	InstanceClass_COMPUTE5_AMD_NVME_DRIVE InstanceClass = "COMPUTE5_AMD_NVME_DRIVE"
-	InstanceClass_COMPUTE5_HIGH_PERFORMANCE InstanceClass = "COMPUTE5_HIGH_PERFORMANCE"
-	InstanceClass_COMPUTE6_GRAVITON2 InstanceClass = "COMPUTE6_GRAVITON2"
-	InstanceClass_COMPUTE6_GRAVITON2_NVME_DRIVE InstanceClass = "COMPUTE6_GRAVITON2_NVME_DRIVE"
-	InstanceClass_COMPUTE6_GRAVITON2_HIGH_NETWORK_BANDWITH InstanceClass = "COMPUTE6_GRAVITON2_HIGH_NETWORK_BANDWITH"
-	InstanceClass_STORAGE2 InstanceClass = "STORAGE2"
-	InstanceClass_STORAGE_COMPUTE_1 InstanceClass = "STORAGE_COMPUTE_1"
-	InstanceClass_IO3 InstanceClass = "IO3"
-	InstanceClass_IO3_DENSE_NVME_DRIVE InstanceClass = "IO3_DENSE_NVME_DRIVE"
+	InstanceClass_ARM1 InstanceClass = "ARM1"
 	InstanceClass_BURSTABLE2 InstanceClass = "BURSTABLE2"
 	InstanceClass_BURSTABLE3 InstanceClass = "BURSTABLE3"
 	InstanceClass_BURSTABLE3_AMD InstanceClass = "BURSTABLE3_AMD"
 	InstanceClass_BURSTABLE4_GRAVITON InstanceClass = "BURSTABLE4_GRAVITON"
-	InstanceClass_MEMORY_INTENSIVE_1 InstanceClass = "MEMORY_INTENSIVE_1"
-	InstanceClass_MEMORY_INTENSIVE_1_EXTENDED InstanceClass = "MEMORY_INTENSIVE_1_EXTENDED"
-	InstanceClass_MEMORY_INTENSIVE_2_GRAVITON2 InstanceClass = "MEMORY_INTENSIVE_2_GRAVITON2"
-	InstanceClass_MEMORY_INTENSIVE_2_GRAVITON2_NVME_DRIVE InstanceClass = "MEMORY_INTENSIVE_2_GRAVITON2_NVME_DRIVE"
+	InstanceClass_COMPUTE3 InstanceClass = "COMPUTE3"
+	InstanceClass_COMPUTE4 InstanceClass = "COMPUTE4"
+	InstanceClass_COMPUTE5 InstanceClass = "COMPUTE5"
+	InstanceClass_COMPUTE5_AMD InstanceClass = "COMPUTE5_AMD"
+	InstanceClass_COMPUTE5_AMD_NVME_DRIVE InstanceClass = "COMPUTE5_AMD_NVME_DRIVE"
+	InstanceClass_COMPUTE5_HIGH_PERFORMANCE InstanceClass = "COMPUTE5_HIGH_PERFORMANCE"
+	InstanceClass_COMPUTE5_NVME_DRIVE InstanceClass = "COMPUTE5_NVME_DRIVE"
+	InstanceClass_COMPUTE6_GRAVITON2 InstanceClass = "COMPUTE6_GRAVITON2"
+	InstanceClass_COMPUTE6_GRAVITON2_HIGH_NETWORK_BANDWITH InstanceClass = "COMPUTE6_GRAVITON2_HIGH_NETWORK_BANDWITH"
+	InstanceClass_COMPUTE6_GRAVITON2_NVME_DRIVE InstanceClass = "COMPUTE6_GRAVITON2_NVME_DRIVE"
+	InstanceClass_COMPUTE6_INTEL InstanceClass = "COMPUTE6_INTEL"
 	InstanceClass_FPGA1 InstanceClass = "FPGA1"
 	InstanceClass_GRAPHICS3 InstanceClass = "GRAPHICS3"
 	InstanceClass_GRAPHICS4_NVME_DRIVE_HIGH_PERFORMANCE InstanceClass = "GRAPHICS4_NVME_DRIVE_HIGH_PERFORMANCE"
 	InstanceClass_GRAPHICS5 InstanceClass = "GRAPHICS5"
+	InstanceClass_HIGH_COMPUTE_MEMORY1 InstanceClass = "HIGH_COMPUTE_MEMORY1"
+	InstanceClass_INFERENCE1 InstanceClass = "INFERENCE1"
+	InstanceClass_IO3 InstanceClass = "IO3"
+	InstanceClass_IO3_DENSE_NVME_DRIVE InstanceClass = "IO3_DENSE_NVME_DRIVE"
+	InstanceClass_MEMORY_INTENSIVE_1 InstanceClass = "MEMORY_INTENSIVE_1"
+	InstanceClass_MEMORY_INTENSIVE_1_EXTENDED InstanceClass = "MEMORY_INTENSIVE_1_EXTENDED"
+	InstanceClass_MEMORY_INTENSIVE_2_GRAVITON2 InstanceClass = "MEMORY_INTENSIVE_2_GRAVITON2"
+	InstanceClass_MEMORY_INTENSIVE_2_GRAVITON2_NVME_DRIVE InstanceClass = "MEMORY_INTENSIVE_2_GRAVITON2_NVME_DRIVE"
+	InstanceClass_MEMORY3 InstanceClass = "MEMORY3"
+	InstanceClass_MEMORY4 InstanceClass = "MEMORY4"
+	InstanceClass_MEMORY5 InstanceClass = "MEMORY5"
+	InstanceClass_MEMORY5_AMD InstanceClass = "MEMORY5_AMD"
+	InstanceClass_MEMORY5_AMD_NVME_DRIVE InstanceClass = "MEMORY5_AMD_NVME_DRIVE"
+	InstanceClass_MEMORY5_EBS_OPTIMIZED InstanceClass = "MEMORY5_EBS_OPTIMIZED"
+	InstanceClass_MEMORY5_HIGH_PERFORMANCE InstanceClass = "MEMORY5_HIGH_PERFORMANCE"
+	InstanceClass_MEMORY5_NVME_DRIVE InstanceClass = "MEMORY5_NVME_DRIVE"
+	InstanceClass_MEMORY5_NVME_DRIVE_HIGH_PERFORMANCE InstanceClass = "MEMORY5_NVME_DRIVE_HIGH_PERFORMANCE"
+	InstanceClass_MEMORY6_GRAVITON InstanceClass = "MEMORY6_GRAVITON"
+	InstanceClass_MEMORY6_GRAVITON2_NVME_DRIVE InstanceClass = "MEMORY6_GRAVITON2_NVME_DRIVE"
 	InstanceClass_PARALLEL2 InstanceClass = "PARALLEL2"
 	InstanceClass_PARALLEL3 InstanceClass = "PARALLEL3"
 	InstanceClass_PARALLEL4 InstanceClass = "PARALLEL4"
-	InstanceClass_ARM1 InstanceClass = "ARM1"
+	InstanceClass_STANDARD3 InstanceClass = "STANDARD3"
+	InstanceClass_STANDARD4 InstanceClass = "STANDARD4"
+	InstanceClass_STANDARD5 InstanceClass = "STANDARD5"
+	InstanceClass_STANDARD5_AMD InstanceClass = "STANDARD5_AMD"
+	InstanceClass_STANDARD5_AMD_NVME_DRIVE InstanceClass = "STANDARD5_AMD_NVME_DRIVE"
+	InstanceClass_STANDARD5_HIGH_PERFORMANCE InstanceClass = "STANDARD5_HIGH_PERFORMANCE"
+	InstanceClass_STANDARD5_NVME_DRIVE InstanceClass = "STANDARD5_NVME_DRIVE"
+	InstanceClass_STANDARD5_NVME_DRIVE_HIGH_PERFORMANCE InstanceClass = "STANDARD5_NVME_DRIVE_HIGH_PERFORMANCE"
 	InstanceClass_STANDARD6_GRAVITON InstanceClass = "STANDARD6_GRAVITON"
-	InstanceClass_STANDARD6_INTEL InstanceClass = "STANDARD6_INTEL"
 	InstanceClass_STANDARD6_GRAVITON2_NVME_DRIVE InstanceClass = "STANDARD6_GRAVITON2_NVME_DRIVE"
-	InstanceClass_HIGH_COMPUTE_MEMORY1 InstanceClass = "HIGH_COMPUTE_MEMORY1"
-	InstanceClass_INFERENCE1 InstanceClass = "INFERENCE1"
+	InstanceClass_STANDARD6_INTEL InstanceClass = "STANDARD6_INTEL"
+	InstanceClass_STORAGE_COMPUTE_1 InstanceClass = "STORAGE_COMPUTE_1"
+	InstanceClass_STORAGE2 InstanceClass = "STORAGE2"
 )
 
 // Provides the options for specifying the instance initiated shutdown behavior.
@@ -61466,15 +62264,6 @@ const (
 //
 // Experimental.
 type InstanceProps struct {
-	// Type of instance to launch.
-	// Experimental.
-	InstanceType InstanceType `json:"instanceType"`
-	// AMI to launch.
-	// Experimental.
-	MachineImage IMachineImage `json:"machineImage"`
-	// VPC to launch the instance in.
-	// Experimental.
-	Vpc IVpc `json:"vpc"`
 	// Whether the instance could initiate connections to anywhere by default.
 	//
 	// This property is only used when you do not provide a security group.
@@ -61504,9 +62293,15 @@ type InstanceProps struct {
 	// The name of the instance.
 	// Experimental.
 	InstanceName *string `json:"instanceName"`
+	// Type of instance to launch.
+	// Experimental.
+	InstanceType InstanceType `json:"instanceType"`
 	// Name of SSH keypair to grant access to instance.
 	// Experimental.
 	KeyName *string `json:"keyName"`
+	// AMI to launch.
+	// Experimental.
+	MachineImage IMachineImage `json:"machineImage"`
 	// Defines a private IP address to associate with an instance.
 	//
 	// Private IP should be available within the VPC that the instance is build within.
@@ -61559,6 +62354,9 @@ type InstanceProps struct {
 	// changes.
 	// Experimental.
 	UserDataCausesReplacement *bool `json:"userDataCausesReplacement"`
+	// VPC to launch the instance in.
+	// Experimental.
+	Vpc IVpc `json:"vpc"`
 	// Where to place the instance within the VPC.
 	// Experimental.
 	VpcSubnets *SubnetSelection `json:"vpcSubnets"`
@@ -61646,6 +62444,9 @@ func (i *jsiiProxy_InstanceRequireImdsv2Aspect) Warn(node awscdk.IConstruct, mes
 }
 
 // Properties for `InstanceRequireImdsv2Aspect`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type InstanceRequireImdsv2AspectProps struct {
 	// Whether warnings that would be raised when an Instance is associated with an existing Launch Template should be suppressed or not.
@@ -61667,26 +62468,26 @@ type InstanceRequireImdsv2AspectProps struct {
 type InstanceSize string
 
 const (
-	InstanceSize_NANO InstanceSize = "NANO"
-	InstanceSize_MICRO InstanceSize = "MICRO"
-	InstanceSize_SMALL InstanceSize = "SMALL"
-	InstanceSize_MEDIUM InstanceSize = "MEDIUM"
 	InstanceSize_LARGE InstanceSize = "LARGE"
+	InstanceSize_MEDIUM InstanceSize = "MEDIUM"
+	InstanceSize_METAL InstanceSize = "METAL"
+	InstanceSize_MICRO InstanceSize = "MICRO"
+	InstanceSize_NANO InstanceSize = "NANO"
+	InstanceSize_SMALL InstanceSize = "SMALL"
 	InstanceSize_XLARGE InstanceSize = "XLARGE"
-	InstanceSize_XLARGE2 InstanceSize = "XLARGE2"
-	InstanceSize_XLARGE3 InstanceSize = "XLARGE3"
-	InstanceSize_XLARGE4 InstanceSize = "XLARGE4"
-	InstanceSize_XLARGE6 InstanceSize = "XLARGE6"
-	InstanceSize_XLARGE8 InstanceSize = "XLARGE8"
-	InstanceSize_XLARGE9 InstanceSize = "XLARGE9"
 	InstanceSize_XLARGE10 InstanceSize = "XLARGE10"
 	InstanceSize_XLARGE12 InstanceSize = "XLARGE12"
 	InstanceSize_XLARGE16 InstanceSize = "XLARGE16"
 	InstanceSize_XLARGE18 InstanceSize = "XLARGE18"
+	InstanceSize_XLARGE2 InstanceSize = "XLARGE2"
 	InstanceSize_XLARGE24 InstanceSize = "XLARGE24"
+	InstanceSize_XLARGE3 InstanceSize = "XLARGE3"
 	InstanceSize_XLARGE32 InstanceSize = "XLARGE32"
+	InstanceSize_XLARGE4 InstanceSize = "XLARGE4"
 	InstanceSize_XLARGE48 InstanceSize = "XLARGE48"
-	InstanceSize_METAL InstanceSize = "METAL"
+	InstanceSize_XLARGE6 InstanceSize = "XLARGE6"
+	InstanceSize_XLARGE8 InstanceSize = "XLARGE8"
+	InstanceSize_XLARGE9 InstanceSize = "XLARGE9"
 )
 
 // Instance type for EC2 instances.
@@ -62217,20 +63018,23 @@ func (i *jsiiProxy_InterfaceVpcEndpoint) Validate() *[]*string {
 }
 
 // Construction properties for an ImportedInterfaceVpcEndpoint.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type InterfaceVpcEndpointAttributes struct {
 	// The port of the service of the interface VPC endpoint.
 	// Experimental.
 	Port *float64 `json:"port"`
-	// The interface VPC endpoint identifier.
-	// Experimental.
-	VpcEndpointId *string `json:"vpcEndpointId"`
 	// The identifier of the security group associated with the interface VPC endpoint.
 	// Deprecated: use `securityGroups` instead
 	SecurityGroupId *string `json:"securityGroupId"`
 	// The security groups associated with the interface VPC endpoint.
 	// Experimental.
 	SecurityGroups *[]ISecurityGroup `json:"securityGroups"`
+	// The interface VPC endpoint identifier.
+	// Experimental.
+	VpcEndpointId *string `json:"vpcEndpointId"`
 }
 
 // An AWS service for an interface VPC endpoint.
@@ -62902,11 +63706,11 @@ func InterfaceVpcEndpointAwsService_XRAY() InterfaceVpcEndpointAwsService {
 }
 
 // Options to add an interface endpoint to a VPC.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type InterfaceVpcEndpointOptions struct {
-	// The service to use for this interface VPC endpoint.
-	// Experimental.
-	Service IInterfaceVpcEndpointService `json:"service"`
 	// Limit to only those availability zones where the endpoint service can be created.
 	//
 	// Setting this to 'true' requires a lookup to be performed at synthesis time. Account
@@ -62928,6 +63732,9 @@ type InterfaceVpcEndpointOptions struct {
 	// The security groups to associate with this interface VPC endpoint.
 	// Experimental.
 	SecurityGroups *[]ISecurityGroup `json:"securityGroups"`
+	// The service to use for this interface VPC endpoint.
+	// Experimental.
+	Service IInterfaceVpcEndpointService `json:"service"`
 	// The subnets in which to create an endpoint network interface.
 	//
 	// At most one
@@ -62942,9 +63749,6 @@ type InterfaceVpcEndpointOptions struct {
 //
 // Experimental.
 type InterfaceVpcEndpointProps struct {
-	// The service to use for this interface VPC endpoint.
-	// Experimental.
-	Service IInterfaceVpcEndpointService `json:"service"`
 	// Limit to only those availability zones where the endpoint service can be created.
 	//
 	// Setting this to 'true' requires a lookup to be performed at synthesis time. Account
@@ -62966,6 +63770,9 @@ type InterfaceVpcEndpointProps struct {
 	// The security groups to associate with this interface VPC endpoint.
 	// Experimental.
 	SecurityGroups *[]ISecurityGroup `json:"securityGroups"`
+	// The service to use for this interface VPC endpoint.
+	// Experimental.
+	Service IInterfaceVpcEndpointService `json:"service"`
 	// The subnets in which to create an endpoint network interface.
 	//
 	// At most one
@@ -63514,6 +64321,9 @@ func (l *jsiiProxy_LaunchTemplate) Validate() *[]*string {
 }
 
 // Attributes for an imported LaunchTemplate.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LaunchTemplateAttributes struct {
 	// The identifier of the Launch Template.
@@ -63617,6 +64427,9 @@ type LaunchTemplateProps struct {
 }
 
 // Aspect that applies IMDS configuration on EC2 Launch Template constructs.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-metadataoptions.html
 //
 // Experimental.
@@ -63690,6 +64503,9 @@ func (l *jsiiProxy_LaunchTemplateRequireImdsv2Aspect) Warn(node awscdk.IConstruc
 }
 
 // Properties for `LaunchTemplateRequireImdsv2Aspect`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LaunchTemplateRequireImdsv2AspectProps struct {
 	// Whether warning annotations from this Aspect should be suppressed or not.
@@ -63698,6 +64514,9 @@ type LaunchTemplateRequireImdsv2AspectProps struct {
 }
 
 // A class that provides convenient access to special version tokens for LaunchTemplate versions.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LaunchTemplateSpecialVersions interface {
 }
@@ -63756,6 +64575,9 @@ func LaunchTemplateSpecialVersions_LATEST_VERSION() *string {
 }
 
 // Interface for the Spot market instance options provided in a LaunchTemplate.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LaunchTemplateSpotOptions struct {
 	// Spot Instances with a defined duration (also known as Spot blocks) are designed not to be interrupted and will run continuously for the duration you select.
@@ -63791,6 +64613,9 @@ type LaunchTemplateSpotOptions struct {
 }
 
 // Options when constructing UserData for Linux.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LinuxUserDataOptions struct {
 	// Shebang for the UserData script.
@@ -63799,6 +64624,9 @@ type LinuxUserDataOptions struct {
 }
 
 // Options for InitPackage.rpm/InitPackage.msi.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LocationPackageOptions struct {
 	// Identifier key for this package.
@@ -63821,6 +64649,9 @@ type LocationPackageOptions struct {
 // will be used on future runs. To refresh the AMI lookup, you will have to
 // evict the value from the cache using the `cdk context` command. See
 // https://docs.aws.amazon.com/cdk/latest/guide/context.html for more information.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LookupMachineImage interface {
 	IMachineImage
@@ -63874,16 +64705,19 @@ func (l *jsiiProxy_LookupMachineImage) GetImage(scope awscdk.Construct) *Machine
 }
 
 // Properties for looking up an image.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LookupMachineImageProps struct {
-	// Name of the image (may contain wildcards).
-	// Experimental.
-	Name *string `json:"name"`
 	// Additional filters on the AMI.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html
 	//
 	// Experimental.
 	Filters *map[string]*[]*string `json:"filters"`
+	// Name of the image (may contain wildcards).
+	// Experimental.
+	Name *string `json:"name"`
 	// Owner account IDs or aliases.
 	// Experimental.
 	Owners *[]*string `json:"owners"`
@@ -64073,6 +64907,9 @@ func MachineImage_Lookup(props *LookupMachineImageProps) IMachineImage {
 }
 
 // Configuration for a machine image.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type MachineImageConfig struct {
 	// The AMI ID of the image to use.
@@ -64190,8 +65027,14 @@ func (m *jsiiProxy_MultipartBody) RenderBodyPart() *[]*string {
 }
 
 // Options when creating `MultipartBody`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type MultipartBodyOptions struct {
+	// The body of message.
+	// Experimental.
+	Body *string `json:"body"`
 	// `Content-Type` header of this part.
 	//
 	// Some examples of content types:
@@ -64201,9 +65044,6 @@ type MultipartBodyOptions struct {
 	// For Linux shell scripts use `text/x-shellscript`.
 	// Experimental.
 	ContentType *string `json:"contentType"`
-	// The body of message.
-	// Experimental.
-	Body *string `json:"body"`
 	// `Content-Transfer-Encoding` header specifying part encoding.
 	// Experimental.
 	TransferEncoding *string `json:"transferEncoding"`
@@ -64446,6 +65286,9 @@ func (m *jsiiProxy_MultipartUserData) Render() *string {
 }
 
 // Options for creating {@link MultipartUserData}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type MultipartUserDataOptions struct {
 	// The string used to separate parts in multipart user data archive (it's like MIME boundary).
@@ -64456,6 +65299,9 @@ type MultipartUserDataOptions struct {
 }
 
 // Options for InitPackage.yum/apt/rubyGem/python.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NamedPackageOptions struct {
 	// Restart the given services after this command has run.
@@ -64467,6 +65313,9 @@ type NamedPackageOptions struct {
 }
 
 // Properties for a NAT gateway.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NatGatewayProps struct {
 	// EIP allocation IDs for the NAT gateways.
@@ -64475,6 +65324,9 @@ type NatGatewayProps struct {
 }
 
 // Machine image representing the latest NAT instance image.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NatInstanceImage interface {
 	LookupMachineImage
@@ -64533,9 +65385,6 @@ func (n *jsiiProxy_NatInstanceImage) GetImage(scope awscdk.Construct) *MachineIm
 //
 // Experimental.
 type NatInstanceProps struct {
-	// Instance type of the NAT instance.
-	// Experimental.
-	InstanceType InstanceType `json:"instanceType"`
 	// Allow all inbound traffic through the NAT instance.
 	//
 	// If you set this to false, you must configure the NAT instance's security
@@ -64556,6 +65405,9 @@ type NatInstanceProps struct {
 	// `.connections` members after passing the NAT Instance Provider to a Vpc.
 	// Experimental.
 	DefaultAllowedTraffic NatTrafficDirection `json:"defaultAllowedTraffic"`
+	// Instance type of the NAT instance.
+	// Experimental.
+	InstanceType InstanceType `json:"instanceType"`
 	// Name of SSH keypair to grant access to instance.
 	// Experimental.
 	KeyName *string `json:"keyName"`
@@ -64844,15 +65696,18 @@ func (n *jsiiProxy_NatProvider) ConfigureSubnet(subnet PrivateSubnet) {
 type NatTrafficDirection string
 
 const (
-	NatTrafficDirection_OUTBOUND_ONLY NatTrafficDirection = "OUTBOUND_ONLY"
 	NatTrafficDirection_INBOUND_AND_OUTBOUND NatTrafficDirection = "INBOUND_AND_OUTBOUND"
 	NatTrafficDirection_NONE NatTrafficDirection = "NONE"
+	NatTrafficDirection_OUTBOUND_ONLY NatTrafficDirection = "OUTBOUND_ONLY"
 )
 
 // Define a new custom network ACL.
 //
 // By default, will deny all inbound and outbound traffic unless entries are
 // added explicitly allowing it.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NetworkAcl interface {
 	awscdk.Resource
@@ -65234,6 +66089,9 @@ func (n *jsiiProxy_NetworkAcl) Validate() *[]*string {
 }
 
 // Define an entry in a Network ACL table.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NetworkAclEntry interface {
 	awscdk.Resource
@@ -65560,20 +66418,14 @@ func (n *jsiiProxy_NetworkAclEntry) Validate() *[]*string {
 }
 
 // Properties to create NetworkAclEntry.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NetworkAclEntryProps struct {
 	// The CIDR range to allow or deny.
 	// Experimental.
 	Cidr AclCidr `json:"cidr"`
-	// Rule number to assign to the entry, such as 100.
-	//
-	// ACL entries are processed in ascending order by rule number.
-	// Entries can't use the same rule number unless one is an egress rule and the other is an ingress rule.
-	// Experimental.
-	RuleNumber *float64 `json:"ruleNumber"`
-	// What kind of traffic this ACL rule applies to.
-	// Experimental.
-	Traffic AclTraffic `json:"traffic"`
 	// Traffic direction, with respect to the subnet, this rule applies to.
 	// Experimental.
 	Direction TrafficDirection `json:"direction"`
@@ -65588,17 +66440,26 @@ type NetworkAclEntryProps struct {
 	// ACL, all traffic is automatically allowed in a default ACL.
 	// Experimental.
 	RuleAction Action `json:"ruleAction"`
+	// Rule number to assign to the entry, such as 100.
+	//
+	// ACL entries are processed in ascending order by rule number.
+	// Entries can't use the same rule number unless one is an egress rule and the other is an ingress rule.
+	// Experimental.
+	RuleNumber *float64 `json:"ruleNumber"`
+	// What kind of traffic this ACL rule applies to.
+	// Experimental.
+	Traffic AclTraffic `json:"traffic"`
 	// The network ACL this entry applies to.
 	// Experimental.
 	NetworkAcl INetworkAcl `json:"networkAcl"`
 }
 
 // Properties to create NetworkAcl.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type NetworkAclProps struct {
-	// The VPC in which to create the NetworkACL.
-	// Experimental.
-	Vpc IVpc `json:"vpc"`
 	// The name of the NetworkAcl.
 	//
 	// It is not recommended to use an explicit name.
@@ -65610,6 +66471,9 @@ type NetworkAclProps struct {
 	// `associateWithSubnets()`.
 	// Experimental.
 	SubnetSelection *SubnetSelection `json:"subnetSelection"`
+	// The VPC in which to create the NetworkACL.
+	// Experimental.
+	Vpc IVpc `json:"vpc"`
 }
 
 // The OS type of a particular image.
@@ -65618,8 +66482,8 @@ type OperatingSystemType string
 
 const (
 	OperatingSystemType_LINUX OperatingSystemType = "LINUX"
-	OperatingSystemType_WINDOWS OperatingSystemType = "WINDOWS"
 	OperatingSystemType_UNKNOWN OperatingSystemType = "UNKNOWN"
+	OperatingSystemType_WINDOWS OperatingSystemType = "WINDOWS"
 )
 
 // Peer object factories (to be used in Security Group management).
@@ -66062,23 +66926,29 @@ func (p *jsiiProxy_Port) ToString() *string {
 }
 
 // Properties to create a port range.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type PortProps struct {
+	// The starting port for the range.
+	// Experimental.
+	FromPort *float64 `json:"fromPort"`
 	// The protocol for the range.
 	// Experimental.
 	Protocol Protocol `json:"protocol"`
 	// String representation for this object.
 	// Experimental.
 	StringRepresentation *string `json:"stringRepresentation"`
-	// The starting port for the range.
-	// Experimental.
-	FromPort *float64 `json:"fromPort"`
 	// The ending port for the range.
 	// Experimental.
 	ToPort *float64 `json:"toPort"`
 }
 
 // Represents a private VPC subnet resource.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type PrivateSubnet interface {
 	Subnet
@@ -66634,11 +67504,10 @@ func (p *jsiiProxy_PrivateSubnet) Validate() *[]*string {
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type PrivateSubnetAttributes struct {
-	// The subnetId for this particular subnet.
-	// Experimental.
-	SubnetId *string `json:"subnetId"`
 	// The Availability Zone the subnet is located in.
 	// Experimental.
 	AvailabilityZone *string `json:"availabilityZone"`
@@ -66648,8 +67517,13 @@ type PrivateSubnetAttributes struct {
 	// The ID of the route table for this particular subnet.
 	// Experimental.
 	RouteTableId *string `json:"routeTableId"`
+	// The subnetId for this particular subnet.
+	// Experimental.
+	SubnetId *string `json:"subnetId"`
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type PrivateSubnetProps struct {
 	// The availability zone for the subnet.
@@ -66658,12 +67532,12 @@ type PrivateSubnetProps struct {
 	// The CIDR notation for this subnet.
 	// Experimental.
 	CidrBlock *string `json:"cidrBlock"`
-	// The VPC which this subnet is part of.
-	// Experimental.
-	VpcId *string `json:"vpcId"`
 	// Controls if a public IP is associated to an instance at launch.
 	// Experimental.
 	MapPublicIpOnLaunch *bool `json:"mapPublicIpOnLaunch"`
+	// The VPC which this subnet is part of.
+	// Experimental.
+	VpcId *string `json:"vpcId"`
 }
 
 // Protocol for use in Connection Rules.
@@ -66673,155 +67547,158 @@ type PrivateSubnetProps struct {
 type Protocol string
 
 const (
-	Protocol_ALL Protocol = "ALL"
-	Protocol_HOPOPT Protocol = "HOPOPT"
-	Protocol_ICMP Protocol = "ICMP"
-	Protocol_IGMP Protocol = "IGMP"
-	Protocol_GGP Protocol = "GGP"
-	Protocol_IPV4 Protocol = "IPV4"
-	Protocol_ST Protocol = "ST"
-	Protocol_TCP Protocol = "TCP"
-	Protocol_CBT Protocol = "CBT"
-	Protocol_EGP Protocol = "EGP"
-	Protocol_IGP Protocol = "IGP"
-	Protocol_BBN_RCC_MON Protocol = "BBN_RCC_MON"
-	Protocol_NVP_II Protocol = "NVP_II"
-	Protocol_PUP Protocol = "PUP"
-	Protocol_EMCON Protocol = "EMCON"
-	Protocol_XNET Protocol = "XNET"
-	Protocol_CHAOS Protocol = "CHAOS"
-	Protocol_UDP Protocol = "UDP"
-	Protocol_MUX Protocol = "MUX"
-	Protocol_DCN_MEAS Protocol = "DCN_MEAS"
-	Protocol_HMP Protocol = "HMP"
-	Protocol_PRM Protocol = "PRM"
-	Protocol_XNS_IDP Protocol = "XNS_IDP"
-	Protocol_TRUNK_1 Protocol = "TRUNK_1"
-	Protocol_TRUNK_2 Protocol = "TRUNK_2"
-	Protocol_LEAF_1 Protocol = "LEAF_1"
-	Protocol_LEAF_2 Protocol = "LEAF_2"
-	Protocol_RDP Protocol = "RDP"
-	Protocol_IRTP Protocol = "IRTP"
-	Protocol_ISO_TP4 Protocol = "ISO_TP4"
-	Protocol_NETBLT Protocol = "NETBLT"
-	Protocol_MFE_NSP Protocol = "MFE_NSP"
-	Protocol_MERIT_INP Protocol = "MERIT_INP"
-	Protocol_DCCP Protocol = "DCCP"
-	Protocol_THREEPC Protocol = "THREEPC"
-	Protocol_IDPR Protocol = "IDPR"
-	Protocol_XTP Protocol = "XTP"
-	Protocol_DDP Protocol = "DDP"
-	Protocol_IDPR_CMTP Protocol = "IDPR_CMTP"
-	Protocol_TPPLUSPLUS Protocol = "TPPLUSPLUS"
-	Protocol_IL Protocol = "IL"
-	Protocol_IPV6 Protocol = "IPV6"
-	Protocol_SDRP Protocol = "SDRP"
-	Protocol_IPV6_ROUTE Protocol = "IPV6_ROUTE"
-	Protocol_IPV6_FRAG Protocol = "IPV6_FRAG"
-	Protocol_IDRP Protocol = "IDRP"
-	Protocol_RSVP Protocol = "RSVP"
-	Protocol_GRE Protocol = "GRE"
-	Protocol_DSR Protocol = "DSR"
-	Protocol_BNA Protocol = "BNA"
-	Protocol_ESP Protocol = "ESP"
-	Protocol_AH Protocol = "AH"
-	Protocol_I_NLSP Protocol = "I_NLSP"
-	Protocol_SWIPE Protocol = "SWIPE"
-	Protocol_NARP Protocol = "NARP"
-	Protocol_MOBILE Protocol = "MOBILE"
-	Protocol_TLSP Protocol = "TLSP"
-	Protocol_SKIP Protocol = "SKIP"
-	Protocol_ICMPV6 Protocol = "ICMPV6"
-	Protocol_IPV6_NONXT Protocol = "IPV6_NONXT"
-	Protocol_IPV6_OPTS Protocol = "IPV6_OPTS"
-	Protocol_CFTP Protocol = "CFTP"
-	Protocol_ANY_LOCAL Protocol = "ANY_LOCAL"
-	Protocol_SAT_EXPAK Protocol = "SAT_EXPAK"
-	Protocol_KRYPTOLAN Protocol = "KRYPTOLAN"
-	Protocol_RVD Protocol = "RVD"
-	Protocol_IPPC Protocol = "IPPC"
-	Protocol_ANY_DFS Protocol = "ANY_DFS"
-	Protocol_SAT_MON Protocol = "SAT_MON"
-	Protocol_VISA Protocol = "VISA"
-	Protocol_IPCV Protocol = "IPCV"
-	Protocol_CPNX Protocol = "CPNX"
-	Protocol_CPHB Protocol = "CPHB"
-	Protocol_WSN Protocol = "WSN"
-	Protocol_PVP Protocol = "PVP"
-	Protocol_BR_SAT_MON Protocol = "BR_SAT_MON"
-	Protocol_SUN_ND Protocol = "SUN_ND"
-	Protocol_WB_MON Protocol = "WB_MON"
-	Protocol_WB_EXPAK Protocol = "WB_EXPAK"
-	Protocol_ISO_IP Protocol = "ISO_IP"
-	Protocol_VMTP Protocol = "VMTP"
-	Protocol_SECURE_VMTP Protocol = "SECURE_VMTP"
-	Protocol_VINES Protocol = "VINES"
-	Protocol_TTP Protocol = "TTP"
-	Protocol_NSFNET_IGP Protocol = "NSFNET_IGP"
-	Protocol_DGP Protocol = "DGP"
-	Protocol_TCF Protocol = "TCF"
-	Protocol_EIGRP Protocol = "EIGRP"
-	Protocol_OSPFIGP Protocol = "OSPFIGP"
-	Protocol_SPRITE_RPC Protocol = "SPRITE_RPC"
-	Protocol_LARP Protocol = "LARP"
-	Protocol_MTP Protocol = "MTP"
-	Protocol_AX_25 Protocol = "AX_25"
-	Protocol_IPIP Protocol = "IPIP"
-	Protocol_MICP Protocol = "MICP"
-	Protocol_SCC_SP Protocol = "SCC_SP"
-	Protocol_ETHERIP Protocol = "ETHERIP"
-	Protocol_ENCAP Protocol = "ENCAP"
-	Protocol_ANY_ENC Protocol = "ANY_ENC"
-	Protocol_GMTP Protocol = "GMTP"
-	Protocol_IFMP Protocol = "IFMP"
-	Protocol_PNNI Protocol = "PNNI"
-	Protocol_PIM Protocol = "PIM"
-	Protocol_ARIS Protocol = "ARIS"
-	Protocol_SCPS Protocol = "SCPS"
-	Protocol_QNX Protocol = "QNX"
 	Protocol_A_N Protocol = "A_N"
-	Protocol_IPCOMP Protocol = "IPCOMP"
-	Protocol_SNP Protocol = "SNP"
-	Protocol_COMPAQ_PEER Protocol = "COMPAQ_PEER"
-	Protocol_IPX_IN_IP Protocol = "IPX_IN_IP"
-	Protocol_VRRP Protocol = "VRRP"
-	Protocol_PGM Protocol = "PGM"
+	Protocol_AH Protocol = "AH"
+	Protocol_ALL Protocol = "ALL"
 	Protocol_ANY_0_HOP Protocol = "ANY_0_HOP"
-	Protocol_L2_T_P Protocol = "L2_T_P"
-	Protocol_DDX Protocol = "DDX"
-	Protocol_IATP Protocol = "IATP"
-	Protocol_STP Protocol = "STP"
-	Protocol_SRP Protocol = "SRP"
-	Protocol_UTI Protocol = "UTI"
-	Protocol_SMP Protocol = "SMP"
-	Protocol_SM Protocol = "SM"
-	Protocol_PTP Protocol = "PTP"
-	Protocol_ISIS_IPV4 Protocol = "ISIS_IPV4"
-	Protocol_FIRE Protocol = "FIRE"
+	Protocol_ANY_DFS Protocol = "ANY_DFS"
+	Protocol_ANY_ENC Protocol = "ANY_ENC"
+	Protocol_ANY_LOCAL Protocol = "ANY_LOCAL"
+	Protocol_ARIS Protocol = "ARIS"
+	Protocol_AX_25 Protocol = "AX_25"
+	Protocol_BBN_RCC_MON Protocol = "BBN_RCC_MON"
+	Protocol_BNA Protocol = "BNA"
+	Protocol_BR_SAT_MON Protocol = "BR_SAT_MON"
+	Protocol_CBT Protocol = "CBT"
+	Protocol_CFTP Protocol = "CFTP"
+	Protocol_CHAOS Protocol = "CHAOS"
+	Protocol_COMPAQ_PEER Protocol = "COMPAQ_PEER"
+	Protocol_CPHB Protocol = "CPHB"
+	Protocol_CPNX Protocol = "CPNX"
 	Protocol_CRTP Protocol = "CRTP"
 	Protocol_CRUDP Protocol = "CRUDP"
-	Protocol_SSCOPMCE Protocol = "SSCOPMCE"
-	Protocol_IPLT Protocol = "IPLT"
-	Protocol_SPS Protocol = "SPS"
-	Protocol_PIPE Protocol = "PIPE"
-	Protocol_SCTP Protocol = "SCTP"
-	Protocol_FC Protocol = "FC"
-	Protocol_RSVP_E2E_IGNORE Protocol = "RSVP_E2E_IGNORE"
-	Protocol_MOBILITY_HEADER Protocol = "MOBILITY_HEADER"
-	Protocol_UDPLITE Protocol = "UDPLITE"
-	Protocol_MPLS_IN_IP Protocol = "MPLS_IN_IP"
-	Protocol_MANET Protocol = "MANET"
-	Protocol_HIP Protocol = "HIP"
-	Protocol_SHIM6 Protocol = "SHIM6"
-	Protocol_WESP Protocol = "WESP"
-	Protocol_ROHC Protocol = "ROHC"
+	Protocol_DCCP Protocol = "DCCP"
+	Protocol_DCN_MEAS Protocol = "DCN_MEAS"
+	Protocol_DDP Protocol = "DDP"
+	Protocol_DDX Protocol = "DDX"
+	Protocol_DGP Protocol = "DGP"
+	Protocol_DSR Protocol = "DSR"
+	Protocol_EGP Protocol = "EGP"
+	Protocol_EIGRP Protocol = "EIGRP"
+	Protocol_EMCON Protocol = "EMCON"
+	Protocol_ENCAP Protocol = "ENCAP"
+	Protocol_ESP Protocol = "ESP"
+	Protocol_ETHERIP Protocol = "ETHERIP"
 	Protocol_ETHERNET Protocol = "ETHERNET"
 	Protocol_EXPERIMENT_1 Protocol = "EXPERIMENT_1"
 	Protocol_EXPERIMENT_2 Protocol = "EXPERIMENT_2"
+	Protocol_FC Protocol = "FC"
+	Protocol_FIRE Protocol = "FIRE"
+	Protocol_GGP Protocol = "GGP"
+	Protocol_GMTP Protocol = "GMTP"
+	Protocol_GRE Protocol = "GRE"
+	Protocol_HIP Protocol = "HIP"
+	Protocol_HMP Protocol = "HMP"
+	Protocol_HOPOPT Protocol = "HOPOPT"
+	Protocol_I_NLSP Protocol = "I_NLSP"
+	Protocol_IATP Protocol = "IATP"
+	Protocol_ICMP Protocol = "ICMP"
+	Protocol_ICMPV6 Protocol = "ICMPV6"
+	Protocol_IDPR Protocol = "IDPR"
+	Protocol_IDPR_CMTP Protocol = "IDPR_CMTP"
+	Protocol_IDRP Protocol = "IDRP"
+	Protocol_IFMP Protocol = "IFMP"
+	Protocol_IGMP Protocol = "IGMP"
+	Protocol_IGP Protocol = "IGP"
+	Protocol_IL Protocol = "IL"
+	Protocol_IPCOMP Protocol = "IPCOMP"
+	Protocol_IPCV Protocol = "IPCV"
+	Protocol_IPIP Protocol = "IPIP"
+	Protocol_IPLT Protocol = "IPLT"
+	Protocol_IPPC Protocol = "IPPC"
+	Protocol_IPV4 Protocol = "IPV4"
+	Protocol_IPV6 Protocol = "IPV6"
+	Protocol_IPV6_FRAG Protocol = "IPV6_FRAG"
+	Protocol_IPV6_NONXT Protocol = "IPV6_NONXT"
+	Protocol_IPV6_OPTS Protocol = "IPV6_OPTS"
+	Protocol_IPV6_ROUTE Protocol = "IPV6_ROUTE"
+	Protocol_IPX_IN_IP Protocol = "IPX_IN_IP"
+	Protocol_IRTP Protocol = "IRTP"
+	Protocol_ISIS_IPV4 Protocol = "ISIS_IPV4"
+	Protocol_ISO_IP Protocol = "ISO_IP"
+	Protocol_ISO_TP4 Protocol = "ISO_TP4"
+	Protocol_KRYPTOLAN Protocol = "KRYPTOLAN"
+	Protocol_L2_T_P Protocol = "L2_T_P"
+	Protocol_LARP Protocol = "LARP"
+	Protocol_LEAF_1 Protocol = "LEAF_1"
+	Protocol_LEAF_2 Protocol = "LEAF_2"
+	Protocol_MANET Protocol = "MANET"
+	Protocol_MERIT_INP Protocol = "MERIT_INP"
+	Protocol_MFE_NSP Protocol = "MFE_NSP"
+	Protocol_MICP Protocol = "MICP"
+	Protocol_MOBILE Protocol = "MOBILE"
+	Protocol_MOBILITY_HEADER Protocol = "MOBILITY_HEADER"
+	Protocol_MPLS_IN_IP Protocol = "MPLS_IN_IP"
+	Protocol_MTP Protocol = "MTP"
+	Protocol_MUX Protocol = "MUX"
+	Protocol_NARP Protocol = "NARP"
+	Protocol_NETBLT Protocol = "NETBLT"
+	Protocol_NSFNET_IGP Protocol = "NSFNET_IGP"
+	Protocol_NVP_II Protocol = "NVP_II"
+	Protocol_OSPFIGP Protocol = "OSPFIGP"
+	Protocol_PGM Protocol = "PGM"
+	Protocol_PIM Protocol = "PIM"
+	Protocol_PIPE Protocol = "PIPE"
+	Protocol_PNNI Protocol = "PNNI"
+	Protocol_PRM Protocol = "PRM"
+	Protocol_PTP Protocol = "PTP"
+	Protocol_PUP Protocol = "PUP"
+	Protocol_PVP Protocol = "PVP"
+	Protocol_QNX Protocol = "QNX"
+	Protocol_RDP Protocol = "RDP"
 	Protocol_RESERVED Protocol = "RESERVED"
+	Protocol_ROHC Protocol = "ROHC"
+	Protocol_RSVP Protocol = "RSVP"
+	Protocol_RSVP_E2E_IGNORE Protocol = "RSVP_E2E_IGNORE"
+	Protocol_RVD Protocol = "RVD"
+	Protocol_SAT_EXPAK Protocol = "SAT_EXPAK"
+	Protocol_SAT_MON Protocol = "SAT_MON"
+	Protocol_SCC_SP Protocol = "SCC_SP"
+	Protocol_SCPS Protocol = "SCPS"
+	Protocol_SCTP Protocol = "SCTP"
+	Protocol_SDRP Protocol = "SDRP"
+	Protocol_SECURE_VMTP Protocol = "SECURE_VMTP"
+	Protocol_SHIM6 Protocol = "SHIM6"
+	Protocol_SKIP Protocol = "SKIP"
+	Protocol_SM Protocol = "SM"
+	Protocol_SMP Protocol = "SMP"
+	Protocol_SNP Protocol = "SNP"
+	Protocol_SPRITE_RPC Protocol = "SPRITE_RPC"
+	Protocol_SPS Protocol = "SPS"
+	Protocol_SRP Protocol = "SRP"
+	Protocol_SSCOPMCE Protocol = "SSCOPMCE"
+	Protocol_ST Protocol = "ST"
+	Protocol_STP Protocol = "STP"
+	Protocol_SUN_ND Protocol = "SUN_ND"
+	Protocol_SWIPE Protocol = "SWIPE"
+	Protocol_TCF Protocol = "TCF"
+	Protocol_TCP Protocol = "TCP"
+	Protocol_THREEPC Protocol = "THREEPC"
+	Protocol_TLSP Protocol = "TLSP"
+	Protocol_TPPLUSPLUS Protocol = "TPPLUSPLUS"
+	Protocol_TRUNK_1 Protocol = "TRUNK_1"
+	Protocol_TRUNK_2 Protocol = "TRUNK_2"
+	Protocol_TTP Protocol = "TTP"
+	Protocol_UDP Protocol = "UDP"
+	Protocol_UDPLITE Protocol = "UDPLITE"
+	Protocol_UTI Protocol = "UTI"
+	Protocol_VINES Protocol = "VINES"
+	Protocol_VISA Protocol = "VISA"
+	Protocol_VMTP Protocol = "VMTP"
+	Protocol_VRRP Protocol = "VRRP"
+	Protocol_WB_EXPAK Protocol = "WB_EXPAK"
+	Protocol_WB_MON Protocol = "WB_MON"
+	Protocol_WESP Protocol = "WESP"
+	Protocol_WSN Protocol = "WSN"
+	Protocol_XNET Protocol = "XNET"
+	Protocol_XNS_IDP Protocol = "XNS_IDP"
+	Protocol_XTP Protocol = "XTP"
 )
 
 // Represents a public VPC subnet resource.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type PublicSubnet interface {
 	Subnet
@@ -67397,11 +68274,10 @@ func (p *jsiiProxy_PublicSubnet) Validate() *[]*string {
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type PublicSubnetAttributes struct {
-	// The subnetId for this particular subnet.
-	// Experimental.
-	SubnetId *string `json:"subnetId"`
 	// The Availability Zone the subnet is located in.
 	// Experimental.
 	AvailabilityZone *string `json:"availabilityZone"`
@@ -67411,8 +68287,13 @@ type PublicSubnetAttributes struct {
 	// The ID of the route table for this particular subnet.
 	// Experimental.
 	RouteTableId *string `json:"routeTableId"`
+	// The subnetId for this particular subnet.
+	// Experimental.
+	SubnetId *string `json:"subnetId"`
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type PublicSubnetProps struct {
 	// The availability zone for the subnet.
@@ -67421,12 +68302,12 @@ type PublicSubnetProps struct {
 	// The CIDR notation for this subnet.
 	// Experimental.
 	CidrBlock *string `json:"cidrBlock"`
-	// The VPC which this subnet is part of.
-	// Experimental.
-	VpcId *string `json:"vpcId"`
 	// Controls if a public IP is associated to an instance at launch.
 	// Experimental.
 	MapPublicIpOnLaunch *bool `json:"mapPublicIpOnLaunch"`
+	// The VPC which this subnet is part of.
+	// Experimental.
+	VpcId *string `json:"vpcId"`
 }
 
 // Type of router used in route.
@@ -68212,9 +69093,9 @@ type SelectedSubnets struct {
 type SpotInstanceInterruption string
 
 const (
+	SpotInstanceInterruption_HIBERNATE SpotInstanceInterruption = "HIBERNATE"
 	SpotInstanceInterruption_STOP SpotInstanceInterruption = "STOP"
 	SpotInstanceInterruption_TERMINATE SpotInstanceInterruption = "TERMINATE"
-	SpotInstanceInterruption_HIBERNATE SpotInstanceInterruption = "HIBERNATE"
 )
 
 // The Spot Instance request type.
@@ -68229,6 +69110,9 @@ const (
 )
 
 // Properties for GenericSsmParameterImage.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SsmParameterImageOptions struct {
 	// Whether the AMI ID is cached to be stable between deployments.
@@ -68803,9 +69687,6 @@ func (s *jsiiProxy_Subnet) Validate() *[]*string {
 //
 // Experimental.
 type SubnetAttributes struct {
-	// The subnetId for this particular subnet.
-	// Experimental.
-	SubnetId *string `json:"subnetId"`
 	// The Availability Zone the subnet is located in.
 	// Experimental.
 	AvailabilityZone *string `json:"availabilityZone"`
@@ -68815,23 +69696,17 @@ type SubnetAttributes struct {
 	// The ID of the route table for this particular subnet.
 	// Experimental.
 	RouteTableId *string `json:"routeTableId"`
+	// The subnetId for this particular subnet.
+	// Experimental.
+	SubnetId *string `json:"subnetId"`
 }
 
 // Specify configuration parameters for a single subnet group in a VPC.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SubnetConfiguration struct {
-	// Logical name for the subnet group.
-	//
-	// This name can be used when selecting VPC subnets to distinguish
-	// between different subnet groups of the same type.
-	// Experimental.
-	Name *string `json:"name"`
-	// The type of Subnet to configure.
-	//
-	// The Subnet type will control the ability to route and connect to the
-	// Internet.
-	// Experimental.
-	SubnetType SubnetType `json:"subnetType"`
 	// The number of leading 1 bits in the routing mask.
 	//
 	// The number of available IP addresses in each subnet of this group
@@ -68840,6 +69715,12 @@ type SubnetConfiguration struct {
 	// Valid values are `16--28`.
 	// Experimental.
 	CidrMask *float64 `json:"cidrMask"`
+	// Logical name for the subnet group.
+	//
+	// This name can be used when selecting VPC subnets to distinguish
+	// between different subnet groups of the same type.
+	// Experimental.
+	Name *string `json:"name"`
 	// Controls if subnet IP space needs to be reserved.
 	//
 	// When true, the IP space for the subnet is reserved but no actual
@@ -68848,9 +69729,18 @@ type SubnetConfiguration struct {
 	// properties are ignored.
 	// Experimental.
 	Reserved *bool `json:"reserved"`
+	// The type of Subnet to configure.
+	//
+	// The Subnet type will control the ability to route and connect to the
+	// Internet.
+	// Experimental.
+	SubnetType SubnetType `json:"subnetType"`
 }
 
 // Contains logic which chooses a set of subnets from a larger list, in conjunction with SubnetSelection, to determine where to place AWS resources such as VPC endpoints, EC2 instances, etc.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SubnetFilter interface {
 	SelectSubnets(_subnets *[]ISubnet) *[]ISubnet
@@ -68972,6 +69862,8 @@ func (s *jsiiProxy_SubnetFilter) SelectSubnets(_subnets *[]ISubnet) *[]ISubnet {
 	return returns
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type SubnetNetworkAclAssociation interface {
 	awscdk.Resource
@@ -69336,6 +70228,9 @@ func (s *jsiiProxy_SubnetNetworkAclAssociation) Validate() *[]*string {
 }
 
 // Properties to create a SubnetNetworkAclAssociation.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SubnetNetworkAclAssociationProps struct {
 	// The Network ACL this association is defined for.
@@ -69352,6 +70247,9 @@ type SubnetNetworkAclAssociationProps struct {
 }
 
 // Specify configuration parameters for a VPC subnet.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SubnetProps struct {
 	// The availability zone for the subnet.
@@ -69360,12 +70258,12 @@ type SubnetProps struct {
 	// The CIDR notation for this subnet.
 	// Experimental.
 	CidrBlock *string `json:"cidrBlock"`
-	// The VPC which this subnet is part of.
-	// Experimental.
-	VpcId *string `json:"vpcId"`
 	// Controls if a public IP is associated to an instance at launch.
 	// Experimental.
 	MapPublicIpOnLaunch *bool `json:"mapPublicIpOnLaunch"`
+	// The VPC which this subnet is part of.
+	// Experimental.
+	VpcId *string `json:"vpcId"`
 }
 
 // Customize subnets that are selected for placement of ENIs.
@@ -70098,17 +70996,20 @@ func (v *jsiiProxy_Volume) ValidateProps(props *VolumeProps) {
 }
 
 // Attributes required to import an existing EBS Volume into the Stack.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type VolumeAttributes struct {
 	// The availability zone that the EBS Volume is contained within (ex: us-west-2a).
 	// Experimental.
 	AvailabilityZone *string `json:"availabilityZone"`
-	// The EBS Volume's ID.
-	// Experimental.
-	VolumeId *string `json:"volumeId"`
 	// The customer-managed encryption key that is used to encrypt the Volume.
 	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey"`
+	// The EBS Volume's ID.
+	// Experimental.
+	VolumeId *string `json:"volumeId"`
 }
 
 // Properties of an EBS Volume.
@@ -71013,9 +71914,6 @@ type VpcAttributes struct {
 	// List of availability zones for the subnets in this VPC.
 	// Experimental.
 	AvailabilityZones *[]*string `json:"availabilityZones"`
-	// VPC's identifier.
-	// Experimental.
-	VpcId *string `json:"vpcId"`
 	// List of isolated subnet IDs.
 	//
 	// Must be undefined or match the availability zones in length and order.
@@ -71064,6 +71962,9 @@ type VpcAttributes struct {
 	// VPC's CIDR range.
 	// Experimental.
 	VpcCidrBlock *string `json:"vpcCidrBlock"`
+	// VPC's identifier.
+	// Experimental.
+	VpcId *string `json:"vpcId"`
 	// VPN gateway's identifier.
 	// Experimental.
 	VpnGatewayId *string `json:"vpnGatewayId"`
@@ -72503,12 +73404,12 @@ func (v *jsiiProxy_VpnConnection) Validate() *[]*string {
 //
 // Experimental.
 type VpnConnectionOptions struct {
-	// The ip address of the customer gateway.
-	// Experimental.
-	Ip *string `json:"ip"`
 	// The ASN of the customer gateway.
 	// Experimental.
 	Asn *float64 `json:"asn"`
+	// The ip address of the customer gateway.
+	// Experimental.
+	Ip *string `json:"ip"`
 	// The static routes to be routed from the VPN gateway to the customer gateway.
 	// Experimental.
 	StaticRoutes *[]*string `json:"staticRoutes"`
@@ -72520,14 +73421,16 @@ type VpnConnectionOptions struct {
 	TunnelOptions *[]*VpnTunnelOption `json:"tunnelOptions"`
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type VpnConnectionProps struct {
-	// The ip address of the customer gateway.
-	// Experimental.
-	Ip *string `json:"ip"`
 	// The ASN of the customer gateway.
 	// Experimental.
 	Asn *float64 `json:"asn"`
+	// The ip address of the customer gateway.
+	// Experimental.
+	Ip *string `json:"ip"`
 	// The static routes to be routed from the VPN gateway to the customer gateway.
 	// Experimental.
 	StaticRoutes *[]*string `json:"staticRoutes"`
@@ -72552,6 +73455,9 @@ const (
 )
 
 // The VPN Gateway that shall be added to the VPC.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type VpnGateway interface {
 	awscdk.Resource
@@ -72878,14 +73784,17 @@ func (v *jsiiProxy_VpnGateway) Validate() *[]*string {
 }
 
 // The VpnGateway Properties.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type VpnGatewayProps struct {
-	// Default type ipsec.1.
-	// Experimental.
-	Type *string `json:"type"`
 	// Explicitly specify an Asn or let aws pick an Asn for you.
 	// Experimental.
 	AmazonSideAsn *float64 `json:"amazonSideAsn"`
+	// Default type ipsec.1.
+	// Experimental.
+	Type *string `json:"type"`
 }
 
 // Port for client VPN.
@@ -72897,6 +73806,8 @@ const (
 	VpnPort_OPENVPN VpnPort = "OPENVPN"
 )
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type VpnTunnelOption struct {
 	// The pre-shared key (PSK) to establish initial authentication between the virtual private gateway and customer gateway.
@@ -72924,6 +73835,9 @@ type VpnTunnelOption struct {
 // The AMI ID is selected using the values published to the SSM parameter store.
 //
 // https://aws.amazon.com/blogs/mt/query-for-the-latest-windows-ami-using-systems-manager-parameter-store/
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type WindowsImage interface {
 	GenericSSMParameterImage
@@ -72989,6 +73903,9 @@ func (w *jsiiProxy_WindowsImage) GetImage(scope awscdk.Construct) *MachineImageC
 }
 
 // Configuration options for WindowsImage.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type WindowsImageProps struct {
 	// Initial user data.
@@ -73001,231 +73918,231 @@ type WindowsImageProps struct {
 type WindowsVersion string
 
 const (
-	WindowsVersion_WINDOWS_SERVER_2008_SP2_ENGLISH_64BIT_SQL_2008_SP4_EXPRESS WindowsVersion = "WINDOWS_SERVER_2008_SP2_ENGLISH_64BIT_SQL_2008_SP4_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_CHINESE_SIMPLIFIED_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_CHINESE_SIMPLIFIED_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_CHINESE_TRADITIONAL_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_CHINESE_TRADITIONAL_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_DUTCH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_DUTCH_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP2_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP2_ENTERPRISE"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_HUNGARIAN_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_HUNGARIAN_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_CORE_CONTAINERS WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_CORE_CONTAINERS"
-	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP1_WEB WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP1_WEB"
-	WindowsVersion_WINDOWS_SERVER_2016_GERMAL_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_GERMAL_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2003_R2_SP2_LANGUAGE_PACKS_32BIT_BASE WindowsVersion = "WINDOWS_SERVER_2003_R2_SP2_LANGUAGE_PACKS_32BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2008_R2_SP3_WEB WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2008_R2_SP3_WEB"
-	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2012_SP4_EXPRESS WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2012_SP4_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_SP1_PORTUGESE_BRAZIL_64BIT_CORE WindowsVersion = "WINDOWS_SERVER_2012_R2_SP1_PORTUGESE_BRAZIL_64BIT_CORE"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP2_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP2_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2014_SP2_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2014_SP2_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_ITALIAN_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_ITALIAN_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP1_EXPRESS WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP1_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_DEEP_LEARNING WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_DEEP_LEARNING"
-	WindowsVersion_WINDOWS_SERVER_2019_ITALIAN_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_ITALIAN_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_KOREAN_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_KOREAN_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP1_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP1_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP2_WEB WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP2_WEB"
-	WindowsVersion_WINDOWS_SERVER_2016_JAPANESE_FULL_FQL_2016_SP2_WEB WindowsVersion = "WINDOWS_SERVER_2016_JAPANESE_FULL_FQL_2016_SP2_WEB"
-	WindowsVersion_WINDOWS_SERVER_2016_KOREAN_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_KOREAN_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2016_KOREAN_FULL_SQL_2016_SP2_STANDARD WindowsVersion = "WINDOWS_SERVER_2016_KOREAN_FULL_SQL_2016_SP2_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2016_PORTUGESE_PORTUGAL_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_PORTUGESE_PORTUGAL_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2017_WEB WindowsVersion = "WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2017_WEB"
-	WindowsVersion_WINDOWS_SERVER_2019_FRENCH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_FRENCH_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2019_KOREAN_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_KOREAN_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_CHINESE_HONG_KONG_SAR_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_CHINESE_HONG_KONG_SAR_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_CHINESE_PRC_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_CHINESE_PRC_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_FRENCH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_FRENCH_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_CONTAINERS WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_CONTAINERS"
-	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP1_STANDARD WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP1_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2016_RUSSIAN_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_RUSSIAN_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2019_CHINESE_SIMPLIFIED_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_CHINESE_SIMPLIFIED_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2016_SP2_STANDARD WindowsVersion = "WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2016_SP2_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2019_HUNGARIAN_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_HUNGARIAN_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2008_R2_SP3_EXPRESS WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2008_R2_SP3_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2007_R2_SP1_LANGUAGE_PACKS_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2007_R2_SP1_LANGUAGE_PACKS_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2008_SP2_ENGLISH_32BIT_BASE WindowsVersion = "WINDOWS_SERVER_2008_SP2_ENGLISH_32BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2012_SP4_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2012_SP4_ENTERPRISE"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_CHINESE_TRADITIONAL_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_CHINESE_TRADITIONAL_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2008_R2_SP3_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2008_R2_SP3_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2014_SP2_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2014_SP2_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2014_SP2_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2014_SP2_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2016_POLISH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_POLISH_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2016_SP2_WEB WindowsVersion = "WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2016_SP2_WEB"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP3_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP3_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP2_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP2_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_DEEP_LEARNING WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_DEEP_LEARNING"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_GERMAN_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_GERMAN_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP1_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP1_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_RUSSIAN_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_RUSSIAN_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_CHINESE_TRADITIONAL_HONG_KONG_SAR_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_CHINESE_TRADITIONAL_HONG_KONG_SAR_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_HUNGARIAN_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_HUNGARIAN_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2014_SP3_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2014_SP3_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_HYPERV WindowsVersion = "WINDOWS_SERVER_2019_ENGLISH_FULL_HYPERV"
-	WindowsVersion_WINDOWS_SERVER_2003_R2_SP2_ENGLISH_64BIT_SQL_2005_SP4_EXPRESS WindowsVersion = "WINDOWS_SERVER_2003_R2_SP2_ENGLISH_64BIT_SQL_2005_SP4_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_SQL_2012_SP4_EXPRESS WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_SQL_2012_SP4_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_GERMAN_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_GERMAN_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2008_R2_SP3_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2008_R2_SP3_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP2_STANDARD WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP2_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2017_EXPRESS WindowsVersion = "WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2017_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2019_JAPANESE_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_JAPANESE_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2019_RUSSIAN_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_RUSSIAN_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP2_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP2_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ITALIAN_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ITALIAN_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2008_R2_SP3_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2008_R2_SP3_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_HYPERV WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_HYPERV"
-	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP2_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP2_ENTERPRISE"
-	WindowsVersion_WINDOWS_SERVER_2019_CHINESE_TRADITIONAL_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_CHINESE_TRADITIONAL_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_CORE_BASE WindowsVersion = "WINDOWS_SERVER_2019_ENGLISH_CORE_BASE"
-	WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_CORE_CONTAINERSLATEST WindowsVersion = "WINDOWS_SERVER_2019_ENGLISH_CORE_CONTAINERSLATEST"
-	WindowsVersion_WINDOWS_SERVER_2008_SP2_ENGLISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2008_SP2_ENGLISH_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_FRENCH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_FRENCH_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_POLISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_POLISH_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2012_SP4_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2012_SP4_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2014_SP3_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2014_SP3_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_2012_SP4_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_2012_SP4_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_CORE_CONTAINERSLATEST WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_CORE_CONTAINERSLATEST"
-	WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2016_SP2_EXPRESS WindowsVersion = "WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2016_SP2_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2019_TURKISH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_TURKISH_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP2_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP2_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP3_WEB WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP3_WEB"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP1_WEB WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP1_WEB"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_PORTUGESE_BRAZIL_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_PORTUGESE_BRAZIL_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_PORTUGESE_PORTUGAL_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_PORTUGESE_PORTUGAL_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_SWEDISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_SWEDISH_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP1_EXPRESS WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP1_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2016_ITALIAN_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_ITALIAN_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2016_SPANISH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_SPANISH_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2017_STANDARD WindowsVersion = "WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2017_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2003_R2_SP2_LANGUAGE_PACKS_64BIT_SQL_2005_SP4_STANDARD WindowsVersion = "WINDOWS_SERVER_2003_R2_SP2_LANGUAGE_PACKS_64BIT_SQL_2005_SP4_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_SQL_2008_R2_SP3_STANDARD WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_SQL_2008_R2_SP3_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP1_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP1_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2007_R2_SP3_WEB WindowsVersion = "WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2007_R2_SP3_WEB"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2014_SP2_WEB WindowsVersion = "WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2014_SP2_WEB"
-	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP2_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP2_ENTERPRISE"
-	WindowsVersion_WINDOWS_SERVER_2016_PORTUGESE_BRAZIL_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_PORTUGESE_BRAZIL_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_ENGLISH_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2003_R2_SP2_ENGLISH_32BIT_BASE WindowsVersion = "WINDOWS_SERVER_2003_R2_SP2_ENGLISH_32BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_CZECH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_CZECH_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP1_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP1_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2014_SP2_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2014_SP2_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2012_SP4_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2012_SP4_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP1_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP1_ENTERPRISE"
-	WindowsVersion_WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP1_WEB WindowsVersion = "WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP1_WEB"
-	WindowsVersion_WINDOWS_SERVER_2016_SWEDISH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_SWEDISH_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2016_TURKISH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_TURKISH_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_CORE_SQL_2012_SP4_STANDARD WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_CORE_SQL_2012_SP4_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_LANGUAGE_PACKS_64BIT_SQL_2008_R2_SP3_STANDARD WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_LANGUAGE_PACKS_64BIT_SQL_2008_R2_SP3_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_CZECH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_CZECH_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_TURKISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_TURKISH_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2016_DUTCH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_DUTCH_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP2_EXPRESS WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP2_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2017_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2017_ENTERPRISE"
-	WindowsVersion_WINDOWS_SERVER_2016_HUNGARIAN_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_HUNGARIAN_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2016_KOREAN_FULL_SQL_2016_SP1_STANDARD WindowsVersion = "WINDOWS_SERVER_2016_KOREAN_FULL_SQL_2016_SP1_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2019_SPANISH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_SPANISH_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2003_R2_SP2_ENGLISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2003_R2_SP2_ENGLISH_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_LANGUAGE_PACKS_64BIT_SQL_2008_R2_SP3_EXPRESS WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_LANGUAGE_PACKS_64BIT_SQL_2008_R2_SP3_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2012_SP2_PORTUGESE_BRAZIL_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_SP2_PORTUGESE_BRAZIL_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP1_WEB WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP1_WEB"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2014_SP3_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2014_SP3_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP2_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP2_ENTERPRISE"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_CONTAINERSLATEST WindowsVersion = "WINDOWS_SERVER_2019_ENGLISH_FULL_CONTAINERSLATEST"
-	WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2017_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2017_ENTERPRISE"
+	WindowsVersion_WINDOWS_SERVER_1709_ENGLISH_CORE_BASE WindowsVersion = "WINDOWS_SERVER_1709_ENGLISH_CORE_BASE"
 	WindowsVersion_WINDOWS_SERVER_1709_ENGLISH_CORE_CONTAINERSLATEST WindowsVersion = "WINDOWS_SERVER_1709_ENGLISH_CORE_CONTAINERSLATEST"
 	WindowsVersion_WINDOWS_SERVER_1803_ENGLISH_CORE_BASE WindowsVersion = "WINDOWS_SERVER_1803_ENGLISH_CORE_BASE"
-	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2012_SP4_WEB WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2012_SP4_WEB"
-	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2008_SP2_ENGLISH_64BIT_SQL_2008_SP4_STANDARD WindowsVersion = "WINDOWS_SERVER_2008_SP2_ENGLISH_64BIT_SQL_2008_SP4_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_PORTUGESE_BRAZIL_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_PORTUGESE_BRAZIL_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP1_WEB WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP1_WEB"
-	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_P3 WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_P3"
-	WindowsVersion_WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP1_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP1_ENTERPRISE"
-	WindowsVersion_WINDOWS_SERVER_2003_R2_SP2_LANGUAGE_PACKS_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2003_R2_SP2_LANGUAGE_PACKS_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_CHINESE_TRADITIONAL_HONG_KONG_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_CHINESE_TRADITIONAL_HONG_KONG_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP3_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP3_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP2_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP2_ENTERPRISE"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_CHINESE_SIMPLIFIED_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_CHINESE_SIMPLIFIED_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2012_SP4_WEB WindowsVersion = "WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2012_SP4_WEB"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2014_SP3_WEB WindowsVersion = "WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2014_SP3_WEB"
-	WindowsVersion_WINDOWS_SERVER_2016_JAPANESE_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_JAPANESE_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP1_EXPRESS WindowsVersion = "WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP1_EXPRESS"
 	WindowsVersion_WINDOWS_SERVER_1803_ENGLISH_CORE_CONTAINERSLATEST WindowsVersion = "WINDOWS_SERVER_1803_ENGLISH_CORE_CONTAINERSLATEST"
-	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_SQL_2012_SP4_STANDARD WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_SQL_2012_SP4_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_CORE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_CORE"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP2_WEB WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP2_WEB"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP3_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP3_ENTERPRISE"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP2_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP2_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_2014_SP3_WEB WindowsVersion = "WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_2014_SP3_WEB"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_SWEDISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_SWEDISH_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2016_CHINESE_SIMPLIFIED_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_CHINESE_SIMPLIFIED_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2019_POLISH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_POLISH_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_SQL_2008_R2_SP3_WEB WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_SQL_2008_R2_SP3_WEB"
-	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_PORTUGESE_BRAZIL_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_PORTUGESE_BRAZIL_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP1_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP1_ENTERPRISE"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2016_SP2_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2016_SP2_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2014_SP3_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2014_SP3_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2014_SP2_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2014_SP2_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_CORE_BASE WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_CORE_BASE"
-	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2017_WEB WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2017_WEB"
-	WindowsVersion_WINDOWS_SERVER_2019_GERMAN_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_GERMAN_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2003_R2_SP2_ENGLISH_64BIT_SQL_2005_SP4_STANDARD WindowsVersion = "WINDOWS_SERVER_2003_R2_SP2_ENGLISH_64BIT_SQL_2005_SP4_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2012_SP4_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2012_SP4_ENTERPRISE"
-	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_SQL_2008_R2_SP3_EXPRESS WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_SQL_2008_R2_SP3_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP1_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP1_ENTERPRISE"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2014_SP2_WEB WindowsVersion = "WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2014_SP2_WEB"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2008_R2_SP3_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2008_R2_SP3_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2016_FRENCH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_FRENCH_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP2_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP2_ENTERPRISE"
-	WindowsVersion_WINDOWS_SERVER_2019_CZECH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_CZECH_FULL_BASE"
 	WindowsVersion_WINDOWS_SERVER_1809_ENGLISH_CORE_BASE WindowsVersion = "WINDOWS_SERVER_1809_ENGLISH_CORE_BASE"
 	WindowsVersion_WINDOWS_SERVER_1809_ENGLISH_CORE_CONTAINERSLATEST WindowsVersion = "WINDOWS_SERVER_1809_ENGLISH_CORE_CONTAINERSLATEST"
+	WindowsVersion_WINDOWS_SERVER_2003_R2_SP2_ENGLISH_32BIT_BASE WindowsVersion = "WINDOWS_SERVER_2003_R2_SP2_ENGLISH_32BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2003_R2_SP2_ENGLISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2003_R2_SP2_ENGLISH_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2003_R2_SP2_ENGLISH_64BIT_SQL_2005_SP4_EXPRESS WindowsVersion = "WINDOWS_SERVER_2003_R2_SP2_ENGLISH_64BIT_SQL_2005_SP4_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2003_R2_SP2_ENGLISH_64BIT_SQL_2005_SP4_STANDARD WindowsVersion = "WINDOWS_SERVER_2003_R2_SP2_ENGLISH_64BIT_SQL_2005_SP4_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2003_R2_SP2_LANGUAGE_PACKS_32BIT_BASE WindowsVersion = "WINDOWS_SERVER_2003_R2_SP2_LANGUAGE_PACKS_32BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2003_R2_SP2_LANGUAGE_PACKS_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2003_R2_SP2_LANGUAGE_PACKS_64BIT_BASE"
 	WindowsVersion_WINDOWS_SERVER_2003_R2_SP2_LANGUAGE_PACKS_64BIT_SQL_2005_SP4_EXPRESS WindowsVersion = "WINDOWS_SERVER_2003_R2_SP2_LANGUAGE_PACKS_64BIT_SQL_2005_SP4_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_TURKISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_TURKISH_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2012_SP4_WEB WindowsVersion = "WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2012_SP4_WEB"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_POLISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_POLISH_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_SPANISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_SPANISH_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP1_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP1_ENTERPRISE"
-	WindowsVersion_WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP2_EXPRESS WindowsVersion = "WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP2_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2016_SP2_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2016_SP2_ENTERPRISE"
-	WindowsVersion_WINDOWS_SERVER_1709_ENGLISH_CORE_BASE WindowsVersion = "WINDOWS_SERVER_1709_ENGLISH_CORE_BASE"
+	WindowsVersion_WINDOWS_SERVER_2003_R2_SP2_LANGUAGE_PACKS_64BIT_SQL_2005_SP4_STANDARD WindowsVersion = "WINDOWS_SERVER_2003_R2_SP2_LANGUAGE_PACKS_64BIT_SQL_2005_SP4_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2007_R2_SP1_LANGUAGE_PACKS_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2007_R2_SP1_LANGUAGE_PACKS_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_CHINESE_HONG_KONG_SAR_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_CHINESE_HONG_KONG_SAR_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_CHINESE_PRC_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_CHINESE_PRC_64BIT_BASE"
 	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_ENGLISH_61BIT_SQL_2012_RTM_SP2_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_ENGLISH_61BIT_SQL_2012_RTM_SP2_ENTERPRISE"
-	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2012_SP4_STANDARD WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2012_SP4_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2008_SP2_PORTUGESE_BRAZIL_32BIT_BASE WindowsVersion = "WINDOWS_SERVER_2008_SP2_PORTUGESE_BRAZIL_32BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2014_SP2_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2014_SP2_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2012_SP4_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2012_SP4_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_PORTUGESE_PORTUGAL_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_PORTUGESE_PORTUGAL_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2016_CZECH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_CZECH_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP1_STANDARD WindowsVersion = "WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP1_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2019_DUTCH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_DUTCH_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_BASE"
 	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_CORE WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_CORE"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP2_WEB WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP2_WEB"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_KOREAN_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_KOREAN_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_DUTCH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_DUTCH_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_64BIT_SQL_2012_SP4_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_64BIT_SQL_2012_SP4_ENTERPRISE"
-	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP1_STANDARD WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP1_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP2_EXPRESS WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP2_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP2_WEB WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP2_WEB"
-	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2017_STANDARD WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2017_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2019_PORTUGESE_BRAZIL_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_PORTUGESE_BRAZIL_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2008_R2_SP3_STANDARD WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2008_R2_SP3_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_CORE_SQL_2012_SP4_STANDARD WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_CORE_SQL_2012_SP4_STANDARD"
 	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SHAREPOINT_2010_SP2_FOUNDATION WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SHAREPOINT_2010_SP2_FOUNDATION"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_P3 WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_P3"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2014_SP3_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2014_SP3_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_SPANISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_SPANISH_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2014_SP3_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2014_SP3_EXPRESS"
-	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP2_STANDARD WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP2_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP2_STANDARD WindowsVersion = "WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP2_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2019_PORTUGESE_PORTUGAL_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_PORTUGESE_PORTUGAL_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2019_SWEDISH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_SWEDISH_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2008_R2_SP3_EXPRESS WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2008_R2_SP3_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2008_R2_SP3_STANDARD WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2008_R2_SP3_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2008_R2_SP3_WEB WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2008_R2_SP3_WEB"
+	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2012_SP4_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2012_SP4_ENTERPRISE"
+	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2012_SP4_EXPRESS WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2012_SP4_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2012_SP4_STANDARD WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2012_SP4_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2012_SP4_WEB WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_ENGLISH_64BIT_SQL_2012_SP4_WEB"
+	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_SQL_2008_R2_SP3_EXPRESS WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_SQL_2008_R2_SP3_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_SQL_2008_R2_SP3_STANDARD WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_SQL_2008_R2_SP3_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_SQL_2008_R2_SP3_WEB WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_SQL_2008_R2_SP3_WEB"
+	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_SQL_2012_SP4_EXPRESS WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_SQL_2012_SP4_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_SQL_2012_SP4_STANDARD WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_JAPANESE_64BIT_SQL_2012_SP4_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_KOREAN_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_KOREAN_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_LANGUAGE_PACKS_64BIT_SQL_2008_R2_SP3_EXPRESS WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_LANGUAGE_PACKS_64BIT_SQL_2008_R2_SP3_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_LANGUAGE_PACKS_64BIT_SQL_2008_R2_SP3_STANDARD WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_LANGUAGE_PACKS_64BIT_SQL_2008_R2_SP3_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_PORTUGESE_BRAZIL_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_PORTUGESE_BRAZIL_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2008_SP2_ENGLISH_32BIT_BASE WindowsVersion = "WINDOWS_SERVER_2008_SP2_ENGLISH_32BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2008_SP2_ENGLISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2008_SP2_ENGLISH_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2008_SP2_ENGLISH_64BIT_SQL_2008_SP4_EXPRESS WindowsVersion = "WINDOWS_SERVER_2008_SP2_ENGLISH_64BIT_SQL_2008_SP4_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2008_SP2_ENGLISH_64BIT_SQL_2008_SP4_STANDARD WindowsVersion = "WINDOWS_SERVER_2008_SP2_ENGLISH_64BIT_SQL_2008_SP4_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2008_SP2_PORTUGESE_BRAZIL_32BIT_BASE WindowsVersion = "WINDOWS_SERVER_2008_SP2_PORTUGESE_BRAZIL_32BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_CHINESE_SIMPLIFIED_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_CHINESE_SIMPLIFIED_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_CHINESE_TRADITIONAL_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_CHINESE_TRADITIONAL_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_CHINESE_TRADITIONAL_HONG_KONG_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_CHINESE_TRADITIONAL_HONG_KONG_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_CZECH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_CZECH_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_DUTCH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_DUTCH_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_CORE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_CORE"
 	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_HYPERV WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_HYPERV"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2012_SP4_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2012_SP4_ENTERPRISE"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP2_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP2_ENTERPRISE"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP2_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP2_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP2_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP2_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP2_WEB WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP2_WEB"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP3_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP3_ENTERPRISE"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP3_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP3_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP3_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP3_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP3_WEB WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2014_SP3_WEB"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP1_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP1_ENTERPRISE"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP1_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP1_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP1_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP1_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP1_WEB WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP1_WEB"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP2_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP2_ENTERPRISE"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP2_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP2_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP2_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP2_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP2_WEB WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_64BIT_SQL_2016_SP2_WEB"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_DEEP_LEARNING WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_DEEP_LEARNING"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ENGLISH_P3 WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ENGLISH_P3"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_FRENCH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_FRENCH_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_GERMAN_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_GERMAN_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_HUNGARIAN_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_HUNGARIAN_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_ITALIAN_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_ITALIAN_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2014_SP2_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2014_SP2_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2014_SP2_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2014_SP2_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2014_SP3_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2014_SP3_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2014_SP3_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2014_SP3_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP1_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP1_ENTERPRISE"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP1_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP1_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP1_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP1_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP1_WEB WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP1_WEB"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP2_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP2_ENTERPRISE"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP2_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP2_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP2_WEB WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP2_WEB"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_KOREAN_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_KOREAN_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_POLISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_POLISH_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_PORTUGESE_BRAZIL_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_PORTUGESE_BRAZIL_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_PORTUGESE_PORTUGAL_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_PORTUGESE_PORTUGAL_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_RUSSIAN_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_RUSSIAN_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_SPANISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_SPANISH_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_SWEDISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_SWEDISH_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_TURKISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_TURKISH_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_R2_SP1_PORTUGESE_BRAZIL_64BIT_CORE WindowsVersion = "WINDOWS_SERVER_2012_R2_SP1_PORTUGESE_BRAZIL_64BIT_CORE"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_CHINESE_SIMPLIFIED_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_CHINESE_SIMPLIFIED_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_CHINESE_TRADITIONAL_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_CHINESE_TRADITIONAL_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_CHINESE_TRADITIONAL_HONG_KONG_SAR_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_CHINESE_TRADITIONAL_HONG_KONG_SAR_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_CZECH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_CZECH_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_DUTCH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_DUTCH_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_2014_SP3_WEB WindowsVersion = "WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_2014_SP3_WEB"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2007_R2_SP3_WEB WindowsVersion = "WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2007_R2_SP3_WEB"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2008_R2_SP3_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2008_R2_SP3_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2008_R2_SP3_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2008_R2_SP3_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2012_SP4_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2012_SP4_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2012_SP4_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2012_SP4_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2012_SP4_WEB WindowsVersion = "WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2012_SP4_WEB"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2014_SP2_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2014_SP2_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2014_SP2_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2014_SP2_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2014_SP2_WEB WindowsVersion = "WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2014_SP2_WEB"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2014_SP3_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2014_SP3_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2014_SP3_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_RTM_ENGLISH_64BIT_SQL_2014_SP3_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_FRENCH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_FRENCH_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_GERMAN_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_GERMAN_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_HUNGARIAN_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_HUNGARIAN_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_ITALIAN_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_ITALIAN_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_2012_SP4_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_2012_SP4_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2008_R2_SP3_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2008_R2_SP3_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2008_R2_SP3_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2008_R2_SP3_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2012_SP4_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2012_SP4_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2012_SP4_WEB WindowsVersion = "WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2012_SP4_WEB"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2014_SP2_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2014_SP2_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2014_SP2_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2014_SP2_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2014_SP2_WEB WindowsVersion = "WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2014_SP2_WEB"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2014_SP3_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2014_SP3_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2014_SP3_STANDARD WindowsVersion = "WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2014_SP3_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2014_SP3_WEB WindowsVersion = "WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2014_SP3_WEB"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2016_SP2_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2016_SP2_EXPRESS"
 	WindowsVersion_WINDOWS_SERVER_2012_RTM_KOREAN_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_KOREAN_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_POLISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_POLISH_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_PORTUGESE_BRAZIL_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_PORTUGESE_BRAZIL_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_PORTUGESE_PORTUGAL_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_PORTUGESE_PORTUGAL_64BIT_BASE"
 	WindowsVersion_WINDOWS_SERVER_2012_RTM_RUSSIAN_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_RUSSIAN_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_SPANISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_SPANISH_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_SWEDISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_SWEDISH_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_RTM_TURKISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_TURKISH_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2012_SP2_PORTUGESE_BRAZIL_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_SP2_PORTUGESE_BRAZIL_64BIT_BASE"
+	WindowsVersion_WINDOWS_SERVER_2016_CHINESE_SIMPLIFIED_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_CHINESE_SIMPLIFIED_FULL_BASE"
 	WindowsVersion_WINDOWS_SERVER_2016_CHINESE_TRADITIONAL_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_CHINESE_TRADITIONAL_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2016_CZECH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_CZECH_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2016_DUTCH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_DUTCH_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_64BIT_SQL_2012_SP4_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_64BIT_SQL_2012_SP4_ENTERPRISE"
+	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_CORE_BASE WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_CORE_BASE"
+	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_CORE_CONTAINERS WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_CORE_CONTAINERS"
+	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_CORE_CONTAINERSLATEST WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_CORE_CONTAINERSLATEST"
+	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP1_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP1_ENTERPRISE"
+	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP1_EXPRESS WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP1_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP1_STANDARD WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP1_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP1_WEB WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP1_WEB"
+	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP2_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP2_ENTERPRISE"
+	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP2_EXPRESS WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP2_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP2_STANDARD WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP2_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP2_WEB WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_CORE_SQL_2016_SP2_WEB"
+	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_DEEP_LEARNING WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_DEEP_LEARNING"
+	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_CONTAINERS WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_CONTAINERS"
+	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_HYPERV WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_HYPERV"
+	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP1_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP1_ENTERPRISE"
+	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP1_EXPRESS WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP1_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP1_STANDARD WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP1_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP1_WEB WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP1_WEB"
+	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP2_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP2_ENTERPRISE"
+	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP2_EXPRESS WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP2_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP2_STANDARD WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP2_STANDARD"
 	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP2_WEB WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2016_SP2_WEB"
+	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2017_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2017_ENTERPRISE"
 	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2017_EXPRESS WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2017_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2017_STANDARD WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2017_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2017_WEB WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2017_WEB"
+	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_P3 WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_P3"
+	WindowsVersion_WINDOWS_SERVER_2016_FRENCH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_FRENCH_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2016_GERMAL_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_GERMAL_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2016_HUNGARIAN_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_HUNGARIAN_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2016_ITALIAN_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_ITALIAN_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2016_JAPANESE_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_JAPANESE_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2016_JAPANESE_FULL_FQL_2016_SP2_WEB WindowsVersion = "WINDOWS_SERVER_2016_JAPANESE_FULL_FQL_2016_SP2_WEB"
+	WindowsVersion_WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP1_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP1_ENTERPRISE"
+	WindowsVersion_WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP1_EXPRESS WindowsVersion = "WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP1_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP1_STANDARD WindowsVersion = "WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP1_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP1_WEB WindowsVersion = "WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP1_WEB"
+	WindowsVersion_WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP2_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP2_ENTERPRISE"
+	WindowsVersion_WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP2_EXPRESS WindowsVersion = "WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP2_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP2_STANDARD WindowsVersion = "WINDOWS_SERVER_2016_JAPANESE_FULL_SQL_2016_SP2_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2016_KOREAN_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_KOREAN_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2016_KOREAN_FULL_SQL_2016_SP1_STANDARD WindowsVersion = "WINDOWS_SERVER_2016_KOREAN_FULL_SQL_2016_SP1_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2016_KOREAN_FULL_SQL_2016_SP2_STANDARD WindowsVersion = "WINDOWS_SERVER_2016_KOREAN_FULL_SQL_2016_SP2_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2016_POLISH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_POLISH_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2016_PORTUGESE_BRAZIL_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_PORTUGESE_BRAZIL_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2016_PORTUGESE_PORTUGAL_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_PORTUGESE_PORTUGAL_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2016_RUSSIAN_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_RUSSIAN_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2016_SPANISH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_SPANISH_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2016_SWEDISH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_SWEDISH_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2016_TURKISH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_TURKISH_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2019_CHINESE_SIMPLIFIED_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_CHINESE_SIMPLIFIED_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2019_CHINESE_TRADITIONAL_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_CHINESE_TRADITIONAL_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2019_CZECH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_CZECH_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2019_DUTCH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_DUTCH_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_CORE_BASE WindowsVersion = "WINDOWS_SERVER_2019_ENGLISH_CORE_BASE"
+	WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_CORE_CONTAINERSLATEST WindowsVersion = "WINDOWS_SERVER_2019_ENGLISH_CORE_CONTAINERSLATEST"
+	WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_ENGLISH_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_CONTAINERSLATEST WindowsVersion = "WINDOWS_SERVER_2019_ENGLISH_FULL_CONTAINERSLATEST"
+	WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_HYPERV WindowsVersion = "WINDOWS_SERVER_2019_ENGLISH_FULL_HYPERV"
+	WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2016_SP2_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2016_SP2_ENTERPRISE"
+	WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2016_SP2_EXPRESS WindowsVersion = "WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2016_SP2_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2016_SP2_STANDARD WindowsVersion = "WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2016_SP2_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2016_SP2_WEB WindowsVersion = "WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2016_SP2_WEB"
+	WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2017_ENTERPRISE WindowsVersion = "WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2017_ENTERPRISE"
+	WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2017_EXPRESS WindowsVersion = "WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2017_EXPRESS"
+	WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2017_STANDARD WindowsVersion = "WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2017_STANDARD"
+	WindowsVersion_WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2017_WEB WindowsVersion = "WINDOWS_SERVER_2019_ENGLISH_FULL_SQL_2017_WEB"
+	WindowsVersion_WINDOWS_SERVER_2019_FRENCH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_FRENCH_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2019_GERMAN_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_GERMAN_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2019_HUNGARIAN_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_HUNGARIAN_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2019_ITALIAN_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_ITALIAN_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2019_JAPANESE_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_JAPANESE_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2019_KOREAN_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_KOREAN_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2019_POLISH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_POLISH_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2019_PORTUGESE_BRAZIL_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_PORTUGESE_BRAZIL_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2019_PORTUGESE_PORTUGAL_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_PORTUGESE_PORTUGAL_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2019_RUSSIAN_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_RUSSIAN_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2019_SPANISH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_SPANISH_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2019_SWEDISH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_SWEDISH_FULL_BASE"
+	WindowsVersion_WINDOWS_SERVER_2019_TURKISH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_TURKISH_FULL_BASE"
 )
 

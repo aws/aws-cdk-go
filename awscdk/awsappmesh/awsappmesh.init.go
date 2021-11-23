@@ -951,8 +951,8 @@ func init() {
 		"monocdk.aws_appmesh.DnsResponseType",
 		reflect.TypeOf((*DnsResponseType)(nil)).Elem(),
 		map[string]interface{}{
-			"LOAD_BALANCER": DnsResponseType_LOAD_BALANCER,
 			"ENDPOINTS": DnsResponseType_ENDPOINTS,
+			"LOAD_BALANCER": DnsResponseType_LOAD_BALANCER,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -1158,9 +1158,9 @@ func init() {
 		"monocdk.aws_appmesh.HttpRetryEvent",
 		reflect.TypeOf((*HttpRetryEvent)(nil)).Elem(),
 		map[string]interface{}{
-			"SERVER_ERROR": HttpRetryEvent_SERVER_ERROR,
-			"GATEWAY_ERROR": HttpRetryEvent_GATEWAY_ERROR,
 			"CLIENT_ERROR": HttpRetryEvent_CLIENT_ERROR,
+			"GATEWAY_ERROR": HttpRetryEvent_GATEWAY_ERROR,
+			"SERVER_ERROR": HttpRetryEvent_SERVER_ERROR,
 			"STREAM_ERROR": HttpRetryEvent_STREAM_ERROR,
 		},
 	)
@@ -1176,15 +1176,15 @@ func init() {
 		"monocdk.aws_appmesh.HttpRouteMethod",
 		reflect.TypeOf((*HttpRouteMethod)(nil)).Elem(),
 		map[string]interface{}{
+			"CONNECT": HttpRouteMethod_CONNECT,
+			"DELETE": HttpRouteMethod_DELETE,
 			"GET": HttpRouteMethod_GET,
 			"HEAD": HttpRouteMethod_HEAD,
+			"OPTIONS": HttpRouteMethod_OPTIONS,
+			"PATCH": HttpRouteMethod_PATCH,
 			"POST": HttpRouteMethod_POST,
 			"PUT": HttpRouteMethod_PUT,
-			"DELETE": HttpRouteMethod_DELETE,
-			"CONNECT": HttpRouteMethod_CONNECT,
-			"OPTIONS": HttpRouteMethod_OPTIONS,
 			"TRACE": HttpRouteMethod_TRACE,
-			"PATCH": HttpRouteMethod_PATCH,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -1589,9 +1589,9 @@ func init() {
 		"monocdk.aws_appmesh.TlsMode",
 		reflect.TypeOf((*TlsMode)(nil)).Elem(),
 		map[string]interface{}{
-			"STRICT": TlsMode_STRICT,
-			"PERMISSIVE": TlsMode_PERMISSIVE,
 			"DISABLED": TlsMode_DISABLED,
+			"PERMISSIVE": TlsMode_PERMISSIVE,
+			"STRICT": TlsMode_STRICT,
 		},
 	)
 	_jsii_.RegisterStruct(

@@ -29,6 +29,9 @@ type BetweenCondition struct {
 }
 
 // A CloudFormation `AWS::SNS::Subscription`.
+//
+// TODO: EXAMPLE
+//
 type CfnSubscription interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -775,17 +778,18 @@ func (c *jsiiProxy_CfnSubscription) ValidateProperties(_properties interface{}) 
 }
 
 // Properties for defining a `AWS::SNS::Subscription`.
+//
+// TODO: EXAMPLE
+//
 type CfnSubscriptionProps struct {
-	// `AWS::SNS::Subscription.Protocol`.
-	Protocol *string `json:"protocol"`
-	// `AWS::SNS::Subscription.TopicArn`.
-	TopicArn *string `json:"topicArn"`
 	// `AWS::SNS::Subscription.DeliveryPolicy`.
 	DeliveryPolicy interface{} `json:"deliveryPolicy"`
 	// `AWS::SNS::Subscription.Endpoint`.
 	Endpoint *string `json:"endpoint"`
 	// `AWS::SNS::Subscription.FilterPolicy`.
 	FilterPolicy interface{} `json:"filterPolicy"`
+	// `AWS::SNS::Subscription.Protocol`.
+	Protocol *string `json:"protocol"`
 	// `AWS::SNS::Subscription.RawMessageDelivery`.
 	RawMessageDelivery interface{} `json:"rawMessageDelivery"`
 	// `AWS::SNS::Subscription.RedrivePolicy`.
@@ -794,9 +798,14 @@ type CfnSubscriptionProps struct {
 	Region *string `json:"region"`
 	// `AWS::SNS::Subscription.SubscriptionRoleArn`.
 	SubscriptionRoleArn *string `json:"subscriptionRoleArn"`
+	// `AWS::SNS::Subscription.TopicArn`.
+	TopicArn *string `json:"topicArn"`
 }
 
 // A CloudFormation `AWS::SNS::Topic`.
+//
+// TODO: EXAMPLE
+//
 type CfnTopic interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1504,6 +1513,8 @@ func (c *jsiiProxy_CfnTopic) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnTopic_SubscriptionProperty struct {
 	// `CfnTopic.SubscriptionProperty.Endpoint`.
 	Endpoint *string `json:"endpoint"`
@@ -1512,6 +1523,9 @@ type CfnTopic_SubscriptionProperty struct {
 }
 
 // A CloudFormation `AWS::SNS::TopicPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnTopicPolicy interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2118,6 +2132,9 @@ func (c *jsiiProxy_CfnTopicPolicy) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::SNS::TopicPolicy`.
+//
+// TODO: EXAMPLE
+//
 type CfnTopicPolicyProps struct {
 	// `AWS::SNS::TopicPolicy.PolicyDocument`.
 	PolicyDocument interface{} `json:"policyDocument"`
@@ -2126,6 +2143,9 @@ type CfnTopicPolicyProps struct {
 }
 
 // Properties for defining a `AWS::SNS::Topic`.
+//
+// TODO: EXAMPLE
+//
 type CfnTopicProps struct {
 	// `AWS::SNS::Topic.ContentBasedDeduplication`.
 	ContentBasedDeduplication interface{} `json:"contentBasedDeduplication"`
@@ -2964,24 +2984,27 @@ func SubscriptionFilter_StringFilter(stringConditions *StringConditions) Subscri
 }
 
 // Options for creating a new subscription.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SubscriptionOptions struct {
-	// The subscription endpoint.
-	//
-	// The meaning of this value depends on the value for 'protocol'.
-	// Experimental.
-	Endpoint *string `json:"endpoint"`
-	// What type of subscription to add.
-	// Experimental.
-	Protocol SubscriptionProtocol `json:"protocol"`
 	// Queue to be used as dead letter queue.
 	//
 	// If not passed no dead letter queue is enabled.
 	// Experimental.
 	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
+	// The subscription endpoint.
+	//
+	// The meaning of this value depends on the value for 'protocol'.
+	// Experimental.
+	Endpoint *string `json:"endpoint"`
 	// The filter policy.
 	// Experimental.
 	FilterPolicy *map[string]SubscriptionFilter `json:"filterPolicy"`
+	// What type of subscription to add.
+	// Experimental.
+	Protocol SubscriptionProtocol `json:"protocol"`
 	// true if raw message delivery is enabled for the subscription.
 	//
 	// Raw messages are free of JSON formatting and can be
@@ -3005,22 +3028,22 @@ type SubscriptionOptions struct {
 //
 // Experimental.
 type SubscriptionProps struct {
-	// The subscription endpoint.
-	//
-	// The meaning of this value depends on the value for 'protocol'.
-	// Experimental.
-	Endpoint *string `json:"endpoint"`
-	// What type of subscription to add.
-	// Experimental.
-	Protocol SubscriptionProtocol `json:"protocol"`
 	// Queue to be used as dead letter queue.
 	//
 	// If not passed no dead letter queue is enabled.
 	// Experimental.
 	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
+	// The subscription endpoint.
+	//
+	// The meaning of this value depends on the value for 'protocol'.
+	// Experimental.
+	Endpoint *string `json:"endpoint"`
 	// The filter policy.
 	// Experimental.
 	FilterPolicy *map[string]SubscriptionFilter `json:"filterPolicy"`
+	// What type of subscription to add.
+	// Experimental.
+	Protocol SubscriptionProtocol `json:"protocol"`
 	// true if raw message delivery is enabled for the subscription.
 	//
 	// Raw messages are free of JSON formatting and can be
@@ -3049,15 +3072,15 @@ type SubscriptionProps struct {
 type SubscriptionProtocol string
 
 const (
-	SubscriptionProtocol_HTTP SubscriptionProtocol = "HTTP"
-	SubscriptionProtocol_HTTPS SubscriptionProtocol = "HTTPS"
+	SubscriptionProtocol_APPLICATION SubscriptionProtocol = "APPLICATION"
 	SubscriptionProtocol_EMAIL SubscriptionProtocol = "EMAIL"
 	SubscriptionProtocol_EMAIL_JSON SubscriptionProtocol = "EMAIL_JSON"
+	SubscriptionProtocol_FIREHOSE SubscriptionProtocol = "FIREHOSE"
+	SubscriptionProtocol_HTTP SubscriptionProtocol = "HTTP"
+	SubscriptionProtocol_HTTPS SubscriptionProtocol = "HTTPS"
+	SubscriptionProtocol_LAMBDA SubscriptionProtocol = "LAMBDA"
 	SubscriptionProtocol_SMS SubscriptionProtocol = "SMS"
 	SubscriptionProtocol_SQS SubscriptionProtocol = "SQS"
-	SubscriptionProtocol_APPLICATION SubscriptionProtocol = "APPLICATION"
-	SubscriptionProtocol_LAMBDA SubscriptionProtocol = "LAMBDA"
-	SubscriptionProtocol_FIREHOSE SubscriptionProtocol = "FIREHOSE"
 )
 
 // A new SNS topic.
@@ -4606,24 +4629,27 @@ type TopicProps struct {
 }
 
 // Subscription configuration.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type TopicSubscriptionConfig struct {
-	// The subscription endpoint.
-	//
-	// The meaning of this value depends on the value for 'protocol'.
-	// Experimental.
-	Endpoint *string `json:"endpoint"`
-	// What type of subscription to add.
-	// Experimental.
-	Protocol SubscriptionProtocol `json:"protocol"`
 	// Queue to be used as dead letter queue.
 	//
 	// If not passed no dead letter queue is enabled.
 	// Experimental.
 	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
+	// The subscription endpoint.
+	//
+	// The meaning of this value depends on the value for 'protocol'.
+	// Experimental.
+	Endpoint *string `json:"endpoint"`
 	// The filter policy.
 	// Experimental.
 	FilterPolicy *map[string]SubscriptionFilter `json:"filterPolicy"`
+	// What type of subscription to add.
+	// Experimental.
+	Protocol SubscriptionProtocol `json:"protocol"`
 	// true if raw message delivery is enabled for the subscription.
 	//
 	// Raw messages are free of JSON formatting and can be

@@ -28,6 +28,9 @@ import (
 )
 
 // The properties for adding an AutoScalingGroup.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AddAutoScalingGroupCapacityOptions struct {
 	// Specifies whether the containers can access the container instance role.
@@ -314,6 +317,9 @@ const (
 // For more information, see [Amazon ECS-optimized AMIs](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html).
 //
 // For tasks using the Fargate launch type, the task or service requires platform version 1.3.0 or later.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AppMeshProxyConfiguration interface {
 	ProxyConfiguration
@@ -369,6 +375,9 @@ func (a *jsiiProxy_AppMeshProxyConfiguration) Bind(_scope awscdk.Construct, _tas
 }
 
 // The configuration to use when setting an App Mesh proxy configuration.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AppMeshProxyConfigurationConfigProps struct {
 	// The name of the container that will serve as the App Mesh proxy.
@@ -380,6 +389,9 @@ type AppMeshProxyConfigurationConfigProps struct {
 }
 
 // Interface for setting the properties of proxy configuration.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AppMeshProxyConfigurationProps struct {
 	// The list of ports that the application uses.
@@ -387,12 +399,6 @@ type AppMeshProxyConfigurationProps struct {
 	// Network traffic to these ports is forwarded to the ProxyIngressPort and ProxyEgressPort.
 	// Experimental.
 	AppPorts *[]*float64 `json:"appPorts"`
-	// Specifies the port that outgoing traffic from the AppPorts is directed to.
-	// Experimental.
-	ProxyEgressPort *float64 `json:"proxyEgressPort"`
-	// Specifies the port that incoming traffic to the AppPorts is directed to.
-	// Experimental.
-	ProxyIngressPort *float64 `json:"proxyIngressPort"`
 	// The egress traffic going to these specified IP addresses is ignored and not redirected to the ProxyEgressPort.
 	//
 	// It can be an empty list.
@@ -413,6 +419,12 @@ type AppMeshProxyConfigurationProps struct {
 	// This is used to ensure the proxy ignores its own traffic. If IgnoredGID is specified, this field can be empty.
 	// Experimental.
 	IgnoredUID *float64 `json:"ignoredUID"`
+	// Specifies the port that outgoing traffic from the AppPorts is directed to.
+	// Experimental.
+	ProxyEgressPort *float64 `json:"proxyEgressPort"`
+	// Specifies the port that incoming traffic to the AppPorts is directed to.
+	// Experimental.
+	ProxyIngressPort *float64 `json:"proxyIngressPort"`
 }
 
 // An Auto Scaling Group Capacity Provider.
@@ -696,7 +708,11 @@ type AsgCapacityProviderProps struct {
 	// The autoscaling group to add as a Capacity Provider.
 	// Experimental.
 	AutoScalingGroup awsautoscaling.IAutoScalingGroup `json:"autoScalingGroup"`
-	// The name for the capacity provider.
+	// The name of the capacity provider.
+	//
+	// If a name is specified,
+	// it cannot start with `aws`, `ecs`, or `fargate`. If no name is specified,
+	// a default name in the CFNStackName-CFNResourceName-RandomString format is used.
 	// Experimental.
 	CapacityProviderName *string `json:"capacityProviderName"`
 	// Whether to enable managed scaling.
@@ -723,6 +739,9 @@ type AsgCapacityProviderProps struct {
 }
 
 // Environment file from a local directory.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AssetEnvironmentFile interface {
 	EnvironmentFile
@@ -973,6 +992,9 @@ func (a *jsiiProxy_AssetImage) Bind(scope awscdk.Construct, containerDefinition 
 }
 
 // The properties for building an AssetImage.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AssetImageProps struct {
 	// Glob patterns to exclude from the copy.
@@ -1035,6 +1057,9 @@ type AssociateCloudMapServiceOptions struct {
 }
 
 // The authorization configuration details for the Amazon EFS file system.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AuthorizationConfig struct {
 	// The access point ID to use.
@@ -1167,16 +1192,6 @@ const (
 //
 // Experimental.
 type AwsLogDriverProps struct {
-	// Prefix for the log streams.
-	//
-	// The awslogs-stream-prefix option allows you to associate a log stream
-	// with the specified prefix, the container name, and the ID of the Amazon
-	// ECS task to which the container belongs. If you specify a prefix with
-	// this option, then the log stream takes the following format:
-	//
-	//      prefix-name/container-name/ecs-task-id
-	// Experimental.
-	StreamPrefix *string `json:"streamPrefix"`
 	// This option defines a multiline start pattern in Python strftime format.
 	//
 	// A log message consists of a line that matches the pattern and any
@@ -1202,8 +1217,20 @@ type AwsLogDriverProps struct {
 	// This option is ignored if datetimeFormat is also configured.
 	// Experimental.
 	MultilinePattern *string `json:"multilinePattern"`
+	// Prefix for the log streams.
+	//
+	// The awslogs-stream-prefix option allows you to associate a log stream
+	// with the specified prefix, the container name, and the ID of the Amazon
+	// ECS task to which the container belongs. If you specify a prefix with
+	// this option, then the log stream takes the following format:
+	//
+	//      prefix-name/container-name/ecs-task-id
+	// Experimental.
+	StreamPrefix *string `json:"streamPrefix"`
 }
 
+// TODO: EXAMPLE
+//
 // Experimental.
 type BaseLogDriverProps struct {
 	// The env option takes an array of keys.
@@ -1902,11 +1929,11 @@ func (b *jsiiProxy_BaseService) Validate() *[]*string {
 }
 
 // The properties for the base Ec2Service or FargateService service.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BaseServiceOptions struct {
-	// The name of the cluster that hosts the service.
-	// Experimental.
-	Cluster ICluster `json:"cluster"`
 	// A list of Capacity Provider strategies used to place a service.
 	// Experimental.
 	CapacityProviderStrategies *[]*CapacityProviderStrategy `json:"capacityProviderStrategies"`
@@ -1919,6 +1946,9 @@ type BaseServiceOptions struct {
 	// The options for configuring an Amazon ECS service to use service discovery.
 	// Experimental.
 	CloudMapOptions *CloudMapOptions `json:"cloudMapOptions"`
+	// The name of the cluster that hosts the service.
+	// Experimental.
+	Cluster ICluster `json:"cluster"`
 	// Specifies which deployment controller to use for the service.
 	//
 	// For more information, see
@@ -1962,11 +1992,11 @@ type BaseServiceOptions struct {
 }
 
 // Complete base service properties that are required to be supplied by the implementation of the BaseService class.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BaseServiceProps struct {
-	// The name of the cluster that hosts the service.
-	// Experimental.
-	Cluster ICluster `json:"cluster"`
 	// A list of Capacity Provider strategies used to place a service.
 	// Experimental.
 	CapacityProviderStrategies *[]*CapacityProviderStrategy `json:"capacityProviderStrategies"`
@@ -1979,6 +2009,9 @@ type BaseServiceProps struct {
 	// The options for configuring an Amazon ECS service to use service discovery.
 	// Experimental.
 	CloudMapOptions *CloudMapOptions `json:"cloudMapOptions"`
+	// The name of the cluster that hosts the service.
+	// Experimental.
+	Cluster ICluster `json:"cluster"`
 	// Specifies which deployment controller to use for the service.
 	//
 	// For more information, see
@@ -2098,6 +2131,9 @@ func (b *jsiiProxy_BottleRocketImage) GetImage(scope awscdk.Construct) *awsec2.M
 }
 
 // Properties for BottleRocketImage.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BottleRocketImageProps struct {
 	// The CPU architecture.
@@ -2136,6 +2172,9 @@ const (
 )
 
 // The built-in container instance attributes.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BuiltInAttributes interface {
 }
@@ -2274,11 +2313,11 @@ const (
 // A Capacity Provider strategy to use for the service.
 //
 // NOTE: defaultCapacityProviderStrategy on cluster not currently supported.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CapacityProviderStrategy struct {
-	// The name of the capacity provider.
-	// Experimental.
-	CapacityProvider *string `json:"capacityProvider"`
 	// The base value designates how many tasks, at a minimum, to run on the specified capacity provider.
 	//
 	// Only one
@@ -2286,6 +2325,9 @@ type CapacityProviderStrategy struct {
 	// value of 0 is used.
 	// Experimental.
 	Base *float64 `json:"base"`
+	// The name of the capacity provider.
+	// Experimental.
+	CapacityProvider *string `json:"capacityProvider"`
 	// The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider.
 	//
 	// The weight value is taken into consideration after the base value, if defined, is satisfied.
@@ -2294,6 +2336,9 @@ type CapacityProviderStrategy struct {
 }
 
 // A CloudFormation `AWS::ECS::CapacityProvider`.
+//
+// TODO: EXAMPLE
+//
 type CfnCapacityProvider interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2910,6 +2955,8 @@ func (c *jsiiProxy_CfnCapacityProvider) ValidateProperties(_properties interface
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnCapacityProvider_AutoScalingGroupProviderProperty struct {
 	// `CfnCapacityProvider.AutoScalingGroupProviderProperty.AutoScalingGroupArn`.
 	AutoScalingGroupArn *string `json:"autoScalingGroupArn"`
@@ -2919,6 +2966,8 @@ type CfnCapacityProvider_AutoScalingGroupProviderProperty struct {
 	ManagedTerminationProtection *string `json:"managedTerminationProtection"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCapacityProvider_ManagedScalingProperty struct {
 	// `CfnCapacityProvider.ManagedScalingProperty.InstanceWarmupPeriod`.
 	InstanceWarmupPeriod *float64 `json:"instanceWarmupPeriod"`
@@ -2933,6 +2982,9 @@ type CfnCapacityProvider_ManagedScalingProperty struct {
 }
 
 // Properties for defining a `AWS::ECS::CapacityProvider`.
+//
+// TODO: EXAMPLE
+//
 type CfnCapacityProviderProps struct {
 	// `AWS::ECS::CapacityProvider.AutoScalingGroupProvider`.
 	AutoScalingGroupProvider interface{} `json:"autoScalingGroupProvider"`
@@ -2943,6 +2995,9 @@ type CfnCapacityProviderProps struct {
 }
 
 // A CloudFormation `AWS::ECS::Cluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3630,6 +3685,8 @@ func (c *jsiiProxy_CfnCluster) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_CapacityProviderStrategyItemProperty struct {
 	// `CfnCluster.CapacityProviderStrategyItemProperty.Base`.
 	Base *float64 `json:"base"`
@@ -3639,11 +3696,15 @@ type CfnCluster_CapacityProviderStrategyItemProperty struct {
 	Weight *float64 `json:"weight"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_ClusterConfigurationProperty struct {
 	// `CfnCluster.ClusterConfigurationProperty.ExecuteCommandConfiguration`.
 	ExecuteCommandConfiguration interface{} `json:"executeCommandConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_ClusterSettingsProperty struct {
 	// `CfnCluster.ClusterSettingsProperty.Name`.
 	Name *string `json:"name"`
@@ -3651,6 +3712,8 @@ type CfnCluster_ClusterSettingsProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_ExecuteCommandConfigurationProperty struct {
 	// `CfnCluster.ExecuteCommandConfigurationProperty.KmsKeyId`.
 	KmsKeyId *string `json:"kmsKeyId"`
@@ -3660,6 +3723,8 @@ type CfnCluster_ExecuteCommandConfigurationProperty struct {
 	Logging *string `json:"logging"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnCluster_ExecuteCommandLogConfigurationProperty struct {
 	// `CfnCluster.ExecuteCommandLogConfigurationProperty.CloudWatchEncryptionEnabled`.
 	CloudWatchEncryptionEnabled interface{} `json:"cloudWatchEncryptionEnabled"`
@@ -3674,6 +3739,9 @@ type CfnCluster_ExecuteCommandLogConfigurationProperty struct {
 }
 
 // A CloudFormation `AWS::ECS::ClusterCapacityProviderAssociations`.
+//
+// TODO: EXAMPLE
+//
 type CfnClusterCapacityProviderAssociations interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4299,16 +4367,21 @@ func (c *jsiiProxy_CfnClusterCapacityProviderAssociations) ValidateProperties(_p
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnClusterCapacityProviderAssociations_CapacityProviderStrategyProperty struct {
-	// `CfnClusterCapacityProviderAssociations.CapacityProviderStrategyProperty.CapacityProvider`.
-	CapacityProvider *string `json:"capacityProvider"`
 	// `CfnClusterCapacityProviderAssociations.CapacityProviderStrategyProperty.Base`.
 	Base *float64 `json:"base"`
+	// `CfnClusterCapacityProviderAssociations.CapacityProviderStrategyProperty.CapacityProvider`.
+	CapacityProvider *string `json:"capacityProvider"`
 	// `CfnClusterCapacityProviderAssociations.CapacityProviderStrategyProperty.Weight`.
 	Weight *float64 `json:"weight"`
 }
 
 // Properties for defining a `AWS::ECS::ClusterCapacityProviderAssociations`.
+//
+// TODO: EXAMPLE
+//
 type CfnClusterCapacityProviderAssociationsProps struct {
 	// `AWS::ECS::ClusterCapacityProviderAssociations.CapacityProviders`.
 	CapacityProviders *[]*string `json:"capacityProviders"`
@@ -4319,6 +4392,9 @@ type CfnClusterCapacityProviderAssociationsProps struct {
 }
 
 // Properties for defining a `AWS::ECS::Cluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnClusterProps struct {
 	// `AWS::ECS::Cluster.CapacityProviders`.
 	CapacityProviders *[]*string `json:"capacityProviders"`
@@ -4335,6 +4411,9 @@ type CfnClusterProps struct {
 }
 
 // A CloudFormation `AWS::ECS::PrimaryTaskSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnPrimaryTaskSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4961,6 +5040,9 @@ func (c *jsiiProxy_CfnPrimaryTaskSet) ValidateProperties(_properties interface{}
 }
 
 // Properties for defining a `AWS::ECS::PrimaryTaskSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnPrimaryTaskSetProps struct {
 	// `AWS::ECS::PrimaryTaskSet.Cluster`.
 	Cluster *string `json:"cluster"`
@@ -4971,6 +5053,9 @@ type CfnPrimaryTaskSetProps struct {
 }
 
 // A CloudFormation `AWS::ECS::Service`.
+//
+// TODO: EXAMPLE
+//
 type CfnService interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5969,15 +6054,19 @@ func (c *jsiiProxy_CfnService) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnService_AwsVpcConfigurationProperty struct {
-	// `CfnService.AwsVpcConfigurationProperty.Subnets`.
-	Subnets *[]*string `json:"subnets"`
 	// `CfnService.AwsVpcConfigurationProperty.AssignPublicIp`.
 	AssignPublicIp *string `json:"assignPublicIp"`
 	// `CfnService.AwsVpcConfigurationProperty.SecurityGroups`.
 	SecurityGroups *[]*string `json:"securityGroups"`
+	// `CfnService.AwsVpcConfigurationProperty.Subnets`.
+	Subnets *[]*string `json:"subnets"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnService_CapacityProviderStrategyItemProperty struct {
 	// `CfnService.CapacityProviderStrategyItemProperty.Base`.
 	Base *float64 `json:"base"`
@@ -5987,6 +6076,8 @@ type CfnService_CapacityProviderStrategyItemProperty struct {
 	Weight *float64 `json:"weight"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnService_DeploymentCircuitBreakerProperty struct {
 	// `CfnService.DeploymentCircuitBreakerProperty.Enable`.
 	Enable interface{} `json:"enable"`
@@ -5994,6 +6085,8 @@ type CfnService_DeploymentCircuitBreakerProperty struct {
 	Rollback interface{} `json:"rollback"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnService_DeploymentConfigurationProperty struct {
 	// `CfnService.DeploymentConfigurationProperty.DeploymentCircuitBreaker`.
 	DeploymentCircuitBreaker interface{} `json:"deploymentCircuitBreaker"`
@@ -6003,41 +6096,53 @@ type CfnService_DeploymentConfigurationProperty struct {
 	MinimumHealthyPercent *float64 `json:"minimumHealthyPercent"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnService_DeploymentControllerProperty struct {
 	// `CfnService.DeploymentControllerProperty.Type`.
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnService_LoadBalancerProperty struct {
-	// `CfnService.LoadBalancerProperty.ContainerPort`.
-	ContainerPort *float64 `json:"containerPort"`
 	// `CfnService.LoadBalancerProperty.ContainerName`.
 	ContainerName *string `json:"containerName"`
+	// `CfnService.LoadBalancerProperty.ContainerPort`.
+	ContainerPort *float64 `json:"containerPort"`
 	// `CfnService.LoadBalancerProperty.LoadBalancerName`.
 	LoadBalancerName *string `json:"loadBalancerName"`
 	// `CfnService.LoadBalancerProperty.TargetGroupArn`.
 	TargetGroupArn *string `json:"targetGroupArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnService_NetworkConfigurationProperty struct {
 	// `CfnService.NetworkConfigurationProperty.AwsvpcConfiguration`.
 	AwsvpcConfiguration interface{} `json:"awsvpcConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnService_PlacementConstraintProperty struct {
-	// `CfnService.PlacementConstraintProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnService.PlacementConstraintProperty.Expression`.
 	Expression *string `json:"expression"`
+	// `CfnService.PlacementConstraintProperty.Type`.
+	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnService_PlacementStrategyProperty struct {
-	// `CfnService.PlacementStrategyProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnService.PlacementStrategyProperty.Field`.
 	Field *string `json:"field"`
+	// `CfnService.PlacementStrategyProperty.Type`.
+	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnService_ServiceRegistryProperty struct {
 	// `CfnService.ServiceRegistryProperty.ContainerName`.
 	ContainerName *string `json:"containerName"`
@@ -6050,6 +6155,9 @@ type CfnService_ServiceRegistryProperty struct {
 }
 
 // Properties for defining a `AWS::ECS::Service`.
+//
+// TODO: EXAMPLE
+//
 type CfnServiceProps struct {
 	// `AWS::ECS::Service.CapacityProviderStrategy`.
 	CapacityProviderStrategy interface{} `json:"capacityProviderStrategy"`
@@ -6096,6 +6204,9 @@ type CfnServiceProps struct {
 }
 
 // A CloudFormation `AWS::ECS::TaskDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -7003,6 +7114,8 @@ func (c *jsiiProxy_CfnTaskDefinition) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_AuthorizationConfigProperty struct {
 	// `CfnTaskDefinition.AuthorizationConfigProperty.AccessPointId`.
 	AccessPointId *string `json:"accessPointId"`
@@ -7010,6 +7123,8 @@ type CfnTaskDefinition_AuthorizationConfigProperty struct {
 	Iam *string `json:"iam"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_ContainerDefinitionProperty struct {
 	// `CfnTaskDefinition.ContainerDefinitionProperty.Command`.
 	Command *[]*string `json:"command"`
@@ -7091,6 +7206,8 @@ type CfnTaskDefinition_ContainerDefinitionProperty struct {
 	WorkingDirectory *string `json:"workingDirectory"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_ContainerDependencyProperty struct {
 	// `CfnTaskDefinition.ContainerDependencyProperty.Condition`.
 	Condition *string `json:"condition"`
@@ -7098,6 +7215,8 @@ type CfnTaskDefinition_ContainerDependencyProperty struct {
 	ContainerName *string `json:"containerName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_DeviceProperty struct {
 	// `CfnTaskDefinition.DeviceProperty.ContainerPath`.
 	ContainerPath *string `json:"containerPath"`
@@ -7107,6 +7226,8 @@ type CfnTaskDefinition_DeviceProperty struct {
 	Permissions *[]*string `json:"permissions"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_DockerVolumeConfigurationProperty struct {
 	// `CfnTaskDefinition.DockerVolumeConfigurationProperty.Autoprovision`.
 	Autoprovision interface{} `json:"autoprovision"`
@@ -7120,11 +7241,13 @@ type CfnTaskDefinition_DockerVolumeConfigurationProperty struct {
 	Scope *string `json:"scope"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_EfsVolumeConfigurationProperty struct {
-	// `CfnTaskDefinition.EfsVolumeConfigurationProperty.FileSystemId`.
-	FileSystemId *string `json:"fileSystemId"`
 	// `CfnTaskDefinition.EfsVolumeConfigurationProperty.AuthorizationConfig`.
 	AuthorizationConfig interface{} `json:"authorizationConfig"`
+	// `CfnTaskDefinition.EfsVolumeConfigurationProperty.FileSystemId`.
+	FileSystemId *string `json:"fileSystemId"`
 	// `CfnTaskDefinition.EfsVolumeConfigurationProperty.RootDirectory`.
 	RootDirectory *string `json:"rootDirectory"`
 	// `CfnTaskDefinition.EfsVolumeConfigurationProperty.TransitEncryption`.
@@ -7133,6 +7256,8 @@ type CfnTaskDefinition_EfsVolumeConfigurationProperty struct {
 	TransitEncryptionPort *float64 `json:"transitEncryptionPort"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_EnvironmentFileProperty struct {
 	// `CfnTaskDefinition.EnvironmentFileProperty.Type`.
 	Type *string `json:"type"`
@@ -7140,11 +7265,15 @@ type CfnTaskDefinition_EnvironmentFileProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_EphemeralStorageProperty struct {
 	// `CfnTaskDefinition.EphemeralStorageProperty.SizeInGiB`.
 	SizeInGiB *float64 `json:"sizeInGiB"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_FirelensConfigurationProperty struct {
 	// `CfnTaskDefinition.FirelensConfigurationProperty.Options`.
 	Options interface{} `json:"options"`
@@ -7152,6 +7281,8 @@ type CfnTaskDefinition_FirelensConfigurationProperty struct {
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_HealthCheckProperty struct {
 	// `CfnTaskDefinition.HealthCheckProperty.Command`.
 	Command *[]*string `json:"command"`
@@ -7165,6 +7296,8 @@ type CfnTaskDefinition_HealthCheckProperty struct {
 	Timeout *float64 `json:"timeout"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_HostEntryProperty struct {
 	// `CfnTaskDefinition.HostEntryProperty.Hostname`.
 	Hostname *string `json:"hostname"`
@@ -7172,11 +7305,15 @@ type CfnTaskDefinition_HostEntryProperty struct {
 	IpAddress *string `json:"ipAddress"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_HostVolumePropertiesProperty struct {
 	// `CfnTaskDefinition.HostVolumePropertiesProperty.SourcePath`.
 	SourcePath *string `json:"sourcePath"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_InferenceAcceleratorProperty struct {
 	// `CfnTaskDefinition.InferenceAcceleratorProperty.DeviceName`.
 	DeviceName *string `json:"deviceName"`
@@ -7184,6 +7321,8 @@ type CfnTaskDefinition_InferenceAcceleratorProperty struct {
 	DeviceType *string `json:"deviceType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_KernelCapabilitiesProperty struct {
 	// `CfnTaskDefinition.KernelCapabilitiesProperty.Add`.
 	Add *[]*string `json:"add"`
@@ -7191,6 +7330,8 @@ type CfnTaskDefinition_KernelCapabilitiesProperty struct {
 	Drop *[]*string `json:"drop"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_KeyValuePairProperty struct {
 	// `CfnTaskDefinition.KeyValuePairProperty.Name`.
 	Name *string `json:"name"`
@@ -7198,6 +7339,8 @@ type CfnTaskDefinition_KeyValuePairProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_LinuxParametersProperty struct {
 	// `CfnTaskDefinition.LinuxParametersProperty.Capabilities`.
 	Capabilities interface{} `json:"capabilities"`
@@ -7215,6 +7358,8 @@ type CfnTaskDefinition_LinuxParametersProperty struct {
 	Tmpfs interface{} `json:"tmpfs"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_LogConfigurationProperty struct {
 	// `CfnTaskDefinition.LogConfigurationProperty.LogDriver`.
 	LogDriver *string `json:"logDriver"`
@@ -7224,6 +7369,8 @@ type CfnTaskDefinition_LogConfigurationProperty struct {
 	SecretOptions interface{} `json:"secretOptions"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_MountPointProperty struct {
 	// `CfnTaskDefinition.MountPointProperty.ContainerPath`.
 	ContainerPath *string `json:"containerPath"`
@@ -7233,6 +7380,8 @@ type CfnTaskDefinition_MountPointProperty struct {
 	SourceVolume *string `json:"sourceVolume"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_PortMappingProperty struct {
 	// `CfnTaskDefinition.PortMappingProperty.ContainerPort`.
 	ContainerPort *float64 `json:"containerPort"`
@@ -7242,6 +7391,8 @@ type CfnTaskDefinition_PortMappingProperty struct {
 	Protocol *string `json:"protocol"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_ProxyConfigurationProperty struct {
 	// `CfnTaskDefinition.ProxyConfigurationProperty.ContainerName`.
 	ContainerName *string `json:"containerName"`
@@ -7251,11 +7402,15 @@ type CfnTaskDefinition_ProxyConfigurationProperty struct {
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_RepositoryCredentialsProperty struct {
 	// `CfnTaskDefinition.RepositoryCredentialsProperty.CredentialsParameter`.
 	CredentialsParameter *string `json:"credentialsParameter"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_ResourceRequirementProperty struct {
 	// `CfnTaskDefinition.ResourceRequirementProperty.Type`.
 	Type *string `json:"type"`
@@ -7263,6 +7418,8 @@ type CfnTaskDefinition_ResourceRequirementProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_RuntimePlatformProperty struct {
 	// `CfnTaskDefinition.RuntimePlatformProperty.CpuArchitecture`.
 	CpuArchitecture *string `json:"cpuArchitecture"`
@@ -7270,6 +7427,8 @@ type CfnTaskDefinition_RuntimePlatformProperty struct {
 	OperatingSystemFamily *string `json:"operatingSystemFamily"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_SecretProperty struct {
 	// `CfnTaskDefinition.SecretProperty.Name`.
 	Name *string `json:"name"`
@@ -7277,6 +7436,8 @@ type CfnTaskDefinition_SecretProperty struct {
 	ValueFrom *string `json:"valueFrom"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_SystemControlProperty struct {
 	// `CfnTaskDefinition.SystemControlProperty.Namespace`.
 	Namespace *string `json:"namespace"`
@@ -7284,22 +7445,28 @@ type CfnTaskDefinition_SystemControlProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_TaskDefinitionPlacementConstraintProperty struct {
-	// `CfnTaskDefinition.TaskDefinitionPlacementConstraintProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnTaskDefinition.TaskDefinitionPlacementConstraintProperty.Expression`.
 	Expression *string `json:"expression"`
+	// `CfnTaskDefinition.TaskDefinitionPlacementConstraintProperty.Type`.
+	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_TmpfsProperty struct {
-	// `CfnTaskDefinition.TmpfsProperty.Size`.
-	Size *float64 `json:"size"`
 	// `CfnTaskDefinition.TmpfsProperty.ContainerPath`.
 	ContainerPath *string `json:"containerPath"`
 	// `CfnTaskDefinition.TmpfsProperty.MountOptions`.
 	MountOptions *[]*string `json:"mountOptions"`
+	// `CfnTaskDefinition.TmpfsProperty.Size`.
+	Size *float64 `json:"size"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_UlimitProperty struct {
 	// `CfnTaskDefinition.UlimitProperty.HardLimit`.
 	HardLimit *float64 `json:"hardLimit"`
@@ -7309,6 +7476,8 @@ type CfnTaskDefinition_UlimitProperty struct {
 	SoftLimit *float64 `json:"softLimit"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_VolumeFromProperty struct {
 	// `CfnTaskDefinition.VolumeFromProperty.ReadOnly`.
 	ReadOnly interface{} `json:"readOnly"`
@@ -7316,6 +7485,8 @@ type CfnTaskDefinition_VolumeFromProperty struct {
 	SourceContainer *string `json:"sourceContainer"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskDefinition_VolumeProperty struct {
 	// `CfnTaskDefinition.VolumeProperty.DockerVolumeConfiguration`.
 	DockerVolumeConfiguration interface{} `json:"dockerVolumeConfiguration"`
@@ -7328,6 +7499,9 @@ type CfnTaskDefinition_VolumeProperty struct {
 }
 
 // Properties for defining a `AWS::ECS::TaskDefinition`.
+//
+// TODO: EXAMPLE
+//
 type CfnTaskDefinitionProps struct {
 	// `AWS::ECS::TaskDefinition.ContainerDefinitions`.
 	ContainerDefinitions interface{} `json:"containerDefinitions"`
@@ -7366,6 +7540,9 @@ type CfnTaskDefinitionProps struct {
 }
 
 // A CloudFormation `AWS::ECS::TaskSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnTaskSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -8142,15 +8319,19 @@ func (c *jsiiProxy_CfnTaskSet) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskSet_AwsVpcConfigurationProperty struct {
-	// `CfnTaskSet.AwsVpcConfigurationProperty.Subnets`.
-	Subnets *[]*string `json:"subnets"`
 	// `CfnTaskSet.AwsVpcConfigurationProperty.AssignPublicIp`.
 	AssignPublicIp *string `json:"assignPublicIp"`
 	// `CfnTaskSet.AwsVpcConfigurationProperty.SecurityGroups`.
 	SecurityGroups *[]*string `json:"securityGroups"`
+	// `CfnTaskSet.AwsVpcConfigurationProperty.Subnets`.
+	Subnets *[]*string `json:"subnets"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskSet_LoadBalancerProperty struct {
 	// `CfnTaskSet.LoadBalancerProperty.ContainerName`.
 	ContainerName *string `json:"containerName"`
@@ -8162,11 +8343,15 @@ type CfnTaskSet_LoadBalancerProperty struct {
 	TargetGroupArn *string `json:"targetGroupArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskSet_NetworkConfigurationProperty struct {
 	// `CfnTaskSet.NetworkConfigurationProperty.AwsVpcConfiguration`.
 	AwsVpcConfiguration interface{} `json:"awsVpcConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskSet_ScaleProperty struct {
 	// `CfnTaskSet.ScaleProperty.Unit`.
 	Unit *string `json:"unit"`
@@ -8174,6 +8359,8 @@ type CfnTaskSet_ScaleProperty struct {
 	Value *float64 `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnTaskSet_ServiceRegistryProperty struct {
 	// `CfnTaskSet.ServiceRegistryProperty.ContainerName`.
 	ContainerName *string `json:"containerName"`
@@ -8186,13 +8373,12 @@ type CfnTaskSet_ServiceRegistryProperty struct {
 }
 
 // Properties for defining a `AWS::ECS::TaskSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnTaskSetProps struct {
 	// `AWS::ECS::TaskSet.Cluster`.
 	Cluster *string `json:"cluster"`
-	// `AWS::ECS::TaskSet.Service`.
-	Service *string `json:"service"`
-	// `AWS::ECS::TaskSet.TaskDefinition`.
-	TaskDefinition *string `json:"taskDefinition"`
 	// `AWS::ECS::TaskSet.ExternalId`.
 	ExternalId *string `json:"externalId"`
 	// `AWS::ECS::TaskSet.LaunchType`.
@@ -8205,11 +8391,18 @@ type CfnTaskSetProps struct {
 	PlatformVersion *string `json:"platformVersion"`
 	// `AWS::ECS::TaskSet.Scale`.
 	Scale interface{} `json:"scale"`
+	// `AWS::ECS::TaskSet.Service`.
+	Service *string `json:"service"`
 	// `AWS::ECS::TaskSet.ServiceRegistries`.
 	ServiceRegistries interface{} `json:"serviceRegistries"`
+	// `AWS::ECS::TaskSet.TaskDefinition`.
+	TaskDefinition *string `json:"taskDefinition"`
 }
 
 // The options for creating an AWS Cloud Map namespace.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CloudMapNamespaceOptions struct {
 	// The name of the namespace, such as example.com.
@@ -8847,23 +9040,20 @@ func (c *jsiiProxy_Cluster) Validate() *[]*string {
 }
 
 // The properties to import from the ECS cluster.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ClusterAttributes struct {
-	// The name of the cluster.
-	// Experimental.
-	ClusterName *string `json:"clusterName"`
-	// The security groups associated with the container instances registered to the cluster.
-	// Experimental.
-	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
-	// The VPC associated with the cluster.
-	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
 	// Autoscaling group added to the cluster if capacity is added.
 	// Experimental.
 	AutoscalingGroup awsautoscaling.IAutoScalingGroup `json:"autoscalingGroup"`
 	// The Amazon Resource Name (ARN) that identifies the cluster.
 	// Experimental.
 	ClusterArn *string `json:"clusterArn"`
+	// The name of the cluster.
+	// Experimental.
+	ClusterName *string `json:"clusterName"`
 	// The AWS Cloud Map namespace to associate with the cluster.
 	// Experimental.
 	DefaultCloudMapNamespace awsservicediscovery.INamespace `json:"defaultCloudMapNamespace"`
@@ -8873,6 +9063,12 @@ type ClusterAttributes struct {
 	// Specifies whether the cluster has EC2 instance capacity.
 	// Experimental.
 	HasEc2Capacity *bool `json:"hasEc2Capacity"`
+	// The security groups associated with the container instances registered to the cluster.
+	// Experimental.
+	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
+	// The VPC associated with the cluster.
+	// Experimental.
+	Vpc awsec2.IVpc `json:"vpc"`
 }
 
 // The properties used to define an ECS cluster.
@@ -8908,14 +9104,17 @@ type ClusterProps struct {
 }
 
 // The common task definition attributes used across all types of task definitions.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CommonTaskDefinitionAttributes struct {
-	// The arn of the task definition.
-	// Experimental.
-	TaskDefinitionArn *string `json:"taskDefinitionArn"`
 	// The networking mode to use for the containers in the task.
 	// Experimental.
 	NetworkMode NetworkMode `json:"networkMode"`
+	// The arn of the task definition.
+	// Experimental.
+	TaskDefinitionArn *string `json:"taskDefinitionArn"`
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
 	// Experimental.
 	TaskRole awsiam.IRole `json:"taskRole"`
@@ -8925,6 +9124,9 @@ type CommonTaskDefinitionAttributes struct {
 //
 // For more information, see
 // [Task Definition Parameters](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html).
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type CommonTaskDefinitionProps struct {
 	// The name of the IAM task execution role that grants the ECS agent permission to call AWS APIs on your behalf.
@@ -8960,9 +9162,9 @@ type Compatibility string
 
 const (
 	Compatibility_EC2 Compatibility = "EC2"
-	Compatibility_FARGATE Compatibility = "FARGATE"
 	Compatibility_EC2_AND_FARGATE Compatibility = "EC2_AND_FARGATE"
 	Compatibility_EXTERNAL Compatibility = "EXTERNAL"
+	Compatibility_FARGATE Compatibility = "FARGATE"
 )
 
 // A container definition is used in a task definition to describe the containers that are launched as part of a task.
@@ -9493,14 +9695,6 @@ func (c *jsiiProxy_ContainerDefinition) Validate() *[]*string {
 //
 // Experimental.
 type ContainerDefinitionOptions struct {
-	// The image used to start a container.
-	//
-	// This string is passed directly to the Docker daemon.
-	// Images in the Docker Hub registry are available by default.
-	// Other repositories are specified with either repository-url/image:tag or repository-url/image@digest.
-	// TODO: Update these to specify using classes of IContainerImage
-	// Experimental.
-	Image ContainerImage `json:"image"`
 	// The command that is passed to the container.
 	//
 	// If you provide a shell command as a single string, you have to quote command-line arguments.
@@ -9564,6 +9758,14 @@ type ContainerDefinitionOptions struct {
 	// The hostname to use for your container.
 	// Experimental.
 	Hostname *string `json:"hostname"`
+	// The image used to start a container.
+	//
+	// This string is passed directly to the Docker daemon.
+	// Images in the Docker Hub registry are available by default.
+	// Other repositories are specified with either repository-url/image:tag or repository-url/image@digest.
+	// TODO: Update these to specify using classes of IContainerImage
+	// Experimental.
+	Image ContainerImage `json:"image"`
 	// The inference accelerators referenced by the container.
 	// Experimental.
 	InferenceAcceleratorResources *[]*string `json:"inferenceAcceleratorResources"`
@@ -9628,16 +9830,11 @@ type ContainerDefinitionOptions struct {
 }
 
 // The properties in a container definition.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ContainerDefinitionProps struct {
-	// The image used to start a container.
-	//
-	// This string is passed directly to the Docker daemon.
-	// Images in the Docker Hub registry are available by default.
-	// Other repositories are specified with either repository-url/image:tag or repository-url/image@digest.
-	// TODO: Update these to specify using classes of IContainerImage
-	// Experimental.
-	Image ContainerImage `json:"image"`
 	// The command that is passed to the container.
 	//
 	// If you provide a shell command as a single string, you have to quote command-line arguments.
@@ -9701,6 +9898,14 @@ type ContainerDefinitionProps struct {
 	// The hostname to use for your container.
 	// Experimental.
 	Hostname *string `json:"hostname"`
+	// The image used to start a container.
+	//
+	// This string is passed directly to the Docker daemon.
+	// Images in the Docker Hub registry are available by default.
+	// Other repositories are specified with either repository-url/image:tag or repository-url/image@digest.
+	// TODO: Update these to specify using classes of IContainerImage
+	// Experimental.
+	Image ContainerImage `json:"image"`
 	// The inference accelerators referenced by the container.
 	// Experimental.
 	InferenceAcceleratorResources *[]*string `json:"inferenceAcceleratorResources"`
@@ -9770,29 +9975,32 @@ type ContainerDefinitionProps struct {
 }
 
 // The details of a dependency on another container in the task definition.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ContainerDependency.html
 //
 // Experimental.
 type ContainerDependency struct {
-	// The container to depend on.
-	// Experimental.
-	Container ContainerDefinition `json:"container"`
 	// The state the container needs to be in to satisfy the dependency and proceed with startup.
 	//
 	// Valid values are ContainerDependencyCondition.START, ContainerDependencyCondition.COMPLETE,
 	// ContainerDependencyCondition.SUCCESS and ContainerDependencyCondition.HEALTHY.
 	// Experimental.
 	Condition ContainerDependencyCondition `json:"condition"`
+	// The container to depend on.
+	// Experimental.
+	Container ContainerDefinition `json:"container"`
 }
 
 // Experimental.
 type ContainerDependencyCondition string
 
 const (
-	ContainerDependencyCondition_START ContainerDependencyCondition = "START"
 	ContainerDependencyCondition_COMPLETE ContainerDependencyCondition = "COMPLETE"
-	ContainerDependencyCondition_SUCCESS ContainerDependencyCondition = "SUCCESS"
 	ContainerDependencyCondition_HEALTHY ContainerDependencyCondition = "HEALTHY"
+	ContainerDependencyCondition_START ContainerDependencyCondition = "START"
+	ContainerDependencyCondition_SUCCESS ContainerDependencyCondition = "SUCCESS"
 )
 
 // Constructs for types of container images.
@@ -9927,6 +10135,9 @@ func (c *jsiiProxy_ContainerImage) Bind(scope awscdk.Construct, containerDefinit
 }
 
 // The configuration for creating a container image.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ContainerImageConfig struct {
 	// Specifies the name of the container image.
@@ -9995,20 +10206,23 @@ type DeploymentController struct {
 type DeploymentControllerType string
 
 const (
-	DeploymentControllerType_ECS DeploymentControllerType = "ECS"
 	DeploymentControllerType_CODE_DEPLOY DeploymentControllerType = "CODE_DEPLOY"
+	DeploymentControllerType_ECS DeploymentControllerType = "ECS"
 	DeploymentControllerType_EXTERNAL DeploymentControllerType = "EXTERNAL"
 )
 
 // A container instance host device.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Device struct {
-	// The path for the device on the host container instance.
-	// Experimental.
-	HostPath *string `json:"hostPath"`
 	// The path inside the container at which to expose the host device.
 	// Experimental.
 	ContainerPath *string `json:"containerPath"`
+	// The path for the device on the host container instance.
+	// Experimental.
+	HostPath *string `json:"hostPath"`
 	// The explicit permissions to provide to the container for the device.
 	//
 	// By default, the container has permissions for read, write, and mknod for the device.
@@ -10021,33 +10235,36 @@ type Device struct {
 type DevicePermission string
 
 const (
+	DevicePermission_MKNOD DevicePermission = "MKNOD"
 	DevicePermission_READ DevicePermission = "READ"
 	DevicePermission_WRITE DevicePermission = "WRITE"
-	DevicePermission_MKNOD DevicePermission = "MKNOD"
 )
 
 // The configuration for a Docker volume.
 //
 // Docker volumes are only supported when you are using the EC2 launch type.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DockerVolumeConfiguration struct {
-	// The Docker volume driver to use.
-	// Experimental.
-	Driver *string `json:"driver"`
-	// The scope for the Docker volume that determines its lifecycle.
-	// Experimental.
-	Scope Scope `json:"scope"`
 	// Specifies whether the Docker volume should be created if it does not already exist.
 	//
 	// If true is specified, the Docker volume will be created for you.
 	// Experimental.
 	Autoprovision *bool `json:"autoprovision"`
+	// The Docker volume driver to use.
+	// Experimental.
+	Driver *string `json:"driver"`
 	// A map of Docker driver-specific options passed through.
 	// Experimental.
 	DriverOpts *map[string]*string `json:"driverOpts"`
 	// Custom metadata to add to your Docker volume.
 	// Experimental.
 	Labels *map[string]*string `json:"labels"`
+	// The scope for the Docker volume that determines its lifecycle.
+	// Experimental.
+	Scope Scope `json:"scope"`
 }
 
 // This creates a service using the EC2 launch type on an ECS cluster.
@@ -10797,6 +11014,9 @@ func (e *jsiiProxy_Ec2Service) Validate() *[]*string {
 }
 
 // The properties to import from the service using the EC2 launch type.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Ec2ServiceAttributes struct {
 	// The cluster that hosts the service.
@@ -10816,9 +11036,6 @@ type Ec2ServiceAttributes struct {
 //
 // Experimental.
 type Ec2ServiceProps struct {
-	// The name of the cluster that hosts the service.
-	// Experimental.
-	Cluster ICluster `json:"cluster"`
 	// A list of Capacity Provider strategies used to place a service.
 	// Experimental.
 	CapacityProviderStrategies *[]*CapacityProviderStrategy `json:"capacityProviderStrategies"`
@@ -10831,6 +11048,9 @@ type Ec2ServiceProps struct {
 	// The options for configuring an Amazon ECS service to use service discovery.
 	// Experimental.
 	CloudMapOptions *CloudMapOptions `json:"cloudMapOptions"`
+	// The name of the cluster that hosts the service.
+	// Experimental.
+	Cluster ICluster `json:"cluster"`
 	// Specifies which deployment controller to use for the service.
 	//
 	// For more information, see
@@ -11605,14 +11825,17 @@ func (e *jsiiProxy_Ec2TaskDefinition) Validate() *[]*string {
 }
 
 // Attributes used to import an existing EC2 task definition.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Ec2TaskDefinitionAttributes struct {
-	// The arn of the task definition.
-	// Experimental.
-	TaskDefinitionArn *string `json:"taskDefinitionArn"`
 	// The networking mode to use for the containers in the task.
 	// Experimental.
 	NetworkMode NetworkMode `json:"networkMode"`
+	// The arn of the task definition.
+	// Experimental.
+	TaskDefinitionArn *string `json:"taskDefinitionArn"`
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
 	// Experimental.
 	TaskRole awsiam.IRole `json:"taskRole"`
@@ -12060,14 +12283,17 @@ type EcsTarget struct {
 }
 
 // The configuration for an Elastic FileSystem volume.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EfsVolumeConfiguration struct {
-	// The Amazon EFS file system ID to use.
-	// Experimental.
-	FileSystemId *string `json:"fileSystemId"`
 	// The authorization configuration details for the Amazon EFS file system.
 	// Experimental.
 	AuthorizationConfig *AuthorizationConfig `json:"authorizationConfig"`
+	// The Amazon EFS file system ID to use.
+	// Experimental.
+	FileSystemId *string `json:"fileSystemId"`
 	// The directory within the Amazon EFS file system to mount as the root directory inside the host.
 	//
 	// Specifying / will have the same effect as omitting this parameter.
@@ -12164,6 +12390,9 @@ func (e *jsiiProxy_EnvironmentFile) Bind(scope awscdk.Construct) *EnvironmentFil
 }
 
 // Configuration for the environment file.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EnvironmentFileConfig struct {
 	// The type of environment file.
@@ -12245,8 +12474,8 @@ type ExecuteCommandLogConfiguration struct {
 type ExecuteCommandLogging string
 
 const (
-	ExecuteCommandLogging_NONE ExecuteCommandLogging = "NONE"
 	ExecuteCommandLogging_DEFAULT ExecuteCommandLogging = "DEFAULT"
+	ExecuteCommandLogging_NONE ExecuteCommandLogging = "NONE"
 	ExecuteCommandLogging_OVERRIDE ExecuteCommandLogging = "OVERRIDE"
 )
 
@@ -12944,6 +13173,9 @@ func (e *jsiiProxy_ExternalService) Validate() *[]*string {
 }
 
 // The properties to import from the service using the External launch type.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ExternalServiceAttributes struct {
 	// The cluster that hosts the service.
@@ -12963,9 +13195,6 @@ type ExternalServiceAttributes struct {
 //
 // Experimental.
 type ExternalServiceProps struct {
-	// The name of the cluster that hosts the service.
-	// Experimental.
-	Cluster ICluster `json:"cluster"`
 	// A list of Capacity Provider strategies used to place a service.
 	// Experimental.
 	CapacityProviderStrategies *[]*CapacityProviderStrategy `json:"capacityProviderStrategies"`
@@ -12978,6 +13207,9 @@ type ExternalServiceProps struct {
 	// The options for configuring an Amazon ECS service to use service discovery.
 	// Experimental.
 	CloudMapOptions *CloudMapOptions `json:"cloudMapOptions"`
+	// The name of the cluster that hosts the service.
+	// Experimental.
+	Cluster ICluster `json:"cluster"`
 	// Specifies which deployment controller to use for the service.
 	//
 	// For more information, see
@@ -13712,20 +13944,26 @@ func (e *jsiiProxy_ExternalTaskDefinition) Validate() *[]*string {
 }
 
 // Attributes used to import an existing External task definition.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ExternalTaskDefinitionAttributes struct {
-	// The arn of the task definition.
-	// Experimental.
-	TaskDefinitionArn *string `json:"taskDefinitionArn"`
 	// The networking mode to use for the containers in the task.
 	// Experimental.
 	NetworkMode NetworkMode `json:"networkMode"`
+	// The arn of the task definition.
+	// Experimental.
+	TaskDefinitionArn *string `json:"taskDefinitionArn"`
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
 	// Experimental.
 	TaskRole awsiam.IRole `json:"taskRole"`
 }
 
 // The properties for a task definition run on an External cluster.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ExternalTaskDefinitionProps struct {
 	// The name of the IAM task execution role that grants the ECS agent permission to call AWS APIs on your behalf.
@@ -13763,11 +14001,11 @@ type FargatePlatformVersion string
 
 const (
 	FargatePlatformVersion_LATEST FargatePlatformVersion = "LATEST"
-	FargatePlatformVersion_VERSION1_4 FargatePlatformVersion = "VERSION1_4"
-	FargatePlatformVersion_VERSION1_3 FargatePlatformVersion = "VERSION1_3"
-	FargatePlatformVersion_VERSION1_2 FargatePlatformVersion = "VERSION1_2"
-	FargatePlatformVersion_VERSION1_1 FargatePlatformVersion = "VERSION1_1"
 	FargatePlatformVersion_VERSION1_0 FargatePlatformVersion = "VERSION1_0"
+	FargatePlatformVersion_VERSION1_1 FargatePlatformVersion = "VERSION1_1"
+	FargatePlatformVersion_VERSION1_2 FargatePlatformVersion = "VERSION1_2"
+	FargatePlatformVersion_VERSION1_3 FargatePlatformVersion = "VERSION1_3"
+	FargatePlatformVersion_VERSION1_4 FargatePlatformVersion = "VERSION1_4"
 )
 
 // This creates a service using the Fargate launch type on an ECS cluster.
@@ -14484,6 +14722,9 @@ func (f *jsiiProxy_FargateService) Validate() *[]*string {
 }
 
 // The properties to import from the service using the Fargate launch type.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FargateServiceAttributes struct {
 	// The cluster that hosts the service.
@@ -14503,9 +14744,6 @@ type FargateServiceAttributes struct {
 //
 // Experimental.
 type FargateServiceProps struct {
-	// The name of the cluster that hosts the service.
-	// Experimental.
-	Cluster ICluster `json:"cluster"`
 	// A list of Capacity Provider strategies used to place a service.
 	// Experimental.
 	CapacityProviderStrategies *[]*CapacityProviderStrategy `json:"capacityProviderStrategies"`
@@ -14518,6 +14756,9 @@ type FargateServiceProps struct {
 	// The options for configuring an Amazon ECS service to use service discovery.
 	// Experimental.
 	CloudMapOptions *CloudMapOptions `json:"cloudMapOptions"`
+	// The name of the cluster that hosts the service.
+	// Experimental.
+	Cluster ICluster `json:"cluster"`
 	// Specifies which deployment controller to use for the service.
 	//
 	// For more information, see
@@ -15272,14 +15513,17 @@ func (f *jsiiProxy_FargateTaskDefinition) Validate() *[]*string {
 }
 
 // Attributes used to import an existing Fargate task definition.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FargateTaskDefinitionAttributes struct {
-	// The arn of the task definition.
-	// Experimental.
-	TaskDefinitionArn *string `json:"taskDefinitionArn"`
 	// The networking mode to use for the containers in the task.
 	// Experimental.
 	NetworkMode NetworkMode `json:"networkMode"`
+	// The arn of the task definition.
+	// Experimental.
+	TaskDefinitionArn *string `json:"taskDefinitionArn"`
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
 	// Experimental.
 	TaskRole awsiam.IRole `json:"taskRole"`
@@ -15356,6 +15600,9 @@ type FargateTaskDefinitionProps struct {
 }
 
 // FireLens enables you to use task definition parameters to route logs to an AWS service   or AWS Partner Network (APN) destination for log storage and analytics.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FireLensLogDriver interface {
 	LogDriver
@@ -15469,14 +15716,17 @@ type FireLensLogDriverProps struct {
 }
 
 // Firelens Configuration https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FirelensConfig struct {
-	// The log router to use.
-	// Experimental.
-	Type FirelensLogRouterType `json:"type"`
 	// Firelens options.
 	// Experimental.
 	Options *FirelensOptions `json:"options"`
+	// The log router to use.
+	// Experimental.
+	Type FirelensLogRouterType `json:"type"`
 }
 
 // Firelens configuration file type, s3 or file path.
@@ -15486,11 +15736,14 @@ type FirelensConfig struct {
 type FirelensConfigFileType string
 
 const (
-	FirelensConfigFileType_S3 FirelensConfigFileType = "S3"
 	FirelensConfigFileType_FILE FirelensConfigFileType = "FILE"
+	FirelensConfigFileType_S3 FirelensConfigFileType = "S3"
 )
 
 // Firelens log router.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FirelensLogRouter interface {
 	ContainerDefinition
@@ -16023,16 +16276,11 @@ func (f *jsiiProxy_FirelensLogRouter) Validate() *[]*string {
 }
 
 // The options for creating a firelens log router.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FirelensLogRouterDefinitionOptions struct {
-	// The image used to start a container.
-	//
-	// This string is passed directly to the Docker daemon.
-	// Images in the Docker Hub registry are available by default.
-	// Other repositories are specified with either repository-url/image:tag or repository-url/image@digest.
-	// TODO: Update these to specify using classes of IContainerImage
-	// Experimental.
-	Image ContainerImage `json:"image"`
 	// The command that is passed to the container.
 	//
 	// If you provide a shell command as a single string, you have to quote command-line arguments.
@@ -16096,6 +16344,14 @@ type FirelensLogRouterDefinitionOptions struct {
 	// The hostname to use for your container.
 	// Experimental.
 	Hostname *string `json:"hostname"`
+	// The image used to start a container.
+	//
+	// This string is passed directly to the Docker daemon.
+	// Images in the Docker Hub registry are available by default.
+	// Other repositories are specified with either repository-url/image:tag or repository-url/image@digest.
+	// TODO: Update these to specify using classes of IContainerImage
+	// Experimental.
+	Image ContainerImage `json:"image"`
 	// The inference accelerators referenced by the container.
 	// Experimental.
 	InferenceAcceleratorResources *[]*string `json:"inferenceAcceleratorResources"`
@@ -16163,16 +16419,11 @@ type FirelensLogRouterDefinitionOptions struct {
 }
 
 // The properties in a firelens log router.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FirelensLogRouterProps struct {
-	// The image used to start a container.
-	//
-	// This string is passed directly to the Docker daemon.
-	// Images in the Docker Hub registry are available by default.
-	// Other repositories are specified with either repository-url/image:tag or repository-url/image@digest.
-	// TODO: Update these to specify using classes of IContainerImage
-	// Experimental.
-	Image ContainerImage `json:"image"`
 	// The command that is passed to the container.
 	//
 	// If you provide a shell command as a single string, you have to quote command-line arguments.
@@ -16236,6 +16487,14 @@ type FirelensLogRouterProps struct {
 	// The hostname to use for your container.
 	// Experimental.
 	Hostname *string `json:"hostname"`
+	// The image used to start a container.
+	//
+	// This string is passed directly to the Docker daemon.
+	// Images in the Docker Hub registry are available by default.
+	// Other repositories are specified with either repository-url/image:tag or repository-url/image@digest.
+	// TODO: Update these to specify using classes of IContainerImage
+	// Experimental.
+	Image ContainerImage `json:"image"`
 	// The inference accelerators referenced by the container.
 	// Experimental.
 	InferenceAcceleratorResources *[]*string `json:"inferenceAcceleratorResources"`
@@ -16319,14 +16578,17 @@ const (
 )
 
 // The options for firelens log router https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef-customconfig.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FirelensOptions struct {
-	// Custom configuration file, S3 ARN or a file path.
-	// Experimental.
-	ConfigFileValue *string `json:"configFileValue"`
 	// Custom configuration file, s3 or file.
 	// Experimental.
 	ConfigFileType FirelensConfigFileType `json:"configFileType"`
+	// Custom configuration file, S3 ARN or a file path.
+	// Experimental.
+	ConfigFileValue *string `json:"configFileValue"`
 	// By default, Amazon ECS adds additional fields in your log entries that help identify the source of the logs.
 	//
 	// You can disable this action by setting enable-ecs-log-metadata to false.
@@ -16335,6 +16597,9 @@ type FirelensOptions struct {
 }
 
 // A log driver that sends log information to journald Logs.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FluentdLogDriver interface {
 	LogDriver
@@ -16409,6 +16674,9 @@ func (f *jsiiProxy_FluentdLogDriver) Bind(_scope awscdk.Construct, _containerDef
 // Specifies the fluentd log driver configuration options.
 //
 // [Source](https://docs.docker.com/config/containers/logging/fluentd/)
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type FluentdLogDriverProps struct {
 	// The env option takes an array of keys.
@@ -16471,11 +16739,14 @@ type GelfCompressionType string
 
 const (
 	GelfCompressionType_GZIP GelfCompressionType = "GZIP"
-	GelfCompressionType_ZLIB GelfCompressionType = "ZLIB"
 	GelfCompressionType_NONE GelfCompressionType = "NONE"
+	GelfCompressionType_ZLIB GelfCompressionType = "ZLIB"
 )
 
 // A log driver that sends log information to journald Logs.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type GelfLogDriver interface {
 	LogDriver
@@ -16714,6 +16985,9 @@ type GenericLogDriverProps struct {
 }
 
 // The health check command and associated configuration parameters for the container.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HealthCheck struct {
 	// A string array representing the command that the container runs to determine if it is healthy.
@@ -16747,6 +17021,9 @@ type HealthCheck struct {
 }
 
 // The details on a container instance bind mount host volume.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Host struct {
 	// Specifies the path on the host container instance that is presented to the container.
@@ -17161,6 +17438,9 @@ func (i *jsiiProxy_ITaskDefinitionExtension) Extend(taskDefinition TaskDefinitio
 // Elastic Inference Accelerator.
 //
 // For more information, see [Elastic Inference Basics](https://docs.aws.amazon.com/elastic-inference/latest/developerguide/basics.html)
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type InferenceAccelerator struct {
 	// The Elastic Inference accelerator device name.
@@ -17178,12 +17458,15 @@ type InferenceAccelerator struct {
 type IpcMode string
 
 const (
-	IpcMode_NONE IpcMode = "NONE"
 	IpcMode_HOST IpcMode = "HOST"
+	IpcMode_NONE IpcMode = "NONE"
 	IpcMode_TASK IpcMode = "TASK"
 )
 
 // A log driver that sends log information to journald Logs.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type JournaldLogDriver interface {
 	LogDriver
@@ -17258,6 +17541,9 @@ func (j *jsiiProxy_JournaldLogDriver) Bind(_scope awscdk.Construct, _containerDe
 // Specifies the journald log driver configuration options.
 //
 // [Source](https://docs.docker.com/config/containers/logging/journald/)
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type JournaldLogDriverProps struct {
 	// The env option takes an array of keys.
@@ -17290,6 +17576,9 @@ type JournaldLogDriverProps struct {
 }
 
 // A log driver that sends log information to json-file Logs.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type JsonFileLogDriver interface {
 	LogDriver
@@ -17364,6 +17653,9 @@ func (j *jsiiProxy_JsonFileLogDriver) Bind(_scope awscdk.Construct, _containerDe
 // Specifies the json-file log driver configuration options.
 //
 // [Source](https://docs.docker.com/config/containers/logging/json-file/)
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type JsonFileLogDriverProps struct {
 	// The env option takes an array of keys.
@@ -17417,11 +17709,14 @@ type LaunchType string
 
 const (
 	LaunchType_EC2 LaunchType = "EC2"
-	LaunchType_FARGATE LaunchType = "FARGATE"
 	LaunchType_EXTERNAL LaunchType = "EXTERNAL"
+	LaunchType_FARGATE LaunchType = "FARGATE"
 )
 
 // Linux-specific options that are applied to the container.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LinuxParameters interface {
 	awscdk.Construct
@@ -17698,6 +17993,9 @@ func (l *jsiiProxy_LinuxParameters) Validate() *[]*string {
 }
 
 // The properties for defining Linux-specific options that are applied to the container.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LinuxParametersProps struct {
 	// Specifies whether to run an init process inside the container that forwards signals and reaps processes.
@@ -17858,6 +18156,9 @@ func (l *jsiiProxy_LogDriver) Bind(scope awscdk.Construct, containerDefinition C
 }
 
 // The configuration to use when creating a log driver.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type LogDriverConfig struct {
 	// The log driver to use for the container.
@@ -18105,6 +18406,9 @@ type MemoryUtilizationScalingProps struct {
 }
 
 // The details of data volume mount points for a container.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type MountPoint struct {
 	// The path on the container to mount the host volume at.
@@ -18131,11 +18435,11 @@ type MountPoint struct {
 type NetworkMode string
 
 const (
-	NetworkMode_NONE NetworkMode = "NONE"
-	NetworkMode_BRIDGE NetworkMode = "BRIDGE"
 	NetworkMode_AWS_VPC NetworkMode = "AWS_VPC"
+	NetworkMode_BRIDGE NetworkMode = "BRIDGE"
 	NetworkMode_HOST NetworkMode = "HOST"
 	NetworkMode_NAT NetworkMode = "NAT"
+	NetworkMode_NONE NetworkMode = "NONE"
 )
 
 // The process namespace to use for the containers in the task.
@@ -18410,9 +18714,9 @@ type PortMapping struct {
 type PropagatedTagSource string
 
 const (
+	PropagatedTagSource_NONE PropagatedTagSource = "NONE"
 	PropagatedTagSource_SERVICE PropagatedTagSource = "SERVICE"
 	PropagatedTagSource_TASK_DEFINITION PropagatedTagSource = "TASK_DEFINITION"
-	PropagatedTagSource_NONE PropagatedTagSource = "NONE"
 )
 
 // Network protocol.
@@ -18465,6 +18769,9 @@ func (p *jsiiProxy_ProxyConfiguration) Bind(_scope awscdk.Construct, _taskDefini
 }
 
 // The base class for proxy configurations.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ProxyConfigurations interface {
 }
@@ -18521,6 +18828,9 @@ func ProxyConfigurations_AppMeshProxyConfiguration(props *AppMeshProxyConfigurat
 //
 // For images hosted in Amazon ECR, see
 // [EcrImage](https://docs.aws.amazon.com/AmazonECR/latest/userguide/images.html).
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type RepositoryImage interface {
 	ContainerImage
@@ -18667,6 +18977,9 @@ func (r *jsiiProxy_RepositoryImage) Bind(scope awscdk.Construct, containerDefini
 }
 
 // The properties for an image hosted in a public or private repository.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type RepositoryImageProps struct {
 	// The secret to expose to the container that contains the credentials for the image repository.
@@ -18708,6 +19021,9 @@ type RequestCountScalingProps struct {
 }
 
 // Environment file from S3.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type S3EnvironmentFile interface {
 	EnvironmentFile
@@ -19100,6 +19416,9 @@ func (s *jsiiProxy_ScalableTaskCount) Validate() *[]*string {
 }
 
 // The properties of a scalable attribute representing task count.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ScalableTaskCountProps struct {
 	// Maximum capacity to scale to.
@@ -19130,11 +19449,14 @@ type ScalableTaskCountProps struct {
 type Scope string
 
 const (
-	Scope_TASK Scope = "TASK"
 	Scope_SHARED Scope = "SHARED"
+	Scope_TASK Scope = "TASK"
 )
 
 // The temporary disk space mounted to the container.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ScratchSpace struct {
 	// The path on the container to mount the scratch volume at.
@@ -19253,6 +19575,9 @@ func (s *jsiiProxy_Secret) GrantRead(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 // A log driver that sends log information to splunk Logs.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SplunkLogDriver interface {
 	LogDriver
@@ -19359,9 +19684,6 @@ type SplunkLogDriverProps struct {
 	// log tag format.
 	// Experimental.
 	Tag *string `json:"tag"`
-	// Path to your Splunk Enterprise, self-service Splunk Cloud instance, or Splunk Cloud managed cluster (including port and scheme used by HTTP Event Collector) in one of the following formats: https://your_splunk_instance:8088 or https://input-prd-p-XXXXXXX.cloud.splunk.com:8088 or https://http-inputs-XXXXXXXX.splunkcloud.com.
-	// Experimental.
-	Url *string `json:"url"`
 	// Name to use for validating server certificate.
 	// Experimental.
 	CaName *string `json:"caName"`
@@ -19410,6 +19732,9 @@ type SplunkLogDriverProps struct {
 	// Please provide at least one of `token` or `secretToken`.
 	// Deprecated: Use {@link SplunkLogDriverProps.secretToken} instead.
 	Token awscdk.SecretValue `json:"token"`
+	// Path to your Splunk Enterprise, self-service Splunk Cloud instance, or Splunk Cloud managed cluster (including port and scheme used by HTTP Event Collector) in one of the following formats: https://your_splunk_instance:8088 or https://input-prd-p-XXXXXXX.cloud.splunk.com:8088 or https://http-inputs-XXXXXXXX.splunkcloud.com.
+	// Experimental.
+	Url *string `json:"url"`
 	// Verify on start, that docker can connect to Splunk server.
 	// Experimental.
 	VerifyConnection *bool `json:"verifyConnection"`
@@ -19426,6 +19751,9 @@ const (
 )
 
 // A log driver that sends log information to syslog Logs.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SyslogLogDriver interface {
 	LogDriver
@@ -19500,6 +19828,9 @@ func (s *jsiiProxy_SyslogLogDriver) Bind(_scope awscdk.Construct, _containerDefi
 // Specifies the syslog log driver configuration options.
 //
 // [Source](https://docs.docker.com/config/containers/logging/syslog/)
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SyslogLogDriverProps struct {
 	// The env option takes an array of keys.
@@ -19576,6 +19907,9 @@ type SyslogLogDriverProps struct {
 }
 
 // Kernel parameters to set in the container.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SystemControl struct {
 	// The namespaced kernel parameter for which to set a value.
@@ -19591,6 +19925,9 @@ type SystemControl struct {
 // This allows providing this tag through the Parameter at deploy time,
 // for example in a CodePipeline that pushes a new tag of the image to the repository during a build step,
 // and then provides that new tag through the CloudFormation Parameter in the deploy step.
+//
+// TODO: EXAMPLE
+//
 // See: #tagParameterName
 //
 // Experimental.
@@ -20407,14 +20744,17 @@ func (t *jsiiProxy_TaskDefinition) Validate() *[]*string {
 }
 
 // A reference to an existing task definition.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type TaskDefinitionAttributes struct {
-	// The arn of the task definition.
-	// Experimental.
-	TaskDefinitionArn *string `json:"taskDefinitionArn"`
 	// The networking mode to use for the containers in the task.
 	// Experimental.
 	NetworkMode NetworkMode `json:"networkMode"`
+	// The arn of the task definition.
+	// Experimental.
+	TaskDefinitionArn *string `json:"taskDefinitionArn"`
 	// The name of the IAM role that grants containers in the task permission to call AWS APIs on your behalf.
 	// Experimental.
 	TaskRole awsiam.IRole `json:"taskRole"`
@@ -20524,20 +20864,23 @@ type TaskDefinitionProps struct {
 }
 
 // The details of a tmpfs mount for a container.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Tmpfs struct {
 	// The absolute file path where the tmpfs volume is to be mounted.
 	// Experimental.
 	ContainerPath *string `json:"containerPath"`
-	// The size (in MiB) of the tmpfs volume.
-	// Experimental.
-	Size *float64 `json:"size"`
 	// The list of tmpfs volume mount options.
 	//
 	// For more information, see
 	// [TmpfsMountOptions](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Tmpfs.html).
 	// Experimental.
 	MountOptions *[]TmpfsMountOption `json:"mountOptions"`
+	// The size (in MiB) of the tmpfs volume.
+	// Experimental.
+	Size *float64 `json:"size"`
 }
 
 // The supported options for a tmpfs mount for a container.
@@ -20545,48 +20888,51 @@ type Tmpfs struct {
 type TmpfsMountOption string
 
 const (
-	TmpfsMountOption_DEFAULTS TmpfsMountOption = "DEFAULTS"
-	TmpfsMountOption_RO TmpfsMountOption = "RO"
-	TmpfsMountOption_RW TmpfsMountOption = "RW"
-	TmpfsMountOption_SUID TmpfsMountOption = "SUID"
-	TmpfsMountOption_NOSUID TmpfsMountOption = "NOSUID"
-	TmpfsMountOption_DEV TmpfsMountOption = "DEV"
-	TmpfsMountOption_NODEV TmpfsMountOption = "NODEV"
-	TmpfsMountOption_EXEC TmpfsMountOption = "EXEC"
-	TmpfsMountOption_NOEXEC TmpfsMountOption = "NOEXEC"
-	TmpfsMountOption_SYNC TmpfsMountOption = "SYNC"
 	TmpfsMountOption_ASYNC TmpfsMountOption = "ASYNC"
-	TmpfsMountOption_DIRSYNC TmpfsMountOption = "DIRSYNC"
-	TmpfsMountOption_REMOUNT TmpfsMountOption = "REMOUNT"
-	TmpfsMountOption_MAND TmpfsMountOption = "MAND"
-	TmpfsMountOption_NOMAND TmpfsMountOption = "NOMAND"
 	TmpfsMountOption_ATIME TmpfsMountOption = "ATIME"
-	TmpfsMountOption_NOATIME TmpfsMountOption = "NOATIME"
-	TmpfsMountOption_DIRATIME TmpfsMountOption = "DIRATIME"
-	TmpfsMountOption_NODIRATIME TmpfsMountOption = "NODIRATIME"
 	TmpfsMountOption_BIND TmpfsMountOption = "BIND"
-	TmpfsMountOption_RBIND TmpfsMountOption = "RBIND"
-	TmpfsMountOption_UNBINDABLE TmpfsMountOption = "UNBINDABLE"
-	TmpfsMountOption_RUNBINDABLE TmpfsMountOption = "RUNBINDABLE"
-	TmpfsMountOption_PRIVATE TmpfsMountOption = "PRIVATE"
-	TmpfsMountOption_RPRIVATE TmpfsMountOption = "RPRIVATE"
-	TmpfsMountOption_SHARED TmpfsMountOption = "SHARED"
-	TmpfsMountOption_RSHARED TmpfsMountOption = "RSHARED"
-	TmpfsMountOption_SLAVE TmpfsMountOption = "SLAVE"
-	TmpfsMountOption_RSLAVE TmpfsMountOption = "RSLAVE"
-	TmpfsMountOption_RELATIME TmpfsMountOption = "RELATIME"
-	TmpfsMountOption_NORELATIME TmpfsMountOption = "NORELATIME"
-	TmpfsMountOption_STRICTATIME TmpfsMountOption = "STRICTATIME"
-	TmpfsMountOption_NOSTRICTATIME TmpfsMountOption = "NOSTRICTATIME"
-	TmpfsMountOption_MODE TmpfsMountOption = "MODE"
-	TmpfsMountOption_UID TmpfsMountOption = "UID"
+	TmpfsMountOption_DEFAULTS TmpfsMountOption = "DEFAULTS"
+	TmpfsMountOption_DEV TmpfsMountOption = "DEV"
+	TmpfsMountOption_DIRATIME TmpfsMountOption = "DIRATIME"
+	TmpfsMountOption_DIRSYNC TmpfsMountOption = "DIRSYNC"
+	TmpfsMountOption_EXEC TmpfsMountOption = "EXEC"
 	TmpfsMountOption_GID TmpfsMountOption = "GID"
-	TmpfsMountOption_NR_INODES TmpfsMountOption = "NR_INODES"
-	TmpfsMountOption_NR_BLOCKS TmpfsMountOption = "NR_BLOCKS"
+	TmpfsMountOption_MAND TmpfsMountOption = "MAND"
+	TmpfsMountOption_MODE TmpfsMountOption = "MODE"
 	TmpfsMountOption_MPOL TmpfsMountOption = "MPOL"
+	TmpfsMountOption_NOATIME TmpfsMountOption = "NOATIME"
+	TmpfsMountOption_NODEV TmpfsMountOption = "NODEV"
+	TmpfsMountOption_NODIRATIME TmpfsMountOption = "NODIRATIME"
+	TmpfsMountOption_NOEXEC TmpfsMountOption = "NOEXEC"
+	TmpfsMountOption_NOMAND TmpfsMountOption = "NOMAND"
+	TmpfsMountOption_NORELATIME TmpfsMountOption = "NORELATIME"
+	TmpfsMountOption_NOSTRICTATIME TmpfsMountOption = "NOSTRICTATIME"
+	TmpfsMountOption_NOSUID TmpfsMountOption = "NOSUID"
+	TmpfsMountOption_NR_BLOCKS TmpfsMountOption = "NR_BLOCKS"
+	TmpfsMountOption_NR_INODES TmpfsMountOption = "NR_INODES"
+	TmpfsMountOption_PRIVATE TmpfsMountOption = "PRIVATE"
+	TmpfsMountOption_RBIND TmpfsMountOption = "RBIND"
+	TmpfsMountOption_RELATIME TmpfsMountOption = "RELATIME"
+	TmpfsMountOption_REMOUNT TmpfsMountOption = "REMOUNT"
+	TmpfsMountOption_RO TmpfsMountOption = "RO"
+	TmpfsMountOption_RPRIVATE TmpfsMountOption = "RPRIVATE"
+	TmpfsMountOption_RSHARED TmpfsMountOption = "RSHARED"
+	TmpfsMountOption_RSLAVE TmpfsMountOption = "RSLAVE"
+	TmpfsMountOption_RUNBINDABLE TmpfsMountOption = "RUNBINDABLE"
+	TmpfsMountOption_RW TmpfsMountOption = "RW"
+	TmpfsMountOption_SHARED TmpfsMountOption = "SHARED"
+	TmpfsMountOption_SLAVE TmpfsMountOption = "SLAVE"
+	TmpfsMountOption_STRICTATIME TmpfsMountOption = "STRICTATIME"
+	TmpfsMountOption_SUID TmpfsMountOption = "SUID"
+	TmpfsMountOption_SYNC TmpfsMountOption = "SYNC"
+	TmpfsMountOption_UID TmpfsMountOption = "UID"
+	TmpfsMountOption_UNBINDABLE TmpfsMountOption = "UNBINDABLE"
 )
 
 // The properties for enabling target tracking scaling based on a custom CloudWatch metric.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type TrackCustomMetricProps struct {
 	// Indicates whether scale in by the target tracking policy is disabled.
@@ -20622,6 +20968,9 @@ type TrackCustomMetricProps struct {
 // The ulimit settings to pass to the container.
 //
 // NOTE: Does not work for Windows containers.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Ulimit struct {
 	// The hard limit for the ulimit type.
@@ -20670,12 +21019,6 @@ const (
 //
 // Experimental.
 type Volume struct {
-	// The name of the volume.
-	//
-	// Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed.
-	// This name is referenced in the sourceVolume parameter of container definition mountPoints.
-	// Experimental.
-	Name *string `json:"name"`
 	// This property is specified when you are using Docker volumes.
 	//
 	// Docker volumes are only supported when you are using the EC2 launch type.
@@ -20701,9 +21044,18 @@ type Volume struct {
 	// after the containers associated with it stop running.
 	// Experimental.
 	Host *Host `json:"host"`
+	// The name of the volume.
+	//
+	// Up to 255 letters (uppercase and lowercase), numbers, and hyphens are allowed.
+	// This name is referenced in the sourceVolume parameter of container definition mountPoints.
+	// Experimental.
+	Name *string `json:"name"`
 }
 
 // The details on a data volume from another container in the same task definition.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type VolumeFrom struct {
 	// Specifies whether the container has read-only access to the volume.

@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::GameLift::Alias`.
+//
+// TODO: EXAMPLE
+//
 type CfnAlias interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -646,26 +649,34 @@ func (c *jsiiProxy_CfnAlias) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnAlias_RoutingStrategyProperty struct {
-	// `CfnAlias.RoutingStrategyProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnAlias.RoutingStrategyProperty.FleetId`.
 	FleetId *string `json:"fleetId"`
 	// `CfnAlias.RoutingStrategyProperty.Message`.
 	Message *string `json:"message"`
+	// `CfnAlias.RoutingStrategyProperty.Type`.
+	Type *string `json:"type"`
 }
 
 // Properties for defining a `AWS::GameLift::Alias`.
+//
+// TODO: EXAMPLE
+//
 type CfnAliasProps struct {
+	// `AWS::GameLift::Alias.Description`.
+	Description *string `json:"description"`
 	// `AWS::GameLift::Alias.Name`.
 	Name *string `json:"name"`
 	// `AWS::GameLift::Alias.RoutingStrategy`.
 	RoutingStrategy interface{} `json:"routingStrategy"`
-	// `AWS::GameLift::Alias.Description`.
-	Description *string `json:"description"`
 }
 
 // A CloudFormation `AWS::GameLift::Build`.
+//
+// TODO: EXAMPLE
+//
 type CfnBuild interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1311,18 +1322,23 @@ func (c *jsiiProxy_CfnBuild) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnBuild_S3LocationProperty struct {
 	// `CfnBuild.S3LocationProperty.Bucket`.
 	Bucket *string `json:"bucket"`
 	// `CfnBuild.S3LocationProperty.Key`.
 	Key *string `json:"key"`
-	// `CfnBuild.S3LocationProperty.RoleArn`.
-	RoleArn *string `json:"roleArn"`
 	// `CfnBuild.S3LocationProperty.ObjectVersion`.
 	ObjectVersion *string `json:"objectVersion"`
+	// `CfnBuild.S3LocationProperty.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 }
 
 // Properties for defining a `AWS::GameLift::Build`.
+//
+// TODO: EXAMPLE
+//
 type CfnBuildProps struct {
 	// `AWS::GameLift::Build.Name`.
 	Name *string `json:"name"`
@@ -1335,6 +1351,9 @@ type CfnBuildProps struct {
 }
 
 // A CloudFormation `AWS::GameLift::Fleet`.
+//
+// TODO: EXAMPLE
+//
 type CfnFleet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2291,11 +2310,15 @@ func (c *jsiiProxy_CfnFleet) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFleet_CertificateConfigurationProperty struct {
 	// `CfnFleet.CertificateConfigurationProperty.CertificateType`.
 	CertificateType *string `json:"certificateType"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFleet_IpPermissionProperty struct {
 	// `CfnFleet.IpPermissionProperty.FromPort`.
 	FromPort *float64 `json:"fromPort"`
@@ -2307,6 +2330,8 @@ type CfnFleet_IpPermissionProperty struct {
 	ToPort *float64 `json:"toPort"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFleet_LocationCapacityProperty struct {
 	// `CfnFleet.LocationCapacityProperty.DesiredEC2Instances`.
 	DesiredEc2Instances *float64 `json:"desiredEc2Instances"`
@@ -2316,6 +2341,8 @@ type CfnFleet_LocationCapacityProperty struct {
 	MinSize *float64 `json:"minSize"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFleet_LocationConfigurationProperty struct {
 	// `CfnFleet.LocationConfigurationProperty.Location`.
 	Location *string `json:"location"`
@@ -2323,6 +2350,8 @@ type CfnFleet_LocationConfigurationProperty struct {
 	LocationCapacity interface{} `json:"locationCapacity"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFleet_ResourceCreationLimitPolicyProperty struct {
 	// `CfnFleet.ResourceCreationLimitPolicyProperty.NewGameSessionsPerCreator`.
 	NewGameSessionsPerCreator *float64 `json:"newGameSessionsPerCreator"`
@@ -2330,6 +2359,8 @@ type CfnFleet_ResourceCreationLimitPolicyProperty struct {
 	PolicyPeriodInMinutes *float64 `json:"policyPeriodInMinutes"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFleet_RuntimeConfigurationProperty struct {
 	// `CfnFleet.RuntimeConfigurationProperty.GameSessionActivationTimeoutSeconds`.
 	GameSessionActivationTimeoutSeconds *float64 `json:"gameSessionActivationTimeoutSeconds"`
@@ -2339,6 +2370,8 @@ type CfnFleet_RuntimeConfigurationProperty struct {
 	ServerProcesses interface{} `json:"serverProcesses"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFleet_ServerProcessProperty struct {
 	// `CfnFleet.ServerProcessProperty.ConcurrentExecutions`.
 	ConcurrentExecutions *float64 `json:"concurrentExecutions"`
@@ -2349,6 +2382,9 @@ type CfnFleet_ServerProcessProperty struct {
 }
 
 // Properties for defining a `AWS::GameLift::Fleet`.
+//
+// TODO: EXAMPLE
+//
 type CfnFleetProps struct {
 	// `AWS::GameLift::Fleet.BuildId`.
 	BuildId *string `json:"buildId"`
@@ -2391,6 +2427,9 @@ type CfnFleetProps struct {
 }
 
 // A CloudFormation `AWS::GameLift::GameServerGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnGameServerGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3209,13 +3248,17 @@ func (c *jsiiProxy_CfnGameServerGroup) ValidateProperties(_properties interface{
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnGameServerGroup_AutoScalingPolicyProperty struct {
-	// `CfnGameServerGroup.AutoScalingPolicyProperty.TargetTrackingConfiguration`.
-	TargetTrackingConfiguration interface{} `json:"targetTrackingConfiguration"`
 	// `CfnGameServerGroup.AutoScalingPolicyProperty.EstimatedInstanceWarmup`.
 	EstimatedInstanceWarmup *float64 `json:"estimatedInstanceWarmup"`
+	// `CfnGameServerGroup.AutoScalingPolicyProperty.TargetTrackingConfiguration`.
+	TargetTrackingConfiguration interface{} `json:"targetTrackingConfiguration"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGameServerGroup_InstanceDefinitionProperty struct {
 	// `CfnGameServerGroup.InstanceDefinitionProperty.InstanceType`.
 	InstanceType *string `json:"instanceType"`
@@ -3223,6 +3266,8 @@ type CfnGameServerGroup_InstanceDefinitionProperty struct {
 	WeightedCapacity *string `json:"weightedCapacity"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGameServerGroup_LaunchTemplateProperty struct {
 	// `CfnGameServerGroup.LaunchTemplateProperty.LaunchTemplateId`.
 	LaunchTemplateId *string `json:"launchTemplateId"`
@@ -3232,33 +3277,38 @@ type CfnGameServerGroup_LaunchTemplateProperty struct {
 	Version *string `json:"version"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGameServerGroup_TargetTrackingConfigurationProperty struct {
 	// `CfnGameServerGroup.TargetTrackingConfigurationProperty.TargetValue`.
 	TargetValue *float64 `json:"targetValue"`
 }
 
 // Properties for defining a `AWS::GameLift::GameServerGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnGameServerGroupProps struct {
-	// `AWS::GameLift::GameServerGroup.GameServerGroupName`.
-	GameServerGroupName *string `json:"gameServerGroupName"`
-	// `AWS::GameLift::GameServerGroup.InstanceDefinitions`.
-	InstanceDefinitions interface{} `json:"instanceDefinitions"`
-	// `AWS::GameLift::GameServerGroup.LaunchTemplate`.
-	LaunchTemplate interface{} `json:"launchTemplate"`
-	// `AWS::GameLift::GameServerGroup.RoleArn`.
-	RoleArn *string `json:"roleArn"`
 	// `AWS::GameLift::GameServerGroup.AutoScalingPolicy`.
 	AutoScalingPolicy interface{} `json:"autoScalingPolicy"`
 	// `AWS::GameLift::GameServerGroup.BalancingStrategy`.
 	BalancingStrategy *string `json:"balancingStrategy"`
 	// `AWS::GameLift::GameServerGroup.DeleteOption`.
 	DeleteOption *string `json:"deleteOption"`
+	// `AWS::GameLift::GameServerGroup.GameServerGroupName`.
+	GameServerGroupName *string `json:"gameServerGroupName"`
 	// `AWS::GameLift::GameServerGroup.GameServerProtectionPolicy`.
 	GameServerProtectionPolicy *string `json:"gameServerProtectionPolicy"`
+	// `AWS::GameLift::GameServerGroup.InstanceDefinitions`.
+	InstanceDefinitions interface{} `json:"instanceDefinitions"`
+	// `AWS::GameLift::GameServerGroup.LaunchTemplate`.
+	LaunchTemplate interface{} `json:"launchTemplate"`
 	// `AWS::GameLift::GameServerGroup.MaxSize`.
 	MaxSize *float64 `json:"maxSize"`
 	// `AWS::GameLift::GameServerGroup.MinSize`.
 	MinSize *float64 `json:"minSize"`
+	// `AWS::GameLift::GameServerGroup.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 	// `AWS::GameLift::GameServerGroup.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::GameLift::GameServerGroup.VpcSubnets`.
@@ -3266,6 +3316,9 @@ type CfnGameServerGroupProps struct {
 }
 
 // A CloudFormation `AWS::GameLift::GameSessionQueue`.
+//
+// TODO: EXAMPLE
+//
 type CfnGameSessionQueue interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4013,16 +4066,22 @@ func (c *jsiiProxy_CfnGameSessionQueue) ValidateProperties(_properties interface
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnGameSessionQueue_DestinationProperty struct {
 	// `CfnGameSessionQueue.DestinationProperty.DestinationArn`.
 	DestinationArn *string `json:"destinationArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGameSessionQueue_FilterConfigurationProperty struct {
 	// `CfnGameSessionQueue.FilterConfigurationProperty.AllowedLocations`.
 	AllowedLocations *[]*string `json:"allowedLocations"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGameSessionQueue_PlayerLatencyPolicyProperty struct {
 	// `CfnGameSessionQueue.PlayerLatencyPolicyProperty.MaximumIndividualPlayerLatencyMilliseconds`.
 	MaximumIndividualPlayerLatencyMilliseconds *float64 `json:"maximumIndividualPlayerLatencyMilliseconds"`
@@ -4030,6 +4089,8 @@ type CfnGameSessionQueue_PlayerLatencyPolicyProperty struct {
 	PolicyDurationSeconds *float64 `json:"policyDurationSeconds"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnGameSessionQueue_PriorityConfigurationProperty struct {
 	// `CfnGameSessionQueue.PriorityConfigurationProperty.LocationOrder`.
 	LocationOrder *[]*string `json:"locationOrder"`
@@ -4038,15 +4099,18 @@ type CfnGameSessionQueue_PriorityConfigurationProperty struct {
 }
 
 // Properties for defining a `AWS::GameLift::GameSessionQueue`.
+//
+// TODO: EXAMPLE
+//
 type CfnGameSessionQueueProps struct {
-	// `AWS::GameLift::GameSessionQueue.Name`.
-	Name *string `json:"name"`
 	// `AWS::GameLift::GameSessionQueue.CustomEventData`.
 	CustomEventData *string `json:"customEventData"`
 	// `AWS::GameLift::GameSessionQueue.Destinations`.
 	Destinations interface{} `json:"destinations"`
 	// `AWS::GameLift::GameSessionQueue.FilterConfiguration`.
 	FilterConfiguration interface{} `json:"filterConfiguration"`
+	// `AWS::GameLift::GameSessionQueue.Name`.
+	Name *string `json:"name"`
 	// `AWS::GameLift::GameSessionQueue.NotificationTarget`.
 	NotificationTarget *string `json:"notificationTarget"`
 	// `AWS::GameLift::GameSessionQueue.PlayerLatencyPolicies`.
@@ -4058,6 +4122,9 @@ type CfnGameSessionQueueProps struct {
 }
 
 // A CloudFormation `AWS::GameLift::MatchmakingConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnMatchmakingConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4925,6 +4992,8 @@ func (c *jsiiProxy_CfnMatchmakingConfiguration) ValidateProperties(_properties i
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnMatchmakingConfiguration_GamePropertyProperty struct {
 	// `CfnMatchmakingConfiguration.GamePropertyProperty.Key`.
 	Key *string `json:"key"`
@@ -4933,15 +5002,12 @@ type CfnMatchmakingConfiguration_GamePropertyProperty struct {
 }
 
 // Properties for defining a `AWS::GameLift::MatchmakingConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnMatchmakingConfigurationProps struct {
 	// `AWS::GameLift::MatchmakingConfiguration.AcceptanceRequired`.
 	AcceptanceRequired interface{} `json:"acceptanceRequired"`
-	// `AWS::GameLift::MatchmakingConfiguration.Name`.
-	Name *string `json:"name"`
-	// `AWS::GameLift::MatchmakingConfiguration.RequestTimeoutSeconds`.
-	RequestTimeoutSeconds *float64 `json:"requestTimeoutSeconds"`
-	// `AWS::GameLift::MatchmakingConfiguration.RuleSetName`.
-	RuleSetName *string `json:"ruleSetName"`
 	// `AWS::GameLift::MatchmakingConfiguration.AcceptanceTimeoutSeconds`.
 	AcceptanceTimeoutSeconds *float64 `json:"acceptanceTimeoutSeconds"`
 	// `AWS::GameLift::MatchmakingConfiguration.AdditionalPlayerCount`.
@@ -4960,11 +5026,20 @@ type CfnMatchmakingConfigurationProps struct {
 	GameSessionData *string `json:"gameSessionData"`
 	// `AWS::GameLift::MatchmakingConfiguration.GameSessionQueueArns`.
 	GameSessionQueueArns *[]*string `json:"gameSessionQueueArns"`
+	// `AWS::GameLift::MatchmakingConfiguration.Name`.
+	Name *string `json:"name"`
 	// `AWS::GameLift::MatchmakingConfiguration.NotificationTarget`.
 	NotificationTarget *string `json:"notificationTarget"`
+	// `AWS::GameLift::MatchmakingConfiguration.RequestTimeoutSeconds`.
+	RequestTimeoutSeconds *float64 `json:"requestTimeoutSeconds"`
+	// `AWS::GameLift::MatchmakingConfiguration.RuleSetName`.
+	RuleSetName *string `json:"ruleSetName"`
 }
 
 // A CloudFormation `AWS::GameLift::MatchmakingRuleSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnMatchmakingRuleSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5593,6 +5668,9 @@ func (c *jsiiProxy_CfnMatchmakingRuleSet) ValidateProperties(_properties interfa
 }
 
 // Properties for defining a `AWS::GameLift::MatchmakingRuleSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnMatchmakingRuleSetProps struct {
 	// `AWS::GameLift::MatchmakingRuleSet.Name`.
 	Name *string `json:"name"`
@@ -5601,6 +5679,9 @@ type CfnMatchmakingRuleSetProps struct {
 }
 
 // A CloudFormation `AWS::GameLift::Script`.
+//
+// TODO: EXAMPLE
+//
 type CfnScript interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6248,23 +6329,28 @@ func (c *jsiiProxy_CfnScript) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnScript_S3LocationProperty struct {
 	// `CfnScript.S3LocationProperty.Bucket`.
 	Bucket *string `json:"bucket"`
 	// `CfnScript.S3LocationProperty.Key`.
 	Key *string `json:"key"`
-	// `CfnScript.S3LocationProperty.RoleArn`.
-	RoleArn *string `json:"roleArn"`
 	// `CfnScript.S3LocationProperty.ObjectVersion`.
 	ObjectVersion *string `json:"objectVersion"`
+	// `CfnScript.S3LocationProperty.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 }
 
 // Properties for defining a `AWS::GameLift::Script`.
+//
+// TODO: EXAMPLE
+//
 type CfnScriptProps struct {
-	// `AWS::GameLift::Script.StorageLocation`.
-	StorageLocation interface{} `json:"storageLocation"`
 	// `AWS::GameLift::Script.Name`.
 	Name *string `json:"name"`
+	// `AWS::GameLift::Script.StorageLocation`.
+	StorageLocation interface{} `json:"storageLocation"`
 	// `AWS::GameLift::Script.Version`.
 	Version *string `json:"version"`
 }

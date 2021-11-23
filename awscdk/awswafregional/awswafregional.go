@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::WAFRegional::ByteMatchSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnByteMatchSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -615,35 +618,45 @@ func (c *jsiiProxy_CfnByteMatchSet) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnByteMatchSet_ByteMatchTupleProperty struct {
 	// `CfnByteMatchSet.ByteMatchTupleProperty.FieldToMatch`.
 	FieldToMatch interface{} `json:"fieldToMatch"`
 	// `CfnByteMatchSet.ByteMatchTupleProperty.PositionalConstraint`.
 	PositionalConstraint *string `json:"positionalConstraint"`
-	// `CfnByteMatchSet.ByteMatchTupleProperty.TextTransformation`.
-	TextTransformation *string `json:"textTransformation"`
 	// `CfnByteMatchSet.ByteMatchTupleProperty.TargetString`.
 	TargetString *string `json:"targetString"`
 	// `CfnByteMatchSet.ByteMatchTupleProperty.TargetStringBase64`.
 	TargetStringBase64 *string `json:"targetStringBase64"`
+	// `CfnByteMatchSet.ByteMatchTupleProperty.TextTransformation`.
+	TextTransformation *string `json:"textTransformation"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnByteMatchSet_FieldToMatchProperty struct {
-	// `CfnByteMatchSet.FieldToMatchProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnByteMatchSet.FieldToMatchProperty.Data`.
 	Data *string `json:"data"`
+	// `CfnByteMatchSet.FieldToMatchProperty.Type`.
+	Type *string `json:"type"`
 }
 
 // Properties for defining a `AWS::WAFRegional::ByteMatchSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnByteMatchSetProps struct {
-	// `AWS::WAFRegional::ByteMatchSet.Name`.
-	Name *string `json:"name"`
 	// `AWS::WAFRegional::ByteMatchSet.ByteMatchTuples`.
 	ByteMatchTuples interface{} `json:"byteMatchTuples"`
+	// `AWS::WAFRegional::ByteMatchSet.Name`.
+	Name *string `json:"name"`
 }
 
 // A CloudFormation `AWS::WAFRegional::GeoMatchSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnGeoMatchSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1249,6 +1262,8 @@ func (c *jsiiProxy_CfnGeoMatchSet) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnGeoMatchSet_GeoMatchConstraintProperty struct {
 	// `CfnGeoMatchSet.GeoMatchConstraintProperty.Type`.
 	Type *string `json:"type"`
@@ -1257,14 +1272,20 @@ type CfnGeoMatchSet_GeoMatchConstraintProperty struct {
 }
 
 // Properties for defining a `AWS::WAFRegional::GeoMatchSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnGeoMatchSetProps struct {
-	// `AWS::WAFRegional::GeoMatchSet.Name`.
-	Name *string `json:"name"`
 	// `AWS::WAFRegional::GeoMatchSet.GeoMatchConstraints`.
 	GeoMatchConstraints interface{} `json:"geoMatchConstraints"`
+	// `AWS::WAFRegional::GeoMatchSet.Name`.
+	Name *string `json:"name"`
 }
 
 // A CloudFormation `AWS::WAFRegional::IPSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnIPSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1903,14 +1924,20 @@ func (j *jsiiProxy_CfnIPSet_IPSetDescriptorProperty) Value() *string {
 }
 
 // Properties for defining a `AWS::WAFRegional::IPSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnIPSetProps struct {
-	// `AWS::WAFRegional::IPSet.Name`.
-	Name *string `json:"name"`
 	// `AWS::WAFRegional::IPSet.IPSetDescriptors`.
 	IpSetDescriptors interface{} `json:"ipSetDescriptors"`
+	// `AWS::WAFRegional::IPSet.Name`.
+	Name *string `json:"name"`
 }
 
 // A CloudFormation `AWS::WAFRegional::RateBasedRule`.
+//
+// TODO: EXAMPLE
+//
 type CfnRateBasedRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2576,6 +2603,8 @@ func (c *jsiiProxy_CfnRateBasedRule) ValidateProperties(_properties interface{})
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnRateBasedRule_PredicateProperty struct {
 	// `CfnRateBasedRule.PredicateProperty.DataId`.
 	DataId *string `json:"dataId"`
@@ -2586,7 +2615,12 @@ type CfnRateBasedRule_PredicateProperty struct {
 }
 
 // Properties for defining a `AWS::WAFRegional::RateBasedRule`.
+//
+// TODO: EXAMPLE
+//
 type CfnRateBasedRuleProps struct {
+	// `AWS::WAFRegional::RateBasedRule.MatchPredicates`.
+	MatchPredicates interface{} `json:"matchPredicates"`
 	// `AWS::WAFRegional::RateBasedRule.MetricName`.
 	MetricName *string `json:"metricName"`
 	// `AWS::WAFRegional::RateBasedRule.Name`.
@@ -2595,11 +2629,12 @@ type CfnRateBasedRuleProps struct {
 	RateKey *string `json:"rateKey"`
 	// `AWS::WAFRegional::RateBasedRule.RateLimit`.
 	RateLimit *float64 `json:"rateLimit"`
-	// `AWS::WAFRegional::RateBasedRule.MatchPredicates`.
-	MatchPredicates interface{} `json:"matchPredicates"`
 }
 
 // A CloudFormation `AWS::WAFRegional::RegexPatternSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnRegexPatternSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3206,6 +3241,9 @@ func (c *jsiiProxy_CfnRegexPatternSet) ValidateProperties(_properties interface{
 }
 
 // Properties for defining a `AWS::WAFRegional::RegexPatternSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnRegexPatternSetProps struct {
 	// `AWS::WAFRegional::RegexPatternSet.Name`.
 	Name *string `json:"name"`
@@ -3214,6 +3252,9 @@ type CfnRegexPatternSetProps struct {
 }
 
 // A CloudFormation `AWS::WAFRegional::Rule`.
+//
+// TODO: EXAMPLE
+//
 type CfnRule interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3839,6 +3880,8 @@ func (c *jsiiProxy_CfnRule) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnRule_PredicateProperty struct {
 	// `CfnRule.PredicateProperty.DataId`.
 	DataId *string `json:"dataId"`
@@ -3849,6 +3892,9 @@ type CfnRule_PredicateProperty struct {
 }
 
 // Properties for defining a `AWS::WAFRegional::Rule`.
+//
+// TODO: EXAMPLE
+//
 type CfnRuleProps struct {
 	// `AWS::WAFRegional::Rule.MetricName`.
 	MetricName *string `json:"metricName"`
@@ -3859,6 +3905,9 @@ type CfnRuleProps struct {
 }
 
 // A CloudFormation `AWS::WAFRegional::SizeConstraintSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnSizeConstraintSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4464,13 +4513,17 @@ func (c *jsiiProxy_CfnSizeConstraintSet) ValidateProperties(_properties interfac
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnSizeConstraintSet_FieldToMatchProperty struct {
-	// `CfnSizeConstraintSet.FieldToMatchProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnSizeConstraintSet.FieldToMatchProperty.Data`.
 	Data *string `json:"data"`
+	// `CfnSizeConstraintSet.FieldToMatchProperty.Type`.
+	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSizeConstraintSet_SizeConstraintProperty struct {
 	// `CfnSizeConstraintSet.SizeConstraintProperty.ComparisonOperator`.
 	ComparisonOperator *string `json:"comparisonOperator"`
@@ -4483,6 +4536,9 @@ type CfnSizeConstraintSet_SizeConstraintProperty struct {
 }
 
 // Properties for defining a `AWS::WAFRegional::SizeConstraintSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnSizeConstraintSetProps struct {
 	// `AWS::WAFRegional::SizeConstraintSet.Name`.
 	Name *string `json:"name"`
@@ -4491,6 +4547,9 @@ type CfnSizeConstraintSetProps struct {
 }
 
 // A CloudFormation `AWS::WAFRegional::SqlInjectionMatchSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnSqlInjectionMatchSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5096,13 +5155,17 @@ func (c *jsiiProxy_CfnSqlInjectionMatchSet) ValidateProperties(_properties inter
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnSqlInjectionMatchSet_FieldToMatchProperty struct {
-	// `CfnSqlInjectionMatchSet.FieldToMatchProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnSqlInjectionMatchSet.FieldToMatchProperty.Data`.
 	Data *string `json:"data"`
+	// `CfnSqlInjectionMatchSet.FieldToMatchProperty.Type`.
+	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnSqlInjectionMatchSet_SqlInjectionMatchTupleProperty struct {
 	// `CfnSqlInjectionMatchSet.SqlInjectionMatchTupleProperty.FieldToMatch`.
 	FieldToMatch interface{} `json:"fieldToMatch"`
@@ -5111,6 +5174,9 @@ type CfnSqlInjectionMatchSet_SqlInjectionMatchTupleProperty struct {
 }
 
 // Properties for defining a `AWS::WAFRegional::SqlInjectionMatchSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnSqlInjectionMatchSetProps struct {
 	// `AWS::WAFRegional::SqlInjectionMatchSet.Name`.
 	Name *string `json:"name"`
@@ -5119,6 +5185,9 @@ type CfnSqlInjectionMatchSetProps struct {
 }
 
 // A CloudFormation `AWS::WAFRegional::WebACL`.
+//
+// TODO: EXAMPLE
+//
 type CfnWebACL interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5764,11 +5833,15 @@ func (c *jsiiProxy_CfnWebACL) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_ActionProperty struct {
 	// `CfnWebACL.ActionProperty.Type`.
 	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnWebACL_RuleProperty struct {
 	// `CfnWebACL.RuleProperty.Action`.
 	Action interface{} `json:"action"`
@@ -5779,6 +5852,9 @@ type CfnWebACL_RuleProperty struct {
 }
 
 // A CloudFormation `AWS::WAFRegional::WebACLAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnWebACLAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6385,6 +6461,9 @@ func (c *jsiiProxy_CfnWebACLAssociation) ValidateProperties(_properties interfac
 }
 
 // Properties for defining a `AWS::WAFRegional::WebACLAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnWebACLAssociationProps struct {
 	// `AWS::WAFRegional::WebACLAssociation.ResourceArn`.
 	ResourceArn *string `json:"resourceArn"`
@@ -6393,6 +6472,9 @@ type CfnWebACLAssociationProps struct {
 }
 
 // Properties for defining a `AWS::WAFRegional::WebACL`.
+//
+// TODO: EXAMPLE
+//
 type CfnWebACLProps struct {
 	// `AWS::WAFRegional::WebACL.DefaultAction`.
 	DefaultAction interface{} `json:"defaultAction"`
@@ -6405,6 +6487,9 @@ type CfnWebACLProps struct {
 }
 
 // A CloudFormation `AWS::WAFRegional::XssMatchSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnXssMatchSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -7010,13 +7095,17 @@ func (c *jsiiProxy_CfnXssMatchSet) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnXssMatchSet_FieldToMatchProperty struct {
-	// `CfnXssMatchSet.FieldToMatchProperty.Type`.
-	Type *string `json:"type"`
 	// `CfnXssMatchSet.FieldToMatchProperty.Data`.
 	Data *string `json:"data"`
+	// `CfnXssMatchSet.FieldToMatchProperty.Type`.
+	Type *string `json:"type"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnXssMatchSet_XssMatchTupleProperty struct {
 	// `CfnXssMatchSet.XssMatchTupleProperty.FieldToMatch`.
 	FieldToMatch interface{} `json:"fieldToMatch"`
@@ -7025,6 +7114,9 @@ type CfnXssMatchSet_XssMatchTupleProperty struct {
 }
 
 // Properties for defining a `AWS::WAFRegional::XssMatchSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnXssMatchSetProps struct {
 	// `AWS::WAFRegional::XssMatchSet.Name`.
 	Name *string `json:"name"`

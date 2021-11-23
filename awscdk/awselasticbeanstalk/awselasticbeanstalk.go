@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::ElasticBeanstalk::Application`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -635,6 +638,8 @@ func (c *jsiiProxy_CfnApplication) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_ApplicationResourceLifecycleConfigProperty struct {
 	// `CfnApplication.ApplicationResourceLifecycleConfigProperty.ServiceRole`.
 	ServiceRole *string `json:"serviceRole"`
@@ -642,6 +647,8 @@ type CfnApplication_ApplicationResourceLifecycleConfigProperty struct {
 	VersionLifecycleConfig interface{} `json:"versionLifecycleConfig"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_ApplicationVersionLifecycleConfigProperty struct {
 	// `CfnApplication.ApplicationVersionLifecycleConfigProperty.MaxAgeRule`.
 	MaxAgeRule interface{} `json:"maxAgeRule"`
@@ -649,6 +656,8 @@ type CfnApplication_ApplicationVersionLifecycleConfigProperty struct {
 	MaxCountRule interface{} `json:"maxCountRule"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_MaxAgeRuleProperty struct {
 	// `CfnApplication.MaxAgeRuleProperty.DeleteSourceFromS3`.
 	DeleteSourceFromS3 interface{} `json:"deleteSourceFromS3"`
@@ -658,6 +667,8 @@ type CfnApplication_MaxAgeRuleProperty struct {
 	MaxAgeInDays *float64 `json:"maxAgeInDays"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_MaxCountRuleProperty struct {
 	// `CfnApplication.MaxCountRuleProperty.DeleteSourceFromS3`.
 	DeleteSourceFromS3 interface{} `json:"deleteSourceFromS3"`
@@ -668,6 +679,9 @@ type CfnApplication_MaxCountRuleProperty struct {
 }
 
 // Properties for defining a `AWS::ElasticBeanstalk::Application`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationProps struct {
 	// `AWS::ElasticBeanstalk::Application.ApplicationName`.
 	ApplicationName *string `json:"applicationName"`
@@ -678,6 +692,9 @@ type CfnApplicationProps struct {
 }
 
 // A CloudFormation `AWS::ElasticBeanstalk::ApplicationVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationVersion interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1303,6 +1320,8 @@ func (c *jsiiProxy_CfnApplicationVersion) ValidateProperties(_properties interfa
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplicationVersion_SourceBundleProperty struct {
 	// `CfnApplicationVersion.SourceBundleProperty.S3Bucket`.
 	S3Bucket *string `json:"s3Bucket"`
@@ -1311,16 +1330,22 @@ type CfnApplicationVersion_SourceBundleProperty struct {
 }
 
 // Properties for defining a `AWS::ElasticBeanstalk::ApplicationVersion`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationVersionProps struct {
 	// `AWS::ElasticBeanstalk::ApplicationVersion.ApplicationName`.
 	ApplicationName *string `json:"applicationName"`
-	// `AWS::ElasticBeanstalk::ApplicationVersion.SourceBundle`.
-	SourceBundle interface{} `json:"sourceBundle"`
 	// `AWS::ElasticBeanstalk::ApplicationVersion.Description`.
 	Description *string `json:"description"`
+	// `AWS::ElasticBeanstalk::ApplicationVersion.SourceBundle`.
+	SourceBundle interface{} `json:"sourceBundle"`
 }
 
 // A CloudFormation `AWS::ElasticBeanstalk::ConfigurationTemplate`.
+//
+// TODO: EXAMPLE
+//
 type CfnConfigurationTemplate interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2026,6 +2051,8 @@ func (c *jsiiProxy_CfnConfigurationTemplate) ValidateProperties(_properties inte
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfigurationTemplate_ConfigurationOptionSettingProperty struct {
 	// `CfnConfigurationTemplate.ConfigurationOptionSettingProperty.Namespace`.
 	Namespace *string `json:"namespace"`
@@ -2037,6 +2064,8 @@ type CfnConfigurationTemplate_ConfigurationOptionSettingProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfigurationTemplate_SourceConfigurationProperty struct {
 	// `CfnConfigurationTemplate.SourceConfigurationProperty.ApplicationName`.
 	ApplicationName *string `json:"applicationName"`
@@ -2045,6 +2074,9 @@ type CfnConfigurationTemplate_SourceConfigurationProperty struct {
 }
 
 // Properties for defining a `AWS::ElasticBeanstalk::ConfigurationTemplate`.
+//
+// TODO: EXAMPLE
+//
 type CfnConfigurationTemplateProps struct {
 	// `AWS::ElasticBeanstalk::ConfigurationTemplate.ApplicationName`.
 	ApplicationName *string `json:"applicationName"`
@@ -2063,6 +2095,9 @@ type CfnConfigurationTemplateProps struct {
 }
 
 // A CloudFormation `AWS::ElasticBeanstalk::Environment`.
+//
+// TODO: EXAMPLE
+//
 type CfnEnvironment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2870,6 +2905,8 @@ func (c *jsiiProxy_CfnEnvironment) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnEnvironment_OptionSettingProperty struct {
 	// `CfnEnvironment.OptionSettingProperty.Namespace`.
 	Namespace *string `json:"namespace"`
@@ -2881,6 +2918,8 @@ type CfnEnvironment_OptionSettingProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEnvironment_TierProperty struct {
 	// `CfnEnvironment.TierProperty.Name`.
 	Name *string `json:"name"`
@@ -2891,6 +2930,9 @@ type CfnEnvironment_TierProperty struct {
 }
 
 // Properties for defining a `AWS::ElasticBeanstalk::Environment`.
+//
+// TODO: EXAMPLE
+//
 type CfnEnvironmentProps struct {
 	// `AWS::ElasticBeanstalk::Environment.ApplicationName`.
 	ApplicationName *string `json:"applicationName"`

@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::RAM::ResourceShare`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourceShare interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -698,11 +701,14 @@ func (c *jsiiProxy_CfnResourceShare) ValidateProperties(_properties interface{})
 }
 
 // Properties for defining a `AWS::RAM::ResourceShare`.
+//
+// TODO: EXAMPLE
+//
 type CfnResourceShareProps struct {
-	// `AWS::RAM::ResourceShare.Name`.
-	Name *string `json:"name"`
 	// `AWS::RAM::ResourceShare.AllowExternalPrincipals`.
 	AllowExternalPrincipals interface{} `json:"allowExternalPrincipals"`
+	// `AWS::RAM::ResourceShare.Name`.
+	Name *string `json:"name"`
 	// `AWS::RAM::ResourceShare.PermissionArns`.
 	PermissionArns *[]*string `json:"permissionArns"`
 	// `AWS::RAM::ResourceShare.Principals`.

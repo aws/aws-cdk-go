@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::AppStream::AppBlock`.
+//
+// TODO: EXAMPLE
+//
 type CfnAppBlock interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -708,6 +711,8 @@ func (c *jsiiProxy_CfnAppBlock) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnAppBlock_S3LocationProperty struct {
 	// `CfnAppBlock.S3LocationProperty.S3Bucket`.
 	S3Bucket *string `json:"s3Bucket"`
@@ -715,34 +720,42 @@ type CfnAppBlock_S3LocationProperty struct {
 	S3Key *string `json:"s3Key"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnAppBlock_ScriptDetailsProperty struct {
+	// `CfnAppBlock.ScriptDetailsProperty.ExecutableParameters`.
+	ExecutableParameters *string `json:"executableParameters"`
 	// `CfnAppBlock.ScriptDetailsProperty.ExecutablePath`.
 	ExecutablePath *string `json:"executablePath"`
 	// `CfnAppBlock.ScriptDetailsProperty.ScriptS3Location`.
 	ScriptS3Location interface{} `json:"scriptS3Location"`
 	// `CfnAppBlock.ScriptDetailsProperty.TimeoutInSeconds`.
 	TimeoutInSeconds *float64 `json:"timeoutInSeconds"`
-	// `CfnAppBlock.ScriptDetailsProperty.ExecutableParameters`.
-	ExecutableParameters *string `json:"executableParameters"`
 }
 
 // Properties for defining a `AWS::AppStream::AppBlock`.
+//
+// TODO: EXAMPLE
+//
 type CfnAppBlockProps struct {
+	// `AWS::AppStream::AppBlock.Description`.
+	Description *string `json:"description"`
+	// `AWS::AppStream::AppBlock.DisplayName`.
+	DisplayName *string `json:"displayName"`
 	// `AWS::AppStream::AppBlock.Name`.
 	Name *string `json:"name"`
 	// `AWS::AppStream::AppBlock.SetupScriptDetails`.
 	SetupScriptDetails interface{} `json:"setupScriptDetails"`
 	// `AWS::AppStream::AppBlock.SourceS3Location`.
 	SourceS3Location interface{} `json:"sourceS3Location"`
-	// `AWS::AppStream::AppBlock.Description`.
-	Description *string `json:"description"`
-	// `AWS::AppStream::AppBlock.DisplayName`.
-	DisplayName *string `json:"displayName"`
 	// `AWS::AppStream::AppBlock.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::AppStream::Application`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplication interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1561,6 +1574,8 @@ func (c *jsiiProxy_CfnApplication) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnApplication_S3LocationProperty struct {
 	// `CfnApplication.S3LocationProperty.S3Bucket`.
 	S3Bucket *string `json:"s3Bucket"`
@@ -1569,6 +1584,9 @@ type CfnApplication_S3LocationProperty struct {
 }
 
 // A CloudFormation `AWS::AppStream::ApplicationFleetAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationFleetAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2175,6 +2193,9 @@ func (c *jsiiProxy_CfnApplicationFleetAssociation) ValidateProperties(_propertie
 }
 
 // Properties for defining a `AWS::AppStream::ApplicationFleetAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationFleetAssociationProps struct {
 	// `AWS::AppStream::ApplicationFleetAssociation.ApplicationArn`.
 	ApplicationArn *string `json:"applicationArn"`
@@ -2183,27 +2204,30 @@ type CfnApplicationFleetAssociationProps struct {
 }
 
 // Properties for defining a `AWS::AppStream::Application`.
+//
+// TODO: EXAMPLE
+//
 type CfnApplicationProps struct {
 	// `AWS::AppStream::Application.AppBlockArn`.
 	AppBlockArn *string `json:"appBlockArn"`
-	// `AWS::AppStream::Application.IconS3Location`.
-	IconS3Location interface{} `json:"iconS3Location"`
-	// `AWS::AppStream::Application.InstanceFamilies`.
-	InstanceFamilies *[]*string `json:"instanceFamilies"`
-	// `AWS::AppStream::Application.LaunchPath`.
-	LaunchPath *string `json:"launchPath"`
-	// `AWS::AppStream::Application.Name`.
-	Name *string `json:"name"`
-	// `AWS::AppStream::Application.Platforms`.
-	Platforms *[]*string `json:"platforms"`
 	// `AWS::AppStream::Application.AttributesToDelete`.
 	AttributesToDelete *[]*string `json:"attributesToDelete"`
 	// `AWS::AppStream::Application.Description`.
 	Description *string `json:"description"`
 	// `AWS::AppStream::Application.DisplayName`.
 	DisplayName *string `json:"displayName"`
+	// `AWS::AppStream::Application.IconS3Location`.
+	IconS3Location interface{} `json:"iconS3Location"`
+	// `AWS::AppStream::Application.InstanceFamilies`.
+	InstanceFamilies *[]*string `json:"instanceFamilies"`
 	// `AWS::AppStream::Application.LaunchParameters`.
 	LaunchParameters *string `json:"launchParameters"`
+	// `AWS::AppStream::Application.LaunchPath`.
+	LaunchPath *string `json:"launchPath"`
+	// `AWS::AppStream::Application.Name`.
+	Name *string `json:"name"`
+	// `AWS::AppStream::Application.Platforms`.
+	Platforms *[]*string `json:"platforms"`
 	// `AWS::AppStream::Application.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::AppStream::Application.WorkingDirectory`.
@@ -2211,6 +2235,9 @@ type CfnApplicationProps struct {
 }
 
 // A CloudFormation `AWS::AppStream::DirectoryConfig`.
+//
+// TODO: EXAMPLE
+//
 type CfnDirectoryConfig interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2836,6 +2863,8 @@ func (c *jsiiProxy_CfnDirectoryConfig) ValidateProperties(_properties interface{
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDirectoryConfig_ServiceAccountCredentialsProperty struct {
 	// `CfnDirectoryConfig.ServiceAccountCredentialsProperty.AccountName`.
 	AccountName *string `json:"accountName"`
@@ -2844,6 +2873,9 @@ type CfnDirectoryConfig_ServiceAccountCredentialsProperty struct {
 }
 
 // Properties for defining a `AWS::AppStream::DirectoryConfig`.
+//
+// TODO: EXAMPLE
+//
 type CfnDirectoryConfigProps struct {
 	// `AWS::AppStream::DirectoryConfig.DirectoryName`.
 	DirectoryName *string `json:"directoryName"`
@@ -2854,6 +2886,9 @@ type CfnDirectoryConfigProps struct {
 }
 
 // A CloudFormation `AWS::AppStream::Fleet`.
+//
+// TODO: EXAMPLE
+//
 type CfnFleet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3810,11 +3845,15 @@ func (c *jsiiProxy_CfnFleet) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnFleet_ComputeCapacityProperty struct {
 	// `CfnFleet.ComputeCapacityProperty.DesiredInstances`.
 	DesiredInstances *float64 `json:"desiredInstances"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFleet_DomainJoinInfoProperty struct {
 	// `CfnFleet.DomainJoinInfoProperty.DirectoryName`.
 	DirectoryName *string `json:"directoryName"`
@@ -3822,6 +3861,8 @@ type CfnFleet_DomainJoinInfoProperty struct {
 	OrganizationalUnitDistinguishedName *string `json:"organizationalUnitDistinguishedName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnFleet_VpcConfigProperty struct {
 	// `CfnFleet.VpcConfigProperty.SecurityGroupIds`.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
@@ -3830,11 +3871,10 @@ type CfnFleet_VpcConfigProperty struct {
 }
 
 // Properties for defining a `AWS::AppStream::Fleet`.
+//
+// TODO: EXAMPLE
+//
 type CfnFleetProps struct {
-	// `AWS::AppStream::Fleet.InstanceType`.
-	InstanceType *string `json:"instanceType"`
-	// `AWS::AppStream::Fleet.Name`.
-	Name *string `json:"name"`
 	// `AWS::AppStream::Fleet.ComputeCapacity`.
 	ComputeCapacity interface{} `json:"computeCapacity"`
 	// `AWS::AppStream::Fleet.Description`.
@@ -3857,10 +3897,14 @@ type CfnFleetProps struct {
 	ImageArn *string `json:"imageArn"`
 	// `AWS::AppStream::Fleet.ImageName`.
 	ImageName *string `json:"imageName"`
+	// `AWS::AppStream::Fleet.InstanceType`.
+	InstanceType *string `json:"instanceType"`
 	// `AWS::AppStream::Fleet.MaxConcurrentSessions`.
 	MaxConcurrentSessions *float64 `json:"maxConcurrentSessions"`
 	// `AWS::AppStream::Fleet.MaxUserDurationInSeconds`.
 	MaxUserDurationInSeconds *float64 `json:"maxUserDurationInSeconds"`
+	// `AWS::AppStream::Fleet.Name`.
+	Name *string `json:"name"`
 	// `AWS::AppStream::Fleet.Platform`.
 	Platform *string `json:"platform"`
 	// `AWS::AppStream::Fleet.StreamView`.
@@ -3874,6 +3918,9 @@ type CfnFleetProps struct {
 }
 
 // A CloudFormation `AWS::AppStream::ImageBuilder`.
+//
+// TODO: EXAMPLE
+//
 type CfnImageBuilder interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4701,6 +4748,8 @@ func (c *jsiiProxy_CfnImageBuilder) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnImageBuilder_AccessEndpointProperty struct {
 	// `CfnImageBuilder.AccessEndpointProperty.EndpointType`.
 	EndpointType *string `json:"endpointType"`
@@ -4708,6 +4757,8 @@ type CfnImageBuilder_AccessEndpointProperty struct {
 	VpceId *string `json:"vpceId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnImageBuilder_DomainJoinInfoProperty struct {
 	// `CfnImageBuilder.DomainJoinInfoProperty.DirectoryName`.
 	DirectoryName *string `json:"directoryName"`
@@ -4715,6 +4766,8 @@ type CfnImageBuilder_DomainJoinInfoProperty struct {
 	OrganizationalUnitDistinguishedName *string `json:"organizationalUnitDistinguishedName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnImageBuilder_VpcConfigProperty struct {
 	// `CfnImageBuilder.VpcConfigProperty.SecurityGroupIds`.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
@@ -4723,11 +4776,10 @@ type CfnImageBuilder_VpcConfigProperty struct {
 }
 
 // Properties for defining a `AWS::AppStream::ImageBuilder`.
+//
+// TODO: EXAMPLE
+//
 type CfnImageBuilderProps struct {
-	// `AWS::AppStream::ImageBuilder.InstanceType`.
-	InstanceType *string `json:"instanceType"`
-	// `AWS::AppStream::ImageBuilder.Name`.
-	Name *string `json:"name"`
 	// `AWS::AppStream::ImageBuilder.AccessEndpoints`.
 	AccessEndpoints interface{} `json:"accessEndpoints"`
 	// `AWS::AppStream::ImageBuilder.AppstreamAgentVersion`.
@@ -4746,6 +4798,10 @@ type CfnImageBuilderProps struct {
 	ImageArn *string `json:"imageArn"`
 	// `AWS::AppStream::ImageBuilder.ImageName`.
 	ImageName *string `json:"imageName"`
+	// `AWS::AppStream::ImageBuilder.InstanceType`.
+	InstanceType *string `json:"instanceType"`
+	// `AWS::AppStream::ImageBuilder.Name`.
+	Name *string `json:"name"`
 	// `AWS::AppStream::ImageBuilder.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::AppStream::ImageBuilder.VpcConfig`.
@@ -4753,6 +4809,9 @@ type CfnImageBuilderProps struct {
 }
 
 // A CloudFormation `AWS::AppStream::Stack`.
+//
+// TODO: EXAMPLE
+//
 type CfnStack interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5569,6 +5628,8 @@ func (c *jsiiProxy_CfnStack) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnStack_AccessEndpointProperty struct {
 	// `CfnStack.AccessEndpointProperty.EndpointType`.
 	EndpointType *string `json:"endpointType"`
@@ -5576,6 +5637,8 @@ type CfnStack_AccessEndpointProperty struct {
 	VpceId *string `json:"vpceId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStack_ApplicationSettingsProperty struct {
 	// `CfnStack.ApplicationSettingsProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
@@ -5583,6 +5646,8 @@ type CfnStack_ApplicationSettingsProperty struct {
 	SettingsGroup *string `json:"settingsGroup"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStack_StorageConnectorProperty struct {
 	// `CfnStack.StorageConnectorProperty.ConnectorType`.
 	ConnectorType *string `json:"connectorType"`
@@ -5592,6 +5657,8 @@ type CfnStack_StorageConnectorProperty struct {
 	ResourceIdentifier *string `json:"resourceIdentifier"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStack_UserSettingProperty struct {
 	// `CfnStack.UserSettingProperty.Action`.
 	Action *string `json:"action"`
@@ -5600,6 +5667,9 @@ type CfnStack_UserSettingProperty struct {
 }
 
 // A CloudFormation `AWS::AppStream::StackFleetAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnStackFleetAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6206,6 +6276,9 @@ func (c *jsiiProxy_CfnStackFleetAssociation) ValidateProperties(_properties inte
 }
 
 // Properties for defining a `AWS::AppStream::StackFleetAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnStackFleetAssociationProps struct {
 	// `AWS::AppStream::StackFleetAssociation.FleetName`.
 	FleetName *string `json:"fleetName"`
@@ -6214,6 +6287,9 @@ type CfnStackFleetAssociationProps struct {
 }
 
 // Properties for defining a `AWS::AppStream::Stack`.
+//
+// TODO: EXAMPLE
+//
 type CfnStackProps struct {
 	// `AWS::AppStream::Stack.AccessEndpoints`.
 	AccessEndpoints interface{} `json:"accessEndpoints"`
@@ -6244,6 +6320,9 @@ type CfnStackProps struct {
 }
 
 // A CloudFormation `AWS::AppStream::StackUserAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnStackUserAssociation interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6890,18 +6969,24 @@ func (c *jsiiProxy_CfnStackUserAssociation) ValidateProperties(_properties inter
 }
 
 // Properties for defining a `AWS::AppStream::StackUserAssociation`.
+//
+// TODO: EXAMPLE
+//
 type CfnStackUserAssociationProps struct {
 	// `AWS::AppStream::StackUserAssociation.AuthenticationType`.
 	AuthenticationType *string `json:"authenticationType"`
+	// `AWS::AppStream::StackUserAssociation.SendEmailNotification`.
+	SendEmailNotification interface{} `json:"sendEmailNotification"`
 	// `AWS::AppStream::StackUserAssociation.StackName`.
 	StackName *string `json:"stackName"`
 	// `AWS::AppStream::StackUserAssociation.UserName`.
 	UserName *string `json:"userName"`
-	// `AWS::AppStream::StackUserAssociation.SendEmailNotification`.
-	SendEmailNotification interface{} `json:"sendEmailNotification"`
 }
 
 // A CloudFormation `AWS::AppStream::User`.
+//
+// TODO: EXAMPLE
+//
 type CfnUser interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -7568,16 +7653,19 @@ func (c *jsiiProxy_CfnUser) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::AppStream::User`.
+//
+// TODO: EXAMPLE
+//
 type CfnUserProps struct {
 	// `AWS::AppStream::User.AuthenticationType`.
 	AuthenticationType *string `json:"authenticationType"`
-	// `AWS::AppStream::User.UserName`.
-	UserName *string `json:"userName"`
 	// `AWS::AppStream::User.FirstName`.
 	FirstName *string `json:"firstName"`
 	// `AWS::AppStream::User.LastName`.
 	LastName *string `json:"lastName"`
 	// `AWS::AppStream::User.MessageAction`.
 	MessageAction *string `json:"messageAction"`
+	// `AWS::AppStream::User.UserName`.
+	UserName *string `json:"userName"`
 }
 

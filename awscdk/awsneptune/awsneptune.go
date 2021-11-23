@@ -13,6 +13,9 @@ import (
 )
 
 // A CloudFormation `AWS::Neptune::DBCluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBCluster interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1053,14 +1056,19 @@ func (c *jsiiProxy_CfnDBCluster) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDBCluster_DBClusterRoleProperty struct {
-	// `CfnDBCluster.DBClusterRoleProperty.RoleArn`.
-	RoleArn *string `json:"roleArn"`
 	// `CfnDBCluster.DBClusterRoleProperty.FeatureName`.
 	FeatureName *string `json:"featureName"`
+	// `CfnDBCluster.DBClusterRoleProperty.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 }
 
 // A CloudFormation `AWS::Neptune::DBClusterParameterGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBClusterParameterGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1718,20 +1726,26 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) ValidateProperties(_properties in
 }
 
 // Properties for defining a `AWS::Neptune::DBClusterParameterGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBClusterParameterGroupProps struct {
 	// `AWS::Neptune::DBClusterParameterGroup.Description`.
 	Description *string `json:"description"`
 	// `AWS::Neptune::DBClusterParameterGroup.Family`.
 	Family *string `json:"family"`
-	// `AWS::Neptune::DBClusterParameterGroup.Parameters`.
-	Parameters interface{} `json:"parameters"`
 	// `AWS::Neptune::DBClusterParameterGroup.Name`.
 	Name *string `json:"name"`
+	// `AWS::Neptune::DBClusterParameterGroup.Parameters`.
+	Parameters interface{} `json:"parameters"`
 	// `AWS::Neptune::DBClusterParameterGroup.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // Properties for defining a `AWS::Neptune::DBCluster`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBClusterProps struct {
 	// `AWS::Neptune::DBCluster.AssociatedRoles`.
 	AssociatedRoles interface{} `json:"associatedRoles"`
@@ -1780,6 +1794,9 @@ type CfnDBClusterProps struct {
 }
 
 // A CloudFormation `AWS::Neptune::DBInstance`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBInstance interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2579,9 +2596,10 @@ func (c *jsiiProxy_CfnDBInstance) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::Neptune::DBInstance`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBInstanceProps struct {
-	// `AWS::Neptune::DBInstance.DBInstanceClass`.
-	DbInstanceClass *string `json:"dbInstanceClass"`
 	// `AWS::Neptune::DBInstance.AllowMajorVersionUpgrade`.
 	AllowMajorVersionUpgrade interface{} `json:"allowMajorVersionUpgrade"`
 	// `AWS::Neptune::DBInstance.AutoMinorVersionUpgrade`.
@@ -2590,6 +2608,8 @@ type CfnDBInstanceProps struct {
 	AvailabilityZone *string `json:"availabilityZone"`
 	// `AWS::Neptune::DBInstance.DBClusterIdentifier`.
 	DbClusterIdentifier *string `json:"dbClusterIdentifier"`
+	// `AWS::Neptune::DBInstance.DBInstanceClass`.
+	DbInstanceClass *string `json:"dbInstanceClass"`
 	// `AWS::Neptune::DBInstance.DBInstanceIdentifier`.
 	DbInstanceIdentifier *string `json:"dbInstanceIdentifier"`
 	// `AWS::Neptune::DBInstance.DBParameterGroupName`.
@@ -2605,6 +2625,9 @@ type CfnDBInstanceProps struct {
 }
 
 // A CloudFormation `AWS::Neptune::DBParameterGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBParameterGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3262,20 +3285,26 @@ func (c *jsiiProxy_CfnDBParameterGroup) ValidateProperties(_properties interface
 }
 
 // Properties for defining a `AWS::Neptune::DBParameterGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBParameterGroupProps struct {
 	// `AWS::Neptune::DBParameterGroup.Description`.
 	Description *string `json:"description"`
 	// `AWS::Neptune::DBParameterGroup.Family`.
 	Family *string `json:"family"`
-	// `AWS::Neptune::DBParameterGroup.Parameters`.
-	Parameters interface{} `json:"parameters"`
 	// `AWS::Neptune::DBParameterGroup.Name`.
 	Name *string `json:"name"`
+	// `AWS::Neptune::DBParameterGroup.Parameters`.
+	Parameters interface{} `json:"parameters"`
 	// `AWS::Neptune::DBParameterGroup.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::Neptune::DBSubnetGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBSubnetGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3913,13 +3942,16 @@ func (c *jsiiProxy_CfnDBSubnetGroup) ValidateProperties(_properties interface{})
 }
 
 // Properties for defining a `AWS::Neptune::DBSubnetGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnDBSubnetGroupProps struct {
 	// `AWS::Neptune::DBSubnetGroup.DBSubnetGroupDescription`.
 	DbSubnetGroupDescription *string `json:"dbSubnetGroupDescription"`
-	// `AWS::Neptune::DBSubnetGroup.SubnetIds`.
-	SubnetIds *[]*string `json:"subnetIds"`
 	// `AWS::Neptune::DBSubnetGroup.DBSubnetGroupName`.
 	DbSubnetGroupName *string `json:"dbSubnetGroupName"`
+	// `AWS::Neptune::DBSubnetGroup.SubnetIds`.
+	SubnetIds *[]*string `json:"subnetIds"`
 	// `AWS::Neptune::DBSubnetGroup.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
@@ -4780,6 +4812,9 @@ func (d *jsiiProxy_DatabaseCluster) Validate() *[]*string {
 }
 
 // Properties that describe an existing cluster instance.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DatabaseClusterAttributes struct {
 	// Cluster endpoint address.
@@ -4803,6 +4838,9 @@ type DatabaseClusterAttributes struct {
 }
 
 // A new or imported database cluster.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DatabaseClusterBase interface {
 	awscdk.Resource
@@ -5688,6 +5726,9 @@ func (d *jsiiProxy_DatabaseInstance) Validate() *[]*string {
 }
 
 // Properties that describe an existing instance.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DatabaseInstanceAttributes struct {
 	// The endpoint address.
@@ -5733,6 +5774,9 @@ type DatabaseInstanceProps struct {
 // Connection endpoint of a neptune cluster or instance.
 //
 // Consists of a combination of hostname and port.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type Endpoint interface {
 	Hostname() *string
@@ -5803,6 +5847,9 @@ func NewEndpoint_Override(e Endpoint, address *string, port *float64) {
 }
 
 // Possible Instances Types to use in Neptune cluster used for defining {@link DatabaseClusterProps.engineVersion}.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EngineVersion interface {
 	Version() *string
@@ -6744,6 +6791,9 @@ type ParameterGroupProps struct {
 }
 
 // Class for creating a RDS DB subnet group.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SubnetGroup interface {
 	awscdk.Resource
@@ -7087,11 +7137,11 @@ func (s *jsiiProxy_SubnetGroup) Validate() *[]*string {
 }
 
 // Properties for creating a SubnetGroup.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type SubnetGroupProps struct {
-	// The VPC to place the subnet group in.
-	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
 	// Description of the subnet group.
 	// Experimental.
 	Description *string `json:"description"`
@@ -7101,6 +7151,9 @@ type SubnetGroupProps struct {
 	// The name of the subnet group.
 	// Experimental.
 	SubnetGroupName *string `json:"subnetGroupName"`
+	// The VPC to place the subnet group in.
+	// Experimental.
+	Vpc awsec2.IVpc `json:"vpc"`
 	// Which subnets within the VPC to associate with this group.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`

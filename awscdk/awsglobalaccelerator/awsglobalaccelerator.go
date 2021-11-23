@@ -384,6 +384,9 @@ func (a *jsiiProxy_Accelerator) Validate() *[]*string {
 }
 
 // Attributes required to import an existing accelerator to the stack.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AcceleratorAttributes struct {
 	// The ARN of the accelerator.
@@ -395,6 +398,9 @@ type AcceleratorAttributes struct {
 }
 
 // Construct properties of the Accelerator.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type AcceleratorProps struct {
 	// The name of the accelerator.
@@ -406,6 +412,9 @@ type AcceleratorProps struct {
 }
 
 // A CloudFormation `AWS::GlobalAccelerator::Accelerator`.
+//
+// TODO: EXAMPLE
+//
 type CfnAccelerator interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1085,20 +1094,26 @@ func (c *jsiiProxy_CfnAccelerator) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::GlobalAccelerator::Accelerator`.
+//
+// TODO: EXAMPLE
+//
 type CfnAcceleratorProps struct {
-	// `AWS::GlobalAccelerator::Accelerator.Name`.
-	Name *string `json:"name"`
 	// `AWS::GlobalAccelerator::Accelerator.Enabled`.
 	Enabled interface{} `json:"enabled"`
 	// `AWS::GlobalAccelerator::Accelerator.IpAddresses`.
 	IpAddresses *[]*string `json:"ipAddresses"`
 	// `AWS::GlobalAccelerator::Accelerator.IpAddressType`.
 	IpAddressType *string `json:"ipAddressType"`
+	// `AWS::GlobalAccelerator::Accelerator.Name`.
+	Name *string `json:"name"`
 	// `AWS::GlobalAccelerator::Accelerator.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::GlobalAccelerator::EndpointGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnEndpointGroup interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1875,15 +1890,19 @@ func (c *jsiiProxy_CfnEndpointGroup) ValidateProperties(_properties interface{})
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpointGroup_EndpointConfigurationProperty struct {
-	// `CfnEndpointGroup.EndpointConfigurationProperty.EndpointId`.
-	EndpointId *string `json:"endpointId"`
 	// `CfnEndpointGroup.EndpointConfigurationProperty.ClientIPPreservationEnabled`.
 	ClientIpPreservationEnabled interface{} `json:"clientIpPreservationEnabled"`
+	// `CfnEndpointGroup.EndpointConfigurationProperty.EndpointId`.
+	EndpointId *string `json:"endpointId"`
 	// `CfnEndpointGroup.EndpointConfigurationProperty.Weight`.
 	Weight *float64 `json:"weight"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEndpointGroup_PortOverrideProperty struct {
 	// `CfnEndpointGroup.PortOverrideProperty.EndpointPort`.
 	EndpointPort *float64 `json:"endpointPort"`
@@ -1892,13 +1911,14 @@ type CfnEndpointGroup_PortOverrideProperty struct {
 }
 
 // Properties for defining a `AWS::GlobalAccelerator::EndpointGroup`.
+//
+// TODO: EXAMPLE
+//
 type CfnEndpointGroupProps struct {
-	// `AWS::GlobalAccelerator::EndpointGroup.EndpointGroupRegion`.
-	EndpointGroupRegion *string `json:"endpointGroupRegion"`
-	// `AWS::GlobalAccelerator::EndpointGroup.ListenerArn`.
-	ListenerArn *string `json:"listenerArn"`
 	// `AWS::GlobalAccelerator::EndpointGroup.EndpointConfigurations`.
 	EndpointConfigurations interface{} `json:"endpointConfigurations"`
+	// `AWS::GlobalAccelerator::EndpointGroup.EndpointGroupRegion`.
+	EndpointGroupRegion *string `json:"endpointGroupRegion"`
 	// `AWS::GlobalAccelerator::EndpointGroup.HealthCheckIntervalSeconds`.
 	HealthCheckIntervalSeconds *float64 `json:"healthCheckIntervalSeconds"`
 	// `AWS::GlobalAccelerator::EndpointGroup.HealthCheckPath`.
@@ -1907,6 +1927,8 @@ type CfnEndpointGroupProps struct {
 	HealthCheckPort *float64 `json:"healthCheckPort"`
 	// `AWS::GlobalAccelerator::EndpointGroup.HealthCheckProtocol`.
 	HealthCheckProtocol *string `json:"healthCheckProtocol"`
+	// `AWS::GlobalAccelerator::EndpointGroup.ListenerArn`.
+	ListenerArn *string `json:"listenerArn"`
 	// `AWS::GlobalAccelerator::EndpointGroup.PortOverrides`.
 	PortOverrides interface{} `json:"portOverrides"`
 	// `AWS::GlobalAccelerator::EndpointGroup.ThresholdCount`.
@@ -1916,6 +1938,9 @@ type CfnEndpointGroupProps struct {
 }
 
 // A CloudFormation `AWS::GlobalAccelerator::Listener`.
+//
+// TODO: EXAMPLE
+//
 type CfnListener interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2572,6 +2597,8 @@ func (c *jsiiProxy_CfnListener) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnListener_PortRangeProperty struct {
 	// `CfnListener.PortRangeProperty.FromPort`.
 	FromPort *float64 `json:"fromPort"`
@@ -2580,15 +2607,18 @@ type CfnListener_PortRangeProperty struct {
 }
 
 // Properties for defining a `AWS::GlobalAccelerator::Listener`.
+//
+// TODO: EXAMPLE
+//
 type CfnListenerProps struct {
 	// `AWS::GlobalAccelerator::Listener.AcceleratorArn`.
 	AcceleratorArn *string `json:"acceleratorArn"`
+	// `AWS::GlobalAccelerator::Listener.ClientAffinity`.
+	ClientAffinity *string `json:"clientAffinity"`
 	// `AWS::GlobalAccelerator::Listener.PortRanges`.
 	PortRanges interface{} `json:"portRanges"`
 	// `AWS::GlobalAccelerator::Listener.Protocol`.
 	Protocol *string `json:"protocol"`
-	// `AWS::GlobalAccelerator::Listener.ClientAffinity`.
-	ClientAffinity *string `json:"clientAffinity"`
 }
 
 // Client affinity gives you control over whether to always route each client to the same specific endpoint.
@@ -2612,6 +2642,9 @@ const (
 )
 
 // EndpointGroup construct.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EndpointGroup interface {
 	awscdk.Resource
@@ -3061,6 +3094,9 @@ type EndpointGroupOptions struct {
 }
 
 // Property of the EndpointGroup.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type EndpointGroupProps struct {
 	// Name of the endpoint group.
@@ -3112,9 +3148,9 @@ type EndpointGroupProps struct {
 type HealthCheckProtocol string
 
 const (
-	HealthCheckProtocol_TCP HealthCheckProtocol = "TCP"
 	HealthCheckProtocol_HTTP HealthCheckProtocol = "HTTP"
 	HealthCheckProtocol_HTTPS HealthCheckProtocol = "HTTPS"
+	HealthCheckProtocol_TCP HealthCheckProtocol = "TCP"
 )
 
 // The interface of the Accelerator.
@@ -3624,9 +3660,6 @@ func (l *jsiiProxy_Listener) Validate() *[]*string {
 //
 // Experimental.
 type ListenerOptions struct {
-	// The list of port ranges for the connections from clients to the accelerator.
-	// Experimental.
-	PortRanges *[]*PortRange `json:"portRanges"`
 	// Client affinity to direct all requests from a user to the same endpoint.
 	//
 	// If you have stateful applications, client affinity lets you direct all
@@ -3640,17 +3673,20 @@ type ListenerOptions struct {
 	// Name of the listener.
 	// Experimental.
 	ListenerName *string `json:"listenerName"`
+	// The list of port ranges for the connections from clients to the accelerator.
+	// Experimental.
+	PortRanges *[]*PortRange `json:"portRanges"`
 	// The protocol for the connections from clients to the accelerator.
 	// Experimental.
 	Protocol ConnectionProtocol `json:"protocol"`
 }
 
 // Construct properties for Listener.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ListenerProps struct {
-	// The list of port ranges for the connections from clients to the accelerator.
-	// Experimental.
-	PortRanges *[]*PortRange `json:"portRanges"`
 	// Client affinity to direct all requests from a user to the same endpoint.
 	//
 	// If you have stateful applications, client affinity lets you direct all
@@ -3664,6 +3700,9 @@ type ListenerProps struct {
 	// Name of the listener.
 	// Experimental.
 	ListenerName *string `json:"listenerName"`
+	// The list of port ranges for the connections from clients to the accelerator.
+	// Experimental.
+	PortRanges *[]*PortRange `json:"portRanges"`
 	// The protocol for the connections from clients to the accelerator.
 	// Experimental.
 	Protocol ConnectionProtocol `json:"protocol"`
@@ -3673,6 +3712,9 @@ type ListenerProps struct {
 }
 
 // Override specific listener ports used to route traffic to endpoints that are part of an endpoint group.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type PortOverride struct {
 	// The endpoint port that you want a listener port to be mapped to.
@@ -3688,6 +3730,9 @@ type PortOverride struct {
 }
 
 // The list of port ranges for the connections from clients to the accelerator.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type PortRange struct {
 	// The first port in the range of ports, inclusive.
@@ -3703,6 +3748,9 @@ type PortRange struct {
 // Prefer using the classes in the `aws-globalaccelerator-endpoints` package instead,
 // as they accept typed constructs. You can use this class if you want to use an
 // endpoint type that does not have an appropriate class in that package yet.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type RawEndpoint interface {
 	IEndpoint
@@ -3768,6 +3816,9 @@ func (r *jsiiProxy_RawEndpoint) RenderEndpointConfiguration() interface{} {
 }
 
 // Properties for RawEndpoint.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type RawEndpointProps struct {
 	// Identifier of the endpoint.

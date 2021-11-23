@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::SSMIncidents::ReplicationSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnReplicationSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -626,11 +629,15 @@ func (c *jsiiProxy_CfnReplicationSet) ValidateProperties(_properties interface{}
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnReplicationSet_RegionConfigurationProperty struct {
 	// `CfnReplicationSet.RegionConfigurationProperty.SseKmsKeyId`.
 	SseKmsKeyId *string `json:"sseKmsKeyId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnReplicationSet_ReplicationRegionProperty struct {
 	// `CfnReplicationSet.ReplicationRegionProperty.RegionConfiguration`.
 	RegionConfiguration interface{} `json:"regionConfiguration"`
@@ -639,14 +646,20 @@ type CfnReplicationSet_ReplicationRegionProperty struct {
 }
 
 // Properties for defining a `AWS::SSMIncidents::ReplicationSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnReplicationSetProps struct {
-	// `AWS::SSMIncidents::ReplicationSet.Regions`.
-	Regions interface{} `json:"regions"`
 	// `AWS::SSMIncidents::ReplicationSet.DeletionProtected`.
 	DeletionProtected interface{} `json:"deletionProtected"`
+	// `AWS::SSMIncidents::ReplicationSet.Regions`.
+	Regions interface{} `json:"regions"`
 }
 
 // A CloudFormation `AWS::SSMIncidents::ResponsePlan`.
+//
+// TODO: EXAMPLE
+//
 type CfnResponsePlan interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1354,47 +1367,59 @@ func (c *jsiiProxy_CfnResponsePlan) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnResponsePlan_ActionProperty struct {
 	// `CfnResponsePlan.ActionProperty.SsmAutomation`.
 	SsmAutomation interface{} `json:"ssmAutomation"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResponsePlan_ChatChannelProperty struct {
 	// `CfnResponsePlan.ChatChannelProperty.ChatbotSns`.
 	ChatbotSns *[]*string `json:"chatbotSns"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResponsePlan_IncidentTemplateProperty struct {
-	// `CfnResponsePlan.IncidentTemplateProperty.Impact`.
-	Impact *float64 `json:"impact"`
-	// `CfnResponsePlan.IncidentTemplateProperty.Title`.
-	Title *string `json:"title"`
 	// `CfnResponsePlan.IncidentTemplateProperty.DedupeString`.
 	DedupeString *string `json:"dedupeString"`
+	// `CfnResponsePlan.IncidentTemplateProperty.Impact`.
+	Impact *float64 `json:"impact"`
 	// `CfnResponsePlan.IncidentTemplateProperty.NotificationTargets`.
 	NotificationTargets interface{} `json:"notificationTargets"`
 	// `CfnResponsePlan.IncidentTemplateProperty.Summary`.
 	Summary *string `json:"summary"`
+	// `CfnResponsePlan.IncidentTemplateProperty.Title`.
+	Title *string `json:"title"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResponsePlan_NotificationTargetItemProperty struct {
 	// `CfnResponsePlan.NotificationTargetItemProperty.SnsTopicArn`.
 	SnsTopicArn *string `json:"snsTopicArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResponsePlan_SsmAutomationProperty struct {
 	// `CfnResponsePlan.SsmAutomationProperty.DocumentName`.
 	DocumentName *string `json:"documentName"`
-	// `CfnResponsePlan.SsmAutomationProperty.RoleArn`.
-	RoleArn *string `json:"roleArn"`
 	// `CfnResponsePlan.SsmAutomationProperty.DocumentVersion`.
 	DocumentVersion *string `json:"documentVersion"`
 	// `CfnResponsePlan.SsmAutomationProperty.Parameters`.
 	Parameters interface{} `json:"parameters"`
+	// `CfnResponsePlan.SsmAutomationProperty.RoleArn`.
+	RoleArn *string `json:"roleArn"`
 	// `CfnResponsePlan.SsmAutomationProperty.TargetAccount`.
 	TargetAccount *string `json:"targetAccount"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnResponsePlan_SsmParameterProperty struct {
 	// `CfnResponsePlan.SsmParameterProperty.Key`.
 	Key *string `json:"key"`
@@ -1403,11 +1428,10 @@ type CfnResponsePlan_SsmParameterProperty struct {
 }
 
 // Properties for defining a `AWS::SSMIncidents::ResponsePlan`.
+//
+// TODO: EXAMPLE
+//
 type CfnResponsePlanProps struct {
-	// `AWS::SSMIncidents::ResponsePlan.IncidentTemplate`.
-	IncidentTemplate interface{} `json:"incidentTemplate"`
-	// `AWS::SSMIncidents::ResponsePlan.Name`.
-	Name *string `json:"name"`
 	// `AWS::SSMIncidents::ResponsePlan.Actions`.
 	Actions interface{} `json:"actions"`
 	// `AWS::SSMIncidents::ResponsePlan.ChatChannel`.
@@ -1416,6 +1440,10 @@ type CfnResponsePlanProps struct {
 	DisplayName *string `json:"displayName"`
 	// `AWS::SSMIncidents::ResponsePlan.Engagements`.
 	Engagements *[]*string `json:"engagements"`
+	// `AWS::SSMIncidents::ResponsePlan.IncidentTemplate`.
+	IncidentTemplate interface{} `json:"incidentTemplate"`
+	// `AWS::SSMIncidents::ResponsePlan.Name`.
+	Name *string `json:"name"`
 	// `AWS::SSMIncidents::ResponsePlan.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }

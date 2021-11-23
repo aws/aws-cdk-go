@@ -863,6 +863,7 @@ func init() {
 		"monocdk.aws_apigatewayv2.DomainName",
 		reflect.TypeOf((*DomainName)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addEndpoint", GoMethod: "AddEndpoint"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
@@ -896,6 +897,18 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_apigatewayv2.DomainNameProps",
 		reflect.TypeOf((*DomainNameProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_apigatewayv2.EndpointOptions",
+		reflect.TypeOf((*EndpointOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_apigatewayv2.EndpointType",
+		reflect.TypeOf((*EndpointType)(nil)).Elem(),
+		map[string]interface{}{
+			"EDGE": EndpointType_EDGE,
+			"REGIONAL": EndpointType_REGIONAL,
+		},
 	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_apigatewayv2.HttpApi",
@@ -998,8 +1011,8 @@ func init() {
 		"monocdk.aws_apigatewayv2.HttpConnectionType",
 		reflect.TypeOf((*HttpConnectionType)(nil)).Elem(),
 		map[string]interface{}{
-			"VPC_LINK": HttpConnectionType_VPC_LINK,
 			"INTERNET": HttpConnectionType_INTERNET,
+			"VPC_LINK": HttpConnectionType_VPC_LINK,
 		},
 	)
 	_jsii_.RegisterClass(
@@ -1039,8 +1052,8 @@ func init() {
 		"monocdk.aws_apigatewayv2.HttpIntegrationType",
 		reflect.TypeOf((*HttpIntegrationType)(nil)).Elem(),
 		map[string]interface{}{
-			"LAMBDA_PROXY": HttpIntegrationType_LAMBDA_PROXY,
 			"HTTP_PROXY": HttpIntegrationType_HTTP_PROXY,
+			"LAMBDA_PROXY": HttpIntegrationType_LAMBDA_PROXY,
 		},
 	)
 	_jsii_.RegisterEnum(
@@ -1558,6 +1571,14 @@ func init() {
 		},
 		func() interface{} {
 			return &jsiiProxy_PayloadFormatVersion{}
+		},
+	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_apigatewayv2.SecurityPolicy",
+		reflect.TypeOf((*SecurityPolicy)(nil)).Elem(),
+		map[string]interface{}{
+			"TLS_1_0": SecurityPolicy_TLS_1_0,
+			"TLS_1_2": SecurityPolicy_TLS_1_2,
 		},
 	)
 	_jsii_.RegisterStruct(

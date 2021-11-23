@@ -47,10 +47,10 @@ func init() {
 		"monocdk.aws_cloudwatch_actions.Ec2InstanceAction",
 		reflect.TypeOf((*Ec2InstanceAction)(nil)).Elem(),
 		map[string]interface{}{
+			"REBOOT": Ec2InstanceAction_REBOOT,
+			"RECOVER": Ec2InstanceAction_RECOVER,
 			"STOP": Ec2InstanceAction_STOP,
 			"TERMINATE": Ec2InstanceAction_TERMINATE,
-			"RECOVER": Ec2InstanceAction_RECOVER,
-			"REBOOT": Ec2InstanceAction_REBOOT,
 		},
 	)
 	_jsii_.RegisterClass(

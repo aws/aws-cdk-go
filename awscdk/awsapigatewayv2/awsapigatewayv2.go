@@ -43,6 +43,9 @@ type AddRoutesOptions struct {
 }
 
 // Create a new API mapping for API Gateway API endpoint.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ApiMapping interface {
 	awscdk.Resource
@@ -408,6 +411,9 @@ func (a *jsiiProxy_ApiMapping) Validate() *[]*string {
 }
 
 // The attributes used to import existing ApiMapping.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ApiMappingAttributes struct {
 	// The API mapping ID.
@@ -416,19 +422,22 @@ type ApiMappingAttributes struct {
 }
 
 // Properties used to create the ApiMapping resource.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ApiMappingProps struct {
 	// The Api to which this mapping is applied.
 	// Experimental.
 	Api IApi `json:"api"`
-	// custom domain name of the mapping target.
-	// Experimental.
-	DomainName IDomainName `json:"domainName"`
 	// Api mapping key.
 	//
 	// The path where this stage should be mapped to on the domain
 	// Experimental.
 	ApiMappingKey *string `json:"apiMappingKey"`
+	// custom domain name of the mapping target.
+	// Experimental.
+	DomainName IDomainName `json:"domainName"`
 	// stage for the ApiMapping resource required for WebSocket API defaults to default stage of an HTTP API.
 	// Experimental.
 	Stage IStage `json:"stage"`
@@ -448,6 +457,9 @@ const (
 // Options used when configuring multiple routes, at once.
 //
 // The options here are the ones that would be configured for all being set up.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type BatchHttpRouteOptions struct {
 	// The integration to be configured on this route.
@@ -456,6 +468,9 @@ type BatchHttpRouteOptions struct {
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::Api`.
+//
+// TODO: EXAMPLE
+//
 type CfnApi interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1363,6 +1378,8 @@ func (c *jsiiProxy_CfnApi) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnApi_BodyS3LocationProperty struct {
 	// `CfnApi.BodyS3LocationProperty.Bucket`.
 	Bucket *string `json:"bucket"`
@@ -1374,6 +1391,8 @@ type CfnApi_BodyS3LocationProperty struct {
 	Version *string `json:"version"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApi_CorsProperty struct {
 	// `CfnApi.CorsProperty.AllowCredentials`.
 	AllowCredentials interface{} `json:"allowCredentials"`
@@ -1390,6 +1409,9 @@ type CfnApi_CorsProperty struct {
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::ApiGatewayManagedOverrides`.
+//
+// TODO: EXAMPLE
+//
 type CfnApiGatewayManagedOverrides interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2035,6 +2057,8 @@ func (c *jsiiProxy_CfnApiGatewayManagedOverrides) ValidateProperties(_properties
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnApiGatewayManagedOverrides_AccessLogSettingsProperty struct {
 	// `CfnApiGatewayManagedOverrides.AccessLogSettingsProperty.DestinationArn`.
 	DestinationArn *string `json:"destinationArn"`
@@ -2042,6 +2066,8 @@ type CfnApiGatewayManagedOverrides_AccessLogSettingsProperty struct {
 	Format *string `json:"format"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApiGatewayManagedOverrides_IntegrationOverridesProperty struct {
 	// `CfnApiGatewayManagedOverrides.IntegrationOverridesProperty.Description`.
 	Description *string `json:"description"`
@@ -2053,6 +2079,8 @@ type CfnApiGatewayManagedOverrides_IntegrationOverridesProperty struct {
 	TimeoutInMillis *float64 `json:"timeoutInMillis"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApiGatewayManagedOverrides_RouteOverridesProperty struct {
 	// `CfnApiGatewayManagedOverrides.RouteOverridesProperty.AuthorizationScopes`.
 	AuthorizationScopes *[]*string `json:"authorizationScopes"`
@@ -2066,6 +2094,8 @@ type CfnApiGatewayManagedOverrides_RouteOverridesProperty struct {
 	Target *string `json:"target"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApiGatewayManagedOverrides_RouteSettingsProperty struct {
 	// `CfnApiGatewayManagedOverrides.RouteSettingsProperty.DataTraceEnabled`.
 	DataTraceEnabled interface{} `json:"dataTraceEnabled"`
@@ -2079,6 +2109,8 @@ type CfnApiGatewayManagedOverrides_RouteSettingsProperty struct {
 	ThrottlingRateLimit *float64 `json:"throttlingRateLimit"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnApiGatewayManagedOverrides_StageOverridesProperty struct {
 	// `CfnApiGatewayManagedOverrides.StageOverridesProperty.AccessLogSettings`.
 	AccessLogSettings interface{} `json:"accessLogSettings"`
@@ -2095,6 +2127,9 @@ type CfnApiGatewayManagedOverrides_StageOverridesProperty struct {
 }
 
 // Properties for defining a `AWS::ApiGatewayV2::ApiGatewayManagedOverrides`.
+//
+// TODO: EXAMPLE
+//
 type CfnApiGatewayManagedOverridesProps struct {
 	// `AWS::ApiGatewayV2::ApiGatewayManagedOverrides.ApiId`.
 	ApiId *string `json:"apiId"`
@@ -2107,6 +2142,9 @@ type CfnApiGatewayManagedOverridesProps struct {
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::ApiMapping`.
+//
+// TODO: EXAMPLE
+//
 type CfnApiMapping interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2753,18 +2791,24 @@ func (c *jsiiProxy_CfnApiMapping) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::ApiGatewayV2::ApiMapping`.
+//
+// TODO: EXAMPLE
+//
 type CfnApiMappingProps struct {
 	// `AWS::ApiGatewayV2::ApiMapping.ApiId`.
 	ApiId *string `json:"apiId"`
+	// `AWS::ApiGatewayV2::ApiMapping.ApiMappingKey`.
+	ApiMappingKey *string `json:"apiMappingKey"`
 	// `AWS::ApiGatewayV2::ApiMapping.DomainName`.
 	DomainName *string `json:"domainName"`
 	// `AWS::ApiGatewayV2::ApiMapping.Stage`.
 	Stage *string `json:"stage"`
-	// `AWS::ApiGatewayV2::ApiMapping.ApiMappingKey`.
-	ApiMappingKey *string `json:"apiMappingKey"`
 }
 
 // Properties for defining a `AWS::ApiGatewayV2::Api`.
+//
+// TODO: EXAMPLE
+//
 type CfnApiProps struct {
 	// `AWS::ApiGatewayV2::Api.ApiKeySelectionExpression`.
 	ApiKeySelectionExpression *string `json:"apiKeySelectionExpression"`
@@ -2803,6 +2847,9 @@ type CfnApiProps struct {
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::Authorizer`.
+//
+// TODO: EXAMPLE
+//
 type CfnAuthorizer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -3588,6 +3635,8 @@ func (c *jsiiProxy_CfnAuthorizer) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnAuthorizer_JWTConfigurationProperty struct {
 	// `CfnAuthorizer.JWTConfigurationProperty.Audience`.
 	Audience *[]*string `json:"audience"`
@@ -3596,19 +3645,20 @@ type CfnAuthorizer_JWTConfigurationProperty struct {
 }
 
 // Properties for defining a `AWS::ApiGatewayV2::Authorizer`.
+//
+// TODO: EXAMPLE
+//
 type CfnAuthorizerProps struct {
 	// `AWS::ApiGatewayV2::Authorizer.ApiId`.
 	ApiId *string `json:"apiId"`
-	// `AWS::ApiGatewayV2::Authorizer.AuthorizerType`.
-	AuthorizerType *string `json:"authorizerType"`
-	// `AWS::ApiGatewayV2::Authorizer.Name`.
-	Name *string `json:"name"`
 	// `AWS::ApiGatewayV2::Authorizer.AuthorizerCredentialsArn`.
 	AuthorizerCredentialsArn *string `json:"authorizerCredentialsArn"`
 	// `AWS::ApiGatewayV2::Authorizer.AuthorizerPayloadFormatVersion`.
 	AuthorizerPayloadFormatVersion *string `json:"authorizerPayloadFormatVersion"`
 	// `AWS::ApiGatewayV2::Authorizer.AuthorizerResultTtlInSeconds`.
 	AuthorizerResultTtlInSeconds *float64 `json:"authorizerResultTtlInSeconds"`
+	// `AWS::ApiGatewayV2::Authorizer.AuthorizerType`.
+	AuthorizerType *string `json:"authorizerType"`
 	// `AWS::ApiGatewayV2::Authorizer.AuthorizerUri`.
 	AuthorizerUri *string `json:"authorizerUri"`
 	// `AWS::ApiGatewayV2::Authorizer.EnableSimpleResponses`.
@@ -3619,9 +3669,14 @@ type CfnAuthorizerProps struct {
 	IdentityValidationExpression *string `json:"identityValidationExpression"`
 	// `AWS::ApiGatewayV2::Authorizer.JwtConfiguration`.
 	JwtConfiguration interface{} `json:"jwtConfiguration"`
+	// `AWS::ApiGatewayV2::Authorizer.Name`.
+	Name *string `json:"name"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::Deployment`.
+//
+// TODO: EXAMPLE
+//
 type CfnDeployment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4248,6 +4303,9 @@ func (c *jsiiProxy_CfnDeployment) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::ApiGatewayV2::Deployment`.
+//
+// TODO: EXAMPLE
+//
 type CfnDeploymentProps struct {
 	// `AWS::ApiGatewayV2::Deployment.ApiId`.
 	ApiId *string `json:"apiId"`
@@ -4258,6 +4316,9 @@ type CfnDeploymentProps struct {
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::DomainName`.
+//
+// TODO: EXAMPLE
+//
 type CfnDomainName interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -4916,6 +4977,8 @@ func (c *jsiiProxy_CfnDomainName) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDomainName_DomainNameConfigurationProperty struct {
 	// `CfnDomainName.DomainNameConfigurationProperty.CertificateArn`.
 	CertificateArn *string `json:"certificateArn"`
@@ -4929,6 +4992,8 @@ type CfnDomainName_DomainNameConfigurationProperty struct {
 	SecurityPolicy *string `json:"securityPolicy"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnDomainName_MutualTlsAuthenticationProperty struct {
 	// `CfnDomainName.MutualTlsAuthenticationProperty.TruststoreUri`.
 	TruststoreUri *string `json:"truststoreUri"`
@@ -4937,6 +5002,9 @@ type CfnDomainName_MutualTlsAuthenticationProperty struct {
 }
 
 // Properties for defining a `AWS::ApiGatewayV2::DomainName`.
+//
+// TODO: EXAMPLE
+//
 type CfnDomainNameProps struct {
 	// `AWS::ApiGatewayV2::DomainName.DomainName`.
 	DomainName *string `json:"domainName"`
@@ -4949,6 +5017,9 @@ type CfnDomainNameProps struct {
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::Integration`.
+//
+// TODO: EXAMPLE
+//
 type CfnIntegration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -5874,11 +5945,15 @@ func (c *jsiiProxy_CfnIntegration) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnIntegration_ResponseParameterListProperty struct {
 	// `CfnIntegration.ResponseParameterListProperty.ResponseParameters`.
 	ResponseParameters interface{} `json:"responseParameters"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIntegration_ResponseParameterProperty struct {
 	// `CfnIntegration.ResponseParameterProperty.Destination`.
 	Destination *string `json:"destination"`
@@ -5886,17 +5961,20 @@ type CfnIntegration_ResponseParameterProperty struct {
 	Source *string `json:"source"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIntegration_TlsConfigProperty struct {
 	// `CfnIntegration.TlsConfigProperty.ServerNameToVerify`.
 	ServerNameToVerify *string `json:"serverNameToVerify"`
 }
 
 // Properties for defining a `AWS::ApiGatewayV2::Integration`.
+//
+// TODO: EXAMPLE
+//
 type CfnIntegrationProps struct {
 	// `AWS::ApiGatewayV2::Integration.ApiId`.
 	ApiId *string `json:"apiId"`
-	// `AWS::ApiGatewayV2::Integration.IntegrationType`.
-	IntegrationType *string `json:"integrationType"`
 	// `AWS::ApiGatewayV2::Integration.ConnectionId`.
 	ConnectionId *string `json:"connectionId"`
 	// `AWS::ApiGatewayV2::Integration.ConnectionType`.
@@ -5911,6 +5989,8 @@ type CfnIntegrationProps struct {
 	IntegrationMethod *string `json:"integrationMethod"`
 	// `AWS::ApiGatewayV2::Integration.IntegrationSubtype`.
 	IntegrationSubtype *string `json:"integrationSubtype"`
+	// `AWS::ApiGatewayV2::Integration.IntegrationType`.
+	IntegrationType *string `json:"integrationType"`
 	// `AWS::ApiGatewayV2::Integration.IntegrationUri`.
 	IntegrationUri *string `json:"integrationUri"`
 	// `AWS::ApiGatewayV2::Integration.PassthroughBehavior`.
@@ -5932,6 +6012,9 @@ type CfnIntegrationProps struct {
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::IntegrationResponse`.
+//
+// TODO: EXAMPLE
+//
 type CfnIntegrationResponse interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -6638,15 +6721,18 @@ func (c *jsiiProxy_CfnIntegrationResponse) ValidateProperties(_properties interf
 }
 
 // Properties for defining a `AWS::ApiGatewayV2::IntegrationResponse`.
+//
+// TODO: EXAMPLE
+//
 type CfnIntegrationResponseProps struct {
 	// `AWS::ApiGatewayV2::IntegrationResponse.ApiId`.
 	ApiId *string `json:"apiId"`
+	// `AWS::ApiGatewayV2::IntegrationResponse.ContentHandlingStrategy`.
+	ContentHandlingStrategy *string `json:"contentHandlingStrategy"`
 	// `AWS::ApiGatewayV2::IntegrationResponse.IntegrationId`.
 	IntegrationId *string `json:"integrationId"`
 	// `AWS::ApiGatewayV2::IntegrationResponse.IntegrationResponseKey`.
 	IntegrationResponseKey *string `json:"integrationResponseKey"`
-	// `AWS::ApiGatewayV2::IntegrationResponse.ContentHandlingStrategy`.
-	ContentHandlingStrategy *string `json:"contentHandlingStrategy"`
 	// `AWS::ApiGatewayV2::IntegrationResponse.ResponseParameters`.
 	ResponseParameters interface{} `json:"responseParameters"`
 	// `AWS::ApiGatewayV2::IntegrationResponse.ResponseTemplates`.
@@ -6656,6 +6742,9 @@ type CfnIntegrationResponseProps struct {
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::Model`.
+//
+// TODO: EXAMPLE
+//
 type CfnModel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -7322,20 +7411,26 @@ func (c *jsiiProxy_CfnModel) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::ApiGatewayV2::Model`.
+//
+// TODO: EXAMPLE
+//
 type CfnModelProps struct {
 	// `AWS::ApiGatewayV2::Model.ApiId`.
 	ApiId *string `json:"apiId"`
-	// `AWS::ApiGatewayV2::Model.Name`.
-	Name *string `json:"name"`
-	// `AWS::ApiGatewayV2::Model.Schema`.
-	Schema interface{} `json:"schema"`
 	// `AWS::ApiGatewayV2::Model.ContentType`.
 	ContentType *string `json:"contentType"`
 	// `AWS::ApiGatewayV2::Model.Description`.
 	Description *string `json:"description"`
+	// `AWS::ApiGatewayV2::Model.Name`.
+	Name *string `json:"name"`
+	// `AWS::ApiGatewayV2::Model.Schema`.
+	Schema interface{} `json:"schema"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::Route`.
+//
+// TODO: EXAMPLE
+//
 type CfnRoute interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -8141,17 +8236,20 @@ func (c *jsiiProxy_CfnRoute) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnRoute_ParameterConstraintsProperty struct {
 	// `CfnRoute.ParameterConstraintsProperty.Required`.
 	Required interface{} `json:"required"`
 }
 
 // Properties for defining a `AWS::ApiGatewayV2::Route`.
+//
+// TODO: EXAMPLE
+//
 type CfnRouteProps struct {
 	// `AWS::ApiGatewayV2::Route.ApiId`.
 	ApiId *string `json:"apiId"`
-	// `AWS::ApiGatewayV2::Route.RouteKey`.
-	RouteKey *string `json:"routeKey"`
 	// `AWS::ApiGatewayV2::Route.ApiKeyRequired`.
 	ApiKeyRequired interface{} `json:"apiKeyRequired"`
 	// `AWS::ApiGatewayV2::Route.AuthorizationScopes`.
@@ -8168,6 +8266,8 @@ type CfnRouteProps struct {
 	RequestModels interface{} `json:"requestModels"`
 	// `AWS::ApiGatewayV2::Route.RequestParameters`.
 	RequestParameters interface{} `json:"requestParameters"`
+	// `AWS::ApiGatewayV2::Route.RouteKey`.
+	RouteKey *string `json:"routeKey"`
 	// `AWS::ApiGatewayV2::Route.RouteResponseSelectionExpression`.
 	RouteResponseSelectionExpression *string `json:"routeResponseSelectionExpression"`
 	// `AWS::ApiGatewayV2::Route.Target`.
@@ -8175,6 +8275,9 @@ type CfnRouteProps struct {
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::RouteResponse`.
+//
+// TODO: EXAMPLE
+//
 type CfnRouteResponse interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -8860,28 +8963,36 @@ func (c *jsiiProxy_CfnRouteResponse) ValidateProperties(_properties interface{})
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnRouteResponse_ParameterConstraintsProperty struct {
 	// `CfnRouteResponse.ParameterConstraintsProperty.Required`.
 	Required interface{} `json:"required"`
 }
 
 // Properties for defining a `AWS::ApiGatewayV2::RouteResponse`.
+//
+// TODO: EXAMPLE
+//
 type CfnRouteResponseProps struct {
 	// `AWS::ApiGatewayV2::RouteResponse.ApiId`.
 	ApiId *string `json:"apiId"`
-	// `AWS::ApiGatewayV2::RouteResponse.RouteId`.
-	RouteId *string `json:"routeId"`
-	// `AWS::ApiGatewayV2::RouteResponse.RouteResponseKey`.
-	RouteResponseKey *string `json:"routeResponseKey"`
 	// `AWS::ApiGatewayV2::RouteResponse.ModelSelectionExpression`.
 	ModelSelectionExpression *string `json:"modelSelectionExpression"`
 	// `AWS::ApiGatewayV2::RouteResponse.ResponseModels`.
 	ResponseModels interface{} `json:"responseModels"`
 	// `AWS::ApiGatewayV2::RouteResponse.ResponseParameters`.
 	ResponseParameters interface{} `json:"responseParameters"`
+	// `AWS::ApiGatewayV2::RouteResponse.RouteId`.
+	RouteId *string `json:"routeId"`
+	// `AWS::ApiGatewayV2::RouteResponse.RouteResponseKey`.
+	RouteResponseKey *string `json:"routeResponseKey"`
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::Stage`.
+//
+// TODO: EXAMPLE
+//
 type CfnStage interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -9678,6 +9789,8 @@ func (c *jsiiProxy_CfnStage) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnStage_AccessLogSettingsProperty struct {
 	// `CfnStage.AccessLogSettingsProperty.DestinationArn`.
 	DestinationArn *string `json:"destinationArn"`
@@ -9685,6 +9798,8 @@ type CfnStage_AccessLogSettingsProperty struct {
 	Format *string `json:"format"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnStage_RouteSettingsProperty struct {
 	// `CfnStage.RouteSettingsProperty.DataTraceEnabled`.
 	DataTraceEnabled interface{} `json:"dataTraceEnabled"`
@@ -9699,15 +9814,16 @@ type CfnStage_RouteSettingsProperty struct {
 }
 
 // Properties for defining a `AWS::ApiGatewayV2::Stage`.
+//
+// TODO: EXAMPLE
+//
 type CfnStageProps struct {
-	// `AWS::ApiGatewayV2::Stage.ApiId`.
-	ApiId *string `json:"apiId"`
-	// `AWS::ApiGatewayV2::Stage.StageName`.
-	StageName *string `json:"stageName"`
 	// `AWS::ApiGatewayV2::Stage.AccessLogSettings`.
 	AccessLogSettings interface{} `json:"accessLogSettings"`
 	// `AWS::ApiGatewayV2::Stage.AccessPolicyId`.
 	AccessPolicyId *string `json:"accessPolicyId"`
+	// `AWS::ApiGatewayV2::Stage.ApiId`.
+	ApiId *string `json:"apiId"`
 	// `AWS::ApiGatewayV2::Stage.AutoDeploy`.
 	AutoDeploy interface{} `json:"autoDeploy"`
 	// `AWS::ApiGatewayV2::Stage.ClientCertificateId`.
@@ -9720,6 +9836,8 @@ type CfnStageProps struct {
 	Description *string `json:"description"`
 	// `AWS::ApiGatewayV2::Stage.RouteSettings`.
 	RouteSettings interface{} `json:"routeSettings"`
+	// `AWS::ApiGatewayV2::Stage.StageName`.
+	StageName *string `json:"stageName"`
 	// `AWS::ApiGatewayV2::Stage.StageVariables`.
 	StageVariables interface{} `json:"stageVariables"`
 	// `AWS::ApiGatewayV2::Stage.Tags`.
@@ -9727,6 +9845,9 @@ type CfnStageProps struct {
 }
 
 // A CloudFormation `AWS::ApiGatewayV2::VpcLink`.
+//
+// TODO: EXAMPLE
+//
 type CfnVpcLink interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -10364,13 +10485,16 @@ func (c *jsiiProxy_CfnVpcLink) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::ApiGatewayV2::VpcLink`.
+//
+// TODO: EXAMPLE
+//
 type CfnVpcLinkProps struct {
 	// `AWS::ApiGatewayV2::VpcLink.Name`.
 	Name *string `json:"name"`
-	// `AWS::ApiGatewayV2::VpcLink.SubnetIds`.
-	SubnetIds *[]*string `json:"subnetIds"`
 	// `AWS::ApiGatewayV2::VpcLink.SecurityGroupIds`.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
+	// `AWS::ApiGatewayV2::VpcLink.SubnetIds`.
+	SubnetIds *[]*string `json:"subnetIds"`
 	// `AWS::ApiGatewayV2::VpcLink.Tags`.
 	Tags interface{} `json:"tags"`
 }
@@ -10450,6 +10574,7 @@ type DomainName interface {
 	RegionalDomainName() *string
 	RegionalHostedZoneId() *string
 	Stack() awscdk.Stack
+	AddEndpoint(options *EndpointOptions)
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
@@ -10615,6 +10740,16 @@ func DomainName_IsResource(construct awscdk.IConstruct) *bool {
 	)
 
 	return returns
+}
+
+// Adds an endpoint to a domain name.
+// Experimental.
+func (d *jsiiProxy_DomainName) AddEndpoint(options *EndpointOptions) {
+	_jsii_.InvokeVoid(
+		d,
+		"addEndpoint",
+		[]interface{}{options},
+	)
 }
 
 // Apply the given removal policy to this resource.
@@ -10804,6 +10939,9 @@ func (d *jsiiProxy_DomainName) Validate() *[]*string {
 }
 
 // custom domain name attributes.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type DomainNameAttributes struct {
 	// domain name string.
@@ -10824,8 +10962,26 @@ type DomainNameAttributes struct {
 // Experimental.
 type DomainNameProps struct {
 	// The ACM certificate for this domain name.
+	//
+	// Certificate can be both ACM issued or imported.
 	// Experimental.
 	Certificate awscertificatemanager.ICertificate `json:"certificate"`
+	// The user-friendly name of the certificate that will be used by the endpoint for this domain name.
+	// Experimental.
+	CertificateName *string `json:"certificateName"`
+	// The type of endpoint for this DomainName.
+	// Experimental.
+	EndpointType EndpointType `json:"endpointType"`
+	// A public certificate issued by ACM to validate that you own a custom domain.
+	//
+	// This parameter is required
+	// only when you configure mutual TLS authentication and you specify an ACM imported or private CA certificate
+	// for `certificate`. The ownership certificate validates that you have permissions to use the domain name.
+	// Experimental.
+	OwnershipCertificate awscertificatemanager.ICertificate `json:"ownershipCertificate"`
+	// The Transport Layer Security (TLS) version + cipher suite for this domain name.
+	// Experimental.
+	SecurityPolicy SecurityPolicy `json:"securityPolicy"`
 	// The custom domain name.
 	// Experimental.
 	DomainName *string `json:"domainName"`
@@ -10833,6 +10989,44 @@ type DomainNameProps struct {
 	// Experimental.
 	Mtls *MTLSConfig `json:"mtls"`
 }
+
+// properties for creating a domain name endpoint.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type EndpointOptions struct {
+	// The ACM certificate for this domain name.
+	//
+	// Certificate can be both ACM issued or imported.
+	// Experimental.
+	Certificate awscertificatemanager.ICertificate `json:"certificate"`
+	// The user-friendly name of the certificate that will be used by the endpoint for this domain name.
+	// Experimental.
+	CertificateName *string `json:"certificateName"`
+	// The type of endpoint for this DomainName.
+	// Experimental.
+	EndpointType EndpointType `json:"endpointType"`
+	// A public certificate issued by ACM to validate that you own a custom domain.
+	//
+	// This parameter is required
+	// only when you configure mutual TLS authentication and you specify an ACM imported or private CA certificate
+	// for `certificate`. The ownership certificate validates that you have permissions to use the domain name.
+	// Experimental.
+	OwnershipCertificate awscertificatemanager.ICertificate `json:"ownershipCertificate"`
+	// The Transport Layer Security (TLS) version + cipher suite for this domain name.
+	// Experimental.
+	SecurityPolicy SecurityPolicy `json:"securityPolicy"`
+}
+
+// Endpoint type for a domain name.
+// Experimental.
+type EndpointType string
+
+const (
+	EndpointType_EDGE EndpointType = "EDGE"
+	EndpointType_REGIONAL EndpointType = "REGIONAL"
+)
 
 // Create a new API Gateway HTTP API endpoint.
 //
@@ -11414,14 +11608,17 @@ func (h *jsiiProxy_HttpApi) Validate() *[]*string {
 }
 
 // Attributes for importing an HttpApi into the CDK.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HttpApiAttributes struct {
-	// The identifier of the HttpApi.
-	// Experimental.
-	HttpApiId *string `json:"httpApiId"`
 	// The endpoint URL of the HttpApi.
 	// Experimental.
 	ApiEndpoint *string `json:"apiEndpoint"`
+	// The identifier of the HttpApi.
+	// Experimental.
+	HttpApiId *string `json:"httpApiId"`
 }
 
 // Properties to initialize an instance of `HttpApi`.
@@ -11466,6 +11663,9 @@ type HttpApiProps struct {
 }
 
 // An authorizer for Http Apis.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HttpAuthorizer interface {
 	awscdk.Resource
@@ -11809,6 +12009,9 @@ func (h *jsiiProxy_HttpAuthorizer) Validate() *[]*string {
 }
 
 // Reference to an http authorizer.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HttpAuthorizerAttributes struct {
 	// Id of the Authorizer.
@@ -11825,19 +12028,11 @@ type HttpAuthorizerAttributes struct {
 }
 
 // Properties to initialize an instance of `HttpAuthorizer`.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HttpAuthorizerProps struct {
-	// HTTP Api to attach the authorizer to.
-	// Experimental.
-	HttpApi IHttpApi `json:"httpApi"`
-	// The identity source for which authorization is requested.
-	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-identitysource
-	//
-	// Experimental.
-	IdentitySource *[]*string `json:"identitySource"`
-	// The type of authorizer.
-	// Experimental.
-	Type HttpAuthorizerType `json:"type"`
 	// Name of the authorizer.
 	// Experimental.
 	AuthorizerName *string `json:"authorizerName"`
@@ -11851,6 +12046,14 @@ type HttpAuthorizerProps struct {
 	// If enabled, the Lambda authorizer can return a boolean value instead of an IAM policy.
 	// Experimental.
 	EnableSimpleResponses *bool `json:"enableSimpleResponses"`
+	// HTTP Api to attach the authorizer to.
+	// Experimental.
+	HttpApi IHttpApi `json:"httpApi"`
+	// The identity source for which authorization is requested.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-identitysource
+	//
+	// Experimental.
+	IdentitySource *[]*string `json:"identitySource"`
 	// A list of the intended recipients of the JWT.
 	//
 	// A valid JWT must provide an aud that matches at least one entry in this list.
@@ -11867,6 +12070,9 @@ type HttpAuthorizerProps struct {
 	// Max 1 hour.
 	// Experimental.
 	ResultsCacheTtl awscdk.Duration `json:"resultsCacheTtl"`
+	// The type of authorizer.
+	// Experimental.
+	Type HttpAuthorizerType `json:"type"`
 }
 
 // Supported Authorizer types.
@@ -11883,11 +12089,14 @@ const (
 type HttpConnectionType string
 
 const (
-	HttpConnectionType_VPC_LINK HttpConnectionType = "VPC_LINK"
 	HttpConnectionType_INTERNET HttpConnectionType = "INTERNET"
+	HttpConnectionType_VPC_LINK HttpConnectionType = "VPC_LINK"
 )
 
 // The integration for an API route.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HttpIntegration interface {
 	awscdk.Resource
@@ -12225,8 +12434,19 @@ func (h *jsiiProxy_HttpIntegration) Validate() *[]*string {
 }
 
 // The integration properties.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HttpIntegrationProps struct {
+	// The ID of the VPC link for a private integration.
+	//
+	// Supported only for HTTP APIs.
+	// Experimental.
+	ConnectionId *string `json:"connectionId"`
+	// The type of the network connection to the integration endpoint.
+	// Experimental.
+	ConnectionType HttpConnectionType `json:"connectionType"`
 	// The HTTP API to which this integration should be bound.
 	// Experimental.
 	HttpApi IHttpApi `json:"httpApi"`
@@ -12239,14 +12459,6 @@ type HttpIntegrationProps struct {
 	// or HTTP URL in the case of `HttpIntegrationType.HTTP_PROXY`.
 	// Experimental.
 	IntegrationUri *string `json:"integrationUri"`
-	// The ID of the VPC link for a private integration.
-	//
-	// Supported only for HTTP APIs.
-	// Experimental.
-	ConnectionId *string `json:"connectionId"`
-	// The type of the network connection to the integration endpoint.
-	// Experimental.
-	ConnectionType HttpConnectionType `json:"connectionType"`
 	// The HTTP method to use when calling the underlying HTTP proxy.
 	// Experimental.
 	Method HttpMethod `json:"method"`
@@ -12272,8 +12484,8 @@ type HttpIntegrationProps struct {
 type HttpIntegrationType string
 
 const (
-	HttpIntegrationType_LAMBDA_PROXY HttpIntegrationType = "LAMBDA_PROXY"
 	HttpIntegrationType_HTTP_PROXY HttpIntegrationType = "HTTP_PROXY"
+	HttpIntegrationType_LAMBDA_PROXY HttpIntegrationType = "LAMBDA_PROXY"
 )
 
 // Supported HTTP methods.
@@ -12351,6 +12563,9 @@ func (h *jsiiProxy_HttpNoneAuthorizer) Bind(_arg *HttpRouteAuthorizerBindOptions
 }
 
 // Route class that creates the Route for API Gateway HTTP API.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HttpRoute interface {
 	awscdk.Resource
@@ -12699,6 +12914,9 @@ func (h *jsiiProxy_HttpRoute) Validate() *[]*string {
 }
 
 // Input to the bind() operation, that binds an authorizer to a route.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HttpRouteAuthorizerBindOptions struct {
 	// The route to which the authorizer is being bound.
@@ -12710,8 +12928,14 @@ type HttpRouteAuthorizerBindOptions struct {
 }
 
 // Results of binding an authorizer to an http route.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HttpRouteAuthorizerConfig struct {
+	// The list of OIDC scopes to include in the authorization.
+	// Experimental.
+	AuthorizationScopes *[]*string `json:"authorizationScopes"`
 	// The type of authorization.
 	//
 	// Possible values are:
@@ -12720,15 +12944,15 @@ type HttpRouteAuthorizerConfig struct {
 	// - NONE - No Authorization
 	// Experimental.
 	AuthorizationType *string `json:"authorizationType"`
-	// The list of OIDC scopes to include in the authorization.
-	// Experimental.
-	AuthorizationScopes *[]*string `json:"authorizationScopes"`
 	// The authorizer id.
 	// Experimental.
 	AuthorizerId *string `json:"authorizerId"`
 }
 
 // Options to the HttpRouteIntegration during its bind operation.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HttpRouteIntegrationBindOptions struct {
 	// The route to which this is being bound.
@@ -12743,19 +12967,11 @@ type HttpRouteIntegrationBindOptions struct {
 }
 
 // Config returned back as a result of the bind.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HttpRouteIntegrationConfig struct {
-	// Payload format version in the case of lambda proxy integration.
-	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
-	//
-	// Experimental.
-	PayloadFormatVersion PayloadFormatVersion `json:"payloadFormatVersion"`
-	// Integration type.
-	// Experimental.
-	Type HttpIntegrationType `json:"type"`
-	// Integration URI.
-	// Experimental.
-	Uri *string `json:"uri"`
 	// The ID of the VPC link for a private integration.
 	//
 	// Supported only for HTTP APIs.
@@ -12774,16 +12990,30 @@ type HttpRouteIntegrationConfig struct {
 	//
 	// Experimental.
 	ParameterMapping ParameterMapping `json:"parameterMapping"`
+	// Payload format version in the case of lambda proxy integration.
+	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
+	//
+	// Experimental.
+	PayloadFormatVersion PayloadFormatVersion `json:"payloadFormatVersion"`
 	// Specifies the server name to verified by HTTPS when calling the backend integration.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-tlsconfig.html
 	//
 	// Experimental.
 	SecureServerName *string `json:"secureServerName"`
+	// Integration type.
+	// Experimental.
+	Type HttpIntegrationType `json:"type"`
+	// Integration URI.
+	// Experimental.
+	Uri *string `json:"uri"`
 }
 
 // HTTP route in APIGateway is a combination of the HTTP method and the path component.
 //
 // This class models that combination.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HttpRouteKey interface {
 	Key() *string
@@ -12845,19 +13075,14 @@ func HttpRouteKey_DEFAULT() HttpRouteKey {
 }
 
 // Properties to initialize a new Route.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HttpRouteProps struct {
 	// The integration to be configured on this route.
 	// Experimental.
 	Integration IHttpRouteIntegration `json:"integration"`
-	// the API the route is associated with.
-	// Experimental.
-	HttpApi IHttpApi `json:"httpApi"`
-	// The key to this route.
-	//
-	// This is a combination of an HTTP method and an HTTP path.
-	// Experimental.
-	RouteKey HttpRouteKey `json:"routeKey"`
 	// The list of OIDC scopes to include in the authorization.
 	//
 	// These scopes will be merged with the scopes from the attached authorizer
@@ -12866,6 +13091,14 @@ type HttpRouteProps struct {
 	// Authorizer for a WebSocket API or an HTTP API.
 	// Experimental.
 	Authorizer IHttpRouteAuthorizer `json:"authorizer"`
+	// the API the route is associated with.
+	// Experimental.
+	HttpApi IHttpApi `json:"httpApi"`
+	// The key to this route.
+	//
+	// This is a combination of an HTTP method and an HTTP path.
+	// Experimental.
+	RouteKey HttpRouteKey `json:"routeKey"`
 }
 
 // Represents a stage where an instance of the API is deployed.
@@ -13375,6 +13608,9 @@ func (h *jsiiProxy_HttpStage) Validate() *[]*string {
 }
 
 // The attributes used to import existing HttpStage.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HttpStageAttributes struct {
 	// The name of the stage.
@@ -14281,6 +14517,9 @@ func (j *jsiiProxy_IWebSocketStage) CallbackUrl() *string {
 }
 
 // The mTLS authentication configuration for a custom domain name.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type MTLSConfig struct {
 	// The bucket that the trust store is hosted in.
@@ -14675,6 +14914,9 @@ func (p *jsiiProxy_ParameterMapping) RemoveQueryString(name *string) ParameterMa
 }
 
 // Payload format version for lambda proxy integration.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
 //
 // Experimental.
@@ -14739,7 +14981,19 @@ func PayloadFormatVersion_VERSION_2_0() PayloadFormatVersion {
 	return returns
 }
 
+// The minimum version of the SSL protocol that you want API Gateway to use for HTTPS connections.
+// Experimental.
+type SecurityPolicy string
+
+const (
+	SecurityPolicy_TLS_1_0 SecurityPolicy = "TLS_1_0"
+	SecurityPolicy_TLS_1_2 SecurityPolicy = "TLS_1_2"
+)
+
 // The attributes used to import existing Stage.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type StageAttributes struct {
 	// The name of the stage.
@@ -14750,6 +15004,9 @@ type StageAttributes struct {
 // Options required to create a new stage.
 //
 // Options that are common between HTTP and Websocket APIs.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type StageOptions struct {
 	// Whether updates to an API automatically trigger a new deployment.
@@ -15169,15 +15426,15 @@ type VpcLinkAttributes struct {
 //
 // Experimental.
 type VpcLinkProps struct {
-	// The VPC in which the private resources reside.
-	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
 	// A list of security groups for the VPC link.
 	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 	// A list of subnets for the VPC link.
 	// Experimental.
 	Subnets *awsec2.SubnetSelection `json:"subnets"`
+	// The VPC in which the private resources reside.
+	// Experimental.
+	Vpc awsec2.IVpc `json:"vpc"`
 	// The name used to label and identify the VPC link.
 	// Experimental.
 	VpcLinkName *string `json:"vpcLinkName"`
@@ -15611,6 +15868,9 @@ type WebSocketApiProps struct {
 }
 
 // The integration for an API route.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type WebSocketIntegration interface {
 	awscdk.Resource
@@ -15948,6 +16208,9 @@ func (w *jsiiProxy_WebSocketIntegration) Validate() *[]*string {
 }
 
 // The integration properties.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type WebSocketIntegrationProps struct {
 	// Integration type.
@@ -15970,6 +16233,9 @@ const (
 )
 
 // Route class that creates the Route for API Gateway WebSocket API.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type WebSocketRoute interface {
 	awscdk.Resource
@@ -16329,6 +16595,9 @@ func (w *jsiiProxy_WebSocketRoute) Validate() *[]*string {
 }
 
 // Options to the WebSocketRouteIntegration during its bind operation.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type WebSocketRouteIntegrationBindOptions struct {
 	// The route to which this is being bound.
@@ -16343,6 +16612,9 @@ type WebSocketRouteIntegrationBindOptions struct {
 }
 
 // Config returned back as a result of the bind.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type WebSocketRouteIntegrationConfig struct {
 	// Integration type.
@@ -16365,6 +16637,9 @@ type WebSocketRouteOptions struct {
 }
 
 // Properties to initialize a new Route.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type WebSocketRouteProps struct {
 	// The integration to be configured on this route.
@@ -16803,6 +17078,9 @@ func (w *jsiiProxy_WebSocketStage) Validate() *[]*string {
 }
 
 // The attributes used to import existing WebSocketStage.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type WebSocketStageAttributes struct {
 	// The name of the stage.

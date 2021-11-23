@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::MWAA::Environment`.
+//
+// TODO: EXAMPLE
+//
 type CfnEnvironment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1043,6 +1046,8 @@ func (c *jsiiProxy_CfnEnvironment) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnEnvironment_LoggingConfigurationProperty struct {
 	// `CfnEnvironment.LoggingConfigurationProperty.DagProcessingLogs`.
 	DagProcessingLogs interface{} `json:"dagProcessingLogs"`
@@ -1056,6 +1061,8 @@ type CfnEnvironment_LoggingConfigurationProperty struct {
 	WorkerLogs interface{} `json:"workerLogs"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEnvironment_ModuleLoggingConfigurationProperty struct {
 	// `CfnEnvironment.ModuleLoggingConfigurationProperty.CloudWatchLogGroupArn`.
 	CloudWatchLogGroupArn *string `json:"cloudWatchLogGroupArn"`
@@ -1065,6 +1072,8 @@ type CfnEnvironment_ModuleLoggingConfigurationProperty struct {
 	LogLevel *string `json:"logLevel"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnEnvironment_NetworkConfigurationProperty struct {
 	// `CfnEnvironment.NetworkConfigurationProperty.SecurityGroupIds`.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
@@ -1073,9 +1082,10 @@ type CfnEnvironment_NetworkConfigurationProperty struct {
 }
 
 // Properties for defining a `AWS::MWAA::Environment`.
+//
+// TODO: EXAMPLE
+//
 type CfnEnvironmentProps struct {
-	// `AWS::MWAA::Environment.Name`.
-	Name *string `json:"name"`
 	// `AWS::MWAA::Environment.AirflowConfigurationOptions`.
 	AirflowConfigurationOptions interface{} `json:"airflowConfigurationOptions"`
 	// `AWS::MWAA::Environment.AirflowVersion`.
@@ -1094,6 +1104,8 @@ type CfnEnvironmentProps struct {
 	MaxWorkers *float64 `json:"maxWorkers"`
 	// `AWS::MWAA::Environment.MinWorkers`.
 	MinWorkers *float64 `json:"minWorkers"`
+	// `AWS::MWAA::Environment.Name`.
+	Name *string `json:"name"`
 	// `AWS::MWAA::Environment.NetworkConfiguration`.
 	NetworkConfiguration interface{} `json:"networkConfiguration"`
 	// `AWS::MWAA::Environment.PluginsS3ObjectVersion`.

@@ -11,6 +11,9 @@ import (
 )
 
 // A CloudFormation `AWS::ElasticLoadBalancing::LoadBalancer`.
+//
+// TODO: EXAMPLE
+//
 type CfnLoadBalancer interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -942,17 +945,21 @@ func (c *jsiiProxy_CfnLoadBalancer) ValidateProperties(_properties interface{}) 
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnLoadBalancer_AccessLoggingPolicyProperty struct {
+	// `CfnLoadBalancer.AccessLoggingPolicyProperty.EmitInterval`.
+	EmitInterval *float64 `json:"emitInterval"`
 	// `CfnLoadBalancer.AccessLoggingPolicyProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
 	// `CfnLoadBalancer.AccessLoggingPolicyProperty.S3BucketName`.
 	S3BucketName *string `json:"s3BucketName"`
-	// `CfnLoadBalancer.AccessLoggingPolicyProperty.EmitInterval`.
-	EmitInterval *float64 `json:"emitInterval"`
 	// `CfnLoadBalancer.AccessLoggingPolicyProperty.S3BucketPrefix`.
 	S3BucketPrefix *string `json:"s3BucketPrefix"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLoadBalancer_AppCookieStickinessPolicyProperty struct {
 	// `CfnLoadBalancer.AppCookieStickinessPolicyProperty.CookieName`.
 	CookieName *string `json:"cookieName"`
@@ -960,6 +967,8 @@ type CfnLoadBalancer_AppCookieStickinessPolicyProperty struct {
 	PolicyName *string `json:"policyName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLoadBalancer_ConnectionDrainingPolicyProperty struct {
 	// `CfnLoadBalancer.ConnectionDrainingPolicyProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
@@ -967,11 +976,15 @@ type CfnLoadBalancer_ConnectionDrainingPolicyProperty struct {
 	Timeout *float64 `json:"timeout"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLoadBalancer_ConnectionSettingsProperty struct {
 	// `CfnLoadBalancer.ConnectionSettingsProperty.IdleTimeout`.
 	IdleTimeout *float64 `json:"idleTimeout"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLoadBalancer_HealthCheckProperty struct {
 	// `CfnLoadBalancer.HealthCheckProperty.HealthyThreshold`.
 	HealthyThreshold *string `json:"healthyThreshold"`
@@ -985,6 +998,8 @@ type CfnLoadBalancer_HealthCheckProperty struct {
 	UnhealthyThreshold *string `json:"unhealthyThreshold"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLoadBalancer_LBCookieStickinessPolicyProperty struct {
 	// `CfnLoadBalancer.LBCookieStickinessPolicyProperty.CookieExpirationPeriod`.
 	CookieExpirationPeriod *string `json:"cookieExpirationPeriod"`
@@ -992,38 +1007,43 @@ type CfnLoadBalancer_LBCookieStickinessPolicyProperty struct {
 	PolicyName *string `json:"policyName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLoadBalancer_ListenersProperty struct {
 	// `CfnLoadBalancer.ListenersProperty.InstancePort`.
 	InstancePort *string `json:"instancePort"`
-	// `CfnLoadBalancer.ListenersProperty.LoadBalancerPort`.
-	LoadBalancerPort *string `json:"loadBalancerPort"`
-	// `CfnLoadBalancer.ListenersProperty.Protocol`.
-	Protocol *string `json:"protocol"`
 	// `CfnLoadBalancer.ListenersProperty.InstanceProtocol`.
 	InstanceProtocol *string `json:"instanceProtocol"`
+	// `CfnLoadBalancer.ListenersProperty.LoadBalancerPort`.
+	LoadBalancerPort *string `json:"loadBalancerPort"`
 	// `CfnLoadBalancer.ListenersProperty.PolicyNames`.
 	PolicyNames *[]*string `json:"policyNames"`
+	// `CfnLoadBalancer.ListenersProperty.Protocol`.
+	Protocol *string `json:"protocol"`
 	// `CfnLoadBalancer.ListenersProperty.SSLCertificateId`.
 	SslCertificateId *string `json:"sslCertificateId"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnLoadBalancer_PoliciesProperty struct {
 	// `CfnLoadBalancer.PoliciesProperty.Attributes`.
 	Attributes interface{} `json:"attributes"`
-	// `CfnLoadBalancer.PoliciesProperty.PolicyName`.
-	PolicyName *string `json:"policyName"`
-	// `CfnLoadBalancer.PoliciesProperty.PolicyType`.
-	PolicyType *string `json:"policyType"`
 	// `CfnLoadBalancer.PoliciesProperty.InstancePorts`.
 	InstancePorts *[]*string `json:"instancePorts"`
 	// `CfnLoadBalancer.PoliciesProperty.LoadBalancerPorts`.
 	LoadBalancerPorts *[]*string `json:"loadBalancerPorts"`
+	// `CfnLoadBalancer.PoliciesProperty.PolicyName`.
+	PolicyName *string `json:"policyName"`
+	// `CfnLoadBalancer.PoliciesProperty.PolicyType`.
+	PolicyType *string `json:"policyType"`
 }
 
 // Properties for defining a `AWS::ElasticLoadBalancing::LoadBalancer`.
+//
+// TODO: EXAMPLE
+//
 type CfnLoadBalancerProps struct {
-	// `AWS::ElasticLoadBalancing::LoadBalancer.Listeners`.
-	Listeners interface{} `json:"listeners"`
 	// `AWS::ElasticLoadBalancing::LoadBalancer.AccessLoggingPolicy`.
 	AccessLoggingPolicy interface{} `json:"accessLoggingPolicy"`
 	// `AWS::ElasticLoadBalancing::LoadBalancer.AppCookieStickinessPolicy`.
@@ -1042,6 +1062,8 @@ type CfnLoadBalancerProps struct {
 	Instances *[]*string `json:"instances"`
 	// `AWS::ElasticLoadBalancing::LoadBalancer.LBCookieStickinessPolicy`.
 	LbCookieStickinessPolicy interface{} `json:"lbCookieStickinessPolicy"`
+	// `AWS::ElasticLoadBalancing::LoadBalancer.Listeners`.
+	Listeners interface{} `json:"listeners"`
 	// `AWS::ElasticLoadBalancing::LoadBalancer.LoadBalancerName`.
 	LoadBalancerName *string `json:"loadBalancerName"`
 	// `AWS::ElasticLoadBalancing::LoadBalancer.Policies`.
@@ -1057,11 +1079,11 @@ type CfnLoadBalancerProps struct {
 }
 
 // Describe the health check to a load balancer.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type HealthCheck struct {
-	// What port number to health check on.
-	// Experimental.
-	Port *float64 `json:"port"`
 	// After how many successful checks is an instance considered healthy.
 	// Experimental.
 	HealthyThreshold *float64 `json:"healthyThreshold"`
@@ -1074,6 +1096,9 @@ type HealthCheck struct {
 	// healthy.
 	// Experimental.
 	Path *string `json:"path"`
+	// What port number to health check on.
+	// Experimental.
+	Port *float64 `json:"port"`
 	// What protocol to use for health checking.
 	//
 	// The protocol is automatically determined from the port if it's not supplied.
@@ -1120,6 +1145,9 @@ func (i *jsiiProxy_ILoadBalancerTarget) AttachToClassicLB(loadBalancer LoadBalan
 //     listener.connections.allowDefaultPortFromAnyIPv4();
 //     // or
 //     instance.connections.allowToDefaultPort(listener);
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type ListenerPort interface {
 	awsec2.IConnectable
@@ -1610,9 +1638,6 @@ func (l *jsiiProxy_LoadBalancer) Validate() *[]*string {
 //
 // Experimental.
 type LoadBalancerListener struct {
-	// External listening port.
-	// Experimental.
-	ExternalPort *float64 `json:"externalPort"`
 	// Allow connections to the load balancer from the given set of connection peers.
 	//
 	// By default, connections will be allowed from anywhere. Set this to an empty list
@@ -1620,6 +1645,9 @@ type LoadBalancerListener struct {
 	// (IP ranges or security groups).
 	// Experimental.
 	AllowConnectionsFrom *[]awsec2.IConnectable `json:"allowConnectionsFrom"`
+	// External listening port.
+	// Experimental.
+	ExternalPort *float64 `json:"externalPort"`
 	// What public protocol to use for load balancing.
 	//
 	// Either 'tcp', 'ssl', 'http' or 'https'.
@@ -1660,9 +1688,6 @@ type LoadBalancerListener struct {
 //
 // Experimental.
 type LoadBalancerProps struct {
-	// VPC network of the fleet instances.
-	// Experimental.
-	Vpc awsec2.IVpc `json:"vpc"`
 	// Enable Loadbalancer access logs Can be used to avoid manual work as aws console Required S3 bucket name , enabled flag Can add interval for pushing log Can set bucket prefix in order to provide folder name inside bucket.
 	// Experimental.
 	AccessLoggingPolicy *CfnLoadBalancer_AccessLoggingPolicyProperty `json:"accessLoggingPolicy"`
@@ -1699,15 +1724,18 @@ type LoadBalancerProps struct {
 	// Can also be added by .addTarget()
 	// Experimental.
 	Targets *[]ILoadBalancerTarget `json:"targets"`
+	// VPC network of the fleet instances.
+	// Experimental.
+	Vpc awsec2.IVpc `json:"vpc"`
 }
 
 // Experimental.
 type LoadBalancingProtocol string
 
 const (
-	LoadBalancingProtocol_TCP LoadBalancingProtocol = "TCP"
-	LoadBalancingProtocol_SSL LoadBalancingProtocol = "SSL"
 	LoadBalancingProtocol_HTTP LoadBalancingProtocol = "HTTP"
 	LoadBalancingProtocol_HTTPS LoadBalancingProtocol = "HTTPS"
+	LoadBalancingProtocol_SSL LoadBalancingProtocol = "SSL"
+	LoadBalancingProtocol_TCP LoadBalancingProtocol = "TCP"
 )
 

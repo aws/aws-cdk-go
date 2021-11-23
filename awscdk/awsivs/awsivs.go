@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::IVS::Channel`.
+//
+// TODO: EXAMPLE
+//
 type CfnChannel interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -720,6 +723,9 @@ func (c *jsiiProxy_CfnChannel) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::IVS::Channel`.
+//
+// TODO: EXAMPLE
+//
 type CfnChannelProps struct {
 	// `AWS::IVS::Channel.Authorized`.
 	Authorized interface{} `json:"authorized"`
@@ -736,6 +742,9 @@ type CfnChannelProps struct {
 }
 
 // A CloudFormation `AWS::IVS::PlaybackKeyPair`.
+//
+// TODO: EXAMPLE
+//
 type CfnPlaybackKeyPair interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1375,16 +1384,22 @@ func (c *jsiiProxy_CfnPlaybackKeyPair) ValidateProperties(_properties interface{
 }
 
 // Properties for defining a `AWS::IVS::PlaybackKeyPair`.
+//
+// TODO: EXAMPLE
+//
 type CfnPlaybackKeyPairProps struct {
-	// `AWS::IVS::PlaybackKeyPair.PublicKeyMaterial`.
-	PublicKeyMaterial *string `json:"publicKeyMaterial"`
 	// `AWS::IVS::PlaybackKeyPair.Name`.
 	Name *string `json:"name"`
+	// `AWS::IVS::PlaybackKeyPair.PublicKeyMaterial`.
+	PublicKeyMaterial *string `json:"publicKeyMaterial"`
 	// `AWS::IVS::PlaybackKeyPair.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }
 
 // A CloudFormation `AWS::IVS::RecordingConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnRecordingConfiguration interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2023,17 +2038,24 @@ func (c *jsiiProxy_CfnRecordingConfiguration) ValidateProperties(_properties int
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnRecordingConfiguration_DestinationConfigurationProperty struct {
 	// `CfnRecordingConfiguration.DestinationConfigurationProperty.S3`.
 	S3 interface{} `json:"s3"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnRecordingConfiguration_S3DestinationConfigurationProperty struct {
 	// `CfnRecordingConfiguration.S3DestinationConfigurationProperty.BucketName`.
 	BucketName *string `json:"bucketName"`
 }
 
 // Properties for defining a `AWS::IVS::RecordingConfiguration`.
+//
+// TODO: EXAMPLE
+//
 type CfnRecordingConfigurationProps struct {
 	// `AWS::IVS::RecordingConfiguration.DestinationConfiguration`.
 	DestinationConfiguration interface{} `json:"destinationConfiguration"`
@@ -2044,6 +2066,9 @@ type CfnRecordingConfigurationProps struct {
 }
 
 // A CloudFormation `AWS::IVS::StreamKey`.
+//
+// TODO: EXAMPLE
+//
 type CfnStreamKey interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2663,6 +2688,9 @@ func (c *jsiiProxy_CfnStreamKey) ValidateProperties(_properties interface{}) {
 }
 
 // Properties for defining a `AWS::IVS::StreamKey`.
+//
+// TODO: EXAMPLE
+//
 type CfnStreamKeyProps struct {
 	// `AWS::IVS::StreamKey.ChannelArn`.
 	ChannelArn *string `json:"channelArn"`
@@ -3891,6 +3919,9 @@ func (s *jsiiProxy_StreamKey) Validate() *[]*string {
 }
 
 // Properties for creating a new Stream Key.
+//
+// TODO: EXAMPLE
+//
 // Experimental.
 type StreamKeyProps struct {
 	// Channel ARN for the stream.

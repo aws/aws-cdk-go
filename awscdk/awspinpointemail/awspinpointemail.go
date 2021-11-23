@@ -10,6 +10,9 @@ import (
 )
 
 // A CloudFormation `AWS::PinpointEmail::ConfigurationSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnConfigurationSet interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -695,21 +698,29 @@ func (c *jsiiProxy_CfnConfigurationSet) ValidateProperties(_properties interface
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfigurationSet_DeliveryOptionsProperty struct {
 	// `CfnConfigurationSet.DeliveryOptionsProperty.SendingPoolName`.
 	SendingPoolName *string `json:"sendingPoolName"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfigurationSet_ReputationOptionsProperty struct {
 	// `CfnConfigurationSet.ReputationOptionsProperty.ReputationMetricsEnabled`.
 	ReputationMetricsEnabled interface{} `json:"reputationMetricsEnabled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfigurationSet_SendingOptionsProperty struct {
 	// `CfnConfigurationSet.SendingOptionsProperty.SendingEnabled`.
 	SendingEnabled interface{} `json:"sendingEnabled"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfigurationSet_TagsProperty struct {
 	// `CfnConfigurationSet.TagsProperty.Key`.
 	Key *string `json:"key"`
@@ -717,12 +728,17 @@ type CfnConfigurationSet_TagsProperty struct {
 	Value *string `json:"value"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfigurationSet_TrackingOptionsProperty struct {
 	// `CfnConfigurationSet.TrackingOptionsProperty.CustomRedirectDomain`.
 	CustomRedirectDomain *string `json:"customRedirectDomain"`
 }
 
 // A CloudFormation `AWS::PinpointEmail::ConfigurationSetEventDestination`.
+//
+// TODO: EXAMPLE
+//
 type CfnConfigurationSetEventDestination interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -1348,11 +1364,15 @@ func (c *jsiiProxy_CfnConfigurationSetEventDestination) ValidateProperties(_prop
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfigurationSetEventDestination_CloudWatchDestinationProperty struct {
 	// `CfnConfigurationSetEventDestination.CloudWatchDestinationProperty.DimensionConfigurations`.
 	DimensionConfigurations interface{} `json:"dimensionConfigurations"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfigurationSetEventDestination_DimensionConfigurationProperty struct {
 	// `CfnConfigurationSetEventDestination.DimensionConfigurationProperty.DefaultDimensionValue`.
 	DefaultDimensionValue *string `json:"defaultDimensionValue"`
@@ -1362,21 +1382,25 @@ type CfnConfigurationSetEventDestination_DimensionConfigurationProperty struct {
 	DimensionValueSource *string `json:"dimensionValueSource"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfigurationSetEventDestination_EventDestinationProperty struct {
-	// `CfnConfigurationSetEventDestination.EventDestinationProperty.MatchingEventTypes`.
-	MatchingEventTypes *[]*string `json:"matchingEventTypes"`
 	// `CfnConfigurationSetEventDestination.EventDestinationProperty.CloudWatchDestination`.
 	CloudWatchDestination interface{} `json:"cloudWatchDestination"`
 	// `CfnConfigurationSetEventDestination.EventDestinationProperty.Enabled`.
 	Enabled interface{} `json:"enabled"`
 	// `CfnConfigurationSetEventDestination.EventDestinationProperty.KinesisFirehoseDestination`.
 	KinesisFirehoseDestination interface{} `json:"kinesisFirehoseDestination"`
+	// `CfnConfigurationSetEventDestination.EventDestinationProperty.MatchingEventTypes`.
+	MatchingEventTypes *[]*string `json:"matchingEventTypes"`
 	// `CfnConfigurationSetEventDestination.EventDestinationProperty.PinpointDestination`.
 	PinpointDestination interface{} `json:"pinpointDestination"`
 	// `CfnConfigurationSetEventDestination.EventDestinationProperty.SnsDestination`.
 	SnsDestination interface{} `json:"snsDestination"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfigurationSetEventDestination_KinesisFirehoseDestinationProperty struct {
 	// `CfnConfigurationSetEventDestination.KinesisFirehoseDestinationProperty.DeliveryStreamArn`.
 	DeliveryStreamArn *string `json:"deliveryStreamArn"`
@@ -1384,32 +1408,42 @@ type CfnConfigurationSetEventDestination_KinesisFirehoseDestinationProperty stru
 	IamRoleArn *string `json:"iamRoleArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfigurationSetEventDestination_PinpointDestinationProperty struct {
 	// `CfnConfigurationSetEventDestination.PinpointDestinationProperty.ApplicationArn`.
 	ApplicationArn *string `json:"applicationArn"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnConfigurationSetEventDestination_SnsDestinationProperty struct {
 	// `CfnConfigurationSetEventDestination.SnsDestinationProperty.TopicArn`.
 	TopicArn *string `json:"topicArn"`
 }
 
 // Properties for defining a `AWS::PinpointEmail::ConfigurationSetEventDestination`.
+//
+// TODO: EXAMPLE
+//
 type CfnConfigurationSetEventDestinationProps struct {
 	// `AWS::PinpointEmail::ConfigurationSetEventDestination.ConfigurationSetName`.
 	ConfigurationSetName *string `json:"configurationSetName"`
-	// `AWS::PinpointEmail::ConfigurationSetEventDestination.EventDestinationName`.
-	EventDestinationName *string `json:"eventDestinationName"`
 	// `AWS::PinpointEmail::ConfigurationSetEventDestination.EventDestination`.
 	EventDestination interface{} `json:"eventDestination"`
+	// `AWS::PinpointEmail::ConfigurationSetEventDestination.EventDestinationName`.
+	EventDestinationName *string `json:"eventDestinationName"`
 }
 
 // Properties for defining a `AWS::PinpointEmail::ConfigurationSet`.
+//
+// TODO: EXAMPLE
+//
 type CfnConfigurationSetProps struct {
-	// `AWS::PinpointEmail::ConfigurationSet.Name`.
-	Name *string `json:"name"`
 	// `AWS::PinpointEmail::ConfigurationSet.DeliveryOptions`.
 	DeliveryOptions interface{} `json:"deliveryOptions"`
+	// `AWS::PinpointEmail::ConfigurationSet.Name`.
+	Name *string `json:"name"`
 	// `AWS::PinpointEmail::ConfigurationSet.ReputationOptions`.
 	ReputationOptions interface{} `json:"reputationOptions"`
 	// `AWS::PinpointEmail::ConfigurationSet.SendingOptions`.
@@ -1421,6 +1455,9 @@ type CfnConfigurationSetProps struct {
 }
 
 // A CloudFormation `AWS::PinpointEmail::DedicatedIpPool`.
+//
+// TODO: EXAMPLE
+//
 type CfnDedicatedIpPool interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2026,6 +2063,8 @@ func (c *jsiiProxy_CfnDedicatedIpPool) ValidateProperties(_properties interface{
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnDedicatedIpPool_TagsProperty struct {
 	// `CfnDedicatedIpPool.TagsProperty.Key`.
 	Key *string `json:"key"`
@@ -2034,6 +2073,9 @@ type CfnDedicatedIpPool_TagsProperty struct {
 }
 
 // Properties for defining a `AWS::PinpointEmail::DedicatedIpPool`.
+//
+// TODO: EXAMPLE
+//
 type CfnDedicatedIpPoolProps struct {
 	// `AWS::PinpointEmail::DedicatedIpPool.PoolName`.
 	PoolName *string `json:"poolName"`
@@ -2042,6 +2084,9 @@ type CfnDedicatedIpPoolProps struct {
 }
 
 // A CloudFormation `AWS::PinpointEmail::Identity`.
+//
+// TODO: EXAMPLE
+//
 type CfnIdentity interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
@@ -2773,6 +2818,8 @@ func (c *jsiiProxy_CfnIdentity) ValidateProperties(_properties interface{}) {
 	)
 }
 
+// TODO: EXAMPLE
+//
 type CfnIdentity_MailFromAttributesProperty struct {
 	// `CfnIdentity.MailFromAttributesProperty.BehaviorOnMxFailure`.
 	BehaviorOnMxFailure *string `json:"behaviorOnMxFailure"`
@@ -2780,6 +2827,8 @@ type CfnIdentity_MailFromAttributesProperty struct {
 	MailFromDomain *string `json:"mailFromDomain"`
 }
 
+// TODO: EXAMPLE
+//
 type CfnIdentity_TagsProperty struct {
 	// `CfnIdentity.TagsProperty.Key`.
 	Key *string `json:"key"`
@@ -2788,15 +2837,18 @@ type CfnIdentity_TagsProperty struct {
 }
 
 // Properties for defining a `AWS::PinpointEmail::Identity`.
+//
+// TODO: EXAMPLE
+//
 type CfnIdentityProps struct {
-	// `AWS::PinpointEmail::Identity.Name`.
-	Name *string `json:"name"`
 	// `AWS::PinpointEmail::Identity.DkimSigningEnabled`.
 	DkimSigningEnabled interface{} `json:"dkimSigningEnabled"`
 	// `AWS::PinpointEmail::Identity.FeedbackForwardingEnabled`.
 	FeedbackForwardingEnabled interface{} `json:"feedbackForwardingEnabled"`
 	// `AWS::PinpointEmail::Identity.MailFromAttributes`.
 	MailFromAttributes interface{} `json:"mailFromAttributes"`
+	// `AWS::PinpointEmail::Identity.Name`.
+	Name *string `json:"name"`
 	// `AWS::PinpointEmail::Identity.Tags`.
 	Tags *[]*CfnIdentity_TagsProperty `json:"tags"`
 }
