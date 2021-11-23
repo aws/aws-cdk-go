@@ -1,13 +1,13 @@
 package awsglobalacceleratorendpoints
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
-	"github.com/aws/aws-cdk-go/awscdk/awsglobalaccelerator"
-	"github.com/aws/aws-cdk-go/awscdk/awsglobalacceleratorendpoints/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsglobalaccelerator"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsglobalacceleratorendpoints/internal"
 )
 
 // Use an Application Load Balancer as a Global Accelerator Endpoint.
@@ -44,7 +44,7 @@ func NewApplicationLoadBalancerEndpoint(loadBalancer awselasticloadbalancingv2.I
 	j := jsiiProxy_ApplicationLoadBalancerEndpoint{}
 
 	_jsii_.Create(
-		"monocdk.aws_globalaccelerator_endpoints.ApplicationLoadBalancerEndpoint",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.ApplicationLoadBalancerEndpoint",
 		[]interface{}{loadBalancer, options},
 		&j,
 	)
@@ -57,7 +57,7 @@ func NewApplicationLoadBalancerEndpoint_Override(a ApplicationLoadBalancerEndpoi
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_globalaccelerator_endpoints.ApplicationLoadBalancerEndpoint",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.ApplicationLoadBalancerEndpoint",
 		[]interface{}{loadBalancer, options},
 		a,
 	)
@@ -134,7 +134,7 @@ func NewCfnEipEndpoint(eip awsec2.CfnEIP, options *CfnEipEndpointProps) CfnEipEn
 	j := jsiiProxy_CfnEipEndpoint{}
 
 	_jsii_.Create(
-		"monocdk.aws_globalaccelerator_endpoints.CfnEipEndpoint",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.CfnEipEndpoint",
 		[]interface{}{eip, options},
 		&j,
 	)
@@ -147,7 +147,7 @@ func NewCfnEipEndpoint_Override(c CfnEipEndpoint, eip awsec2.CfnEIP, options *Cf
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_globalaccelerator_endpoints.CfnEipEndpoint",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.CfnEipEndpoint",
 		[]interface{}{eip, options},
 		c,
 	)
@@ -215,7 +215,7 @@ func NewInstanceEndpoint(instance awsec2.IInstance, options *InstanceEndpointPro
 	j := jsiiProxy_InstanceEndpoint{}
 
 	_jsii_.Create(
-		"monocdk.aws_globalaccelerator_endpoints.InstanceEndpoint",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.InstanceEndpoint",
 		[]interface{}{instance, options},
 		&j,
 	)
@@ -228,7 +228,7 @@ func NewInstanceEndpoint_Override(i InstanceEndpoint, instance awsec2.IInstance,
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_globalaccelerator_endpoints.InstanceEndpoint",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.InstanceEndpoint",
 		[]interface{}{instance, options},
 		i,
 	)
@@ -305,7 +305,7 @@ func NewNetworkLoadBalancerEndpoint(loadBalancer awselasticloadbalancingv2.INetw
 	j := jsiiProxy_NetworkLoadBalancerEndpoint{}
 
 	_jsii_.Create(
-		"monocdk.aws_globalaccelerator_endpoints.NetworkLoadBalancerEndpoint",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.NetworkLoadBalancerEndpoint",
 		[]interface{}{loadBalancer, options},
 		&j,
 	)
@@ -318,7 +318,7 @@ func NewNetworkLoadBalancerEndpoint_Override(n NetworkLoadBalancerEndpoint, load
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_globalaccelerator_endpoints.NetworkLoadBalancerEndpoint",
+		"aws-cdk-lib.aws_globalaccelerator_endpoints.NetworkLoadBalancerEndpoint",
 		[]interface{}{loadBalancer, options},
 		n,
 	)

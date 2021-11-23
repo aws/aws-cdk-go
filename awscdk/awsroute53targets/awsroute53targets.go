@@ -1,20 +1,20 @@
 package awsroute53targets
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsapigateway"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudfront"
-	"github.com/aws/aws-cdk-go/awscdk/awscognito"
-	"github.com/aws/aws-cdk-go/awscdk/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancing"
-	"github.com/aws/aws-cdk-go/awscdk/awselasticloadbalancingv2"
-	"github.com/aws/aws-cdk-go/awscdk/awsglobalaccelerator"
-	"github.com/aws/aws-cdk-go/awscdk/awsroute53"
-	"github.com/aws/aws-cdk-go/awscdk/awsroute53targets/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awss3"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsapigateway"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudfront"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancing"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awselasticloadbalancingv2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsglobalaccelerator"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsroute53targets/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Defines an API Gateway REST API as the alias target. Requires that the domain name will be defined through `RestApiProps.domainName`.
@@ -42,7 +42,7 @@ func NewApiGateway(api awsapigateway.RestApiBase) ApiGateway {
 	j := jsiiProxy_ApiGateway{}
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.ApiGateway",
+		"aws-cdk-lib.aws_route53_targets.ApiGateway",
 		[]interface{}{api},
 		&j,
 	)
@@ -55,7 +55,7 @@ func NewApiGateway_Override(a ApiGateway, api awsapigateway.RestApiBase) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.ApiGateway",
+		"aws-cdk-lib.aws_route53_targets.ApiGateway",
 		[]interface{}{api},
 		a,
 	)
@@ -101,7 +101,7 @@ func NewApiGatewayDomain(domainName awsapigateway.IDomainName) ApiGatewayDomain 
 	j := jsiiProxy_ApiGatewayDomain{}
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.ApiGatewayDomain",
+		"aws-cdk-lib.aws_route53_targets.ApiGatewayDomain",
 		[]interface{}{domainName},
 		&j,
 	)
@@ -114,7 +114,7 @@ func NewApiGatewayDomain_Override(a ApiGatewayDomain, domainName awsapigateway.I
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.ApiGatewayDomain",
+		"aws-cdk-lib.aws_route53_targets.ApiGatewayDomain",
 		[]interface{}{domainName},
 		a,
 	)
@@ -157,7 +157,7 @@ func NewApiGatewayv2DomainProperties(regionalDomainName *string, regionalHostedZ
 	j := jsiiProxy_ApiGatewayv2DomainProperties{}
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.ApiGatewayv2DomainProperties",
+		"aws-cdk-lib.aws_route53_targets.ApiGatewayv2DomainProperties",
 		[]interface{}{regionalDomainName, regionalHostedZoneId},
 		&j,
 	)
@@ -170,7 +170,7 @@ func NewApiGatewayv2DomainProperties_Override(a ApiGatewayv2DomainProperties, re
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.ApiGatewayv2DomainProperties",
+		"aws-cdk-lib.aws_route53_targets.ApiGatewayv2DomainProperties",
 		[]interface{}{regionalDomainName, regionalHostedZoneId},
 		a,
 	)
@@ -213,7 +213,7 @@ func NewBucketWebsiteTarget(bucket awss3.IBucket) BucketWebsiteTarget {
 	j := jsiiProxy_BucketWebsiteTarget{}
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.BucketWebsiteTarget",
+		"aws-cdk-lib.aws_route53_targets.BucketWebsiteTarget",
 		[]interface{}{bucket},
 		&j,
 	)
@@ -226,7 +226,7 @@ func NewBucketWebsiteTarget_Override(b BucketWebsiteTarget, bucket awss3.IBucket
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.BucketWebsiteTarget",
+		"aws-cdk-lib.aws_route53_targets.BucketWebsiteTarget",
 		[]interface{}{bucket},
 		b,
 	)
@@ -269,7 +269,7 @@ func NewClassicLoadBalancerTarget(loadBalancer awselasticloadbalancing.LoadBalan
 	j := jsiiProxy_ClassicLoadBalancerTarget{}
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.ClassicLoadBalancerTarget",
+		"aws-cdk-lib.aws_route53_targets.ClassicLoadBalancerTarget",
 		[]interface{}{loadBalancer},
 		&j,
 	)
@@ -282,7 +282,7 @@ func NewClassicLoadBalancerTarget_Override(c ClassicLoadBalancerTarget, loadBala
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.ClassicLoadBalancerTarget",
+		"aws-cdk-lib.aws_route53_targets.ClassicLoadBalancerTarget",
 		[]interface{}{loadBalancer},
 		c,
 	)
@@ -325,7 +325,7 @@ func NewCloudFrontTarget(distribution awscloudfront.IDistribution) CloudFrontTar
 	j := jsiiProxy_CloudFrontTarget{}
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.CloudFrontTarget",
+		"aws-cdk-lib.aws_route53_targets.CloudFrontTarget",
 		[]interface{}{distribution},
 		&j,
 	)
@@ -338,7 +338,7 @@ func NewCloudFrontTarget_Override(c CloudFrontTarget, distribution awscloudfront
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.CloudFrontTarget",
+		"aws-cdk-lib.aws_route53_targets.CloudFrontTarget",
 		[]interface{}{distribution},
 		c,
 	)
@@ -346,13 +346,13 @@ func NewCloudFrontTarget_Override(c CloudFrontTarget, distribution awscloudfront
 
 // Get the hosted zone id for the current scope.
 // Experimental.
-func CloudFrontTarget_GetHostedZoneId(scope awscdk.IConstruct) *string {
+func CloudFrontTarget_GetHostedZoneId(scope constructs.IConstruct) *string {
 	_init_.Initialize()
 
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_route53_targets.CloudFrontTarget",
+		"aws-cdk-lib.aws_route53_targets.CloudFrontTarget",
 		"getHostedZoneId",
 		[]interface{}{scope},
 		&returns,
@@ -365,7 +365,7 @@ func CloudFrontTarget_CLOUDFRONT_ZONE_ID() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_route53_targets.CloudFrontTarget",
+		"aws-cdk-lib.aws_route53_targets.CloudFrontTarget",
 		"CLOUDFRONT_ZONE_ID",
 		&returns,
 	)
@@ -411,7 +411,7 @@ func NewElasticBeanstalkEnvironmentEndpointTarget(environmentEndpoint *string) E
 	j := jsiiProxy_ElasticBeanstalkEnvironmentEndpointTarget{}
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.ElasticBeanstalkEnvironmentEndpointTarget",
+		"aws-cdk-lib.aws_route53_targets.ElasticBeanstalkEnvironmentEndpointTarget",
 		[]interface{}{environmentEndpoint},
 		&j,
 	)
@@ -424,7 +424,7 @@ func NewElasticBeanstalkEnvironmentEndpointTarget_Override(e ElasticBeanstalkEnv
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.ElasticBeanstalkEnvironmentEndpointTarget",
+		"aws-cdk-lib.aws_route53_targets.ElasticBeanstalkEnvironmentEndpointTarget",
 		[]interface{}{environmentEndpoint},
 		e,
 	)
@@ -468,7 +468,7 @@ func NewGlobalAcceleratorDomainTarget(acceleratorDomainName *string) GlobalAccel
 	j := jsiiProxy_GlobalAcceleratorDomainTarget{}
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.GlobalAcceleratorDomainTarget",
+		"aws-cdk-lib.aws_route53_targets.GlobalAcceleratorDomainTarget",
 		[]interface{}{acceleratorDomainName},
 		&j,
 	)
@@ -482,7 +482,7 @@ func NewGlobalAcceleratorDomainTarget_Override(g GlobalAcceleratorDomainTarget, 
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.GlobalAcceleratorDomainTarget",
+		"aws-cdk-lib.aws_route53_targets.GlobalAcceleratorDomainTarget",
 		[]interface{}{acceleratorDomainName},
 		g,
 	)
@@ -492,7 +492,7 @@ func GlobalAcceleratorDomainTarget_GLOBAL_ACCELERATOR_ZONE_ID() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_route53_targets.GlobalAcceleratorDomainTarget",
+		"aws-cdk-lib.aws_route53_targets.GlobalAcceleratorDomainTarget",
 		"GLOBAL_ACCELERATOR_ZONE_ID",
 		&returns,
 	)
@@ -537,7 +537,7 @@ func NewGlobalAcceleratorTarget(accelerator awsglobalaccelerator.IAccelerator) G
 	j := jsiiProxy_GlobalAcceleratorTarget{}
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.GlobalAcceleratorTarget",
+		"aws-cdk-lib.aws_route53_targets.GlobalAcceleratorTarget",
 		[]interface{}{accelerator},
 		&j,
 	)
@@ -551,7 +551,7 @@ func NewGlobalAcceleratorTarget_Override(g GlobalAcceleratorTarget, accelerator 
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.GlobalAcceleratorTarget",
+		"aws-cdk-lib.aws_route53_targets.GlobalAcceleratorTarget",
 		[]interface{}{accelerator},
 		g,
 	)
@@ -561,7 +561,7 @@ func GlobalAcceleratorTarget_GLOBAL_ACCELERATOR_ZONE_ID() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_route53_targets.GlobalAcceleratorTarget",
+		"aws-cdk-lib.aws_route53_targets.GlobalAcceleratorTarget",
 		"GLOBAL_ACCELERATOR_ZONE_ID",
 		&returns,
 	)
@@ -605,7 +605,7 @@ func NewInterfaceVpcEndpointTarget(vpcEndpoint awsec2.IInterfaceVpcEndpoint) Int
 	j := jsiiProxy_InterfaceVpcEndpointTarget{}
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.InterfaceVpcEndpointTarget",
+		"aws-cdk-lib.aws_route53_targets.InterfaceVpcEndpointTarget",
 		[]interface{}{vpcEndpoint},
 		&j,
 	)
@@ -618,7 +618,7 @@ func NewInterfaceVpcEndpointTarget_Override(i InterfaceVpcEndpointTarget, vpcEnd
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.InterfaceVpcEndpointTarget",
+		"aws-cdk-lib.aws_route53_targets.InterfaceVpcEndpointTarget",
 		[]interface{}{vpcEndpoint},
 		i,
 	)
@@ -661,7 +661,7 @@ func NewLoadBalancerTarget(loadBalancer awselasticloadbalancingv2.ILoadBalancerV
 	j := jsiiProxy_LoadBalancerTarget{}
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.LoadBalancerTarget",
+		"aws-cdk-lib.aws_route53_targets.LoadBalancerTarget",
 		[]interface{}{loadBalancer},
 		&j,
 	)
@@ -674,7 +674,7 @@ func NewLoadBalancerTarget_Override(l LoadBalancerTarget, loadBalancer awselasti
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.LoadBalancerTarget",
+		"aws-cdk-lib.aws_route53_targets.LoadBalancerTarget",
 		[]interface{}{loadBalancer},
 		l,
 	)
@@ -717,7 +717,7 @@ func NewRoute53RecordTarget(record awsroute53.IRecordSet) Route53RecordTarget {
 	j := jsiiProxy_Route53RecordTarget{}
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.Route53RecordTarget",
+		"aws-cdk-lib.aws_route53_targets.Route53RecordTarget",
 		[]interface{}{record},
 		&j,
 	)
@@ -730,7 +730,7 @@ func NewRoute53RecordTarget_Override(r Route53RecordTarget, record awsroute53.IR
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.Route53RecordTarget",
+		"aws-cdk-lib.aws_route53_targets.Route53RecordTarget",
 		[]interface{}{record},
 		r,
 	)
@@ -773,7 +773,7 @@ func NewUserPoolDomainTarget(domain awscognito.UserPoolDomain) UserPoolDomainTar
 	j := jsiiProxy_UserPoolDomainTarget{}
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.UserPoolDomainTarget",
+		"aws-cdk-lib.aws_route53_targets.UserPoolDomainTarget",
 		[]interface{}{domain},
 		&j,
 	)
@@ -786,7 +786,7 @@ func NewUserPoolDomainTarget_Override(u UserPoolDomainTarget, domain awscognito.
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_route53_targets.UserPoolDomainTarget",
+		"aws-cdk-lib.aws_route53_targets.UserPoolDomainTarget",
 		[]interface{}{domain},
 		u,
 	)

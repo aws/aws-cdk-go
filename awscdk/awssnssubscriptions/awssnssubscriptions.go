@@ -1,13 +1,13 @@
 package awssnssubscriptions
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/awssns"
-	"github.com/aws/aws-cdk-go/awscdk/awssnssubscriptions/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awssqs"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssnssubscriptions/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
 )
 
 // Use an email address as a subscription target.
@@ -34,7 +34,7 @@ func NewEmailSubscription(emailAddress *string, props *EmailSubscriptionProps) E
 	j := jsiiProxy_EmailSubscription{}
 
 	_jsii_.Create(
-		"monocdk.aws_sns_subscriptions.EmailSubscription",
+		"aws-cdk-lib.aws_sns_subscriptions.EmailSubscription",
 		[]interface{}{emailAddress, props},
 		&j,
 	)
@@ -47,7 +47,7 @@ func NewEmailSubscription_Override(e EmailSubscription, emailAddress *string, pr
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_sns_subscriptions.EmailSubscription",
+		"aws-cdk-lib.aws_sns_subscriptions.EmailSubscription",
 		[]interface{}{emailAddress, props},
 		e,
 	)
@@ -109,7 +109,7 @@ func NewLambdaSubscription(fn awslambda.IFunction, props *LambdaSubscriptionProp
 	j := jsiiProxy_LambdaSubscription{}
 
 	_jsii_.Create(
-		"monocdk.aws_sns_subscriptions.LambdaSubscription",
+		"aws-cdk-lib.aws_sns_subscriptions.LambdaSubscription",
 		[]interface{}{fn, props},
 		&j,
 	)
@@ -122,7 +122,7 @@ func NewLambdaSubscription_Override(l LambdaSubscription, fn awslambda.IFunction
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_sns_subscriptions.LambdaSubscription",
+		"aws-cdk-lib.aws_sns_subscriptions.LambdaSubscription",
 		[]interface{}{fn, props},
 		l,
 	)
@@ -181,7 +181,7 @@ func NewSmsSubscription(phoneNumber *string, props *SmsSubscriptionProps) SmsSub
 	j := jsiiProxy_SmsSubscription{}
 
 	_jsii_.Create(
-		"monocdk.aws_sns_subscriptions.SmsSubscription",
+		"aws-cdk-lib.aws_sns_subscriptions.SmsSubscription",
 		[]interface{}{phoneNumber, props},
 		&j,
 	)
@@ -194,7 +194,7 @@ func NewSmsSubscription_Override(s SmsSubscription, phoneNumber *string, props *
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_sns_subscriptions.SmsSubscription",
+		"aws-cdk-lib.aws_sns_subscriptions.SmsSubscription",
 		[]interface{}{phoneNumber, props},
 		s,
 	)
@@ -253,7 +253,7 @@ func NewSqsSubscription(queue awssqs.IQueue, props *SqsSubscriptionProps) SqsSub
 	j := jsiiProxy_SqsSubscription{}
 
 	_jsii_.Create(
-		"monocdk.aws_sns_subscriptions.SqsSubscription",
+		"aws-cdk-lib.aws_sns_subscriptions.SqsSubscription",
 		[]interface{}{queue, props},
 		&j,
 	)
@@ -266,7 +266,7 @@ func NewSqsSubscription_Override(s SqsSubscription, queue awssqs.IQueue, props *
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_sns_subscriptions.SqsSubscription",
+		"aws-cdk-lib.aws_sns_subscriptions.SqsSubscription",
 		[]interface{}{queue, props},
 		s,
 	)
@@ -350,7 +350,7 @@ func NewUrlSubscription(url *string, props *UrlSubscriptionProps) UrlSubscriptio
 	j := jsiiProxy_UrlSubscription{}
 
 	_jsii_.Create(
-		"monocdk.aws_sns_subscriptions.UrlSubscription",
+		"aws-cdk-lib.aws_sns_subscriptions.UrlSubscription",
 		[]interface{}{url, props},
 		&j,
 	)
@@ -363,7 +363,7 @@ func NewUrlSubscription_Override(u UrlSubscription, url *string, props *UrlSubsc
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_sns_subscriptions.UrlSubscription",
+		"aws-cdk-lib.aws_sns_subscriptions.UrlSubscription",
 		[]interface{}{url, props},
 		u,
 	)

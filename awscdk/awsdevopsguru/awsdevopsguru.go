@@ -1,12 +1,12 @@
 package awsdevopsguru
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsdevopsguru/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsdevopsguru/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::DevOpsGuru::NotificationChannel`.
@@ -24,7 +24,7 @@ type CfnNotificationChannel interface {
 	SetConfig(val interface{})
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Ref() *string
 	Stack() awscdk.Stack
 	UpdatedProperites() *map[string]interface{}
@@ -38,16 +38,10 @@ type CfnNotificationChannel interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -127,8 +121,8 @@ func (j *jsiiProxy_CfnNotificationChannel) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNotificationChannel) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnNotificationChannel) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -169,13 +163,13 @@ func (j *jsiiProxy_CfnNotificationChannel) UpdatedProperites() *map[string]inter
 
 
 // Create a new `AWS::DevOpsGuru::NotificationChannel`.
-func NewCfnNotificationChannel(scope awscdk.Construct, id *string, props *CfnNotificationChannelProps) CfnNotificationChannel {
+func NewCfnNotificationChannel(scope constructs.Construct, id *string, props *CfnNotificationChannelProps) CfnNotificationChannel {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnNotificationChannel{}
 
 	_jsii_.Create(
-		"monocdk.aws_devopsguru.CfnNotificationChannel",
+		"aws-cdk-lib.aws_devopsguru.CfnNotificationChannel",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -184,11 +178,11 @@ func NewCfnNotificationChannel(scope awscdk.Construct, id *string, props *CfnNot
 }
 
 // Create a new `AWS::DevOpsGuru::NotificationChannel`.
-func NewCfnNotificationChannel_Override(c CfnNotificationChannel, scope awscdk.Construct, id *string, props *CfnNotificationChannelProps) {
+func NewCfnNotificationChannel_Override(c CfnNotificationChannel, scope constructs.Construct, id *string, props *CfnNotificationChannelProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_devopsguru.CfnNotificationChannel",
+		"aws-cdk-lib.aws_devopsguru.CfnNotificationChannel",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -215,7 +209,7 @@ func CfnNotificationChannel_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_devopsguru.CfnNotificationChannel",
+		"aws-cdk-lib.aws_devopsguru.CfnNotificationChannel",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -232,7 +226,7 @@ func CfnNotificationChannel_IsCfnResource(construct constructs.IConstruct) *bool
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_devopsguru.CfnNotificationChannel",
+		"aws-cdk-lib.aws_devopsguru.CfnNotificationChannel",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -241,15 +235,17 @@ func CfnNotificationChannel_IsCfnResource(construct constructs.IConstruct) *bool
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnNotificationChannel_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_devopsguru.CfnNotificationChannel",
+		"aws-cdk-lib.aws_devopsguru.CfnNotificationChannel",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -262,7 +258,7 @@ func CfnNotificationChannel_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_devopsguru.CfnNotificationChannel",
+		"aws-cdk-lib.aws_devopsguru.CfnNotificationChannel",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -442,56 +438,6 @@ func (c *jsiiProxy_CfnNotificationChannel) Inspect(inspector awscdk.TreeInspecto
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnNotificationChannel) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnNotificationChannel) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnNotificationChannel) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnNotificationChannel) OverrideLogicalId(newLogicalId *string) {
@@ -499,23 +445,6 @@ func (c *jsiiProxy_CfnNotificationChannel) OverrideLogicalId(newLogicalId *strin
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnNotificationChannel) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -550,19 +479,6 @@ func (c *jsiiProxy_CfnNotificationChannel) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnNotificationChannel) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -573,26 +489,6 @@ func (c *jsiiProxy_CfnNotificationChannel) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnNotificationChannel) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -645,7 +541,7 @@ type CfnResourceCollection interface {
 	CfnResourceType() *string
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Ref() *string
 	ResourceCollectionFilter() interface{}
 	SetResourceCollectionFilter(val interface{})
@@ -661,16 +557,10 @@ type CfnResourceCollection interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -740,8 +630,8 @@ func (j *jsiiProxy_CfnResourceCollection) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnResourceCollection) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnResourceCollection) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -792,13 +682,13 @@ func (j *jsiiProxy_CfnResourceCollection) UpdatedProperites() *map[string]interf
 
 
 // Create a new `AWS::DevOpsGuru::ResourceCollection`.
-func NewCfnResourceCollection(scope awscdk.Construct, id *string, props *CfnResourceCollectionProps) CfnResourceCollection {
+func NewCfnResourceCollection(scope constructs.Construct, id *string, props *CfnResourceCollectionProps) CfnResourceCollection {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnResourceCollection{}
 
 	_jsii_.Create(
-		"monocdk.aws_devopsguru.CfnResourceCollection",
+		"aws-cdk-lib.aws_devopsguru.CfnResourceCollection",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -807,11 +697,11 @@ func NewCfnResourceCollection(scope awscdk.Construct, id *string, props *CfnReso
 }
 
 // Create a new `AWS::DevOpsGuru::ResourceCollection`.
-func NewCfnResourceCollection_Override(c CfnResourceCollection, scope awscdk.Construct, id *string, props *CfnResourceCollectionProps) {
+func NewCfnResourceCollection_Override(c CfnResourceCollection, scope constructs.Construct, id *string, props *CfnResourceCollectionProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_devopsguru.CfnResourceCollection",
+		"aws-cdk-lib.aws_devopsguru.CfnResourceCollection",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -838,7 +728,7 @@ func CfnResourceCollection_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_devopsguru.CfnResourceCollection",
+		"aws-cdk-lib.aws_devopsguru.CfnResourceCollection",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -855,7 +745,7 @@ func CfnResourceCollection_IsCfnResource(construct constructs.IConstruct) *bool 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_devopsguru.CfnResourceCollection",
+		"aws-cdk-lib.aws_devopsguru.CfnResourceCollection",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -864,15 +754,17 @@ func CfnResourceCollection_IsCfnResource(construct constructs.IConstruct) *bool 
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnResourceCollection_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_devopsguru.CfnResourceCollection",
+		"aws-cdk-lib.aws_devopsguru.CfnResourceCollection",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -885,7 +777,7 @@ func CfnResourceCollection_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_devopsguru.CfnResourceCollection",
+		"aws-cdk-lib.aws_devopsguru.CfnResourceCollection",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1065,56 +957,6 @@ func (c *jsiiProxy_CfnResourceCollection) Inspect(inspector awscdk.TreeInspector
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnResourceCollection) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnResourceCollection) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnResourceCollection) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnResourceCollection) OverrideLogicalId(newLogicalId *string) {
@@ -1122,23 +964,6 @@ func (c *jsiiProxy_CfnResourceCollection) OverrideLogicalId(newLogicalId *string
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnResourceCollection) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1173,19 +998,6 @@ func (c *jsiiProxy_CfnResourceCollection) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnResourceCollection) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -1196,26 +1008,6 @@ func (c *jsiiProxy_CfnResourceCollection) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnResourceCollection) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

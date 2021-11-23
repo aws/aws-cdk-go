@@ -1,12 +1,12 @@
 package awsmanagedblockchain
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsmanagedblockchain/internal"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsmanagedblockchain/internal"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // A CloudFormation `AWS::ManagedBlockchain::Member`.
@@ -31,7 +31,7 @@ type CfnMember interface {
 	SetNetworkConfiguration(val interface{})
 	NetworkId() *string
 	SetNetworkId(val *string)
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Ref() *string
 	Stack() awscdk.Stack
 	UpdatedProperites() *map[string]interface{}
@@ -45,16 +45,10 @@ type CfnMember interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -174,8 +168,8 @@ func (j *jsiiProxy_CfnMember) NetworkId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnMember) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnMember) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -216,13 +210,13 @@ func (j *jsiiProxy_CfnMember) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::ManagedBlockchain::Member`.
-func NewCfnMember(scope awscdk.Construct, id *string, props *CfnMemberProps) CfnMember {
+func NewCfnMember(scope constructs.Construct, id *string, props *CfnMemberProps) CfnMember {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnMember{}
 
 	_jsii_.Create(
-		"monocdk.aws_managedblockchain.CfnMember",
+		"aws-cdk-lib.aws_managedblockchain.CfnMember",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -231,11 +225,11 @@ func NewCfnMember(scope awscdk.Construct, id *string, props *CfnMemberProps) Cfn
 }
 
 // Create a new `AWS::ManagedBlockchain::Member`.
-func NewCfnMember_Override(c CfnMember, scope awscdk.Construct, id *string, props *CfnMemberProps) {
+func NewCfnMember_Override(c CfnMember, scope constructs.Construct, id *string, props *CfnMemberProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_managedblockchain.CfnMember",
+		"aws-cdk-lib.aws_managedblockchain.CfnMember",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -286,7 +280,7 @@ func CfnMember_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_managedblockchain.CfnMember",
+		"aws-cdk-lib.aws_managedblockchain.CfnMember",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -303,7 +297,7 @@ func CfnMember_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_managedblockchain.CfnMember",
+		"aws-cdk-lib.aws_managedblockchain.CfnMember",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -312,15 +306,17 @@ func CfnMember_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnMember_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_managedblockchain.CfnMember",
+		"aws-cdk-lib.aws_managedblockchain.CfnMember",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -333,7 +329,7 @@ func CfnMember_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_managedblockchain.CfnMember",
+		"aws-cdk-lib.aws_managedblockchain.CfnMember",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -513,56 +509,6 @@ func (c *jsiiProxy_CfnMember) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnMember) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnMember) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnMember) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnMember) OverrideLogicalId(newLogicalId *string) {
@@ -570,23 +516,6 @@ func (c *jsiiProxy_CfnMember) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnMember) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -621,19 +550,6 @@ func (c *jsiiProxy_CfnMember) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnMember) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -644,26 +560,6 @@ func (c *jsiiProxy_CfnMember) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnMember) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -791,7 +687,7 @@ type CfnNode interface {
 	SetMemberId(val *string)
 	NetworkId() *string
 	SetNetworkId(val *string)
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	NodeConfiguration() interface{}
 	SetNodeConfiguration(val interface{})
 	Ref() *string
@@ -807,16 +703,10 @@ type CfnNode interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -936,8 +826,8 @@ func (j *jsiiProxy_CfnNode) NetworkId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNode) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnNode) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -988,13 +878,13 @@ func (j *jsiiProxy_CfnNode) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::ManagedBlockchain::Node`.
-func NewCfnNode(scope awscdk.Construct, id *string, props *CfnNodeProps) CfnNode {
+func NewCfnNode(scope constructs.Construct, id *string, props *CfnNodeProps) CfnNode {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnNode{}
 
 	_jsii_.Create(
-		"monocdk.aws_managedblockchain.CfnNode",
+		"aws-cdk-lib.aws_managedblockchain.CfnNode",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1003,11 +893,11 @@ func NewCfnNode(scope awscdk.Construct, id *string, props *CfnNodeProps) CfnNode
 }
 
 // Create a new `AWS::ManagedBlockchain::Node`.
-func NewCfnNode_Override(c CfnNode, scope awscdk.Construct, id *string, props *CfnNodeProps) {
+func NewCfnNode_Override(c CfnNode, scope constructs.Construct, id *string, props *CfnNodeProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_managedblockchain.CfnNode",
+		"aws-cdk-lib.aws_managedblockchain.CfnNode",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1050,7 +940,7 @@ func CfnNode_IsCfnElement(x interface{}) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_managedblockchain.CfnNode",
+		"aws-cdk-lib.aws_managedblockchain.CfnNode",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1067,7 +957,7 @@ func CfnNode_IsCfnResource(construct constructs.IConstruct) *bool {
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_managedblockchain.CfnNode",
+		"aws-cdk-lib.aws_managedblockchain.CfnNode",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1076,15 +966,17 @@ func CfnNode_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnNode_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_managedblockchain.CfnNode",
+		"aws-cdk-lib.aws_managedblockchain.CfnNode",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1097,7 +989,7 @@ func CfnNode_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_managedblockchain.CfnNode",
+		"aws-cdk-lib.aws_managedblockchain.CfnNode",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1277,56 +1169,6 @@ func (c *jsiiProxy_CfnNode) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnNode) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnNode) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnNode) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
 // Experimental.
 func (c *jsiiProxy_CfnNode) OverrideLogicalId(newLogicalId *string) {
@@ -1334,23 +1176,6 @@ func (c *jsiiProxy_CfnNode) OverrideLogicalId(newLogicalId *string) {
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnNode) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1385,19 +1210,6 @@ func (c *jsiiProxy_CfnNode) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnNode) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
@@ -1408,26 +1220,6 @@ func (c *jsiiProxy_CfnNode) ToString() *string {
 	_jsii_.Invoke(
 		c,
 		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnNode) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
 		nil, // no parameters
 		&returns,
 	)

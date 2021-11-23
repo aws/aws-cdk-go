@@ -1,7 +1,7 @@
 package internal
 import (
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/assets"
+	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk/v2/assets"
 )
-type Type__awscdkConstruct = awscdk.Construct
+type Type__constructsConstruct = constructs.Construct
 type Type__assetsIAsset = assets.IAsset
