@@ -29,10 +29,8 @@ type AttachedSecretOptions struct {
 type AttachmentTargetType string
 
 const (
-	AttachmentTargetType_CLUSTER AttachmentTargetType = "CLUSTER"
 	AttachmentTargetType_DOCDB_DB_CLUSTER AttachmentTargetType = "DOCDB_DB_CLUSTER"
 	AttachmentTargetType_DOCDB_DB_INSTANCE AttachmentTargetType = "DOCDB_DB_INSTANCE"
-	AttachmentTargetType_INSTANCE AttachmentTargetType = "INSTANCE"
 	AttachmentTargetType_RDS_DB_PROXY AttachmentTargetType = "RDS_DB_PROXY"
 	AttachmentTargetType_REDSHIFT_CLUSTER AttachmentTargetType = "REDSHIFT_CLUSTER"
 )
@@ -3631,7 +3629,6 @@ type Secret interface {
 	Stack() awscdk.Stack
 	AddReplicaRegion(region *string, encryptionKey awskms.IKey)
 	AddRotationSchedule(id *string, options *RotationScheduleOptions) RotationSchedule
-	AddTargetAttachment(id *string, options *AttachedSecretOptions) SecretTargetAttachment
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	Attach(target ISecretAttachmentTarget) ISecret
@@ -3788,22 +3785,6 @@ func NewSecret_Override(s Secret, scope constructs.Construct, id *string, props 
 	)
 }
 
-// Deprecated: use `fromSecretCompleteArn` or `fromSecretPartialArn`
-func Secret_FromSecretArn(scope constructs.Construct, id *string, secretArn *string) ISecret {
-	_init_.Initialize()
-
-	var returns ISecret
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_secretsmanager.Secret",
-		"fromSecretArn",
-		[]interface{}{scope, id, secretArn},
-		&returns,
-	)
-
-	return returns
-}
-
 // Import an existing secret into the Stack.
 // Experimental.
 func Secret_FromSecretAttributes(scope constructs.Construct, id *string, attrs *SecretAttributes) ISecret {
@@ -3834,26 +3815,6 @@ func Secret_FromSecretCompleteArn(scope constructs.Construct, id *string, secret
 		"aws-cdk-lib.aws_secretsmanager.Secret",
 		"fromSecretCompleteArn",
 		[]interface{}{scope, id, secretCompleteArn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Imports a secret by secret name;
-//
-// the ARN of the Secret will be set to the secret name.
-// A secret with this name must exist in the same account & region.
-// Deprecated: use `fromSecretNameV2`
-func Secret_FromSecretName(scope constructs.Construct, id *string, secretName *string) ISecret {
-	_init_.Initialize()
-
-	var returns ISecret
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_secretsmanager.Secret",
-		"fromSecretName",
-		[]interface{}{scope, id, secretName},
 		&returns,
 	)
 
@@ -3953,23 +3914,6 @@ func (s *jsiiProxy_Secret) AddRotationSchedule(id *string, options *RotationSche
 	_jsii_.Invoke(
 		s,
 		"addRotationSchedule",
-		[]interface{}{id, options},
-		&returns,
-	)
-
-	return returns
-}
-
-// Adds a target attachment to the secret.
-//
-// Returns: an AttachedSecret
-// Deprecated: use `attach()` instead
-func (s *jsiiProxy_Secret) AddTargetAttachment(id *string, options *AttachedSecretOptions) SecretTargetAttachment {
-	var returns SecretTargetAttachment
-
-	_jsii_.Invoke(
-		s,
-		"addTargetAttachment",
 		[]interface{}{id, options},
 		&returns,
 	)
@@ -4179,11 +4123,6 @@ type SecretAttributes struct {
 	// The encryption key that is used to encrypt the secret, unless the default SecretsManager key is used.
 	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey"`
-	// The ARN of the secret in SecretsManager.
-	//
-	// Cannot be used with `secretCompleteArn` or `secretPartialArn`.
-	// Deprecated: use `secretCompleteArn` or `secretPartialArn` instead.
-	SecretArn *string `json:"secretArn"`
 	// The complete ARN of the secret in SecretsManager.
 	//
 	// This is the ARN including the Secrets Manager 6-character suffix.
@@ -4320,9 +4259,7 @@ func (s *jsiiProxy_SecretRotation) ToString() *string {
 //
 // Experimental.
 type SecretRotationApplication interface {
-	ApplicationId() *string
 	IsMultiUser() *bool
-	SemanticVersion() *string
 	ApplicationArnForPartition(partition *string) *string
 	SemanticVersionForPartition(partition *string) *string
 }
@@ -4332,31 +4269,11 @@ type jsiiProxy_SecretRotationApplication struct {
 	_ byte // padding
 }
 
-func (j *jsiiProxy_SecretRotationApplication) ApplicationId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"applicationId",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_SecretRotationApplication) IsMultiUser() *bool {
 	var returns *bool
 	_jsii_.Get(
 		j,
 		"isMultiUser",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_SecretRotationApplication) SemanticVersion() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"semanticVersion",
 		&returns,
 	)
 	return returns

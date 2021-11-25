@@ -684,8 +684,6 @@ func init() {
 		"aws-cdk-lib.aws_cloudwatch.IMetric",
 		reflect.TypeOf((*IMetric)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "toAlarmConfig", GoMethod: "ToAlarmConfig"},
-			_jsii_.MemberMethod{JsiiMethod: "toGraphConfig", GoMethod: "ToGraphConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "toMetricConfig", GoMethod: "ToMetricConfig"},
 		},
 		func() interface{} {
@@ -757,8 +755,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "period", GoGetter: "Period"},
 			_jsii_.MemberProperty{JsiiProperty: "searchAccount", GoGetter: "SearchAccount"},
 			_jsii_.MemberProperty{JsiiProperty: "searchRegion", GoGetter: "SearchRegion"},
-			_jsii_.MemberMethod{JsiiMethod: "toAlarmConfig", GoMethod: "ToAlarmConfig"},
-			_jsii_.MemberMethod{JsiiMethod: "toGraphConfig", GoMethod: "ToGraphConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "toMetricConfig", GoMethod: "ToMetricConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "usingMetrics", GoGetter: "UsingMetrics"},
@@ -793,8 +789,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "period", GoGetter: "Period"},
 			_jsii_.MemberProperty{JsiiProperty: "region", GoGetter: "Region"},
 			_jsii_.MemberProperty{JsiiProperty: "statistic", GoGetter: "Statistic"},
-			_jsii_.MemberMethod{JsiiMethod: "toAlarmConfig", GoMethod: "ToAlarmConfig"},
-			_jsii_.MemberMethod{JsiiMethod: "toGraphConfig", GoMethod: "ToGraphConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "toMetricConfig", GoMethod: "ToMetricConfig"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "unit", GoGetter: "Unit"},
@@ -807,10 +801,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.MetricAlarmConfig",
-		reflect.TypeOf((*MetricAlarmConfig)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudwatch.MetricConfig",
 		reflect.TypeOf((*MetricConfig)(nil)).Elem(),
 	)
@@ -819,20 +809,12 @@ func init() {
 		reflect.TypeOf((*MetricExpressionConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.MetricGraphConfig",
-		reflect.TypeOf((*MetricGraphConfig)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudwatch.MetricOptions",
 		reflect.TypeOf((*MetricOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudwatch.MetricProps",
 		reflect.TypeOf((*MetricProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_cloudwatch.MetricRenderingProperties",
-		reflect.TypeOf((*MetricRenderingProperties)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudwatch.MetricStatConfig",
@@ -918,11 +900,11 @@ func init() {
 		"aws-cdk-lib.aws_cloudwatch.Statistic",
 		reflect.TypeOf((*Statistic)(nil)).Elem(),
 		map[string]interface{}{
-			"AVERAGE": Statistic_AVERAGE,
-			"MAXIMUM": Statistic_MAXIMUM,
-			"MINIMUM": Statistic_MINIMUM,
 			"SAMPLE_COUNT": Statistic_SAMPLE_COUNT,
+			"AVERAGE": Statistic_AVERAGE,
 			"SUM": Statistic_SUM,
+			"MINIMUM": Statistic_MINIMUM,
+			"MAXIMUM": Statistic_MAXIMUM,
 		},
 	)
 	_jsii_.RegisterClass(

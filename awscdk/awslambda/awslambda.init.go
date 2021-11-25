@@ -667,7 +667,6 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
 			_jsii_.MemberMethod{JsiiMethod: "bindToResource", GoMethod: "BindToResource"},
-			_jsii_.MemberProperty{JsiiProperty: "isInline", GoGetter: "IsInline"},
 		},
 		func() interface{} {
 			return &jsiiProxy_Code{}
@@ -750,7 +749,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addLayers", GoMethod: "AddLayers"},
 			_jsii_.MemberMethod{JsiiMethod: "addPermission", GoMethod: "AddPermission"},
 			_jsii_.MemberMethod{JsiiMethod: "addToRolePolicy", GoMethod: "AddToRolePolicy"},
-			_jsii_.MemberMethod{JsiiMethod: "addVersion", GoMethod: "AddVersion"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "architecture", GoGetter: "Architecture"},
 			_jsii_.MemberProperty{JsiiProperty: "canCreatePermissions", GoGetter: "CanCreatePermissions"},
@@ -896,7 +894,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addLayers", GoMethod: "AddLayers"},
 			_jsii_.MemberMethod{JsiiMethod: "addPermission", GoMethod: "AddPermission"},
 			_jsii_.MemberMethod{JsiiMethod: "addToRolePolicy", GoMethod: "AddToRolePolicy"},
-			_jsii_.MemberMethod{JsiiMethod: "addVersion", GoMethod: "AddVersion"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "architecture", GoGetter: "Architecture"},
 			_jsii_.MemberProperty{JsiiProperty: "canCreatePermissions", GoGetter: "CanCreatePermissions"},
@@ -1263,24 +1260,6 @@ func init() {
 		"aws-cdk-lib.aws_lambda.LayerVersionProps",
 		reflect.TypeOf((*LayerVersionProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_lambda.LogRetention",
-		reflect.TypeOf((*LogRetention)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "logGroupArn", GoGetter: "LogGroupArn"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-		},
-		func() interface{} {
-			j := jsiiProxy_LogRetention{}
-			_jsii_.InitJsiiProxy(&j.Type__awslogsLogRetention)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_lambda.LogRetentionProps",
-		reflect.TypeOf((*LogRetentionProps)(nil)).Elem(),
-	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_lambda.LogRetentionRetryOptions",
 		reflect.TypeOf((*LogRetentionRetryOptions)(nil)).Elem(),
@@ -1339,7 +1318,6 @@ func init() {
 		"aws-cdk-lib.aws_lambda.Runtime",
 		reflect.TypeOf((*Runtime)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "bundlingDockerImage", GoGetter: "BundlingDockerImage"},
 			_jsii_.MemberProperty{JsiiProperty: "bundlingImage", GoGetter: "BundlingImage"},
 			_jsii_.MemberProperty{JsiiProperty: "family", GoGetter: "Family"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},

@@ -9662,10 +9662,6 @@ type StandardAttributes struct {
 	// The user's e-mail address, represented as an RFC 5322 [RFC5322] addr-spec.
 	// Experimental.
 	Email *StandardAttribute `json:"email"`
-	// DEPRECATED.
-	// Deprecated: this is not a standard attribute and was incorrectly added to the CDK.
-	// It is a Cognito built-in attribute and cannot be controlled as part of user pool creation.
-	EmailVerified *StandardAttribute `json:"emailVerified"`
 	// The surname or last name of the user.
 	// Experimental.
 	FamilyName *StandardAttribute `json:"familyName"`
@@ -9693,10 +9689,6 @@ type StandardAttributes struct {
 	// The user's telephone number.
 	// Experimental.
 	PhoneNumber *StandardAttribute `json:"phoneNumber"`
-	// DEPRECATED.
-	// Deprecated: this is not a standard attribute and was incorrectly added to the CDK.
-	// It is a Cognito built-in attribute and cannot be controlled as part of user pool creation.
-	PhoneNumberVerified *StandardAttribute `json:"phoneNumberVerified"`
 	// The user's preffered username, different from the immutable user name.
 	// Experimental.
 	PreferredUsername *StandardAttribute `json:"preferredUsername"`
@@ -12447,9 +12439,6 @@ type UserPoolProps struct {
 	// Email settings for a user pool.
 	// Experimental.
 	Email UserPoolEmail `json:"email"`
-	// Email settings for a user pool.
-	// Deprecated: Use 'email' instead.
-	EmailSettings *EmailSettings `json:"emailSettings"`
 	// Setting this would explicitly enable or disable SMS role creation.
 	//
 	// When left unspecified, CDK will determine based on other properties if a role is needed or not.

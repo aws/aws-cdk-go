@@ -79,7 +79,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "grantPullPush", GoMethod: "GrantPullPush"},
 			_jsii_.MemberMethod{JsiiMethod: "grantRead", GoMethod: "GrantRead"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "notifiyOnPullRequestMerged", GoMethod: "NotifiyOnPullRequestMerged"},
 			_jsii_.MemberMethod{JsiiMethod: "notifyOn", GoMethod: "NotifyOn"},
 			_jsii_.MemberMethod{JsiiMethod: "notifyOnApprovalRuleOverridden", GoMethod: "NotifyOnApprovalRuleOverridden"},
 			_jsii_.MemberMethod{JsiiMethod: "notifyOnApprovalStatusChanged", GoMethod: "NotifyOnApprovalStatusChanged"},

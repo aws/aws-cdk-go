@@ -5,7 +5,6 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudformation"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodebuild"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodecommit"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodedeploy"
@@ -401,166 +400,6 @@ func (b *jsiiProxy_BaseJenkinsProvider) ToString() *string {
 	)
 
 	return returns
-}
-
-// A CodePipeline source action for BitBucket.
-//
-// TODO: EXAMPLE
-//
-// Deprecated: use CodeStarConnectionsSourceAction instead
-type BitBucketSourceAction interface {
-	awscodepipeline.IAction
-	ActionProperties() *awscodepipeline.ActionProperties
-	Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig
-	OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule
-}
-
-// The jsii proxy struct for BitBucketSourceAction
-type jsiiProxy_BitBucketSourceAction struct {
-	internal.Type__awscodepipelineIAction
-}
-
-func (j *jsiiProxy_BitBucketSourceAction) ActionProperties() *awscodepipeline.ActionProperties {
-	var returns *awscodepipeline.ActionProperties
-	_jsii_.Get(
-		j,
-		"actionProperties",
-		&returns,
-	)
-	return returns
-}
-
-
-// Deprecated: use CodeStarConnectionsSourceAction instead
-func NewBitBucketSourceAction(props *BitBucketSourceActionProps) BitBucketSourceAction {
-	_init_.Initialize()
-
-	j := jsiiProxy_BitBucketSourceAction{}
-
-	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.BitBucketSourceAction",
-		[]interface{}{props},
-		&j,
-	)
-
-	return &j
-}
-
-// Deprecated: use CodeStarConnectionsSourceAction instead
-func NewBitBucketSourceAction_Override(b BitBucketSourceAction, props *BitBucketSourceActionProps) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"aws-cdk-lib.aws_codepipeline_actions.BitBucketSourceAction",
-		[]interface{}{props},
-		b,
-	)
-}
-
-// The callback invoked when this Action is added to a Pipeline.
-// Deprecated: use CodeStarConnectionsSourceAction instead
-func (b *jsiiProxy_BitBucketSourceAction) Bind(scope constructs.Construct, stage awscodepipeline.IStage, options *awscodepipeline.ActionBindOptions) *awscodepipeline.ActionConfig {
-	var returns *awscodepipeline.ActionConfig
-
-	_jsii_.Invoke(
-		b,
-		"bind",
-		[]interface{}{scope, stage, options},
-		&returns,
-	)
-
-	return returns
-}
-
-// Creates an Event that will be triggered whenever the state of this Action changes.
-// Deprecated: use CodeStarConnectionsSourceAction instead
-func (b *jsiiProxy_BitBucketSourceAction) OnStateChange(name *string, target awsevents.IRuleTarget, options *awsevents.RuleProps) awsevents.Rule {
-	var returns awsevents.Rule
-
-	_jsii_.Invoke(
-		b,
-		"onStateChange",
-		[]interface{}{name, target, options},
-		&returns,
-	)
-
-	return returns
-}
-
-// Construction properties for {@link BitBucketSourceAction}.
-//
-// TODO: EXAMPLE
-//
-// Deprecated: use CodeStarConnectionsSourceActionProps instead
-type BitBucketSourceActionProps struct {
-	// The physical, human-readable name of the Action.
-	//
-	// Note that Action names must be unique within a single Stage.
-	// Deprecated: use CodeStarConnectionsSourceActionProps instead
-	ActionName *string `json:"actionName"`
-	// The runOrder property for this Action.
-	//
-	// RunOrder determines the relative order in which multiple Actions in the same Stage execute.
-	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html
-	//
-	// Deprecated: use CodeStarConnectionsSourceActionProps instead
-	RunOrder *float64 `json:"runOrder"`
-	// The name of the namespace to use for variables emitted by this action.
-	// Deprecated: use CodeStarConnectionsSourceActionProps instead
-	VariablesNamespace *string `json:"variablesNamespace"`
-	// The Role in which context's this Action will be executing in.
-	//
-	// The Pipeline's Role will assume this Role
-	// (the required permissions for that will be granted automatically)
-	// right before executing this Action.
-	// This Action will be passed into your {@link IAction.bind}
-	// method in the {@link ActionBindOptions.role} property.
-	// Deprecated: use CodeStarConnectionsSourceActionProps instead
-	Role awsiam.IRole `json:"role"`
-	// The branch to build.
-	// Deprecated: use CodeStarConnectionsSourceActionProps instead
-	Branch *string `json:"branch"`
-	// Whether the output should be the contents of the repository (which is the default), or a link that allows CodeBuild to clone the repository before building.
-	//
-	// **Note**: if this option is true,
-	// then only CodeBuild actions can use the resulting {@link output}.
-	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config
-	//
-	// Deprecated: use CodeStarConnectionsSourceActionProps instead
-	CodeBuildCloneOutput *bool `json:"codeBuildCloneOutput"`
-	// The ARN of the CodeStar Connection created in the AWS console that has permissions to access this GitHub or BitBucket repository.
-	//
-	// TODO: EXAMPLE
-	//
-	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/connections-create.html
-	//
-	// Deprecated: use CodeStarConnectionsSourceActionProps instead
-	ConnectionArn *string `json:"connectionArn"`
-	// The output artifact that this action produces.
-	//
-	// Can be used as input for further pipeline actions.
-	// Deprecated: use CodeStarConnectionsSourceActionProps instead
-	Output awscodepipeline.Artifact `json:"output"`
-	// The owning user or organization of the repository.
-	//
-	// TODO: EXAMPLE
-	//
-	// Deprecated: use CodeStarConnectionsSourceActionProps instead
-	Owner *string `json:"owner"`
-	// The name of the repository.
-	//
-	// TODO: EXAMPLE
-	//
-	// Deprecated: use CodeStarConnectionsSourceActionProps instead
-	Repo *string `json:"repo"`
-	// Controls automatically starting your pipeline when a new commit is made on the configured repository and branch.
-	//
-	// If unspecified,
-	// the default value is true, and the field does not display by default.
-	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html
-	//
-	// Deprecated: use CodeStarConnectionsSourceActionProps instead
-	TriggerOnPush *bool `json:"triggerOnPush"`
 }
 
 // Used for HTTP cache-control header, which influences downstream caches.
@@ -964,16 +803,6 @@ type CloudFormationCreateReplaceChangeSetActionProps struct {
 	AdminPermissions *bool `json:"adminPermissions"`
 	// Acknowledge certain changes made as part of deployment.
 	//
-	// For stacks that contain certain resources, explicit acknowledgement that AWS CloudFormation
-	// might create or update those resources. For example, you must specify `AnonymousIAM` or `NamedIAM`
-	// if your stack template contains AWS Identity and Access Management (IAM) resources. For more
-	// information see the link below.
-	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities
-	//
-	// Deprecated: use {@link cfnCapabilities} instead
-	Capabilities *[]awscloudformation.CloudFormationCapabilities `json:"capabilities"`
-	// Acknowledge certain changes made as part of deployment.
-	//
 	// For stacks that contain certain resources,
 	// explicit acknowledgement is required that AWS CloudFormation might create or update those resources.
 	// For example, you must specify `ANONYMOUS_IAM` or `NAMED_IAM` if your stack template contains AWS
@@ -1287,16 +1116,6 @@ type CloudFormationCreateUpdateStackActionProps struct {
 	Account *string `json:"account"`
 	// Acknowledge certain changes made as part of deployment.
 	//
-	// For stacks that contain certain resources, explicit acknowledgement that AWS CloudFormation
-	// might create or update those resources. For example, you must specify `AnonymousIAM` or `NamedIAM`
-	// if your stack template contains AWS Identity and Access Management (IAM) resources. For more
-	// information see the link below.
-	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities
-	//
-	// Deprecated: use {@link cfnCapabilities} instead
-	Capabilities *[]awscloudformation.CloudFormationCapabilities `json:"capabilities"`
-	// Acknowledge certain changes made as part of deployment.
-	//
 	// For stacks that contain certain resources,
 	// explicit acknowledgement is required that AWS CloudFormation might create or update those resources.
 	// For example, you must specify `ANONYMOUS_IAM` or `NAMED_IAM` if your stack template contains AWS
@@ -1596,16 +1415,6 @@ type CloudFormationDeleteStackActionProps struct {
 	// deployment is allowed to do.
 	// Experimental.
 	AdminPermissions *bool `json:"adminPermissions"`
-	// Acknowledge certain changes made as part of deployment.
-	//
-	// For stacks that contain certain resources, explicit acknowledgement that AWS CloudFormation
-	// might create or update those resources. For example, you must specify `AnonymousIAM` or `NamedIAM`
-	// if your stack template contains AWS Identity and Access Management (IAM) resources. For more
-	// information see the link below.
-	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#using-iam-capabilities
-	//
-	// Deprecated: use {@link cfnCapabilities} instead
-	Capabilities *[]awscloudformation.CloudFormationCapabilities `json:"capabilities"`
 	// Acknowledge certain changes made as part of deployment.
 	//
 	// For stacks that contain certain resources,
@@ -2913,17 +2722,6 @@ type CodeStarConnectionsSourceActionProps struct {
 	// method in the {@link ActionBindOptions.role} property.
 	// Experimental.
 	Role awsiam.IRole `json:"role"`
-	// The branch to build.
-	// Experimental.
-	Branch *string `json:"branch"`
-	// Whether the output should be the contents of the repository (which is the default), or a link that allows CodeBuild to clone the repository before building.
-	//
-	// **Note**: if this option is true,
-	// then only CodeBuild actions can use the resulting {@link output}.
-	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config
-	//
-	// Experimental.
-	CodeBuildCloneOutput *bool `json:"codeBuildCloneOutput"`
 	// The ARN of the CodeStar Connection created in the AWS console that has permissions to access this GitHub or BitBucket repository.
 	//
 	// TODO: EXAMPLE
@@ -2949,6 +2747,17 @@ type CodeStarConnectionsSourceActionProps struct {
 	//
 	// Experimental.
 	Repo *string `json:"repo"`
+	// The branch to build.
+	// Experimental.
+	Branch *string `json:"branch"`
+	// Whether the output should be the contents of the repository (which is the default), or a link that allows CodeBuild to clone the repository before building.
+	//
+	// **Note**: if this option is true,
+	// then only CodeBuild actions can use the resulting {@link output}.
+	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config
+	//
+	// Experimental.
+	CodeBuildCloneOutput *bool `json:"codeBuildCloneOutput"`
 	// Controls automatically starting your pipeline when a new commit is made on the configured repository and branch.
 	//
 	// If unspecified,

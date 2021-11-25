@@ -1469,9 +1469,6 @@ type LoadBalancerListener struct {
 	// the ARN of the SSL certificate.
 	// Experimental.
 	SslCertificateArn *string `json:"sslCertificateArn"`
-	// the ARN of the SSL certificate.
-	// Deprecated: - use sslCertificateArn instead
-	SslCertificateId *string `json:"sslCertificateId"`
 }
 
 // Construction properties for a LoadBalancer.

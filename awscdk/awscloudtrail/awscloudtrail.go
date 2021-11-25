@@ -953,7 +953,6 @@ type Trail interface {
 	GetResourceNameAttribute(nameAttr *string) *string
 	LogAllLambdaDataEvents(options *AddEventSelectorOptions)
 	LogAllS3DataEvents(options *AddEventSelectorOptions)
-	OnCloudTrailEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	ToString() *string
 }
 
@@ -1263,26 +1262,6 @@ func (t *jsiiProxy_Trail) LogAllS3DataEvents(options *AddEventSelectorOptions) {
 	)
 }
 
-// Create an event rule for when an event is recorded by any Trail in the account.
-//
-// Note that the event doesn't necessarily have to come from this Trail, it can
-// be captured from any one.
-//
-// Be sure to filter the event further down using an event pattern.
-// Deprecated: - use Trail.onEvent()
-func (t *jsiiProxy_Trail) OnCloudTrailEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
-	var returns awsevents.Rule
-
-	_jsii_.Invoke(
-		t,
-		"onCloudTrailEvent",
-		[]interface{}{id, options},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns a string representation of this construct.
 // Experimental.
 func (t *jsiiProxy_Trail) ToString() *string {
@@ -1336,9 +1315,6 @@ type TrailProps struct {
 	// Whether or not this trail delivers log files from multiple regions to a single S3 bucket for a single account.
 	// Experimental.
 	IsMultiRegionTrail *bool `json:"isMultiRegionTrail"`
-	// The AWS Key Management Service (AWS KMS) key ID that you want to use to encrypt CloudTrail logs.
-	// Deprecated: - use encryptionKey instead.
-	KmsKey awskms.IKey `json:"kmsKey"`
 	// When an event occurs in your account, CloudTrail evaluates whether the event matches the settings for your trails.
 	//
 	// Only events that match your trail settings are delivered to your Amazon S3 bucket and Amazon CloudWatch Logs log group.

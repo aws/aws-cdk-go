@@ -126,7 +126,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "logAllS3DataEvents", GoMethod: "LogAllS3DataEvents"},
 			_jsii_.MemberProperty{JsiiProperty: "logGroup", GoGetter: "LogGroup"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onCloudTrailEvent", GoMethod: "OnCloudTrailEvent"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},

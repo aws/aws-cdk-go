@@ -144,7 +144,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cloudmapService", GoGetter: "CloudmapService"},
 			_jsii_.MemberProperty{JsiiProperty: "cloudMapService", GoGetter: "CloudMapService"},
 			_jsii_.MemberProperty{JsiiProperty: "cluster", GoGetter: "Cluster"},
-			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworking", GoMethod: "ConfigureAwsVpcNetworking"},
 			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworkingWithSecurityGroups", GoMethod: "ConfigureAwsVpcNetworkingWithSecurityGroups"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberMethod{JsiiMethod: "enableCloudMap", GoMethod: "EnableCloudMap"},
@@ -846,9 +845,7 @@ func init() {
 		reflect.TypeOf((*Cluster)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addAsgCapacityProvider", GoMethod: "AddAsgCapacityProvider"},
-			_jsii_.MemberMethod{JsiiMethod: "addAutoScalingGroup", GoMethod: "AddAutoScalingGroup"},
 			_jsii_.MemberMethod{JsiiMethod: "addCapacity", GoMethod: "AddCapacity"},
-			_jsii_.MemberMethod{JsiiMethod: "addCapacityProvider", GoMethod: "AddCapacityProvider"},
 			_jsii_.MemberMethod{JsiiMethod: "addDefaultCloudMapNamespace", GoMethod: "AddDefaultCloudMapNamespace"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "autoscalingGroup", GoGetter: "AutoscalingGroup"},
@@ -1035,7 +1032,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cloudmapService", GoGetter: "CloudmapService"},
 			_jsii_.MemberProperty{JsiiProperty: "cloudMapService", GoGetter: "CloudMapService"},
 			_jsii_.MemberProperty{JsiiProperty: "cluster", GoGetter: "Cluster"},
-			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworking", GoMethod: "ConfigureAwsVpcNetworking"},
 			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworkingWithSecurityGroups", GoMethod: "ConfigureAwsVpcNetworkingWithSecurityGroups"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberMethod{JsiiMethod: "enableCloudMap", GoMethod: "EnableCloudMap"},
@@ -1141,22 +1137,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ecs.EcsOptimizedAmi",
-		reflect.TypeOf((*EcsOptimizedAmi)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "getImage", GoMethod: "GetImage"},
-		},
-		func() interface{} {
-			j := jsiiProxy_EcsOptimizedAmi{}
-			_jsii_.InitJsiiProxy(&j.Type__awsec2IMachineImage)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ecs.EcsOptimizedAmiProps",
-		reflect.TypeOf((*EcsOptimizedAmiProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_ecs.EcsOptimizedImage",
 		reflect.TypeOf((*EcsOptimizedImage)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1231,7 +1211,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cloudmapService", GoGetter: "CloudmapService"},
 			_jsii_.MemberProperty{JsiiProperty: "cloudMapService", GoGetter: "CloudMapService"},
 			_jsii_.MemberProperty{JsiiProperty: "cluster", GoGetter: "Cluster"},
-			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworking", GoMethod: "ConfigureAwsVpcNetworking"},
 			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworkingWithSecurityGroups", GoMethod: "ConfigureAwsVpcNetworkingWithSecurityGroups"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberMethod{JsiiMethod: "enableCloudMap", GoMethod: "EnableCloudMap"},
@@ -1348,7 +1327,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "cloudmapService", GoGetter: "CloudmapService"},
 			_jsii_.MemberProperty{JsiiProperty: "cloudMapService", GoGetter: "CloudMapService"},
 			_jsii_.MemberProperty{JsiiProperty: "cluster", GoGetter: "Cluster"},
-			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworking", GoMethod: "ConfigureAwsVpcNetworking"},
 			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworkingWithSecurityGroups", GoMethod: "ConfigureAwsVpcNetworkingWithSecurityGroups"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberMethod{JsiiMethod: "enableCloudMap", GoMethod: "EnableCloudMap"},

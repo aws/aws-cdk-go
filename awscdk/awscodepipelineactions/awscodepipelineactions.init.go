@@ -63,24 +63,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_codepipeline_actions.BitBucketSourceAction",
-		reflect.TypeOf((*BitBucketSourceAction)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "actionProperties", GoGetter: "ActionProperties"},
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
-		},
-		func() interface{} {
-			j := jsiiProxy_BitBucketSourceAction{}
-			_jsii_.InitJsiiProxy(&j.Type__awscodepipelineIAction)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_codepipeline_actions.BitBucketSourceActionProps",
-		reflect.TypeOf((*BitBucketSourceActionProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_codepipeline_actions.CacheControl",
 		reflect.TypeOf((*CacheControl)(nil)).Elem(),
 		[]_jsii_.Member{

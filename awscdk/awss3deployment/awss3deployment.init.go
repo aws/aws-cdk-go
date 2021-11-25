@@ -38,16 +38,6 @@ func init() {
 		"aws-cdk-lib.aws_s3_deployment.DeploymentSourceContext",
 		reflect.TypeOf((*DeploymentSourceContext)(nil)).Elem(),
 	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_s3_deployment.Expires",
-		reflect.TypeOf((*Expires)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "value", GoGetter: "Value"},
-		},
-		func() interface{} {
-			return &jsiiProxy_Expires{}
-		},
-	)
 	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_s3_deployment.ISource",
 		reflect.TypeOf((*ISource)(nil)).Elem(),

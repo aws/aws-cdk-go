@@ -82,7 +82,6 @@ func init() {
 		"aws-cdk-lib.AssetHashType",
 		reflect.TypeOf((*AssetHashType)(nil)).Elem(),
 		map[string]interface{}{
-			"BUNDLE": AssetHashType_BUNDLE,
 			"CUSTOM": AssetHashType_CUSTOM,
 			"OUTPUT": AssetHashType_OUTPUT,
 			"SOURCE": AssetHashType_SOURCE,
@@ -102,9 +101,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "packaging", GoGetter: "Packaging"},
 			_jsii_.MemberMethod{JsiiMethod: "relativeStagedPath", GoMethod: "RelativeStagedPath"},
-			_jsii_.MemberProperty{JsiiProperty: "sourceHash", GoGetter: "SourceHash"},
 			_jsii_.MemberProperty{JsiiProperty: "sourcePath", GoGetter: "SourcePath"},
-			_jsii_.MemberProperty{JsiiProperty: "stagedPath", GoGetter: "StagedPath"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},
 		func() interface{} {
@@ -148,19 +145,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.BootstraplessSynthesizerProps",
 		reflect.TypeOf((*BootstraplessSynthesizerProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.BundlingDockerImage",
-		reflect.TypeOf((*BundlingDockerImage)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "cp", GoMethod: "Cp"},
-			_jsii_.MemberProperty{JsiiProperty: "image", GoGetter: "Image"},
-			_jsii_.MemberMethod{JsiiMethod: "run", GoMethod: "Run"},
-			_jsii_.MemberMethod{JsiiMethod: "toJSON", GoMethod: "ToJSON"},
-		},
-		func() interface{} {
-			return &jsiiProxy_BundlingDockerImage{}
-		},
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.BundlingOptions",
@@ -396,28 +380,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.CfnHookProps",
 		reflect.TypeOf((*CfnHookProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.CfnInclude",
-		reflect.TypeOf((*CfnInclude)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "creationStack", GoGetter: "CreationStack"},
-			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberProperty{JsiiProperty: "template", GoGetter: "Template"},
-			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-		},
-		func() interface{} {
-			j := jsiiProxy_CfnInclude{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_CfnElement)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.CfnIncludeProps",
-		reflect.TypeOf((*CfnIncludeProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.CfnJson",
@@ -1304,7 +1266,6 @@ func init() {
 		"aws-cdk-lib.CustomResourceProviderRuntime",
 		reflect.TypeOf((*CustomResourceProviderRuntime)(nil)).Elem(),
 		map[string]interface{}{
-			"NODEJS_12": CustomResourceProviderRuntime_NODEJS_12,
 			"NODEJS_14_X": CustomResourceProviderRuntime_NODEJS_14_X,
 		},
 	)
@@ -1373,9 +1334,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toJSON", GoMethod: "ToJSON"},
 		},
 		func() interface{} {
-			j := jsiiProxy_DockerImage{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_BundlingDockerImage)
-			return &j
+			return &jsiiProxy_DockerImage{}
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -1415,7 +1374,6 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "toHours", GoMethod: "ToHours"},
 			_jsii_.MemberMethod{JsiiMethod: "toHumanString", GoMethod: "ToHumanString"},
 			_jsii_.MemberMethod{JsiiMethod: "toIsoString", GoMethod: "ToIsoString"},
-			_jsii_.MemberMethod{JsiiMethod: "toISOString", GoMethod: "ToISOString"},
 			_jsii_.MemberMethod{JsiiMethod: "toMilliseconds", GoMethod: "ToMilliseconds"},
 			_jsii_.MemberMethod{JsiiMethod: "toMinutes", GoMethod: "ToMinutes"},
 			_jsii_.MemberMethod{JsiiMethod: "toSeconds", GoMethod: "ToSeconds"},
@@ -1814,7 +1772,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "description", GoGetter: "Description"},
 			_jsii_.MemberProperty{JsiiProperty: "metadata", GoGetter: "Metadata"},
 			_jsii_.MemberProperty{JsiiProperty: "templateFormatVersion", GoGetter: "TemplateFormatVersion"},
-			_jsii_.MemberProperty{JsiiProperty: "transform", GoGetter: "Transform"},
 			_jsii_.MemberProperty{JsiiProperty: "transforms", GoGetter: "Transforms"},
 		},
 		func() interface{} {
@@ -1934,8 +1891,6 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "account", GoGetter: "Account"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
-			_jsii_.MemberMethod{JsiiMethod: "addDockerImageAsset", GoMethod: "AddDockerImageAsset"},
-			_jsii_.MemberMethod{JsiiMethod: "addFileAsset", GoMethod: "AddFileAsset"},
 			_jsii_.MemberMethod{JsiiMethod: "addTransform", GoMethod: "AddTransform"},
 			_jsii_.MemberMethod{JsiiMethod: "allocateLogicalId", GoMethod: "AllocateLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "artifactId", GoGetter: "ArtifactId"},
@@ -1950,13 +1905,9 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "nestedStackResource", GoGetter: "NestedStackResource"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "notificationArns", GoGetter: "NotificationArns"},
-			_jsii_.MemberProperty{JsiiProperty: "parentStack", GoGetter: "ParentStack"},
-			_jsii_.MemberMethod{JsiiMethod: "parseArn", GoMethod: "ParseArn"},
 			_jsii_.MemberProperty{JsiiProperty: "partition", GoGetter: "Partition"},
-			_jsii_.MemberMethod{JsiiMethod: "prepareCrossReference", GoMethod: "PrepareCrossReference"},
 			_jsii_.MemberProperty{JsiiProperty: "region", GoGetter: "Region"},
 			_jsii_.MemberMethod{JsiiMethod: "renameLogicalId", GoMethod: "RenameLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "reportMissingContext", GoMethod: "ReportMissingContext"},
 			_jsii_.MemberMethod{JsiiMethod: "reportMissingContextKey", GoMethod: "ReportMissingContextKey"},
 			_jsii_.MemberMethod{JsiiMethod: "resolve", GoMethod: "Resolve"},
 			_jsii_.MemberMethod{JsiiMethod: "setParameter", GoMethod: "SetParameter"},
@@ -2163,8 +2114,6 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "account", GoGetter: "Account"},
 			_jsii_.MemberMethod{JsiiMethod: "addDependency", GoMethod: "AddDependency"},
-			_jsii_.MemberMethod{JsiiMethod: "addDockerImageAsset", GoMethod: "AddDockerImageAsset"},
-			_jsii_.MemberMethod{JsiiMethod: "addFileAsset", GoMethod: "AddFileAsset"},
 			_jsii_.MemberMethod{JsiiMethod: "addTransform", GoMethod: "AddTransform"},
 			_jsii_.MemberMethod{JsiiMethod: "allocateLogicalId", GoMethod: "AllocateLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "artifactId", GoGetter: "ArtifactId"},
@@ -2179,13 +2128,9 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "nestedStackResource", GoGetter: "NestedStackResource"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "notificationArns", GoGetter: "NotificationArns"},
-			_jsii_.MemberProperty{JsiiProperty: "parentStack", GoGetter: "ParentStack"},
-			_jsii_.MemberMethod{JsiiMethod: "parseArn", GoMethod: "ParseArn"},
 			_jsii_.MemberProperty{JsiiProperty: "partition", GoGetter: "Partition"},
-			_jsii_.MemberMethod{JsiiMethod: "prepareCrossReference", GoMethod: "PrepareCrossReference"},
 			_jsii_.MemberProperty{JsiiProperty: "region", GoGetter: "Region"},
 			_jsii_.MemberMethod{JsiiMethod: "renameLogicalId", GoMethod: "RenameLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "reportMissingContext", GoMethod: "ReportMissingContext"},
 			_jsii_.MemberMethod{JsiiMethod: "reportMissingContextKey", GoMethod: "ReportMissingContextKey"},
 			_jsii_.MemberMethod{JsiiMethod: "resolve", GoMethod: "Resolve"},
 			_jsii_.MemberMethod{JsiiMethod: "splitArn", GoMethod: "SplitArn"},

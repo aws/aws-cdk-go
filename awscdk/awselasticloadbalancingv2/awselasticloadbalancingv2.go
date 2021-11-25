@@ -24,33 +24,6 @@ type AddApplicationActionProps struct {
 	//
 	// Experimental.
 	Conditions *[]ListenerCondition `json:"conditions"`
-	// Rule applies if the requested host matches the indicated host.
-	//
-	// May contain up to three '*' wildcards.
-	//
-	// Requires that priority is set.
-	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions
-	//
-	// Deprecated: Use `conditions` instead.
-	HostHeader *string `json:"hostHeader"`
-	// Rule applies if the requested path matches the given path pattern.
-	//
-	// May contain up to three '*' wildcards.
-	//
-	// Requires that priority is set.
-	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
-	//
-	// Deprecated: Use `conditions` instead.
-	PathPattern *string `json:"pathPattern"`
-	// Rule applies if the requested path matches any of the given patterns.
-	//
-	// May contain up to three '*' wildcards.
-	//
-	// Requires that priority is set.
-	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
-	//
-	// Deprecated: Use `conditions` instead.
-	PathPatterns *[]*string `json:"pathPatterns"`
 	// Priority of this target group.
 	//
 	// The rule with the lowest priority will be used for every request.
@@ -76,33 +49,6 @@ type AddApplicationTargetGroupsProps struct {
 	//
 	// Experimental.
 	Conditions *[]ListenerCondition `json:"conditions"`
-	// Rule applies if the requested host matches the indicated host.
-	//
-	// May contain up to three '*' wildcards.
-	//
-	// Requires that priority is set.
-	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions
-	//
-	// Deprecated: Use `conditions` instead.
-	HostHeader *string `json:"hostHeader"`
-	// Rule applies if the requested path matches the given path pattern.
-	//
-	// May contain up to three '*' wildcards.
-	//
-	// Requires that priority is set.
-	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
-	//
-	// Deprecated: Use `conditions` instead.
-	PathPattern *string `json:"pathPattern"`
-	// Rule applies if the requested path matches any of the given patterns.
-	//
-	// May contain up to three '*' wildcards.
-	//
-	// Requires that priority is set.
-	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
-	//
-	// Deprecated: Use `conditions` instead.
-	PathPatterns *[]*string `json:"pathPatterns"`
 	// Priority of this target group.
 	//
 	// The rule with the lowest priority will be used for every request.
@@ -128,33 +74,6 @@ type AddApplicationTargetsProps struct {
 	//
 	// Experimental.
 	Conditions *[]ListenerCondition `json:"conditions"`
-	// Rule applies if the requested host matches the indicated host.
-	//
-	// May contain up to three '*' wildcards.
-	//
-	// Requires that priority is set.
-	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions
-	//
-	// Deprecated: Use `conditions` instead.
-	HostHeader *string `json:"hostHeader"`
-	// Rule applies if the requested path matches the given path pattern.
-	//
-	// May contain up to three '*' wildcards.
-	//
-	// Requires that priority is set.
-	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
-	//
-	// Deprecated: Use `conditions` instead.
-	PathPattern *string `json:"pathPattern"`
-	// Rule applies if the requested path matches any of the given patterns.
-	//
-	// May contain up to three '*' wildcards.
-	//
-	// Requires that priority is set.
-	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
-	//
-	// Deprecated: Use `conditions` instead.
-	PathPatterns *[]*string `json:"pathPatterns"`
 	// Priority of this target group.
 	//
 	// The rule with the lowest priority will be used for every request.
@@ -223,64 +142,6 @@ type AddApplicationTargetsProps struct {
 	Targets *[]IApplicationLoadBalancerTarget `json:"targets"`
 }
 
-// Properties for adding a fixed response to a listener.
-//
-// TODO: EXAMPLE
-//
-// Deprecated: Use `ApplicationListener.addAction` instead.
-type AddFixedResponseProps struct {
-	// Rule applies if matches the conditions.
-	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html
-	//
-	// Deprecated: Use `ApplicationListener.addAction` instead.
-	Conditions *[]ListenerCondition `json:"conditions"`
-	// Rule applies if the requested host matches the indicated host.
-	//
-	// May contain up to three '*' wildcards.
-	//
-	// Requires that priority is set.
-	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions
-	//
-	// Deprecated: Use `conditions` instead.
-	HostHeader *string `json:"hostHeader"`
-	// Rule applies if the requested path matches the given path pattern.
-	//
-	// May contain up to three '*' wildcards.
-	//
-	// Requires that priority is set.
-	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
-	//
-	// Deprecated: Use `conditions` instead.
-	PathPattern *string `json:"pathPattern"`
-	// Rule applies if the requested path matches any of the given patterns.
-	//
-	// May contain up to three '*' wildcards.
-	//
-	// Requires that priority is set.
-	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
-	//
-	// Deprecated: Use `conditions` instead.
-	PathPatterns *[]*string `json:"pathPatterns"`
-	// Priority of this target group.
-	//
-	// The rule with the lowest priority will be used for every request.
-	// If priority is not given, these target groups will be added as
-	// defaults, and must not have conditions.
-	//
-	// Priorities must be unique.
-	// Deprecated: Use `ApplicationListener.addAction` instead.
-	Priority *float64 `json:"priority"`
-	// The content type.
-	// Deprecated: Use `ApplicationListener.addAction` instead.
-	ContentType ContentType `json:"contentType"`
-	// The message.
-	// Deprecated: Use `ApplicationListener.addAction` instead.
-	MessageBody *string `json:"messageBody"`
-	// The HTTP response code (2XX, 4XX or 5XX).
-	// Deprecated: Use `ApplicationListener.addAction` instead.
-	StatusCode *string `json:"statusCode"`
-}
-
 // Properties for adding a new action to a listener.
 //
 // TODO: EXAMPLE
@@ -334,86 +195,6 @@ type AddNetworkTargetsProps struct {
 	Targets *[]INetworkLoadBalancerTarget `json:"targets"`
 }
 
-// Properties for adding a redirect response to a listener.
-//
-// TODO: EXAMPLE
-//
-// Deprecated: Use `ApplicationListener.addAction` instead.
-type AddRedirectResponseProps struct {
-	// Rule applies if matches the conditions.
-	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html
-	//
-	// Deprecated: Use `ApplicationListener.addAction` instead.
-	Conditions *[]ListenerCondition `json:"conditions"`
-	// Rule applies if the requested host matches the indicated host.
-	//
-	// May contain up to three '*' wildcards.
-	//
-	// Requires that priority is set.
-	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions
-	//
-	// Deprecated: Use `conditions` instead.
-	HostHeader *string `json:"hostHeader"`
-	// Rule applies if the requested path matches the given path pattern.
-	//
-	// May contain up to three '*' wildcards.
-	//
-	// Requires that priority is set.
-	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
-	//
-	// Deprecated: Use `conditions` instead.
-	PathPattern *string `json:"pathPattern"`
-	// Rule applies if the requested path matches any of the given patterns.
-	//
-	// May contain up to three '*' wildcards.
-	//
-	// Requires that priority is set.
-	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
-	//
-	// Deprecated: Use `conditions` instead.
-	PathPatterns *[]*string `json:"pathPatterns"`
-	// Priority of this target group.
-	//
-	// The rule with the lowest priority will be used for every request.
-	// If priority is not given, these target groups will be added as
-	// defaults, and must not have conditions.
-	//
-	// Priorities must be unique.
-	// Deprecated: Use `ApplicationListener.addAction` instead.
-	Priority *float64 `json:"priority"`
-	// The hostname.
-	//
-	// This component is not percent-encoded. The hostname can contain #{host}.
-	// Deprecated: Use `ApplicationListener.addAction` instead.
-	Host *string `json:"host"`
-	// The absolute path, starting with the leading "/".
-	//
-	// This component is not percent-encoded.
-	// The path can contain #{host}, #{path}, and #{port}.
-	// Deprecated: Use `ApplicationListener.addAction` instead.
-	Path *string `json:"path"`
-	// The port.
-	//
-	// You can specify a value from 1 to 65535 or #{port}.
-	// Deprecated: Use `ApplicationListener.addAction` instead.
-	Port *string `json:"port"`
-	// The protocol.
-	//
-	// You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP,
-	// HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
-	// Deprecated: Use `ApplicationListener.addAction` instead.
-	Protocol *string `json:"protocol"`
-	// The query parameters, URL-encoded when necessary, but not percent-encoded.
-	//
-	// Do not include the leading "?", as it is automatically added.
-	// You can specify any of the reserved keywords.
-	// Deprecated: Use `ApplicationListener.addAction` instead.
-	Query *string `json:"query"`
-	// The HTTP redirect code (HTTP_301 or HTTP_302).
-	// Deprecated: Use `ApplicationListener.addAction` instead.
-	StatusCode *string `json:"statusCode"`
-}
-
 // Properties for adding a conditional load balancing rule.
 //
 // TODO: EXAMPLE
@@ -425,33 +206,6 @@ type AddRuleProps struct {
 	//
 	// Experimental.
 	Conditions *[]ListenerCondition `json:"conditions"`
-	// Rule applies if the requested host matches the indicated host.
-	//
-	// May contain up to three '*' wildcards.
-	//
-	// Requires that priority is set.
-	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions
-	//
-	// Deprecated: Use `conditions` instead.
-	HostHeader *string `json:"hostHeader"`
-	// Rule applies if the requested path matches the given path pattern.
-	//
-	// May contain up to three '*' wildcards.
-	//
-	// Requires that priority is set.
-	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
-	//
-	// Deprecated: Use `conditions` instead.
-	PathPattern *string `json:"pathPattern"`
-	// Rule applies if the requested path matches any of the given patterns.
-	//
-	// May contain up to three '*' wildcards.
-	//
-	// Requires that priority is set.
-	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
-	//
-	// Deprecated: Use `conditions` instead.
-	PathPatterns *[]*string `json:"pathPatterns"`
 	// Priority of this target group.
 	//
 	// The rule with the lowest priority will be used for every request.
@@ -493,10 +247,7 @@ type ApplicationListener interface {
 	PhysicalName() *string
 	Stack() awscdk.Stack
 	AddAction(id *string, props *AddApplicationActionProps)
-	AddCertificateArns(id *string, arns *[]*string)
 	AddCertificates(id *string, certificates *[]IListenerCertificate)
-	AddFixedResponse(id *string, props *AddFixedResponseProps)
-	AddRedirectResponse(id *string, props *AddRedirectResponseProps)
 	AddTargetGroups(id *string, props *AddApplicationTargetGroupsProps)
 	AddTargets(id *string, props *AddApplicationTargetsProps) ApplicationTargetGroup
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
@@ -704,46 +455,12 @@ func (a *jsiiProxy_ApplicationListener) AddAction(id *string, props *AddApplicat
 // After the first certificate, this creates ApplicationListenerCertificates
 // resources since cloudformation requires the certificates array on the
 // listener resource to have a length of 1.
-// Deprecated: Use `addCertificates` instead.
-func (a *jsiiProxy_ApplicationListener) AddCertificateArns(id *string, arns *[]*string) {
-	_jsii_.InvokeVoid(
-		a,
-		"addCertificateArns",
-		[]interface{}{id, arns},
-	)
-}
-
-// Add one or more certificates to this listener.
-//
-// After the first certificate, this creates ApplicationListenerCertificates
-// resources since cloudformation requires the certificates array on the
-// listener resource to have a length of 1.
 // Experimental.
 func (a *jsiiProxy_ApplicationListener) AddCertificates(id *string, certificates *[]IListenerCertificate) {
 	_jsii_.InvokeVoid(
 		a,
 		"addCertificates",
 		[]interface{}{id, certificates},
-	)
-}
-
-// Add a fixed response.
-// Deprecated: Use `addAction()` instead
-func (a *jsiiProxy_ApplicationListener) AddFixedResponse(id *string, props *AddFixedResponseProps) {
-	_jsii_.InvokeVoid(
-		a,
-		"addFixedResponse",
-		[]interface{}{id, props},
-	)
-}
-
-// Add a redirect response.
-// Deprecated: Use `addAction()` instead
-func (a *jsiiProxy_ApplicationListener) AddRedirectResponse(id *string, props *AddRedirectResponseProps) {
-	_jsii_.InvokeVoid(
-		a,
-		"addRedirectResponse",
-		[]interface{}{id, props},
 	)
 }
 
@@ -918,14 +635,6 @@ type ApplicationListenerAttributes struct {
 	// Security group of the load balancer this listener is associated with.
 	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
-	// Whether the imported security group allows all outbound traffic or not when imported using `securityGroupId`.
-	//
-	// Unless set to `false`, no egress rules will be added to the security group.
-	// Deprecated: use `securityGroup` instead
-	SecurityGroupAllowsAllOutbound *bool `json:"securityGroupAllowsAllOutbound"`
-	// Security group ID of the load balancer this listener is associated with.
-	// Deprecated: use `securityGroup` instead
-	SecurityGroupId *string `json:"securityGroupId"`
 }
 
 // Add certificates to a listener.
@@ -1021,11 +730,6 @@ func (a *jsiiProxy_ApplicationListenerCertificate) ToString() *string {
 //
 // Experimental.
 type ApplicationListenerCertificateProps struct {
-	// ARNs of certificates to attach.
-	//
-	// Duplicates are not allowed.
-	// Deprecated: Use `certificates` instead.
-	CertificateArns *[]*string `json:"certificateArns"`
 	// Certificates to attach.
 	//
 	// Duplicates are not allowed.
@@ -1065,9 +769,6 @@ type ApplicationListenerLookupOptions struct {
 //
 // Experimental.
 type ApplicationListenerProps struct {
-	// The certificates to use on this listener.
-	// Deprecated: Use the `certificates` property instead
-	CertificateArns *[]*string `json:"certificateArns"`
 	// Certificate list of ACM cert ARNs.
 	//
 	// You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
@@ -1127,11 +828,7 @@ type ApplicationListenerRule interface {
 	ListenerRuleArn() *string
 	Node() constructs.Node
 	AddCondition(condition ListenerCondition)
-	AddFixedResponse(fixedResponse *FixedResponse)
-	AddRedirectResponse(redirectResponse *RedirectResponse)
-	AddTargetGroup(targetGroup IApplicationTargetGroup)
 	ConfigureAction(action ListenerAction)
-	SetCondition(field *string, values *[]*string)
 	ToString() *string
 }
 
@@ -1216,36 +913,6 @@ func (a *jsiiProxy_ApplicationListenerRule) AddCondition(condition ListenerCondi
 	)
 }
 
-// Add a fixed response.
-// Deprecated: Use configureAction instead
-func (a *jsiiProxy_ApplicationListenerRule) AddFixedResponse(fixedResponse *FixedResponse) {
-	_jsii_.InvokeVoid(
-		a,
-		"addFixedResponse",
-		[]interface{}{fixedResponse},
-	)
-}
-
-// Add a redirect response.
-// Deprecated: Use configureAction instead
-func (a *jsiiProxy_ApplicationListenerRule) AddRedirectResponse(redirectResponse *RedirectResponse) {
-	_jsii_.InvokeVoid(
-		a,
-		"addRedirectResponse",
-		[]interface{}{redirectResponse},
-	)
-}
-
-// Add a TargetGroup to load balance to.
-// Deprecated: Use configureAction instead
-func (a *jsiiProxy_ApplicationListenerRule) AddTargetGroup(targetGroup IApplicationTargetGroup) {
-	_jsii_.InvokeVoid(
-		a,
-		"addTargetGroup",
-		[]interface{}{targetGroup},
-	)
-}
-
 // Configure the action to perform for this rule.
 // Experimental.
 func (a *jsiiProxy_ApplicationListenerRule) ConfigureAction(action ListenerAction) {
@@ -1253,18 +920,6 @@ func (a *jsiiProxy_ApplicationListenerRule) ConfigureAction(action ListenerActio
 		a,
 		"configureAction",
 		[]interface{}{action},
-	)
-}
-
-// Add a non-standard condition to this rule.
-//
-// If the condition conflicts with an already set condition, it will be overwritten by the one you specified.
-// Deprecated: use `addCondition` instead.
-func (a *jsiiProxy_ApplicationListenerRule) SetCondition(field *string, values *[]*string) {
-	_jsii_.InvokeVoid(
-		a,
-		"setCondition",
-		[]interface{}{field, values},
 	)
 }
 
@@ -1299,30 +954,6 @@ type ApplicationListenerRuleProps struct {
 	//
 	// Experimental.
 	Conditions *[]ListenerCondition `json:"conditions"`
-	// Fixed response to return.
-	//
-	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
-	// Deprecated: Use `action` instead.
-	FixedResponse *FixedResponse `json:"fixedResponse"`
-	// Rule applies if the requested host matches the indicated host.
-	//
-	// May contain up to three '*' wildcards.
-	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions
-	//
-	// Deprecated: Use `conditions` instead.
-	HostHeader *string `json:"hostHeader"`
-	// Rule applies if the requested path matches the given path pattern.
-	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
-	//
-	// Deprecated: Use `conditions` instead.
-	PathPattern *string `json:"pathPattern"`
-	// Rule applies if the requested path matches any of the given patterns.
-	//
-	// Paths may contain up to three '*' wildcards.
-	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
-	//
-	// Deprecated: Use `conditions` instead.
-	PathPatterns *[]*string `json:"pathPatterns"`
 	// Priority of the rule.
 	//
 	// The rule with the lowest priority will be used for every request.
@@ -1330,11 +961,6 @@ type ApplicationListenerRuleProps struct {
 	// Priorities must be unique.
 	// Experimental.
 	Priority *float64 `json:"priority"`
-	// Redirect response to return.
-	//
-	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
-	// Deprecated: Use `action` instead.
-	RedirectResponse *RedirectResponse `json:"redirectResponse"`
 	// Target groups to forward requests to.
 	//
 	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
@@ -2538,23 +2164,6 @@ func ApplicationTargetGroup_FromTargetGroupAttributes(scope constructs.Construct
 	return returns
 }
 
-// Import an existing target group.
-// Deprecated: Use `fromTargetGroupAttributes` instead
-func ApplicationTargetGroup_Import(scope constructs.Construct, id *string, props *TargetGroupImportProps) IApplicationTargetGroup {
-	_init_.Initialize()
-
-	var returns IApplicationTargetGroup
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ApplicationTargetGroup",
-		"import",
-		[]interface{}{scope, id, props},
-		&returns,
-	)
-
-	return returns
-}
-
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
@@ -2990,9 +2599,6 @@ type AuthenticateOidcOptions struct {
 //
 // Experimental.
 type BaseApplicationListenerProps struct {
-	// The certificates to use on this listener.
-	// Deprecated: Use the `certificates` property instead
-	CertificateArns *[]*string `json:"certificateArns"`
 	// Certificate list of ACM cert ARNs.
 	//
 	// You must provide exactly one certificate if the listener protocol is HTTPS or TLS.
@@ -3055,30 +2661,6 @@ type BaseApplicationListenerRuleProps struct {
 	//
 	// Experimental.
 	Conditions *[]ListenerCondition `json:"conditions"`
-	// Fixed response to return.
-	//
-	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
-	// Deprecated: Use `action` instead.
-	FixedResponse *FixedResponse `json:"fixedResponse"`
-	// Rule applies if the requested host matches the indicated host.
-	//
-	// May contain up to three '*' wildcards.
-	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions
-	//
-	// Deprecated: Use `conditions` instead.
-	HostHeader *string `json:"hostHeader"`
-	// Rule applies if the requested path matches the given path pattern.
-	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
-	//
-	// Deprecated: Use `conditions` instead.
-	PathPattern *string `json:"pathPattern"`
-	// Rule applies if the requested path matches any of the given patterns.
-	//
-	// Paths may contain up to three '*' wildcards.
-	// See: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#path-conditions
-	//
-	// Deprecated: Use `conditions` instead.
-	PathPatterns *[]*string `json:"pathPatterns"`
 	// Priority of the rule.
 	//
 	// The rule with the lowest priority will be used for every request.
@@ -3086,11 +2668,6 @@ type BaseApplicationListenerRuleProps struct {
 	// Priorities must be unique.
 	// Experimental.
 	Priority *float64 `json:"priority"`
-	// Redirect response to return.
-	//
-	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
-	// Deprecated: Use `action` instead.
-	RedirectResponse *RedirectResponse `json:"redirectResponse"`
 	// Target groups to forward requests to.
 	//
 	// Only one of `action`, `fixedResponse`, `redirectResponse` or `targetGroups` can be specified.
@@ -7520,38 +7097,6 @@ type CfnTargetGroupProps struct {
 	VpcId *string `json:"vpcId"`
 }
 
-// The content type for a fixed response.
-//
-// TODO: EXAMPLE
-//
-// Deprecated: superceded by `FixedResponseOptions`.
-type ContentType string
-
-const (
-	ContentType_APPLICATION_JAVASCRIPT ContentType = "APPLICATION_JAVASCRIPT"
-	ContentType_APPLICATION_JSON ContentType = "APPLICATION_JSON"
-	ContentType_TEXT_CSS ContentType = "TEXT_CSS"
-	ContentType_TEXT_HTML ContentType = "TEXT_HTML"
-	ContentType_TEXT_PLAIN ContentType = "TEXT_PLAIN"
-)
-
-// A fixed response.
-//
-// TODO: EXAMPLE
-//
-// Deprecated: superceded by `ListenerAction.fixedResponse()`.
-type FixedResponse struct {
-	// The content type.
-	// Deprecated: superceded by `ListenerAction.fixedResponse()`.
-	ContentType ContentType `json:"contentType"`
-	// The message.
-	// Deprecated: superceded by `ListenerAction.fixedResponse()`.
-	MessageBody *string `json:"messageBody"`
-	// The HTTP response code (2XX, 4XX or 5XX).
-	// Deprecated: superceded by `ListenerAction.fixedResponse()`.
-	StatusCode *string `json:"statusCode"`
-}
-
 // Options for `ListenerAction.fixedResponse()`.
 //
 // TODO: EXAMPLE
@@ -7671,9 +7216,6 @@ type IApplicationListener interface {
 	awsec2.IConnectable
 	awscdk.IResource
 	// Add one or more certificates to this listener.
-	// Deprecated: use `addCertificates()`
-	AddCertificateArns(id *string, arns *[]*string)
-	// Add one or more certificates to this listener.
 	// Experimental.
 	AddCertificates(id *string, certificates *[]IListenerCertificate)
 	// Load balance incoming requests to the given target groups.
@@ -7707,14 +7249,6 @@ type IApplicationListener interface {
 type jsiiProxy_IApplicationListener struct {
 	internal.Type__awsec2IConnectable
 	internal.Type__awscdkIResource
-}
-
-func (i *jsiiProxy_IApplicationListener) AddCertificateArns(id *string, arns *[]*string) {
-	_jsii_.InvokeVoid(
-		i,
-		"addCertificateArns",
-		[]interface{}{id, arns},
-	)
 }
 
 func (i *jsiiProxy_IApplicationListener) AddCertificates(id *string, certificates *[]IListenerCertificate) {
@@ -8145,19 +7679,6 @@ func (j *jsiiProxy_INetworkListener) ListenerArn() *string {
 	return returns
 }
 
-// Properties for adding a certificate to a listener.
-//
-// This interface exists for backwards compatibility.
-// Deprecated: Use IListenerCertificate instead
-type INetworkListenerCertificateProps interface {
-	IListenerCertificate
-}
-
-// The jsii proxy for INetworkListenerCertificateProps
-type jsiiProxy_INetworkListenerCertificateProps struct {
-	jsiiProxy_IListenerCertificate
-}
-
 // A network load balancer.
 // Experimental.
 type INetworkLoadBalancer interface {
@@ -8381,91 +7902,6 @@ func (j *jsiiProxy_ITargetGroup) TargetGroupArn() *string {
 	return returns
 }
 
-// An EC2 instance that is the target for load balancing.
-//
-// If you register a target of this type, you are responsible for making
-// sure the load balancer's security group can connect to the instance.
-//
-// TODO: EXAMPLE
-//
-// Deprecated: Use IpTarget from the
-type InstanceTarget interface {
-	IApplicationLoadBalancerTarget
-	INetworkLoadBalancerTarget
-	AttachToApplicationTargetGroup(targetGroup IApplicationTargetGroup) *LoadBalancerTargetProps
-	AttachToNetworkTargetGroup(targetGroup INetworkTargetGroup) *LoadBalancerTargetProps
-}
-
-// The jsii proxy struct for InstanceTarget
-type jsiiProxy_InstanceTarget struct {
-	jsiiProxy_IApplicationLoadBalancerTarget
-	jsiiProxy_INetworkLoadBalancerTarget
-}
-
-// Create a new Instance target.
-// Deprecated: Use IpTarget from the
-func NewInstanceTarget(instanceId *string, port *float64) InstanceTarget {
-	_init_.Initialize()
-
-	j := jsiiProxy_InstanceTarget{}
-
-	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.InstanceTarget",
-		[]interface{}{instanceId, port},
-		&j,
-	)
-
-	return &j
-}
-
-// Create a new Instance target.
-// Deprecated: Use IpTarget from the
-func NewInstanceTarget_Override(i InstanceTarget, instanceId *string, port *float64) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.InstanceTarget",
-		[]interface{}{instanceId, port},
-		i,
-	)
-}
-
-// Register this instance target with a load balancer.
-//
-// Don't call this, it is called automatically when you add the target to a
-// load balancer.
-// Deprecated: Use IpTarget from the
-func (i *jsiiProxy_InstanceTarget) AttachToApplicationTargetGroup(targetGroup IApplicationTargetGroup) *LoadBalancerTargetProps {
-	var returns *LoadBalancerTargetProps
-
-	_jsii_.Invoke(
-		i,
-		"attachToApplicationTargetGroup",
-		[]interface{}{targetGroup},
-		&returns,
-	)
-
-	return returns
-}
-
-// Register this instance target with a load balancer.
-//
-// Don't call this, it is called automatically when you add the target to a
-// load balancer.
-// Deprecated: Use IpTarget from the
-func (i *jsiiProxy_InstanceTarget) AttachToNetworkTargetGroup(targetGroup INetworkTargetGroup) *LoadBalancerTargetProps {
-	var returns *LoadBalancerTargetProps
-
-	_jsii_.Invoke(
-		i,
-		"attachToNetworkTargetGroup",
-		[]interface{}{targetGroup},
-		&returns,
-	)
-
-	return returns
-}
-
 // What kind of addresses to allocate to the load balancer.
 // Experimental.
 type IpAddressType string
@@ -8474,126 +7910,6 @@ const (
 	IpAddressType_DUAL_STACK IpAddressType = "DUAL_STACK"
 	IpAddressType_IPV4 IpAddressType = "IPV4"
 )
-
-// An IP address that is a target for load balancing.
-//
-// Specify IP addresses from the subnets of the virtual private cloud (VPC) for
-// the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and
-// 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify
-// publicly routable IP addresses.
-//
-// If you register a target of this type, you are responsible for making
-// sure the load balancer's security group can send packets to the IP address.
-//
-// TODO: EXAMPLE
-//
-// Deprecated: Use IpTarget from the
-type IpTarget interface {
-	IApplicationLoadBalancerTarget
-	INetworkLoadBalancerTarget
-	AttachToApplicationTargetGroup(targetGroup IApplicationTargetGroup) *LoadBalancerTargetProps
-	AttachToNetworkTargetGroup(targetGroup INetworkTargetGroup) *LoadBalancerTargetProps
-}
-
-// The jsii proxy struct for IpTarget
-type jsiiProxy_IpTarget struct {
-	jsiiProxy_IApplicationLoadBalancerTarget
-	jsiiProxy_INetworkLoadBalancerTarget
-}
-
-// Create a new IPAddress target.
-//
-// The availabilityZone parameter determines whether the target receives
-// traffic from the load balancer nodes in the specified Availability Zone
-// or from all enabled Availability Zones for the load balancer.
-//
-// This parameter is not supported if the target type of the target group
-// is instance. If the IP address is in a subnet of the VPC for the target
-// group, the Availability Zone is automatically detected and this
-// parameter is optional. If the IP address is outside the VPC, this
-// parameter is required.
-//
-// With an Application Load Balancer, if the IP address is outside the VPC
-// for the target group, the only supported value is all.
-//
-// Default is automatic.
-// Deprecated: Use IpTarget from the
-func NewIpTarget(ipAddress *string, port *float64, availabilityZone *string) IpTarget {
-	_init_.Initialize()
-
-	j := jsiiProxy_IpTarget{}
-
-	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.IpTarget",
-		[]interface{}{ipAddress, port, availabilityZone},
-		&j,
-	)
-
-	return &j
-}
-
-// Create a new IPAddress target.
-//
-// The availabilityZone parameter determines whether the target receives
-// traffic from the load balancer nodes in the specified Availability Zone
-// or from all enabled Availability Zones for the load balancer.
-//
-// This parameter is not supported if the target type of the target group
-// is instance. If the IP address is in a subnet of the VPC for the target
-// group, the Availability Zone is automatically detected and this
-// parameter is optional. If the IP address is outside the VPC, this
-// parameter is required.
-//
-// With an Application Load Balancer, if the IP address is outside the VPC
-// for the target group, the only supported value is all.
-//
-// Default is automatic.
-// Deprecated: Use IpTarget from the
-func NewIpTarget_Override(i IpTarget, ipAddress *string, port *float64, availabilityZone *string) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.IpTarget",
-		[]interface{}{ipAddress, port, availabilityZone},
-		i,
-	)
-}
-
-// Register this instance target with a load balancer.
-//
-// Don't call this, it is called automatically when you add the target to a
-// load balancer.
-// Deprecated: Use IpTarget from the
-func (i *jsiiProxy_IpTarget) AttachToApplicationTargetGroup(targetGroup IApplicationTargetGroup) *LoadBalancerTargetProps {
-	var returns *LoadBalancerTargetProps
-
-	_jsii_.Invoke(
-		i,
-		"attachToApplicationTargetGroup",
-		[]interface{}{targetGroup},
-		&returns,
-	)
-
-	return returns
-}
-
-// Register this instance target with a load balancer.
-//
-// Don't call this, it is called automatically when you add the target to a
-// load balancer.
-// Deprecated: Use IpTarget from the
-func (i *jsiiProxy_IpTarget) AttachToNetworkTargetGroup(targetGroup INetworkTargetGroup) *LoadBalancerTargetProps {
-	var returns *LoadBalancerTargetProps
-
-	_jsii_.Invoke(
-		i,
-		"attachToNetworkTargetGroup",
-		[]interface{}{targetGroup},
-		&returns,
-	)
-
-	return returns
-}
 
 // What to do when a client makes a request to a listener.
 //
@@ -9686,13 +9002,11 @@ type NetworkLoadBalancer interface {
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricActiveFlowCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricConsumedLCUs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	MetricHealthyHostCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricNewFlowCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricProcessedBytes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTcpClientResetCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTcpElbResetCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricTcpTargetResetCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	MetricUnHealthyHostCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	RemoveAttribute(key *string)
 	SetAttribute(key *string, value *string)
 	ToString() *string
@@ -10063,21 +9377,6 @@ func (n *jsiiProxy_NetworkLoadBalancer) MetricConsumedLCUs(props *awscloudwatch.
 	return returns
 }
 
-// The number of targets that are considered healthy.
-// Deprecated: use ``NetworkTargetGroup.metricHealthyHostCount`` instead
-func (n *jsiiProxy_NetworkLoadBalancer) MetricHealthyHostCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		n,
-		"metricHealthyHostCount",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
 // The total number of new TCP flows (or connections) established from clients to targets in the time period.
 // Experimental.
 func (n *jsiiProxy_NetworkLoadBalancer) MetricNewFlowCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
@@ -10150,21 +9449,6 @@ func (n *jsiiProxy_NetworkLoadBalancer) MetricTcpTargetResetCount(props *awsclou
 	_jsii_.Invoke(
 		n,
 		"metricTcpTargetResetCount",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
-// The number of targets that are considered unhealthy.
-// Deprecated: use ``NetworkTargetGroup.metricUnHealthyHostCount`` instead
-func (n *jsiiProxy_NetworkLoadBalancer) MetricUnHealthyHostCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		n,
-		"metricUnHealthyHostCount",
 		[]interface{}{props},
 		&returns,
 	)
@@ -10488,23 +9772,6 @@ func NetworkTargetGroup_FromTargetGroupAttributes(scope constructs.Construct, id
 	return returns
 }
 
-// Import an existing listener.
-// Deprecated: Use `fromTargetGroupAttributes` instead
-func NetworkTargetGroup_Import(scope constructs.Construct, id *string, props *TargetGroupImportProps) INetworkTargetGroup {
-	_init_.Initialize()
-
-	var returns INetworkTargetGroup
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.NetworkTargetGroup",
-		"import",
-		[]interface{}{scope, id, props},
-		&returns,
-	)
-
-	return returns
-}
-
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
@@ -10796,45 +10063,6 @@ type RedirectOptions struct {
 	Query *string `json:"query"`
 }
 
-// A redirect response.
-//
-// TODO: EXAMPLE
-//
-// Deprecated: superceded by `ListenerAction.redirect()`.
-type RedirectResponse struct {
-	// The hostname.
-	//
-	// This component is not percent-encoded. The hostname can contain #{host}.
-	// Deprecated: superceded by `ListenerAction.redirect()`.
-	Host *string `json:"host"`
-	// The absolute path, starting with the leading "/".
-	//
-	// This component is not percent-encoded.
-	// The path can contain #{host}, #{path}, and #{port}.
-	// Deprecated: superceded by `ListenerAction.redirect()`.
-	Path *string `json:"path"`
-	// The port.
-	//
-	// You can specify a value from 1 to 65535 or #{port}.
-	// Deprecated: superceded by `ListenerAction.redirect()`.
-	Port *string `json:"port"`
-	// The protocol.
-	//
-	// You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP,
-	// HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.
-	// Deprecated: superceded by `ListenerAction.redirect()`.
-	Protocol *string `json:"protocol"`
-	// The query parameters, URL-encoded when necessary, but not percent-encoded.
-	//
-	// Do not include the leading "?", as it is automatically added.
-	// You can specify any of the reserved keywords.
-	// Deprecated: superceded by `ListenerAction.redirect()`.
-	Query *string `json:"query"`
-	// The HTTP redirect code (HTTP_301 or HTTP_302).
-	// Deprecated: superceded by `ListenerAction.redirect()`.
-	StatusCode *string `json:"statusCode"`
-}
-
 // Elastic Load Balancing provides the following security policies for Application Load Balancers.
 //
 // We recommend the Recommended policy for general use. You can
@@ -10871,9 +10099,6 @@ const (
 //
 // Experimental.
 type TargetGroupAttributes struct {
-	// Port target group is listening on.
-	// Deprecated: - This property is unused and the wrong type. No need to use it.
-	DefaultPort *string `json:"defaultPort"`
 	// A Token representing the list of ARNs for the load balancer routing to this target group.
 	// Experimental.
 	LoadBalancerArns *string `json:"loadBalancerArns"`
@@ -11140,23 +10365,6 @@ func (t *jsiiProxy_TargetGroupBase) ValidateTargetGroup() *[]*string {
 	)
 
 	return returns
-}
-
-// Properties to reference an existing target group.
-//
-// TODO: EXAMPLE
-//
-// Deprecated: Use TargetGroupAttributes instead
-type TargetGroupImportProps struct {
-	// Port target group is listening on.
-	// Deprecated: - This property is unused and the wrong type. No need to use it.
-	DefaultPort *string `json:"defaultPort"`
-	// A Token representing the list of ARNs for the load balancer routing to this target group.
-	// Deprecated: Use TargetGroupAttributes instead
-	LoadBalancerArns *string `json:"loadBalancerArns"`
-	// ARN of the target group.
-	// Deprecated: Use TargetGroupAttributes instead
-	TargetGroupArn *string `json:"targetGroupArn"`
 }
 
 // Load balancing algorithmm type for target groups.

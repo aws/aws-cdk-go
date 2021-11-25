@@ -5,7 +5,6 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/assets"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecr"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsecrassets/internal"
 	"github.com/aws/constructs-go/constructs/v10"
@@ -20,14 +19,12 @@ import (
 // Experimental.
 type DockerImageAsset interface {
 	constructs.Construct
-	assets.IAsset
 	AssetHash() *string
 	ImageUri() *string
 	SetImageUri(val *string)
 	Node() constructs.Node
 	Repository() awsecr.IRepository
 	SetRepository(val awsecr.IRepository)
-	SourceHash() *string
 	AddResourceMetadata(resource awscdk.CfnResource, resourceProperty *string)
 	ToString() *string
 }
@@ -35,7 +32,6 @@ type DockerImageAsset interface {
 // The jsii proxy struct for DockerImageAsset
 type jsiiProxy_DockerImageAsset struct {
 	internal.Type__constructsConstruct
-	internal.Type__assetsIAsset
 }
 
 func (j *jsiiProxy_DockerImageAsset) AssetHash() *string {
@@ -73,16 +69,6 @@ func (j *jsiiProxy_DockerImageAsset) Repository() awsecr.IRepository {
 	_jsii_.Get(
 		j,
 		"repository",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_DockerImageAsset) SourceHash() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"sourceHash",
 		&returns,
 	)
 	return returns
@@ -217,17 +203,14 @@ type DockerImageAssetOptions struct {
 	// Experimental.
 	Exclude *[]*string `json:"exclude"`
 	// A strategy for how to handle symlinks.
-	// Deprecated: use `followSymlinks` instead
-	Follow assets.FollowMode `json:"follow"`
+	// Experimental.
+	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
 	// The ignore behavior to use for exclude patterns.
 	// Experimental.
 	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
 	// Experimental.
 	ExtraHash *string `json:"extraHash"`
-	// A strategy for how to handle symlinks.
-	// Experimental.
-	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
 	// Build args to pass to the `docker build` command.
 	//
 	// Since Docker build arguments are resolved before deployment, keys and
@@ -241,15 +224,6 @@ type DockerImageAssetOptions struct {
 	// Options to control which parameters are used to invalidate the asset hash.
 	// Experimental.
 	Invalidation *DockerImageAssetInvalidationOptions `json:"invalidation"`
-	// ECR repository name.
-	//
-	// Specify this property if you need to statically address the image, e.g.
-	// from a Kubernetes Pod. Note, this is only the repository name, without the
-	// registry and the tag parts.
-	// Deprecated: to control the location of docker image assets, please override
-	// `Stack.addDockerImageAsset`. this feature will be removed in future
-	// releases.
-	RepositoryName *string `json:"repositoryName"`
 	// Docker target to build to.
 	// Experimental.
 	Target *string `json:"target"`
@@ -265,17 +239,14 @@ type DockerImageAssetProps struct {
 	// Experimental.
 	Exclude *[]*string `json:"exclude"`
 	// A strategy for how to handle symlinks.
-	// Deprecated: use `followSymlinks` instead
-	Follow assets.FollowMode `json:"follow"`
+	// Experimental.
+	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
 	// The ignore behavior to use for exclude patterns.
 	// Experimental.
 	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
 	// Experimental.
 	ExtraHash *string `json:"extraHash"`
-	// A strategy for how to handle symlinks.
-	// Experimental.
-	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
 	// Build args to pass to the `docker build` command.
 	//
 	// Since Docker build arguments are resolved before deployment, keys and
@@ -289,15 +260,6 @@ type DockerImageAssetProps struct {
 	// Options to control which parameters are used to invalidate the asset hash.
 	// Experimental.
 	Invalidation *DockerImageAssetInvalidationOptions `json:"invalidation"`
-	// ECR repository name.
-	//
-	// Specify this property if you need to statically address the image, e.g.
-	// from a Kubernetes Pod. Note, this is only the repository name, without the
-	// registry and the tag parts.
-	// Deprecated: to control the location of docker image assets, please override
-	// `Stack.addDockerImageAsset`. this feature will be removed in future
-	// releases.
-	RepositoryName *string `json:"repositoryName"`
 	// Docker target to build to.
 	// Experimental.
 	Target *string `json:"target"`
@@ -317,21 +279,18 @@ type DockerImageAssetProps struct {
 // Experimental.
 type TarballImageAsset interface {
 	constructs.Construct
-	assets.IAsset
 	AssetHash() *string
 	ImageUri() *string
 	SetImageUri(val *string)
 	Node() constructs.Node
 	Repository() awsecr.IRepository
 	SetRepository(val awsecr.IRepository)
-	SourceHash() *string
 	ToString() *string
 }
 
 // The jsii proxy struct for TarballImageAsset
 type jsiiProxy_TarballImageAsset struct {
 	internal.Type__constructsConstruct
-	internal.Type__assetsIAsset
 }
 
 func (j *jsiiProxy_TarballImageAsset) AssetHash() *string {
@@ -369,16 +328,6 @@ func (j *jsiiProxy_TarballImageAsset) Repository() awsecr.IRepository {
 	_jsii_.Get(
 		j,
 		"repository",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_TarballImageAsset) SourceHash() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"sourceHash",
 		&returns,
 	)
 	return returns

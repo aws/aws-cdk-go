@@ -11,7 +11,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -483,28 +482,6 @@ type AutoScalingGroupCapacityOptions struct {
 	//
 	// Experimental.
 	Notifications *[]*awsautoscaling.NotificationConfiguration `json:"notifications"`
-	// SNS topic to send notifications about fleet changes.
-	// Deprecated: use `notifications`
-	NotificationsTopic awssns.ITopic `json:"notificationsTopic"`
-	// Configuration for replacing updates.
-	//
-	// Only used if updateType == UpdateType.ReplacingUpdate. Specifies how
-	// many instances must signal success for the update to succeed.
-	// Deprecated: Use `signals` instead
-	ReplacingUpdateMinSuccessfulInstancesPercent *float64 `json:"replacingUpdateMinSuccessfulInstancesPercent"`
-	// How many ResourceSignal calls CloudFormation expects before the resource is considered created.
-	// Deprecated: Use `signals` instead.
-	ResourceSignalCount *float64 `json:"resourceSignalCount"`
-	// The length of time to wait for the resourceSignalCount.
-	//
-	// The maximum value is 43200 (12 hours).
-	// Deprecated: Use `signals` instead.
-	ResourceSignalTimeout awscdk.Duration `json:"resourceSignalTimeout"`
-	// Configuration for rolling updates.
-	//
-	// Only used if updateType == UpdateType.RollingUpdate.
-	// Deprecated: Use `updatePolicy` instead
-	RollingUpdateConfiguration *awsautoscaling.RollingUpdateConfiguration `json:"rollingUpdateConfiguration"`
 	// Configure waiting for signals during deployment.
 	//
 	// Use this to pause the CloudFormation deployment to wait for the instances
@@ -539,15 +516,6 @@ type AutoScalingGroupCapacityOptions struct {
 	// is done and only new instances are launched with the new config.
 	// Experimental.
 	UpdatePolicy awsautoscaling.UpdatePolicy `json:"updatePolicy"`
-	// What to do when an AutoScalingGroup's instance configuration is changed.
-	//
-	// This is applied when any of the settings on the ASG are changed that
-	// affect how the instances should be created (VPC, instance type, startup
-	// scripts, etc.). It indicates how the existing instances should be
-	// replaced with new instances matching the new config. By default, nothing
-	// is done and only new instances are launched with the new config.
-	// Deprecated: Use `updatePolicy` instead
-	UpdateType awsautoscaling.UpdateType `json:"updateType"`
 	// Where to place instances within the VPC.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
@@ -7839,13 +7807,6 @@ type NodegroupOptions struct {
 	// running on the node.
 	// Experimental.
 	ForceUpdate *bool `json:"forceUpdate"`
-	// The instance type to use for your node group.
-	//
-	// Currently, you can specify a single instance type for a node group.
-	// The default value for this parameter is `t3.medium`. If you choose a GPU instance type, be sure to specify the
-	// `AL2_x86_64_GPU` with the amiType parameter.
-	// Deprecated: Use `instanceTypes` instead.
-	InstanceType awsec2.InstanceType `json:"instanceType"`
 	// The instance types to use for your node group.
 	// See: - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-instancetypes
 	//
@@ -7938,13 +7899,6 @@ type NodegroupProps struct {
 	// running on the node.
 	// Experimental.
 	ForceUpdate *bool `json:"forceUpdate"`
-	// The instance type to use for your node group.
-	//
-	// Currently, you can specify a single instance type for a node group.
-	// The default value for this parameter is `t3.medium`. If you choose a GPU instance type, be sure to specify the
-	// `AL2_x86_64_GPU` with the amiType parameter.
-	// Deprecated: Use `instanceTypes` instead.
-	InstanceType awsec2.InstanceType `json:"instanceType"`
 	// The instance types to use for your node group.
 	// See: - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-instancetypes
 	//
@@ -8361,7 +8315,6 @@ type ServiceAccount interface {
 	Role() awsiam.IRole
 	ServiceAccountName() *string
 	ServiceAccountNamespace() *string
-	AddToPolicy(statement awsiam.PolicyStatement) *bool
 	AddToPrincipalPolicy(statement awsiam.PolicyStatement) *awsiam.AddToPrincipalPolicyResult
 	ToString() *string
 }
@@ -8482,21 +8435,6 @@ func ServiceAccount_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.aws_eks.ServiceAccount",
 		"isConstruct",
 		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
-// Add to the policy of this principal.
-// Deprecated: use `addToPrincipalPolicy()`
-func (s *jsiiProxy_ServiceAccount) AddToPolicy(statement awsiam.PolicyStatement) *bool {
-	var returns *bool
-
-	_jsii_.Invoke(
-		s,
-		"addToPolicy",
-		[]interface{}{statement},
 		&returns,
 	)
 

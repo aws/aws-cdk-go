@@ -10,7 +10,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
 	"github.com/aws/aws-cdk-go/awscdk/v2/cloudassemblyschema"
-	"github.com/aws/aws-cdk-go/awscdk/v2/cxapi"
 	"github.com/aws/aws-cdk-go/awscdkservicecatalogalpha/v2/internal"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -1451,7 +1450,6 @@ type ProductStack interface {
 	NestedStackResource() awscdk.CfnResource
 	Node() constructs.Node
 	NotificationArns() *[]*string
-	ParentStack() awscdk.Stack
 	Partition() *string
 	Region() *string
 	StackId() *string
@@ -1463,17 +1461,12 @@ type ProductStack interface {
 	TerminationProtection() *bool
 	UrlSuffix() *string
 	AddDependency(target awscdk.Stack, reason *string)
-	AddDockerImageAsset(asset *awscdk.DockerImageAssetSource) *awscdk.DockerImageAssetLocation
-	AddFileAsset(asset *awscdk.FileAssetSource) *awscdk.FileAssetLocation
 	AddTransform(transform *string)
 	AllocateLogicalId(cfnElement awscdk.CfnElement) *string
 	ExportValue(exportedValue interface{}, options *awscdk.ExportValueOptions) *string
 	FormatArn(components *awscdk.ArnComponents) *string
 	GetLogicalId(element awscdk.CfnElement) *string
-	ParseArn(arn *string, sepIfToken *string, hasName *bool) *awscdk.ArnComponents
-	PrepareCrossReference(_sourceStack awscdk.Stack, reference awscdk.Reference) awscdk.IResolvable
 	RenameLogicalId(oldId *string, newId *string)
-	ReportMissingContext(report *cxapi.MissingContext)
 	ReportMissingContextKey(report *cloudassemblyschema.MissingContext)
 	Resolve(obj interface{}) interface{}
 	SplitArn(arn *string, arnFormat awscdk.ArnFormat) *awscdk.ArnComponents
@@ -1581,16 +1574,6 @@ func (j *jsiiProxy_ProductStack) NotificationArns() *[]*string {
 	_jsii_.Get(
 		j,
 		"notificationArns",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ProductStack) ParentStack() awscdk.Stack {
-	var returns awscdk.Stack
-	_jsii_.Get(
-		j,
-		"parentStack",
 		&returns,
 	)
 	return returns
@@ -1793,38 +1776,6 @@ func (p *jsiiProxy_ProductStack) AddDependency(target awscdk.Stack, reason *stri
 	)
 }
 
-// Register a docker image asset on this Stack.
-// Deprecated: Use `stack.synthesizer.addDockerImageAsset()` if you are calling,
-// and a different `IStackSynthesizer` class if you are implementing.
-func (p *jsiiProxy_ProductStack) AddDockerImageAsset(asset *awscdk.DockerImageAssetSource) *awscdk.DockerImageAssetLocation {
-	var returns *awscdk.DockerImageAssetLocation
-
-	_jsii_.Invoke(
-		p,
-		"addDockerImageAsset",
-		[]interface{}{asset},
-		&returns,
-	)
-
-	return returns
-}
-
-// Register a file asset on this Stack.
-// Deprecated: Use `stack.synthesizer.addFileAsset()` if you are calling,
-// and a different IStackSynthesizer class if you are implementing.
-func (p *jsiiProxy_ProductStack) AddFileAsset(asset *awscdk.FileAssetSource) *awscdk.FileAssetLocation {
-	var returns *awscdk.FileAssetLocation
-
-	_jsii_.Invoke(
-		p,
-		"addFileAsset",
-		[]interface{}{asset},
-		&returns,
-	)
-
-	return returns
-}
-
 // Add a Transform to this stack. A Transform is a macro that AWS CloudFormation uses to process your template.
 //
 // Duplicate values are removed when stack is synthesized.
@@ -2004,66 +1955,6 @@ func (p *jsiiProxy_ProductStack) GetLogicalId(element awscdk.CfnElement) *string
 	return returns
 }
 
-// Given an ARN, parses it and returns components.
-//
-// IF THE ARN IS A CONCRETE STRING...
-//
-// ...it will be parsed and validated. The separator (`sep`) will be set to '/'
-// if the 6th component includes a '/', in which case, `resource` will be set
-// to the value before the '/' and `resourceName` will be the rest. In case
-// there is no '/', `resource` will be set to the 6th components and
-// `resourceName` will be set to the rest of the string.
-//
-// IF THE ARN IS A TOKEN...
-//
-// ...it cannot be validated, since we don't have the actual value yet at the
-// time of this function call. You will have to supply `sepIfToken` and
-// whether or not ARNs of the expected format usually have resource names
-// in order to parse it properly. The resulting `ArnComponents` object will
-// contain tokens for the subexpressions of the ARN, not string literals.
-//
-// If the resource name could possibly contain the separator char, the actual
-// resource name cannot be properly parsed. This only occurs if the separator
-// char is '/', and happens for example for S3 object ARNs, IAM Role ARNs,
-// IAM OIDC Provider ARNs, etc. To properly extract the resource name from a
-// Tokenized ARN, you must know the resource type and call
-// `Arn.extractResourceName`.
-//
-// Returns: an ArnComponents object which allows access to the various
-// components of the ARN.
-// Deprecated: use splitArn instead
-func (p *jsiiProxy_ProductStack) ParseArn(arn *string, sepIfToken *string, hasName *bool) *awscdk.ArnComponents {
-	var returns *awscdk.ArnComponents
-
-	_jsii_.Invoke(
-		p,
-		"parseArn",
-		[]interface{}{arn, sepIfToken, hasName},
-		&returns,
-	)
-
-	return returns
-}
-
-// Deprecated.
-//
-// Returns: reference itself without any change
-// See: https://github.com/aws/aws-cdk/pull/7187
-//
-// Deprecated: cross reference handling has been moved to `App.prepare()`.
-func (p *jsiiProxy_ProductStack) PrepareCrossReference(_sourceStack awscdk.Stack, reference awscdk.Reference) awscdk.IResolvable {
-	var returns awscdk.IResolvable
-
-	_jsii_.Invoke(
-		p,
-		"prepareCrossReference",
-		[]interface{}{_sourceStack, reference},
-		&returns,
-	)
-
-	return returns
-}
-
 // Rename a generated logical identities.
 //
 // To modify the naming scheme strategy, extend the `Stack` class and
@@ -2074,16 +1965,6 @@ func (p *jsiiProxy_ProductStack) RenameLogicalId(oldId *string, newId *string) {
 		p,
 		"renameLogicalId",
 		[]interface{}{oldId, newId},
-	)
-}
-
-// DEPRECATED.
-// Deprecated: use `reportMissingContextKey()`
-func (p *jsiiProxy_ProductStack) ReportMissingContext(report *cxapi.MissingContext) {
-	_jsii_.InvokeVoid(
-		p,
-		"reportMissingContext",
-		[]interface{}{report},
 	)
 }
 

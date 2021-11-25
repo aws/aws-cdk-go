@@ -305,14 +305,6 @@ type CertificateProps struct {
 	// How to validate this certificate.
 	// Experimental.
 	Validation CertificateValidation `json:"validation"`
-	// What validation domain to use for every requested domain.
-	//
-	// Has to be a superdomain of the requested domain.
-	// Deprecated: use `validation` instead.
-	ValidationDomains *map[string]*string `json:"validationDomains"`
-	// Validation method used to assert domain ownership.
-	// Deprecated: use `validation` instead.
-	ValidationMethod ValidationMethod `json:"validationMethod"`
 }
 
 // How to validate a certificate.
@@ -1871,14 +1863,6 @@ type DnsValidatedCertificateProps struct {
 	// How to validate this certificate.
 	// Experimental.
 	Validation CertificateValidation `json:"validation"`
-	// What validation domain to use for every requested domain.
-	//
-	// Has to be a superdomain of the requested domain.
-	// Deprecated: use `validation` instead.
-	ValidationDomains *map[string]*string `json:"validationDomains"`
-	// Validation method used to assert domain ownership.
-	// Deprecated: use `validation` instead.
-	ValidationMethod ValidationMethod `json:"validationMethod"`
 	// Route 53 Hosted Zone used to perform DNS validation of the request.
 	//
 	// The zone

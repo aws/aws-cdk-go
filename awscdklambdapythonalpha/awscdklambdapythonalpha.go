@@ -49,7 +49,6 @@ type PythonFunction interface {
 	AddLayers(layers ...awslambda.ILayerVersion)
 	AddPermission(id *string, permission *awslambda.Permission)
 	AddToRolePolicy(statement awsiam.PolicyStatement)
-	AddVersion(name *string, codeSha256 *string, description *string, provisionedExecutions *float64, asyncInvokeConfig *awslambda.EventInvokeConfigOptions) awslambda.Version
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	ConfigureAsyncInvoke(options *awslambda.EventInvokeConfigOptions)
 	GeneratePhysicalName() *string
@@ -566,34 +565,6 @@ func (p *jsiiProxy_PythonFunction) AddToRolePolicy(statement awsiam.PolicyStatem
 	)
 }
 
-// Add a new version for this Lambda.
-//
-// If you want to deploy through CloudFormation and use aliases, you need to
-// add a new version (with a new name) to your Lambda every time you want to
-// deploy an update. An alias can then refer to the newly created Version.
-//
-// All versions should have distinct names, and you should not delete versions
-// as long as your Alias needs to refer to them.
-//
-// Returns: A new Version object.
-// Deprecated: This method will create an AWS::Lambda::Version resource which
-// snapshots the AWS Lambda function *at the time of its creation* and it
-// won't get updated when the function changes. Instead, use
-// `this.currentVersion` to obtain a reference to a version resource that gets
-// automatically recreated when the function configuration (or code) changes.
-func (p *jsiiProxy_PythonFunction) AddVersion(name *string, codeSha256 *string, description *string, provisionedExecutions *float64, asyncInvokeConfig *awslambda.EventInvokeConfigOptions) awslambda.Version {
-	var returns awslambda.Version
-
-	_jsii_.Invoke(
-		p,
-		"addVersion",
-		[]interface{}{name, codeSha256, description, provisionedExecutions, asyncInvokeConfig},
-		&returns,
-	)
-
-	return returns
-}
-
 // Apply the given removal policy to this resource.
 //
 // The Removal Policy controls what happens to this resource when it stops
@@ -828,9 +799,6 @@ type PythonFunctionProps struct {
 	// The system architectures compatible with this lambda function.
 	// Experimental.
 	Architecture awslambda.Architecture `json:"architecture"`
-	// DEPRECATED.
-	// Deprecated: use `architecture`
-	Architectures *[]awslambda.Architecture `json:"architectures"`
 	// Code signing config associated with this function.
 	// Experimental.
 	CodeSigningConfig awslambda.ICodeSigningConfig `json:"codeSigningConfig"`
@@ -937,14 +905,6 @@ type PythonFunctionProps struct {
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
 	// Experimental.
 	Role awsiam.IRole `json:"role"`
-	// What security group to associate with the Lambda's network interfaces. This property is being deprecated, consider using securityGroups instead.
-	//
-	// Only used if 'vpc' is supplied.
-	//
-	// Use securityGroups property instead.
-	// Function constructor will throw an error if both are specified.
-	// Deprecated: - This property is deprecated, use securityGroups instead
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.

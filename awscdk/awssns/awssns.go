@@ -2211,9 +2211,6 @@ type NumericConditions struct {
 	// Match values that are less than or equal to the specified value.
 	// Experimental.
 	LessThanOrEqualTo *float64 `json:"lessThanOrEqualTo"`
-	// Match one or more values.
-	// Deprecated: use `allowlist`
-	Whitelist *[]*float64 `json:"whitelist"`
 }
 
 // Conditions that can be applied to string attributes.
@@ -2226,17 +2223,11 @@ type StringConditions struct {
 	// Experimental.
 	Allowlist *[]*string `json:"allowlist"`
 	// Match any value that doesn't include any of the specified values.
-	// Deprecated: use `denylist`
-	Blacklist *[]*string `json:"blacklist"`
-	// Match any value that doesn't include any of the specified values.
 	// Experimental.
 	Denylist *[]*string `json:"denylist"`
 	// Matches values that begins with the specified prefixes.
 	// Experimental.
 	MatchPrefixes *[]*string `json:"matchPrefixes"`
-	// Match one or more values.
-	// Deprecated: use `allowlist`
-	Whitelist *[]*string `json:"whitelist"`
 }
 
 // A new subscription.

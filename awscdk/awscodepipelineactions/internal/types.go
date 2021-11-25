@@ -5,5 +5,4 @@ import (
 )
 type Type__awscodepipelineAction = awscodepipeline.Action
 type Type__constructsConstruct = constructs.Construct
-type Type__awscodepipelineIAction = awscodepipeline.IAction
 type Type__constructsIConstruct = constructs.IConstruct

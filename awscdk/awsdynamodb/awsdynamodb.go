@@ -2020,9 +2020,6 @@ type ITable interface {
 	// Metric for the successful request latency.
 	// Experimental.
 	MetricSuccessfulRequestLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Metric for the system errors.
-	// Deprecated: use `metricSystemErrorsForOperations`
-	MetricSystemErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the system errors this table.
 	// Experimental.
 	MetricSystemErrorsForOperations(props *SystemErrorsForOperationsMetricOptions) awscloudwatch.IMetric
@@ -2230,19 +2227,6 @@ func (i *jsiiProxy_ITable) MetricSuccessfulRequestLatency(props *awscloudwatch.M
 	return returns
 }
 
-func (i *jsiiProxy_ITable) MetricSystemErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		i,
-		"metricSystemErrors",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
 func (i *jsiiProxy_ITable) MetricSystemErrorsForOperations(props *SystemErrorsForOperationsMetricOptions) awscloudwatch.IMetric {
 	var returns awscloudwatch.IMetric
 
@@ -2427,9 +2411,6 @@ type SystemErrorsForOperationsMetricOptions struct {
 	// Experimental.
 	Color *string `json:"color"`
 	// Dimensions of the metric.
-	// Deprecated: Use 'dimensionsMap' instead.
-	Dimensions *map[string]interface{} `json:"dimensions"`
-	// Dimensions of the metric.
 	// Experimental.
 	DimensionsMap *map[string]*string `json:"dimensionsMap"`
 	// Label for this metric when added to a Graph in a Dashboard.
@@ -2511,7 +2492,6 @@ type Table interface {
 	MetricConsumedReadCapacityUnits(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricConsumedWriteCapacityUnits(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricSuccessfulRequestLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	MetricSystemErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricSystemErrorsForOperations(props *SystemErrorsForOperationsMetricOptions) awscloudwatch.IMetric
 	MetricThrottledRequests(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricUserErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
@@ -2697,23 +2677,6 @@ func Table_FromTableName(scope constructs.Construct, id *string, tableName *stri
 		"aws-cdk-lib.aws_dynamodb.Table",
 		"fromTableName",
 		[]interface{}{scope, id, tableName},
-		&returns,
-	)
-
-	return returns
-}
-
-// Permits an IAM Principal to list all DynamoDB Streams.
-// Deprecated: Use {@link #grantTableListStreams} for more granular permission
-func Table_GrantListStreams(grantee awsiam.IGrantable) awsiam.Grant {
-	_init_.Initialize()
-
-	var returns awsiam.Grant
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_dynamodb.Table",
-		"grantListStreams",
-		[]interface{}{grantee},
 		&returns,
 	)
 
@@ -3160,21 +3123,6 @@ func (t *jsiiProxy_Table) MetricSuccessfulRequestLatency(props *awscloudwatch.Me
 }
 
 // Metric for the system errors this table.
-// Deprecated: use `metricSystemErrorsForOperations`.
-func (t *jsiiProxy_Table) MetricSystemErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		t,
-		"metricSystemErrors",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
-// Metric for the system errors this table.
 //
 // This will sum errors across all possible operations.
 // Note that by default, each individual metric will be calculated as a sum over a period of 5 minutes.
@@ -3366,12 +3314,6 @@ type TableOptions struct {
 	// The timeout for a table replication operation in a single region.
 	// Experimental.
 	ReplicationTimeout awscdk.Duration `json:"replicationTimeout"`
-	// Whether server-side encryption with an AWS managed customer master key is enabled.
-	//
-	// This property cannot be set if `encryption` and/or `encryptionKey` is set.
-	// Deprecated: This property is deprecated. In order to obtain the same behavior as
-	// enabling this, set the `encryption` property to `TableEncryption.AWS_MANAGED` instead.
-	ServerSideEncryption *bool `json:"serverSideEncryption"`
 	// When an item in the table is modified, StreamViewType determines what information is written to the stream for this table.
 	// Experimental.
 	Stream StreamViewType `json:"stream"`
@@ -3450,12 +3392,6 @@ type TableProps struct {
 	// The timeout for a table replication operation in a single region.
 	// Experimental.
 	ReplicationTimeout awscdk.Duration `json:"replicationTimeout"`
-	// Whether server-side encryption with an AWS managed customer master key is enabled.
-	//
-	// This property cannot be set if `encryption` and/or `encryptionKey` is set.
-	// Deprecated: This property is deprecated. In order to obtain the same behavior as
-	// enabling this, set the `encryption` property to `TableEncryption.AWS_MANAGED` instead.
-	ServerSideEncryption *bool `json:"serverSideEncryption"`
 	// When an item in the table is modified, StreamViewType determines what information is written to the stream for this table.
 	// Experimental.
 	Stream StreamViewType `json:"stream"`

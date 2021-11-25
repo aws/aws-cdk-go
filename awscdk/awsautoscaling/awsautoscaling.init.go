@@ -794,10 +794,6 @@ func init() {
 		reflect.TypeOf((*RequestCountScalingProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_autoscaling.RollingUpdateConfiguration",
-		reflect.TypeOf((*RollingUpdateConfiguration)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_autoscaling.RollingUpdateOptions",
 		reflect.TypeOf((*RollingUpdateOptions)(nil)).Elem(),
 	)
@@ -951,15 +947,6 @@ func init() {
 		nil, // no members
 		func() interface{} {
 			return &jsiiProxy_UpdatePolicy{}
-		},
-	)
-	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_autoscaling.UpdateType",
-		reflect.TypeOf((*UpdateType)(nil)).Elem(),
-		map[string]interface{}{
-			"NONE": UpdateType_NONE,
-			"REPLACING_UPDATE": UpdateType_REPLACING_UPDATE,
-			"ROLLING_UPDATE": UpdateType_ROLLING_UPDATE,
 		},
 	)
 }

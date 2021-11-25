@@ -1258,7 +1258,6 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addReplicaRegion", GoMethod: "AddReplicaRegion"},
 			_jsii_.MemberMethod{JsiiMethod: "addRotationSchedule", GoMethod: "AddRotationSchedule"},
-			_jsii_.MemberMethod{JsiiMethod: "addTargetAttachment", GoMethod: "AddTargetAttachment"},
 			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "arnForPolicies", GoGetter: "ArnForPolicies"},
@@ -1627,28 +1626,9 @@ func init() {
 			return &jsiiProxy_OracleEngineVersion{}
 		},
 	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_rds.OracleLegacyEngineVersion",
-		reflect.TypeOf((*OracleLegacyEngineVersion)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "oracleLegacyFullVersion", GoGetter: "OracleLegacyFullVersion"},
-			_jsii_.MemberProperty{JsiiProperty: "oracleLegacyMajorVersion", GoGetter: "OracleLegacyMajorVersion"},
-		},
-		func() interface{} {
-			return &jsiiProxy_OracleLegacyEngineVersion{}
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_rds.OracleSe1InstanceEngineProps",
-		reflect.TypeOf((*OracleSe1InstanceEngineProps)(nil)).Elem(),
-	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_rds.OracleSe2InstanceEngineProps",
 		reflect.TypeOf((*OracleSe2InstanceEngineProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_rds.OracleSeInstanceEngineProps",
-		reflect.TypeOf((*OracleSeInstanceEngineProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_rds.ParameterGroup",

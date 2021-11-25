@@ -5,7 +5,6 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/assets"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationautoscaling"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscodeguruprofiler"
@@ -844,57 +843,6 @@ func NewAssetCode_Override(a AssetCode, path *string, options *awss3assets.Asset
 	)
 }
 
-// DEPRECATED.
-// Deprecated: use `fromAsset`
-func AssetCode_Asset(path *string) AssetCode {
-	_init_.Initialize()
-
-	var returns AssetCode
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.AssetCode",
-		"asset",
-		[]interface{}{path},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromBucket`
-func AssetCode_Bucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
-	_init_.Initialize()
-
-	var returns S3Code
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.AssetCode",
-		"bucket",
-		[]interface{}{bucket, key, objectVersion},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromCfnParameters`
-func AssetCode_CfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
-	_init_.Initialize()
-
-	var returns CfnParametersCode
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.AssetCode",
-		"cfnParameters",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
 // Loads the function code from a local disk path.
 // Experimental.
 func AssetCode_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
@@ -1021,23 +969,6 @@ func AssetCode_FromInline(code *string) InlineCode {
 	return returns
 }
 
-// DEPRECATED.
-// Deprecated: use `fromInline`
-func AssetCode_Inline(code *string) InlineCode {
-	_init_.Initialize()
-
-	var returns InlineCode
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.AssetCode",
-		"inline",
-		[]interface{}{code},
-		&returns,
-	)
-
-	return returns
-}
-
 // Called when the lambda or layer is initialized to allow this object to bind to the stack, add resources and have fun.
 // Experimental.
 func (a *jsiiProxy_AssetCode) Bind(scope constructs.Construct) *CodeConfig {
@@ -1118,57 +1049,6 @@ func NewAssetImageCode_Override(a AssetImageCode, directory *string, props *Asse
 		[]interface{}{directory, props},
 		a,
 	)
-}
-
-// DEPRECATED.
-// Deprecated: use `fromAsset`
-func AssetImageCode_Asset(path *string) AssetCode {
-	_init_.Initialize()
-
-	var returns AssetCode
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.AssetImageCode",
-		"asset",
-		[]interface{}{path},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromBucket`
-func AssetImageCode_Bucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
-	_init_.Initialize()
-
-	var returns S3Code
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.AssetImageCode",
-		"bucket",
-		[]interface{}{bucket, key, objectVersion},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromCfnParameters`
-func AssetImageCode_CfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
-	_init_.Initialize()
-
-	var returns CfnParametersCode
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.AssetImageCode",
-		"cfnParameters",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
 }
 
 // Loads the function code from a local disk path.
@@ -1297,23 +1177,6 @@ func AssetImageCode_FromInline(code *string) InlineCode {
 	return returns
 }
 
-// DEPRECATED.
-// Deprecated: use `fromInline`
-func AssetImageCode_Inline(code *string) InlineCode {
-	_init_.Initialize()
-
-	var returns InlineCode
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.AssetImageCode",
-		"inline",
-		[]interface{}{code},
-		&returns,
-	)
-
-	return returns
-}
-
 // Called when the lambda or layer is initialized to allow this object to bind to the stack, add resources and have fun.
 // Experimental.
 func (a *jsiiProxy_AssetImageCode) Bind(scope constructs.Construct) *CodeConfig {
@@ -1352,17 +1215,14 @@ type AssetImageCodeProps struct {
 	// Experimental.
 	Exclude *[]*string `json:"exclude"`
 	// A strategy for how to handle symlinks.
-	// Deprecated: use `followSymlinks` instead
-	Follow assets.FollowMode `json:"follow"`
+	// Experimental.
+	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
 	// The ignore behavior to use for exclude patterns.
 	// Experimental.
 	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
 	// Experimental.
 	ExtraHash *string `json:"extraHash"`
-	// A strategy for how to handle symlinks.
-	// Experimental.
-	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
 	// Build args to pass to the `docker build` command.
 	//
 	// Since Docker build arguments are resolved before deployment, keys and
@@ -1376,15 +1236,6 @@ type AssetImageCodeProps struct {
 	// Options to control which parameters are used to invalidate the asset hash.
 	// Experimental.
 	Invalidation *awsecrassets.DockerImageAssetInvalidationOptions `json:"invalidation"`
-	// ECR repository name.
-	//
-	// Specify this property if you need to statically address the image, e.g.
-	// from a Kubernetes Pod. Note, this is only the repository name, without the
-	// registry and the tag parts.
-	// Deprecated: to control the location of docker image assets, please override
-	// `Stack.addDockerImageAsset`. this feature will be removed in future
-	// releases.
-	RepositoryName *string `json:"repositoryName"`
 	// Docker target to build to.
 	// Experimental.
 	Target *string `json:"target"`
@@ -6427,57 +6278,6 @@ func NewCfnParametersCode_Override(c CfnParametersCode, props *CfnParametersCode
 	)
 }
 
-// DEPRECATED.
-// Deprecated: use `fromAsset`
-func CfnParametersCode_Asset(path *string) AssetCode {
-	_init_.Initialize()
-
-	var returns AssetCode
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.CfnParametersCode",
-		"asset",
-		[]interface{}{path},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromBucket`
-func CfnParametersCode_Bucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
-	_init_.Initialize()
-
-	var returns S3Code
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.CfnParametersCode",
-		"bucket",
-		[]interface{}{bucket, key, objectVersion},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromCfnParameters`
-func CfnParametersCode_CfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
-	_init_.Initialize()
-
-	var returns CfnParametersCode
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.CfnParametersCode",
-		"cfnParameters",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
 // Loads the function code from a local disk path.
 // Experimental.
 func CfnParametersCode_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
@@ -6597,23 +6397,6 @@ func CfnParametersCode_FromInline(code *string) InlineCode {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_lambda.CfnParametersCode",
 		"fromInline",
-		[]interface{}{code},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromInline`
-func CfnParametersCode_Inline(code *string) InlineCode {
-	_init_.Initialize()
-
-	var returns InlineCode
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.CfnParametersCode",
-		"inline",
 		[]interface{}{code},
 		&returns,
 	)
@@ -7877,7 +7660,6 @@ type CfnVersionProps struct {
 //
 // Experimental.
 type Code interface {
-	IsInline() *bool
 	Bind(scope constructs.Construct) *CodeConfig
 	BindToResource(_resource awscdk.CfnResource, _options *ResourceBindOptions)
 }
@@ -7886,17 +7668,6 @@ type Code interface {
 type jsiiProxy_Code struct {
 	_ byte // padding
 }
-
-func (j *jsiiProxy_Code) IsInline() *bool {
-	var returns *bool
-	_jsii_.Get(
-		j,
-		"isInline",
-		&returns,
-	)
-	return returns
-}
-
 
 // Experimental.
 func NewCode_Override(c Code) {
@@ -7907,57 +7678,6 @@ func NewCode_Override(c Code) {
 		nil, // no parameters
 		c,
 	)
-}
-
-// DEPRECATED.
-// Deprecated: use `fromAsset`
-func Code_Asset(path *string) AssetCode {
-	_init_.Initialize()
-
-	var returns AssetCode
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.Code",
-		"asset",
-		[]interface{}{path},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromBucket`
-func Code_Bucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
-	_init_.Initialize()
-
-	var returns S3Code
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.Code",
-		"bucket",
-		[]interface{}{bucket, key, objectVersion},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromCfnParameters`
-func Code_CfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
-	_init_.Initialize()
-
-	var returns CfnParametersCode
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.Code",
-		"cfnParameters",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
 }
 
 // Loads the function code from a local disk path.
@@ -8079,23 +7799,6 @@ func Code_FromInline(code *string) InlineCode {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_lambda.Code",
 		"fromInline",
-		[]interface{}{code},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromInline`
-func Code_Inline(code *string) InlineCode {
-	_init_.Initialize()
-
-	var returns InlineCode
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.Code",
-		"inline",
 		[]interface{}{code},
 		&returns,
 	)
@@ -8612,7 +8315,6 @@ type DockerImageFunction interface {
 	AddLayers(layers ...ILayerVersion)
 	AddPermission(id *string, permission *Permission)
 	AddToRolePolicy(statement awsiam.PolicyStatement)
-	AddVersion(name *string, codeSha256 *string, description *string, provisionedExecutions *float64, asyncInvokeConfig *EventInvokeConfigOptions) Version
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	ConfigureAsyncInvoke(options *EventInvokeConfigOptions)
 	GeneratePhysicalName() *string
@@ -9129,34 +8831,6 @@ func (d *jsiiProxy_DockerImageFunction) AddToRolePolicy(statement awsiam.PolicyS
 	)
 }
 
-// Add a new version for this Lambda.
-//
-// If you want to deploy through CloudFormation and use aliases, you need to
-// add a new version (with a new name) to your Lambda every time you want to
-// deploy an update. An alias can then refer to the newly created Version.
-//
-// All versions should have distinct names, and you should not delete versions
-// as long as your Alias needs to refer to them.
-//
-// Returns: A new Version object.
-// Deprecated: This method will create an AWS::Lambda::Version resource which
-// snapshots the AWS Lambda function *at the time of its creation* and it
-// won't get updated when the function changes. Instead, use
-// `this.currentVersion` to obtain a reference to a version resource that gets
-// automatically recreated when the function configuration (or code) changes.
-func (d *jsiiProxy_DockerImageFunction) AddVersion(name *string, codeSha256 *string, description *string, provisionedExecutions *float64, asyncInvokeConfig *EventInvokeConfigOptions) Version {
-	var returns Version
-
-	_jsii_.Invoke(
-		d,
-		"addVersion",
-		[]interface{}{name, codeSha256, description, provisionedExecutions, asyncInvokeConfig},
-		&returns,
-	)
-
-	return returns
-}
-
 // Apply the given removal policy to this resource.
 //
 // The Removal Policy controls what happens to this resource when it stops
@@ -9391,9 +9065,6 @@ type DockerImageFunctionProps struct {
 	// The system architectures compatible with this lambda function.
 	// Experimental.
 	Architecture Architecture `json:"architecture"`
-	// DEPRECATED.
-	// Deprecated: use `architecture`
-	Architectures *[]Architecture `json:"architectures"`
 	// Code signing config associated with this function.
 	// Experimental.
 	CodeSigningConfig ICodeSigningConfig `json:"codeSigningConfig"`
@@ -9500,14 +9171,6 @@ type DockerImageFunctionProps struct {
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
 	// Experimental.
 	Role awsiam.IRole `json:"role"`
-	// What security group to associate with the Lambda's network interfaces. This property is being deprecated, consider using securityGroups instead.
-	//
-	// Only used if 'vpc' is supplied.
-	//
-	// Use securityGroups property instead.
-	// Function constructor will throw an error if both are specified.
-	// Deprecated: - This property is deprecated, use securityGroups instead
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.
@@ -9594,57 +9257,6 @@ func NewEcrImageCode_Override(e EcrImageCode, repository awsecr.IRepository, pro
 		[]interface{}{repository, props},
 		e,
 	)
-}
-
-// DEPRECATED.
-// Deprecated: use `fromAsset`
-func EcrImageCode_Asset(path *string) AssetCode {
-	_init_.Initialize()
-
-	var returns AssetCode
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.EcrImageCode",
-		"asset",
-		[]interface{}{path},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromBucket`
-func EcrImageCode_Bucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
-	_init_.Initialize()
-
-	var returns S3Code
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.EcrImageCode",
-		"bucket",
-		[]interface{}{bucket, key, objectVersion},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromCfnParameters`
-func EcrImageCode_CfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
-	_init_.Initialize()
-
-	var returns CfnParametersCode
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.EcrImageCode",
-		"cfnParameters",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
 }
 
 // Loads the function code from a local disk path.
@@ -9766,23 +9378,6 @@ func EcrImageCode_FromInline(code *string) InlineCode {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_lambda.EcrImageCode",
 		"fromInline",
-		[]interface{}{code},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromInline`
-func EcrImageCode_Inline(code *string) InlineCode {
-	_init_.Initialize()
-
-	var returns InlineCode
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.EcrImageCode",
-		"inline",
 		[]interface{}{code},
 		&returns,
 	)
@@ -10703,7 +10298,6 @@ type Function interface {
 	AddLayers(layers ...ILayerVersion)
 	AddPermission(id *string, permission *Permission)
 	AddToRolePolicy(statement awsiam.PolicyStatement)
-	AddVersion(name *string, codeSha256 *string, description *string, provisionedExecutions *float64, asyncInvokeConfig *EventInvokeConfigOptions) Version
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	ConfigureAsyncInvoke(options *EventInvokeConfigOptions)
 	GeneratePhysicalName() *string
@@ -11220,34 +10814,6 @@ func (f *jsiiProxy_Function) AddToRolePolicy(statement awsiam.PolicyStatement) {
 	)
 }
 
-// Add a new version for this Lambda.
-//
-// If you want to deploy through CloudFormation and use aliases, you need to
-// add a new version (with a new name) to your Lambda every time you want to
-// deploy an update. An alias can then refer to the newly created Version.
-//
-// All versions should have distinct names, and you should not delete versions
-// as long as your Alias needs to refer to them.
-//
-// Returns: A new Version object.
-// Deprecated: This method will create an AWS::Lambda::Version resource which
-// snapshots the AWS Lambda function *at the time of its creation* and it
-// won't get updated when the function changes. Instead, use
-// `this.currentVersion` to obtain a reference to a version resource that gets
-// automatically recreated when the function configuration (or code) changes.
-func (f *jsiiProxy_Function) AddVersion(name *string, codeSha256 *string, description *string, provisionedExecutions *float64, asyncInvokeConfig *EventInvokeConfigOptions) Version {
-	var returns Version
-
-	_jsii_.Invoke(
-		f,
-		"addVersion",
-		[]interface{}{name, codeSha256, description, provisionedExecutions, asyncInvokeConfig},
-		&returns,
-	)
-
-	return returns
-}
-
 // Apply the given removal policy to this resource.
 //
 // The Removal Policy controls what happens to this resource when it stops
@@ -11474,12 +11040,6 @@ type FunctionAttributes struct {
 	// to this Lambda.
 	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
-	// Id of the security group of this Lambda, if in a VPC.
-	//
-	// This needs to be given in order to support allowing connections
-	// to this Lambda.
-	// Deprecated: use `securityGroup` instead
-	SecurityGroupId *string `json:"securityGroupId"`
 }
 
 // Experimental.
@@ -11992,9 +11552,6 @@ type FunctionOptions struct {
 	// The system architectures compatible with this lambda function.
 	// Experimental.
 	Architecture Architecture `json:"architecture"`
-	// DEPRECATED.
-	// Deprecated: use `architecture`
-	Architectures *[]Architecture `json:"architectures"`
 	// Code signing config associated with this function.
 	// Experimental.
 	CodeSigningConfig ICodeSigningConfig `json:"codeSigningConfig"`
@@ -12101,14 +11658,6 @@ type FunctionOptions struct {
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
 	// Experimental.
 	Role awsiam.IRole `json:"role"`
-	// What security group to associate with the Lambda's network interfaces. This property is being deprecated, consider using securityGroups instead.
-	//
-	// Only used if 'vpc' is supplied.
-	//
-	// Use securityGroups property instead.
-	// Function constructor will throw an error if both are specified.
-	// Deprecated: - This property is deprecated, use securityGroups instead
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.
@@ -12174,9 +11723,6 @@ type FunctionProps struct {
 	// The system architectures compatible with this lambda function.
 	// Experimental.
 	Architecture Architecture `json:"architecture"`
-	// DEPRECATED.
-	// Deprecated: use `architecture`
-	Architectures *[]Architecture `json:"architectures"`
 	// Code signing config associated with this function.
 	// Experimental.
 	CodeSigningConfig ICodeSigningConfig `json:"codeSigningConfig"`
@@ -12283,14 +11829,6 @@ type FunctionProps struct {
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
 	// Experimental.
 	Role awsiam.IRole `json:"role"`
-	// What security group to associate with the Lambda's network interfaces. This property is being deprecated, consider using securityGroups instead.
-	//
-	// Only used if 'vpc' is supplied.
-	//
-	// Use securityGroups property instead.
-	// Function constructor will throw an error if both are specified.
-	// Deprecated: - This property is deprecated, use securityGroups instead
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.
@@ -13074,57 +12612,6 @@ func NewInlineCode_Override(i InlineCode, code *string) {
 	)
 }
 
-// DEPRECATED.
-// Deprecated: use `fromAsset`
-func InlineCode_Asset(path *string) AssetCode {
-	_init_.Initialize()
-
-	var returns AssetCode
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.InlineCode",
-		"asset",
-		[]interface{}{path},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromBucket`
-func InlineCode_Bucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
-	_init_.Initialize()
-
-	var returns S3Code
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.InlineCode",
-		"bucket",
-		[]interface{}{bucket, key, objectVersion},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromCfnParameters`
-func InlineCode_CfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
-	_init_.Initialize()
-
-	var returns CfnParametersCode
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.InlineCode",
-		"cfnParameters",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
 // Loads the function code from a local disk path.
 // Experimental.
 func InlineCode_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
@@ -13244,23 +12731,6 @@ func InlineCode_FromInline(code *string) InlineCode {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_lambda.InlineCode",
 		"fromInline",
-		[]interface{}{code},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromInline`
-func InlineCode_Inline(code *string) InlineCode {
-	_init_.Initialize()
-
-	var returns InlineCode
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.InlineCode",
-		"inline",
 		[]interface{}{code},
 		&returns,
 	)
@@ -13783,130 +13253,6 @@ type LayerVersionProps struct {
 	// The runtimes compatible with this Layer.
 	// Experimental.
 	CompatibleRuntimes *[]Runtime `json:"compatibleRuntimes"`
-}
-
-// Creates a custom resource to control the retention policy of a CloudWatch Logs log group.
-//
-// The log group is created if it doesn't already exist. The policy
-// is removed when `retentionDays` is `undefined` or equal to `Infinity`.
-//
-// TODO: EXAMPLE
-//
-// Deprecated: use `LogRetention` from '
-type LogRetention interface {
-	awslogs.LogRetention
-	LogGroupArn() *string
-	Node() constructs.Node
-	ToString() *string
-}
-
-// The jsii proxy struct for LogRetention
-type jsiiProxy_LogRetention struct {
-	internal.Type__awslogsLogRetention
-}
-
-func (j *jsiiProxy_LogRetention) LogGroupArn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"logGroupArn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_LogRetention) Node() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"node",
-		&returns,
-	)
-	return returns
-}
-
-
-// Deprecated: use `LogRetention` from '
-func NewLogRetention(scope constructs.Construct, id *string, props *LogRetentionProps) LogRetention {
-	_init_.Initialize()
-
-	j := jsiiProxy_LogRetention{}
-
-	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda.LogRetention",
-		[]interface{}{scope, id, props},
-		&j,
-	)
-
-	return &j
-}
-
-// Deprecated: use `LogRetention` from '
-func NewLogRetention_Override(l LogRetention, scope constructs.Construct, id *string, props *LogRetentionProps) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"aws-cdk-lib.aws_lambda.LogRetention",
-		[]interface{}{scope, id, props},
-		l,
-	)
-}
-
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
-func LogRetention_IsConstruct(x interface{}) *bool {
-	_init_.Initialize()
-
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.LogRetention",
-		"isConstruct",
-		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
-// Returns a string representation of this construct.
-// Deprecated: use `LogRetention` from '
-func (l *jsiiProxy_LogRetention) ToString() *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		l,
-		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Construction properties for a LogRetention.
-//
-// TODO: EXAMPLE
-//
-// Deprecated: use `LogRetentionProps` from '
-type LogRetentionProps struct {
-	// The log group name.
-	// Deprecated: use `LogRetentionProps` from '
-	LogGroupName *string `json:"logGroupName"`
-	// The region where the log group should be created.
-	// Deprecated: use `LogRetentionProps` from '
-	LogGroupRegion *string `json:"logGroupRegion"`
-	// Retry options for all AWS API calls.
-	// Deprecated: use `LogRetentionProps` from '
-	LogRetentionRetryOptions *awslogs.LogRetentionRetryOptions `json:"logRetentionRetryOptions"`
-	// The number of days log events are kept in CloudWatch Logs.
-	// Deprecated: use `LogRetentionProps` from '
-	Retention awslogs.RetentionDays `json:"retention"`
-	// The IAM role for the Lambda function associated with the custom resource.
-	// Deprecated: use `LogRetentionProps` from '
-	Role awsiam.IRole `json:"role"`
 }
 
 // Retry options for all AWS API calls.
@@ -14488,7 +13834,6 @@ type ResourceBindOptions struct {
 //
 // Experimental.
 type Runtime interface {
-	BundlingDockerImage() awscdk.BundlingDockerImage
 	BundlingImage() awscdk.DockerImage
 	Family() RuntimeFamily
 	Name() *string
@@ -14501,16 +13846,6 @@ type Runtime interface {
 // The jsii proxy struct for Runtime
 type jsiiProxy_Runtime struct {
 	_ byte // padding
-}
-
-func (j *jsiiProxy_Runtime) BundlingDockerImage() awscdk.BundlingDockerImage {
-	var returns awscdk.BundlingDockerImage
-	_jsii_.Get(
-		j,
-		"bundlingDockerImage",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_Runtime) BundlingImage() awscdk.DockerImage {
@@ -14971,57 +14306,6 @@ func NewS3Code_Override(s S3Code, bucket awss3.IBucket, key *string, objectVersi
 	)
 }
 
-// DEPRECATED.
-// Deprecated: use `fromAsset`
-func S3Code_Asset(path *string) AssetCode {
-	_init_.Initialize()
-
-	var returns AssetCode
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.S3Code",
-		"asset",
-		[]interface{}{path},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromBucket`
-func S3Code_Bucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
-	_init_.Initialize()
-
-	var returns S3Code
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.S3Code",
-		"bucket",
-		[]interface{}{bucket, key, objectVersion},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromCfnParameters`
-func S3Code_CfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
-	_init_.Initialize()
-
-	var returns CfnParametersCode
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.S3Code",
-		"cfnParameters",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
 // Loads the function code from a local disk path.
 // Experimental.
 func S3Code_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
@@ -15141,23 +14425,6 @@ func S3Code_FromInline(code *string) InlineCode {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_lambda.S3Code",
 		"fromInline",
-		[]interface{}{code},
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `fromInline`
-func S3Code_Inline(code *string) InlineCode {
-	_init_.Initialize()
-
-	var returns InlineCode
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_lambda.S3Code",
-		"inline",
 		[]interface{}{code},
 		&returns,
 	)
@@ -15815,9 +15082,6 @@ type SingletonFunctionProps struct {
 	// The system architectures compatible with this lambda function.
 	// Experimental.
 	Architecture Architecture `json:"architecture"`
-	// DEPRECATED.
-	// Deprecated: use `architecture`
-	Architectures *[]Architecture `json:"architectures"`
 	// Code signing config associated with this function.
 	// Experimental.
 	CodeSigningConfig ICodeSigningConfig `json:"codeSigningConfig"`
@@ -15924,14 +15188,6 @@ type SingletonFunctionProps struct {
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
 	// Experimental.
 	Role awsiam.IRole `json:"role"`
-	// What security group to associate with the Lambda's network interfaces. This property is being deprecated, consider using securityGroups instead.
-	//
-	// Only used if 'vpc' is supplied.
-	//
-	// Use securityGroups property instead.
-	// Function constructor will throw an error if both are specified.
-	// Deprecated: - This property is deprecated, use securityGroups instead
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.

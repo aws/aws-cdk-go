@@ -11,10 +11,6 @@ import (
 //
 // Experimental.
 type AssemblyBuildOptions struct {
-	// Include the specified runtime information (module versions) in manifest.
-	// Deprecated: All template modifications that should result from this should
-	// have already been inserted into the template.
-	RuntimeInfo *RuntimeInfo `json:"runtimeInfo"`
 }
 
 // Asset manifest is a description of a set of assets which need to be built and published.
@@ -369,7 +365,6 @@ type CloudAssembly interface {
 	Version() *string
 	GetNestedAssembly(artifactId *string) CloudAssembly
 	GetNestedAssemblyArtifact(artifactId *string) NestedCloudAssemblyArtifact
-	GetStack(stackName *string) CloudFormationStackArtifact
 	GetStackArtifact(artifactId *string) CloudFormationStackArtifact
 	GetStackByName(stackName *string) CloudFormationStackArtifact
 	Tree() TreeCloudArtifact
@@ -514,21 +509,6 @@ func (c *jsiiProxy_CloudAssembly) GetNestedAssemblyArtifact(artifactId *string) 
 		c,
 		"getNestedAssemblyArtifact",
 		[]interface{}{artifactId},
-		&returns,
-	)
-
-	return returns
-}
-
-// Returns a CloudFormation stack artifact by name from this assembly.
-// Deprecated: renamed to `getStackByName` (or `getStackArtifact(id)`)
-func (c *jsiiProxy_CloudAssembly) GetStack(stackName *string) CloudFormationStackArtifact {
-	var returns CloudFormationStackArtifact
-
-	_jsii_.Invoke(
-		c,
-		"getStack",
-		[]interface{}{stackName},
 		&returns,
 	)
 
@@ -755,7 +735,6 @@ type CloudFormationStackArtifact interface {
 	Id() *string
 	Manifest() *cloudassemblyschema.ArtifactManifest
 	Messages() *[]*SynthesisMessage
-	Name() *string
 	OriginalName() *string
 	Parameters() *map[string]*string
 	RequiresBootstrapStackVersion() *float64
@@ -900,16 +879,6 @@ func (j *jsiiProxy_CloudFormationStackArtifact) Messages() *[]*SynthesisMessage 
 	_jsii_.Get(
 		j,
 		"messages",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CloudFormationStackArtifact) Name() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"name",
 		&returns,
 	)
 	return returns
@@ -1457,27 +1426,6 @@ type LoadBalancerListenerContextResponse struct {
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
 }
 
-// Backwards compatibility for when `MetadataEntry` was defined here.
-//
-// This is necessary because its used as an input in the stable
-//
-// TODO: EXAMPLE
-//
-// See: core.ConstructNode.metadata
-//
-// Deprecated: moved to package 'cloud-assembly-schema'
-type MetadataEntry struct {
-	// The data.
-	// Deprecated: moved to package 'cloud-assembly-schema'
-	Data interface{} `json:"data"`
-	// A stack trace for when the entry was created.
-	// Deprecated: moved to package 'cloud-assembly-schema'
-	Trace *[]*string `json:"trace"`
-	// The type of the metadata entry.
-	// Deprecated: moved to package 'cloud-assembly-schema'
-	Type *string `json:"type"`
-}
-
 // TODO: EXAMPLE
 //
 // Experimental.
@@ -1494,33 +1442,6 @@ type MetadataEntryResult struct {
 	// The path in which this entry was defined.
 	// Experimental.
 	Path *string `json:"path"`
-}
-
-// Backwards compatibility for when `MissingContext` was defined here.
-//
-// This is necessary because its used as an input in the stable
-//
-// TODO: EXAMPLE
-//
-// See: core.Stack.reportMissingContext
-//
-// Deprecated: moved to package 'cloud-assembly-schema'
-type MissingContext struct {
-	// The missing context key.
-	// Deprecated: moved to package 'cloud-assembly-schema'
-	Key *string `json:"key"`
-	// A set of provider-specific options.
-	//
-	// (This is the old untyped definition, which is necessary for backwards compatibility.
-	// See cxschema for a type definition.)
-	// Deprecated: moved to package 'cloud-assembly-schema'
-	Props *map[string]interface{} `json:"props"`
-	// The provider from which we expect this context key to be obtained.
-	//
-	// (This is the old untyped definition, which is necessary for backwards compatibility.
-	// See cxschema for a type definition.)
-	// Deprecated: moved to package 'cloud-assembly-schema'
-	Provider *string `json:"provider"`
 }
 
 // Asset manifest is a description of a set of assets which need to be built and published.
@@ -1707,21 +1628,6 @@ func (n *jsiiProxy_NestedCloudAssemblyArtifact) FindMetadataByType(type_ *string
 	)
 
 	return returns
-}
-
-// Backwards compatibility for when `RuntimeInfo` was defined here.
-//
-// This is necessary because its used as an input in the stable
-//
-// TODO: EXAMPLE
-//
-// See: core.ConstructNode.synth
-//
-// Deprecated: moved to package 'cloud-assembly-schema'
-type RuntimeInfo struct {
-	// The list of libraries loaded in the application, associated with their versions.
-	// Deprecated: moved to package 'cloud-assembly-schema'
-	Libraries *map[string]*string `json:"libraries"`
 }
 
 // Properties of a discovered SecurityGroup.

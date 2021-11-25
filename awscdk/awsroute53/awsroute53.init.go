@@ -57,19 +57,6 @@ func init() {
 		"aws-cdk-lib.aws_route53.AaaaRecordProps",
 		reflect.TypeOf((*AaaaRecordProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_route53.AddressRecordTarget",
-		reflect.TypeOf((*AddressRecordTarget)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "aliasTarget", GoGetter: "AliasTarget"},
-			_jsii_.MemberProperty{JsiiProperty: "values", GoGetter: "Values"},
-		},
-		func() interface{} {
-			j := jsiiProxy_AddressRecordTarget{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_RecordTarget)
-			return &j
-		},
-	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_route53.AliasRecordTargetConfig",
 		reflect.TypeOf((*AliasRecordTargetConfig)(nil)).Elem(),

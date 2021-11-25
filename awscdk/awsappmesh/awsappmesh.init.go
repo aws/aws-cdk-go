@@ -1374,16 +1374,6 @@ func init() {
 		"aws-cdk-lib.aws_appmesh.OutlierDetection",
 		reflect.TypeOf((*OutlierDetection)(nil)).Elem(),
 	)
-	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_appmesh.Protocol",
-		reflect.TypeOf((*Protocol)(nil)).Elem(),
-		map[string]interface{}{
-			"HTTP": Protocol_HTTP,
-			"TCP": Protocol_TCP,
-			"HTTP2": Protocol_HTTP2,
-			"GRPC": Protocol_GRPC,
-		},
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_appmesh.QueryParameterMatch",
 		reflect.TypeOf((*QueryParameterMatch)(nil)).Elem(),

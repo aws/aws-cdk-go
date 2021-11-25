@@ -5,7 +5,6 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudformation"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
@@ -330,15 +329,6 @@ type AwsSdkCall struct {
 	// error will not be thrown.
 	// Experimental.
 	IgnoreErrorCodesMatching *string `json:"ignoreErrorCodesMatching"`
-	// Restrict the data returned by the custom resource to a specific path in the API response.
-	//
-	// Use this to limit the data returned by the custom
-	// resource if working with API calls that could potentially result in custom
-	// response objects exceeding the hard limit of 4096 bytes.
-	//
-	// Example for ECS / updateService: 'service.deploymentConfiguration.maximumPercent'
-	// Deprecated: use outputPaths instead
-	OutputPath *string `json:"outputPath"`
 	// Restrict the data returned by the custom resource to specific paths in the API response.
 	//
 	// Use this to limit the data returned by the custom
@@ -550,19 +540,16 @@ func (p *jsiiProxy_PhysicalResourceIdReference) ToString() *string {
 // Experimental.
 type Provider interface {
 	constructs.Construct
-	awscloudformation.ICustomResourceProvider
 	IsCompleteHandler() awslambda.IFunction
 	Node() constructs.Node
 	OnEventHandler() awslambda.IFunction
 	ServiceToken() *string
-	Bind(_scope constructs.Construct) *awscloudformation.CustomResourceProviderConfig
 	ToString() *string
 }
 
 // The jsii proxy struct for Provider
 type jsiiProxy_Provider struct {
 	internal.Type__constructsConstruct
-	internal.Type__awscloudformationICustomResourceProvider
 }
 
 func (j *jsiiProxy_Provider) IsCompleteHandler() awslambda.IFunction {
@@ -645,21 +632,6 @@ func Provider_IsConstruct(x interface{}) *bool {
 		"aws-cdk-lib.custom_resources.Provider",
 		"isConstruct",
 		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
-// Called by `CustomResource` which uses this provider.
-// Deprecated: use `provider.serviceToken` instead
-func (p *jsiiProxy_Provider) Bind(_scope constructs.Construct) *awscloudformation.CustomResourceProviderConfig {
-	var returns *awscloudformation.CustomResourceProviderConfig
-
-	_jsii_.Invoke(
-		p,
-		"bind",
-		[]interface{}{_scope},
 		&returns,
 	)
 

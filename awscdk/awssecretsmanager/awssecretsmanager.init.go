@@ -15,10 +15,8 @@ func init() {
 		"aws-cdk-lib.aws_secretsmanager.AttachmentTargetType",
 		reflect.TypeOf((*AttachmentTargetType)(nil)).Elem(),
 		map[string]interface{}{
-			"CLUSTER": AttachmentTargetType_CLUSTER,
 			"DOCDB_DB_CLUSTER": AttachmentTargetType_DOCDB_DB_CLUSTER,
 			"DOCDB_DB_INSTANCE": AttachmentTargetType_DOCDB_DB_INSTANCE,
-			"INSTANCE": AttachmentTargetType_INSTANCE,
 			"RDS_DB_PROXY": AttachmentTargetType_RDS_DB_PROXY,
 			"REDSHIFT_CLUSTER": AttachmentTargetType_REDSHIFT_CLUSTER,
 		},
@@ -370,7 +368,6 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addReplicaRegion", GoMethod: "AddReplicaRegion"},
 			_jsii_.MemberMethod{JsiiMethod: "addRotationSchedule", GoMethod: "AddRotationSchedule"},
-			_jsii_.MemberMethod{JsiiMethod: "addTargetAttachment", GoMethod: "AddTargetAttachment"},
 			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "arnForPolicies", GoGetter: "ArnForPolicies"},
@@ -431,9 +428,7 @@ func init() {
 		reflect.TypeOf((*SecretRotationApplication)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applicationArnForPartition", GoMethod: "ApplicationArnForPartition"},
-			_jsii_.MemberProperty{JsiiProperty: "applicationId", GoGetter: "ApplicationId"},
 			_jsii_.MemberProperty{JsiiProperty: "isMultiUser", GoGetter: "IsMultiUser"},
-			_jsii_.MemberProperty{JsiiProperty: "semanticVersion", GoGetter: "SemanticVersion"},
 			_jsii_.MemberMethod{JsiiMethod: "semanticVersionForPartition", GoMethod: "SemanticVersionForPartition"},
 		},
 		func() interface{} {

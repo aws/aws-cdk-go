@@ -615,189 +615,6 @@ func (a *jsiiProxy_AnyPrincipal) WithConditions(conditions *map[string]interface
 	return returns
 }
 
-// A principal representing all identities in all accounts.
-//
-// TODO: EXAMPLE
-//
-// Deprecated: use `AnyPrincipal`
-type Anyone interface {
-	AnyPrincipal
-	Arn() *string
-	AssumeRoleAction() *string
-	GrantPrincipal() IPrincipal
-	PolicyFragment() PrincipalPolicyFragment
-	PrincipalAccount() *string
-	AddToPolicy(statement PolicyStatement) *bool
-	AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult
-	ToJSON() *map[string]*[]*string
-	ToString() *string
-	WithConditions(conditions *map[string]interface{}) IPrincipal
-}
-
-// The jsii proxy struct for Anyone
-type jsiiProxy_Anyone struct {
-	jsiiProxy_AnyPrincipal
-}
-
-func (j *jsiiProxy_Anyone) Arn() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"arn",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Anyone) AssumeRoleAction() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"assumeRoleAction",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Anyone) GrantPrincipal() IPrincipal {
-	var returns IPrincipal
-	_jsii_.Get(
-		j,
-		"grantPrincipal",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Anyone) PolicyFragment() PrincipalPolicyFragment {
-	var returns PrincipalPolicyFragment
-	_jsii_.Get(
-		j,
-		"policyFragment",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Anyone) PrincipalAccount() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"principalAccount",
-		&returns,
-	)
-	return returns
-}
-
-
-// Deprecated: use `AnyPrincipal`
-func NewAnyone() Anyone {
-	_init_.Initialize()
-
-	j := jsiiProxy_Anyone{}
-
-	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.Anyone",
-		nil, // no parameters
-		&j,
-	)
-
-	return &j
-}
-
-// Deprecated: use `AnyPrincipal`
-func NewAnyone_Override(a Anyone) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"aws-cdk-lib.aws_iam.Anyone",
-		nil, // no parameters
-		a,
-	)
-}
-
-// Add to the policy of this principal.
-// Deprecated: use `AnyPrincipal`
-func (a *jsiiProxy_Anyone) AddToPolicy(statement PolicyStatement) *bool {
-	var returns *bool
-
-	_jsii_.Invoke(
-		a,
-		"addToPolicy",
-		[]interface{}{statement},
-		&returns,
-	)
-
-	return returns
-}
-
-// Add to the policy of this principal.
-// Deprecated: use `AnyPrincipal`
-func (a *jsiiProxy_Anyone) AddToPrincipalPolicy(_statement PolicyStatement) *AddToPrincipalPolicyResult {
-	var returns *AddToPrincipalPolicyResult
-
-	_jsii_.Invoke(
-		a,
-		"addToPrincipalPolicy",
-		[]interface{}{_statement},
-		&returns,
-	)
-
-	return returns
-}
-
-// JSON-ify the principal.
-//
-// Used when JSON.stringify() is called
-// Deprecated: use `AnyPrincipal`
-func (a *jsiiProxy_Anyone) ToJSON() *map[string]*[]*string {
-	var returns *map[string]*[]*string
-
-	_jsii_.Invoke(
-		a,
-		"toJSON",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Returns a string representation of an object.
-// Deprecated: use `AnyPrincipal`
-func (a *jsiiProxy_Anyone) ToString() *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		a,
-		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Returns a new PrincipalWithConditions using this principal as the base, with the passed conditions added.
-//
-// When there is a value for the same operator and key in both the principal and the
-// conditions parameter, the value from the conditions parameter will be used.
-//
-// Returns: a new PrincipalWithConditions object.
-// Deprecated: use `AnyPrincipal`
-func (a *jsiiProxy_Anyone) WithConditions(conditions *map[string]interface{}) IPrincipal {
-	var returns IPrincipal
-
-	_jsii_.Invoke(
-		a,
-		"withConditions",
-		[]interface{}{conditions},
-		&returns,
-	)
-
-	return returns
-}
-
 // Specify a principal by the Amazon Resource Name (ARN).
 //
 // You can specify AWS accounts, IAM users, Federated SAML users, IAM roles, and specific assumed-role sessions.
@@ -10013,19 +9830,6 @@ func (i *jsiiProxy_IIdentity) AttachInlinePolicy(policy Policy) {
 	)
 }
 
-func (i *jsiiProxy_IIdentity) AddToPolicy(statement PolicyStatement) *bool {
-	var returns *bool
-
-	_jsii_.Invoke(
-		i,
-		"addToPolicy",
-		[]interface{}{statement},
-		&returns,
-	)
-
-	return returns
-}
-
 func (i *jsiiProxy_IIdentity) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
 	var returns *AddToPrincipalPolicyResult
 
@@ -10214,12 +10018,6 @@ func (j *jsiiProxy_IPolicy) PolicyName() *string {
 type IPrincipal interface {
 	IGrantable
 	// Add to the policy of this principal.
-	//
-	// Returns: true if the statement was added, false if the principal in
-	// question does not have a policy document to add the statement to.
-	// Deprecated: Use `addToPrincipalPolicy` instead.
-	AddToPolicy(statement PolicyStatement) *bool
-	// Add to the policy of this principal.
 	// Experimental.
 	AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult
 	// When this Principal is used in an AssumeRole policy, the action to use.
@@ -10241,19 +10039,6 @@ type IPrincipal interface {
 // The jsii proxy for IPrincipal
 type jsiiProxy_IPrincipal struct {
 	jsiiProxy_IGrantable
-}
-
-func (i *jsiiProxy_IPrincipal) AddToPolicy(statement PolicyStatement) *bool {
-	var returns *bool
-
-	_jsii_.Invoke(
-		i,
-		"addToPolicy",
-		[]interface{}{statement},
-		&returns,
-	)
-
-	return returns
 }
 
 func (i *jsiiProxy_IPrincipal) AddToPrincipalPolicy(statement PolicyStatement) *AddToPrincipalPolicyResult {
@@ -10881,12 +10666,6 @@ type LazyRoleProps struct {
 	// It can be up to 1000 characters long.
 	// Experimental.
 	Description *string `json:"description"`
-	// ID that the role assumer needs to provide when assuming this role.
-	//
-	// If the configured and provided external IDs do not match, the
-	// AssumeRole operation will fail.
-	// Deprecated: see {@link externalIds}
-	ExternalId *string `json:"externalId"`
 	// List of IDs that the role assumer needs to provide one of when assuming this role.
 	//
 	// If the configured and provided external IDs do not match, the
@@ -14132,12 +13911,6 @@ type RoleProps struct {
 	// It can be up to 1000 characters long.
 	// Experimental.
 	Description *string `json:"description"`
-	// ID that the role assumer needs to provide when assuming this role.
-	//
-	// If the configured and provided external IDs do not match, the
-	// AssumeRole operation will fail.
-	// Deprecated: see {@link externalIds}
-	ExternalId *string `json:"externalId"`
 	// List of IDs that the role assumer needs to provide one of when assuming this role.
 	//
 	// If the configured and provided external IDs do not match, the

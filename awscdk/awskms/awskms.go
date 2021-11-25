@@ -2985,19 +2985,6 @@ type KeyProps struct {
 	// retain access to data that was encrypted with a key that is being retired.
 	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
-	// Whether the key usage can be granted by IAM policies.
-	//
-	// Setting this to true adds a default statement which delegates key
-	// access control completely to the identity's IAM policy (similar
-	// to how it works for other AWS resources). This matches the default behavior
-	// when creating KMS keys via the API or console.
-	//
-	// If the `@aws-cdk/aws-kms:defaultKeyPolicies` feature flag is set (the default for new projects),
-	// this flag will always be treated as 'true' and does not need to be explicitly set.
-	// See: https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam
-	//
-	// Deprecated: redundant with the `@aws-cdk/aws-kms:defaultKeyPolicies` feature flag
-	TrustAccountIdentities *bool `json:"trustAccountIdentities"`
 }
 
 // The key spec, represents the cryptographic configuration of keys.

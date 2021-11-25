@@ -384,9 +384,6 @@ type AppProps struct {
 	// This property is intended for internal and testing use.
 	// Experimental.
 	Outdir *string `json:"outdir"`
-	// Include runtime versioning information in the Stacks of this app.
-	// Deprecated: use `versionReporting` instead
-	RuntimeInfo *bool `json:"runtimeInfo"`
 	// Include construct creation stack trace in the `aws:cdk:trace` metadata key of all constructs.
 	// Experimental.
 	StackTraces *bool `json:"stackTraces"`
@@ -464,49 +461,6 @@ func Arn_Format(components *ArnComponents, stack Stack) *string {
 	return returns
 }
 
-// Given an ARN, parses it and returns components.
-//
-// IF THE ARN IS A CONCRETE STRING...
-//
-// ...it will be parsed and validated. The separator (`sep`) will be set to '/'
-// if the 6th component includes a '/', in which case, `resource` will be set
-// to the value before the '/' and `resourceName` will be the rest. In case
-// there is no '/', `resource` will be set to the 6th components and
-// `resourceName` will be set to the rest of the string.
-//
-// IF THE ARN IS A TOKEN...
-//
-// ...it cannot be validated, since we don't have the actual value yet at the
-// time of this function call. You will have to supply `sepIfToken` and
-// whether or not ARNs of the expected format usually have resource names
-// in order to parse it properly. The resulting `ArnComponents` object will
-// contain tokens for the subexpressions of the ARN, not string literals.
-//
-// If the resource name could possibly contain the separator char, the actual
-// resource name cannot be properly parsed. This only occurs if the separator
-// char is '/', and happens for example for S3 object ARNs, IAM Role ARNs,
-// IAM OIDC Provider ARNs, etc. To properly extract the resource name from a
-// Tokenized ARN, you must know the resource type and call
-// `Arn.extractResourceName`.
-//
-// Returns: an ArnComponents object which allows access to the various
-// components of the ARN.
-// Deprecated: use split instead
-func Arn_Parse(arn *string, sepIfToken *string, hasName *bool) *ArnComponents {
-	_init_.Initialize()
-
-	var returns *ArnComponents
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Arn",
-		"parse",
-		[]interface{}{arn, sepIfToken, hasName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Splits the provided ARN into its components.
 //
 // Works both if 'arn' is a string like 'arn:aws:s3:::bucket',
@@ -562,11 +516,6 @@ type ArnComponents struct {
 	// Resource name or path within the resource (i.e. S3 bucket object key) or a wildcard such as ``"*"``. This is service-dependent.
 	// Experimental.
 	ResourceName *string `json:"resourceName"`
-	// Separator between resource type and the resource.
-	//
-	// Can be either '/', ':' or an empty string. Will only be used if resourceName is defined.
-	// Deprecated: use arnFormat instead
-	Sep *string `json:"sep"`
 	// The service namespace that identifies the AWS product (for example, 's3', 'iam', 'codepipline').
 	// Experimental.
 	Service *string `json:"service"`
@@ -645,7 +594,6 @@ func (a *jsiiProxy_Aspects) Add(aspect IAspect) {
 type AssetHashType string
 
 const (
-	AssetHashType_BUNDLE AssetHashType = "BUNDLE"
 	AssetHashType_CUSTOM AssetHashType = "CUSTOM"
 	AssetHashType_OUTPUT AssetHashType = "OUTPUT"
 	AssetHashType_SOURCE AssetHashType = "SOURCE"
@@ -713,9 +661,7 @@ type AssetStaging interface {
 	IsArchive() *bool
 	Node() constructs.Node
 	Packaging() FileAssetPackaging
-	SourceHash() *string
 	SourcePath() *string
-	StagedPath() *string
 	RelativeStagedPath(stack Stack) *string
 	ToString() *string
 }
@@ -775,31 +721,11 @@ func (j *jsiiProxy_AssetStaging) Packaging() FileAssetPackaging {
 	return returns
 }
 
-func (j *jsiiProxy_AssetStaging) SourceHash() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"sourceHash",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_AssetStaging) SourcePath() *string {
 	var returns *string
 	_jsii_.Get(
 		j,
 		"sourcePath",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_AssetStaging) StagedPath() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"stagedPath",
 		&returns,
 	)
 	return returns
@@ -1394,140 +1320,6 @@ type BootstraplessSynthesizerProps struct {
 	// The deploy Role ARN to use.
 	// Experimental.
 	DeployRoleArn *string `json:"deployRoleArn"`
-}
-
-// A Docker image used for asset bundling.
-//
-// TODO: EXAMPLE
-//
-// Deprecated: use DockerImage
-type BundlingDockerImage interface {
-	Image() *string
-	Cp(imagePath *string, outputPath *string) *string
-	Run(options *DockerRunOptions)
-	ToJSON() *string
-}
-
-// The jsii proxy struct for BundlingDockerImage
-type jsiiProxy_BundlingDockerImage struct {
-	_ byte // padding
-}
-
-func (j *jsiiProxy_BundlingDockerImage) Image() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"image",
-		&returns,
-	)
-	return returns
-}
-
-
-// Deprecated: use DockerImage
-func NewBundlingDockerImage(image *string, _imageHash *string) BundlingDockerImage {
-	_init_.Initialize()
-
-	j := jsiiProxy_BundlingDockerImage{}
-
-	_jsii_.Create(
-		"aws-cdk-lib.BundlingDockerImage",
-		[]interface{}{image, _imageHash},
-		&j,
-	)
-
-	return &j
-}
-
-// Deprecated: use DockerImage
-func NewBundlingDockerImage_Override(b BundlingDockerImage, image *string, _imageHash *string) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"aws-cdk-lib.BundlingDockerImage",
-		[]interface{}{image, _imageHash},
-		b,
-	)
-}
-
-// Reference an image that's built directly from sources on disk.
-// Deprecated: use DockerImage.fromBuild()
-func BundlingDockerImage_FromAsset(path *string, options *DockerBuildOptions) BundlingDockerImage {
-	_init_.Initialize()
-
-	var returns BundlingDockerImage
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.BundlingDockerImage",
-		"fromAsset",
-		[]interface{}{path, options},
-		&returns,
-	)
-
-	return returns
-}
-
-// Reference an image on DockerHub or another online registry.
-// Deprecated: use DockerImage
-func BundlingDockerImage_FromRegistry(image *string) DockerImage {
-	_init_.Initialize()
-
-	var returns DockerImage
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.BundlingDockerImage",
-		"fromRegistry",
-		[]interface{}{image},
-		&returns,
-	)
-
-	return returns
-}
-
-// Copies a file or directory out of the Docker image to the local filesystem.
-//
-// If `outputPath` is omitted the destination path is a temporary directory.
-//
-// Returns: the destination path
-// Deprecated: use DockerImage
-func (b *jsiiProxy_BundlingDockerImage) Cp(imagePath *string, outputPath *string) *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		b,
-		"cp",
-		[]interface{}{imagePath, outputPath},
-		&returns,
-	)
-
-	return returns
-}
-
-// Runs a Docker image.
-// Deprecated: use DockerImage
-func (b *jsiiProxy_BundlingDockerImage) Run(options *DockerRunOptions) {
-	_jsii_.InvokeVoid(
-		b,
-		"run",
-		[]interface{}{options},
-	)
-}
-
-// Provides a stable representation of this image for JSON serialization.
-//
-// Returns: The overridden image name if set or image hash name in that order
-// Deprecated: use DockerImage
-func (b *jsiiProxy_BundlingDockerImage) ToJSON() *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		b,
-		"toJSON",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 // Bundling options.
@@ -3363,194 +3155,6 @@ type CfnHookProps struct {
 	// The type of the hook (for example, "AWS::CodeDeploy::BlueGreen").
 	// Experimental.
 	Type *string `json:"type"`
-}
-
-// Includes a CloudFormation template into a stack.
-//
-// All elements of the template will be merged into
-// the current stack, together with any elements created programmatically.
-//
-// TODO: EXAMPLE
-//
-// Deprecated: use the CfnInclude class from the cloudformation-include module instead
-type CfnInclude interface {
-	CfnElement
-	CreationStack() *[]*string
-	LogicalId() *string
-	Node() constructs.Node
-	Stack() Stack
-	Template() *map[string]interface{}
-	OverrideLogicalId(newLogicalId *string)
-	ToString() *string
-}
-
-// The jsii proxy struct for CfnInclude
-type jsiiProxy_CfnInclude struct {
-	jsiiProxy_CfnElement
-}
-
-func (j *jsiiProxy_CfnInclude) CreationStack() *[]*string {
-	var returns *[]*string
-	_jsii_.Get(
-		j,
-		"creationStack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnInclude) LogicalId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"logicalId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnInclude) Node() constructs.Node {
-	var returns constructs.Node
-	_jsii_.Get(
-		j,
-		"node",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnInclude) Stack() Stack {
-	var returns Stack
-	_jsii_.Get(
-		j,
-		"stack",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnInclude) Template() *map[string]interface{} {
-	var returns *map[string]interface{}
-	_jsii_.Get(
-		j,
-		"template",
-		&returns,
-	)
-	return returns
-}
-
-
-// Creates an adopted template construct.
-//
-// The template will be incorporated into the stack as-is with no changes at all.
-// This means that logical IDs of entities within this template may conflict with logical IDs of entities that are part of the
-// stack.
-// Deprecated: use the CfnInclude class from the cloudformation-include module instead
-func NewCfnInclude(scope constructs.Construct, id *string, props *CfnIncludeProps) CfnInclude {
-	_init_.Initialize()
-
-	j := jsiiProxy_CfnInclude{}
-
-	_jsii_.Create(
-		"aws-cdk-lib.CfnInclude",
-		[]interface{}{scope, id, props},
-		&j,
-	)
-
-	return &j
-}
-
-// Creates an adopted template construct.
-//
-// The template will be incorporated into the stack as-is with no changes at all.
-// This means that logical IDs of entities within this template may conflict with logical IDs of entities that are part of the
-// stack.
-// Deprecated: use the CfnInclude class from the cloudformation-include module instead
-func NewCfnInclude_Override(c CfnInclude, scope constructs.Construct, id *string, props *CfnIncludeProps) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"aws-cdk-lib.CfnInclude",
-		[]interface{}{scope, id, props},
-		c,
-	)
-}
-
-// Returns `true` if a construct is a stack element (i.e. part of the synthesized cloudformation template).
-//
-// Uses duck-typing instead of `instanceof` to allow stack elements from different
-// versions of this library to be included in the same stack.
-//
-// Returns: The construct as a stack element or undefined if it is not a stack element.
-// Deprecated: use the CfnInclude class from the cloudformation-include module instead
-func CfnInclude_IsCfnElement(x interface{}) *bool {
-	_init_.Initialize()
-
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.CfnInclude",
-		"isCfnElement",
-		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
-func CfnInclude_IsConstruct(x interface{}) *bool {
-	_init_.Initialize()
-
-	var returns *bool
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.CfnInclude",
-		"isConstruct",
-		[]interface{}{x},
-		&returns,
-	)
-
-	return returns
-}
-
-// Overrides the auto-generated logical ID with a specific ID.
-// Deprecated: use the CfnInclude class from the cloudformation-include module instead
-func (c *jsiiProxy_CfnInclude) OverrideLogicalId(newLogicalId *string) {
-	_jsii_.InvokeVoid(
-		c,
-		"overrideLogicalId",
-		[]interface{}{newLogicalId},
-	)
-}
-
-// Returns a string representation of this construct.
-// Deprecated: use the CfnInclude class from the cloudformation-include module instead
-func (c *jsiiProxy_CfnInclude) ToString() *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		c,
-		"toString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Construction properties for {@link CfnInclude}.
-//
-// TODO: EXAMPLE
-//
-// Deprecated: use the CfnInclude class from the cloudformation-include module instead
-type CfnIncludeProps struct {
-	// The CloudFormation template to include in the stack (as is).
-	// Deprecated: use the CfnInclude class from the cloudformation-include module instead
-	Template *map[string]interface{} `json:"template"`
 }
 
 // Captures a synthesis-time JSON object a CloudFormation reference which resolves during deployment to the resolved values of the JSON object.
@@ -13302,33 +12906,6 @@ func (c *jsiiProxy_CustomResource) ToString() *string {
 //
 // Experimental.
 type CustomResourceProps struct {
-	// Convert all property keys to pascal case.
-	// Experimental.
-	PascalCaseProperties *bool `json:"pascalCaseProperties"`
-	// Properties to pass to the Lambda.
-	// Experimental.
-	Properties *map[string]interface{} `json:"properties"`
-	// The policy to apply when this resource is removed from the application.
-	// Experimental.
-	RemovalPolicy RemovalPolicy `json:"removalPolicy"`
-	// For custom resources, you can specify AWS::CloudFormation::CustomResource (the default) as the resource type, or you can specify your own resource type name.
-	//
-	// For example, you can use "Custom::MyCustomResourceTypeName".
-	//
-	// Custom resource type names must begin with "Custom::" and can include
-	// alphanumeric characters and the following characters: _@-. You can specify
-	// a custom resource type name up to a maximum length of 60 characters. You
-	// cannot change the type during an update.
-	//
-	// Using your own resource type names helps you quickly differentiate the
-	// types of custom resources in your stack. For example, if you had two custom
-	// resources that conduct two different ping tests, you could name their type
-	// as Custom::PingTester to make them easily identifiable as ping testers
-	// (instead of using AWS::CloudFormation::CustomResource).
-	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html#aws-cfn-resource-type-name
-	//
-	// Experimental.
-	ResourceType *string `json:"resourceType"`
 	// The ARN of the provider which implements this custom resource type.
 	//
 	// You can implement a provider by listening to raw AWS CloudFormation events
@@ -13372,6 +12949,33 @@ type CustomResourceProps struct {
 	// ```
 	// Experimental.
 	ServiceToken *string `json:"serviceToken"`
+	// Convert all property keys to pascal case.
+	// Experimental.
+	PascalCaseProperties *bool `json:"pascalCaseProperties"`
+	// Properties to pass to the Lambda.
+	// Experimental.
+	Properties *map[string]interface{} `json:"properties"`
+	// The policy to apply when this resource is removed from the application.
+	// Experimental.
+	RemovalPolicy RemovalPolicy `json:"removalPolicy"`
+	// For custom resources, you can specify AWS::CloudFormation::CustomResource (the default) as the resource type, or you can specify your own resource type name.
+	//
+	// For example, you can use "Custom::MyCustomResourceTypeName".
+	//
+	// Custom resource type names must begin with "Custom::" and can include
+	// alphanumeric characters and the following characters: _@-. You can specify
+	// a custom resource type name up to a maximum length of 60 characters. You
+	// cannot change the type during an update.
+	//
+	// Using your own resource type names helps you quickly differentiate the
+	// types of custom resources in your stack. For example, if you had two custom
+	// resources that conduct two different ping tests, you could name their type
+	// as Custom::PingTester to make them easily identifiable as ping testers
+	// (instead of using AWS::CloudFormation::CustomResource).
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html#aws-cfn-resource-type-name
+	//
+	// Experimental.
+	ResourceType *string `json:"resourceType"`
 }
 
 // An AWS-Lambda backed custom resource provider.
@@ -13575,7 +13179,6 @@ type CustomResourceProviderProps struct {
 type CustomResourceProviderRuntime string
 
 const (
-	CustomResourceProviderRuntime_NODEJS_12 CustomResourceProviderRuntime = "NODEJS_12"
 	CustomResourceProviderRuntime_NODEJS_14_X CustomResourceProviderRuntime = "NODEJS_14_X"
 )
 
@@ -13917,15 +13520,6 @@ type DefaultStackSynthesizerProps struct {
 	// this string directly.
 	// Experimental.
 	DockerTagPrefix *string `json:"dockerTagPrefix"`
-	// Name of the CloudFormation Export with the asset key name.
-	//
-	// You must supply this if you have given a non-standard name to the KMS key export
-	//
-	// The placeholders `${Qualifier}`, `${AWS::AccountId}` and `${AWS::Region}` will
-	// be replaced with the values of qualifier and the stack's account and region,
-	// respectively.
-	// Deprecated: This property is not used anymore
-	FileAssetKeyArnExportName *string `json:"fileAssetKeyArnExportName"`
 	// External ID to use when assuming role for file asset publishing.
 	// Experimental.
 	FileAssetPublishingExternalId *string `json:"fileAssetPublishingExternalId"`
@@ -14246,7 +13840,6 @@ func (d *jsiiProxy_DockerIgnoreStrategy) Ignores(absoluteFilePath *string) *bool
 //
 // Experimental.
 type DockerImage interface {
-	BundlingDockerImage
 	Image() *string
 	Cp(imagePath *string, outputPath *string) *string
 	Run(options *DockerRunOptions)
@@ -14255,7 +13848,7 @@ type DockerImage interface {
 
 // The jsii proxy struct for DockerImage
 type jsiiProxy_DockerImage struct {
-	jsiiProxy_BundlingDockerImage
+	_ byte // padding
 }
 
 func (j *jsiiProxy_DockerImage) Image() *string {
@@ -14293,23 +13886,6 @@ func NewDockerImage_Override(d DockerImage, image *string, _imageHash *string) {
 		[]interface{}{image, _imageHash},
 		d,
 	)
-}
-
-// Reference an image that's built directly from sources on disk.
-// Deprecated: use DockerImage.fromBuild()
-func DockerImage_FromAsset(path *string, options *DockerBuildOptions) BundlingDockerImage {
-	_init_.Initialize()
-
-	var returns BundlingDockerImage
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.DockerImage",
-		"fromAsset",
-		[]interface{}{path, options},
-		&returns,
-	)
-
-	return returns
 }
 
 // Builds a Docker image.
@@ -14440,13 +14016,6 @@ type DockerImageAssetSource struct {
 	// The command should produce the name of a local Docker image on `stdout`.
 	// Experimental.
 	Executable *[]*string `json:"executable"`
-	// ECR repository name.
-	//
-	// Specify this property if you need to statically address the image, e.g.
-	// from a Kubernetes Pod. Note, this is only the repository name, without the
-	// registry and the tag parts.
-	// Deprecated: repository name should be specified at the environment-level and not at the image level
-	RepositoryName *string `json:"repositoryName"`
 	// The hash of the contents of the docker build context.
 	//
 	// This hash is used
@@ -14540,7 +14109,6 @@ type Duration interface {
 	ToHours(opts *TimeConversionOptions) *float64
 	ToHumanString() *string
 	ToIsoString() *string
-	ToISOString() *string
 	ToMilliseconds(opts *TimeConversionOptions) *float64
 	ToMinutes(opts *TimeConversionOptions) *float64
 	ToSeconds(opts *TimeConversionOptions) *float64
@@ -14790,25 +14358,6 @@ func (d *jsiiProxy_Duration) ToIsoString() *string {
 	_jsii_.Invoke(
 		d,
 		"toIsoString",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Return an ISO 8601 representation of this period.
-//
-// Returns: a string starting with 'P' describing the period
-// See: https://www.iso.org/fr/standard/70907.html
-//
-// Deprecated: Use `toIsoString()` instead.
-func (d *jsiiProxy_Duration) ToISOString() *string {
-	var returns *string
-
-	_jsii_.Invoke(
-		d,
-		"toISOString",
 		nil, // no parameters
 		&returns,
 	)
@@ -15166,20 +14715,6 @@ type FileAssetLocation struct {
 	// Example value: `https://s3-us-east-1.amazonaws.com/mybucket/myobject`
 	// Experimental.
 	HttpUrl *string `json:"httpUrl"`
-	// The ARN of the KMS key used to encrypt the file asset bucket, if any.
-	//
-	// If so, the consuming role should be given "kms:Decrypt" permissions in its
-	// identity policy.
-	//
-	// It's the responsibility of they key's creator to make sure that all
-	// consumers that the key's key policy is configured such that the key can be used
-	// by all consumers that need it.
-	//
-	// The default bootstrap stack provisioned by the CDK CLI ensures this, and
-	// can be used as an example for how to configure the key properly.
-	// Deprecated: Since bootstrap bucket v4, the key policy properly allows use of the
-	// key via the bucket and no additional parameters have to be granted anymore.
-	KmsKeyArn *string `json:"kmsKeyArn"`
 	// The Amazon S3 object key.
 	// Experimental.
 	ObjectKey *string `json:"objectKey"`
@@ -15188,9 +14723,6 @@ type FileAssetLocation struct {
 	// Example value: `s3://mybucket/myobject`
 	// Experimental.
 	S3ObjectUrl *string `json:"s3ObjectUrl"`
-	// The HTTP URL of this asset on Amazon S3.
-	// Deprecated: use `httpUrl`
-	S3Url *string `json:"s3Url"`
 }
 
 // Packaging modes for file assets.
@@ -17377,12 +16909,6 @@ type ITemplateOptions interface {
 	// Gets or sets the AWSTemplateFormatVersion field of the CloudFormation template.
 	// Experimental.
 	SetTemplateFormatVersion(t *string)
-	// Gets or sets the top-level template transform for this stack (e.g. "AWS::Serverless-2016-10-31").
-	// Deprecated: use `transforms` instead.
-	Transform() *string
-	// Gets or sets the top-level template transform for this stack (e.g. "AWS::Serverless-2016-10-31").
-	// Deprecated: use `transforms` instead.
-	SetTransform(t *string)
 	// Gets or sets the top-level template transform(s) for this stack (e.g. `["AWS::Serverless-2016-10-31"]`).
 	// Experimental.
 	Transforms() *[]*string
@@ -17446,24 +16972,6 @@ func (j *jsiiProxy_ITemplateOptions) SetTemplateFormatVersion(val *string) {
 	_jsii_.Set(
 		j,
 		"templateFormatVersion",
-		val,
-	)
-}
-
-func (j *jsiiProxy_ITemplateOptions) Transform() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"transform",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ITemplateOptions) SetTransform(val *string) {
-	_jsii_.Set(
-		j,
-		"transform",
 		val,
 	)
 }
@@ -17887,26 +17395,6 @@ func Lazy_Any(producer IStableAnyProducer, options *LazyAnyValueOptions) IResolv
 	return returns
 }
 
-// Defer the one-time calculation of an arbitrarily typed value to synthesis time.
-//
-// Use this if you want to render an object to a template whose actual value depends on
-// some state mutation that may happen after the construct has been created.
-// Deprecated: Use `Lazy.any()` or `Lazy.uncachedAny()` instead.
-func Lazy_AnyValue(producer IAnyProducer, options *LazyAnyValueOptions) IResolvable {
-	_init_.Initialize()
-
-	var returns IResolvable
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Lazy",
-		"anyValue",
-		[]interface{}{producer, options},
-		&returns,
-	)
-
-	return returns
-}
-
 // Defer the one-time calculation of a list value to synthesis time.
 //
 // Use this if you want to render a list to a template whose actual value depends on
@@ -17926,29 +17414,6 @@ func Lazy_List(producer IStableListProducer, options *LazyListValueOptions) *[]*
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.Lazy",
 		"list",
-		[]interface{}{producer, options},
-		&returns,
-	)
-
-	return returns
-}
-
-// Defer the one-time calculation of a list value to synthesis time.
-//
-// Use this if you want to render a list to a template whose actual value depends on
-// some state mutation that may happen after the construct has been created.
-//
-// If you are simply looking to force a value to a `string[]` type and don't need
-// the calculation to be deferred, use `Token.asList()` instead.
-// Deprecated: Use `Lazy.list()` or `Lazy.uncachedList()` instead.
-func Lazy_ListValue(producer IListProducer, options *LazyListValueOptions) *[]*string {
-	_init_.Initialize()
-
-	var returns *[]*string
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Lazy",
-		"listValue",
 		[]interface{}{producer, options},
 		&returns,
 	)
@@ -17982,29 +17447,6 @@ func Lazy_Number(producer IStableNumberProducer) *float64 {
 	return returns
 }
 
-// Defer the one-time calculation of a number value to synthesis time.
-//
-// Use this if you want to render a number to a template whose actual value depends on
-// some state mutation that may happen after the construct has been created.
-//
-// If you are simply looking to force a value to a `number` type and don't need
-// the calculation to be deferred, use `Token.asNumber()` instead.
-// Deprecated: Use `Lazy.number()` or `Lazy.uncachedNumber()` instead.
-func Lazy_NumberValue(producer INumberProducer) *float64 {
-	_init_.Initialize()
-
-	var returns *float64
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Lazy",
-		"numberValue",
-		[]interface{}{producer},
-		&returns,
-	)
-
-	return returns
-}
-
 // Defer the one-time calculation of a string value to synthesis time.
 //
 // Use this if you want to render a string to a template whose actual value depends on
@@ -18024,29 +17466,6 @@ func Lazy_String(producer IStableStringProducer, options *LazyStringValueOptions
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.Lazy",
 		"string",
-		[]interface{}{producer, options},
-		&returns,
-	)
-
-	return returns
-}
-
-// Defer the calculation of a string value to synthesis time.
-//
-// Use this if you want to render a string to a template whose actual value depends on
-// some state mutation that may happen after the construct has been created.
-//
-// If you are simply looking to force a value to a `string` type and don't need
-// the calculation to be deferred, use `Token.asString()` instead.
-// Deprecated: Use `Lazy.string()` or `Lazy.uncachedString()` instead.
-func Lazy_StringValue(producer IStringProducer, options *LazyStringValueOptions) *string {
-	_init_.Initialize()
-
-	var returns *string
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Lazy",
-		"stringValue",
 		[]interface{}{producer, options},
 		&returns,
 	)
@@ -18417,7 +17836,6 @@ type NestedStack interface {
 	NestedStackResource() CfnResource
 	Node() constructs.Node
 	NotificationArns() *[]*string
-	ParentStack() Stack
 	Partition() *string
 	Region() *string
 	StackId() *string
@@ -18429,17 +17847,12 @@ type NestedStack interface {
 	TerminationProtection() *bool
 	UrlSuffix() *string
 	AddDependency(target Stack, reason *string)
-	AddDockerImageAsset(asset *DockerImageAssetSource) *DockerImageAssetLocation
-	AddFileAsset(asset *FileAssetSource) *FileAssetLocation
 	AddTransform(transform *string)
 	AllocateLogicalId(cfnElement CfnElement) *string
 	ExportValue(exportedValue interface{}, options *ExportValueOptions) *string
 	FormatArn(components *ArnComponents) *string
 	GetLogicalId(element CfnElement) *string
-	ParseArn(arn *string, sepIfToken *string, hasName *bool) *ArnComponents
-	PrepareCrossReference(_sourceStack Stack, reference Reference) IResolvable
 	RenameLogicalId(oldId *string, newId *string)
-	ReportMissingContext(report *cxapi.MissingContext)
 	ReportMissingContextKey(report *cloudassemblyschema.MissingContext)
 	Resolve(obj interface{}) interface{}
 	SetParameter(name *string, value *string)
@@ -18548,16 +17961,6 @@ func (j *jsiiProxy_NestedStack) NotificationArns() *[]*string {
 	_jsii_.Get(
 		j,
 		"notificationArns",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_NestedStack) ParentStack() Stack {
-	var returns Stack
-	_jsii_.Get(
-		j,
-		"parentStack",
 		&returns,
 	)
 	return returns
@@ -18777,38 +18180,6 @@ func (n *jsiiProxy_NestedStack) AddDependency(target Stack, reason *string) {
 	)
 }
 
-// Register a docker image asset on this Stack.
-// Deprecated: Use `stack.synthesizer.addDockerImageAsset()` if you are calling,
-// and a different `IStackSynthesizer` class if you are implementing.
-func (n *jsiiProxy_NestedStack) AddDockerImageAsset(asset *DockerImageAssetSource) *DockerImageAssetLocation {
-	var returns *DockerImageAssetLocation
-
-	_jsii_.Invoke(
-		n,
-		"addDockerImageAsset",
-		[]interface{}{asset},
-		&returns,
-	)
-
-	return returns
-}
-
-// Register a file asset on this Stack.
-// Deprecated: Use `stack.synthesizer.addFileAsset()` if you are calling,
-// and a different IStackSynthesizer class if you are implementing.
-func (n *jsiiProxy_NestedStack) AddFileAsset(asset *FileAssetSource) *FileAssetLocation {
-	var returns *FileAssetLocation
-
-	_jsii_.Invoke(
-		n,
-		"addFileAsset",
-		[]interface{}{asset},
-		&returns,
-	)
-
-	return returns
-}
-
 // Add a Transform to this stack. A Transform is a macro that AWS CloudFormation uses to process your template.
 //
 // Duplicate values are removed when stack is synthesized.
@@ -18988,66 +18359,6 @@ func (n *jsiiProxy_NestedStack) GetLogicalId(element CfnElement) *string {
 	return returns
 }
 
-// Given an ARN, parses it and returns components.
-//
-// IF THE ARN IS A CONCRETE STRING...
-//
-// ...it will be parsed and validated. The separator (`sep`) will be set to '/'
-// if the 6th component includes a '/', in which case, `resource` will be set
-// to the value before the '/' and `resourceName` will be the rest. In case
-// there is no '/', `resource` will be set to the 6th components and
-// `resourceName` will be set to the rest of the string.
-//
-// IF THE ARN IS A TOKEN...
-//
-// ...it cannot be validated, since we don't have the actual value yet at the
-// time of this function call. You will have to supply `sepIfToken` and
-// whether or not ARNs of the expected format usually have resource names
-// in order to parse it properly. The resulting `ArnComponents` object will
-// contain tokens for the subexpressions of the ARN, not string literals.
-//
-// If the resource name could possibly contain the separator char, the actual
-// resource name cannot be properly parsed. This only occurs if the separator
-// char is '/', and happens for example for S3 object ARNs, IAM Role ARNs,
-// IAM OIDC Provider ARNs, etc. To properly extract the resource name from a
-// Tokenized ARN, you must know the resource type and call
-// `Arn.extractResourceName`.
-//
-// Returns: an ArnComponents object which allows access to the various
-// components of the ARN.
-// Deprecated: use splitArn instead
-func (n *jsiiProxy_NestedStack) ParseArn(arn *string, sepIfToken *string, hasName *bool) *ArnComponents {
-	var returns *ArnComponents
-
-	_jsii_.Invoke(
-		n,
-		"parseArn",
-		[]interface{}{arn, sepIfToken, hasName},
-		&returns,
-	)
-
-	return returns
-}
-
-// Deprecated.
-//
-// Returns: reference itself without any change
-// See: https://github.com/aws/aws-cdk/pull/7187
-//
-// Deprecated: cross reference handling has been moved to `App.prepare()`.
-func (n *jsiiProxy_NestedStack) PrepareCrossReference(_sourceStack Stack, reference Reference) IResolvable {
-	var returns IResolvable
-
-	_jsii_.Invoke(
-		n,
-		"prepareCrossReference",
-		[]interface{}{_sourceStack, reference},
-		&returns,
-	)
-
-	return returns
-}
-
 // Rename a generated logical identities.
 //
 // To modify the naming scheme strategy, extend the `Stack` class and
@@ -19058,16 +18369,6 @@ func (n *jsiiProxy_NestedStack) RenameLogicalId(oldId *string, newId *string) {
 		n,
 		"renameLogicalId",
 		[]interface{}{oldId, newId},
-	)
-}
-
-// DEPRECATED.
-// Deprecated: use `reportMissingContextKey()`
-func (n *jsiiProxy_NestedStack) ReportMissingContext(report *cxapi.MissingContext) {
-	_jsii_.InvokeVoid(
-		n,
-		"reportMissingContext",
-		[]interface{}{report},
 	)
 }
 
@@ -20386,25 +19687,6 @@ func Size_Mebibytes(amount *float64) Size {
 // Create a Storage representing an amount pebibytes.
 //
 // 1 PiB = 1024 TiB
-// Deprecated: use `pebibytes` instead
-func Size_Pebibyte(amount *float64) Size {
-	_init_.Initialize()
-
-	var returns Size
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.Size",
-		"pebibyte",
-		[]interface{}{amount},
-		&returns,
-	)
-
-	return returns
-}
-
-// Create a Storage representing an amount pebibytes.
-//
-// 1 PiB = 1024 TiB
 //
 // Returns: a new `Size` instance
 // Experimental.
@@ -20571,7 +19853,6 @@ type Stack interface {
 	NestedStackResource() CfnResource
 	Node() constructs.Node
 	NotificationArns() *[]*string
-	ParentStack() Stack
 	Partition() *string
 	Region() *string
 	StackId() *string
@@ -20583,17 +19864,12 @@ type Stack interface {
 	TerminationProtection() *bool
 	UrlSuffix() *string
 	AddDependency(target Stack, reason *string)
-	AddDockerImageAsset(asset *DockerImageAssetSource) *DockerImageAssetLocation
-	AddFileAsset(asset *FileAssetSource) *FileAssetLocation
 	AddTransform(transform *string)
 	AllocateLogicalId(cfnElement CfnElement) *string
 	ExportValue(exportedValue interface{}, options *ExportValueOptions) *string
 	FormatArn(components *ArnComponents) *string
 	GetLogicalId(element CfnElement) *string
-	ParseArn(arn *string, sepIfToken *string, hasName *bool) *ArnComponents
-	PrepareCrossReference(_sourceStack Stack, reference Reference) IResolvable
 	RenameLogicalId(oldId *string, newId *string)
-	ReportMissingContext(report *cxapi.MissingContext)
 	ReportMissingContextKey(report *cloudassemblyschema.MissingContext)
 	Resolve(obj interface{}) interface{}
 	SplitArn(arn *string, arnFormat ArnFormat) *ArnComponents
@@ -20702,16 +19978,6 @@ func (j *jsiiProxy_Stack) NotificationArns() *[]*string {
 	_jsii_.Get(
 		j,
 		"notificationArns",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Stack) ParentStack() Stack {
-	var returns Stack
-	_jsii_.Get(
-		j,
-		"parentStack",
 		&returns,
 	)
 	return returns
@@ -20916,38 +20182,6 @@ func (s *jsiiProxy_Stack) AddDependency(target Stack, reason *string) {
 	)
 }
 
-// Register a docker image asset on this Stack.
-// Deprecated: Use `stack.synthesizer.addDockerImageAsset()` if you are calling,
-// and a different `IStackSynthesizer` class if you are implementing.
-func (s *jsiiProxy_Stack) AddDockerImageAsset(asset *DockerImageAssetSource) *DockerImageAssetLocation {
-	var returns *DockerImageAssetLocation
-
-	_jsii_.Invoke(
-		s,
-		"addDockerImageAsset",
-		[]interface{}{asset},
-		&returns,
-	)
-
-	return returns
-}
-
-// Register a file asset on this Stack.
-// Deprecated: Use `stack.synthesizer.addFileAsset()` if you are calling,
-// and a different IStackSynthesizer class if you are implementing.
-func (s *jsiiProxy_Stack) AddFileAsset(asset *FileAssetSource) *FileAssetLocation {
-	var returns *FileAssetLocation
-
-	_jsii_.Invoke(
-		s,
-		"addFileAsset",
-		[]interface{}{asset},
-		&returns,
-	)
-
-	return returns
-}
-
 // Add a Transform to this stack. A Transform is a macro that AWS CloudFormation uses to process your template.
 //
 // Duplicate values are removed when stack is synthesized.
@@ -21127,66 +20361,6 @@ func (s *jsiiProxy_Stack) GetLogicalId(element CfnElement) *string {
 	return returns
 }
 
-// Given an ARN, parses it and returns components.
-//
-// IF THE ARN IS A CONCRETE STRING...
-//
-// ...it will be parsed and validated. The separator (`sep`) will be set to '/'
-// if the 6th component includes a '/', in which case, `resource` will be set
-// to the value before the '/' and `resourceName` will be the rest. In case
-// there is no '/', `resource` will be set to the 6th components and
-// `resourceName` will be set to the rest of the string.
-//
-// IF THE ARN IS A TOKEN...
-//
-// ...it cannot be validated, since we don't have the actual value yet at the
-// time of this function call. You will have to supply `sepIfToken` and
-// whether or not ARNs of the expected format usually have resource names
-// in order to parse it properly. The resulting `ArnComponents` object will
-// contain tokens for the subexpressions of the ARN, not string literals.
-//
-// If the resource name could possibly contain the separator char, the actual
-// resource name cannot be properly parsed. This only occurs if the separator
-// char is '/', and happens for example for S3 object ARNs, IAM Role ARNs,
-// IAM OIDC Provider ARNs, etc. To properly extract the resource name from a
-// Tokenized ARN, you must know the resource type and call
-// `Arn.extractResourceName`.
-//
-// Returns: an ArnComponents object which allows access to the various
-// components of the ARN.
-// Deprecated: use splitArn instead
-func (s *jsiiProxy_Stack) ParseArn(arn *string, sepIfToken *string, hasName *bool) *ArnComponents {
-	var returns *ArnComponents
-
-	_jsii_.Invoke(
-		s,
-		"parseArn",
-		[]interface{}{arn, sepIfToken, hasName},
-		&returns,
-	)
-
-	return returns
-}
-
-// Deprecated.
-//
-// Returns: reference itself without any change
-// See: https://github.com/aws/aws-cdk/pull/7187
-//
-// Deprecated: cross reference handling has been moved to `App.prepare()`.
-func (s *jsiiProxy_Stack) PrepareCrossReference(_sourceStack Stack, reference Reference) IResolvable {
-	var returns IResolvable
-
-	_jsii_.Invoke(
-		s,
-		"prepareCrossReference",
-		[]interface{}{_sourceStack, reference},
-		&returns,
-	)
-
-	return returns
-}
-
 // Rename a generated logical identities.
 //
 // To modify the naming scheme strategy, extend the `Stack` class and
@@ -21197,16 +20371,6 @@ func (s *jsiiProxy_Stack) RenameLogicalId(oldId *string, newId *string) {
 		s,
 		"renameLogicalId",
 		[]interface{}{oldId, newId},
-	)
-}
-
-// DEPRECATED.
-// Deprecated: use `reportMissingContextKey()`
-func (s *jsiiProxy_Stack) ReportMissingContext(report *cxapi.MissingContext) {
-	_jsii_.InvokeVoid(
-		s,
-		"reportMissingContext",
-		[]interface{}{report},
 	)
 }
 
@@ -21915,30 +21079,6 @@ func NewTag_Override(t Tag, key *string, value *string, props *TagProps) {
 		"aws-cdk-lib.Tag",
 		[]interface{}{key, value, props},
 		t,
-	)
-}
-
-// DEPRECATED: add tags to the node of a construct and all its the taggable children.
-// Deprecated: use `Tags.of(scope).add()`
-func Tag_Add(scope constructs.Construct, key *string, value *string, props *TagProps) {
-	_init_.Initialize()
-
-	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.Tag",
-		"add",
-		[]interface{}{scope, key, value, props},
-	)
-}
-
-// DEPRECATED: remove tags to the node of a construct and all its the taggable children.
-// Deprecated: use `Tags.of(scope).remove()`
-func Tag_Remove(scope constructs.Construct, key *string, props *TagProps) {
-	_init_.Initialize()
-
-	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.Tag",
-		"remove",
-		[]interface{}{scope, key, props},
 	)
 }
 

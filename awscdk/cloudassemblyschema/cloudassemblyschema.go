@@ -245,10 +245,6 @@ type ContainerImageAssetMetadataEntry struct {
 	// Logical identifier for the asset.
 	// Experimental.
 	Id *string `json:"id"`
-	// ECR Repository name and repo digest (separated by "@sha256:") where this image is stored.
-	// Deprecated: specify `repositoryName` and `imageTag` instead, and then you
-	// know where the image will go.
-	ImageNameParameter *string `json:"imageNameParameter"`
 	// The docker image tag to use for tagging pushed images.
 	//
 	// This field is
@@ -637,23 +633,6 @@ type jsiiProxy_Manifest struct {
 	_ byte // padding
 }
 
-// Deprecated.
-// Deprecated: use `loadAssemblyManifest()`
-func Manifest_Load(filePath *string) *AssemblyManifest {
-	_init_.Initialize()
-
-	var returns *AssemblyManifest
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.cloud_assembly_schema.Manifest",
-		"load",
-		[]interface{}{filePath},
-		&returns,
-	)
-
-	return returns
-}
-
 // Load and validates the cloud assembly manifest from file.
 // Experimental.
 func Manifest_LoadAssemblyManifest(filePath *string) *AssemblyManifest {
@@ -686,18 +665,6 @@ func Manifest_LoadAssetManifest(filePath *string) *AssetManifest {
 	)
 
 	return returns
-}
-
-// Deprecated.
-// Deprecated: use `saveAssemblyManifest()`
-func Manifest_Save(manifest *AssemblyManifest, filePath *string) {
-	_init_.Initialize()
-
-	_jsii_.StaticInvokeVoid(
-		"aws-cdk-lib.cloud_assembly_schema.Manifest",
-		"save",
-		[]interface{}{manifest, filePath},
-	)
 }
 
 // Validates and saves the cloud assembly manifest to file.

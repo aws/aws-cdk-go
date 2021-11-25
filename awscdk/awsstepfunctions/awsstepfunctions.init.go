@@ -258,14 +258,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_stepfunctions.Context",
-		reflect.TypeOf((*Context)(nil)).Elem(),
-		nil, // no members
-		func() interface{} {
-			return &jsiiProxy_Context{}
-		},
-	)
-	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_stepfunctions.CustomState",
 		reflect.TypeOf((*CustomState)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -314,14 +306,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions.CustomStateProps",
 		reflect.TypeOf((*CustomStateProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_stepfunctions.Data",
-		reflect.TypeOf((*Data)(nil)).Elem(),
-		nil, // no members
-		func() interface{} {
-			return &jsiiProxy_Data{}
-		},
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_stepfunctions.Errors",
@@ -456,16 +440,6 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.Type__awsiamIGrantable)
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_stepfunctions.IStepFunctionsTask",
-		reflect.TypeOf((*IStepFunctionsTask)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-		},
-		func() interface{} {
-			return &jsiiProxy_IStepFunctionsTask{}
 		},
 	)
 	_jsii_.RegisterEnum(
@@ -832,10 +806,6 @@ func init() {
 			return &jsiiProxy_StateTransitionMetric{}
 		},
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_stepfunctions.StepFunctionsTaskConfig",
-		reflect.TypeOf((*StepFunctionsTaskConfig)(nil)).Elem(),
-	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_stepfunctions.Succeed",
 		reflect.TypeOf((*Succeed)(nil)).Elem(),
@@ -884,63 +854,6 @@ func init() {
 		reflect.TypeOf((*SucceedProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_stepfunctions.Task",
-		reflect.TypeOf((*Task)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
-			_jsii_.MemberMethod{JsiiMethod: "addCatch", GoMethod: "AddCatch"},
-			_jsii_.MemberMethod{JsiiMethod: "addChoice", GoMethod: "AddChoice"},
-			_jsii_.MemberMethod{JsiiMethod: "addIterator", GoMethod: "AddIterator"},
-			_jsii_.MemberMethod{JsiiMethod: "addPrefix", GoMethod: "AddPrefix"},
-			_jsii_.MemberMethod{JsiiMethod: "addRetry", GoMethod: "AddRetry"},
-			_jsii_.MemberMethod{JsiiMethod: "bindToGraph", GoMethod: "BindToGraph"},
-			_jsii_.MemberProperty{JsiiProperty: "branches", GoGetter: "Branches"},
-			_jsii_.MemberProperty{JsiiProperty: "comment", GoGetter: "Comment"},
-			_jsii_.MemberProperty{JsiiProperty: "defaultChoice", GoGetter: "DefaultChoice"},
-			_jsii_.MemberProperty{JsiiProperty: "endStates", GoGetter: "EndStates"},
-			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
-			_jsii_.MemberProperty{JsiiProperty: "inputPath", GoGetter: "InputPath"},
-			_jsii_.MemberProperty{JsiiProperty: "iteration", GoGetter: "Iteration"},
-			_jsii_.MemberMethod{JsiiMethod: "makeDefault", GoMethod: "MakeDefault"},
-			_jsii_.MemberMethod{JsiiMethod: "makeNext", GoMethod: "MakeNext"},
-			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
-			_jsii_.MemberMethod{JsiiMethod: "metricFailed", GoMethod: "MetricFailed"},
-			_jsii_.MemberMethod{JsiiMethod: "metricHeartbeatTimedOut", GoMethod: "MetricHeartbeatTimedOut"},
-			_jsii_.MemberMethod{JsiiMethod: "metricRunTime", GoMethod: "MetricRunTime"},
-			_jsii_.MemberMethod{JsiiMethod: "metricScheduled", GoMethod: "MetricScheduled"},
-			_jsii_.MemberMethod{JsiiMethod: "metricScheduleTime", GoMethod: "MetricScheduleTime"},
-			_jsii_.MemberMethod{JsiiMethod: "metricStarted", GoMethod: "MetricStarted"},
-			_jsii_.MemberMethod{JsiiMethod: "metricSucceeded", GoMethod: "MetricSucceeded"},
-			_jsii_.MemberMethod{JsiiMethod: "metricTime", GoMethod: "MetricTime"},
-			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
-			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
-			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
-			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
-			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
-			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
-			_jsii_.MemberMethod{JsiiMethod: "renderIterator", GoMethod: "RenderIterator"},
-			_jsii_.MemberMethod{JsiiMethod: "renderNextEnd", GoMethod: "RenderNextEnd"},
-			_jsii_.MemberMethod{JsiiMethod: "renderResultSelector", GoMethod: "RenderResultSelector"},
-			_jsii_.MemberMethod{JsiiMethod: "renderRetryCatch", GoMethod: "RenderRetryCatch"},
-			_jsii_.MemberProperty{JsiiProperty: "resultPath", GoGetter: "ResultPath"},
-			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
-			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
-			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
-			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
-			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
-			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
-		},
-		func() interface{} {
-			j := jsiiProxy_Task{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_State)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_INextable)
-			return &j
-		},
-	)
-	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_stepfunctions.TaskInput",
 		reflect.TypeOf((*TaskInput)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -954,10 +867,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions.TaskMetricsConfig",
 		reflect.TypeOf((*TaskMetricsConfig)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_stepfunctions.TaskProps",
-		reflect.TypeOf((*TaskProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_stepfunctions.TaskStateBase",

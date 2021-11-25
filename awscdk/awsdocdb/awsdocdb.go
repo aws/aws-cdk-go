@@ -3855,7 +3855,6 @@ type DatabaseSecret interface {
 	Stack() awscdk.Stack
 	AddReplicaRegion(region *string, encryptionKey awskms.IKey)
 	AddRotationSchedule(id *string, options *awssecretsmanager.RotationScheduleOptions) awssecretsmanager.RotationSchedule
-	AddTargetAttachment(id *string, options *awssecretsmanager.AttachedSecretOptions) awssecretsmanager.SecretTargetAttachment
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	Attach(target awssecretsmanager.ISecretAttachmentTarget) awssecretsmanager.ISecret
@@ -4011,22 +4010,6 @@ func NewDatabaseSecret_Override(d DatabaseSecret, scope constructs.Construct, id
 	)
 }
 
-// Deprecated: use `fromSecretCompleteArn` or `fromSecretPartialArn`
-func DatabaseSecret_FromSecretArn(scope constructs.Construct, id *string, secretArn *string) awssecretsmanager.ISecret {
-	_init_.Initialize()
-
-	var returns awssecretsmanager.ISecret
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_docdb.DatabaseSecret",
-		"fromSecretArn",
-		[]interface{}{scope, id, secretArn},
-		&returns,
-	)
-
-	return returns
-}
-
 // Import an existing secret into the Stack.
 // Experimental.
 func DatabaseSecret_FromSecretAttributes(scope constructs.Construct, id *string, attrs *awssecretsmanager.SecretAttributes) awssecretsmanager.ISecret {
@@ -4057,26 +4040,6 @@ func DatabaseSecret_FromSecretCompleteArn(scope constructs.Construct, id *string
 		"aws-cdk-lib.aws_docdb.DatabaseSecret",
 		"fromSecretCompleteArn",
 		[]interface{}{scope, id, secretCompleteArn},
-		&returns,
-	)
-
-	return returns
-}
-
-// Imports a secret by secret name;
-//
-// the ARN of the Secret will be set to the secret name.
-// A secret with this name must exist in the same account & region.
-// Deprecated: use `fromSecretNameV2`
-func DatabaseSecret_FromSecretName(scope constructs.Construct, id *string, secretName *string) awssecretsmanager.ISecret {
-	_init_.Initialize()
-
-	var returns awssecretsmanager.ISecret
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_docdb.DatabaseSecret",
-		"fromSecretName",
-		[]interface{}{scope, id, secretName},
 		&returns,
 	)
 
@@ -4176,23 +4139,6 @@ func (d *jsiiProxy_DatabaseSecret) AddRotationSchedule(id *string, options *awss
 	_jsii_.Invoke(
 		d,
 		"addRotationSchedule",
-		[]interface{}{id, options},
-		&returns,
-	)
-
-	return returns
-}
-
-// Adds a target attachment to the secret.
-//
-// Returns: an AttachedSecret
-// Deprecated: use `attach()` instead
-func (d *jsiiProxy_DatabaseSecret) AddTargetAttachment(id *string, options *awssecretsmanager.AttachedSecretOptions) awssecretsmanager.SecretTargetAttachment {
-	var returns awssecretsmanager.SecretTargetAttachment
-
-	_jsii_.Invoke(
-		d,
-		"addTargetAttachment",
 		[]interface{}{id, options},
 		&returns,
 	)

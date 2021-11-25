@@ -651,7 +651,6 @@ type ContainerOverride struct {
 // Experimental.
 type EcsTask interface {
 	awsevents.IRuleTarget
-	SecurityGroup() awsec2.ISecurityGroup
 	SecurityGroups() *[]awsec2.ISecurityGroup
 	Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
 }
@@ -659,16 +658,6 @@ type EcsTask interface {
 // The jsii proxy struct for EcsTask
 type jsiiProxy_EcsTask struct {
 	internal.Type__awseventsIRuleTarget
-}
-
-func (j *jsiiProxy_EcsTask) SecurityGroup() awsec2.ISecurityGroup {
-	var returns awsec2.ISecurityGroup
-	_jsii_.Get(
-		j,
-		"securityGroup",
-		&returns,
-	)
-	return returns
 }
 
 func (j *jsiiProxy_EcsTask) SecurityGroups() *[]awsec2.ISecurityGroup {
@@ -751,11 +740,6 @@ type EcsTaskProps struct {
 	// Existing IAM role to run the ECS task.
 	// Experimental.
 	Role awsiam.IRole `json:"role"`
-	// Existing security group to use for the task's ENIs.
-	//
-	// (Only applicable in case the TaskDefinition is configured for AwsVpc networking)
-	// Deprecated: use securityGroups instead
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 	// Existing security groups to use for the task's ENIs.
 	//
 	// (Only applicable in case the TaskDefinition is configured for AwsVpc networking)

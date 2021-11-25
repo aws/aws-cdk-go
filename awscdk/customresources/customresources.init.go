@@ -73,7 +73,6 @@ func init() {
 		"aws-cdk-lib.custom_resources.Provider",
 		reflect.TypeOf((*Provider)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
 			_jsii_.MemberProperty{JsiiProperty: "isCompleteHandler", GoGetter: "IsCompleteHandler"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "onEventHandler", GoGetter: "OnEventHandler"},
@@ -83,7 +82,6 @@ func init() {
 		func() interface{} {
 			j := jsiiProxy_Provider{}
 			_jsii_.InitJsiiProxy(&j.Type__constructsConstruct)
-			_jsii_.InitJsiiProxy(&j.Type__awscloudformationICustomResourceProvider)
 			return &j
 		},
 	)

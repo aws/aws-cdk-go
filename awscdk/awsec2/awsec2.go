@@ -5,7 +5,6 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/assets"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
@@ -47734,9 +47733,6 @@ type ClientVpnAuthorizationRuleProps struct {
 	// Experimental.
 	GroupId *string `json:"groupId"`
 	// The client VPN endpoint to which to add the rule.
-	// Deprecated: Use `clientVpnEndpoint` instead
-	ClientVpnEndoint IClientVpnEndpoint `json:"clientVpnEndoint"`
-	// The client VPN endpoint to which to add the rule.
 	// Experimental.
 	ClientVpnEndpoint IClientVpnEndpoint `json:"clientVpnEndpoint"`
 }
@@ -48472,9 +48468,6 @@ type ClientVpnRouteProps struct {
 	// The target for the route.
 	// Experimental.
 	Target ClientVpnRouteTarget `json:"target"`
-	// The client VPN endpoint to which to add the route.
-	// Deprecated: Use `clientVpnEndpoint` instead
-	ClientVpnEndoint IClientVpnEndpoint `json:"clientVpnEndoint"`
 	// The client VPN endpoint to which to add the route.
 	// Experimental.
 	ClientVpnEndpoint IClientVpnEndpoint `json:"clientVpnEndpoint"`
@@ -52579,18 +52572,6 @@ type InitFileAssetOptions struct {
 	// Restart the given service after this file has been written.
 	// Experimental.
 	ServiceRestartHandles *[]InitServiceRestartHandle `json:"serviceRestartHandles"`
-	// Glob patterns to exclude from the copy.
-	// Experimental.
-	Exclude *[]*string `json:"exclude"`
-	// A strategy for how to handle symlinks.
-	// Deprecated: use `followSymlinks` instead
-	Follow assets.FollowMode `json:"follow"`
-	// The ignore behavior to use for exclude patterns.
-	// Experimental.
-	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode"`
-	// A strategy for how to handle symlinks.
-	// Experimental.
-	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
 	// Specify a custom hash for this asset.
 	//
 	// If `assetHashType` is set it must
@@ -52619,24 +52600,20 @@ type InitFileAssetOptions struct {
 	// final asset.
 	// Experimental.
 	Bundling *awscdk.BundlingOptions `json:"bundling"`
+	// Glob patterns to exclude from the copy.
+	// Experimental.
+	Exclude *[]*string `json:"exclude"`
+	// A strategy for how to handle symlinks.
+	// Experimental.
+	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
+	// The ignore behavior to use for exclude patterns.
+	// Experimental.
+	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode"`
 	// A list of principals that should be able to read this asset from S3.
 	//
 	// You can use `asset.grantRead(principal)` to grant read permissions later.
 	// Experimental.
 	Readers *[]awsiam.IGrantable `json:"readers"`
-	// Custom hash to use when identifying the specific version of the asset.
-	//
-	// For consistency,
-	// this custom hash will be SHA256 hashed and encoded as hex. The resulting hash will be
-	// the asset hash.
-	//
-	// NOTE: the source hash is used in order to identify a specific revision of the asset,
-	// and used for optimizing and caching deployment activities related to this asset such as
-	// packaging, uploading to Amazon S3, etc. If you chose to customize the source hash,
-	// you will need to make sure it is updated every time the source changes, or otherwise
-	// it is possible that some deployments will not be invalidated.
-	// Deprecated: see `assetHash` and `assetHashType`
-	SourceHash *string `json:"sourceHash"`
 }
 
 // Options for InitFile.
@@ -53189,18 +53166,6 @@ type InitSourceAssetOptions struct {
 	// Restart the given services after this archive has been extracted.
 	// Experimental.
 	ServiceRestartHandles *[]InitServiceRestartHandle `json:"serviceRestartHandles"`
-	// Glob patterns to exclude from the copy.
-	// Experimental.
-	Exclude *[]*string `json:"exclude"`
-	// A strategy for how to handle symlinks.
-	// Deprecated: use `followSymlinks` instead
-	Follow assets.FollowMode `json:"follow"`
-	// The ignore behavior to use for exclude patterns.
-	// Experimental.
-	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode"`
-	// A strategy for how to handle symlinks.
-	// Experimental.
-	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
 	// Specify a custom hash for this asset.
 	//
 	// If `assetHashType` is set it must
@@ -53229,24 +53194,20 @@ type InitSourceAssetOptions struct {
 	// final asset.
 	// Experimental.
 	Bundling *awscdk.BundlingOptions `json:"bundling"`
+	// Glob patterns to exclude from the copy.
+	// Experimental.
+	Exclude *[]*string `json:"exclude"`
+	// A strategy for how to handle symlinks.
+	// Experimental.
+	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
+	// The ignore behavior to use for exclude patterns.
+	// Experimental.
+	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode"`
 	// A list of principals that should be able to read this asset from S3.
 	//
 	// You can use `asset.grantRead(principal)` to grant read permissions later.
 	// Experimental.
 	Readers *[]awsiam.IGrantable `json:"readers"`
-	// Custom hash to use when identifying the specific version of the asset.
-	//
-	// For consistency,
-	// this custom hash will be SHA256 hashed and encoded as hex. The resulting hash will be
-	// the asset hash.
-	//
-	// NOTE: the source hash is used in order to identify a specific revision of the asset,
-	// and used for optimizing and caching deployment activities related to this asset such as
-	// packaging, uploading to Amazon S3, etc. If you chose to customize the source hash,
-	// you will need to make sure it is updated every time the source changes, or otherwise
-	// it is possible that some deployments will not be invalidated.
-	// Deprecated: see `assetHash` and `assetHashType`
-	SourceHash *string `json:"sourceHash"`
 }
 
 // Additional options for an InitSource.
@@ -54172,7 +54133,6 @@ type InterfaceVpcEndpoint interface {
 	PhysicalName() *string
 	PolicyDocument() awsiam.PolicyDocument
 	SetPolicyDocument(val awsiam.PolicyDocument)
-	SecurityGroupId() *string
 	Stack() awscdk.Stack
 	VpcEndpointCreationTimestamp() *string
 	VpcEndpointDnsEntries() *[]*string
@@ -54237,16 +54197,6 @@ func (j *jsiiProxy_InterfaceVpcEndpoint) PolicyDocument() awsiam.PolicyDocument 
 	_jsii_.Get(
 		j,
 		"policyDocument",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_InterfaceVpcEndpoint) SecurityGroupId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"securityGroupId",
 		&returns,
 	)
 	return returns
@@ -54498,9 +54448,6 @@ type InterfaceVpcEndpointAttributes struct {
 	// The port of the service of the interface VPC endpoint.
 	// Experimental.
 	Port *float64 `json:"port"`
-	// The identifier of the security group associated with the interface VPC endpoint.
-	// Deprecated: use `securityGroups` instead
-	SecurityGroupId *string `json:"securityGroupId"`
 	// The security groups associated with the interface VPC endpoint.
 	// Experimental.
 	SecurityGroups *[]ISecurityGroup `json:"securityGroups"`
@@ -56146,28 +56093,6 @@ func MachineImage_FromSsmParameter(parameterName *string, options *SsmParameterI
 	return returns
 }
 
-// An image specified in SSM parameter store that is automatically kept up-to-date.
-//
-// This Machine Image automatically updates to the latest version on every
-// deployment. Be aware this will cause your instances to be replaced when a
-// new version of the image becomes available. Do not store stateful information
-// on the instance if you are using this image.
-// Deprecated: Use `MachineImage.fromSsmParameter()` instead
-func MachineImage_FromSSMParameter(parameterName *string, os OperatingSystemType, userData UserData) IMachineImage {
-	_init_.Initialize()
-
-	var returns IMachineImage
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.MachineImage",
-		"fromSSMParameter",
-		[]interface{}{parameterName, os, userData},
-		&returns,
-	)
-
-	return returns
-}
-
 // A Linux image where you specify the AMI ID for every region.
 // Experimental.
 func MachineImage_GenericLinux(amiMap *map[string]*string, props *GenericLinuxImageProps) IMachineImage {
@@ -56753,15 +56678,6 @@ func (n *jsiiProxy_NatInstanceImage) GetImage(scope constructs.Construct) *Machi
 //
 // Experimental.
 type NatInstanceProps struct {
-	// Allow all inbound traffic through the NAT instance.
-	//
-	// If you set this to false, you must configure the NAT instance's security
-	// groups in another way, either by passing in a fully configured Security
-	// Group using the `securityGroup` property, or by configuring it using the
-	// `.securityGroup` or `.connections` members after passing the NAT Instance
-	// Provider to a Vpc.
-	// Deprecated: - Use `defaultAllowedTraffic`.
-	AllowAllTraffic *bool `json:"allowAllTraffic"`
 	// Direction to allow all traffic through the NAT instance by default.
 	//
 	// By default, inbound and outbound traffic is allowed.
@@ -59347,7 +59263,6 @@ type SecurityGroup interface {
 	Node() constructs.Node
 	PhysicalName() *string
 	SecurityGroupId() *string
-	SecurityGroupName() *string
 	SecurityGroupVpcId() *string
 	Stack() awscdk.Stack
 	UniqueId() *string
@@ -59449,16 +59364,6 @@ func (j *jsiiProxy_SecurityGroup) SecurityGroupId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_SecurityGroup) SecurityGroupName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"securityGroupName",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_SecurityGroup) SecurityGroupVpcId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -59514,23 +59419,6 @@ func NewSecurityGroup_Override(s SecurityGroup, scope constructs.Construct, id *
 		[]interface{}{scope, id, props},
 		s,
 	)
-}
-
-// Look up a security group by id.
-// Deprecated: Use `fromLookupById()` instead
-func SecurityGroup_FromLookup(scope constructs.Construct, id *string, securityGroupId *string) ISecurityGroup {
-	_init_.Initialize()
-
-	var returns ISecurityGroup
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_ec2.SecurityGroup",
-		"fromLookup",
-		[]interface{}{scope, id, securityGroupId},
-		&returns,
-	)
-
-	return returns
 }
 
 // Look up a security group by id.
@@ -60940,13 +60828,6 @@ type SubnetSelection struct {
 	// At most one of `subnetType` and `subnetGroupName` can be supplied.
 	// Experimental.
 	SubnetGroupName *string `json:"subnetGroupName"`
-	// Alias for `subnetGroupName`.
-	//
-	// Select the subnet group with the given name. This only needs
-	// to be used if you have multiple subnet groups of the same type
-	// and you need to distinguish between them.
-	// Deprecated: Use `subnetGroupName` instead
-	SubnetName *string `json:"subnetName"`
 	// Explicitly select individual subnets.
 	//
 	// Use this if you don't want to automatically use all subnets in
@@ -60971,8 +60852,6 @@ type SubnetSelection struct {
 type SubnetType string
 
 const (
-	SubnetType_ISOLATED SubnetType = "ISOLATED"
-	SubnetType_PRIVATE SubnetType = "PRIVATE"
 	SubnetType_PUBLIC SubnetType = "PUBLIC"
 )
 
@@ -61679,7 +61558,6 @@ type Vpc interface {
 	InternetConnectivityEstablished() constructs.IDependable
 	InternetGatewayId() *string
 	IsolatedSubnets() *[]ISubnet
-	NatDependencies() *[]constructs.IConstruct
 	Node() constructs.Node
 	PhysicalName() *string
 	PrivateSubnets() *[]ISubnet
@@ -61694,11 +61572,9 @@ type Vpc interface {
 	VpcIpv6CidrBlocks() *[]*string
 	VpnGatewayId() *string
 	AddClientVpnEndpoint(id *string, options *ClientVpnEndpointOptions) ClientVpnEndpoint
-	AddDynamoDbEndpoint(id *string, subnets *[]*SubnetSelection) GatewayVpcEndpoint
 	AddFlowLog(id *string, options *FlowLogOptions) FlowLog
 	AddGatewayEndpoint(id *string, options *GatewayVpcEndpointOptions) GatewayVpcEndpoint
 	AddInterfaceEndpoint(id *string, options *InterfaceVpcEndpointOptions) InterfaceVpcEndpoint
-	AddS3Endpoint(id *string, subnets *[]*SubnetSelection) GatewayVpcEndpoint
 	AddVpnConnection(id *string, options *VpnConnectionOptions) VpnConnection
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	EnableVpnGateway(options *EnableVpnGatewayOptions)
@@ -61791,16 +61667,6 @@ func (j *jsiiProxy_Vpc) IsolatedSubnets() *[]ISubnet {
 	_jsii_.Get(
 		j,
 		"isolatedSubnets",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Vpc) NatDependencies() *[]constructs.IConstruct {
-	var returns *[]constructs.IConstruct
-	_jsii_.Get(
-		j,
-		"natDependencies",
 		&returns,
 	)
 	return returns
@@ -62121,21 +61987,6 @@ func (v *jsiiProxy_Vpc) AddClientVpnEndpoint(id *string, options *ClientVpnEndpo
 	return returns
 }
 
-// Adds a new DynamoDB gateway endpoint to this VPC.
-// Deprecated: use `addGatewayEndpoint()` instead
-func (v *jsiiProxy_Vpc) AddDynamoDbEndpoint(id *string, subnets *[]*SubnetSelection) GatewayVpcEndpoint {
-	var returns GatewayVpcEndpoint
-
-	_jsii_.Invoke(
-		v,
-		"addDynamoDbEndpoint",
-		[]interface{}{id, subnets},
-		&returns,
-	)
-
-	return returns
-}
-
 // Adds a new flow log to this VPC.
 // Experimental.
 func (v *jsiiProxy_Vpc) AddFlowLog(id *string, options *FlowLogOptions) FlowLog {
@@ -62175,21 +62026,6 @@ func (v *jsiiProxy_Vpc) AddInterfaceEndpoint(id *string, options *InterfaceVpcEn
 		v,
 		"addInterfaceEndpoint",
 		[]interface{}{id, options},
-		&returns,
-	)
-
-	return returns
-}
-
-// Adds a new S3 gateway endpoint to this VPC.
-// Deprecated: use `addGatewayEndpoint()` instead
-func (v *jsiiProxy_Vpc) AddS3Endpoint(id *string, subnets *[]*SubnetSelection) GatewayVpcEndpoint {
-	var returns GatewayVpcEndpoint
-
-	_jsii_.Invoke(
-		v,
-		"addS3Endpoint",
-		[]interface{}{id, subnets},
 		&returns,
 	)
 
@@ -62659,7 +62495,6 @@ type VpcEndpointService interface {
 	VpcEndpointServiceId() *string
 	VpcEndpointServiceLoadBalancers() *[]IVpcEndpointServiceLoadBalancer
 	VpcEndpointServiceName() *string
-	WhitelistedPrincipals() *[]awsiam.ArnPrincipal
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
@@ -62758,16 +62593,6 @@ func (j *jsiiProxy_VpcEndpointService) VpcEndpointServiceName() *string {
 	_jsii_.Get(
 		j,
 		"vpcEndpointServiceName",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_VpcEndpointService) WhitelistedPrincipals() *[]awsiam.ArnPrincipal {
-	var returns *[]awsiam.ArnPrincipal
-	_jsii_.Get(
-		j,
-		"whitelistedPrincipals",
 		&returns,
 	)
 	return returns
@@ -62940,15 +62765,6 @@ type VpcEndpointServiceProps struct {
 	// list of one or more ArnPrincipal.
 	// Experimental.
 	AllowedPrincipals *[]awsiam.ArnPrincipal `json:"allowedPrincipals"`
-	// Name of the Vpc Endpoint Service.
-	// Deprecated: This property is not used
-	VpcEndpointServiceName *string `json:"vpcEndpointServiceName"`
-	// IAM users, IAM roles, or AWS accounts to allow inbound connections from.
-	//
-	// These principals can connect to your service using VPC endpoints. Takes a
-	// list of one or more ArnPrincipal.
-	// Deprecated: use `allowedPrincipals`
-	WhitelistedPrincipals *[]awsiam.ArnPrincipal `json:"whitelistedPrincipals"`
 }
 
 // The type of VPC endpoint.
@@ -63972,12 +63788,10 @@ const (
 	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_KOREAN_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_KOREAN_64BIT_BASE"
 	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_LANGUAGE_PACKS_64BIT_SQL_2008_R2_SP3_EXPRESS WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_LANGUAGE_PACKS_64BIT_SQL_2008_R2_SP3_EXPRESS"
 	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_LANGUAGE_PACKS_64BIT_SQL_2008_R2_SP3_STANDARD WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_LANGUAGE_PACKS_64BIT_SQL_2008_R2_SP3_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2008_R2_SP1_PORTUGESE_BRAZIL_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2008_R2_SP1_PORTUGESE_BRAZIL_64BIT_BASE"
 	WindowsVersion_WINDOWS_SERVER_2008_SP2_ENGLISH_32BIT_BASE WindowsVersion = "WINDOWS_SERVER_2008_SP2_ENGLISH_32BIT_BASE"
 	WindowsVersion_WINDOWS_SERVER_2008_SP2_ENGLISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2008_SP2_ENGLISH_64BIT_BASE"
 	WindowsVersion_WINDOWS_SERVER_2008_SP2_ENGLISH_64BIT_SQL_2008_SP4_EXPRESS WindowsVersion = "WINDOWS_SERVER_2008_SP2_ENGLISH_64BIT_SQL_2008_SP4_EXPRESS"
 	WindowsVersion_WINDOWS_SERVER_2008_SP2_ENGLISH_64BIT_SQL_2008_SP4_STANDARD WindowsVersion = "WINDOWS_SERVER_2008_SP2_ENGLISH_64BIT_SQL_2008_SP4_STANDARD"
-	WindowsVersion_WINDOWS_SERVER_2008_SP2_PORTUGESE_BRAZIL_32BIT_BASE WindowsVersion = "WINDOWS_SERVER_2008_SP2_PORTUGESE_BRAZIL_32BIT_BASE"
 	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_CHINESE_SIMPLIFIED_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_CHINESE_SIMPLIFIED_64BIT_BASE"
 	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_CHINESE_TRADITIONAL_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_CHINESE_TRADITIONAL_64BIT_BASE"
 	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_CHINESE_TRADITIONAL_HONG_KONG_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_CHINESE_TRADITIONAL_HONG_KONG_64BIT_BASE"
@@ -64023,13 +63837,10 @@ const (
 	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP2_WEB WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_JAPANESE_64BIT_SQL_2016_SP2_WEB"
 	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_KOREAN_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_KOREAN_64BIT_BASE"
 	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_POLISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_POLISH_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_PORTUGESE_BRAZIL_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_PORTUGESE_BRAZIL_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_PORTUGESE_PORTUGAL_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_PORTUGESE_PORTUGAL_64BIT_BASE"
 	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_RUSSIAN_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_RUSSIAN_64BIT_BASE"
 	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_SPANISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_SPANISH_64BIT_BASE"
 	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_SWEDISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_SWEDISH_64BIT_BASE"
 	WindowsVersion_WINDOWS_SERVER_2012_R2_RTM_TURKISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_R2_RTM_TURKISH_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_R2_SP1_PORTUGESE_BRAZIL_64BIT_CORE WindowsVersion = "WINDOWS_SERVER_2012_R2_SP1_PORTUGESE_BRAZIL_64BIT_CORE"
 	WindowsVersion_WINDOWS_SERVER_2012_RTM_CHINESE_SIMPLIFIED_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_CHINESE_SIMPLIFIED_64BIT_BASE"
 	WindowsVersion_WINDOWS_SERVER_2012_RTM_CHINESE_TRADITIONAL_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_CHINESE_TRADITIONAL_64BIT_BASE"
 	WindowsVersion_WINDOWS_SERVER_2012_RTM_CHINESE_TRADITIONAL_HONG_KONG_SAR_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_CHINESE_TRADITIONAL_HONG_KONG_SAR_64BIT_BASE"
@@ -64067,13 +63878,10 @@ const (
 	WindowsVersion_WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2016_SP2_EXPRESS WindowsVersion = "WINDOWS_SERVER_2012_RTM_JAPANESE_64BIT_SQL_2016_SP2_EXPRESS"
 	WindowsVersion_WINDOWS_SERVER_2012_RTM_KOREAN_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_KOREAN_64BIT_BASE"
 	WindowsVersion_WINDOWS_SERVER_2012_RTM_POLISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_POLISH_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_PORTUGESE_BRAZIL_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_PORTUGESE_BRAZIL_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_RTM_PORTUGESE_PORTUGAL_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_PORTUGESE_PORTUGAL_64BIT_BASE"
 	WindowsVersion_WINDOWS_SERVER_2012_RTM_RUSSIAN_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_RUSSIAN_64BIT_BASE"
 	WindowsVersion_WINDOWS_SERVER_2012_RTM_SPANISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_SPANISH_64BIT_BASE"
 	WindowsVersion_WINDOWS_SERVER_2012_RTM_SWEDISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_SWEDISH_64BIT_BASE"
 	WindowsVersion_WINDOWS_SERVER_2012_RTM_TURKISH_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_RTM_TURKISH_64BIT_BASE"
-	WindowsVersion_WINDOWS_SERVER_2012_SP2_PORTUGESE_BRAZIL_64BIT_BASE WindowsVersion = "WINDOWS_SERVER_2012_SP2_PORTUGESE_BRAZIL_64BIT_BASE"
 	WindowsVersion_WINDOWS_SERVER_2016_CHINESE_SIMPLIFIED_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_CHINESE_SIMPLIFIED_FULL_BASE"
 	WindowsVersion_WINDOWS_SERVER_2016_CHINESE_TRADITIONAL_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_CHINESE_TRADITIONAL_FULL_BASE"
 	WindowsVersion_WINDOWS_SERVER_2016_CZECH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_CZECH_FULL_BASE"
@@ -64108,7 +63916,6 @@ const (
 	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2017_WEB WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_FULL_SQL_2017_WEB"
 	WindowsVersion_WINDOWS_SERVER_2016_ENGLISH_P3 WindowsVersion = "WINDOWS_SERVER_2016_ENGLISH_P3"
 	WindowsVersion_WINDOWS_SERVER_2016_FRENCH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_FRENCH_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2016_GERMAL_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_GERMAL_FULL_BASE"
 	WindowsVersion_WINDOWS_SERVER_2016_HUNGARIAN_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_HUNGARIAN_FULL_BASE"
 	WindowsVersion_WINDOWS_SERVER_2016_ITALIAN_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_ITALIAN_FULL_BASE"
 	WindowsVersion_WINDOWS_SERVER_2016_JAPANESE_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_JAPANESE_FULL_BASE"
@@ -64124,8 +63931,6 @@ const (
 	WindowsVersion_WINDOWS_SERVER_2016_KOREAN_FULL_SQL_2016_SP1_STANDARD WindowsVersion = "WINDOWS_SERVER_2016_KOREAN_FULL_SQL_2016_SP1_STANDARD"
 	WindowsVersion_WINDOWS_SERVER_2016_KOREAN_FULL_SQL_2016_SP2_STANDARD WindowsVersion = "WINDOWS_SERVER_2016_KOREAN_FULL_SQL_2016_SP2_STANDARD"
 	WindowsVersion_WINDOWS_SERVER_2016_POLISH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_POLISH_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2016_PORTUGESE_BRAZIL_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_PORTUGESE_BRAZIL_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2016_PORTUGESE_PORTUGAL_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_PORTUGESE_PORTUGAL_FULL_BASE"
 	WindowsVersion_WINDOWS_SERVER_2016_RUSSIAN_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_RUSSIAN_FULL_BASE"
 	WindowsVersion_WINDOWS_SERVER_2016_SPANISH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_SPANISH_FULL_BASE"
 	WindowsVersion_WINDOWS_SERVER_2016_SWEDISH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2016_SWEDISH_FULL_BASE"
@@ -64154,8 +63959,6 @@ const (
 	WindowsVersion_WINDOWS_SERVER_2019_JAPANESE_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_JAPANESE_FULL_BASE"
 	WindowsVersion_WINDOWS_SERVER_2019_KOREAN_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_KOREAN_FULL_BASE"
 	WindowsVersion_WINDOWS_SERVER_2019_POLISH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_POLISH_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2019_PORTUGESE_BRAZIL_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_PORTUGESE_BRAZIL_FULL_BASE"
-	WindowsVersion_WINDOWS_SERVER_2019_PORTUGESE_PORTUGAL_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_PORTUGESE_PORTUGAL_FULL_BASE"
 	WindowsVersion_WINDOWS_SERVER_2019_RUSSIAN_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_RUSSIAN_FULL_BASE"
 	WindowsVersion_WINDOWS_SERVER_2019_SPANISH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_SPANISH_FULL_BASE"
 	WindowsVersion_WINDOWS_SERVER_2019_SWEDISH_FULL_BASE WindowsVersion = "WINDOWS_SERVER_2019_SWEDISH_FULL_BASE"

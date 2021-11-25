@@ -5,7 +5,6 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/assets"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets/internal"
@@ -30,8 +29,6 @@ type Asset interface {
 	S3BucketName() *string
 	S3ObjectKey() *string
 	S3ObjectUrl() *string
-	S3Url() *string
-	SourceHash() *string
 	AddResourceMetadata(resource awscdk.CfnResource, resourceProperty *string)
 	GrantRead(grantee awsiam.IGrantable)
 	ToString() *string
@@ -143,26 +140,6 @@ func (j *jsiiProxy_Asset) S3ObjectUrl() *string {
 	return returns
 }
 
-func (j *jsiiProxy_Asset) S3Url() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"s3Url",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_Asset) SourceHash() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"sourceHash",
-		&returns,
-	)
-	return returns
-}
-
 
 // Experimental.
 func NewAsset(scope constructs.Construct, id *string, props *AssetProps) Asset {
@@ -257,18 +234,6 @@ func (a *jsiiProxy_Asset) ToString() *string {
 //
 // Experimental.
 type AssetOptions struct {
-	// Glob patterns to exclude from the copy.
-	// Experimental.
-	Exclude *[]*string `json:"exclude"`
-	// A strategy for how to handle symlinks.
-	// Deprecated: use `followSymlinks` instead
-	Follow assets.FollowMode `json:"follow"`
-	// The ignore behavior to use for exclude patterns.
-	// Experimental.
-	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode"`
-	// A strategy for how to handle symlinks.
-	// Experimental.
-	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
 	// Specify a custom hash for this asset.
 	//
 	// If `assetHashType` is set it must
@@ -297,42 +262,26 @@ type AssetOptions struct {
 	// final asset.
 	// Experimental.
 	Bundling *awscdk.BundlingOptions `json:"bundling"`
+	// Glob patterns to exclude from the copy.
+	// Experimental.
+	Exclude *[]*string `json:"exclude"`
+	// A strategy for how to handle symlinks.
+	// Experimental.
+	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
+	// The ignore behavior to use for exclude patterns.
+	// Experimental.
+	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode"`
 	// A list of principals that should be able to read this asset from S3.
 	//
 	// You can use `asset.grantRead(principal)` to grant read permissions later.
 	// Experimental.
 	Readers *[]awsiam.IGrantable `json:"readers"`
-	// Custom hash to use when identifying the specific version of the asset.
-	//
-	// For consistency,
-	// this custom hash will be SHA256 hashed and encoded as hex. The resulting hash will be
-	// the asset hash.
-	//
-	// NOTE: the source hash is used in order to identify a specific revision of the asset,
-	// and used for optimizing and caching deployment activities related to this asset such as
-	// packaging, uploading to Amazon S3, etc. If you chose to customize the source hash,
-	// you will need to make sure it is updated every time the source changes, or otherwise
-	// it is possible that some deployments will not be invalidated.
-	// Deprecated: see `assetHash` and `assetHashType`
-	SourceHash *string `json:"sourceHash"`
 }
 
 // TODO: EXAMPLE
 //
 // Experimental.
 type AssetProps struct {
-	// Glob patterns to exclude from the copy.
-	// Experimental.
-	Exclude *[]*string `json:"exclude"`
-	// A strategy for how to handle symlinks.
-	// Deprecated: use `followSymlinks` instead
-	Follow assets.FollowMode `json:"follow"`
-	// The ignore behavior to use for exclude patterns.
-	// Experimental.
-	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode"`
-	// A strategy for how to handle symlinks.
-	// Experimental.
-	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
 	// Specify a custom hash for this asset.
 	//
 	// If `assetHashType` is set it must
@@ -361,24 +310,20 @@ type AssetProps struct {
 	// final asset.
 	// Experimental.
 	Bundling *awscdk.BundlingOptions `json:"bundling"`
+	// Glob patterns to exclude from the copy.
+	// Experimental.
+	Exclude *[]*string `json:"exclude"`
+	// A strategy for how to handle symlinks.
+	// Experimental.
+	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
+	// The ignore behavior to use for exclude patterns.
+	// Experimental.
+	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode"`
 	// A list of principals that should be able to read this asset from S3.
 	//
 	// You can use `asset.grantRead(principal)` to grant read permissions later.
 	// Experimental.
 	Readers *[]awsiam.IGrantable `json:"readers"`
-	// Custom hash to use when identifying the specific version of the asset.
-	//
-	// For consistency,
-	// this custom hash will be SHA256 hashed and encoded as hex. The resulting hash will be
-	// the asset hash.
-	//
-	// NOTE: the source hash is used in order to identify a specific revision of the asset,
-	// and used for optimizing and caching deployment activities related to this asset such as
-	// packaging, uploading to Amazon S3, etc. If you chose to customize the source hash,
-	// you will need to make sure it is updated every time the source changes, or otherwise
-	// it is possible that some deployments will not be invalidated.
-	// Deprecated: see `assetHash` and `assetHashType`
-	SourceHash *string `json:"sourceHash"`
 	// The disk location of the asset.
 	//
 	// The path should refer to one of the following:

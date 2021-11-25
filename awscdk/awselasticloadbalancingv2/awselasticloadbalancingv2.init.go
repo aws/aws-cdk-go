@@ -20,20 +20,12 @@ func init() {
 		reflect.TypeOf((*AddApplicationTargetsProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.AddFixedResponseProps",
-		reflect.TypeOf((*AddFixedResponseProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.AddNetworkActionProps",
 		reflect.TypeOf((*AddNetworkActionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.AddNetworkTargetsProps",
 		reflect.TypeOf((*AddNetworkTargetsProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.AddRedirectResponseProps",
-		reflect.TypeOf((*AddRedirectResponseProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.AddRuleProps",
@@ -55,10 +47,7 @@ func init() {
 		reflect.TypeOf((*ApplicationListener)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addAction", GoMethod: "AddAction"},
-			_jsii_.MemberMethod{JsiiMethod: "addCertificateArns", GoMethod: "AddCertificateArns"},
 			_jsii_.MemberMethod{JsiiMethod: "addCertificates", GoMethod: "AddCertificates"},
-			_jsii_.MemberMethod{JsiiMethod: "addFixedResponse", GoMethod: "AddFixedResponse"},
-			_jsii_.MemberMethod{JsiiMethod: "addRedirectResponse", GoMethod: "AddRedirectResponse"},
 			_jsii_.MemberMethod{JsiiMethod: "addTargetGroups", GoMethod: "AddTargetGroups"},
 			_jsii_.MemberMethod{JsiiMethod: "addTargets", GoMethod: "AddTargets"},
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -117,13 +106,9 @@ func init() {
 		reflect.TypeOf((*ApplicationListenerRule)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addCondition", GoMethod: "AddCondition"},
-			_jsii_.MemberMethod{JsiiMethod: "addFixedResponse", GoMethod: "AddFixedResponse"},
-			_jsii_.MemberMethod{JsiiMethod: "addRedirectResponse", GoMethod: "AddRedirectResponse"},
-			_jsii_.MemberMethod{JsiiMethod: "addTargetGroup", GoMethod: "AddTargetGroup"},
 			_jsii_.MemberMethod{JsiiMethod: "configureAction", GoMethod: "ConfigureAction"},
 			_jsii_.MemberProperty{JsiiProperty: "listenerRuleArn", GoGetter: "ListenerRuleArn"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "setCondition", GoMethod: "SetCondition"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 		},
 		func() interface{} {
@@ -736,21 +721,6 @@ func init() {
 		"aws-cdk-lib.aws_elasticloadbalancingv2.CfnTargetGroupProps",
 		reflect.TypeOf((*CfnTargetGroupProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.ContentType",
-		reflect.TypeOf((*ContentType)(nil)).Elem(),
-		map[string]interface{}{
-			"APPLICATION_JAVASCRIPT": ContentType_APPLICATION_JAVASCRIPT,
-			"APPLICATION_JSON": ContentType_APPLICATION_JSON,
-			"TEXT_CSS": ContentType_TEXT_CSS,
-			"TEXT_HTML": ContentType_TEXT_HTML,
-			"TEXT_PLAIN": ContentType_TEXT_PLAIN,
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.FixedResponse",
-		reflect.TypeOf((*FixedResponse)(nil)).Elem(),
-	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.FixedResponseOptions",
 		reflect.TypeOf((*FixedResponseOptions)(nil)).Elem(),
@@ -786,7 +756,6 @@ func init() {
 		"aws-cdk-lib.aws_elasticloadbalancingv2.IApplicationListener",
 		reflect.TypeOf((*IApplicationListener)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "addCertificateArns", GoMethod: "AddCertificateArns"},
 			_jsii_.MemberMethod{JsiiMethod: "addCertificates", GoMethod: "AddCertificates"},
 			_jsii_.MemberMethod{JsiiMethod: "addTargetGroups", GoMethod: "AddTargetGroups"},
 			_jsii_.MemberMethod{JsiiMethod: "addTargets", GoMethod: "AddTargets"},
@@ -907,18 +876,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.INetworkListenerCertificateProps",
-		reflect.TypeOf((*INetworkListenerCertificateProps)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "certificateArn", GoGetter: "CertificateArn"},
-		},
-		func() interface{} {
-			j := jsiiProxy_INetworkListenerCertificateProps{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IListenerCertificate)
-			return &j
-		},
-	)
-	_jsii_.RegisterInterface(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.INetworkLoadBalancer",
 		reflect.TypeOf((*INetworkLoadBalancer)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -980,40 +937,12 @@ func init() {
 			return &j
 		},
 	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.InstanceTarget",
-		reflect.TypeOf((*InstanceTarget)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "attachToApplicationTargetGroup", GoMethod: "AttachToApplicationTargetGroup"},
-			_jsii_.MemberMethod{JsiiMethod: "attachToNetworkTargetGroup", GoMethod: "AttachToNetworkTargetGroup"},
-		},
-		func() interface{} {
-			j := jsiiProxy_InstanceTarget{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApplicationLoadBalancerTarget)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_INetworkLoadBalancerTarget)
-			return &j
-		},
-	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.IpAddressType",
 		reflect.TypeOf((*IpAddressType)(nil)).Elem(),
 		map[string]interface{}{
 			"DUAL_STACK": IpAddressType_DUAL_STACK,
 			"IPV4": IpAddressType_IPV4,
-		},
-	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.IpTarget",
-		reflect.TypeOf((*IpTarget)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "attachToApplicationTargetGroup", GoMethod: "AttachToApplicationTargetGroup"},
-			_jsii_.MemberMethod{JsiiMethod: "attachToNetworkTargetGroup", GoMethod: "AttachToNetworkTargetGroup"},
-		},
-		func() interface{} {
-			j := jsiiProxy_IpTarget{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_IApplicationLoadBalancerTarget)
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_INetworkLoadBalancerTarget)
-			return &j
 		},
 	)
 	_jsii_.RegisterClass(
@@ -1131,13 +1060,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
 			_jsii_.MemberMethod{JsiiMethod: "metricActiveFlowCount", GoMethod: "MetricActiveFlowCount"},
 			_jsii_.MemberMethod{JsiiMethod: "metricConsumedLCUs", GoMethod: "MetricConsumedLCUs"},
-			_jsii_.MemberMethod{JsiiMethod: "metricHealthyHostCount", GoMethod: "MetricHealthyHostCount"},
 			_jsii_.MemberMethod{JsiiMethod: "metricNewFlowCount", GoMethod: "MetricNewFlowCount"},
 			_jsii_.MemberMethod{JsiiMethod: "metricProcessedBytes", GoMethod: "MetricProcessedBytes"},
 			_jsii_.MemberMethod{JsiiMethod: "metricTcpClientResetCount", GoMethod: "MetricTcpClientResetCount"},
 			_jsii_.MemberMethod{JsiiMethod: "metricTcpElbResetCount", GoMethod: "MetricTcpElbResetCount"},
 			_jsii_.MemberMethod{JsiiMethod: "metricTcpTargetResetCount", GoMethod: "MetricTcpTargetResetCount"},
-			_jsii_.MemberMethod{JsiiMethod: "metricUnHealthyHostCount", GoMethod: "MetricUnHealthyHostCount"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "removeAttribute", GoMethod: "RemoveAttribute"},
@@ -1226,10 +1153,6 @@ func init() {
 		"aws-cdk-lib.aws_elasticloadbalancingv2.RedirectOptions",
 		reflect.TypeOf((*RedirectOptions)(nil)).Elem(),
 	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.RedirectResponse",
-		reflect.TypeOf((*RedirectResponse)(nil)).Elem(),
-	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.SslPolicy",
 		reflect.TypeOf((*SslPolicy)(nil)).Elem(),
@@ -1278,10 +1201,6 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_ITargetGroup)
 			return &j
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_elasticloadbalancingv2.TargetGroupImportProps",
-		reflect.TypeOf((*TargetGroupImportProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_elasticloadbalancingv2.TargetGroupLoadBalancingAlgorithmType",

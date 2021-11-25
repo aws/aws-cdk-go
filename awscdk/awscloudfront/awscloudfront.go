@@ -66,40 +66,6 @@ type AddBehaviorOptions struct {
 	ViewerProtocolPolicy ViewerProtocolPolicy `json:"viewerProtocolPolicy"`
 }
 
-// Configuration for custom domain names.
-//
-// CloudFront can use a custom domain that you provide instead of a
-// "cloudfront.net" domain. To use this feature you must provide the list of
-// additional domains, and the ACM Certificate that CloudFront should use for
-// these additional domains.
-//
-// TODO: EXAMPLE
-//
-// Deprecated: see {@link CloudFrontWebDistributionProps#viewerCertificate} with {@link ViewerCertificate#acmCertificate}
-type AliasConfiguration struct {
-	// ARN of an AWS Certificate Manager (ACM) certificate.
-	// Deprecated: see {@link CloudFrontWebDistributionProps#viewerCertificate} with {@link ViewerCertificate#acmCertificate}
-	AcmCertRef *string `json:"acmCertRef"`
-	// Domain names on the certificate.
-	//
-	// Both main domain name and Subject Alternative Names.
-	// Deprecated: see {@link CloudFrontWebDistributionProps#viewerCertificate} with {@link ViewerCertificate#acmCertificate}
-	Names *[]*string `json:"names"`
-	// The minimum version of the SSL protocol that you want CloudFront to use for HTTPS connections.
-	//
-	// CloudFront serves your objects only to browsers or devices that support at
-	// least the SSL version that you specify.
-	// Deprecated: see {@link CloudFrontWebDistributionProps#viewerCertificate} with {@link ViewerCertificate#acmCertificate}
-	SecurityPolicy SecurityPolicyProtocol `json:"securityPolicy"`
-	// How CloudFront should serve HTTPS requests.
-	//
-	// See the notes on SSLMethod if you wish to use other SSL termination types.
-	// See: https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ViewerCertificate.html
-	//
-	// Deprecated: see {@link CloudFrontWebDistributionProps#viewerCertificate} with {@link ViewerCertificate#acmCertificate}
-	SslMethod SSLMethod `json:"sslMethod"`
-}
-
 // The HTTP methods that the Behavior will accept requests on.
 //
 // TODO: EXAMPLE
@@ -210,13 +176,6 @@ type Behavior struct {
 	//
 	// Experimental.
 	TrustedKeyGroups *[]IKeyGroup `json:"trustedKeyGroups"`
-	// Trusted signers is how CloudFront allows you to serve private content.
-	//
-	// The signers are the account IDs that are allowed to sign cookies/presigned URLs for this distribution.
-	//
-	// If you pass a non empty value, all requests for this behavior must be signed (no public access will be allowed)
-	// Deprecated: - We recommend using trustedKeyGroups instead of trustedSigners.
-	TrustedSigners *[]*string `json:"trustedSigners"`
 	// The viewer policy for this behavior.
 	// Experimental.
 	ViewerProtocolPolicy ViewerProtocolPolicy `json:"viewerProtocolPolicy"`
@@ -7068,7 +7027,6 @@ type CloudFrontWebDistribution interface {
 	IDistribution
 	DistributionDomainName() *string
 	DistributionId() *string
-	DomainName() *string
 	Env() *awscdk.ResourceEnvironment
 	LoggingBucket() awss3.IBucket
 	Node() constructs.Node
@@ -7102,16 +7060,6 @@ func (j *jsiiProxy_CloudFrontWebDistribution) DistributionId() *string {
 	_jsii_.Get(
 		j,
 		"distributionId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CloudFrontWebDistribution) DomainName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"domainName",
 		&returns,
 	)
 	return returns
@@ -7356,9 +7304,6 @@ type CloudFrontWebDistributionProps struct {
 	// Behaviors are a part of the origin.
 	// Experimental.
 	OriginConfigs *[]*SourceConfiguration `json:"originConfigs"`
-	// AliasConfiguration is used to configured CloudFront to respond to requests on custom domain names.
-	// Deprecated: see {@link CloudFrontWebDistributionProps#viewerCertificate} with {@link ViewerCertificate#acmCertificate}
-	AliasConfiguration *AliasConfiguration `json:"aliasConfiguration"`
 	// A comment for this distribution in the CloudFront console.
 	// Experimental.
 	Comment *string `json:"comment"`
@@ -8359,28 +8304,6 @@ func GeoRestriction_Allowlist(locations ...*string) GeoRestriction {
 	return returns
 }
 
-// DEPRECATED.
-// Deprecated: use `denylist`
-func GeoRestriction_Blacklist(locations ...*string) GeoRestriction {
-	_init_.Initialize()
-
-	args := []interface{}{}
-	for _, a := range locations {
-		args = append(args, a)
-	}
-
-	var returns GeoRestriction
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cloudfront.GeoRestriction",
-		"blacklist",
-		args,
-		&returns,
-	)
-
-	return returns
-}
-
 // Deny specific countries which you don't want CloudFront to distribute your content.
 // Experimental.
 func GeoRestriction_Denylist(locations ...*string) GeoRestriction {
@@ -8396,28 +8319,6 @@ func GeoRestriction_Denylist(locations ...*string) GeoRestriction {
 	_jsii_.StaticInvoke(
 		"aws-cdk-lib.aws_cloudfront.GeoRestriction",
 		"denylist",
-		args,
-		&returns,
-	)
-
-	return returns
-}
-
-// DEPRECATED.
-// Deprecated: use `allowlist`
-func GeoRestriction_Whitelist(locations ...*string) GeoRestriction {
-	_init_.Initialize()
-
-	args := []interface{}{}
-	for _, a := range locations {
-		args = append(args, a)
-	}
-
-	var returns GeoRestriction
-
-	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_cloudfront.GeoRestriction",
-		"whitelist",
 		args,
 		&returns,
 	)
@@ -8467,9 +8368,6 @@ type IDistribution interface {
 	// The distribution ID for this distribution.
 	// Experimental.
 	DistributionId() *string
-	// The domain name of the Distribution, such as d111111abcdef8.cloudfront.net.
-	// Deprecated: - Use `distributionDomainName` instead.
-	DomainName() *string
 }
 
 // The jsii proxy for IDistribution
@@ -8492,16 +8390,6 @@ func (j *jsiiProxy_IDistribution) DistributionId() *string {
 	_jsii_.Get(
 		j,
 		"distributionId",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_IDistribution) DomainName() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"domainName",
 		&returns,
 	)
 	return returns
@@ -10460,12 +10348,6 @@ type SourceConfiguration struct {
 	// An s3 origin source for failover in case the s3OriginSource returns invalid status code.
 	// Experimental.
 	FailoverS3OriginSource *S3OriginConfig `json:"failoverS3OriginSource"`
-	// Any additional headers to pass to the origin.
-	// Deprecated: Use originHeaders on s3OriginSource or customOriginSource
-	OriginHeaders *map[string]*string `json:"originHeaders"`
-	// The relative path to the origin root to use for sources.
-	// Deprecated: Use originPath on s3OriginSource or customOriginSource
-	OriginPath *string `json:"originPath"`
 	// When you enable Origin Shield in the AWS Region that has the lowest latency to your origin, you can get better network performance.
 	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/origin-shield.html
 	//

@@ -1100,25 +1100,6 @@ func init() {
 			return &j
 		},
 	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EcsRunTaskBase",
-		reflect.TypeOf((*EcsRunTaskBase)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworking", GoMethod: "ConfigureAwsVpcNetworking"},
-			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
-		},
-		func() interface{} {
-			j := jsiiProxy_EcsRunTaskBase{}
-			_jsii_.InitJsiiProxy(&j.Type__awsec2IConnectable)
-			_jsii_.InitJsiiProxy(&j.Type__awsstepfunctionsIStepFunctionsTask)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_stepfunctions_tasks.EcsRunTaskBaseProps",
-		reflect.TypeOf((*EcsRunTaskBaseProps)(nil)).Elem(),
-	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions_tasks.EcsRunTaskProps",
 		reflect.TypeOf((*EcsRunTaskProps)(nil)).Elem(),
@@ -2168,47 +2149,6 @@ func init() {
 			"PIPE": InputMode_PIPE,
 		},
 	)
-	_jsii_.RegisterEnum(
-		"aws-cdk-lib.aws_stepfunctions_tasks.InvocationType",
-		reflect.TypeOf((*InvocationType)(nil)).Elem(),
-		map[string]interface{}{
-			"DRY_RUN": InvocationType_DRY_RUN,
-			"EVENT": InvocationType_EVENT,
-			"REQUEST_RESPONSE": InvocationType_REQUEST_RESPONSE,
-		},
-	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_stepfunctions_tasks.InvokeActivity",
-		reflect.TypeOf((*InvokeActivity)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-		},
-		func() interface{} {
-			j := jsiiProxy_InvokeActivity{}
-			_jsii_.InitJsiiProxy(&j.Type__awsstepfunctionsIStepFunctionsTask)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_stepfunctions_tasks.InvokeActivityProps",
-		reflect.TypeOf((*InvokeActivityProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_stepfunctions_tasks.InvokeFunction",
-		reflect.TypeOf((*InvokeFunction)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-		},
-		func() interface{} {
-			j := jsiiProxy_InvokeFunction{}
-			_jsii_.InitJsiiProxy(&j.Type__awsstepfunctionsIStepFunctionsTask)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_stepfunctions_tasks.InvokeFunctionProps",
-		reflect.TypeOf((*InvokeFunctionProps)(nil)).Elem(),
-	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions_tasks.JobDependency",
 		reflect.TypeOf((*JobDependency)(nil)).Elem(),
@@ -2326,22 +2266,6 @@ func init() {
 		"aws-cdk-lib.aws_stepfunctions_tasks.ProductionVariant",
 		reflect.TypeOf((*ProductionVariant)(nil)).Elem(),
 	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_stepfunctions_tasks.PublishToTopic",
-		reflect.TypeOf((*PublishToTopic)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-		},
-		func() interface{} {
-			j := jsiiProxy_PublishToTopic{}
-			_jsii_.InitJsiiProxy(&j.Type__awsstepfunctionsIStepFunctionsTask)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_stepfunctions_tasks.PublishToTopicProps",
-		reflect.TypeOf((*PublishToTopicProps)(nil)).Elem(),
-	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions_tasks.QueryExecutionContext",
 		reflect.TypeOf((*QueryExecutionContext)(nil)).Elem(),
@@ -2361,90 +2285,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions_tasks.ResultConfiguration",
 		reflect.TypeOf((*ResultConfiguration)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_stepfunctions_tasks.RunBatchJob",
-		reflect.TypeOf((*RunBatchJob)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-		},
-		func() interface{} {
-			j := jsiiProxy_RunBatchJob{}
-			_jsii_.InitJsiiProxy(&j.Type__awsstepfunctionsIStepFunctionsTask)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_stepfunctions_tasks.RunBatchJobProps",
-		reflect.TypeOf((*RunBatchJobProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_stepfunctions_tasks.RunEcsEc2Task",
-		reflect.TypeOf((*RunEcsEc2Task)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworking", GoMethod: "ConfigureAwsVpcNetworking"},
-			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
-		},
-		func() interface{} {
-			j := jsiiProxy_RunEcsEc2Task{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_EcsRunTaskBase)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_stepfunctions_tasks.RunEcsEc2TaskProps",
-		reflect.TypeOf((*RunEcsEc2TaskProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_stepfunctions_tasks.RunEcsFargateTask",
-		reflect.TypeOf((*RunEcsFargateTask)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-			_jsii_.MemberMethod{JsiiMethod: "configureAwsVpcNetworking", GoMethod: "ConfigureAwsVpcNetworking"},
-			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
-		},
-		func() interface{} {
-			j := jsiiProxy_RunEcsFargateTask{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_EcsRunTaskBase)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_stepfunctions_tasks.RunEcsFargateTaskProps",
-		reflect.TypeOf((*RunEcsFargateTaskProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_stepfunctions_tasks.RunGlueJobTask",
-		reflect.TypeOf((*RunGlueJobTask)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-		},
-		func() interface{} {
-			j := jsiiProxy_RunGlueJobTask{}
-			_jsii_.InitJsiiProxy(&j.Type__awsstepfunctionsIStepFunctionsTask)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_stepfunctions_tasks.RunGlueJobTaskProps",
-		reflect.TypeOf((*RunGlueJobTaskProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_stepfunctions_tasks.RunLambdaTask",
-		reflect.TypeOf((*RunLambdaTask)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-		},
-		func() interface{} {
-			j := jsiiProxy_RunLambdaTask{}
-			_jsii_.InitJsiiProxy(&j.Type__awsstepfunctionsIStepFunctionsTask)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_stepfunctions_tasks.RunLambdaTaskProps",
-		reflect.TypeOf((*RunLambdaTaskProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_stepfunctions_tasks.S3DataDistributionType",
@@ -2870,22 +2710,6 @@ func init() {
 		"aws-cdk-lib.aws_stepfunctions_tasks.SageMakerUpdateEndpointProps",
 		reflect.TypeOf((*SageMakerUpdateEndpointProps)(nil)).Elem(),
 	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SendToQueue",
-		reflect.TypeOf((*SendToQueue)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-		},
-		func() interface{} {
-			j := jsiiProxy_SendToQueue{}
-			_jsii_.InitJsiiProxy(&j.Type__awsstepfunctionsIStepFunctionsTask)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_stepfunctions_tasks.SendToQueueProps",
-		reflect.TypeOf((*SendToQueueProps)(nil)).Elem(),
-	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions_tasks.ShuffleConfig",
 		reflect.TypeOf((*ShuffleConfig)(nil)).Elem(),
@@ -3023,22 +2847,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions_tasks.SqsSendMessageProps",
 		reflect.TypeOf((*SqsSendMessageProps)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_stepfunctions_tasks.StartExecution",
-		reflect.TypeOf((*StartExecution)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-		},
-		func() interface{} {
-			j := jsiiProxy_StartExecution{}
-			_jsii_.InitJsiiProxy(&j.Type__awsstepfunctionsIStepFunctionsTask)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_stepfunctions_tasks.StartExecutionProps",
-		reflect.TypeOf((*StartExecutionProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_stepfunctions_tasks.StepFunctionsInvokeActivity",

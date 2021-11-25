@@ -680,9 +680,6 @@ type IRepository interface {
 	// Grant the given identity permissions to read this repository.
 	// Experimental.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
-	// Defines a CodeStar Notification rule which triggers when a pull request is merged.
-	// Deprecated: this method has a typo in its name, use notifyOnPullRequestMerged instead
-	NotifiyOnPullRequestMerged(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule
 	// Defines a CodeStar Notification rule triggered when the project events specified by you are emitted. Similar to `onEvent` API.
 	//
 	// You can also use the methods to define rules for the specific event emitted.
@@ -823,19 +820,6 @@ func (i *jsiiProxy_IRepository) GrantRead(grantee awsiam.IGrantable) awsiam.Gran
 		i,
 		"grantRead",
 		[]interface{}{grantee},
-		&returns,
-	)
-
-	return returns
-}
-
-func (i *jsiiProxy_IRepository) NotifiyOnPullRequestMerged(id *string, target awscodestarnotifications.INotificationRuleTarget, options *awscodestarnotifications.NotificationRuleOptions) awscodestarnotifications.INotificationRule {
-	var returns awscodestarnotifications.INotificationRule
-
-	_jsii_.Invoke(
-		i,
-		"notifiyOnPullRequestMerged",
-		[]interface{}{id, target, options},
 		&returns,
 	)
 

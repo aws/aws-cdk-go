@@ -589,9 +589,6 @@ type EdgeFunctionProps struct {
 	// The system architectures compatible with this lambda function.
 	// Experimental.
 	Architecture awslambda.Architecture `json:"architecture"`
-	// DEPRECATED.
-	// Deprecated: use `architecture`
-	Architectures *[]awslambda.Architecture `json:"architectures"`
 	// Code signing config associated with this function.
 	// Experimental.
 	CodeSigningConfig awslambda.ICodeSigningConfig `json:"codeSigningConfig"`
@@ -698,14 +695,6 @@ type EdgeFunctionProps struct {
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
 	// Experimental.
 	Role awsiam.IRole `json:"role"`
-	// What security group to associate with the Lambda's network interfaces. This property is being deprecated, consider using securityGroups instead.
-	//
-	// Only used if 'vpc' is supplied.
-	//
-	// Use securityGroups property instead.
-	// Function constructor will throw an error if both are specified.
-	// Deprecated: - This property is deprecated, use securityGroups instead
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.

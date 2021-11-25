@@ -571,23 +571,6 @@ func init() {
 			"REQUIRE": TlsPolicy_REQUIRE,
 		},
 	)
-	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_ses.WhiteListReceiptFilter",
-		reflect.TypeOf((*WhiteListReceiptFilter)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-		},
-		func() interface{} {
-			j := jsiiProxy_WhiteListReceiptFilter{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_AllowListReceiptFilter)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.aws_ses.WhiteListReceiptFilterProps",
-		reflect.TypeOf((*WhiteListReceiptFilterProps)(nil)).Elem(),
-	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_ses.WorkmailActionConfig",
 		reflect.TypeOf((*WorkmailActionConfig)(nil)).Elem(),

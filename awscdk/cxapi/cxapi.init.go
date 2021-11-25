@@ -60,7 +60,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "directory", GoGetter: "Directory"},
 			_jsii_.MemberMethod{JsiiMethod: "getNestedAssembly", GoMethod: "GetNestedAssembly"},
 			_jsii_.MemberMethod{JsiiMethod: "getNestedAssemblyArtifact", GoMethod: "GetNestedAssemblyArtifact"},
-			_jsii_.MemberMethod{JsiiMethod: "getStack", GoMethod: "GetStack"},
 			_jsii_.MemberMethod{JsiiMethod: "getStackArtifact", GoMethod: "GetStackArtifact"},
 			_jsii_.MemberMethod{JsiiMethod: "getStackByName", GoMethod: "GetStackByName"},
 			_jsii_.MemberProperty{JsiiProperty: "manifest", GoGetter: "Manifest"},
@@ -113,7 +112,6 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
 			_jsii_.MemberProperty{JsiiProperty: "manifest", GoGetter: "Manifest"},
 			_jsii_.MemberProperty{JsiiProperty: "messages", GoGetter: "Messages"},
-			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "originalName", GoGetter: "OriginalName"},
 			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
 			_jsii_.MemberProperty{JsiiProperty: "requiresBootstrapStackVersion", GoGetter: "RequiresBootstrapStackVersion"},
@@ -193,16 +191,8 @@ func init() {
 		reflect.TypeOf((*LoadBalancerListenerContextResponse)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"aws-cdk-lib.cx_api.MetadataEntry",
-		reflect.TypeOf((*MetadataEntry)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
 		"aws-cdk-lib.cx_api.MetadataEntryResult",
 		reflect.TypeOf((*MetadataEntryResult)(nil)).Elem(),
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.cx_api.MissingContext",
-		reflect.TypeOf((*MissingContext)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.cx_api.NestedCloudAssemblyArtifact",
@@ -225,10 +215,6 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_CloudArtifact)
 			return &j
 		},
-	)
-	_jsii_.RegisterStruct(
-		"aws-cdk-lib.cx_api.RuntimeInfo",
-		reflect.TypeOf((*RuntimeInfo)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.cx_api.SecurityGroupContextResponse",

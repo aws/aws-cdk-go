@@ -8603,17 +8603,6 @@ type OutlierDetection struct {
 	MaxServerErrors *float64 `json:"maxServerErrors"`
 }
 
-// Enum of supported AppMesh protocols.
-// Deprecated: not for use outside package
-type Protocol string
-
-const (
-	Protocol_HTTP Protocol = "HTTP"
-	Protocol_TCP Protocol = "TCP"
-	Protocol_HTTP2 Protocol = "HTTP2"
-	Protocol_GRPC Protocol = "GRPC"
-)
-
 // Used to generate query parameter matching methods.
 //
 // TODO: EXAMPLE

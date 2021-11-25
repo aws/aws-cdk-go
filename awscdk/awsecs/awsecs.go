@@ -5,7 +5,6 @@ import (
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
 	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/assets"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationautoscaling"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscaling"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
@@ -22,7 +21,6 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssecretsmanager"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsservicediscovery"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsssm"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -52,15 +50,6 @@ type AddAutoScalingGroupCapacityOptions struct {
 	// For more information, see [Using Spot Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-spot.html).
 	// Experimental.
 	SpotInstanceDraining *bool `json:"spotInstanceDraining"`
-	// The time period to wait before force terminating an instance that is draining.
-	//
-	// This creates a Lambda function that is used by a lifecycle hook for the
-	// AutoScalingGroup that will delay instance termination until all ECS tasks
-	// have drained from the instance. Set to 0 to disable task draining.
-	//
-	// Set to 0 to disable task draining.
-	// Deprecated: The lifecycle draining hook is not configured if using the EC2 Capacity Provider. Enable managed termination protection instead.
-	TaskDrainTime awscdk.Duration `json:"taskDrainTime"`
 	// If {@link AddAutoScalingGroupCapacityOptions.taskDrainTime} is non-zero, then the ECS cluster creates an SNS Topic to as part of a system to drain instances of tasks when the instance is being shut down. If this property is provided, then this key will be used to encrypt the contents of that SNS Topic. See [SNS Data Encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-data-encryption.html) for more information.
 	// Experimental.
 	TopicEncryptionKey awskms.IKey `json:"topicEncryptionKey"`
@@ -91,15 +80,6 @@ type AddCapacityOptions struct {
 	// For more information, see [Using Spot Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-spot.html).
 	// Experimental.
 	SpotInstanceDraining *bool `json:"spotInstanceDraining"`
-	// The time period to wait before force terminating an instance that is draining.
-	//
-	// This creates a Lambda function that is used by a lifecycle hook for the
-	// AutoScalingGroup that will delay instance termination until all ECS tasks
-	// have drained from the instance. Set to 0 to disable task draining.
-	//
-	// Set to 0 to disable task draining.
-	// Deprecated: The lifecycle draining hook is not configured if using the EC2 Capacity Provider. Enable managed termination protection instead.
-	TaskDrainTime awscdk.Duration `json:"taskDrainTime"`
 	// If {@link AddAutoScalingGroupCapacityOptions.taskDrainTime} is non-zero, then the ECS cluster creates an SNS Topic to as part of a system to drain instances of tasks when the instance is being shut down. If this property is provided, then this key will be used to encrypt the contents of that SNS Topic. See [SNS Data Encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-data-encryption.html) for more information.
 	// Experimental.
 	TopicEncryptionKey awskms.IKey `json:"topicEncryptionKey"`
@@ -199,28 +179,6 @@ type AddCapacityOptions struct {
 	//
 	// Experimental.
 	Notifications *[]*awsautoscaling.NotificationConfiguration `json:"notifications"`
-	// SNS topic to send notifications about fleet changes.
-	// Deprecated: use `notifications`
-	NotificationsTopic awssns.ITopic `json:"notificationsTopic"`
-	// Configuration for replacing updates.
-	//
-	// Only used if updateType == UpdateType.ReplacingUpdate. Specifies how
-	// many instances must signal success for the update to succeed.
-	// Deprecated: Use `signals` instead
-	ReplacingUpdateMinSuccessfulInstancesPercent *float64 `json:"replacingUpdateMinSuccessfulInstancesPercent"`
-	// How many ResourceSignal calls CloudFormation expects before the resource is considered created.
-	// Deprecated: Use `signals` instead.
-	ResourceSignalCount *float64 `json:"resourceSignalCount"`
-	// The length of time to wait for the resourceSignalCount.
-	//
-	// The maximum value is 43200 (12 hours).
-	// Deprecated: Use `signals` instead.
-	ResourceSignalTimeout awscdk.Duration `json:"resourceSignalTimeout"`
-	// Configuration for rolling updates.
-	//
-	// Only used if updateType == UpdateType.RollingUpdate.
-	// Deprecated: Use `updatePolicy` instead
-	RollingUpdateConfiguration *awsautoscaling.RollingUpdateConfiguration `json:"rollingUpdateConfiguration"`
 	// Configure waiting for signals during deployment.
 	//
 	// Use this to pause the CloudFormation deployment to wait for the instances
@@ -255,15 +213,6 @@ type AddCapacityOptions struct {
 	// is done and only new instances are launched with the new config.
 	// Experimental.
 	UpdatePolicy awsautoscaling.UpdatePolicy `json:"updatePolicy"`
-	// What to do when an AutoScalingGroup's instance configuration is changed.
-	//
-	// This is applied when any of the settings on the ASG are changed that
-	// affect how the instances should be created (VPC, instance type, startup
-	// scripts, etc.). It indicates how the existing instances should be
-	// replaced with new instances matching the new config. By default, nothing
-	// is done and only new instances are launched with the new config.
-	// Deprecated: Use `updatePolicy` instead
-	UpdateType awsautoscaling.UpdateType `json:"updateType"`
 	// Where to place instances within the VPC.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
@@ -589,15 +538,6 @@ type AsgCapacityProviderProps struct {
 	// For more information, see [Using Spot Instances](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-spot.html).
 	// Experimental.
 	SpotInstanceDraining *bool `json:"spotInstanceDraining"`
-	// The time period to wait before force terminating an instance that is draining.
-	//
-	// This creates a Lambda function that is used by a lifecycle hook for the
-	// AutoScalingGroup that will delay instance termination until all ECS tasks
-	// have drained from the instance. Set to 0 to disable task draining.
-	//
-	// Set to 0 to disable task draining.
-	// Deprecated: The lifecycle draining hook is not configured if using the EC2 Capacity Provider. Enable managed termination protection instead.
-	TaskDrainTime awscdk.Duration `json:"taskDrainTime"`
 	// If {@link AddAutoScalingGroupCapacityOptions.taskDrainTime} is non-zero, then the ECS cluster creates an SNS Topic to as part of a system to drain instances of tasks when the instance is being shut down. If this property is provided, then this key will be used to encrypt the contents of that SNS Topic. See [SNS Data Encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-data-encryption.html) for more information.
 	// Experimental.
 	TopicEncryptionKey awskms.IKey `json:"topicEncryptionKey"`
@@ -897,17 +837,14 @@ type AssetImageProps struct {
 	// Experimental.
 	Exclude *[]*string `json:"exclude"`
 	// A strategy for how to handle symlinks.
-	// Deprecated: use `followSymlinks` instead
-	Follow assets.FollowMode `json:"follow"`
+	// Experimental.
+	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
 	// The ignore behavior to use for exclude patterns.
 	// Experimental.
 	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
 	// Experimental.
 	ExtraHash *string `json:"extraHash"`
-	// A strategy for how to handle symlinks.
-	// Experimental.
-	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
 	// Build args to pass to the `docker build` command.
 	//
 	// Since Docker build arguments are resolved before deployment, keys and
@@ -921,15 +858,6 @@ type AssetImageProps struct {
 	// Options to control which parameters are used to invalidate the asset hash.
 	// Experimental.
 	Invalidation *awsecrassets.DockerImageAssetInvalidationOptions `json:"invalidation"`
-	// ECR repository name.
-	//
-	// Specify this property if you need to statically address the image, e.g.
-	// from a Kubernetes Pod. Note, this is only the repository name, without the
-	// registry and the tag parts.
-	// Deprecated: to control the location of docker image assets, please override
-	// `Stack.addDockerImageAsset`. this feature will be removed in future
-	// releases.
-	RepositoryName *string `json:"repositoryName"`
 	// Docker target to build to.
 	// Experimental.
 	Target *string `json:"target"`
@@ -1190,7 +1118,6 @@ type BaseService interface {
 	AttachToClassicLB(loadBalancer awselasticloadbalancing.LoadBalancer)
 	AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
 	AutoScaleTaskCount(props *awsapplicationautoscaling.EnableScalingProps) ScalableTaskCount
-	ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup)
 	ConfigureAwsVpcNetworkingWithSecurityGroups(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroups *[]awsec2.ISecurityGroup)
 	EnableCloudMap(options *CloudMapOptions) awsservicediscovery.Service
 	GeneratePhysicalName() *string
@@ -1526,16 +1453,6 @@ func (b *jsiiProxy_BaseService) AutoScaleTaskCount(props *awsapplicationautoscal
 }
 
 // This method is called to create a networkConfiguration.
-// Deprecated: use configureAwsVpcNetworkingWithSecurityGroups instead.
-func (b *jsiiProxy_BaseService) ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup) {
-	_jsii_.InvokeVoid(
-		b,
-		"configureAwsVpcNetworking",
-		[]interface{}{vpc, assignPublicIp, vpcSubnets, securityGroup},
-	)
-}
-
-// This method is called to create a networkConfiguration.
 // Experimental.
 func (b *jsiiProxy_BaseService) ConfigureAwsVpcNetworkingWithSecurityGroups(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroups *[]awsec2.ISecurityGroup) {
 	_jsii_.InvokeVoid(
@@ -1773,11 +1690,6 @@ type BaseServiceOptions struct {
 	// Valid values are: PropagatedTagSource.SERVICE, PropagatedTagSource.TASK_DEFINITION or PropagatedTagSource.NONE
 	// Experimental.
 	PropagateTags PropagatedTagSource `json:"propagateTags"`
-	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
-	//
-	// Tags can only be propagated to the tasks within the service during service creation.
-	// Deprecated: Use `propagateTags` instead.
-	PropagateTaskTagsFrom PropagatedTagSource `json:"propagateTaskTagsFrom"`
 	// The name of the service.
 	// Experimental.
 	ServiceName *string `json:"serviceName"`
@@ -1836,11 +1748,6 @@ type BaseServiceProps struct {
 	// Valid values are: PropagatedTagSource.SERVICE, PropagatedTagSource.TASK_DEFINITION or PropagatedTagSource.NONE
 	// Experimental.
 	PropagateTags PropagatedTagSource `json:"propagateTags"`
-	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
-	//
-	// Tags can only be propagated to the tasks within the service during service creation.
-	// Deprecated: Use `propagateTags` instead.
-	PropagateTaskTagsFrom PropagatedTagSource `json:"propagateTaskTagsFrom"`
 	// The name of the service.
 	// Experimental.
 	ServiceName *string `json:"serviceName"`
@@ -7536,9 +7443,7 @@ type Cluster interface {
 	Stack() awscdk.Stack
 	Vpc() awsec2.IVpc
 	AddAsgCapacityProvider(provider AsgCapacityProvider, options *AddAutoScalingGroupCapacityOptions)
-	AddAutoScalingGroup(autoScalingGroup awsautoscaling.AutoScalingGroup, options *AddAutoScalingGroupCapacityOptions)
 	AddCapacity(id *string, options *AddCapacityOptions) awsautoscaling.AutoScalingGroup
-	AddCapacityProvider(provider *string)
 	AddDefaultCloudMapNamespace(options *CloudMapNamespaceOptions) awsservicediscovery.INamespace
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	EnableFargateCapacityProviders()
@@ -7771,16 +7676,6 @@ func (c *jsiiProxy_Cluster) AddAsgCapacityProvider(provider AsgCapacityProvider,
 	)
 }
 
-// This method adds compute capacity to a cluster using the specified AutoScalingGroup.
-// Deprecated: Use {@link Cluster.addAsgCapacityProvider} instead.
-func (c *jsiiProxy_Cluster) AddAutoScalingGroup(autoScalingGroup awsautoscaling.AutoScalingGroup, options *AddAutoScalingGroupCapacityOptions) {
-	_jsii_.InvokeVoid(
-		c,
-		"addAutoScalingGroup",
-		[]interface{}{autoScalingGroup, options},
-	)
-}
-
 // It is highly recommended to use {@link Cluster.addAsgCapacityProvider} instead of this method.
 //
 // This method adds compute capacity to a cluster by creating an AutoScalingGroup with the specified options.
@@ -7798,18 +7693,6 @@ func (c *jsiiProxy_Cluster) AddCapacity(id *string, options *AddCapacityOptions)
 	)
 
 	return returns
-}
-
-// This method enables the Fargate or Fargate Spot capacity providers on the cluster.
-// See: {@link addAsgCapacityProvider} to add an Auto Scaling Group capacity provider to the cluster.
-//
-// Deprecated: Use {@link enableFargateCapacityProviders} instead.
-func (c *jsiiProxy_Cluster) AddCapacityProvider(provider *string) {
-	_jsii_.InvokeVoid(
-		c,
-		"addCapacityProvider",
-		[]interface{}{provider},
-	)
 }
 
 // Add an AWS Cloud Map DNS namespace for this cluster.
@@ -8042,9 +7925,6 @@ type ClusterProps struct {
 	// The ec2 capacity to add to the cluster.
 	// Experimental.
 	Capacity *AddCapacityOptions `json:"capacity"`
-	// The capacity providers to add to the cluster.
-	// Deprecated: Use {@link ClusterProps.enableFargateCapacityProviders} instead.
-	CapacityProviders *[]*string `json:"capacityProviders"`
 	// The name for the cluster.
 	// Experimental.
 	ClusterName *string `json:"clusterName"`
@@ -9159,7 +9039,6 @@ type Ec2Service interface {
 	AttachToClassicLB(loadBalancer awselasticloadbalancing.LoadBalancer)
 	AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
 	AutoScaleTaskCount(props *awsapplicationautoscaling.EnableScalingProps) ScalableTaskCount
-	ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup)
 	ConfigureAwsVpcNetworkingWithSecurityGroups(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroups *[]awsec2.ISecurityGroup)
 	EnableCloudMap(options *CloudMapOptions) awsservicediscovery.Service
 	GeneratePhysicalName() *string
@@ -9578,16 +9457,6 @@ func (e *jsiiProxy_Ec2Service) AutoScaleTaskCount(props *awsapplicationautoscali
 }
 
 // This method is called to create a networkConfiguration.
-// Deprecated: use configureAwsVpcNetworkingWithSecurityGroups instead.
-func (e *jsiiProxy_Ec2Service) ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup) {
-	_jsii_.InvokeVoid(
-		e,
-		"configureAwsVpcNetworking",
-		[]interface{}{vpc, assignPublicIp, vpcSubnets, securityGroup},
-	)
-}
-
-// This method is called to create a networkConfiguration.
 // Experimental.
 func (e *jsiiProxy_Ec2Service) ConfigureAwsVpcNetworkingWithSecurityGroups(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroups *[]awsec2.ISecurityGroup) {
 	_jsii_.InvokeVoid(
@@ -9842,11 +9711,6 @@ type Ec2ServiceProps struct {
 	// Valid values are: PropagatedTagSource.SERVICE, PropagatedTagSource.TASK_DEFINITION or PropagatedTagSource.NONE
 	// Experimental.
 	PropagateTags PropagatedTagSource `json:"propagateTags"`
-	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
-	//
-	// Tags can only be propagated to the tasks within the service during service creation.
-	// Deprecated: Use `propagateTags` instead.
-	PropagateTaskTagsFrom PropagatedTagSource `json:"propagateTaskTagsFrom"`
 	// The name of the service.
 	// Experimental.
 	ServiceName *string `json:"serviceName"`
@@ -9881,13 +9745,6 @@ type Ec2ServiceProps struct {
 	// [Amazon ECS Task Placement Strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
 	// Experimental.
 	PlacementStrategies *[]PlacementStrategy `json:"placementStrategies"`
-	// The security groups to associate with the service.
-	//
-	// If you do not specify a security group, a new security group is created.
-	//
-	// This property is only used for tasks that use the awsvpc network mode.
-	// Deprecated: use securityGroups instead.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 	// The security groups to associate with the service.
 	//
 	// If you do not specify a security group, a new security group is created.
@@ -10723,98 +10580,6 @@ func (e *jsiiProxy_EcrImage) Bind(_scope constructs.Construct, containerDefiniti
 //
 // TODO: EXAMPLE
 //
-// Deprecated: see {@link EcsOptimizedImage#amazonLinux}, {@link EcsOptimizedImage#amazonLinux} and {@link EcsOptimizedImage#windows}
-type EcsOptimizedAmi interface {
-	awsec2.IMachineImage
-	GetImage(scope constructs.Construct) *awsec2.MachineImageConfig
-}
-
-// The jsii proxy struct for EcsOptimizedAmi
-type jsiiProxy_EcsOptimizedAmi struct {
-	internal.Type__awsec2IMachineImage
-}
-
-// Constructs a new instance of the EcsOptimizedAmi class.
-// Deprecated: see {@link EcsOptimizedImage#amazonLinux}, {@link EcsOptimizedImage#amazonLinux} and {@link EcsOptimizedImage#windows}
-func NewEcsOptimizedAmi(props *EcsOptimizedAmiProps) EcsOptimizedAmi {
-	_init_.Initialize()
-
-	j := jsiiProxy_EcsOptimizedAmi{}
-
-	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.EcsOptimizedAmi",
-		[]interface{}{props},
-		&j,
-	)
-
-	return &j
-}
-
-// Constructs a new instance of the EcsOptimizedAmi class.
-// Deprecated: see {@link EcsOptimizedImage#amazonLinux}, {@link EcsOptimizedImage#amazonLinux} and {@link EcsOptimizedImage#windows}
-func NewEcsOptimizedAmi_Override(e EcsOptimizedAmi, props *EcsOptimizedAmiProps) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"aws-cdk-lib.aws_ecs.EcsOptimizedAmi",
-		[]interface{}{props},
-		e,
-	)
-}
-
-// Return the correct image.
-// Deprecated: see {@link EcsOptimizedImage#amazonLinux}, {@link EcsOptimizedImage#amazonLinux} and {@link EcsOptimizedImage#windows}
-func (e *jsiiProxy_EcsOptimizedAmi) GetImage(scope constructs.Construct) *awsec2.MachineImageConfig {
-	var returns *awsec2.MachineImageConfig
-
-	_jsii_.Invoke(
-		e,
-		"getImage",
-		[]interface{}{scope},
-		&returns,
-	)
-
-	return returns
-}
-
-// The properties that define which ECS-optimized AMI is used.
-//
-// TODO: EXAMPLE
-//
-// Deprecated: see {@link EcsOptimizedImage}
-type EcsOptimizedAmiProps struct {
-	// Whether the AMI ID is cached to be stable between deployments.
-	//
-	// By default, the newest image is used on each deployment. This will cause
-	// instances to be replaced whenever a new version is released, and may cause
-	// downtime if there aren't enough running instances in the AutoScalingGroup
-	// to reschedule the tasks on.
-	//
-	// If set to true, the AMI ID will be cached in `cdk.context.json` and the
-	// same value will be used on future runs. Your instances will not be replaced
-	// but your AMI version will grow old over time. To refresh the AMI lookup,
-	// you will have to evict the value from the cache using the `cdk context`
-	// command. See https://docs.aws.amazon.com/cdk/latest/guide/context.html for
-	// more information.
-	//
-	// Can not be set to `true` in environment-agnostic stacks.
-	// Deprecated: see {@link EcsOptimizedImage}
-	CachedInContext *bool `json:"cachedInContext"`
-	// The Amazon Linux generation to use.
-	// Deprecated: see {@link EcsOptimizedImage}
-	Generation awsec2.AmazonLinuxGeneration `json:"generation"`
-	// The ECS-optimized AMI variant to use.
-	// Deprecated: see {@link EcsOptimizedImage}
-	HardwareType AmiHardwareType `json:"hardwareType"`
-	// The Windows Server version to use.
-	// Deprecated: see {@link EcsOptimizedImage}
-	WindowsVersion WindowsOptimizedVersion `json:"windowsVersion"`
-}
-
-// Construct a Linux or Windows machine image from the latest ECS Optimized AMI published in SSM.
-//
-// TODO: EXAMPLE
-//
 // Experimental.
 type EcsOptimizedImage interface {
 	awsec2.IMachineImage
@@ -11171,7 +10936,6 @@ type ExternalService interface {
 	AttachToClassicLB(loadBalancer awselasticloadbalancing.LoadBalancer)
 	AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
 	AutoScaleTaskCount(_props *awsapplicationautoscaling.EnableScalingProps) ScalableTaskCount
-	ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup)
 	ConfigureAwsVpcNetworkingWithSecurityGroups(_vpc awsec2.IVpc, _assignPublicIp *bool, _vpcSubnets *awsec2.SubnetSelection, _securityGroups *[]awsec2.ISecurityGroup)
 	EnableCloudMap(_options *CloudMapOptions) awsservicediscovery.Service
 	GeneratePhysicalName() *string
@@ -11550,16 +11314,6 @@ func (e *jsiiProxy_ExternalService) AutoScaleTaskCount(_props *awsapplicationaut
 	return returns
 }
 
-// This method is called to create a networkConfiguration.
-// Deprecated: use configureAwsVpcNetworkingWithSecurityGroups instead.
-func (e *jsiiProxy_ExternalService) ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup) {
-	_jsii_.InvokeVoid(
-		e,
-		"configureAwsVpcNetworking",
-		[]interface{}{vpc, assignPublicIp, vpcSubnets, securityGroup},
-	)
-}
-
 // Overriden method to throw error as `configureAwsVpcNetworkingWithSecurityGroups` is not supported for external service.
 // Experimental.
 func (e *jsiiProxy_ExternalService) ConfigureAwsVpcNetworkingWithSecurityGroups(_vpc awsec2.IVpc, _assignPublicIp *bool, _vpcSubnets *awsec2.SubnetSelection, _securityGroups *[]awsec2.ISecurityGroup) {
@@ -11798,11 +11552,6 @@ type ExternalServiceProps struct {
 	// Valid values are: PropagatedTagSource.SERVICE, PropagatedTagSource.TASK_DEFINITION or PropagatedTagSource.NONE
 	// Experimental.
 	PropagateTags PropagatedTagSource `json:"propagateTags"`
-	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
-	//
-	// Tags can only be propagated to the tasks within the service during service creation.
-	// Deprecated: Use `propagateTags` instead.
-	PropagateTaskTagsFrom PropagatedTagSource `json:"propagateTaskTagsFrom"`
 	// The name of the service.
 	// Experimental.
 	ServiceName *string `json:"serviceName"`
@@ -12497,7 +12246,6 @@ type FargateService interface {
 	AttachToClassicLB(loadBalancer awselasticloadbalancing.LoadBalancer)
 	AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
 	AutoScaleTaskCount(props *awsapplicationautoscaling.EnableScalingProps) ScalableTaskCount
-	ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup)
 	ConfigureAwsVpcNetworkingWithSecurityGroups(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroups *[]awsec2.ISecurityGroup)
 	EnableCloudMap(options *CloudMapOptions) awsservicediscovery.Service
 	GeneratePhysicalName() *string
@@ -12880,16 +12628,6 @@ func (f *jsiiProxy_FargateService) AutoScaleTaskCount(props *awsapplicationautos
 }
 
 // This method is called to create a networkConfiguration.
-// Deprecated: use configureAwsVpcNetworkingWithSecurityGroups instead.
-func (f *jsiiProxy_FargateService) ConfigureAwsVpcNetworking(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroup awsec2.ISecurityGroup) {
-	_jsii_.InvokeVoid(
-		f,
-		"configureAwsVpcNetworking",
-		[]interface{}{vpc, assignPublicIp, vpcSubnets, securityGroup},
-	)
-}
-
-// This method is called to create a networkConfiguration.
 // Experimental.
 func (f *jsiiProxy_FargateService) ConfigureAwsVpcNetworkingWithSecurityGroups(vpc awsec2.IVpc, assignPublicIp *bool, vpcSubnets *awsec2.SubnetSelection, securityGroups *[]awsec2.ISecurityGroup) {
 	_jsii_.InvokeVoid(
@@ -13144,11 +12882,6 @@ type FargateServiceProps struct {
 	// Valid values are: PropagatedTagSource.SERVICE, PropagatedTagSource.TASK_DEFINITION or PropagatedTagSource.NONE
 	// Experimental.
 	PropagateTags PropagatedTagSource `json:"propagateTags"`
-	// Specifies whether to propagate the tags from the task definition or the service to the tasks in the service.
-	//
-	// Tags can only be propagated to the tasks within the service during service creation.
-	// Deprecated: Use `propagateTags` instead.
-	PropagateTaskTagsFrom PropagatedTagSource `json:"propagateTaskTagsFrom"`
 	// The name of the service.
 	// Experimental.
 	ServiceName *string `json:"serviceName"`
@@ -13169,11 +12902,6 @@ type FargateServiceProps struct {
 	// in the Amazon Elastic Container Service Developer Guide.
 	// Experimental.
 	PlatformVersion FargatePlatformVersion `json:"platformVersion"`
-	// The security groups to associate with the service.
-	//
-	// If you do not specify a security group, a new security group is created.
-	// Deprecated: use securityGroups instead.
-	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 	// The security groups to associate with the service.
 	//
 	// If you do not specify a security group, a new security group is created.
@@ -17666,14 +17394,6 @@ type SplunkLogDriverProps struct {
 	// Event source type.
 	// Experimental.
 	SourceType *string `json:"sourceType"`
-	// Splunk HTTP Event Collector token.
-	//
-	// The splunk-token is added to the Options property of the Log Driver Configuration. So the secret value will be resolved and
-	// viewable in plain text in the console.
-	//
-	// Please provide at least one of `token` or `secretToken`.
-	// Deprecated: Use {@link SplunkLogDriverProps.secretToken} instead.
-	Token awscdk.SecretValue `json:"token"`
 	// Path to your Splunk Enterprise, self-service Splunk Cloud instance, or Splunk Cloud managed cluster (including port and scheme used by HTTP Event Collector) in one of the following formats: https://your_splunk_instance:8088 or https://input-prd-p-XXXXXXX.cloud.splunk.com:8088 or https://http-inputs-XXXXXXXX.splunkcloud.com.
 	// Experimental.
 	Url *string `json:"url"`

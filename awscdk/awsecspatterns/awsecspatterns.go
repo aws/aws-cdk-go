@@ -57,7 +57,6 @@ type ApplicationLoadBalancedEc2Service interface {
 	ApplicationLoadBalancedServiceBase
 	Certificate() awscertificatemanager.ICertificate
 	Cluster() awsecs.ICluster
-	DesiredCount() *float64
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.ApplicationListener
 	LoadBalancer() awselasticloadbalancingv2.ApplicationLoadBalancer
@@ -92,16 +91,6 @@ func (j *jsiiProxy_ApplicationLoadBalancedEc2Service) Cluster() awsecs.ICluster 
 	_jsii_.Get(
 		j,
 		"cluster",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ApplicationLoadBalancedEc2Service) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -463,7 +452,6 @@ type ApplicationLoadBalancedFargateService interface {
 	AssignPublicIp() *bool
 	Certificate() awscertificatemanager.ICertificate
 	Cluster() awsecs.ICluster
-	DesiredCount() *float64
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.ApplicationListener
 	LoadBalancer() awselasticloadbalancingv2.ApplicationLoadBalancer
@@ -508,16 +496,6 @@ func (j *jsiiProxy_ApplicationLoadBalancedFargateService) Cluster() awsecs.IClus
 	_jsii_.Get(
 		j,
 		"cluster",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ApplicationLoadBalancedFargateService) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -893,7 +871,6 @@ type ApplicationLoadBalancedServiceBase interface {
 	constructs.Construct
 	Certificate() awscertificatemanager.ICertificate
 	Cluster() awsecs.ICluster
-	DesiredCount() *float64
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.ApplicationListener
 	LoadBalancer() awselasticloadbalancingv2.ApplicationLoadBalancer
@@ -926,16 +903,6 @@ func (j *jsiiProxy_ApplicationLoadBalancedServiceBase) Cluster() awsecs.ICluster
 	_jsii_.Get(
 		j,
 		"cluster",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ApplicationLoadBalancedServiceBase) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -1358,7 +1325,6 @@ type ApplicationLoadBalancerProps struct {
 type ApplicationMultipleTargetGroupsEc2Service interface {
 	ApplicationMultipleTargetGroupsServiceBase
 	Cluster() awsecs.ICluster
-	DesiredCount() *float64
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.ApplicationListener
 	Listeners() *[]awselasticloadbalancingv2.ApplicationListener
@@ -1390,16 +1356,6 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) Cluster() awsecs.I
 	_jsii_.Get(
 		j,
 		"cluster",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsEc2Service) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -1750,7 +1706,6 @@ type ApplicationMultipleTargetGroupsFargateService interface {
 	ApplicationMultipleTargetGroupsServiceBase
 	AssignPublicIp() *bool
 	Cluster() awsecs.ICluster
-	DesiredCount() *float64
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.ApplicationListener
 	Listeners() *[]awselasticloadbalancingv2.ApplicationListener
@@ -1792,16 +1747,6 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) Cluster() awse
 	_jsii_.Get(
 		j,
 		"cluster",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsFargateService) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -2167,7 +2112,6 @@ type ApplicationMultipleTargetGroupsFargateServiceProps struct {
 type ApplicationMultipleTargetGroupsServiceBase interface {
 	constructs.Construct
 	Cluster() awsecs.ICluster
-	DesiredCount() *float64
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.ApplicationListener
 	Listeners() *[]awselasticloadbalancingv2.ApplicationListener
@@ -2196,16 +2140,6 @@ func (j *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) Cluster() awsecs.
 	_jsii_.Get(
 		j,
 		"cluster",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_ApplicationMultipleTargetGroupsServiceBase) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -2540,7 +2474,6 @@ type NetworkListenerProps struct {
 type NetworkLoadBalancedEc2Service interface {
 	NetworkLoadBalancedServiceBase
 	Cluster() awsecs.ICluster
-	DesiredCount() *float64
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.NetworkListener
 	LoadBalancer() awselasticloadbalancingv2.NetworkLoadBalancer
@@ -2564,16 +2497,6 @@ func (j *jsiiProxy_NetworkLoadBalancedEc2Service) Cluster() awsecs.ICluster {
 	_jsii_.Get(
 		j,
 		"cluster",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_NetworkLoadBalancedEc2Service) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -2891,7 +2814,6 @@ type NetworkLoadBalancedFargateService interface {
 	NetworkLoadBalancedServiceBase
 	AssignPublicIp() *bool
 	Cluster() awsecs.ICluster
-	DesiredCount() *float64
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.NetworkListener
 	LoadBalancer() awselasticloadbalancingv2.NetworkLoadBalancer
@@ -2925,16 +2847,6 @@ func (j *jsiiProxy_NetworkLoadBalancedFargateService) Cluster() awsecs.ICluster 
 	_jsii_.Get(
 		j,
 		"cluster",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_NetworkLoadBalancedFargateService) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -3261,7 +3173,6 @@ type NetworkLoadBalancedFargateServiceProps struct {
 type NetworkLoadBalancedServiceBase interface {
 	constructs.Construct
 	Cluster() awsecs.ICluster
-	DesiredCount() *float64
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.NetworkListener
 	LoadBalancer() awselasticloadbalancingv2.NetworkLoadBalancer
@@ -3283,16 +3194,6 @@ func (j *jsiiProxy_NetworkLoadBalancedServiceBase) Cluster() awsecs.ICluster {
 	_jsii_.Get(
 		j,
 		"cluster",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_NetworkLoadBalancedServiceBase) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -3672,7 +3573,6 @@ type NetworkLoadBalancerProps struct {
 type NetworkMultipleTargetGroupsEc2Service interface {
 	NetworkMultipleTargetGroupsServiceBase
 	Cluster() awsecs.ICluster
-	DesiredCount() *float64
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.NetworkListener
 	Listeners() *[]awselasticloadbalancingv2.NetworkListener
@@ -3704,16 +3604,6 @@ func (j *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) Cluster() awsecs.IClus
 	_jsii_.Get(
 		j,
 		"cluster",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_NetworkMultipleTargetGroupsEc2Service) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -4066,7 +3956,6 @@ type NetworkMultipleTargetGroupsFargateService interface {
 	NetworkMultipleTargetGroupsServiceBase
 	AssignPublicIp() *bool
 	Cluster() awsecs.ICluster
-	DesiredCount() *float64
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.NetworkListener
 	Listeners() *[]awselasticloadbalancingv2.NetworkListener
@@ -4108,16 +3997,6 @@ func (j *jsiiProxy_NetworkMultipleTargetGroupsFargateService) Cluster() awsecs.I
 	_jsii_.Get(
 		j,
 		"cluster",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_NetworkMultipleTargetGroupsFargateService) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -4485,7 +4364,6 @@ type NetworkMultipleTargetGroupsFargateServiceProps struct {
 type NetworkMultipleTargetGroupsServiceBase interface {
 	constructs.Construct
 	Cluster() awsecs.ICluster
-	DesiredCount() *float64
 	InternalDesiredCount() *float64
 	Listener() awselasticloadbalancingv2.NetworkListener
 	Listeners() *[]awselasticloadbalancingv2.NetworkListener
@@ -4514,16 +4392,6 @@ func (j *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) Cluster() awsecs.IClu
 	_jsii_.Get(
 		j,
 		"cluster",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_NetworkMultipleTargetGroupsServiceBase) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -4815,7 +4683,6 @@ type QueueProcessingEc2Service interface {
 	QueueProcessingServiceBase
 	Cluster() awsecs.ICluster
 	DeadLetterQueue() awssqs.IQueue
-	DesiredCount() *float64
 	Environment() *map[string]*string
 	LogDriver() awsecs.LogDriver
 	MaxCapacity() *float64
@@ -4852,16 +4719,6 @@ func (j *jsiiProxy_QueueProcessingEc2Service) DeadLetterQueue() awssqs.IQueue {
 	_jsii_.Get(
 		j,
 		"deadLetterQueue",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_QueueProcessingEc2Service) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -5096,9 +4953,6 @@ type QueueProcessingEc2ServiceProps struct {
 	// [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
 	// Experimental.
 	DeploymentController *awsecs.DeploymentController `json:"deploymentController"`
-	// The desired number of instantiations of the task definition to keep running on the service.
-	// Deprecated: - Use `minScalingCapacity` or a literal object instead.
-	DesiredTaskCount *float64 `json:"desiredTaskCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
@@ -5233,7 +5087,6 @@ type QueueProcessingFargateService interface {
 	QueueProcessingServiceBase
 	Cluster() awsecs.ICluster
 	DeadLetterQueue() awssqs.IQueue
-	DesiredCount() *float64
 	Environment() *map[string]*string
 	LogDriver() awsecs.LogDriver
 	MaxCapacity() *float64
@@ -5270,16 +5123,6 @@ func (j *jsiiProxy_QueueProcessingFargateService) DeadLetterQueue() awssqs.IQueu
 	_jsii_.Get(
 		j,
 		"deadLetterQueue",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_QueueProcessingFargateService) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -5514,9 +5357,6 @@ type QueueProcessingFargateServiceProps struct {
 	// [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
 	// Experimental.
 	DeploymentController *awsecs.DeploymentController `json:"deploymentController"`
-	// The desired number of instantiations of the task definition to keep running on the service.
-	// Deprecated: - Use `minScalingCapacity` or a literal object instead.
-	DesiredTaskCount *float64 `json:"desiredTaskCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see
@@ -5663,7 +5503,6 @@ type QueueProcessingServiceBase interface {
 	constructs.Construct
 	Cluster() awsecs.ICluster
 	DeadLetterQueue() awssqs.IQueue
-	DesiredCount() *float64
 	Environment() *map[string]*string
 	LogDriver() awsecs.LogDriver
 	MaxCapacity() *float64
@@ -5698,16 +5537,6 @@ func (j *jsiiProxy_QueueProcessingServiceBase) DeadLetterQueue() awssqs.IQueue {
 	_jsii_.Get(
 		j,
 		"deadLetterQueue",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_QueueProcessingServiceBase) DesiredCount() *float64 {
-	var returns *float64
-	_jsii_.Get(
-		j,
-		"desiredCount",
 		&returns,
 	)
 	return returns
@@ -5906,9 +5735,6 @@ type QueueProcessingServiceBaseProps struct {
 	// [Amazon ECS Deployment Types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html)
 	// Experimental.
 	DeploymentController *awsecs.DeploymentController `json:"deploymentController"`
-	// The desired number of instantiations of the task definition to keep running on the service.
-	// Deprecated: - Use `minScalingCapacity` or a literal object instead.
-	DesiredTaskCount *float64 `json:"desiredTaskCount"`
 	// Specifies whether to enable Amazon ECS managed tags for the tasks within the service.
 	//
 	// For more information, see

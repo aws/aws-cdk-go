@@ -81,27 +81,6 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"aws-cdk-lib.aws_iam.Anyone",
-		reflect.TypeOf((*Anyone)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
-			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
-			_jsii_.MemberProperty{JsiiProperty: "arn", GoGetter: "Arn"},
-			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
-			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
-			_jsii_.MemberProperty{JsiiProperty: "policyFragment", GoGetter: "PolicyFragment"},
-			_jsii_.MemberProperty{JsiiProperty: "principalAccount", GoGetter: "PrincipalAccount"},
-			_jsii_.MemberMethod{JsiiMethod: "toJSON", GoMethod: "ToJSON"},
-			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "withConditions", GoMethod: "WithConditions"},
-		},
-		func() interface{} {
-			j := jsiiProxy_Anyone{}
-			_jsii_.InitJsiiProxy(&j.jsiiProxy_AnyPrincipal)
-			return &j
-		},
-	)
-	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_iam.ArnPrincipal",
 		reflect.TypeOf((*ArnPrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -898,7 +877,6 @@ func init() {
 		reflect.TypeOf((*IGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addManagedPolicy", GoMethod: "AddManagedPolicy"},
-			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
 			_jsii_.MemberMethod{JsiiMethod: "attachInlinePolicy", GoMethod: "AttachInlinePolicy"},
@@ -922,7 +900,6 @@ func init() {
 		reflect.TypeOf((*IIdentity)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addManagedPolicy", GoMethod: "AddManagedPolicy"},
-			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
 			_jsii_.MemberMethod{JsiiMethod: "attachInlinePolicy", GoMethod: "AttachInlinePolicy"},
@@ -985,7 +962,6 @@ func init() {
 		"aws-cdk-lib.aws_iam.IPrincipal",
 		reflect.TypeOf((*IPrincipal)(nil)).Elem(),
 		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
@@ -1018,7 +994,6 @@ func init() {
 		reflect.TypeOf((*IRole)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addManagedPolicy", GoMethod: "AddManagedPolicy"},
-			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
 			_jsii_.MemberMethod{JsiiMethod: "attachInlinePolicy", GoMethod: "AttachInlinePolicy"},
@@ -1060,7 +1035,6 @@ func init() {
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addManagedPolicy", GoMethod: "AddManagedPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToGroup", GoMethod: "AddToGroup"},
-			_jsii_.MemberMethod{JsiiMethod: "addToPolicy", GoMethod: "AddToPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "addToPrincipalPolicy", GoMethod: "AddToPrincipalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "assumeRoleAction", GoGetter: "AssumeRoleAction"},
 			_jsii_.MemberMethod{JsiiMethod: "attachInlinePolicy", GoMethod: "AttachInlinePolicy"},

@@ -860,28 +860,6 @@ type AutoScalingGroupProps struct {
 	//
 	// Experimental.
 	Notifications *[]*NotificationConfiguration `json:"notifications"`
-	// SNS topic to send notifications about fleet changes.
-	// Deprecated: use `notifications`
-	NotificationsTopic awssns.ITopic `json:"notificationsTopic"`
-	// Configuration for replacing updates.
-	//
-	// Only used if updateType == UpdateType.ReplacingUpdate. Specifies how
-	// many instances must signal success for the update to succeed.
-	// Deprecated: Use `signals` instead
-	ReplacingUpdateMinSuccessfulInstancesPercent *float64 `json:"replacingUpdateMinSuccessfulInstancesPercent"`
-	// How many ResourceSignal calls CloudFormation expects before the resource is considered created.
-	// Deprecated: Use `signals` instead.
-	ResourceSignalCount *float64 `json:"resourceSignalCount"`
-	// The length of time to wait for the resourceSignalCount.
-	//
-	// The maximum value is 43200 (12 hours).
-	// Deprecated: Use `signals` instead.
-	ResourceSignalTimeout awscdk.Duration `json:"resourceSignalTimeout"`
-	// Configuration for rolling updates.
-	//
-	// Only used if updateType == UpdateType.RollingUpdate.
-	// Deprecated: Use `updatePolicy` instead
-	RollingUpdateConfiguration *RollingUpdateConfiguration `json:"rollingUpdateConfiguration"`
 	// Configure waiting for signals during deployment.
 	//
 	// Use this to pause the CloudFormation deployment to wait for the instances
@@ -916,15 +894,6 @@ type AutoScalingGroupProps struct {
 	// is done and only new instances are launched with the new config.
 	// Experimental.
 	UpdatePolicy UpdatePolicy `json:"updatePolicy"`
-	// What to do when an AutoScalingGroup's instance configuration is changed.
-	//
-	// This is applied when any of the settings on the ASG are changed that
-	// affect how the instances should be created (VPC, instance type, startup
-	// scripts, etc.). It indicates how the existing instances should be
-	// replaced with new instances matching the new config. By default, nothing
-	// is done and only new instances are launched with the new config.
-	// Deprecated: Use `updatePolicy` instead
-	UpdateType UpdateType `json:"updateType"`
 	// Where to place instances within the VPC.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
@@ -1243,12 +1212,6 @@ type BlockDevice struct {
 	//
 	// Experimental.
 	DeviceName *string `json:"deviceName"`
-	// If false, the device mapping will be suppressed.
-	//
-	// If set to false for the root device, the instance might fail the Amazon EC2 health check.
-	// Amazon EC2 Auto Scaling launches a replacement instance if the instance fails the health check.
-	// Deprecated: use `BlockDeviceVolume.noDevice()` as the volume to supress a mapping.
-	MappingEnabled *bool `json:"mappingEnabled"`
 	// Defines the block device volume, to be either an Amazon EBS volume or an ephemeral instance store volume.
 	//
 	// Supply a value like `BlockDeviceVolume.ebs(15)`, `BlockDeviceVolume.ephemeral(0)`.
@@ -6391,28 +6354,6 @@ type CommonAutoScalingGroupProps struct {
 	//
 	// Experimental.
 	Notifications *[]*NotificationConfiguration `json:"notifications"`
-	// SNS topic to send notifications about fleet changes.
-	// Deprecated: use `notifications`
-	NotificationsTopic awssns.ITopic `json:"notificationsTopic"`
-	// Configuration for replacing updates.
-	//
-	// Only used if updateType == UpdateType.ReplacingUpdate. Specifies how
-	// many instances must signal success for the update to succeed.
-	// Deprecated: Use `signals` instead
-	ReplacingUpdateMinSuccessfulInstancesPercent *float64 `json:"replacingUpdateMinSuccessfulInstancesPercent"`
-	// How many ResourceSignal calls CloudFormation expects before the resource is considered created.
-	// Deprecated: Use `signals` instead.
-	ResourceSignalCount *float64 `json:"resourceSignalCount"`
-	// The length of time to wait for the resourceSignalCount.
-	//
-	// The maximum value is 43200 (12 hours).
-	// Deprecated: Use `signals` instead.
-	ResourceSignalTimeout awscdk.Duration `json:"resourceSignalTimeout"`
-	// Configuration for rolling updates.
-	//
-	// Only used if updateType == UpdateType.RollingUpdate.
-	// Deprecated: Use `updatePolicy` instead
-	RollingUpdateConfiguration *RollingUpdateConfiguration `json:"rollingUpdateConfiguration"`
 	// Configure waiting for signals during deployment.
 	//
 	// Use this to pause the CloudFormation deployment to wait for the instances
@@ -6447,15 +6388,6 @@ type CommonAutoScalingGroupProps struct {
 	// is done and only new instances are launched with the new config.
 	// Experimental.
 	UpdatePolicy UpdatePolicy `json:"updatePolicy"`
-	// What to do when an AutoScalingGroup's instance configuration is changed.
-	//
-	// This is applied when any of the settings on the ASG are changed that
-	// affect how the instances should be created (VPC, instance type, startup
-	// scripts, etc.). It indicates how the existing instances should be
-	// replaced with new instances matching the new config. By default, nothing
-	// is done and only new instances are launched with the new config.
-	// Deprecated: Use `updatePolicy` instead
-	UpdateType UpdateType `json:"updateType"`
 	// Where to place instances within the VPC.
 	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
@@ -7665,63 +7597,6 @@ type RequestCountScalingProps struct {
 	// Target average requests/minute on each instance.
 	// Experimental.
 	TargetRequestsPerMinute *float64 `json:"targetRequestsPerMinute"`
-	// Target average requests/seconds on each instance.
-	// Deprecated: Use 'targetRequestsPerMinute' instead
-	TargetRequestsPerSecond *float64 `json:"targetRequestsPerSecond"`
-}
-
-// Additional settings when a rolling update is selected.
-//
-// TODO: EXAMPLE
-//
-// Deprecated: use `UpdatePolicy.rollingUpdate()`
-type RollingUpdateConfiguration struct {
-	// The maximum number of instances that AWS CloudFormation updates at once.
-	// Deprecated: use `UpdatePolicy.rollingUpdate()`
-	MaxBatchSize *float64 `json:"maxBatchSize"`
-	// The minimum number of instances that must be in service before more instances are replaced.
-	//
-	// This number affects the speed of the replacement.
-	// Deprecated: use `UpdatePolicy.rollingUpdate()`
-	MinInstancesInService *float64 `json:"minInstancesInService"`
-	// The percentage of instances that must signal success for an update to succeed.
-	//
-	// If an instance doesn't send a signal within the time specified in the
-	// pauseTime property, AWS CloudFormation assumes that the instance wasn't
-	// updated.
-	//
-	// This number affects the success of the replacement.
-	//
-	// If you specify this property, you must also enable the
-	// waitOnResourceSignals and pauseTime properties.
-	// Deprecated: use `UpdatePolicy.rollingUpdate()`
-	MinSuccessfulInstancesPercent *float64 `json:"minSuccessfulInstancesPercent"`
-	// The pause time after making a change to a batch of instances.
-	//
-	// This is intended to give those instances time to start software applications.
-	//
-	// Specify PauseTime in the ISO8601 duration format (in the format
-	// PT#H#M#S, where each # is the number of hours, minutes, and seconds,
-	// respectively). The maximum PauseTime is one hour (PT1H).
-	// Deprecated: use `UpdatePolicy.rollingUpdate()`
-	PauseTime awscdk.Duration `json:"pauseTime"`
-	// Specifies the Auto Scaling processes to suspend during a stack update.
-	//
-	// Suspending processes prevents Auto Scaling from interfering with a stack
-	// update.
-	// Deprecated: use `UpdatePolicy.rollingUpdate()`
-	SuspendProcesses *[]ScalingProcess `json:"suspendProcesses"`
-	// Specifies whether the Auto Scaling group waits on signals from new instances during an update.
-	//
-	// AWS CloudFormation must receive a signal from each new instance within
-	// the specified PauseTime before continuing the update.
-	//
-	// To have instances wait for an Elastic Load Balancing health check before
-	// they signal success, add a health-check verification by using the
-	// cfn-init helper script. For an example, see the verify_instance_health
-	// command in the Auto Scaling rolling updates sample template.
-	// Deprecated: use `UpdatePolicy.rollingUpdate()`
-	WaitOnResourceSignals *bool `json:"waitOnResourceSignals"`
 }
 
 // Options for customizing the rolling update.
@@ -8919,14 +8794,4 @@ func UpdatePolicy_RollingUpdate(options *RollingUpdateOptions) UpdatePolicy {
 
 	return returns
 }
-
-// The type of update to perform on instances in this AutoScalingGroup.
-// Deprecated: Use UpdatePolicy instead
-type UpdateType string
-
-const (
-	UpdateType_NONE UpdateType = "NONE"
-	UpdateType_REPLACING_UPDATE UpdateType = "REPLACING_UPDATE"
-	UpdateType_ROLLING_UPDATE UpdateType = "ROLLING_UPDATE"
-)
 

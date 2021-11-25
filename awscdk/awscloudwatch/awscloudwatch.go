@@ -825,25 +825,6 @@ type AlarmProps struct {
 	// The number of periods over which data is compared to the specified threshold.
 	// Experimental.
 	EvaluationPeriods *float64 `json:"evaluationPeriods"`
-	// The period over which the specified statistic is applied.
-	//
-	// Cannot be used with `MathExpression` objects.
-	// Deprecated: Use `metric.with({ period: ... })` to encode the period into the Metric object
-	Period awscdk.Duration `json:"period"`
-	// What function to use for aggregating.
-	//
-	// Can be one of the following:
-	//
-	// - "Minimum" | "min"
-	// - "Maximum" | "max"
-	// - "Average" | "avg"
-	// - "Sum" | "sum"
-	// - "SampleCount | "n"
-	// - "pNN.NN"
-	//
-	// Cannot be used with `MathExpression` objects.
-	// Deprecated: Use `metric.with({ statistic: ... })` to encode the period into the Metric object
-	Statistic *string `json:"statistic"`
 	// The value against which the specified statistic is compared.
 	// Experimental.
 	Threshold *float64 `json:"threshold"`
@@ -5677,9 +5658,6 @@ type CommonMetricOptions struct {
 	// Experimental.
 	Color *string `json:"color"`
 	// Dimensions of the metric.
-	// Deprecated: Use 'dimensionsMap' instead.
-	Dimensions *map[string]interface{} `json:"dimensions"`
-	// Dimensions of the metric.
 	// Experimental.
 	DimensionsMap *map[string]*string `json:"dimensionsMap"`
 	// Label for this metric when added to a Graph in a Dashboard.
@@ -6301,25 +6279,6 @@ type CreateAlarmOptions struct {
 	// The number of periods over which data is compared to the specified threshold.
 	// Experimental.
 	EvaluationPeriods *float64 `json:"evaluationPeriods"`
-	// The period over which the specified statistic is applied.
-	//
-	// Cannot be used with `MathExpression` objects.
-	// Deprecated: Use `metric.with({ period: ... })` to encode the period into the Metric object
-	Period awscdk.Duration `json:"period"`
-	// What function to use for aggregating.
-	//
-	// Can be one of the following:
-	//
-	// - "Minimum" | "min"
-	// - "Maximum" | "max"
-	// - "Average" | "avg"
-	// - "Sum" | "sum"
-	// - "SampleCount | "n"
-	// - "pNN.NN"
-	//
-	// Cannot be used with `MathExpression` objects.
-	// Deprecated: Use `metric.with({ statistic: ... })` to encode the period into the Metric object
-	Statistic *string `json:"statistic"`
 	// The value against which the specified statistic is compared.
 	// Experimental.
 	Threshold *float64 `json:"threshold"`
@@ -7009,12 +6968,6 @@ func (i *jsiiProxy_IAlarmRule) RenderAlarmRule() *string {
 // Interface for metrics.
 // Experimental.
 type IMetric interface {
-	// Turn this metric object into an alarm configuration.
-	// Deprecated: Use `toMetricConfig()` instead.
-	ToAlarmConfig() *MetricAlarmConfig
-	// Turn this metric object into a graph configuration.
-	// Deprecated: Use `toMetricConfig()` instead.
-	ToGraphConfig() *MetricGraphConfig
 	// Inspect the details of the metric object.
 	// Experimental.
 	ToMetricConfig() *MetricConfig
@@ -7023,32 +6976,6 @@ type IMetric interface {
 // The jsii proxy for IMetric
 type jsiiProxy_IMetric struct {
 	_ byte // padding
-}
-
-func (i *jsiiProxy_IMetric) ToAlarmConfig() *MetricAlarmConfig {
-	var returns *MetricAlarmConfig
-
-	_jsii_.Invoke(
-		i,
-		"toAlarmConfig",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-func (i *jsiiProxy_IMetric) ToGraphConfig() *MetricGraphConfig {
-	var returns *MetricGraphConfig
-
-	_jsii_.Invoke(
-		i,
-		"toGraphConfig",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
 }
 
 func (i *jsiiProxy_IMetric) ToMetricConfig() *MetricConfig {
@@ -7350,8 +7277,6 @@ type MathExpression interface {
 	SearchRegion() *string
 	UsingMetrics() *map[string]IMetric
 	CreateAlarm(scope constructs.Construct, id *string, props *CreateAlarmOptions) Alarm
-	ToAlarmConfig() *MetricAlarmConfig
-	ToGraphConfig() *MetricGraphConfig
 	ToMetricConfig() *MetricConfig
 	ToString() *string
 	With(props *MathExpressionOptions) MathExpression
@@ -7471,36 +7396,6 @@ func (m *jsiiProxy_MathExpression) CreateAlarm(scope constructs.Construct, id *s
 		m,
 		"createAlarm",
 		[]interface{}{scope, id, props},
-		&returns,
-	)
-
-	return returns
-}
-
-// Turn this metric object into an alarm configuration.
-// Deprecated: use toMetricConfig()
-func (m *jsiiProxy_MathExpression) ToAlarmConfig() *MetricAlarmConfig {
-	var returns *MetricAlarmConfig
-
-	_jsii_.Invoke(
-		m,
-		"toAlarmConfig",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Turn this metric object into a graph configuration.
-// Deprecated: use toMetricConfig()
-func (m *jsiiProxy_MathExpression) ToGraphConfig() *MetricGraphConfig {
-	var returns *MetricGraphConfig
-
-	_jsii_.Invoke(
-		m,
-		"toGraphConfig",
-		nil, // no parameters
 		&returns,
 	)
 
@@ -7660,8 +7555,6 @@ type Metric interface {
 	Unit() Unit
 	AttachTo(scope constructs.IConstruct) Metric
 	CreateAlarm(scope constructs.Construct, id *string, props *CreateAlarmOptions) Alarm
-	ToAlarmConfig() *MetricAlarmConfig
-	ToGraphConfig() *MetricGraphConfig
 	ToMetricConfig() *MetricConfig
 	ToString() *string
 	With(props *MetricOptions) Metric
@@ -7858,36 +7751,6 @@ func (m *jsiiProxy_Metric) CreateAlarm(scope constructs.Construct, id *string, p
 	return returns
 }
 
-// Turn this metric object into an alarm configuration.
-// Deprecated: use toMetricConfig()
-func (m *jsiiProxy_Metric) ToAlarmConfig() *MetricAlarmConfig {
-	var returns *MetricAlarmConfig
-
-	_jsii_.Invoke(
-		m,
-		"toAlarmConfig",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Turn this metric object into a graph configuration.
-// Deprecated: use toMetricConfig()
-func (m *jsiiProxy_Metric) ToGraphConfig() *MetricGraphConfig {
-	var returns *MetricGraphConfig
-
-	_jsii_.Invoke(
-		m,
-		"toGraphConfig",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Inspect the details of the metric object.
 // Experimental.
 func (m *jsiiProxy_Metric) ToMetricConfig() *MetricConfig {
@@ -7935,35 +7798,6 @@ func (m *jsiiProxy_Metric) With(props *MetricOptions) Metric {
 	return returns
 }
 
-// Properties used to construct the Metric identifying part of an Alarm.
-//
-// TODO: EXAMPLE
-//
-// Deprecated: Replaced by MetricConfig
-type MetricAlarmConfig struct {
-	// The dimensions to apply to the alarm.
-	// Deprecated: Replaced by MetricConfig
-	Dimensions *[]*Dimension `json:"dimensions"`
-	// Percentile aggregation function to use.
-	// Deprecated: Replaced by MetricConfig
-	ExtendedStatistic *string `json:"extendedStatistic"`
-	// Name of the metric.
-	// Deprecated: Replaced by MetricConfig
-	MetricName *string `json:"metricName"`
-	// Namespace of the metric.
-	// Deprecated: Replaced by MetricConfig
-	Namespace *string `json:"namespace"`
-	// How many seconds to aggregate over.
-	// Deprecated: Replaced by MetricConfig
-	Period *float64 `json:"period"`
-	// Simple aggregation function to use.
-	// Deprecated: Replaced by MetricConfig
-	Statistic Statistic `json:"statistic"`
-	// The unit of the alarm.
-	// Deprecated: Replaced by MetricConfig
-	Unit Unit `json:"unit"`
-}
-
 // Properties of a rendered metric.
 //
 // TODO: EXAMPLE
@@ -8007,41 +7841,6 @@ type MetricExpressionConfig struct {
 	UsingMetrics *map[string]IMetric `json:"usingMetrics"`
 }
 
-// Properties used to construct the Metric identifying part of a Graph.
-//
-// TODO: EXAMPLE
-//
-// Deprecated: Replaced by MetricConfig
-type MetricGraphConfig struct {
-	// Color for the graph line.
-	// Deprecated: Use `color` in `renderingProperties`
-	Color *string `json:"color"`
-	// The dimensions to apply to the alarm.
-	// Deprecated: Replaced by MetricConfig
-	Dimensions *[]*Dimension `json:"dimensions"`
-	// Label for the metric.
-	// Deprecated: Use `label` in `renderingProperties`
-	Label *string `json:"label"`
-	// Name of the metric.
-	// Deprecated: Replaced by MetricConfig
-	MetricName *string `json:"metricName"`
-	// Namespace of the metric.
-	// Deprecated: Replaced by MetricConfig
-	Namespace *string `json:"namespace"`
-	// How many seconds to aggregate over.
-	// Deprecated: Use `period` in `renderingProperties`
-	Period *float64 `json:"period"`
-	// Rendering properties override yAxis parameter of the widget object.
-	// Deprecated: Replaced by MetricConfig
-	RenderingProperties *MetricRenderingProperties `json:"renderingProperties"`
-	// Aggregation function to use (can be either simple or a percentile).
-	// Deprecated: Use `stat` in `renderingProperties`
-	Statistic *string `json:"statistic"`
-	// The unit of the alarm.
-	// Deprecated: not used in dashboard widgets
-	Unit Unit `json:"unit"`
-}
-
 // Properties of a metric that can be changed.
 //
 // TODO: EXAMPLE
@@ -8054,9 +7853,6 @@ type MetricOptions struct {
 	// The hex color code, prefixed with '#' (e.g. '#00ff00'), to use when this metric is rendered on a graph. The `Color` class has a set of standard colors that can be used here.
 	// Experimental.
 	Color *string `json:"color"`
-	// Dimensions of the metric.
-	// Deprecated: Use 'dimensionsMap' instead.
-	Dimensions *map[string]interface{} `json:"dimensions"`
 	// Dimensions of the metric.
 	// Experimental.
 	DimensionsMap *map[string]*string `json:"dimensionsMap"`
@@ -8108,9 +7904,6 @@ type MetricProps struct {
 	// Experimental.
 	Color *string `json:"color"`
 	// Dimensions of the metric.
-	// Deprecated: Use 'dimensionsMap' instead.
-	Dimensions *map[string]interface{} `json:"dimensions"`
-	// Dimensions of the metric.
 	// Experimental.
 	DimensionsMap *map[string]*string `json:"dimensionsMap"`
 	// Label for this metric when added to a Graph in a Dashboard.
@@ -8152,26 +7945,6 @@ type MetricProps struct {
 	// Namespace of the metric.
 	// Experimental.
 	Namespace *string `json:"namespace"`
-}
-
-// Custom rendering properties that override the default rendering properties specified in the yAxis parameter of the widget object.
-//
-// TODO: EXAMPLE
-//
-// Deprecated: Replaced by MetricConfig.
-type MetricRenderingProperties struct {
-	// The hex color code, prefixed with '#' (e.g. '#00ff00'), to use when this metric is rendered on a graph. The `Color` class has a set of standard colors that can be used here.
-	// Deprecated: Replaced by MetricConfig.
-	Color *string `json:"color"`
-	// Label for the metric.
-	// Deprecated: Replaced by MetricConfig.
-	Label *string `json:"label"`
-	// How many seconds to aggregate over.
-	// Deprecated: Replaced by MetricConfig.
-	Period *float64 `json:"period"`
-	// Aggregation function to use (can be either simple or a percentile).
-	// Deprecated: Replaced by MetricConfig.
-	Stat *string `json:"stat"`
 }
 
 // Properties for a concrete metric.
@@ -8628,11 +8401,11 @@ type SpacerProps struct {
 type Statistic string
 
 const (
-	Statistic_AVERAGE Statistic = "AVERAGE"
-	Statistic_MAXIMUM Statistic = "MAXIMUM"
-	Statistic_MINIMUM Statistic = "MINIMUM"
 	Statistic_SAMPLE_COUNT Statistic = "SAMPLE_COUNT"
+	Statistic_AVERAGE Statistic = "AVERAGE"
 	Statistic_SUM Statistic = "SUM"
+	Statistic_MINIMUM Statistic = "MINIMUM"
+	Statistic_MAXIMUM Statistic = "MAXIMUM"
 )
 
 // A dashboard widget that displays MarkDown.
