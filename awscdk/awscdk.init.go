@@ -1266,6 +1266,7 @@ func init() {
 		"aws-cdk-lib.CustomResourceProviderRuntime",
 		reflect.TypeOf((*CustomResourceProviderRuntime)(nil)).Elem(),
 		map[string]interface{}{
+			"NODEJS_12_X": CustomResourceProviderRuntime_NODEJS_12_X,
 			"NODEJS_14_X": CustomResourceProviderRuntime_NODEJS_14_X,
 		},
 	)

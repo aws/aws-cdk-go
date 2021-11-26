@@ -13179,6 +13179,7 @@ type CustomResourceProviderProps struct {
 type CustomResourceProviderRuntime string
 
 const (
+	CustomResourceProviderRuntime_NODEJS_12_X CustomResourceProviderRuntime = "NODEJS_12_X"
 	CustomResourceProviderRuntime_NODEJS_14_X CustomResourceProviderRuntime = "NODEJS_14_X"
 )
 

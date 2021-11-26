@@ -17,6 +17,8 @@ func init() {
 		map[string]interface{}{
 			"DOCDB_DB_CLUSTER": AttachmentTargetType_DOCDB_DB_CLUSTER,
 			"DOCDB_DB_INSTANCE": AttachmentTargetType_DOCDB_DB_INSTANCE,
+			"RDS_DB_CLUSTER": AttachmentTargetType_RDS_DB_CLUSTER,
+			"RDS_DB_INSTANCE": AttachmentTargetType_RDS_DB_INSTANCE,
 			"RDS_DB_PROXY": AttachmentTargetType_RDS_DB_PROXY,
 			"REDSHIFT_CLUSTER": AttachmentTargetType_REDSHIFT_CLUSTER,
 		},
