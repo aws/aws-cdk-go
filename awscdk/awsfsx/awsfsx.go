@@ -426,7 +426,6 @@ func (j *jsiiProxy_CfnFileSystem) SetWindowsConfiguration(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnFileSystem_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -443,7 +442,6 @@ func CfnFileSystem_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnFileSystem_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -490,7 +488,6 @@ func CfnFileSystem_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnFileSystem) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -503,7 +500,6 @@ func (c *jsiiProxy_CfnFileSystem) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnFileSystem) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -519,7 +515,6 @@ func (c *jsiiProxy_CfnFileSystem) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnFileSystem) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -565,7 +560,6 @@ func (c *jsiiProxy_CfnFileSystem) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnFileSystem) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -575,7 +569,6 @@ func (c *jsiiProxy_CfnFileSystem) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnFileSystem) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -587,7 +580,6 @@ func (c *jsiiProxy_CfnFileSystem) AddPropertyDeletionOverride(propertyPath *stri
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnFileSystem) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -605,7 +597,6 @@ func (c *jsiiProxy_CfnFileSystem) AddPropertyOverride(propertyPath *string, valu
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnFileSystem) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -618,7 +609,6 @@ func (c *jsiiProxy_CfnFileSystem) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnFileSystem) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -639,7 +629,6 @@ func (c *jsiiProxy_CfnFileSystem) GetAtt(attributeName *string) awscdk.Reference
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnFileSystem) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -663,7 +652,6 @@ func (c *jsiiProxy_CfnFileSystem) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnFileSystem) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -689,7 +677,6 @@ func (c *jsiiProxy_CfnFileSystem) RenderProperties(props *map[string]interface{}
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnFileSystem) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -706,7 +693,6 @@ func (c *jsiiProxy_CfnFileSystem) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnFileSystem) ToString() *string {
 	var returns *string
 
@@ -720,7 +706,6 @@ func (c *jsiiProxy_CfnFileSystem) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnFileSystem) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -882,21 +867,16 @@ type CfnFileSystemProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type FileSystemAttributes struct {
 	// The DNS name assigned to this file system.
-	// Experimental.
 	DnsName *string `json:"dnsName"`
 	// The ID of the file system, assigned by Amazon FSx.
-	// Experimental.
 	FileSystemId *string `json:"fileSystemId"`
 	// The security group of the file system.
-	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 }
 
 // A new or imported FSx file system.
-// Experimental.
 type FileSystemBase interface {
 	awscdk.Resource
 	IFileSystem
@@ -991,7 +971,6 @@ func (j *jsiiProxy_FileSystemBase) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewFileSystemBase_Override(f FileSystemBase, scope constructs.Construct, id *string, props *awscdk.ResourceProps) {
 	_init_.Initialize()
 
@@ -1022,7 +1001,6 @@ func FileSystemBase_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func FileSystemBase_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -1047,7 +1025,6 @@ func FileSystemBase_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (f *jsiiProxy_FileSystemBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		f,
@@ -1056,7 +1033,6 @@ func (f *jsiiProxy_FileSystemBase) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 	)
 }
 
-// Experimental.
 func (f *jsiiProxy_FileSystemBase) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -1076,7 +1052,6 @@ func (f *jsiiProxy_FileSystemBase) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (f *jsiiProxy_FileSystemBase) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -1095,7 +1070,6 @@ func (f *jsiiProxy_FileSystemBase) GetResourceArnAttribute(arnAttr *string, arnC
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (f *jsiiProxy_FileSystemBase) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -1110,7 +1084,6 @@ func (f *jsiiProxy_FileSystemBase) GetResourceNameAttribute(nameAttr *string) *s
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (f *jsiiProxy_FileSystemBase) ToString() *string {
 	var returns *string
 
@@ -1130,40 +1103,31 @@ func (f *jsiiProxy_FileSystemBase) ToString() *string {
 //
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html
 //
-// Experimental.
 type FileSystemProps struct {
 	// The ID of the backup.
 	//
 	// Specifies the backup to use if you're creating a file system from an existing backup.
-	// Experimental.
 	BackupId *string `json:"backupId"`
 	// The KMS key used for encryption to protect your data at rest.
-	// Experimental.
 	KmsKey awskms.IKey `json:"kmsKey"`
 	// Policy to apply when the file system is removed from the stack.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// Security Group to assign to this file system.
-	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 	// The storage capacity of the file system being created.
 	//
 	// For Windows file systems, valid values are 32 GiB to 65,536 GiB.
 	// For SCRATCH_1 deployment types, valid values are 1,200, 2,400, 3,600, then continuing in increments of 3,600 GiB.
 	// For SCRATCH_2 and PERSISTENT_1 types, valid values are 1,200, 2,400, then continuing in increments of 2,400 GiB.
-	// Experimental.
 	StorageCapacityGiB *float64 `json:"storageCapacityGiB"`
 	// The VPC to launch the file system in.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 }
 
 // Interface to implement FSx File Systems.
-// Experimental.
 type IFileSystem interface {
 	awsec2.IConnectable
 	// The ID of the file system, assigned by Amazon FSx.
-	// Experimental.
 	FileSystemId() *string
 }
 
@@ -1188,10 +1152,8 @@ func (j *jsiiProxy_IFileSystem) FileSystemId() *string {
 //
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html
 //
-// Experimental.
 type LustreConfiguration struct {
 	// The type of backing file system deployment used by FSx.
-	// Experimental.
 	DeploymentType LustreDeploymentType `json:"deploymentType"`
 	// The path in Amazon S3 where the root of your Amazon FSx file system is exported.
 	//
@@ -1201,35 +1163,29 @@ type LustreConfiguration struct {
 	// overwritten on export. If you provide a custom prefix in the export path, such as
 	// s3://import-bucket/[custom-optional-prefix], Amazon FSx exports the contents of your file system to that export
 	// prefix in the Amazon S3 bucket.
-	// Experimental.
 	ExportPath *string `json:"exportPath"`
 	// For files imported from a data repository, this value determines the stripe count and maximum amount of data per file (in MiB) stored on a single physical disk.
 	//
 	// Allowed values are between 1 and 512,000.
-	// Experimental.
 	ImportedFileChunkSizeMiB *float64 `json:"importedFileChunkSizeMiB"`
 	// The path to the Amazon S3 bucket (including the optional prefix) that you're using as the data repository for your Amazon FSx for Lustre file system.
 	//
 	// Must be of the format "s3://{bucketName}/optional-prefix" and cannot
 	// exceed 900 characters.
-	// Experimental.
 	ImportPath *string `json:"importPath"`
 	// Required for the PERSISTENT_1 deployment type, describes the amount of read and write throughput for each 1 tebibyte of storage, in MB/s/TiB.
 	//
 	// Valid values are 50, 100, 200.
-	// Experimental.
 	PerUnitStorageThroughput *float64 `json:"perUnitStorageThroughput"`
 	// The preferred day and time to perform weekly maintenance.
 	//
 	// The first digit is the day of the week, starting at 1
 	// for Monday, then the following are hours and minutes in the UTC time zone, 24 hour clock. For example: '2:20:30'
 	// is Tuesdays at 20:30.
-	// Experimental.
 	WeeklyMaintenanceStartTime LustreMaintenanceTime `json:"weeklyMaintenanceStartTime"`
 }
 
 // The different kinds of file system deployments used by Lustre.
-// Experimental.
 type LustreDeploymentType string
 
 const (
@@ -1244,7 +1200,6 @@ const (
 //
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html
 //
-// Experimental.
 type LustreFileSystem interface {
 	FileSystemBase
 	Connections() awsec2.Connections
@@ -1348,7 +1303,6 @@ func (j *jsiiProxy_LustreFileSystem) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewLustreFileSystem(scope constructs.Construct, id *string, props *LustreFileSystemProps) LustreFileSystem {
 	_init_.Initialize()
 
@@ -1363,7 +1317,6 @@ func NewLustreFileSystem(scope constructs.Construct, id *string, props *LustreFi
 	return &j
 }
 
-// Experimental.
 func NewLustreFileSystem_Override(l LustreFileSystem, scope constructs.Construct, id *string, props *LustreFileSystemProps) {
 	_init_.Initialize()
 
@@ -1375,7 +1328,6 @@ func NewLustreFileSystem_Override(l LustreFileSystem, scope constructs.Construct
 }
 
 // Import an existing FSx for Lustre file system from the given properties.
-// Experimental.
 func LustreFileSystem_FromLustreFileSystemAttributes(scope constructs.Construct, id *string, attrs *FileSystemAttributes) IFileSystem {
 	_init_.Initialize()
 
@@ -1411,7 +1363,6 @@ func LustreFileSystem_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func LustreFileSystem_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -1436,7 +1387,6 @@ func LustreFileSystem_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (l *jsiiProxy_LustreFileSystem) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		l,
@@ -1445,7 +1395,6 @@ func (l *jsiiProxy_LustreFileSystem) ApplyRemovalPolicy(policy awscdk.RemovalPol
 	)
 }
 
-// Experimental.
 func (l *jsiiProxy_LustreFileSystem) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -1465,7 +1414,6 @@ func (l *jsiiProxy_LustreFileSystem) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (l *jsiiProxy_LustreFileSystem) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -1484,7 +1432,6 @@ func (l *jsiiProxy_LustreFileSystem) GetResourceArnAttribute(arnAttr *string, ar
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (l *jsiiProxy_LustreFileSystem) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -1499,7 +1446,6 @@ func (l *jsiiProxy_LustreFileSystem) GetResourceNameAttribute(nameAttr *string) 
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (l *jsiiProxy_LustreFileSystem) ToString() *string {
 	var returns *string
 
@@ -1517,37 +1463,28 @@ func (l *jsiiProxy_LustreFileSystem) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LustreFileSystemProps struct {
 	// The ID of the backup.
 	//
 	// Specifies the backup to use if you're creating a file system from an existing backup.
-	// Experimental.
 	BackupId *string `json:"backupId"`
 	// The KMS key used for encryption to protect your data at rest.
-	// Experimental.
 	KmsKey awskms.IKey `json:"kmsKey"`
 	// Policy to apply when the file system is removed from the stack.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// Security Group to assign to this file system.
-	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 	// The storage capacity of the file system being created.
 	//
 	// For Windows file systems, valid values are 32 GiB to 65,536 GiB.
 	// For SCRATCH_1 deployment types, valid values are 1,200, 2,400, 3,600, then continuing in increments of 3,600 GiB.
 	// For SCRATCH_2 and PERSISTENT_1 types, valid values are 1,200, 2,400, then continuing in increments of 2,400 GiB.
-	// Experimental.
 	StorageCapacityGiB *float64 `json:"storageCapacityGiB"`
 	// The VPC to launch the file system in.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// Additional configuration for FSx specific to Lustre.
-	// Experimental.
 	LustreConfiguration *LustreConfiguration `json:"lustreConfiguration"`
 	// The subnet that the file system will be accessible from.
-	// Experimental.
 	VpcSubnet awsec2.ISubnet `json:"vpcSubnet"`
 }
 
@@ -1555,7 +1492,6 @@ type LustreFileSystemProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LustreMaintenanceTime interface {
 	ToTimestamp() *string
 }
@@ -1565,7 +1501,6 @@ type jsiiProxy_LustreMaintenanceTime struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewLustreMaintenanceTime(props *LustreMaintenanceTimeProps) LustreMaintenanceTime {
 	_init_.Initialize()
 
@@ -1580,7 +1515,6 @@ func NewLustreMaintenanceTime(props *LustreMaintenanceTimeProps) LustreMaintenan
 	return &j
 }
 
-// Experimental.
 func NewLustreMaintenanceTime_Override(l LustreMaintenanceTime, props *LustreMaintenanceTimeProps) {
 	_init_.Initialize()
 
@@ -1592,7 +1526,6 @@ func NewLustreMaintenanceTime_Override(l LustreMaintenanceTime, props *LustreMai
 }
 
 // Converts a day, hour, and minute into a timestamp as used by FSx for Lustre's weeklyMaintenanceStartTime field.
-// Experimental.
 func (l *jsiiProxy_LustreMaintenanceTime) ToTimestamp() *string {
 	var returns *string
 
@@ -1610,21 +1543,16 @@ func (l *jsiiProxy_LustreMaintenanceTime) ToTimestamp() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LustreMaintenanceTimeProps struct {
 	// The day of the week for maintenance to be performed.
-	// Experimental.
 	Day Weekday `json:"day"`
 	// The hour of the day (from 0-24) for maintenance to be performed.
-	// Experimental.
 	Hour *float64 `json:"hour"`
 	// The minute of the hour (from 0-59) for maintenance to be performed.
-	// Experimental.
 	Minute *float64 `json:"minute"`
 }
 
 // Enum for representing all the days of the week.
-// Experimental.
 type Weekday string
 
 const (

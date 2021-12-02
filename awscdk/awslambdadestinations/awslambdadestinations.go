@@ -18,7 +18,6 @@ import (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type EventBridgeDestination interface {
 	awslambda.IDestination
 	Bind(_scope constructs.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig
@@ -29,7 +28,6 @@ type jsiiProxy_EventBridgeDestination struct {
 	internal.Type__awslambdaIDestination
 }
 
-// Experimental.
 func NewEventBridgeDestination(eventBus awsevents.IEventBus) EventBridgeDestination {
 	_init_.Initialize()
 
@@ -44,7 +42,6 @@ func NewEventBridgeDestination(eventBus awsevents.IEventBus) EventBridgeDestinat
 	return &j
 }
 
-// Experimental.
 func NewEventBridgeDestination_Override(e EventBridgeDestination, eventBus awsevents.IEventBus) {
 	_init_.Initialize()
 
@@ -56,7 +53,6 @@ func NewEventBridgeDestination_Override(e EventBridgeDestination, eventBus awsev
 }
 
 // Returns a destination configuration.
-// Experimental.
 func (e *jsiiProxy_EventBridgeDestination) Bind(_scope constructs.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig {
 	var returns *awslambda.DestinationConfig
 
@@ -74,7 +70,6 @@ func (e *jsiiProxy_EventBridgeDestination) Bind(_scope constructs.Construct, fn 
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LambdaDestination interface {
 	awslambda.IDestination
 	Bind(scope constructs.Construct, fn awslambda.IFunction, options *awslambda.DestinationOptions) *awslambda.DestinationConfig
@@ -85,7 +80,6 @@ type jsiiProxy_LambdaDestination struct {
 	internal.Type__awslambdaIDestination
 }
 
-// Experimental.
 func NewLambdaDestination(fn awslambda.IFunction, options *LambdaDestinationOptions) LambdaDestination {
 	_init_.Initialize()
 
@@ -100,7 +94,6 @@ func NewLambdaDestination(fn awslambda.IFunction, options *LambdaDestinationOpti
 	return &j
 }
 
-// Experimental.
 func NewLambdaDestination_Override(l LambdaDestination, fn awslambda.IFunction, options *LambdaDestinationOptions) {
 	_init_.Initialize()
 
@@ -112,7 +105,6 @@ func NewLambdaDestination_Override(l LambdaDestination, fn awslambda.IFunction, 
 }
 
 // Returns a destination configuration.
-// Experimental.
 func (l *jsiiProxy_LambdaDestination) Bind(scope constructs.Construct, fn awslambda.IFunction, options *awslambda.DestinationOptions) *awslambda.DestinationConfig {
 	var returns *awslambda.DestinationConfig
 
@@ -130,7 +122,6 @@ func (l *jsiiProxy_LambdaDestination) Bind(scope constructs.Construct, fn awslam
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LambdaDestinationOptions struct {
 	// Whether the destination function receives only the `responsePayload` of the source function.
 	//
@@ -141,7 +132,6 @@ type LambdaDestinationOptions struct {
 	// function will be invoked with the error object returned by source function.
 	//
 	// See the README of this module to see a full explanation of this option.
-	// Experimental.
 	ResponseOnly *bool `json:"responseOnly"`
 }
 
@@ -149,7 +139,6 @@ type LambdaDestinationOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SnsDestination interface {
 	awslambda.IDestination
 	Bind(_scope constructs.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig
@@ -160,7 +149,6 @@ type jsiiProxy_SnsDestination struct {
 	internal.Type__awslambdaIDestination
 }
 
-// Experimental.
 func NewSnsDestination(topic awssns.ITopic) SnsDestination {
 	_init_.Initialize()
 
@@ -175,7 +163,6 @@ func NewSnsDestination(topic awssns.ITopic) SnsDestination {
 	return &j
 }
 
-// Experimental.
 func NewSnsDestination_Override(s SnsDestination, topic awssns.ITopic) {
 	_init_.Initialize()
 
@@ -187,7 +174,6 @@ func NewSnsDestination_Override(s SnsDestination, topic awssns.ITopic) {
 }
 
 // Returns a destination configuration.
-// Experimental.
 func (s *jsiiProxy_SnsDestination) Bind(_scope constructs.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig {
 	var returns *awslambda.DestinationConfig
 
@@ -205,7 +191,6 @@ func (s *jsiiProxy_SnsDestination) Bind(_scope constructs.Construct, fn awslambd
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SqsDestination interface {
 	awslambda.IDestination
 	Bind(_scope constructs.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig
@@ -216,7 +201,6 @@ type jsiiProxy_SqsDestination struct {
 	internal.Type__awslambdaIDestination
 }
 
-// Experimental.
 func NewSqsDestination(queue awssqs.IQueue) SqsDestination {
 	_init_.Initialize()
 
@@ -231,7 +215,6 @@ func NewSqsDestination(queue awssqs.IQueue) SqsDestination {
 	return &j
 }
 
-// Experimental.
 func NewSqsDestination_Override(s SqsDestination, queue awssqs.IQueue) {
 	_init_.Initialize()
 
@@ -243,7 +226,6 @@ func NewSqsDestination_Override(s SqsDestination, queue awssqs.IQueue) {
 }
 
 // Returns a destination configuration.
-// Experimental.
 func (s *jsiiProxy_SqsDestination) Bind(_scope constructs.Construct, fn awslambda.IFunction, _options *awslambda.DestinationOptions) *awslambda.DestinationConfig {
 	var returns *awslambda.DestinationConfig
 

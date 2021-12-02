@@ -16,7 +16,6 @@ import (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AccessPoint interface {
 	awscdk.Resource
 	IAccessPoint
@@ -111,7 +110,6 @@ func (j *jsiiProxy_AccessPoint) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewAccessPoint(scope constructs.Construct, id *string, props *AccessPointProps) AccessPoint {
 	_init_.Initialize()
 
@@ -126,7 +124,6 @@ func NewAccessPoint(scope constructs.Construct, id *string, props *AccessPointPr
 	return &j
 }
 
-// Experimental.
 func NewAccessPoint_Override(a AccessPoint, scope constructs.Construct, id *string, props *AccessPointProps) {
 	_init_.Initialize()
 
@@ -138,7 +135,6 @@ func NewAccessPoint_Override(a AccessPoint, scope constructs.Construct, id *stri
 }
 
 // Import an existing Access Point by attributes.
-// Experimental.
 func AccessPoint_FromAccessPointAttributes(scope constructs.Construct, id *string, attrs *AccessPointAttributes) IAccessPoint {
 	_init_.Initialize()
 
@@ -155,7 +151,6 @@ func AccessPoint_FromAccessPointAttributes(scope constructs.Construct, id *strin
 }
 
 // Import an existing Access Point by id.
-// Experimental.
 func AccessPoint_FromAccessPointId(scope constructs.Construct, id *string, accessPointId *string) IAccessPoint {
 	_init_.Initialize()
 
@@ -191,7 +186,6 @@ func AccessPoint_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func AccessPoint_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -216,7 +210,6 @@ func AccessPoint_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (a *jsiiProxy_AccessPoint) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		a,
@@ -225,7 +218,6 @@ func (a *jsiiProxy_AccessPoint) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) 
 	)
 }
 
-// Experimental.
 func (a *jsiiProxy_AccessPoint) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -245,7 +237,6 @@ func (a *jsiiProxy_AccessPoint) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (a *jsiiProxy_AccessPoint) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -264,7 +255,6 @@ func (a *jsiiProxy_AccessPoint) GetResourceArnAttribute(arnAttr *string, arnComp
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (a *jsiiProxy_AccessPoint) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -279,7 +269,6 @@ func (a *jsiiProxy_AccessPoint) GetResourceNameAttribute(nameAttr *string) *stri
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (a *jsiiProxy_AccessPoint) ToString() *string {
 	var returns *string
 
@@ -297,16 +286,12 @@ func (a *jsiiProxy_AccessPoint) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AccessPointAttributes struct {
 	// The ARN of the AccessPoint One of this, or {@link accessPointId} is required.
-	// Experimental.
 	AccessPointArn *string `json:"accessPointArn"`
 	// The ID of the AccessPoint One of this, or {@link accessPointArn} is required.
-	// Experimental.
 	AccessPointId *string `json:"accessPointId"`
 	// The EFS file system.
-	// Experimental.
 	FileSystem IFileSystem `json:"fileSystem"`
 }
 
@@ -314,24 +299,20 @@ type AccessPointAttributes struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AccessPointOptions struct {
 	// Specifies the POSIX IDs and permissions to apply when creating the access point's root directory.
 	//
 	// If the
 	// root directory specified by `path` does not exist, EFS creates the root directory and applies the
 	// permissions specified here. If the specified `path` does not exist, you must specify `createAcl`.
-	// Experimental.
 	CreateAcl *Acl `json:"createAcl"`
 	// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system.
-	// Experimental.
 	Path *string `json:"path"`
 	// The full POSIX identity, including the user ID, group ID, and any secondary group IDs, on the access point that is used for all file system operations performed by NFS clients using the access point.
 	//
 	// Specify this to enforce a user identity using an access point.
 	// See: - [Enforcing a User Identity Using an Access Point](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html)
 	//
-	// Experimental.
 	PosixUser *PosixUser `json:"posixUser"`
 }
 
@@ -339,27 +320,22 @@ type AccessPointOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AccessPointProps struct {
 	// Specifies the POSIX IDs and permissions to apply when creating the access point's root directory.
 	//
 	// If the
 	// root directory specified by `path` does not exist, EFS creates the root directory and applies the
 	// permissions specified here. If the specified `path` does not exist, you must specify `createAcl`.
-	// Experimental.
 	CreateAcl *Acl `json:"createAcl"`
 	// Specifies the path on the EFS file system to expose as the root directory to NFS clients using the access point to access the EFS file system.
-	// Experimental.
 	Path *string `json:"path"`
 	// The full POSIX identity, including the user ID, group ID, and any secondary group IDs, on the access point that is used for all file system operations performed by NFS clients using the access point.
 	//
 	// Specify this to enforce a user identity using an access point.
 	// See: - [Enforcing a User Identity Using an Access Point](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html)
 	//
-	// Experimental.
 	PosixUser *PosixUser `json:"posixUser"`
 	// The efs filesystem.
-	// Experimental.
 	FileSystem IFileSystem `json:"fileSystem"`
 }
 
@@ -367,20 +343,16 @@ type AccessPointProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Acl struct {
 	// Specifies the POSIX group ID to apply to the RootDirectory.
 	//
 	// Accepts values from 0 to 2^32 (4294967295).
-	// Experimental.
 	OwnerGid *string `json:"ownerGid"`
 	// Specifies the POSIX user ID to apply to the RootDirectory.
 	//
 	// Accepts values from 0 to 2^32 (4294967295).
-	// Experimental.
 	OwnerUid *string `json:"ownerUid"`
 	// Specifies the POSIX permissions to apply to the RootDirectory, in the format of an octal number representing the file's mode bits.
-	// Experimental.
 	Permissions *string `json:"permissions"`
 }
 
@@ -668,7 +640,6 @@ func (j *jsiiProxy_CfnAccessPoint) SetRootDirectory(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnAccessPoint_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -685,7 +656,6 @@ func CfnAccessPoint_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnAccessPoint_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -732,7 +702,6 @@ func CfnAccessPoint_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -745,7 +714,6 @@ func (c *jsiiProxy_CfnAccessPoint) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -761,7 +729,6 @@ func (c *jsiiProxy_CfnAccessPoint) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -807,7 +774,6 @@ func (c *jsiiProxy_CfnAccessPoint) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -817,7 +783,6 @@ func (c *jsiiProxy_CfnAccessPoint) AddOverride(path *string, value interface{}) 
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -829,7 +794,6 @@ func (c *jsiiProxy_CfnAccessPoint) AddPropertyDeletionOverride(propertyPath *str
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -847,7 +811,6 @@ func (c *jsiiProxy_CfnAccessPoint) AddPropertyOverride(propertyPath *string, val
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -860,7 +823,6 @@ func (c *jsiiProxy_CfnAccessPoint) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -881,7 +843,6 @@ func (c *jsiiProxy_CfnAccessPoint) GetAtt(attributeName *string) awscdk.Referenc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -905,7 +866,6 @@ func (c *jsiiProxy_CfnAccessPoint) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -931,7 +891,6 @@ func (c *jsiiProxy_CfnAccessPoint) RenderProperties(props *map[string]interface{
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -948,7 +907,6 @@ func (c *jsiiProxy_CfnAccessPoint) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) ToString() *string {
 	var returns *string
 
@@ -962,7 +920,6 @@ func (c *jsiiProxy_CfnAccessPoint) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnAccessPoint) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1423,7 +1380,6 @@ func (j *jsiiProxy_CfnFileSystem) SetThroughputMode(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnFileSystem_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -1440,7 +1396,6 @@ func CfnFileSystem_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnFileSystem_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -1487,7 +1442,6 @@ func CfnFileSystem_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnFileSystem) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1500,7 +1454,6 @@ func (c *jsiiProxy_CfnFileSystem) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnFileSystem) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1516,7 +1469,6 @@ func (c *jsiiProxy_CfnFileSystem) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnFileSystem) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1562,7 +1514,6 @@ func (c *jsiiProxy_CfnFileSystem) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnFileSystem) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1572,7 +1523,6 @@ func (c *jsiiProxy_CfnFileSystem) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnFileSystem) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1584,7 +1534,6 @@ func (c *jsiiProxy_CfnFileSystem) AddPropertyDeletionOverride(propertyPath *stri
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnFileSystem) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1602,7 +1551,6 @@ func (c *jsiiProxy_CfnFileSystem) AddPropertyOverride(propertyPath *string, valu
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnFileSystem) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1615,7 +1563,6 @@ func (c *jsiiProxy_CfnFileSystem) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnFileSystem) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1636,7 +1583,6 @@ func (c *jsiiProxy_CfnFileSystem) GetAtt(attributeName *string) awscdk.Reference
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnFileSystem) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1660,7 +1606,6 @@ func (c *jsiiProxy_CfnFileSystem) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnFileSystem) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1686,7 +1631,6 @@ func (c *jsiiProxy_CfnFileSystem) RenderProperties(props *map[string]interface{}
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnFileSystem) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1703,7 +1647,6 @@ func (c *jsiiProxy_CfnFileSystem) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnFileSystem) ToString() *string {
 	var returns *string
 
@@ -1717,7 +1660,6 @@ func (c *jsiiProxy_CfnFileSystem) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnFileSystem) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2044,7 +1986,6 @@ func (j *jsiiProxy_CfnMountTarget) SetSubnetId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnMountTarget_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -2061,7 +2002,6 @@ func CfnMountTarget_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnMountTarget_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -2108,7 +2048,6 @@ func CfnMountTarget_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnMountTarget) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2121,7 +2060,6 @@ func (c *jsiiProxy_CfnMountTarget) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnMountTarget) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2137,7 +2075,6 @@ func (c *jsiiProxy_CfnMountTarget) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnMountTarget) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2183,7 +2120,6 @@ func (c *jsiiProxy_CfnMountTarget) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnMountTarget) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2193,7 +2129,6 @@ func (c *jsiiProxy_CfnMountTarget) AddOverride(path *string, value interface{}) 
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnMountTarget) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2205,7 +2140,6 @@ func (c *jsiiProxy_CfnMountTarget) AddPropertyDeletionOverride(propertyPath *str
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnMountTarget) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2223,7 +2157,6 @@ func (c *jsiiProxy_CfnMountTarget) AddPropertyOverride(propertyPath *string, val
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnMountTarget) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2236,7 +2169,6 @@ func (c *jsiiProxy_CfnMountTarget) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnMountTarget) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2257,7 +2189,6 @@ func (c *jsiiProxy_CfnMountTarget) GetAtt(attributeName *string) awscdk.Referenc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnMountTarget) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2281,7 +2212,6 @@ func (c *jsiiProxy_CfnMountTarget) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnMountTarget) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2307,7 +2237,6 @@ func (c *jsiiProxy_CfnMountTarget) RenderProperties(props *map[string]interface{
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnMountTarget) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2324,7 +2253,6 @@ func (c *jsiiProxy_CfnMountTarget) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnMountTarget) ToString() *string {
 	var returns *string
 
@@ -2338,7 +2266,6 @@ func (c *jsiiProxy_CfnMountTarget) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnMountTarget) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2372,7 +2299,6 @@ type CfnMountTargetProps struct {
 //
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html
 //
-// Experimental.
 type FileSystem interface {
 	awscdk.Resource
 	IFileSystem
@@ -2481,7 +2407,6 @@ func (j *jsiiProxy_FileSystem) Stack() awscdk.Stack {
 
 
 // Constructor for creating a new EFS FileSystem.
-// Experimental.
 func NewFileSystem(scope constructs.Construct, id *string, props *FileSystemProps) FileSystem {
 	_init_.Initialize()
 
@@ -2497,7 +2422,6 @@ func NewFileSystem(scope constructs.Construct, id *string, props *FileSystemProp
 }
 
 // Constructor for creating a new EFS FileSystem.
-// Experimental.
 func NewFileSystem_Override(f FileSystem, scope constructs.Construct, id *string, props *FileSystemProps) {
 	_init_.Initialize()
 
@@ -2509,7 +2433,6 @@ func NewFileSystem_Override(f FileSystem, scope constructs.Construct, id *string
 }
 
 // Import an existing File System from the given properties.
-// Experimental.
 func FileSystem_FromFileSystemAttributes(scope constructs.Construct, id *string, attrs *FileSystemAttributes) IFileSystem {
 	_init_.Initialize()
 
@@ -2545,7 +2468,6 @@ func FileSystem_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func FileSystem_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -2573,7 +2495,6 @@ func FileSystem_DEFAULT_PORT() *float64 {
 }
 
 // create access point from this filesystem.
-// Experimental.
 func (f *jsiiProxy_FileSystem) AddAccessPoint(id *string, accessPointOptions *AccessPointOptions) AccessPoint {
 	var returns AccessPoint
 
@@ -2596,7 +2517,6 @@ func (f *jsiiProxy_FileSystem) AddAccessPoint(id *string, accessPointOptions *Ac
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (f *jsiiProxy_FileSystem) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		f,
@@ -2605,7 +2525,6 @@ func (f *jsiiProxy_FileSystem) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (f *jsiiProxy_FileSystem) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -2625,7 +2544,6 @@ func (f *jsiiProxy_FileSystem) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (f *jsiiProxy_FileSystem) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -2644,7 +2562,6 @@ func (f *jsiiProxy_FileSystem) GetResourceArnAttribute(arnAttr *string, arnCompo
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (f *jsiiProxy_FileSystem) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -2659,7 +2576,6 @@ func (f *jsiiProxy_FileSystem) GetResourceNameAttribute(nameAttr *string) *strin
 }
 
 // Grant the actions defined in actions to the given grantee on this File System resource.
-// Experimental.
 func (f *jsiiProxy_FileSystem) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
 	args := []interface{}{grantee}
 	for _, a := range actions {
@@ -2679,7 +2595,6 @@ func (f *jsiiProxy_FileSystem) Grant(grantee awsiam.IGrantable, actions ...*stri
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (f *jsiiProxy_FileSystem) ToString() *string {
 	var returns *string
 
@@ -2697,16 +2612,12 @@ func (f *jsiiProxy_FileSystem) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type FileSystemAttributes struct {
 	// The security group of the file system.
-	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 	// The File System's Arn.
-	// Experimental.
 	FileSystemArn *string `json:"fileSystemArn"`
 	// The File System's ID.
-	// Experimental.
 	FileSystemId *string `json:"fileSystemId"`
 }
 
@@ -2714,66 +2625,49 @@ type FileSystemAttributes struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type FileSystemProps struct {
 	// VPC to launch the file system in.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// Whether to enable automatic backups for the file system.
-	// Experimental.
 	EnableAutomaticBackups *bool `json:"enableAutomaticBackups"`
 	// Defines if the data at rest in the file system is encrypted or not.
-	// Experimental.
 	Encrypted *bool `json:"encrypted"`
 	// The file system's name.
-	// Experimental.
 	FileSystemName *string `json:"fileSystemName"`
 	// The KMS key used for encryption.
 	//
 	// This is required to encrypt the data at rest if @encrypted is set to true.
-	// Experimental.
 	KmsKey awskms.IKey `json:"kmsKey"`
 	// A policy used by EFS lifecycle management to transition files to the Infrequent Access (IA) storage class.
-	// Experimental.
 	LifecyclePolicy LifecyclePolicy `json:"lifecyclePolicy"`
 	// The performance mode that the file system will operate under.
 	//
 	// An Amazon EFS file system's performance mode can't be changed after the file system has been created.
 	// Updating this property will replace the file system.
-	// Experimental.
 	PerformanceMode PerformanceMode `json:"performanceMode"`
 	// Provisioned throughput for the file system.
 	//
 	// This is a required property if the throughput mode is set to PROVISIONED.
 	// Must be at least 1MiB/s.
-	// Experimental.
 	ProvisionedThroughputPerSecond awscdk.Size `json:"provisionedThroughputPerSecond"`
 	// The removal policy to apply to the file system.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// Security Group to assign to this file system.
-	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 	// Enum to mention the throughput mode of the file system.
-	// Experimental.
 	ThroughputMode ThroughputMode `json:"throughputMode"`
 	// Which subnets to place the mount target in the VPC.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 }
 
 // Represents an EFS AccessPoint.
-// Experimental.
 type IAccessPoint interface {
 	awscdk.IResource
 	// The ARN of the AccessPoint.
-	// Experimental.
 	AccessPointArn() *string
 	// The ID of the AccessPoint.
-	// Experimental.
 	AccessPointId() *string
 	// The EFS file system.
-	// Experimental.
 	FileSystem() IFileSystem
 }
 
@@ -2813,21 +2707,16 @@ func (j *jsiiProxy_IAccessPoint) FileSystem() IFileSystem {
 }
 
 // Represents an Amazon EFS file system.
-// Experimental.
 type IFileSystem interface {
 	awsec2.IConnectable
 	awscdk.IResource
 	// Grant the actions defined in actions to the given grantee on this File System resource.
-	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// The ARN of the file system.
-	// Experimental.
 	FileSystemArn() *string
 	// The ID of the file system, assigned by Amazon EFS.
-	// Experimental.
 	FileSystemId() *string
 	// Dependable that can be depended upon to ensure the mount targets of the filesystem are ready.
-	// Experimental.
 	MountTargetsAvailable() constructs.IDependable
 }
 
@@ -2931,7 +2820,6 @@ func (j *jsiiProxy_IFileSystem) Stack() awscdk.Stack {
 //
 // See: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-elasticfilesystem-filesystem-lifecyclepolicies
 //
-// Experimental.
 type LifecyclePolicy string
 
 const (
@@ -2948,7 +2836,6 @@ const (
 //
 // See: https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes
 //
-// Experimental.
 type PerformanceMode string
 
 const (
@@ -2960,23 +2847,18 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type PosixUser struct {
 	// The POSIX group ID used for all file system operations using this access point.
-	// Experimental.
 	Gid *string `json:"gid"`
 	// Secondary POSIX group IDs used for all file system operations using this access point.
-	// Experimental.
 	SecondaryGids *[]*string `json:"secondaryGids"`
 	// The POSIX user ID used for all file system operations using this access point.
-	// Experimental.
 	Uid *string `json:"uid"`
 }
 
 // EFS Throughput mode.
 // See: https://docs.aws.amazon.com/efs/latest/ug/performance.html#throughput-modes
 //
-// Experimental.
 type ThroughputMode string
 
 const (

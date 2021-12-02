@@ -17,7 +17,6 @@ import (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AccessLog interface {
 	Bind(scope constructs.Construct) *AccessLogConfig
 }
@@ -27,7 +26,6 @@ type jsiiProxy_AccessLog struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewAccessLog_Override(a AccessLog) {
 	_init_.Initialize()
 
@@ -39,7 +37,6 @@ func NewAccessLog_Override(a AccessLog) {
 }
 
 // Path to a file to write access logs to.
-// Experimental.
 func AccessLog_FromFilePath(filePath *string) AccessLog {
 	_init_.Initialize()
 
@@ -59,7 +56,6 @@ func AccessLog_FromFilePath(filePath *string) AccessLog {
 //
 // Can be used to enforce
 // mutual exclusivity with future properties
-// Experimental.
 func (a *jsiiProxy_AccessLog) Bind(scope constructs.Construct) *AccessLogConfig {
 	var returns *AccessLogConfig
 
@@ -77,13 +73,10 @@ func (a *jsiiProxy_AccessLog) Bind(scope constructs.Construct) *AccessLogConfig 
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AccessLogConfig struct {
 	// VirtualGateway CFN configuration for Access Logging.
-	// Experimental.
 	VirtualGatewayAccessLog *CfnVirtualGateway_VirtualGatewayAccessLogProperty `json:"virtualGatewayAccessLog"`
 	// VirtualNode CFN configuration for Access Logging.
-	// Experimental.
 	VirtualNodeAccessLog *CfnVirtualNode_AccessLogProperty `json:"virtualNodeAccessLog"`
 }
 
@@ -91,7 +84,6 @@ type AccessLogConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Backend interface {
 	Bind(_scope constructs.Construct) *BackendConfig
 }
@@ -101,7 +93,6 @@ type jsiiProxy_Backend struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewBackend_Override(b Backend) {
 	_init_.Initialize()
 
@@ -113,7 +104,6 @@ func NewBackend_Override(b Backend) {
 }
 
 // Construct a Virtual Service backend.
-// Experimental.
 func Backend_VirtualService(virtualService IVirtualService, props *VirtualServiceBackendOptions) Backend {
 	_init_.Initialize()
 
@@ -130,7 +120,6 @@ func Backend_VirtualService(virtualService IVirtualService, props *VirtualServic
 }
 
 // Return backend config.
-// Experimental.
 func (b *jsiiProxy_Backend) Bind(_scope constructs.Construct) *BackendConfig {
 	var returns *BackendConfig
 
@@ -148,10 +137,8 @@ func (b *jsiiProxy_Backend) Bind(_scope constructs.Construct) *BackendConfig {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type BackendConfig struct {
 	// Config for a Virtual Service backend.
-	// Experimental.
 	VirtualServiceBackend *CfnVirtualNode_BackendProperty `json:"virtualServiceBackend"`
 }
 
@@ -159,10 +146,8 @@ type BackendConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type BackendDefaults struct {
 	// TLS properties for Client policy for backend defaults.
-	// Experimental.
 	TlsClientPolicy *TlsClientPolicy `json:"tlsClientPolicy"`
 }
 
@@ -516,7 +501,6 @@ func (j *jsiiProxy_CfnGatewayRoute) SetVirtualGatewayName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnGatewayRoute_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -533,7 +517,6 @@ func CfnGatewayRoute_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnGatewayRoute_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -580,7 +563,6 @@ func CfnGatewayRoute_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnGatewayRoute) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -593,7 +575,6 @@ func (c *jsiiProxy_CfnGatewayRoute) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnGatewayRoute) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -609,7 +590,6 @@ func (c *jsiiProxy_CfnGatewayRoute) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnGatewayRoute) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -655,7 +635,6 @@ func (c *jsiiProxy_CfnGatewayRoute) AddMetadata(key *string, value interface{}) 
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnGatewayRoute) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -665,7 +644,6 @@ func (c *jsiiProxy_CfnGatewayRoute) AddOverride(path *string, value interface{})
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnGatewayRoute) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -677,7 +655,6 @@ func (c *jsiiProxy_CfnGatewayRoute) AddPropertyDeletionOverride(propertyPath *st
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnGatewayRoute) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -695,7 +672,6 @@ func (c *jsiiProxy_CfnGatewayRoute) AddPropertyOverride(propertyPath *string, va
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnGatewayRoute) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -708,7 +684,6 @@ func (c *jsiiProxy_CfnGatewayRoute) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnGatewayRoute) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -729,7 +704,6 @@ func (c *jsiiProxy_CfnGatewayRoute) GetAtt(attributeName *string) awscdk.Referen
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnGatewayRoute) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -753,7 +727,6 @@ func (c *jsiiProxy_CfnGatewayRoute) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnGatewayRoute) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -779,7 +752,6 @@ func (c *jsiiProxy_CfnGatewayRoute) RenderProperties(props *map[string]interface
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnGatewayRoute) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -796,7 +768,6 @@ func (c *jsiiProxy_CfnGatewayRoute) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnGatewayRoute) ToString() *string {
 	var returns *string
 
@@ -810,7 +781,6 @@ func (c *jsiiProxy_CfnGatewayRoute) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnGatewayRoute) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1333,7 +1303,6 @@ func (j *jsiiProxy_CfnMesh) SetSpec(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnMesh_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -1350,7 +1319,6 @@ func CfnMesh_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnMesh_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -1397,7 +1365,6 @@ func CfnMesh_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnMesh) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1410,7 +1377,6 @@ func (c *jsiiProxy_CfnMesh) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnMesh) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1426,7 +1392,6 @@ func (c *jsiiProxy_CfnMesh) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnMesh) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1472,7 +1437,6 @@ func (c *jsiiProxy_CfnMesh) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnMesh) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1482,7 +1446,6 @@ func (c *jsiiProxy_CfnMesh) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnMesh) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1494,7 +1457,6 @@ func (c *jsiiProxy_CfnMesh) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnMesh) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1512,7 +1474,6 @@ func (c *jsiiProxy_CfnMesh) AddPropertyOverride(propertyPath *string, value inte
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnMesh) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1525,7 +1486,6 @@ func (c *jsiiProxy_CfnMesh) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opti
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnMesh) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1546,7 +1506,6 @@ func (c *jsiiProxy_CfnMesh) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnMesh) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1570,7 +1529,6 @@ func (c *jsiiProxy_CfnMesh) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnMesh) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1596,7 +1554,6 @@ func (c *jsiiProxy_CfnMesh) RenderProperties(props *map[string]interface{}) *map
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnMesh) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1613,7 +1570,6 @@ func (c *jsiiProxy_CfnMesh) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnMesh) ToString() *string {
 	var returns *string
 
@@ -1627,7 +1583,6 @@ func (c *jsiiProxy_CfnMesh) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnMesh) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2013,7 +1968,6 @@ func (j *jsiiProxy_CfnRoute) SetVirtualRouterName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnRoute_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -2030,7 +1984,6 @@ func CfnRoute_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnRoute_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -2077,7 +2030,6 @@ func CfnRoute_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnRoute) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2090,7 +2042,6 @@ func (c *jsiiProxy_CfnRoute) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnRoute) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2106,7 +2057,6 @@ func (c *jsiiProxy_CfnRoute) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnRoute) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2152,7 +2102,6 @@ func (c *jsiiProxy_CfnRoute) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnRoute) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2162,7 +2111,6 @@ func (c *jsiiProxy_CfnRoute) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnRoute) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2174,7 +2122,6 @@ func (c *jsiiProxy_CfnRoute) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnRoute) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2192,7 +2139,6 @@ func (c *jsiiProxy_CfnRoute) AddPropertyOverride(propertyPath *string, value int
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnRoute) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2205,7 +2151,6 @@ func (c *jsiiProxy_CfnRoute) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnRoute) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2226,7 +2171,6 @@ func (c *jsiiProxy_CfnRoute) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnRoute) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2250,7 +2194,6 @@ func (c *jsiiProxy_CfnRoute) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnRoute) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2276,7 +2219,6 @@ func (c *jsiiProxy_CfnRoute) RenderProperties(props *map[string]interface{}) *ma
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnRoute) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2293,7 +2235,6 @@ func (c *jsiiProxy_CfnRoute) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnRoute) ToString() *string {
 	var returns *string
 
@@ -2307,7 +2248,6 @@ func (c *jsiiProxy_CfnRoute) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnRoute) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2910,7 +2850,6 @@ func (j *jsiiProxy_CfnVirtualGateway) SetVirtualGatewayName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnVirtualGateway_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -2927,7 +2866,6 @@ func CfnVirtualGateway_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnVirtualGateway_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -2974,7 +2912,6 @@ func CfnVirtualGateway_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnVirtualGateway) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2987,7 +2924,6 @@ func (c *jsiiProxy_CfnVirtualGateway) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnVirtualGateway) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3003,7 +2939,6 @@ func (c *jsiiProxy_CfnVirtualGateway) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnVirtualGateway) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3049,7 +2984,6 @@ func (c *jsiiProxy_CfnVirtualGateway) AddMetadata(key *string, value interface{}
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnVirtualGateway) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3059,7 +2993,6 @@ func (c *jsiiProxy_CfnVirtualGateway) AddOverride(path *string, value interface{
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnVirtualGateway) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3071,7 +3004,6 @@ func (c *jsiiProxy_CfnVirtualGateway) AddPropertyDeletionOverride(propertyPath *
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnVirtualGateway) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3089,7 +3021,6 @@ func (c *jsiiProxy_CfnVirtualGateway) AddPropertyOverride(propertyPath *string, 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnVirtualGateway) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3102,7 +3033,6 @@ func (c *jsiiProxy_CfnVirtualGateway) ApplyRemovalPolicy(policy awscdk.RemovalPo
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnVirtualGateway) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3123,7 +3053,6 @@ func (c *jsiiProxy_CfnVirtualGateway) GetAtt(attributeName *string) awscdk.Refer
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnVirtualGateway) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3147,7 +3076,6 @@ func (c *jsiiProxy_CfnVirtualGateway) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnVirtualGateway) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3173,7 +3101,6 @@ func (c *jsiiProxy_CfnVirtualGateway) RenderProperties(props *map[string]interfa
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnVirtualGateway) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3190,7 +3117,6 @@ func (c *jsiiProxy_CfnVirtualGateway) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnVirtualGateway) ToString() *string {
 	var returns *string
 
@@ -3204,7 +3130,6 @@ func (c *jsiiProxy_CfnVirtualGateway) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnVirtualGateway) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3810,7 +3735,6 @@ func (j *jsiiProxy_CfnVirtualNode) SetVirtualNodeName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnVirtualNode_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -3827,7 +3751,6 @@ func CfnVirtualNode_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnVirtualNode_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -3874,7 +3797,6 @@ func CfnVirtualNode_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnVirtualNode) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3887,7 +3809,6 @@ func (c *jsiiProxy_CfnVirtualNode) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnVirtualNode) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3903,7 +3824,6 @@ func (c *jsiiProxy_CfnVirtualNode) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnVirtualNode) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3949,7 +3869,6 @@ func (c *jsiiProxy_CfnVirtualNode) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnVirtualNode) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3959,7 +3878,6 @@ func (c *jsiiProxy_CfnVirtualNode) AddOverride(path *string, value interface{}) 
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnVirtualNode) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3971,7 +3889,6 @@ func (c *jsiiProxy_CfnVirtualNode) AddPropertyDeletionOverride(propertyPath *str
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnVirtualNode) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3989,7 +3906,6 @@ func (c *jsiiProxy_CfnVirtualNode) AddPropertyOverride(propertyPath *string, val
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnVirtualNode) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4002,7 +3918,6 @@ func (c *jsiiProxy_CfnVirtualNode) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnVirtualNode) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -4023,7 +3938,6 @@ func (c *jsiiProxy_CfnVirtualNode) GetAtt(attributeName *string) awscdk.Referenc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnVirtualNode) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -4047,7 +3961,6 @@ func (c *jsiiProxy_CfnVirtualNode) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnVirtualNode) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4073,7 +3986,6 @@ func (c *jsiiProxy_CfnVirtualNode) RenderProperties(props *map[string]interface{
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnVirtualNode) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -4090,7 +4002,6 @@ func (c *jsiiProxy_CfnVirtualNode) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnVirtualNode) ToString() *string {
 	var returns *string
 
@@ -4104,7 +4015,6 @@ func (c *jsiiProxy_CfnVirtualNode) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnVirtualNode) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4841,7 +4751,6 @@ func (j *jsiiProxy_CfnVirtualRouter) SetVirtualRouterName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnVirtualRouter_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -4858,7 +4767,6 @@ func CfnVirtualRouter_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnVirtualRouter_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -4905,7 +4813,6 @@ func CfnVirtualRouter_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnVirtualRouter) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4918,7 +4825,6 @@ func (c *jsiiProxy_CfnVirtualRouter) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnVirtualRouter) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4934,7 +4840,6 @@ func (c *jsiiProxy_CfnVirtualRouter) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnVirtualRouter) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4980,7 +4885,6 @@ func (c *jsiiProxy_CfnVirtualRouter) AddMetadata(key *string, value interface{})
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnVirtualRouter) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4990,7 +4894,6 @@ func (c *jsiiProxy_CfnVirtualRouter) AddOverride(path *string, value interface{}
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnVirtualRouter) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5002,7 +4905,6 @@ func (c *jsiiProxy_CfnVirtualRouter) AddPropertyDeletionOverride(propertyPath *s
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnVirtualRouter) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5020,7 +4922,6 @@ func (c *jsiiProxy_CfnVirtualRouter) AddPropertyOverride(propertyPath *string, v
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnVirtualRouter) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5033,7 +4934,6 @@ func (c *jsiiProxy_CfnVirtualRouter) ApplyRemovalPolicy(policy awscdk.RemovalPol
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnVirtualRouter) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -5054,7 +4954,6 @@ func (c *jsiiProxy_CfnVirtualRouter) GetAtt(attributeName *string) awscdk.Refere
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnVirtualRouter) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -5078,7 +4977,6 @@ func (c *jsiiProxy_CfnVirtualRouter) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnVirtualRouter) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5104,7 +5002,6 @@ func (c *jsiiProxy_CfnVirtualRouter) RenderProperties(props *map[string]interfac
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnVirtualRouter) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -5121,7 +5018,6 @@ func (c *jsiiProxy_CfnVirtualRouter) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnVirtualRouter) ToString() *string {
 	var returns *string
 
@@ -5135,7 +5031,6 @@ func (c *jsiiProxy_CfnVirtualRouter) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnVirtualRouter) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5503,7 +5398,6 @@ func (j *jsiiProxy_CfnVirtualService) SetVirtualServiceName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnVirtualService_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -5520,7 +5414,6 @@ func CfnVirtualService_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnVirtualService_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -5567,7 +5460,6 @@ func CfnVirtualService_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnVirtualService) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5580,7 +5472,6 @@ func (c *jsiiProxy_CfnVirtualService) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnVirtualService) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5596,7 +5487,6 @@ func (c *jsiiProxy_CfnVirtualService) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnVirtualService) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5642,7 +5532,6 @@ func (c *jsiiProxy_CfnVirtualService) AddMetadata(key *string, value interface{}
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnVirtualService) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5652,7 +5541,6 @@ func (c *jsiiProxy_CfnVirtualService) AddOverride(path *string, value interface{
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnVirtualService) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5664,7 +5552,6 @@ func (c *jsiiProxy_CfnVirtualService) AddPropertyDeletionOverride(propertyPath *
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnVirtualService) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5682,7 +5569,6 @@ func (c *jsiiProxy_CfnVirtualService) AddPropertyOverride(propertyPath *string, 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnVirtualService) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5695,7 +5581,6 @@ func (c *jsiiProxy_CfnVirtualService) ApplyRemovalPolicy(policy awscdk.RemovalPo
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnVirtualService) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -5716,7 +5601,6 @@ func (c *jsiiProxy_CfnVirtualService) GetAtt(attributeName *string) awscdk.Refer
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnVirtualService) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -5740,7 +5624,6 @@ func (c *jsiiProxy_CfnVirtualService) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnVirtualService) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5766,7 +5649,6 @@ func (c *jsiiProxy_CfnVirtualService) RenderProperties(props *map[string]interfa
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnVirtualService) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -5783,7 +5665,6 @@ func (c *jsiiProxy_CfnVirtualService) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnVirtualService) ToString() *string {
 	var returns *string
 
@@ -5797,7 +5678,6 @@ func (c *jsiiProxy_CfnVirtualService) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnVirtualService) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5857,7 +5737,6 @@ type CfnVirtualServiceProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DnsResponseType string
 
 const (
@@ -5871,7 +5750,6 @@ const (
 //
 // See: https://docs.aws.amazon.com/app-mesh/latest/userguide/gateway-routes.html
 //
-// Experimental.
 type GatewayRoute interface {
 	awscdk.Resource
 	IGatewayRoute
@@ -5966,7 +5844,6 @@ func (j *jsiiProxy_GatewayRoute) VirtualGateway() IVirtualGateway {
 }
 
 
-// Experimental.
 func NewGatewayRoute(scope constructs.Construct, id *string, props *GatewayRouteProps) GatewayRoute {
 	_init_.Initialize()
 
@@ -5981,7 +5858,6 @@ func NewGatewayRoute(scope constructs.Construct, id *string, props *GatewayRoute
 	return &j
 }
 
-// Experimental.
 func NewGatewayRoute_Override(g GatewayRoute, scope constructs.Construct, id *string, props *GatewayRouteProps) {
 	_init_.Initialize()
 
@@ -5993,7 +5869,6 @@ func NewGatewayRoute_Override(g GatewayRoute, scope constructs.Construct, id *st
 }
 
 // Import an existing GatewayRoute given an ARN.
-// Experimental.
 func GatewayRoute_FromGatewayRouteArn(scope constructs.Construct, id *string, gatewayRouteArn *string) IGatewayRoute {
 	_init_.Initialize()
 
@@ -6010,7 +5885,6 @@ func GatewayRoute_FromGatewayRouteArn(scope constructs.Construct, id *string, ga
 }
 
 // Import an existing GatewayRoute given attributes.
-// Experimental.
 func GatewayRoute_FromGatewayRouteAttributes(scope constructs.Construct, id *string, attrs *GatewayRouteAttributes) IGatewayRoute {
 	_init_.Initialize()
 
@@ -6046,7 +5920,6 @@ func GatewayRoute_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func GatewayRoute_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -6071,7 +5944,6 @@ func GatewayRoute_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (g *jsiiProxy_GatewayRoute) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		g,
@@ -6080,7 +5952,6 @@ func (g *jsiiProxy_GatewayRoute) ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	)
 }
 
-// Experimental.
 func (g *jsiiProxy_GatewayRoute) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -6100,7 +5971,6 @@ func (g *jsiiProxy_GatewayRoute) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (g *jsiiProxy_GatewayRoute) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -6119,7 +5989,6 @@ func (g *jsiiProxy_GatewayRoute) GetResourceArnAttribute(arnAttr *string, arnCom
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (g *jsiiProxy_GatewayRoute) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -6134,7 +6003,6 @@ func (g *jsiiProxy_GatewayRoute) GetResourceNameAttribute(nameAttr *string) *str
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (g *jsiiProxy_GatewayRoute) ToString() *string {
 	var returns *string
 
@@ -6152,13 +6020,10 @@ func (g *jsiiProxy_GatewayRoute) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type GatewayRouteAttributes struct {
 	// The name of the GatewayRoute.
-	// Experimental.
 	GatewayRouteName *string `json:"gatewayRouteName"`
 	// The VirtualGateway this GatewayRoute is associated with.
-	// Experimental.
 	VirtualGateway IVirtualGateway `json:"virtualGateway"`
 }
 
@@ -6166,13 +6031,10 @@ type GatewayRouteAttributes struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type GatewayRouteBaseProps struct {
 	// The name of the GatewayRoute.
-	// Experimental.
 	GatewayRouteName *string `json:"gatewayRouteName"`
 	// What protocol the route uses.
-	// Experimental.
 	RouteSpec GatewayRouteSpec `json:"routeSpec"`
 }
 
@@ -6180,7 +6042,6 @@ type GatewayRouteBaseProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type GatewayRouteHostnameMatch interface {
 	Bind(scope constructs.Construct) *GatewayRouteHostnameMatchConfig
 }
@@ -6190,7 +6051,6 @@ type jsiiProxy_GatewayRouteHostnameMatch struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewGatewayRouteHostnameMatch_Override(g GatewayRouteHostnameMatch) {
 	_init_.Initialize()
 
@@ -6202,7 +6062,6 @@ func NewGatewayRouteHostnameMatch_Override(g GatewayRouteHostnameMatch) {
 }
 
 // The value of the host name with the given name must end with the specified characters.
-// Experimental.
 func GatewayRouteHostnameMatch_EndsWith(suffix *string) GatewayRouteHostnameMatch {
 	_init_.Initialize()
 
@@ -6219,7 +6078,6 @@ func GatewayRouteHostnameMatch_EndsWith(suffix *string) GatewayRouteHostnameMatc
 }
 
 // The value of the host name must match the specified value exactly.
-// Experimental.
 func GatewayRouteHostnameMatch_Exactly(name *string) GatewayRouteHostnameMatch {
 	_init_.Initialize()
 
@@ -6236,7 +6094,6 @@ func GatewayRouteHostnameMatch_Exactly(name *string) GatewayRouteHostnameMatch {
 }
 
 // Returns the gateway route host name match configuration.
-// Experimental.
 func (g *jsiiProxy_GatewayRouteHostnameMatch) Bind(scope constructs.Construct) *GatewayRouteHostnameMatchConfig {
 	var returns *GatewayRouteHostnameMatchConfig
 
@@ -6254,10 +6111,8 @@ func (g *jsiiProxy_GatewayRouteHostnameMatch) Bind(scope constructs.Construct) *
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type GatewayRouteHostnameMatchConfig struct {
 	// GatewayRoute CFN configuration for host name match.
-	// Experimental.
 	HostnameMatch *CfnGatewayRoute_GatewayRouteHostnameMatchProperty `json:"hostnameMatch"`
 }
 
@@ -6265,16 +6120,12 @@ type GatewayRouteHostnameMatchConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type GatewayRouteProps struct {
 	// The name of the GatewayRoute.
-	// Experimental.
 	GatewayRouteName *string `json:"gatewayRouteName"`
 	// What protocol the route uses.
-	// Experimental.
 	RouteSpec GatewayRouteSpec `json:"routeSpec"`
 	// The VirtualGateway this GatewayRoute is associated with.
-	// Experimental.
 	VirtualGateway IVirtualGateway `json:"virtualGateway"`
 }
 
@@ -6282,7 +6133,6 @@ type GatewayRouteProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type GatewayRouteSpec interface {
 	Bind(scope constructs.Construct) *GatewayRouteSpecConfig
 }
@@ -6292,7 +6142,6 @@ type jsiiProxy_GatewayRouteSpec struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewGatewayRouteSpec_Override(g GatewayRouteSpec) {
 	_init_.Initialize()
 
@@ -6304,7 +6153,6 @@ func NewGatewayRouteSpec_Override(g GatewayRouteSpec) {
 }
 
 // Creates an gRPC Based GatewayRoute.
-// Experimental.
 func GatewayRouteSpec_Grpc(options *GrpcGatewayRouteSpecOptions) GatewayRouteSpec {
 	_init_.Initialize()
 
@@ -6321,7 +6169,6 @@ func GatewayRouteSpec_Grpc(options *GrpcGatewayRouteSpecOptions) GatewayRouteSpe
 }
 
 // Creates an HTTP Based GatewayRoute.
-// Experimental.
 func GatewayRouteSpec_Http(options *HttpGatewayRouteSpecOptions) GatewayRouteSpec {
 	_init_.Initialize()
 
@@ -6338,7 +6185,6 @@ func GatewayRouteSpec_Http(options *HttpGatewayRouteSpecOptions) GatewayRouteSpe
 }
 
 // Creates an HTTP2 Based GatewayRoute.
-// Experimental.
 func GatewayRouteSpec_Http2(options *HttpGatewayRouteSpecOptions) GatewayRouteSpec {
 	_init_.Initialize()
 
@@ -6358,7 +6204,6 @@ func GatewayRouteSpec_Http2(options *HttpGatewayRouteSpecOptions) GatewayRouteSp
 //
 // Can be used to enforce
 // mutual exclusivity with future properties
-// Experimental.
 func (g *jsiiProxy_GatewayRouteSpec) Bind(scope constructs.Construct) *GatewayRouteSpecConfig {
 	var returns *GatewayRouteSpecConfig
 
@@ -6376,16 +6221,12 @@ func (g *jsiiProxy_GatewayRouteSpec) Bind(scope constructs.Construct) *GatewayRo
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type GatewayRouteSpecConfig struct {
 	// The spec for a grpc gateway route.
-	// Experimental.
 	GrpcSpecConfig *CfnGatewayRoute_GrpcGatewayRouteProperty `json:"grpcSpecConfig"`
 	// The spec for an http2 gateway route.
-	// Experimental.
 	Http2SpecConfig *CfnGatewayRoute_HttpGatewayRouteProperty `json:"http2SpecConfig"`
 	// The spec for an http gateway route.
-	// Experimental.
 	HttpSpecConfig *CfnGatewayRoute_HttpGatewayRouteProperty `json:"httpSpecConfig"`
 }
 
@@ -6393,10 +6234,8 @@ type GatewayRouteSpecConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type GrpcConnectionPool struct {
 	// The maximum requests in the pool.
-	// Experimental.
 	MaxRequests *float64 `json:"maxRequests"`
 }
 
@@ -6404,19 +6243,14 @@ type GrpcConnectionPool struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type GrpcGatewayListenerOptions struct {
 	// Connection pool for http listeners.
-	// Experimental.
 	ConnectionPool *GrpcConnectionPool `json:"connectionPool"`
 	// The health check information for the listener.
-	// Experimental.
 	HealthCheck HealthCheck `json:"healthCheck"`
 	// Port to listen for connections on.
-	// Experimental.
 	Port *float64 `json:"port"`
 	// Represents the configuration for enabling TLS on a listener.
-	// Experimental.
 	Tls *ListenerTlsOptions `json:"tls"`
 }
 
@@ -6424,23 +6258,18 @@ type GrpcGatewayListenerOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type GrpcGatewayRouteMatch struct {
 	// Create host name based gRPC gateway route match.
-	// Experimental.
 	Hostname GatewayRouteHostnameMatch `json:"hostname"`
 	// Create metadata based gRPC gateway route match.
 	//
 	// All specified metadata must match for the route to match.
-	// Experimental.
 	Metadata *[]HeaderMatch `json:"metadata"`
 	// When `true`, rewrites the original request received at the Virtual Gateway to the destination Virtual Service name.
 	//
 	// When `false`, retains the original hostname from the request.
-	// Experimental.
 	RewriteRequestHostname *bool `json:"rewriteRequestHostname"`
 	// Create service name based gRPC gateway route match.
-	// Experimental.
 	ServiceName *string `json:"serviceName"`
 }
 
@@ -6448,13 +6277,10 @@ type GrpcGatewayRouteMatch struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type GrpcGatewayRouteSpecOptions struct {
 	// The criterion for determining a request match for this GatewayRoute.
-	// Experimental.
 	Match *GrpcGatewayRouteMatch `json:"match"`
 	// The VirtualService this GatewayRoute directs traffic to.
-	// Experimental.
 	RouteTarget IVirtualService `json:"routeTarget"`
 }
 
@@ -6462,19 +6288,14 @@ type GrpcGatewayRouteSpecOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type GrpcHealthCheckOptions struct {
 	// The number of consecutive successful health checks that must occur before declaring listener healthy.
-	// Experimental.
 	HealthyThreshold *float64 `json:"healthyThreshold"`
 	// The time period between each health check execution.
-	// Experimental.
 	Interval awscdk.Duration `json:"interval"`
 	// The amount of time to wait when receiving a response from the health check.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
 	// The number of consecutive failed health checks that must occur before declaring a listener unhealthy.
-	// Experimental.
 	UnhealthyThreshold *float64 `json:"unhealthyThreshold"`
 }
 
@@ -6482,7 +6303,6 @@ type GrpcHealthCheckOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type GrpcRetryEvent string
 
 const (
@@ -6497,19 +6317,15 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type GrpcRetryPolicy struct {
 	// Specify HTTP events on which to retry.
 	//
 	// You must specify at least one value
 	// for at least one types of retry events.
-	// Experimental.
 	HttpRetryEvents *[]HttpRetryEvent `json:"httpRetryEvents"`
 	// The maximum number of retry attempts.
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 	// The timeout for each retry attempt.
-	// Experimental.
 	RetryTimeout awscdk.Duration `json:"retryTimeout"`
 	// TCP events on which to retry.
 	//
@@ -6517,13 +6333,11 @@ type GrpcRetryPolicy struct {
 	// request has started and is encountered when the upstream is temporarily or
 	// permanently unavailable. You must specify at least one value for at least
 	// one types of retry events.
-	// Experimental.
 	TcpRetryEvents *[]TcpRetryEvent `json:"tcpRetryEvents"`
 	// gRPC events on which to retry.
 	//
 	// You must specify at least one value
 	// for at least one types of retry events.
-	// Experimental.
 	GrpcRetryEvents *[]GrpcRetryEvent `json:"grpcRetryEvents"`
 }
 
@@ -6533,20 +6347,16 @@ type GrpcRetryPolicy struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type GrpcRouteMatch struct {
 	// Create metadata based gRPC route match.
 	//
 	// All specified metadata must match for the route to match.
-	// Experimental.
 	Metadata *[]HeaderMatch `json:"metadata"`
 	// The method name to match from the request.
 	//
 	// If the method name is specified, service name must be also provided.
-	// Experimental.
 	MethodName *string `json:"methodName"`
 	// Create service name based gRPC route match.
-	// Experimental.
 	ServiceName *string `json:"serviceName"`
 }
 
@@ -6554,25 +6364,19 @@ type GrpcRouteMatch struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type GrpcRouteSpecOptions struct {
 	// The priority for the route.
 	//
 	// Routes are matched based on the specified
 	// value, where 0 is the highest priority.
-	// Experimental.
 	Priority *float64 `json:"priority"`
 	// The criterion for determining a request match for this Route.
-	// Experimental.
 	Match *GrpcRouteMatch `json:"match"`
 	// The retry policy.
-	// Experimental.
 	RetryPolicy *GrpcRetryPolicy `json:"retryPolicy"`
 	// An object that represents a grpc timeout.
-	// Experimental.
 	Timeout *GrpcTimeout `json:"timeout"`
 	// List of targets that traffic is routed to when a request matches the route.
-	// Experimental.
 	WeightedTargets *[]*WeightedTarget `json:"weightedTargets"`
 }
 
@@ -6580,15 +6384,12 @@ type GrpcRouteSpecOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type GrpcTimeout struct {
 	// Represents an idle timeout.
 	//
 	// The amount of time that a connection may be idle.
-	// Experimental.
 	Idle awscdk.Duration `json:"idle"`
 	// Represents per request timeout.
-	// Experimental.
 	PerRequest awscdk.Duration `json:"perRequest"`
 }
 
@@ -6596,25 +6397,18 @@ type GrpcTimeout struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type GrpcVirtualNodeListenerOptions struct {
 	// Connection pool for http listeners.
-	// Experimental.
 	ConnectionPool *GrpcConnectionPool `json:"connectionPool"`
 	// The health check information for the listener.
-	// Experimental.
 	HealthCheck HealthCheck `json:"healthCheck"`
 	// Represents the configuration for enabling outlier detection.
-	// Experimental.
 	OutlierDetection *OutlierDetection `json:"outlierDetection"`
 	// Port to listen for connections on.
-	// Experimental.
 	Port *float64 `json:"port"`
 	// Timeout for GRPC protocol.
-	// Experimental.
 	Timeout *GrpcTimeout `json:"timeout"`
 	// Represents the configuration for enabling TLS on a listener.
-	// Experimental.
 	Tls *ListenerTlsOptions `json:"tls"`
 }
 
@@ -6622,7 +6416,6 @@ type GrpcVirtualNodeListenerOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HeaderMatch interface {
 	Bind(scope constructs.Construct) *HeaderMatchConfig
 }
@@ -6632,7 +6425,6 @@ type jsiiProxy_HeaderMatch struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewHeaderMatch_Override(h HeaderMatch) {
 	_init_.Initialize()
 
@@ -6644,7 +6436,6 @@ func NewHeaderMatch_Override(h HeaderMatch) {
 }
 
 // The value of the header with the given name in the request must not end with the specified characters.
-// Experimental.
 func HeaderMatch_ValueDoesNotEndWith(headerName *string, suffix *string) HeaderMatch {
 	_init_.Initialize()
 
@@ -6661,7 +6452,6 @@ func HeaderMatch_ValueDoesNotEndWith(headerName *string, suffix *string) HeaderM
 }
 
 // The value of the header with the given name in the request must not include the specified characters.
-// Experimental.
 func HeaderMatch_ValueDoesNotMatchRegex(headerName *string, regex *string) HeaderMatch {
 	_init_.Initialize()
 
@@ -6678,7 +6468,6 @@ func HeaderMatch_ValueDoesNotMatchRegex(headerName *string, regex *string) Heade
 }
 
 // The value of the header with the given name in the request must not start with the specified characters.
-// Experimental.
 func HeaderMatch_ValueDoesNotStartWith(headerName *string, prefix *string) HeaderMatch {
 	_init_.Initialize()
 
@@ -6695,7 +6484,6 @@ func HeaderMatch_ValueDoesNotStartWith(headerName *string, prefix *string) Heade
 }
 
 // The value of the header with the given name in the request must end with the specified characters.
-// Experimental.
 func HeaderMatch_ValueEndsWith(headerName *string, suffix *string) HeaderMatch {
 	_init_.Initialize()
 
@@ -6712,7 +6500,6 @@ func HeaderMatch_ValueEndsWith(headerName *string, suffix *string) HeaderMatch {
 }
 
 // The value of the header with the given name in the request must match the specified value exactly.
-// Experimental.
 func HeaderMatch_ValueIs(headerName *string, headerValue *string) HeaderMatch {
 	_init_.Initialize()
 
@@ -6729,7 +6516,6 @@ func HeaderMatch_ValueIs(headerName *string, headerValue *string) HeaderMatch {
 }
 
 // The value of the header with the given name in the request must not match the specified value exactly.
-// Experimental.
 func HeaderMatch_ValueIsNot(headerName *string, headerValue *string) HeaderMatch {
 	_init_.Initialize()
 
@@ -6746,7 +6532,6 @@ func HeaderMatch_ValueIsNot(headerName *string, headerValue *string) HeaderMatch
 }
 
 // The value of the header with the given name in the request must include the specified characters.
-// Experimental.
 func HeaderMatch_ValueMatchesRegex(headerName *string, regex *string) HeaderMatch {
 	_init_.Initialize()
 
@@ -6763,7 +6548,6 @@ func HeaderMatch_ValueMatchesRegex(headerName *string, regex *string) HeaderMatc
 }
 
 // The value of the header with the given name in the request must be in a range of values.
-// Experimental.
 func HeaderMatch_ValuesIsInRange(headerName *string, start *float64, end *float64) HeaderMatch {
 	_init_.Initialize()
 
@@ -6780,7 +6564,6 @@ func HeaderMatch_ValuesIsInRange(headerName *string, start *float64, end *float6
 }
 
 // The value of the header with the given name in the request must not be in a range of values.
-// Experimental.
 func HeaderMatch_ValuesIsNotInRange(headerName *string, start *float64, end *float64) HeaderMatch {
 	_init_.Initialize()
 
@@ -6797,7 +6580,6 @@ func HeaderMatch_ValuesIsNotInRange(headerName *string, start *float64, end *flo
 }
 
 // The value of the header with the given name in the request must start with the specified characters.
-// Experimental.
 func HeaderMatch_ValueStartsWith(headerName *string, prefix *string) HeaderMatch {
 	_init_.Initialize()
 
@@ -6814,7 +6596,6 @@ func HeaderMatch_ValueStartsWith(headerName *string, prefix *string) HeaderMatch
 }
 
 // Returns the header match configuration.
-// Experimental.
 func (h *jsiiProxy_HeaderMatch) Bind(scope constructs.Construct) *HeaderMatchConfig {
 	var returns *HeaderMatchConfig
 
@@ -6832,10 +6613,8 @@ func (h *jsiiProxy_HeaderMatch) Bind(scope constructs.Construct) *HeaderMatchCon
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HeaderMatchConfig struct {
 	// Route CFN configuration for the route header match.
-	// Experimental.
 	HeaderMatch *CfnRoute_HttpRouteHeaderProperty `json:"headerMatch"`
 }
 
@@ -6843,7 +6622,6 @@ type HeaderMatchConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HealthCheck interface {
 	Bind(scope constructs.Construct, options *HealthCheckBindOptions) *HealthCheckConfig
 }
@@ -6853,7 +6631,6 @@ type jsiiProxy_HealthCheck struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewHealthCheck_Override(h HealthCheck) {
 	_init_.Initialize()
 
@@ -6865,7 +6642,6 @@ func NewHealthCheck_Override(h HealthCheck) {
 }
 
 // Construct a GRPC health check.
-// Experimental.
 func HealthCheck_Grpc(options *GrpcHealthCheckOptions) HealthCheck {
 	_init_.Initialize()
 
@@ -6882,7 +6658,6 @@ func HealthCheck_Grpc(options *GrpcHealthCheckOptions) HealthCheck {
 }
 
 // Construct a HTTP health check.
-// Experimental.
 func HealthCheck_Http(options *HttpHealthCheckOptions) HealthCheck {
 	_init_.Initialize()
 
@@ -6899,7 +6674,6 @@ func HealthCheck_Http(options *HttpHealthCheckOptions) HealthCheck {
 }
 
 // Construct a HTTP2 health check.
-// Experimental.
 func HealthCheck_Http2(options *HttpHealthCheckOptions) HealthCheck {
 	_init_.Initialize()
 
@@ -6916,7 +6690,6 @@ func HealthCheck_Http2(options *HttpHealthCheckOptions) HealthCheck {
 }
 
 // Construct a TCP health check.
-// Experimental.
 func HealthCheck_Tcp(options *TcpHealthCheckOptions) HealthCheck {
 	_init_.Initialize()
 
@@ -6936,7 +6709,6 @@ func HealthCheck_Tcp(options *TcpHealthCheckOptions) HealthCheck {
 //
 // Can be used to enforce
 // mutual exclusivity with future properties
-// Experimental.
 func (h *jsiiProxy_HealthCheck) Bind(scope constructs.Construct, options *HealthCheckBindOptions) *HealthCheckConfig {
 	var returns *HealthCheckConfig
 
@@ -6954,10 +6726,8 @@ func (h *jsiiProxy_HealthCheck) Bind(scope constructs.Construct, options *Health
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HealthCheckBindOptions struct {
 	// Port for Health Check interface.
-	// Experimental.
 	DefaultPort *float64 `json:"defaultPort"`
 }
 
@@ -6965,13 +6735,10 @@ type HealthCheckBindOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HealthCheckConfig struct {
 	// VirtualGateway CFN configuration for Health Checks.
-	// Experimental.
 	VirtualGatewayHealthCheck *CfnVirtualGateway_VirtualGatewayHealthCheckPolicyProperty `json:"virtualGatewayHealthCheck"`
 	// VirtualNode CFN configuration for Health Checks.
-	// Experimental.
 	VirtualNodeHealthCheck *CfnVirtualNode_HealthCheckProperty `json:"virtualNodeHealthCheck"`
 }
 
@@ -6979,10 +6746,8 @@ type HealthCheckConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Http2ConnectionPool struct {
 	// The maximum requests in the pool.
-	// Experimental.
 	MaxRequests *float64 `json:"maxRequests"`
 }
 
@@ -6990,19 +6755,14 @@ type Http2ConnectionPool struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Http2GatewayListenerOptions struct {
 	// Connection pool for http listeners.
-	// Experimental.
 	ConnectionPool *Http2ConnectionPool `json:"connectionPool"`
 	// The health check information for the listener.
-	// Experimental.
 	HealthCheck HealthCheck `json:"healthCheck"`
 	// Port to listen for connections on.
-	// Experimental.
 	Port *float64 `json:"port"`
 	// Represents the configuration for enabling TLS on a listener.
-	// Experimental.
 	Tls *ListenerTlsOptions `json:"tls"`
 }
 
@@ -7010,25 +6770,18 @@ type Http2GatewayListenerOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Http2VirtualNodeListenerOptions struct {
 	// Connection pool for http2 listeners.
-	// Experimental.
 	ConnectionPool *Http2ConnectionPool `json:"connectionPool"`
 	// The health check information for the listener.
-	// Experimental.
 	HealthCheck HealthCheck `json:"healthCheck"`
 	// Represents the configuration for enabling outlier detection.
-	// Experimental.
 	OutlierDetection *OutlierDetection `json:"outlierDetection"`
 	// Port to listen for connections on.
-	// Experimental.
 	Port *float64 `json:"port"`
 	// Timeout for HTTP protocol.
-	// Experimental.
 	Timeout *HttpTimeout `json:"timeout"`
 	// Represents the configuration for enabling TLS on a listener.
-	// Experimental.
 	Tls *ListenerTlsOptions `json:"tls"`
 }
 
@@ -7036,13 +6789,10 @@ type Http2VirtualNodeListenerOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HttpConnectionPool struct {
 	// The maximum connections in the pool.
-	// Experimental.
 	MaxConnections *float64 `json:"maxConnections"`
 	// The maximum pending requests in the pool.
-	// Experimental.
 	MaxPendingRequests *float64 `json:"maxPendingRequests"`
 }
 
@@ -7050,19 +6800,14 @@ type HttpConnectionPool struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HttpGatewayListenerOptions struct {
 	// Connection pool for http listeners.
-	// Experimental.
 	ConnectionPool *HttpConnectionPool `json:"connectionPool"`
 	// The health check information for the listener.
-	// Experimental.
 	HealthCheck HealthCheck `json:"healthCheck"`
 	// Port to listen for connections on.
-	// Experimental.
 	Port *float64 `json:"port"`
 	// Represents the configuration for enabling TLS on a listener.
-	// Experimental.
 	Tls *ListenerTlsOptions `json:"tls"`
 }
 
@@ -7070,32 +6815,25 @@ type HttpGatewayListenerOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HttpGatewayRouteMatch struct {
 	// Specifies the client request headers to match on.
 	//
 	// All specified headers
 	// must match for the gateway route to match.
-	// Experimental.
 	Headers *[]HeaderMatch `json:"headers"`
 	// The gateway route host name to be matched on.
-	// Experimental.
 	Hostname GatewayRouteHostnameMatch `json:"hostname"`
 	// The method to match on.
-	// Experimental.
 	Method HttpRouteMethod `json:"method"`
 	// Specify how to match requests based on the 'path' part of their URL.
-	// Experimental.
 	Path HttpGatewayRoutePathMatch `json:"path"`
 	// The query parameters to match on.
 	//
 	// All specified query parameters must match for the route to match.
-	// Experimental.
 	QueryParameters *[]QueryParameterMatch `json:"queryParameters"`
 	// When `true`, rewrites the original request received at the Virtual Gateway to the destination Virtual Service name.
 	//
 	// When `false`, retains the original hostname from the request.
-	// Experimental.
 	RewriteRequestHostname *bool `json:"rewriteRequestHostname"`
 }
 
@@ -7103,7 +6841,6 @@ type HttpGatewayRouteMatch struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HttpGatewayRoutePathMatch interface {
 	Bind(scope constructs.Construct) *HttpGatewayRoutePathMatchConfig
 }
@@ -7113,7 +6850,6 @@ type jsiiProxy_HttpGatewayRoutePathMatch struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewHttpGatewayRoutePathMatch_Override(h HttpGatewayRoutePathMatch) {
 	_init_.Initialize()
 
@@ -7127,7 +6863,6 @@ func NewHttpGatewayRoutePathMatch_Override(h HttpGatewayRoutePathMatch) {
 // The value of the path must match the specified value exactly.
 //
 // The provided `path` must start with the '/' character.
-// Experimental.
 func HttpGatewayRoutePathMatch_Exactly(path *string, rewriteTo *string) HttpGatewayRoutePathMatch {
 	_init_.Initialize()
 
@@ -7144,7 +6879,6 @@ func HttpGatewayRoutePathMatch_Exactly(path *string, rewriteTo *string) HttpGate
 }
 
 // The value of the path must match the specified regex.
-// Experimental.
 func HttpGatewayRoutePathMatch_Regex(regex *string, rewriteTo *string) HttpGatewayRoutePathMatch {
 	_init_.Initialize()
 
@@ -7161,7 +6895,6 @@ func HttpGatewayRoutePathMatch_Regex(regex *string, rewriteTo *string) HttpGatew
 }
 
 // The value of the path must match the specified prefix.
-// Experimental.
 func HttpGatewayRoutePathMatch_StartsWith(prefix *string, rewriteTo *string) HttpGatewayRoutePathMatch {
 	_init_.Initialize()
 
@@ -7178,7 +6911,6 @@ func HttpGatewayRoutePathMatch_StartsWith(prefix *string, rewriteTo *string) Htt
 }
 
 // Returns the gateway route path match configuration.
-// Experimental.
 func (h *jsiiProxy_HttpGatewayRoutePathMatch) Bind(scope constructs.Construct) *HttpGatewayRoutePathMatchConfig {
 	var returns *HttpGatewayRoutePathMatchConfig
 
@@ -7196,19 +6928,14 @@ func (h *jsiiProxy_HttpGatewayRoutePathMatch) Bind(scope constructs.Construct) *
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HttpGatewayRoutePathMatchConfig struct {
 	// Gateway route configuration for matching on the prefix of the URL path of the request.
-	// Experimental.
 	PrefixPathMatch *string `json:"prefixPathMatch"`
 	// Gateway route configuration for rewriting the prefix of the URL path of the request.
-	// Experimental.
 	PrefixPathRewrite *CfnGatewayRoute_HttpGatewayRoutePrefixRewriteProperty `json:"prefixPathRewrite"`
 	// Gateway route configuration for matching on the complete URL path of the request.
-	// Experimental.
 	WholePathMatch *CfnGatewayRoute_HttpPathMatchProperty `json:"wholePathMatch"`
 	// Gateway route configuration for rewriting the complete URL path of the request..
-	// Experimental.
 	WholePathRewrite *CfnGatewayRoute_HttpGatewayRoutePathRewriteProperty `json:"wholePathRewrite"`
 }
 
@@ -7216,15 +6943,12 @@ type HttpGatewayRoutePathMatchConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HttpGatewayRouteSpecOptions struct {
 	// The criterion for determining a request match for this GatewayRoute.
 	//
 	// When path match is defined, this may optionally determine the path rewrite configuration.
-	// Experimental.
 	Match *HttpGatewayRouteMatch `json:"match"`
 	// The VirtualService this GatewayRoute directs traffic to.
-	// Experimental.
 	RouteTarget IVirtualService `json:"routeTarget"`
 }
 
@@ -7232,22 +6956,16 @@ type HttpGatewayRouteSpecOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HttpHealthCheckOptions struct {
 	// The number of consecutive successful health checks that must occur before declaring listener healthy.
-	// Experimental.
 	HealthyThreshold *float64 `json:"healthyThreshold"`
 	// The time period between each health check execution.
-	// Experimental.
 	Interval awscdk.Duration `json:"interval"`
 	// The destination path for the health check request.
-	// Experimental.
 	Path *string `json:"path"`
 	// The amount of time to wait when receiving a response from the health check.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
 	// The number of consecutive failed health checks that must occur before declaring a listener unhealthy.
-	// Experimental.
 	UnhealthyThreshold *float64 `json:"unhealthyThreshold"`
 }
 
@@ -7255,7 +6973,6 @@ type HttpHealthCheckOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HttpRetryEvent string
 
 const (
@@ -7269,19 +6986,15 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HttpRetryPolicy struct {
 	// Specify HTTP events on which to retry.
 	//
 	// You must specify at least one value
 	// for at least one types of retry events.
-	// Experimental.
 	HttpRetryEvents *[]HttpRetryEvent `json:"httpRetryEvents"`
 	// The maximum number of retry attempts.
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 	// The timeout for each retry attempt.
-	// Experimental.
 	RetryTimeout awscdk.Duration `json:"retryTimeout"`
 	// TCP events on which to retry.
 	//
@@ -7289,7 +7002,6 @@ type HttpRetryPolicy struct {
 	// request has started and is encountered when the upstream is temporarily or
 	// permanently unavailable. You must specify at least one value for at least
 	// one types of retry events.
-	// Experimental.
 	TcpRetryEvents *[]TcpRetryEvent `json:"tcpRetryEvents"`
 }
 
@@ -7297,29 +7009,23 @@ type HttpRetryPolicy struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HttpRouteMatch struct {
 	// Specifies the client request headers to match on.
 	//
 	// All specified headers
 	// must match for the route to match.
-	// Experimental.
 	Headers *[]HeaderMatch `json:"headers"`
 	// The HTTP client request method to match on.
-	// Experimental.
 	Method HttpRouteMethod `json:"method"`
 	// Specifies how is the request matched based on the path part of its URL.
-	// Experimental.
 	Path HttpRoutePathMatch `json:"path"`
 	// The client request protocol to match on.
 	//
 	// Applicable only for HTTP2 routes.
-	// Experimental.
 	Protocol HttpRouteProtocol `json:"protocol"`
 	// The query parameters to match on.
 	//
 	// All specified query parameters must match for the route to match.
-	// Experimental.
 	QueryParameters *[]QueryParameterMatch `json:"queryParameters"`
 }
 
@@ -7327,7 +7033,6 @@ type HttpRouteMatch struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HttpRouteMethod string
 
 const (
@@ -7346,7 +7051,6 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HttpRoutePathMatch interface {
 	Bind(scope constructs.Construct) *HttpRoutePathMatchConfig
 }
@@ -7356,7 +7060,6 @@ type jsiiProxy_HttpRoutePathMatch struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewHttpRoutePathMatch_Override(h HttpRoutePathMatch) {
 	_init_.Initialize()
 
@@ -7370,7 +7073,6 @@ func NewHttpRoutePathMatch_Override(h HttpRoutePathMatch) {
 // The value of the path must match the specified value exactly.
 //
 // The provided `path` must start with the '/' character.
-// Experimental.
 func HttpRoutePathMatch_Exactly(path *string) HttpRoutePathMatch {
 	_init_.Initialize()
 
@@ -7387,7 +7089,6 @@ func HttpRoutePathMatch_Exactly(path *string) HttpRoutePathMatch {
 }
 
 // The value of the path must match the specified regex.
-// Experimental.
 func HttpRoutePathMatch_Regex(regex *string) HttpRoutePathMatch {
 	_init_.Initialize()
 
@@ -7404,7 +7105,6 @@ func HttpRoutePathMatch_Regex(regex *string) HttpRoutePathMatch {
 }
 
 // The value of the path must match the specified prefix.
-// Experimental.
 func HttpRoutePathMatch_StartsWith(prefix *string) HttpRoutePathMatch {
 	_init_.Initialize()
 
@@ -7421,7 +7121,6 @@ func HttpRoutePathMatch_StartsWith(prefix *string) HttpRoutePathMatch {
 }
 
 // Returns the route path match configuration.
-// Experimental.
 func (h *jsiiProxy_HttpRoutePathMatch) Bind(scope constructs.Construct) *HttpRoutePathMatchConfig {
 	var returns *HttpRoutePathMatchConfig
 
@@ -7439,13 +7138,10 @@ func (h *jsiiProxy_HttpRoutePathMatch) Bind(scope constructs.Construct) *HttpRou
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HttpRoutePathMatchConfig struct {
 	// Route configuration for matching on the prefix of the URL path of the request.
-	// Experimental.
 	PrefixPathMatch *string `json:"prefixPathMatch"`
 	// Route configuration for matching on the complete URL path of the request.
-	// Experimental.
 	WholePathMatch *CfnRoute_HttpPathMatchProperty `json:"wholePathMatch"`
 }
 
@@ -7453,7 +7149,6 @@ type HttpRoutePathMatchConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HttpRouteProtocol string
 
 const (
@@ -7465,25 +7160,19 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HttpRouteSpecOptions struct {
 	// The priority for the route.
 	//
 	// Routes are matched based on the specified
 	// value, where 0 is the highest priority.
-	// Experimental.
 	Priority *float64 `json:"priority"`
 	// The criterion for determining a request match for this Route.
-	// Experimental.
 	Match *HttpRouteMatch `json:"match"`
 	// The retry policy.
-	// Experimental.
 	RetryPolicy *HttpRetryPolicy `json:"retryPolicy"`
 	// An object that represents a http timeout.
-	// Experimental.
 	Timeout *HttpTimeout `json:"timeout"`
 	// List of targets that traffic is routed to when a request matches the route.
-	// Experimental.
 	WeightedTargets *[]*WeightedTarget `json:"weightedTargets"`
 }
 
@@ -7491,15 +7180,12 @@ type HttpRouteSpecOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HttpTimeout struct {
 	// Represents an idle timeout.
 	//
 	// The amount of time that a connection may be idle.
-	// Experimental.
 	Idle awscdk.Duration `json:"idle"`
 	// Represents per request timeout.
-	// Experimental.
 	PerRequest awscdk.Duration `json:"perRequest"`
 }
 
@@ -7507,40 +7193,29 @@ type HttpTimeout struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HttpVirtualNodeListenerOptions struct {
 	// Connection pool for http listeners.
-	// Experimental.
 	ConnectionPool *HttpConnectionPool `json:"connectionPool"`
 	// The health check information for the listener.
-	// Experimental.
 	HealthCheck HealthCheck `json:"healthCheck"`
 	// Represents the configuration for enabling outlier detection.
-	// Experimental.
 	OutlierDetection *OutlierDetection `json:"outlierDetection"`
 	// Port to listen for connections on.
-	// Experimental.
 	Port *float64 `json:"port"`
 	// Timeout for HTTP protocol.
-	// Experimental.
 	Timeout *HttpTimeout `json:"timeout"`
 	// Represents the configuration for enabling TLS on a listener.
-	// Experimental.
 	Tls *ListenerTlsOptions `json:"tls"`
 }
 
 // Interface for which all GatewayRoute based classes MUST implement.
-// Experimental.
 type IGatewayRoute interface {
 	awscdk.IResource
 	// The Amazon Resource Name (ARN) for the GatewayRoute.
-	// Experimental.
 	GatewayRouteArn() *string
 	// The name of the GatewayRoute.
-	// Experimental.
 	GatewayRouteName() *string
 	// The VirtualGateway the GatewayRoute belongs to.
-	// Experimental.
 	VirtualGateway() IVirtualGateway
 }
 
@@ -7580,32 +7255,26 @@ func (j *jsiiProxy_IGatewayRoute) VirtualGateway() IVirtualGateway {
 }
 
 // Interface which all Mesh based classes MUST implement.
-// Experimental.
 type IMesh interface {
 	awscdk.IResource
 	// Creates a new VirtualGateway in this Mesh.
 	//
 	// Note that the Gateway is created in the same Stack that this Mesh belongs to,
 	// which might be different than the current stack.
-	// Experimental.
 	AddVirtualGateway(id *string, props *VirtualGatewayBaseProps) VirtualGateway
 	// Creates a new VirtualNode in this Mesh.
 	//
 	// Note that the Node is created in the same Stack that this Mesh belongs to,
 	// which might be different than the current stack.
-	// Experimental.
 	AddVirtualNode(id *string, props *VirtualNodeBaseProps) VirtualNode
 	// Creates a new VirtualRouter in this Mesh.
 	//
 	// Note that the Router is created in the same Stack that this Mesh belongs to,
 	// which might be different than the current stack.
-	// Experimental.
 	AddVirtualRouter(id *string, props *VirtualRouterBaseProps) VirtualRouter
 	// The Amazon Resource Name (ARN) of the AppMesh mesh.
-	// Experimental.
 	MeshArn() *string
 	// The name of the AppMesh mesh.
-	// Experimental.
 	MeshName() *string
 }
 
@@ -7674,17 +7343,13 @@ func (j *jsiiProxy_IMesh) MeshName() *string {
 }
 
 // Interface for which all Route based classes MUST implement.
-// Experimental.
 type IRoute interface {
 	awscdk.IResource
 	// The Amazon Resource Name (ARN) for the route.
-	// Experimental.
 	RouteArn() *string
 	// The name of the route.
-	// Experimental.
 	RouteName() *string
 	// The VirtualRouter the Route belongs to.
-	// Experimental.
 	VirtualRouter() IVirtualRouter
 }
 
@@ -7724,23 +7389,17 @@ func (j *jsiiProxy_IRoute) VirtualRouter() IVirtualRouter {
 }
 
 // Interface which all Virtual Gateway based classes must implement.
-// Experimental.
 type IVirtualGateway interface {
 	awscdk.IResource
 	// Utility method to add a new GatewayRoute to the VirtualGateway.
-	// Experimental.
 	AddGatewayRoute(id *string, route *GatewayRouteBaseProps) GatewayRoute
 	// Grants the given entity `appmesh:StreamAggregatedResources`.
-	// Experimental.
 	GrantStreamAggregatedResources(identity awsiam.IGrantable) awsiam.Grant
 	// The Mesh which the VirtualGateway belongs to.
-	// Experimental.
 	Mesh() IMesh
 	// The Amazon Resource Name (ARN) for the VirtualGateway.
-	// Experimental.
 	VirtualGatewayArn() *string
 	// Name of the VirtualGateway.
-	// Experimental.
 	VirtualGatewayName() *string
 }
 
@@ -7806,24 +7465,19 @@ func (j *jsiiProxy_IVirtualGateway) VirtualGatewayName() *string {
 }
 
 // Interface which all VirtualNode based classes must implement.
-// Experimental.
 type IVirtualNode interface {
 	awscdk.IResource
 	// Grants the given entity `appmesh:StreamAggregatedResources`.
-	// Experimental.
 	GrantStreamAggregatedResources(identity awsiam.IGrantable) awsiam.Grant
 	// The Mesh which the VirtualNode belongs to.
-	// Experimental.
 	Mesh() IMesh
 	// The Amazon Resource Name belonging to the VirtualNode.
 	//
 	// Set this value as the APPMESH_VIRTUAL_NODE_NAME environment variable for
 	// your task group's Envoy proxy container in your task definition or pod
 	// spec.
-	// Experimental.
 	VirtualNodeArn() *string
 	// The name of the VirtualNode.
-	// Experimental.
 	VirtualNodeName() *string
 }
 
@@ -7876,20 +7530,15 @@ func (j *jsiiProxy_IVirtualNode) VirtualNodeName() *string {
 }
 
 // Interface which all VirtualRouter based classes MUST implement.
-// Experimental.
 type IVirtualRouter interface {
 	awscdk.IResource
 	// Add a single route to the router.
-	// Experimental.
 	AddRoute(id *string, props *RouteBaseProps) Route
 	// The Mesh which the VirtualRouter belongs to.
-	// Experimental.
 	Mesh() IMesh
 	// The Amazon Resource Name (ARN) for the VirtualRouter.
-	// Experimental.
 	VirtualRouterArn() *string
 	// The name of the VirtualRouter.
-	// Experimental.
 	VirtualRouterName() *string
 }
 
@@ -7942,17 +7591,13 @@ func (j *jsiiProxy_IVirtualRouter) VirtualRouterName() *string {
 }
 
 // Represents the interface which all VirtualService based classes MUST implement.
-// Experimental.
 type IVirtualService interface {
 	awscdk.IResource
 	// The Mesh which the VirtualService belongs to.
-	// Experimental.
 	Mesh() IMesh
 	// The Amazon Resource Name (ARN) for the virtual service.
-	// Experimental.
 	VirtualServiceArn() *string
 	// The name of the VirtualService.
-	// Experimental.
 	VirtualServiceName() *string
 }
 
@@ -7995,18 +7640,14 @@ func (j *jsiiProxy_IVirtualService) VirtualServiceName() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ListenerTlsOptions struct {
 	// Represents TLS certificate.
-	// Experimental.
 	Certificate TlsCertificate `json:"certificate"`
 	// The TLS mode.
-	// Experimental.
 	Mode TlsMode `json:"mode"`
 	// Represents a listener's TLS validation context.
 	//
 	// The client certificate will only be validated if the client provides it, enabling mutual TLS.
-	// Experimental.
 	MutualTlsValidation *MutualTlsValidation `json:"mutualTlsValidation"`
 }
 
@@ -8016,7 +7657,6 @@ type ListenerTlsOptions struct {
 //
 // See: https://docs.aws.amazon.com/app-mesh/latest/userguide/meshes.html
 //
-// Experimental.
 type Mesh interface {
 	awscdk.Resource
 	IMesh
@@ -8103,7 +7743,6 @@ func (j *jsiiProxy_Mesh) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewMesh(scope constructs.Construct, id *string, props *MeshProps) Mesh {
 	_init_.Initialize()
 
@@ -8118,7 +7757,6 @@ func NewMesh(scope constructs.Construct, id *string, props *MeshProps) Mesh {
 	return &j
 }
 
-// Experimental.
 func NewMesh_Override(m Mesh, scope constructs.Construct, id *string, props *MeshProps) {
 	_init_.Initialize()
 
@@ -8130,7 +7768,6 @@ func NewMesh_Override(m Mesh, scope constructs.Construct, id *string, props *Mes
 }
 
 // Import an existing mesh by arn.
-// Experimental.
 func Mesh_FromMeshArn(scope constructs.Construct, id *string, meshArn *string) IMesh {
 	_init_.Initialize()
 
@@ -8147,7 +7784,6 @@ func Mesh_FromMeshArn(scope constructs.Construct, id *string, meshArn *string) I
 }
 
 // Import an existing mesh by name.
-// Experimental.
 func Mesh_FromMeshName(scope constructs.Construct, id *string, meshName *string) IMesh {
 	_init_.Initialize()
 
@@ -8183,7 +7819,6 @@ func Mesh_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func Mesh_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -8200,7 +7835,6 @@ func Mesh_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Adds a VirtualGateway to the Mesh.
-// Experimental.
 func (m *jsiiProxy_Mesh) AddVirtualGateway(id *string, props *VirtualGatewayBaseProps) VirtualGateway {
 	var returns VirtualGateway
 
@@ -8215,7 +7849,6 @@ func (m *jsiiProxy_Mesh) AddVirtualGateway(id *string, props *VirtualGatewayBase
 }
 
 // Adds a VirtualNode to the Mesh.
-// Experimental.
 func (m *jsiiProxy_Mesh) AddVirtualNode(id *string, props *VirtualNodeBaseProps) VirtualNode {
 	var returns VirtualNode
 
@@ -8230,7 +7863,6 @@ func (m *jsiiProxy_Mesh) AddVirtualNode(id *string, props *VirtualNodeBaseProps)
 }
 
 // Adds a VirtualRouter to the Mesh with the given id and props.
-// Experimental.
 func (m *jsiiProxy_Mesh) AddVirtualRouter(id *string, props *VirtualRouterBaseProps) VirtualRouter {
 	var returns VirtualRouter
 
@@ -8253,7 +7885,6 @@ func (m *jsiiProxy_Mesh) AddVirtualRouter(id *string, props *VirtualRouterBasePr
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (m *jsiiProxy_Mesh) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		m,
@@ -8262,7 +7893,6 @@ func (m *jsiiProxy_Mesh) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (m *jsiiProxy_Mesh) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -8282,7 +7912,6 @@ func (m *jsiiProxy_Mesh) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (m *jsiiProxy_Mesh) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -8301,7 +7930,6 @@ func (m *jsiiProxy_Mesh) GetResourceArnAttribute(arnAttr *string, arnComponents 
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (m *jsiiProxy_Mesh) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -8316,7 +7944,6 @@ func (m *jsiiProxy_Mesh) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (m *jsiiProxy_Mesh) ToString() *string {
 	var returns *string
 
@@ -8334,7 +7961,6 @@ func (m *jsiiProxy_Mesh) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type MeshFilterType string
 
 const (
@@ -8346,13 +7972,10 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type MeshProps struct {
 	// Egress filter to be applied to the Mesh.
-	// Experimental.
 	EgressFilter MeshFilterType `json:"egressFilter"`
 	// The name of the Mesh being defined.
-	// Experimental.
 	MeshName *string `json:"meshName"`
 }
 
@@ -8360,7 +7983,6 @@ type MeshProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type MutualTlsCertificate interface {
 	TlsCertificate
 	Differentiator() *bool
@@ -8383,7 +8005,6 @@ func (j *jsiiProxy_MutualTlsCertificate) Differentiator() *bool {
 }
 
 
-// Experimental.
 func NewMutualTlsCertificate_Override(m MutualTlsCertificate) {
 	_init_.Initialize()
 
@@ -8395,7 +8016,6 @@ func NewMutualTlsCertificate_Override(m MutualTlsCertificate) {
 }
 
 // Returns an ACM TLS Certificate.
-// Experimental.
 func MutualTlsCertificate_Acm(certificate awscertificatemanager.ICertificate) TlsCertificate {
 	_init_.Initialize()
 
@@ -8412,7 +8032,6 @@ func MutualTlsCertificate_Acm(certificate awscertificatemanager.ICertificate) Tl
 }
 
 // Returns an File TLS Certificate.
-// Experimental.
 func MutualTlsCertificate_File(certificateChainPath *string, privateKeyPath *string) MutualTlsCertificate {
 	_init_.Initialize()
 
@@ -8429,7 +8048,6 @@ func MutualTlsCertificate_File(certificateChainPath *string, privateKeyPath *str
 }
 
 // Returns an SDS TLS Certificate.
-// Experimental.
 func MutualTlsCertificate_Sds(secretName *string) MutualTlsCertificate {
 	_init_.Initialize()
 
@@ -8446,7 +8064,6 @@ func MutualTlsCertificate_Sds(secretName *string) MutualTlsCertificate {
 }
 
 // Returns TLS certificate based provider.
-// Experimental.
 func (m *jsiiProxy_MutualTlsCertificate) Bind(_scope constructs.Construct) *TlsCertificateConfig {
 	var returns *TlsCertificateConfig
 
@@ -8464,15 +8081,12 @@ func (m *jsiiProxy_MutualTlsCertificate) Bind(_scope constructs.Construct) *TlsC
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type MutualTlsValidation struct {
 	// Represents the subject alternative names (SANs) secured by the certificate.
 	//
 	// SANs must be in the FQDN or URI format.
-	// Experimental.
 	SubjectAlternativeNames SubjectAlternativeNames `json:"subjectAlternativeNames"`
 	// Reference to where to retrieve the trust chain.
-	// Experimental.
 	Trust MutualTlsValidationTrust `json:"trust"`
 }
 
@@ -8480,7 +8094,6 @@ type MutualTlsValidation struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type MutualTlsValidationTrust interface {
 	TlsValidationTrust
 	Differentiator() *bool
@@ -8503,7 +8116,6 @@ func (j *jsiiProxy_MutualTlsValidationTrust) Differentiator() *bool {
 }
 
 
-// Experimental.
 func NewMutualTlsValidationTrust_Override(m MutualTlsValidationTrust) {
 	_init_.Initialize()
 
@@ -8515,7 +8127,6 @@ func NewMutualTlsValidationTrust_Override(m MutualTlsValidationTrust) {
 }
 
 // TLS Validation Context Trust for ACM Private Certificate Authority (CA).
-// Experimental.
 func MutualTlsValidationTrust_Acm(certificateAuthorities *[]awsacmpca.ICertificateAuthority) TlsValidationTrust {
 	_init_.Initialize()
 
@@ -8532,7 +8143,6 @@ func MutualTlsValidationTrust_Acm(certificateAuthorities *[]awsacmpca.ICertifica
 }
 
 // Tells envoy where to fetch the validation context from.
-// Experimental.
 func MutualTlsValidationTrust_File(certificateChain *string) MutualTlsValidationTrust {
 	_init_.Initialize()
 
@@ -8549,7 +8159,6 @@ func MutualTlsValidationTrust_File(certificateChain *string) MutualTlsValidation
 }
 
 // TLS Validation Context Trust for Envoy' service discovery service.
-// Experimental.
 func MutualTlsValidationTrust_Sds(secretName *string) MutualTlsValidationTrust {
 	_init_.Initialize()
 
@@ -8566,7 +8175,6 @@ func MutualTlsValidationTrust_Sds(secretName *string) MutualTlsValidationTrust {
 }
 
 // Returns Trust context based on trust type.
-// Experimental.
 func (m *jsiiProxy_MutualTlsValidationTrust) Bind(scope constructs.Construct) *TlsValidationTrustConfig {
 	var returns *TlsValidationTrustConfig
 
@@ -8584,22 +8192,17 @@ func (m *jsiiProxy_MutualTlsValidationTrust) Bind(scope constructs.Construct) *T
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type OutlierDetection struct {
 	// The base amount of time for which a host is ejected.
-	// Experimental.
 	BaseEjectionDuration awscdk.Duration `json:"baseEjectionDuration"`
 	// The time interval between ejection sweep analysis.
-	// Experimental.
 	Interval awscdk.Duration `json:"interval"`
 	// Maximum percentage of hosts in load balancing pool for upstream service that can be ejected.
 	//
 	// Will eject at
 	// least one host regardless of the value.
-	// Experimental.
 	MaxEjectionPercent *float64 `json:"maxEjectionPercent"`
 	// Number of consecutive 5xx errors required for ejection.
-	// Experimental.
 	MaxServerErrors *float64 `json:"maxServerErrors"`
 }
 
@@ -8607,7 +8210,6 @@ type OutlierDetection struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type QueryParameterMatch interface {
 	Bind(scope constructs.Construct) *QueryParameterMatchConfig
 }
@@ -8617,7 +8219,6 @@ type jsiiProxy_QueryParameterMatch struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewQueryParameterMatch_Override(q QueryParameterMatch) {
 	_init_.Initialize()
 
@@ -8629,7 +8230,6 @@ func NewQueryParameterMatch_Override(q QueryParameterMatch) {
 }
 
 // The value of the query parameter with the given name in the request must match the specified value exactly.
-// Experimental.
 func QueryParameterMatch_ValueIs(queryParameterName *string, queryParameterValue *string) QueryParameterMatch {
 	_init_.Initialize()
 
@@ -8646,7 +8246,6 @@ func QueryParameterMatch_ValueIs(queryParameterName *string, queryParameterValue
 }
 
 // Returns the query parameter match configuration.
-// Experimental.
 func (q *jsiiProxy_QueryParameterMatch) Bind(scope constructs.Construct) *QueryParameterMatchConfig {
 	var returns *QueryParameterMatchConfig
 
@@ -8664,10 +8263,8 @@ func (q *jsiiProxy_QueryParameterMatch) Bind(scope constructs.Construct) *QueryP
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type QueryParameterMatchConfig struct {
 	// Route CFN configuration for route query parameter match.
-	// Experimental.
 	QueryParameterMatch *CfnRoute_QueryParameterProperty `json:"queryParameterMatch"`
 }
 
@@ -8677,7 +8274,6 @@ type QueryParameterMatchConfig struct {
 //
 // See: https://docs.aws.amazon.com/app-mesh/latest/userguide/routes.html
 //
-// Experimental.
 type Route interface {
 	awscdk.Resource
 	IRoute
@@ -8772,7 +8368,6 @@ func (j *jsiiProxy_Route) VirtualRouter() IVirtualRouter {
 }
 
 
-// Experimental.
 func NewRoute(scope constructs.Construct, id *string, props *RouteProps) Route {
 	_init_.Initialize()
 
@@ -8787,7 +8382,6 @@ func NewRoute(scope constructs.Construct, id *string, props *RouteProps) Route {
 	return &j
 }
 
-// Experimental.
 func NewRoute_Override(r Route, scope constructs.Construct, id *string, props *RouteProps) {
 	_init_.Initialize()
 
@@ -8799,7 +8393,6 @@ func NewRoute_Override(r Route, scope constructs.Construct, id *string, props *R
 }
 
 // Import an existing Route given an ARN.
-// Experimental.
 func Route_FromRouteArn(scope constructs.Construct, id *string, routeArn *string) IRoute {
 	_init_.Initialize()
 
@@ -8816,7 +8409,6 @@ func Route_FromRouteArn(scope constructs.Construct, id *string, routeArn *string
 }
 
 // Import an existing Route given attributes.
-// Experimental.
 func Route_FromRouteAttributes(scope constructs.Construct, id *string, attrs *RouteAttributes) IRoute {
 	_init_.Initialize()
 
@@ -8852,7 +8444,6 @@ func Route_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func Route_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -8877,7 +8468,6 @@ func Route_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (r *jsiiProxy_Route) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		r,
@@ -8886,7 +8476,6 @@ func (r *jsiiProxy_Route) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (r *jsiiProxy_Route) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -8906,7 +8495,6 @@ func (r *jsiiProxy_Route) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (r *jsiiProxy_Route) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -8925,7 +8513,6 @@ func (r *jsiiProxy_Route) GetResourceArnAttribute(arnAttr *string, arnComponents
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (r *jsiiProxy_Route) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -8940,7 +8527,6 @@ func (r *jsiiProxy_Route) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (r *jsiiProxy_Route) ToString() *string {
 	var returns *string
 
@@ -8958,13 +8544,10 @@ func (r *jsiiProxy_Route) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RouteAttributes struct {
 	// The name of the Route.
-	// Experimental.
 	RouteName *string `json:"routeName"`
 	// The VirtualRouter the Route belongs to.
-	// Experimental.
 	VirtualRouter IVirtualRouter `json:"virtualRouter"`
 }
 
@@ -8972,13 +8555,10 @@ type RouteAttributes struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RouteBaseProps struct {
 	// The name of the route.
-	// Experimental.
 	RouteName *string `json:"routeName"`
 	// Protocol specific spec.
-	// Experimental.
 	RouteSpec RouteSpec `json:"routeSpec"`
 }
 
@@ -8986,19 +8566,14 @@ type RouteBaseProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RouteProps struct {
 	// The name of the route.
-	// Experimental.
 	RouteName *string `json:"routeName"`
 	// Protocol specific spec.
-	// Experimental.
 	RouteSpec RouteSpec `json:"routeSpec"`
 	// The service mesh to define the route in.
-	// Experimental.
 	Mesh IMesh `json:"mesh"`
 	// The VirtualRouter the Route belongs to.
-	// Experimental.
 	VirtualRouter IVirtualRouter `json:"virtualRouter"`
 }
 
@@ -9006,7 +8581,6 @@ type RouteProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RouteSpec interface {
 	Bind(scope constructs.Construct) *RouteSpecConfig
 }
@@ -9016,7 +8590,6 @@ type jsiiProxy_RouteSpec struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewRouteSpec_Override(r RouteSpec) {
 	_init_.Initialize()
 
@@ -9028,7 +8601,6 @@ func NewRouteSpec_Override(r RouteSpec) {
 }
 
 // Creates a GRPC Based RouteSpec.
-// Experimental.
 func RouteSpec_Grpc(options *GrpcRouteSpecOptions) RouteSpec {
 	_init_.Initialize()
 
@@ -9045,7 +8617,6 @@ func RouteSpec_Grpc(options *GrpcRouteSpecOptions) RouteSpec {
 }
 
 // Creates an HTTP Based RouteSpec.
-// Experimental.
 func RouteSpec_Http(options *HttpRouteSpecOptions) RouteSpec {
 	_init_.Initialize()
 
@@ -9062,7 +8633,6 @@ func RouteSpec_Http(options *HttpRouteSpecOptions) RouteSpec {
 }
 
 // Creates an HTTP2 Based RouteSpec.
-// Experimental.
 func RouteSpec_Http2(options *HttpRouteSpecOptions) RouteSpec {
 	_init_.Initialize()
 
@@ -9079,7 +8649,6 @@ func RouteSpec_Http2(options *HttpRouteSpecOptions) RouteSpec {
 }
 
 // Creates a TCP Based RouteSpec.
-// Experimental.
 func RouteSpec_Tcp(options *TcpRouteSpecOptions) RouteSpec {
 	_init_.Initialize()
 
@@ -9099,7 +8668,6 @@ func RouteSpec_Tcp(options *TcpRouteSpecOptions) RouteSpec {
 //
 // Can be used to enforce
 // mutual exclusivity with future properties
-// Experimental.
 func (r *jsiiProxy_RouteSpec) Bind(scope constructs.Construct) *RouteSpecConfig {
 	var returns *RouteSpecConfig
 
@@ -9117,25 +8685,19 @@ func (r *jsiiProxy_RouteSpec) Bind(scope constructs.Construct) *RouteSpecConfig 
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RouteSpecConfig struct {
 	// The spec for a grpc route.
-	// Experimental.
 	GrpcRouteSpec *CfnRoute_GrpcRouteProperty `json:"grpcRouteSpec"`
 	// The spec for an http2 route.
-	// Experimental.
 	Http2RouteSpec *CfnRoute_HttpRouteProperty `json:"http2RouteSpec"`
 	// The spec for an http route.
-	// Experimental.
 	HttpRouteSpec *CfnRoute_HttpRouteProperty `json:"httpRouteSpec"`
 	// The priority for the route.
 	//
 	// Routes are matched based on the specified
 	// value, where 0 is the highest priority.
-	// Experimental.
 	Priority *float64 `json:"priority"`
 	// The spec for a tcp route.
-	// Experimental.
 	TcpRouteSpec *CfnRoute_TcpRouteProperty `json:"tcpRouteSpec"`
 }
 
@@ -9143,13 +8705,11 @@ type RouteSpecConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RouteSpecOptionsBase struct {
 	// The priority for the route.
 	//
 	// Routes are matched based on the specified
 	// value, where 0 is the highest priority.
-	// Experimental.
 	Priority *float64 `json:"priority"`
 }
 
@@ -9157,7 +8717,6 @@ type RouteSpecOptionsBase struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ServiceDiscovery interface {
 	Bind(scope constructs.Construct) *ServiceDiscoveryConfig
 }
@@ -9167,7 +8726,6 @@ type jsiiProxy_ServiceDiscovery struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewServiceDiscovery_Override(s ServiceDiscovery) {
 	_init_.Initialize()
 
@@ -9179,7 +8737,6 @@ func NewServiceDiscovery_Override(s ServiceDiscovery) {
 }
 
 // Returns Cloud Map based service discovery.
-// Experimental.
 func ServiceDiscovery_CloudMap(service awsservicediscovery.IService, instanceAttributes *map[string]*string) ServiceDiscovery {
 	_init_.Initialize()
 
@@ -9196,7 +8753,6 @@ func ServiceDiscovery_CloudMap(service awsservicediscovery.IService, instanceAtt
 }
 
 // Returns DNS based service discovery.
-// Experimental.
 func ServiceDiscovery_Dns(hostname *string, responseType DnsResponseType) ServiceDiscovery {
 	_init_.Initialize()
 
@@ -9213,7 +8769,6 @@ func ServiceDiscovery_Dns(hostname *string, responseType DnsResponseType) Servic
 }
 
 // Binds the current object when adding Service Discovery to a VirtualNode.
-// Experimental.
 func (s *jsiiProxy_ServiceDiscovery) Bind(scope constructs.Construct) *ServiceDiscoveryConfig {
 	var returns *ServiceDiscoveryConfig
 
@@ -9231,13 +8786,10 @@ func (s *jsiiProxy_ServiceDiscovery) Bind(scope constructs.Construct) *ServiceDi
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ServiceDiscoveryConfig struct {
 	// Cloud Map based Service Discovery.
-	// Experimental.
 	Cloudmap *CfnVirtualNode_AwsCloudMapServiceDiscoveryProperty `json:"cloudmap"`
 	// DNS based Service Discovery.
-	// Experimental.
 	Dns *CfnVirtualNode_DnsServiceDiscoveryProperty `json:"dns"`
 }
 
@@ -9245,7 +8797,6 @@ type ServiceDiscoveryConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SubjectAlternativeNames interface {
 	Bind(scope constructs.Construct) *SubjectAlternativeNamesMatcherConfig
 }
@@ -9255,7 +8806,6 @@ type jsiiProxy_SubjectAlternativeNames struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewSubjectAlternativeNames_Override(s SubjectAlternativeNames) {
 	_init_.Initialize()
 
@@ -9267,7 +8817,6 @@ func NewSubjectAlternativeNames_Override(s SubjectAlternativeNames) {
 }
 
 // The values of the SAN must match the specified values exactly.
-// Experimental.
 func SubjectAlternativeNames_MatchingExactly(names ...*string) SubjectAlternativeNames {
 	_init_.Initialize()
 
@@ -9289,7 +8838,6 @@ func SubjectAlternativeNames_MatchingExactly(names ...*string) SubjectAlternativ
 }
 
 // Returns Subject Alternative Names Matcher based on method type.
-// Experimental.
 func (s *jsiiProxy_SubjectAlternativeNames) Bind(scope constructs.Construct) *SubjectAlternativeNamesMatcherConfig {
 	var returns *SubjectAlternativeNamesMatcherConfig
 
@@ -9307,10 +8855,8 @@ func (s *jsiiProxy_SubjectAlternativeNames) Bind(scope constructs.Construct) *Su
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SubjectAlternativeNamesMatcherConfig struct {
 	// VirtualNode CFN configuration for subject alternative names secured by the certificate.
-	// Experimental.
 	SubjectAlternativeNamesMatch *CfnVirtualNode_SubjectAlternativeNameMatchersProperty `json:"subjectAlternativeNamesMatch"`
 }
 
@@ -9318,10 +8864,8 @@ type SubjectAlternativeNamesMatcherConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TcpConnectionPool struct {
 	// The maximum connections in the pool.
-	// Experimental.
 	MaxConnections *float64 `json:"maxConnections"`
 }
 
@@ -9329,24 +8873,18 @@ type TcpConnectionPool struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TcpHealthCheckOptions struct {
 	// The number of consecutive successful health checks that must occur before declaring listener healthy.
-	// Experimental.
 	HealthyThreshold *float64 `json:"healthyThreshold"`
 	// The time period between each health check execution.
-	// Experimental.
 	Interval awscdk.Duration `json:"interval"`
 	// The amount of time to wait when receiving a response from the health check.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
 	// The number of consecutive failed health checks that must occur before declaring a listener unhealthy.
-	// Experimental.
 	UnhealthyThreshold *float64 `json:"unhealthyThreshold"`
 }
 
 // TCP events on which you may retry.
-// Experimental.
 type TcpRetryEvent string
 
 const (
@@ -9357,19 +8895,15 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TcpRouteSpecOptions struct {
 	// The priority for the route.
 	//
 	// Routes are matched based on the specified
 	// value, where 0 is the highest priority.
-	// Experimental.
 	Priority *float64 `json:"priority"`
 	// An object that represents a tcp timeout.
-	// Experimental.
 	Timeout *TcpTimeout `json:"timeout"`
 	// List of targets that traffic is routed to when a request matches the route.
-	// Experimental.
 	WeightedTargets *[]*WeightedTarget `json:"weightedTargets"`
 }
 
@@ -9377,12 +8911,10 @@ type TcpRouteSpecOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TcpTimeout struct {
 	// Represents an idle timeout.
 	//
 	// The amount of time that a connection may be idle.
-	// Experimental.
 	Idle awscdk.Duration `json:"idle"`
 }
 
@@ -9390,25 +8922,18 @@ type TcpTimeout struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TcpVirtualNodeListenerOptions struct {
 	// Connection pool for http listeners.
-	// Experimental.
 	ConnectionPool *TcpConnectionPool `json:"connectionPool"`
 	// The health check information for the listener.
-	// Experimental.
 	HealthCheck HealthCheck `json:"healthCheck"`
 	// Represents the configuration for enabling outlier detection.
-	// Experimental.
 	OutlierDetection *OutlierDetection `json:"outlierDetection"`
 	// Port to listen for connections on.
-	// Experimental.
 	Port *float64 `json:"port"`
 	// Timeout for TCP protocol.
-	// Experimental.
 	Timeout *TcpTimeout `json:"timeout"`
 	// Represents the configuration for enabling TLS on a listener.
-	// Experimental.
 	Tls *ListenerTlsOptions `json:"tls"`
 }
 
@@ -9416,7 +8941,6 @@ type TcpVirtualNodeListenerOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TlsCertificate interface {
 	Bind(_scope constructs.Construct) *TlsCertificateConfig
 }
@@ -9426,7 +8950,6 @@ type jsiiProxy_TlsCertificate struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewTlsCertificate_Override(t TlsCertificate) {
 	_init_.Initialize()
 
@@ -9438,7 +8961,6 @@ func NewTlsCertificate_Override(t TlsCertificate) {
 }
 
 // Returns an ACM TLS Certificate.
-// Experimental.
 func TlsCertificate_Acm(certificate awscertificatemanager.ICertificate) TlsCertificate {
 	_init_.Initialize()
 
@@ -9455,7 +8977,6 @@ func TlsCertificate_Acm(certificate awscertificatemanager.ICertificate) TlsCerti
 }
 
 // Returns an File TLS Certificate.
-// Experimental.
 func TlsCertificate_File(certificateChainPath *string, privateKeyPath *string) MutualTlsCertificate {
 	_init_.Initialize()
 
@@ -9472,7 +8993,6 @@ func TlsCertificate_File(certificateChainPath *string, privateKeyPath *string) M
 }
 
 // Returns an SDS TLS Certificate.
-// Experimental.
 func TlsCertificate_Sds(secretName *string) MutualTlsCertificate {
 	_init_.Initialize()
 
@@ -9489,7 +9009,6 @@ func TlsCertificate_Sds(secretName *string) MutualTlsCertificate {
 }
 
 // Returns TLS certificate based provider.
-// Experimental.
 func (t *jsiiProxy_TlsCertificate) Bind(_scope constructs.Construct) *TlsCertificateConfig {
 	var returns *TlsCertificateConfig
 
@@ -9507,10 +9026,8 @@ func (t *jsiiProxy_TlsCertificate) Bind(_scope constructs.Construct) *TlsCertifi
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TlsCertificateConfig struct {
 	// The CFN shape for a TLS certificate.
-	// Experimental.
 	TlsCertificate *CfnVirtualNode_ListenerTlsCertificateProperty `json:"tlsCertificate"`
 }
 
@@ -9518,23 +9035,18 @@ type TlsCertificateConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TlsClientPolicy struct {
 	// Whether the policy is enforced.
-	// Experimental.
 	Enforce *bool `json:"enforce"`
 	// Represents a client TLS certificate.
 	//
 	// The certificate will be sent only if the server requests it, enabling mutual TLS.
-	// Experimental.
 	MutualTlsCertificate MutualTlsCertificate `json:"mutualTlsCertificate"`
 	// TLS is enforced on the ports specified here.
 	//
 	// If no ports are specified, TLS will be enforced on all the ports.
-	// Experimental.
 	Ports *[]*float64 `json:"ports"`
 	// Represents the object for TLS validation context.
-	// Experimental.
 	Validation *TlsValidation `json:"validation"`
 }
 
@@ -9542,7 +9054,6 @@ type TlsClientPolicy struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TlsMode string
 
 const (
@@ -9555,15 +9066,12 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TlsValidation struct {
 	// Represents the subject alternative names (SANs) secured by the certificate.
 	//
 	// SANs must be in the FQDN or URI format.
-	// Experimental.
 	SubjectAlternativeNames SubjectAlternativeNames `json:"subjectAlternativeNames"`
 	// Reference to where to retrieve the trust chain.
-	// Experimental.
 	Trust TlsValidationTrust `json:"trust"`
 }
 
@@ -9571,7 +9079,6 @@ type TlsValidation struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TlsValidationTrust interface {
 	Bind(scope constructs.Construct) *TlsValidationTrustConfig
 }
@@ -9581,7 +9088,6 @@ type jsiiProxy_TlsValidationTrust struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewTlsValidationTrust_Override(t TlsValidationTrust) {
 	_init_.Initialize()
 
@@ -9593,7 +9099,6 @@ func NewTlsValidationTrust_Override(t TlsValidationTrust) {
 }
 
 // TLS Validation Context Trust for ACM Private Certificate Authority (CA).
-// Experimental.
 func TlsValidationTrust_Acm(certificateAuthorities *[]awsacmpca.ICertificateAuthority) TlsValidationTrust {
 	_init_.Initialize()
 
@@ -9610,7 +9115,6 @@ func TlsValidationTrust_Acm(certificateAuthorities *[]awsacmpca.ICertificateAuth
 }
 
 // Tells envoy where to fetch the validation context from.
-// Experimental.
 func TlsValidationTrust_File(certificateChain *string) MutualTlsValidationTrust {
 	_init_.Initialize()
 
@@ -9627,7 +9131,6 @@ func TlsValidationTrust_File(certificateChain *string) MutualTlsValidationTrust 
 }
 
 // TLS Validation Context Trust for Envoy' service discovery service.
-// Experimental.
 func TlsValidationTrust_Sds(secretName *string) MutualTlsValidationTrust {
 	_init_.Initialize()
 
@@ -9644,7 +9147,6 @@ func TlsValidationTrust_Sds(secretName *string) MutualTlsValidationTrust {
 }
 
 // Returns Trust context based on trust type.
-// Experimental.
 func (t *jsiiProxy_TlsValidationTrust) Bind(scope constructs.Construct) *TlsValidationTrustConfig {
 	var returns *TlsValidationTrustConfig
 
@@ -9662,10 +9164,8 @@ func (t *jsiiProxy_TlsValidationTrust) Bind(scope constructs.Construct) *TlsVali
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TlsValidationTrustConfig struct {
 	// VirtualNode CFN configuration for client policy's TLS Validation Trust.
-	// Experimental.
 	TlsValidationTrust *CfnVirtualNode_TlsValidationContextTrustProperty `json:"tlsValidationTrust"`
 }
 
@@ -9678,7 +9178,6 @@ type TlsValidationTrustConfig struct {
 //
 // See: https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_gateways.html
 //
-// Experimental.
 type VirtualGateway interface {
 	awscdk.Resource
 	IVirtualGateway
@@ -9786,7 +9285,6 @@ func (j *jsiiProxy_VirtualGateway) VirtualGatewayName() *string {
 }
 
 
-// Experimental.
 func NewVirtualGateway(scope constructs.Construct, id *string, props *VirtualGatewayProps) VirtualGateway {
 	_init_.Initialize()
 
@@ -9801,7 +9299,6 @@ func NewVirtualGateway(scope constructs.Construct, id *string, props *VirtualGat
 	return &j
 }
 
-// Experimental.
 func NewVirtualGateway_Override(v VirtualGateway, scope constructs.Construct, id *string, props *VirtualGatewayProps) {
 	_init_.Initialize()
 
@@ -9813,7 +9310,6 @@ func NewVirtualGateway_Override(v VirtualGateway, scope constructs.Construct, id
 }
 
 // Import an existing VirtualGateway given an ARN.
-// Experimental.
 func VirtualGateway_FromVirtualGatewayArn(scope constructs.Construct, id *string, virtualGatewayArn *string) IVirtualGateway {
 	_init_.Initialize()
 
@@ -9830,7 +9326,6 @@ func VirtualGateway_FromVirtualGatewayArn(scope constructs.Construct, id *string
 }
 
 // Import an existing VirtualGateway given its attributes.
-// Experimental.
 func VirtualGateway_FromVirtualGatewayAttributes(scope constructs.Construct, id *string, attrs *VirtualGatewayAttributes) IVirtualGateway {
 	_init_.Initialize()
 
@@ -9866,7 +9361,6 @@ func VirtualGateway_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func VirtualGateway_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -9883,7 +9377,6 @@ func VirtualGateway_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Utility method to add a new GatewayRoute to the VirtualGateway.
-// Experimental.
 func (v *jsiiProxy_VirtualGateway) AddGatewayRoute(id *string, props *GatewayRouteBaseProps) GatewayRoute {
 	var returns GatewayRoute
 
@@ -9906,7 +9399,6 @@ func (v *jsiiProxy_VirtualGateway) AddGatewayRoute(id *string, props *GatewayRou
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (v *jsiiProxy_VirtualGateway) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		v,
@@ -9915,7 +9407,6 @@ func (v *jsiiProxy_VirtualGateway) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 	)
 }
 
-// Experimental.
 func (v *jsiiProxy_VirtualGateway) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -9935,7 +9426,6 @@ func (v *jsiiProxy_VirtualGateway) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (v *jsiiProxy_VirtualGateway) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -9954,7 +9444,6 @@ func (v *jsiiProxy_VirtualGateway) GetResourceArnAttribute(arnAttr *string, arnC
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (v *jsiiProxy_VirtualGateway) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -9969,7 +9458,6 @@ func (v *jsiiProxy_VirtualGateway) GetResourceNameAttribute(nameAttr *string) *s
 }
 
 // Grants the given entity `appmesh:StreamAggregatedResources`.
-// Experimental.
 func (v *jsiiProxy_VirtualGateway) GrantStreamAggregatedResources(identity awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -9984,7 +9472,6 @@ func (v *jsiiProxy_VirtualGateway) GrantStreamAggregatedResources(identity awsia
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (v *jsiiProxy_VirtualGateway) ToString() *string {
 	var returns *string
 
@@ -10002,13 +9489,10 @@ func (v *jsiiProxy_VirtualGateway) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VirtualGatewayAttributes struct {
 	// The Mesh that the VirtualGateway belongs to.
-	// Experimental.
 	Mesh IMesh `json:"mesh"`
 	// The name of the VirtualGateway.
-	// Experimental.
 	VirtualGatewayName *string `json:"virtualGatewayName"`
 }
 
@@ -10016,21 +9500,16 @@ type VirtualGatewayAttributes struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VirtualGatewayBaseProps struct {
 	// Access Logging Configuration for the VirtualGateway.
-	// Experimental.
 	AccessLog AccessLog `json:"accessLog"`
 	// Default Configuration Virtual Node uses to communicate with Virtual Service.
-	// Experimental.
 	BackendDefaults *BackendDefaults `json:"backendDefaults"`
 	// Listeners for the VirtualGateway.
 	//
 	// Only one is supported.
-	// Experimental.
 	Listeners *[]VirtualGatewayListener `json:"listeners"`
 	// Name of the VirtualGateway.
-	// Experimental.
 	VirtualGatewayName *string `json:"virtualGatewayName"`
 }
 
@@ -10038,7 +9517,6 @@ type VirtualGatewayBaseProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VirtualGatewayListener interface {
 	Bind(scope constructs.Construct) *VirtualGatewayListenerConfig
 }
@@ -10048,7 +9526,6 @@ type jsiiProxy_VirtualGatewayListener struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewVirtualGatewayListener_Override(v VirtualGatewayListener) {
 	_init_.Initialize()
 
@@ -10060,7 +9537,6 @@ func NewVirtualGatewayListener_Override(v VirtualGatewayListener) {
 }
 
 // Returns a GRPC Listener for a VirtualGateway.
-// Experimental.
 func VirtualGatewayListener_Grpc(options *GrpcGatewayListenerOptions) VirtualGatewayListener {
 	_init_.Initialize()
 
@@ -10077,7 +9553,6 @@ func VirtualGatewayListener_Grpc(options *GrpcGatewayListenerOptions) VirtualGat
 }
 
 // Returns an HTTP Listener for a VirtualGateway.
-// Experimental.
 func VirtualGatewayListener_Http(options *HttpGatewayListenerOptions) VirtualGatewayListener {
 	_init_.Initialize()
 
@@ -10094,7 +9569,6 @@ func VirtualGatewayListener_Http(options *HttpGatewayListenerOptions) VirtualGat
 }
 
 // Returns an HTTP2 Listener for a VirtualGateway.
-// Experimental.
 func VirtualGatewayListener_Http2(options *Http2GatewayListenerOptions) VirtualGatewayListener {
 	_init_.Initialize()
 
@@ -10114,7 +9588,6 @@ func VirtualGatewayListener_Http2(options *Http2GatewayListenerOptions) VirtualG
 //
 // Can be used to enforce
 // mutual exclusivity
-// Experimental.
 func (v *jsiiProxy_VirtualGatewayListener) Bind(scope constructs.Construct) *VirtualGatewayListenerConfig {
 	var returns *VirtualGatewayListenerConfig
 
@@ -10132,10 +9605,8 @@ func (v *jsiiProxy_VirtualGatewayListener) Bind(scope constructs.Construct) *Vir
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VirtualGatewayListenerConfig struct {
 	// Single listener config for a VirtualGateway.
-	// Experimental.
 	Listener *CfnVirtualGateway_VirtualGatewayListenerProperty `json:"listener"`
 }
 
@@ -10143,24 +9614,18 @@ type VirtualGatewayListenerConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VirtualGatewayProps struct {
 	// Access Logging Configuration for the VirtualGateway.
-	// Experimental.
 	AccessLog AccessLog `json:"accessLog"`
 	// Default Configuration Virtual Node uses to communicate with Virtual Service.
-	// Experimental.
 	BackendDefaults *BackendDefaults `json:"backendDefaults"`
 	// Listeners for the VirtualGateway.
 	//
 	// Only one is supported.
-	// Experimental.
 	Listeners *[]VirtualGatewayListener `json:"listeners"`
 	// Name of the VirtualGateway.
-	// Experimental.
 	VirtualGatewayName *string `json:"virtualGatewayName"`
 	// The Mesh which the VirtualGateway belongs to.
-	// Experimental.
 	Mesh IMesh `json:"mesh"`
 }
 
@@ -10174,7 +9639,6 @@ type VirtualGatewayProps struct {
 //
 // See: https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_nodes.html
 //
-// Experimental.
 type VirtualNode interface {
 	awscdk.Resource
 	IVirtualNode
@@ -10272,7 +9736,6 @@ func (j *jsiiProxy_VirtualNode) VirtualNodeName() *string {
 }
 
 
-// Experimental.
 func NewVirtualNode(scope constructs.Construct, id *string, props *VirtualNodeProps) VirtualNode {
 	_init_.Initialize()
 
@@ -10287,7 +9750,6 @@ func NewVirtualNode(scope constructs.Construct, id *string, props *VirtualNodePr
 	return &j
 }
 
-// Experimental.
 func NewVirtualNode_Override(v VirtualNode, scope constructs.Construct, id *string, props *VirtualNodeProps) {
 	_init_.Initialize()
 
@@ -10299,7 +9761,6 @@ func NewVirtualNode_Override(v VirtualNode, scope constructs.Construct, id *stri
 }
 
 // Import an existing VirtualNode given an ARN.
-// Experimental.
 func VirtualNode_FromVirtualNodeArn(scope constructs.Construct, id *string, virtualNodeArn *string) IVirtualNode {
 	_init_.Initialize()
 
@@ -10316,7 +9777,6 @@ func VirtualNode_FromVirtualNodeArn(scope constructs.Construct, id *string, virt
 }
 
 // Import an existing VirtualNode given its name.
-// Experimental.
 func VirtualNode_FromVirtualNodeAttributes(scope constructs.Construct, id *string, attrs *VirtualNodeAttributes) IVirtualNode {
 	_init_.Initialize()
 
@@ -10352,7 +9812,6 @@ func VirtualNode_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func VirtualNode_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -10369,7 +9828,6 @@ func VirtualNode_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Add a Virtual Services that this node is expected to send outbound traffic to.
-// Experimental.
 func (v *jsiiProxy_VirtualNode) AddBackend(backend Backend) {
 	_jsii_.InvokeVoid(
 		v,
@@ -10386,7 +9844,6 @@ func (v *jsiiProxy_VirtualNode) AddBackend(backend Backend) {
 // on Virtual Nodes and Virtual Routers.
 // See: https://github.com/aws/aws-app-mesh-roadmap/issues/120
 //
-// Experimental.
 func (v *jsiiProxy_VirtualNode) AddListener(listener VirtualNodeListener) {
 	_jsii_.InvokeVoid(
 		v,
@@ -10404,7 +9861,6 @@ func (v *jsiiProxy_VirtualNode) AddListener(listener VirtualNodeListener) {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (v *jsiiProxy_VirtualNode) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		v,
@@ -10413,7 +9869,6 @@ func (v *jsiiProxy_VirtualNode) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) 
 	)
 }
 
-// Experimental.
 func (v *jsiiProxy_VirtualNode) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -10433,7 +9888,6 @@ func (v *jsiiProxy_VirtualNode) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (v *jsiiProxy_VirtualNode) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -10452,7 +9906,6 @@ func (v *jsiiProxy_VirtualNode) GetResourceArnAttribute(arnAttr *string, arnComp
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (v *jsiiProxy_VirtualNode) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -10467,7 +9920,6 @@ func (v *jsiiProxy_VirtualNode) GetResourceNameAttribute(nameAttr *string) *stri
 }
 
 // Grants the given entity `appmesh:StreamAggregatedResources`.
-// Experimental.
 func (v *jsiiProxy_VirtualNode) GrantStreamAggregatedResources(identity awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -10482,7 +9934,6 @@ func (v *jsiiProxy_VirtualNode) GrantStreamAggregatedResources(identity awsiam.I
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (v *jsiiProxy_VirtualNode) ToString() *string {
 	var returns *string
 
@@ -10500,13 +9951,10 @@ func (v *jsiiProxy_VirtualNode) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VirtualNodeAttributes struct {
 	// The Mesh that the VirtualNode belongs to.
-	// Experimental.
 	Mesh IMesh `json:"mesh"`
 	// The name of the VirtualNode.
-	// Experimental.
 	VirtualNodeName *string `json:"virtualNodeName"`
 }
 
@@ -10514,25 +9962,18 @@ type VirtualNodeAttributes struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VirtualNodeBaseProps struct {
 	// Access Logging Configuration for the virtual node.
-	// Experimental.
 	AccessLog AccessLog `json:"accessLog"`
 	// Default Configuration Virtual Node uses to communicate with Virtual Service.
-	// Experimental.
 	BackendDefaults *BackendDefaults `json:"backendDefaults"`
 	// Virtual Services that this is node expected to send outbound traffic to.
-	// Experimental.
 	Backends *[]Backend `json:"backends"`
 	// Initial listener for the virtual node.
-	// Experimental.
 	Listeners *[]VirtualNodeListener `json:"listeners"`
 	// Defines how upstream clients will discover this VirtualNode.
-	// Experimental.
 	ServiceDiscovery ServiceDiscovery `json:"serviceDiscovery"`
 	// The name of the VirtualNode.
-	// Experimental.
 	VirtualNodeName *string `json:"virtualNodeName"`
 }
 
@@ -10540,7 +9981,6 @@ type VirtualNodeBaseProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VirtualNodeListener interface {
 	Bind(scope constructs.Construct) *VirtualNodeListenerConfig
 }
@@ -10550,7 +9990,6 @@ type jsiiProxy_VirtualNodeListener struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewVirtualNodeListener_Override(v VirtualNodeListener) {
 	_init_.Initialize()
 
@@ -10562,7 +10001,6 @@ func NewVirtualNodeListener_Override(v VirtualNodeListener) {
 }
 
 // Returns an GRPC Listener for a VirtualNode.
-// Experimental.
 func VirtualNodeListener_Grpc(props *GrpcVirtualNodeListenerOptions) VirtualNodeListener {
 	_init_.Initialize()
 
@@ -10579,7 +10017,6 @@ func VirtualNodeListener_Grpc(props *GrpcVirtualNodeListenerOptions) VirtualNode
 }
 
 // Returns an HTTP Listener for a VirtualNode.
-// Experimental.
 func VirtualNodeListener_Http(props *HttpVirtualNodeListenerOptions) VirtualNodeListener {
 	_init_.Initialize()
 
@@ -10596,7 +10033,6 @@ func VirtualNodeListener_Http(props *HttpVirtualNodeListenerOptions) VirtualNode
 }
 
 // Returns an HTTP2 Listener for a VirtualNode.
-// Experimental.
 func VirtualNodeListener_Http2(props *Http2VirtualNodeListenerOptions) VirtualNodeListener {
 	_init_.Initialize()
 
@@ -10613,7 +10049,6 @@ func VirtualNodeListener_Http2(props *Http2VirtualNodeListenerOptions) VirtualNo
 }
 
 // Returns an TCP Listener for a VirtualNode.
-// Experimental.
 func VirtualNodeListener_Tcp(props *TcpVirtualNodeListenerOptions) VirtualNodeListener {
 	_init_.Initialize()
 
@@ -10630,7 +10065,6 @@ func VirtualNodeListener_Tcp(props *TcpVirtualNodeListenerOptions) VirtualNodeLi
 }
 
 // Binds the current object when adding Listener to a VirtualNode.
-// Experimental.
 func (v *jsiiProxy_VirtualNodeListener) Bind(scope constructs.Construct) *VirtualNodeListenerConfig {
 	var returns *VirtualNodeListenerConfig
 
@@ -10648,10 +10082,8 @@ func (v *jsiiProxy_VirtualNodeListener) Bind(scope constructs.Construct) *Virtua
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VirtualNodeListenerConfig struct {
 	// Single listener config for a VirtualNode.
-	// Experimental.
 	Listener *CfnVirtualNode_ListenerProperty `json:"listener"`
 }
 
@@ -10659,34 +10091,25 @@ type VirtualNodeListenerConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VirtualNodeProps struct {
 	// Access Logging Configuration for the virtual node.
-	// Experimental.
 	AccessLog AccessLog `json:"accessLog"`
 	// Default Configuration Virtual Node uses to communicate with Virtual Service.
-	// Experimental.
 	BackendDefaults *BackendDefaults `json:"backendDefaults"`
 	// Virtual Services that this is node expected to send outbound traffic to.
-	// Experimental.
 	Backends *[]Backend `json:"backends"`
 	// Initial listener for the virtual node.
-	// Experimental.
 	Listeners *[]VirtualNodeListener `json:"listeners"`
 	// Defines how upstream clients will discover this VirtualNode.
-	// Experimental.
 	ServiceDiscovery ServiceDiscovery `json:"serviceDiscovery"`
 	// The name of the VirtualNode.
-	// Experimental.
 	VirtualNodeName *string `json:"virtualNodeName"`
 	// The Mesh which the VirtualNode belongs to.
-	// Experimental.
 	Mesh IMesh `json:"mesh"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type VirtualRouter interface {
 	awscdk.Resource
 	IVirtualRouter
@@ -10782,7 +10205,6 @@ func (j *jsiiProxy_VirtualRouter) VirtualRouterName() *string {
 }
 
 
-// Experimental.
 func NewVirtualRouter(scope constructs.Construct, id *string, props *VirtualRouterProps) VirtualRouter {
 	_init_.Initialize()
 
@@ -10797,7 +10219,6 @@ func NewVirtualRouter(scope constructs.Construct, id *string, props *VirtualRout
 	return &j
 }
 
-// Experimental.
 func NewVirtualRouter_Override(v VirtualRouter, scope constructs.Construct, id *string, props *VirtualRouterProps) {
 	_init_.Initialize()
 
@@ -10809,7 +10230,6 @@ func NewVirtualRouter_Override(v VirtualRouter, scope constructs.Construct, id *
 }
 
 // Import an existing VirtualRouter given an ARN.
-// Experimental.
 func VirtualRouter_FromVirtualRouterArn(scope constructs.Construct, id *string, virtualRouterArn *string) IVirtualRouter {
 	_init_.Initialize()
 
@@ -10826,7 +10246,6 @@ func VirtualRouter_FromVirtualRouterArn(scope constructs.Construct, id *string, 
 }
 
 // Import an existing VirtualRouter given attributes.
-// Experimental.
 func VirtualRouter_FromVirtualRouterAttributes(scope constructs.Construct, id *string, attrs *VirtualRouterAttributes) IVirtualRouter {
 	_init_.Initialize()
 
@@ -10862,7 +10281,6 @@ func VirtualRouter_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func VirtualRouter_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -10879,7 +10297,6 @@ func VirtualRouter_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Add a single route to the router.
-// Experimental.
 func (v *jsiiProxy_VirtualRouter) AddRoute(id *string, props *RouteBaseProps) Route {
 	var returns Route
 
@@ -10902,7 +10319,6 @@ func (v *jsiiProxy_VirtualRouter) AddRoute(id *string, props *RouteBaseProps) Ro
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (v *jsiiProxy_VirtualRouter) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		v,
@@ -10911,7 +10327,6 @@ func (v *jsiiProxy_VirtualRouter) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 	)
 }
 
-// Experimental.
 func (v *jsiiProxy_VirtualRouter) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -10931,7 +10346,6 @@ func (v *jsiiProxy_VirtualRouter) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (v *jsiiProxy_VirtualRouter) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -10950,7 +10364,6 @@ func (v *jsiiProxy_VirtualRouter) GetResourceArnAttribute(arnAttr *string, arnCo
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (v *jsiiProxy_VirtualRouter) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -10965,7 +10378,6 @@ func (v *jsiiProxy_VirtualRouter) GetResourceNameAttribute(nameAttr *string) *st
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (v *jsiiProxy_VirtualRouter) ToString() *string {
 	var returns *string
 
@@ -10983,13 +10395,10 @@ func (v *jsiiProxy_VirtualRouter) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VirtualRouterAttributes struct {
 	// The Mesh which the VirtualRouter belongs to.
-	// Experimental.
 	Mesh IMesh `json:"mesh"`
 	// The name of the VirtualRouter.
-	// Experimental.
 	VirtualRouterName *string `json:"virtualRouterName"`
 }
 
@@ -10997,13 +10406,10 @@ type VirtualRouterAttributes struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VirtualRouterBaseProps struct {
 	// Listener specification for the VirtualRouter.
-	// Experimental.
 	Listeners *[]VirtualRouterListener `json:"listeners"`
 	// The name of the VirtualRouter.
-	// Experimental.
 	VirtualRouterName *string `json:"virtualRouterName"`
 }
 
@@ -11011,7 +10417,6 @@ type VirtualRouterBaseProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VirtualRouterListener interface {
 	Bind(scope constructs.Construct) *VirtualRouterListenerConfig
 }
@@ -11021,7 +10426,6 @@ type jsiiProxy_VirtualRouterListener struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewVirtualRouterListener_Override(v VirtualRouterListener) {
 	_init_.Initialize()
 
@@ -11033,7 +10437,6 @@ func NewVirtualRouterListener_Override(v VirtualRouterListener) {
 }
 
 // Returns a GRPC Listener for a VirtualRouter.
-// Experimental.
 func VirtualRouterListener_Grpc(port *float64) VirtualRouterListener {
 	_init_.Initialize()
 
@@ -11050,7 +10453,6 @@ func VirtualRouterListener_Grpc(port *float64) VirtualRouterListener {
 }
 
 // Returns an HTTP Listener for a VirtualRouter.
-// Experimental.
 func VirtualRouterListener_Http(port *float64) VirtualRouterListener {
 	_init_.Initialize()
 
@@ -11067,7 +10469,6 @@ func VirtualRouterListener_Http(port *float64) VirtualRouterListener {
 }
 
 // Returns an HTTP2 Listener for a VirtualRouter.
-// Experimental.
 func VirtualRouterListener_Http2(port *float64) VirtualRouterListener {
 	_init_.Initialize()
 
@@ -11084,7 +10485,6 @@ func VirtualRouterListener_Http2(port *float64) VirtualRouterListener {
 }
 
 // Returns a TCP Listener for a VirtualRouter.
-// Experimental.
 func VirtualRouterListener_Tcp(port *float64) VirtualRouterListener {
 	_init_.Initialize()
 
@@ -11104,7 +10504,6 @@ func VirtualRouterListener_Tcp(port *float64) VirtualRouterListener {
 //
 // Can be used to enforce
 // mutual exclusivity
-// Experimental.
 func (v *jsiiProxy_VirtualRouterListener) Bind(scope constructs.Construct) *VirtualRouterListenerConfig {
 	var returns *VirtualRouterListenerConfig
 
@@ -11122,10 +10521,8 @@ func (v *jsiiProxy_VirtualRouterListener) Bind(scope constructs.Construct) *Virt
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VirtualRouterListenerConfig struct {
 	// Single listener config for a VirtualRouter.
-	// Experimental.
 	Listener *CfnVirtualRouter_VirtualRouterListenerProperty `json:"listener"`
 }
 
@@ -11133,16 +10530,12 @@ type VirtualRouterListenerConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VirtualRouterProps struct {
 	// Listener specification for the VirtualRouter.
-	// Experimental.
 	Listeners *[]VirtualRouterListener `json:"listeners"`
 	// The name of the VirtualRouter.
-	// Experimental.
 	VirtualRouterName *string `json:"virtualRouterName"`
 	// The Mesh which the VirtualRouter belongs to.
-	// Experimental.
 	Mesh IMesh `json:"mesh"`
 }
 
@@ -11154,7 +10547,6 @@ type VirtualRouterProps struct {
 //
 // See: https://docs.aws.amazon.com/app-mesh/latest/userguide/virtual_services.html
 //
-// Experimental.
 type VirtualService interface {
 	awscdk.Resource
 	IVirtualService
@@ -11249,7 +10641,6 @@ func (j *jsiiProxy_VirtualService) VirtualServiceName() *string {
 }
 
 
-// Experimental.
 func NewVirtualService(scope constructs.Construct, id *string, props *VirtualServiceProps) VirtualService {
 	_init_.Initialize()
 
@@ -11264,7 +10655,6 @@ func NewVirtualService(scope constructs.Construct, id *string, props *VirtualSer
 	return &j
 }
 
-// Experimental.
 func NewVirtualService_Override(v VirtualService, scope constructs.Construct, id *string, props *VirtualServiceProps) {
 	_init_.Initialize()
 
@@ -11276,7 +10666,6 @@ func NewVirtualService_Override(v VirtualService, scope constructs.Construct, id
 }
 
 // Import an existing VirtualService given an ARN.
-// Experimental.
 func VirtualService_FromVirtualServiceArn(scope constructs.Construct, id *string, virtualServiceArn *string) IVirtualService {
 	_init_.Initialize()
 
@@ -11293,7 +10682,6 @@ func VirtualService_FromVirtualServiceArn(scope constructs.Construct, id *string
 }
 
 // Import an existing VirtualService given its attributes.
-// Experimental.
 func VirtualService_FromVirtualServiceAttributes(scope constructs.Construct, id *string, attrs *VirtualServiceAttributes) IVirtualService {
 	_init_.Initialize()
 
@@ -11329,7 +10717,6 @@ func VirtualService_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func VirtualService_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -11354,7 +10741,6 @@ func VirtualService_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (v *jsiiProxy_VirtualService) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		v,
@@ -11363,7 +10749,6 @@ func (v *jsiiProxy_VirtualService) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 	)
 }
 
-// Experimental.
 func (v *jsiiProxy_VirtualService) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -11383,7 +10768,6 @@ func (v *jsiiProxy_VirtualService) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (v *jsiiProxy_VirtualService) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -11402,7 +10786,6 @@ func (v *jsiiProxy_VirtualService) GetResourceArnAttribute(arnAttr *string, arnC
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (v *jsiiProxy_VirtualService) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -11417,7 +10800,6 @@ func (v *jsiiProxy_VirtualService) GetResourceNameAttribute(nameAttr *string) *s
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (v *jsiiProxy_VirtualService) ToString() *string {
 	var returns *string
 
@@ -11435,13 +10817,10 @@ func (v *jsiiProxy_VirtualService) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VirtualServiceAttributes struct {
 	// The Mesh which the VirtualService belongs to.
-	// Experimental.
 	Mesh IMesh `json:"mesh"`
 	// The name of the VirtualService, it is recommended this follows the fully-qualified domain name format.
-	// Experimental.
 	VirtualServiceName *string `json:"virtualServiceName"`
 }
 
@@ -11449,10 +10828,8 @@ type VirtualServiceAttributes struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VirtualServiceBackendOptions struct {
 	// TLS properties for  Client policy for the backend.
-	// Experimental.
 	TlsClientPolicy *TlsClientPolicy `json:"tlsClientPolicy"`
 }
 
@@ -11460,10 +10837,8 @@ type VirtualServiceBackendOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VirtualServiceProps struct {
 	// The VirtualNode or VirtualRouter which the VirtualService uses as its provider.
-	// Experimental.
 	VirtualServiceProvider VirtualServiceProvider `json:"virtualServiceProvider"`
 	// The name of the VirtualService.
 	//
@@ -11471,7 +10846,6 @@ type VirtualServiceProps struct {
 	// such as "my-service.default.svc.cluster.local".
 	//
 	// Example value: `service.domain.local`
-	// Experimental.
 	VirtualServiceName *string `json:"virtualServiceName"`
 }
 
@@ -11479,7 +10853,6 @@ type VirtualServiceProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VirtualServiceProvider interface {
 	Bind(_construct constructs.Construct) *VirtualServiceProviderConfig
 }
@@ -11489,7 +10862,6 @@ type jsiiProxy_VirtualServiceProvider struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewVirtualServiceProvider_Override(v VirtualServiceProvider) {
 	_init_.Initialize()
 
@@ -11504,7 +10876,6 @@ func NewVirtualServiceProvider_Override(v VirtualServiceProvider) {
 //
 // This provides no routing capabilities
 // and should only be used as a placeholder
-// Experimental.
 func VirtualServiceProvider_None(mesh IMesh) VirtualServiceProvider {
 	_init_.Initialize()
 
@@ -11521,7 +10892,6 @@ func VirtualServiceProvider_None(mesh IMesh) VirtualServiceProvider {
 }
 
 // Returns a VirtualNode based Provider for a VirtualService.
-// Experimental.
 func VirtualServiceProvider_VirtualNode(virtualNode IVirtualNode) VirtualServiceProvider {
 	_init_.Initialize()
 
@@ -11538,7 +10908,6 @@ func VirtualServiceProvider_VirtualNode(virtualNode IVirtualNode) VirtualService
 }
 
 // Returns a VirtualRouter based Provider for a VirtualService.
-// Experimental.
 func VirtualServiceProvider_VirtualRouter(virtualRouter IVirtualRouter) VirtualServiceProvider {
 	_init_.Initialize()
 
@@ -11555,7 +10924,6 @@ func VirtualServiceProvider_VirtualRouter(virtualRouter IVirtualRouter) VirtualS
 }
 
 // Enforces mutual exclusivity for VirtualService provider types.
-// Experimental.
 func (v *jsiiProxy_VirtualServiceProvider) Bind(_construct constructs.Construct) *VirtualServiceProviderConfig {
 	var returns *VirtualServiceProviderConfig
 
@@ -11573,16 +10941,12 @@ func (v *jsiiProxy_VirtualServiceProvider) Bind(_construct constructs.Construct)
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VirtualServiceProviderConfig struct {
 	// Mesh the Provider is using.
-	// Experimental.
 	Mesh IMesh `json:"mesh"`
 	// Virtual Node based provider.
-	// Experimental.
 	VirtualNodeProvider *CfnVirtualService_VirtualNodeServiceProviderProperty `json:"virtualNodeProvider"`
 	// Virtual Router based provider.
-	// Experimental.
 	VirtualRouterProvider *CfnVirtualService_VirtualRouterServiceProviderProperty `json:"virtualRouterProvider"`
 }
 
@@ -11590,13 +10954,10 @@ type VirtualServiceProviderConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type WeightedTarget struct {
 	// The VirtualNode the route points to.
-	// Experimental.
 	VirtualNode IVirtualNode `json:"virtualNode"`
 	// The weight for the target.
-	// Experimental.
 	Weight *float64 `json:"weight"`
 }
 

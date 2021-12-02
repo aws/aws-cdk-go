@@ -14,7 +14,6 @@ import (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Alarm interface {
 	AlarmBase
 	AlarmActionArns() *[]*string
@@ -148,7 +147,6 @@ func (j *jsiiProxy_Alarm) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewAlarm(scope constructs.Construct, id *string, props *AlarmProps) Alarm {
 	_init_.Initialize()
 
@@ -163,7 +161,6 @@ func NewAlarm(scope constructs.Construct, id *string, props *AlarmProps) Alarm {
 	return &j
 }
 
-// Experimental.
 func NewAlarm_Override(a Alarm, scope constructs.Construct, id *string, props *AlarmProps) {
 	_init_.Initialize()
 
@@ -199,7 +196,6 @@ func (j *jsiiProxy_Alarm) SetOkActionArns(val *[]*string) {
 }
 
 // Import an existing CloudWatch alarm provided an ARN.
-// Experimental.
 func Alarm_FromAlarmArn(scope constructs.Construct, id *string, alarmArn *string) IAlarm {
 	_init_.Initialize()
 
@@ -235,7 +231,6 @@ func Alarm_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func Alarm_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -254,7 +249,6 @@ func Alarm_IsResource(construct constructs.IConstruct) *bool {
 // Trigger this action if the alarm fires.
 //
 // Typically the ARN of an SNS topic or ARN of an AutoScaling policy.
-// Experimental.
 func (a *jsiiProxy_Alarm) AddAlarmAction(actions ...IAlarmAction) {
 	args := []interface{}{}
 	for _, a := range actions {
@@ -271,7 +265,6 @@ func (a *jsiiProxy_Alarm) AddAlarmAction(actions ...IAlarmAction) {
 // Trigger this action if there is insufficient data to evaluate the alarm.
 //
 // Typically the ARN of an SNS topic or ARN of an AutoScaling policy.
-// Experimental.
 func (a *jsiiProxy_Alarm) AddInsufficientDataAction(actions ...IAlarmAction) {
 	args := []interface{}{}
 	for _, a := range actions {
@@ -288,7 +281,6 @@ func (a *jsiiProxy_Alarm) AddInsufficientDataAction(actions ...IAlarmAction) {
 // Trigger this action if the alarm returns from breaching state into ok state.
 //
 // Typically the ARN of an SNS topic or ARN of an AutoScaling policy.
-// Experimental.
 func (a *jsiiProxy_Alarm) AddOkAction(actions ...IAlarmAction) {
 	args := []interface{}{}
 	for _, a := range actions {
@@ -311,7 +303,6 @@ func (a *jsiiProxy_Alarm) AddOkAction(actions ...IAlarmAction) {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (a *jsiiProxy_Alarm) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		a,
@@ -320,7 +311,6 @@ func (a *jsiiProxy_Alarm) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (a *jsiiProxy_Alarm) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -340,7 +330,6 @@ func (a *jsiiProxy_Alarm) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (a *jsiiProxy_Alarm) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -359,7 +348,6 @@ func (a *jsiiProxy_Alarm) GetResourceArnAttribute(arnAttr *string, arnComponents
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (a *jsiiProxy_Alarm) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -374,7 +362,6 @@ func (a *jsiiProxy_Alarm) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 // AlarmRule indicating ALARM state for Alarm.
-// Experimental.
 func (a *jsiiProxy_Alarm) RenderAlarmRule() *string {
 	var returns *string
 
@@ -402,7 +389,6 @@ func (a *jsiiProxy_Alarm) RenderAlarmRule() *string {
 //    "large margin/short period" alarm.
 //
 // - You want to show an Alarm line in a graph with multiple metrics in it.
-// Experimental.
 func (a *jsiiProxy_Alarm) ToAnnotation() *HorizontalAnnotation {
 	var returns *HorizontalAnnotation
 
@@ -417,7 +403,6 @@ func (a *jsiiProxy_Alarm) ToAnnotation() *HorizontalAnnotation {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (a *jsiiProxy_Alarm) ToString() *string {
 	var returns *string
 
@@ -435,15 +420,12 @@ func (a *jsiiProxy_Alarm) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AlarmActionConfig struct {
 	// Return the ARN that should be used for a CloudWatch Alarm action.
-	// Experimental.
 	AlarmActionArn *string `json:"alarmActionArn"`
 }
 
 // The base class for Alarm and CompositeAlarm resources.
-// Experimental.
 type AlarmBase interface {
 	awscdk.Resource
 	IAlarm
@@ -567,7 +549,6 @@ func (j *jsiiProxy_AlarmBase) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewAlarmBase_Override(a AlarmBase, scope constructs.Construct, id *string, props *awscdk.ResourceProps) {
 	_init_.Initialize()
 
@@ -622,7 +603,6 @@ func AlarmBase_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func AlarmBase_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -641,7 +621,6 @@ func AlarmBase_IsResource(construct constructs.IConstruct) *bool {
 // Trigger this action if the alarm fires.
 //
 // Typically the ARN of an SNS topic or ARN of an AutoScaling policy.
-// Experimental.
 func (a *jsiiProxy_AlarmBase) AddAlarmAction(actions ...IAlarmAction) {
 	args := []interface{}{}
 	for _, a := range actions {
@@ -658,7 +637,6 @@ func (a *jsiiProxy_AlarmBase) AddAlarmAction(actions ...IAlarmAction) {
 // Trigger this action if there is insufficient data to evaluate the alarm.
 //
 // Typically the ARN of an SNS topic or ARN of an AutoScaling policy.
-// Experimental.
 func (a *jsiiProxy_AlarmBase) AddInsufficientDataAction(actions ...IAlarmAction) {
 	args := []interface{}{}
 	for _, a := range actions {
@@ -675,7 +653,6 @@ func (a *jsiiProxy_AlarmBase) AddInsufficientDataAction(actions ...IAlarmAction)
 // Trigger this action if the alarm returns from breaching state into ok state.
 //
 // Typically the ARN of an SNS topic or ARN of an AutoScaling policy.
-// Experimental.
 func (a *jsiiProxy_AlarmBase) AddOkAction(actions ...IAlarmAction) {
 	args := []interface{}{}
 	for _, a := range actions {
@@ -698,7 +675,6 @@ func (a *jsiiProxy_AlarmBase) AddOkAction(actions ...IAlarmAction) {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (a *jsiiProxy_AlarmBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		a,
@@ -707,7 +683,6 @@ func (a *jsiiProxy_AlarmBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (a *jsiiProxy_AlarmBase) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -727,7 +702,6 @@ func (a *jsiiProxy_AlarmBase) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (a *jsiiProxy_AlarmBase) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -746,7 +720,6 @@ func (a *jsiiProxy_AlarmBase) GetResourceArnAttribute(arnAttr *string, arnCompon
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (a *jsiiProxy_AlarmBase) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -761,7 +734,6 @@ func (a *jsiiProxy_AlarmBase) GetResourceNameAttribute(nameAttr *string) *string
 }
 
 // AlarmRule indicating ALARM state for Alarm.
-// Experimental.
 func (a *jsiiProxy_AlarmBase) RenderAlarmRule() *string {
 	var returns *string
 
@@ -776,7 +748,6 @@ func (a *jsiiProxy_AlarmBase) RenderAlarmRule() *string {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (a *jsiiProxy_AlarmBase) ToString() *string {
 	var returns *string
 
@@ -794,19 +765,14 @@ func (a *jsiiProxy_AlarmBase) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AlarmProps struct {
 	// Whether the actions for this alarm are enabled.
-	// Experimental.
 	ActionsEnabled *bool `json:"actionsEnabled"`
 	// Description for the alarm.
-	// Experimental.
 	AlarmDescription *string `json:"alarmDescription"`
 	// Name of the alarm.
-	// Experimental.
 	AlarmName *string `json:"alarmName"`
 	// Comparison to use to check if metric is breaching.
-	// Experimental.
 	ComparisonOperator ComparisonOperator `json:"comparisonOperator"`
 	// The number of datapoints that must be breaching to trigger the alarm.
 	//
@@ -815,27 +781,21 @@ type AlarmProps struct {
 	// CloudWatch User Guide.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation
 	//
-	// Experimental.
 	DatapointsToAlarm *float64 `json:"datapointsToAlarm"`
 	// Specifies whether to evaluate the data and potentially change the alarm state if there are too few data points to be statistically significant.
 	//
 	// Used only for alarms that are based on percentiles.
-	// Experimental.
 	EvaluateLowSampleCountPercentile *string `json:"evaluateLowSampleCountPercentile"`
 	// The number of periods over which data is compared to the specified threshold.
-	// Experimental.
 	EvaluationPeriods *float64 `json:"evaluationPeriods"`
 	// The value against which the specified statistic is compared.
-	// Experimental.
 	Threshold *float64 `json:"threshold"`
 	// Sets how this alarm is to handle missing data points.
-	// Experimental.
 	TreatMissingData TreatMissingData `json:"treatMissingData"`
 	// The metric to add the alarm on.
 	//
 	// Metric objects can be obtained from most resources, or you can construct
 	// custom Metric objects by instantiating one.
-	// Experimental.
 	Metric IMetric `json:"metric"`
 }
 
@@ -843,7 +803,6 @@ type AlarmProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AlarmRule interface {
 }
 
@@ -852,7 +811,6 @@ type jsiiProxy_AlarmRule struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewAlarmRule() AlarmRule {
 	_init_.Initialize()
 
@@ -867,7 +825,6 @@ func NewAlarmRule() AlarmRule {
 	return &j
 }
 
-// Experimental.
 func NewAlarmRule_Override(a AlarmRule) {
 	_init_.Initialize()
 
@@ -879,7 +836,6 @@ func NewAlarmRule_Override(a AlarmRule) {
 }
 
 // function to join all provided AlarmRules with AND operator.
-// Experimental.
 func AlarmRule_AllOf(operands ...IAlarmRule) IAlarmRule {
 	_init_.Initialize()
 
@@ -901,7 +857,6 @@ func AlarmRule_AllOf(operands ...IAlarmRule) IAlarmRule {
 }
 
 // function to join all provided AlarmRules with OR operator.
-// Experimental.
 func AlarmRule_AnyOf(operands ...IAlarmRule) IAlarmRule {
 	_init_.Initialize()
 
@@ -923,7 +878,6 @@ func AlarmRule_AnyOf(operands ...IAlarmRule) IAlarmRule {
 }
 
 // function to build Rule Expression for given IAlarm and AlarmState.
-// Experimental.
 func AlarmRule_FromAlarm(alarm IAlarm, alarmState AlarmState) IAlarmRule {
 	_init_.Initialize()
 
@@ -940,7 +894,6 @@ func AlarmRule_FromAlarm(alarm IAlarm, alarmState AlarmState) IAlarmRule {
 }
 
 // function to build TRUE/FALSE intent for Rule Expression.
-// Experimental.
 func AlarmRule_FromBoolean(value *bool) IAlarmRule {
 	_init_.Initialize()
 
@@ -957,7 +910,6 @@ func AlarmRule_FromBoolean(value *bool) IAlarmRule {
 }
 
 // function to build Rule Expression for given Alarm Rule string.
-// Experimental.
 func AlarmRule_FromString(alarmRule *string) IAlarmRule {
 	_init_.Initialize()
 
@@ -974,7 +926,6 @@ func AlarmRule_FromString(alarmRule *string) IAlarmRule {
 }
 
 // function to wrap provided AlarmRule in NOT operator.
-// Experimental.
 func AlarmRule_Not(operand IAlarmRule) IAlarmRule {
 	_init_.Initialize()
 
@@ -994,7 +945,6 @@ func AlarmRule_Not(operand IAlarmRule) IAlarmRule {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AlarmState string
 
 const (
@@ -1007,7 +957,6 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AlarmStatusWidget interface {
 	ConcreteWidget
 	Height() *float64
@@ -1066,7 +1015,6 @@ func (j *jsiiProxy_AlarmStatusWidget) Y() *float64 {
 }
 
 
-// Experimental.
 func NewAlarmStatusWidget(props *AlarmStatusWidgetProps) AlarmStatusWidget {
 	_init_.Initialize()
 
@@ -1081,7 +1029,6 @@ func NewAlarmStatusWidget(props *AlarmStatusWidgetProps) AlarmStatusWidget {
 	return &j
 }
 
-// Experimental.
 func NewAlarmStatusWidget_Override(a AlarmStatusWidget, props *AlarmStatusWidgetProps) {
 	_init_.Initialize()
 
@@ -1109,7 +1056,6 @@ func (j *jsiiProxy_AlarmStatusWidget) SetY(val *float64) {
 }
 
 // Place the widget at a given position.
-// Experimental.
 func (a *jsiiProxy_AlarmStatusWidget) Position(x *float64, y *float64) {
 	_jsii_.InvokeVoid(
 		a,
@@ -1119,7 +1065,6 @@ func (a *jsiiProxy_AlarmStatusWidget) Position(x *float64, y *float64) {
 }
 
 // Return the widget JSON for use in the dashboard.
-// Experimental.
 func (a *jsiiProxy_AlarmStatusWidget) ToJson() *[]interface{} {
 	var returns *[]interface{}
 
@@ -1137,19 +1082,14 @@ func (a *jsiiProxy_AlarmStatusWidget) ToJson() *[]interface{} {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AlarmStatusWidgetProps struct {
 	// CloudWatch Alarms to show in widget.
-	// Experimental.
 	Alarms *[]IAlarm `json:"alarms"`
 	// Height of the widget.
-	// Experimental.
 	Height *float64 `json:"height"`
 	// The title of the widget.
-	// Experimental.
 	Title *string `json:"title"`
 	// Width of the widget, in a grid of 24 units wide.
-	// Experimental.
 	Width *float64 `json:"width"`
 }
 
@@ -1157,7 +1097,6 @@ type AlarmStatusWidgetProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AlarmWidget interface {
 	ConcreteWidget
 	Height() *float64
@@ -1216,7 +1155,6 @@ func (j *jsiiProxy_AlarmWidget) Y() *float64 {
 }
 
 
-// Experimental.
 func NewAlarmWidget(props *AlarmWidgetProps) AlarmWidget {
 	_init_.Initialize()
 
@@ -1231,7 +1169,6 @@ func NewAlarmWidget(props *AlarmWidgetProps) AlarmWidget {
 	return &j
 }
 
-// Experimental.
 func NewAlarmWidget_Override(a AlarmWidget, props *AlarmWidgetProps) {
 	_init_.Initialize()
 
@@ -1259,7 +1196,6 @@ func (j *jsiiProxy_AlarmWidget) SetY(val *float64) {
 }
 
 // Place the widget at a given position.
-// Experimental.
 func (a *jsiiProxy_AlarmWidget) Position(x *float64, y *float64) {
 	_jsii_.InvokeVoid(
 		a,
@@ -1269,7 +1205,6 @@ func (a *jsiiProxy_AlarmWidget) Position(x *float64, y *float64) {
 }
 
 // Return the widget JSON for use in the dashboard.
-// Experimental.
 func (a *jsiiProxy_AlarmWidget) ToJson() *[]interface{} {
 	var returns *[]interface{}
 
@@ -1287,25 +1222,18 @@ func (a *jsiiProxy_AlarmWidget) ToJson() *[]interface{} {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AlarmWidgetProps struct {
 	// Height of the widget.
-	// Experimental.
 	Height *float64 `json:"height"`
 	// The region the metrics of this graph should be taken from.
-	// Experimental.
 	Region *string `json:"region"`
 	// Title for the graph.
-	// Experimental.
 	Title *string `json:"title"`
 	// Width of the widget, in a grid of 24 units wide.
-	// Experimental.
 	Width *float64 `json:"width"`
 	// The alarm to show.
-	// Experimental.
 	Alarm IAlarm `json:"alarm"`
 	// Left Y axis.
-	// Experimental.
 	LeftYAxis *YAxisProps `json:"leftYAxis"`
 }
 
@@ -1902,7 +1830,6 @@ func (j *jsiiProxy_CfnAlarm) SetUnit(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnAlarm_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -1919,7 +1846,6 @@ func CfnAlarm_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnAlarm_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -1966,7 +1892,6 @@ func CfnAlarm_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnAlarm) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1979,7 +1904,6 @@ func (c *jsiiProxy_CfnAlarm) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnAlarm) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1995,7 +1919,6 @@ func (c *jsiiProxy_CfnAlarm) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnAlarm) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2041,7 +1964,6 @@ func (c *jsiiProxy_CfnAlarm) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnAlarm) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2051,7 +1973,6 @@ func (c *jsiiProxy_CfnAlarm) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnAlarm) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2063,7 +1984,6 @@ func (c *jsiiProxy_CfnAlarm) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnAlarm) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2081,7 +2001,6 @@ func (c *jsiiProxy_CfnAlarm) AddPropertyOverride(propertyPath *string, value int
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnAlarm) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2094,7 +2013,6 @@ func (c *jsiiProxy_CfnAlarm) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnAlarm) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2115,7 +2033,6 @@ func (c *jsiiProxy_CfnAlarm) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnAlarm) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2139,7 +2056,6 @@ func (c *jsiiProxy_CfnAlarm) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnAlarm) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2165,7 +2081,6 @@ func (c *jsiiProxy_CfnAlarm) RenderProperties(props *map[string]interface{}) *ma
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnAlarm) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2182,7 +2097,6 @@ func (c *jsiiProxy_CfnAlarm) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnAlarm) ToString() *string {
 	var returns *string
 
@@ -2196,7 +2110,6 @@ func (c *jsiiProxy_CfnAlarm) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnAlarm) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2608,7 +2521,6 @@ func (j *jsiiProxy_CfnAnomalyDetector) SetStat(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnAnomalyDetector_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -2625,7 +2537,6 @@ func CfnAnomalyDetector_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnAnomalyDetector_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -2672,7 +2583,6 @@ func CfnAnomalyDetector_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnAnomalyDetector) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2685,7 +2595,6 @@ func (c *jsiiProxy_CfnAnomalyDetector) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnAnomalyDetector) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2701,7 +2610,6 @@ func (c *jsiiProxy_CfnAnomalyDetector) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnAnomalyDetector) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2747,7 +2655,6 @@ func (c *jsiiProxy_CfnAnomalyDetector) AddMetadata(key *string, value interface{
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnAnomalyDetector) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2757,7 +2664,6 @@ func (c *jsiiProxy_CfnAnomalyDetector) AddOverride(path *string, value interface
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnAnomalyDetector) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2769,7 +2675,6 @@ func (c *jsiiProxy_CfnAnomalyDetector) AddPropertyDeletionOverride(propertyPath 
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnAnomalyDetector) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2787,7 +2692,6 @@ func (c *jsiiProxy_CfnAnomalyDetector) AddPropertyOverride(propertyPath *string,
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnAnomalyDetector) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2800,7 +2704,6 @@ func (c *jsiiProxy_CfnAnomalyDetector) ApplyRemovalPolicy(policy awscdk.RemovalP
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnAnomalyDetector) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2821,7 +2724,6 @@ func (c *jsiiProxy_CfnAnomalyDetector) GetAtt(attributeName *string) awscdk.Refe
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnAnomalyDetector) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2845,7 +2747,6 @@ func (c *jsiiProxy_CfnAnomalyDetector) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnAnomalyDetector) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2871,7 +2772,6 @@ func (c *jsiiProxy_CfnAnomalyDetector) RenderProperties(props *map[string]interf
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnAnomalyDetector) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2888,7 +2788,6 @@ func (c *jsiiProxy_CfnAnomalyDetector) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnAnomalyDetector) ToString() *string {
 	var returns *string
 
@@ -2902,7 +2801,6 @@ func (c *jsiiProxy_CfnAnomalyDetector) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnAnomalyDetector) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3335,7 +3233,6 @@ func (j *jsiiProxy_CfnCompositeAlarm) SetOkActions(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnCompositeAlarm_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -3352,7 +3249,6 @@ func CfnCompositeAlarm_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnCompositeAlarm_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -3399,7 +3295,6 @@ func CfnCompositeAlarm_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnCompositeAlarm) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3412,7 +3307,6 @@ func (c *jsiiProxy_CfnCompositeAlarm) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnCompositeAlarm) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3428,7 +3322,6 @@ func (c *jsiiProxy_CfnCompositeAlarm) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnCompositeAlarm) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3474,7 +3367,6 @@ func (c *jsiiProxy_CfnCompositeAlarm) AddMetadata(key *string, value interface{}
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnCompositeAlarm) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3484,7 +3376,6 @@ func (c *jsiiProxy_CfnCompositeAlarm) AddOverride(path *string, value interface{
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnCompositeAlarm) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3496,7 +3387,6 @@ func (c *jsiiProxy_CfnCompositeAlarm) AddPropertyDeletionOverride(propertyPath *
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnCompositeAlarm) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3514,7 +3404,6 @@ func (c *jsiiProxy_CfnCompositeAlarm) AddPropertyOverride(propertyPath *string, 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnCompositeAlarm) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3527,7 +3416,6 @@ func (c *jsiiProxy_CfnCompositeAlarm) ApplyRemovalPolicy(policy awscdk.RemovalPo
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnCompositeAlarm) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3548,7 +3436,6 @@ func (c *jsiiProxy_CfnCompositeAlarm) GetAtt(attributeName *string) awscdk.Refer
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnCompositeAlarm) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3572,7 +3459,6 @@ func (c *jsiiProxy_CfnCompositeAlarm) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnCompositeAlarm) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3598,7 +3484,6 @@ func (c *jsiiProxy_CfnCompositeAlarm) RenderProperties(props *map[string]interfa
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnCompositeAlarm) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3615,7 +3500,6 @@ func (c *jsiiProxy_CfnCompositeAlarm) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnCompositeAlarm) ToString() *string {
 	var returns *string
 
@@ -3629,7 +3513,6 @@ func (c *jsiiProxy_CfnCompositeAlarm) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnCompositeAlarm) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3861,7 +3744,6 @@ func (j *jsiiProxy_CfnDashboard) SetDashboardName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnDashboard_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -3878,7 +3760,6 @@ func CfnDashboard_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnDashboard_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -3925,7 +3806,6 @@ func CfnDashboard_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnDashboard) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3938,7 +3818,6 @@ func (c *jsiiProxy_CfnDashboard) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnDashboard) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3954,7 +3833,6 @@ func (c *jsiiProxy_CfnDashboard) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDashboard) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4000,7 +3878,6 @@ func (c *jsiiProxy_CfnDashboard) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnDashboard) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4010,7 +3887,6 @@ func (c *jsiiProxy_CfnDashboard) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnDashboard) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4022,7 +3898,6 @@ func (c *jsiiProxy_CfnDashboard) AddPropertyDeletionOverride(propertyPath *strin
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnDashboard) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4040,7 +3915,6 @@ func (c *jsiiProxy_CfnDashboard) AddPropertyOverride(propertyPath *string, value
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnDashboard) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4053,7 +3927,6 @@ func (c *jsiiProxy_CfnDashboard) ApplyRemovalPolicy(policy awscdk.RemovalPolicy,
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnDashboard) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -4074,7 +3947,6 @@ func (c *jsiiProxy_CfnDashboard) GetAtt(attributeName *string) awscdk.Reference 
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDashboard) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -4098,7 +3970,6 @@ func (c *jsiiProxy_CfnDashboard) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnDashboard) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4124,7 +3995,6 @@ func (c *jsiiProxy_CfnDashboard) RenderProperties(props *map[string]interface{})
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnDashboard) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -4141,7 +4011,6 @@ func (c *jsiiProxy_CfnDashboard) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnDashboard) ToString() *string {
 	var returns *string
 
@@ -4155,7 +4024,6 @@ func (c *jsiiProxy_CfnDashboard) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnDashboard) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4430,7 +4298,6 @@ func (j *jsiiProxy_CfnInsightRule) SetRuleState(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnInsightRule_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -4447,7 +4314,6 @@ func CfnInsightRule_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnInsightRule_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -4494,7 +4360,6 @@ func CfnInsightRule_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnInsightRule) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4507,7 +4372,6 @@ func (c *jsiiProxy_CfnInsightRule) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnInsightRule) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4523,7 +4387,6 @@ func (c *jsiiProxy_CfnInsightRule) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnInsightRule) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4569,7 +4432,6 @@ func (c *jsiiProxy_CfnInsightRule) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnInsightRule) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4579,7 +4441,6 @@ func (c *jsiiProxy_CfnInsightRule) AddOverride(path *string, value interface{}) 
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnInsightRule) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4591,7 +4452,6 @@ func (c *jsiiProxy_CfnInsightRule) AddPropertyDeletionOverride(propertyPath *str
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnInsightRule) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4609,7 +4469,6 @@ func (c *jsiiProxy_CfnInsightRule) AddPropertyOverride(propertyPath *string, val
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnInsightRule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4622,7 +4481,6 @@ func (c *jsiiProxy_CfnInsightRule) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnInsightRule) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -4643,7 +4501,6 @@ func (c *jsiiProxy_CfnInsightRule) GetAtt(attributeName *string) awscdk.Referenc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnInsightRule) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -4667,7 +4524,6 @@ func (c *jsiiProxy_CfnInsightRule) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnInsightRule) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4693,7 +4549,6 @@ func (c *jsiiProxy_CfnInsightRule) RenderProperties(props *map[string]interface{
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnInsightRule) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -4710,7 +4565,6 @@ func (c *jsiiProxy_CfnInsightRule) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnInsightRule) ToString() *string {
 	var returns *string
 
@@ -4724,7 +4578,6 @@ func (c *jsiiProxy_CfnInsightRule) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnInsightRule) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5085,7 +4938,6 @@ func (j *jsiiProxy_CfnMetricStream) SetRoleArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnMetricStream_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -5102,7 +4954,6 @@ func CfnMetricStream_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnMetricStream_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -5149,7 +5000,6 @@ func CfnMetricStream_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnMetricStream) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5162,7 +5012,6 @@ func (c *jsiiProxy_CfnMetricStream) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnMetricStream) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5178,7 +5027,6 @@ func (c *jsiiProxy_CfnMetricStream) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnMetricStream) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5224,7 +5072,6 @@ func (c *jsiiProxy_CfnMetricStream) AddMetadata(key *string, value interface{}) 
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnMetricStream) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5234,7 +5081,6 @@ func (c *jsiiProxy_CfnMetricStream) AddOverride(path *string, value interface{})
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnMetricStream) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5246,7 +5092,6 @@ func (c *jsiiProxy_CfnMetricStream) AddPropertyDeletionOverride(propertyPath *st
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnMetricStream) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5264,7 +5109,6 @@ func (c *jsiiProxy_CfnMetricStream) AddPropertyOverride(propertyPath *string, va
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnMetricStream) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5277,7 +5121,6 @@ func (c *jsiiProxy_CfnMetricStream) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnMetricStream) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -5298,7 +5141,6 @@ func (c *jsiiProxy_CfnMetricStream) GetAtt(attributeName *string) awscdk.Referen
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnMetricStream) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -5322,7 +5164,6 @@ func (c *jsiiProxy_CfnMetricStream) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnMetricStream) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5348,7 +5189,6 @@ func (c *jsiiProxy_CfnMetricStream) RenderProperties(props *map[string]interface
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnMetricStream) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -5365,7 +5205,6 @@ func (c *jsiiProxy_CfnMetricStream) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnMetricStream) ToString() *string {
 	var returns *string
 
@@ -5379,7 +5218,6 @@ func (c *jsiiProxy_CfnMetricStream) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnMetricStream) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5420,7 +5258,6 @@ type CfnMetricStreamProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Color interface {
 }
 
@@ -5429,7 +5266,6 @@ type jsiiProxy_Color struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewColor() Color {
 	_init_.Initialize()
 
@@ -5444,7 +5280,6 @@ func NewColor() Color {
 	return &j
 }
 
-// Experimental.
 func NewColor_Override(c Color) {
 	_init_.Initialize()
 
@@ -5549,7 +5384,6 @@ func Color_RED() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Column interface {
 	IWidget
 	Height() *float64
@@ -5584,7 +5418,6 @@ func (j *jsiiProxy_Column) Width() *float64 {
 }
 
 
-// Experimental.
 func NewColumn(widgets ...IWidget) Column {
 	_init_.Initialize()
 
@@ -5604,7 +5437,6 @@ func NewColumn(widgets ...IWidget) Column {
 	return &j
 }
 
-// Experimental.
 func NewColumn_Override(c Column, widgets ...IWidget) {
 	_init_.Initialize()
 
@@ -5621,7 +5453,6 @@ func NewColumn_Override(c Column, widgets ...IWidget) {
 }
 
 // Place the widget at a given position.
-// Experimental.
 func (c *jsiiProxy_Column) Position(x *float64, y *float64) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5631,7 +5462,6 @@ func (c *jsiiProxy_Column) Position(x *float64, y *float64) {
 }
 
 // Return the widget JSON for use in the dashboard.
-// Experimental.
 func (c *jsiiProxy_Column) ToJson() *[]interface{} {
 	var returns *[]interface{}
 
@@ -5649,25 +5479,18 @@ func (c *jsiiProxy_Column) ToJson() *[]interface{} {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CommonMetricOptions struct {
 	// Account which this metric comes from.
-	// Experimental.
 	Account *string `json:"account"`
 	// The hex color code, prefixed with '#' (e.g. '#00ff00'), to use when this metric is rendered on a graph. The `Color` class has a set of standard colors that can be used here.
-	// Experimental.
 	Color *string `json:"color"`
 	// Dimensions of the metric.
-	// Experimental.
 	DimensionsMap *map[string]*string `json:"dimensionsMap"`
 	// Label for this metric when added to a Graph in a Dashboard.
-	// Experimental.
 	Label *string `json:"label"`
 	// The period over which the specified statistic is applied.
-	// Experimental.
 	Period awscdk.Duration `json:"period"`
 	// Region which this metric comes from.
-	// Experimental.
 	Region *string `json:"region"`
 	// What function to use for aggregating.
 	//
@@ -5679,7 +5502,6 @@ type CommonMetricOptions struct {
 	// - "Sum" | "sum"
 	// - "SampleCount | "n"
 	// - "pNN.NN"
-	// Experimental.
 	Statistic *string `json:"statistic"`
 	// Unit used to filter the metric stream.
 	//
@@ -5691,7 +5513,6 @@ type CommonMetricOptions struct {
 	// which is recommended in nearly all cases.
 	//
 	// CloudWatch does not honor this property for graphs.
-	// Experimental.
 	Unit Unit `json:"unit"`
 }
 
@@ -5699,7 +5520,6 @@ type CommonMetricOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ComparisonOperator string
 
 const (
@@ -5716,7 +5536,6 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CompositeAlarm interface {
 	AlarmBase
 	AlarmActionArns() *[]*string
@@ -5838,7 +5657,6 @@ func (j *jsiiProxy_CompositeAlarm) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewCompositeAlarm(scope constructs.Construct, id *string, props *CompositeAlarmProps) CompositeAlarm {
 	_init_.Initialize()
 
@@ -5853,7 +5671,6 @@ func NewCompositeAlarm(scope constructs.Construct, id *string, props *CompositeA
 	return &j
 }
 
-// Experimental.
 func NewCompositeAlarm_Override(c CompositeAlarm, scope constructs.Construct, id *string, props *CompositeAlarmProps) {
 	_init_.Initialize()
 
@@ -5889,7 +5706,6 @@ func (j *jsiiProxy_CompositeAlarm) SetOkActionArns(val *[]*string) {
 }
 
 // Import an existing CloudWatch composite alarm provided an ARN.
-// Experimental.
 func CompositeAlarm_FromCompositeAlarmArn(scope constructs.Construct, id *string, compositeAlarmArn *string) IAlarm {
 	_init_.Initialize()
 
@@ -5906,7 +5722,6 @@ func CompositeAlarm_FromCompositeAlarmArn(scope constructs.Construct, id *string
 }
 
 // Import an existing CloudWatch composite alarm provided an Name.
-// Experimental.
 func CompositeAlarm_FromCompositeAlarmName(scope constructs.Construct, id *string, compositeAlarmName *string) IAlarm {
 	_init_.Initialize()
 
@@ -5942,7 +5757,6 @@ func CompositeAlarm_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func CompositeAlarm_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -5961,7 +5775,6 @@ func CompositeAlarm_IsResource(construct constructs.IConstruct) *bool {
 // Trigger this action if the alarm fires.
 //
 // Typically the ARN of an SNS topic or ARN of an AutoScaling policy.
-// Experimental.
 func (c *jsiiProxy_CompositeAlarm) AddAlarmAction(actions ...IAlarmAction) {
 	args := []interface{}{}
 	for _, a := range actions {
@@ -5978,7 +5791,6 @@ func (c *jsiiProxy_CompositeAlarm) AddAlarmAction(actions ...IAlarmAction) {
 // Trigger this action if there is insufficient data to evaluate the alarm.
 //
 // Typically the ARN of an SNS topic or ARN of an AutoScaling policy.
-// Experimental.
 func (c *jsiiProxy_CompositeAlarm) AddInsufficientDataAction(actions ...IAlarmAction) {
 	args := []interface{}{}
 	for _, a := range actions {
@@ -5995,7 +5807,6 @@ func (c *jsiiProxy_CompositeAlarm) AddInsufficientDataAction(actions ...IAlarmAc
 // Trigger this action if the alarm returns from breaching state into ok state.
 //
 // Typically the ARN of an SNS topic or ARN of an AutoScaling policy.
-// Experimental.
 func (c *jsiiProxy_CompositeAlarm) AddOkAction(actions ...IAlarmAction) {
 	args := []interface{}{}
 	for _, a := range actions {
@@ -6018,7 +5829,6 @@ func (c *jsiiProxy_CompositeAlarm) AddOkAction(actions ...IAlarmAction) {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CompositeAlarm) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6027,7 +5837,6 @@ func (c *jsiiProxy_CompositeAlarm) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 	)
 }
 
-// Experimental.
 func (c *jsiiProxy_CompositeAlarm) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -6047,7 +5856,6 @@ func (c *jsiiProxy_CompositeAlarm) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (c *jsiiProxy_CompositeAlarm) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -6066,7 +5874,6 @@ func (c *jsiiProxy_CompositeAlarm) GetResourceArnAttribute(arnAttr *string, arnC
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (c *jsiiProxy_CompositeAlarm) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -6081,7 +5888,6 @@ func (c *jsiiProxy_CompositeAlarm) GetResourceNameAttribute(nameAttr *string) *s
 }
 
 // AlarmRule indicating ALARM state for Alarm.
-// Experimental.
 func (c *jsiiProxy_CompositeAlarm) RenderAlarmRule() *string {
 	var returns *string
 
@@ -6096,7 +5902,6 @@ func (c *jsiiProxy_CompositeAlarm) RenderAlarmRule() *string {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (c *jsiiProxy_CompositeAlarm) ToString() *string {
 	var returns *string
 
@@ -6114,26 +5919,20 @@ func (c *jsiiProxy_CompositeAlarm) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CompositeAlarmProps struct {
 	// Expression that specifies which other alarms are to be evaluated to determine this composite alarm's state.
-	// Experimental.
 	AlarmRule IAlarmRule `json:"alarmRule"`
 	// Whether the actions for this alarm are enabled.
-	// Experimental.
 	ActionsEnabled *bool `json:"actionsEnabled"`
 	// Description for the alarm.
-	// Experimental.
 	AlarmDescription *string `json:"alarmDescription"`
 	// Name of the alarm.
-	// Experimental.
 	CompositeAlarmName *string `json:"compositeAlarmName"`
 }
 
 // A real CloudWatch widget that has its own fixed size and remembers its position.
 //
 // This is in contrast to other widgets which exist for layout purposes.
-// Experimental.
 type ConcreteWidget interface {
 	IWidget
 	Height() *float64
@@ -6192,7 +5991,6 @@ func (j *jsiiProxy_ConcreteWidget) Y() *float64 {
 }
 
 
-// Experimental.
 func NewConcreteWidget_Override(c ConcreteWidget, width *float64, height *float64) {
 	_init_.Initialize()
 
@@ -6220,7 +6018,6 @@ func (j *jsiiProxy_ConcreteWidget) SetY(val *float64) {
 }
 
 // Place the widget at a given position.
-// Experimental.
 func (c *jsiiProxy_ConcreteWidget) Position(x *float64, y *float64) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6230,7 +6027,6 @@ func (c *jsiiProxy_ConcreteWidget) Position(x *float64, y *float64) {
 }
 
 // Return the widget JSON for use in the dashboard.
-// Experimental.
 func (c *jsiiProxy_ConcreteWidget) ToJson() *[]interface{} {
 	var returns *[]interface{}
 
@@ -6248,19 +6044,14 @@ func (c *jsiiProxy_ConcreteWidget) ToJson() *[]interface{} {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CreateAlarmOptions struct {
 	// Whether the actions for this alarm are enabled.
-	// Experimental.
 	ActionsEnabled *bool `json:"actionsEnabled"`
 	// Description for the alarm.
-	// Experimental.
 	AlarmDescription *string `json:"alarmDescription"`
 	// Name of the alarm.
-	// Experimental.
 	AlarmName *string `json:"alarmName"`
 	// Comparison to use to check if metric is breaching.
-	// Experimental.
 	ComparisonOperator ComparisonOperator `json:"comparisonOperator"`
 	// The number of datapoints that must be breaching to trigger the alarm.
 	//
@@ -6269,21 +6060,16 @@ type CreateAlarmOptions struct {
 	// CloudWatch User Guide.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation
 	//
-	// Experimental.
 	DatapointsToAlarm *float64 `json:"datapointsToAlarm"`
 	// Specifies whether to evaluate the data and potentially change the alarm state if there are too few data points to be statistically significant.
 	//
 	// Used only for alarms that are based on percentiles.
-	// Experimental.
 	EvaluateLowSampleCountPercentile *string `json:"evaluateLowSampleCountPercentile"`
 	// The number of periods over which data is compared to the specified threshold.
-	// Experimental.
 	EvaluationPeriods *float64 `json:"evaluationPeriods"`
 	// The value against which the specified statistic is compared.
-	// Experimental.
 	Threshold *float64 `json:"threshold"`
 	// Sets how this alarm is to handle missing data points.
-	// Experimental.
 	TreatMissingData TreatMissingData `json:"treatMissingData"`
 }
 
@@ -6291,7 +6077,6 @@ type CreateAlarmOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Dashboard interface {
 	awscdk.Resource
 	Env() *awscdk.ResourceEnvironment
@@ -6352,7 +6137,6 @@ func (j *jsiiProxy_Dashboard) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewDashboard(scope constructs.Construct, id *string, props *DashboardProps) Dashboard {
 	_init_.Initialize()
 
@@ -6367,7 +6151,6 @@ func NewDashboard(scope constructs.Construct, id *string, props *DashboardProps)
 	return &j
 }
 
-// Experimental.
 func NewDashboard_Override(d Dashboard, scope constructs.Construct, id *string, props *DashboardProps) {
 	_init_.Initialize()
 
@@ -6398,7 +6181,6 @@ func Dashboard_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func Dashboard_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -6421,7 +6203,6 @@ func Dashboard_IsResource(construct constructs.IConstruct) *bool {
 //
 // Multiple widgets added in the same call to add() will be laid out next
 // to each other.
-// Experimental.
 func (d *jsiiProxy_Dashboard) AddWidgets(widgets ...IWidget) {
 	args := []interface{}{}
 	for _, a := range widgets {
@@ -6444,7 +6225,6 @@ func (d *jsiiProxy_Dashboard) AddWidgets(widgets ...IWidget) {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (d *jsiiProxy_Dashboard) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		d,
@@ -6453,7 +6233,6 @@ func (d *jsiiProxy_Dashboard) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_Dashboard) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -6473,7 +6252,6 @@ func (d *jsiiProxy_Dashboard) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (d *jsiiProxy_Dashboard) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -6492,7 +6270,6 @@ func (d *jsiiProxy_Dashboard) GetResourceArnAttribute(arnAttr *string, arnCompon
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (d *jsiiProxy_Dashboard) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -6507,7 +6284,6 @@ func (d *jsiiProxy_Dashboard) GetResourceNameAttribute(nameAttr *string) *string
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_Dashboard) ToString() *string {
 	var returns *string
 
@@ -6525,24 +6301,20 @@ func (d *jsiiProxy_Dashboard) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DashboardProps struct {
 	// Name of the dashboard.
 	//
 	// If set, must only contain alphanumerics, dash (-) and underscore (_)
-	// Experimental.
 	DashboardName *string `json:"dashboardName"`
 	// The end of the time range to use for each widget on the dashboard when the dashboard loads.
 	//
 	// If you specify a value for end, you must also specify a value for start.
 	// Specify an absolute time in the ISO 8601 format. For example, 2018-12-17T06:00:00.000Z.
-	// Experimental.
 	End *string `json:"end"`
 	// Use this field to specify the period for the graphs when the dashboard loads.
 	//
 	// Specifying `Auto` causes the period of all graphs on the dashboard to automatically adapt to the time range of the dashboard.
 	// Specifying `Inherit` ensures that the period set for each graph is always obeyed.
-	// Experimental.
 	PeriodOverride PeriodOverride `json:"periodOverride"`
 	// The start of the time range to use for each widget on the dashboard.
 	//
@@ -6551,12 +6323,10 @@ type DashboardProps struct {
 	// minutes, hours, days, weeks and months. For example, -PT8H shows the last 8 hours and -P3M shows the last three months.
 	// You can also use start along with an end field, to specify an absolute time range.
 	// When specifying an absolute time range, use the ISO 8601 format. For example, 2018-12-17T06:00:00.000Z.
-	// Experimental.
 	Start *string `json:"start"`
 	// Initial set of widgets on the dashboard.
 	//
 	// One array represents a row of widgets.
-	// Experimental.
 	Widgets *[]*[]IWidget `json:"widgets"`
 }
 
@@ -6566,13 +6336,10 @@ type DashboardProps struct {
 //
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-dimension.html
 //
-// Experimental.
 type Dimension struct {
 	// Name of the dimension.
-	// Experimental.
 	Name *string `json:"name"`
 	// Value of the dimension.
-	// Experimental.
 	Value interface{} `json:"value"`
 }
 
@@ -6580,7 +6347,6 @@ type Dimension struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type GraphWidget interface {
 	ConcreteWidget
 	Height() *float64
@@ -6641,7 +6407,6 @@ func (j *jsiiProxy_GraphWidget) Y() *float64 {
 }
 
 
-// Experimental.
 func NewGraphWidget(props *GraphWidgetProps) GraphWidget {
 	_init_.Initialize()
 
@@ -6656,7 +6421,6 @@ func NewGraphWidget(props *GraphWidgetProps) GraphWidget {
 	return &j
 }
 
-// Experimental.
 func NewGraphWidget_Override(g GraphWidget, props *GraphWidgetProps) {
 	_init_.Initialize()
 
@@ -6684,7 +6448,6 @@ func (j *jsiiProxy_GraphWidget) SetY(val *float64) {
 }
 
 // Add another metric to the left Y axis of the GraphWidget.
-// Experimental.
 func (g *jsiiProxy_GraphWidget) AddLeftMetric(metric IMetric) {
 	_jsii_.InvokeVoid(
 		g,
@@ -6694,7 +6457,6 @@ func (g *jsiiProxy_GraphWidget) AddLeftMetric(metric IMetric) {
 }
 
 // Add another metric to the right Y axis of the GraphWidget.
-// Experimental.
 func (g *jsiiProxy_GraphWidget) AddRightMetric(metric IMetric) {
 	_jsii_.InvokeVoid(
 		g,
@@ -6704,7 +6466,6 @@ func (g *jsiiProxy_GraphWidget) AddRightMetric(metric IMetric) {
 }
 
 // Place the widget at a given position.
-// Experimental.
 func (g *jsiiProxy_GraphWidget) Position(x *float64, y *float64) {
 	_jsii_.InvokeVoid(
 		g,
@@ -6714,7 +6475,6 @@ func (g *jsiiProxy_GraphWidget) Position(x *float64, y *float64) {
 }
 
 // Return the widget JSON for use in the dashboard.
-// Experimental.
 func (g *jsiiProxy_GraphWidget) ToJson() *[]interface{} {
 	var returns *[]interface{}
 
@@ -6732,66 +6492,48 @@ func (g *jsiiProxy_GraphWidget) ToJson() *[]interface{} {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type GraphWidgetProps struct {
 	// Height of the widget.
-	// Experimental.
 	Height *float64 `json:"height"`
 	// The region the metrics of this graph should be taken from.
-	// Experimental.
 	Region *string `json:"region"`
 	// Title for the graph.
-	// Experimental.
 	Title *string `json:"title"`
 	// Width of the widget, in a grid of 24 units wide.
-	// Experimental.
 	Width *float64 `json:"width"`
 	// Metrics to display on left Y axis.
-	// Experimental.
 	Left *[]IMetric `json:"left"`
 	// Annotations for the left Y axis.
-	// Experimental.
 	LeftAnnotations *[]*HorizontalAnnotation `json:"leftAnnotations"`
 	// Left Y axis.
-	// Experimental.
 	LeftYAxis *YAxisProps `json:"leftYAxis"`
 	// Position of the legend.
-	// Experimental.
 	LegendPosition LegendPosition `json:"legendPosition"`
 	// Whether the graph should show live data.
-	// Experimental.
 	LiveData *bool `json:"liveData"`
 	// The default period for all metrics in this widget.
 	//
 	// The period is the length of time represented by one data point on the graph.
 	// This default can be overridden within each metric definition.
-	// Experimental.
 	Period awscdk.Duration `json:"period"`
 	// Metrics to display on right Y axis.
-	// Experimental.
 	Right *[]IMetric `json:"right"`
 	// Annotations for the right Y axis.
-	// Experimental.
 	RightAnnotations *[]*HorizontalAnnotation `json:"rightAnnotations"`
 	// Right Y axis.
-	// Experimental.
 	RightYAxis *YAxisProps `json:"rightYAxis"`
 	// Whether to show the value from the entire time range. Only applicable for Bar and Pie charts.
 	//
 	// If false, values will be from the most recent period of your chosen time range;
 	// if true, shows the value from the entire time range.
-	// Experimental.
 	SetPeriodToTimeRange *bool `json:"setPeriodToTimeRange"`
 	// Whether the graph should be shown as stacked lines.
-	// Experimental.
 	Stacked *bool `json:"stacked"`
 	// The default statistic to be displayed for each metric.
 	//
 	// This default can be overridden within the definition of each individual metric
-	// Experimental.
 	Statistic *string `json:"statistic"`
 	// Display this metric.
-	// Experimental.
 	View GraphWidgetView `json:"view"`
 }
 
@@ -6799,7 +6541,6 @@ type GraphWidgetProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type GraphWidgetView string
 
 const (
@@ -6812,35 +6553,26 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HorizontalAnnotation struct {
 	// The hex color code, prefixed with '#' (e.g. '#00ff00'), to be used for the annotation. The `Color` class has a set of standard colors that can be used here.
-	// Experimental.
 	Color *string `json:"color"`
 	// Add shading above or below the annotation.
-	// Experimental.
 	Fill Shading `json:"fill"`
 	// Label for the annotation.
-	// Experimental.
 	Label *string `json:"label"`
 	// The value of the annotation.
-	// Experimental.
 	Value *float64 `json:"value"`
 	// Whether the annotation is visible.
-	// Experimental.
 	Visible *bool `json:"visible"`
 }
 
 // Represents a CloudWatch Alarm.
-// Experimental.
 type IAlarm interface {
 	IAlarmRule
 	awscdk.IResource
 	// Alarm ARN (i.e. arn:aws:cloudwatch:<region>:<account-id>:alarm:Foo).
-	// Experimental.
 	AlarmArn() *string
 	// Name of the alarm.
-	// Experimental.
 	AlarmName() *string
 }
 
@@ -6914,10 +6646,8 @@ func (j *jsiiProxy_IAlarm) Stack() awscdk.Stack {
 }
 
 // Interface for objects that can be the targets of CloudWatch alarm actions.
-// Experimental.
 type IAlarmAction interface {
 	// Return the properties required to send alarm actions to this CloudWatch alarm.
-	// Experimental.
 	Bind(scope constructs.Construct, alarm IAlarm) *AlarmActionConfig
 }
 
@@ -6940,10 +6670,8 @@ func (i *jsiiProxy_IAlarmAction) Bind(scope constructs.Construct, alarm IAlarm) 
 }
 
 // Interface for Alarm Rule.
-// Experimental.
 type IAlarmRule interface {
 	// serialized representation of Alarm Rule to be used when building the Composite Alarm resource.
-	// Experimental.
 	RenderAlarmRule() *string
 }
 
@@ -6966,10 +6694,8 @@ func (i *jsiiProxy_IAlarmRule) RenderAlarmRule() *string {
 }
 
 // Interface for metrics.
-// Experimental.
 type IMetric interface {
 	// Inspect the details of the metric object.
-	// Experimental.
 	ToMetricConfig() *MetricConfig
 }
 
@@ -6992,19 +6718,14 @@ func (i *jsiiProxy_IMetric) ToMetricConfig() *MetricConfig {
 }
 
 // A single dashboard widget.
-// Experimental.
 type IWidget interface {
 	// Place the widget at a given position.
-	// Experimental.
 	Position(x *float64, y *float64)
 	// Return the widget JSON for use in the dashboard.
-	// Experimental.
 	ToJson() *[]interface{}
 	// The amount of vertical grid units the widget will take up.
-	// Experimental.
 	Height() *float64
 	// The amount of horizontal grid units the widget will take up.
-	// Experimental.
 	Width() *float64
 }
 
@@ -7058,7 +6779,6 @@ func (j *jsiiProxy_IWidget) Width() *float64 {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LegendPosition string
 
 const (
@@ -7071,7 +6791,6 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LogQueryVisualizationType string
 
 const (
@@ -7086,7 +6805,6 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LogQueryWidget interface {
 	ConcreteWidget
 	Height() *float64
@@ -7145,7 +6863,6 @@ func (j *jsiiProxy_LogQueryWidget) Y() *float64 {
 }
 
 
-// Experimental.
 func NewLogQueryWidget(props *LogQueryWidgetProps) LogQueryWidget {
 	_init_.Initialize()
 
@@ -7160,7 +6877,6 @@ func NewLogQueryWidget(props *LogQueryWidgetProps) LogQueryWidget {
 	return &j
 }
 
-// Experimental.
 func NewLogQueryWidget_Override(l LogQueryWidget, props *LogQueryWidgetProps) {
 	_init_.Initialize()
 
@@ -7188,7 +6904,6 @@ func (j *jsiiProxy_LogQueryWidget) SetY(val *float64) {
 }
 
 // Place the widget at a given position.
-// Experimental.
 func (l *jsiiProxy_LogQueryWidget) Position(x *float64, y *float64) {
 	_jsii_.InvokeVoid(
 		l,
@@ -7198,7 +6913,6 @@ func (l *jsiiProxy_LogQueryWidget) Position(x *float64, y *float64) {
 }
 
 // Return the widget JSON for use in the dashboard.
-// Experimental.
 func (l *jsiiProxy_LogQueryWidget) ToJson() *[]interface{} {
 	var returns *[]interface{}
 
@@ -7216,36 +6930,27 @@ func (l *jsiiProxy_LogQueryWidget) ToJson() *[]interface{} {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LogQueryWidgetProps struct {
 	// Names of log groups to query.
-	// Experimental.
 	LogGroupNames *[]*string `json:"logGroupNames"`
 	// Height of the widget.
-	// Experimental.
 	Height *float64 `json:"height"`
 	// A sequence of lines to use to build the query.
 	//
 	// The query will be built by joining the lines together using `\n|`.
-	// Experimental.
 	QueryLines *[]*string `json:"queryLines"`
 	// Full query string for log insights.
 	//
 	// Be sure to prepend every new line with a newline and pipe character
 	// (`\n|`).
-	// Experimental.
 	QueryString *string `json:"queryString"`
 	// The region the metrics of this widget should be taken from.
-	// Experimental.
 	Region *string `json:"region"`
 	// Title for the widget.
-	// Experimental.
 	Title *string `json:"title"`
 	// The type of view to use.
-	// Experimental.
 	View LogQueryVisualizationType `json:"view"`
 	// Width of the widget, in a grid of 24 units wide.
-	// Experimental.
 	Width *float64 `json:"width"`
 }
 
@@ -7266,7 +6971,6 @@ type LogQueryWidgetProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type MathExpression interface {
 	IMetric
 	Color() *string
@@ -7358,7 +7062,6 @@ func (j *jsiiProxy_MathExpression) UsingMetrics() *map[string]IMetric {
 }
 
 
-// Experimental.
 func NewMathExpression(props *MathExpressionProps) MathExpression {
 	_init_.Initialize()
 
@@ -7373,7 +7076,6 @@ func NewMathExpression(props *MathExpressionProps) MathExpression {
 	return &j
 }
 
-// Experimental.
 func NewMathExpression_Override(m MathExpression, props *MathExpressionProps) {
 	_init_.Initialize()
 
@@ -7388,7 +7090,6 @@ func NewMathExpression_Override(m MathExpression, props *MathExpressionProps) {
 //
 // Combines both properties that may adjust the metric (aggregation) as well
 // as alarm properties.
-// Experimental.
 func (m *jsiiProxy_MathExpression) CreateAlarm(scope constructs.Construct, id *string, props *CreateAlarmOptions) Alarm {
 	var returns Alarm
 
@@ -7403,7 +7104,6 @@ func (m *jsiiProxy_MathExpression) CreateAlarm(scope constructs.Construct, id *s
 }
 
 // Inspect the details of the metric object.
-// Experimental.
 func (m *jsiiProxy_MathExpression) ToMetricConfig() *MetricConfig {
 	var returns *MetricConfig
 
@@ -7418,7 +7118,6 @@ func (m *jsiiProxy_MathExpression) ToMetricConfig() *MetricConfig {
 }
 
 // Returns a string representation of an object.
-// Experimental.
 func (m *jsiiProxy_MathExpression) ToString() *string {
 	var returns *string
 
@@ -7435,7 +7134,6 @@ func (m *jsiiProxy_MathExpression) ToString() *string {
 // Return a copy of Metric with properties changed.
 //
 // All properties except namespace and metricName can be changed.
-// Experimental.
 func (m *jsiiProxy_MathExpression) With(props *MathExpressionOptions) MathExpression {
 	var returns MathExpression
 
@@ -7453,31 +7151,25 @@ func (m *jsiiProxy_MathExpression) With(props *MathExpressionOptions) MathExpres
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type MathExpressionOptions struct {
 	// Color for this metric when added to a Graph in a Dashboard.
-	// Experimental.
 	Color *string `json:"color"`
 	// Label for this metric when added to a Graph in a Dashboard.
-	// Experimental.
 	Label *string `json:"label"`
 	// The period over which the expression's statistics are applied.
 	//
 	// This period overrides all periods in the metrics used in this
 	// math expression.
-	// Experimental.
 	Period awscdk.Duration `json:"period"`
 	// Account to evaluate search expressions within.
 	//
 	// Specifying a searchAccount has no effect to the account used
 	// for metrics within the expression (passed via usingMetrics).
-	// Experimental.
 	SearchAccount *string `json:"searchAccount"`
 	// Region to evaluate search expressions within.
 	//
 	// Specifying a searchRegion has no effect to the region used
 	// for metrics within the expression (passed via usingMetrics).
-	// Experimental.
 	SearchRegion *string `json:"searchRegion"`
 }
 
@@ -7485,43 +7177,35 @@ type MathExpressionOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type MathExpressionProps struct {
 	// Color for this metric when added to a Graph in a Dashboard.
-	// Experimental.
 	Color *string `json:"color"`
 	// Label for this metric when added to a Graph in a Dashboard.
-	// Experimental.
 	Label *string `json:"label"`
 	// The period over which the expression's statistics are applied.
 	//
 	// This period overrides all periods in the metrics used in this
 	// math expression.
-	// Experimental.
 	Period awscdk.Duration `json:"period"`
 	// Account to evaluate search expressions within.
 	//
 	// Specifying a searchAccount has no effect to the account used
 	// for metrics within the expression (passed via usingMetrics).
-	// Experimental.
 	SearchAccount *string `json:"searchAccount"`
 	// Region to evaluate search expressions within.
 	//
 	// Specifying a searchRegion has no effect to the region used
 	// for metrics within the expression (passed via usingMetrics).
-	// Experimental.
 	SearchRegion *string `json:"searchRegion"`
 	// The expression defining the metric.
 	//
 	// When an expression contains a SEARCH function, it cannot be used
 	// within an Alarm.
-	// Experimental.
 	Expression *string `json:"expression"`
 	// The metrics used in the expression, in a map.
 	//
 	// The key is the identifier that represents the given metric in the
 	// expression, and the value is the actual Metric object.
-	// Experimental.
 	UsingMetrics *map[string]IMetric `json:"usingMetrics"`
 }
 
@@ -7540,7 +7224,6 @@ type MathExpressionProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Metric interface {
 	IMetric
 	Account() *string
@@ -7666,7 +7349,6 @@ func (j *jsiiProxy_Metric) Unit() Unit {
 }
 
 
-// Experimental.
 func NewMetric(props *MetricProps) Metric {
 	_init_.Initialize()
 
@@ -7681,7 +7363,6 @@ func NewMetric(props *MetricProps) Metric {
 	return &j
 }
 
-// Experimental.
 func NewMetric_Override(m Metric, props *MetricProps) {
 	_init_.Initialize()
 
@@ -7693,7 +7374,6 @@ func NewMetric_Override(m Metric, props *MetricProps) {
 }
 
 // Grant permissions to the given identity to write metrics.
-// Experimental.
 func Metric_GrantPutMetricData(grantee awsiam.IGrantable) awsiam.Grant {
 	_init_.Initialize()
 
@@ -7719,7 +7399,6 @@ func Metric_GrantPutMetricData(grantee awsiam.IGrantable) awsiam.Grant {
 //
 // If the scope we attach to is in an environment-agnostic stack,
 // nothing is done and the same Metric object is returned.
-// Experimental.
 func (m *jsiiProxy_Metric) AttachTo(scope constructs.IConstruct) Metric {
 	var returns Metric
 
@@ -7737,7 +7416,6 @@ func (m *jsiiProxy_Metric) AttachTo(scope constructs.IConstruct) Metric {
 //
 // Combines both properties that may adjust the metric (aggregation) as well
 // as alarm properties.
-// Experimental.
 func (m *jsiiProxy_Metric) CreateAlarm(scope constructs.Construct, id *string, props *CreateAlarmOptions) Alarm {
 	var returns Alarm
 
@@ -7752,7 +7430,6 @@ func (m *jsiiProxy_Metric) CreateAlarm(scope constructs.Construct, id *string, p
 }
 
 // Inspect the details of the metric object.
-// Experimental.
 func (m *jsiiProxy_Metric) ToMetricConfig() *MetricConfig {
 	var returns *MetricConfig
 
@@ -7767,7 +7444,6 @@ func (m *jsiiProxy_Metric) ToMetricConfig() *MetricConfig {
 }
 
 // Returns a string representation of an object.
-// Experimental.
 func (m *jsiiProxy_Metric) ToString() *string {
 	var returns *string
 
@@ -7784,7 +7460,6 @@ func (m *jsiiProxy_Metric) ToString() *string {
 // Return a copy of Metric `with` properties changed.
 //
 // All properties except namespace and metricName can be changed.
-// Experimental.
 func (m *jsiiProxy_Metric) With(props *MetricOptions) Metric {
 	var returns Metric
 
@@ -7802,19 +7477,15 @@ func (m *jsiiProxy_Metric) With(props *MetricOptions) Metric {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type MetricConfig struct {
 	// In case the metric is a math expression, the details of the math expression.
-	// Experimental.
 	MathExpression *MetricExpressionConfig `json:"mathExpression"`
 	// In case the metric represents a query, the details of the query.
-	// Experimental.
 	MetricStat *MetricStatConfig `json:"metricStat"`
 	// Additional properties which will be rendered if the metric is used in a dashboard.
 	//
 	// Examples are 'label' and 'color', but any key in here will be
 	// added to dashboard graphs.
-	// Experimental.
 	RenderingProperties *map[string]interface{} `json:"renderingProperties"`
 }
 
@@ -7822,22 +7493,16 @@ type MetricConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type MetricExpressionConfig struct {
 	// Math expression for the metric.
-	// Experimental.
 	Expression *string `json:"expression"`
 	// How many seconds to aggregate over.
-	// Experimental.
 	Period *float64 `json:"period"`
 	// Account to evaluate search expressions within.
-	// Experimental.
 	SearchAccount *string `json:"searchAccount"`
 	// Region to evaluate search expressions within.
-	// Experimental.
 	SearchRegion *string `json:"searchRegion"`
 	// Metrics used in the math expression.
-	// Experimental.
 	UsingMetrics *map[string]IMetric `json:"usingMetrics"`
 }
 
@@ -7845,25 +7510,18 @@ type MetricExpressionConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type MetricOptions struct {
 	// Account which this metric comes from.
-	// Experimental.
 	Account *string `json:"account"`
 	// The hex color code, prefixed with '#' (e.g. '#00ff00'), to use when this metric is rendered on a graph. The `Color` class has a set of standard colors that can be used here.
-	// Experimental.
 	Color *string `json:"color"`
 	// Dimensions of the metric.
-	// Experimental.
 	DimensionsMap *map[string]*string `json:"dimensionsMap"`
 	// Label for this metric when added to a Graph in a Dashboard.
-	// Experimental.
 	Label *string `json:"label"`
 	// The period over which the specified statistic is applied.
-	// Experimental.
 	Period awscdk.Duration `json:"period"`
 	// Region which this metric comes from.
-	// Experimental.
 	Region *string `json:"region"`
 	// What function to use for aggregating.
 	//
@@ -7875,7 +7533,6 @@ type MetricOptions struct {
 	// - "Sum" | "sum"
 	// - "SampleCount | "n"
 	// - "pNN.NN"
-	// Experimental.
 	Statistic *string `json:"statistic"`
 	// Unit used to filter the metric stream.
 	//
@@ -7887,7 +7544,6 @@ type MetricOptions struct {
 	// which is recommended in nearly all cases.
 	//
 	// CloudWatch does not honor this property for graphs.
-	// Experimental.
 	Unit Unit `json:"unit"`
 }
 
@@ -7895,25 +7551,18 @@ type MetricOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type MetricProps struct {
 	// Account which this metric comes from.
-	// Experimental.
 	Account *string `json:"account"`
 	// The hex color code, prefixed with '#' (e.g. '#00ff00'), to use when this metric is rendered on a graph. The `Color` class has a set of standard colors that can be used here.
-	// Experimental.
 	Color *string `json:"color"`
 	// Dimensions of the metric.
-	// Experimental.
 	DimensionsMap *map[string]*string `json:"dimensionsMap"`
 	// Label for this metric when added to a Graph in a Dashboard.
-	// Experimental.
 	Label *string `json:"label"`
 	// The period over which the specified statistic is applied.
-	// Experimental.
 	Period awscdk.Duration `json:"period"`
 	// Region which this metric comes from.
-	// Experimental.
 	Region *string `json:"region"`
 	// What function to use for aggregating.
 	//
@@ -7925,7 +7574,6 @@ type MetricProps struct {
 	// - "Sum" | "sum"
 	// - "SampleCount | "n"
 	// - "pNN.NN"
-	// Experimental.
 	Statistic *string `json:"statistic"`
 	// Unit used to filter the metric stream.
 	//
@@ -7937,13 +7585,10 @@ type MetricProps struct {
 	// which is recommended in nearly all cases.
 	//
 	// CloudWatch does not honor this property for graphs.
-	// Experimental.
 	Unit Unit `json:"unit"`
 	// Name of the metric.
-	// Experimental.
 	MetricName *string `json:"metricName"`
 	// Namespace of the metric.
-	// Experimental.
 	Namespace *string `json:"namespace"`
 }
 
@@ -7954,28 +7599,20 @@ type MetricProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type MetricStatConfig struct {
 	// Account which this metric comes from.
-	// Experimental.
 	Account *string `json:"account"`
 	// The dimensions to apply to the alarm.
-	// Experimental.
 	Dimensions *[]*Dimension `json:"dimensions"`
 	// Name of the metric.
-	// Experimental.
 	MetricName *string `json:"metricName"`
 	// Namespace of the metric.
-	// Experimental.
 	Namespace *string `json:"namespace"`
 	// How many seconds to aggregate over.
-	// Experimental.
 	Period awscdk.Duration `json:"period"`
 	// Region which this metric comes from.
-	// Experimental.
 	Region *string `json:"region"`
 	// Aggregation function to use (can be either simple or a percentile).
-	// Experimental.
 	Statistic *string `json:"statistic"`
 	// Unit used to filter the metric stream.
 	//
@@ -7985,7 +7622,6 @@ type MetricStatConfig struct {
 	//
 	// This field has been renamed from plain `unit` to clearly communicate
 	// its purpose.
-	// Experimental.
 	UnitFilter Unit `json:"unitFilter"`
 }
 
@@ -7993,24 +7629,18 @@ type MetricStatConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type MetricWidgetProps struct {
 	// Height of the widget.
-	// Experimental.
 	Height *float64 `json:"height"`
 	// The region the metrics of this graph should be taken from.
-	// Experimental.
 	Region *string `json:"region"`
 	// Title for the graph.
-	// Experimental.
 	Title *string `json:"title"`
 	// Width of the widget, in a grid of 24 units wide.
-	// Experimental.
 	Width *float64 `json:"width"`
 }
 
 // Specify the period for graphs when the CloudWatch dashboard loads.
-// Experimental.
 type PeriodOverride string
 
 const (
@@ -8024,7 +7654,6 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Row interface {
 	IWidget
 	Height() *float64
@@ -8059,7 +7688,6 @@ func (j *jsiiProxy_Row) Width() *float64 {
 }
 
 
-// Experimental.
 func NewRow(widgets ...IWidget) Row {
 	_init_.Initialize()
 
@@ -8079,7 +7707,6 @@ func NewRow(widgets ...IWidget) Row {
 	return &j
 }
 
-// Experimental.
 func NewRow_Override(r Row, widgets ...IWidget) {
 	_init_.Initialize()
 
@@ -8096,7 +7723,6 @@ func NewRow_Override(r Row, widgets ...IWidget) {
 }
 
 // Place the widget at a given position.
-// Experimental.
 func (r *jsiiProxy_Row) Position(x *float64, y *float64) {
 	_jsii_.InvokeVoid(
 		r,
@@ -8106,7 +7732,6 @@ func (r *jsiiProxy_Row) Position(x *float64, y *float64) {
 }
 
 // Return the widget JSON for use in the dashboard.
-// Experimental.
 func (r *jsiiProxy_Row) ToJson() *[]interface{} {
 	var returns *[]interface{}
 
@@ -8121,7 +7746,6 @@ func (r *jsiiProxy_Row) ToJson() *[]interface{} {
 }
 
 // Fill shading options that will be used with an annotation.
-// Experimental.
 type Shading string
 
 const (
@@ -8134,7 +7758,6 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SingleValueWidget interface {
 	ConcreteWidget
 	Height() *float64
@@ -8193,7 +7816,6 @@ func (j *jsiiProxy_SingleValueWidget) Y() *float64 {
 }
 
 
-// Experimental.
 func NewSingleValueWidget(props *SingleValueWidgetProps) SingleValueWidget {
 	_init_.Initialize()
 
@@ -8208,7 +7830,6 @@ func NewSingleValueWidget(props *SingleValueWidgetProps) SingleValueWidget {
 	return &j
 }
 
-// Experimental.
 func NewSingleValueWidget_Override(s SingleValueWidget, props *SingleValueWidgetProps) {
 	_init_.Initialize()
 
@@ -8236,7 +7857,6 @@ func (j *jsiiProxy_SingleValueWidget) SetY(val *float64) {
 }
 
 // Place the widget at a given position.
-// Experimental.
 func (s *jsiiProxy_SingleValueWidget) Position(x *float64, y *float64) {
 	_jsii_.InvokeVoid(
 		s,
@@ -8246,7 +7866,6 @@ func (s *jsiiProxy_SingleValueWidget) Position(x *float64, y *float64) {
 }
 
 // Return the widget JSON for use in the dashboard.
-// Experimental.
 func (s *jsiiProxy_SingleValueWidget) ToJson() *[]interface{} {
 	var returns *[]interface{}
 
@@ -8264,28 +7883,20 @@ func (s *jsiiProxy_SingleValueWidget) ToJson() *[]interface{} {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SingleValueWidgetProps struct {
 	// Height of the widget.
-	// Experimental.
 	Height *float64 `json:"height"`
 	// The region the metrics of this graph should be taken from.
-	// Experimental.
 	Region *string `json:"region"`
 	// Title for the graph.
-	// Experimental.
 	Title *string `json:"title"`
 	// Width of the widget, in a grid of 24 units wide.
-	// Experimental.
 	Width *float64 `json:"width"`
 	// Metrics to display.
-	// Experimental.
 	Metrics *[]IMetric `json:"metrics"`
 	// Whether to show as many digits as can fit, before rounding.
-	// Experimental.
 	FullPrecision *bool `json:"fullPrecision"`
 	// Whether to show the value from the entire time range.
-	// Experimental.
 	SetPeriodToTimeRange *bool `json:"setPeriodToTimeRange"`
 }
 
@@ -8293,7 +7904,6 @@ type SingleValueWidgetProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Spacer interface {
 	IWidget
 	Height() *float64
@@ -8328,7 +7938,6 @@ func (j *jsiiProxy_Spacer) Width() *float64 {
 }
 
 
-// Experimental.
 func NewSpacer(props *SpacerProps) Spacer {
 	_init_.Initialize()
 
@@ -8343,7 +7952,6 @@ func NewSpacer(props *SpacerProps) Spacer {
 	return &j
 }
 
-// Experimental.
 func NewSpacer_Override(s Spacer, props *SpacerProps) {
 	_init_.Initialize()
 
@@ -8355,7 +7963,6 @@ func NewSpacer_Override(s Spacer, props *SpacerProps) {
 }
 
 // Place the widget at a given position.
-// Experimental.
 func (s *jsiiProxy_Spacer) Position(_x *float64, _y *float64) {
 	_jsii_.InvokeVoid(
 		s,
@@ -8365,7 +7972,6 @@ func (s *jsiiProxy_Spacer) Position(_x *float64, _y *float64) {
 }
 
 // Return the widget JSON for use in the dashboard.
-// Experimental.
 func (s *jsiiProxy_Spacer) ToJson() *[]interface{} {
 	var returns *[]interface{}
 
@@ -8383,13 +7989,10 @@ func (s *jsiiProxy_Spacer) ToJson() *[]interface{} {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SpacerProps struct {
 	// Height of the spacer.
-	// Experimental.
 	Height *float64 `json:"height"`
 	// Width of the spacer.
-	// Experimental.
 	Width *float64 `json:"width"`
 }
 
@@ -8397,7 +8000,6 @@ type SpacerProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Statistic string
 
 const (
@@ -8412,7 +8014,6 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TextWidget interface {
 	ConcreteWidget
 	Height() *float64
@@ -8471,7 +8072,6 @@ func (j *jsiiProxy_TextWidget) Y() *float64 {
 }
 
 
-// Experimental.
 func NewTextWidget(props *TextWidgetProps) TextWidget {
 	_init_.Initialize()
 
@@ -8486,7 +8086,6 @@ func NewTextWidget(props *TextWidgetProps) TextWidget {
 	return &j
 }
 
-// Experimental.
 func NewTextWidget_Override(t TextWidget, props *TextWidgetProps) {
 	_init_.Initialize()
 
@@ -8514,7 +8113,6 @@ func (j *jsiiProxy_TextWidget) SetY(val *float64) {
 }
 
 // Place the widget at a given position.
-// Experimental.
 func (t *jsiiProxy_TextWidget) Position(x *float64, y *float64) {
 	_jsii_.InvokeVoid(
 		t,
@@ -8524,7 +8122,6 @@ func (t *jsiiProxy_TextWidget) Position(x *float64, y *float64) {
 }
 
 // Return the widget JSON for use in the dashboard.
-// Experimental.
 func (t *jsiiProxy_TextWidget) ToJson() *[]interface{} {
 	var returns *[]interface{}
 
@@ -8542,21 +8139,16 @@ func (t *jsiiProxy_TextWidget) ToJson() *[]interface{} {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TextWidgetProps struct {
 	// The text to display, in MarkDown format.
-	// Experimental.
 	Markdown *string `json:"markdown"`
 	// Height of the widget.
-	// Experimental.
 	Height *float64 `json:"height"`
 	// Width of the widget, in a grid of 24 units wide.
-	// Experimental.
 	Width *float64 `json:"width"`
 }
 
 // Specify how missing data points are treated during alarm evaluation.
-// Experimental.
 type TreatMissingData string
 
 const (
@@ -8567,7 +8159,6 @@ const (
 )
 
 // Unit for metric.
-// Experimental.
 type Unit string
 
 const (
@@ -8604,19 +8195,14 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type YAxisProps struct {
 	// The label.
-	// Experimental.
 	Label *string `json:"label"`
 	// The max value.
-	// Experimental.
 	Max *float64 `json:"max"`
 	// The min value.
-	// Experimental.
 	Min *float64 `json:"min"`
 	// Whether to show units.
-	// Experimental.
 	ShowUnits *bool `json:"showUnits"`
 }
 

@@ -271,7 +271,6 @@ func (j *jsiiProxy_CfnProfilePermission) SetStatementId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnProfilePermission_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -288,7 +287,6 @@ func CfnProfilePermission_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnProfilePermission_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -335,7 +333,6 @@ func CfnProfilePermission_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnProfilePermission) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -348,7 +345,6 @@ func (c *jsiiProxy_CfnProfilePermission) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnProfilePermission) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -364,7 +360,6 @@ func (c *jsiiProxy_CfnProfilePermission) AddDependsOn(target awscdk.CfnResource)
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnProfilePermission) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -410,7 +405,6 @@ func (c *jsiiProxy_CfnProfilePermission) AddMetadata(key *string, value interfac
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnProfilePermission) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -420,7 +414,6 @@ func (c *jsiiProxy_CfnProfilePermission) AddOverride(path *string, value interfa
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnProfilePermission) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -432,7 +425,6 @@ func (c *jsiiProxy_CfnProfilePermission) AddPropertyDeletionOverride(propertyPat
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnProfilePermission) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -450,7 +442,6 @@ func (c *jsiiProxy_CfnProfilePermission) AddPropertyOverride(propertyPath *strin
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnProfilePermission) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -463,7 +454,6 @@ func (c *jsiiProxy_CfnProfilePermission) ApplyRemovalPolicy(policy awscdk.Remova
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnProfilePermission) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -484,7 +474,6 @@ func (c *jsiiProxy_CfnProfilePermission) GetAtt(attributeName *string) awscdk.Re
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnProfilePermission) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -508,7 +497,6 @@ func (c *jsiiProxy_CfnProfilePermission) Inspect(inspector awscdk.TreeInspector)
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnProfilePermission) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -534,7 +522,6 @@ func (c *jsiiProxy_CfnProfilePermission) RenderProperties(props *map[string]inte
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnProfilePermission) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -551,7 +538,6 @@ func (c *jsiiProxy_CfnProfilePermission) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnProfilePermission) ToString() *string {
 	var returns *string
 
@@ -565,7 +551,6 @@ func (c *jsiiProxy_CfnProfilePermission) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnProfilePermission) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -848,7 +833,6 @@ func (j *jsiiProxy_CfnSigningProfile) SetSignatureValidityPeriod(val interface{}
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnSigningProfile_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -865,7 +849,6 @@ func CfnSigningProfile_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnSigningProfile_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -912,7 +895,6 @@ func CfnSigningProfile_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnSigningProfile) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -925,7 +907,6 @@ func (c *jsiiProxy_CfnSigningProfile) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnSigningProfile) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -941,7 +922,6 @@ func (c *jsiiProxy_CfnSigningProfile) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnSigningProfile) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -987,7 +967,6 @@ func (c *jsiiProxy_CfnSigningProfile) AddMetadata(key *string, value interface{}
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnSigningProfile) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -997,7 +976,6 @@ func (c *jsiiProxy_CfnSigningProfile) AddOverride(path *string, value interface{
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnSigningProfile) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1009,7 +987,6 @@ func (c *jsiiProxy_CfnSigningProfile) AddPropertyDeletionOverride(propertyPath *
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnSigningProfile) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1027,7 +1004,6 @@ func (c *jsiiProxy_CfnSigningProfile) AddPropertyOverride(propertyPath *string, 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnSigningProfile) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1040,7 +1016,6 @@ func (c *jsiiProxy_CfnSigningProfile) ApplyRemovalPolicy(policy awscdk.RemovalPo
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnSigningProfile) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1061,7 +1036,6 @@ func (c *jsiiProxy_CfnSigningProfile) GetAtt(attributeName *string) awscdk.Refer
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnSigningProfile) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1085,7 +1059,6 @@ func (c *jsiiProxy_CfnSigningProfile) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnSigningProfile) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1111,7 +1084,6 @@ func (c *jsiiProxy_CfnSigningProfile) RenderProperties(props *map[string]interfa
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnSigningProfile) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1128,7 +1100,6 @@ func (c *jsiiProxy_CfnSigningProfile) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnSigningProfile) ToString() *string {
 	var returns *string
 
@@ -1142,7 +1113,6 @@ func (c *jsiiProxy_CfnSigningProfile) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnSigningProfile) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1174,20 +1144,15 @@ type CfnSigningProfileProps struct {
 }
 
 // A Signer Profile.
-// Experimental.
 type ISigningProfile interface {
 	awscdk.IResource
 	// The ARN of the signing profile.
-	// Experimental.
 	SigningProfileArn() *string
 	// The name of signing profile.
-	// Experimental.
 	SigningProfileName() *string
 	// The version of signing profile.
-	// Experimental.
 	SigningProfileVersion() *string
 	// The ARN of signing profile version.
-	// Experimental.
 	SigningProfileVersionArn() *string
 }
 
@@ -1242,7 +1207,6 @@ func (j *jsiiProxy_ISigningProfile) SigningProfileVersionArn() *string {
 //
 // See: https://docs.aws.amazon.com/signer/latest/developerguide/gs-platform.html
 //
-// Experimental.
 type Platform interface {
 	PlatformId() *string
 }
@@ -1311,7 +1275,6 @@ func Platform_AWS_LAMBDA_SHA384_ECDSA() Platform {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SigningProfile interface {
 	awscdk.Resource
 	ISigningProfile
@@ -1417,7 +1380,6 @@ func (j *jsiiProxy_SigningProfile) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewSigningProfile(scope constructs.Construct, id *string, props *SigningProfileProps) SigningProfile {
 	_init_.Initialize()
 
@@ -1432,7 +1394,6 @@ func NewSigningProfile(scope constructs.Construct, id *string, props *SigningPro
 	return &j
 }
 
-// Experimental.
 func NewSigningProfile_Override(s SigningProfile, scope constructs.Construct, id *string, props *SigningProfileProps) {
 	_init_.Initialize()
 
@@ -1444,7 +1405,6 @@ func NewSigningProfile_Override(s SigningProfile, scope constructs.Construct, id
 }
 
 // Creates a Signing Profile construct that represents an external Signing Profile.
-// Experimental.
 func SigningProfile_FromSigningProfileAttributes(scope constructs.Construct, id *string, attrs *SigningProfileAttributes) ISigningProfile {
 	_init_.Initialize()
 
@@ -1480,7 +1440,6 @@ func SigningProfile_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func SigningProfile_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -1505,7 +1464,6 @@ func SigningProfile_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (s *jsiiProxy_SigningProfile) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		s,
@@ -1514,7 +1472,6 @@ func (s *jsiiProxy_SigningProfile) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 	)
 }
 
-// Experimental.
 func (s *jsiiProxy_SigningProfile) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -1534,7 +1491,6 @@ func (s *jsiiProxy_SigningProfile) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (s *jsiiProxy_SigningProfile) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -1553,7 +1509,6 @@ func (s *jsiiProxy_SigningProfile) GetResourceArnAttribute(arnAttr *string, arnC
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (s *jsiiProxy_SigningProfile) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -1568,7 +1523,6 @@ func (s *jsiiProxy_SigningProfile) GetResourceNameAttribute(nameAttr *string) *s
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (s *jsiiProxy_SigningProfile) ToString() *string {
 	var returns *string
 
@@ -1586,13 +1540,10 @@ func (s *jsiiProxy_SigningProfile) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SigningProfileAttributes struct {
 	// The name of signing profile.
-	// Experimental.
 	SigningProfileName *string `json:"signingProfileName"`
 	// The version of signing profile.
-	// Experimental.
 	SigningProfileVersion *string `json:"signingProfileVersion"`
 }
 
@@ -1600,18 +1551,14 @@ type SigningProfileAttributes struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SigningProfileProps struct {
 	// The Signing Platform available for signing profile.
 	// See: https://docs.aws.amazon.com/signer/latest/developerguide/gs-platform.html
 	//
-	// Experimental.
 	Platform Platform `json:"platform"`
 	// The validity period for signatures generated using this signing profile.
-	// Experimental.
 	SignatureValidity awscdk.Duration `json:"signatureValidity"`
 	// Physical name of this Signing Profile.
-	// Experimental.
 	SigningProfileName *string `json:"signingProfileName"`
 }
 

@@ -21,7 +21,6 @@ import (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type BackupPlan interface {
 	awscdk.Resource
 	IBackupPlan
@@ -129,7 +128,6 @@ func (j *jsiiProxy_BackupPlan) VersionId() *string {
 }
 
 
-// Experimental.
 func NewBackupPlan(scope constructs.Construct, id *string, props *BackupPlanProps) BackupPlan {
 	_init_.Initialize()
 
@@ -144,7 +142,6 @@ func NewBackupPlan(scope constructs.Construct, id *string, props *BackupPlanProp
 	return &j
 }
 
-// Experimental.
 func NewBackupPlan_Override(b BackupPlan, scope constructs.Construct, id *string, props *BackupPlanProps) {
 	_init_.Initialize()
 
@@ -156,7 +153,6 @@ func NewBackupPlan_Override(b BackupPlan, scope constructs.Construct, id *string
 }
 
 // Daily with 35 day retention.
-// Experimental.
 func BackupPlan_Daily35DayRetention(scope constructs.Construct, id *string, backupVault IBackupVault) BackupPlan {
 	_init_.Initialize()
 
@@ -173,7 +169,6 @@ func BackupPlan_Daily35DayRetention(scope constructs.Construct, id *string, back
 }
 
 // Daily and monthly with 1 year retention.
-// Experimental.
 func BackupPlan_DailyMonthly1YearRetention(scope constructs.Construct, id *string, backupVault IBackupVault) BackupPlan {
 	_init_.Initialize()
 
@@ -190,7 +185,6 @@ func BackupPlan_DailyMonthly1YearRetention(scope constructs.Construct, id *strin
 }
 
 // Daily, weekly and monthly with 5 year retention.
-// Experimental.
 func BackupPlan_DailyWeeklyMonthly5YearRetention(scope constructs.Construct, id *string, backupVault IBackupVault) BackupPlan {
 	_init_.Initialize()
 
@@ -207,7 +201,6 @@ func BackupPlan_DailyWeeklyMonthly5YearRetention(scope constructs.Construct, id 
 }
 
 // Daily, weekly and monthly with 7 year retention.
-// Experimental.
 func BackupPlan_DailyWeeklyMonthly7YearRetention(scope constructs.Construct, id *string, backupVault IBackupVault) BackupPlan {
 	_init_.Initialize()
 
@@ -224,7 +217,6 @@ func BackupPlan_DailyWeeklyMonthly7YearRetention(scope constructs.Construct, id 
 }
 
 // Import an existing backup plan.
-// Experimental.
 func BackupPlan_FromBackupPlanId(scope constructs.Construct, id *string, backupPlanId *string) IBackupPlan {
 	_init_.Initialize()
 
@@ -260,7 +252,6 @@ func BackupPlan_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func BackupPlan_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -277,7 +268,6 @@ func BackupPlan_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Adds a rule to a plan.
-// Experimental.
 func (b *jsiiProxy_BackupPlan) AddRule(rule BackupPlanRule) {
 	_jsii_.InvokeVoid(
 		b,
@@ -287,7 +277,6 @@ func (b *jsiiProxy_BackupPlan) AddRule(rule BackupPlanRule) {
 }
 
 // Adds a selection to this plan.
-// Experimental.
 func (b *jsiiProxy_BackupPlan) AddSelection(id *string, options *BackupSelectionOptions) BackupSelection {
 	var returns BackupSelection
 
@@ -310,7 +299,6 @@ func (b *jsiiProxy_BackupPlan) AddSelection(id *string, options *BackupSelection
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (b *jsiiProxy_BackupPlan) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		b,
@@ -319,7 +307,6 @@ func (b *jsiiProxy_BackupPlan) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (b *jsiiProxy_BackupPlan) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -339,7 +326,6 @@ func (b *jsiiProxy_BackupPlan) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (b *jsiiProxy_BackupPlan) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -358,7 +344,6 @@ func (b *jsiiProxy_BackupPlan) GetResourceArnAttribute(arnAttr *string, arnCompo
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (b *jsiiProxy_BackupPlan) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -373,7 +358,6 @@ func (b *jsiiProxy_BackupPlan) GetResourceNameAttribute(nameAttr *string) *strin
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (b *jsiiProxy_BackupPlan) ToString() *string {
 	var returns *string
 
@@ -391,19 +375,15 @@ func (b *jsiiProxy_BackupPlan) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type BackupPlanProps struct {
 	// The display name of the backup plan.
-	// Experimental.
 	BackupPlanName *string `json:"backupPlanName"`
 	// Rules for the backup plan.
 	//
 	// Use `addRule()` to add rules after
 	// instantiation.
-	// Experimental.
 	BackupPlanRules *[]BackupPlanRule `json:"backupPlanRules"`
 	// The backup vault where backups are stored.
-	// Experimental.
 	BackupVault IBackupVault `json:"backupVault"`
 }
 
@@ -411,7 +391,6 @@ type BackupPlanProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type BackupPlanRule interface {
 	Props() *BackupPlanRuleProps
 }
@@ -432,7 +411,6 @@ func (j *jsiiProxy_BackupPlanRule) Props() *BackupPlanRuleProps {
 }
 
 
-// Experimental.
 func NewBackupPlanRule(props *BackupPlanRuleProps) BackupPlanRule {
 	_init_.Initialize()
 
@@ -447,7 +425,6 @@ func NewBackupPlanRule(props *BackupPlanRuleProps) BackupPlanRule {
 	return &j
 }
 
-// Experimental.
 func NewBackupPlanRule_Override(b BackupPlanRule, props *BackupPlanRuleProps) {
 	_init_.Initialize()
 
@@ -459,7 +436,6 @@ func NewBackupPlanRule_Override(b BackupPlanRule, props *BackupPlanRuleProps) {
 }
 
 // Daily with 35 days retention.
-// Experimental.
 func BackupPlanRule_Daily(backupVault IBackupVault) BackupPlanRule {
 	_init_.Initialize()
 
@@ -476,7 +452,6 @@ func BackupPlanRule_Daily(backupVault IBackupVault) BackupPlanRule {
 }
 
 // Monthly 1 year retention, move to cold storage after 1 month.
-// Experimental.
 func BackupPlanRule_Monthly1Year(backupVault IBackupVault) BackupPlanRule {
 	_init_.Initialize()
 
@@ -493,7 +468,6 @@ func BackupPlanRule_Monthly1Year(backupVault IBackupVault) BackupPlanRule {
 }
 
 // Monthly 5 year retention, move to cold storage after 3 months.
-// Experimental.
 func BackupPlanRule_Monthly5Year(backupVault IBackupVault) BackupPlanRule {
 	_init_.Initialize()
 
@@ -510,7 +484,6 @@ func BackupPlanRule_Monthly5Year(backupVault IBackupVault) BackupPlanRule {
 }
 
 // Monthly 7 year retention, move to cold storage after 3 months.
-// Experimental.
 func BackupPlanRule_Monthly7Year(backupVault IBackupVault) BackupPlanRule {
 	_init_.Initialize()
 
@@ -527,7 +500,6 @@ func BackupPlanRule_Monthly7Year(backupVault IBackupVault) BackupPlanRule {
 }
 
 // Weekly with 3 months retention.
-// Experimental.
 func BackupPlanRule_Weekly(backupVault IBackupVault) BackupPlanRule {
 	_init_.Initialize()
 
@@ -547,30 +519,22 @@ func BackupPlanRule_Weekly(backupVault IBackupVault) BackupPlanRule {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type BackupPlanRuleProps struct {
 	// The backup vault where backups are.
-	// Experimental.
 	BackupVault IBackupVault `json:"backupVault"`
 	// The duration after a backup job is successfully started before it must be completed or it is canceled by AWS Backup.
-	// Experimental.
 	CompletionWindow awscdk.Duration `json:"completionWindow"`
 	// Specifies the duration after creation that a recovery point is deleted.
 	//
 	// Must be greater than `moveToColdStorageAfter`.
-	// Experimental.
 	DeleteAfter awscdk.Duration `json:"deleteAfter"`
 	// Specifies the duration after creation that a recovery point is moved to cold storage.
-	// Experimental.
 	MoveToColdStorageAfter awscdk.Duration `json:"moveToColdStorageAfter"`
 	// A display name for the backup rule.
-	// Experimental.
 	RuleName *string `json:"ruleName"`
 	// A CRON expression specifying when AWS Backup initiates a backup job.
-	// Experimental.
 	ScheduleExpression awsevents.Schedule `json:"scheduleExpression"`
 	// The duration after a backup is scheduled before a job is canceled if it doesn't start successfully.
-	// Experimental.
 	StartWindow awscdk.Duration `json:"startWindow"`
 }
 
@@ -578,7 +542,6 @@ type BackupPlanRuleProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type BackupResource interface {
 	Construct() constructs.Construct
 	Resource() *string
@@ -621,7 +584,6 @@ func (j *jsiiProxy_BackupResource) TagCondition() *TagCondition {
 }
 
 
-// Experimental.
 func NewBackupResource(resource *string, tagCondition *TagCondition, construct constructs.Construct) BackupResource {
 	_init_.Initialize()
 
@@ -636,7 +598,6 @@ func NewBackupResource(resource *string, tagCondition *TagCondition, construct c
 	return &j
 }
 
-// Experimental.
 func NewBackupResource_Override(b BackupResource, resource *string, tagCondition *TagCondition, construct constructs.Construct) {
 	_init_.Initialize()
 
@@ -648,7 +609,6 @@ func NewBackupResource_Override(b BackupResource, resource *string, tagCondition
 }
 
 // A list of ARNs or match patterns such as `arn:aws:ec2:us-east-1:123456789012:volume/*`.
-// Experimental.
 func BackupResource_FromArn(arn *string) BackupResource {
 	_init_.Initialize()
 
@@ -665,7 +625,6 @@ func BackupResource_FromArn(arn *string) BackupResource {
 }
 
 // Adds all supported resources in a construct.
-// Experimental.
 func BackupResource_FromConstruct(construct constructs.Construct) BackupResource {
 	_init_.Initialize()
 
@@ -682,7 +641,6 @@ func BackupResource_FromConstruct(construct constructs.Construct) BackupResource
 }
 
 // A DynamoDB table.
-// Experimental.
 func BackupResource_FromDynamoDbTable(table awsdynamodb.ITable) BackupResource {
 	_init_.Initialize()
 
@@ -699,7 +657,6 @@ func BackupResource_FromDynamoDbTable(table awsdynamodb.ITable) BackupResource {
 }
 
 // An EC2 instance.
-// Experimental.
 func BackupResource_FromEc2Instance(instance awsec2.IInstance) BackupResource {
 	_init_.Initialize()
 
@@ -716,7 +673,6 @@ func BackupResource_FromEc2Instance(instance awsec2.IInstance) BackupResource {
 }
 
 // An EFS file system.
-// Experimental.
 func BackupResource_FromEfsFileSystem(fileSystem awsefs.IFileSystem) BackupResource {
 	_init_.Initialize()
 
@@ -733,7 +689,6 @@ func BackupResource_FromEfsFileSystem(fileSystem awsefs.IFileSystem) BackupResou
 }
 
 // A RDS database instance.
-// Experimental.
 func BackupResource_FromRdsDatabaseInstance(instance awsrds.IDatabaseInstance) BackupResource {
 	_init_.Initialize()
 
@@ -750,7 +705,6 @@ func BackupResource_FromRdsDatabaseInstance(instance awsrds.IDatabaseInstance) B
 }
 
 // A tag condition.
-// Experimental.
 func BackupResource_FromTag(key *string, value *string, operation TagOperation) BackupResource {
 	_init_.Initialize()
 
@@ -770,7 +724,6 @@ func BackupResource_FromTag(key *string, value *string, operation TagOperation) 
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type BackupSelection interface {
 	awscdk.Resource
 	awsiam.IGrantable
@@ -865,7 +818,6 @@ func (j *jsiiProxy_BackupSelection) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewBackupSelection(scope constructs.Construct, id *string, props *BackupSelectionProps) BackupSelection {
 	_init_.Initialize()
 
@@ -880,7 +832,6 @@ func NewBackupSelection(scope constructs.Construct, id *string, props *BackupSel
 	return &j
 }
 
-// Experimental.
 func NewBackupSelection_Override(b BackupSelection, scope constructs.Construct, id *string, props *BackupSelectionProps) {
 	_init_.Initialize()
 
@@ -911,7 +862,6 @@ func BackupSelection_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func BackupSelection_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -936,7 +886,6 @@ func BackupSelection_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (b *jsiiProxy_BackupSelection) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		b,
@@ -945,7 +894,6 @@ func (b *jsiiProxy_BackupSelection) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 	)
 }
 
-// Experimental.
 func (b *jsiiProxy_BackupSelection) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -965,7 +913,6 @@ func (b *jsiiProxy_BackupSelection) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (b *jsiiProxy_BackupSelection) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -984,7 +931,6 @@ func (b *jsiiProxy_BackupSelection) GetResourceArnAttribute(arnAttr *string, arn
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (b *jsiiProxy_BackupSelection) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -999,7 +945,6 @@ func (b *jsiiProxy_BackupSelection) GetResourceNameAttribute(nameAttr *string) *
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (b *jsiiProxy_BackupSelection) ToString() *string {
 	var returns *string
 
@@ -1017,27 +962,22 @@ func (b *jsiiProxy_BackupSelection) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type BackupSelectionOptions struct {
 	// Whether to automatically give restores permissions to the role that AWS Backup uses.
 	//
 	// If `true`, the `AWSBackupServiceRolePolicyForRestores` managed
 	// policy will be attached to the role.
-	// Experimental.
 	AllowRestores *bool `json:"allowRestores"`
 	// The name for this selection.
-	// Experimental.
 	BackupSelectionName *string `json:"backupSelectionName"`
 	// The resources to backup.
 	//
 	// Use the helper static methods defined on `BackupResource`.
-	// Experimental.
 	Resources *[]BackupResource `json:"resources"`
 	// The role that AWS Backup uses to authenticate when backuping or restoring the resources.
 	//
 	// The `AWSBackupServiceRolePolicyForBackup` managed policy
 	// will be attached to this role.
-	// Experimental.
 	Role awsiam.IRole `json:"role"`
 }
 
@@ -1045,30 +985,24 @@ type BackupSelectionOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type BackupSelectionProps struct {
 	// Whether to automatically give restores permissions to the role that AWS Backup uses.
 	//
 	// If `true`, the `AWSBackupServiceRolePolicyForRestores` managed
 	// policy will be attached to the role.
-	// Experimental.
 	AllowRestores *bool `json:"allowRestores"`
 	// The name for this selection.
-	// Experimental.
 	BackupSelectionName *string `json:"backupSelectionName"`
 	// The resources to backup.
 	//
 	// Use the helper static methods defined on `BackupResource`.
-	// Experimental.
 	Resources *[]BackupResource `json:"resources"`
 	// The role that AWS Backup uses to authenticate when backuping or restoring the resources.
 	//
 	// The `AWSBackupServiceRolePolicyForBackup` managed policy
 	// will be attached to this role.
-	// Experimental.
 	Role awsiam.IRole `json:"role"`
 	// The backup plan for this selection.
-	// Experimental.
 	BackupPlan IBackupPlan `json:"backupPlan"`
 }
 
@@ -1076,7 +1010,6 @@ type BackupSelectionProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type BackupVault interface {
 	awscdk.Resource
 	IBackupVault
@@ -1163,7 +1096,6 @@ func (j *jsiiProxy_BackupVault) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewBackupVault(scope constructs.Construct, id *string, props *BackupVaultProps) BackupVault {
 	_init_.Initialize()
 
@@ -1178,7 +1110,6 @@ func NewBackupVault(scope constructs.Construct, id *string, props *BackupVaultPr
 	return &j
 }
 
-// Experimental.
 func NewBackupVault_Override(b BackupVault, scope constructs.Construct, id *string, props *BackupVaultProps) {
 	_init_.Initialize()
 
@@ -1190,7 +1121,6 @@ func NewBackupVault_Override(b BackupVault, scope constructs.Construct, id *stri
 }
 
 // Import an existing backup vault by arn.
-// Experimental.
 func BackupVault_FromBackupVaultArn(scope constructs.Construct, id *string, backupVaultArn *string) IBackupVault {
 	_init_.Initialize()
 
@@ -1207,7 +1137,6 @@ func BackupVault_FromBackupVaultArn(scope constructs.Construct, id *string, back
 }
 
 // Import an existing backup vault by name.
-// Experimental.
 func BackupVault_FromBackupVaultName(scope constructs.Construct, id *string, backupVaultName *string) IBackupVault {
 	_init_.Initialize()
 
@@ -1243,7 +1172,6 @@ func BackupVault_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func BackupVault_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -1260,7 +1188,6 @@ func BackupVault_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Adds a statement to the vault access policy.
-// Experimental.
 func (b *jsiiProxy_BackupVault) AddToAccessPolicy(statement awsiam.PolicyStatement) {
 	_jsii_.InvokeVoid(
 		b,
@@ -1278,7 +1205,6 @@ func (b *jsiiProxy_BackupVault) AddToAccessPolicy(statement awsiam.PolicyStateme
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (b *jsiiProxy_BackupVault) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		b,
@@ -1288,7 +1214,6 @@ func (b *jsiiProxy_BackupVault) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) 
 }
 
 // Adds a statement to the vault access policy that prevents anyone from deleting a recovery point.
-// Experimental.
 func (b *jsiiProxy_BackupVault) BlockRecoveryPointDeletion() {
 	_jsii_.InvokeVoid(
 		b,
@@ -1297,7 +1222,6 @@ func (b *jsiiProxy_BackupVault) BlockRecoveryPointDeletion() {
 	)
 }
 
-// Experimental.
 func (b *jsiiProxy_BackupVault) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -1317,7 +1241,6 @@ func (b *jsiiProxy_BackupVault) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (b *jsiiProxy_BackupVault) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -1336,7 +1259,6 @@ func (b *jsiiProxy_BackupVault) GetResourceArnAttribute(arnAttr *string, arnComp
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (b *jsiiProxy_BackupVault) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -1351,7 +1273,6 @@ func (b *jsiiProxy_BackupVault) GetResourceNameAttribute(nameAttr *string) *stri
 }
 
 // Grant the actions defined in actions to the given grantee on this Backup Vault resource.
-// Experimental.
 func (b *jsiiProxy_BackupVault) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
 	args := []interface{}{grantee}
 	for _, a := range actions {
@@ -1371,7 +1292,6 @@ func (b *jsiiProxy_BackupVault) Grant(grantee awsiam.IGrantable, actions ...*str
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (b *jsiiProxy_BackupVault) ToString() *string {
 	var returns *string
 
@@ -1386,7 +1306,6 @@ func (b *jsiiProxy_BackupVault) ToString() *string {
 }
 
 // Backup vault events.
-// Experimental.
 type BackupVaultEvents string
 
 const (
@@ -1411,39 +1330,31 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type BackupVaultProps struct {
 	// A resource-based policy that is used to manage access permissions on the backup vault.
-	// Experimental.
 	AccessPolicy awsiam.PolicyDocument `json:"accessPolicy"`
 	// The name of a logical container where backups are stored.
 	//
 	// Backup vaults
 	// are identified by names that are unique to the account used to create
 	// them and the AWS Region where they are created.
-	// Experimental.
 	BackupVaultName *string `json:"backupVaultName"`
 	// Whether to add statements to the vault access policy that prevents anyone from deleting a recovery point.
-	// Experimental.
 	BlockRecoveryPointDeletion *bool `json:"blockRecoveryPointDeletion"`
 	// The server-side encryption key to use to protect your backups.
-	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey"`
 	// The vault events to send.
 	// See: https://docs.aws.amazon.com/aws-backup/latest/devguide/sns-notifications.html
 	//
-	// Experimental.
 	NotificationEvents *[]BackupVaultEvents `json:"notificationEvents"`
 	// A SNS topic to send vault events to.
 	// See: https://docs.aws.amazon.com/aws-backup/latest/devguide/sns-notifications.html
 	//
-	// Experimental.
 	NotificationTopic awssns.ITopic `json:"notificationTopic"`
 	// The removal policy to apply to the vault.
 	//
 	// Note that removing a vault
 	// that contains recovery points will fail.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 }
 
@@ -1682,7 +1593,6 @@ func (j *jsiiProxy_CfnBackupPlan) SetBackupPlanTags(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnBackupPlan_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -1699,7 +1609,6 @@ func CfnBackupPlan_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnBackupPlan_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -1746,7 +1655,6 @@ func CfnBackupPlan_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnBackupPlan) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1759,7 +1667,6 @@ func (c *jsiiProxy_CfnBackupPlan) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnBackupPlan) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1775,7 +1682,6 @@ func (c *jsiiProxy_CfnBackupPlan) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnBackupPlan) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1821,7 +1727,6 @@ func (c *jsiiProxy_CfnBackupPlan) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnBackupPlan) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1831,7 +1736,6 @@ func (c *jsiiProxy_CfnBackupPlan) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnBackupPlan) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1843,7 +1747,6 @@ func (c *jsiiProxy_CfnBackupPlan) AddPropertyDeletionOverride(propertyPath *stri
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnBackupPlan) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1861,7 +1764,6 @@ func (c *jsiiProxy_CfnBackupPlan) AddPropertyOverride(propertyPath *string, valu
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnBackupPlan) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1874,7 +1776,6 @@ func (c *jsiiProxy_CfnBackupPlan) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnBackupPlan) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1895,7 +1796,6 @@ func (c *jsiiProxy_CfnBackupPlan) GetAtt(attributeName *string) awscdk.Reference
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnBackupPlan) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1919,7 +1819,6 @@ func (c *jsiiProxy_CfnBackupPlan) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnBackupPlan) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1945,7 +1844,6 @@ func (c *jsiiProxy_CfnBackupPlan) RenderProperties(props *map[string]interface{}
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnBackupPlan) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1962,7 +1860,6 @@ func (c *jsiiProxy_CfnBackupPlan) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnBackupPlan) ToString() *string {
 	var returns *string
 
@@ -1976,7 +1873,6 @@ func (c *jsiiProxy_CfnBackupPlan) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnBackupPlan) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2292,7 +2188,6 @@ func (j *jsiiProxy_CfnBackupSelection) SetBackupSelection(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnBackupSelection_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -2309,7 +2204,6 @@ func CfnBackupSelection_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnBackupSelection_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -2356,7 +2250,6 @@ func CfnBackupSelection_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnBackupSelection) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2369,7 +2262,6 @@ func (c *jsiiProxy_CfnBackupSelection) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnBackupSelection) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2385,7 +2277,6 @@ func (c *jsiiProxy_CfnBackupSelection) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnBackupSelection) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2431,7 +2322,6 @@ func (c *jsiiProxy_CfnBackupSelection) AddMetadata(key *string, value interface{
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnBackupSelection) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2441,7 +2331,6 @@ func (c *jsiiProxy_CfnBackupSelection) AddOverride(path *string, value interface
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnBackupSelection) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2453,7 +2342,6 @@ func (c *jsiiProxy_CfnBackupSelection) AddPropertyDeletionOverride(propertyPath 
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnBackupSelection) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2471,7 +2359,6 @@ func (c *jsiiProxy_CfnBackupSelection) AddPropertyOverride(propertyPath *string,
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnBackupSelection) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2484,7 +2371,6 @@ func (c *jsiiProxy_CfnBackupSelection) ApplyRemovalPolicy(policy awscdk.RemovalP
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnBackupSelection) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2505,7 +2391,6 @@ func (c *jsiiProxy_CfnBackupSelection) GetAtt(attributeName *string) awscdk.Refe
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnBackupSelection) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2529,7 +2414,6 @@ func (c *jsiiProxy_CfnBackupSelection) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnBackupSelection) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2555,7 +2439,6 @@ func (c *jsiiProxy_CfnBackupSelection) RenderProperties(props *map[string]interf
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnBackupSelection) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2572,7 +2455,6 @@ func (c *jsiiProxy_CfnBackupSelection) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnBackupSelection) ToString() *string {
 	var returns *string
 
@@ -2586,7 +2468,6 @@ func (c *jsiiProxy_CfnBackupSelection) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnBackupSelection) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2938,7 +2819,6 @@ func (j *jsiiProxy_CfnBackupVault) SetNotifications(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnBackupVault_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -2955,7 +2835,6 @@ func CfnBackupVault_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnBackupVault_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -3002,7 +2881,6 @@ func CfnBackupVault_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnBackupVault) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3015,7 +2893,6 @@ func (c *jsiiProxy_CfnBackupVault) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnBackupVault) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3031,7 +2908,6 @@ func (c *jsiiProxy_CfnBackupVault) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnBackupVault) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3077,7 +2953,6 @@ func (c *jsiiProxy_CfnBackupVault) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnBackupVault) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3087,7 +2962,6 @@ func (c *jsiiProxy_CfnBackupVault) AddOverride(path *string, value interface{}) 
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnBackupVault) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3099,7 +2973,6 @@ func (c *jsiiProxy_CfnBackupVault) AddPropertyDeletionOverride(propertyPath *str
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnBackupVault) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3117,7 +2990,6 @@ func (c *jsiiProxy_CfnBackupVault) AddPropertyOverride(propertyPath *string, val
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnBackupVault) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3130,7 +3002,6 @@ func (c *jsiiProxy_CfnBackupVault) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnBackupVault) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3151,7 +3022,6 @@ func (c *jsiiProxy_CfnBackupVault) GetAtt(attributeName *string) awscdk.Referenc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnBackupVault) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3175,7 +3045,6 @@ func (c *jsiiProxy_CfnBackupVault) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnBackupVault) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3201,7 +3070,6 @@ func (c *jsiiProxy_CfnBackupVault) RenderProperties(props *map[string]interface{
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnBackupVault) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3218,7 +3086,6 @@ func (c *jsiiProxy_CfnBackupVault) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnBackupVault) ToString() *string {
 	var returns *string
 
@@ -3232,7 +3099,6 @@ func (c *jsiiProxy_CfnBackupVault) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnBackupVault) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3566,7 +3432,6 @@ func (j *jsiiProxy_CfnFramework) SetFrameworkTags(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnFramework_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -3583,7 +3448,6 @@ func CfnFramework_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnFramework_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -3630,7 +3494,6 @@ func CfnFramework_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnFramework) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3643,7 +3506,6 @@ func (c *jsiiProxy_CfnFramework) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnFramework) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3659,7 +3521,6 @@ func (c *jsiiProxy_CfnFramework) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnFramework) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3705,7 +3566,6 @@ func (c *jsiiProxy_CfnFramework) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnFramework) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3715,7 +3575,6 @@ func (c *jsiiProxy_CfnFramework) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnFramework) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3727,7 +3586,6 @@ func (c *jsiiProxy_CfnFramework) AddPropertyDeletionOverride(propertyPath *strin
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnFramework) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3745,7 +3603,6 @@ func (c *jsiiProxy_CfnFramework) AddPropertyOverride(propertyPath *string, value
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnFramework) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3758,7 +3615,6 @@ func (c *jsiiProxy_CfnFramework) ApplyRemovalPolicy(policy awscdk.RemovalPolicy,
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnFramework) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3779,7 +3635,6 @@ func (c *jsiiProxy_CfnFramework) GetAtt(attributeName *string) awscdk.Reference 
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnFramework) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3803,7 +3658,6 @@ func (c *jsiiProxy_CfnFramework) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnFramework) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3829,7 +3683,6 @@ func (c *jsiiProxy_CfnFramework) RenderProperties(props *map[string]interface{})
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnFramework) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3846,7 +3699,6 @@ func (c *jsiiProxy_CfnFramework) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnFramework) ToString() *string {
 	var returns *string
 
@@ -3860,7 +3712,6 @@ func (c *jsiiProxy_CfnFramework) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnFramework) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4177,7 +4028,6 @@ func (j *jsiiProxy_CfnReportPlan) SetReportSetting(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnReportPlan_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -4194,7 +4044,6 @@ func CfnReportPlan_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnReportPlan_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -4241,7 +4090,6 @@ func CfnReportPlan_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnReportPlan) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4254,7 +4102,6 @@ func (c *jsiiProxy_CfnReportPlan) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnReportPlan) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4270,7 +4117,6 @@ func (c *jsiiProxy_CfnReportPlan) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnReportPlan) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4316,7 +4162,6 @@ func (c *jsiiProxy_CfnReportPlan) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnReportPlan) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4326,7 +4171,6 @@ func (c *jsiiProxy_CfnReportPlan) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnReportPlan) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4338,7 +4182,6 @@ func (c *jsiiProxy_CfnReportPlan) AddPropertyDeletionOverride(propertyPath *stri
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnReportPlan) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4356,7 +4199,6 @@ func (c *jsiiProxy_CfnReportPlan) AddPropertyOverride(propertyPath *string, valu
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnReportPlan) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4369,7 +4211,6 @@ func (c *jsiiProxy_CfnReportPlan) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnReportPlan) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -4390,7 +4231,6 @@ func (c *jsiiProxy_CfnReportPlan) GetAtt(attributeName *string) awscdk.Reference
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnReportPlan) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -4414,7 +4254,6 @@ func (c *jsiiProxy_CfnReportPlan) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnReportPlan) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4440,7 +4279,6 @@ func (c *jsiiProxy_CfnReportPlan) RenderProperties(props *map[string]interface{}
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnReportPlan) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -4457,7 +4295,6 @@ func (c *jsiiProxy_CfnReportPlan) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnReportPlan) ToString() *string {
 	var returns *string
 
@@ -4471,7 +4308,6 @@ func (c *jsiiProxy_CfnReportPlan) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnReportPlan) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4498,11 +4334,9 @@ type CfnReportPlanProps struct {
 }
 
 // A backup plan.
-// Experimental.
 type IBackupPlan interface {
 	awscdk.IResource
 	// The identifier of the backup plan.
-	// Experimental.
 	BackupPlanId() *string
 }
 
@@ -4522,17 +4356,13 @@ func (j *jsiiProxy_IBackupPlan) BackupPlanId() *string {
 }
 
 // A backup vault.
-// Experimental.
 type IBackupVault interface {
 	awscdk.IResource
 	// Grant the actions defined in actions to the given grantee on this backup vault.
-	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// The ARN of the backup vault.
-	// Experimental.
 	BackupVaultArn() *string
 	// The name of a logical container where backups are stored.
-	// Experimental.
 	BackupVaultName() *string
 }
 
@@ -4583,27 +4413,22 @@ func (j *jsiiProxy_IBackupVault) BackupVaultName() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TagCondition struct {
 	// The key in a key-value pair.
 	//
 	// For example, in `"ec2:ResourceTag/Department": "accounting"`,
 	// `ec2:ResourceTag/Department` is the key.
-	// Experimental.
 	Key *string `json:"key"`
 	// An operation that is applied to a key-value pair used to filter resources in a selection.
-	// Experimental.
 	Operation TagOperation `json:"operation"`
 	// The value in a key-value pair.
 	//
 	// For example, in `"ec2:ResourceTag/Department": "accounting"`,
 	// `accounting` is the value.
-	// Experimental.
 	Value *string `json:"value"`
 }
 
 // An operation that is applied to a key-value pair.
-// Experimental.
 type TagOperation string
 
 const (

@@ -373,7 +373,6 @@ func (j *jsiiProxy_CfnNotificationRule) SetTargets(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnNotificationRule_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -390,7 +389,6 @@ func CfnNotificationRule_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnNotificationRule_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -437,7 +435,6 @@ func CfnNotificationRule_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnNotificationRule) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -450,7 +447,6 @@ func (c *jsiiProxy_CfnNotificationRule) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnNotificationRule) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -466,7 +462,6 @@ func (c *jsiiProxy_CfnNotificationRule) AddDependsOn(target awscdk.CfnResource) 
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnNotificationRule) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -512,7 +507,6 @@ func (c *jsiiProxy_CfnNotificationRule) AddMetadata(key *string, value interface
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnNotificationRule) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -522,7 +516,6 @@ func (c *jsiiProxy_CfnNotificationRule) AddOverride(path *string, value interfac
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnNotificationRule) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -534,7 +527,6 @@ func (c *jsiiProxy_CfnNotificationRule) AddPropertyDeletionOverride(propertyPath
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnNotificationRule) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -552,7 +544,6 @@ func (c *jsiiProxy_CfnNotificationRule) AddPropertyOverride(propertyPath *string
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnNotificationRule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -565,7 +556,6 @@ func (c *jsiiProxy_CfnNotificationRule) ApplyRemovalPolicy(policy awscdk.Removal
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnNotificationRule) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -586,7 +576,6 @@ func (c *jsiiProxy_CfnNotificationRule) GetAtt(attributeName *string) awscdk.Ref
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnNotificationRule) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -610,7 +599,6 @@ func (c *jsiiProxy_CfnNotificationRule) Inspect(inspector awscdk.TreeInspector) 
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnNotificationRule) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -636,7 +624,6 @@ func (c *jsiiProxy_CfnNotificationRule) RenderProperties(props *map[string]inter
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnNotificationRule) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -653,7 +640,6 @@ func (c *jsiiProxy_CfnNotificationRule) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnNotificationRule) ToString() *string {
 	var returns *string
 
@@ -667,7 +653,6 @@ func (c *jsiiProxy_CfnNotificationRule) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnNotificationRule) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -713,7 +698,6 @@ type CfnNotificationRuleProps struct {
 }
 
 // The level of detail to include in the notifications for this resource.
-// Experimental.
 type DetailType string
 
 const (
@@ -722,16 +706,13 @@ const (
 )
 
 // Represents a notification rule.
-// Experimental.
 type INotificationRule interface {
 	awscdk.IResource
 	// Adds target to notification rule.
 	//
 	// Returns: boolean - return true if it had any effect
-	// Experimental.
 	AddTarget(target INotificationRuleTarget) *bool
 	// The ARN of the notification rule (i.e. arn:aws:codestar-notifications:::notificationrule/01234abcde).
-	// Experimental.
 	NotificationRuleArn() *string
 }
 
@@ -764,10 +745,8 @@ func (j *jsiiProxy_INotificationRule) NotificationRuleArn() *string {
 }
 
 // Represents a notification source The source that allows CodeBuild and CodePipeline to associate with this rule.
-// Experimental.
 type INotificationRuleSource interface {
 	// Returns a source configuration for notification rule.
-	// Experimental.
 	BindAsNotificationRuleSource(scope constructs.Construct) *NotificationRuleSourceConfig
 }
 
@@ -790,10 +769,8 @@ func (i *jsiiProxy_INotificationRuleSource) BindAsNotificationRuleSource(scope c
 }
 
 // Represents a notification target That allows AWS Chatbot and SNS topic to associate with this rule target.
-// Experimental.
 type INotificationRuleTarget interface {
 	// Returns a target configuration for notification rule.
-	// Experimental.
 	BindAsNotificationRuleTarget(scope constructs.Construct) *NotificationRuleTargetConfig
 }
 
@@ -819,7 +796,6 @@ func (i *jsiiProxy_INotificationRuleTarget) BindAsNotificationRuleTarget(scope c
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type NotificationRule interface {
 	awscdk.Resource
 	INotificationRule
@@ -893,7 +869,6 @@ func (j *jsiiProxy_NotificationRule) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewNotificationRule(scope constructs.Construct, id *string, props *NotificationRuleProps) NotificationRule {
 	_init_.Initialize()
 
@@ -908,7 +883,6 @@ func NewNotificationRule(scope constructs.Construct, id *string, props *Notifica
 	return &j
 }
 
-// Experimental.
 func NewNotificationRule_Override(n NotificationRule, scope constructs.Construct, id *string, props *NotificationRuleProps) {
 	_init_.Initialize()
 
@@ -920,7 +894,6 @@ func NewNotificationRule_Override(n NotificationRule, scope constructs.Construct
 }
 
 // Import an existing notification rule provided an ARN.
-// Experimental.
 func NotificationRule_FromNotificationRuleArn(scope constructs.Construct, id *string, notificationRuleArn *string) INotificationRule {
 	_init_.Initialize()
 
@@ -956,7 +929,6 @@ func NotificationRule_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func NotificationRule_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -973,7 +945,6 @@ func NotificationRule_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Adds target to notification rule.
-// Experimental.
 func (n *jsiiProxy_NotificationRule) AddTarget(target INotificationRuleTarget) *bool {
 	var returns *bool
 
@@ -996,7 +967,6 @@ func (n *jsiiProxy_NotificationRule) AddTarget(target INotificationRuleTarget) *
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (n *jsiiProxy_NotificationRule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		n,
@@ -1005,7 +975,6 @@ func (n *jsiiProxy_NotificationRule) ApplyRemovalPolicy(policy awscdk.RemovalPol
 	)
 }
 
-// Experimental.
 func (n *jsiiProxy_NotificationRule) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -1025,7 +994,6 @@ func (n *jsiiProxy_NotificationRule) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (n *jsiiProxy_NotificationRule) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -1044,7 +1012,6 @@ func (n *jsiiProxy_NotificationRule) GetResourceArnAttribute(arnAttr *string, ar
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (n *jsiiProxy_NotificationRule) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -1059,7 +1026,6 @@ func (n *jsiiProxy_NotificationRule) GetResourceNameAttribute(nameAttr *string) 
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (n *jsiiProxy_NotificationRule) ToString() *string {
 	var returns *string
 
@@ -1077,23 +1043,19 @@ func (n *jsiiProxy_NotificationRule) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type NotificationRuleOptions struct {
 	// The level of detail to include in the notifications for this resource.
 	//
 	// BASIC will include only the contents of the event as it would appear in AWS CloudWatch.
 	// FULL will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.
-	// Experimental.
 	DetailType DetailType `json:"detailType"`
 	// The status of the notification rule.
 	//
 	// If the enabled is set to DISABLED, notifications aren't sent for the notification rule.
-	// Experimental.
 	Enabled *bool `json:"enabled"`
 	// The name for the notification rule.
 	//
 	// Notification rule names must be unique in your AWS account.
-	// Experimental.
 	NotificationRuleName *string `json:"notificationRuleName"`
 }
 
@@ -1101,40 +1063,33 @@ type NotificationRuleOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type NotificationRuleProps struct {
 	// The level of detail to include in the notifications for this resource.
 	//
 	// BASIC will include only the contents of the event as it would appear in AWS CloudWatch.
 	// FULL will include any supplemental information provided by AWS CodeStar Notifications and/or the service for the resource for which the notification is created.
-	// Experimental.
 	DetailType DetailType `json:"detailType"`
 	// The status of the notification rule.
 	//
 	// If the enabled is set to DISABLED, notifications aren't sent for the notification rule.
-	// Experimental.
 	Enabled *bool `json:"enabled"`
 	// The name for the notification rule.
 	//
 	// Notification rule names must be unique in your AWS account.
-	// Experimental.
 	NotificationRuleName *string `json:"notificationRuleName"`
 	// A list of event types associated with this notification rule.
 	//
 	// For a complete list of event types and IDs, see Notification concepts in the Developer Tools Console User Guide.
 	// See: https://docs.aws.amazon.com/dtconsole/latest/userguide/concepts.html#concepts-api
 	//
-	// Experimental.
 	Events *[]*string `json:"events"`
 	// The Amazon Resource Name (ARN) of the resource to associate with the notification rule.
 	//
 	// Currently, Supported sources include pipelines in AWS CodePipeline, build projects in AWS CodeBuild, and repositories in AWS CodeCommit in this L2 constructor.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarnotifications-notificationrule.html#cfn-codestarnotifications-notificationrule-resource
 	//
-	// Experimental.
 	Source INotificationRuleSource `json:"source"`
 	// The targets to register for the notification destination.
-	// Experimental.
 	Targets *[]INotificationRuleTarget `json:"targets"`
 }
 
@@ -1142,10 +1097,8 @@ type NotificationRuleProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type NotificationRuleSourceConfig struct {
 	// The Amazon Resource Name (ARN) of the notification source.
-	// Experimental.
 	SourceArn *string `json:"sourceArn"`
 }
 
@@ -1153,15 +1106,12 @@ type NotificationRuleSourceConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type NotificationRuleTargetConfig struct {
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic or AWS Chatbot client.
-	// Experimental.
 	TargetAddress *string `json:"targetAddress"`
 	// The target type.
 	//
 	// Can be an Amazon SNS topic or AWS Chatbot client.
-	// Experimental.
 	TargetType *string `json:"targetType"`
 }
 

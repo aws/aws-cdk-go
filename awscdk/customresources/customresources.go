@@ -20,7 +20,6 @@ import (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AwsCustomResource interface {
 	constructs.Construct
 	awsiam.IGrantable
@@ -58,7 +57,6 @@ func (j *jsiiProxy_AwsCustomResource) Node() constructs.Node {
 }
 
 
-// Experimental.
 func NewAwsCustomResource(scope constructs.Construct, id *string, props *AwsCustomResourceProps) AwsCustomResource {
 	_init_.Initialize()
 
@@ -73,7 +71,6 @@ func NewAwsCustomResource(scope constructs.Construct, id *string, props *AwsCust
 	return &j
 }
 
-// Experimental.
 func NewAwsCustomResource_Override(a AwsCustomResource, scope constructs.Construct, id *string, props *AwsCustomResourceProps) {
 	_init_.Initialize()
 
@@ -110,7 +107,6 @@ func AwsCustomResource_IsConstruct(x interface{}) *bool {
 // Note that you cannot use this method if `ignoreErrorCodesMatching`
 // is configured for any of the SDK calls. This is because in such a case,
 // the response data might not exist, and will cause a CloudFormation deploy time error.
-// Experimental.
 func (a *jsiiProxy_AwsCustomResource) GetResponseField(dataPath *string) *string {
 	var returns *string
 
@@ -134,7 +130,6 @@ func (a *jsiiProxy_AwsCustomResource) GetResponseField(dataPath *string) *string
 // Note that you cannot use this method if `ignoreErrorCodesMatching`
 // is configured for any of the SDK calls. This is because in such a case,
 // the response data might not exist, and will cause a CloudFormation deploy time error.
-// Experimental.
 func (a *jsiiProxy_AwsCustomResource) GetResponseFieldReference(dataPath *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -149,7 +144,6 @@ func (a *jsiiProxy_AwsCustomResource) GetResponseFieldReference(dataPath *string
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (a *jsiiProxy_AwsCustomResource) ToString() *string {
 	var returns *string
 
@@ -167,7 +161,6 @@ func (a *jsiiProxy_AwsCustomResource) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AwsCustomResourcePolicy interface {
 	Resources() *[]*string
 	Statements() *[]awsiam.PolicyStatement
@@ -202,7 +195,6 @@ func (j *jsiiProxy_AwsCustomResourcePolicy) Statements() *[]awsiam.PolicyStateme
 // Generate IAM Policy Statements from the configured SDK calls.
 //
 // Each SDK call with be translated to an IAM Policy Statement in the form of: `call.service:call.action` (e.g `s3:PutObject`).
-// Experimental.
 func AwsCustomResourcePolicy_FromSdkCalls(options *SdkCallsPolicyOptions) AwsCustomResourcePolicy {
 	_init_.Initialize()
 
@@ -219,7 +211,6 @@ func AwsCustomResourcePolicy_FromSdkCalls(options *SdkCallsPolicyOptions) AwsCus
 }
 
 // Explicit IAM Policy Statements.
-// Experimental.
 func AwsCustomResourcePolicy_FromStatements(statements *[]awsiam.PolicyStatement) AwsCustomResourcePolicy {
 	_init_.Initialize()
 
@@ -252,27 +243,20 @@ func AwsCustomResourcePolicy_ANY_RESOURCE() *[]*string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AwsCustomResourceProps struct {
 	// A name for the Lambda function implementing this custom resource.
-	// Experimental.
 	FunctionName *string `json:"functionName"`
 	// Whether to install the latest AWS SDK v2. Allows to use the latest API calls documented at https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html.
 	//
 	// The installation takes around 60 seconds.
-	// Experimental.
 	InstallLatestAwsSdk *bool `json:"installLatestAwsSdk"`
 	// The number of days log events of the Lambda function implementing this custom resource are kept in CloudWatch Logs.
-	// Experimental.
 	LogRetention awslogs.RetentionDays `json:"logRetention"`
 	// The AWS SDK call to make when the resource is created.
-	// Experimental.
 	OnCreate *AwsSdkCall `json:"onCreate"`
 	// The AWS SDK call to make when the resource is deleted.
-	// Experimental.
 	OnDelete *AwsSdkCall `json:"onDelete"`
 	// The AWS SDK call to make when the resource is updated.
-	// Experimental.
 	OnUpdate *AwsSdkCall `json:"onUpdate"`
 	// The policy that will be added to the execution role of the Lambda function implementing this custom resource provider.
 	//
@@ -284,20 +268,16 @@ type AwsCustomResourceProps struct {
 	// permissions/grants from all resources.
 	// See: Policy.fromSdkCalls
 	//
-	// Experimental.
 	Policy AwsCustomResourcePolicy `json:"policy"`
 	// Cloudformation Resource type.
-	// Experimental.
 	ResourceType *string `json:"resourceType"`
 	// The execution role for the Lambda function implementing this custom resource provider.
 	//
 	// This role will apply to all `AwsCustomResource`
 	// instances in the stack. The role must be assumable by the
 	// `lambda.amazonaws.com` service principal.
-	// Experimental.
 	Role awsiam.IRole `json:"role"`
 	// The timeout for the Lambda function implementing this custom resource.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
 }
 
@@ -305,29 +285,24 @@ type AwsCustomResourceProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AwsSdkCall struct {
 	// The service action to call.
 	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html
 	//
-	// Experimental.
 	Action *string `json:"action"`
 	// API version to use for the service.
 	// See: https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/locking-api-versions.html
 	//
-	// Experimental.
 	ApiVersion *string `json:"apiVersion"`
 	// Used for running the SDK calls in underlying lambda with a different role Can be used primarily for cross-account requests to for example connect hostedzone with a shared vpc.
 	//
 	// Example for Route53 / associateVPCWithHostedZone
-	// Experimental.
 	AssumedRoleArn *string `json:"assumedRoleArn"`
 	// The regex pattern to use to catch API errors.
 	//
 	// The `code` property of the
 	// `Error` object will be tested against this pattern. If there is a match an
 	// error will not be thrown.
-	// Experimental.
 	IgnoreErrorCodesMatching *string `json:"ignoreErrorCodesMatching"`
 	// Restrict the data returned by the custom resource to specific paths in the API response.
 	//
@@ -336,28 +311,23 @@ type AwsSdkCall struct {
 	// response objects exceeding the hard limit of 4096 bytes.
 	//
 	// Example for ECS / updateService: ['service.deploymentConfiguration.maximumPercent']
-	// Experimental.
 	OutputPaths *[]*string `json:"outputPaths"`
 	// The parameters for the service action.
 	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html
 	//
-	// Experimental.
 	Parameters interface{} `json:"parameters"`
 	// The physical resource id of the custom resource for this call.
 	//
 	// Mandatory for onCreate or onUpdate calls.
-	// Experimental.
 	PhysicalResourceId PhysicalResourceId `json:"physicalResourceId"`
 	// The region to send service requests to.
 	//
 	// **Note: Cross-region operations are generally considered an anti-pattern.**
 	// **Consider first deploying a stack in that region.**
-	// Experimental.
 	Region *string `json:"region"`
 	// The service to call.
 	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html
 	//
-	// Experimental.
 	Service *string `json:"service"`
 }
 
@@ -365,7 +335,6 @@ type AwsSdkCall struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type PhysicalResourceId interface {
 	Id() *string
 	ResponsePath() *string
@@ -398,7 +367,6 @@ func (j *jsiiProxy_PhysicalResourceId) ResponsePath() *string {
 
 
 // Extract the physical resource id from the path (dot notation) to the data in the API call response.
-// Experimental.
 func PhysicalResourceId_FromResponse(responsePath *string) PhysicalResourceId {
 	_init_.Initialize()
 
@@ -415,7 +383,6 @@ func PhysicalResourceId_FromResponse(responsePath *string) PhysicalResourceId {
 }
 
 // Explicit physical resource id.
-// Experimental.
 func PhysicalResourceId_Of(id *string) PhysicalResourceId {
 	_init_.Initialize()
 
@@ -435,7 +402,6 @@ func PhysicalResourceId_Of(id *string) PhysicalResourceId {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type PhysicalResourceIdReference interface {
 	awscdk.IResolvable
 	CreationStack() *[]*string
@@ -460,7 +426,6 @@ func (j *jsiiProxy_PhysicalResourceIdReference) CreationStack() *[]*string {
 }
 
 
-// Experimental.
 func NewPhysicalResourceIdReference() PhysicalResourceIdReference {
 	_init_.Initialize()
 
@@ -475,7 +440,6 @@ func NewPhysicalResourceIdReference() PhysicalResourceIdReference {
 	return &j
 }
 
-// Experimental.
 func NewPhysicalResourceIdReference_Override(p PhysicalResourceIdReference) {
 	_init_.Initialize()
 
@@ -487,7 +451,6 @@ func NewPhysicalResourceIdReference_Override(p PhysicalResourceIdReference) {
 }
 
 // Produce the Token's value at resolution time.
-// Experimental.
 func (p *jsiiProxy_PhysicalResourceIdReference) Resolve(_arg awscdk.IResolveContext) interface{} {
 	var returns interface{}
 
@@ -502,7 +465,6 @@ func (p *jsiiProxy_PhysicalResourceIdReference) Resolve(_arg awscdk.IResolveCont
 }
 
 // toJSON serialization to replace `PhysicalResourceIdReference` with a magic string.
-// Experimental.
 func (p *jsiiProxy_PhysicalResourceIdReference) ToJSON() *string {
 	var returns *string
 
@@ -519,7 +481,6 @@ func (p *jsiiProxy_PhysicalResourceIdReference) ToJSON() *string {
 // Return a string representation of this resolvable object.
 //
 // Returns a reversible string representation.
-// Experimental.
 func (p *jsiiProxy_PhysicalResourceIdReference) ToString() *string {
 	var returns *string
 
@@ -537,7 +498,6 @@ func (p *jsiiProxy_PhysicalResourceIdReference) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Provider interface {
 	constructs.Construct
 	IsCompleteHandler() awslambda.IFunction
@@ -593,7 +553,6 @@ func (j *jsiiProxy_Provider) ServiceToken() *string {
 }
 
 
-// Experimental.
 func NewProvider(scope constructs.Construct, id *string, props *ProviderProps) Provider {
 	_init_.Initialize()
 
@@ -608,7 +567,6 @@ func NewProvider(scope constructs.Construct, id *string, props *ProviderProps) P
 	return &j
 }
 
-// Experimental.
 func NewProvider_Override(p Provider, scope constructs.Construct, id *string, props *ProviderProps) {
 	_init_.Initialize()
 
@@ -639,7 +597,6 @@ func Provider_IsConstruct(x interface{}) *bool {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (p *jsiiProxy_Provider) ToString() *string {
 	var returns *string
 
@@ -657,7 +614,6 @@ func (p *jsiiProxy_Provider) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ProviderProps struct {
 	// The AWS Lambda function to invoke for all resource lifecycle operations (CREATE/UPDATE/DELETE).
 	//
@@ -665,7 +621,6 @@ type ProviderProps struct {
 	// (CREATE/UPDATE/DELETE) and return any additional properties to add to the
 	// event, which will later be passed to `isComplete`. The `PhysicalResourceId`
 	// property must be included in the response.
-	// Experimental.
 	OnEventHandler awslambda.IFunction `json:"onEventHandler"`
 	// The AWS Lambda function to invoke in order to determine if the operation is complete.
 	//
@@ -673,46 +628,38 @@ type ProviderProps struct {
 	// periodically based on the configured query interval as long as it returns
 	// `false`. If the function still returns `false` and the alloted timeout has
 	// passed, the operation will fail.
-	// Experimental.
 	IsCompleteHandler awslambda.IFunction `json:"isCompleteHandler"`
 	// The number of days framework log events are kept in CloudWatch Logs.
 	//
 	// When
 	// updating this property, unsetting it doesn't remove the log retention policy.
 	// To remove the retention policy, set the value to `INFINITE`.
-	// Experimental.
 	LogRetention awslogs.RetentionDays `json:"logRetention"`
 	// Time between calls to the `isComplete` handler which determines if the resource has been stabilized.
 	//
 	// The first `isComplete` will be called immediately after `handler` and then
 	// every `queryInterval` seconds, and until `timeout` has been reached or until
 	// `isComplete` returns `true`.
-	// Experimental.
 	QueryInterval awscdk.Duration `json:"queryInterval"`
 	// AWS Lambda execution role.
 	//
 	// The role that will be assumed by the AWS Lambda.
 	// Must be assumable by the 'lambda.amazonaws.com' service principal.
-	// Experimental.
 	Role awsiam.IRole `json:"role"`
 	// Security groups to attach to the provider functions.
 	//
 	// Only used if 'vpc' is supplied
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 	// Total timeout for the entire operation.
 	//
 	// The maximum timeout is 2 hours (yes, it can exceed the AWS Lambda 15 minutes)
-	// Experimental.
 	TotalTimeout awscdk.Duration `json:"totalTimeout"`
 	// The vpc to provision the lambda functions in.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// Which subnets from the VPC to place the lambda functions in.
 	//
 	// Only used if 'vpc' is supplied. Note: internet access for Lambdas
 	// requires a NAT gateway, so picking Public subnets is not allowed.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 }
 
@@ -720,7 +667,6 @@ type ProviderProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SdkCallsPolicyOptions struct {
 	// The resources that the calls will have access to.
 	//
@@ -729,7 +675,6 @@ type SdkCallsPolicyOptions struct {
 	// know the physical name of in advance.
 	//
 	// Note that will apply to ALL SDK calls.
-	// Experimental.
 	Resources *[]*string `json:"resources"`
 }
 

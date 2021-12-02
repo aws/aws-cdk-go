@@ -14,7 +14,6 @@ import (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AlbArnTarget interface {
 	awselasticloadbalancingv2.INetworkLoadBalancerTarget
 	AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
@@ -26,7 +25,6 @@ type jsiiProxy_AlbArnTarget struct {
 }
 
 // Create a new alb target.
-// Experimental.
 func NewAlbArnTarget(albArn *string, port *float64) AlbArnTarget {
 	_init_.Initialize()
 
@@ -42,7 +40,6 @@ func NewAlbArnTarget(albArn *string, port *float64) AlbArnTarget {
 }
 
 // Create a new alb target.
-// Experimental.
 func NewAlbArnTarget_Override(a AlbArnTarget, albArn *string, port *float64) {
 	_init_.Initialize()
 
@@ -57,7 +54,6 @@ func NewAlbArnTarget_Override(a AlbArnTarget, albArn *string, port *float64) {
 //
 // Don't call this, it is called automatically when you add the target to a
 // load balancer.
-// Experimental.
 func (a *jsiiProxy_AlbArnTarget) AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
@@ -75,7 +71,6 @@ func (a *jsiiProxy_AlbArnTarget) AttachToNetworkTargetGroup(targetGroup awselast
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AlbTarget interface {
 	AlbArnTarget
 	AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
@@ -86,7 +81,6 @@ type jsiiProxy_AlbTarget struct {
 	jsiiProxy_AlbArnTarget
 }
 
-// Experimental.
 func NewAlbTarget(alb awselasticloadbalancingv2.ApplicationLoadBalancer, port *float64) AlbTarget {
 	_init_.Initialize()
 
@@ -101,7 +95,6 @@ func NewAlbTarget(alb awselasticloadbalancingv2.ApplicationLoadBalancer, port *f
 	return &j
 }
 
-// Experimental.
 func NewAlbTarget_Override(a AlbTarget, alb awselasticloadbalancingv2.ApplicationLoadBalancer, port *float64) {
 	_init_.Initialize()
 
@@ -116,7 +109,6 @@ func NewAlbTarget_Override(a AlbTarget, alb awselasticloadbalancingv2.Applicatio
 //
 // Don't call this, it is called automatically when you add the target to a
 // load balancer.
-// Experimental.
 func (a *jsiiProxy_AlbTarget) AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
@@ -137,7 +129,6 @@ func (a *jsiiProxy_AlbTarget) AttachToNetworkTargetGroup(targetGroup awselasticl
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type InstanceIdTarget interface {
 	awselasticloadbalancingv2.IApplicationLoadBalancerTarget
 	awselasticloadbalancingv2.INetworkLoadBalancerTarget
@@ -152,7 +143,6 @@ type jsiiProxy_InstanceIdTarget struct {
 }
 
 // Create a new Instance target.
-// Experimental.
 func NewInstanceIdTarget(instanceId *string, port *float64) InstanceIdTarget {
 	_init_.Initialize()
 
@@ -168,7 +158,6 @@ func NewInstanceIdTarget(instanceId *string, port *float64) InstanceIdTarget {
 }
 
 // Create a new Instance target.
-// Experimental.
 func NewInstanceIdTarget_Override(i InstanceIdTarget, instanceId *string, port *float64) {
 	_init_.Initialize()
 
@@ -183,7 +172,6 @@ func NewInstanceIdTarget_Override(i InstanceIdTarget, instanceId *string, port *
 //
 // Don't call this, it is called automatically when you add the target to a
 // load balancer.
-// Experimental.
 func (i *jsiiProxy_InstanceIdTarget) AttachToApplicationTargetGroup(targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
@@ -201,7 +189,6 @@ func (i *jsiiProxy_InstanceIdTarget) AttachToApplicationTargetGroup(targetGroup 
 //
 // Don't call this, it is called automatically when you add the target to a
 // load balancer.
-// Experimental.
 func (i *jsiiProxy_InstanceIdTarget) AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
@@ -217,7 +204,6 @@ func (i *jsiiProxy_InstanceIdTarget) AttachToNetworkTargetGroup(targetGroup awse
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type InstanceTarget interface {
 	InstanceIdTarget
 	AttachToApplicationTargetGroup(targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
@@ -230,7 +216,6 @@ type jsiiProxy_InstanceTarget struct {
 }
 
 // Create a new Instance target.
-// Experimental.
 func NewInstanceTarget(instance awsec2.Instance, port *float64) InstanceTarget {
 	_init_.Initialize()
 
@@ -246,7 +231,6 @@ func NewInstanceTarget(instance awsec2.Instance, port *float64) InstanceTarget {
 }
 
 // Create a new Instance target.
-// Experimental.
 func NewInstanceTarget_Override(i InstanceTarget, instance awsec2.Instance, port *float64) {
 	_init_.Initialize()
 
@@ -261,7 +245,6 @@ func NewInstanceTarget_Override(i InstanceTarget, instance awsec2.Instance, port
 //
 // Don't call this, it is called automatically when you add the target to a
 // load balancer.
-// Experimental.
 func (i *jsiiProxy_InstanceTarget) AttachToApplicationTargetGroup(targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
@@ -279,7 +262,6 @@ func (i *jsiiProxy_InstanceTarget) AttachToApplicationTargetGroup(targetGroup aw
 //
 // Don't call this, it is called automatically when you add the target to a
 // load balancer.
-// Experimental.
 func (i *jsiiProxy_InstanceTarget) AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
@@ -305,7 +287,6 @@ func (i *jsiiProxy_InstanceTarget) AttachToNetworkTargetGroup(targetGroup awsela
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type IpTarget interface {
 	awselasticloadbalancingv2.IApplicationLoadBalancerTarget
 	awselasticloadbalancingv2.INetworkLoadBalancerTarget
@@ -335,7 +316,6 @@ type jsiiProxy_IpTarget struct {
 // for the target group, the only supported value is all.
 //
 // Default is automatic.
-// Experimental.
 func NewIpTarget(ipAddress *string, port *float64, availabilityZone *string) IpTarget {
 	_init_.Initialize()
 
@@ -366,7 +346,6 @@ func NewIpTarget(ipAddress *string, port *float64, availabilityZone *string) IpT
 // for the target group, the only supported value is all.
 //
 // Default is automatic.
-// Experimental.
 func NewIpTarget_Override(i IpTarget, ipAddress *string, port *float64, availabilityZone *string) {
 	_init_.Initialize()
 
@@ -381,7 +360,6 @@ func NewIpTarget_Override(i IpTarget, ipAddress *string, port *float64, availabi
 //
 // Don't call this, it is called automatically when you add the target to a
 // load balancer.
-// Experimental.
 func (i *jsiiProxy_IpTarget) AttachToApplicationTargetGroup(targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
@@ -399,7 +377,6 @@ func (i *jsiiProxy_IpTarget) AttachToApplicationTargetGroup(targetGroup awselast
 //
 // Don't call this, it is called automatically when you add the target to a
 // load balancer.
-// Experimental.
 func (i *jsiiProxy_IpTarget) AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
@@ -415,7 +392,6 @@ func (i *jsiiProxy_IpTarget) AttachToNetworkTargetGroup(targetGroup awselasticlo
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type LambdaTarget interface {
 	awselasticloadbalancingv2.IApplicationLoadBalancerTarget
 	AttachToApplicationTargetGroup(targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps
@@ -428,7 +404,6 @@ type jsiiProxy_LambdaTarget struct {
 }
 
 // Create a new Lambda target.
-// Experimental.
 func NewLambdaTarget(fn awslambda.IFunction) LambdaTarget {
 	_init_.Initialize()
 
@@ -444,7 +419,6 @@ func NewLambdaTarget(fn awslambda.IFunction) LambdaTarget {
 }
 
 // Create a new Lambda target.
-// Experimental.
 func NewLambdaTarget_Override(l LambdaTarget, fn awslambda.IFunction) {
 	_init_.Initialize()
 
@@ -459,7 +433,6 @@ func NewLambdaTarget_Override(l LambdaTarget, fn awslambda.IFunction) {
 //
 // Don't call this, it is called automatically when you add the target to a
 // load balancer.
-// Experimental.
 func (l *jsiiProxy_LambdaTarget) AttachToApplicationTargetGroup(targetGroup awselasticloadbalancingv2.IApplicationTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 
@@ -477,7 +450,6 @@ func (l *jsiiProxy_LambdaTarget) AttachToApplicationTargetGroup(targetGroup awse
 //
 // Don't call this, it is called automatically when you add the target to a
 // load balancer.
-// Experimental.
 func (l *jsiiProxy_LambdaTarget) AttachToNetworkTargetGroup(targetGroup awselasticloadbalancingv2.INetworkTargetGroup) *awselasticloadbalancingv2.LoadBalancerTargetProps {
 	var returns *awselasticloadbalancingv2.LoadBalancerTargetProps
 

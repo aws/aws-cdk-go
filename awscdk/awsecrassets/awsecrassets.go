@@ -16,7 +16,6 @@ import (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DockerImageAsset interface {
 	constructs.Construct
 	AssetHash() *string
@@ -75,7 +74,6 @@ func (j *jsiiProxy_DockerImageAsset) Repository() awsecr.IRepository {
 }
 
 
-// Experimental.
 func NewDockerImageAsset(scope constructs.Construct, id *string, props *DockerImageAssetProps) DockerImageAsset {
 	_init_.Initialize()
 
@@ -90,7 +88,6 @@ func NewDockerImageAsset(scope constructs.Construct, id *string, props *DockerIm
 	return &j
 }
 
-// Experimental.
 func NewDockerImageAsset_Override(d DockerImageAsset, scope constructs.Construct, id *string, props *DockerImageAssetProps) {
 	_init_.Initialize()
 
@@ -146,7 +143,6 @@ func DockerImageAsset_IsConstruct(x interface{}) *bool {
 // behavior when synthesizing via the CDK Toolkit.
 // See: https://github.com/aws/aws-cdk/issues/1432
 //
-// Experimental.
 func (d *jsiiProxy_DockerImageAsset) AddResourceMetadata(resource awscdk.CfnResource, resourceProperty *string) {
 	_jsii_.InvokeVoid(
 		d,
@@ -156,7 +152,6 @@ func (d *jsiiProxy_DockerImageAsset) AddResourceMetadata(resource awscdk.CfnReso
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DockerImageAsset) ToString() *string {
 	var returns *string
 
@@ -174,22 +169,16 @@ func (d *jsiiProxy_DockerImageAsset) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DockerImageAssetInvalidationOptions struct {
 	// Use `buildArgs` while calculating the asset hash.
-	// Experimental.
 	BuildArgs *bool `json:"buildArgs"`
 	// Use `extraHash` while calculating the asset hash.
-	// Experimental.
 	ExtraHash *bool `json:"extraHash"`
 	// Use `file` while calculating the asset hash.
-	// Experimental.
 	File *bool `json:"file"`
 	// Use `repositoryName` while calculating the asset hash.
-	// Experimental.
 	RepositoryName *bool `json:"repositoryName"`
 	// Use `target` while calculating the asset hash.
-	// Experimental.
 	Target *bool `json:"target"`
 }
 
@@ -197,35 +186,26 @@ type DockerImageAssetInvalidationOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DockerImageAssetOptions struct {
 	// Glob patterns to exclude from the copy.
-	// Experimental.
 	Exclude *[]*string `json:"exclude"`
 	// A strategy for how to handle symlinks.
-	// Experimental.
 	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
 	// The ignore behavior to use for exclude patterns.
-	// Experimental.
 	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
-	// Experimental.
 	ExtraHash *string `json:"extraHash"`
 	// Build args to pass to the `docker build` command.
 	//
 	// Since Docker build arguments are resolved before deployment, keys and
 	// values cannot refer to unresolved tokens (such as `lambda.functionArn` or
 	// `queue.queueUrl`).
-	// Experimental.
 	BuildArgs *map[string]*string `json:"buildArgs"`
 	// Path to the Dockerfile (relative to the directory).
-	// Experimental.
 	File *string `json:"file"`
 	// Options to control which parameters are used to invalidate the asset hash.
-	// Experimental.
 	Invalidation *DockerImageAssetInvalidationOptions `json:"invalidation"`
 	// Docker target to build to.
-	// Experimental.
 	Target *string `json:"target"`
 }
 
@@ -233,40 +213,30 @@ type DockerImageAssetOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DockerImageAssetProps struct {
 	// Glob patterns to exclude from the copy.
-	// Experimental.
 	Exclude *[]*string `json:"exclude"`
 	// A strategy for how to handle symlinks.
-	// Experimental.
 	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
 	// The ignore behavior to use for exclude patterns.
-	// Experimental.
 	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
-	// Experimental.
 	ExtraHash *string `json:"extraHash"`
 	// Build args to pass to the `docker build` command.
 	//
 	// Since Docker build arguments are resolved before deployment, keys and
 	// values cannot refer to unresolved tokens (such as `lambda.functionArn` or
 	// `queue.queueUrl`).
-	// Experimental.
 	BuildArgs *map[string]*string `json:"buildArgs"`
 	// Path to the Dockerfile (relative to the directory).
-	// Experimental.
 	File *string `json:"file"`
 	// Options to control which parameters are used to invalidate the asset hash.
-	// Experimental.
 	Invalidation *DockerImageAssetInvalidationOptions `json:"invalidation"`
 	// Docker target to build to.
-	// Experimental.
 	Target *string `json:"target"`
 	// The directory where the Dockerfile is stored.
 	//
 	// Any directory inside with a name that matches the CDK output folder (cdk.out by default) will be excluded from the asset
-	// Experimental.
 	Directory *string `json:"directory"`
 }
 
@@ -276,7 +246,6 @@ type DockerImageAssetProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TarballImageAsset interface {
 	constructs.Construct
 	AssetHash() *string
@@ -334,7 +303,6 @@ func (j *jsiiProxy_TarballImageAsset) Repository() awsecr.IRepository {
 }
 
 
-// Experimental.
 func NewTarballImageAsset(scope constructs.Construct, id *string, props *TarballImageAssetProps) TarballImageAsset {
 	_init_.Initialize()
 
@@ -349,7 +317,6 @@ func NewTarballImageAsset(scope constructs.Construct, id *string, props *Tarball
 	return &j
 }
 
-// Experimental.
 func NewTarballImageAsset_Override(t TarballImageAsset, scope constructs.Construct, id *string, props *TarballImageAssetProps) {
 	_init_.Initialize()
 
@@ -396,7 +363,6 @@ func TarballImageAsset_IsConstruct(x interface{}) *bool {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (t *jsiiProxy_TarballImageAsset) ToString() *string {
 	var returns *string
 
@@ -414,14 +380,12 @@ func (t *jsiiProxy_TarballImageAsset) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TarballImageAssetProps struct {
 	// Absolute path to the tarball.
 	//
 	// It is recommended to to use the script running directory (e.g. `__dirname`
 	// in Node.js projects or dirname of `__file__` in Python) if your tarball
 	// is located as a resource inside your project.
-	// Experimental.
 	TarballFile *string `json:"tarballFile"`
 }
 

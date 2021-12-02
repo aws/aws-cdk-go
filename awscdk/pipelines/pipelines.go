@@ -24,16 +24,12 @@ import (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AddStageOpts struct {
 	// Additional steps to run after all of the stacks in the stage.
-	// Experimental.
 	Post *[]Step `json:"post"`
 	// Additional steps to run before any of the stacks in the stage.
-	// Experimental.
 	Pre *[]Step `json:"pre"`
 	// Instructions for stack level steps.
-	// Experimental.
 	StackSteps *[]*StackSteps `json:"stackSteps"`
 }
 
@@ -41,7 +37,6 @@ type AddStageOpts struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ArtifactMap interface {
 	ToCodePipeline(x FileSet) awscodepipeline.Artifact
 }
@@ -51,7 +46,6 @@ type jsiiProxy_ArtifactMap struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewArtifactMap() ArtifactMap {
 	_init_.Initialize()
 
@@ -66,7 +60,6 @@ func NewArtifactMap() ArtifactMap {
 	return &j
 }
 
-// Experimental.
 func NewArtifactMap_Override(a ArtifactMap) {
 	_init_.Initialize()
 
@@ -78,7 +71,6 @@ func NewArtifactMap_Override(a ArtifactMap) {
 }
 
 // Return the matching CodePipeline artifact for a FileSet.
-// Experimental.
 func (a *jsiiProxy_ArtifactMap) ToCodePipeline(x FileSet) awscodepipeline.Artifact {
 	var returns awscodepipeline.Artifact
 
@@ -93,7 +85,6 @@ func (a *jsiiProxy_ArtifactMap) ToCodePipeline(x FileSet) awscodepipeline.Artifa
 }
 
 // Type of the asset that is being published.
-// Experimental.
 type AssetType string
 
 const (
@@ -105,32 +96,25 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CodeBuildOptions struct {
 	// Partial build environment, will be combined with other build environments that apply.
-	// Experimental.
 	BuildEnvironment *awscodebuild.BuildEnvironment `json:"buildEnvironment"`
 	// Partial buildspec, will be combined with other buildspecs that apply.
 	//
 	// The BuildSpec must be available inline--it cannot reference a file
 	// on disk.
-	// Experimental.
 	PartialBuildSpec awscodebuild.BuildSpec `json:"partialBuildSpec"`
 	// Policy statements to add to role.
-	// Experimental.
 	RolePolicy *[]awsiam.PolicyStatement `json:"rolePolicy"`
 	// Which security group(s) to associate with the project network interfaces.
 	//
 	// Only used if 'vpc' is supplied.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 	// Which subnets to use.
 	//
 	// Only used if 'vpc' is supplied.
-	// Experimental.
 	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection"`
 	// The VPC where to create the CodeBuild network interfaces in.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 }
 
@@ -138,7 +122,6 @@ type CodeBuildOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CodeBuildStep interface {
 	ShellStep
 	BuildEnvironment() *awscodebuild.BuildEnvironment
@@ -385,7 +368,6 @@ func (j *jsiiProxy_CodeBuildStep) Vpc() awsec2.IVpc {
 }
 
 
-// Experimental.
 func NewCodeBuildStep(id *string, props *CodeBuildStepProps) CodeBuildStep {
 	_init_.Initialize()
 
@@ -400,7 +382,6 @@ func NewCodeBuildStep(id *string, props *CodeBuildStepProps) CodeBuildStep {
 	return &j
 }
 
-// Experimental.
 func NewCodeBuildStep_Override(c CodeBuildStep, id *string, props *CodeBuildStepProps) {
 	_init_.Initialize()
 
@@ -414,7 +395,6 @@ func NewCodeBuildStep_Override(c CodeBuildStep, id *string, props *CodeBuildStep
 // Add an additional FileSet to the set of file sets required by this step.
 //
 // This will lead to a dependency on the producer of that file set.
-// Experimental.
 func (c *jsiiProxy_CodeBuildStep) AddDependencyFileSet(fs FileSet) {
 	_jsii_.InvokeVoid(
 		c,
@@ -431,7 +411,6 @@ func (c *jsiiProxy_CodeBuildStep) AddDependencyFileSet(fs FileSet) {
 //
 // Multiple calls with the exact same directory name string (not normalized)
 // will return the same FileSet.
-// Experimental.
 func (c *jsiiProxy_CodeBuildStep) AddOutputDirectory(directory *string) FileSet {
 	var returns FileSet
 
@@ -446,7 +425,6 @@ func (c *jsiiProxy_CodeBuildStep) AddOutputDirectory(directory *string) FileSet 
 }
 
 // Configure the given FileSet as the primary output of this step.
-// Experimental.
 func (c *jsiiProxy_CodeBuildStep) ConfigurePrimaryOutput(fs FileSet) {
 	_jsii_.InvokeVoid(
 		c,
@@ -461,7 +439,6 @@ func (c *jsiiProxy_CodeBuildStep) ConfigurePrimaryOutput(fs FileSet) {
 // will become the primary output of this ShellStep, otherwise this
 // method will throw if the given directory is different than the
 // currently configured primary output directory.
-// Experimental.
 func (c *jsiiProxy_CodeBuildStep) PrimaryOutputDirectory(directory *string) FileSet {
 	var returns FileSet
 
@@ -476,7 +453,6 @@ func (c *jsiiProxy_CodeBuildStep) PrimaryOutputDirectory(directory *string) File
 }
 
 // Return a string representation of this Step.
-// Experimental.
 func (c *jsiiProxy_CodeBuildStep) ToString() *string {
 	var returns *string
 
@@ -494,10 +470,8 @@ func (c *jsiiProxy_CodeBuildStep) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CodeBuildStepProps struct {
 	// Commands to run.
-	// Experimental.
 	Commands *[]*string `json:"commands"`
 	// Additional FileSets to put in other directories.
 	//
@@ -518,10 +492,8 @@ type CodeBuildStepProps struct {
 	//    }
 	// });
 	// ```
-	// Experimental.
 	AdditionalInputs *map[string]IFileSetProducer `json:"additionalInputs"`
 	// Environment variables to set.
-	// Experimental.
 	Env *map[string]*string `json:"env"`
 	// Set environment variables based on Stack Outputs.
 	//
@@ -529,32 +501,27 @@ type CodeBuildStepProps struct {
 	// access the `CfnOutput`s of those stacks to get access to
 	// --for example--automatically generated resource names or
 	// endpoint URLs.
-	// Experimental.
 	EnvFromCfnOutputs *map[string]awscdk.CfnOutput `json:"envFromCfnOutputs"`
 	// FileSet to run these scripts on.
 	//
 	// The files in the FileSet will be placed in the working directory when
 	// the script is executed. Use `additionalInputs` to download file sets
 	// to other directories as well.
-	// Experimental.
 	Input IFileSetProducer `json:"input"`
 	// Installation commands to run before the regular commands.
 	//
 	// For deployment engines that support it, install commands will be classified
 	// differently in the job history from the regular `commands`.
-	// Experimental.
 	InstallCommands *[]*string `json:"installCommands"`
 	// The directory that will contain the primary output fileset.
 	//
 	// After running the script, the contents of the given directory
 	// will be treated as the primary output of this Step.
-	// Experimental.
 	PrimaryOutputDirectory *string `json:"primaryOutputDirectory"`
 	// Changes to environment.
 	//
 	// This environment will be combined with the pipeline's default
 	// environment.
-	// Experimental.
 	BuildEnvironment *awscodebuild.BuildEnvironment `json:"buildEnvironment"`
 	// Additional configuration that can only be configured via BuildSpec.
 	//
@@ -567,33 +534,26 @@ type CodeBuildStepProps struct {
 	//
 	// The BuildSpec must be available inline--it cannot reference a file
 	// on disk.
-	// Experimental.
 	PartialBuildSpec awscodebuild.BuildSpec `json:"partialBuildSpec"`
 	// Name for the generated CodeBuild project.
-	// Experimental.
 	ProjectName *string `json:"projectName"`
 	// Custom execution role to be used for the CodeBuild project.
-	// Experimental.
 	Role awsiam.IRole `json:"role"`
 	// Policy statements to add to role used during the synth.
 	//
 	// Can be used to add acces to a CodeArtifact repository etc.
-	// Experimental.
 	RolePolicyStatements *[]awsiam.PolicyStatement `json:"rolePolicyStatements"`
 	// Which security group to associate with the script's project network interfaces.
 	//
 	// If no security group is identified, one will be created automatically.
 	//
 	// Only used if 'vpc' is supplied.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 	// Which subnets to use.
 	//
 	// Only used if 'vpc' is supplied.
-	// Experimental.
 	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection"`
 	// The VPC where to execute the SimpleSynth.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 }
 
@@ -601,7 +561,6 @@ type CodeBuildStepProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CodeCommitSourceOptions struct {
 	// Whether the output should be the contents of the repository (which is the default), or a link that allows CodeBuild to clone the repository before building.
 	//
@@ -609,15 +568,12 @@ type CodeCommitSourceOptions struct {
 	// then only CodeBuild actions can use the resulting {@link output}.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodeCommit.html
 	//
-	// Experimental.
 	CodeBuildCloneOutput *bool `json:"codeBuildCloneOutput"`
 	// Role to be used by on commit event rule.
 	//
 	// Used only when trigger value is CodeCommitTrigger.EVENTS.
-	// Experimental.
 	EventRole awsiam.IRole `json:"eventRole"`
 	// How should CodePipeline detect source changes for this Action.
-	// Experimental.
 	Trigger awscodepipelineactions.CodeCommitTrigger `json:"trigger"`
 }
 
@@ -629,7 +585,6 @@ type CodeCommitSourceOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CodePipeline interface {
 	PipelineBase
 	CloudAssemblyFileSet() FileSet
@@ -711,7 +666,6 @@ func (j *jsiiProxy_CodePipeline) Waves() *[]Wave {
 }
 
 
-// Experimental.
 func NewCodePipeline(scope constructs.Construct, id *string, props *CodePipelineProps) CodePipeline {
 	_init_.Initialize()
 
@@ -726,7 +680,6 @@ func NewCodePipeline(scope constructs.Construct, id *string, props *CodePipeline
 	return &j
 }
 
-// Experimental.
 func NewCodePipeline_Override(c CodePipeline, scope constructs.Construct, id *string, props *CodePipelineProps) {
 	_init_.Initialize()
 
@@ -761,7 +714,6 @@ func CodePipeline_IsConstruct(x interface{}) *bool {
 // Add a Stage to the pipeline, to be deployed in sequence with other
 // Stages added to the pipeline. All Stacks in the stage will be deployed
 // in an order automatically determined by their relative dependencies.
-// Experimental.
 func (c *jsiiProxy_CodePipeline) AddStage(stage awscdk.Stage, options *AddStageOpts) StageDeployment {
 	var returns StageDeployment
 
@@ -788,7 +740,6 @@ func (c *jsiiProxy_CodePipeline) AddStage(stage awscdk.Stage, options *AddStageO
 // wave.addStage(new MyApplicationStage(this, 'Stage1'));
 // wave.addStage(new MyApplicationStage(this, 'Stage2'));
 // ```
-// Experimental.
 func (c *jsiiProxy_CodePipeline) AddWave(id *string, options *WaveOptions) Wave {
 	var returns Wave
 
@@ -805,7 +756,6 @@ func (c *jsiiProxy_CodePipeline) AddWave(id *string, options *WaveOptions) Wave 
 // Send the current pipeline definition to the engine, and construct the pipeline.
 //
 // It is not possible to modify the pipeline after calling this method.
-// Experimental.
 func (c *jsiiProxy_CodePipeline) BuildPipeline() {
 	_jsii_.InvokeVoid(
 		c,
@@ -815,7 +765,6 @@ func (c *jsiiProxy_CodePipeline) BuildPipeline() {
 }
 
 // Implemented by subclasses to do the actual pipeline construction.
-// Experimental.
 func (c *jsiiProxy_CodePipeline) DoBuildPipeline() {
 	_jsii_.InvokeVoid(
 		c,
@@ -825,7 +774,6 @@ func (c *jsiiProxy_CodePipeline) DoBuildPipeline() {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (c *jsiiProxy_CodePipeline) ToString() *string {
 	var returns *string
 
@@ -843,13 +791,10 @@ func (c *jsiiProxy_CodePipeline) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CodePipelineActionFactoryResult struct {
 	// If a CodeBuild project got created, the project.
-	// Experimental.
 	Project awscodebuild.IProject `json:"project"`
 	// How many RunOrders were consumed.
-	// Experimental.
 	RunOrdersConsumed *float64 `json:"runOrdersConsumed"`
 }
 
@@ -860,7 +805,6 @@ type CodePipelineActionFactoryResult struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CodePipelineFileSet interface {
 	FileSet
 	Id() *string
@@ -907,7 +851,6 @@ func (j *jsiiProxy_CodePipelineFileSet) Producer() Step {
 
 
 // Turn a CodePipeline Artifact into a FileSet.
-// Experimental.
 func CodePipelineFileSet_FromArtifact(artifact awscodepipeline.Artifact) CodePipelineFileSet {
 	_init_.Initialize()
 
@@ -926,7 +869,6 @@ func CodePipelineFileSet_FromArtifact(artifact awscodepipeline.Artifact) CodePip
 // Mark the given Step as the producer for this FileSet.
 //
 // This method can only be called once.
-// Experimental.
 func (c *jsiiProxy_CodePipelineFileSet) ProducedBy(producer Step) {
 	_jsii_.InvokeVoid(
 		c,
@@ -936,7 +878,6 @@ func (c *jsiiProxy_CodePipelineFileSet) ProducedBy(producer Step) {
 }
 
 // Return a string representation of this FileSet.
-// Experimental.
 func (c *jsiiProxy_CodePipelineFileSet) ToString() *string {
 	var returns *string
 
@@ -954,10 +895,8 @@ func (c *jsiiProxy_CodePipelineFileSet) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CodePipelineProps struct {
 	// Additional customizations to apply to the asset publishing CodeBuild projects.
-	// Experimental.
 	AssetPublishingCodeBuildDefaults *CodeBuildOptions `json:"assetPublishingCodeBuildDefaults"`
 	// CDK CLI version to use in self-mutation and asset publishing steps.
 	//
@@ -976,15 +915,12 @@ type CodePipelineProps struct {
 	// you want to update both framework and CLI version, you should update the
 	// CLI version first, commit, push and deploy, and only then update the
 	// framework version.
-	// Experimental.
 	CliVersion *string `json:"cliVersion"`
 	// Customize the CodeBuild projects created for this pipeline.
-	// Experimental.
 	CodeBuildDefaults *CodeBuildOptions `json:"codeBuildDefaults"`
 	// An existing Pipeline to be reused and built upon.
 	//
 	// [disable-awslint:ref-via-interface]
-	// Experimental.
 	CodePipeline awscodepipeline.Pipeline `json:"codePipeline"`
 	// Create KMS keys for the artifact buckets, allowing cross-account deployments.
 	//
@@ -993,12 +929,10 @@ type CodePipelineProps struct {
 	// buckets encrypted, be sure to set this value to `true`.
 	//
 	// Be aware there is a cost associated with maintaining the KMS keys.
-	// Experimental.
 	CrossAccountKeys *bool `json:"crossAccountKeys"`
 	// A list of credentials used to authenticate to Docker registries.
 	//
 	// Specify any credentials necessary within the pipeline to build, synth, update, or publish assets.
-	// Experimental.
 	DockerCredentials *[]DockerCredential `json:"dockerCredentials"`
 	// Enable Docker for the self-mutate step.
 	//
@@ -1014,7 +948,6 @@ type CodePipelineProps struct {
 	// If you are about to turn this on in an already-deployed Pipeline,
 	// set the value to `true` first, commit and allow the pipeline to
 	// self-update, and only then use the Docker asset in the pipeline.
-	// Experimental.
 	DockerEnabledForSelfMutation *bool `json:"dockerEnabledForSelfMutation"`
 	// Enable Docker for the 'synth' step.
 	//
@@ -1032,10 +965,8 @@ type CodePipelineProps struct {
 	// If you are about to turn this on in an already-deployed Pipeline,
 	// set the value to `true` first, commit and allow the pipeline to
 	// self-update, and only then use the bundled asset.
-	// Experimental.
 	DockerEnabledForSynth *bool `json:"dockerEnabledForSynth"`
 	// The name of the CodePipeline pipeline.
-	// Experimental.
 	PipelineName *string `json:"pipelineName"`
 	// Publish assets in multiple CodeBuild projects.
 	//
@@ -1046,7 +977,6 @@ type CodePipelineProps struct {
 	// projects.
 	//
 	// Experiment and see what value works best for you.
-	// Experimental.
 	PublishAssetsInParallel *bool `json:"publishAssetsInParallel"`
 	// Whether the pipeline will update itself.
 	//
@@ -1056,10 +986,8 @@ type CodePipelineProps struct {
 	//
 	// You can temporarily set this to `false` while you are iterating
 	// on the pipeline itself and prefer to deploy changes using `cdk deploy`.
-	// Experimental.
 	SelfMutation *bool `json:"selfMutation"`
 	// Additional customizations to apply to the self mutation CodeBuild projects.
-	// Experimental.
 	SelfMutationCodeBuildDefaults *CodeBuildOptions `json:"selfMutationCodeBuildDefaults"`
 	// The build step that produces the CDK Cloud Assembly.
 	//
@@ -1068,10 +996,8 @@ type CodePipelineProps struct {
 	//
 	// If you use a `ShellStep` here and you don't configure an output directory,
 	// the output directory will automatically be assumed to be `cdk.out`.
-	// Experimental.
 	Synth IFileSetProducer `json:"synth"`
 	// Additional customizations to apply to the synthesize CodeBuild projects.
-	// Experimental.
 	SynthCodeBuildDefaults *CodeBuildOptions `json:"synthCodeBuildDefaults"`
 }
 
@@ -1082,7 +1008,6 @@ type CodePipelineProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CodePipelineSource interface {
 	Step
 	ICodePipelineActionFactory
@@ -1155,7 +1080,6 @@ func (j *jsiiProxy_CodePipelineSource) PrimaryOutput() FileSet {
 }
 
 
-// Experimental.
 func NewCodePipelineSource_Override(c CodePipelineSource, id *string) {
 	_init_.Initialize()
 
@@ -1167,7 +1091,6 @@ func NewCodePipelineSource_Override(c CodePipelineSource, id *string) {
 }
 
 // Returns a CodeCommit source.
-// Experimental.
 func CodePipelineSource_CodeCommit(repository awscodecommit.IRepository, branch *string, props *CodeCommitSourceOptions) CodePipelineSource {
 	_init_.Initialize()
 
@@ -1203,7 +1126,6 @@ func CodePipelineSource_CodeCommit(repository awscodecommit.IRepository, branch 
 // ```
 // See: https://docs.aws.amazon.com/dtconsole/latest/userguide/welcome-connections.html
 //
-// Experimental.
 func CodePipelineSource_Connection(repoString *string, branch *string, props *ConnectionSourceOptions) CodePipelineSource {
 	_init_.Initialize()
 
@@ -1238,7 +1160,6 @@ func CodePipelineSource_Connection(repoString *string, branch *string, props *Co
 //
 // * **repo** - to read the repository
 // * **admin:repo_hook** - if you plan to use webhooks (true by default)
-// Experimental.
 func CodePipelineSource_GitHub(repoString *string, branch *string, props *GitHubSourceOptions) CodePipelineSource {
 	_init_.Initialize()
 
@@ -1255,7 +1176,6 @@ func CodePipelineSource_GitHub(repoString *string, branch *string, props *GitHub
 }
 
 // Returns an S3 source.
-// Experimental.
 func CodePipelineSource_S3(bucket awss3.IBucket, objectKey *string, props *S3SourceOptions) CodePipelineSource {
 	_init_.Initialize()
 
@@ -1274,7 +1194,6 @@ func CodePipelineSource_S3(bucket awss3.IBucket, objectKey *string, props *S3Sou
 // Add an additional FileSet to the set of file sets required by this step.
 //
 // This will lead to a dependency on the producer of that file set.
-// Experimental.
 func (c *jsiiProxy_CodePipelineSource) AddDependencyFileSet(fs FileSet) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1284,7 +1203,6 @@ func (c *jsiiProxy_CodePipelineSource) AddDependencyFileSet(fs FileSet) {
 }
 
 // Configure the given FileSet as the primary output of this step.
-// Experimental.
 func (c *jsiiProxy_CodePipelineSource) ConfigurePrimaryOutput(fs FileSet) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1293,7 +1211,6 @@ func (c *jsiiProxy_CodePipelineSource) ConfigurePrimaryOutput(fs FileSet) {
 	)
 }
 
-// Experimental.
 func (c *jsiiProxy_CodePipelineSource) GetAction(output awscodepipeline.Artifact, actionName *string, runOrder *float64) awscodepipelineactions.Action {
 	var returns awscodepipelineactions.Action
 
@@ -1308,7 +1225,6 @@ func (c *jsiiProxy_CodePipelineSource) GetAction(output awscodepipeline.Artifact
 }
 
 // Create the desired Action and add it to the pipeline.
-// Experimental.
 func (c *jsiiProxy_CodePipelineSource) ProduceAction(stage awscodepipeline.IStage, options *ProduceActionOptions) *CodePipelineActionFactoryResult {
 	var returns *CodePipelineActionFactoryResult
 
@@ -1323,7 +1239,6 @@ func (c *jsiiProxy_CodePipelineSource) ProduceAction(stage awscodepipeline.IStag
 }
 
 // Return a string representation of this Step.
-// Experimental.
 func (c *jsiiProxy_CodePipelineSource) ToString() *string {
 	var returns *string
 
@@ -1343,7 +1258,6 @@ func (c *jsiiProxy_CodePipelineSource) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ConfirmPermissionsBroadening interface {
 	Step
 	ICodePipelineActionFactory
@@ -1415,7 +1329,6 @@ func (j *jsiiProxy_ConfirmPermissionsBroadening) PrimaryOutput() FileSet {
 }
 
 
-// Experimental.
 func NewConfirmPermissionsBroadening(id *string, props *PermissionsBroadeningCheckProps) ConfirmPermissionsBroadening {
 	_init_.Initialize()
 
@@ -1430,7 +1343,6 @@ func NewConfirmPermissionsBroadening(id *string, props *PermissionsBroadeningChe
 	return &j
 }
 
-// Experimental.
 func NewConfirmPermissionsBroadening_Override(c ConfirmPermissionsBroadening, id *string, props *PermissionsBroadeningCheckProps) {
 	_init_.Initialize()
 
@@ -1444,7 +1356,6 @@ func NewConfirmPermissionsBroadening_Override(c ConfirmPermissionsBroadening, id
 // Add an additional FileSet to the set of file sets required by this step.
 //
 // This will lead to a dependency on the producer of that file set.
-// Experimental.
 func (c *jsiiProxy_ConfirmPermissionsBroadening) AddDependencyFileSet(fs FileSet) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1454,7 +1365,6 @@ func (c *jsiiProxy_ConfirmPermissionsBroadening) AddDependencyFileSet(fs FileSet
 }
 
 // Configure the given FileSet as the primary output of this step.
-// Experimental.
 func (c *jsiiProxy_ConfirmPermissionsBroadening) ConfigurePrimaryOutput(fs FileSet) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1464,7 +1374,6 @@ func (c *jsiiProxy_ConfirmPermissionsBroadening) ConfigurePrimaryOutput(fs FileS
 }
 
 // Create the desired Action and add it to the pipeline.
-// Experimental.
 func (c *jsiiProxy_ConfirmPermissionsBroadening) ProduceAction(stage awscodepipeline.IStage, options *ProduceActionOptions) *CodePipelineActionFactoryResult {
 	var returns *CodePipelineActionFactoryResult
 
@@ -1479,7 +1388,6 @@ func (c *jsiiProxy_ConfirmPermissionsBroadening) ProduceAction(stage awscodepipe
 }
 
 // Return a string representation of this Step.
-// Experimental.
 func (c *jsiiProxy_ConfirmPermissionsBroadening) ToString() *string {
 	var returns *string
 
@@ -1497,7 +1405,6 @@ func (c *jsiiProxy_ConfirmPermissionsBroadening) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ConnectionSourceOptions struct {
 	// The ARN of the CodeStar Connection created in the AWS console that has permissions to access this GitHub or BitBucket repository.
 	//
@@ -1505,7 +1412,6 @@ type ConnectionSourceOptions struct {
 	//
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/connections-create.html
 	//
-	// Experimental.
 	ConnectionArn *string `json:"connectionArn"`
 	// Whether the output should be the contents of the repository (which is the default), or a link that allows CodeBuild to clone the repository before building.
 	//
@@ -1513,7 +1419,6 @@ type ConnectionSourceOptions struct {
 	// then only CodeBuild actions can use the resulting {@link output}.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html#action-reference-CodestarConnectionSource-config
 	//
-	// Experimental.
 	CodeBuildCloneOutput *bool `json:"codeBuildCloneOutput"`
 	// Controls automatically starting your pipeline when a new commit is made on the configured repository and branch.
 	//
@@ -1521,7 +1426,6 @@ type ConnectionSourceOptions struct {
 	// the default value is true, and the field does not display by default.
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/action-reference-CodestarConnectionSource.html
 	//
-	// Experimental.
 	TriggerOnPush *bool `json:"triggerOnPush"`
 }
 
@@ -1529,7 +1433,6 @@ type ConnectionSourceOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DockerCredential interface {
 	Usages() *[]DockerCredentialUsage
 	GrantRead(grantee awsiam.IGrantable, usage DockerCredentialUsage)
@@ -1551,7 +1454,6 @@ func (j *jsiiProxy_DockerCredential) Usages() *[]DockerCredentialUsage {
 }
 
 
-// Experimental.
 func NewDockerCredential_Override(d DockerCredential, usages *[]DockerCredentialUsage) {
 	_init_.Initialize()
 
@@ -1563,7 +1465,6 @@ func NewDockerCredential_Override(d DockerCredential, usages *[]DockerCredential
 }
 
 // Creates a DockerCredential for a registry, based on its domain name (e.g., 'www.example.com').
-// Experimental.
 func DockerCredential_CustomRegistry(registryDomain *string, secret awssecretsmanager.ISecret, opts *ExternalDockerCredentialOptions) DockerCredential {
 	_init_.Initialize()
 
@@ -1582,7 +1483,6 @@ func DockerCredential_CustomRegistry(registryDomain *string, secret awssecretsma
 // Creates a DockerCredential for DockerHub.
 //
 // Convenience method for `fromCustomRegistry('index.docker.io', opts)`.
-// Experimental.
 func DockerCredential_DockerHub(secret awssecretsmanager.ISecret, opts *ExternalDockerCredentialOptions) DockerCredential {
 	_init_.Initialize()
 
@@ -1605,7 +1505,6 @@ func DockerCredential_DockerHub(secret awssecretsmanager.ISecret, opts *External
 // set of credentials (and DockerCredential). Attempting to associate one set of credentials
 // with one ECR repo and another with another ECR repo in the same account and region will
 // result in failures when using these credentials in the pipeline.
-// Experimental.
 func DockerCredential_Ecr(repositories *[]awsecr.IRepository, opts *EcrDockerCredentialOptions) DockerCredential {
 	_init_.Initialize()
 
@@ -1624,7 +1523,6 @@ func DockerCredential_Ecr(repositories *[]awsecr.IRepository, opts *EcrDockerCre
 // Grant read-only access to the registry credentials.
 //
 // This grants read access to any secrets, and pull access to any repositories.
-// Experimental.
 func (d *jsiiProxy_DockerCredential) GrantRead(grantee awsiam.IGrantable, usage DockerCredentialUsage) {
 	_jsii_.InvokeVoid(
 		d,
@@ -1637,7 +1535,6 @@ func (d *jsiiProxy_DockerCredential) GrantRead(grantee awsiam.IGrantable, usage 
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DockerCredentialUsage string
 
 const (
@@ -1650,13 +1547,10 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type EcrDockerCredentialOptions struct {
 	// An IAM role to assume prior to accessing the secret.
-	// Experimental.
 	AssumeRole awsiam.IRole `json:"assumeRole"`
 	// Defines which stages of the pipeline should be granted access to these credentials.
-	// Experimental.
 	Usages *[]DockerCredentialUsage `json:"usages"`
 }
 
@@ -1664,19 +1558,14 @@ type EcrDockerCredentialOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ExternalDockerCredentialOptions struct {
 	// An IAM role to assume prior to accessing the secret.
-	// Experimental.
 	AssumeRole awsiam.IRole `json:"assumeRole"`
 	// The name of the JSON field of the secret which contains the secret/password.
-	// Experimental.
 	SecretPasswordField *string `json:"secretPasswordField"`
 	// The name of the JSON field of the secret which contains the user/login name.
-	// Experimental.
 	SecretUsernameField *string `json:"secretUsernameField"`
 	// Defines which stages of the pipeline should be granted access to these credentials.
-	// Experimental.
 	Usages *[]DockerCredentialUsage `json:"usages"`
 }
 
@@ -1687,7 +1576,6 @@ type ExternalDockerCredentialOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type FileSet interface {
 	IFileSetProducer
 	Id() *string
@@ -1733,7 +1621,6 @@ func (j *jsiiProxy_FileSet) Producer() Step {
 }
 
 
-// Experimental.
 func NewFileSet(id *string, producer Step) FileSet {
 	_init_.Initialize()
 
@@ -1748,7 +1635,6 @@ func NewFileSet(id *string, producer Step) FileSet {
 	return &j
 }
 
-// Experimental.
 func NewFileSet_Override(f FileSet, id *string, producer Step) {
 	_init_.Initialize()
 
@@ -1762,7 +1648,6 @@ func NewFileSet_Override(f FileSet, id *string, producer Step) {
 // Mark the given Step as the producer for this FileSet.
 //
 // This method can only be called once.
-// Experimental.
 func (f *jsiiProxy_FileSet) ProducedBy(producer Step) {
 	_jsii_.InvokeVoid(
 		f,
@@ -1772,7 +1657,6 @@ func (f *jsiiProxy_FileSet) ProducedBy(producer Step) {
 }
 
 // Return a string representation of this FileSet.
-// Experimental.
 func (f *jsiiProxy_FileSet) ToString() *string {
 	var returns *string
 
@@ -1790,13 +1674,10 @@ func (f *jsiiProxy_FileSet) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type FileSetLocation struct {
 	// The (relative) directory where the FileSet is found.
-	// Experimental.
 	Directory *string `json:"directory"`
 	// The FileSet object.
-	// Experimental.
 	FileSet FileSet `json:"fileSet"`
 }
 
@@ -1804,7 +1685,6 @@ type FileSetLocation struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type GitHubSourceOptions struct {
 	// A GitHub OAuth token to use for authentication.
 	//
@@ -1820,7 +1700,6 @@ type GitHubSourceOptions struct {
 	// * **admin:repo_hook** - if you plan to use webhooks (true by default)
 	// See: https://docs.aws.amazon.com/codepipeline/latest/userguide/GitHub-create-personal-token-CLI.html
 	//
-	// Experimental.
 	Authentication awscdk.SecretValue `json:"authentication"`
 	// How AWS CodePipeline should be triggered.
 	//
@@ -1830,7 +1709,6 @@ type GitHubSourceOptions struct {
 	//
 	// To use `WEBHOOK`, your GitHub Personal Access Token should have
 	// **admin:repo_hook** scope (in addition to the regular **repo** scope).
-	// Experimental.
 	Trigger awscodepipelineactions.GitHubTrigger `json:"trigger"`
 }
 
@@ -1843,10 +1721,8 @@ type GitHubSourceOptions struct {
 // There needs to be a level of indirection here, because some aspects of the
 // Action creation need to be controlled by the workflow engine (name and
 // runOrder). All the rest of the properties are controlled by the factory.
-// Experimental.
 type ICodePipelineActionFactory interface {
 	// Create the desired Action and add it to the pipeline.
-	// Experimental.
 	ProduceAction(stage awscodepipeline.IStage, options *ProduceActionOptions) *CodePipelineActionFactoryResult
 }
 
@@ -1871,10 +1747,8 @@ func (i *jsiiProxy_ICodePipelineActionFactory) ProduceAction(stage awscodepipeli
 // Any class that produces, or is itself, a `FileSet`.
 //
 // Steps implicitly produce a primary FileSet as an output.
-// Experimental.
 type IFileSetProducer interface {
 	// The `FileSet` produced by this file set producer.
-	// Experimental.
 	PrimaryOutput() FileSet
 }
 
@@ -1903,7 +1777,6 @@ func (j *jsiiProxy_IFileSetProducer) PrimaryOutput() FileSet {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ManualApprovalStep interface {
 	Step
 	Comment() *string
@@ -1983,7 +1856,6 @@ func (j *jsiiProxy_ManualApprovalStep) PrimaryOutput() FileSet {
 }
 
 
-// Experimental.
 func NewManualApprovalStep(id *string, props *ManualApprovalStepProps) ManualApprovalStep {
 	_init_.Initialize()
 
@@ -1998,7 +1870,6 @@ func NewManualApprovalStep(id *string, props *ManualApprovalStepProps) ManualApp
 	return &j
 }
 
-// Experimental.
 func NewManualApprovalStep_Override(m ManualApprovalStep, id *string, props *ManualApprovalStepProps) {
 	_init_.Initialize()
 
@@ -2012,7 +1883,6 @@ func NewManualApprovalStep_Override(m ManualApprovalStep, id *string, props *Man
 // Add an additional FileSet to the set of file sets required by this step.
 //
 // This will lead to a dependency on the producer of that file set.
-// Experimental.
 func (m *jsiiProxy_ManualApprovalStep) AddDependencyFileSet(fs FileSet) {
 	_jsii_.InvokeVoid(
 		m,
@@ -2022,7 +1892,6 @@ func (m *jsiiProxy_ManualApprovalStep) AddDependencyFileSet(fs FileSet) {
 }
 
 // Configure the given FileSet as the primary output of this step.
-// Experimental.
 func (m *jsiiProxy_ManualApprovalStep) ConfigurePrimaryOutput(fs FileSet) {
 	_jsii_.InvokeVoid(
 		m,
@@ -2032,7 +1901,6 @@ func (m *jsiiProxy_ManualApprovalStep) ConfigurePrimaryOutput(fs FileSet) {
 }
 
 // Return a string representation of this Step.
-// Experimental.
 func (m *jsiiProxy_ManualApprovalStep) ToString() *string {
 	var returns *string
 
@@ -2050,10 +1918,8 @@ func (m *jsiiProxy_ManualApprovalStep) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ManualApprovalStepProps struct {
 	// The comment to display with this manual approval.
-	// Experimental.
 	Comment *string `json:"comment"`
 }
 
@@ -2061,15 +1927,12 @@ type ManualApprovalStepProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type PermissionsBroadeningCheckProps struct {
 	// The CDK Stage object to check the stacks of.
 	//
 	// This should be the same Stage object you are passing to `addStage()`.
-	// Experimental.
 	Stage awscdk.Stage `json:"stage"`
 	// Topic to send notifications when a human needs to give manual confirmation.
-	// Experimental.
 	NotificationTopic awssns.ITopic `json:"notificationTopic"`
 }
 
@@ -2084,7 +1947,6 @@ type PermissionsBroadeningCheckProps struct {
 // The actual pipeline infrastructure is constructed (by invoking the engine)
 // when `buildPipeline()` is called, or when `app.synth()` is called (whichever
 // happens first).
-// Experimental.
 type PipelineBase interface {
 	constructs.Construct
 	CloudAssemblyFileSet() FileSet
@@ -2144,7 +2006,6 @@ func (j *jsiiProxy_PipelineBase) Waves() *[]Wave {
 }
 
 
-// Experimental.
 func NewPipelineBase_Override(p PipelineBase, scope constructs.Construct, id *string, props *PipelineBaseProps) {
 	_init_.Initialize()
 
@@ -2179,7 +2040,6 @@ func PipelineBase_IsConstruct(x interface{}) *bool {
 // Add a Stage to the pipeline, to be deployed in sequence with other
 // Stages added to the pipeline. All Stacks in the stage will be deployed
 // in an order automatically determined by their relative dependencies.
-// Experimental.
 func (p *jsiiProxy_PipelineBase) AddStage(stage awscdk.Stage, options *AddStageOpts) StageDeployment {
 	var returns StageDeployment
 
@@ -2206,7 +2066,6 @@ func (p *jsiiProxy_PipelineBase) AddStage(stage awscdk.Stage, options *AddStageO
 // wave.addStage(new MyApplicationStage(this, 'Stage1'));
 // wave.addStage(new MyApplicationStage(this, 'Stage2'));
 // ```
-// Experimental.
 func (p *jsiiProxy_PipelineBase) AddWave(id *string, options *WaveOptions) Wave {
 	var returns Wave
 
@@ -2223,7 +2082,6 @@ func (p *jsiiProxy_PipelineBase) AddWave(id *string, options *WaveOptions) Wave 
 // Send the current pipeline definition to the engine, and construct the pipeline.
 //
 // It is not possible to modify the pipeline after calling this method.
-// Experimental.
 func (p *jsiiProxy_PipelineBase) BuildPipeline() {
 	_jsii_.InvokeVoid(
 		p,
@@ -2233,7 +2091,6 @@ func (p *jsiiProxy_PipelineBase) BuildPipeline() {
 }
 
 // Implemented by subclasses to do the actual pipeline construction.
-// Experimental.
 func (p *jsiiProxy_PipelineBase) DoBuildPipeline() {
 	_jsii_.InvokeVoid(
 		p,
@@ -2243,7 +2100,6 @@ func (p *jsiiProxy_PipelineBase) DoBuildPipeline() {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (p *jsiiProxy_PipelineBase) ToString() *string {
 	var returns *string
 
@@ -2261,7 +2117,6 @@ func (p *jsiiProxy_PipelineBase) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type PipelineBaseProps struct {
 	// The build step that produces the CDK Cloud Assembly.
 	//
@@ -2270,7 +2125,6 @@ type PipelineBaseProps struct {
 	//
 	// If you use a `ShellStep` here and you don't configure an output directory,
 	// the output directory will automatically be assumed to be `cdk.out`.
-	// Experimental.
 	Synth IFileSetProducer `json:"synth"`
 }
 
@@ -2278,39 +2132,30 @@ type PipelineBaseProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ProduceActionOptions struct {
 	// Name the action should get.
-	// Experimental.
 	ActionName *string `json:"actionName"`
 	// Helper object to translate FileSets to CodePipeline Artifacts.
-	// Experimental.
 	Artifacts ArtifactMap `json:"artifacts"`
 	// Whether or not this action is inserted before self mutation.
 	//
 	// If it is, the action should take care to reflect some part of
 	// its own definition in the pipeline action definition, to
 	// trigger a restart after self-mutation (if necessary).
-	// Experimental.
 	BeforeSelfMutation *bool `json:"beforeSelfMutation"`
 	// If this action factory creates a CodeBuild step, default options to inherit.
-	// Experimental.
 	CodeBuildDefaults *CodeBuildOptions `json:"codeBuildDefaults"`
 	// An input artifact that CodeBuild projects that don't actually need an input artifact can use.
 	//
 	// CodeBuild Projects MUST have an input artifact in order to be added to the Pipeline. If
 	// the Project doesn't actually care about its input (it can be anything), it can use the
 	// Artifact passed here.
-	// Experimental.
 	FallbackArtifact awscodepipeline.Artifact `json:"fallbackArtifact"`
 	// The pipeline the action is being generated for.
-	// Experimental.
 	Pipeline CodePipeline `json:"pipeline"`
 	// RunOrder the action should get.
-	// Experimental.
 	RunOrder *float64 `json:"runOrder"`
 	// Scope in which to create constructs.
-	// Experimental.
 	Scope constructs.Construct `json:"scope"`
 }
 
@@ -2318,10 +2163,8 @@ type ProduceActionOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type S3SourceOptions struct {
 	// The action name used for this source in the CodePipeline.
-	// Experimental.
 	ActionName *string `json:"actionName"`
 	// How should CodePipeline detect source changes for this Action.
 	//
@@ -2329,7 +2172,6 @@ type S3SourceOptions struct {
 	// as otherwise the CloudWatch Events will not be emitted.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/log-s3-data-events.html
 	//
-	// Experimental.
 	Trigger awscodepipelineactions.S3Trigger `json:"trigger"`
 }
 
@@ -2337,7 +2179,6 @@ type S3SourceOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ShellStep interface {
 	Step
 	Commands() *[]*string
@@ -2474,7 +2315,6 @@ func (j *jsiiProxy_ShellStep) PrimaryOutput() FileSet {
 }
 
 
-// Experimental.
 func NewShellStep(id *string, props *ShellStepProps) ShellStep {
 	_init_.Initialize()
 
@@ -2489,7 +2329,6 @@ func NewShellStep(id *string, props *ShellStepProps) ShellStep {
 	return &j
 }
 
-// Experimental.
 func NewShellStep_Override(s ShellStep, id *string, props *ShellStepProps) {
 	_init_.Initialize()
 
@@ -2503,7 +2342,6 @@ func NewShellStep_Override(s ShellStep, id *string, props *ShellStepProps) {
 // Add an additional FileSet to the set of file sets required by this step.
 //
 // This will lead to a dependency on the producer of that file set.
-// Experimental.
 func (s *jsiiProxy_ShellStep) AddDependencyFileSet(fs FileSet) {
 	_jsii_.InvokeVoid(
 		s,
@@ -2520,7 +2358,6 @@ func (s *jsiiProxy_ShellStep) AddDependencyFileSet(fs FileSet) {
 //
 // Multiple calls with the exact same directory name string (not normalized)
 // will return the same FileSet.
-// Experimental.
 func (s *jsiiProxy_ShellStep) AddOutputDirectory(directory *string) FileSet {
 	var returns FileSet
 
@@ -2535,7 +2372,6 @@ func (s *jsiiProxy_ShellStep) AddOutputDirectory(directory *string) FileSet {
 }
 
 // Configure the given FileSet as the primary output of this step.
-// Experimental.
 func (s *jsiiProxy_ShellStep) ConfigurePrimaryOutput(fs FileSet) {
 	_jsii_.InvokeVoid(
 		s,
@@ -2550,7 +2386,6 @@ func (s *jsiiProxy_ShellStep) ConfigurePrimaryOutput(fs FileSet) {
 // will become the primary output of this ShellStep, otherwise this
 // method will throw if the given directory is different than the
 // currently configured primary output directory.
-// Experimental.
 func (s *jsiiProxy_ShellStep) PrimaryOutputDirectory(directory *string) FileSet {
 	var returns FileSet
 
@@ -2565,7 +2400,6 @@ func (s *jsiiProxy_ShellStep) PrimaryOutputDirectory(directory *string) FileSet 
 }
 
 // Return a string representation of this Step.
-// Experimental.
 func (s *jsiiProxy_ShellStep) ToString() *string {
 	var returns *string
 
@@ -2583,10 +2417,8 @@ func (s *jsiiProxy_ShellStep) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ShellStepProps struct {
 	// Commands to run.
-	// Experimental.
 	Commands *[]*string `json:"commands"`
 	// Additional FileSets to put in other directories.
 	//
@@ -2607,10 +2439,8 @@ type ShellStepProps struct {
 	//    }
 	// });
 	// ```
-	// Experimental.
 	AdditionalInputs *map[string]IFileSetProducer `json:"additionalInputs"`
 	// Environment variables to set.
-	// Experimental.
 	Env *map[string]*string `json:"env"`
 	// Set environment variables based on Stack Outputs.
 	//
@@ -2618,26 +2448,22 @@ type ShellStepProps struct {
 	// access the `CfnOutput`s of those stacks to get access to
 	// --for example--automatically generated resource names or
 	// endpoint URLs.
-	// Experimental.
 	EnvFromCfnOutputs *map[string]awscdk.CfnOutput `json:"envFromCfnOutputs"`
 	// FileSet to run these scripts on.
 	//
 	// The files in the FileSet will be placed in the working directory when
 	// the script is executed. Use `additionalInputs` to download file sets
 	// to other directories as well.
-	// Experimental.
 	Input IFileSetProducer `json:"input"`
 	// Installation commands to run before the regular commands.
 	//
 	// For deployment engines that support it, install commands will be classified
 	// differently in the job history from the regular `commands`.
-	// Experimental.
 	InstallCommands *[]*string `json:"installCommands"`
 	// The directory that will contain the primary output fileset.
 	//
 	// After running the script, the contents of the given directory
 	// will be treated as the primary output of this Step.
-	// Experimental.
 	PrimaryOutputDirectory *string `json:"primaryOutputDirectory"`
 }
 
@@ -2645,28 +2471,21 @@ type ShellStepProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type StackAsset struct {
 	// Asset identifier.
-	// Experimental.
 	AssetId *string `json:"assetId"`
 	// Absolute asset manifest path.
 	//
 	// This needs to be made relative at a later point in time, but when this
 	// information is parsed we don't know about the root cloud assembly yet.
-	// Experimental.
 	AssetManifestPath *string `json:"assetManifestPath"`
 	// Role ARN to assume to publish.
-	// Experimental.
 	AssetPublishingRoleArn *string `json:"assetPublishingRoleArn"`
 	// Asset selector to pass to `cdk-assets`.
-	// Experimental.
 	AssetSelector *string `json:"assetSelector"`
 	// Type of asset to publish.
-	// Experimental.
 	AssetType AssetType `json:"assetType"`
 	// Does this asset represent the CloudFormation template for the stack.
-	// Experimental.
 	IsTemplate *bool `json:"isTemplate"`
 }
 
@@ -2678,7 +2497,6 @@ type StackAsset struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type StackDeployment interface {
 	AbsoluteTemplatePath() *string
 	Account() *string
@@ -2867,7 +2685,6 @@ func (j *jsiiProxy_StackDeployment) TemplateUrl() *string {
 
 
 // Build a `StackDeployment` from a Stack Artifact in a Cloud Assembly.
-// Experimental.
 func StackDeployment_FromArtifact(stackArtifact cxapi.CloudFormationStackArtifact) StackDeployment {
 	_init_.Initialize()
 
@@ -2884,7 +2701,6 @@ func StackDeployment_FromArtifact(stackArtifact cxapi.CloudFormationStackArtifac
 }
 
 // Add a dependency on another stack.
-// Experimental.
 func (s *jsiiProxy_StackDeployment) AddStackDependency(stackDeployment StackDeployment) {
 	_jsii_.InvokeVoid(
 		s,
@@ -2894,7 +2710,6 @@ func (s *jsiiProxy_StackDeployment) AddStackDependency(stackDeployment StackDepl
 }
 
 // Adds steps to each phase of the stack.
-// Experimental.
 func (s *jsiiProxy_StackDeployment) AddStackSteps(pre *[]Step, changeSet *[]Step, post *[]Step) {
 	_jsii_.InvokeVoid(
 		s,
@@ -2907,40 +2722,28 @@ func (s *jsiiProxy_StackDeployment) AddStackSteps(pre *[]Step, changeSet *[]Step
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type StackDeploymentProps struct {
 	// Template path on disk to cloud assembly (cdk.out).
-	// Experimental.
 	AbsoluteTemplatePath *string `json:"absoluteTemplatePath"`
 	// Account where the stack should be deployed.
-	// Experimental.
 	Account *string `json:"account"`
 	// Assets referenced by this stack.
-	// Experimental.
 	Assets *[]*StackAsset `json:"assets"`
 	// Role to assume before deploying this stack.
-	// Experimental.
 	AssumeRoleArn *string `json:"assumeRoleArn"`
 	// Construct path for this stack.
-	// Experimental.
 	ConstructPath *string `json:"constructPath"`
 	// Execution role to pass to CloudFormation.
-	// Experimental.
 	ExecutionRoleArn *string `json:"executionRoleArn"`
 	// Region where the stack should be deployed.
-	// Experimental.
 	Region *string `json:"region"`
 	// Artifact ID for this stack.
-	// Experimental.
 	StackArtifactId *string `json:"stackArtifactId"`
 	// Name for this stack.
-	// Experimental.
 	StackName *string `json:"stackName"`
 	// Tags to apply to the stack.
-	// Experimental.
 	Tags *map[string]*string `json:"tags"`
 	// The S3 URL which points to the template asset location in the publishing bucket.
-	// Experimental.
 	TemplateS3Uri *string `json:"templateS3Uri"`
 }
 
@@ -2948,7 +2751,6 @@ type StackDeploymentProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type StackOutputReference interface {
 	OutputName() *string
 	StackDescription() *string
@@ -2982,7 +2784,6 @@ func (j *jsiiProxy_StackOutputReference) StackDescription() *string {
 
 
 // Create a StackOutputReference that references the given CfnOutput.
-// Experimental.
 func StackOutputReference_FromCfnOutput(output awscdk.CfnOutput) StackOutputReference {
 	_init_.Initialize()
 
@@ -2999,7 +2800,6 @@ func StackOutputReference_FromCfnOutput(output awscdk.CfnOutput) StackOutputRefe
 }
 
 // Whether or not this stack output is being produced by the given Stack deployment.
-// Experimental.
 func (s *jsiiProxy_StackOutputReference) IsProducedBy(stack StackDeployment) *bool {
 	var returns *bool
 
@@ -3017,19 +2817,14 @@ func (s *jsiiProxy_StackOutputReference) IsProducedBy(stack StackDeployment) *bo
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type StackSteps struct {
 	// Steps that execute after stack is prepared but before stack is deployed.
-	// Experimental.
 	ChangeSet *[]Step `json:"changeSet"`
 	// Steps that execute after stack is deployed.
-	// Experimental.
 	Post *[]Step `json:"post"`
 	// Steps that execute before stack is prepared.
-	// Experimental.
 	Pre *[]Step `json:"pre"`
 	// The stack you want the steps to run in.
-	// Experimental.
 	Stack awscdk.Stack `json:"stack"`
 }
 
@@ -3040,7 +2835,6 @@ type StackSteps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type StageDeployment interface {
 	Post() *[]Step
 	Pre() *[]Step
@@ -3111,7 +2905,6 @@ func (j *jsiiProxy_StageDeployment) StageName() *string {
 //
 // Synthesizes the target stage, and deployes the stacks found inside
 // in dependency order.
-// Experimental.
 func StageDeployment_FromStage(stage awscdk.Stage, props *StageDeploymentProps) StageDeployment {
 	_init_.Initialize()
 
@@ -3128,7 +2921,6 @@ func StageDeployment_FromStage(stage awscdk.Stage, props *StageDeploymentProps) 
 }
 
 // Add an additional step to run after all of the stacks in this stage.
-// Experimental.
 func (s *jsiiProxy_StageDeployment) AddPost(steps ...Step) {
 	args := []interface{}{}
 	for _, a := range steps {
@@ -3143,7 +2935,6 @@ func (s *jsiiProxy_StageDeployment) AddPost(steps ...Step) {
 }
 
 // Add an additional step to run before any of the stacks in this stage.
-// Experimental.
 func (s *jsiiProxy_StageDeployment) AddPre(steps ...Step) {
 	args := []interface{}{}
 	for _, a := range steps {
@@ -3161,19 +2952,14 @@ func (s *jsiiProxy_StageDeployment) AddPre(steps ...Step) {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type StageDeploymentProps struct {
 	// Additional steps to run after all of the stacks in the stage.
-	// Experimental.
 	Post *[]Step `json:"post"`
 	// Additional steps to run before any of the stacks in the stage.
-	// Experimental.
 	Pre *[]Step `json:"pre"`
 	// Instructions for additional steps that are run at the stack level.
-	// Experimental.
 	StackSteps *[]*StackSteps `json:"stackSteps"`
 	// Stage name to use in the pipeline.
-	// Experimental.
 	StageName *string `json:"stageName"`
 }
 
@@ -3187,7 +2973,6 @@ type StageDeploymentProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Step interface {
 	IFileSetProducer
 	Dependencies() *[]Step
@@ -3256,7 +3041,6 @@ func (j *jsiiProxy_Step) PrimaryOutput() FileSet {
 }
 
 
-// Experimental.
 func NewStep_Override(s Step, id *string) {
 	_init_.Initialize()
 
@@ -3270,7 +3054,6 @@ func NewStep_Override(s Step, id *string) {
 // Add an additional FileSet to the set of file sets required by this step.
 //
 // This will lead to a dependency on the producer of that file set.
-// Experimental.
 func (s *jsiiProxy_Step) AddDependencyFileSet(fs FileSet) {
 	_jsii_.InvokeVoid(
 		s,
@@ -3280,7 +3063,6 @@ func (s *jsiiProxy_Step) AddDependencyFileSet(fs FileSet) {
 }
 
 // Configure the given FileSet as the primary output of this step.
-// Experimental.
 func (s *jsiiProxy_Step) ConfigurePrimaryOutput(fs FileSet) {
 	_jsii_.InvokeVoid(
 		s,
@@ -3290,7 +3072,6 @@ func (s *jsiiProxy_Step) ConfigurePrimaryOutput(fs FileSet) {
 }
 
 // Return a string representation of this Step.
-// Experimental.
 func (s *jsiiProxy_Step) ToString() *string {
 	var returns *string
 
@@ -3308,7 +3089,6 @@ func (s *jsiiProxy_Step) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Wave interface {
 	Id() *string
 	Post() *[]Step
@@ -3365,7 +3145,6 @@ func (j *jsiiProxy_Wave) Stages() *[]StageDeployment {
 }
 
 
-// Experimental.
 func NewWave(id *string, props *WaveProps) Wave {
 	_init_.Initialize()
 
@@ -3380,7 +3159,6 @@ func NewWave(id *string, props *WaveProps) Wave {
 	return &j
 }
 
-// Experimental.
 func NewWave_Override(w Wave, id *string, props *WaveProps) {
 	_init_.Initialize()
 
@@ -3392,7 +3170,6 @@ func NewWave_Override(w Wave, id *string, props *WaveProps) {
 }
 
 // Add an additional step to run after all of the stages in this wave.
-// Experimental.
 func (w *jsiiProxy_Wave) AddPost(steps ...Step) {
 	args := []interface{}{}
 	for _, a := range steps {
@@ -3407,7 +3184,6 @@ func (w *jsiiProxy_Wave) AddPost(steps ...Step) {
 }
 
 // Add an additional step to run before any of the stages in this wave.
-// Experimental.
 func (w *jsiiProxy_Wave) AddPre(steps ...Step) {
 	args := []interface{}{}
 	for _, a := range steps {
@@ -3425,7 +3201,6 @@ func (w *jsiiProxy_Wave) AddPre(steps ...Step) {
 //
 // It will be deployed in parallel with all other stages in this
 // wave.
-// Experimental.
 func (w *jsiiProxy_Wave) AddStage(stage awscdk.Stage, options *AddStageOpts) StageDeployment {
 	var returns StageDeployment
 
@@ -3443,13 +3218,10 @@ func (w *jsiiProxy_Wave) AddStage(stage awscdk.Stage, options *AddStageOpts) Sta
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type WaveOptions struct {
 	// Additional steps to run after all of the stages in the wave.
-	// Experimental.
 	Post *[]Step `json:"post"`
 	// Additional steps to run before any of the stages in the wave.
-	// Experimental.
 	Pre *[]Step `json:"pre"`
 }
 
@@ -3457,13 +3229,10 @@ type WaveOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type WaveProps struct {
 	// Additional steps to run after all of the stages in the wave.
-	// Experimental.
 	Post *[]Step `json:"post"`
 	// Additional steps to run before any of the stages in the wave.
-	// Experimental.
 	Pre *[]Step `json:"pre"`
 }
 

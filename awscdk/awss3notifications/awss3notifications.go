@@ -16,7 +16,6 @@ import (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LambdaDestination interface {
 	awss3.IBucketNotificationDestination
 	Bind(_scope constructs.Construct, bucket awss3.IBucket) *awss3.BucketNotificationDestinationConfig
@@ -27,7 +26,6 @@ type jsiiProxy_LambdaDestination struct {
 	internal.Type__awss3IBucketNotificationDestination
 }
 
-// Experimental.
 func NewLambdaDestination(fn awslambda.IFunction) LambdaDestination {
 	_init_.Initialize()
 
@@ -42,7 +40,6 @@ func NewLambdaDestination(fn awslambda.IFunction) LambdaDestination {
 	return &j
 }
 
-// Experimental.
 func NewLambdaDestination_Override(l LambdaDestination, fn awslambda.IFunction) {
 	_init_.Initialize()
 
@@ -58,7 +55,6 @@ func NewLambdaDestination_Override(l LambdaDestination, fn awslambda.IFunction) 
 // This method will only be called once for each destination/bucket
 // pair and the result will be cached, so there is no need to implement
 // idempotency in each destination.
-// Experimental.
 func (l *jsiiProxy_LambdaDestination) Bind(_scope constructs.Construct, bucket awss3.IBucket) *awss3.BucketNotificationDestinationConfig {
 	var returns *awss3.BucketNotificationDestinationConfig
 
@@ -76,7 +72,6 @@ func (l *jsiiProxy_LambdaDestination) Bind(_scope constructs.Construct, bucket a
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SnsDestination interface {
 	awss3.IBucketNotificationDestination
 	Bind(_scope constructs.Construct, bucket awss3.IBucket) *awss3.BucketNotificationDestinationConfig
@@ -87,7 +82,6 @@ type jsiiProxy_SnsDestination struct {
 	internal.Type__awss3IBucketNotificationDestination
 }
 
-// Experimental.
 func NewSnsDestination(topic awssns.ITopic) SnsDestination {
 	_init_.Initialize()
 
@@ -102,7 +96,6 @@ func NewSnsDestination(topic awssns.ITopic) SnsDestination {
 	return &j
 }
 
-// Experimental.
 func NewSnsDestination_Override(s SnsDestination, topic awssns.ITopic) {
 	_init_.Initialize()
 
@@ -118,7 +111,6 @@ func NewSnsDestination_Override(s SnsDestination, topic awssns.ITopic) {
 // This method will only be called once for each destination/bucket
 // pair and the result will be cached, so there is no need to implement
 // idempotency in each destination.
-// Experimental.
 func (s *jsiiProxy_SnsDestination) Bind(_scope constructs.Construct, bucket awss3.IBucket) *awss3.BucketNotificationDestinationConfig {
 	var returns *awss3.BucketNotificationDestinationConfig
 
@@ -136,7 +128,6 @@ func (s *jsiiProxy_SnsDestination) Bind(_scope constructs.Construct, bucket awss
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SqsDestination interface {
 	awss3.IBucketNotificationDestination
 	Bind(_scope constructs.Construct, bucket awss3.IBucket) *awss3.BucketNotificationDestinationConfig
@@ -147,7 +138,6 @@ type jsiiProxy_SqsDestination struct {
 	internal.Type__awss3IBucketNotificationDestination
 }
 
-// Experimental.
 func NewSqsDestination(queue awssqs.IQueue) SqsDestination {
 	_init_.Initialize()
 
@@ -162,7 +152,6 @@ func NewSqsDestination(queue awssqs.IQueue) SqsDestination {
 	return &j
 }
 
-// Experimental.
 func NewSqsDestination_Override(s SqsDestination, queue awssqs.IQueue) {
 	_init_.Initialize()
 
@@ -176,7 +165,6 @@ func NewSqsDestination_Override(s SqsDestination, queue awssqs.IQueue) {
 // Allows using SQS queues as destinations for bucket notifications.
 //
 // Use `bucket.onEvent(event, queue)` to subscribe.
-// Experimental.
 func (s *jsiiProxy_SqsDestination) Bind(_scope constructs.Construct, bucket awss3.IBucket) *awss3.BucketNotificationDestinationConfig {
 	var returns *awss3.BucketNotificationDestinationConfig
 

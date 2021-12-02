@@ -27,7 +27,6 @@ import (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Alias interface {
 	QualifiedFunctionBase
 	IAlias
@@ -244,7 +243,6 @@ func (j *jsiiProxy_Alias) Version() IVersion {
 }
 
 
-// Experimental.
 func NewAlias(scope constructs.Construct, id *string, props *AliasProps) Alias {
 	_init_.Initialize()
 
@@ -259,7 +257,6 @@ func NewAlias(scope constructs.Construct, id *string, props *AliasProps) Alias {
 	return &j
 }
 
-// Experimental.
 func NewAlias_Override(a Alias, scope constructs.Construct, id *string, props *AliasProps) {
 	_init_.Initialize()
 
@@ -270,7 +267,6 @@ func NewAlias_Override(a Alias, scope constructs.Construct, id *string, props *A
 	)
 }
 
-// Experimental.
 func Alias_FromAliasAttributes(scope constructs.Construct, id *string, attrs *AliasAttributes) IAlias {
 	_init_.Initialize()
 
@@ -306,7 +302,6 @@ func Alias_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func Alias_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -326,7 +321,6 @@ func Alias_IsResource(construct constructs.IConstruct) *bool {
 //
 // Returns a scalable attribute that can call
 // `scaleOnUtilization()` and `scaleOnSchedule()`.
-// Experimental.
 func (a *jsiiProxy_Alias) AddAutoScaling(options *AutoScalingOptions) IScalableFunctionAttribute {
 	var returns IScalableFunctionAttribute
 
@@ -349,7 +343,6 @@ func (a *jsiiProxy_Alias) AddAutoScaling(options *AutoScalingOptions) IScalableF
 // import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources';
 // myFunction.addEventSource(new SqsEventSource(myQueue));
 // ```
-// Experimental.
 func (a *jsiiProxy_Alias) AddEventSource(source IEventSource) {
 	_jsii_.InvokeVoid(
 		a,
@@ -359,7 +352,6 @@ func (a *jsiiProxy_Alias) AddEventSource(source IEventSource) {
 }
 
 // Adds an event source that maps to this AWS Lambda function.
-// Experimental.
 func (a *jsiiProxy_Alias) AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping {
 	var returns EventSourceMapping
 
@@ -376,7 +368,6 @@ func (a *jsiiProxy_Alias) AddEventSourceMapping(id *string, options *EventSource
 // Adds a permission to the Lambda resource policy.
 // See: Permission for details.
 //
-// Experimental.
 func (a *jsiiProxy_Alias) AddPermission(id *string, permission *Permission) {
 	_jsii_.InvokeVoid(
 		a,
@@ -386,7 +377,6 @@ func (a *jsiiProxy_Alias) AddPermission(id *string, permission *Permission) {
 }
 
 // Adds a statement to the IAM role assumed by the instance.
-// Experimental.
 func (a *jsiiProxy_Alias) AddToRolePolicy(statement awsiam.PolicyStatement) {
 	_jsii_.InvokeVoid(
 		a,
@@ -404,7 +394,6 @@ func (a *jsiiProxy_Alias) AddToRolePolicy(statement awsiam.PolicyStatement) {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (a *jsiiProxy_Alias) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		a,
@@ -414,7 +403,6 @@ func (a *jsiiProxy_Alias) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 // Configures options for asynchronous invocation.
-// Experimental.
 func (a *jsiiProxy_Alias) ConfigureAsyncInvoke(options *EventInvokeConfigOptions) {
 	_jsii_.InvokeVoid(
 		a,
@@ -423,7 +411,6 @@ func (a *jsiiProxy_Alias) ConfigureAsyncInvoke(options *EventInvokeConfigOptions
 	)
 }
 
-// Experimental.
 func (a *jsiiProxy_Alias) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -443,7 +430,6 @@ func (a *jsiiProxy_Alias) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (a *jsiiProxy_Alias) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -462,7 +448,6 @@ func (a *jsiiProxy_Alias) GetResourceArnAttribute(arnAttr *string, arnComponents
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (a *jsiiProxy_Alias) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -477,7 +462,6 @@ func (a *jsiiProxy_Alias) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 // Grant the given identity permissions to invoke this Lambda.
-// Experimental.
 func (a *jsiiProxy_Alias) GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -492,7 +476,6 @@ func (a *jsiiProxy_Alias) GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 // Return the given named metric for this Function.
-// Experimental.
 func (a *jsiiProxy_Alias) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -509,7 +492,6 @@ func (a *jsiiProxy_Alias) Metric(metricName *string, props *awscloudwatch.Metric
 // How long execution of this Lambda takes.
 //
 // Average over 5 minutes
-// Experimental.
 func (a *jsiiProxy_Alias) MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -526,7 +508,6 @@ func (a *jsiiProxy_Alias) MetricDuration(props *awscloudwatch.MetricOptions) aws
 // How many invocations of this Lambda fail.
 //
 // Sum over 5 minutes
-// Experimental.
 func (a *jsiiProxy_Alias) MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -543,7 +524,6 @@ func (a *jsiiProxy_Alias) MetricErrors(props *awscloudwatch.MetricOptions) awscl
 // How often this Lambda is invoked.
 //
 // Sum over 5 minutes
-// Experimental.
 func (a *jsiiProxy_Alias) MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -560,7 +540,6 @@ func (a *jsiiProxy_Alias) MetricInvocations(props *awscloudwatch.MetricOptions) 
 // How often this Lambda is throttled.
 //
 // Sum over 5 minutes
-// Experimental.
 func (a *jsiiProxy_Alias) MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -575,7 +554,6 @@ func (a *jsiiProxy_Alias) MetricThrottles(props *awscloudwatch.MetricOptions) aw
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (a *jsiiProxy_Alias) ToString() *string {
 	var returns *string
 
@@ -591,11 +569,8 @@ func (a *jsiiProxy_Alias) ToString() *string {
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type AliasAttributes struct {
-	// Experimental.
 	AliasName *string `json:"aliasName"`
-	// Experimental.
 	AliasVersion IVersion `json:"aliasVersion"`
 }
 
@@ -603,25 +578,20 @@ type AliasAttributes struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AliasOptions struct {
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours
-	// Experimental.
 	MaxEventAge awscdk.Duration `json:"maxEventAge"`
 	// The destination for failed invocations.
-	// Experimental.
 	OnFailure IDestination `json:"onFailure"`
 	// The destination for successful invocations.
-	// Experimental.
 	OnSuccess IDestination `json:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 	// Additional versions with individual weights this alias points to.
 	//
@@ -636,13 +606,10 @@ type AliasOptions struct {
 	//
 	// Then 5% of traffic will be routed to function version 2, while
 	// the remaining 95% of traffic will be routed to function version 1.
-	// Experimental.
 	AdditionalVersions *[]*VersionWeight `json:"additionalVersions"`
 	// Description for the alias.
-	// Experimental.
 	Description *string `json:"description"`
 	// Specifies a provisioned concurrency configuration for a function's alias.
-	// Experimental.
 	ProvisionedConcurrentExecutions *float64 `json:"provisionedConcurrentExecutions"`
 }
 
@@ -650,25 +617,20 @@ type AliasOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AliasProps struct {
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours
-	// Experimental.
 	MaxEventAge awscdk.Duration `json:"maxEventAge"`
 	// The destination for failed invocations.
-	// Experimental.
 	OnFailure IDestination `json:"onFailure"`
 	// The destination for successful invocations.
-	// Experimental.
 	OnSuccess IDestination `json:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 	// Additional versions with individual weights this alias points to.
 	//
@@ -683,21 +645,16 @@ type AliasProps struct {
 	//
 	// Then 5% of traffic will be routed to function version 2, while
 	// the remaining 95% of traffic will be routed to function version 1.
-	// Experimental.
 	AdditionalVersions *[]*VersionWeight `json:"additionalVersions"`
 	// Description for the alias.
-	// Experimental.
 	Description *string `json:"description"`
 	// Specifies a provisioned concurrency configuration for a function's alias.
-	// Experimental.
 	ProvisionedConcurrentExecutions *float64 `json:"provisionedConcurrentExecutions"`
 	// Name of this alias.
-	// Experimental.
 	AliasName *string `json:"aliasName"`
 	// Function version this alias refers to.
 	//
 	// Use lambda.addVersion() to obtain a new lambda version to refer to.
-	// Experimental.
 	Version IVersion `json:"version"`
 }
 
@@ -705,7 +662,6 @@ type AliasProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Architecture interface {
 	DockerPlatform() *string
 	Name() *string
@@ -740,7 +696,6 @@ func (j *jsiiProxy_Architecture) Name() *string {
 // Used to specify a custom architecture name.
 //
 // Use this if the architecture name is not yet supported by the CDK.
-// Experimental.
 func Architecture_Custom(name *string, dockerPlatform *string) Architecture {
 	_init_.Initialize()
 
@@ -782,7 +737,6 @@ func Architecture_X86_64() Architecture {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AssetCode interface {
 	Code
 	IsInline() *bool
@@ -817,7 +771,6 @@ func (j *jsiiProxy_AssetCode) Path() *string {
 }
 
 
-// Experimental.
 func NewAssetCode(path *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
@@ -832,7 +785,6 @@ func NewAssetCode(path *string, options *awss3assets.AssetOptions) AssetCode {
 	return &j
 }
 
-// Experimental.
 func NewAssetCode_Override(a AssetCode, path *string, options *awss3assets.AssetOptions) {
 	_init_.Initialize()
 
@@ -844,7 +796,6 @@ func NewAssetCode_Override(a AssetCode, path *string, options *awss3assets.Asset
 }
 
 // Loads the function code from a local disk path.
-// Experimental.
 func AssetCode_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
@@ -861,7 +812,6 @@ func AssetCode_FromAsset(path *string, options *awss3assets.AssetOptions) AssetC
 }
 
 // Create an ECR image from the specified asset and bind it as the Lambda code.
-// Experimental.
 func AssetCode_FromAssetImage(directory *string, props *AssetImageCodeProps) AssetImageCode {
 	_init_.Initialize()
 
@@ -878,7 +828,6 @@ func AssetCode_FromAssetImage(directory *string, props *AssetImageCodeProps) Ass
 }
 
 // Lambda handler code as an S3 object.
-// Experimental.
 func AssetCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
@@ -897,7 +846,6 @@ func AssetCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion *stri
 // Creates a new Lambda source defined using CloudFormation parameters.
 //
 // Returns: a new instance of `CfnParametersCode`
-// Experimental.
 func AssetCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 	_init_.Initialize()
 
@@ -917,7 +865,6 @@ func AssetCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCod
 //
 // By default, the asset is expected to be located at `/asset` in the
 // image.
-// Experimental.
 func AssetCode_FromDockerBuild(path *string, options *DockerBuildAssetOptions) AssetCode {
 	_init_.Initialize()
 
@@ -934,7 +881,6 @@ func AssetCode_FromDockerBuild(path *string, options *DockerBuildAssetOptions) A
 }
 
 // Use an existing ECR image as the Lambda code.
-// Experimental.
 func AssetCode_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeProps) EcrImageCode {
 	_init_.Initialize()
 
@@ -953,7 +899,6 @@ func AssetCode_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodePr
 // Inline code for Lambda handler.
 //
 // Returns: `LambdaInlineCode` with inline code.
-// Experimental.
 func AssetCode_FromInline(code *string) InlineCode {
 	_init_.Initialize()
 
@@ -970,7 +915,6 @@ func AssetCode_FromInline(code *string) InlineCode {
 }
 
 // Called when the lambda or layer is initialized to allow this object to bind to the stack, add resources and have fun.
-// Experimental.
 func (a *jsiiProxy_AssetCode) Bind(scope constructs.Construct) *CodeConfig {
 	var returns *CodeConfig
 
@@ -988,7 +932,6 @@ func (a *jsiiProxy_AssetCode) Bind(scope constructs.Construct) *CodeConfig {
 //
 // Specifically it's required to allow assets to add
 // metadata for tooling like SAM CLI to be able to find their origins.
-// Experimental.
 func (a *jsiiProxy_AssetCode) BindToResource(resource awscdk.CfnResource, options *ResourceBindOptions) {
 	_jsii_.InvokeVoid(
 		a,
@@ -1001,7 +944,6 @@ func (a *jsiiProxy_AssetCode) BindToResource(resource awscdk.CfnResource, option
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AssetImageCode interface {
 	Code
 	IsInline() *bool
@@ -1025,7 +967,6 @@ func (j *jsiiProxy_AssetImageCode) IsInline() *bool {
 }
 
 
-// Experimental.
 func NewAssetImageCode(directory *string, props *AssetImageCodeProps) AssetImageCode {
 	_init_.Initialize()
 
@@ -1040,7 +981,6 @@ func NewAssetImageCode(directory *string, props *AssetImageCodeProps) AssetImage
 	return &j
 }
 
-// Experimental.
 func NewAssetImageCode_Override(a AssetImageCode, directory *string, props *AssetImageCodeProps) {
 	_init_.Initialize()
 
@@ -1052,7 +992,6 @@ func NewAssetImageCode_Override(a AssetImageCode, directory *string, props *Asse
 }
 
 // Loads the function code from a local disk path.
-// Experimental.
 func AssetImageCode_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
@@ -1069,7 +1008,6 @@ func AssetImageCode_FromAsset(path *string, options *awss3assets.AssetOptions) A
 }
 
 // Create an ECR image from the specified asset and bind it as the Lambda code.
-// Experimental.
 func AssetImageCode_FromAssetImage(directory *string, props *AssetImageCodeProps) AssetImageCode {
 	_init_.Initialize()
 
@@ -1086,7 +1024,6 @@ func AssetImageCode_FromAssetImage(directory *string, props *AssetImageCodeProps
 }
 
 // Lambda handler code as an S3 object.
-// Experimental.
 func AssetImageCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
@@ -1105,7 +1042,6 @@ func AssetImageCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion 
 // Creates a new Lambda source defined using CloudFormation parameters.
 //
 // Returns: a new instance of `CfnParametersCode`
-// Experimental.
 func AssetImageCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 	_init_.Initialize()
 
@@ -1125,7 +1061,6 @@ func AssetImageCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParamete
 //
 // By default, the asset is expected to be located at `/asset` in the
 // image.
-// Experimental.
 func AssetImageCode_FromDockerBuild(path *string, options *DockerBuildAssetOptions) AssetCode {
 	_init_.Initialize()
 
@@ -1142,7 +1077,6 @@ func AssetImageCode_FromDockerBuild(path *string, options *DockerBuildAssetOptio
 }
 
 // Use an existing ECR image as the Lambda code.
-// Experimental.
 func AssetImageCode_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeProps) EcrImageCode {
 	_init_.Initialize()
 
@@ -1161,7 +1095,6 @@ func AssetImageCode_FromEcrImage(repository awsecr.IRepository, props *EcrImageC
 // Inline code for Lambda handler.
 //
 // Returns: `LambdaInlineCode` with inline code.
-// Experimental.
 func AssetImageCode_FromInline(code *string) InlineCode {
 	_init_.Initialize()
 
@@ -1178,7 +1111,6 @@ func AssetImageCode_FromInline(code *string) InlineCode {
 }
 
 // Called when the lambda or layer is initialized to allow this object to bind to the stack, add resources and have fun.
-// Experimental.
 func (a *jsiiProxy_AssetImageCode) Bind(scope constructs.Construct) *CodeConfig {
 	var returns *CodeConfig
 
@@ -1196,7 +1128,6 @@ func (a *jsiiProxy_AssetImageCode) Bind(scope constructs.Construct) *CodeConfig 
 //
 // Specifically it's required to allow assets to add
 // metadata for tooling like SAM CLI to be able to find their origins.
-// Experimental.
 func (a *jsiiProxy_AssetImageCode) BindToResource(resource awscdk.CfnResource, options *ResourceBindOptions) {
 	_jsii_.InvokeVoid(
 		a,
@@ -1209,42 +1140,32 @@ func (a *jsiiProxy_AssetImageCode) BindToResource(resource awscdk.CfnResource, o
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AssetImageCodeProps struct {
 	// Glob patterns to exclude from the copy.
-	// Experimental.
 	Exclude *[]*string `json:"exclude"`
 	// A strategy for how to handle symlinks.
-	// Experimental.
 	FollowSymlinks awscdk.SymlinkFollowMode `json:"followSymlinks"`
 	// The ignore behavior to use for exclude patterns.
-	// Experimental.
 	IgnoreMode awscdk.IgnoreMode `json:"ignoreMode"`
 	// Extra information to encode into the fingerprint (e.g. build instructions and other inputs).
-	// Experimental.
 	ExtraHash *string `json:"extraHash"`
 	// Build args to pass to the `docker build` command.
 	//
 	// Since Docker build arguments are resolved before deployment, keys and
 	// values cannot refer to unresolved tokens (such as `lambda.functionArn` or
 	// `queue.queueUrl`).
-	// Experimental.
 	BuildArgs *map[string]*string `json:"buildArgs"`
 	// Path to the Dockerfile (relative to the directory).
-	// Experimental.
 	File *string `json:"file"`
 	// Options to control which parameters are used to invalidate the asset hash.
-	// Experimental.
 	Invalidation *awsecrassets.DockerImageAssetInvalidationOptions `json:"invalidation"`
 	// Docker target to build to.
-	// Experimental.
 	Target *string `json:"target"`
 	// Specify or override the CMD on the specified Docker image or Dockerfile.
 	//
 	// This needs to be in the 'exec form', viz., `[ 'executable', 'param1', 'param2' ]`.
 	// See: https://docs.docker.com/engine/reference/builder/#cmd
 	//
-	// Experimental.
 	Cmd *[]*string `json:"cmd"`
 	// Specify or override the ENTRYPOINT on the specified Docker image or Dockerfile.
 	//
@@ -1252,14 +1173,12 @@ type AssetImageCodeProps struct {
 	// This needs to be in the 'exec form', viz., `[ 'executable', 'param1', 'param2' ]`.
 	// See: https://docs.docker.com/engine/reference/builder/#entrypoint
 	//
-	// Experimental.
 	Entrypoint *[]*string `json:"entrypoint"`
 	// Specify or override the WORKDIR on the specified Docker image or Dockerfile.
 	//
 	// A WORKDIR allows you to configure the working directory the container will use.
 	// See: https://docs.docker.com/engine/reference/builder/#workdir
 	//
-	// Experimental.
 	WorkingDirectory *string `json:"workingDirectory"`
 }
 
@@ -1267,13 +1186,10 @@ type AssetImageCodeProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AutoScalingOptions struct {
 	// Maximum capacity to scale to.
-	// Experimental.
 	MaxCapacity *float64 `json:"maxCapacity"`
 	// Minimum capacity to scale to.
-	// Experimental.
 	MinCapacity *float64 `json:"minCapacity"`
 }
 
@@ -1559,7 +1475,6 @@ func (j *jsiiProxy_CfnAlias) SetRoutingConfig(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnAlias_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -1576,7 +1491,6 @@ func CfnAlias_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnAlias_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -1623,7 +1537,6 @@ func CfnAlias_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnAlias) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1636,7 +1549,6 @@ func (c *jsiiProxy_CfnAlias) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnAlias) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1652,7 +1564,6 @@ func (c *jsiiProxy_CfnAlias) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnAlias) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1698,7 +1609,6 @@ func (c *jsiiProxy_CfnAlias) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnAlias) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1708,7 +1618,6 @@ func (c *jsiiProxy_CfnAlias) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnAlias) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1720,7 +1629,6 @@ func (c *jsiiProxy_CfnAlias) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnAlias) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1738,7 +1646,6 @@ func (c *jsiiProxy_CfnAlias) AddPropertyOverride(propertyPath *string, value int
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnAlias) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1751,7 +1658,6 @@ func (c *jsiiProxy_CfnAlias) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnAlias) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1772,7 +1678,6 @@ func (c *jsiiProxy_CfnAlias) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnAlias) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1796,7 +1701,6 @@ func (c *jsiiProxy_CfnAlias) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnAlias) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1822,7 +1726,6 @@ func (c *jsiiProxy_CfnAlias) RenderProperties(props *map[string]interface{}) *ma
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnAlias) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1839,7 +1742,6 @@ func (c *jsiiProxy_CfnAlias) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnAlias) ToString() *string {
 	var returns *string
 
@@ -1853,7 +1755,6 @@ func (c *jsiiProxy_CfnAlias) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnAlias) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2148,7 +2049,6 @@ func (j *jsiiProxy_CfnCodeSigningConfig) SetDescription(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnCodeSigningConfig_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -2165,7 +2065,6 @@ func CfnCodeSigningConfig_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnCodeSigningConfig_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -2212,7 +2111,6 @@ func CfnCodeSigningConfig_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnCodeSigningConfig) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2225,7 +2123,6 @@ func (c *jsiiProxy_CfnCodeSigningConfig) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnCodeSigningConfig) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2241,7 +2138,6 @@ func (c *jsiiProxy_CfnCodeSigningConfig) AddDependsOn(target awscdk.CfnResource)
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnCodeSigningConfig) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2287,7 +2183,6 @@ func (c *jsiiProxy_CfnCodeSigningConfig) AddMetadata(key *string, value interfac
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnCodeSigningConfig) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2297,7 +2192,6 @@ func (c *jsiiProxy_CfnCodeSigningConfig) AddOverride(path *string, value interfa
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnCodeSigningConfig) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2309,7 +2203,6 @@ func (c *jsiiProxy_CfnCodeSigningConfig) AddPropertyDeletionOverride(propertyPat
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnCodeSigningConfig) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2327,7 +2220,6 @@ func (c *jsiiProxy_CfnCodeSigningConfig) AddPropertyOverride(propertyPath *strin
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnCodeSigningConfig) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2340,7 +2232,6 @@ func (c *jsiiProxy_CfnCodeSigningConfig) ApplyRemovalPolicy(policy awscdk.Remova
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnCodeSigningConfig) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2361,7 +2252,6 @@ func (c *jsiiProxy_CfnCodeSigningConfig) GetAtt(attributeName *string) awscdk.Re
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnCodeSigningConfig) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2385,7 +2275,6 @@ func (c *jsiiProxy_CfnCodeSigningConfig) Inspect(inspector awscdk.TreeInspector)
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnCodeSigningConfig) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2411,7 +2300,6 @@ func (c *jsiiProxy_CfnCodeSigningConfig) RenderProperties(props *map[string]inte
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnCodeSigningConfig) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2428,7 +2316,6 @@ func (c *jsiiProxy_CfnCodeSigningConfig) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnCodeSigningConfig) ToString() *string {
 	var returns *string
 
@@ -2442,7 +2329,6 @@ func (c *jsiiProxy_CfnCodeSigningConfig) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnCodeSigningConfig) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2740,7 +2626,6 @@ func (j *jsiiProxy_CfnEventInvokeConfig) SetQualifier(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnEventInvokeConfig_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -2757,7 +2642,6 @@ func CfnEventInvokeConfig_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnEventInvokeConfig_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -2804,7 +2688,6 @@ func CfnEventInvokeConfig_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnEventInvokeConfig) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2817,7 +2700,6 @@ func (c *jsiiProxy_CfnEventInvokeConfig) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnEventInvokeConfig) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2833,7 +2715,6 @@ func (c *jsiiProxy_CfnEventInvokeConfig) AddDependsOn(target awscdk.CfnResource)
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnEventInvokeConfig) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2879,7 +2760,6 @@ func (c *jsiiProxy_CfnEventInvokeConfig) AddMetadata(key *string, value interfac
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnEventInvokeConfig) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2889,7 +2769,6 @@ func (c *jsiiProxy_CfnEventInvokeConfig) AddOverride(path *string, value interfa
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnEventInvokeConfig) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2901,7 +2780,6 @@ func (c *jsiiProxy_CfnEventInvokeConfig) AddPropertyDeletionOverride(propertyPat
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnEventInvokeConfig) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2919,7 +2797,6 @@ func (c *jsiiProxy_CfnEventInvokeConfig) AddPropertyOverride(propertyPath *strin
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnEventInvokeConfig) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2932,7 +2809,6 @@ func (c *jsiiProxy_CfnEventInvokeConfig) ApplyRemovalPolicy(policy awscdk.Remova
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnEventInvokeConfig) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2953,7 +2829,6 @@ func (c *jsiiProxy_CfnEventInvokeConfig) GetAtt(attributeName *string) awscdk.Re
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnEventInvokeConfig) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2977,7 +2852,6 @@ func (c *jsiiProxy_CfnEventInvokeConfig) Inspect(inspector awscdk.TreeInspector)
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnEventInvokeConfig) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3003,7 +2877,6 @@ func (c *jsiiProxy_CfnEventInvokeConfig) RenderProperties(props *map[string]inte
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnEventInvokeConfig) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3020,7 +2893,6 @@ func (c *jsiiProxy_CfnEventInvokeConfig) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnEventInvokeConfig) ToString() *string {
 	var returns *string
 
@@ -3034,7 +2906,6 @@ func (c *jsiiProxy_CfnEventInvokeConfig) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnEventInvokeConfig) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3636,7 +3507,6 @@ func (j *jsiiProxy_CfnEventSourceMapping) SetTumblingWindowInSeconds(val *float6
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnEventSourceMapping_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -3653,7 +3523,6 @@ func CfnEventSourceMapping_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnEventSourceMapping_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -3700,7 +3569,6 @@ func CfnEventSourceMapping_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnEventSourceMapping) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3713,7 +3581,6 @@ func (c *jsiiProxy_CfnEventSourceMapping) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnEventSourceMapping) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3729,7 +3596,6 @@ func (c *jsiiProxy_CfnEventSourceMapping) AddDependsOn(target awscdk.CfnResource
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnEventSourceMapping) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3775,7 +3641,6 @@ func (c *jsiiProxy_CfnEventSourceMapping) AddMetadata(key *string, value interfa
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnEventSourceMapping) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3785,7 +3650,6 @@ func (c *jsiiProxy_CfnEventSourceMapping) AddOverride(path *string, value interf
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnEventSourceMapping) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3797,7 +3661,6 @@ func (c *jsiiProxy_CfnEventSourceMapping) AddPropertyDeletionOverride(propertyPa
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnEventSourceMapping) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3815,7 +3678,6 @@ func (c *jsiiProxy_CfnEventSourceMapping) AddPropertyOverride(propertyPath *stri
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnEventSourceMapping) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3828,7 +3690,6 @@ func (c *jsiiProxy_CfnEventSourceMapping) ApplyRemovalPolicy(policy awscdk.Remov
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnEventSourceMapping) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3849,7 +3710,6 @@ func (c *jsiiProxy_CfnEventSourceMapping) GetAtt(attributeName *string) awscdk.R
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnEventSourceMapping) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3873,7 +3733,6 @@ func (c *jsiiProxy_CfnEventSourceMapping) Inspect(inspector awscdk.TreeInspector
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnEventSourceMapping) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3899,7 +3758,6 @@ func (c *jsiiProxy_CfnEventSourceMapping) RenderProperties(props *map[string]int
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnEventSourceMapping) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3916,7 +3774,6 @@ func (c *jsiiProxy_CfnEventSourceMapping) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnEventSourceMapping) ToString() *string {
 	var returns *string
 
@@ -3930,7 +3787,6 @@ func (c *jsiiProxy_CfnEventSourceMapping) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnEventSourceMapping) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4605,7 +4461,6 @@ func (j *jsiiProxy_CfnFunction) SetVpcConfig(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnFunction_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -4622,7 +4477,6 @@ func CfnFunction_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnFunction_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -4669,7 +4523,6 @@ func CfnFunction_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnFunction) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4682,7 +4535,6 @@ func (c *jsiiProxy_CfnFunction) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnFunction) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4698,7 +4550,6 @@ func (c *jsiiProxy_CfnFunction) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnFunction) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4744,7 +4595,6 @@ func (c *jsiiProxy_CfnFunction) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnFunction) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4754,7 +4604,6 @@ func (c *jsiiProxy_CfnFunction) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnFunction) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4766,7 +4615,6 @@ func (c *jsiiProxy_CfnFunction) AddPropertyDeletionOverride(propertyPath *string
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnFunction) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4784,7 +4632,6 @@ func (c *jsiiProxy_CfnFunction) AddPropertyOverride(propertyPath *string, value 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnFunction) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4797,7 +4644,6 @@ func (c *jsiiProxy_CfnFunction) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, 
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnFunction) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -4818,7 +4664,6 @@ func (c *jsiiProxy_CfnFunction) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnFunction) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -4842,7 +4687,6 @@ func (c *jsiiProxy_CfnFunction) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnFunction) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4868,7 +4712,6 @@ func (c *jsiiProxy_CfnFunction) RenderProperties(props *map[string]interface{}) 
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnFunction) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -4885,7 +4728,6 @@ func (c *jsiiProxy_CfnFunction) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnFunction) ToString() *string {
 	var returns *string
 
@@ -4899,7 +4741,6 @@ func (c *jsiiProxy_CfnFunction) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnFunction) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5304,7 +5145,6 @@ func (j *jsiiProxy_CfnLayerVersion) SetLicenseInfo(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnLayerVersion_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -5321,7 +5161,6 @@ func CfnLayerVersion_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnLayerVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -5368,7 +5207,6 @@ func CfnLayerVersion_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnLayerVersion) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5381,7 +5219,6 @@ func (c *jsiiProxy_CfnLayerVersion) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnLayerVersion) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5397,7 +5234,6 @@ func (c *jsiiProxy_CfnLayerVersion) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnLayerVersion) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5443,7 +5279,6 @@ func (c *jsiiProxy_CfnLayerVersion) AddMetadata(key *string, value interface{}) 
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnLayerVersion) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5453,7 +5288,6 @@ func (c *jsiiProxy_CfnLayerVersion) AddOverride(path *string, value interface{})
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnLayerVersion) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5465,7 +5299,6 @@ func (c *jsiiProxy_CfnLayerVersion) AddPropertyDeletionOverride(propertyPath *st
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnLayerVersion) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5483,7 +5316,6 @@ func (c *jsiiProxy_CfnLayerVersion) AddPropertyOverride(propertyPath *string, va
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnLayerVersion) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5496,7 +5328,6 @@ func (c *jsiiProxy_CfnLayerVersion) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnLayerVersion) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -5517,7 +5348,6 @@ func (c *jsiiProxy_CfnLayerVersion) GetAtt(attributeName *string) awscdk.Referen
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnLayerVersion) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -5541,7 +5371,6 @@ func (c *jsiiProxy_CfnLayerVersion) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnLayerVersion) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5567,7 +5396,6 @@ func (c *jsiiProxy_CfnLayerVersion) RenderProperties(props *map[string]interface
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnLayerVersion) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -5584,7 +5412,6 @@ func (c *jsiiProxy_CfnLayerVersion) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnLayerVersion) ToString() *string {
 	var returns *string
 
@@ -5598,7 +5425,6 @@ func (c *jsiiProxy_CfnLayerVersion) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnLayerVersion) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5860,7 +5686,6 @@ func (j *jsiiProxy_CfnLayerVersionPermission) SetPrincipal(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnLayerVersionPermission_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -5877,7 +5702,6 @@ func CfnLayerVersionPermission_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnLayerVersionPermission_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -5924,7 +5748,6 @@ func CfnLayerVersionPermission_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnLayerVersionPermission) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5937,7 +5760,6 @@ func (c *jsiiProxy_CfnLayerVersionPermission) AddDeletionOverride(path *string) 
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnLayerVersionPermission) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5953,7 +5775,6 @@ func (c *jsiiProxy_CfnLayerVersionPermission) AddDependsOn(target awscdk.CfnReso
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnLayerVersionPermission) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5999,7 +5820,6 @@ func (c *jsiiProxy_CfnLayerVersionPermission) AddMetadata(key *string, value int
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnLayerVersionPermission) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6009,7 +5829,6 @@ func (c *jsiiProxy_CfnLayerVersionPermission) AddOverride(path *string, value in
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnLayerVersionPermission) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6021,7 +5840,6 @@ func (c *jsiiProxy_CfnLayerVersionPermission) AddPropertyDeletionOverride(proper
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnLayerVersionPermission) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6039,7 +5857,6 @@ func (c *jsiiProxy_CfnLayerVersionPermission) AddPropertyOverride(propertyPath *
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnLayerVersionPermission) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6052,7 +5869,6 @@ func (c *jsiiProxy_CfnLayerVersionPermission) ApplyRemovalPolicy(policy awscdk.R
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnLayerVersionPermission) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -6073,7 +5889,6 @@ func (c *jsiiProxy_CfnLayerVersionPermission) GetAtt(attributeName *string) awsc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnLayerVersionPermission) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -6097,7 +5912,6 @@ func (c *jsiiProxy_CfnLayerVersionPermission) Inspect(inspector awscdk.TreeInspe
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnLayerVersionPermission) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6123,7 +5937,6 @@ func (c *jsiiProxy_CfnLayerVersionPermission) RenderProperties(props *map[string
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnLayerVersionPermission) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -6140,7 +5953,6 @@ func (c *jsiiProxy_CfnLayerVersionPermission) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnLayerVersionPermission) ToString() *string {
 	var returns *string
 
@@ -6154,7 +5966,6 @@ func (c *jsiiProxy_CfnLayerVersionPermission) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnLayerVersionPermission) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6205,7 +6016,6 @@ type CfnLayerVersionProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CfnParametersCode interface {
 	Code
 	BucketNameParam() *string
@@ -6252,7 +6062,6 @@ func (j *jsiiProxy_CfnParametersCode) ObjectKeyParam() *string {
 }
 
 
-// Experimental.
 func NewCfnParametersCode(props *CfnParametersCodeProps) CfnParametersCode {
 	_init_.Initialize()
 
@@ -6267,7 +6076,6 @@ func NewCfnParametersCode(props *CfnParametersCodeProps) CfnParametersCode {
 	return &j
 }
 
-// Experimental.
 func NewCfnParametersCode_Override(c CfnParametersCode, props *CfnParametersCodeProps) {
 	_init_.Initialize()
 
@@ -6279,7 +6087,6 @@ func NewCfnParametersCode_Override(c CfnParametersCode, props *CfnParametersCode
 }
 
 // Loads the function code from a local disk path.
-// Experimental.
 func CfnParametersCode_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
@@ -6296,7 +6103,6 @@ func CfnParametersCode_FromAsset(path *string, options *awss3assets.AssetOptions
 }
 
 // Create an ECR image from the specified asset and bind it as the Lambda code.
-// Experimental.
 func CfnParametersCode_FromAssetImage(directory *string, props *AssetImageCodeProps) AssetImageCode {
 	_init_.Initialize()
 
@@ -6313,7 +6119,6 @@ func CfnParametersCode_FromAssetImage(directory *string, props *AssetImageCodePr
 }
 
 // Lambda handler code as an S3 object.
-// Experimental.
 func CfnParametersCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
@@ -6332,7 +6137,6 @@ func CfnParametersCode_FromBucket(bucket awss3.IBucket, key *string, objectVersi
 // Creates a new Lambda source defined using CloudFormation parameters.
 //
 // Returns: a new instance of `CfnParametersCode`
-// Experimental.
 func CfnParametersCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 	_init_.Initialize()
 
@@ -6352,7 +6156,6 @@ func CfnParametersCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParam
 //
 // By default, the asset is expected to be located at `/asset` in the
 // image.
-// Experimental.
 func CfnParametersCode_FromDockerBuild(path *string, options *DockerBuildAssetOptions) AssetCode {
 	_init_.Initialize()
 
@@ -6369,7 +6172,6 @@ func CfnParametersCode_FromDockerBuild(path *string, options *DockerBuildAssetOp
 }
 
 // Use an existing ECR image as the Lambda code.
-// Experimental.
 func CfnParametersCode_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeProps) EcrImageCode {
 	_init_.Initialize()
 
@@ -6388,7 +6190,6 @@ func CfnParametersCode_FromEcrImage(repository awsecr.IRepository, props *EcrIma
 // Inline code for Lambda handler.
 //
 // Returns: `LambdaInlineCode` with inline code.
-// Experimental.
 func CfnParametersCode_FromInline(code *string) InlineCode {
 	_init_.Initialize()
 
@@ -6412,7 +6213,6 @@ func CfnParametersCode_FromInline(code *string) InlineCode {
 // The result should be provided to the CloudFormation Action
 // that is deploying the Stack that the Lambda with this code is part of,
 // in the `parameterOverrides` property.
-// Experimental.
 func (c *jsiiProxy_CfnParametersCode) Assign(location *awss3.Location) *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -6427,7 +6227,6 @@ func (c *jsiiProxy_CfnParametersCode) Assign(location *awss3.Location) *map[stri
 }
 
 // Called when the lambda or layer is initialized to allow this object to bind to the stack, add resources and have fun.
-// Experimental.
 func (c *jsiiProxy_CfnParametersCode) Bind(scope constructs.Construct) *CodeConfig {
 	var returns *CodeConfig
 
@@ -6445,7 +6244,6 @@ func (c *jsiiProxy_CfnParametersCode) Bind(scope constructs.Construct) *CodeConf
 //
 // Specifically it's required to allow assets to add
 // metadata for tooling like SAM CLI to be able to find their origins.
-// Experimental.
 func (c *jsiiProxy_CfnParametersCode) BindToResource(_resource awscdk.CfnResource, _options *ResourceBindOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6458,17 +6256,14 @@ func (c *jsiiProxy_CfnParametersCode) BindToResource(_resource awscdk.CfnResourc
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CfnParametersCodeProps struct {
 	// The CloudFormation parameter that represents the name of the S3 Bucket where the Lambda code will be located in.
 	//
 	// Must be of type 'String'.
-	// Experimental.
 	BucketNameParam awscdk.CfnParameter `json:"bucketNameParam"`
 	// The CloudFormation parameter that represents the path inside the S3 Bucket where the Lambda code will be located at.
 	//
 	// Must be of type 'String'.
-	// Experimental.
 	ObjectKeyParam awscdk.CfnParameter `json:"objectKeyParam"`
 }
 
@@ -6754,7 +6549,6 @@ func (j *jsiiProxy_CfnPermission) SetSourceArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnPermission_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -6771,7 +6565,6 @@ func CfnPermission_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnPermission_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -6818,7 +6611,6 @@ func CfnPermission_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnPermission) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6831,7 +6623,6 @@ func (c *jsiiProxy_CfnPermission) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnPermission) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6847,7 +6638,6 @@ func (c *jsiiProxy_CfnPermission) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnPermission) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6893,7 +6683,6 @@ func (c *jsiiProxy_CfnPermission) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnPermission) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6903,7 +6692,6 @@ func (c *jsiiProxy_CfnPermission) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnPermission) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6915,7 +6703,6 @@ func (c *jsiiProxy_CfnPermission) AddPropertyDeletionOverride(propertyPath *stri
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnPermission) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6933,7 +6720,6 @@ func (c *jsiiProxy_CfnPermission) AddPropertyOverride(propertyPath *string, valu
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnPermission) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6946,7 +6732,6 @@ func (c *jsiiProxy_CfnPermission) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnPermission) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -6967,7 +6752,6 @@ func (c *jsiiProxy_CfnPermission) GetAtt(attributeName *string) awscdk.Reference
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnPermission) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -6991,7 +6775,6 @@ func (c *jsiiProxy_CfnPermission) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnPermission) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7017,7 +6800,6 @@ func (c *jsiiProxy_CfnPermission) RenderProperties(props *map[string]interface{}
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnPermission) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -7034,7 +6816,6 @@ func (c *jsiiProxy_CfnPermission) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnPermission) ToString() *string {
 	var returns *string
 
@@ -7048,7 +6829,6 @@ func (c *jsiiProxy_CfnPermission) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnPermission) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7329,7 +7109,6 @@ func (j *jsiiProxy_CfnVersion) SetProvisionedConcurrencyConfig(val interface{}) 
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnVersion_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -7346,7 +7125,6 @@ func CfnVersion_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -7393,7 +7171,6 @@ func CfnVersion_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnVersion) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7406,7 +7183,6 @@ func (c *jsiiProxy_CfnVersion) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnVersion) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7422,7 +7198,6 @@ func (c *jsiiProxy_CfnVersion) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnVersion) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7468,7 +7243,6 @@ func (c *jsiiProxy_CfnVersion) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnVersion) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7478,7 +7252,6 @@ func (c *jsiiProxy_CfnVersion) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnVersion) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7490,7 +7263,6 @@ func (c *jsiiProxy_CfnVersion) AddPropertyDeletionOverride(propertyPath *string)
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnVersion) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7508,7 +7280,6 @@ func (c *jsiiProxy_CfnVersion) AddPropertyOverride(propertyPath *string, value i
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnVersion) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7521,7 +7292,6 @@ func (c *jsiiProxy_CfnVersion) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, o
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnVersion) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -7542,7 +7312,6 @@ func (c *jsiiProxy_CfnVersion) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnVersion) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -7566,7 +7335,6 @@ func (c *jsiiProxy_CfnVersion) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnVersion) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7592,7 +7360,6 @@ func (c *jsiiProxy_CfnVersion) RenderProperties(props *map[string]interface{}) *
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnVersion) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -7609,7 +7376,6 @@ func (c *jsiiProxy_CfnVersion) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnVersion) ToString() *string {
 	var returns *string
 
@@ -7623,7 +7389,6 @@ func (c *jsiiProxy_CfnVersion) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnVersion) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7658,7 +7423,6 @@ type CfnVersionProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Code interface {
 	Bind(scope constructs.Construct) *CodeConfig
 	BindToResource(_resource awscdk.CfnResource, _options *ResourceBindOptions)
@@ -7669,7 +7433,6 @@ type jsiiProxy_Code struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewCode_Override(c Code) {
 	_init_.Initialize()
 
@@ -7681,7 +7444,6 @@ func NewCode_Override(c Code) {
 }
 
 // Loads the function code from a local disk path.
-// Experimental.
 func Code_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
@@ -7698,7 +7460,6 @@ func Code_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
 }
 
 // Create an ECR image from the specified asset and bind it as the Lambda code.
-// Experimental.
 func Code_FromAssetImage(directory *string, props *AssetImageCodeProps) AssetImageCode {
 	_init_.Initialize()
 
@@ -7715,7 +7476,6 @@ func Code_FromAssetImage(directory *string, props *AssetImageCodeProps) AssetIma
 }
 
 // Lambda handler code as an S3 object.
-// Experimental.
 func Code_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
@@ -7734,7 +7494,6 @@ func Code_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S
 // Creates a new Lambda source defined using CloudFormation parameters.
 //
 // Returns: a new instance of `CfnParametersCode`
-// Experimental.
 func Code_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 	_init_.Initialize()
 
@@ -7754,7 +7513,6 @@ func Code_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 //
 // By default, the asset is expected to be located at `/asset` in the
 // image.
-// Experimental.
 func Code_FromDockerBuild(path *string, options *DockerBuildAssetOptions) AssetCode {
 	_init_.Initialize()
 
@@ -7771,7 +7529,6 @@ func Code_FromDockerBuild(path *string, options *DockerBuildAssetOptions) AssetC
 }
 
 // Use an existing ECR image as the Lambda code.
-// Experimental.
 func Code_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeProps) EcrImageCode {
 	_init_.Initialize()
 
@@ -7790,7 +7547,6 @@ func Code_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeProps) 
 // Inline code for Lambda handler.
 //
 // Returns: `LambdaInlineCode` with inline code.
-// Experimental.
 func Code_FromInline(code *string) InlineCode {
 	_init_.Initialize()
 
@@ -7807,7 +7563,6 @@ func Code_FromInline(code *string) InlineCode {
 }
 
 // Called when the lambda or layer is initialized to allow this object to bind to the stack, add resources and have fun.
-// Experimental.
 func (c *jsiiProxy_Code) Bind(scope constructs.Construct) *CodeConfig {
 	var returns *CodeConfig
 
@@ -7825,7 +7580,6 @@ func (c *jsiiProxy_Code) Bind(scope constructs.Construct) *CodeConfig {
 //
 // Specifically it's required to allow assets to add
 // metadata for tooling like SAM CLI to be able to find their origins.
-// Experimental.
 func (c *jsiiProxy_Code) BindToResource(_resource awscdk.CfnResource, _options *ResourceBindOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7838,16 +7592,12 @@ func (c *jsiiProxy_Code) BindToResource(_resource awscdk.CfnResource, _options *
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CodeConfig struct {
 	// Docker image configuration (mutually exclusive with `s3Location` and `inlineCode`).
-	// Experimental.
 	Image *CodeImageConfig `json:"image"`
 	// Inline code (mutually exclusive with `s3Location` and `image`).
-	// Experimental.
 	InlineCode *string `json:"inlineCode"`
 	// The location of the code in S3 (mutually exclusive with `inlineCode` and `image`).
-	// Experimental.
 	S3Location *awss3.Location `json:"s3Location"`
 }
 
@@ -7855,14 +7605,12 @@ type CodeConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CodeImageConfig struct {
 	// Specify or override the CMD on the specified Docker image or Dockerfile.
 	//
 	// This needs to be in the 'exec form', viz., `[ 'executable', 'param1', 'param2' ]`.
 	// See: https://docs.docker.com/engine/reference/builder/#cmd
 	//
-	// Experimental.
 	Cmd *[]*string `json:"cmd"`
 	// Specify or override the ENTRYPOINT on the specified Docker image or Dockerfile.
 	//
@@ -7870,17 +7618,14 @@ type CodeImageConfig struct {
 	// This needs to be in the 'exec form', viz., `[ 'executable', 'param1', 'param2' ]`.
 	// See: https://docs.docker.com/engine/reference/builder/#entrypoint
 	//
-	// Experimental.
 	Entrypoint *[]*string `json:"entrypoint"`
 	// URI to the Docker image.
-	// Experimental.
 	ImageUri *string `json:"imageUri"`
 	// Specify or override the WORKDIR on the specified Docker image or Dockerfile.
 	//
 	// A WORKDIR allows you to configure the working directory the container will use.
 	// See: https://docs.docker.com/engine/reference/builder/#workdir
 	//
-	// Experimental.
 	WorkingDirectory *string `json:"workingDirectory"`
 }
 
@@ -7888,7 +7633,6 @@ type CodeImageConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CodeSigningConfig interface {
 	awscdk.Resource
 	ICodeSigningConfig
@@ -7972,7 +7716,6 @@ func (j *jsiiProxy_CodeSigningConfig) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewCodeSigningConfig(scope constructs.Construct, id *string, props *CodeSigningConfigProps) CodeSigningConfig {
 	_init_.Initialize()
 
@@ -7987,7 +7730,6 @@ func NewCodeSigningConfig(scope constructs.Construct, id *string, props *CodeSig
 	return &j
 }
 
-// Experimental.
 func NewCodeSigningConfig_Override(c CodeSigningConfig, scope constructs.Construct, id *string, props *CodeSigningConfigProps) {
 	_init_.Initialize()
 
@@ -7999,7 +7741,6 @@ func NewCodeSigningConfig_Override(c CodeSigningConfig, scope constructs.Constru
 }
 
 // Creates a Signing Profile construct that represents an external Signing Profile.
-// Experimental.
 func CodeSigningConfig_FromCodeSigningConfigArn(scope constructs.Construct, id *string, codeSigningConfigArn *string) ICodeSigningConfig {
 	_init_.Initialize()
 
@@ -8035,7 +7776,6 @@ func CodeSigningConfig_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func CodeSigningConfig_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -8060,7 +7800,6 @@ func CodeSigningConfig_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CodeSigningConfig) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8069,7 +7808,6 @@ func (c *jsiiProxy_CodeSigningConfig) ApplyRemovalPolicy(policy awscdk.RemovalPo
 	)
 }
 
-// Experimental.
 func (c *jsiiProxy_CodeSigningConfig) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -8089,7 +7827,6 @@ func (c *jsiiProxy_CodeSigningConfig) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (c *jsiiProxy_CodeSigningConfig) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -8108,7 +7845,6 @@ func (c *jsiiProxy_CodeSigningConfig) GetResourceArnAttribute(arnAttr *string, a
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (c *jsiiProxy_CodeSigningConfig) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -8123,7 +7859,6 @@ func (c *jsiiProxy_CodeSigningConfig) GetResourceNameAttribute(nameAttr *string)
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (c *jsiiProxy_CodeSigningConfig) ToString() *string {
 	var returns *string
 
@@ -8141,13 +7876,10 @@ func (c *jsiiProxy_CodeSigningConfig) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CodeSigningConfigProps struct {
 	// List of signing profiles that defines a trusted user who can sign a code package.
-	// Experimental.
 	SigningProfiles *[]awssigner.ISigningProfile `json:"signingProfiles"`
 	// Code signing configuration description.
-	// Experimental.
 	Description *string `json:"description"`
 	// Code signing configuration policy for deployment validation failure.
 	//
@@ -8155,7 +7887,6 @@ type CodeSigningConfigProps struct {
 	// if signature validation checks fail.
 	// If you set the policy to Warn, Lambda allows the deployment and
 	// creates a CloudWatch log.
-	// Experimental.
 	UntrustedArtifactOnDeployment UntrustedArtifactOnDeployment `json:"untrustedArtifactOnDeployment"`
 }
 
@@ -8163,10 +7894,8 @@ type CodeSigningConfigProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DestinationConfig struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
-	// Experimental.
 	Destination *string `json:"destination"`
 }
 
@@ -8174,15 +7903,12 @@ type DestinationConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DestinationOptions struct {
 	// The destination type.
-	// Experimental.
 	Type DestinationType `json:"type"`
 }
 
 // The type of destination.
-// Experimental.
 type DestinationType string
 
 const (
@@ -8194,10 +7920,8 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DlqDestinationConfig struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
-	// Experimental.
 	Destination *string `json:"destination"`
 }
 
@@ -8205,24 +7929,18 @@ type DlqDestinationConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DockerBuildAssetOptions struct {
 	// Build args.
-	// Experimental.
 	BuildArgs *map[string]*string `json:"buildArgs"`
 	// Name of the Dockerfile, must relative to the docker build path.
-	// Experimental.
 	File *string `json:"file"`
 	// Set platform if server is multi-platform capable. _Requires Docker Engine API v1.38+_.
 	//
 	// Example value: `linux/amd64`
-	// Experimental.
 	Platform *string `json:"platform"`
 	// The path in the Docker image where the asset is located after the build operation.
-	// Experimental.
 	ImagePath *string `json:"imagePath"`
 	// The path on the local filesystem where the asset will be copied using `docker cp`.
-	// Experimental.
 	OutputPath *string `json:"outputPath"`
 }
 
@@ -8230,7 +7948,6 @@ type DockerBuildAssetOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DockerImageCode interface {
 }
 
@@ -8239,7 +7956,6 @@ type jsiiProxy_DockerImageCode struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewDockerImageCode_Override(d DockerImageCode) {
 	_init_.Initialize()
 
@@ -8251,7 +7967,6 @@ func NewDockerImageCode_Override(d DockerImageCode) {
 }
 
 // Use an existing ECR image as the Lambda code.
-// Experimental.
 func DockerImageCode_FromEcr(repository awsecr.IRepository, props *EcrImageCodeProps) DockerImageCode {
 	_init_.Initialize()
 
@@ -8268,7 +7983,6 @@ func DockerImageCode_FromEcr(repository awsecr.IRepository, props *EcrImageCodeP
 }
 
 // Create an ECR image from the specified asset and bind it as the Lambda code.
-// Experimental.
 func DockerImageCode_FromImageAsset(directory *string, props *AssetImageCodeProps) DockerImageCode {
 	_init_.Initialize()
 
@@ -8288,7 +8002,6 @@ func DockerImageCode_FromImageAsset(directory *string, props *AssetImageCodeProp
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DockerImageFunction interface {
 	Function
 	Architecture() Architecture
@@ -8515,7 +8228,6 @@ func (j *jsiiProxy_DockerImageFunction) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewDockerImageFunction(scope constructs.Construct, id *string, props *DockerImageFunctionProps) DockerImageFunction {
 	_init_.Initialize()
 
@@ -8530,7 +8242,6 @@ func NewDockerImageFunction(scope constructs.Construct, id *string, props *Docke
 	return &j
 }
 
-// Experimental.
 func NewDockerImageFunction_Override(d DockerImageFunction, scope constructs.Construct, id *string, props *DockerImageFunctionProps) {
 	_init_.Initialize()
 
@@ -8544,7 +8255,6 @@ func NewDockerImageFunction_Override(d DockerImageFunction, scope constructs.Con
 // Record whether specific properties in the `AWS::Lambda::Function` resource should also be associated to the Version resource.
 //
 // See 'currentVersion' section in the module README for more details.
-// Experimental.
 func DockerImageFunction_ClassifyVersionProperty(propertyName *string, locked *bool) {
 	_init_.Initialize()
 
@@ -8556,7 +8266,6 @@ func DockerImageFunction_ClassifyVersionProperty(propertyName *string, locked *b
 }
 
 // Import a lambda function into the CDK using its ARN.
-// Experimental.
 func DockerImageFunction_FromFunctionArn(scope constructs.Construct, id *string, functionArn *string) IFunction {
 	_init_.Initialize()
 
@@ -8573,7 +8282,6 @@ func DockerImageFunction_FromFunctionArn(scope constructs.Construct, id *string,
 }
 
 // Creates a Lambda function object which represents a function not defined within this stack.
-// Experimental.
 func DockerImageFunction_FromFunctionAttributes(scope constructs.Construct, id *string, attrs *FunctionAttributes) IFunction {
 	_init_.Initialize()
 
@@ -8609,7 +8317,6 @@ func DockerImageFunction_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func DockerImageFunction_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -8626,7 +8333,6 @@ func DockerImageFunction_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Return the given named metric for this Lambda.
-// Experimental.
 func DockerImageFunction_MetricAll(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -8643,7 +8349,6 @@ func DockerImageFunction_MetricAll(metricName *string, props *awscloudwatch.Metr
 }
 
 // Metric for the number of concurrent executions across all Lambdas.
-// Experimental.
 func DockerImageFunction_MetricAllConcurrentExecutions(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -8660,7 +8365,6 @@ func DockerImageFunction_MetricAllConcurrentExecutions(props *awscloudwatch.Metr
 }
 
 // Metric for the Duration executing all Lambdas.
-// Experimental.
 func DockerImageFunction_MetricAllDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -8677,7 +8381,6 @@ func DockerImageFunction_MetricAllDuration(props *awscloudwatch.MetricOptions) a
 }
 
 // Metric for the number of Errors executing all Lambdas.
-// Experimental.
 func DockerImageFunction_MetricAllErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -8694,7 +8397,6 @@ func DockerImageFunction_MetricAllErrors(props *awscloudwatch.MetricOptions) aws
 }
 
 // Metric for the number of invocations of all Lambdas.
-// Experimental.
 func DockerImageFunction_MetricAllInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -8711,7 +8413,6 @@ func DockerImageFunction_MetricAllInvocations(props *awscloudwatch.MetricOptions
 }
 
 // Metric for the number of throttled invocations of all Lambdas.
-// Experimental.
 func DockerImageFunction_MetricAllThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -8728,7 +8429,6 @@ func DockerImageFunction_MetricAllThrottles(props *awscloudwatch.MetricOptions) 
 }
 
 // Metric for the number of unreserved concurrent executions across all Lambdas.
-// Experimental.
 func DockerImageFunction_MetricAllUnreservedConcurrentExecutions(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -8747,7 +8447,6 @@ func DockerImageFunction_MetricAllUnreservedConcurrentExecutions(props *awscloud
 // Adds an environment variable to this Lambda function.
 //
 // If this is a ref to a Lambda function, this operation results in a no-op.
-// Experimental.
 func (d *jsiiProxy_DockerImageFunction) AddEnvironment(key *string, value *string, options *EnvironmentOptions) Function {
 	var returns Function
 
@@ -8770,7 +8469,6 @@ func (d *jsiiProxy_DockerImageFunction) AddEnvironment(key *string, value *strin
 // import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources';
 // myFunction.addEventSource(new SqsEventSource(myQueue));
 // ```
-// Experimental.
 func (d *jsiiProxy_DockerImageFunction) AddEventSource(source IEventSource) {
 	_jsii_.InvokeVoid(
 		d,
@@ -8780,7 +8478,6 @@ func (d *jsiiProxy_DockerImageFunction) AddEventSource(source IEventSource) {
 }
 
 // Adds an event source that maps to this AWS Lambda function.
-// Experimental.
 func (d *jsiiProxy_DockerImageFunction) AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping {
 	var returns EventSourceMapping
 
@@ -8795,7 +8492,6 @@ func (d *jsiiProxy_DockerImageFunction) AddEventSourceMapping(id *string, option
 }
 
 // Adds one or more Lambda Layers to this Lambda function.
-// Experimental.
 func (d *jsiiProxy_DockerImageFunction) AddLayers(layers ...ILayerVersion) {
 	args := []interface{}{}
 	for _, a := range layers {
@@ -8812,7 +8508,6 @@ func (d *jsiiProxy_DockerImageFunction) AddLayers(layers ...ILayerVersion) {
 // Adds a permission to the Lambda resource policy.
 // See: Permission for details.
 //
-// Experimental.
 func (d *jsiiProxy_DockerImageFunction) AddPermission(id *string, permission *Permission) {
 	_jsii_.InvokeVoid(
 		d,
@@ -8822,7 +8517,6 @@ func (d *jsiiProxy_DockerImageFunction) AddPermission(id *string, permission *Pe
 }
 
 // Adds a statement to the IAM role assumed by the instance.
-// Experimental.
 func (d *jsiiProxy_DockerImageFunction) AddToRolePolicy(statement awsiam.PolicyStatement) {
 	_jsii_.InvokeVoid(
 		d,
@@ -8840,7 +8534,6 @@ func (d *jsiiProxy_DockerImageFunction) AddToRolePolicy(statement awsiam.PolicyS
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (d *jsiiProxy_DockerImageFunction) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		d,
@@ -8850,7 +8543,6 @@ func (d *jsiiProxy_DockerImageFunction) ApplyRemovalPolicy(policy awscdk.Removal
 }
 
 // Configures options for asynchronous invocation.
-// Experimental.
 func (d *jsiiProxy_DockerImageFunction) ConfigureAsyncInvoke(options *EventInvokeConfigOptions) {
 	_jsii_.InvokeVoid(
 		d,
@@ -8859,7 +8551,6 @@ func (d *jsiiProxy_DockerImageFunction) ConfigureAsyncInvoke(options *EventInvok
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DockerImageFunction) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -8879,7 +8570,6 @@ func (d *jsiiProxy_DockerImageFunction) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (d *jsiiProxy_DockerImageFunction) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -8898,7 +8588,6 @@ func (d *jsiiProxy_DockerImageFunction) GetResourceArnAttribute(arnAttr *string,
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (d *jsiiProxy_DockerImageFunction) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -8913,7 +8602,6 @@ func (d *jsiiProxy_DockerImageFunction) GetResourceNameAttribute(nameAttr *strin
 }
 
 // Grant the given identity permissions to invoke this Lambda.
-// Experimental.
 func (d *jsiiProxy_DockerImageFunction) GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -8928,7 +8616,6 @@ func (d *jsiiProxy_DockerImageFunction) GrantInvoke(grantee awsiam.IGrantable) a
 }
 
 // Return the given named metric for this Function.
-// Experimental.
 func (d *jsiiProxy_DockerImageFunction) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -8945,7 +8632,6 @@ func (d *jsiiProxy_DockerImageFunction) Metric(metricName *string, props *awsclo
 // How long execution of this Lambda takes.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DockerImageFunction) MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -8962,7 +8648,6 @@ func (d *jsiiProxy_DockerImageFunction) MetricDuration(props *awscloudwatch.Metr
 // How many invocations of this Lambda fail.
 //
 // Sum over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DockerImageFunction) MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -8979,7 +8664,6 @@ func (d *jsiiProxy_DockerImageFunction) MetricErrors(props *awscloudwatch.Metric
 // How often this Lambda is invoked.
 //
 // Sum over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DockerImageFunction) MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -8996,7 +8680,6 @@ func (d *jsiiProxy_DockerImageFunction) MetricInvocations(props *awscloudwatch.M
 // How often this Lambda is throttled.
 //
 // Sum over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DockerImageFunction) MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -9011,7 +8694,6 @@ func (d *jsiiProxy_DockerImageFunction) MetricThrottles(props *awscloudwatch.Met
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DockerImageFunction) ToString() *string {
 	var returns *string
 
@@ -9029,134 +8711,106 @@ func (d *jsiiProxy_DockerImageFunction) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DockerImageFunctionProps struct {
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours
-	// Experimental.
 	MaxEventAge awscdk.Duration `json:"maxEventAge"`
 	// The destination for failed invocations.
-	// Experimental.
 	OnFailure IDestination `json:"onFailure"`
 	// The destination for successful invocations.
-	// Experimental.
 	OnSuccess IDestination `json:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 	// Whether to allow the Lambda to send all network traffic.
 	//
 	// If set to false, you must individually add traffic rules to allow the
 	// Lambda to connect to network targets.
-	// Experimental.
 	AllowAllOutbound *bool `json:"allowAllOutbound"`
 	// Lambda Functions in a public subnet can NOT access the internet.
 	//
 	// Use this property to acknowledge this limitation and still place the function in a public subnet.
 	// See: https://stackoverflow.com/questions/52992085/why-cant-an-aws-lambda-function-inside-a-public-subnet-in-a-vpc-connect-to-the/52994841#52994841
 	//
-	// Experimental.
 	AllowPublicSubnet *bool `json:"allowPublicSubnet"`
 	// The system architectures compatible with this lambda function.
-	// Experimental.
 	Architecture Architecture `json:"architecture"`
 	// Code signing config associated with this function.
-	// Experimental.
 	CodeSigningConfig ICodeSigningConfig `json:"codeSigningConfig"`
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
-	// Experimental.
 	CurrentVersionOptions *VersionOptions `json:"currentVersionOptions"`
 	// The SQS queue to use if DLQ is enabled.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
 	// Enabled DLQ.
 	//
 	// If `deadLetterQueue` is undefined,
 	// an SQS queue with default options will be defined for your Function.
-	// Experimental.
 	DeadLetterQueueEnabled *bool `json:"deadLetterQueueEnabled"`
 	// A description of the function.
-	// Experimental.
 	Description *string `json:"description"`
 	// Key-value pairs that Lambda caches and makes available for your Lambda functions.
 	//
 	// Use environment variables to apply configuration changes, such
 	// as test and production environment configurations, without changing your
 	// Lambda function source code.
-	// Experimental.
 	Environment *map[string]*string `json:"environment"`
 	// The AWS KMS key that's used to encrypt your function's environment variables.
-	// Experimental.
 	EnvironmentEncryption awskms.IKey `json:"environmentEncryption"`
 	// Event sources for this function.
 	//
 	// You can also add event sources using `addEventSource`.
-	// Experimental.
 	Events *[]IEventSource `json:"events"`
 	// The filesystem configuration for the lambda function.
-	// Experimental.
 	Filesystem FileSystem `json:"filesystem"`
 	// A name for the function.
-	// Experimental.
 	FunctionName *string `json:"functionName"`
 	// Initial policy statements to add to the created Lambda Role.
 	//
 	// You can call `addToRolePolicy` to the created lambda to add statements post creation.
-	// Experimental.
 	InitialPolicy *[]awsiam.PolicyStatement `json:"initialPolicy"`
 	// Specify the version of CloudWatch Lambda insights to use for monitoring.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights-Getting-Started-docker.html
 	//
-	// Experimental.
 	InsightsVersion LambdaInsightsVersion `json:"insightsVersion"`
 	// A list of layers to add to the function's execution environment.
 	//
 	// You can configure your Lambda function to pull in
 	// additional code during initialization in the form of layers. Layers are packages of libraries or other dependencies
 	// that can be used by multiple functions.
-	// Experimental.
 	Layers *[]ILayerVersion `json:"layers"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `INFINITE`.
-	// Experimental.
 	LogRetention awslogs.RetentionDays `json:"logRetention"`
 	// When log retention is specified, a custom resource attempts to create the CloudWatch log group.
 	//
 	// These options control the retry policy when interacting with CloudWatch APIs.
-	// Experimental.
 	LogRetentionRetryOptions *LogRetentionRetryOptions `json:"logRetentionRetryOptions"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	// Experimental.
 	LogRetentionRole awsiam.IRole `json:"logRetentionRole"`
 	// The amount of memory, in MB, that is allocated to your Lambda function.
 	//
 	// Lambda uses this value to proportionally allocate the amount of CPU
 	// power. For more information, see Resource Model in the AWS Lambda
 	// Developer Guide.
-	// Experimental.
 	MemorySize *float64 `json:"memorySize"`
 	// Enable profiling.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
-	// Experimental.
 	Profiling *bool `json:"profiling"`
 	// Profiling Group.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
-	// Experimental.
 	ProfilingGroup awscodeguruprofiler.IProfilingGroup `json:"profilingGroup"`
 	// The maximum of concurrent executions you want to reserve for the function.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html
 	//
-	// Experimental.
 	ReservedConcurrentExecutions *float64 `json:"reservedConcurrentExecutions"`
 	// Lambda execution role.
 	//
@@ -9169,39 +8823,32 @@ type DockerImageFunctionProps struct {
 	//
 	// The relevant managed policies are "service-role/AWSLambdaBasicExecutionRole" and
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
-	// Experimental.
 	Role awsiam.IRole `json:"role"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 	// The function execution time (in seconds) after which Lambda terminates the function.
 	//
 	// Because the execution time affects cost, set this value
 	// based on the function's expected execution time.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
 	// Enable AWS X-Ray Tracing for Lambda Function.
-	// Experimental.
 	Tracing Tracing `json:"tracing"`
 	// VPC network to place Lambda network interfaces.
 	//
 	// Specify this if the Lambda function needs to access resources in a VPC.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// Where to place the network interfaces within the VPC.
 	//
 	// Only used if 'vpc' is supplied. Note: internet access for Lambdas
 	// requires a NAT gateway, so picking Public subnets is not allowed.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 	// The source code of your Lambda function.
 	//
 	// You can point to a file in an
 	// Amazon Simple Storage Service (Amazon S3) bucket or specify your source
 	// code as inline text.
-	// Experimental.
 	Code DockerImageCode `json:"code"`
 }
 
@@ -9209,7 +8856,6 @@ type DockerImageFunctionProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type EcrImageCode interface {
 	Code
 	IsInline() *bool
@@ -9233,7 +8879,6 @@ func (j *jsiiProxy_EcrImageCode) IsInline() *bool {
 }
 
 
-// Experimental.
 func NewEcrImageCode(repository awsecr.IRepository, props *EcrImageCodeProps) EcrImageCode {
 	_init_.Initialize()
 
@@ -9248,7 +8893,6 @@ func NewEcrImageCode(repository awsecr.IRepository, props *EcrImageCodeProps) Ec
 	return &j
 }
 
-// Experimental.
 func NewEcrImageCode_Override(e EcrImageCode, repository awsecr.IRepository, props *EcrImageCodeProps) {
 	_init_.Initialize()
 
@@ -9260,7 +8904,6 @@ func NewEcrImageCode_Override(e EcrImageCode, repository awsecr.IRepository, pro
 }
 
 // Loads the function code from a local disk path.
-// Experimental.
 func EcrImageCode_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
@@ -9277,7 +8920,6 @@ func EcrImageCode_FromAsset(path *string, options *awss3assets.AssetOptions) Ass
 }
 
 // Create an ECR image from the specified asset and bind it as the Lambda code.
-// Experimental.
 func EcrImageCode_FromAssetImage(directory *string, props *AssetImageCodeProps) AssetImageCode {
 	_init_.Initialize()
 
@@ -9294,7 +8936,6 @@ func EcrImageCode_FromAssetImage(directory *string, props *AssetImageCodeProps) 
 }
 
 // Lambda handler code as an S3 object.
-// Experimental.
 func EcrImageCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
@@ -9313,7 +8954,6 @@ func EcrImageCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion *s
 // Creates a new Lambda source defined using CloudFormation parameters.
 //
 // Returns: a new instance of `CfnParametersCode`
-// Experimental.
 func EcrImageCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 	_init_.Initialize()
 
@@ -9333,7 +8973,6 @@ func EcrImageCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParameters
 //
 // By default, the asset is expected to be located at `/asset` in the
 // image.
-// Experimental.
 func EcrImageCode_FromDockerBuild(path *string, options *DockerBuildAssetOptions) AssetCode {
 	_init_.Initialize()
 
@@ -9350,7 +8989,6 @@ func EcrImageCode_FromDockerBuild(path *string, options *DockerBuildAssetOptions
 }
 
 // Use an existing ECR image as the Lambda code.
-// Experimental.
 func EcrImageCode_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeProps) EcrImageCode {
 	_init_.Initialize()
 
@@ -9369,7 +9007,6 @@ func EcrImageCode_FromEcrImage(repository awsecr.IRepository, props *EcrImageCod
 // Inline code for Lambda handler.
 //
 // Returns: `LambdaInlineCode` with inline code.
-// Experimental.
 func EcrImageCode_FromInline(code *string) InlineCode {
 	_init_.Initialize()
 
@@ -9386,7 +9023,6 @@ func EcrImageCode_FromInline(code *string) InlineCode {
 }
 
 // Called when the lambda or layer is initialized to allow this object to bind to the stack, add resources and have fun.
-// Experimental.
 func (e *jsiiProxy_EcrImageCode) Bind(_arg constructs.Construct) *CodeConfig {
 	var returns *CodeConfig
 
@@ -9404,7 +9040,6 @@ func (e *jsiiProxy_EcrImageCode) Bind(_arg constructs.Construct) *CodeConfig {
 //
 // Specifically it's required to allow assets to add
 // metadata for tooling like SAM CLI to be able to find their origins.
-// Experimental.
 func (e *jsiiProxy_EcrImageCode) BindToResource(_resource awscdk.CfnResource, _options *ResourceBindOptions) {
 	_jsii_.InvokeVoid(
 		e,
@@ -9417,14 +9052,12 @@ func (e *jsiiProxy_EcrImageCode) BindToResource(_resource awscdk.CfnResource, _o
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type EcrImageCodeProps struct {
 	// Specify or override the CMD on the specified Docker image or Dockerfile.
 	//
 	// This needs to be in the 'exec form', viz., `[ 'executable', 'param1', 'param2' ]`.
 	// See: https://docs.docker.com/engine/reference/builder/#cmd
 	//
-	// Experimental.
 	Cmd *[]*string `json:"cmd"`
 	// Specify or override the ENTRYPOINT on the specified Docker image or Dockerfile.
 	//
@@ -9432,17 +9065,14 @@ type EcrImageCodeProps struct {
 	// This needs to be in the 'exec form', viz., `[ 'executable', 'param1', 'param2' ]`.
 	// See: https://docs.docker.com/engine/reference/builder/#entrypoint
 	//
-	// Experimental.
 	Entrypoint *[]*string `json:"entrypoint"`
 	// The image tag to use when pulling the image from ECR.
-	// Experimental.
 	Tag *string `json:"tag"`
 	// Specify or override the WORKDIR on the specified Docker image or Dockerfile.
 	//
 	// A WORKDIR allows you to configure the working directory the container will use.
 	// See: https://docs.docker.com/engine/reference/builder/#workdir
 	//
-	// Experimental.
 	WorkingDirectory *string `json:"workingDirectory"`
 }
 
@@ -9450,14 +9080,12 @@ type EcrImageCodeProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type EnvironmentOptions struct {
 	// When used in Lambda@Edge via edgeArn() API, these environment variables will be removed.
 	//
 	// If not set, an error will be thrown.
 	// See: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-requirements-limits.html#lambda-requirements-lambda-function-configuration
 	//
-	// Experimental.
 	RemoveInEdge *bool `json:"removeInEdge"`
 }
 
@@ -9470,7 +9098,6 @@ type EnvironmentOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type EventInvokeConfig interface {
 	awscdk.Resource
 	Env() *awscdk.ResourceEnvironment
@@ -9530,7 +9157,6 @@ func (j *jsiiProxy_EventInvokeConfig) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewEventInvokeConfig(scope constructs.Construct, id *string, props *EventInvokeConfigProps) EventInvokeConfig {
 	_init_.Initialize()
 
@@ -9545,7 +9171,6 @@ func NewEventInvokeConfig(scope constructs.Construct, id *string, props *EventIn
 	return &j
 }
 
-// Experimental.
 func NewEventInvokeConfig_Override(e EventInvokeConfig, scope constructs.Construct, id *string, props *EventInvokeConfigProps) {
 	_init_.Initialize()
 
@@ -9576,7 +9201,6 @@ func EventInvokeConfig_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func EventInvokeConfig_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -9601,7 +9225,6 @@ func EventInvokeConfig_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (e *jsiiProxy_EventInvokeConfig) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		e,
@@ -9610,7 +9233,6 @@ func (e *jsiiProxy_EventInvokeConfig) ApplyRemovalPolicy(policy awscdk.RemovalPo
 	)
 }
 
-// Experimental.
 func (e *jsiiProxy_EventInvokeConfig) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -9630,7 +9252,6 @@ func (e *jsiiProxy_EventInvokeConfig) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (e *jsiiProxy_EventInvokeConfig) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -9649,7 +9270,6 @@ func (e *jsiiProxy_EventInvokeConfig) GetResourceArnAttribute(arnAttr *string, a
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (e *jsiiProxy_EventInvokeConfig) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -9664,7 +9284,6 @@ func (e *jsiiProxy_EventInvokeConfig) GetResourceNameAttribute(nameAttr *string)
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (e *jsiiProxy_EventInvokeConfig) ToString() *string {
 	var returns *string
 
@@ -9682,25 +9301,20 @@ func (e *jsiiProxy_EventInvokeConfig) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type EventInvokeConfigOptions struct {
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours
-	// Experimental.
 	MaxEventAge awscdk.Duration `json:"maxEventAge"`
 	// The destination for failed invocations.
-	// Experimental.
 	OnFailure IDestination `json:"onFailure"`
 	// The destination for successful invocations.
-	// Experimental.
 	OnSuccess IDestination `json:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 }
 
@@ -9708,31 +9322,24 @@ type EventInvokeConfigOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type EventInvokeConfigProps struct {
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours
-	// Experimental.
 	MaxEventAge awscdk.Duration `json:"maxEventAge"`
 	// The destination for failed invocations.
-	// Experimental.
 	OnFailure IDestination `json:"onFailure"`
 	// The destination for successful invocations.
-	// Experimental.
 	OnSuccess IDestination `json:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 	// The Lambda function.
-	// Experimental.
 	Function IFunction `json:"function"`
 	// The qualifier.
-	// Experimental.
 	Qualifier *string `json:"qualifier"`
 }
 
@@ -9749,7 +9356,6 @@ type EventInvokeConfigProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type EventSourceMapping interface {
 	awscdk.Resource
 	IEventSourceMapping
@@ -9822,7 +9428,6 @@ func (j *jsiiProxy_EventSourceMapping) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewEventSourceMapping(scope constructs.Construct, id *string, props *EventSourceMappingProps) EventSourceMapping {
 	_init_.Initialize()
 
@@ -9837,7 +9442,6 @@ func NewEventSourceMapping(scope constructs.Construct, id *string, props *EventS
 	return &j
 }
 
-// Experimental.
 func NewEventSourceMapping_Override(e EventSourceMapping, scope constructs.Construct, id *string, props *EventSourceMappingProps) {
 	_init_.Initialize()
 
@@ -9849,7 +9453,6 @@ func NewEventSourceMapping_Override(e EventSourceMapping, scope constructs.Const
 }
 
 // Import an event source into this stack from its event source id.
-// Experimental.
 func EventSourceMapping_FromEventSourceMappingId(scope constructs.Construct, id *string, eventSourceMappingId *string) IEventSourceMapping {
 	_init_.Initialize()
 
@@ -9885,7 +9488,6 @@ func EventSourceMapping_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func EventSourceMapping_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -9910,7 +9512,6 @@ func EventSourceMapping_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (e *jsiiProxy_EventSourceMapping) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		e,
@@ -9919,7 +9520,6 @@ func (e *jsiiProxy_EventSourceMapping) ApplyRemovalPolicy(policy awscdk.RemovalP
 	)
 }
 
-// Experimental.
 func (e *jsiiProxy_EventSourceMapping) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -9939,7 +9539,6 @@ func (e *jsiiProxy_EventSourceMapping) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (e *jsiiProxy_EventSourceMapping) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -9958,7 +9557,6 @@ func (e *jsiiProxy_EventSourceMapping) GetResourceArnAttribute(arnAttr *string, 
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (e *jsiiProxy_EventSourceMapping) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -9973,7 +9571,6 @@ func (e *jsiiProxy_EventSourceMapping) GetResourceNameAttribute(nameAttr *string
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (e *jsiiProxy_EventSourceMapping) ToString() *string {
 	var returns *string
 
@@ -9989,7 +9586,6 @@ func (e *jsiiProxy_EventSourceMapping) ToString() *string {
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type EventSourceMappingOptions struct {
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
@@ -9997,54 +9593,43 @@ type EventSourceMappingOptions struct {
 	// event with all the retrieved records.
 	//
 	// Valid Range: Minimum value of 1. Maximum value of 10000.
-	// Experimental.
 	BatchSize *float64 `json:"batchSize"`
 	// If the function returns an error, split the batch in two and retry.
-	// Experimental.
 	BisectBatchOnError *bool `json:"bisectBatchOnError"`
 	// Set to false to disable the event source upon creation.
-	// Experimental.
 	Enabled *bool `json:"enabled"`
 	// The Amazon Resource Name (ARN) of the event source.
 	//
 	// Any record added to
 	// this stream can invoke the Lambda function.
-	// Experimental.
 	EventSourceArn *string `json:"eventSourceArn"`
 	// A list of host and port pairs that are the addresses of the Kafka brokers in a self managed "bootstrap" Kafka cluster that a Kafka client connects to initially to bootstrap itself.
 	//
 	// They are in the format `abc.example.com:9096`.
-	// Experimental.
 	KafkaBootstrapServers *[]*string `json:"kafkaBootstrapServers"`
 	// The name of the Kafka topic.
-	// Experimental.
 	KafkaTopic *string `json:"kafkaTopic"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5)
-	// Experimental.
 	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow"`
 	// The maximum age of a record that Lambda sends to a function for processing.
 	//
 	// Valid Range:
 	// * Minimum value of 60 seconds
 	// * Maximum value of 7 days
-	// Experimental.
 	MaxRecordAge awscdk.Duration `json:"maxRecordAge"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-	// Experimental.
 	OnFailure IEventSourceDlq `json:"onFailure"`
 	// The number of batches to process from each shard concurrently.
 	//
 	// Valid Range:
 	// * Minimum value of 1
 	// * Maximum value of 10
-	// Experimental.
 	ParallelizationFactor *float64 `json:"parallelizationFactor"`
 	// Allow functions to return partially successful responses for a batch of records.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting
 	//
-	// Experimental.
 	ReportBatchItemFailures *bool `json:"reportBatchItemFailures"`
 	// The maximum number of times to retry when the function returns an error.
 	//
@@ -10054,24 +9639,20 @@ type EventSourceMappingOptions struct {
 	// Valid Range:
 	// * Minimum value of 0
 	// * Maximum value of 10000
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 	// Specific settings like the authentication protocol or the VPC components to secure access to your event source.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html
 	//
-	// Experimental.
 	SourceAccessConfigurations *[]*SourceAccessConfiguration `json:"sourceAccessConfigurations"`
 	// The position in the DynamoDB, Kinesis or MSK stream where AWS Lambda should start reading.
 	// See: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType
 	//
-	// Experimental.
 	StartingPosition StartingPosition `json:"startingPosition"`
 	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-windows
 	//
 	// Valid Range: 0 - 15 minutes
 	//
-	// Experimental.
 	TumblingWindow awscdk.Duration `json:"tumblingWindow"`
 }
 
@@ -10079,7 +9660,6 @@ type EventSourceMappingOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type EventSourceMappingProps struct {
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
@@ -10087,54 +9667,43 @@ type EventSourceMappingProps struct {
 	// event with all the retrieved records.
 	//
 	// Valid Range: Minimum value of 1. Maximum value of 10000.
-	// Experimental.
 	BatchSize *float64 `json:"batchSize"`
 	// If the function returns an error, split the batch in two and retry.
-	// Experimental.
 	BisectBatchOnError *bool `json:"bisectBatchOnError"`
 	// Set to false to disable the event source upon creation.
-	// Experimental.
 	Enabled *bool `json:"enabled"`
 	// The Amazon Resource Name (ARN) of the event source.
 	//
 	// Any record added to
 	// this stream can invoke the Lambda function.
-	// Experimental.
 	EventSourceArn *string `json:"eventSourceArn"`
 	// A list of host and port pairs that are the addresses of the Kafka brokers in a self managed "bootstrap" Kafka cluster that a Kafka client connects to initially to bootstrap itself.
 	//
 	// They are in the format `abc.example.com:9096`.
-	// Experimental.
 	KafkaBootstrapServers *[]*string `json:"kafkaBootstrapServers"`
 	// The name of the Kafka topic.
-	// Experimental.
 	KafkaTopic *string `json:"kafkaTopic"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5)
-	// Experimental.
 	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow"`
 	// The maximum age of a record that Lambda sends to a function for processing.
 	//
 	// Valid Range:
 	// * Minimum value of 60 seconds
 	// * Maximum value of 7 days
-	// Experimental.
 	MaxRecordAge awscdk.Duration `json:"maxRecordAge"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-	// Experimental.
 	OnFailure IEventSourceDlq `json:"onFailure"`
 	// The number of batches to process from each shard concurrently.
 	//
 	// Valid Range:
 	// * Minimum value of 1
 	// * Maximum value of 10
-	// Experimental.
 	ParallelizationFactor *float64 `json:"parallelizationFactor"`
 	// Allow functions to return partially successful responses for a batch of records.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting
 	//
-	// Experimental.
 	ReportBatchItemFailures *bool `json:"reportBatchItemFailures"`
 	// The maximum number of times to retry when the function returns an error.
 	//
@@ -10144,27 +9713,22 @@ type EventSourceMappingProps struct {
 	// Valid Range:
 	// * Minimum value of 0
 	// * Maximum value of 10000
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 	// Specific settings like the authentication protocol or the VPC components to secure access to your event source.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html
 	//
-	// Experimental.
 	SourceAccessConfigurations *[]*SourceAccessConfiguration `json:"sourceAccessConfigurations"`
 	// The position in the DynamoDB, Kinesis or MSK stream where AWS Lambda should start reading.
 	// See: https://docs.aws.amazon.com/kinesis/latest/APIReference/API_GetShardIterator.html#Kinesis-GetShardIterator-request-ShardIteratorType
 	//
-	// Experimental.
 	StartingPosition StartingPosition `json:"startingPosition"`
 	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-windows
 	//
 	// Valid Range: 0 - 15 minutes
 	//
-	// Experimental.
 	TumblingWindow awscdk.Duration `json:"tumblingWindow"`
 	// The target AWS Lambda function.
-	// Experimental.
 	Target IFunction `json:"target"`
 }
 
@@ -10172,7 +9736,6 @@ type EventSourceMappingProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type FileSystem interface {
 	Config() *FileSystemConfig
 }
@@ -10193,7 +9756,6 @@ func (j *jsiiProxy_FileSystem) Config() *FileSystemConfig {
 }
 
 
-// Experimental.
 func NewFileSystem(config *FileSystemConfig) FileSystem {
 	_init_.Initialize()
 
@@ -10208,7 +9770,6 @@ func NewFileSystem(config *FileSystemConfig) FileSystem {
 	return &j
 }
 
-// Experimental.
 func NewFileSystem_Override(f FileSystem, config *FileSystemConfig) {
 	_init_.Initialize()
 
@@ -10220,7 +9781,6 @@ func NewFileSystem_Override(f FileSystem, config *FileSystemConfig) {
 }
 
 // mount the filesystem from Amazon EFS.
-// Experimental.
 func FileSystem_FromEfsAccessPoint(ap awsefs.IAccessPoint, mountPath *string) FileSystem {
 	_init_.Initialize()
 
@@ -10240,22 +9800,16 @@ func FileSystem_FromEfsAccessPoint(ap awsefs.IAccessPoint, mountPath *string) Fi
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type FileSystemConfig struct {
 	// ARN of the access point.
-	// Experimental.
 	Arn *string `json:"arn"`
 	// connections object used to allow ingress traffic from lambda function.
-	// Experimental.
 	Connections awsec2.Connections `json:"connections"`
 	// array of IDependable that lambda function depends on.
-	// Experimental.
 	Dependency *[]constructs.IDependable `json:"dependency"`
 	// mount path in the lambda runtime environment.
-	// Experimental.
 	LocalMountPath *string `json:"localMountPath"`
 	// additional IAM policies required for the lambda function.
-	// Experimental.
 	Policies *[]awsiam.PolicyStatement `json:"policies"`
 }
 
@@ -10271,7 +9825,6 @@ type FileSystemConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Function interface {
 	FunctionBase
 	Architecture() Architecture
@@ -10498,7 +10051,6 @@ func (j *jsiiProxy_Function) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewFunction(scope constructs.Construct, id *string, props *FunctionProps) Function {
 	_init_.Initialize()
 
@@ -10513,7 +10065,6 @@ func NewFunction(scope constructs.Construct, id *string, props *FunctionProps) F
 	return &j
 }
 
-// Experimental.
 func NewFunction_Override(f Function, scope constructs.Construct, id *string, props *FunctionProps) {
 	_init_.Initialize()
 
@@ -10527,7 +10078,6 @@ func NewFunction_Override(f Function, scope constructs.Construct, id *string, pr
 // Record whether specific properties in the `AWS::Lambda::Function` resource should also be associated to the Version resource.
 //
 // See 'currentVersion' section in the module README for more details.
-// Experimental.
 func Function_ClassifyVersionProperty(propertyName *string, locked *bool) {
 	_init_.Initialize()
 
@@ -10539,7 +10089,6 @@ func Function_ClassifyVersionProperty(propertyName *string, locked *bool) {
 }
 
 // Import a lambda function into the CDK using its ARN.
-// Experimental.
 func Function_FromFunctionArn(scope constructs.Construct, id *string, functionArn *string) IFunction {
 	_init_.Initialize()
 
@@ -10556,7 +10105,6 @@ func Function_FromFunctionArn(scope constructs.Construct, id *string, functionAr
 }
 
 // Creates a Lambda function object which represents a function not defined within this stack.
-// Experimental.
 func Function_FromFunctionAttributes(scope constructs.Construct, id *string, attrs *FunctionAttributes) IFunction {
 	_init_.Initialize()
 
@@ -10592,7 +10140,6 @@ func Function_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func Function_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -10609,7 +10156,6 @@ func Function_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Return the given named metric for this Lambda.
-// Experimental.
 func Function_MetricAll(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -10626,7 +10172,6 @@ func Function_MetricAll(metricName *string, props *awscloudwatch.MetricOptions) 
 }
 
 // Metric for the number of concurrent executions across all Lambdas.
-// Experimental.
 func Function_MetricAllConcurrentExecutions(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -10643,7 +10188,6 @@ func Function_MetricAllConcurrentExecutions(props *awscloudwatch.MetricOptions) 
 }
 
 // Metric for the Duration executing all Lambdas.
-// Experimental.
 func Function_MetricAllDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -10660,7 +10204,6 @@ func Function_MetricAllDuration(props *awscloudwatch.MetricOptions) awscloudwatc
 }
 
 // Metric for the number of Errors executing all Lambdas.
-// Experimental.
 func Function_MetricAllErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -10677,7 +10220,6 @@ func Function_MetricAllErrors(props *awscloudwatch.MetricOptions) awscloudwatch.
 }
 
 // Metric for the number of invocations of all Lambdas.
-// Experimental.
 func Function_MetricAllInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -10694,7 +10236,6 @@ func Function_MetricAllInvocations(props *awscloudwatch.MetricOptions) awscloudw
 }
 
 // Metric for the number of throttled invocations of all Lambdas.
-// Experimental.
 func Function_MetricAllThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -10711,7 +10252,6 @@ func Function_MetricAllThrottles(props *awscloudwatch.MetricOptions) awscloudwat
 }
 
 // Metric for the number of unreserved concurrent executions across all Lambdas.
-// Experimental.
 func Function_MetricAllUnreservedConcurrentExecutions(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -10730,7 +10270,6 @@ func Function_MetricAllUnreservedConcurrentExecutions(props *awscloudwatch.Metri
 // Adds an environment variable to this Lambda function.
 //
 // If this is a ref to a Lambda function, this operation results in a no-op.
-// Experimental.
 func (f *jsiiProxy_Function) AddEnvironment(key *string, value *string, options *EnvironmentOptions) Function {
 	var returns Function
 
@@ -10753,7 +10292,6 @@ func (f *jsiiProxy_Function) AddEnvironment(key *string, value *string, options 
 // import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources';
 // myFunction.addEventSource(new SqsEventSource(myQueue));
 // ```
-// Experimental.
 func (f *jsiiProxy_Function) AddEventSource(source IEventSource) {
 	_jsii_.InvokeVoid(
 		f,
@@ -10763,7 +10301,6 @@ func (f *jsiiProxy_Function) AddEventSource(source IEventSource) {
 }
 
 // Adds an event source that maps to this AWS Lambda function.
-// Experimental.
 func (f *jsiiProxy_Function) AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping {
 	var returns EventSourceMapping
 
@@ -10778,7 +10315,6 @@ func (f *jsiiProxy_Function) AddEventSourceMapping(id *string, options *EventSou
 }
 
 // Adds one or more Lambda Layers to this Lambda function.
-// Experimental.
 func (f *jsiiProxy_Function) AddLayers(layers ...ILayerVersion) {
 	args := []interface{}{}
 	for _, a := range layers {
@@ -10795,7 +10331,6 @@ func (f *jsiiProxy_Function) AddLayers(layers ...ILayerVersion) {
 // Adds a permission to the Lambda resource policy.
 // See: Permission for details.
 //
-// Experimental.
 func (f *jsiiProxy_Function) AddPermission(id *string, permission *Permission) {
 	_jsii_.InvokeVoid(
 		f,
@@ -10805,7 +10340,6 @@ func (f *jsiiProxy_Function) AddPermission(id *string, permission *Permission) {
 }
 
 // Adds a statement to the IAM role assumed by the instance.
-// Experimental.
 func (f *jsiiProxy_Function) AddToRolePolicy(statement awsiam.PolicyStatement) {
 	_jsii_.InvokeVoid(
 		f,
@@ -10823,7 +10357,6 @@ func (f *jsiiProxy_Function) AddToRolePolicy(statement awsiam.PolicyStatement) {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (f *jsiiProxy_Function) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		f,
@@ -10833,7 +10366,6 @@ func (f *jsiiProxy_Function) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 // Configures options for asynchronous invocation.
-// Experimental.
 func (f *jsiiProxy_Function) ConfigureAsyncInvoke(options *EventInvokeConfigOptions) {
 	_jsii_.InvokeVoid(
 		f,
@@ -10842,7 +10374,6 @@ func (f *jsiiProxy_Function) ConfigureAsyncInvoke(options *EventInvokeConfigOpti
 	)
 }
 
-// Experimental.
 func (f *jsiiProxy_Function) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -10862,7 +10393,6 @@ func (f *jsiiProxy_Function) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (f *jsiiProxy_Function) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -10881,7 +10411,6 @@ func (f *jsiiProxy_Function) GetResourceArnAttribute(arnAttr *string, arnCompone
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (f *jsiiProxy_Function) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -10896,7 +10425,6 @@ func (f *jsiiProxy_Function) GetResourceNameAttribute(nameAttr *string) *string 
 }
 
 // Grant the given identity permissions to invoke this Lambda.
-// Experimental.
 func (f *jsiiProxy_Function) GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -10911,7 +10439,6 @@ func (f *jsiiProxy_Function) GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant
 }
 
 // Return the given named metric for this Function.
-// Experimental.
 func (f *jsiiProxy_Function) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -10928,7 +10455,6 @@ func (f *jsiiProxy_Function) Metric(metricName *string, props *awscloudwatch.Met
 // How long execution of this Lambda takes.
 //
 // Average over 5 minutes
-// Experimental.
 func (f *jsiiProxy_Function) MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -10945,7 +10471,6 @@ func (f *jsiiProxy_Function) MetricDuration(props *awscloudwatch.MetricOptions) 
 // How many invocations of this Lambda fail.
 //
 // Sum over 5 minutes
-// Experimental.
 func (f *jsiiProxy_Function) MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -10962,7 +10487,6 @@ func (f *jsiiProxy_Function) MetricErrors(props *awscloudwatch.MetricOptions) aw
 // How often this Lambda is invoked.
 //
 // Sum over 5 minutes
-// Experimental.
 func (f *jsiiProxy_Function) MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -10979,7 +10503,6 @@ func (f *jsiiProxy_Function) MetricInvocations(props *awscloudwatch.MetricOption
 // How often this Lambda is throttled.
 //
 // Sum over 5 minutes
-// Experimental.
 func (f *jsiiProxy_Function) MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -10994,7 +10517,6 @@ func (f *jsiiProxy_Function) MetricThrottles(props *awscloudwatch.MetricOptions)
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (f *jsiiProxy_Function) ToString() *string {
 	var returns *string
 
@@ -11012,17 +10534,14 @@ func (f *jsiiProxy_Function) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type FunctionAttributes struct {
 	// The ARN of the Lambda function.
 	//
 	// Format: arn:<partition>:lambda:<region>:<account-id>:function:<function-name>
-	// Experimental.
 	FunctionArn *string `json:"functionArn"`
 	// The IAM execution role associated with this function.
 	//
 	// If the role is not specified, any role-related operations will no-op.
-	// Experimental.
 	Role awsiam.IRole `json:"role"`
 	// Setting this property informs the CDK that the imported function is in the same environment as the stack.
 	//
@@ -11032,17 +10551,14 @@ type FunctionAttributes struct {
 	//
 	// Set this to property *ONLY IF* the imported function is in the same account as the stack
 	// it's imported in.
-	// Experimental.
 	SameEnvironment *bool `json:"sameEnvironment"`
 	// The security group of this Lambda, if in a VPC.
 	//
 	// This needs to be given in order to support allowing connections
 	// to this Lambda.
-	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 }
 
-// Experimental.
 type FunctionBase interface {
 	awscdk.Resource
 	awsec2.IClientVpnConnectionHandler
@@ -11216,7 +10732,6 @@ func (j *jsiiProxy_FunctionBase) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewFunctionBase_Override(f FunctionBase, scope constructs.Construct, id *string, props *awscdk.ResourceProps) {
 	_init_.Initialize()
 
@@ -11247,7 +10762,6 @@ func FunctionBase_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func FunctionBase_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -11272,7 +10786,6 @@ func FunctionBase_IsResource(construct constructs.IConstruct) *bool {
 // import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources';
 // myFunction.addEventSource(new SqsEventSource(myQueue));
 // ```
-// Experimental.
 func (f *jsiiProxy_FunctionBase) AddEventSource(source IEventSource) {
 	_jsii_.InvokeVoid(
 		f,
@@ -11282,7 +10795,6 @@ func (f *jsiiProxy_FunctionBase) AddEventSource(source IEventSource) {
 }
 
 // Adds an event source that maps to this AWS Lambda function.
-// Experimental.
 func (f *jsiiProxy_FunctionBase) AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping {
 	var returns EventSourceMapping
 
@@ -11299,7 +10811,6 @@ func (f *jsiiProxy_FunctionBase) AddEventSourceMapping(id *string, options *Even
 // Adds a permission to the Lambda resource policy.
 // See: Permission for details.
 //
-// Experimental.
 func (f *jsiiProxy_FunctionBase) AddPermission(id *string, permission *Permission) {
 	_jsii_.InvokeVoid(
 		f,
@@ -11309,7 +10820,6 @@ func (f *jsiiProxy_FunctionBase) AddPermission(id *string, permission *Permissio
 }
 
 // Adds a statement to the IAM role assumed by the instance.
-// Experimental.
 func (f *jsiiProxy_FunctionBase) AddToRolePolicy(statement awsiam.PolicyStatement) {
 	_jsii_.InvokeVoid(
 		f,
@@ -11327,7 +10837,6 @@ func (f *jsiiProxy_FunctionBase) AddToRolePolicy(statement awsiam.PolicyStatemen
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (f *jsiiProxy_FunctionBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		f,
@@ -11337,7 +10846,6 @@ func (f *jsiiProxy_FunctionBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 }
 
 // Configures options for asynchronous invocation.
-// Experimental.
 func (f *jsiiProxy_FunctionBase) ConfigureAsyncInvoke(options *EventInvokeConfigOptions) {
 	_jsii_.InvokeVoid(
 		f,
@@ -11346,7 +10854,6 @@ func (f *jsiiProxy_FunctionBase) ConfigureAsyncInvoke(options *EventInvokeConfig
 	)
 }
 
-// Experimental.
 func (f *jsiiProxy_FunctionBase) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -11366,7 +10873,6 @@ func (f *jsiiProxy_FunctionBase) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (f *jsiiProxy_FunctionBase) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -11385,7 +10891,6 @@ func (f *jsiiProxy_FunctionBase) GetResourceArnAttribute(arnAttr *string, arnCom
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (f *jsiiProxy_FunctionBase) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -11400,7 +10905,6 @@ func (f *jsiiProxy_FunctionBase) GetResourceNameAttribute(nameAttr *string) *str
 }
 
 // Grant the given identity permissions to invoke this Lambda.
-// Experimental.
 func (f *jsiiProxy_FunctionBase) GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -11415,7 +10919,6 @@ func (f *jsiiProxy_FunctionBase) GrantInvoke(grantee awsiam.IGrantable) awsiam.G
 }
 
 // Return the given named metric for this Function.
-// Experimental.
 func (f *jsiiProxy_FunctionBase) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11432,7 +10935,6 @@ func (f *jsiiProxy_FunctionBase) Metric(metricName *string, props *awscloudwatch
 // How long execution of this Lambda takes.
 //
 // Average over 5 minutes
-// Experimental.
 func (f *jsiiProxy_FunctionBase) MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11449,7 +10951,6 @@ func (f *jsiiProxy_FunctionBase) MetricDuration(props *awscloudwatch.MetricOptio
 // How many invocations of this Lambda fail.
 //
 // Sum over 5 minutes
-// Experimental.
 func (f *jsiiProxy_FunctionBase) MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11466,7 +10967,6 @@ func (f *jsiiProxy_FunctionBase) MetricErrors(props *awscloudwatch.MetricOptions
 // How often this Lambda is invoked.
 //
 // Sum over 5 minutes
-// Experimental.
 func (f *jsiiProxy_FunctionBase) MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11483,7 +10983,6 @@ func (f *jsiiProxy_FunctionBase) MetricInvocations(props *awscloudwatch.MetricOp
 // How often this Lambda is throttled.
 //
 // Sum over 5 minutes
-// Experimental.
 func (f *jsiiProxy_FunctionBase) MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11498,7 +10997,6 @@ func (f *jsiiProxy_FunctionBase) MetricThrottles(props *awscloudwatch.MetricOpti
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (f *jsiiProxy_FunctionBase) ToString() *string {
 	var returns *string
 
@@ -11516,134 +11014,106 @@ func (f *jsiiProxy_FunctionBase) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type FunctionOptions struct {
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours
-	// Experimental.
 	MaxEventAge awscdk.Duration `json:"maxEventAge"`
 	// The destination for failed invocations.
-	// Experimental.
 	OnFailure IDestination `json:"onFailure"`
 	// The destination for successful invocations.
-	// Experimental.
 	OnSuccess IDestination `json:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 	// Whether to allow the Lambda to send all network traffic.
 	//
 	// If set to false, you must individually add traffic rules to allow the
 	// Lambda to connect to network targets.
-	// Experimental.
 	AllowAllOutbound *bool `json:"allowAllOutbound"`
 	// Lambda Functions in a public subnet can NOT access the internet.
 	//
 	// Use this property to acknowledge this limitation and still place the function in a public subnet.
 	// See: https://stackoverflow.com/questions/52992085/why-cant-an-aws-lambda-function-inside-a-public-subnet-in-a-vpc-connect-to-the/52994841#52994841
 	//
-	// Experimental.
 	AllowPublicSubnet *bool `json:"allowPublicSubnet"`
 	// The system architectures compatible with this lambda function.
-	// Experimental.
 	Architecture Architecture `json:"architecture"`
 	// Code signing config associated with this function.
-	// Experimental.
 	CodeSigningConfig ICodeSigningConfig `json:"codeSigningConfig"`
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
-	// Experimental.
 	CurrentVersionOptions *VersionOptions `json:"currentVersionOptions"`
 	// The SQS queue to use if DLQ is enabled.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
 	// Enabled DLQ.
 	//
 	// If `deadLetterQueue` is undefined,
 	// an SQS queue with default options will be defined for your Function.
-	// Experimental.
 	DeadLetterQueueEnabled *bool `json:"deadLetterQueueEnabled"`
 	// A description of the function.
-	// Experimental.
 	Description *string `json:"description"`
 	// Key-value pairs that Lambda caches and makes available for your Lambda functions.
 	//
 	// Use environment variables to apply configuration changes, such
 	// as test and production environment configurations, without changing your
 	// Lambda function source code.
-	// Experimental.
 	Environment *map[string]*string `json:"environment"`
 	// The AWS KMS key that's used to encrypt your function's environment variables.
-	// Experimental.
 	EnvironmentEncryption awskms.IKey `json:"environmentEncryption"`
 	// Event sources for this function.
 	//
 	// You can also add event sources using `addEventSource`.
-	// Experimental.
 	Events *[]IEventSource `json:"events"`
 	// The filesystem configuration for the lambda function.
-	// Experimental.
 	Filesystem FileSystem `json:"filesystem"`
 	// A name for the function.
-	// Experimental.
 	FunctionName *string `json:"functionName"`
 	// Initial policy statements to add to the created Lambda Role.
 	//
 	// You can call `addToRolePolicy` to the created lambda to add statements post creation.
-	// Experimental.
 	InitialPolicy *[]awsiam.PolicyStatement `json:"initialPolicy"`
 	// Specify the version of CloudWatch Lambda insights to use for monitoring.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights-Getting-Started-docker.html
 	//
-	// Experimental.
 	InsightsVersion LambdaInsightsVersion `json:"insightsVersion"`
 	// A list of layers to add to the function's execution environment.
 	//
 	// You can configure your Lambda function to pull in
 	// additional code during initialization in the form of layers. Layers are packages of libraries or other dependencies
 	// that can be used by multiple functions.
-	// Experimental.
 	Layers *[]ILayerVersion `json:"layers"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `INFINITE`.
-	// Experimental.
 	LogRetention awslogs.RetentionDays `json:"logRetention"`
 	// When log retention is specified, a custom resource attempts to create the CloudWatch log group.
 	//
 	// These options control the retry policy when interacting with CloudWatch APIs.
-	// Experimental.
 	LogRetentionRetryOptions *LogRetentionRetryOptions `json:"logRetentionRetryOptions"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	// Experimental.
 	LogRetentionRole awsiam.IRole `json:"logRetentionRole"`
 	// The amount of memory, in MB, that is allocated to your Lambda function.
 	//
 	// Lambda uses this value to proportionally allocate the amount of CPU
 	// power. For more information, see Resource Model in the AWS Lambda
 	// Developer Guide.
-	// Experimental.
 	MemorySize *float64 `json:"memorySize"`
 	// Enable profiling.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
-	// Experimental.
 	Profiling *bool `json:"profiling"`
 	// Profiling Group.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
-	// Experimental.
 	ProfilingGroup awscodeguruprofiler.IProfilingGroup `json:"profilingGroup"`
 	// The maximum of concurrent executions you want to reserve for the function.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html
 	//
-	// Experimental.
 	ReservedConcurrentExecutions *float64 `json:"reservedConcurrentExecutions"`
 	// Lambda execution role.
 	//
@@ -11656,165 +11126,131 @@ type FunctionOptions struct {
 	//
 	// The relevant managed policies are "service-role/AWSLambdaBasicExecutionRole" and
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
-	// Experimental.
 	Role awsiam.IRole `json:"role"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 	// The function execution time (in seconds) after which Lambda terminates the function.
 	//
 	// Because the execution time affects cost, set this value
 	// based on the function's expected execution time.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
 	// Enable AWS X-Ray Tracing for Lambda Function.
-	// Experimental.
 	Tracing Tracing `json:"tracing"`
 	// VPC network to place Lambda network interfaces.
 	//
 	// Specify this if the Lambda function needs to access resources in a VPC.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// Where to place the network interfaces within the VPC.
 	//
 	// Only used if 'vpc' is supplied. Note: internet access for Lambdas
 	// requires a NAT gateway, so picking Public subnets is not allowed.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type FunctionProps struct {
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours
-	// Experimental.
 	MaxEventAge awscdk.Duration `json:"maxEventAge"`
 	// The destination for failed invocations.
-	// Experimental.
 	OnFailure IDestination `json:"onFailure"`
 	// The destination for successful invocations.
-	// Experimental.
 	OnSuccess IDestination `json:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 	// Whether to allow the Lambda to send all network traffic.
 	//
 	// If set to false, you must individually add traffic rules to allow the
 	// Lambda to connect to network targets.
-	// Experimental.
 	AllowAllOutbound *bool `json:"allowAllOutbound"`
 	// Lambda Functions in a public subnet can NOT access the internet.
 	//
 	// Use this property to acknowledge this limitation and still place the function in a public subnet.
 	// See: https://stackoverflow.com/questions/52992085/why-cant-an-aws-lambda-function-inside-a-public-subnet-in-a-vpc-connect-to-the/52994841#52994841
 	//
-	// Experimental.
 	AllowPublicSubnet *bool `json:"allowPublicSubnet"`
 	// The system architectures compatible with this lambda function.
-	// Experimental.
 	Architecture Architecture `json:"architecture"`
 	// Code signing config associated with this function.
-	// Experimental.
 	CodeSigningConfig ICodeSigningConfig `json:"codeSigningConfig"`
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
-	// Experimental.
 	CurrentVersionOptions *VersionOptions `json:"currentVersionOptions"`
 	// The SQS queue to use if DLQ is enabled.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
 	// Enabled DLQ.
 	//
 	// If `deadLetterQueue` is undefined,
 	// an SQS queue with default options will be defined for your Function.
-	// Experimental.
 	DeadLetterQueueEnabled *bool `json:"deadLetterQueueEnabled"`
 	// A description of the function.
-	// Experimental.
 	Description *string `json:"description"`
 	// Key-value pairs that Lambda caches and makes available for your Lambda functions.
 	//
 	// Use environment variables to apply configuration changes, such
 	// as test and production environment configurations, without changing your
 	// Lambda function source code.
-	// Experimental.
 	Environment *map[string]*string `json:"environment"`
 	// The AWS KMS key that's used to encrypt your function's environment variables.
-	// Experimental.
 	EnvironmentEncryption awskms.IKey `json:"environmentEncryption"`
 	// Event sources for this function.
 	//
 	// You can also add event sources using `addEventSource`.
-	// Experimental.
 	Events *[]IEventSource `json:"events"`
 	// The filesystem configuration for the lambda function.
-	// Experimental.
 	Filesystem FileSystem `json:"filesystem"`
 	// A name for the function.
-	// Experimental.
 	FunctionName *string `json:"functionName"`
 	// Initial policy statements to add to the created Lambda Role.
 	//
 	// You can call `addToRolePolicy` to the created lambda to add statements post creation.
-	// Experimental.
 	InitialPolicy *[]awsiam.PolicyStatement `json:"initialPolicy"`
 	// Specify the version of CloudWatch Lambda insights to use for monitoring.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights-Getting-Started-docker.html
 	//
-	// Experimental.
 	InsightsVersion LambdaInsightsVersion `json:"insightsVersion"`
 	// A list of layers to add to the function's execution environment.
 	//
 	// You can configure your Lambda function to pull in
 	// additional code during initialization in the form of layers. Layers are packages of libraries or other dependencies
 	// that can be used by multiple functions.
-	// Experimental.
 	Layers *[]ILayerVersion `json:"layers"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `INFINITE`.
-	// Experimental.
 	LogRetention awslogs.RetentionDays `json:"logRetention"`
 	// When log retention is specified, a custom resource attempts to create the CloudWatch log group.
 	//
 	// These options control the retry policy when interacting with CloudWatch APIs.
-	// Experimental.
 	LogRetentionRetryOptions *LogRetentionRetryOptions `json:"logRetentionRetryOptions"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	// Experimental.
 	LogRetentionRole awsiam.IRole `json:"logRetentionRole"`
 	// The amount of memory, in MB, that is allocated to your Lambda function.
 	//
 	// Lambda uses this value to proportionally allocate the amount of CPU
 	// power. For more information, see Resource Model in the AWS Lambda
 	// Developer Guide.
-	// Experimental.
 	MemorySize *float64 `json:"memorySize"`
 	// Enable profiling.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
-	// Experimental.
 	Profiling *bool `json:"profiling"`
 	// Profiling Group.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
-	// Experimental.
 	ProfilingGroup awscodeguruprofiler.IProfilingGroup `json:"profilingGroup"`
 	// The maximum of concurrent executions you want to reserve for the function.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html
 	//
-	// Experimental.
 	ReservedConcurrentExecutions *float64 `json:"reservedConcurrentExecutions"`
 	// Lambda execution role.
 	//
@@ -11827,39 +11263,32 @@ type FunctionProps struct {
 	//
 	// The relevant managed policies are "service-role/AWSLambdaBasicExecutionRole" and
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
-	// Experimental.
 	Role awsiam.IRole `json:"role"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 	// The function execution time (in seconds) after which Lambda terminates the function.
 	//
 	// Because the execution time affects cost, set this value
 	// based on the function's expected execution time.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
 	// Enable AWS X-Ray Tracing for Lambda Function.
-	// Experimental.
 	Tracing Tracing `json:"tracing"`
 	// VPC network to place Lambda network interfaces.
 	//
 	// Specify this if the Lambda function needs to access resources in a VPC.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// Where to place the network interfaces within the VPC.
 	//
 	// Only used if 'vpc' is supplied. Note: internet access for Lambdas
 	// requires a NAT gateway, so picking Public subnets is not allowed.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 	// The source code of your Lambda function.
 	//
 	// You can point to a file in an
 	// Amazon Simple Storage Service (Amazon S3) bucket or specify your source
 	// code as inline text.
-	// Experimental.
 	Code Code `json:"code"`
 	// The name of the method within your code that Lambda calls to execute your function.
 	//
@@ -11872,7 +11301,6 @@ type FunctionProps struct {
 	// NOTE: If you specify your source code as inline text by specifying the
 	// ZipFile property within the Code property, specify index.function_name as
 	// the handler.
-	// Experimental.
 	Handler *string `json:"handler"`
 	// The runtime environment for the Lambda function that you are uploading.
 	//
@@ -11880,12 +11308,10 @@ type FunctionProps struct {
 	// Guide.
 	//
 	// Use `Runtime.FROM_IMAGE` when when defining a function from a Docker image.
-	// Experimental.
 	Runtime Runtime `json:"runtime"`
 }
 
 // Lambda function handler.
-// Experimental.
 type Handler interface {
 }
 
@@ -11905,14 +11331,11 @@ func Handler_FROM_IMAGE() *string {
 	return returns
 }
 
-// Experimental.
 type IAlias interface {
 	IFunction
 	// Name of this alias.
-	// Experimental.
 	AliasName() *string
 	// The underlying Lambda function version.
-	// Experimental.
 	Version() IVersion
 }
 
@@ -11942,14 +11365,11 @@ func (j *jsiiProxy_IAlias) Version() IVersion {
 }
 
 // A Code Signing Config.
-// Experimental.
 type ICodeSigningConfig interface {
 	awscdk.IResource
 	// The ARN of Code Signing Config.
-	// Experimental.
 	CodeSigningConfigArn() *string
 	// The id of Code Signing Config.
-	// Experimental.
 	CodeSigningConfigId() *string
 }
 
@@ -11979,10 +11399,8 @@ func (j *jsiiProxy_ICodeSigningConfig) CodeSigningConfigId() *string {
 }
 
 // A Lambda destination.
-// Experimental.
 type IDestination interface {
 	// Binds this destination to the Lambda function.
-	// Experimental.
 	Bind(scope constructs.Construct, fn IFunction, options *DestinationOptions) *DestinationConfig
 }
 
@@ -12005,10 +11423,8 @@ func (i *jsiiProxy_IDestination) Bind(scope constructs.Construct, fn IFunction, 
 }
 
 // An abstract class which represents an AWS Lambda event source.
-// Experimental.
 type IEventSource interface {
 	// Called by `lambda.addEventSource` to allow the event source to bind to this function.
-	// Experimental.
 	Bind(target IFunction)
 }
 
@@ -12026,10 +11442,8 @@ func (i *jsiiProxy_IEventSource) Bind(target IFunction) {
 }
 
 // A DLQ for an event source.
-// Experimental.
 type IEventSourceDlq interface {
 	// Returns the DLQ destination config of the DLQ.
-	// Experimental.
 	Bind(target IEventSourceMapping, targetHandler IFunction) *DlqDestinationConfig
 }
 
@@ -12054,11 +11468,9 @@ func (i *jsiiProxy_IEventSourceDlq) Bind(target IEventSourceMapping, targetHandl
 // Represents an event source mapping for a lambda function.
 // See: https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html
 //
-// Experimental.
 type IEventSourceMapping interface {
 	awscdk.IResource
 	// The identifier for this EventSourceMapping.
-	// Experimental.
 	EventSourceMappingId() *string
 }
 
@@ -12077,7 +11489,6 @@ func (j *jsiiProxy_IEventSourceMapping) EventSourceMappingId() *string {
 	return returns
 }
 
-// Experimental.
 type IFunction interface {
 	awsec2.IConnectable
 	awsiam.IGrantable
@@ -12091,58 +11502,44 @@ type IFunction interface {
 	// import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources';
 	// myFunction.addEventSource(new SqsEventSource(myQueue));
 	// ```
-	// Experimental.
 	AddEventSource(source IEventSource)
 	// Adds an event source that maps to this AWS Lambda function.
-	// Experimental.
 	AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping
 	// Adds a permission to the Lambda resource policy.
 	// See: Permission for details.
 	//
-	// Experimental.
 	AddPermission(id *string, permission *Permission)
 	// Adds a statement to the IAM role assumed by the instance.
-	// Experimental.
 	AddToRolePolicy(statement awsiam.PolicyStatement)
 	// Configures options for asynchronous invocation.
-	// Experimental.
 	ConfigureAsyncInvoke(options *EventInvokeConfigOptions)
 	// Grant the given identity permissions to invoke this Lambda.
-	// Experimental.
 	GrantInvoke(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Lambda Return the given named metric for this Function.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the Duration of this Lambda How long execution of this Lambda takes.
 	//
 	// Average over 5 minutes
-	// Experimental.
 	MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// How many invocations of this Lambda fail.
 	//
 	// Sum over 5 minutes
-	// Experimental.
 	MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of invocations of this Lambda How often this Lambda is invoked.
 	//
 	// Sum over 5 minutes
-	// Experimental.
 	MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of throttled invocations of this Lambda How often this Lambda is throttled.
 	//
 	// Sum over 5 minutes
-	// Experimental.
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The ARN of the function.
-	// Experimental.
 	FunctionArn() *string
 	// The name of the function.
-	// Experimental.
 	FunctionName() *string
 	// Whether or not this Lambda function was bound to a VPC.
 	//
 	// If this is is `false`, trying to access the `connections` object will fail.
-	// Experimental.
 	IsBoundToVpc() *bool
 	// The `$LATEST` version of this function.
 	//
@@ -12152,13 +11549,10 @@ type IFunction interface {
 	//
 	// To obtain a reference to an explicit version which references the current
 	// function configuration, use `lambdaFunction.currentVersion` instead.
-	// Experimental.
 	LatestVersion() IVersion
 	// The construct node where permissions are attached.
-	// Experimental.
 	PermissionsNode() constructs.Node
 	// The IAM role associated with this function.
-	// Experimental.
 	Role() awsiam.IRole
 }
 
@@ -12402,7 +11796,6 @@ func (j *jsiiProxy_IFunction) Stack() awscdk.Stack {
 	return returns
 }
 
-// Experimental.
 type ILayerVersion interface {
 	awscdk.IResource
 	// Add permission for this layer version to specific entities.
@@ -12413,13 +11806,10 @@ type ILayerVersion interface {
 	// Lambda function using the layer (for example, a CloudFormation changeset
 	// execution role) also needs to have the ``lambda:GetLayerVersion``
 	// permission on the layer version.
-	// Experimental.
 	AddPermission(id *string, permission *LayerVersionPermission)
 	// The runtimes compatible with this Layer.
-	// Experimental.
 	CompatibleRuntimes() *[]Runtime
 	// The ARN of the Lambda Layer version that this Layer defines.
-	// Experimental.
 	LayerVersionArn() *string
 }
 
@@ -12457,18 +11847,15 @@ func (j *jsiiProxy_ILayerVersion) LayerVersionArn() *string {
 }
 
 // Interface for scalable attributes.
-// Experimental.
 type IScalableFunctionAttribute interface {
 	constructs.IConstruct
 	// Scale out or in based on schedule.
-	// Experimental.
 	ScaleOnSchedule(id *string, actions *awsapplicationautoscaling.ScalingSchedule)
 	// Scale out or in to keep utilization at a given level.
 	//
 	// The utilization is tracked by the
 	// LambdaProvisionedConcurrencyUtilization metric, emitted by lambda. See:
 	// https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics.html#monitoring-metrics-concurrency
-	// Experimental.
 	ScaleOnUtilization(options *UtilizationScalingOptions)
 }
 
@@ -12493,20 +11880,15 @@ func (i *jsiiProxy_IScalableFunctionAttribute) ScaleOnUtilization(options *Utili
 	)
 }
 
-// Experimental.
 type IVersion interface {
 	IFunction
 	// Defines an alias for this version.
-	// Experimental.
 	AddAlias(aliasName *string, options *AliasOptions) Alias
 	// The ARN of the version for Lambda@Edge.
-	// Experimental.
 	EdgeArn() *string
 	// The underlying AWS Lambda function.
-	// Experimental.
 	Lambda() IFunction
 	// The most recently deployed version of this function.
-	// Experimental.
 	Version() *string
 }
 
@@ -12562,7 +11944,6 @@ func (j *jsiiProxy_IVersion) Version() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type InlineCode interface {
 	Code
 	IsInline() *bool
@@ -12586,7 +11967,6 @@ func (j *jsiiProxy_InlineCode) IsInline() *bool {
 }
 
 
-// Experimental.
 func NewInlineCode(code *string) InlineCode {
 	_init_.Initialize()
 
@@ -12601,7 +11981,6 @@ func NewInlineCode(code *string) InlineCode {
 	return &j
 }
 
-// Experimental.
 func NewInlineCode_Override(i InlineCode, code *string) {
 	_init_.Initialize()
 
@@ -12613,7 +11992,6 @@ func NewInlineCode_Override(i InlineCode, code *string) {
 }
 
 // Loads the function code from a local disk path.
-// Experimental.
 func InlineCode_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
@@ -12630,7 +12008,6 @@ func InlineCode_FromAsset(path *string, options *awss3assets.AssetOptions) Asset
 }
 
 // Create an ECR image from the specified asset and bind it as the Lambda code.
-// Experimental.
 func InlineCode_FromAssetImage(directory *string, props *AssetImageCodeProps) AssetImageCode {
 	_init_.Initialize()
 
@@ -12647,7 +12024,6 @@ func InlineCode_FromAssetImage(directory *string, props *AssetImageCodeProps) As
 }
 
 // Lambda handler code as an S3 object.
-// Experimental.
 func InlineCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
@@ -12666,7 +12042,6 @@ func InlineCode_FromBucket(bucket awss3.IBucket, key *string, objectVersion *str
 // Creates a new Lambda source defined using CloudFormation parameters.
 //
 // Returns: a new instance of `CfnParametersCode`
-// Experimental.
 func InlineCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 	_init_.Initialize()
 
@@ -12686,7 +12061,6 @@ func InlineCode_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCo
 //
 // By default, the asset is expected to be located at `/asset` in the
 // image.
-// Experimental.
 func InlineCode_FromDockerBuild(path *string, options *DockerBuildAssetOptions) AssetCode {
 	_init_.Initialize()
 
@@ -12703,7 +12077,6 @@ func InlineCode_FromDockerBuild(path *string, options *DockerBuildAssetOptions) 
 }
 
 // Use an existing ECR image as the Lambda code.
-// Experimental.
 func InlineCode_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeProps) EcrImageCode {
 	_init_.Initialize()
 
@@ -12722,7 +12095,6 @@ func InlineCode_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeP
 // Inline code for Lambda handler.
 //
 // Returns: `LambdaInlineCode` with inline code.
-// Experimental.
 func InlineCode_FromInline(code *string) InlineCode {
 	_init_.Initialize()
 
@@ -12739,7 +12111,6 @@ func InlineCode_FromInline(code *string) InlineCode {
 }
 
 // Called when the lambda or layer is initialized to allow this object to bind to the stack, add resources and have fun.
-// Experimental.
 func (i *jsiiProxy_InlineCode) Bind(_scope constructs.Construct) *CodeConfig {
 	var returns *CodeConfig
 
@@ -12757,7 +12128,6 @@ func (i *jsiiProxy_InlineCode) Bind(_scope constructs.Construct) *CodeConfig {
 //
 // Specifically it's required to allow assets to add
 // metadata for tooling like SAM CLI to be able to find their origins.
-// Experimental.
 func (i *jsiiProxy_InlineCode) BindToResource(_resource awscdk.CfnResource, _options *ResourceBindOptions) {
 	_jsii_.InvokeVoid(
 		i,
@@ -12770,7 +12140,6 @@ func (i *jsiiProxy_InlineCode) BindToResource(_resource awscdk.CfnResource, _opt
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LambdaInsightsVersion interface {
 	LayerVersionArn() *string
 }
@@ -12791,7 +12160,6 @@ func (j *jsiiProxy_LambdaInsightsVersion) LayerVersionArn() *string {
 }
 
 
-// Experimental.
 func NewLambdaInsightsVersion_Override(l LambdaInsightsVersion) {
 	_init_.Initialize()
 
@@ -12808,7 +12176,6 @@ func NewLambdaInsightsVersion_Override(l LambdaInsightsVersion) {
 // with same region as your function
 // See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights-extension-versions.html
 //
-// Experimental.
 func LambdaInsightsVersion_FromInsightVersionArn(arn *string) LambdaInsightsVersion {
 	_init_.Initialize()
 
@@ -12870,16 +12237,12 @@ func LambdaInsightsVersion_VERSION_1_0_98_0() LambdaInsightsVersion {
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type LambdaRuntimeProps struct {
 	// The Docker image name to be used for bundling in this runtime.
-	// Experimental.
 	BundlingDockerImage *string `json:"bundlingDockerImage"`
 	// Whether this runtime is integrated with and supported for profiling using Amazon CodeGuru Profiler.
-	// Experimental.
 	SupportsCodeGuruProfiling *bool `json:"supportsCodeGuruProfiling"`
 	// Whether the ``ZipFile`` (aka inline code) property can be used with this runtime.
-	// Experimental.
 	SupportsInlineCode *bool `json:"supportsInlineCode"`
 }
 
@@ -12887,7 +12250,6 @@ type LambdaRuntimeProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LayerVersion interface {
 	awscdk.Resource
 	ILayerVersion
@@ -12972,7 +12334,6 @@ func (j *jsiiProxy_LayerVersion) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewLayerVersion(scope constructs.Construct, id *string, props *LayerVersionProps) LayerVersion {
 	_init_.Initialize()
 
@@ -12987,7 +12348,6 @@ func NewLayerVersion(scope constructs.Construct, id *string, props *LayerVersion
 	return &j
 }
 
-// Experimental.
 func NewLayerVersion_Override(l LayerVersion, scope constructs.Construct, id *string, props *LayerVersionProps) {
 	_init_.Initialize()
 
@@ -13001,7 +12361,6 @@ func NewLayerVersion_Override(l LayerVersion, scope constructs.Construct, id *st
 // Imports a layer version by ARN.
 //
 // Assumes it is compatible with all Lambda runtimes.
-// Experimental.
 func LayerVersion_FromLayerVersionArn(scope constructs.Construct, id *string, layerVersionArn *string) ILayerVersion {
 	_init_.Initialize()
 
@@ -13018,7 +12377,6 @@ func LayerVersion_FromLayerVersionArn(scope constructs.Construct, id *string, la
 }
 
 // Imports a Layer that has been defined externally.
-// Experimental.
 func LayerVersion_FromLayerVersionAttributes(scope constructs.Construct, id *string, attrs *LayerVersionAttributes) ILayerVersion {
 	_init_.Initialize()
 
@@ -13054,7 +12412,6 @@ func LayerVersion_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func LayerVersion_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -13078,7 +12435,6 @@ func LayerVersion_IsResource(construct constructs.IConstruct) *bool {
 // Lambda function using the layer (for example, a CloudFormation changeset
 // execution role) also needs to have the ``lambda:GetLayerVersion``
 // permission on the layer version.
-// Experimental.
 func (l *jsiiProxy_LayerVersion) AddPermission(id *string, permission *LayerVersionPermission) {
 	_jsii_.InvokeVoid(
 		l,
@@ -13096,7 +12452,6 @@ func (l *jsiiProxy_LayerVersion) AddPermission(id *string, permission *LayerVers
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (l *jsiiProxy_LayerVersion) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		l,
@@ -13105,7 +12460,6 @@ func (l *jsiiProxy_LayerVersion) ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	)
 }
 
-// Experimental.
 func (l *jsiiProxy_LayerVersion) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -13125,7 +12479,6 @@ func (l *jsiiProxy_LayerVersion) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (l *jsiiProxy_LayerVersion) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -13144,7 +12497,6 @@ func (l *jsiiProxy_LayerVersion) GetResourceArnAttribute(arnAttr *string, arnCom
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (l *jsiiProxy_LayerVersion) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -13159,7 +12511,6 @@ func (l *jsiiProxy_LayerVersion) GetResourceNameAttribute(nameAttr *string) *str
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (l *jsiiProxy_LayerVersion) ToString() *string {
 	var returns *string
 
@@ -13177,13 +12528,10 @@ func (l *jsiiProxy_LayerVersion) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LayerVersionAttributes struct {
 	// The list of compatible runtimes with this Layer.
-	// Experimental.
 	CompatibleRuntimes *[]Runtime `json:"compatibleRuntimes"`
 	// The ARN of the LayerVersion.
-	// Experimental.
 	LayerVersionArn *string `json:"layerVersionArn"`
 }
 
@@ -13191,19 +12539,14 @@ type LayerVersionAttributes struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LayerVersionOptions struct {
 	// The description the this Lambda Layer.
-	// Experimental.
 	Description *string `json:"description"`
 	// The name of the layer.
-	// Experimental.
 	LayerVersionName *string `json:"layerVersionName"`
 	// The SPDX licence identifier or URL to the license file for this layer.
-	// Experimental.
 	License *string `json:"license"`
 	// Whether to retain this version of the layer when a new version is added or when the stack is deleted.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 }
 
@@ -13211,47 +12554,36 @@ type LayerVersionOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LayerVersionPermission struct {
 	// The AWS Account id of the account that is authorized to use a Lambda Layer Version.
 	//
 	// The wild-card ``'*'`` can be
 	// used to grant access to "any" account (or any account in an organization when ``organizationId`` is specified).
-	// Experimental.
 	AccountId *string `json:"accountId"`
 	// The ID of the AWS Organization to which the grant is restricted.
 	//
 	// Can only be specified if ``accountId`` is ``'*'``
-	// Experimental.
 	OrganizationId *string `json:"organizationId"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type LayerVersionProps struct {
 	// The description the this Lambda Layer.
-	// Experimental.
 	Description *string `json:"description"`
 	// The name of the layer.
-	// Experimental.
 	LayerVersionName *string `json:"layerVersionName"`
 	// The SPDX licence identifier or URL to the license file for this layer.
-	// Experimental.
 	License *string `json:"license"`
 	// Whether to retain this version of the layer when a new version is added or when the stack is deleted.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// The content of this Layer.
 	//
 	// Using `Code.fromInline` is not supported.
-	// Experimental.
 	Code Code `json:"code"`
 	// The system architectures compatible with this layer.
-	// Experimental.
 	CompatibleArchitectures *[]Architecture `json:"compatibleArchitectures"`
 	// The runtimes compatible with this Layer.
-	// Experimental.
 	CompatibleRuntimes *[]Runtime `json:"compatibleRuntimes"`
 }
 
@@ -13259,13 +12591,10 @@ type LayerVersionProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LogRetentionRetryOptions struct {
 	// The base duration to use in the exponential backoff for operation retries.
-	// Experimental.
 	Base awscdk.Duration `json:"base"`
 	// The maximum amount of retries.
-	// Experimental.
 	MaxRetries *float64 `json:"maxRetries"`
 }
 
@@ -13273,7 +12602,6 @@ type LogRetentionRetryOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Permission struct {
 	// The Lambda actions that you want to allow in this statement.
 	//
@@ -13282,10 +12610,8 @@ type Permission struct {
 	// a wildcard (``lambda:*``) to grant permission to all Lambda actions. For a
 	// list of actions, see Actions and Condition Context Keys for AWS Lambda in
 	// the IAM User Guide.
-	// Experimental.
 	Action *string `json:"action"`
 	// A unique token that must be supplied by the principal invoking the function.
-	// Experimental.
 	EventSourceToken *string `json:"eventSourceToken"`
 	// The entity for which you are granting permission to invoke the Lambda function.
 	//
@@ -13296,7 +12622,6 @@ type Permission struct {
 	// Lambda by invoking your function.
 	//
 	// The principal can be either an AccountPrincipal or a ServicePrincipal.
-	// Experimental.
 	Principal awsiam.IPrincipal `json:"principal"`
 	// The scope to which the permission constructs be attached.
 	//
@@ -13304,7 +12629,6 @@ type Permission struct {
 	// the Lambda function construct itself, but this would need to be different
 	// in cases such as cross-stack references where the Permissions would need
 	// to sit closer to the consumer of this permission (i.e., the caller).
-	// Experimental.
 	Scope constructs.Construct `json:"scope"`
 	// The AWS account ID (without hyphens) of the source owner.
 	//
@@ -13312,7 +12636,6 @@ type Permission struct {
 	// you specify an S3 bucket in the SourceArn property, this value is the
 	// bucket owner's account ID. You can use this property to ensure that all
 	// source principals are owned by a specific account.
-	// Experimental.
 	SourceAccount *string `json:"sourceAccount"`
 	// The ARN of a resource that is invoking your function.
 	//
@@ -13322,11 +12645,9 @@ type Permission struct {
 	// ensures that events generated only from the specified bucket, not just
 	// any bucket from any AWS account that creates a mapping to your function,
 	// can invoke the function.
-	// Experimental.
 	SourceArn *string `json:"sourceArn"`
 }
 
-// Experimental.
 type QualifiedFunctionBase interface {
 	FunctionBase
 	CanCreatePermissions() *bool
@@ -13518,7 +12839,6 @@ func (j *jsiiProxy_QualifiedFunctionBase) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewQualifiedFunctionBase_Override(q QualifiedFunctionBase, scope constructs.Construct, id *string, props *awscdk.ResourceProps) {
 	_init_.Initialize()
 
@@ -13549,7 +12869,6 @@ func QualifiedFunctionBase_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func QualifiedFunctionBase_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -13574,7 +12893,6 @@ func QualifiedFunctionBase_IsResource(construct constructs.IConstruct) *bool {
 // import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources';
 // myFunction.addEventSource(new SqsEventSource(myQueue));
 // ```
-// Experimental.
 func (q *jsiiProxy_QualifiedFunctionBase) AddEventSource(source IEventSource) {
 	_jsii_.InvokeVoid(
 		q,
@@ -13584,7 +12902,6 @@ func (q *jsiiProxy_QualifiedFunctionBase) AddEventSource(source IEventSource) {
 }
 
 // Adds an event source that maps to this AWS Lambda function.
-// Experimental.
 func (q *jsiiProxy_QualifiedFunctionBase) AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping {
 	var returns EventSourceMapping
 
@@ -13601,7 +12918,6 @@ func (q *jsiiProxy_QualifiedFunctionBase) AddEventSourceMapping(id *string, opti
 // Adds a permission to the Lambda resource policy.
 // See: Permission for details.
 //
-// Experimental.
 func (q *jsiiProxy_QualifiedFunctionBase) AddPermission(id *string, permission *Permission) {
 	_jsii_.InvokeVoid(
 		q,
@@ -13611,7 +12927,6 @@ func (q *jsiiProxy_QualifiedFunctionBase) AddPermission(id *string, permission *
 }
 
 // Adds a statement to the IAM role assumed by the instance.
-// Experimental.
 func (q *jsiiProxy_QualifiedFunctionBase) AddToRolePolicy(statement awsiam.PolicyStatement) {
 	_jsii_.InvokeVoid(
 		q,
@@ -13629,7 +12944,6 @@ func (q *jsiiProxy_QualifiedFunctionBase) AddToRolePolicy(statement awsiam.Polic
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (q *jsiiProxy_QualifiedFunctionBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		q,
@@ -13639,7 +12953,6 @@ func (q *jsiiProxy_QualifiedFunctionBase) ApplyRemovalPolicy(policy awscdk.Remov
 }
 
 // Configures options for asynchronous invocation.
-// Experimental.
 func (q *jsiiProxy_QualifiedFunctionBase) ConfigureAsyncInvoke(options *EventInvokeConfigOptions) {
 	_jsii_.InvokeVoid(
 		q,
@@ -13648,7 +12961,6 @@ func (q *jsiiProxy_QualifiedFunctionBase) ConfigureAsyncInvoke(options *EventInv
 	)
 }
 
-// Experimental.
 func (q *jsiiProxy_QualifiedFunctionBase) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -13668,7 +12980,6 @@ func (q *jsiiProxy_QualifiedFunctionBase) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (q *jsiiProxy_QualifiedFunctionBase) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -13687,7 +12998,6 @@ func (q *jsiiProxy_QualifiedFunctionBase) GetResourceArnAttribute(arnAttr *strin
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (q *jsiiProxy_QualifiedFunctionBase) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -13702,7 +13012,6 @@ func (q *jsiiProxy_QualifiedFunctionBase) GetResourceNameAttribute(nameAttr *str
 }
 
 // Grant the given identity permissions to invoke this Lambda.
-// Experimental.
 func (q *jsiiProxy_QualifiedFunctionBase) GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -13717,7 +13026,6 @@ func (q *jsiiProxy_QualifiedFunctionBase) GrantInvoke(grantee awsiam.IGrantable)
 }
 
 // Return the given named metric for this Function.
-// Experimental.
 func (q *jsiiProxy_QualifiedFunctionBase) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -13734,7 +13042,6 @@ func (q *jsiiProxy_QualifiedFunctionBase) Metric(metricName *string, props *awsc
 // How long execution of this Lambda takes.
 //
 // Average over 5 minutes
-// Experimental.
 func (q *jsiiProxy_QualifiedFunctionBase) MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -13751,7 +13058,6 @@ func (q *jsiiProxy_QualifiedFunctionBase) MetricDuration(props *awscloudwatch.Me
 // How many invocations of this Lambda fail.
 //
 // Sum over 5 minutes
-// Experimental.
 func (q *jsiiProxy_QualifiedFunctionBase) MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -13768,7 +13074,6 @@ func (q *jsiiProxy_QualifiedFunctionBase) MetricErrors(props *awscloudwatch.Metr
 // How often this Lambda is invoked.
 //
 // Sum over 5 minutes
-// Experimental.
 func (q *jsiiProxy_QualifiedFunctionBase) MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -13785,7 +13090,6 @@ func (q *jsiiProxy_QualifiedFunctionBase) MetricInvocations(props *awscloudwatch
 // How often this Lambda is throttled.
 //
 // Sum over 5 minutes
-// Experimental.
 func (q *jsiiProxy_QualifiedFunctionBase) MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -13800,7 +13104,6 @@ func (q *jsiiProxy_QualifiedFunctionBase) MetricThrottles(props *awscloudwatch.M
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (q *jsiiProxy_QualifiedFunctionBase) ToString() *string {
 	var returns *string
 
@@ -13816,12 +13119,10 @@ func (q *jsiiProxy_QualifiedFunctionBase) ToString() *string {
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type ResourceBindOptions struct {
 	// The name of the CloudFormation property to annotate with asset metadata.
 	// See: https://github.com/aws/aws-cdk/issues/1432
 	//
-	// Experimental.
 	ResourceProperty *string `json:"resourceProperty"`
 }
 
@@ -13832,7 +13133,6 @@ type ResourceBindOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Runtime interface {
 	BundlingImage() awscdk.DockerImage
 	Family() RuntimeFamily
@@ -13899,7 +13199,6 @@ func (j *jsiiProxy_Runtime) SupportsInlineCode() *bool {
 }
 
 
-// Experimental.
 func NewRuntime(name *string, family RuntimeFamily, props *LambdaRuntimeProps) Runtime {
 	_init_.Initialize()
 
@@ -13914,7 +13213,6 @@ func NewRuntime(name *string, family RuntimeFamily, props *LambdaRuntimeProps) R
 	return &j
 }
 
-// Experimental.
 func NewRuntime_Override(r Runtime, name *string, family RuntimeFamily, props *LambdaRuntimeProps) {
 	_init_.Initialize()
 
@@ -14211,7 +13509,6 @@ func Runtime_RUBY_2_7() Runtime {
 	return returns
 }
 
-// Experimental.
 func (r *jsiiProxy_Runtime) RuntimeEquals(other Runtime) *bool {
 	var returns *bool
 
@@ -14225,7 +13522,6 @@ func (r *jsiiProxy_Runtime) RuntimeEquals(other Runtime) *bool {
 	return returns
 }
 
-// Experimental.
 func (r *jsiiProxy_Runtime) ToString() *string {
 	var returns *string
 
@@ -14239,7 +13535,6 @@ func (r *jsiiProxy_Runtime) ToString() *string {
 	return returns
 }
 
-// Experimental.
 type RuntimeFamily string
 
 const (
@@ -14256,7 +13551,6 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type S3Code interface {
 	Code
 	IsInline() *bool
@@ -14280,7 +13574,6 @@ func (j *jsiiProxy_S3Code) IsInline() *bool {
 }
 
 
-// Experimental.
 func NewS3Code(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
@@ -14295,7 +13588,6 @@ func NewS3Code(bucket awss3.IBucket, key *string, objectVersion *string) S3Code 
 	return &j
 }
 
-// Experimental.
 func NewS3Code_Override(s S3Code, bucket awss3.IBucket, key *string, objectVersion *string) {
 	_init_.Initialize()
 
@@ -14307,7 +13599,6 @@ func NewS3Code_Override(s S3Code, bucket awss3.IBucket, key *string, objectVersi
 }
 
 // Loads the function code from a local disk path.
-// Experimental.
 func S3Code_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode {
 	_init_.Initialize()
 
@@ -14324,7 +13615,6 @@ func S3Code_FromAsset(path *string, options *awss3assets.AssetOptions) AssetCode
 }
 
 // Create an ECR image from the specified asset and bind it as the Lambda code.
-// Experimental.
 func S3Code_FromAssetImage(directory *string, props *AssetImageCodeProps) AssetImageCode {
 	_init_.Initialize()
 
@@ -14341,7 +13631,6 @@ func S3Code_FromAssetImage(directory *string, props *AssetImageCodeProps) AssetI
 }
 
 // Lambda handler code as an S3 object.
-// Experimental.
 func S3Code_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3Code {
 	_init_.Initialize()
 
@@ -14360,7 +13649,6 @@ func S3Code_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string)
 // Creates a new Lambda source defined using CloudFormation parameters.
 //
 // Returns: a new instance of `CfnParametersCode`
-// Experimental.
 func S3Code_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 	_init_.Initialize()
 
@@ -14380,7 +13668,6 @@ func S3Code_FromCfnParameters(props *CfnParametersCodeProps) CfnParametersCode {
 //
 // By default, the asset is expected to be located at `/asset` in the
 // image.
-// Experimental.
 func S3Code_FromDockerBuild(path *string, options *DockerBuildAssetOptions) AssetCode {
 	_init_.Initialize()
 
@@ -14397,7 +13684,6 @@ func S3Code_FromDockerBuild(path *string, options *DockerBuildAssetOptions) Asse
 }
 
 // Use an existing ECR image as the Lambda code.
-// Experimental.
 func S3Code_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeProps) EcrImageCode {
 	_init_.Initialize()
 
@@ -14416,7 +13702,6 @@ func S3Code_FromEcrImage(repository awsecr.IRepository, props *EcrImageCodeProps
 // Inline code for Lambda handler.
 //
 // Returns: `LambdaInlineCode` with inline code.
-// Experimental.
 func S3Code_FromInline(code *string) InlineCode {
 	_init_.Initialize()
 
@@ -14433,7 +13718,6 @@ func S3Code_FromInline(code *string) InlineCode {
 }
 
 // Called when the lambda or layer is initialized to allow this object to bind to the stack, add resources and have fun.
-// Experimental.
 func (s *jsiiProxy_S3Code) Bind(_scope constructs.Construct) *CodeConfig {
 	var returns *CodeConfig
 
@@ -14451,7 +13735,6 @@ func (s *jsiiProxy_S3Code) Bind(_scope constructs.Construct) *CodeConfig {
 //
 // Specifically it's required to allow assets to add
 // metadata for tooling like SAM CLI to be able to find their origins.
-// Experimental.
 func (s *jsiiProxy_S3Code) BindToResource(_resource awscdk.CfnResource, _options *ResourceBindOptions) {
 	_jsii_.InvokeVoid(
 		s,
@@ -14469,7 +13752,6 @@ func (s *jsiiProxy_S3Code) BindToResource(_resource awscdk.CfnResource, _options
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SingletonFunction interface {
 	FunctionBase
 	CanCreatePermissions() *bool
@@ -14676,7 +13958,6 @@ func (j *jsiiProxy_SingletonFunction) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewSingletonFunction(scope constructs.Construct, id *string, props *SingletonFunctionProps) SingletonFunction {
 	_init_.Initialize()
 
@@ -14691,7 +13972,6 @@ func NewSingletonFunction(scope constructs.Construct, id *string, props *Singlet
 	return &j
 }
 
-// Experimental.
 func NewSingletonFunction_Override(s SingletonFunction, scope constructs.Construct, id *string, props *SingletonFunctionProps) {
 	_init_.Initialize()
 
@@ -14722,7 +14002,6 @@ func SingletonFunction_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func SingletonFunction_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -14739,7 +14018,6 @@ func SingletonFunction_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Using node.addDependency() does not work on this method as the underlying lambda function is modeled as a singleton across the stack. Use this method instead to declare dependencies.
-// Experimental.
 func (s *jsiiProxy_SingletonFunction) AddDependency(up ...constructs.IDependable) {
 	args := []interface{}{}
 	for _, a := range up {
@@ -14756,7 +14034,6 @@ func (s *jsiiProxy_SingletonFunction) AddDependency(up ...constructs.IDependable
 // Adds an environment variable to this Lambda function.
 //
 // If this is a ref to a Lambda function, this operation results in a no-op.
-// Experimental.
 func (s *jsiiProxy_SingletonFunction) AddEnvironment(key *string, value *string, options *EnvironmentOptions) Function {
 	var returns Function
 
@@ -14779,7 +14056,6 @@ func (s *jsiiProxy_SingletonFunction) AddEnvironment(key *string, value *string,
 // import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources';
 // myFunction.addEventSource(new SqsEventSource(myQueue));
 // ```
-// Experimental.
 func (s *jsiiProxy_SingletonFunction) AddEventSource(source IEventSource) {
 	_jsii_.InvokeVoid(
 		s,
@@ -14789,7 +14065,6 @@ func (s *jsiiProxy_SingletonFunction) AddEventSource(source IEventSource) {
 }
 
 // Adds an event source that maps to this AWS Lambda function.
-// Experimental.
 func (s *jsiiProxy_SingletonFunction) AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping {
 	var returns EventSourceMapping
 
@@ -14804,7 +14079,6 @@ func (s *jsiiProxy_SingletonFunction) AddEventSourceMapping(id *string, options 
 }
 
 // Adds one or more Lambda Layers to this Lambda function.
-// Experimental.
 func (s *jsiiProxy_SingletonFunction) AddLayers(layers ...ILayerVersion) {
 	args := []interface{}{}
 	for _, a := range layers {
@@ -14819,7 +14093,6 @@ func (s *jsiiProxy_SingletonFunction) AddLayers(layers ...ILayerVersion) {
 }
 
 // Adds a permission to the Lambda resource policy.
-// Experimental.
 func (s *jsiiProxy_SingletonFunction) AddPermission(name *string, permission *Permission) {
 	_jsii_.InvokeVoid(
 		s,
@@ -14829,7 +14102,6 @@ func (s *jsiiProxy_SingletonFunction) AddPermission(name *string, permission *Pe
 }
 
 // Adds a statement to the IAM role assumed by the instance.
-// Experimental.
 func (s *jsiiProxy_SingletonFunction) AddToRolePolicy(statement awsiam.PolicyStatement) {
 	_jsii_.InvokeVoid(
 		s,
@@ -14847,7 +14119,6 @@ func (s *jsiiProxy_SingletonFunction) AddToRolePolicy(statement awsiam.PolicySta
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (s *jsiiProxy_SingletonFunction) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		s,
@@ -14857,7 +14128,6 @@ func (s *jsiiProxy_SingletonFunction) ApplyRemovalPolicy(policy awscdk.RemovalPo
 }
 
 // Configures options for asynchronous invocation.
-// Experimental.
 func (s *jsiiProxy_SingletonFunction) ConfigureAsyncInvoke(options *EventInvokeConfigOptions) {
 	_jsii_.InvokeVoid(
 		s,
@@ -14867,7 +14137,6 @@ func (s *jsiiProxy_SingletonFunction) ConfigureAsyncInvoke(options *EventInvokeC
 }
 
 // The SingletonFunction construct cannot be added as a dependency of another construct using node.addDependency(). Use this method instead to declare this as a dependency of another construct.
-// Experimental.
 func (s *jsiiProxy_SingletonFunction) DependOn(down constructs.IConstruct) {
 	_jsii_.InvokeVoid(
 		s,
@@ -14876,7 +14145,6 @@ func (s *jsiiProxy_SingletonFunction) DependOn(down constructs.IConstruct) {
 	)
 }
 
-// Experimental.
 func (s *jsiiProxy_SingletonFunction) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -14896,7 +14164,6 @@ func (s *jsiiProxy_SingletonFunction) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (s *jsiiProxy_SingletonFunction) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -14915,7 +14182,6 @@ func (s *jsiiProxy_SingletonFunction) GetResourceArnAttribute(arnAttr *string, a
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (s *jsiiProxy_SingletonFunction) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -14930,7 +14196,6 @@ func (s *jsiiProxy_SingletonFunction) GetResourceNameAttribute(nameAttr *string)
 }
 
 // Grant the given identity permissions to invoke this Lambda.
-// Experimental.
 func (s *jsiiProxy_SingletonFunction) GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -14945,7 +14210,6 @@ func (s *jsiiProxy_SingletonFunction) GrantInvoke(grantee awsiam.IGrantable) aws
 }
 
 // Return the given named metric for this Function.
-// Experimental.
 func (s *jsiiProxy_SingletonFunction) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -14962,7 +14226,6 @@ func (s *jsiiProxy_SingletonFunction) Metric(metricName *string, props *awscloud
 // How long execution of this Lambda takes.
 //
 // Average over 5 minutes
-// Experimental.
 func (s *jsiiProxy_SingletonFunction) MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -14979,7 +14242,6 @@ func (s *jsiiProxy_SingletonFunction) MetricDuration(props *awscloudwatch.Metric
 // How many invocations of this Lambda fail.
 //
 // Sum over 5 minutes
-// Experimental.
 func (s *jsiiProxy_SingletonFunction) MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -14996,7 +14258,6 @@ func (s *jsiiProxy_SingletonFunction) MetricErrors(props *awscloudwatch.MetricOp
 // How often this Lambda is invoked.
 //
 // Sum over 5 minutes
-// Experimental.
 func (s *jsiiProxy_SingletonFunction) MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -15013,7 +14274,6 @@ func (s *jsiiProxy_SingletonFunction) MetricInvocations(props *awscloudwatch.Met
 // How often this Lambda is throttled.
 //
 // Sum over 5 minutes
-// Experimental.
 func (s *jsiiProxy_SingletonFunction) MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -15028,7 +14288,6 @@ func (s *jsiiProxy_SingletonFunction) MetricThrottles(props *awscloudwatch.Metri
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (s *jsiiProxy_SingletonFunction) ToString() *string {
 	var returns *string
 
@@ -15046,134 +14305,106 @@ func (s *jsiiProxy_SingletonFunction) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SingletonFunctionProps struct {
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours
-	// Experimental.
 	MaxEventAge awscdk.Duration `json:"maxEventAge"`
 	// The destination for failed invocations.
-	// Experimental.
 	OnFailure IDestination `json:"onFailure"`
 	// The destination for successful invocations.
-	// Experimental.
 	OnSuccess IDestination `json:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 	// Whether to allow the Lambda to send all network traffic.
 	//
 	// If set to false, you must individually add traffic rules to allow the
 	// Lambda to connect to network targets.
-	// Experimental.
 	AllowAllOutbound *bool `json:"allowAllOutbound"`
 	// Lambda Functions in a public subnet can NOT access the internet.
 	//
 	// Use this property to acknowledge this limitation and still place the function in a public subnet.
 	// See: https://stackoverflow.com/questions/52992085/why-cant-an-aws-lambda-function-inside-a-public-subnet-in-a-vpc-connect-to-the/52994841#52994841
 	//
-	// Experimental.
 	AllowPublicSubnet *bool `json:"allowPublicSubnet"`
 	// The system architectures compatible with this lambda function.
-	// Experimental.
 	Architecture Architecture `json:"architecture"`
 	// Code signing config associated with this function.
-	// Experimental.
 	CodeSigningConfig ICodeSigningConfig `json:"codeSigningConfig"`
 	// Options for the `lambda.Version` resource automatically created by the `fn.currentVersion` method.
-	// Experimental.
 	CurrentVersionOptions *VersionOptions `json:"currentVersionOptions"`
 	// The SQS queue to use if DLQ is enabled.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
 	// Enabled DLQ.
 	//
 	// If `deadLetterQueue` is undefined,
 	// an SQS queue with default options will be defined for your Function.
-	// Experimental.
 	DeadLetterQueueEnabled *bool `json:"deadLetterQueueEnabled"`
 	// A description of the function.
-	// Experimental.
 	Description *string `json:"description"`
 	// Key-value pairs that Lambda caches and makes available for your Lambda functions.
 	//
 	// Use environment variables to apply configuration changes, such
 	// as test and production environment configurations, without changing your
 	// Lambda function source code.
-	// Experimental.
 	Environment *map[string]*string `json:"environment"`
 	// The AWS KMS key that's used to encrypt your function's environment variables.
-	// Experimental.
 	EnvironmentEncryption awskms.IKey `json:"environmentEncryption"`
 	// Event sources for this function.
 	//
 	// You can also add event sources using `addEventSource`.
-	// Experimental.
 	Events *[]IEventSource `json:"events"`
 	// The filesystem configuration for the lambda function.
-	// Experimental.
 	Filesystem FileSystem `json:"filesystem"`
 	// A name for the function.
-	// Experimental.
 	FunctionName *string `json:"functionName"`
 	// Initial policy statements to add to the created Lambda Role.
 	//
 	// You can call `addToRolePolicy` to the created lambda to add statements post creation.
-	// Experimental.
 	InitialPolicy *[]awsiam.PolicyStatement `json:"initialPolicy"`
 	// Specify the version of CloudWatch Lambda insights to use for monitoring.
 	// See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Lambda-Insights-Getting-Started-docker.html
 	//
-	// Experimental.
 	InsightsVersion LambdaInsightsVersion `json:"insightsVersion"`
 	// A list of layers to add to the function's execution environment.
 	//
 	// You can configure your Lambda function to pull in
 	// additional code during initialization in the form of layers. Layers are packages of libraries or other dependencies
 	// that can be used by multiple functions.
-	// Experimental.
 	Layers *[]ILayerVersion `json:"layers"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `INFINITE`.
-	// Experimental.
 	LogRetention awslogs.RetentionDays `json:"logRetention"`
 	// When log retention is specified, a custom resource attempts to create the CloudWatch log group.
 	//
 	// These options control the retry policy when interacting with CloudWatch APIs.
-	// Experimental.
 	LogRetentionRetryOptions *LogRetentionRetryOptions `json:"logRetentionRetryOptions"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	// Experimental.
 	LogRetentionRole awsiam.IRole `json:"logRetentionRole"`
 	// The amount of memory, in MB, that is allocated to your Lambda function.
 	//
 	// Lambda uses this value to proportionally allocate the amount of CPU
 	// power. For more information, see Resource Model in the AWS Lambda
 	// Developer Guide.
-	// Experimental.
 	MemorySize *float64 `json:"memorySize"`
 	// Enable profiling.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
-	// Experimental.
 	Profiling *bool `json:"profiling"`
 	// Profiling Group.
 	// See: https://docs.aws.amazon.com/codeguru/latest/profiler-ug/setting-up-lambda.html
 	//
-	// Experimental.
 	ProfilingGroup awscodeguruprofiler.IProfilingGroup `json:"profilingGroup"`
 	// The maximum of concurrent executions you want to reserve for the function.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html
 	//
-	// Experimental.
 	ReservedConcurrentExecutions *float64 `json:"reservedConcurrentExecutions"`
 	// Lambda execution role.
 	//
@@ -15186,39 +14417,32 @@ type SingletonFunctionProps struct {
 	//
 	// The relevant managed policies are "service-role/AWSLambdaBasicExecutionRole" and
 	// "service-role/AWSLambdaVPCAccessExecutionRole".
-	// Experimental.
 	Role awsiam.IRole `json:"role"`
 	// The list of security groups to associate with the Lambda's network interfaces.
 	//
 	// Only used if 'vpc' is supplied.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 	// The function execution time (in seconds) after which Lambda terminates the function.
 	//
 	// Because the execution time affects cost, set this value
 	// based on the function's expected execution time.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
 	// Enable AWS X-Ray Tracing for Lambda Function.
-	// Experimental.
 	Tracing Tracing `json:"tracing"`
 	// VPC network to place Lambda network interfaces.
 	//
 	// Specify this if the Lambda function needs to access resources in a VPC.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// Where to place the network interfaces within the VPC.
 	//
 	// Only used if 'vpc' is supplied. Note: internet access for Lambdas
 	// requires a NAT gateway, so picking Public subnets is not allowed.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 	// The source code of your Lambda function.
 	//
 	// You can point to a file in an
 	// Amazon Simple Storage Service (Amazon S3) bucket or specify your source
 	// code as inline text.
-	// Experimental.
 	Code Code `json:"code"`
 	// The name of the method within your code that Lambda calls to execute your function.
 	//
@@ -15231,7 +14455,6 @@ type SingletonFunctionProps struct {
 	// NOTE: If you specify your source code as inline text by specifying the
 	// ZipFile property within the Code property, specify index.function_name as
 	// the handler.
-	// Experimental.
 	Handler *string `json:"handler"`
 	// The runtime environment for the Lambda function that you are uploading.
 	//
@@ -15239,20 +14462,17 @@ type SingletonFunctionProps struct {
 	// Guide.
 	//
 	// Use `Runtime.FROM_IMAGE` when when defining a function from a Docker image.
-	// Experimental.
 	Runtime Runtime `json:"runtime"`
 	// A descriptive name for the purpose of this Lambda.
 	//
 	// If the Lambda does not have a physical name, this string will be
 	// reflected its generated name. The combination of lambdaPurpose
 	// and uuid must be unique.
-	// Experimental.
 	LambdaPurpose *string `json:"lambdaPurpose"`
 	// A unique identifier to identify this lambda.
 	//
 	// The identifier should be unique across all custom resource providers.
 	// We recommend generating a UUID per provider.
-	// Experimental.
 	Uuid *string `json:"uuid"`
 }
 
@@ -15260,12 +14480,10 @@ type SingletonFunctionProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SourceAccessConfiguration struct {
 	// The type of authentication protocol or the VPC components for your event source.
 	//
 	// For example: "SASL_SCRAM_512_AUTH".
-	// Experimental.
 	Type SourceAccessConfigurationType `json:"type"`
 	// The value for your chosen configuration in type.
 	//
@@ -15273,7 +14491,6 @@ type SourceAccessConfiguration struct {
 	// The exact string depends on the type.
 	// See: SourceAccessConfigurationType
 	//
-	// Experimental.
 	Uri *string `json:"uri"`
 }
 
@@ -15283,7 +14500,6 @@ type SourceAccessConfiguration struct {
 //
 // See: https://docs.aws.amazon.com/lambda/latest/dg/API_SourceAccessConfiguration.html#SSS-Type-SourceAccessConfiguration-Type
 //
-// Experimental.
 type SourceAccessConfigurationType interface {
 	Type() *string
 }
@@ -15305,7 +14521,6 @@ func (j *jsiiProxy_SourceAccessConfigurationType) Type() *string {
 
 
 // A custom source access configuration property.
-// Experimental.
 func SourceAccessConfigurationType_Of(name *string) SourceAccessConfigurationType {
 	_init_.Initialize()
 
@@ -15380,7 +14595,6 @@ func SourceAccessConfigurationType_VPC_SUBNET() SourceAccessConfigurationType {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type StartingPosition string
 
 const (
@@ -15392,7 +14606,6 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Tracing string
 
 const (
@@ -15402,7 +14615,6 @@ const (
 )
 
 // Code signing configuration policy for deployment validation failure.
-// Experimental.
 type UntrustedArtifactOnDeployment string
 
 const (
@@ -15414,7 +14626,6 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type UtilizationScalingOptions struct {
 	// Indicates whether scale in by the target tracking policy is disabled.
 	//
@@ -15422,21 +14633,16 @@ type UtilizationScalingOptions struct {
 	// won't remove capacity from the scalable resource. Otherwise, scale in is
 	// enabled and the target tracking policy can remove capacity from the
 	// scalable resource.
-	// Experimental.
 	DisableScaleIn *bool `json:"disableScaleIn"`
 	// A name for the scaling policy.
-	// Experimental.
 	PolicyName *string `json:"policyName"`
 	// Period after a scale in activity completes before another scale in activity can start.
-	// Experimental.
 	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown"`
 	// Period after a scale out activity completes before another scale out activity can start.
-	// Experimental.
 	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown"`
 	// Utilization target for the attribute.
 	//
 	// For example, .5 indicates that 50 percent of allocated provisioned concurrency is in use.
-	// Experimental.
 	UtilizationTarget *float64 `json:"utilizationTarget"`
 }
 
@@ -15457,7 +14663,6 @@ type UtilizationScalingOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Version interface {
 	QualifiedFunctionBase
 	IVersion
@@ -15674,7 +14879,6 @@ func (j *jsiiProxy_Version) Version() *string {
 }
 
 
-// Experimental.
 func NewVersion(scope constructs.Construct, id *string, props *VersionProps) Version {
 	_init_.Initialize()
 
@@ -15689,7 +14893,6 @@ func NewVersion(scope constructs.Construct, id *string, props *VersionProps) Ver
 	return &j
 }
 
-// Experimental.
 func NewVersion_Override(v Version, scope constructs.Construct, id *string, props *VersionProps) {
 	_init_.Initialize()
 
@@ -15701,7 +14904,6 @@ func NewVersion_Override(v Version, scope constructs.Construct, id *string, prop
 }
 
 // Construct a Version object from a Version ARN.
-// Experimental.
 func Version_FromVersionArn(scope constructs.Construct, id *string, versionArn *string) IVersion {
 	_init_.Initialize()
 
@@ -15717,7 +14919,6 @@ func Version_FromVersionArn(scope constructs.Construct, id *string, versionArn *
 	return returns
 }
 
-// Experimental.
 func Version_FromVersionAttributes(scope constructs.Construct, id *string, attrs *VersionAttributes) IVersion {
 	_init_.Initialize()
 
@@ -15753,7 +14954,6 @@ func Version_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func Version_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -15770,7 +14970,6 @@ func Version_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Defines an alias for this version.
-// Experimental.
 func (v *jsiiProxy_Version) AddAlias(aliasName *string, options *AliasOptions) Alias {
 	var returns Alias
 
@@ -15793,7 +14992,6 @@ func (v *jsiiProxy_Version) AddAlias(aliasName *string, options *AliasOptions) A
 // import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources';
 // myFunction.addEventSource(new SqsEventSource(myQueue));
 // ```
-// Experimental.
 func (v *jsiiProxy_Version) AddEventSource(source IEventSource) {
 	_jsii_.InvokeVoid(
 		v,
@@ -15803,7 +15001,6 @@ func (v *jsiiProxy_Version) AddEventSource(source IEventSource) {
 }
 
 // Adds an event source that maps to this AWS Lambda function.
-// Experimental.
 func (v *jsiiProxy_Version) AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping {
 	var returns EventSourceMapping
 
@@ -15820,7 +15017,6 @@ func (v *jsiiProxy_Version) AddEventSourceMapping(id *string, options *EventSour
 // Adds a permission to the Lambda resource policy.
 // See: Permission for details.
 //
-// Experimental.
 func (v *jsiiProxy_Version) AddPermission(id *string, permission *Permission) {
 	_jsii_.InvokeVoid(
 		v,
@@ -15830,7 +15026,6 @@ func (v *jsiiProxy_Version) AddPermission(id *string, permission *Permission) {
 }
 
 // Adds a statement to the IAM role assumed by the instance.
-// Experimental.
 func (v *jsiiProxy_Version) AddToRolePolicy(statement awsiam.PolicyStatement) {
 	_jsii_.InvokeVoid(
 		v,
@@ -15848,7 +15043,6 @@ func (v *jsiiProxy_Version) AddToRolePolicy(statement awsiam.PolicyStatement) {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (v *jsiiProxy_Version) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		v,
@@ -15858,7 +15052,6 @@ func (v *jsiiProxy_Version) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 // Configures options for asynchronous invocation.
-// Experimental.
 func (v *jsiiProxy_Version) ConfigureAsyncInvoke(options *EventInvokeConfigOptions) {
 	_jsii_.InvokeVoid(
 		v,
@@ -15867,7 +15060,6 @@ func (v *jsiiProxy_Version) ConfigureAsyncInvoke(options *EventInvokeConfigOptio
 	)
 }
 
-// Experimental.
 func (v *jsiiProxy_Version) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -15887,7 +15079,6 @@ func (v *jsiiProxy_Version) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (v *jsiiProxy_Version) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -15906,7 +15097,6 @@ func (v *jsiiProxy_Version) GetResourceArnAttribute(arnAttr *string, arnComponen
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (v *jsiiProxy_Version) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -15921,7 +15111,6 @@ func (v *jsiiProxy_Version) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 // Grant the given identity permissions to invoke this Lambda.
-// Experimental.
 func (v *jsiiProxy_Version) GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -15936,7 +15125,6 @@ func (v *jsiiProxy_Version) GrantInvoke(grantee awsiam.IGrantable) awsiam.Grant 
 }
 
 // Return the given named metric for this Function.
-// Experimental.
 func (v *jsiiProxy_Version) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -15953,7 +15141,6 @@ func (v *jsiiProxy_Version) Metric(metricName *string, props *awscloudwatch.Metr
 // How long execution of this Lambda takes.
 //
 // Average over 5 minutes
-// Experimental.
 func (v *jsiiProxy_Version) MetricDuration(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -15970,7 +15157,6 @@ func (v *jsiiProxy_Version) MetricDuration(props *awscloudwatch.MetricOptions) a
 // How many invocations of this Lambda fail.
 //
 // Sum over 5 minutes
-// Experimental.
 func (v *jsiiProxy_Version) MetricErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -15987,7 +15173,6 @@ func (v *jsiiProxy_Version) MetricErrors(props *awscloudwatch.MetricOptions) aws
 // How often this Lambda is invoked.
 //
 // Sum over 5 minutes
-// Experimental.
 func (v *jsiiProxy_Version) MetricInvocations(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -16004,7 +15189,6 @@ func (v *jsiiProxy_Version) MetricInvocations(props *awscloudwatch.MetricOptions
 // How often this Lambda is throttled.
 //
 // Sum over 5 minutes
-// Experimental.
 func (v *jsiiProxy_Version) MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -16019,7 +15203,6 @@ func (v *jsiiProxy_Version) MetricThrottles(props *awscloudwatch.MetricOptions) 
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (v *jsiiProxy_Version) ToString() *string {
 	var returns *string
 
@@ -16035,13 +15218,10 @@ func (v *jsiiProxy_Version) ToString() *string {
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type VersionAttributes struct {
 	// The lambda function.
-	// Experimental.
 	Lambda IFunction `json:"lambda"`
 	// The version.
-	// Experimental.
 	Version *string `json:"version"`
 }
 
@@ -16049,39 +15229,30 @@ type VersionAttributes struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VersionOptions struct {
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours
-	// Experimental.
 	MaxEventAge awscdk.Duration `json:"maxEventAge"`
 	// The destination for failed invocations.
-	// Experimental.
 	OnFailure IDestination `json:"onFailure"`
 	// The destination for successful invocations.
-	// Experimental.
 	OnSuccess IDestination `json:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 	// SHA256 of the version of the Lambda source code.
 	//
 	// Specify to validate that you're deploying the right version.
-	// Experimental.
 	CodeSha256 *string `json:"codeSha256"`
 	// Description of the version.
-	// Experimental.
 	Description *string `json:"description"`
 	// Specifies a provisioned concurrency configuration for a function's version.
-	// Experimental.
 	ProvisionedConcurrentExecutions *float64 `json:"provisionedConcurrentExecutions"`
 	// Whether to retain old versions of this function when a new version is created.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 }
 
@@ -16089,42 +15260,32 @@ type VersionOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VersionProps struct {
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum: 60 seconds
 	// Maximum: 6 hours
-	// Experimental.
 	MaxEventAge awscdk.Duration `json:"maxEventAge"`
 	// The destination for failed invocations.
-	// Experimental.
 	OnFailure IDestination `json:"onFailure"`
 	// The destination for successful invocations.
-	// Experimental.
 	OnSuccess IDestination `json:"onSuccess"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum: 0
 	// Maximum: 2
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 	// SHA256 of the version of the Lambda source code.
 	//
 	// Specify to validate that you're deploying the right version.
-	// Experimental.
 	CodeSha256 *string `json:"codeSha256"`
 	// Description of the version.
-	// Experimental.
 	Description *string `json:"description"`
 	// Specifies a provisioned concurrency configuration for a function's version.
-	// Experimental.
 	ProvisionedConcurrentExecutions *float64 `json:"provisionedConcurrentExecutions"`
 	// Whether to retain old versions of this function when a new version is created.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// Function to get the value of.
-	// Experimental.
 	Lambda IFunction `json:"lambda"`
 }
 
@@ -16132,13 +15293,10 @@ type VersionProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VersionWeight struct {
 	// The version to route traffic to.
-	// Experimental.
 	Version IVersion `json:"version"`
 	// How much weight to assign to this version (0..1).
-	// Experimental.
 	Weight *float64 `json:"weight"`
 }
 

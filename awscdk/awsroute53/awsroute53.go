@@ -15,7 +15,6 @@ import (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ARecord interface {
 	RecordSet
 	DomainName() *string
@@ -86,7 +85,6 @@ func (j *jsiiProxy_ARecord) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewARecord(scope constructs.Construct, id *string, props *ARecordProps) ARecord {
 	_init_.Initialize()
 
@@ -101,7 +99,6 @@ func NewARecord(scope constructs.Construct, id *string, props *ARecordProps) ARe
 	return &j
 }
 
-// Experimental.
 func NewARecord_Override(a ARecord, scope constructs.Construct, id *string, props *ARecordProps) {
 	_init_.Initialize()
 
@@ -132,7 +129,6 @@ func ARecord_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func ARecord_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -157,7 +153,6 @@ func ARecord_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (a *jsiiProxy_ARecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		a,
@@ -166,7 +161,6 @@ func (a *jsiiProxy_ARecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (a *jsiiProxy_ARecord) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -186,7 +180,6 @@ func (a *jsiiProxy_ARecord) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (a *jsiiProxy_ARecord) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -205,7 +198,6 @@ func (a *jsiiProxy_ARecord) GetResourceArnAttribute(arnAttr *string, arnComponen
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (a *jsiiProxy_ARecord) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -220,7 +212,6 @@ func (a *jsiiProxy_ARecord) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (a *jsiiProxy_ARecord) ToString() *string {
 	var returns *string
 
@@ -238,22 +229,16 @@ func (a *jsiiProxy_ARecord) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ARecordProps struct {
 	// A comment to add on the record.
-	// Experimental.
 	Comment *string `json:"comment"`
 	// The domain name for this record.
-	// Experimental.
 	RecordName *string `json:"recordName"`
 	// The resource record cache time to live (TTL).
-	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
 	// The hosted zone in which to define the new record.
-	// Experimental.
 	Zone IHostedZone `json:"zone"`
 	// The target.
-	// Experimental.
 	Target RecordTarget `json:"target"`
 }
 
@@ -261,7 +246,6 @@ type ARecordProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AaaaRecord interface {
 	RecordSet
 	DomainName() *string
@@ -332,7 +316,6 @@ func (j *jsiiProxy_AaaaRecord) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewAaaaRecord(scope constructs.Construct, id *string, props *AaaaRecordProps) AaaaRecord {
 	_init_.Initialize()
 
@@ -347,7 +330,6 @@ func NewAaaaRecord(scope constructs.Construct, id *string, props *AaaaRecordProp
 	return &j
 }
 
-// Experimental.
 func NewAaaaRecord_Override(a AaaaRecord, scope constructs.Construct, id *string, props *AaaaRecordProps) {
 	_init_.Initialize()
 
@@ -378,7 +360,6 @@ func AaaaRecord_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func AaaaRecord_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -403,7 +384,6 @@ func AaaaRecord_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (a *jsiiProxy_AaaaRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		a,
@@ -412,7 +392,6 @@ func (a *jsiiProxy_AaaaRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (a *jsiiProxy_AaaaRecord) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -432,7 +411,6 @@ func (a *jsiiProxy_AaaaRecord) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (a *jsiiProxy_AaaaRecord) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -451,7 +429,6 @@ func (a *jsiiProxy_AaaaRecord) GetResourceArnAttribute(arnAttr *string, arnCompo
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (a *jsiiProxy_AaaaRecord) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -466,7 +443,6 @@ func (a *jsiiProxy_AaaaRecord) GetResourceNameAttribute(nameAttr *string) *strin
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (a *jsiiProxy_AaaaRecord) ToString() *string {
 	var returns *string
 
@@ -484,22 +460,16 @@ func (a *jsiiProxy_AaaaRecord) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AaaaRecordProps struct {
 	// A comment to add on the record.
-	// Experimental.
 	Comment *string `json:"comment"`
 	// The domain name for this record.
-	// Experimental.
 	RecordName *string `json:"recordName"`
 	// The resource record cache time to live (TTL).
-	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
 	// The hosted zone in which to define the new record.
-	// Experimental.
 	Zone IHostedZone `json:"zone"`
 	// The target.
-	// Experimental.
 	Target RecordTarget `json:"target"`
 }
 
@@ -507,13 +477,10 @@ type AaaaRecordProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AliasRecordTargetConfig struct {
 	// DNS name of the target.
-	// Experimental.
 	DnsName *string `json:"dnsName"`
 	// Hosted zone ID of the target.
-	// Experimental.
 	HostedZoneId *string `json:"hostedZoneId"`
 }
 
@@ -524,7 +491,6 @@ type AliasRecordTargetConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CaaAmazonRecord interface {
 	CaaRecord
 	DomainName() *string
@@ -595,7 +561,6 @@ func (j *jsiiProxy_CaaAmazonRecord) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewCaaAmazonRecord(scope constructs.Construct, id *string, props *CaaAmazonRecordProps) CaaAmazonRecord {
 	_init_.Initialize()
 
@@ -610,7 +575,6 @@ func NewCaaAmazonRecord(scope constructs.Construct, id *string, props *CaaAmazon
 	return &j
 }
 
-// Experimental.
 func NewCaaAmazonRecord_Override(c CaaAmazonRecord, scope constructs.Construct, id *string, props *CaaAmazonRecordProps) {
 	_init_.Initialize()
 
@@ -641,7 +605,6 @@ func CaaAmazonRecord_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func CaaAmazonRecord_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -666,7 +629,6 @@ func CaaAmazonRecord_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CaaAmazonRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		c,
@@ -675,7 +637,6 @@ func (c *jsiiProxy_CaaAmazonRecord) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 	)
 }
 
-// Experimental.
 func (c *jsiiProxy_CaaAmazonRecord) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -695,7 +656,6 @@ func (c *jsiiProxy_CaaAmazonRecord) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (c *jsiiProxy_CaaAmazonRecord) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -714,7 +674,6 @@ func (c *jsiiProxy_CaaAmazonRecord) GetResourceArnAttribute(arnAttr *string, arn
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (c *jsiiProxy_CaaAmazonRecord) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -729,7 +688,6 @@ func (c *jsiiProxy_CaaAmazonRecord) GetResourceNameAttribute(nameAttr *string) *
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (c *jsiiProxy_CaaAmazonRecord) ToString() *string {
 	var returns *string
 
@@ -747,19 +705,14 @@ func (c *jsiiProxy_CaaAmazonRecord) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CaaAmazonRecordProps struct {
 	// A comment to add on the record.
-	// Experimental.
 	Comment *string `json:"comment"`
 	// The domain name for this record.
-	// Experimental.
 	RecordName *string `json:"recordName"`
 	// The resource record cache time to live (TTL).
-	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
 	// The hosted zone in which to define the new record.
-	// Experimental.
 	Zone IHostedZone `json:"zone"`
 }
 
@@ -767,7 +720,6 @@ type CaaAmazonRecordProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CaaRecord interface {
 	RecordSet
 	DomainName() *string
@@ -838,7 +790,6 @@ func (j *jsiiProxy_CaaRecord) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewCaaRecord(scope constructs.Construct, id *string, props *CaaRecordProps) CaaRecord {
 	_init_.Initialize()
 
@@ -853,7 +804,6 @@ func NewCaaRecord(scope constructs.Construct, id *string, props *CaaRecordProps)
 	return &j
 }
 
-// Experimental.
 func NewCaaRecord_Override(c CaaRecord, scope constructs.Construct, id *string, props *CaaRecordProps) {
 	_init_.Initialize()
 
@@ -884,7 +834,6 @@ func CaaRecord_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func CaaRecord_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -909,7 +858,6 @@ func CaaRecord_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CaaRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		c,
@@ -918,7 +866,6 @@ func (c *jsiiProxy_CaaRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (c *jsiiProxy_CaaRecord) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -938,7 +885,6 @@ func (c *jsiiProxy_CaaRecord) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (c *jsiiProxy_CaaRecord) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -957,7 +903,6 @@ func (c *jsiiProxy_CaaRecord) GetResourceArnAttribute(arnAttr *string, arnCompon
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (c *jsiiProxy_CaaRecord) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -972,7 +917,6 @@ func (c *jsiiProxy_CaaRecord) GetResourceNameAttribute(nameAttr *string) *string
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (c *jsiiProxy_CaaRecord) ToString() *string {
 	var returns *string
 
@@ -990,22 +934,16 @@ func (c *jsiiProxy_CaaRecord) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CaaRecordProps struct {
 	// A comment to add on the record.
-	// Experimental.
 	Comment *string `json:"comment"`
 	// The domain name for this record.
-	// Experimental.
 	RecordName *string `json:"recordName"`
 	// The resource record cache time to live (TTL).
-	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
 	// The hosted zone in which to define the new record.
-	// Experimental.
 	Zone IHostedZone `json:"zone"`
 	// The values.
-	// Experimental.
 	Values *[]*CaaRecordValue `json:"values"`
 }
 
@@ -1013,21 +951,16 @@ type CaaRecordProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CaaRecordValue struct {
 	// The flag.
-	// Experimental.
 	Flag *float64 `json:"flag"`
 	// The tag.
-	// Experimental.
 	Tag CaaTag `json:"tag"`
 	// The value associated with the tag.
-	// Experimental.
 	Value *string `json:"value"`
 }
 
 // The CAA tag.
-// Experimental.
 type CaaTag string
 
 const (
@@ -1218,7 +1151,6 @@ func (j *jsiiProxy_CfnDNSSEC) SetHostedZoneId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnDNSSEC_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -1235,7 +1167,6 @@ func CfnDNSSEC_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnDNSSEC_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -1282,7 +1213,6 @@ func CfnDNSSEC_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnDNSSEC) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1295,7 +1225,6 @@ func (c *jsiiProxy_CfnDNSSEC) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnDNSSEC) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1311,7 +1240,6 @@ func (c *jsiiProxy_CfnDNSSEC) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDNSSEC) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1357,7 +1285,6 @@ func (c *jsiiProxy_CfnDNSSEC) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnDNSSEC) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1367,7 +1294,6 @@ func (c *jsiiProxy_CfnDNSSEC) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnDNSSEC) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1379,7 +1305,6 @@ func (c *jsiiProxy_CfnDNSSEC) AddPropertyDeletionOverride(propertyPath *string) 
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnDNSSEC) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1397,7 +1322,6 @@ func (c *jsiiProxy_CfnDNSSEC) AddPropertyOverride(propertyPath *string, value in
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnDNSSEC) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1410,7 +1334,6 @@ func (c *jsiiProxy_CfnDNSSEC) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, op
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnDNSSEC) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1431,7 +1354,6 @@ func (c *jsiiProxy_CfnDNSSEC) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDNSSEC) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1455,7 +1377,6 @@ func (c *jsiiProxy_CfnDNSSEC) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnDNSSEC) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1481,7 +1402,6 @@ func (c *jsiiProxy_CfnDNSSEC) RenderProperties(props *map[string]interface{}) *m
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnDNSSEC) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1498,7 +1418,6 @@ func (c *jsiiProxy_CfnDNSSEC) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnDNSSEC) ToString() *string {
 	var returns *string
 
@@ -1512,7 +1431,6 @@ func (c *jsiiProxy_CfnDNSSEC) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnDNSSEC) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1743,7 +1661,6 @@ func (j *jsiiProxy_CfnHealthCheck) SetHealthCheckTags(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnHealthCheck_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -1760,7 +1677,6 @@ func CfnHealthCheck_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnHealthCheck_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -1807,7 +1723,6 @@ func CfnHealthCheck_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnHealthCheck) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1820,7 +1735,6 @@ func (c *jsiiProxy_CfnHealthCheck) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnHealthCheck) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1836,7 +1750,6 @@ func (c *jsiiProxy_CfnHealthCheck) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnHealthCheck) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1882,7 +1795,6 @@ func (c *jsiiProxy_CfnHealthCheck) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnHealthCheck) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1892,7 +1804,6 @@ func (c *jsiiProxy_CfnHealthCheck) AddOverride(path *string, value interface{}) 
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnHealthCheck) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1904,7 +1815,6 @@ func (c *jsiiProxy_CfnHealthCheck) AddPropertyDeletionOverride(propertyPath *str
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnHealthCheck) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1922,7 +1832,6 @@ func (c *jsiiProxy_CfnHealthCheck) AddPropertyOverride(propertyPath *string, val
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnHealthCheck) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1935,7 +1844,6 @@ func (c *jsiiProxy_CfnHealthCheck) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnHealthCheck) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1956,7 +1864,6 @@ func (c *jsiiProxy_CfnHealthCheck) GetAtt(attributeName *string) awscdk.Referenc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnHealthCheck) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1980,7 +1887,6 @@ func (c *jsiiProxy_CfnHealthCheck) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnHealthCheck) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2006,7 +1912,6 @@ func (c *jsiiProxy_CfnHealthCheck) RenderProperties(props *map[string]interface{
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnHealthCheck) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2023,7 +1928,6 @@ func (c *jsiiProxy_CfnHealthCheck) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnHealthCheck) ToString() *string {
 	var returns *string
 
@@ -2037,7 +1941,6 @@ func (c *jsiiProxy_CfnHealthCheck) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnHealthCheck) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2387,7 +2290,6 @@ func (j *jsiiProxy_CfnHostedZone) SetVpcs(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnHostedZone_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -2404,7 +2306,6 @@ func CfnHostedZone_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnHostedZone_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -2451,7 +2352,6 @@ func CfnHostedZone_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnHostedZone) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2464,7 +2364,6 @@ func (c *jsiiProxy_CfnHostedZone) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnHostedZone) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2480,7 +2379,6 @@ func (c *jsiiProxy_CfnHostedZone) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnHostedZone) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2526,7 +2424,6 @@ func (c *jsiiProxy_CfnHostedZone) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnHostedZone) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2536,7 +2433,6 @@ func (c *jsiiProxy_CfnHostedZone) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnHostedZone) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2548,7 +2444,6 @@ func (c *jsiiProxy_CfnHostedZone) AddPropertyDeletionOverride(propertyPath *stri
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnHostedZone) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2566,7 +2461,6 @@ func (c *jsiiProxy_CfnHostedZone) AddPropertyOverride(propertyPath *string, valu
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnHostedZone) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2579,7 +2473,6 @@ func (c *jsiiProxy_CfnHostedZone) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnHostedZone) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2600,7 +2493,6 @@ func (c *jsiiProxy_CfnHostedZone) GetAtt(attributeName *string) awscdk.Reference
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnHostedZone) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2624,7 +2516,6 @@ func (c *jsiiProxy_CfnHostedZone) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnHostedZone) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2650,7 +2541,6 @@ func (c *jsiiProxy_CfnHostedZone) RenderProperties(props *map[string]interface{}
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnHostedZone) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2667,7 +2557,6 @@ func (c *jsiiProxy_CfnHostedZone) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnHostedZone) ToString() *string {
 	var returns *string
 
@@ -2681,7 +2570,6 @@ func (c *jsiiProxy_CfnHostedZone) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnHostedZone) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2981,7 +2869,6 @@ func (j *jsiiProxy_CfnKeySigningKey) SetStatus(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnKeySigningKey_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -2998,7 +2885,6 @@ func CfnKeySigningKey_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnKeySigningKey_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -3045,7 +2931,6 @@ func CfnKeySigningKey_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnKeySigningKey) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3058,7 +2943,6 @@ func (c *jsiiProxy_CfnKeySigningKey) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnKeySigningKey) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3074,7 +2958,6 @@ func (c *jsiiProxy_CfnKeySigningKey) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnKeySigningKey) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3120,7 +3003,6 @@ func (c *jsiiProxy_CfnKeySigningKey) AddMetadata(key *string, value interface{})
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnKeySigningKey) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3130,7 +3012,6 @@ func (c *jsiiProxy_CfnKeySigningKey) AddOverride(path *string, value interface{}
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnKeySigningKey) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3142,7 +3023,6 @@ func (c *jsiiProxy_CfnKeySigningKey) AddPropertyDeletionOverride(propertyPath *s
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnKeySigningKey) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3160,7 +3040,6 @@ func (c *jsiiProxy_CfnKeySigningKey) AddPropertyOverride(propertyPath *string, v
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnKeySigningKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3173,7 +3052,6 @@ func (c *jsiiProxy_CfnKeySigningKey) ApplyRemovalPolicy(policy awscdk.RemovalPol
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnKeySigningKey) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3194,7 +3072,6 @@ func (c *jsiiProxy_CfnKeySigningKey) GetAtt(attributeName *string) awscdk.Refere
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnKeySigningKey) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3218,7 +3095,6 @@ func (c *jsiiProxy_CfnKeySigningKey) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnKeySigningKey) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3244,7 +3120,6 @@ func (c *jsiiProxy_CfnKeySigningKey) RenderProperties(props *map[string]interfac
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnKeySigningKey) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3261,7 +3136,6 @@ func (c *jsiiProxy_CfnKeySigningKey) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnKeySigningKey) ToString() *string {
 	var returns *string
 
@@ -3275,7 +3149,6 @@ func (c *jsiiProxy_CfnKeySigningKey) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnKeySigningKey) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3761,7 +3634,6 @@ func (j *jsiiProxy_CfnRecordSet) SetWeight(val *float64) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnRecordSet_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -3778,7 +3650,6 @@ func CfnRecordSet_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnRecordSet_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -3825,7 +3696,6 @@ func CfnRecordSet_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnRecordSet) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3838,7 +3708,6 @@ func (c *jsiiProxy_CfnRecordSet) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnRecordSet) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3854,7 +3723,6 @@ func (c *jsiiProxy_CfnRecordSet) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnRecordSet) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3900,7 +3768,6 @@ func (c *jsiiProxy_CfnRecordSet) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnRecordSet) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3910,7 +3777,6 @@ func (c *jsiiProxy_CfnRecordSet) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnRecordSet) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3922,7 +3788,6 @@ func (c *jsiiProxy_CfnRecordSet) AddPropertyDeletionOverride(propertyPath *strin
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnRecordSet) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3940,7 +3805,6 @@ func (c *jsiiProxy_CfnRecordSet) AddPropertyOverride(propertyPath *string, value
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnRecordSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3953,7 +3817,6 @@ func (c *jsiiProxy_CfnRecordSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy,
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnRecordSet) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3974,7 +3837,6 @@ func (c *jsiiProxy_CfnRecordSet) GetAtt(attributeName *string) awscdk.Reference 
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnRecordSet) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3998,7 +3860,6 @@ func (c *jsiiProxy_CfnRecordSet) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnRecordSet) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4024,7 +3885,6 @@ func (c *jsiiProxy_CfnRecordSet) RenderProperties(props *map[string]interface{})
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnRecordSet) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -4041,7 +3901,6 @@ func (c *jsiiProxy_CfnRecordSet) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnRecordSet) ToString() *string {
 	var returns *string
 
@@ -4055,7 +3914,6 @@ func (c *jsiiProxy_CfnRecordSet) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnRecordSet) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4328,7 +4186,6 @@ func (j *jsiiProxy_CfnRecordSetGroup) SetRecordSets(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnRecordSetGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -4345,7 +4202,6 @@ func CfnRecordSetGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnRecordSetGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -4392,7 +4248,6 @@ func CfnRecordSetGroup_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnRecordSetGroup) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4405,7 +4260,6 @@ func (c *jsiiProxy_CfnRecordSetGroup) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnRecordSetGroup) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4421,7 +4275,6 @@ func (c *jsiiProxy_CfnRecordSetGroup) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnRecordSetGroup) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4467,7 +4320,6 @@ func (c *jsiiProxy_CfnRecordSetGroup) AddMetadata(key *string, value interface{}
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnRecordSetGroup) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4477,7 +4329,6 @@ func (c *jsiiProxy_CfnRecordSetGroup) AddOverride(path *string, value interface{
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnRecordSetGroup) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4489,7 +4340,6 @@ func (c *jsiiProxy_CfnRecordSetGroup) AddPropertyDeletionOverride(propertyPath *
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnRecordSetGroup) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4507,7 +4357,6 @@ func (c *jsiiProxy_CfnRecordSetGroup) AddPropertyOverride(propertyPath *string, 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnRecordSetGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4520,7 +4369,6 @@ func (c *jsiiProxy_CfnRecordSetGroup) ApplyRemovalPolicy(policy awscdk.RemovalPo
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnRecordSetGroup) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -4541,7 +4389,6 @@ func (c *jsiiProxy_CfnRecordSetGroup) GetAtt(attributeName *string) awscdk.Refer
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnRecordSetGroup) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -4565,7 +4412,6 @@ func (c *jsiiProxy_CfnRecordSetGroup) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnRecordSetGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4591,7 +4437,6 @@ func (c *jsiiProxy_CfnRecordSetGroup) RenderProperties(props *map[string]interfa
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnRecordSetGroup) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -4608,7 +4453,6 @@ func (c *jsiiProxy_CfnRecordSetGroup) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnRecordSetGroup) ToString() *string {
 	var returns *string
 
@@ -4622,7 +4466,6 @@ func (c *jsiiProxy_CfnRecordSetGroup) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnRecordSetGroup) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4744,7 +4587,6 @@ type CfnRecordSetProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CnameRecord interface {
 	RecordSet
 	DomainName() *string
@@ -4815,7 +4657,6 @@ func (j *jsiiProxy_CnameRecord) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewCnameRecord(scope constructs.Construct, id *string, props *CnameRecordProps) CnameRecord {
 	_init_.Initialize()
 
@@ -4830,7 +4671,6 @@ func NewCnameRecord(scope constructs.Construct, id *string, props *CnameRecordPr
 	return &j
 }
 
-// Experimental.
 func NewCnameRecord_Override(c CnameRecord, scope constructs.Construct, id *string, props *CnameRecordProps) {
 	_init_.Initialize()
 
@@ -4861,7 +4701,6 @@ func CnameRecord_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func CnameRecord_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -4886,7 +4725,6 @@ func CnameRecord_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CnameRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4895,7 +4733,6 @@ func (c *jsiiProxy_CnameRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) 
 	)
 }
 
-// Experimental.
 func (c *jsiiProxy_CnameRecord) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -4915,7 +4752,6 @@ func (c *jsiiProxy_CnameRecord) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (c *jsiiProxy_CnameRecord) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -4934,7 +4770,6 @@ func (c *jsiiProxy_CnameRecord) GetResourceArnAttribute(arnAttr *string, arnComp
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (c *jsiiProxy_CnameRecord) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -4949,7 +4784,6 @@ func (c *jsiiProxy_CnameRecord) GetResourceNameAttribute(nameAttr *string) *stri
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (c *jsiiProxy_CnameRecord) ToString() *string {
 	var returns *string
 
@@ -4967,22 +4801,16 @@ func (c *jsiiProxy_CnameRecord) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CnameRecordProps struct {
 	// A comment to add on the record.
-	// Experimental.
 	Comment *string `json:"comment"`
 	// The domain name for this record.
-	// Experimental.
 	RecordName *string `json:"recordName"`
 	// The resource record cache time to live (TTL).
-	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
 	// The hosted zone in which to define the new record.
-	// Experimental.
 	Zone IHostedZone `json:"zone"`
 	// The domain name.
-	// Experimental.
 	DomainName *string `json:"domainName"`
 }
 
@@ -4990,19 +4818,15 @@ type CnameRecordProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CommonHostedZoneProps struct {
 	// Any comments that you want to include about the hosted zone.
-	// Experimental.
 	Comment *string `json:"comment"`
 	// The Amazon Resource Name (ARN) for the log group that you want Amazon Route 53 to send query logs to.
-	// Experimental.
 	QueryLogsLogGroupArn *string `json:"queryLogsLogGroupArn"`
 	// The name of the domain.
 	//
 	// For resource record types that include a domain
 	// name, specify a fully qualified domain name.
-	// Experimental.
 	ZoneName *string `json:"zoneName"`
 }
 
@@ -5010,7 +4834,6 @@ type CommonHostedZoneProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CrossAccountZoneDelegationRecord interface {
 	constructs.Construct
 	Node() constructs.Node
@@ -5033,7 +4856,6 @@ func (j *jsiiProxy_CrossAccountZoneDelegationRecord) Node() constructs.Node {
 }
 
 
-// Experimental.
 func NewCrossAccountZoneDelegationRecord(scope constructs.Construct, id *string, props *CrossAccountZoneDelegationRecordProps) CrossAccountZoneDelegationRecord {
 	_init_.Initialize()
 
@@ -5048,7 +4870,6 @@ func NewCrossAccountZoneDelegationRecord(scope constructs.Construct, id *string,
 	return &j
 }
 
-// Experimental.
 func NewCrossAccountZoneDelegationRecord_Override(c CrossAccountZoneDelegationRecord, scope constructs.Construct, id *string, props *CrossAccountZoneDelegationRecordProps) {
 	_init_.Initialize()
 
@@ -5079,7 +4900,6 @@ func CrossAccountZoneDelegationRecord_IsConstruct(x interface{}) *bool {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (c *jsiiProxy_CrossAccountZoneDelegationRecord) ToString() *string {
 	var returns *string
 
@@ -5097,25 +4917,18 @@ func (c *jsiiProxy_CrossAccountZoneDelegationRecord) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CrossAccountZoneDelegationRecordProps struct {
 	// The zone to be delegated.
-	// Experimental.
 	DelegatedZone IHostedZone `json:"delegatedZone"`
 	// The delegation role in the parent account.
-	// Experimental.
 	DelegationRole awsiam.IRole `json:"delegationRole"`
 	// The hosted zone id in the parent account.
-	// Experimental.
 	ParentHostedZoneId *string `json:"parentHostedZoneId"`
 	// The hosted zone name in the parent account.
-	// Experimental.
 	ParentHostedZoneName *string `json:"parentHostedZoneName"`
 	// The removal policy to apply to the record set.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// The resource record cache time to live (TTL).
-	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
 }
 
@@ -5123,7 +4936,6 @@ type CrossAccountZoneDelegationRecordProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DsRecord interface {
 	RecordSet
 	DomainName() *string
@@ -5194,7 +5006,6 @@ func (j *jsiiProxy_DsRecord) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewDsRecord(scope constructs.Construct, id *string, props *DsRecordProps) DsRecord {
 	_init_.Initialize()
 
@@ -5209,7 +5020,6 @@ func NewDsRecord(scope constructs.Construct, id *string, props *DsRecordProps) D
 	return &j
 }
 
-// Experimental.
 func NewDsRecord_Override(d DsRecord, scope constructs.Construct, id *string, props *DsRecordProps) {
 	_init_.Initialize()
 
@@ -5240,7 +5050,6 @@ func DsRecord_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func DsRecord_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -5265,7 +5074,6 @@ func DsRecord_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (d *jsiiProxy_DsRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		d,
@@ -5274,7 +5082,6 @@ func (d *jsiiProxy_DsRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DsRecord) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -5294,7 +5101,6 @@ func (d *jsiiProxy_DsRecord) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (d *jsiiProxy_DsRecord) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -5313,7 +5119,6 @@ func (d *jsiiProxy_DsRecord) GetResourceArnAttribute(arnAttr *string, arnCompone
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (d *jsiiProxy_DsRecord) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -5328,7 +5133,6 @@ func (d *jsiiProxy_DsRecord) GetResourceNameAttribute(nameAttr *string) *string 
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DsRecord) ToString() *string {
 	var returns *string
 
@@ -5346,22 +5150,16 @@ func (d *jsiiProxy_DsRecord) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DsRecordProps struct {
 	// A comment to add on the record.
-	// Experimental.
 	Comment *string `json:"comment"`
 	// The domain name for this record.
-	// Experimental.
 	RecordName *string `json:"recordName"`
 	// The resource record cache time to live (TTL).
-	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
 	// The hosted zone in which to define the new record.
-	// Experimental.
 	Zone IHostedZone `json:"zone"`
 	// The DS values.
-	// Experimental.
 	Values *[]*string `json:"values"`
 }
 
@@ -5369,7 +5167,6 @@ type DsRecordProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HostedZone interface {
 	awscdk.Resource
 	IHostedZone
@@ -5487,7 +5284,6 @@ func (j *jsiiProxy_HostedZone) ZoneName() *string {
 }
 
 
-// Experimental.
 func NewHostedZone(scope constructs.Construct, id *string, props *HostedZoneProps) HostedZone {
 	_init_.Initialize()
 
@@ -5502,7 +5298,6 @@ func NewHostedZone(scope constructs.Construct, id *string, props *HostedZoneProp
 	return &j
 }
 
-// Experimental.
 func NewHostedZone_Override(h HostedZone, scope constructs.Construct, id *string, props *HostedZoneProps) {
 	_init_.Initialize()
 
@@ -5516,7 +5311,6 @@ func NewHostedZone_Override(h HostedZone, scope constructs.Construct, id *string
 // Imports a hosted zone from another stack.
 //
 // Use when both hosted zone ID and hosted zone name are known.
-// Experimental.
 func HostedZone_FromHostedZoneAttributes(scope constructs.Construct, id *string, attrs *HostedZoneAttributes) IHostedZone {
 	_init_.Initialize()
 
@@ -5535,7 +5329,6 @@ func HostedZone_FromHostedZoneAttributes(scope constructs.Construct, id *string,
 // Import a Route 53 hosted zone defined either outside the CDK, or in a different CDK stack.
 //
 // Use when hosted zone ID is known. Hosted zone name becomes unavailable through this query.
-// Experimental.
 func HostedZone_FromHostedZoneId(scope constructs.Construct, id *string, hostedZoneId *string) IHostedZone {
 	_init_.Initialize()
 
@@ -5558,7 +5351,6 @@ func HostedZone_FromHostedZoneId(scope constructs.Construct, id *string, hostedZ
 // Use to easily query hosted zones.
 // See: https://docs.aws.amazon.com/cdk/latest/guide/environments.html
 //
-// Experimental.
 func HostedZone_FromLookup(scope constructs.Construct, id *string, query *HostedZoneProviderProps) IHostedZone {
 	_init_.Initialize()
 
@@ -5594,7 +5386,6 @@ func HostedZone_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func HostedZone_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -5611,7 +5402,6 @@ func HostedZone_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Add another VPC to this private hosted zone.
-// Experimental.
 func (h *jsiiProxy_HostedZone) AddVpc(vpc awsec2.IVpc) {
 	_jsii_.InvokeVoid(
 		h,
@@ -5629,7 +5419,6 @@ func (h *jsiiProxy_HostedZone) AddVpc(vpc awsec2.IVpc) {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (h *jsiiProxy_HostedZone) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		h,
@@ -5638,7 +5427,6 @@ func (h *jsiiProxy_HostedZone) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (h *jsiiProxy_HostedZone) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -5658,7 +5446,6 @@ func (h *jsiiProxy_HostedZone) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (h *jsiiProxy_HostedZone) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -5677,7 +5464,6 @@ func (h *jsiiProxy_HostedZone) GetResourceArnAttribute(arnAttr *string, arnCompo
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (h *jsiiProxy_HostedZone) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -5692,7 +5478,6 @@ func (h *jsiiProxy_HostedZone) GetResourceNameAttribute(nameAttr *string) *strin
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (h *jsiiProxy_HostedZone) ToString() *string {
 	var returns *string
 
@@ -5710,13 +5495,10 @@ func (h *jsiiProxy_HostedZone) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HostedZoneAttributes struct {
 	// Identifier of the hosted zone.
-	// Experimental.
 	HostedZoneId *string `json:"hostedZoneId"`
 	// Name of the hosted zone.
-	// Experimental.
 	ZoneName *string `json:"zoneName"`
 }
 
@@ -5724,19 +5506,15 @@ type HostedZoneAttributes struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HostedZoneProps struct {
 	// Any comments that you want to include about the hosted zone.
-	// Experimental.
 	Comment *string `json:"comment"`
 	// The Amazon Resource Name (ARN) for the log group that you want Amazon Route 53 to send query logs to.
-	// Experimental.
 	QueryLogsLogGroupArn *string `json:"queryLogsLogGroupArn"`
 	// The name of the domain.
 	//
 	// For resource record types that include a domain
 	// name, specify a fully qualified domain name.
-	// Experimental.
 	ZoneName *string `json:"zoneName"`
 	// A VPC that you want to associate with this hosted zone.
 	//
@@ -5744,7 +5522,6 @@ type HostedZoneProps struct {
 	// this property, a private hosted zone will be created.
 	//
 	// You can associate additional VPCs to this private zone using `addVpc(vpc)`.
-	// Experimental.
 	Vpcs *[]awsec2.IVpc `json:"vpcs"`
 }
 
@@ -5752,27 +5529,21 @@ type HostedZoneProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HostedZoneProviderProps struct {
 	// The zone domain e.g. example.com.
-	// Experimental.
 	DomainName *string `json:"domainName"`
 	// Whether the zone that is being looked up is a private hosted zone.
-	// Experimental.
 	PrivateZone *bool `json:"privateZone"`
 	// Specifies the ID of the VPC associated with a private hosted zone.
 	//
 	// If a VPC ID is provided and privateZone is false, no results will be returned
 	// and an error will be raised
-	// Experimental.
 	VpcId *string `json:"vpcId"`
 }
 
 // Classes that are valid alias record targets, like CloudFront distributions and load balancers, should implement this interface.
-// Experimental.
 type IAliasRecordTarget interface {
 	// Return hosted zone ID and DNS name, usable for Route53 alias targets.
-	// Experimental.
 	Bind(record IRecordSet, zone IHostedZone) *AliasRecordTargetConfig
 }
 
@@ -5795,22 +5566,17 @@ func (i *jsiiProxy_IAliasRecordTarget) Bind(record IRecordSet, zone IHostedZone)
 }
 
 // Imported or created hosted zone.
-// Experimental.
 type IHostedZone interface {
 	awscdk.IResource
 	// ARN of this hosted zone, such as arn:${Partition}:route53:::hostedzone/${Id}.
-	// Experimental.
 	HostedZoneArn() *string
 	// ID of this hosted zone, such as "Z23ABC4XYZL05B".
-	// Experimental.
 	HostedZoneId() *string
 	// Returns the set of name servers for the specific hosted zone. For example: ns1.example.com.
 	//
 	// This attribute will be undefined for private hosted zones or hosted zones imported from another stack.
-	// Experimental.
 	HostedZoneNameServers() *[]*string
 	// FQDN of this hosted zone.
-	// Experimental.
 	ZoneName() *string
 }
 
@@ -5860,7 +5626,6 @@ func (j *jsiiProxy_IHostedZone) ZoneName() *string {
 }
 
 // Represents a Route 53 private hosted zone.
-// Experimental.
 type IPrivateHostedZone interface {
 	IHostedZone
 }
@@ -5871,7 +5636,6 @@ type jsiiProxy_IPrivateHostedZone struct {
 }
 
 // Represents a Route 53 public hosted zone.
-// Experimental.
 type IPublicHostedZone interface {
 	IHostedZone
 }
@@ -5882,11 +5646,9 @@ type jsiiProxy_IPublicHostedZone struct {
 }
 
 // A record set.
-// Experimental.
 type IRecordSet interface {
 	awscdk.IResource
 	// The domain name of the record.
-	// Experimental.
 	DomainName() *string
 }
 
@@ -5909,7 +5671,6 @@ func (j *jsiiProxy_IRecordSet) DomainName() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type MxRecord interface {
 	RecordSet
 	DomainName() *string
@@ -5980,7 +5741,6 @@ func (j *jsiiProxy_MxRecord) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewMxRecord(scope constructs.Construct, id *string, props *MxRecordProps) MxRecord {
 	_init_.Initialize()
 
@@ -5995,7 +5755,6 @@ func NewMxRecord(scope constructs.Construct, id *string, props *MxRecordProps) M
 	return &j
 }
 
-// Experimental.
 func NewMxRecord_Override(m MxRecord, scope constructs.Construct, id *string, props *MxRecordProps) {
 	_init_.Initialize()
 
@@ -6026,7 +5785,6 @@ func MxRecord_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func MxRecord_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -6051,7 +5809,6 @@ func MxRecord_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (m *jsiiProxy_MxRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		m,
@@ -6060,7 +5817,6 @@ func (m *jsiiProxy_MxRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (m *jsiiProxy_MxRecord) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -6080,7 +5836,6 @@ func (m *jsiiProxy_MxRecord) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (m *jsiiProxy_MxRecord) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -6099,7 +5854,6 @@ func (m *jsiiProxy_MxRecord) GetResourceArnAttribute(arnAttr *string, arnCompone
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (m *jsiiProxy_MxRecord) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -6114,7 +5868,6 @@ func (m *jsiiProxy_MxRecord) GetResourceNameAttribute(nameAttr *string) *string 
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (m *jsiiProxy_MxRecord) ToString() *string {
 	var returns *string
 
@@ -6132,22 +5885,16 @@ func (m *jsiiProxy_MxRecord) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type MxRecordProps struct {
 	// A comment to add on the record.
-	// Experimental.
 	Comment *string `json:"comment"`
 	// The domain name for this record.
-	// Experimental.
 	RecordName *string `json:"recordName"`
 	// The resource record cache time to live (TTL).
-	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
 	// The hosted zone in which to define the new record.
-	// Experimental.
 	Zone IHostedZone `json:"zone"`
 	// The values.
-	// Experimental.
 	Values *[]*MxRecordValue `json:"values"`
 }
 
@@ -6155,13 +5902,10 @@ type MxRecordProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type MxRecordValue struct {
 	// The mail server host name.
-	// Experimental.
 	HostName *string `json:"hostName"`
 	// The priority.
-	// Experimental.
 	Priority *float64 `json:"priority"`
 }
 
@@ -6169,7 +5913,6 @@ type MxRecordValue struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type NsRecord interface {
 	RecordSet
 	DomainName() *string
@@ -6240,7 +5983,6 @@ func (j *jsiiProxy_NsRecord) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewNsRecord(scope constructs.Construct, id *string, props *NsRecordProps) NsRecord {
 	_init_.Initialize()
 
@@ -6255,7 +5997,6 @@ func NewNsRecord(scope constructs.Construct, id *string, props *NsRecordProps) N
 	return &j
 }
 
-// Experimental.
 func NewNsRecord_Override(n NsRecord, scope constructs.Construct, id *string, props *NsRecordProps) {
 	_init_.Initialize()
 
@@ -6286,7 +6027,6 @@ func NsRecord_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func NsRecord_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -6311,7 +6051,6 @@ func NsRecord_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (n *jsiiProxy_NsRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		n,
@@ -6320,7 +6059,6 @@ func (n *jsiiProxy_NsRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (n *jsiiProxy_NsRecord) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -6340,7 +6078,6 @@ func (n *jsiiProxy_NsRecord) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (n *jsiiProxy_NsRecord) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -6359,7 +6096,6 @@ func (n *jsiiProxy_NsRecord) GetResourceArnAttribute(arnAttr *string, arnCompone
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (n *jsiiProxy_NsRecord) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -6374,7 +6110,6 @@ func (n *jsiiProxy_NsRecord) GetResourceNameAttribute(nameAttr *string) *string 
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (n *jsiiProxy_NsRecord) ToString() *string {
 	var returns *string
 
@@ -6392,22 +6127,16 @@ func (n *jsiiProxy_NsRecord) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type NsRecordProps struct {
 	// A comment to add on the record.
-	// Experimental.
 	Comment *string `json:"comment"`
 	// The domain name for this record.
-	// Experimental.
 	RecordName *string `json:"recordName"`
 	// The resource record cache time to live (TTL).
-	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
 	// The hosted zone in which to define the new record.
-	// Experimental.
 	Zone IHostedZone `json:"zone"`
 	// The NS values.
-	// Experimental.
 	Values *[]*string `json:"values"`
 }
 
@@ -6418,7 +6147,6 @@ type NsRecordProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type PrivateHostedZone interface {
 	HostedZone
 	IPrivateHostedZone
@@ -6536,7 +6264,6 @@ func (j *jsiiProxy_PrivateHostedZone) ZoneName() *string {
 }
 
 
-// Experimental.
 func NewPrivateHostedZone(scope constructs.Construct, id *string, props *PrivateHostedZoneProps) PrivateHostedZone {
 	_init_.Initialize()
 
@@ -6551,7 +6278,6 @@ func NewPrivateHostedZone(scope constructs.Construct, id *string, props *Private
 	return &j
 }
 
-// Experimental.
 func NewPrivateHostedZone_Override(p PrivateHostedZone, scope constructs.Construct, id *string, props *PrivateHostedZoneProps) {
 	_init_.Initialize()
 
@@ -6565,7 +6291,6 @@ func NewPrivateHostedZone_Override(p PrivateHostedZone, scope constructs.Constru
 // Imports a hosted zone from another stack.
 //
 // Use when both hosted zone ID and hosted zone name are known.
-// Experimental.
 func PrivateHostedZone_FromHostedZoneAttributes(scope constructs.Construct, id *string, attrs *HostedZoneAttributes) IHostedZone {
 	_init_.Initialize()
 
@@ -6584,7 +6309,6 @@ func PrivateHostedZone_FromHostedZoneAttributes(scope constructs.Construct, id *
 // Import a Route 53 hosted zone defined either outside the CDK, or in a different CDK stack.
 //
 // Use when hosted zone ID is known. Hosted zone name becomes unavailable through this query.
-// Experimental.
 func PrivateHostedZone_FromHostedZoneId(scope constructs.Construct, id *string, hostedZoneId *string) IHostedZone {
 	_init_.Initialize()
 
@@ -6607,7 +6331,6 @@ func PrivateHostedZone_FromHostedZoneId(scope constructs.Construct, id *string, 
 // Use to easily query hosted zones.
 // See: https://docs.aws.amazon.com/cdk/latest/guide/environments.html
 //
-// Experimental.
 func PrivateHostedZone_FromLookup(scope constructs.Construct, id *string, query *HostedZoneProviderProps) IHostedZone {
 	_init_.Initialize()
 
@@ -6624,7 +6347,6 @@ func PrivateHostedZone_FromLookup(scope constructs.Construct, id *string, query 
 }
 
 // Import a Route 53 private hosted zone defined either outside the CDK, or in a different CDK stack.
-// Experimental.
 func PrivateHostedZone_FromPrivateHostedZoneId(scope constructs.Construct, id *string, privateHostedZoneId *string) IPrivateHostedZone {
 	_init_.Initialize()
 
@@ -6660,7 +6382,6 @@ func PrivateHostedZone_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func PrivateHostedZone_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -6677,7 +6398,6 @@ func PrivateHostedZone_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Add another VPC to this private hosted zone.
-// Experimental.
 func (p *jsiiProxy_PrivateHostedZone) AddVpc(vpc awsec2.IVpc) {
 	_jsii_.InvokeVoid(
 		p,
@@ -6695,7 +6415,6 @@ func (p *jsiiProxy_PrivateHostedZone) AddVpc(vpc awsec2.IVpc) {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (p *jsiiProxy_PrivateHostedZone) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		p,
@@ -6704,7 +6423,6 @@ func (p *jsiiProxy_PrivateHostedZone) ApplyRemovalPolicy(policy awscdk.RemovalPo
 	)
 }
 
-// Experimental.
 func (p *jsiiProxy_PrivateHostedZone) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -6724,7 +6442,6 @@ func (p *jsiiProxy_PrivateHostedZone) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (p *jsiiProxy_PrivateHostedZone) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -6743,7 +6460,6 @@ func (p *jsiiProxy_PrivateHostedZone) GetResourceArnAttribute(arnAttr *string, a
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (p *jsiiProxy_PrivateHostedZone) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -6758,7 +6474,6 @@ func (p *jsiiProxy_PrivateHostedZone) GetResourceNameAttribute(nameAttr *string)
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (p *jsiiProxy_PrivateHostedZone) ToString() *string {
 	var returns *string
 
@@ -6776,25 +6491,20 @@ func (p *jsiiProxy_PrivateHostedZone) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type PrivateHostedZoneProps struct {
 	// Any comments that you want to include about the hosted zone.
-	// Experimental.
 	Comment *string `json:"comment"`
 	// The Amazon Resource Name (ARN) for the log group that you want Amazon Route 53 to send query logs to.
-	// Experimental.
 	QueryLogsLogGroupArn *string `json:"queryLogsLogGroupArn"`
 	// The name of the domain.
 	//
 	// For resource record types that include a domain
 	// name, specify a fully qualified domain name.
-	// Experimental.
 	ZoneName *string `json:"zoneName"`
 	// A VPC that you want to associate with this hosted zone.
 	//
 	// Private hosted zones must be associated with at least one VPC. You can
 	// associated additional VPCs using `addVpc(vpc)`.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 }
 
@@ -6802,7 +6512,6 @@ type PrivateHostedZoneProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type PublicHostedZone interface {
 	HostedZone
 	IPublicHostedZone
@@ -6932,7 +6641,6 @@ func (j *jsiiProxy_PublicHostedZone) ZoneName() *string {
 }
 
 
-// Experimental.
 func NewPublicHostedZone(scope constructs.Construct, id *string, props *PublicHostedZoneProps) PublicHostedZone {
 	_init_.Initialize()
 
@@ -6947,7 +6655,6 @@ func NewPublicHostedZone(scope constructs.Construct, id *string, props *PublicHo
 	return &j
 }
 
-// Experimental.
 func NewPublicHostedZone_Override(p PublicHostedZone, scope constructs.Construct, id *string, props *PublicHostedZoneProps) {
 	_init_.Initialize()
 
@@ -6961,7 +6668,6 @@ func NewPublicHostedZone_Override(p PublicHostedZone, scope constructs.Construct
 // Imports a hosted zone from another stack.
 //
 // Use when both hosted zone ID and hosted zone name are known.
-// Experimental.
 func PublicHostedZone_FromHostedZoneAttributes(scope constructs.Construct, id *string, attrs *HostedZoneAttributes) IHostedZone {
 	_init_.Initialize()
 
@@ -6980,7 +6686,6 @@ func PublicHostedZone_FromHostedZoneAttributes(scope constructs.Construct, id *s
 // Import a Route 53 hosted zone defined either outside the CDK, or in a different CDK stack.
 //
 // Use when hosted zone ID is known. Hosted zone name becomes unavailable through this query.
-// Experimental.
 func PublicHostedZone_FromHostedZoneId(scope constructs.Construct, id *string, hostedZoneId *string) IHostedZone {
 	_init_.Initialize()
 
@@ -7003,7 +6708,6 @@ func PublicHostedZone_FromHostedZoneId(scope constructs.Construct, id *string, h
 // Use to easily query hosted zones.
 // See: https://docs.aws.amazon.com/cdk/latest/guide/environments.html
 //
-// Experimental.
 func PublicHostedZone_FromLookup(scope constructs.Construct, id *string, query *HostedZoneProviderProps) IHostedZone {
 	_init_.Initialize()
 
@@ -7020,7 +6724,6 @@ func PublicHostedZone_FromLookup(scope constructs.Construct, id *string, query *
 }
 
 // Import a Route 53 public hosted zone defined either outside the CDK, or in a different CDK stack.
-// Experimental.
 func PublicHostedZone_FromPublicHostedZoneId(scope constructs.Construct, id *string, publicHostedZoneId *string) IPublicHostedZone {
 	_init_.Initialize()
 
@@ -7056,7 +6759,6 @@ func PublicHostedZone_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func PublicHostedZone_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -7073,7 +6775,6 @@ func PublicHostedZone_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Adds a delegation from this zone to a designated zone.
-// Experimental.
 func (p *jsiiProxy_PublicHostedZone) AddDelegation(delegate IPublicHostedZone, opts *ZoneDelegationOptions) {
 	_jsii_.InvokeVoid(
 		p,
@@ -7083,7 +6784,6 @@ func (p *jsiiProxy_PublicHostedZone) AddDelegation(delegate IPublicHostedZone, o
 }
 
 // Add another VPC to this private hosted zone.
-// Experimental.
 func (p *jsiiProxy_PublicHostedZone) AddVpc(_vpc awsec2.IVpc) {
 	_jsii_.InvokeVoid(
 		p,
@@ -7101,7 +6801,6 @@ func (p *jsiiProxy_PublicHostedZone) AddVpc(_vpc awsec2.IVpc) {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (p *jsiiProxy_PublicHostedZone) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		p,
@@ -7110,7 +6809,6 @@ func (p *jsiiProxy_PublicHostedZone) ApplyRemovalPolicy(policy awscdk.RemovalPol
 	)
 }
 
-// Experimental.
 func (p *jsiiProxy_PublicHostedZone) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -7130,7 +6828,6 @@ func (p *jsiiProxy_PublicHostedZone) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (p *jsiiProxy_PublicHostedZone) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -7149,7 +6846,6 @@ func (p *jsiiProxy_PublicHostedZone) GetResourceArnAttribute(arnAttr *string, ar
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (p *jsiiProxy_PublicHostedZone) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -7164,7 +6860,6 @@ func (p *jsiiProxy_PublicHostedZone) GetResourceNameAttribute(nameAttr *string) 
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (p *jsiiProxy_PublicHostedZone) ToString() *string {
 	var returns *string
 
@@ -7182,28 +6877,21 @@ func (p *jsiiProxy_PublicHostedZone) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type PublicHostedZoneProps struct {
 	// Any comments that you want to include about the hosted zone.
-	// Experimental.
 	Comment *string `json:"comment"`
 	// The Amazon Resource Name (ARN) for the log group that you want Amazon Route 53 to send query logs to.
-	// Experimental.
 	QueryLogsLogGroupArn *string `json:"queryLogsLogGroupArn"`
 	// The name of the domain.
 	//
 	// For resource record types that include a domain
 	// name, specify a fully qualified domain name.
-	// Experimental.
 	ZoneName *string `json:"zoneName"`
 	// Whether to create a CAA record to restrict certificate authorities allowed to issue certificates for this domain to Amazon only.
-	// Experimental.
 	CaaAmazon *bool `json:"caaAmazon"`
 	// A principal which is trusted to assume a role for zone delegation.
-	// Experimental.
 	CrossAccountZoneDelegationPrincipal awsiam.IPrincipal `json:"crossAccountZoneDelegationPrincipal"`
 	// The name of the role created for cross account delegation.
-	// Experimental.
 	CrossAccountZoneDelegationRoleName *string `json:"crossAccountZoneDelegationRoleName"`
 }
 
@@ -7211,7 +6899,6 @@ type PublicHostedZoneProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RecordSet interface {
 	awscdk.Resource
 	IRecordSet
@@ -7284,7 +6971,6 @@ func (j *jsiiProxy_RecordSet) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewRecordSet(scope constructs.Construct, id *string, props *RecordSetProps) RecordSet {
 	_init_.Initialize()
 
@@ -7299,7 +6985,6 @@ func NewRecordSet(scope constructs.Construct, id *string, props *RecordSetProps)
 	return &j
 }
 
-// Experimental.
 func NewRecordSet_Override(r RecordSet, scope constructs.Construct, id *string, props *RecordSetProps) {
 	_init_.Initialize()
 
@@ -7330,7 +7015,6 @@ func RecordSet_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func RecordSet_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -7355,7 +7039,6 @@ func RecordSet_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (r *jsiiProxy_RecordSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		r,
@@ -7364,7 +7047,6 @@ func (r *jsiiProxy_RecordSet) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (r *jsiiProxy_RecordSet) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -7384,7 +7066,6 @@ func (r *jsiiProxy_RecordSet) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (r *jsiiProxy_RecordSet) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -7403,7 +7084,6 @@ func (r *jsiiProxy_RecordSet) GetResourceArnAttribute(arnAttr *string, arnCompon
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (r *jsiiProxy_RecordSet) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -7418,7 +7098,6 @@ func (r *jsiiProxy_RecordSet) GetResourceNameAttribute(nameAttr *string) *string
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (r *jsiiProxy_RecordSet) ToString() *string {
 	var returns *string
 
@@ -7436,19 +7115,14 @@ func (r *jsiiProxy_RecordSet) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RecordSetOptions struct {
 	// A comment to add on the record.
-	// Experimental.
 	Comment *string `json:"comment"`
 	// The domain name for this record.
-	// Experimental.
 	RecordName *string `json:"recordName"`
 	// The resource record cache time to live (TTL).
-	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
 	// The hosted zone in which to define the new record.
-	// Experimental.
 	Zone IHostedZone `json:"zone"`
 }
 
@@ -7456,25 +7130,18 @@ type RecordSetOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RecordSetProps struct {
 	// A comment to add on the record.
-	// Experimental.
 	Comment *string `json:"comment"`
 	// The domain name for this record.
-	// Experimental.
 	RecordName *string `json:"recordName"`
 	// The resource record cache time to live (TTL).
-	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
 	// The hosted zone in which to define the new record.
-	// Experimental.
 	Zone IHostedZone `json:"zone"`
 	// The record type.
-	// Experimental.
 	RecordType RecordType `json:"recordType"`
 	// The target for this record, either `RecordTarget.fromValues()` or `RecordTarget.fromAlias()`.
-	// Experimental.
 	Target RecordTarget `json:"target"`
 }
 
@@ -7482,7 +7149,6 @@ type RecordSetProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RecordTarget interface {
 	AliasTarget() IAliasRecordTarget
 	Values() *[]*string
@@ -7514,7 +7180,6 @@ func (j *jsiiProxy_RecordTarget) Values() *[]*string {
 }
 
 
-// Experimental.
 func NewRecordTarget(values *[]*string, aliasTarget IAliasRecordTarget) RecordTarget {
 	_init_.Initialize()
 
@@ -7529,7 +7194,6 @@ func NewRecordTarget(values *[]*string, aliasTarget IAliasRecordTarget) RecordTa
 	return &j
 }
 
-// Experimental.
 func NewRecordTarget_Override(r RecordTarget, values *[]*string, aliasTarget IAliasRecordTarget) {
 	_init_.Initialize()
 
@@ -7541,7 +7205,6 @@ func NewRecordTarget_Override(r RecordTarget, values *[]*string, aliasTarget IAl
 }
 
 // Use an alias as target.
-// Experimental.
 func RecordTarget_FromAlias(aliasTarget IAliasRecordTarget) RecordTarget {
 	_init_.Initialize()
 
@@ -7558,7 +7221,6 @@ func RecordTarget_FromAlias(aliasTarget IAliasRecordTarget) RecordTarget {
 }
 
 // Use ip addresses as target.
-// Experimental.
 func RecordTarget_FromIpAddresses(ipAddresses ...*string) RecordTarget {
 	_init_.Initialize()
 
@@ -7580,7 +7242,6 @@ func RecordTarget_FromIpAddresses(ipAddresses ...*string) RecordTarget {
 }
 
 // Use string values as target.
-// Experimental.
 func RecordTarget_FromValues(values ...*string) RecordTarget {
 	_init_.Initialize()
 
@@ -7602,7 +7263,6 @@ func RecordTarget_FromValues(values ...*string) RecordTarget {
 }
 
 // The record type.
-// Experimental.
 type RecordType string
 
 const (
@@ -7625,7 +7285,6 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SrvRecord interface {
 	RecordSet
 	DomainName() *string
@@ -7696,7 +7355,6 @@ func (j *jsiiProxy_SrvRecord) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewSrvRecord(scope constructs.Construct, id *string, props *SrvRecordProps) SrvRecord {
 	_init_.Initialize()
 
@@ -7711,7 +7369,6 @@ func NewSrvRecord(scope constructs.Construct, id *string, props *SrvRecordProps)
 	return &j
 }
 
-// Experimental.
 func NewSrvRecord_Override(s SrvRecord, scope constructs.Construct, id *string, props *SrvRecordProps) {
 	_init_.Initialize()
 
@@ -7742,7 +7399,6 @@ func SrvRecord_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func SrvRecord_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -7767,7 +7423,6 @@ func SrvRecord_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (s *jsiiProxy_SrvRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		s,
@@ -7776,7 +7431,6 @@ func (s *jsiiProxy_SrvRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (s *jsiiProxy_SrvRecord) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -7796,7 +7450,6 @@ func (s *jsiiProxy_SrvRecord) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (s *jsiiProxy_SrvRecord) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -7815,7 +7468,6 @@ func (s *jsiiProxy_SrvRecord) GetResourceArnAttribute(arnAttr *string, arnCompon
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (s *jsiiProxy_SrvRecord) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -7830,7 +7482,6 @@ func (s *jsiiProxy_SrvRecord) GetResourceNameAttribute(nameAttr *string) *string
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (s *jsiiProxy_SrvRecord) ToString() *string {
 	var returns *string
 
@@ -7848,22 +7499,16 @@ func (s *jsiiProxy_SrvRecord) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SrvRecordProps struct {
 	// A comment to add on the record.
-	// Experimental.
 	Comment *string `json:"comment"`
 	// The domain name for this record.
-	// Experimental.
 	RecordName *string `json:"recordName"`
 	// The resource record cache time to live (TTL).
-	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
 	// The hosted zone in which to define the new record.
-	// Experimental.
 	Zone IHostedZone `json:"zone"`
 	// The values.
-	// Experimental.
 	Values *[]*SrvRecordValue `json:"values"`
 }
 
@@ -7871,19 +7516,14 @@ type SrvRecordProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SrvRecordValue struct {
 	// The server host name.
-	// Experimental.
 	HostName *string `json:"hostName"`
 	// The port.
-	// Experimental.
 	Port *float64 `json:"port"`
 	// The priority.
-	// Experimental.
 	Priority *float64 `json:"priority"`
 	// The weight.
-	// Experimental.
 	Weight *float64 `json:"weight"`
 }
 
@@ -7891,7 +7531,6 @@ type SrvRecordValue struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TxtRecord interface {
 	RecordSet
 	DomainName() *string
@@ -7962,7 +7601,6 @@ func (j *jsiiProxy_TxtRecord) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewTxtRecord(scope constructs.Construct, id *string, props *TxtRecordProps) TxtRecord {
 	_init_.Initialize()
 
@@ -7977,7 +7615,6 @@ func NewTxtRecord(scope constructs.Construct, id *string, props *TxtRecordProps)
 	return &j
 }
 
-// Experimental.
 func NewTxtRecord_Override(t TxtRecord, scope constructs.Construct, id *string, props *TxtRecordProps) {
 	_init_.Initialize()
 
@@ -8008,7 +7645,6 @@ func TxtRecord_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func TxtRecord_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -8033,7 +7669,6 @@ func TxtRecord_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (t *jsiiProxy_TxtRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		t,
@@ -8042,7 +7677,6 @@ func (t *jsiiProxy_TxtRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (t *jsiiProxy_TxtRecord) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -8062,7 +7696,6 @@ func (t *jsiiProxy_TxtRecord) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (t *jsiiProxy_TxtRecord) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -8081,7 +7714,6 @@ func (t *jsiiProxy_TxtRecord) GetResourceArnAttribute(arnAttr *string, arnCompon
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (t *jsiiProxy_TxtRecord) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -8096,7 +7728,6 @@ func (t *jsiiProxy_TxtRecord) GetResourceNameAttribute(nameAttr *string) *string
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (t *jsiiProxy_TxtRecord) ToString() *string {
 	var returns *string
 
@@ -8114,22 +7745,16 @@ func (t *jsiiProxy_TxtRecord) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TxtRecordProps struct {
 	// A comment to add on the record.
-	// Experimental.
 	Comment *string `json:"comment"`
 	// The domain name for this record.
-	// Experimental.
 	RecordName *string `json:"recordName"`
 	// The resource record cache time to live (TTL).
-	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
 	// The hosted zone in which to define the new record.
-	// Experimental.
 	Zone IHostedZone `json:"zone"`
 	// The text values.
-	// Experimental.
 	Values *[]*string `json:"values"`
 }
 
@@ -8137,7 +7762,6 @@ type TxtRecordProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VpcEndpointServiceDomainName interface {
 	constructs.Construct
 	DomainName() *string
@@ -8172,7 +7796,6 @@ func (j *jsiiProxy_VpcEndpointServiceDomainName) Node() constructs.Node {
 }
 
 
-// Experimental.
 func NewVpcEndpointServiceDomainName(scope constructs.Construct, id *string, props *VpcEndpointServiceDomainNameProps) VpcEndpointServiceDomainName {
 	_init_.Initialize()
 
@@ -8187,7 +7810,6 @@ func NewVpcEndpointServiceDomainName(scope constructs.Construct, id *string, pro
 	return &j
 }
 
-// Experimental.
 func NewVpcEndpointServiceDomainName_Override(v VpcEndpointServiceDomainName, scope constructs.Construct, id *string, props *VpcEndpointServiceDomainNameProps) {
 	_init_.Initialize()
 
@@ -8226,7 +7848,6 @@ func VpcEndpointServiceDomainName_IsConstruct(x interface{}) *bool {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (v *jsiiProxy_VpcEndpointServiceDomainName) ToString() *string {
 	var returns *string
 
@@ -8244,7 +7865,6 @@ func (v *jsiiProxy_VpcEndpointServiceDomainName) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VpcEndpointServiceDomainNameProps struct {
 	// The domain name to use.
 	//
@@ -8253,13 +7873,10 @@ type VpcEndpointServiceDomainNameProps struct {
 	// private DNS can be used.
 	// See: https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html
 	//
-	// Experimental.
 	DomainName *string `json:"domainName"`
 	// The VPC Endpoint Service to configure Private DNS for.
-	// Experimental.
 	EndpointService awsec2.IVpcEndpointService `json:"endpointService"`
 	// The public hosted zone to use for the domain.
-	// Experimental.
 	PublicHostedZone IPublicHostedZone `json:"publicHostedZone"`
 }
 
@@ -8267,13 +7884,10 @@ type VpcEndpointServiceDomainNameProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ZoneDelegationOptions struct {
 	// A comment to add on the DNS record created to incorporate the delegation.
-	// Experimental.
 	Comment *string `json:"comment"`
 	// The TTL (Time To Live) of the DNS delegation record in DNS caches.
-	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
 }
 
@@ -8281,7 +7895,6 @@ type ZoneDelegationOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ZoneDelegationRecord interface {
 	RecordSet
 	DomainName() *string
@@ -8352,7 +7965,6 @@ func (j *jsiiProxy_ZoneDelegationRecord) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewZoneDelegationRecord(scope constructs.Construct, id *string, props *ZoneDelegationRecordProps) ZoneDelegationRecord {
 	_init_.Initialize()
 
@@ -8367,7 +7979,6 @@ func NewZoneDelegationRecord(scope constructs.Construct, id *string, props *Zone
 	return &j
 }
 
-// Experimental.
 func NewZoneDelegationRecord_Override(z ZoneDelegationRecord, scope constructs.Construct, id *string, props *ZoneDelegationRecordProps) {
 	_init_.Initialize()
 
@@ -8398,7 +8009,6 @@ func ZoneDelegationRecord_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func ZoneDelegationRecord_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -8423,7 +8033,6 @@ func ZoneDelegationRecord_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (z *jsiiProxy_ZoneDelegationRecord) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		z,
@@ -8432,7 +8041,6 @@ func (z *jsiiProxy_ZoneDelegationRecord) ApplyRemovalPolicy(policy awscdk.Remova
 	)
 }
 
-// Experimental.
 func (z *jsiiProxy_ZoneDelegationRecord) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -8452,7 +8060,6 @@ func (z *jsiiProxy_ZoneDelegationRecord) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (z *jsiiProxy_ZoneDelegationRecord) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -8471,7 +8078,6 @@ func (z *jsiiProxy_ZoneDelegationRecord) GetResourceArnAttribute(arnAttr *string
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (z *jsiiProxy_ZoneDelegationRecord) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -8486,7 +8092,6 @@ func (z *jsiiProxy_ZoneDelegationRecord) GetResourceNameAttribute(nameAttr *stri
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (z *jsiiProxy_ZoneDelegationRecord) ToString() *string {
 	var returns *string
 
@@ -8504,22 +8109,16 @@ func (z *jsiiProxy_ZoneDelegationRecord) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ZoneDelegationRecordProps struct {
 	// A comment to add on the record.
-	// Experimental.
 	Comment *string `json:"comment"`
 	// The domain name for this record.
-	// Experimental.
 	RecordName *string `json:"recordName"`
 	// The resource record cache time to live (TTL).
-	// Experimental.
 	Ttl awscdk.Duration `json:"ttl"`
 	// The hosted zone in which to define the new record.
-	// Experimental.
 	Zone IHostedZone `json:"zone"`
 	// The name servers to report in the delegation records.
-	// Experimental.
 	NameServers *[]*string `json:"nameServers"`
 }
 

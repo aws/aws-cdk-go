@@ -14,7 +14,6 @@ import (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Archive interface {
 	awscdk.Resource
 	ArchiveArn() *string
@@ -96,7 +95,6 @@ func (j *jsiiProxy_Archive) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewArchive(scope constructs.Construct, id *string, props *ArchiveProps) Archive {
 	_init_.Initialize()
 
@@ -111,7 +109,6 @@ func NewArchive(scope constructs.Construct, id *string, props *ArchiveProps) Arc
 	return &j
 }
 
-// Experimental.
 func NewArchive_Override(a Archive, scope constructs.Construct, id *string, props *ArchiveProps) {
 	_init_.Initialize()
 
@@ -142,7 +139,6 @@ func Archive_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func Archive_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -167,7 +163,6 @@ func Archive_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (a *jsiiProxy_Archive) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		a,
@@ -176,7 +171,6 @@ func (a *jsiiProxy_Archive) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (a *jsiiProxy_Archive) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -196,7 +190,6 @@ func (a *jsiiProxy_Archive) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (a *jsiiProxy_Archive) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -215,7 +208,6 @@ func (a *jsiiProxy_Archive) GetResourceArnAttribute(arnAttr *string, arnComponen
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (a *jsiiProxy_Archive) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -230,7 +222,6 @@ func (a *jsiiProxy_Archive) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (a *jsiiProxy_Archive) ToString() *string {
 	var returns *string
 
@@ -248,24 +239,18 @@ func (a *jsiiProxy_Archive) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ArchiveProps struct {
 	// The name of the archive.
-	// Experimental.
 	ArchiveName *string `json:"archiveName"`
 	// A description for the archive.
-	// Experimental.
 	Description *string `json:"description"`
 	// An event pattern to use to filter events sent to the archive.
-	// Experimental.
 	EventPattern *EventPattern `json:"eventPattern"`
 	// The number of days to retain events for.
 	//
 	// Default value is 0. If set to 0, events are retained indefinitely.
-	// Experimental.
 	Retention awscdk.Duration `json:"retention"`
 	// The event source associated with the archive.
-	// Experimental.
 	SourceEventBus IEventBus `json:"sourceEventBus"`
 }
 
@@ -273,21 +258,16 @@ type ArchiveProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type BaseArchiveProps struct {
 	// The name of the archive.
-	// Experimental.
 	ArchiveName *string `json:"archiveName"`
 	// A description for the archive.
-	// Experimental.
 	Description *string `json:"description"`
 	// An event pattern to use to filter events sent to the archive.
-	// Experimental.
 	EventPattern *EventPattern `json:"eventPattern"`
 	// The number of days to retain events for.
 	//
 	// Default value is 0. If set to 0, events are retained indefinitely.
-	// Experimental.
 	Retention awscdk.Duration `json:"retention"`
 }
 
@@ -584,7 +564,6 @@ func (j *jsiiProxy_CfnApiDestination) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnApiDestination_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -601,7 +580,6 @@ func CfnApiDestination_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnApiDestination_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -648,7 +626,6 @@ func CfnApiDestination_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnApiDestination) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -661,7 +638,6 @@ func (c *jsiiProxy_CfnApiDestination) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnApiDestination) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -677,7 +653,6 @@ func (c *jsiiProxy_CfnApiDestination) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnApiDestination) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -723,7 +698,6 @@ func (c *jsiiProxy_CfnApiDestination) AddMetadata(key *string, value interface{}
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnApiDestination) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -733,7 +707,6 @@ func (c *jsiiProxy_CfnApiDestination) AddOverride(path *string, value interface{
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnApiDestination) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -745,7 +718,6 @@ func (c *jsiiProxy_CfnApiDestination) AddPropertyDeletionOverride(propertyPath *
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnApiDestination) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -763,7 +735,6 @@ func (c *jsiiProxy_CfnApiDestination) AddPropertyOverride(propertyPath *string, 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnApiDestination) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -776,7 +747,6 @@ func (c *jsiiProxy_CfnApiDestination) ApplyRemovalPolicy(policy awscdk.RemovalPo
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnApiDestination) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -797,7 +767,6 @@ func (c *jsiiProxy_CfnApiDestination) GetAtt(attributeName *string) awscdk.Refer
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnApiDestination) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -821,7 +790,6 @@ func (c *jsiiProxy_CfnApiDestination) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnApiDestination) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -847,7 +815,6 @@ func (c *jsiiProxy_CfnApiDestination) RenderProperties(props *map[string]interfa
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnApiDestination) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -864,7 +831,6 @@ func (c *jsiiProxy_CfnApiDestination) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnApiDestination) ToString() *string {
 	var returns *string
 
@@ -878,7 +844,6 @@ func (c *jsiiProxy_CfnApiDestination) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnApiDestination) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1190,7 +1155,6 @@ func (j *jsiiProxy_CfnArchive) SetSourceArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnArchive_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -1207,7 +1171,6 @@ func CfnArchive_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnArchive_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -1254,7 +1217,6 @@ func CfnArchive_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnArchive) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1267,7 +1229,6 @@ func (c *jsiiProxy_CfnArchive) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnArchive) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1283,7 +1244,6 @@ func (c *jsiiProxy_CfnArchive) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnArchive) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1329,7 +1289,6 @@ func (c *jsiiProxy_CfnArchive) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnArchive) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1339,7 +1298,6 @@ func (c *jsiiProxy_CfnArchive) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnArchive) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1351,7 +1309,6 @@ func (c *jsiiProxy_CfnArchive) AddPropertyDeletionOverride(propertyPath *string)
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnArchive) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1369,7 +1326,6 @@ func (c *jsiiProxy_CfnArchive) AddPropertyOverride(propertyPath *string, value i
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnArchive) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1382,7 +1338,6 @@ func (c *jsiiProxy_CfnArchive) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, o
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnArchive) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1403,7 +1358,6 @@ func (c *jsiiProxy_CfnArchive) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnArchive) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1427,7 +1381,6 @@ func (c *jsiiProxy_CfnArchive) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnArchive) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1453,7 +1406,6 @@ func (c *jsiiProxy_CfnArchive) RenderProperties(props *map[string]interface{}) *
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnArchive) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1470,7 +1422,6 @@ func (c *jsiiProxy_CfnArchive) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnArchive) ToString() *string {
 	var returns *string
 
@@ -1484,7 +1435,6 @@ func (c *jsiiProxy_CfnArchive) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnArchive) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1774,7 +1724,6 @@ func (j *jsiiProxy_CfnConnection) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnConnection_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -1791,7 +1740,6 @@ func CfnConnection_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnConnection_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -1838,7 +1786,6 @@ func CfnConnection_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnConnection) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1851,7 +1798,6 @@ func (c *jsiiProxy_CfnConnection) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnConnection) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1867,7 +1813,6 @@ func (c *jsiiProxy_CfnConnection) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnConnection) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1913,7 +1858,6 @@ func (c *jsiiProxy_CfnConnection) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnConnection) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1923,7 +1867,6 @@ func (c *jsiiProxy_CfnConnection) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnConnection) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1935,7 +1878,6 @@ func (c *jsiiProxy_CfnConnection) AddPropertyDeletionOverride(propertyPath *stri
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnConnection) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1953,7 +1895,6 @@ func (c *jsiiProxy_CfnConnection) AddPropertyOverride(propertyPath *string, valu
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnConnection) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1966,7 +1907,6 @@ func (c *jsiiProxy_CfnConnection) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnConnection) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1987,7 +1927,6 @@ func (c *jsiiProxy_CfnConnection) GetAtt(attributeName *string) awscdk.Reference
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnConnection) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2011,7 +1950,6 @@ func (c *jsiiProxy_CfnConnection) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnConnection) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2037,7 +1975,6 @@ func (c *jsiiProxy_CfnConnection) RenderProperties(props *map[string]interface{}
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnConnection) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2054,7 +1991,6 @@ func (c *jsiiProxy_CfnConnection) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnConnection) ToString() *string {
 	var returns *string
 
@@ -2068,7 +2004,6 @@ func (c *jsiiProxy_CfnConnection) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnConnection) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2327,7 +2262,6 @@ func (j *jsiiProxy_CfnEventBus) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnEventBus_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -2344,7 +2278,6 @@ func CfnEventBus_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnEventBus_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -2391,7 +2324,6 @@ func CfnEventBus_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnEventBus) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2404,7 +2336,6 @@ func (c *jsiiProxy_CfnEventBus) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnEventBus) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2420,7 +2351,6 @@ func (c *jsiiProxy_CfnEventBus) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnEventBus) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2466,7 +2396,6 @@ func (c *jsiiProxy_CfnEventBus) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnEventBus) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2476,7 +2405,6 @@ func (c *jsiiProxy_CfnEventBus) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnEventBus) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2488,7 +2416,6 @@ func (c *jsiiProxy_CfnEventBus) AddPropertyDeletionOverride(propertyPath *string
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnEventBus) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2506,7 +2433,6 @@ func (c *jsiiProxy_CfnEventBus) AddPropertyOverride(propertyPath *string, value 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnEventBus) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2519,7 +2445,6 @@ func (c *jsiiProxy_CfnEventBus) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, 
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnEventBus) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2540,7 +2465,6 @@ func (c *jsiiProxy_CfnEventBus) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnEventBus) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2564,7 +2488,6 @@ func (c *jsiiProxy_CfnEventBus) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnEventBus) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2590,7 +2513,6 @@ func (c *jsiiProxy_CfnEventBus) RenderProperties(props *map[string]interface{}) 
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnEventBus) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2607,7 +2529,6 @@ func (c *jsiiProxy_CfnEventBus) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnEventBus) ToString() *string {
 	var returns *string
 
@@ -2621,7 +2542,6 @@ func (c *jsiiProxy_CfnEventBus) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnEventBus) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2912,7 +2832,6 @@ func (j *jsiiProxy_CfnEventBusPolicy) SetStatementId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnEventBusPolicy_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -2929,7 +2848,6 @@ func CfnEventBusPolicy_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnEventBusPolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -2976,7 +2894,6 @@ func CfnEventBusPolicy_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnEventBusPolicy) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2989,7 +2906,6 @@ func (c *jsiiProxy_CfnEventBusPolicy) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnEventBusPolicy) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3005,7 +2921,6 @@ func (c *jsiiProxy_CfnEventBusPolicy) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnEventBusPolicy) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3051,7 +2966,6 @@ func (c *jsiiProxy_CfnEventBusPolicy) AddMetadata(key *string, value interface{}
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnEventBusPolicy) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3061,7 +2975,6 @@ func (c *jsiiProxy_CfnEventBusPolicy) AddOverride(path *string, value interface{
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnEventBusPolicy) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3073,7 +2986,6 @@ func (c *jsiiProxy_CfnEventBusPolicy) AddPropertyDeletionOverride(propertyPath *
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnEventBusPolicy) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3091,7 +3003,6 @@ func (c *jsiiProxy_CfnEventBusPolicy) AddPropertyOverride(propertyPath *string, 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnEventBusPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3104,7 +3015,6 @@ func (c *jsiiProxy_CfnEventBusPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPo
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnEventBusPolicy) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3125,7 +3035,6 @@ func (c *jsiiProxy_CfnEventBusPolicy) GetAtt(attributeName *string) awscdk.Refer
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnEventBusPolicy) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3149,7 +3058,6 @@ func (c *jsiiProxy_CfnEventBusPolicy) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnEventBusPolicy) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3175,7 +3083,6 @@ func (c *jsiiProxy_CfnEventBusPolicy) RenderProperties(props *map[string]interfa
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnEventBusPolicy) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3192,7 +3099,6 @@ func (c *jsiiProxy_CfnEventBusPolicy) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnEventBusPolicy) ToString() *string {
 	var returns *string
 
@@ -3206,7 +3112,6 @@ func (c *jsiiProxy_CfnEventBusPolicy) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnEventBusPolicy) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3589,7 +3494,6 @@ func (j *jsiiProxy_CfnRule) SetTargets(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnRule_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -3606,7 +3510,6 @@ func CfnRule_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnRule_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -3653,7 +3556,6 @@ func CfnRule_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnRule) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3666,7 +3568,6 @@ func (c *jsiiProxy_CfnRule) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnRule) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3682,7 +3583,6 @@ func (c *jsiiProxy_CfnRule) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnRule) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3728,7 +3628,6 @@ func (c *jsiiProxy_CfnRule) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnRule) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3738,7 +3637,6 @@ func (c *jsiiProxy_CfnRule) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnRule) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3750,7 +3648,6 @@ func (c *jsiiProxy_CfnRule) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnRule) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3768,7 +3665,6 @@ func (c *jsiiProxy_CfnRule) AddPropertyOverride(propertyPath *string, value inte
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnRule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3781,7 +3677,6 @@ func (c *jsiiProxy_CfnRule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opti
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnRule) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3802,7 +3697,6 @@ func (c *jsiiProxy_CfnRule) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnRule) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3826,7 +3720,6 @@ func (c *jsiiProxy_CfnRule) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnRule) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3852,7 +3745,6 @@ func (c *jsiiProxy_CfnRule) RenderProperties(props *map[string]interface{}) *map
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnRule) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3869,7 +3761,6 @@ func (c *jsiiProxy_CfnRule) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnRule) ToString() *string {
 	var returns *string
 
@@ -3883,7 +3774,6 @@ func (c *jsiiProxy_CfnRule) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnRule) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4158,25 +4048,18 @@ type CfnRuleProps struct {
 //
 // See: https://docs.aws.amazon.com/eventbridge/latest/userguide/scheduled-events.html#cron-expressions
 //
-// Experimental.
 type CronOptions struct {
 	// The day of the month to run this rule at.
-	// Experimental.
 	Day *string `json:"day"`
 	// The hour to run this rule at.
-	// Experimental.
 	Hour *string `json:"hour"`
 	// The minute to run this rule at.
-	// Experimental.
 	Minute *string `json:"minute"`
 	// The month to run this rule at.
-	// Experimental.
 	Month *string `json:"month"`
 	// The day of the week to run this rule at.
-	// Experimental.
 	WeekDay *string `json:"weekDay"`
 	// The year to run this rule at.
-	// Experimental.
 	Year *string `json:"year"`
 }
 
@@ -4184,7 +4067,6 @@ type CronOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type EventBus interface {
 	awscdk.Resource
 	IEventBus
@@ -4292,7 +4174,6 @@ func (j *jsiiProxy_EventBus) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewEventBus(scope constructs.Construct, id *string, props *EventBusProps) EventBus {
 	_init_.Initialize()
 
@@ -4307,7 +4188,6 @@ func NewEventBus(scope constructs.Construct, id *string, props *EventBusProps) E
 	return &j
 }
 
-// Experimental.
 func NewEventBus_Override(e EventBus, scope constructs.Construct, id *string, props *EventBusProps) {
 	_init_.Initialize()
 
@@ -4319,7 +4199,6 @@ func NewEventBus_Override(e EventBus, scope constructs.Construct, id *string, pr
 }
 
 // Import an existing event bus resource.
-// Experimental.
 func EventBus_FromEventBusArn(scope constructs.Construct, id *string, eventBusArn *string) IEventBus {
 	_init_.Initialize()
 
@@ -4336,7 +4215,6 @@ func EventBus_FromEventBusArn(scope constructs.Construct, id *string, eventBusAr
 }
 
 // Import an existing event bus resource.
-// Experimental.
 func EventBus_FromEventBusAttributes(scope constructs.Construct, id *string, attrs *EventBusAttributes) IEventBus {
 	_init_.Initialize()
 
@@ -4353,7 +4231,6 @@ func EventBus_FromEventBusAttributes(scope constructs.Construct, id *string, att
 }
 
 // Import an existing event bus resource.
-// Experimental.
 func EventBus_FromEventBusName(scope constructs.Construct, id *string, eventBusName *string) IEventBus {
 	_init_.Initialize()
 
@@ -4370,7 +4247,6 @@ func EventBus_FromEventBusName(scope constructs.Construct, id *string, eventBusN
 }
 
 // Permits an IAM Principal to send custom events to EventBridge so that they can be matched to rules.
-// Experimental.
 func EventBus_GrantAllPutEvents(grantee awsiam.IGrantable) awsiam.Grant {
 	_init_.Initialize()
 
@@ -4406,7 +4282,6 @@ func EventBus_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func EventBus_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -4431,7 +4306,6 @@ func EventBus_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (e *jsiiProxy_EventBus) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		e,
@@ -4444,7 +4318,6 @@ func (e *jsiiProxy_EventBus) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 //
 // When you create an archive, incoming events might not immediately start being sent to the archive.
 // Allow a short period of time for changes to take effect.
-// Experimental.
 func (e *jsiiProxy_EventBus) Archive(id *string, props *BaseArchiveProps) Archive {
 	var returns Archive
 
@@ -4458,7 +4331,6 @@ func (e *jsiiProxy_EventBus) Archive(id *string, props *BaseArchiveProps) Archiv
 	return returns
 }
 
-// Experimental.
 func (e *jsiiProxy_EventBus) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -4478,7 +4350,6 @@ func (e *jsiiProxy_EventBus) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (e *jsiiProxy_EventBus) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -4497,7 +4368,6 @@ func (e *jsiiProxy_EventBus) GetResourceArnAttribute(arnAttr *string, arnCompone
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (e *jsiiProxy_EventBus) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -4512,7 +4382,6 @@ func (e *jsiiProxy_EventBus) GetResourceNameAttribute(nameAttr *string) *string 
 }
 
 // Grants an IAM Principal to send custom events to the eventBus so that they can be matched to rules.
-// Experimental.
 func (e *jsiiProxy_EventBus) GrantPutEventsTo(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -4527,7 +4396,6 @@ func (e *jsiiProxy_EventBus) GrantPutEventsTo(grantee awsiam.IGrantable) awsiam.
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (e *jsiiProxy_EventBus) ToString() *string {
 	var returns *string
 
@@ -4545,19 +4413,14 @@ func (e *jsiiProxy_EventBus) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type EventBusAttributes struct {
 	// The ARN of this event bus resource.
-	// Experimental.
 	EventBusArn *string `json:"eventBusArn"`
 	// The physical ID of this event bus resource.
-	// Experimental.
 	EventBusName *string `json:"eventBusName"`
 	// The JSON policy of this event bus resource.
-	// Experimental.
 	EventBusPolicy *string `json:"eventBusPolicy"`
 	// The partner event source to associate with this event bus resource.
-	// Experimental.
 	EventSourceName *string `json:"eventSourceName"`
 }
 
@@ -4565,18 +4428,14 @@ type EventBusAttributes struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type EventBusProps struct {
 	// The name of the event bus you are creating Note: If 'eventSourceName' is passed in, you cannot set this.
-	// Experimental.
 	EventBusName *string `json:"eventBusName"`
 	// The partner event source to associate with this event bus resource Note: If 'eventBusName' is passed in, you cannot set this.
-	// Experimental.
 	EventSourceName *string `json:"eventSourceName"`
 }
 
 // Represents a field in the event pattern.
-// Experimental.
 type EventField interface {
 	awscdk.IResolvable
 	CreationStack() *[]*string
@@ -4624,7 +4483,6 @@ func (j *jsiiProxy_EventField) Path() *string {
 
 
 // Extract a custom JSON path from the event.
-// Experimental.
 func EventField_FromPath(path *string) *string {
 	_init_.Initialize()
 
@@ -4707,7 +4565,6 @@ func EventField_Time() *string {
 }
 
 // Produce the Token's value at resolution time.
-// Experimental.
 func (e *jsiiProxy_EventField) Resolve(_ctx awscdk.IResolveContext) interface{} {
 	var returns interface{}
 
@@ -4722,7 +4579,6 @@ func (e *jsiiProxy_EventField) Resolve(_ctx awscdk.IResolveContext) interface{} 
 }
 
 // Convert the path to the field in the event pattern to JSON.
-// Experimental.
 func (e *jsiiProxy_EventField) ToJSON() *string {
 	var returns *string
 
@@ -4739,7 +4595,6 @@ func (e *jsiiProxy_EventField) ToJSON() *string {
 // Return a string representation of this resolvable object.
 //
 // Returns a reversible string representation.
-// Experimental.
 func (e *jsiiProxy_EventField) ToString() *string {
 	var returns *string
 
@@ -4786,27 +4641,21 @@ func (e *jsiiProxy_EventField) ToString() *string {
 //
 // See: https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/CloudWatchEventsandEventPatterns.html
 //
-// Experimental.
 type EventPattern struct {
 	// The 12-digit number identifying an AWS account.
-	// Experimental.
 	Account *[]*string `json:"account"`
 	// A JSON object, whose content is at the discretion of the service originating the event.
-	// Experimental.
 	Detail *map[string]interface{} `json:"detail"`
 	// Identifies, in combination with the source field, the fields and values that appear in the detail field.
 	//
 	// Represents the "detail-type" event field.
-	// Experimental.
 	DetailType *[]*string `json:"detailType"`
 	// A unique value is generated for every event.
 	//
 	// This can be helpful in
 	// tracing events as they move through rules to targets, and are processed.
-	// Experimental.
 	Id *[]*string `json:"id"`
 	// Identifies the AWS region where the event originated.
-	// Experimental.
 	Region *[]*string `json:"region"`
 	// This JSON array contains ARNs that identify resources that are involved in the event.
 	//
@@ -4817,7 +4666,6 @@ type EventPattern struct {
 	// instance ARNs, Auto Scaling events include ARNs for both instances and
 	// Auto Scaling groups, but API calls with AWS CloudTrail do not include
 	// resource ARNs.
-	// Experimental.
 	Resources *[]*string `json:"resources"`
 	// Identifies the service that sourced the event.
 	//
@@ -4831,44 +4679,34 @@ type EventPattern struct {
 	// CloudFront is aws.cloudfront.
 	// See: http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces
 	//
-	// Experimental.
 	Source *[]*string `json:"source"`
 	// The event timestamp, which can be specified by the service originating the event.
 	//
 	// If the event spans a time interval, the service might choose
 	// to report the start time, so this value can be noticeably before the time
 	// the event is actually received.
-	// Experimental.
 	Time *[]*string `json:"time"`
 	// By default, this is set to 0 (zero) in all events.
-	// Experimental.
 	Version *[]*string `json:"version"`
 }
 
 // Interface which all EventBus based classes MUST implement.
-// Experimental.
 type IEventBus interface {
 	awscdk.IResource
 	// Create an EventBridge archive to send events to.
 	//
 	// When you create an archive, incoming events might not immediately start being sent to the archive.
 	// Allow a short period of time for changes to take effect.
-	// Experimental.
 	Archive(id *string, props *BaseArchiveProps) Archive
 	// Grants an IAM Principal to send custom events to the eventBus so that they can be matched to rules.
-	// Experimental.
 	GrantPutEventsTo(grantee awsiam.IGrantable) awsiam.Grant
 	// The ARN of this event bus resource.
-	// Experimental.
 	EventBusArn() *string
 	// The physical ID of this event bus resource.
-	// Experimental.
 	EventBusName() *string
 	// The JSON policy of this event bus resource.
-	// Experimental.
 	EventBusPolicy() *string
 	// The partner event source to associate with this event bus resource.
-	// Experimental.
 	EventSourceName() *string
 }
 
@@ -4944,14 +4782,11 @@ func (j *jsiiProxy_IEventBus) EventSourceName() *string {
 }
 
 // Represents an EventBridge Rule.
-// Experimental.
 type IRule interface {
 	awscdk.IResource
 	// The value of the event rule Amazon Resource Name (ARN), such as arn:aws:events:us-east-2:123456789012:rule/example.
-	// Experimental.
 	RuleArn() *string
 	// The name event rule.
-	// Experimental.
 	RuleName() *string
 }
 
@@ -4981,12 +4816,10 @@ func (j *jsiiProxy_IRule) RuleName() *string {
 }
 
 // An abstract target for EventRules.
-// Experimental.
 type IRuleTarget interface {
 	// Returns the rule target specification.
 	//
 	// NOTE: Do not use the various `inputXxx` options. They can be set in a call to `addTarget`.
-	// Experimental.
 	Bind(rule IRule, id *string) *RuleTargetConfig
 }
 
@@ -5012,10 +4845,8 @@ func (i *jsiiProxy_IRuleTarget) Bind(rule IRule, id *string) *RuleTargetConfig {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type OnEventOptions struct {
 	// A description of the rule's purpose.
-	// Experimental.
 	Description *string `json:"description"`
 	// Additional restrictions for the event to route to the specified target.
 	//
@@ -5024,13 +4855,10 @@ type OnEventOptions struct {
 	// on top of that filtering.
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html
 	//
-	// Experimental.
 	EventPattern *EventPattern `json:"eventPattern"`
 	// A name for the rule.
-	// Experimental.
 	RuleName *string `json:"ruleName"`
 	// The target to register for the event.
-	// Experimental.
 	Target IRuleTarget `json:"target"`
 }
 
@@ -5038,7 +4866,6 @@ type OnEventOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Rule interface {
 	awscdk.Resource
 	IRule
@@ -5125,7 +4952,6 @@ func (j *jsiiProxy_Rule) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewRule(scope constructs.Construct, id *string, props *RuleProps) Rule {
 	_init_.Initialize()
 
@@ -5140,7 +4966,6 @@ func NewRule(scope constructs.Construct, id *string, props *RuleProps) Rule {
 	return &j
 }
 
-// Experimental.
 func NewRule_Override(r Rule, scope constructs.Construct, id *string, props *RuleProps) {
 	_init_.Initialize()
 
@@ -5152,7 +4977,6 @@ func NewRule_Override(r Rule, scope constructs.Construct, id *string, props *Rul
 }
 
 // Import an existing EventBridge Rule provided an ARN.
-// Experimental.
 func Rule_FromEventRuleArn(scope constructs.Construct, id *string, eventRuleArn *string) IRule {
 	_init_.Initialize()
 
@@ -5188,7 +5012,6 @@ func Rule_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func Rule_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -5236,7 +5059,6 @@ func Rule_IsResource(construct constructs.IConstruct) *bool {
 //         "foo": [ "bar" ]
 //       }
 //     }
-// Experimental.
 func (r *jsiiProxy_Rule) AddEventPattern(eventPattern *EventPattern) {
 	_jsii_.InvokeVoid(
 		r,
@@ -5248,7 +5070,6 @@ func (r *jsiiProxy_Rule) AddEventPattern(eventPattern *EventPattern) {
 // Adds a target to the rule. The abstract class RuleTarget can be extended to define new targets.
 //
 // No-op if target is undefined.
-// Experimental.
 func (r *jsiiProxy_Rule) AddTarget(target IRuleTarget) {
 	_jsii_.InvokeVoid(
 		r,
@@ -5266,7 +5087,6 @@ func (r *jsiiProxy_Rule) AddTarget(target IRuleTarget) {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (r *jsiiProxy_Rule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		r,
@@ -5275,7 +5095,6 @@ func (r *jsiiProxy_Rule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (r *jsiiProxy_Rule) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -5295,7 +5114,6 @@ func (r *jsiiProxy_Rule) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (r *jsiiProxy_Rule) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -5314,7 +5132,6 @@ func (r *jsiiProxy_Rule) GetResourceArnAttribute(arnAttr *string, arnComponents 
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (r *jsiiProxy_Rule) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -5329,7 +5146,6 @@ func (r *jsiiProxy_Rule) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (r *jsiiProxy_Rule) ToString() *string {
 	var returns *string
 
@@ -5343,7 +5159,6 @@ func (r *jsiiProxy_Rule) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (r *jsiiProxy_Rule) ValidateRule() *[]*string {
 	var returns *[]*string
 
@@ -5361,16 +5176,12 @@ func (r *jsiiProxy_Rule) ValidateRule() *[]*string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RuleProps struct {
 	// A description of the rule's purpose.
-	// Experimental.
 	Description *string `json:"description"`
 	// Indicates whether the rule is enabled.
-	// Experimental.
 	Enabled *bool `json:"enabled"`
 	// The event bus to associate with this rule.
-	// Experimental.
 	EventBus IEventBus `json:"eventBus"`
 	// Describes which events EventBridge routes to the specified target.
 	//
@@ -5383,10 +5194,8 @@ type RuleProps struct {
 	// method `addEventPattern` can be used to add filter values to the event
 	// pattern.
 	//
-	// Experimental.
 	EventPattern *EventPattern `json:"eventPattern"`
 	// A name for the rule.
-	// Experimental.
 	RuleName *string `json:"ruleName"`
 	// The schedule or rate (frequency) that determines when EventBridge runs the rule.
 	//
@@ -5396,13 +5205,11 @@ type RuleProps struct {
 	//
 	// You must specify this property, the `eventPattern` property, or both.
 	//
-	// Experimental.
 	Schedule Schedule `json:"schedule"`
 	// Targets to invoke when this rule matches an event.
 	//
 	// Input will be the full matched event. If you wish to specify custom
 	// target input, use `addTarget(target[, inputOptions])`.
-	// Experimental.
 	Targets *[]IRuleTarget `json:"targets"`
 }
 
@@ -5410,43 +5217,31 @@ type RuleProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RuleTargetConfig struct {
 	// The Amazon Resource Name (ARN) of the target.
-	// Experimental.
 	Arn *string `json:"arn"`
 	// Parameters used when the rule invokes Amazon AWS Batch Job/Queue.
-	// Experimental.
 	BatchParameters *CfnRule_BatchParametersProperty `json:"batchParameters"`
 	// Contains information about a dead-letter queue configuration.
-	// Experimental.
 	DeadLetterConfig *CfnRule_DeadLetterConfigProperty `json:"deadLetterConfig"`
 	// The Amazon ECS task definition and task count to use, if the event target is an Amazon ECS task.
-	// Experimental.
 	EcsParameters *CfnRule_EcsParametersProperty `json:"ecsParameters"`
 	// Parameters used when the rule invoke api gateway.
-	// Experimental.
 	HttpParameters *CfnRule_HttpParametersProperty `json:"httpParameters"`
 	// What input to send to the event target.
-	// Experimental.
 	Input RuleTargetInput `json:"input"`
 	// Settings that control shard assignment, when the target is a Kinesis stream.
 	//
 	// If you don't include this parameter, eventId is used as the
 	// partition key.
-	// Experimental.
 	KinesisParameters *CfnRule_KinesisParametersProperty `json:"kinesisParameters"`
 	// A RetryPolicy object that includes information about the retry policy settings.
-	// Experimental.
 	RetryPolicy *CfnRule_RetryPolicyProperty `json:"retryPolicy"`
 	// Role to use to invoke this event target.
-	// Experimental.
 	Role awsiam.IRole `json:"role"`
 	// Parameters used when the rule invokes Amazon EC2 Systems Manager Run Command.
-	// Experimental.
 	RunCommandParameters *CfnRule_RunCommandParametersProperty `json:"runCommandParameters"`
 	// Parameters used when the FIFO sqs queue is used an event target by the rule.
-	// Experimental.
 	SqsParameters *CfnRule_SqsParametersProperty `json:"sqsParameters"`
 	// The resource that is backing this target.
 	//
@@ -5457,7 +5252,6 @@ type RuleTargetConfig struct {
 	// including an additional stack containing the EventBusPolicy.
 	// See: https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html
 	//
-	// Experimental.
 	TargetResource constructs.IConstruct `json:"targetResource"`
 }
 
@@ -5465,7 +5259,6 @@ type RuleTargetConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RuleTargetInput interface {
 	Bind(rule IRule) *RuleTargetInputProperties
 }
@@ -5475,7 +5268,6 @@ type jsiiProxy_RuleTargetInput struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewRuleTargetInput_Override(r RuleTargetInput) {
 	_init_.Initialize()
 
@@ -5487,7 +5279,6 @@ func NewRuleTargetInput_Override(r RuleTargetInput) {
 }
 
 // Take the event target input from a path in the event JSON.
-// Experimental.
 func RuleTargetInput_FromEventPath(path *string) RuleTargetInput {
 	_init_.Initialize()
 
@@ -5510,7 +5301,6 @@ func RuleTargetInput_FromEventPath(path *string) RuleTargetInput {
 //
 // May contain strings returned by EventField.from() to substitute in parts
 // of the matched event.
-// Experimental.
 func RuleTargetInput_FromMultilineText(text *string) RuleTargetInput {
 	_init_.Initialize()
 
@@ -5530,7 +5320,6 @@ func RuleTargetInput_FromMultilineText(text *string) RuleTargetInput {
 //
 // May contain strings returned by EventField.from() to substitute in parts of the
 // matched event.
-// Experimental.
 func RuleTargetInput_FromObject(obj interface{}) RuleTargetInput {
 	_init_.Initialize()
 
@@ -5550,7 +5339,6 @@ func RuleTargetInput_FromObject(obj interface{}) RuleTargetInput {
 //
 // May contain strings returned by EventField.from() to substitute in parts of the
 // matched event.
-// Experimental.
 func RuleTargetInput_FromText(text *string) RuleTargetInput {
 	_init_.Initialize()
 
@@ -5567,7 +5355,6 @@ func RuleTargetInput_FromText(text *string) RuleTargetInput {
 }
 
 // Return the input properties for this input object.
-// Experimental.
 func (r *jsiiProxy_RuleTargetInput) Bind(rule IRule) *RuleTargetInputProperties {
 	var returns *RuleTargetInputProperties
 
@@ -5585,19 +5372,14 @@ func (r *jsiiProxy_RuleTargetInput) Bind(rule IRule) *RuleTargetInputProperties 
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RuleTargetInputProperties struct {
 	// Literal input to the target service (must be valid JSON).
-	// Experimental.
 	Input *string `json:"input"`
 	// JsonPath to take input from the input event.
-	// Experimental.
 	InputPath *string `json:"inputPath"`
 	// Paths map to extract values from event and insert into `inputTemplate`.
-	// Experimental.
 	InputPathsMap *map[string]*string `json:"inputPathsMap"`
 	// Input template to insert paths map into.
-	// Experimental.
 	InputTemplate *string `json:"inputTemplate"`
 }
 
@@ -5605,7 +5387,6 @@ type RuleTargetInputProperties struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Schedule interface {
 	ExpressionString() *string
 }
@@ -5626,7 +5407,6 @@ func (j *jsiiProxy_Schedule) ExpressionString() *string {
 }
 
 
-// Experimental.
 func NewSchedule_Override(s Schedule) {
 	_init_.Initialize()
 
@@ -5638,7 +5418,6 @@ func NewSchedule_Override(s Schedule) {
 }
 
 // Create a schedule from a set of cron fields.
-// Experimental.
 func Schedule_Cron(options *CronOptions) Schedule {
 	_init_.Initialize()
 
@@ -5655,7 +5434,6 @@ func Schedule_Cron(options *CronOptions) Schedule {
 }
 
 // Construct a schedule from a literal schedule expression.
-// Experimental.
 func Schedule_Expression(expression *string) Schedule {
 	_init_.Initialize()
 
@@ -5672,7 +5450,6 @@ func Schedule_Expression(expression *string) Schedule {
 }
 
 // Construct a schedule from an interval and a time unit.
-// Experimental.
 func Schedule_Rate(duration awscdk.Duration) Schedule {
 	_init_.Initialize()
 

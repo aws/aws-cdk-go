@@ -24,7 +24,6 @@ import (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ApiGateway interface {
 	ApiGatewayDomain
 	Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
@@ -35,7 +34,6 @@ type jsiiProxy_ApiGateway struct {
 	jsiiProxy_ApiGatewayDomain
 }
 
-// Experimental.
 func NewApiGateway(api awsapigateway.RestApiBase) ApiGateway {
 	_init_.Initialize()
 
@@ -50,7 +48,6 @@ func NewApiGateway(api awsapigateway.RestApiBase) ApiGateway {
 	return &j
 }
 
-// Experimental.
 func NewApiGateway_Override(a ApiGateway, api awsapigateway.RestApiBase) {
 	_init_.Initialize()
 
@@ -62,7 +59,6 @@ func NewApiGateway_Override(a ApiGateway, api awsapigateway.RestApiBase) {
 }
 
 // Return hosted zone ID and DNS name, usable for Route53 alias targets.
-// Experimental.
 func (a *jsiiProxy_ApiGateway) Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
 	var returns *awsroute53.AliasRecordTargetConfig
 
@@ -83,7 +79,6 @@ func (a *jsiiProxy_ApiGateway) Bind(_record awsroute53.IRecordSet, _zone awsrout
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ApiGatewayDomain interface {
 	awsroute53.IAliasRecordTarget
 	Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
@@ -94,7 +89,6 @@ type jsiiProxy_ApiGatewayDomain struct {
 	internal.Type__awsroute53IAliasRecordTarget
 }
 
-// Experimental.
 func NewApiGatewayDomain(domainName awsapigateway.IDomainName) ApiGatewayDomain {
 	_init_.Initialize()
 
@@ -109,7 +103,6 @@ func NewApiGatewayDomain(domainName awsapigateway.IDomainName) ApiGatewayDomain 
 	return &j
 }
 
-// Experimental.
 func NewApiGatewayDomain_Override(a ApiGatewayDomain, domainName awsapigateway.IDomainName) {
 	_init_.Initialize()
 
@@ -121,7 +114,6 @@ func NewApiGatewayDomain_Override(a ApiGatewayDomain, domainName awsapigateway.I
 }
 
 // Return hosted zone ID and DNS name, usable for Route53 alias targets.
-// Experimental.
 func (a *jsiiProxy_ApiGatewayDomain) Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
 	var returns *awsroute53.AliasRecordTargetConfig
 
@@ -139,7 +131,6 @@ func (a *jsiiProxy_ApiGatewayDomain) Bind(_record awsroute53.IRecordSet, _zone a
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ApiGatewayv2DomainProperties interface {
 	awsroute53.IAliasRecordTarget
 	Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
@@ -150,7 +141,6 @@ type jsiiProxy_ApiGatewayv2DomainProperties struct {
 	internal.Type__awsroute53IAliasRecordTarget
 }
 
-// Experimental.
 func NewApiGatewayv2DomainProperties(regionalDomainName *string, regionalHostedZoneId *string) ApiGatewayv2DomainProperties {
 	_init_.Initialize()
 
@@ -165,7 +155,6 @@ func NewApiGatewayv2DomainProperties(regionalDomainName *string, regionalHostedZ
 	return &j
 }
 
-// Experimental.
 func NewApiGatewayv2DomainProperties_Override(a ApiGatewayv2DomainProperties, regionalDomainName *string, regionalHostedZoneId *string) {
 	_init_.Initialize()
 
@@ -177,7 +166,6 @@ func NewApiGatewayv2DomainProperties_Override(a ApiGatewayv2DomainProperties, re
 }
 
 // Return hosted zone ID and DNS name, usable for Route53 alias targets.
-// Experimental.
 func (a *jsiiProxy_ApiGatewayv2DomainProperties) Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
 	var returns *awsroute53.AliasRecordTargetConfig
 
@@ -195,7 +183,6 @@ func (a *jsiiProxy_ApiGatewayv2DomainProperties) Bind(_record awsroute53.IRecord
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type BucketWebsiteTarget interface {
 	awsroute53.IAliasRecordTarget
 	Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
@@ -206,7 +193,6 @@ type jsiiProxy_BucketWebsiteTarget struct {
 	internal.Type__awsroute53IAliasRecordTarget
 }
 
-// Experimental.
 func NewBucketWebsiteTarget(bucket awss3.IBucket) BucketWebsiteTarget {
 	_init_.Initialize()
 
@@ -221,7 +207,6 @@ func NewBucketWebsiteTarget(bucket awss3.IBucket) BucketWebsiteTarget {
 	return &j
 }
 
-// Experimental.
 func NewBucketWebsiteTarget_Override(b BucketWebsiteTarget, bucket awss3.IBucket) {
 	_init_.Initialize()
 
@@ -233,7 +218,6 @@ func NewBucketWebsiteTarget_Override(b BucketWebsiteTarget, bucket awss3.IBucket
 }
 
 // Return hosted zone ID and DNS name, usable for Route53 alias targets.
-// Experimental.
 func (b *jsiiProxy_BucketWebsiteTarget) Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
 	var returns *awsroute53.AliasRecordTargetConfig
 
@@ -251,7 +235,6 @@ func (b *jsiiProxy_BucketWebsiteTarget) Bind(_record awsroute53.IRecordSet, _zon
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ClassicLoadBalancerTarget interface {
 	awsroute53.IAliasRecordTarget
 	Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
@@ -262,7 +245,6 @@ type jsiiProxy_ClassicLoadBalancerTarget struct {
 	internal.Type__awsroute53IAliasRecordTarget
 }
 
-// Experimental.
 func NewClassicLoadBalancerTarget(loadBalancer awselasticloadbalancing.LoadBalancer) ClassicLoadBalancerTarget {
 	_init_.Initialize()
 
@@ -277,7 +259,6 @@ func NewClassicLoadBalancerTarget(loadBalancer awselasticloadbalancing.LoadBalan
 	return &j
 }
 
-// Experimental.
 func NewClassicLoadBalancerTarget_Override(c ClassicLoadBalancerTarget, loadBalancer awselasticloadbalancing.LoadBalancer) {
 	_init_.Initialize()
 
@@ -289,7 +270,6 @@ func NewClassicLoadBalancerTarget_Override(c ClassicLoadBalancerTarget, loadBala
 }
 
 // Return hosted zone ID and DNS name, usable for Route53 alias targets.
-// Experimental.
 func (c *jsiiProxy_ClassicLoadBalancerTarget) Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
 	var returns *awsroute53.AliasRecordTargetConfig
 
@@ -307,7 +287,6 @@ func (c *jsiiProxy_ClassicLoadBalancerTarget) Bind(_record awsroute53.IRecordSet
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CloudFrontTarget interface {
 	awsroute53.IAliasRecordTarget
 	Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
@@ -318,7 +297,6 @@ type jsiiProxy_CloudFrontTarget struct {
 	internal.Type__awsroute53IAliasRecordTarget
 }
 
-// Experimental.
 func NewCloudFrontTarget(distribution awscloudfront.IDistribution) CloudFrontTarget {
 	_init_.Initialize()
 
@@ -333,7 +311,6 @@ func NewCloudFrontTarget(distribution awscloudfront.IDistribution) CloudFrontTar
 	return &j
 }
 
-// Experimental.
 func NewCloudFrontTarget_Override(c CloudFrontTarget, distribution awscloudfront.IDistribution) {
 	_init_.Initialize()
 
@@ -345,7 +322,6 @@ func NewCloudFrontTarget_Override(c CloudFrontTarget, distribution awscloudfront
 }
 
 // Get the hosted zone id for the current scope.
-// Experimental.
 func CloudFrontTarget_GetHostedZoneId(scope constructs.IConstruct) *string {
 	_init_.Initialize()
 
@@ -373,7 +349,6 @@ func CloudFrontTarget_CLOUDFRONT_ZONE_ID() *string {
 }
 
 // Return hosted zone ID and DNS name, usable for Route53 alias targets.
-// Experimental.
 func (c *jsiiProxy_CloudFrontTarget) Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
 	var returns *awsroute53.AliasRecordTargetConfig
 
@@ -393,7 +368,6 @@ func (c *jsiiProxy_CloudFrontTarget) Bind(_record awsroute53.IRecordSet, _zone a
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ElasticBeanstalkEnvironmentEndpointTarget interface {
 	awsroute53.IAliasRecordTarget
 	Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
@@ -404,7 +378,6 @@ type jsiiProxy_ElasticBeanstalkEnvironmentEndpointTarget struct {
 	internal.Type__awsroute53IAliasRecordTarget
 }
 
-// Experimental.
 func NewElasticBeanstalkEnvironmentEndpointTarget(environmentEndpoint *string) ElasticBeanstalkEnvironmentEndpointTarget {
 	_init_.Initialize()
 
@@ -419,7 +392,6 @@ func NewElasticBeanstalkEnvironmentEndpointTarget(environmentEndpoint *string) E
 	return &j
 }
 
-// Experimental.
 func NewElasticBeanstalkEnvironmentEndpointTarget_Override(e ElasticBeanstalkEnvironmentEndpointTarget, environmentEndpoint *string) {
 	_init_.Initialize()
 
@@ -431,7 +403,6 @@ func NewElasticBeanstalkEnvironmentEndpointTarget_Override(e ElasticBeanstalkEnv
 }
 
 // Return hosted zone ID and DNS name, usable for Route53 alias targets.
-// Experimental.
 func (e *jsiiProxy_ElasticBeanstalkEnvironmentEndpointTarget) Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
 	var returns *awsroute53.AliasRecordTargetConfig
 
@@ -449,7 +420,6 @@ func (e *jsiiProxy_ElasticBeanstalkEnvironmentEndpointTarget) Bind(_record awsro
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type GlobalAcceleratorDomainTarget interface {
 	awsroute53.IAliasRecordTarget
 	Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
@@ -461,7 +431,6 @@ type jsiiProxy_GlobalAcceleratorDomainTarget struct {
 }
 
 // Create an Alias Target for a Global Accelerator domain name.
-// Experimental.
 func NewGlobalAcceleratorDomainTarget(acceleratorDomainName *string) GlobalAcceleratorDomainTarget {
 	_init_.Initialize()
 
@@ -477,7 +446,6 @@ func NewGlobalAcceleratorDomainTarget(acceleratorDomainName *string) GlobalAccel
 }
 
 // Create an Alias Target for a Global Accelerator domain name.
-// Experimental.
 func NewGlobalAcceleratorDomainTarget_Override(g GlobalAcceleratorDomainTarget, acceleratorDomainName *string) {
 	_init_.Initialize()
 
@@ -500,7 +468,6 @@ func GlobalAcceleratorDomainTarget_GLOBAL_ACCELERATOR_ZONE_ID() *string {
 }
 
 // Return hosted zone ID and DNS name, usable for Route53 alias targets.
-// Experimental.
 func (g *jsiiProxy_GlobalAcceleratorDomainTarget) Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
 	var returns *awsroute53.AliasRecordTargetConfig
 
@@ -518,7 +485,6 @@ func (g *jsiiProxy_GlobalAcceleratorDomainTarget) Bind(_record awsroute53.IRecor
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type GlobalAcceleratorTarget interface {
 	GlobalAcceleratorDomainTarget
 	Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
@@ -530,7 +496,6 @@ type jsiiProxy_GlobalAcceleratorTarget struct {
 }
 
 // Create an Alias Target for a Global Accelerator instance.
-// Experimental.
 func NewGlobalAcceleratorTarget(accelerator awsglobalaccelerator.IAccelerator) GlobalAcceleratorTarget {
 	_init_.Initialize()
 
@@ -546,7 +511,6 @@ func NewGlobalAcceleratorTarget(accelerator awsglobalaccelerator.IAccelerator) G
 }
 
 // Create an Alias Target for a Global Accelerator instance.
-// Experimental.
 func NewGlobalAcceleratorTarget_Override(g GlobalAcceleratorTarget, accelerator awsglobalaccelerator.IAccelerator) {
 	_init_.Initialize()
 
@@ -569,7 +533,6 @@ func GlobalAcceleratorTarget_GLOBAL_ACCELERATOR_ZONE_ID() *string {
 }
 
 // Return hosted zone ID and DNS name, usable for Route53 alias targets.
-// Experimental.
 func (g *jsiiProxy_GlobalAcceleratorTarget) Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
 	var returns *awsroute53.AliasRecordTargetConfig
 
@@ -587,7 +550,6 @@ func (g *jsiiProxy_GlobalAcceleratorTarget) Bind(_record awsroute53.IRecordSet, 
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type InterfaceVpcEndpointTarget interface {
 	awsroute53.IAliasRecordTarget
 	Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
@@ -598,7 +560,6 @@ type jsiiProxy_InterfaceVpcEndpointTarget struct {
 	internal.Type__awsroute53IAliasRecordTarget
 }
 
-// Experimental.
 func NewInterfaceVpcEndpointTarget(vpcEndpoint awsec2.IInterfaceVpcEndpoint) InterfaceVpcEndpointTarget {
 	_init_.Initialize()
 
@@ -613,7 +574,6 @@ func NewInterfaceVpcEndpointTarget(vpcEndpoint awsec2.IInterfaceVpcEndpoint) Int
 	return &j
 }
 
-// Experimental.
 func NewInterfaceVpcEndpointTarget_Override(i InterfaceVpcEndpointTarget, vpcEndpoint awsec2.IInterfaceVpcEndpoint) {
 	_init_.Initialize()
 
@@ -625,7 +585,6 @@ func NewInterfaceVpcEndpointTarget_Override(i InterfaceVpcEndpointTarget, vpcEnd
 }
 
 // Return hosted zone ID and DNS name, usable for Route53 alias targets.
-// Experimental.
 func (i *jsiiProxy_InterfaceVpcEndpointTarget) Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
 	var returns *awsroute53.AliasRecordTargetConfig
 
@@ -643,7 +602,6 @@ func (i *jsiiProxy_InterfaceVpcEndpointTarget) Bind(_record awsroute53.IRecordSe
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LoadBalancerTarget interface {
 	awsroute53.IAliasRecordTarget
 	Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
@@ -654,7 +612,6 @@ type jsiiProxy_LoadBalancerTarget struct {
 	internal.Type__awsroute53IAliasRecordTarget
 }
 
-// Experimental.
 func NewLoadBalancerTarget(loadBalancer awselasticloadbalancingv2.ILoadBalancerV2) LoadBalancerTarget {
 	_init_.Initialize()
 
@@ -669,7 +626,6 @@ func NewLoadBalancerTarget(loadBalancer awselasticloadbalancingv2.ILoadBalancerV
 	return &j
 }
 
-// Experimental.
 func NewLoadBalancerTarget_Override(l LoadBalancerTarget, loadBalancer awselasticloadbalancingv2.ILoadBalancerV2) {
 	_init_.Initialize()
 
@@ -681,7 +637,6 @@ func NewLoadBalancerTarget_Override(l LoadBalancerTarget, loadBalancer awselasti
 }
 
 // Return hosted zone ID and DNS name, usable for Route53 alias targets.
-// Experimental.
 func (l *jsiiProxy_LoadBalancerTarget) Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
 	var returns *awsroute53.AliasRecordTargetConfig
 
@@ -699,7 +654,6 @@ func (l *jsiiProxy_LoadBalancerTarget) Bind(_record awsroute53.IRecordSet, _zone
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Route53RecordTarget interface {
 	awsroute53.IAliasRecordTarget
 	Bind(_record awsroute53.IRecordSet, zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
@@ -710,7 +664,6 @@ type jsiiProxy_Route53RecordTarget struct {
 	internal.Type__awsroute53IAliasRecordTarget
 }
 
-// Experimental.
 func NewRoute53RecordTarget(record awsroute53.IRecordSet) Route53RecordTarget {
 	_init_.Initialize()
 
@@ -725,7 +678,6 @@ func NewRoute53RecordTarget(record awsroute53.IRecordSet) Route53RecordTarget {
 	return &j
 }
 
-// Experimental.
 func NewRoute53RecordTarget_Override(r Route53RecordTarget, record awsroute53.IRecordSet) {
 	_init_.Initialize()
 
@@ -737,7 +689,6 @@ func NewRoute53RecordTarget_Override(r Route53RecordTarget, record awsroute53.IR
 }
 
 // Return hosted zone ID and DNS name, usable for Route53 alias targets.
-// Experimental.
 func (r *jsiiProxy_Route53RecordTarget) Bind(_record awsroute53.IRecordSet, zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
 	var returns *awsroute53.AliasRecordTargetConfig
 
@@ -755,7 +706,6 @@ func (r *jsiiProxy_Route53RecordTarget) Bind(_record awsroute53.IRecordSet, zone
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type UserPoolDomainTarget interface {
 	awsroute53.IAliasRecordTarget
 	Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig
@@ -766,7 +716,6 @@ type jsiiProxy_UserPoolDomainTarget struct {
 	internal.Type__awsroute53IAliasRecordTarget
 }
 
-// Experimental.
 func NewUserPoolDomainTarget(domain awscognito.UserPoolDomain) UserPoolDomainTarget {
 	_init_.Initialize()
 
@@ -781,7 +730,6 @@ func NewUserPoolDomainTarget(domain awscognito.UserPoolDomain) UserPoolDomainTar
 	return &j
 }
 
-// Experimental.
 func NewUserPoolDomainTarget_Override(u UserPoolDomainTarget, domain awscognito.UserPoolDomain) {
 	_init_.Initialize()
 
@@ -793,7 +741,6 @@ func NewUserPoolDomainTarget_Override(u UserPoolDomainTarget, domain awscognito.
 }
 
 // Return hosted zone ID and DNS name, usable for Route53 alias targets.
-// Experimental.
 func (u *jsiiProxy_UserPoolDomainTarget) Bind(_record awsroute53.IRecordSet, _zone awsroute53.IHostedZone) *awsroute53.AliasRecordTargetConfig {
 	var returns *awsroute53.AliasRecordTargetConfig
 

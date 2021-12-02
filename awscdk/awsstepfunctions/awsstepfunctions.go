@@ -16,7 +16,6 @@ import (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Activity interface {
 	awscdk.Resource
 	IActivity
@@ -111,7 +110,6 @@ func (j *jsiiProxy_Activity) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewActivity(scope constructs.Construct, id *string, props *ActivityProps) Activity {
 	_init_.Initialize()
 
@@ -126,7 +124,6 @@ func NewActivity(scope constructs.Construct, id *string, props *ActivityProps) A
 	return &j
 }
 
-// Experimental.
 func NewActivity_Override(a Activity, scope constructs.Construct, id *string, props *ActivityProps) {
 	_init_.Initialize()
 
@@ -138,7 +135,6 @@ func NewActivity_Override(a Activity, scope constructs.Construct, id *string, pr
 }
 
 // Construct an Activity from an existing Activity ARN.
-// Experimental.
 func Activity_FromActivityArn(scope constructs.Construct, id *string, activityArn *string) IActivity {
 	_init_.Initialize()
 
@@ -155,7 +151,6 @@ func Activity_FromActivityArn(scope constructs.Construct, id *string, activityAr
 }
 
 // Construct an Activity from an existing Activity Name.
-// Experimental.
 func Activity_FromActivityName(scope constructs.Construct, id *string, activityName *string) IActivity {
 	_init_.Initialize()
 
@@ -191,7 +186,6 @@ func Activity_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func Activity_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -216,7 +210,6 @@ func Activity_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (a *jsiiProxy_Activity) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		a,
@@ -225,7 +218,6 @@ func (a *jsiiProxy_Activity) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (a *jsiiProxy_Activity) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -245,7 +237,6 @@ func (a *jsiiProxy_Activity) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (a *jsiiProxy_Activity) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -264,7 +255,6 @@ func (a *jsiiProxy_Activity) GetResourceArnAttribute(arnAttr *string, arnCompone
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (a *jsiiProxy_Activity) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -279,7 +269,6 @@ func (a *jsiiProxy_Activity) GetResourceNameAttribute(nameAttr *string) *string 
 }
 
 // Grant the given identity permissions on this Activity.
-// Experimental.
 func (a *jsiiProxy_Activity) Grant(identity awsiam.IGrantable, actions ...*string) awsiam.Grant {
 	args := []interface{}{identity}
 	for _, a := range actions {
@@ -299,7 +288,6 @@ func (a *jsiiProxy_Activity) Grant(identity awsiam.IGrantable, actions ...*strin
 }
 
 // Return the given named metric for this Activity.
-// Experimental.
 func (a *jsiiProxy_Activity) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -314,7 +302,6 @@ func (a *jsiiProxy_Activity) Metric(metricName *string, props *awscloudwatch.Met
 }
 
 // Metric for the number of times this activity fails.
-// Experimental.
 func (a *jsiiProxy_Activity) MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -329,7 +316,6 @@ func (a *jsiiProxy_Activity) MetricFailed(props *awscloudwatch.MetricOptions) aw
 }
 
 // Metric for the number of times the heartbeat times out for this activity.
-// Experimental.
 func (a *jsiiProxy_Activity) MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -344,7 +330,6 @@ func (a *jsiiProxy_Activity) MetricHeartbeatTimedOut(props *awscloudwatch.Metric
 }
 
 // The interval, in milliseconds, between the time the activity starts and the time it closes.
-// Experimental.
 func (a *jsiiProxy_Activity) MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -359,7 +344,6 @@ func (a *jsiiProxy_Activity) MetricRunTime(props *awscloudwatch.MetricOptions) a
 }
 
 // Metric for the number of times this activity is scheduled.
-// Experimental.
 func (a *jsiiProxy_Activity) MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -374,7 +358,6 @@ func (a *jsiiProxy_Activity) MetricScheduled(props *awscloudwatch.MetricOptions)
 }
 
 // The interval, in milliseconds, for which the activity stays in the schedule state.
-// Experimental.
 func (a *jsiiProxy_Activity) MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -389,7 +372,6 @@ func (a *jsiiProxy_Activity) MetricScheduleTime(props *awscloudwatch.MetricOptio
 }
 
 // Metric for the number of times this activity is started.
-// Experimental.
 func (a *jsiiProxy_Activity) MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -404,7 +386,6 @@ func (a *jsiiProxy_Activity) MetricStarted(props *awscloudwatch.MetricOptions) a
 }
 
 // Metric for the number of times this activity succeeds.
-// Experimental.
 func (a *jsiiProxy_Activity) MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -419,7 +400,6 @@ func (a *jsiiProxy_Activity) MetricSucceeded(props *awscloudwatch.MetricOptions)
 }
 
 // The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-// Experimental.
 func (a *jsiiProxy_Activity) MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -434,7 +414,6 @@ func (a *jsiiProxy_Activity) MetricTime(props *awscloudwatch.MetricOptions) awsc
 }
 
 // Metric for the number of times this activity times out.
-// Experimental.
 func (a *jsiiProxy_Activity) MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -449,7 +428,6 @@ func (a *jsiiProxy_Activity) MetricTimedOut(props *awscloudwatch.MetricOptions) 
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (a *jsiiProxy_Activity) ToString() *string {
 	var returns *string
 
@@ -467,10 +445,8 @@ func (a *jsiiProxy_Activity) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ActivityProps struct {
 	// The name for this activity.
-	// Experimental.
 	ActivityName *string `json:"activityName"`
 }
 
@@ -478,19 +454,16 @@ type ActivityProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AfterwardsOptions struct {
 	// Whether to include error handling states.
 	//
 	// If this is true, all states which are error handlers (added through 'onError')
 	// and states reachable via error handlers will be included as well.
-	// Experimental.
 	IncludeErrorHandlers *bool `json:"includeErrorHandlers"`
 	// Whether to include the default/otherwise transition for the current Choice state.
 	//
 	// If this is true and the current Choice does not have a default outgoing
 	// transition, one will be added included when .next() is called on the chain.
-	// Experimental.
 	IncludeOtherwise *bool `json:"includeOtherwise"`
 }
 
@@ -498,19 +471,16 @@ type AfterwardsOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CatchProps struct {
 	// Errors to recover from by going to the given state.
 	//
 	// A list of error strings to retry, which can be either predefined errors
 	// (for example Errors.NoChoiceMatched) or a self-defined error.
-	// Experimental.
 	Errors *[]*string `json:"errors"`
 	// JSONPath expression to indicate where to inject the error data.
 	//
 	// May also be the special value DISCARD, which will cause the error
 	// data to be discarded.
-	// Experimental.
 	ResultPath *string `json:"resultPath"`
 }
 
@@ -729,7 +699,6 @@ func (j *jsiiProxy_CfnActivity) SetName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnActivity_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -746,7 +715,6 @@ func CfnActivity_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnActivity_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -793,7 +761,6 @@ func CfnActivity_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnActivity) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -806,7 +773,6 @@ func (c *jsiiProxy_CfnActivity) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnActivity) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -822,7 +788,6 @@ func (c *jsiiProxy_CfnActivity) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnActivity) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -868,7 +833,6 @@ func (c *jsiiProxy_CfnActivity) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnActivity) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -878,7 +842,6 @@ func (c *jsiiProxy_CfnActivity) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnActivity) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -890,7 +853,6 @@ func (c *jsiiProxy_CfnActivity) AddPropertyDeletionOverride(propertyPath *string
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnActivity) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -908,7 +870,6 @@ func (c *jsiiProxy_CfnActivity) AddPropertyOverride(propertyPath *string, value 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnActivity) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -921,7 +882,6 @@ func (c *jsiiProxy_CfnActivity) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, 
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnActivity) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -942,7 +902,6 @@ func (c *jsiiProxy_CfnActivity) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnActivity) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -966,7 +925,6 @@ func (c *jsiiProxy_CfnActivity) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnActivity) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -992,7 +950,6 @@ func (c *jsiiProxy_CfnActivity) RenderProperties(props *map[string]interface{}) 
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnActivity) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1009,7 +966,6 @@ func (c *jsiiProxy_CfnActivity) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnActivity) ToString() *string {
 	var returns *string
 
@@ -1023,7 +979,6 @@ func (c *jsiiProxy_CfnActivity) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnActivity) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1427,7 +1382,6 @@ func (j *jsiiProxy_CfnStateMachine) SetTracingConfiguration(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnStateMachine_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -1444,7 +1398,6 @@ func CfnStateMachine_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnStateMachine_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -1491,7 +1444,6 @@ func CfnStateMachine_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnStateMachine) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1504,7 +1456,6 @@ func (c *jsiiProxy_CfnStateMachine) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnStateMachine) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1520,7 +1471,6 @@ func (c *jsiiProxy_CfnStateMachine) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnStateMachine) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1566,7 +1516,6 @@ func (c *jsiiProxy_CfnStateMachine) AddMetadata(key *string, value interface{}) 
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnStateMachine) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1576,7 +1525,6 @@ func (c *jsiiProxy_CfnStateMachine) AddOverride(path *string, value interface{})
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnStateMachine) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1588,7 +1536,6 @@ func (c *jsiiProxy_CfnStateMachine) AddPropertyDeletionOverride(propertyPath *st
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnStateMachine) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1606,7 +1553,6 @@ func (c *jsiiProxy_CfnStateMachine) AddPropertyOverride(propertyPath *string, va
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnStateMachine) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1619,7 +1565,6 @@ func (c *jsiiProxy_CfnStateMachine) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnStateMachine) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1640,7 +1585,6 @@ func (c *jsiiProxy_CfnStateMachine) GetAtt(attributeName *string) awscdk.Referen
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnStateMachine) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1664,7 +1608,6 @@ func (c *jsiiProxy_CfnStateMachine) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnStateMachine) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1690,7 +1633,6 @@ func (c *jsiiProxy_CfnStateMachine) RenderProperties(props *map[string]interface
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnStateMachine) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1707,7 +1649,6 @@ func (c *jsiiProxy_CfnStateMachine) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnStateMachine) ToString() *string {
 	var returns *string
 
@@ -1721,7 +1662,6 @@ func (c *jsiiProxy_CfnStateMachine) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnStateMachine) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1821,7 +1761,6 @@ type CfnStateMachineProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Chain interface {
 	IChainable
 	EndStates() *[]INextable
@@ -1868,7 +1807,6 @@ func (j *jsiiProxy_Chain) StartState() State {
 
 
 // Make a Chain with specific start and end states, and a last-added Chainable.
-// Experimental.
 func Chain_Custom(startState State, endStates *[]INextable, lastAdded IChainable) Chain {
 	_init_.Initialize()
 
@@ -1885,7 +1823,6 @@ func Chain_Custom(startState State, endStates *[]INextable, lastAdded IChainable
 }
 
 // Make a Chain with the start from one chain and the ends from another.
-// Experimental.
 func Chain_Sequence(start IChainable, next IChainable) Chain {
 	_init_.Initialize()
 
@@ -1902,7 +1839,6 @@ func Chain_Sequence(start IChainable, next IChainable) Chain {
 }
 
 // Begin a new Chain from one chainable.
-// Experimental.
 func Chain_Start(state IChainable) Chain {
 	_init_.Initialize()
 
@@ -1919,7 +1855,6 @@ func Chain_Start(state IChainable) Chain {
 }
 
 // Continue normal execution with the given state.
-// Experimental.
 func (c *jsiiProxy_Chain) Next(next IChainable) Chain {
 	var returns Chain
 
@@ -1941,7 +1876,6 @@ func (c *jsiiProxy_Chain) Next(next IChainable) Chain {
 // to be an array with the result of the state machine in it. Adjust
 // your paths accordingly. For example, change 'outputPath' to
 // '$[0]'.
-// Experimental.
 func (c *jsiiProxy_Chain) ToSingleState(id *string, props *ParallelProps) Parallel {
 	var returns Parallel
 
@@ -1962,7 +1896,6 @@ func (c *jsiiProxy_Chain) ToSingleState(id *string, props *ParallelProps) Parall
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Choice interface {
 	State
 	Branches() *[]StateGraph
@@ -2150,7 +2083,6 @@ func (j *jsiiProxy_Choice) StateId() *string {
 }
 
 
-// Experimental.
 func NewChoice(scope constructs.Construct, id *string, props *ChoiceProps) Choice {
 	_init_.Initialize()
 
@@ -2165,7 +2097,6 @@ func NewChoice(scope constructs.Construct, id *string, props *ChoiceProps) Choic
 	return &j
 }
 
-// Experimental.
 func NewChoice_Override(c Choice, scope constructs.Construct, id *string, props *ChoiceProps) {
 	_init_.Initialize()
 
@@ -2193,7 +2124,6 @@ func (j *jsiiProxy_Choice) SetIteration(val StateGraph) {
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func Choice_FilterNextables(states *[]State) *[]INextable {
 	_init_.Initialize()
 
@@ -2210,7 +2140,6 @@ func Choice_FilterNextables(states *[]State) *[]INextable {
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func Choice_FindReachableEndStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
@@ -2229,7 +2158,6 @@ func Choice_FindReachableEndStates(start State, options *FindStateOptions) *[]St
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func Choice_FindReachableStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
@@ -2265,7 +2193,6 @@ func Choice_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func Choice_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
@@ -2277,7 +2204,6 @@ func Choice_PrefixStates(root constructs.IConstruct, prefix *string) {
 }
 
 // Add a paralle branch to this state.
-// Experimental.
 func (c *jsiiProxy_Choice) AddBranch(branch StateGraph) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2287,7 +2213,6 @@ func (c *jsiiProxy_Choice) AddBranch(branch StateGraph) {
 }
 
 // Add a choice branch to this state.
-// Experimental.
 func (c *jsiiProxy_Choice) AddChoice(condition Condition, next State) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2297,7 +2222,6 @@ func (c *jsiiProxy_Choice) AddChoice(condition Condition, next State) {
 }
 
 // Add a map iterator to this state.
-// Experimental.
 func (c *jsiiProxy_Choice) AddIterator(iteration StateGraph) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2307,7 +2231,6 @@ func (c *jsiiProxy_Choice) AddIterator(iteration StateGraph) {
 }
 
 // Add a prefix to the stateId of this state.
-// Experimental.
 func (c *jsiiProxy_Choice) AddPrefix(x *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2319,7 +2242,6 @@ func (c *jsiiProxy_Choice) AddPrefix(x *string) {
 // Return a Chain that contains all reachable end states from this Choice.
 //
 // Use this to combine all possible choice paths back.
-// Experimental.
 func (c *jsiiProxy_Choice) Afterwards(options *AfterwardsOptions) Chain {
 	var returns Chain
 
@@ -2337,7 +2259,6 @@ func (c *jsiiProxy_Choice) Afterwards(options *AfterwardsOptions) Chain {
 //
 // Don't call this. It will be called automatically when you work
 // with states normally.
-// Experimental.
 func (c *jsiiProxy_Choice) BindToGraph(graph StateGraph) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2347,7 +2268,6 @@ func (c *jsiiProxy_Choice) BindToGraph(graph StateGraph) {
 }
 
 // Make the indicated state the default choice transition of this state.
-// Experimental.
 func (c *jsiiProxy_Choice) MakeDefault(def State) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2357,7 +2277,6 @@ func (c *jsiiProxy_Choice) MakeDefault(def State) {
 }
 
 // Make the indicated state the default transition of this state.
-// Experimental.
 func (c *jsiiProxy_Choice) MakeNext(next State) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2370,7 +2289,6 @@ func (c *jsiiProxy_Choice) MakeNext(next State) {
 //
 // If no conditions match and no otherwise() has been given, an execution
 // error will be raised.
-// Experimental.
 func (c *jsiiProxy_Choice) Otherwise(def IChainable) Choice {
 	var returns Choice
 
@@ -2385,7 +2303,6 @@ func (c *jsiiProxy_Choice) Otherwise(def IChainable) Choice {
 }
 
 // Render parallel branches in ASL JSON format.
-// Experimental.
 func (c *jsiiProxy_Choice) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -2400,7 +2317,6 @@ func (c *jsiiProxy_Choice) RenderBranches() interface{} {
 }
 
 // Render the choices in ASL JSON format.
-// Experimental.
 func (c *jsiiProxy_Choice) RenderChoices() interface{} {
 	var returns interface{}
 
@@ -2415,7 +2331,6 @@ func (c *jsiiProxy_Choice) RenderChoices() interface{} {
 }
 
 // Render InputPath/Parameters/OutputPath in ASL JSON format.
-// Experimental.
 func (c *jsiiProxy_Choice) RenderInputOutput() interface{} {
 	var returns interface{}
 
@@ -2430,7 +2345,6 @@ func (c *jsiiProxy_Choice) RenderInputOutput() interface{} {
 }
 
 // Render map iterator in ASL JSON format.
-// Experimental.
 func (c *jsiiProxy_Choice) RenderIterator() interface{} {
 	var returns interface{}
 
@@ -2445,7 +2359,6 @@ func (c *jsiiProxy_Choice) RenderIterator() interface{} {
 }
 
 // Render the default next state in ASL JSON format.
-// Experimental.
 func (c *jsiiProxy_Choice) RenderNextEnd() interface{} {
 	var returns interface{}
 
@@ -2460,7 +2373,6 @@ func (c *jsiiProxy_Choice) RenderNextEnd() interface{} {
 }
 
 // Render ResultSelector in ASL JSON format.
-// Experimental.
 func (c *jsiiProxy_Choice) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -2475,7 +2387,6 @@ func (c *jsiiProxy_Choice) RenderResultSelector() interface{} {
 }
 
 // Render error recovery options in ASL JSON format.
-// Experimental.
 func (c *jsiiProxy_Choice) RenderRetryCatch() interface{} {
 	var returns interface{}
 
@@ -2490,7 +2401,6 @@ func (c *jsiiProxy_Choice) RenderRetryCatch() interface{} {
 }
 
 // Return the Amazon States Language object for this state.
-// Experimental.
 func (c *jsiiProxy_Choice) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -2505,7 +2415,6 @@ func (c *jsiiProxy_Choice) ToStateJson() *map[string]interface{} {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (c *jsiiProxy_Choice) ToString() *string {
 	var returns *string
 
@@ -2520,7 +2429,6 @@ func (c *jsiiProxy_Choice) ToString() *string {
 }
 
 // Allows the state to validate itself.
-// Experimental.
 func (c *jsiiProxy_Choice) ValidateState() *[]*string {
 	var returns *[]*string
 
@@ -2535,7 +2443,6 @@ func (c *jsiiProxy_Choice) ValidateState() *[]*string {
 }
 
 // If the given condition matches, continue execution with the given state.
-// Experimental.
 func (c *jsiiProxy_Choice) When(condition Condition, next IChainable) Choice {
 	var returns Choice
 
@@ -2552,7 +2459,6 @@ func (c *jsiiProxy_Choice) When(condition Condition, next IChainable) Choice {
 // Called whenever this state is bound to a graph.
 //
 // Can be overridden by subclasses.
-// Experimental.
 func (c *jsiiProxy_Choice) WhenBoundToGraph(graph StateGraph) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2565,22 +2471,18 @@ func (c *jsiiProxy_Choice) WhenBoundToGraph(graph StateGraph) {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ChoiceProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath"`
 	// JSONPath expression to select part of the state to be the output to this state.
 	//
 	// May also be the special value DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath"`
 }
 
@@ -2588,7 +2490,6 @@ type ChoiceProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Condition interface {
 	RenderCondition() interface{}
 }
@@ -2598,7 +2499,6 @@ type jsiiProxy_Condition struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewCondition_Override(c Condition) {
 	_init_.Initialize()
 
@@ -2610,7 +2510,6 @@ func NewCondition_Override(c Condition) {
 }
 
 // Combine two or more conditions with a logical AND.
-// Experimental.
 func Condition_And(conditions ...Condition) Condition {
 	_init_.Initialize()
 
@@ -2632,7 +2531,6 @@ func Condition_And(conditions ...Condition) Condition {
 }
 
 // Matches if a boolean field has the given value.
-// Experimental.
 func Condition_BooleanEquals(variable *string, value *bool) Condition {
 	_init_.Initialize()
 
@@ -2649,7 +2547,6 @@ func Condition_BooleanEquals(variable *string, value *bool) Condition {
 }
 
 // Matches if a boolean field equals to a value at a given mapping path.
-// Experimental.
 func Condition_BooleanEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -2666,7 +2563,6 @@ func Condition_BooleanEqualsJsonPath(variable *string, value *string) Condition 
 }
 
 // Matches if variable is boolean.
-// Experimental.
 func Condition_IsBoolean(variable *string) Condition {
 	_init_.Initialize()
 
@@ -2683,7 +2579,6 @@ func Condition_IsBoolean(variable *string) Condition {
 }
 
 // Matches if variable is not boolean.
-// Experimental.
 func Condition_IsNotBoolean(variable *string) Condition {
 	_init_.Initialize()
 
@@ -2700,7 +2595,6 @@ func Condition_IsNotBoolean(variable *string) Condition {
 }
 
 // Matches if variable is not null.
-// Experimental.
 func Condition_IsNotNull(variable *string) Condition {
 	_init_.Initialize()
 
@@ -2717,7 +2611,6 @@ func Condition_IsNotNull(variable *string) Condition {
 }
 
 // Matches if variable is not numeric.
-// Experimental.
 func Condition_IsNotNumeric(variable *string) Condition {
 	_init_.Initialize()
 
@@ -2734,7 +2627,6 @@ func Condition_IsNotNumeric(variable *string) Condition {
 }
 
 // Matches if variable is not present.
-// Experimental.
 func Condition_IsNotPresent(variable *string) Condition {
 	_init_.Initialize()
 
@@ -2751,7 +2643,6 @@ func Condition_IsNotPresent(variable *string) Condition {
 }
 
 // Matches if variable is not a string.
-// Experimental.
 func Condition_IsNotString(variable *string) Condition {
 	_init_.Initialize()
 
@@ -2768,7 +2659,6 @@ func Condition_IsNotString(variable *string) Condition {
 }
 
 // Matches if variable is not a timestamp.
-// Experimental.
 func Condition_IsNotTimestamp(variable *string) Condition {
 	_init_.Initialize()
 
@@ -2785,7 +2675,6 @@ func Condition_IsNotTimestamp(variable *string) Condition {
 }
 
 // Matches if variable is Null.
-// Experimental.
 func Condition_IsNull(variable *string) Condition {
 	_init_.Initialize()
 
@@ -2802,7 +2691,6 @@ func Condition_IsNull(variable *string) Condition {
 }
 
 // Matches if variable is numeric.
-// Experimental.
 func Condition_IsNumeric(variable *string) Condition {
 	_init_.Initialize()
 
@@ -2819,7 +2707,6 @@ func Condition_IsNumeric(variable *string) Condition {
 }
 
 // Matches if variable is present.
-// Experimental.
 func Condition_IsPresent(variable *string) Condition {
 	_init_.Initialize()
 
@@ -2836,7 +2723,6 @@ func Condition_IsPresent(variable *string) Condition {
 }
 
 // Matches if variable is a string.
-// Experimental.
 func Condition_IsString(variable *string) Condition {
 	_init_.Initialize()
 
@@ -2853,7 +2739,6 @@ func Condition_IsString(variable *string) Condition {
 }
 
 // Matches if variable is a timestamp.
-// Experimental.
 func Condition_IsTimestamp(variable *string) Condition {
 	_init_.Initialize()
 
@@ -2870,7 +2755,6 @@ func Condition_IsTimestamp(variable *string) Condition {
 }
 
 // Negate a condition.
-// Experimental.
 func Condition_Not(condition Condition) Condition {
 	_init_.Initialize()
 
@@ -2887,7 +2771,6 @@ func Condition_Not(condition Condition) Condition {
 }
 
 // Matches if a numeric field has the given value.
-// Experimental.
 func Condition_NumberEquals(variable *string, value *float64) Condition {
 	_init_.Initialize()
 
@@ -2904,7 +2787,6 @@ func Condition_NumberEquals(variable *string, value *float64) Condition {
 }
 
 // Matches if a numeric field has the value in a given mapping path.
-// Experimental.
 func Condition_NumberEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -2921,7 +2803,6 @@ func Condition_NumberEqualsJsonPath(variable *string, value *string) Condition {
 }
 
 // Matches if a numeric field is greater than the given value.
-// Experimental.
 func Condition_NumberGreaterThan(variable *string, value *float64) Condition {
 	_init_.Initialize()
 
@@ -2938,7 +2819,6 @@ func Condition_NumberGreaterThan(variable *string, value *float64) Condition {
 }
 
 // Matches if a numeric field is greater than or equal to the given value.
-// Experimental.
 func Condition_NumberGreaterThanEquals(variable *string, value *float64) Condition {
 	_init_.Initialize()
 
@@ -2955,7 +2835,6 @@ func Condition_NumberGreaterThanEquals(variable *string, value *float64) Conditi
 }
 
 // Matches if a numeric field is greater than or equal to the value at a given mapping path.
-// Experimental.
 func Condition_NumberGreaterThanEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -2972,7 +2851,6 @@ func Condition_NumberGreaterThanEqualsJsonPath(variable *string, value *string) 
 }
 
 // Matches if a numeric field is greater than the value at a given mapping path.
-// Experimental.
 func Condition_NumberGreaterThanJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -2989,7 +2867,6 @@ func Condition_NumberGreaterThanJsonPath(variable *string, value *string) Condit
 }
 
 // Matches if a numeric field is less than the given value.
-// Experimental.
 func Condition_NumberLessThan(variable *string, value *float64) Condition {
 	_init_.Initialize()
 
@@ -3006,7 +2883,6 @@ func Condition_NumberLessThan(variable *string, value *float64) Condition {
 }
 
 // Matches if a numeric field is less than or equal to the given value.
-// Experimental.
 func Condition_NumberLessThanEquals(variable *string, value *float64) Condition {
 	_init_.Initialize()
 
@@ -3023,7 +2899,6 @@ func Condition_NumberLessThanEquals(variable *string, value *float64) Condition 
 }
 
 // Matches if a numeric field is less than or equal to the numeric value at given mapping path.
-// Experimental.
 func Condition_NumberLessThanEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -3040,7 +2915,6 @@ func Condition_NumberLessThanEqualsJsonPath(variable *string, value *string) Con
 }
 
 // Matches if a numeric field is less than the value at the given mapping path.
-// Experimental.
 func Condition_NumberLessThanJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -3057,7 +2931,6 @@ func Condition_NumberLessThanJsonPath(variable *string, value *string) Condition
 }
 
 // Combine two or more conditions with a logical OR.
-// Experimental.
 func Condition_Or(conditions ...Condition) Condition {
 	_init_.Initialize()
 
@@ -3079,7 +2952,6 @@ func Condition_Or(conditions ...Condition) Condition {
 }
 
 // Matches if a string field has the given value.
-// Experimental.
 func Condition_StringEquals(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -3096,7 +2968,6 @@ func Condition_StringEquals(variable *string, value *string) Condition {
 }
 
 // Matches if a string field equals to a value at a given mapping path.
-// Experimental.
 func Condition_StringEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -3113,7 +2984,6 @@ func Condition_StringEqualsJsonPath(variable *string, value *string) Condition {
 }
 
 // Matches if a string field sorts after a given value.
-// Experimental.
 func Condition_StringGreaterThan(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -3130,7 +3000,6 @@ func Condition_StringGreaterThan(variable *string, value *string) Condition {
 }
 
 // Matches if a string field sorts after or equal to a given value.
-// Experimental.
 func Condition_StringGreaterThanEquals(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -3147,7 +3016,6 @@ func Condition_StringGreaterThanEquals(variable *string, value *string) Conditio
 }
 
 // Matches if a string field sorts after or equal to value at a given mapping path.
-// Experimental.
 func Condition_StringGreaterThanEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -3164,7 +3032,6 @@ func Condition_StringGreaterThanEqualsJsonPath(variable *string, value *string) 
 }
 
 // Matches if a string field sorts after a value at a given mapping path.
-// Experimental.
 func Condition_StringGreaterThanJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -3181,7 +3048,6 @@ func Condition_StringGreaterThanJsonPath(variable *string, value *string) Condit
 }
 
 // Matches if a string field sorts before a given value.
-// Experimental.
 func Condition_StringLessThan(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -3198,7 +3064,6 @@ func Condition_StringLessThan(variable *string, value *string) Condition {
 }
 
 // Matches if a string field sorts equal to or before a given value.
-// Experimental.
 func Condition_StringLessThanEquals(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -3215,7 +3080,6 @@ func Condition_StringLessThanEquals(variable *string, value *string) Condition {
 }
 
 // Matches if a string field sorts equal to or before a given mapping.
-// Experimental.
 func Condition_StringLessThanEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -3232,7 +3096,6 @@ func Condition_StringLessThanEqualsJsonPath(variable *string, value *string) Con
 }
 
 // Matches if a string field sorts before a given value at a particular mapping.
-// Experimental.
 func Condition_StringLessThanJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -3249,7 +3112,6 @@ func Condition_StringLessThanJsonPath(variable *string, value *string) Condition
 }
 
 // Matches if a field matches a string pattern that can contain a wild card (*) e.g: log-*.txt or *LATEST*. No other characters other than "*" have any special meaning - * can be escaped: \\*.
-// Experimental.
 func Condition_StringMatches(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -3266,7 +3128,6 @@ func Condition_StringMatches(variable *string, value *string) Condition {
 }
 
 // Matches if a timestamp field is the same time as the given timestamp.
-// Experimental.
 func Condition_TimestampEquals(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -3283,7 +3144,6 @@ func Condition_TimestampEquals(variable *string, value *string) Condition {
 }
 
 // Matches if a timestamp field is the same time as the timestamp at a given mapping path.
-// Experimental.
 func Condition_TimestampEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -3300,7 +3160,6 @@ func Condition_TimestampEqualsJsonPath(variable *string, value *string) Conditio
 }
 
 // Matches if a timestamp field is after the given timestamp.
-// Experimental.
 func Condition_TimestampGreaterThan(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -3317,7 +3176,6 @@ func Condition_TimestampGreaterThan(variable *string, value *string) Condition {
 }
 
 // Matches if a timestamp field is after or equal to the given timestamp.
-// Experimental.
 func Condition_TimestampGreaterThanEquals(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -3334,7 +3192,6 @@ func Condition_TimestampGreaterThanEquals(variable *string, value *string) Condi
 }
 
 // Matches if a timestamp field is after or equal to the timestamp at a given mapping path.
-// Experimental.
 func Condition_TimestampGreaterThanEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -3351,7 +3208,6 @@ func Condition_TimestampGreaterThanEqualsJsonPath(variable *string, value *strin
 }
 
 // Matches if a timestamp field is after the timestamp at a given mapping path.
-// Experimental.
 func Condition_TimestampGreaterThanJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -3368,7 +3224,6 @@ func Condition_TimestampGreaterThanJsonPath(variable *string, value *string) Con
 }
 
 // Matches if a timestamp field is before the given timestamp.
-// Experimental.
 func Condition_TimestampLessThan(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -3385,7 +3240,6 @@ func Condition_TimestampLessThan(variable *string, value *string) Condition {
 }
 
 // Matches if a timestamp field is before or equal to the given timestamp.
-// Experimental.
 func Condition_TimestampLessThanEquals(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -3402,7 +3256,6 @@ func Condition_TimestampLessThanEquals(variable *string, value *string) Conditio
 }
 
 // Matches if a timestamp field is before or equal to the timestamp at a given mapping path.
-// Experimental.
 func Condition_TimestampLessThanEqualsJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -3419,7 +3272,6 @@ func Condition_TimestampLessThanEqualsJsonPath(variable *string, value *string) 
 }
 
 // Matches if a timestamp field is before the timestamp at a given mapping path.
-// Experimental.
 func Condition_TimestampLessThanJsonPath(variable *string, value *string) Condition {
 	_init_.Initialize()
 
@@ -3436,7 +3288,6 @@ func Condition_TimestampLessThanJsonPath(variable *string, value *string) Condit
 }
 
 // Render Amazon States Language JSON for the condition.
-// Experimental.
 func (c *jsiiProxy_Condition) RenderCondition() interface{} {
 	var returns interface{}
 
@@ -3454,7 +3305,6 @@ func (c *jsiiProxy_Condition) RenderCondition() interface{} {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CustomState interface {
 	State
 	IChainable
@@ -3644,7 +3494,6 @@ func (j *jsiiProxy_CustomState) StateId() *string {
 }
 
 
-// Experimental.
 func NewCustomState(scope constructs.Construct, id *string, props *CustomStateProps) CustomState {
 	_init_.Initialize()
 
@@ -3659,7 +3508,6 @@ func NewCustomState(scope constructs.Construct, id *string, props *CustomStatePr
 	return &j
 }
 
-// Experimental.
 func NewCustomState_Override(c CustomState, scope constructs.Construct, id *string, props *CustomStateProps) {
 	_init_.Initialize()
 
@@ -3687,7 +3535,6 @@ func (j *jsiiProxy_CustomState) SetIteration(val StateGraph) {
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func CustomState_FilterNextables(states *[]State) *[]INextable {
 	_init_.Initialize()
 
@@ -3704,7 +3551,6 @@ func CustomState_FilterNextables(states *[]State) *[]INextable {
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func CustomState_FindReachableEndStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
@@ -3723,7 +3569,6 @@ func CustomState_FindReachableEndStates(start State, options *FindStateOptions) 
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func CustomState_FindReachableStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
@@ -3759,7 +3604,6 @@ func CustomState_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func CustomState_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
@@ -3771,7 +3615,6 @@ func CustomState_PrefixStates(root constructs.IConstruct, prefix *string) {
 }
 
 // Add a paralle branch to this state.
-// Experimental.
 func (c *jsiiProxy_CustomState) AddBranch(branch StateGraph) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3781,7 +3624,6 @@ func (c *jsiiProxy_CustomState) AddBranch(branch StateGraph) {
 }
 
 // Add a choice branch to this state.
-// Experimental.
 func (c *jsiiProxy_CustomState) AddChoice(condition Condition, next State) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3791,7 +3633,6 @@ func (c *jsiiProxy_CustomState) AddChoice(condition Condition, next State) {
 }
 
 // Add a map iterator to this state.
-// Experimental.
 func (c *jsiiProxy_CustomState) AddIterator(iteration StateGraph) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3801,7 +3642,6 @@ func (c *jsiiProxy_CustomState) AddIterator(iteration StateGraph) {
 }
 
 // Add a prefix to the stateId of this state.
-// Experimental.
 func (c *jsiiProxy_CustomState) AddPrefix(x *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3814,7 +3654,6 @@ func (c *jsiiProxy_CustomState) AddPrefix(x *string) {
 //
 // Don't call this. It will be called automatically when you work
 // with states normally.
-// Experimental.
 func (c *jsiiProxy_CustomState) BindToGraph(graph StateGraph) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3824,7 +3663,6 @@ func (c *jsiiProxy_CustomState) BindToGraph(graph StateGraph) {
 }
 
 // Make the indicated state the default choice transition of this state.
-// Experimental.
 func (c *jsiiProxy_CustomState) MakeDefault(def State) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3834,7 +3672,6 @@ func (c *jsiiProxy_CustomState) MakeDefault(def State) {
 }
 
 // Make the indicated state the default transition of this state.
-// Experimental.
 func (c *jsiiProxy_CustomState) MakeNext(next State) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3844,7 +3681,6 @@ func (c *jsiiProxy_CustomState) MakeNext(next State) {
 }
 
 // Continue normal execution with the given state.
-// Experimental.
 func (c *jsiiProxy_CustomState) Next(next IChainable) Chain {
 	var returns Chain
 
@@ -3859,7 +3695,6 @@ func (c *jsiiProxy_CustomState) Next(next IChainable) Chain {
 }
 
 // Render parallel branches in ASL JSON format.
-// Experimental.
 func (c *jsiiProxy_CustomState) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -3874,7 +3709,6 @@ func (c *jsiiProxy_CustomState) RenderBranches() interface{} {
 }
 
 // Render the choices in ASL JSON format.
-// Experimental.
 func (c *jsiiProxy_CustomState) RenderChoices() interface{} {
 	var returns interface{}
 
@@ -3889,7 +3723,6 @@ func (c *jsiiProxy_CustomState) RenderChoices() interface{} {
 }
 
 // Render InputPath/Parameters/OutputPath in ASL JSON format.
-// Experimental.
 func (c *jsiiProxy_CustomState) RenderInputOutput() interface{} {
 	var returns interface{}
 
@@ -3904,7 +3737,6 @@ func (c *jsiiProxy_CustomState) RenderInputOutput() interface{} {
 }
 
 // Render map iterator in ASL JSON format.
-// Experimental.
 func (c *jsiiProxy_CustomState) RenderIterator() interface{} {
 	var returns interface{}
 
@@ -3919,7 +3751,6 @@ func (c *jsiiProxy_CustomState) RenderIterator() interface{} {
 }
 
 // Render the default next state in ASL JSON format.
-// Experimental.
 func (c *jsiiProxy_CustomState) RenderNextEnd() interface{} {
 	var returns interface{}
 
@@ -3934,7 +3765,6 @@ func (c *jsiiProxy_CustomState) RenderNextEnd() interface{} {
 }
 
 // Render ResultSelector in ASL JSON format.
-// Experimental.
 func (c *jsiiProxy_CustomState) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -3949,7 +3779,6 @@ func (c *jsiiProxy_CustomState) RenderResultSelector() interface{} {
 }
 
 // Render error recovery options in ASL JSON format.
-// Experimental.
 func (c *jsiiProxy_CustomState) RenderRetryCatch() interface{} {
 	var returns interface{}
 
@@ -3964,7 +3793,6 @@ func (c *jsiiProxy_CustomState) RenderRetryCatch() interface{} {
 }
 
 // Returns the Amazon States Language object for this state.
-// Experimental.
 func (c *jsiiProxy_CustomState) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -3979,7 +3807,6 @@ func (c *jsiiProxy_CustomState) ToStateJson() *map[string]interface{} {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (c *jsiiProxy_CustomState) ToString() *string {
 	var returns *string
 
@@ -3994,7 +3821,6 @@ func (c *jsiiProxy_CustomState) ToString() *string {
 }
 
 // Allows the state to validate itself.
-// Experimental.
 func (c *jsiiProxy_CustomState) ValidateState() *[]*string {
 	var returns *[]*string
 
@@ -4011,7 +3837,6 @@ func (c *jsiiProxy_CustomState) ValidateState() *[]*string {
 // Called whenever this state is bound to a graph.
 //
 // Can be overridden by subclasses.
-// Experimental.
 func (c *jsiiProxy_CustomState) WhenBoundToGraph(graph StateGraph) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4024,12 +3849,10 @@ func (c *jsiiProxy_CustomState) WhenBoundToGraph(graph StateGraph) {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CustomStateProps struct {
 	// Amazon States Language (JSON-based) definition of the state.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html
 	//
-	// Experimental.
 	StateJson *map[string]interface{} `json:"stateJson"`
 }
 
@@ -4037,7 +3860,6 @@ type CustomStateProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Errors interface {
 }
 
@@ -4046,7 +3868,6 @@ type jsiiProxy_Errors struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewErrors() Errors {
 	_init_.Initialize()
 
@@ -4061,7 +3882,6 @@ func NewErrors() Errors {
 	return &j
 }
 
-// Experimental.
 func NewErrors_Override(e Errors) {
 	_init_.Initialize()
 
@@ -4177,7 +3997,6 @@ func Errors_TIMEOUT() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Fail interface {
 	State
 	Branches() *[]StateGraph
@@ -4362,7 +4181,6 @@ func (j *jsiiProxy_Fail) StateId() *string {
 }
 
 
-// Experimental.
 func NewFail(scope constructs.Construct, id *string, props *FailProps) Fail {
 	_init_.Initialize()
 
@@ -4377,7 +4195,6 @@ func NewFail(scope constructs.Construct, id *string, props *FailProps) Fail {
 	return &j
 }
 
-// Experimental.
 func NewFail_Override(f Fail, scope constructs.Construct, id *string, props *FailProps) {
 	_init_.Initialize()
 
@@ -4405,7 +4222,6 @@ func (j *jsiiProxy_Fail) SetIteration(val StateGraph) {
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func Fail_FilterNextables(states *[]State) *[]INextable {
 	_init_.Initialize()
 
@@ -4422,7 +4238,6 @@ func Fail_FilterNextables(states *[]State) *[]INextable {
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func Fail_FindReachableEndStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
@@ -4441,7 +4256,6 @@ func Fail_FindReachableEndStates(start State, options *FindStateOptions) *[]Stat
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func Fail_FindReachableStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
@@ -4477,7 +4291,6 @@ func Fail_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func Fail_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
@@ -4489,7 +4302,6 @@ func Fail_PrefixStates(root constructs.IConstruct, prefix *string) {
 }
 
 // Add a paralle branch to this state.
-// Experimental.
 func (f *jsiiProxy_Fail) AddBranch(branch StateGraph) {
 	_jsii_.InvokeVoid(
 		f,
@@ -4499,7 +4311,6 @@ func (f *jsiiProxy_Fail) AddBranch(branch StateGraph) {
 }
 
 // Add a choice branch to this state.
-// Experimental.
 func (f *jsiiProxy_Fail) AddChoice(condition Condition, next State) {
 	_jsii_.InvokeVoid(
 		f,
@@ -4509,7 +4320,6 @@ func (f *jsiiProxy_Fail) AddChoice(condition Condition, next State) {
 }
 
 // Add a map iterator to this state.
-// Experimental.
 func (f *jsiiProxy_Fail) AddIterator(iteration StateGraph) {
 	_jsii_.InvokeVoid(
 		f,
@@ -4519,7 +4329,6 @@ func (f *jsiiProxy_Fail) AddIterator(iteration StateGraph) {
 }
 
 // Add a prefix to the stateId of this state.
-// Experimental.
 func (f *jsiiProxy_Fail) AddPrefix(x *string) {
 	_jsii_.InvokeVoid(
 		f,
@@ -4532,7 +4341,6 @@ func (f *jsiiProxy_Fail) AddPrefix(x *string) {
 //
 // Don't call this. It will be called automatically when you work
 // with states normally.
-// Experimental.
 func (f *jsiiProxy_Fail) BindToGraph(graph StateGraph) {
 	_jsii_.InvokeVoid(
 		f,
@@ -4542,7 +4350,6 @@ func (f *jsiiProxy_Fail) BindToGraph(graph StateGraph) {
 }
 
 // Make the indicated state the default choice transition of this state.
-// Experimental.
 func (f *jsiiProxy_Fail) MakeDefault(def State) {
 	_jsii_.InvokeVoid(
 		f,
@@ -4552,7 +4359,6 @@ func (f *jsiiProxy_Fail) MakeDefault(def State) {
 }
 
 // Make the indicated state the default transition of this state.
-// Experimental.
 func (f *jsiiProxy_Fail) MakeNext(next State) {
 	_jsii_.InvokeVoid(
 		f,
@@ -4562,7 +4368,6 @@ func (f *jsiiProxy_Fail) MakeNext(next State) {
 }
 
 // Render parallel branches in ASL JSON format.
-// Experimental.
 func (f *jsiiProxy_Fail) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -4577,7 +4382,6 @@ func (f *jsiiProxy_Fail) RenderBranches() interface{} {
 }
 
 // Render the choices in ASL JSON format.
-// Experimental.
 func (f *jsiiProxy_Fail) RenderChoices() interface{} {
 	var returns interface{}
 
@@ -4592,7 +4396,6 @@ func (f *jsiiProxy_Fail) RenderChoices() interface{} {
 }
 
 // Render InputPath/Parameters/OutputPath in ASL JSON format.
-// Experimental.
 func (f *jsiiProxy_Fail) RenderInputOutput() interface{} {
 	var returns interface{}
 
@@ -4607,7 +4410,6 @@ func (f *jsiiProxy_Fail) RenderInputOutput() interface{} {
 }
 
 // Render map iterator in ASL JSON format.
-// Experimental.
 func (f *jsiiProxy_Fail) RenderIterator() interface{} {
 	var returns interface{}
 
@@ -4622,7 +4424,6 @@ func (f *jsiiProxy_Fail) RenderIterator() interface{} {
 }
 
 // Render the default next state in ASL JSON format.
-// Experimental.
 func (f *jsiiProxy_Fail) RenderNextEnd() interface{} {
 	var returns interface{}
 
@@ -4637,7 +4438,6 @@ func (f *jsiiProxy_Fail) RenderNextEnd() interface{} {
 }
 
 // Render ResultSelector in ASL JSON format.
-// Experimental.
 func (f *jsiiProxy_Fail) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -4652,7 +4452,6 @@ func (f *jsiiProxy_Fail) RenderResultSelector() interface{} {
 }
 
 // Render error recovery options in ASL JSON format.
-// Experimental.
 func (f *jsiiProxy_Fail) RenderRetryCatch() interface{} {
 	var returns interface{}
 
@@ -4667,7 +4466,6 @@ func (f *jsiiProxy_Fail) RenderRetryCatch() interface{} {
 }
 
 // Return the Amazon States Language object for this state.
-// Experimental.
 func (f *jsiiProxy_Fail) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -4682,7 +4480,6 @@ func (f *jsiiProxy_Fail) ToStateJson() *map[string]interface{} {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (f *jsiiProxy_Fail) ToString() *string {
 	var returns *string
 
@@ -4697,7 +4494,6 @@ func (f *jsiiProxy_Fail) ToString() *string {
 }
 
 // Allows the state to validate itself.
-// Experimental.
 func (f *jsiiProxy_Fail) ValidateState() *[]*string {
 	var returns *[]*string
 
@@ -4714,7 +4510,6 @@ func (f *jsiiProxy_Fail) ValidateState() *[]*string {
 // Called whenever this state is bound to a graph.
 //
 // Can be overridden by subclasses.
-// Experimental.
 func (f *jsiiProxy_Fail) WhenBoundToGraph(graph StateGraph) {
 	_jsii_.InvokeVoid(
 		f,
@@ -4727,21 +4522,16 @@ func (f *jsiiProxy_Fail) WhenBoundToGraph(graph StateGraph) {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type FailProps struct {
 	// A description for the cause of the failure.
-	// Experimental.
 	Cause *string `json:"cause"`
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment"`
 	// Error code used to represent this failure.
-	// Experimental.
 	Error *string `json:"error"`
 }
 
 // Helper functions to work with structures containing fields.
-// Experimental.
 type FieldUtils interface {
 }
 
@@ -4754,7 +4544,6 @@ type jsiiProxy_FieldUtils struct {
 //
 // The field is considered included if the field itself or one of its containing
 // fields occurs anywhere in the payload.
-// Experimental.
 func FieldUtils_ContainsTaskToken(obj *map[string]interface{}) *bool {
 	_init_.Initialize()
 
@@ -4771,7 +4560,6 @@ func FieldUtils_ContainsTaskToken(obj *map[string]interface{}) *bool {
 }
 
 // Return all JSON paths used in the given structure.
-// Experimental.
 func FieldUtils_FindReferencedPaths(obj *map[string]interface{}) *[]*string {
 	_init_.Initialize()
 
@@ -4788,7 +4576,6 @@ func FieldUtils_FindReferencedPaths(obj *map[string]interface{}) *[]*string {
 }
 
 // Render a JSON structure containing fields to the right StepFunctions structure.
-// Experimental.
 func FieldUtils_RenderObject(obj *map[string]interface{}) *map[string]interface{} {
 	_init_.Initialize()
 
@@ -4808,22 +4595,17 @@ func FieldUtils_RenderObject(obj *map[string]interface{}) *map[string]interface{
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type FindStateOptions struct {
 	// Whether or not to follow error-handling transitions.
-	// Experimental.
 	IncludeErrorHandlers *bool `json:"includeErrorHandlers"`
 }
 
 // Represents a Step Functions Activity https://docs.aws.amazon.com/step-functions/latest/dg/concepts-activities.html.
-// Experimental.
 type IActivity interface {
 	awscdk.IResource
 	// The ARN of the activity.
-	// Experimental.
 	ActivityArn() *string
 	// The name of the activity.
-	// Experimental.
 	ActivityName() *string
 }
 
@@ -4853,16 +4635,12 @@ func (j *jsiiProxy_IActivity) ActivityName() *string {
 }
 
 // Interface for objects that can be used in a Chain.
-// Experimental.
 type IChainable interface {
 	// The chainable end state(s) of this chainable.
-	// Experimental.
 	EndStates() *[]INextable
 	// Descriptive identifier for this chainable.
-	// Experimental.
 	Id() *string
 	// The start state of this chainable.
-	// Experimental.
 	StartState() State
 }
 
@@ -4902,12 +4680,10 @@ func (j *jsiiProxy_IChainable) StartState() State {
 }
 
 // Interface for states that can have 'next' states.
-// Experimental.
 type INextable interface {
 	// Go to the indicated state after this state.
 	//
 	// Returns: The chain of states built up
-	// Experimental.
 	Next(state IChainable) Chain
 }
 
@@ -4930,51 +4706,36 @@ func (i *jsiiProxy_INextable) Next(state IChainable) Chain {
 }
 
 // A State Machine.
-// Experimental.
 type IStateMachine interface {
 	awsiam.IGrantable
 	awscdk.IResource
 	// Grant the given identity custom permissions.
-	// Experimental.
 	Grant(identity awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant the given identity permissions for all executions of a state machine.
-	// Experimental.
 	GrantExecution(identity awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant the given identity read permissions for this state machine.
-	// Experimental.
 	GrantRead(identity awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to start an execution of this state machine.
-	// Experimental.
 	GrantStartExecution(identity awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity read permissions for this state machine.
-	// Experimental.
 	GrantTaskResponse(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this State Machine's executions.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of executions that were aborted.
-	// Experimental.
 	MetricAborted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of executions that failed.
-	// Experimental.
 	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of executions that were started.
-	// Experimental.
 	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of executions that succeeded.
-	// Experimental.
 	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of executions that were throttled.
-	// Experimental.
 	MetricThrottled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the interval, in milliseconds, between the time the execution starts and the time it closes.
-	// Experimental.
 	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of executions that timed out.
-	// Experimental.
 	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The ARN of the state machine.
-	// Experimental.
 	StateMachineArn() *string
 }
 
@@ -5214,7 +4975,6 @@ func (j *jsiiProxy_IStateMachine) Stack() awscdk.Stack {
 }
 
 // The type of task input.
-// Experimental.
 type InputType string
 
 const (
@@ -5230,7 +4990,6 @@ const (
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html
 //
-// Experimental.
 type IntegrationPattern string
 
 const (
@@ -5245,7 +5004,6 @@ const (
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-paths.html
 //
-// Experimental.
 type JsonPath interface {
 }
 
@@ -5255,7 +5013,6 @@ type jsiiProxy_JsonPath struct {
 }
 
 // Determines if the indicated string is an encoded JSON path.
-// Experimental.
 func JsonPath_IsEncodedJsonPath(value *string) *bool {
 	_init_.Initialize()
 
@@ -5272,7 +5029,6 @@ func JsonPath_IsEncodedJsonPath(value *string) *bool {
 }
 
 // Instead of using a literal string list, get the value from a JSON path.
-// Experimental.
 func JsonPath_ListAt(path *string) *[]*string {
 	_init_.Initialize()
 
@@ -5289,7 +5045,6 @@ func JsonPath_ListAt(path *string) *[]*string {
 }
 
 // Instead of using a literal number, get the value from a JSON path.
-// Experimental.
 func JsonPath_NumberAt(path *string) *float64 {
 	_init_.Initialize()
 
@@ -5306,7 +5061,6 @@ func JsonPath_NumberAt(path *string) *float64 {
 }
 
 // Instead of using a literal string, get the value from a JSON path.
-// Experimental.
 func JsonPath_StringAt(path *string) *string {
 	_init_.Initialize()
 
@@ -5372,7 +5126,6 @@ func JsonPath_TaskToken() *string {
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html
 //
-// Experimental.
 type LogLevel string
 
 const (
@@ -5386,16 +5139,12 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LogOptions struct {
 	// The log group where the execution history events will be logged.
-	// Experimental.
 	Destination awslogs.ILogGroup `json:"destination"`
 	// Determines whether execution data is included in your log.
-	// Experimental.
 	IncludeExecutionData *bool `json:"includeExecutionData"`
 	// Defines which category of execution history events are logged.
-	// Experimental.
 	Level LogLevel `json:"level"`
 }
 
@@ -5411,7 +5160,6 @@ type LogOptions struct {
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-map-state.html
 //
-// Experimental.
 type Map interface {
 	State
 	INextable
@@ -5602,7 +5350,6 @@ func (j *jsiiProxy_Map) StateId() *string {
 }
 
 
-// Experimental.
 func NewMap(scope constructs.Construct, id *string, props *MapProps) Map {
 	_init_.Initialize()
 
@@ -5617,7 +5364,6 @@ func NewMap(scope constructs.Construct, id *string, props *MapProps) Map {
 	return &j
 }
 
-// Experimental.
 func NewMap_Override(m Map, scope constructs.Construct, id *string, props *MapProps) {
 	_init_.Initialize()
 
@@ -5645,7 +5391,6 @@ func (j *jsiiProxy_Map) SetIteration(val StateGraph) {
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func Map_FilterNextables(states *[]State) *[]INextable {
 	_init_.Initialize()
 
@@ -5662,7 +5407,6 @@ func Map_FilterNextables(states *[]State) *[]INextable {
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func Map_FindReachableEndStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
@@ -5681,7 +5425,6 @@ func Map_FindReachableEndStates(start State, options *FindStateOptions) *[]State
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func Map_FindReachableStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
@@ -5717,7 +5460,6 @@ func Map_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func Map_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
@@ -5729,7 +5471,6 @@ func Map_PrefixStates(root constructs.IConstruct, prefix *string) {
 }
 
 // Add a paralle branch to this state.
-// Experimental.
 func (m *jsiiProxy_Map) AddBranch(branch StateGraph) {
 	_jsii_.InvokeVoid(
 		m,
@@ -5742,7 +5483,6 @@ func (m *jsiiProxy_Map) AddBranch(branch StateGraph) {
 //
 // When a particular error occurs, execution will continue at the error
 // handler instead of failing the state machine execution.
-// Experimental.
 func (m *jsiiProxy_Map) AddCatch(handler IChainable, props *CatchProps) Map {
 	var returns Map
 
@@ -5757,7 +5497,6 @@ func (m *jsiiProxy_Map) AddCatch(handler IChainable, props *CatchProps) Map {
 }
 
 // Add a choice branch to this state.
-// Experimental.
 func (m *jsiiProxy_Map) AddChoice(condition Condition, next State) {
 	_jsii_.InvokeVoid(
 		m,
@@ -5767,7 +5506,6 @@ func (m *jsiiProxy_Map) AddChoice(condition Condition, next State) {
 }
 
 // Add a map iterator to this state.
-// Experimental.
 func (m *jsiiProxy_Map) AddIterator(iteration StateGraph) {
 	_jsii_.InvokeVoid(
 		m,
@@ -5777,7 +5515,6 @@ func (m *jsiiProxy_Map) AddIterator(iteration StateGraph) {
 }
 
 // Add a prefix to the stateId of this state.
-// Experimental.
 func (m *jsiiProxy_Map) AddPrefix(x *string) {
 	_jsii_.InvokeVoid(
 		m,
@@ -5790,7 +5527,6 @@ func (m *jsiiProxy_Map) AddPrefix(x *string) {
 //
 // This controls if and how the execution will be retried if a particular
 // error occurs.
-// Experimental.
 func (m *jsiiProxy_Map) AddRetry(props *RetryProps) Map {
 	var returns Map
 
@@ -5808,7 +5544,6 @@ func (m *jsiiProxy_Map) AddRetry(props *RetryProps) Map {
 //
 // Don't call this. It will be called automatically when you work
 // with states normally.
-// Experimental.
 func (m *jsiiProxy_Map) BindToGraph(graph StateGraph) {
 	_jsii_.InvokeVoid(
 		m,
@@ -5818,7 +5553,6 @@ func (m *jsiiProxy_Map) BindToGraph(graph StateGraph) {
 }
 
 // Define iterator state machine in Map.
-// Experimental.
 func (m *jsiiProxy_Map) Iterator(iterator IChainable) Map {
 	var returns Map
 
@@ -5833,7 +5567,6 @@ func (m *jsiiProxy_Map) Iterator(iterator IChainable) Map {
 }
 
 // Make the indicated state the default choice transition of this state.
-// Experimental.
 func (m *jsiiProxy_Map) MakeDefault(def State) {
 	_jsii_.InvokeVoid(
 		m,
@@ -5843,7 +5576,6 @@ func (m *jsiiProxy_Map) MakeDefault(def State) {
 }
 
 // Make the indicated state the default transition of this state.
-// Experimental.
 func (m *jsiiProxy_Map) MakeNext(next State) {
 	_jsii_.InvokeVoid(
 		m,
@@ -5853,7 +5585,6 @@ func (m *jsiiProxy_Map) MakeNext(next State) {
 }
 
 // Continue normal execution with the given state.
-// Experimental.
 func (m *jsiiProxy_Map) Next(next IChainable) Chain {
 	var returns Chain
 
@@ -5868,7 +5599,6 @@ func (m *jsiiProxy_Map) Next(next IChainable) Chain {
 }
 
 // Render parallel branches in ASL JSON format.
-// Experimental.
 func (m *jsiiProxy_Map) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -5883,7 +5613,6 @@ func (m *jsiiProxy_Map) RenderBranches() interface{} {
 }
 
 // Render the choices in ASL JSON format.
-// Experimental.
 func (m *jsiiProxy_Map) RenderChoices() interface{} {
 	var returns interface{}
 
@@ -5898,7 +5627,6 @@ func (m *jsiiProxy_Map) RenderChoices() interface{} {
 }
 
 // Render InputPath/Parameters/OutputPath in ASL JSON format.
-// Experimental.
 func (m *jsiiProxy_Map) RenderInputOutput() interface{} {
 	var returns interface{}
 
@@ -5913,7 +5641,6 @@ func (m *jsiiProxy_Map) RenderInputOutput() interface{} {
 }
 
 // Render map iterator in ASL JSON format.
-// Experimental.
 func (m *jsiiProxy_Map) RenderIterator() interface{} {
 	var returns interface{}
 
@@ -5928,7 +5655,6 @@ func (m *jsiiProxy_Map) RenderIterator() interface{} {
 }
 
 // Render the default next state in ASL JSON format.
-// Experimental.
 func (m *jsiiProxy_Map) RenderNextEnd() interface{} {
 	var returns interface{}
 
@@ -5943,7 +5669,6 @@ func (m *jsiiProxy_Map) RenderNextEnd() interface{} {
 }
 
 // Render ResultSelector in ASL JSON format.
-// Experimental.
 func (m *jsiiProxy_Map) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -5958,7 +5683,6 @@ func (m *jsiiProxy_Map) RenderResultSelector() interface{} {
 }
 
 // Render error recovery options in ASL JSON format.
-// Experimental.
 func (m *jsiiProxy_Map) RenderRetryCatch() interface{} {
 	var returns interface{}
 
@@ -5973,7 +5697,6 @@ func (m *jsiiProxy_Map) RenderRetryCatch() interface{} {
 }
 
 // Return the Amazon States Language object for this state.
-// Experimental.
 func (m *jsiiProxy_Map) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -5988,7 +5711,6 @@ func (m *jsiiProxy_Map) ToStateJson() *map[string]interface{} {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (m *jsiiProxy_Map) ToString() *string {
 	var returns *string
 
@@ -6003,7 +5725,6 @@ func (m *jsiiProxy_Map) ToString() *string {
 }
 
 // Validate this state.
-// Experimental.
 func (m *jsiiProxy_Map) ValidateState() *[]*string {
 	var returns *[]*string
 
@@ -6020,7 +5741,6 @@ func (m *jsiiProxy_Map) ValidateState() *[]*string {
 // Called whenever this state is bound to a graph.
 //
 // Can be overridden by subclasses.
-// Experimental.
 func (m *jsiiProxy_Map) WhenBoundToGraph(graph StateGraph) {
 	_jsii_.InvokeVoid(
 		m,
@@ -6033,39 +5753,31 @@ func (m *jsiiProxy_Map) WhenBoundToGraph(graph StateGraph) {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type MapProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath"`
 	// JSONPath expression to select the array to iterate over.
-	// Experimental.
 	ItemsPath *string `json:"itemsPath"`
 	// MaxConcurrency.
 	//
 	// An upper bound on the number of iterations you want running at once.
-	// Experimental.
 	MaxConcurrency *float64 `json:"maxConcurrency"`
 	// JSONPath expression to select part of the state to be the output to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath"`
 	// The JSON that you want to override your default iteration input.
-	// Experimental.
 	Parameters *map[string]interface{} `json:"parameters"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -6073,7 +5785,6 @@ type MapProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector"`
 }
 
@@ -6086,7 +5797,6 @@ type MapProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Parallel interface {
 	State
 	INextable
@@ -6277,7 +5987,6 @@ func (j *jsiiProxy_Parallel) StateId() *string {
 }
 
 
-// Experimental.
 func NewParallel(scope constructs.Construct, id *string, props *ParallelProps) Parallel {
 	_init_.Initialize()
 
@@ -6292,7 +6001,6 @@ func NewParallel(scope constructs.Construct, id *string, props *ParallelProps) P
 	return &j
 }
 
-// Experimental.
 func NewParallel_Override(p Parallel, scope constructs.Construct, id *string, props *ParallelProps) {
 	_init_.Initialize()
 
@@ -6320,7 +6028,6 @@ func (j *jsiiProxy_Parallel) SetIteration(val StateGraph) {
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func Parallel_FilterNextables(states *[]State) *[]INextable {
 	_init_.Initialize()
 
@@ -6337,7 +6044,6 @@ func Parallel_FilterNextables(states *[]State) *[]INextable {
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func Parallel_FindReachableEndStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
@@ -6356,7 +6062,6 @@ func Parallel_FindReachableEndStates(start State, options *FindStateOptions) *[]
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func Parallel_FindReachableStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
@@ -6392,7 +6097,6 @@ func Parallel_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func Parallel_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
@@ -6404,7 +6108,6 @@ func Parallel_PrefixStates(root constructs.IConstruct, prefix *string) {
 }
 
 // Add a paralle branch to this state.
-// Experimental.
 func (p *jsiiProxy_Parallel) AddBranch(branch StateGraph) {
 	_jsii_.InvokeVoid(
 		p,
@@ -6417,7 +6120,6 @@ func (p *jsiiProxy_Parallel) AddBranch(branch StateGraph) {
 //
 // When a particular error occurs, execution will continue at the error
 // handler instead of failing the state machine execution.
-// Experimental.
 func (p *jsiiProxy_Parallel) AddCatch(handler IChainable, props *CatchProps) Parallel {
 	var returns Parallel
 
@@ -6432,7 +6134,6 @@ func (p *jsiiProxy_Parallel) AddCatch(handler IChainable, props *CatchProps) Par
 }
 
 // Add a choice branch to this state.
-// Experimental.
 func (p *jsiiProxy_Parallel) AddChoice(condition Condition, next State) {
 	_jsii_.InvokeVoid(
 		p,
@@ -6442,7 +6143,6 @@ func (p *jsiiProxy_Parallel) AddChoice(condition Condition, next State) {
 }
 
 // Add a map iterator to this state.
-// Experimental.
 func (p *jsiiProxy_Parallel) AddIterator(iteration StateGraph) {
 	_jsii_.InvokeVoid(
 		p,
@@ -6452,7 +6152,6 @@ func (p *jsiiProxy_Parallel) AddIterator(iteration StateGraph) {
 }
 
 // Add a prefix to the stateId of this state.
-// Experimental.
 func (p *jsiiProxy_Parallel) AddPrefix(x *string) {
 	_jsii_.InvokeVoid(
 		p,
@@ -6465,7 +6164,6 @@ func (p *jsiiProxy_Parallel) AddPrefix(x *string) {
 //
 // This controls if and how the execution will be retried if a particular
 // error occurs.
-// Experimental.
 func (p *jsiiProxy_Parallel) AddRetry(props *RetryProps) Parallel {
 	var returns Parallel
 
@@ -6483,7 +6181,6 @@ func (p *jsiiProxy_Parallel) AddRetry(props *RetryProps) Parallel {
 //
 // Don't call this. It will be called automatically when you work
 // with states normally.
-// Experimental.
 func (p *jsiiProxy_Parallel) BindToGraph(graph StateGraph) {
 	_jsii_.InvokeVoid(
 		p,
@@ -6493,7 +6190,6 @@ func (p *jsiiProxy_Parallel) BindToGraph(graph StateGraph) {
 }
 
 // Define one or more branches to run in parallel.
-// Experimental.
 func (p *jsiiProxy_Parallel) Branch(branches ...IChainable) Parallel {
 	args := []interface{}{}
 	for _, a := range branches {
@@ -6513,7 +6209,6 @@ func (p *jsiiProxy_Parallel) Branch(branches ...IChainable) Parallel {
 }
 
 // Make the indicated state the default choice transition of this state.
-// Experimental.
 func (p *jsiiProxy_Parallel) MakeDefault(def State) {
 	_jsii_.InvokeVoid(
 		p,
@@ -6523,7 +6218,6 @@ func (p *jsiiProxy_Parallel) MakeDefault(def State) {
 }
 
 // Make the indicated state the default transition of this state.
-// Experimental.
 func (p *jsiiProxy_Parallel) MakeNext(next State) {
 	_jsii_.InvokeVoid(
 		p,
@@ -6533,7 +6227,6 @@ func (p *jsiiProxy_Parallel) MakeNext(next State) {
 }
 
 // Continue normal execution with the given state.
-// Experimental.
 func (p *jsiiProxy_Parallel) Next(next IChainable) Chain {
 	var returns Chain
 
@@ -6548,7 +6241,6 @@ func (p *jsiiProxy_Parallel) Next(next IChainable) Chain {
 }
 
 // Render parallel branches in ASL JSON format.
-// Experimental.
 func (p *jsiiProxy_Parallel) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -6563,7 +6255,6 @@ func (p *jsiiProxy_Parallel) RenderBranches() interface{} {
 }
 
 // Render the choices in ASL JSON format.
-// Experimental.
 func (p *jsiiProxy_Parallel) RenderChoices() interface{} {
 	var returns interface{}
 
@@ -6578,7 +6269,6 @@ func (p *jsiiProxy_Parallel) RenderChoices() interface{} {
 }
 
 // Render InputPath/Parameters/OutputPath in ASL JSON format.
-// Experimental.
 func (p *jsiiProxy_Parallel) RenderInputOutput() interface{} {
 	var returns interface{}
 
@@ -6593,7 +6283,6 @@ func (p *jsiiProxy_Parallel) RenderInputOutput() interface{} {
 }
 
 // Render map iterator in ASL JSON format.
-// Experimental.
 func (p *jsiiProxy_Parallel) RenderIterator() interface{} {
 	var returns interface{}
 
@@ -6608,7 +6297,6 @@ func (p *jsiiProxy_Parallel) RenderIterator() interface{} {
 }
 
 // Render the default next state in ASL JSON format.
-// Experimental.
 func (p *jsiiProxy_Parallel) RenderNextEnd() interface{} {
 	var returns interface{}
 
@@ -6623,7 +6311,6 @@ func (p *jsiiProxy_Parallel) RenderNextEnd() interface{} {
 }
 
 // Render ResultSelector in ASL JSON format.
-// Experimental.
 func (p *jsiiProxy_Parallel) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -6638,7 +6325,6 @@ func (p *jsiiProxy_Parallel) RenderResultSelector() interface{} {
 }
 
 // Render error recovery options in ASL JSON format.
-// Experimental.
 func (p *jsiiProxy_Parallel) RenderRetryCatch() interface{} {
 	var returns interface{}
 
@@ -6653,7 +6339,6 @@ func (p *jsiiProxy_Parallel) RenderRetryCatch() interface{} {
 }
 
 // Return the Amazon States Language object for this state.
-// Experimental.
 func (p *jsiiProxy_Parallel) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -6668,7 +6353,6 @@ func (p *jsiiProxy_Parallel) ToStateJson() *map[string]interface{} {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (p *jsiiProxy_Parallel) ToString() *string {
 	var returns *string
 
@@ -6683,7 +6367,6 @@ func (p *jsiiProxy_Parallel) ToString() *string {
 }
 
 // Validate this state.
-// Experimental.
 func (p *jsiiProxy_Parallel) ValidateState() *[]*string {
 	var returns *[]*string
 
@@ -6700,7 +6383,6 @@ func (p *jsiiProxy_Parallel) ValidateState() *[]*string {
 // Called whenever this state is bound to a graph.
 //
 // Can be overridden by subclasses.
-// Experimental.
 func (p *jsiiProxy_Parallel) WhenBoundToGraph(graph StateGraph) {
 	_jsii_.InvokeVoid(
 		p,
@@ -6713,28 +6395,23 @@ func (p *jsiiProxy_Parallel) WhenBoundToGraph(graph StateGraph) {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ParallelProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath"`
 	// JSONPath expression to select part of the state to be the output to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -6742,7 +6419,6 @@ type ParallelProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector"`
 }
 
@@ -6752,7 +6428,6 @@ type ParallelProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Pass interface {
 	State
 	INextable
@@ -6940,7 +6615,6 @@ func (j *jsiiProxy_Pass) StateId() *string {
 }
 
 
-// Experimental.
 func NewPass(scope constructs.Construct, id *string, props *PassProps) Pass {
 	_init_.Initialize()
 
@@ -6955,7 +6629,6 @@ func NewPass(scope constructs.Construct, id *string, props *PassProps) Pass {
 	return &j
 }
 
-// Experimental.
 func NewPass_Override(p Pass, scope constructs.Construct, id *string, props *PassProps) {
 	_init_.Initialize()
 
@@ -6983,7 +6656,6 @@ func (j *jsiiProxy_Pass) SetIteration(val StateGraph) {
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func Pass_FilterNextables(states *[]State) *[]INextable {
 	_init_.Initialize()
 
@@ -7000,7 +6672,6 @@ func Pass_FilterNextables(states *[]State) *[]INextable {
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func Pass_FindReachableEndStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
@@ -7019,7 +6690,6 @@ func Pass_FindReachableEndStates(start State, options *FindStateOptions) *[]Stat
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func Pass_FindReachableStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
@@ -7055,7 +6725,6 @@ func Pass_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func Pass_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
@@ -7067,7 +6736,6 @@ func Pass_PrefixStates(root constructs.IConstruct, prefix *string) {
 }
 
 // Add a paralle branch to this state.
-// Experimental.
 func (p *jsiiProxy_Pass) AddBranch(branch StateGraph) {
 	_jsii_.InvokeVoid(
 		p,
@@ -7077,7 +6745,6 @@ func (p *jsiiProxy_Pass) AddBranch(branch StateGraph) {
 }
 
 // Add a choice branch to this state.
-// Experimental.
 func (p *jsiiProxy_Pass) AddChoice(condition Condition, next State) {
 	_jsii_.InvokeVoid(
 		p,
@@ -7087,7 +6754,6 @@ func (p *jsiiProxy_Pass) AddChoice(condition Condition, next State) {
 }
 
 // Add a map iterator to this state.
-// Experimental.
 func (p *jsiiProxy_Pass) AddIterator(iteration StateGraph) {
 	_jsii_.InvokeVoid(
 		p,
@@ -7097,7 +6763,6 @@ func (p *jsiiProxy_Pass) AddIterator(iteration StateGraph) {
 }
 
 // Add a prefix to the stateId of this state.
-// Experimental.
 func (p *jsiiProxy_Pass) AddPrefix(x *string) {
 	_jsii_.InvokeVoid(
 		p,
@@ -7110,7 +6775,6 @@ func (p *jsiiProxy_Pass) AddPrefix(x *string) {
 //
 // Don't call this. It will be called automatically when you work
 // with states normally.
-// Experimental.
 func (p *jsiiProxy_Pass) BindToGraph(graph StateGraph) {
 	_jsii_.InvokeVoid(
 		p,
@@ -7120,7 +6784,6 @@ func (p *jsiiProxy_Pass) BindToGraph(graph StateGraph) {
 }
 
 // Make the indicated state the default choice transition of this state.
-// Experimental.
 func (p *jsiiProxy_Pass) MakeDefault(def State) {
 	_jsii_.InvokeVoid(
 		p,
@@ -7130,7 +6793,6 @@ func (p *jsiiProxy_Pass) MakeDefault(def State) {
 }
 
 // Make the indicated state the default transition of this state.
-// Experimental.
 func (p *jsiiProxy_Pass) MakeNext(next State) {
 	_jsii_.InvokeVoid(
 		p,
@@ -7140,7 +6802,6 @@ func (p *jsiiProxy_Pass) MakeNext(next State) {
 }
 
 // Continue normal execution with the given state.
-// Experimental.
 func (p *jsiiProxy_Pass) Next(next IChainable) Chain {
 	var returns Chain
 
@@ -7155,7 +6816,6 @@ func (p *jsiiProxy_Pass) Next(next IChainable) Chain {
 }
 
 // Render parallel branches in ASL JSON format.
-// Experimental.
 func (p *jsiiProxy_Pass) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -7170,7 +6830,6 @@ func (p *jsiiProxy_Pass) RenderBranches() interface{} {
 }
 
 // Render the choices in ASL JSON format.
-// Experimental.
 func (p *jsiiProxy_Pass) RenderChoices() interface{} {
 	var returns interface{}
 
@@ -7185,7 +6844,6 @@ func (p *jsiiProxy_Pass) RenderChoices() interface{} {
 }
 
 // Render InputPath/Parameters/OutputPath in ASL JSON format.
-// Experimental.
 func (p *jsiiProxy_Pass) RenderInputOutput() interface{} {
 	var returns interface{}
 
@@ -7200,7 +6858,6 @@ func (p *jsiiProxy_Pass) RenderInputOutput() interface{} {
 }
 
 // Render map iterator in ASL JSON format.
-// Experimental.
 func (p *jsiiProxy_Pass) RenderIterator() interface{} {
 	var returns interface{}
 
@@ -7215,7 +6872,6 @@ func (p *jsiiProxy_Pass) RenderIterator() interface{} {
 }
 
 // Render the default next state in ASL JSON format.
-// Experimental.
 func (p *jsiiProxy_Pass) RenderNextEnd() interface{} {
 	var returns interface{}
 
@@ -7230,7 +6886,6 @@ func (p *jsiiProxy_Pass) RenderNextEnd() interface{} {
 }
 
 // Render ResultSelector in ASL JSON format.
-// Experimental.
 func (p *jsiiProxy_Pass) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -7245,7 +6900,6 @@ func (p *jsiiProxy_Pass) RenderResultSelector() interface{} {
 }
 
 // Render error recovery options in ASL JSON format.
-// Experimental.
 func (p *jsiiProxy_Pass) RenderRetryCatch() interface{} {
 	var returns interface{}
 
@@ -7260,7 +6914,6 @@ func (p *jsiiProxy_Pass) RenderRetryCatch() interface{} {
 }
 
 // Return the Amazon States Language object for this state.
-// Experimental.
 func (p *jsiiProxy_Pass) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -7275,7 +6928,6 @@ func (p *jsiiProxy_Pass) ToStateJson() *map[string]interface{} {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (p *jsiiProxy_Pass) ToString() *string {
 	var returns *string
 
@@ -7290,7 +6942,6 @@ func (p *jsiiProxy_Pass) ToString() *string {
 }
 
 // Allows the state to validate itself.
-// Experimental.
 func (p *jsiiProxy_Pass) ValidateState() *[]*string {
 	var returns *[]*string
 
@@ -7307,7 +6958,6 @@ func (p *jsiiProxy_Pass) ValidateState() *[]*string {
 // Called whenever this state is bound to a graph.
 //
 // Can be overridden by subclasses.
-// Experimental.
 func (p *jsiiProxy_Pass) WhenBoundToGraph(graph StateGraph) {
 	_jsii_.InvokeVoid(
 		p,
@@ -7320,38 +6970,31 @@ func (p *jsiiProxy_Pass) WhenBoundToGraph(graph StateGraph) {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type PassProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath"`
 	// JSONPath expression to select part of the state to be the output to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath"`
 	// Parameters pass a collection of key-value pairs, either static values or JSONPath expressions that select from the input.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-parameters
 	//
-	// Experimental.
 	Parameters *map[string]interface{} `json:"parameters"`
 	// If given, treat as the result of this operation.
 	//
 	// Can be used to inject or replace the current execution state.
-	// Experimental.
 	Result Result `json:"result"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath"`
 }
 
@@ -7359,7 +7002,6 @@ type PassProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Result interface {
 	Value() interface{}
 }
@@ -7380,7 +7022,6 @@ func (j *jsiiProxy_Result) Value() interface{} {
 }
 
 
-// Experimental.
 func NewResult(value interface{}) Result {
 	_init_.Initialize()
 
@@ -7395,7 +7036,6 @@ func NewResult(value interface{}) Result {
 	return &j
 }
 
-// Experimental.
 func NewResult_Override(r Result, value interface{}) {
 	_init_.Initialize()
 
@@ -7407,7 +7047,6 @@ func NewResult_Override(r Result, value interface{}) {
 }
 
 // The result of the operation is an array.
-// Experimental.
 func Result_FromArray(value *[]interface{}) Result {
 	_init_.Initialize()
 
@@ -7424,7 +7063,6 @@ func Result_FromArray(value *[]interface{}) Result {
 }
 
 // The result of the operation is a boolean.
-// Experimental.
 func Result_FromBoolean(value *bool) Result {
 	_init_.Initialize()
 
@@ -7441,7 +7079,6 @@ func Result_FromBoolean(value *bool) Result {
 }
 
 // The result of the operation is a number.
-// Experimental.
 func Result_FromNumber(value *float64) Result {
 	_init_.Initialize()
 
@@ -7458,7 +7095,6 @@ func Result_FromNumber(value *float64) Result {
 }
 
 // The result of the operation is an object.
-// Experimental.
 func Result_FromObject(value *map[string]interface{}) Result {
 	_init_.Initialize()
 
@@ -7475,7 +7111,6 @@ func Result_FromObject(value *map[string]interface{}) Result {
 }
 
 // The result of the operation is a string.
-// Experimental.
 func Result_FromString(value *string) Result {
 	_init_.Initialize()
 
@@ -7495,25 +7130,20 @@ func Result_FromString(value *string) Result {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RetryProps struct {
 	// Multiplication for how much longer the wait interval gets on every retry.
-	// Experimental.
 	BackoffRate *float64 `json:"backoffRate"`
 	// Errors to retry.
 	//
 	// A list of error strings to retry, which can be either predefined errors
 	// (for example Errors.NoChoiceMatched) or a self-defined error.
-	// Experimental.
 	Errors *[]*string `json:"errors"`
 	// How many seconds to wait initially before retrying.
-	// Experimental.
 	Interval awscdk.Duration `json:"interval"`
 	// How many times to retry this particular error.
 	//
 	// May be 0 to disable retry for specific errors (in case you have
 	// a catch-all retry policy).
-	// Experimental.
 	MaxAttempts *float64 `json:"maxAttempts"`
 }
 
@@ -7522,7 +7152,6 @@ type RetryProps struct {
 //
 // Here, they are named as FIRE_AND_FORGET, SYNC and WAIT_FOR_TASK_TOKEN respectfully.
 //
-// Experimental.
 type ServiceIntegrationPattern string
 
 const (
@@ -7535,28 +7164,23 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SingleStateOptions struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath"`
 	// JSONPath expression to select part of the state to be the output to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -7564,18 +7188,14 @@ type SingleStateOptions struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// String to prefix all stateIds in the state machine with.
-	// Experimental.
 	PrefixStates *string `json:"prefixStates"`
 	// ID of newly created containing state.
-	// Experimental.
 	StateId *string `json:"stateId"`
 }
 
 // Base class for all other state classes.
-// Experimental.
 type State interface {
 	constructs.Construct
 	IChainable
@@ -7762,7 +7382,6 @@ func (j *jsiiProxy_State) StateId() *string {
 }
 
 
-// Experimental.
 func NewState_Override(s State, scope constructs.Construct, id *string, props *StateProps) {
 	_init_.Initialize()
 
@@ -7790,7 +7409,6 @@ func (j *jsiiProxy_State) SetIteration(val StateGraph) {
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func State_FilterNextables(states *[]State) *[]INextable {
 	_init_.Initialize()
 
@@ -7807,7 +7425,6 @@ func State_FilterNextables(states *[]State) *[]INextable {
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func State_FindReachableEndStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
@@ -7826,7 +7443,6 @@ func State_FindReachableEndStates(start State, options *FindStateOptions) *[]Sta
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func State_FindReachableStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
@@ -7862,7 +7478,6 @@ func State_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func State_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
@@ -7874,7 +7489,6 @@ func State_PrefixStates(root constructs.IConstruct, prefix *string) {
 }
 
 // Add a paralle branch to this state.
-// Experimental.
 func (s *jsiiProxy_State) AddBranch(branch StateGraph) {
 	_jsii_.InvokeVoid(
 		s,
@@ -7884,7 +7498,6 @@ func (s *jsiiProxy_State) AddBranch(branch StateGraph) {
 }
 
 // Add a choice branch to this state.
-// Experimental.
 func (s *jsiiProxy_State) AddChoice(condition Condition, next State) {
 	_jsii_.InvokeVoid(
 		s,
@@ -7894,7 +7507,6 @@ func (s *jsiiProxy_State) AddChoice(condition Condition, next State) {
 }
 
 // Add a map iterator to this state.
-// Experimental.
 func (s *jsiiProxy_State) AddIterator(iteration StateGraph) {
 	_jsii_.InvokeVoid(
 		s,
@@ -7904,7 +7516,6 @@ func (s *jsiiProxy_State) AddIterator(iteration StateGraph) {
 }
 
 // Add a prefix to the stateId of this state.
-// Experimental.
 func (s *jsiiProxy_State) AddPrefix(x *string) {
 	_jsii_.InvokeVoid(
 		s,
@@ -7917,7 +7528,6 @@ func (s *jsiiProxy_State) AddPrefix(x *string) {
 //
 // Don't call this. It will be called automatically when you work
 // with states normally.
-// Experimental.
 func (s *jsiiProxy_State) BindToGraph(graph StateGraph) {
 	_jsii_.InvokeVoid(
 		s,
@@ -7927,7 +7537,6 @@ func (s *jsiiProxy_State) BindToGraph(graph StateGraph) {
 }
 
 // Make the indicated state the default choice transition of this state.
-// Experimental.
 func (s *jsiiProxy_State) MakeDefault(def State) {
 	_jsii_.InvokeVoid(
 		s,
@@ -7937,7 +7546,6 @@ func (s *jsiiProxy_State) MakeDefault(def State) {
 }
 
 // Make the indicated state the default transition of this state.
-// Experimental.
 func (s *jsiiProxy_State) MakeNext(next State) {
 	_jsii_.InvokeVoid(
 		s,
@@ -7947,7 +7555,6 @@ func (s *jsiiProxy_State) MakeNext(next State) {
 }
 
 // Render parallel branches in ASL JSON format.
-// Experimental.
 func (s *jsiiProxy_State) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -7962,7 +7569,6 @@ func (s *jsiiProxy_State) RenderBranches() interface{} {
 }
 
 // Render the choices in ASL JSON format.
-// Experimental.
 func (s *jsiiProxy_State) RenderChoices() interface{} {
 	var returns interface{}
 
@@ -7977,7 +7583,6 @@ func (s *jsiiProxy_State) RenderChoices() interface{} {
 }
 
 // Render InputPath/Parameters/OutputPath in ASL JSON format.
-// Experimental.
 func (s *jsiiProxy_State) RenderInputOutput() interface{} {
 	var returns interface{}
 
@@ -7992,7 +7597,6 @@ func (s *jsiiProxy_State) RenderInputOutput() interface{} {
 }
 
 // Render map iterator in ASL JSON format.
-// Experimental.
 func (s *jsiiProxy_State) RenderIterator() interface{} {
 	var returns interface{}
 
@@ -8007,7 +7611,6 @@ func (s *jsiiProxy_State) RenderIterator() interface{} {
 }
 
 // Render the default next state in ASL JSON format.
-// Experimental.
 func (s *jsiiProxy_State) RenderNextEnd() interface{} {
 	var returns interface{}
 
@@ -8022,7 +7625,6 @@ func (s *jsiiProxy_State) RenderNextEnd() interface{} {
 }
 
 // Render ResultSelector in ASL JSON format.
-// Experimental.
 func (s *jsiiProxy_State) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -8037,7 +7639,6 @@ func (s *jsiiProxy_State) RenderResultSelector() interface{} {
 }
 
 // Render error recovery options in ASL JSON format.
-// Experimental.
 func (s *jsiiProxy_State) RenderRetryCatch() interface{} {
 	var returns interface{}
 
@@ -8052,7 +7653,6 @@ func (s *jsiiProxy_State) RenderRetryCatch() interface{} {
 }
 
 // Render the state as JSON.
-// Experimental.
 func (s *jsiiProxy_State) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -8067,7 +7667,6 @@ func (s *jsiiProxy_State) ToStateJson() *map[string]interface{} {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (s *jsiiProxy_State) ToString() *string {
 	var returns *string
 
@@ -8082,7 +7681,6 @@ func (s *jsiiProxy_State) ToString() *string {
 }
 
 // Allows the state to validate itself.
-// Experimental.
 func (s *jsiiProxy_State) ValidateState() *[]*string {
 	var returns *[]*string
 
@@ -8099,7 +7697,6 @@ func (s *jsiiProxy_State) ValidateState() *[]*string {
 // Called whenever this state is bound to a graph.
 //
 // Can be overridden by subclasses.
-// Experimental.
 func (s *jsiiProxy_State) WhenBoundToGraph(graph StateGraph) {
 	_jsii_.InvokeVoid(
 		s,
@@ -8131,7 +7728,6 @@ func (s *jsiiProxy_State) WhenBoundToGraph(graph StateGraph) {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type StateGraph interface {
 	PolicyStatements() *[]awsiam.PolicyStatement
 	StartState() State
@@ -8180,7 +7776,6 @@ func (j *jsiiProxy_StateGraph) Timeout() awscdk.Duration {
 }
 
 
-// Experimental.
 func NewStateGraph(startState State, graphDescription *string) StateGraph {
 	_init_.Initialize()
 
@@ -8195,7 +7790,6 @@ func NewStateGraph(startState State, graphDescription *string) StateGraph {
 	return &j
 }
 
-// Experimental.
 func NewStateGraph_Override(s StateGraph, startState State, graphDescription *string) {
 	_init_.Initialize()
 
@@ -8215,7 +7809,6 @@ func (j *jsiiProxy_StateGraph) SetTimeout(val awscdk.Duration) {
 }
 
 // Register a Policy Statement used by states in this graph.
-// Experimental.
 func (s *jsiiProxy_StateGraph) RegisterPolicyStatement(statement awsiam.PolicyStatement) {
 	_jsii_.InvokeVoid(
 		s,
@@ -8227,7 +7820,6 @@ func (s *jsiiProxy_StateGraph) RegisterPolicyStatement(statement awsiam.PolicySt
 // Register a state as part of this graph.
 //
 // Called by State.bindToGraph().
-// Experimental.
 func (s *jsiiProxy_StateGraph) RegisterState(state State) {
 	_jsii_.InvokeVoid(
 		s,
@@ -8239,7 +7831,6 @@ func (s *jsiiProxy_StateGraph) RegisterState(state State) {
 // Register this graph as a child of the given graph.
 //
 // Resource changes will be bubbled up to the given graph.
-// Experimental.
 func (s *jsiiProxy_StateGraph) RegisterSuperGraph(graph StateGraph) {
 	_jsii_.InvokeVoid(
 		s,
@@ -8249,7 +7840,6 @@ func (s *jsiiProxy_StateGraph) RegisterSuperGraph(graph StateGraph) {
 }
 
 // Return the Amazon States Language JSON for this graph.
-// Experimental.
 func (s *jsiiProxy_StateGraph) ToGraphJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -8264,7 +7854,6 @@ func (s *jsiiProxy_StateGraph) ToGraphJson() *map[string]interface{} {
 }
 
 // Return a string description of this graph.
-// Experimental.
 func (s *jsiiProxy_StateGraph) ToString() *string {
 	var returns *string
 
@@ -8282,7 +7871,6 @@ func (s *jsiiProxy_StateGraph) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type StateMachine interface {
 	awscdk.Resource
 	IStateMachine
@@ -8413,7 +8001,6 @@ func (j *jsiiProxy_StateMachine) StateMachineType() StateMachineType {
 }
 
 
-// Experimental.
 func NewStateMachine(scope constructs.Construct, id *string, props *StateMachineProps) StateMachine {
 	_init_.Initialize()
 
@@ -8428,7 +8015,6 @@ func NewStateMachine(scope constructs.Construct, id *string, props *StateMachine
 	return &j
 }
 
-// Experimental.
 func NewStateMachine_Override(s StateMachine, scope constructs.Construct, id *string, props *StateMachineProps) {
 	_init_.Initialize()
 
@@ -8440,7 +8026,6 @@ func NewStateMachine_Override(s StateMachine, scope constructs.Construct, id *st
 }
 
 // Import a state machine.
-// Experimental.
 func StateMachine_FromStateMachineArn(scope constructs.Construct, id *string, stateMachineArn *string) IStateMachine {
 	_init_.Initialize()
 
@@ -8476,7 +8061,6 @@ func StateMachine_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func StateMachine_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -8493,7 +8077,6 @@ func StateMachine_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Add the given statement to the role's policy.
-// Experimental.
 func (s *jsiiProxy_StateMachine) AddToRolePolicy(statement awsiam.PolicyStatement) {
 	_jsii_.InvokeVoid(
 		s,
@@ -8511,7 +8094,6 @@ func (s *jsiiProxy_StateMachine) AddToRolePolicy(statement awsiam.PolicyStatemen
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (s *jsiiProxy_StateMachine) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		s,
@@ -8520,7 +8102,6 @@ func (s *jsiiProxy_StateMachine) ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	)
 }
 
-// Experimental.
 func (s *jsiiProxy_StateMachine) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -8540,7 +8121,6 @@ func (s *jsiiProxy_StateMachine) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (s *jsiiProxy_StateMachine) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -8559,7 +8139,6 @@ func (s *jsiiProxy_StateMachine) GetResourceArnAttribute(arnAttr *string, arnCom
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (s *jsiiProxy_StateMachine) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -8574,7 +8153,6 @@ func (s *jsiiProxy_StateMachine) GetResourceNameAttribute(nameAttr *string) *str
 }
 
 // Grant the given identity custom permissions.
-// Experimental.
 func (s *jsiiProxy_StateMachine) Grant(identity awsiam.IGrantable, actions ...*string) awsiam.Grant {
 	args := []interface{}{identity}
 	for _, a := range actions {
@@ -8594,7 +8172,6 @@ func (s *jsiiProxy_StateMachine) Grant(identity awsiam.IGrantable, actions ...*s
 }
 
 // Grant the given identity permissions on all executions of the state machine.
-// Experimental.
 func (s *jsiiProxy_StateMachine) GrantExecution(identity awsiam.IGrantable, actions ...*string) awsiam.Grant {
 	args := []interface{}{identity}
 	for _, a := range actions {
@@ -8614,7 +8191,6 @@ func (s *jsiiProxy_StateMachine) GrantExecution(identity awsiam.IGrantable, acti
 }
 
 // Grant the given identity permissions to read results from state machine.
-// Experimental.
 func (s *jsiiProxy_StateMachine) GrantRead(identity awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -8629,7 +8205,6 @@ func (s *jsiiProxy_StateMachine) GrantRead(identity awsiam.IGrantable) awsiam.Gr
 }
 
 // Grant the given identity permissions to start an execution of this state machine.
-// Experimental.
 func (s *jsiiProxy_StateMachine) GrantStartExecution(identity awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -8644,7 +8219,6 @@ func (s *jsiiProxy_StateMachine) GrantStartExecution(identity awsiam.IGrantable)
 }
 
 // Grant the given identity task response permissions on a state machine.
-// Experimental.
 func (s *jsiiProxy_StateMachine) GrantTaskResponse(identity awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -8659,7 +8233,6 @@ func (s *jsiiProxy_StateMachine) GrantTaskResponse(identity awsiam.IGrantable) a
 }
 
 // Return the given named metric for this State Machine's executions.
-// Experimental.
 func (s *jsiiProxy_StateMachine) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -8674,7 +8247,6 @@ func (s *jsiiProxy_StateMachine) Metric(metricName *string, props *awscloudwatch
 }
 
 // Metric for the number of executions that were aborted.
-// Experimental.
 func (s *jsiiProxy_StateMachine) MetricAborted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -8689,7 +8261,6 @@ func (s *jsiiProxy_StateMachine) MetricAborted(props *awscloudwatch.MetricOption
 }
 
 // Metric for the number of executions that failed.
-// Experimental.
 func (s *jsiiProxy_StateMachine) MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -8704,7 +8275,6 @@ func (s *jsiiProxy_StateMachine) MetricFailed(props *awscloudwatch.MetricOptions
 }
 
 // Metric for the number of executions that were started.
-// Experimental.
 func (s *jsiiProxy_StateMachine) MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -8719,7 +8289,6 @@ func (s *jsiiProxy_StateMachine) MetricStarted(props *awscloudwatch.MetricOption
 }
 
 // Metric for the number of executions that succeeded.
-// Experimental.
 func (s *jsiiProxy_StateMachine) MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -8734,7 +8303,6 @@ func (s *jsiiProxy_StateMachine) MetricSucceeded(props *awscloudwatch.MetricOpti
 }
 
 // Metric for the number of executions that were throttled.
-// Experimental.
 func (s *jsiiProxy_StateMachine) MetricThrottled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -8749,7 +8317,6 @@ func (s *jsiiProxy_StateMachine) MetricThrottled(props *awscloudwatch.MetricOpti
 }
 
 // Metric for the interval, in milliseconds, between the time the execution starts and the time it closes.
-// Experimental.
 func (s *jsiiProxy_StateMachine) MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -8764,7 +8331,6 @@ func (s *jsiiProxy_StateMachine) MetricTime(props *awscloudwatch.MetricOptions) 
 }
 
 // Metric for the number of executions that timed out.
-// Experimental.
 func (s *jsiiProxy_StateMachine) MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -8779,7 +8345,6 @@ func (s *jsiiProxy_StateMachine) MetricTimedOut(props *awscloudwatch.MetricOptio
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (s *jsiiProxy_StateMachine) ToString() *string {
 	var returns *string
 
@@ -8797,7 +8362,6 @@ func (s *jsiiProxy_StateMachine) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type StateMachineFragment interface {
 	constructs.Construct
 	IChainable
@@ -8859,7 +8423,6 @@ func (j *jsiiProxy_StateMachineFragment) StartState() State {
 
 
 // Creates a new construct node.
-// Experimental.
 func NewStateMachineFragment_Override(s StateMachineFragment, scope constructs.Construct, id *string) {
 	_init_.Initialize()
 
@@ -8890,7 +8453,6 @@ func StateMachineFragment_IsConstruct(x interface{}) *bool {
 }
 
 // Continue normal execution with the given state.
-// Experimental.
 func (s *jsiiProxy_StateMachineFragment) Next(next IChainable) Chain {
 	var returns Chain
 
@@ -8908,7 +8470,6 @@ func (s *jsiiProxy_StateMachineFragment) Next(next IChainable) Chain {
 //
 // Use this to avoid multiple copies of the state machine all having the
 // same state IDs.
-// Experimental.
 func (s *jsiiProxy_StateMachineFragment) PrefixStates(prefix *string) StateMachineFragment {
 	var returns StateMachineFragment
 
@@ -8931,7 +8492,6 @@ func (s *jsiiProxy_StateMachineFragment) PrefixStates(prefix *string) StateMachi
 // to be an array with the result of the state machine in it. Adjust
 // your paths accordingly. For example, change 'outputPath' to
 // '$[0]'.
-// Experimental.
 func (s *jsiiProxy_StateMachineFragment) ToSingleState(options *SingleStateOptions) Parallel {
 	var returns Parallel
 
@@ -8946,7 +8506,6 @@ func (s *jsiiProxy_StateMachineFragment) ToSingleState(options *SingleStateOptio
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (s *jsiiProxy_StateMachineFragment) ToString() *string {
 	var returns *string
 
@@ -8964,35 +8523,26 @@ func (s *jsiiProxy_StateMachineFragment) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type StateMachineProps struct {
 	// Definition for this state machine.
-	// Experimental.
 	Definition IChainable `json:"definition"`
 	// Defines what execution history events are logged and where they are logged.
-	// Experimental.
 	Logs *LogOptions `json:"logs"`
 	// The execution role for the state machine service.
-	// Experimental.
 	Role awsiam.IRole `json:"role"`
 	// A name for the state machine.
-	// Experimental.
 	StateMachineName *string `json:"stateMachineName"`
 	// Type of the state machine.
-	// Experimental.
 	StateMachineType StateMachineType `json:"stateMachineType"`
 	// Maximum run time for this state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
 	// Specifies whether Amazon X-Ray tracing is enabled for this state machine.
-	// Experimental.
 	TracingEnabled *bool `json:"tracingEnabled"`
 }
 
 // Two types of state machines are available in AWS Step Functions: EXPRESS AND STANDARD.
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html
 //
-// Experimental.
 type StateMachineType string
 
 const (
@@ -9004,33 +8554,27 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type StateProps struct {
 	// A comment describing this state.
-	// Experimental.
 	Comment *string `json:"comment"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath"`
 	// JSONPath expression to select part of the state to be the output to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath"`
 	// Parameters pass a collection of key-value pairs, either static values or JSONPath expressions that select from the input.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-parameters
 	//
-	// Experimental.
 	Parameters *map[string]interface{} `json:"parameters"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -9038,7 +8582,6 @@ type StateProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector"`
 }
 
@@ -9048,7 +8591,6 @@ type StateProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type StateTransitionMetric interface {
 }
 
@@ -9057,7 +8599,6 @@ type jsiiProxy_StateTransitionMetric struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewStateTransitionMetric() StateTransitionMetric {
 	_init_.Initialize()
 
@@ -9072,7 +8613,6 @@ func NewStateTransitionMetric() StateTransitionMetric {
 	return &j
 }
 
-// Experimental.
 func NewStateTransitionMetric_Override(s StateTransitionMetric) {
 	_init_.Initialize()
 
@@ -9084,7 +8624,6 @@ func NewStateTransitionMetric_Override(s StateTransitionMetric) {
 }
 
 // Return the given named metric for the service's state transition metrics.
-// Experimental.
 func StateTransitionMetric_Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -9101,7 +8640,6 @@ func StateTransitionMetric_Metric(metricName *string, props *awscloudwatch.Metri
 }
 
 // Metric for the number of available state transitions per second.
-// Experimental.
 func StateTransitionMetric_MetricConsumedCapacity(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -9118,7 +8656,6 @@ func StateTransitionMetric_MetricConsumedCapacity(props *awscloudwatch.MetricOpt
 }
 
 // Metric for the number of available state transitions.
-// Experimental.
 func StateTransitionMetric_MetricProvisionedBucketSize(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -9135,7 +8672,6 @@ func StateTransitionMetric_MetricProvisionedBucketSize(props *awscloudwatch.Metr
 }
 
 // Metric for the provisioned steady-state execution rate.
-// Experimental.
 func StateTransitionMetric_MetricProvisionedRefillRate(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -9152,7 +8688,6 @@ func StateTransitionMetric_MetricProvisionedRefillRate(props *awscloudwatch.Metr
 }
 
 // Metric for the number of throttled state transitions.
-// Experimental.
 func StateTransitionMetric_MetricThrottledEvents(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
@@ -9174,7 +8709,6 @@ func StateTransitionMetric_MetricThrottledEvents(props *awscloudwatch.MetricOpti
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Succeed interface {
 	State
 	Branches() *[]StateGraph
@@ -9359,7 +8893,6 @@ func (j *jsiiProxy_Succeed) StateId() *string {
 }
 
 
-// Experimental.
 func NewSucceed(scope constructs.Construct, id *string, props *SucceedProps) Succeed {
 	_init_.Initialize()
 
@@ -9374,7 +8907,6 @@ func NewSucceed(scope constructs.Construct, id *string, props *SucceedProps) Suc
 	return &j
 }
 
-// Experimental.
 func NewSucceed_Override(s Succeed, scope constructs.Construct, id *string, props *SucceedProps) {
 	_init_.Initialize()
 
@@ -9402,7 +8934,6 @@ func (j *jsiiProxy_Succeed) SetIteration(val StateGraph) {
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func Succeed_FilterNextables(states *[]State) *[]INextable {
 	_init_.Initialize()
 
@@ -9419,7 +8950,6 @@ func Succeed_FilterNextables(states *[]State) *[]INextable {
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func Succeed_FindReachableEndStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
@@ -9438,7 +8968,6 @@ func Succeed_FindReachableEndStates(start State, options *FindStateOptions) *[]S
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func Succeed_FindReachableStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
@@ -9474,7 +9003,6 @@ func Succeed_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func Succeed_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
@@ -9486,7 +9014,6 @@ func Succeed_PrefixStates(root constructs.IConstruct, prefix *string) {
 }
 
 // Add a paralle branch to this state.
-// Experimental.
 func (s *jsiiProxy_Succeed) AddBranch(branch StateGraph) {
 	_jsii_.InvokeVoid(
 		s,
@@ -9496,7 +9023,6 @@ func (s *jsiiProxy_Succeed) AddBranch(branch StateGraph) {
 }
 
 // Add a choice branch to this state.
-// Experimental.
 func (s *jsiiProxy_Succeed) AddChoice(condition Condition, next State) {
 	_jsii_.InvokeVoid(
 		s,
@@ -9506,7 +9032,6 @@ func (s *jsiiProxy_Succeed) AddChoice(condition Condition, next State) {
 }
 
 // Add a map iterator to this state.
-// Experimental.
 func (s *jsiiProxy_Succeed) AddIterator(iteration StateGraph) {
 	_jsii_.InvokeVoid(
 		s,
@@ -9516,7 +9041,6 @@ func (s *jsiiProxy_Succeed) AddIterator(iteration StateGraph) {
 }
 
 // Add a prefix to the stateId of this state.
-// Experimental.
 func (s *jsiiProxy_Succeed) AddPrefix(x *string) {
 	_jsii_.InvokeVoid(
 		s,
@@ -9529,7 +9053,6 @@ func (s *jsiiProxy_Succeed) AddPrefix(x *string) {
 //
 // Don't call this. It will be called automatically when you work
 // with states normally.
-// Experimental.
 func (s *jsiiProxy_Succeed) BindToGraph(graph StateGraph) {
 	_jsii_.InvokeVoid(
 		s,
@@ -9539,7 +9062,6 @@ func (s *jsiiProxy_Succeed) BindToGraph(graph StateGraph) {
 }
 
 // Make the indicated state the default choice transition of this state.
-// Experimental.
 func (s *jsiiProxy_Succeed) MakeDefault(def State) {
 	_jsii_.InvokeVoid(
 		s,
@@ -9549,7 +9071,6 @@ func (s *jsiiProxy_Succeed) MakeDefault(def State) {
 }
 
 // Make the indicated state the default transition of this state.
-// Experimental.
 func (s *jsiiProxy_Succeed) MakeNext(next State) {
 	_jsii_.InvokeVoid(
 		s,
@@ -9559,7 +9080,6 @@ func (s *jsiiProxy_Succeed) MakeNext(next State) {
 }
 
 // Render parallel branches in ASL JSON format.
-// Experimental.
 func (s *jsiiProxy_Succeed) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -9574,7 +9094,6 @@ func (s *jsiiProxy_Succeed) RenderBranches() interface{} {
 }
 
 // Render the choices in ASL JSON format.
-// Experimental.
 func (s *jsiiProxy_Succeed) RenderChoices() interface{} {
 	var returns interface{}
 
@@ -9589,7 +9108,6 @@ func (s *jsiiProxy_Succeed) RenderChoices() interface{} {
 }
 
 // Render InputPath/Parameters/OutputPath in ASL JSON format.
-// Experimental.
 func (s *jsiiProxy_Succeed) RenderInputOutput() interface{} {
 	var returns interface{}
 
@@ -9604,7 +9122,6 @@ func (s *jsiiProxy_Succeed) RenderInputOutput() interface{} {
 }
 
 // Render map iterator in ASL JSON format.
-// Experimental.
 func (s *jsiiProxy_Succeed) RenderIterator() interface{} {
 	var returns interface{}
 
@@ -9619,7 +9136,6 @@ func (s *jsiiProxy_Succeed) RenderIterator() interface{} {
 }
 
 // Render the default next state in ASL JSON format.
-// Experimental.
 func (s *jsiiProxy_Succeed) RenderNextEnd() interface{} {
 	var returns interface{}
 
@@ -9634,7 +9150,6 @@ func (s *jsiiProxy_Succeed) RenderNextEnd() interface{} {
 }
 
 // Render ResultSelector in ASL JSON format.
-// Experimental.
 func (s *jsiiProxy_Succeed) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -9649,7 +9164,6 @@ func (s *jsiiProxy_Succeed) RenderResultSelector() interface{} {
 }
 
 // Render error recovery options in ASL JSON format.
-// Experimental.
 func (s *jsiiProxy_Succeed) RenderRetryCatch() interface{} {
 	var returns interface{}
 
@@ -9664,7 +9178,6 @@ func (s *jsiiProxy_Succeed) RenderRetryCatch() interface{} {
 }
 
 // Return the Amazon States Language object for this state.
-// Experimental.
 func (s *jsiiProxy_Succeed) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -9679,7 +9192,6 @@ func (s *jsiiProxy_Succeed) ToStateJson() *map[string]interface{} {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (s *jsiiProxy_Succeed) ToString() *string {
 	var returns *string
 
@@ -9694,7 +9206,6 @@ func (s *jsiiProxy_Succeed) ToString() *string {
 }
 
 // Allows the state to validate itself.
-// Experimental.
 func (s *jsiiProxy_Succeed) ValidateState() *[]*string {
 	var returns *[]*string
 
@@ -9711,7 +9222,6 @@ func (s *jsiiProxy_Succeed) ValidateState() *[]*string {
 // Called whenever this state is bound to a graph.
 //
 // Can be overridden by subclasses.
-// Experimental.
 func (s *jsiiProxy_Succeed) WhenBoundToGraph(graph StateGraph) {
 	_jsii_.InvokeVoid(
 		s,
@@ -9724,22 +9234,18 @@ func (s *jsiiProxy_Succeed) WhenBoundToGraph(graph StateGraph) {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SucceedProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath"`
 	// JSONPath expression to select part of the state to be the output to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath"`
 }
 
@@ -9747,7 +9253,6 @@ type SucceedProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TaskInput interface {
 	Type() InputType
 	Value() interface{}
@@ -9784,7 +9289,6 @@ func (j *jsiiProxy_TaskInput) Value() interface{} {
 // Use this when you want to use a subobject or string from
 // the current state machine execution or the current task context
 // as complete payload to a task.
-// Experimental.
 func TaskInput_FromJsonPathAt(path *string) TaskInput {
 	_init_.Initialize()
 
@@ -9803,7 +9307,6 @@ func TaskInput_FromJsonPathAt(path *string) TaskInput {
 // Use an object as task input.
 //
 // This object may contain JSON path fields as object values, if desired.
-// Experimental.
 func TaskInput_FromObject(obj *map[string]interface{}) TaskInput {
 	_init_.Initialize()
 
@@ -9822,7 +9325,6 @@ func TaskInput_FromObject(obj *map[string]interface{}) TaskInput {
 // Use a literal string as task input.
 //
 // This might be a JSON-encoded object, or just a text.
-// Experimental.
 func TaskInput_FromText(text *string) TaskInput {
 	_init_.Initialize()
 
@@ -9842,16 +9344,12 @@ func TaskInput_FromText(text *string) TaskInput {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TaskMetricsConfig struct {
 	// The dimensions to attach to metrics.
-	// Experimental.
 	MetricDimensions *map[string]interface{} `json:"metricDimensions"`
 	// Prefix for plural metric names of activity actions.
-	// Experimental.
 	MetricPrefixPlural *string `json:"metricPrefixPlural"`
 	// Prefix for singular metric names of activity actions.
-	// Experimental.
 	MetricPrefixSingular *string `json:"metricPrefixSingular"`
 }
 
@@ -9863,7 +9361,6 @@ type TaskMetricsConfig struct {
 //
 // For some resource types, more specific subclasses of Task may be available
 // which are more convenient to use.
-// Experimental.
 type TaskStateBase interface {
 	State
 	INextable
@@ -10085,7 +9582,6 @@ func (j *jsiiProxy_TaskStateBase) TaskPolicies() *[]awsiam.PolicyStatement {
 }
 
 
-// Experimental.
 func NewTaskStateBase_Override(t TaskStateBase, scope constructs.Construct, id *string, props *TaskStateBaseProps) {
 	_init_.Initialize()
 
@@ -10113,7 +9609,6 @@ func (j *jsiiProxy_TaskStateBase) SetIteration(val StateGraph) {
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func TaskStateBase_FilterNextables(states *[]State) *[]INextable {
 	_init_.Initialize()
 
@@ -10130,7 +9625,6 @@ func TaskStateBase_FilterNextables(states *[]State) *[]INextable {
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func TaskStateBase_FindReachableEndStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
@@ -10149,7 +9643,6 @@ func TaskStateBase_FindReachableEndStates(start State, options *FindStateOptions
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func TaskStateBase_FindReachableStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
@@ -10185,7 +9678,6 @@ func TaskStateBase_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func TaskStateBase_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
@@ -10197,7 +9689,6 @@ func TaskStateBase_PrefixStates(root constructs.IConstruct, prefix *string) {
 }
 
 // Add a paralle branch to this state.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) AddBranch(branch StateGraph) {
 	_jsii_.InvokeVoid(
 		t,
@@ -10210,7 +9701,6 @@ func (t *jsiiProxy_TaskStateBase) AddBranch(branch StateGraph) {
 //
 // When a particular error occurs, execution will continue at the error
 // handler instead of failing the state machine execution.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) AddCatch(handler IChainable, props *CatchProps) TaskStateBase {
 	var returns TaskStateBase
 
@@ -10225,7 +9715,6 @@ func (t *jsiiProxy_TaskStateBase) AddCatch(handler IChainable, props *CatchProps
 }
 
 // Add a choice branch to this state.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) AddChoice(condition Condition, next State) {
 	_jsii_.InvokeVoid(
 		t,
@@ -10235,7 +9724,6 @@ func (t *jsiiProxy_TaskStateBase) AddChoice(condition Condition, next State) {
 }
 
 // Add a map iterator to this state.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) AddIterator(iteration StateGraph) {
 	_jsii_.InvokeVoid(
 		t,
@@ -10245,7 +9733,6 @@ func (t *jsiiProxy_TaskStateBase) AddIterator(iteration StateGraph) {
 }
 
 // Add a prefix to the stateId of this state.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) AddPrefix(x *string) {
 	_jsii_.InvokeVoid(
 		t,
@@ -10258,7 +9745,6 @@ func (t *jsiiProxy_TaskStateBase) AddPrefix(x *string) {
 //
 // This controls if and how the execution will be retried if a particular
 // error occurs.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) AddRetry(props *RetryProps) TaskStateBase {
 	var returns TaskStateBase
 
@@ -10276,7 +9762,6 @@ func (t *jsiiProxy_TaskStateBase) AddRetry(props *RetryProps) TaskStateBase {
 //
 // Don't call this. It will be called automatically when you work
 // with states normally.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) BindToGraph(graph StateGraph) {
 	_jsii_.InvokeVoid(
 		t,
@@ -10286,7 +9771,6 @@ func (t *jsiiProxy_TaskStateBase) BindToGraph(graph StateGraph) {
 }
 
 // Make the indicated state the default choice transition of this state.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) MakeDefault(def State) {
 	_jsii_.InvokeVoid(
 		t,
@@ -10296,7 +9780,6 @@ func (t *jsiiProxy_TaskStateBase) MakeDefault(def State) {
 }
 
 // Make the indicated state the default transition of this state.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) MakeNext(next State) {
 	_jsii_.InvokeVoid(
 		t,
@@ -10306,7 +9789,6 @@ func (t *jsiiProxy_TaskStateBase) MakeNext(next State) {
 }
 
 // Return the given named metric for this Task.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -10321,7 +9803,6 @@ func (t *jsiiProxy_TaskStateBase) Metric(metricName *string, props *awscloudwatc
 }
 
 // Metric for the number of times this activity fails.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -10336,7 +9817,6 @@ func (t *jsiiProxy_TaskStateBase) MetricFailed(props *awscloudwatch.MetricOption
 }
 
 // Metric for the number of times the heartbeat times out for this activity.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -10351,7 +9831,6 @@ func (t *jsiiProxy_TaskStateBase) MetricHeartbeatTimedOut(props *awscloudwatch.M
 }
 
 // The interval, in milliseconds, between the time the Task starts and the time it closes.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -10366,7 +9845,6 @@ func (t *jsiiProxy_TaskStateBase) MetricRunTime(props *awscloudwatch.MetricOptio
 }
 
 // Metric for the number of times this activity is scheduled.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -10381,7 +9859,6 @@ func (t *jsiiProxy_TaskStateBase) MetricScheduled(props *awscloudwatch.MetricOpt
 }
 
 // The interval, in milliseconds, for which the activity stays in the schedule state.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -10396,7 +9873,6 @@ func (t *jsiiProxy_TaskStateBase) MetricScheduleTime(props *awscloudwatch.Metric
 }
 
 // Metric for the number of times this activity is started.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -10411,7 +9887,6 @@ func (t *jsiiProxy_TaskStateBase) MetricStarted(props *awscloudwatch.MetricOptio
 }
 
 // Metric for the number of times this activity succeeds.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -10426,7 +9901,6 @@ func (t *jsiiProxy_TaskStateBase) MetricSucceeded(props *awscloudwatch.MetricOpt
 }
 
 // The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -10441,7 +9915,6 @@ func (t *jsiiProxy_TaskStateBase) MetricTime(props *awscloudwatch.MetricOptions)
 }
 
 // Metric for the number of times this activity times out.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -10456,7 +9929,6 @@ func (t *jsiiProxy_TaskStateBase) MetricTimedOut(props *awscloudwatch.MetricOpti
 }
 
 // Continue normal execution with the given state.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) Next(next IChainable) Chain {
 	var returns Chain
 
@@ -10471,7 +9943,6 @@ func (t *jsiiProxy_TaskStateBase) Next(next IChainable) Chain {
 }
 
 // Render parallel branches in ASL JSON format.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -10486,7 +9957,6 @@ func (t *jsiiProxy_TaskStateBase) RenderBranches() interface{} {
 }
 
 // Render the choices in ASL JSON format.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) RenderChoices() interface{} {
 	var returns interface{}
 
@@ -10501,7 +9971,6 @@ func (t *jsiiProxy_TaskStateBase) RenderChoices() interface{} {
 }
 
 // Render InputPath/Parameters/OutputPath in ASL JSON format.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) RenderInputOutput() interface{} {
 	var returns interface{}
 
@@ -10516,7 +9985,6 @@ func (t *jsiiProxy_TaskStateBase) RenderInputOutput() interface{} {
 }
 
 // Render map iterator in ASL JSON format.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) RenderIterator() interface{} {
 	var returns interface{}
 
@@ -10531,7 +9999,6 @@ func (t *jsiiProxy_TaskStateBase) RenderIterator() interface{} {
 }
 
 // Render the default next state in ASL JSON format.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) RenderNextEnd() interface{} {
 	var returns interface{}
 
@@ -10546,7 +10013,6 @@ func (t *jsiiProxy_TaskStateBase) RenderNextEnd() interface{} {
 }
 
 // Render ResultSelector in ASL JSON format.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -10561,7 +10027,6 @@ func (t *jsiiProxy_TaskStateBase) RenderResultSelector() interface{} {
 }
 
 // Render error recovery options in ASL JSON format.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) RenderRetryCatch() interface{} {
 	var returns interface{}
 
@@ -10576,7 +10041,6 @@ func (t *jsiiProxy_TaskStateBase) RenderRetryCatch() interface{} {
 }
 
 // Return the Amazon States Language object for this state.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -10591,7 +10055,6 @@ func (t *jsiiProxy_TaskStateBase) ToStateJson() *map[string]interface{} {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) ToString() *string {
 	var returns *string
 
@@ -10606,7 +10069,6 @@ func (t *jsiiProxy_TaskStateBase) ToString() *string {
 }
 
 // Allows the state to validate itself.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) ValidateState() *[]*string {
 	var returns *[]*string
 
@@ -10623,7 +10085,6 @@ func (t *jsiiProxy_TaskStateBase) ValidateState() *[]*string {
 // Called whenever this state is bound to a graph.
 //
 // Can be overridden by subclasses.
-// Experimental.
 func (t *jsiiProxy_TaskStateBase) WhenBoundToGraph(graph StateGraph) {
 	_jsii_.InvokeVoid(
 		t,
@@ -10636,38 +10097,31 @@ func (t *jsiiProxy_TaskStateBase) WhenBoundToGraph(graph StateGraph) {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TaskStateBaseProps struct {
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment"`
 	// Timeout for the heartbeat.
-	// Experimental.
 	Heartbeat awscdk.Duration `json:"heartbeat"`
 	// JSONPath expression to select part of the state to be the input to this state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// input to be the empty object {}.
-	// Experimental.
 	InputPath *string `json:"inputPath"`
 	// AWS Step Functions integrates with services directly in the Amazon States Language.
 	//
 	// You can control these AWS services using service integration patterns
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
 	//
-	// Experimental.
 	IntegrationPattern IntegrationPattern `json:"integrationPattern"`
 	// JSONPath expression to select select a portion of the state output to pass to the next state.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the effective
 	// output to be the empty object {}.
-	// Experimental.
 	OutputPath *string `json:"outputPath"`
 	// JSONPath expression to indicate where to inject the state's output.
 	//
 	// May also be the special value JsonPath.DISCARD, which will cause the state's
 	// input to become its output.
-	// Experimental.
 	ResultPath *string `json:"resultPath"`
 	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
 	//
@@ -10675,10 +10129,8 @@ type TaskStateBaseProps struct {
 	// or selected from the state's raw result.
 	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
 	//
-	// Experimental.
 	ResultSelector *map[string]interface{} `json:"resultSelector"`
 	// Timeout for the state machine.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
 }
 
@@ -10688,7 +10140,6 @@ type TaskStateBaseProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Wait interface {
 	State
 	INextable
@@ -10876,7 +10327,6 @@ func (j *jsiiProxy_Wait) StateId() *string {
 }
 
 
-// Experimental.
 func NewWait(scope constructs.Construct, id *string, props *WaitProps) Wait {
 	_init_.Initialize()
 
@@ -10891,7 +10341,6 @@ func NewWait(scope constructs.Construct, id *string, props *WaitProps) Wait {
 	return &j
 }
 
-// Experimental.
 func NewWait_Override(w Wait, scope constructs.Construct, id *string, props *WaitProps) {
 	_init_.Initialize()
 
@@ -10919,7 +10368,6 @@ func (j *jsiiProxy_Wait) SetIteration(val StateGraph) {
 }
 
 // Return only the states that allow chaining from an array of states.
-// Experimental.
 func Wait_FilterNextables(states *[]State) *[]INextable {
 	_init_.Initialize()
 
@@ -10936,7 +10384,6 @@ func Wait_FilterNextables(states *[]State) *[]INextable {
 }
 
 // Find the set of end states states reachable through transitions from the given start state.
-// Experimental.
 func Wait_FindReachableEndStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
@@ -10955,7 +10402,6 @@ func Wait_FindReachableEndStates(start State, options *FindStateOptions) *[]Stat
 // Find the set of states reachable through transitions from the given start state.
 //
 // This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
-// Experimental.
 func Wait_FindReachableStates(start State, options *FindStateOptions) *[]State {
 	_init_.Initialize()
 
@@ -10991,7 +10437,6 @@ func Wait_IsConstruct(x interface{}) *bool {
 }
 
 // Add a prefix to the stateId of all States found in a construct tree.
-// Experimental.
 func Wait_PrefixStates(root constructs.IConstruct, prefix *string) {
 	_init_.Initialize()
 
@@ -11003,7 +10448,6 @@ func Wait_PrefixStates(root constructs.IConstruct, prefix *string) {
 }
 
 // Add a paralle branch to this state.
-// Experimental.
 func (w *jsiiProxy_Wait) AddBranch(branch StateGraph) {
 	_jsii_.InvokeVoid(
 		w,
@@ -11013,7 +10457,6 @@ func (w *jsiiProxy_Wait) AddBranch(branch StateGraph) {
 }
 
 // Add a choice branch to this state.
-// Experimental.
 func (w *jsiiProxy_Wait) AddChoice(condition Condition, next State) {
 	_jsii_.InvokeVoid(
 		w,
@@ -11023,7 +10466,6 @@ func (w *jsiiProxy_Wait) AddChoice(condition Condition, next State) {
 }
 
 // Add a map iterator to this state.
-// Experimental.
 func (w *jsiiProxy_Wait) AddIterator(iteration StateGraph) {
 	_jsii_.InvokeVoid(
 		w,
@@ -11033,7 +10475,6 @@ func (w *jsiiProxy_Wait) AddIterator(iteration StateGraph) {
 }
 
 // Add a prefix to the stateId of this state.
-// Experimental.
 func (w *jsiiProxy_Wait) AddPrefix(x *string) {
 	_jsii_.InvokeVoid(
 		w,
@@ -11046,7 +10487,6 @@ func (w *jsiiProxy_Wait) AddPrefix(x *string) {
 //
 // Don't call this. It will be called automatically when you work
 // with states normally.
-// Experimental.
 func (w *jsiiProxy_Wait) BindToGraph(graph StateGraph) {
 	_jsii_.InvokeVoid(
 		w,
@@ -11056,7 +10496,6 @@ func (w *jsiiProxy_Wait) BindToGraph(graph StateGraph) {
 }
 
 // Make the indicated state the default choice transition of this state.
-// Experimental.
 func (w *jsiiProxy_Wait) MakeDefault(def State) {
 	_jsii_.InvokeVoid(
 		w,
@@ -11066,7 +10505,6 @@ func (w *jsiiProxy_Wait) MakeDefault(def State) {
 }
 
 // Make the indicated state the default transition of this state.
-// Experimental.
 func (w *jsiiProxy_Wait) MakeNext(next State) {
 	_jsii_.InvokeVoid(
 		w,
@@ -11076,7 +10514,6 @@ func (w *jsiiProxy_Wait) MakeNext(next State) {
 }
 
 // Continue normal execution with the given state.
-// Experimental.
 func (w *jsiiProxy_Wait) Next(next IChainable) Chain {
 	var returns Chain
 
@@ -11091,7 +10528,6 @@ func (w *jsiiProxy_Wait) Next(next IChainable) Chain {
 }
 
 // Render parallel branches in ASL JSON format.
-// Experimental.
 func (w *jsiiProxy_Wait) RenderBranches() interface{} {
 	var returns interface{}
 
@@ -11106,7 +10542,6 @@ func (w *jsiiProxy_Wait) RenderBranches() interface{} {
 }
 
 // Render the choices in ASL JSON format.
-// Experimental.
 func (w *jsiiProxy_Wait) RenderChoices() interface{} {
 	var returns interface{}
 
@@ -11121,7 +10556,6 @@ func (w *jsiiProxy_Wait) RenderChoices() interface{} {
 }
 
 // Render InputPath/Parameters/OutputPath in ASL JSON format.
-// Experimental.
 func (w *jsiiProxy_Wait) RenderInputOutput() interface{} {
 	var returns interface{}
 
@@ -11136,7 +10570,6 @@ func (w *jsiiProxy_Wait) RenderInputOutput() interface{} {
 }
 
 // Render map iterator in ASL JSON format.
-// Experimental.
 func (w *jsiiProxy_Wait) RenderIterator() interface{} {
 	var returns interface{}
 
@@ -11151,7 +10584,6 @@ func (w *jsiiProxy_Wait) RenderIterator() interface{} {
 }
 
 // Render the default next state in ASL JSON format.
-// Experimental.
 func (w *jsiiProxy_Wait) RenderNextEnd() interface{} {
 	var returns interface{}
 
@@ -11166,7 +10598,6 @@ func (w *jsiiProxy_Wait) RenderNextEnd() interface{} {
 }
 
 // Render ResultSelector in ASL JSON format.
-// Experimental.
 func (w *jsiiProxy_Wait) RenderResultSelector() interface{} {
 	var returns interface{}
 
@@ -11181,7 +10612,6 @@ func (w *jsiiProxy_Wait) RenderResultSelector() interface{} {
 }
 
 // Render error recovery options in ASL JSON format.
-// Experimental.
 func (w *jsiiProxy_Wait) RenderRetryCatch() interface{} {
 	var returns interface{}
 
@@ -11196,7 +10626,6 @@ func (w *jsiiProxy_Wait) RenderRetryCatch() interface{} {
 }
 
 // Return the Amazon States Language object for this state.
-// Experimental.
 func (w *jsiiProxy_Wait) ToStateJson() *map[string]interface{} {
 	var returns *map[string]interface{}
 
@@ -11211,7 +10640,6 @@ func (w *jsiiProxy_Wait) ToStateJson() *map[string]interface{} {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (w *jsiiProxy_Wait) ToString() *string {
 	var returns *string
 
@@ -11226,7 +10654,6 @@ func (w *jsiiProxy_Wait) ToString() *string {
 }
 
 // Allows the state to validate itself.
-// Experimental.
 func (w *jsiiProxy_Wait) ValidateState() *[]*string {
 	var returns *[]*string
 
@@ -11243,7 +10670,6 @@ func (w *jsiiProxy_Wait) ValidateState() *[]*string {
 // Called whenever this state is bound to a graph.
 //
 // Can be overridden by subclasses.
-// Experimental.
 func (w *jsiiProxy_Wait) WhenBoundToGraph(graph StateGraph) {
 	_jsii_.InvokeVoid(
 		w,
@@ -11256,13 +10682,10 @@ func (w *jsiiProxy_Wait) WhenBoundToGraph(graph StateGraph) {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type WaitProps struct {
 	// Wait duration.
-	// Experimental.
 	Time WaitTime `json:"time"`
 	// An optional description for this state.
-	// Experimental.
 	Comment *string `json:"comment"`
 }
 
@@ -11272,7 +10695,6 @@ type WaitProps struct {
 //
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-wait-state.html
 //
-// Experimental.
 type WaitTime interface {
 }
 
@@ -11282,7 +10704,6 @@ type jsiiProxy_WaitTime struct {
 }
 
 // Wait a fixed amount of time.
-// Experimental.
 func WaitTime_Duration(duration awscdk.Duration) WaitTime {
 	_init_.Initialize()
 
@@ -11301,7 +10722,6 @@ func WaitTime_Duration(duration awscdk.Duration) WaitTime {
 // Wait for a number of seconds stored in the state object.
 //
 // Example value: `$.waitSeconds`
-// Experimental.
 func WaitTime_SecondsPath(path *string) WaitTime {
 	_init_.Initialize()
 
@@ -11320,7 +10740,6 @@ func WaitTime_SecondsPath(path *string) WaitTime {
 // Wait until the given ISO8601 timestamp.
 //
 // Example value: `2016-03-14T01:59:00Z`
-// Experimental.
 func WaitTime_Timestamp(timestamp *string) WaitTime {
 	_init_.Initialize()
 
@@ -11339,7 +10758,6 @@ func WaitTime_Timestamp(timestamp *string) WaitTime {
 // Wait until a timestamp found in the state object.
 //
 // Example value: `$.waitTimestamp`
-// Experimental.
 func WaitTime_TimestampPath(path *string) WaitTime {
 	_init_.Initialize()
 

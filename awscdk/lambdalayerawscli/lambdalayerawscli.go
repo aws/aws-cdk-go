@@ -14,7 +14,6 @@ import (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AwsCliLayer interface {
 	awslambda.LayerVersion
 	CompatibleRuntimes() *[]awslambda.Runtime
@@ -97,7 +96,6 @@ func (j *jsiiProxy_AwsCliLayer) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewAwsCliLayer(scope constructs.Construct, id *string) AwsCliLayer {
 	_init_.Initialize()
 
@@ -112,7 +110,6 @@ func NewAwsCliLayer(scope constructs.Construct, id *string) AwsCliLayer {
 	return &j
 }
 
-// Experimental.
 func NewAwsCliLayer_Override(a AwsCliLayer, scope constructs.Construct, id *string) {
 	_init_.Initialize()
 
@@ -126,7 +123,6 @@ func NewAwsCliLayer_Override(a AwsCliLayer, scope constructs.Construct, id *stri
 // Imports a layer version by ARN.
 //
 // Assumes it is compatible with all Lambda runtimes.
-// Experimental.
 func AwsCliLayer_FromLayerVersionArn(scope constructs.Construct, id *string, layerVersionArn *string) awslambda.ILayerVersion {
 	_init_.Initialize()
 
@@ -143,7 +139,6 @@ func AwsCliLayer_FromLayerVersionArn(scope constructs.Construct, id *string, lay
 }
 
 // Imports a Layer that has been defined externally.
-// Experimental.
 func AwsCliLayer_FromLayerVersionAttributes(scope constructs.Construct, id *string, attrs *awslambda.LayerVersionAttributes) awslambda.ILayerVersion {
 	_init_.Initialize()
 
@@ -179,7 +174,6 @@ func AwsCliLayer_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func AwsCliLayer_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -203,7 +197,6 @@ func AwsCliLayer_IsResource(construct constructs.IConstruct) *bool {
 // Lambda function using the layer (for example, a CloudFormation changeset
 // execution role) also needs to have the ``lambda:GetLayerVersion``
 // permission on the layer version.
-// Experimental.
 func (a *jsiiProxy_AwsCliLayer) AddPermission(id *string, permission *awslambda.LayerVersionPermission) {
 	_jsii_.InvokeVoid(
 		a,
@@ -221,7 +214,6 @@ func (a *jsiiProxy_AwsCliLayer) AddPermission(id *string, permission *awslambda.
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (a *jsiiProxy_AwsCliLayer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		a,
@@ -230,7 +222,6 @@ func (a *jsiiProxy_AwsCliLayer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) 
 	)
 }
 
-// Experimental.
 func (a *jsiiProxy_AwsCliLayer) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -250,7 +241,6 @@ func (a *jsiiProxy_AwsCliLayer) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (a *jsiiProxy_AwsCliLayer) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -269,7 +259,6 @@ func (a *jsiiProxy_AwsCliLayer) GetResourceArnAttribute(arnAttr *string, arnComp
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (a *jsiiProxy_AwsCliLayer) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -284,7 +273,6 @@ func (a *jsiiProxy_AwsCliLayer) GetResourceNameAttribute(nameAttr *string) *stri
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (a *jsiiProxy_AwsCliLayer) ToString() *string {
 	var returns *string
 

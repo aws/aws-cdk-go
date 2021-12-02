@@ -27,7 +27,6 @@ import (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ApiGateway interface {
 	awsevents.IRuleTarget
 	RestApi() awsapigateway.RestApi
@@ -50,7 +49,6 @@ func (j *jsiiProxy_ApiGateway) RestApi() awsapigateway.RestApi {
 }
 
 
-// Experimental.
 func NewApiGateway(restApi awsapigateway.RestApi, props *ApiGatewayProps) ApiGateway {
 	_init_.Initialize()
 
@@ -65,7 +63,6 @@ func NewApiGateway(restApi awsapigateway.RestApi, props *ApiGatewayProps) ApiGat
 	return &j
 }
 
-// Experimental.
 func NewApiGateway_Override(a ApiGateway, restApi awsapigateway.RestApi, props *ApiGatewayProps) {
 	_init_.Initialize()
 
@@ -79,7 +76,6 @@ func NewApiGateway_Override(a ApiGateway, restApi awsapigateway.RestApi, props *
 // Returns a RuleTarget that can be used to trigger this API Gateway REST APIs as a result from an EventBridge event.
 // See: https://docs.aws.amazon.com/eventbridge/latest/userguide/resource-based-policies-eventbridge.html#sqs-permissions
 //
-// Experimental.
 func (a *jsiiProxy_ApiGateway) Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
 	var returns *awsevents.RuleTargetConfig
 
@@ -97,53 +93,41 @@ func (a *jsiiProxy_ApiGateway) Bind(rule awsevents.IRule, _id *string) *awsevent
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ApiGatewayProps struct {
 	// The SQS queue to be used as deadLetterQueue. Check out the [considerations for using a dead-letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html#dlq-considerations).
 	//
 	// The events not successfully delivered are automatically retried for a specified period of time,
 	// depending on the retry policy of the target.
 	// If an event is not delivered before all retry attempts are exhausted, it will be sent to the dead letter queue.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum value of 60.
 	// Maximum value of 86400.
-	// Experimental.
 	MaxEventAge awscdk.Duration `json:"maxEventAge"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum value of 0.
 	// Maximum value of 185.
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 	// The role to assume before invoking the target (i.e., the pipeline) when the given rule is triggered.
-	// Experimental.
 	EventRole awsiam.IRole `json:"eventRole"`
 	// The headers to be set when requesting API.
-	// Experimental.
 	HeaderParameters *map[string]*string `json:"headerParameters"`
 	// The method for api resource invoked by the rule.
-	// Experimental.
 	Method *string `json:"method"`
 	// The api resource invoked by the rule.
 	//
 	// We can use wildcards('*') to specify the path. In that case,
 	// an equal number of real values must be specified for pathParameterValues.
-	// Experimental.
 	Path *string `json:"path"`
 	// The path parameter values to be used to populate to wildcards("*") of requesting api path.
-	// Experimental.
 	PathParameterValues *[]*string `json:"pathParameterValues"`
 	// This will be the post request body send to the API.
-	// Experimental.
 	PostBody awsevents.RuleTargetInput `json:"postBody"`
 	// The query parameters to be set when requesting API.
-	// Experimental.
 	QueryStringParameters *map[string]*string `json:"queryStringParameters"`
 	// The deploy stage of api gateway invoked by the rule.
-	// Experimental.
 	Stage *string `json:"stage"`
 }
 
@@ -151,7 +135,6 @@ type ApiGatewayProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AwsApi interface {
 	awsevents.IRuleTarget
 	Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig
@@ -162,7 +145,6 @@ type jsiiProxy_AwsApi struct {
 	internal.Type__awseventsIRuleTarget
 }
 
-// Experimental.
 func NewAwsApi(props *AwsApiProps) AwsApi {
 	_init_.Initialize()
 
@@ -177,7 +159,6 @@ func NewAwsApi(props *AwsApiProps) AwsApi {
 	return &j
 }
 
-// Experimental.
 func NewAwsApi_Override(a AwsApi, props *AwsApiProps) {
 	_init_.Initialize()
 
@@ -189,7 +170,6 @@ func NewAwsApi_Override(a AwsApi, props *AwsApiProps) {
 }
 
 // Returns a RuleTarget that can be used to trigger this AwsApi as a result from an EventBridge event.
-// Experimental.
 func (a *jsiiProxy_AwsApi) Bind(rule awsevents.IRule, id *string) *awsevents.RuleTargetConfig {
 	var returns *awsevents.RuleTargetConfig
 
@@ -207,34 +187,28 @@ func (a *jsiiProxy_AwsApi) Bind(rule awsevents.IRule, id *string) *awsevents.Rul
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AwsApiInput struct {
 	// The service action to call.
 	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html
 	//
-	// Experimental.
 	Action *string `json:"action"`
 	// API version to use for the service.
 	// See: https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/locking-api-versions.html
 	//
-	// Experimental.
 	ApiVersion *string `json:"apiVersion"`
 	// The regex pattern to use to catch API errors.
 	//
 	// The `code` property of the
 	// `Error` object will be tested against this pattern. If there is a match an
 	// error will not be thrown.
-	// Experimental.
 	CatchErrorPattern *string `json:"catchErrorPattern"`
 	// The parameters for the service action.
 	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html
 	//
-	// Experimental.
 	Parameters interface{} `json:"parameters"`
 	// The service to call.
 	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html
 	//
-	// Experimental.
 	Service *string `json:"service"`
 }
 
@@ -242,40 +216,33 @@ type AwsApiInput struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AwsApiProps struct {
 	// The service action to call.
 	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html
 	//
-	// Experimental.
 	Action *string `json:"action"`
 	// API version to use for the service.
 	// See: https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/locking-api-versions.html
 	//
-	// Experimental.
 	ApiVersion *string `json:"apiVersion"`
 	// The regex pattern to use to catch API errors.
 	//
 	// The `code` property of the
 	// `Error` object will be tested against this pattern. If there is a match an
 	// error will not be thrown.
-	// Experimental.
 	CatchErrorPattern *string `json:"catchErrorPattern"`
 	// The parameters for the service action.
 	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html
 	//
-	// Experimental.
 	Parameters interface{} `json:"parameters"`
 	// The service to call.
 	// See: https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/index.html
 	//
-	// Experimental.
 	Service *string `json:"service"`
 	// The IAM policy statement to allow the API call.
 	//
 	// Use only if
 	// resource restriction is needed.
-	// Experimental.
 	PolicyStatement awsiam.PolicyStatement `json:"policyStatement"`
 }
 
@@ -288,7 +255,6 @@ type AwsApiProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type BatchJob interface {
 	awsevents.IRuleTarget
 	Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
@@ -299,7 +265,6 @@ type jsiiProxy_BatchJob struct {
 	internal.Type__awseventsIRuleTarget
 }
 
-// Experimental.
 func NewBatchJob(jobQueueArn *string, jobQueueScope constructs.IConstruct, jobDefinitionArn *string, jobDefinitionScope constructs.IConstruct, props *BatchJobProps) BatchJob {
 	_init_.Initialize()
 
@@ -314,7 +279,6 @@ func NewBatchJob(jobQueueArn *string, jobQueueScope constructs.IConstruct, jobDe
 	return &j
 }
 
-// Experimental.
 func NewBatchJob_Override(b BatchJob, jobQueueArn *string, jobQueueScope constructs.IConstruct, jobDefinitionArn *string, jobDefinitionScope constructs.IConstruct, props *BatchJobProps) {
 	_init_.Initialize()
 
@@ -326,7 +290,6 @@ func NewBatchJob_Override(b BatchJob, jobQueueArn *string, jobQueueScope constru
 }
 
 // Returns a RuleTarget that can be used to trigger queue this batch job as a result from an EventBridge event.
-// Experimental.
 func (b *jsiiProxy_BatchJob) Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
 	var returns *awsevents.RuleTargetConfig
 
@@ -344,44 +307,36 @@ func (b *jsiiProxy_BatchJob) Bind(rule awsevents.IRule, _id *string) *awsevents.
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type BatchJobProps struct {
 	// The SQS queue to be used as deadLetterQueue. Check out the [considerations for using a dead-letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html#dlq-considerations).
 	//
 	// The events not successfully delivered are automatically retried for a specified period of time,
 	// depending on the retry policy of the target.
 	// If an event is not delivered before all retry attempts are exhausted, it will be sent to the dead letter queue.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum value of 60.
 	// Maximum value of 86400.
-	// Experimental.
 	MaxEventAge awscdk.Duration `json:"maxEventAge"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum value of 0.
 	// Maximum value of 185.
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 	// The number of times to attempt to retry, if the job fails.
 	//
 	// Valid values are 1–10.
-	// Experimental.
 	Attempts *float64 `json:"attempts"`
 	// The event to send to the Lambda.
 	//
 	// This will be the payload sent to the Lambda Function.
-	// Experimental.
 	Event awsevents.RuleTargetInput `json:"event"`
 	// The name of the submitted job.
-	// Experimental.
 	JobName *string `json:"jobName"`
 	// The size of the array, if this is an array batch job.
 	//
 	// Valid values are integers between 2 and 10,000.
-	// Experimental.
 	Size *float64 `json:"size"`
 }
 
@@ -389,7 +344,6 @@ type BatchJobProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CloudWatchLogGroup interface {
 	awsevents.IRuleTarget
 	Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
@@ -400,7 +354,6 @@ type jsiiProxy_CloudWatchLogGroup struct {
 	internal.Type__awseventsIRuleTarget
 }
 
-// Experimental.
 func NewCloudWatchLogGroup(logGroup awslogs.ILogGroup, props *LogGroupProps) CloudWatchLogGroup {
 	_init_.Initialize()
 
@@ -415,7 +368,6 @@ func NewCloudWatchLogGroup(logGroup awslogs.ILogGroup, props *LogGroupProps) Clo
 	return &j
 }
 
-// Experimental.
 func NewCloudWatchLogGroup_Override(c CloudWatchLogGroup, logGroup awslogs.ILogGroup, props *LogGroupProps) {
 	_init_.Initialize()
 
@@ -427,7 +379,6 @@ func NewCloudWatchLogGroup_Override(c CloudWatchLogGroup, logGroup awslogs.ILogG
 }
 
 // Returns a RuleTarget that can be used to log an event into a CloudWatch LogGroup.
-// Experimental.
 func (c *jsiiProxy_CloudWatchLogGroup) Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
 	var returns *awsevents.RuleTargetConfig
 
@@ -445,7 +396,6 @@ func (c *jsiiProxy_CloudWatchLogGroup) Bind(_rule awsevents.IRule, _id *string) 
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CodeBuildProject interface {
 	awsevents.IRuleTarget
 	Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
@@ -456,7 +406,6 @@ type jsiiProxy_CodeBuildProject struct {
 	internal.Type__awseventsIRuleTarget
 }
 
-// Experimental.
 func NewCodeBuildProject(project awscodebuild.IProject, props *CodeBuildProjectProps) CodeBuildProject {
 	_init_.Initialize()
 
@@ -471,7 +420,6 @@ func NewCodeBuildProject(project awscodebuild.IProject, props *CodeBuildProjectP
 	return &j
 }
 
-// Experimental.
 func NewCodeBuildProject_Override(c CodeBuildProject, project awscodebuild.IProject, props *CodeBuildProjectProps) {
 	_init_.Initialize()
 
@@ -483,7 +431,6 @@ func NewCodeBuildProject_Override(c CodeBuildProject, project awscodebuild.IProj
 }
 
 // Allows using build projects as event rule targets.
-// Experimental.
 func (c *jsiiProxy_CodeBuildProject) Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
 	var returns *awsevents.RuleTargetConfig
 
@@ -501,34 +448,28 @@ func (c *jsiiProxy_CodeBuildProject) Bind(_rule awsevents.IRule, _id *string) *a
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CodeBuildProjectProps struct {
 	// The SQS queue to be used as deadLetterQueue. Check out the [considerations for using a dead-letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html#dlq-considerations).
 	//
 	// The events not successfully delivered are automatically retried for a specified period of time,
 	// depending on the retry policy of the target.
 	// If an event is not delivered before all retry attempts are exhausted, it will be sent to the dead letter queue.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum value of 60.
 	// Maximum value of 86400.
-	// Experimental.
 	MaxEventAge awscdk.Duration `json:"maxEventAge"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum value of 0.
 	// Maximum value of 185.
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 	// The event to send to CodeBuild.
 	//
 	// This will be the payload for the StartBuild API.
-	// Experimental.
 	Event awsevents.RuleTargetInput `json:"event"`
 	// The role to assume before invoking the target (i.e., the codebuild) when the given rule is triggered.
-	// Experimental.
 	EventRole awsiam.IRole `json:"eventRole"`
 }
 
@@ -536,7 +477,6 @@ type CodeBuildProjectProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CodePipeline interface {
 	awsevents.IRuleTarget
 	Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
@@ -547,7 +487,6 @@ type jsiiProxy_CodePipeline struct {
 	internal.Type__awseventsIRuleTarget
 }
 
-// Experimental.
 func NewCodePipeline(pipeline awscodepipeline.IPipeline, options *CodePipelineTargetOptions) CodePipeline {
 	_init_.Initialize()
 
@@ -562,7 +501,6 @@ func NewCodePipeline(pipeline awscodepipeline.IPipeline, options *CodePipelineTa
 	return &j
 }
 
-// Experimental.
 func NewCodePipeline_Override(c CodePipeline, pipeline awscodepipeline.IPipeline, options *CodePipelineTargetOptions) {
 	_init_.Initialize()
 
@@ -576,7 +514,6 @@ func NewCodePipeline_Override(c CodePipeline, pipeline awscodepipeline.IPipeline
 // Returns the rule target specification.
 //
 // NOTE: Do not use the various `inputXxx` options. They can be set in a call to `addTarget`.
-// Experimental.
 func (c *jsiiProxy_CodePipeline) Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
 	var returns *awsevents.RuleTargetConfig
 
@@ -594,53 +531,41 @@ func (c *jsiiProxy_CodePipeline) Bind(_rule awsevents.IRule, _id *string) *awsev
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CodePipelineTargetOptions struct {
 	// The SQS queue to be used as deadLetterQueue. Check out the [considerations for using a dead-letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html#dlq-considerations).
 	//
 	// The events not successfully delivered are automatically retried for a specified period of time,
 	// depending on the retry policy of the target.
 	// If an event is not delivered before all retry attempts are exhausted, it will be sent to the dead letter queue.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum value of 60.
 	// Maximum value of 86400.
-	// Experimental.
 	MaxEventAge awscdk.Duration `json:"maxEventAge"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum value of 0.
 	// Maximum value of 185.
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 	// The role to assume before invoking the target (i.e., the pipeline) when the given rule is triggered.
-	// Experimental.
 	EventRole awsiam.IRole `json:"eventRole"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type ContainerOverride struct {
 	// Command to run inside the container.
-	// Experimental.
 	Command *[]*string `json:"command"`
 	// Name of the container inside the task definition.
-	// Experimental.
 	ContainerName *string `json:"containerName"`
 	// The number of cpu units reserved for the container.
-	// Experimental.
 	Cpu *float64 `json:"cpu"`
 	// Variables to set in the container's environment.
-	// Experimental.
 	Environment *[]*TaskEnvironmentVariable `json:"environment"`
 	// Hard memory limit on the container.
-	// Experimental.
 	MemoryLimit *float64 `json:"memoryLimit"`
 	// Soft memory limit on the container.
-	// Experimental.
 	MemoryReservation *float64 `json:"memoryReservation"`
 }
 
@@ -648,7 +573,6 @@ type ContainerOverride struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type EcsTask interface {
 	awsevents.IRuleTarget
 	SecurityGroups() *[]awsec2.ISecurityGroup
@@ -671,7 +595,6 @@ func (j *jsiiProxy_EcsTask) SecurityGroups() *[]awsec2.ISecurityGroup {
 }
 
 
-// Experimental.
 func NewEcsTask(props *EcsTaskProps) EcsTask {
 	_init_.Initialize()
 
@@ -686,7 +609,6 @@ func NewEcsTask(props *EcsTaskProps) EcsTask {
 	return &j
 }
 
-// Experimental.
 func NewEcsTask_Override(e EcsTask, props *EcsTaskProps) {
 	_init_.Initialize()
 
@@ -698,7 +620,6 @@ func NewEcsTask_Override(e EcsTask, props *EcsTaskProps) {
 }
 
 // Allows using tasks as target of EventBridge events.
-// Experimental.
 func (e *jsiiProxy_EcsTask) Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
 	var returns *awsevents.RuleTargetConfig
 
@@ -716,42 +637,33 @@ func (e *jsiiProxy_EcsTask) Bind(_rule awsevents.IRule, _id *string) *awsevents.
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type EcsTaskProps struct {
 	// Cluster where service will be deployed.
-	// Experimental.
 	Cluster awsecs.ICluster `json:"cluster"`
 	// Task Definition of the task that should be started.
-	// Experimental.
 	TaskDefinition awsecs.ITaskDefinition `json:"taskDefinition"`
 	// Container setting overrides.
 	//
 	// Key is the name of the container to override, value is the
 	// values you want to override.
-	// Experimental.
 	ContainerOverrides *[]*ContainerOverride `json:"containerOverrides"`
 	// The platform version on which to run your task.
 	//
 	// Unless you have specific compatibility requirements, you don't need to specify this.
 	// See: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html
 	//
-	// Experimental.
 	PlatformVersion awsecs.FargatePlatformVersion `json:"platformVersion"`
 	// Existing IAM role to run the ECS task.
-	// Experimental.
 	Role awsiam.IRole `json:"role"`
 	// Existing security groups to use for the task's ENIs.
 	//
 	// (Only applicable in case the TaskDefinition is configured for AwsVpc networking)
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 	// In what subnets to place the task's ENIs.
 	//
 	// (Only applicable in case the TaskDefinition is configured for AwsVpc networking)
-	// Experimental.
 	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection"`
 	// How many tasks should be started when this event is triggered.
-	// Experimental.
 	TaskCount *float64 `json:"taskCount"`
 }
 
@@ -759,7 +671,6 @@ type EcsTaskProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type EventBus interface {
 	awsevents.IRuleTarget
 	Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
@@ -770,7 +681,6 @@ type jsiiProxy_EventBus struct {
 	internal.Type__awseventsIRuleTarget
 }
 
-// Experimental.
 func NewEventBus(eventBus awsevents.IEventBus, props *EventBusProps) EventBus {
 	_init_.Initialize()
 
@@ -785,7 +695,6 @@ func NewEventBus(eventBus awsevents.IEventBus, props *EventBusProps) EventBus {
 	return &j
 }
 
-// Experimental.
 func NewEventBus_Override(e EventBus, eventBus awsevents.IEventBus, props *EventBusProps) {
 	_init_.Initialize()
 
@@ -799,7 +708,6 @@ func NewEventBus_Override(e EventBus, eventBus awsevents.IEventBus, props *Event
 // Returns the rule target specification.
 //
 // NOTE: Do not use the various `inputXxx` options. They can be set in a call to `addTarget`.
-// Experimental.
 func (e *jsiiProxy_EventBus) Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
 	var returns *awsevents.RuleTargetConfig
 
@@ -819,17 +727,14 @@ func (e *jsiiProxy_EventBus) Bind(rule awsevents.IRule, _id *string) *awsevents.
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type EventBusProps struct {
 	// The SQS queue to be used as deadLetterQueue. Check out the [considerations for using a dead-letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html#dlq-considerations).
 	//
 	// The events not successfully delivered are automatically retried for a specified period of time,
 	// depending on the retry policy of the target.
 	// If an event is not delivered before all retry attempts are exhausted, it will be sent to the dead letter queue.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
 	// Role to be used to publish the event.
-	// Experimental.
 	Role awsiam.IRole `json:"role"`
 }
 
@@ -837,7 +742,6 @@ type EventBusProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type KinesisFirehoseStream interface {
 	awsevents.IRuleTarget
 	Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
@@ -848,7 +752,6 @@ type jsiiProxy_KinesisFirehoseStream struct {
 	internal.Type__awseventsIRuleTarget
 }
 
-// Experimental.
 func NewKinesisFirehoseStream(stream awskinesisfirehose.CfnDeliveryStream, props *KinesisFirehoseStreamProps) KinesisFirehoseStream {
 	_init_.Initialize()
 
@@ -863,7 +766,6 @@ func NewKinesisFirehoseStream(stream awskinesisfirehose.CfnDeliveryStream, props
 	return &j
 }
 
-// Experimental.
 func NewKinesisFirehoseStream_Override(k KinesisFirehoseStream, stream awskinesisfirehose.CfnDeliveryStream, props *KinesisFirehoseStreamProps) {
 	_init_.Initialize()
 
@@ -875,7 +777,6 @@ func NewKinesisFirehoseStream_Override(k KinesisFirehoseStream, stream awskinesi
 }
 
 // Returns a RuleTarget that can be used to trigger this Firehose Stream as a result from a Event Bridge event.
-// Experimental.
 func (k *jsiiProxy_KinesisFirehoseStream) Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
 	var returns *awsevents.RuleTargetConfig
 
@@ -893,12 +794,10 @@ func (k *jsiiProxy_KinesisFirehoseStream) Bind(_rule awsevents.IRule, _id *strin
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type KinesisFirehoseStreamProps struct {
 	// The message to send to the stream.
 	//
 	// Must be a valid JSON text passed to the target stream.
-	// Experimental.
 	Message awsevents.RuleTargetInput `json:"message"`
 }
 
@@ -906,7 +805,6 @@ type KinesisFirehoseStreamProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type KinesisStream interface {
 	awsevents.IRuleTarget
 	Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
@@ -917,7 +815,6 @@ type jsiiProxy_KinesisStream struct {
 	internal.Type__awseventsIRuleTarget
 }
 
-// Experimental.
 func NewKinesisStream(stream awskinesis.IStream, props *KinesisStreamProps) KinesisStream {
 	_init_.Initialize()
 
@@ -932,7 +829,6 @@ func NewKinesisStream(stream awskinesis.IStream, props *KinesisStreamProps) Kine
 	return &j
 }
 
-// Experimental.
 func NewKinesisStream_Override(k KinesisStream, stream awskinesis.IStream, props *KinesisStreamProps) {
 	_init_.Initialize()
 
@@ -944,7 +840,6 @@ func NewKinesisStream_Override(k KinesisStream, stream awskinesis.IStream, props
 }
 
 // Returns a RuleTarget that can be used to trigger this Kinesis Stream as a result from a CloudWatch event.
-// Experimental.
 func (k *jsiiProxy_KinesisStream) Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
 	var returns *awsevents.RuleTargetConfig
 
@@ -962,15 +857,12 @@ func (k *jsiiProxy_KinesisStream) Bind(_rule awsevents.IRule, _id *string) *awse
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type KinesisStreamProps struct {
 	// The message to send to the stream.
 	//
 	// Must be a valid JSON text passed to the target stream.
-	// Experimental.
 	Message awsevents.RuleTargetInput `json:"message"`
 	// Partition Key Path for records sent to this stream.
-	// Experimental.
 	PartitionKeyPath *string `json:"partitionKeyPath"`
 }
 
@@ -978,7 +870,6 @@ type KinesisStreamProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LambdaFunction interface {
 	awsevents.IRuleTarget
 	Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig
@@ -989,7 +880,6 @@ type jsiiProxy_LambdaFunction struct {
 	internal.Type__awseventsIRuleTarget
 }
 
-// Experimental.
 func NewLambdaFunction(handler awslambda.IFunction, props *LambdaFunctionProps) LambdaFunction {
 	_init_.Initialize()
 
@@ -1004,7 +894,6 @@ func NewLambdaFunction(handler awslambda.IFunction, props *LambdaFunctionProps) 
 	return &j
 }
 
-// Experimental.
 func NewLambdaFunction_Override(l LambdaFunction, handler awslambda.IFunction, props *LambdaFunctionProps) {
 	_init_.Initialize()
 
@@ -1016,7 +905,6 @@ func NewLambdaFunction_Override(l LambdaFunction, handler awslambda.IFunction, p
 }
 
 // Returns a RuleTarget that can be used to trigger this Lambda as a result from an EventBridge event.
-// Experimental.
 func (l *jsiiProxy_LambdaFunction) Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
 	var returns *awsevents.RuleTargetConfig
 
@@ -1034,31 +922,26 @@ func (l *jsiiProxy_LambdaFunction) Bind(rule awsevents.IRule, _id *string) *awse
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LambdaFunctionProps struct {
 	// The SQS queue to be used as deadLetterQueue. Check out the [considerations for using a dead-letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html#dlq-considerations).
 	//
 	// The events not successfully delivered are automatically retried for a specified period of time,
 	// depending on the retry policy of the target.
 	// If an event is not delivered before all retry attempts are exhausted, it will be sent to the dead letter queue.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum value of 60.
 	// Maximum value of 86400.
-	// Experimental.
 	MaxEventAge awscdk.Duration `json:"maxEventAge"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum value of 0.
 	// Maximum value of 185.
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 	// The event to send to the Lambda.
 	//
 	// This will be the payload sent to the Lambda Function.
-	// Experimental.
 	Event awsevents.RuleTargetInput `json:"event"`
 }
 
@@ -1066,31 +949,26 @@ type LambdaFunctionProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LogGroupProps struct {
 	// The SQS queue to be used as deadLetterQueue. Check out the [considerations for using a dead-letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html#dlq-considerations).
 	//
 	// The events not successfully delivered are automatically retried for a specified period of time,
 	// depending on the retry policy of the target.
 	// If an event is not delivered before all retry attempts are exhausted, it will be sent to the dead letter queue.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum value of 60.
 	// Maximum value of 86400.
-	// Experimental.
 	MaxEventAge awscdk.Duration `json:"maxEventAge"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum value of 0.
 	// Maximum value of 185.
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 	// The event to send to the CloudWatch LogGroup.
 	//
 	// This will be the event logged into the CloudWatch LogGroup
-	// Experimental.
 	Event awsevents.RuleTargetInput `json:"event"`
 }
 
@@ -1098,7 +976,6 @@ type LogGroupProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SfnStateMachine interface {
 	awsevents.IRuleTarget
 	Machine() awsstepfunctions.IStateMachine
@@ -1121,7 +998,6 @@ func (j *jsiiProxy_SfnStateMachine) Machine() awsstepfunctions.IStateMachine {
 }
 
 
-// Experimental.
 func NewSfnStateMachine(machine awsstepfunctions.IStateMachine, props *SfnStateMachineProps) SfnStateMachine {
 	_init_.Initialize()
 
@@ -1136,7 +1012,6 @@ func NewSfnStateMachine(machine awsstepfunctions.IStateMachine, props *SfnStateM
 	return &j
 }
 
-// Experimental.
 func NewSfnStateMachine_Override(s SfnStateMachine, machine awsstepfunctions.IStateMachine, props *SfnStateMachineProps) {
 	_init_.Initialize()
 
@@ -1150,7 +1025,6 @@ func NewSfnStateMachine_Override(s SfnStateMachine, machine awsstepfunctions.ISt
 // Returns a properties that are used in an Rule to trigger this State Machine.
 // See: https://docs.aws.amazon.com/eventbridge/latest/userguide/resource-based-policies-eventbridge.html#sns-permissions
 //
-// Experimental.
 func (s *jsiiProxy_SfnStateMachine) Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
 	var returns *awsevents.RuleTargetConfig
 
@@ -1168,32 +1042,26 @@ func (s *jsiiProxy_SfnStateMachine) Bind(_rule awsevents.IRule, _id *string) *aw
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SfnStateMachineProps struct {
 	// The SQS queue to be used as deadLetterQueue. Check out the [considerations for using a dead-letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html#dlq-considerations).
 	//
 	// The events not successfully delivered are automatically retried for a specified period of time,
 	// depending on the retry policy of the target.
 	// If an event is not delivered before all retry attempts are exhausted, it will be sent to the dead letter queue.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum value of 60.
 	// Maximum value of 86400.
-	// Experimental.
 	MaxEventAge awscdk.Duration `json:"maxEventAge"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum value of 0.
 	// Maximum value of 185.
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 	// The input to the state machine execution.
-	// Experimental.
 	Input awsevents.RuleTargetInput `json:"input"`
 	// The IAM role to be assumed to execute the State Machine.
-	// Experimental.
 	Role awsiam.IRole `json:"role"`
 }
 
@@ -1201,7 +1069,6 @@ type SfnStateMachineProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SnsTopic interface {
 	awsevents.IRuleTarget
 	Topic() awssns.ITopic
@@ -1224,7 +1091,6 @@ func (j *jsiiProxy_SnsTopic) Topic() awssns.ITopic {
 }
 
 
-// Experimental.
 func NewSnsTopic(topic awssns.ITopic, props *SnsTopicProps) SnsTopic {
 	_init_.Initialize()
 
@@ -1239,7 +1105,6 @@ func NewSnsTopic(topic awssns.ITopic, props *SnsTopicProps) SnsTopic {
 	return &j
 }
 
-// Experimental.
 func NewSnsTopic_Override(s SnsTopic, topic awssns.ITopic, props *SnsTopicProps) {
 	_init_.Initialize()
 
@@ -1253,7 +1118,6 @@ func NewSnsTopic_Override(s SnsTopic, topic awssns.ITopic, props *SnsTopicProps)
 // Returns a RuleTarget that can be used to trigger this SNS topic as a result from an EventBridge event.
 // See: https://docs.aws.amazon.com/eventbridge/latest/userguide/resource-based-policies-eventbridge.html#sns-permissions
 //
-// Experimental.
 func (s *jsiiProxy_SnsTopic) Bind(_rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
 	var returns *awsevents.RuleTargetConfig
 
@@ -1271,10 +1135,8 @@ func (s *jsiiProxy_SnsTopic) Bind(_rule awsevents.IRule, _id *string) *awsevents
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SnsTopicProps struct {
 	// The message to send to the topic.
-	// Experimental.
 	Message awsevents.RuleTargetInput `json:"message"`
 }
 
@@ -1282,7 +1144,6 @@ type SnsTopicProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SqsQueue interface {
 	awsevents.IRuleTarget
 	Queue() awssqs.IQueue
@@ -1305,7 +1166,6 @@ func (j *jsiiProxy_SqsQueue) Queue() awssqs.IQueue {
 }
 
 
-// Experimental.
 func NewSqsQueue(queue awssqs.IQueue, props *SqsQueueProps) SqsQueue {
 	_init_.Initialize()
 
@@ -1320,7 +1180,6 @@ func NewSqsQueue(queue awssqs.IQueue, props *SqsQueueProps) SqsQueue {
 	return &j
 }
 
-// Experimental.
 func NewSqsQueue_Override(s SqsQueue, queue awssqs.IQueue, props *SqsQueueProps) {
 	_init_.Initialize()
 
@@ -1334,7 +1193,6 @@ func NewSqsQueue_Override(s SqsQueue, queue awssqs.IQueue, props *SqsQueueProps)
 // Returns a RuleTarget that can be used to trigger this SQS queue as a result from an EventBridge event.
 // See: https://docs.aws.amazon.com/eventbridge/latest/userguide/resource-based-policies-eventbridge.html#sqs-permissions
 //
-// Experimental.
 func (s *jsiiProxy_SqsQueue) Bind(rule awsevents.IRule, _id *string) *awsevents.RuleTargetConfig {
 	var returns *awsevents.RuleTargetConfig
 
@@ -1352,36 +1210,30 @@ func (s *jsiiProxy_SqsQueue) Bind(rule awsevents.IRule, _id *string) *awsevents.
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SqsQueueProps struct {
 	// The SQS queue to be used as deadLetterQueue. Check out the [considerations for using a dead-letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html#dlq-considerations).
 	//
 	// The events not successfully delivered are automatically retried for a specified period of time,
 	// depending on the retry policy of the target.
 	// If an event is not delivered before all retry attempts are exhausted, it will be sent to the dead letter queue.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum value of 60.
 	// Maximum value of 86400.
-	// Experimental.
 	MaxEventAge awscdk.Duration `json:"maxEventAge"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum value of 0.
 	// Maximum value of 185.
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 	// The message to send to the queue.
 	//
 	// Must be a valid JSON text passed to the target queue.
-	// Experimental.
 	Message awsevents.RuleTargetInput `json:"message"`
 	// Message Group ID for messages sent to this queue.
 	//
 	// Required for FIFO queues, leave empty for regular queues.
-	// Experimental.
 	MessageGroupId *string `json:"messageGroupId"`
 }
 
@@ -1389,26 +1241,22 @@ type SqsQueueProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TargetBaseProps struct {
 	// The SQS queue to be used as deadLetterQueue. Check out the [considerations for using a dead-letter queue](https://docs.aws.amazon.com/eventbridge/latest/userguide/rule-dlq.html#dlq-considerations).
 	//
 	// The events not successfully delivered are automatically retried for a specified period of time,
 	// depending on the retry policy of the target.
 	// If an event is not delivered before all retry attempts are exhausted, it will be sent to the dead letter queue.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
 	// The maximum age of a request that Lambda sends to a function for processing.
 	//
 	// Minimum value of 60.
 	// Maximum value of 86400.
-	// Experimental.
 	MaxEventAge awscdk.Duration `json:"maxEventAge"`
 	// The maximum number of times to retry when the function returns an error.
 	//
 	// Minimum value of 0.
 	// Maximum value of 185.
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 }
 
@@ -1416,17 +1264,14 @@ type TargetBaseProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TaskEnvironmentVariable struct {
 	// Name for the environment variable.
 	//
 	// Exactly one of `name` and `namePath` must be specified.
-	// Experimental.
 	Name *string `json:"name"`
 	// Value of the environment variable.
 	//
 	// Exactly one of `value` and `valuePath` must be specified.
-	// Experimental.
 	Value *string `json:"value"`
 }
 

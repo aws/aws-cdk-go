@@ -6,7 +6,6 @@ import (
 )
 
 // Provides default values for certain regional information points.
-// Experimental.
 type Default interface {
 }
 
@@ -21,7 +20,6 @@ type jsiiProxy_Default struct {
 // you need to compute a service principal name, but you do not have a synthesize-time region literal available (so
 // all you have is `{ "Ref": "AWS::Region" }`). This way you get the same defaulting behavior that is normally used
 // for built-in data.
-// Experimental.
 func Default_ServicePrincipal(service *string, region *string, urlSuffix *string) *string {
 	_init_.Initialize()
 
@@ -52,7 +50,6 @@ func Default_VPC_ENDPOINT_SERVICE_NAME_PREFIX() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Fact interface {
 }
 
@@ -64,7 +61,6 @@ type jsiiProxy_Fact struct {
 // Retrieves a fact from this Fact database.
 //
 // Returns: the fact value if it is known, and `undefined` otherwise.
-// Experimental.
 func Fact_Find(region *string, name *string) *string {
 	_init_.Initialize()
 
@@ -81,7 +77,6 @@ func Fact_Find(region *string, name *string) *string {
 }
 
 // Registers a new fact in this Fact database.
-// Experimental.
 func Fact_Register(fact IFact, allowReplacing *bool) {
 	_init_.Initialize()
 
@@ -96,7 +91,6 @@ func Fact_Register(fact IFact, allowReplacing *bool) {
 //
 // (retrieval will fail if the specified region or
 // fact name does not exist.)
-// Experimental.
 func Fact_RequireFact(region *string, name *string) *string {
 	_init_.Initialize()
 
@@ -113,7 +107,6 @@ func Fact_RequireFact(region *string, name *string) *string {
 }
 
 // Removes a fact from the database.
-// Experimental.
 func Fact_Unregister(region *string, name *string, value *string) {
 	_init_.Initialize()
 
@@ -139,7 +132,6 @@ func Fact_Regions() *[]*string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type FactName interface {
 }
 
@@ -148,7 +140,6 @@ type jsiiProxy_FactName struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewFactName() FactName {
 	_init_.Initialize()
 
@@ -163,7 +154,6 @@ func NewFactName() FactName {
 	return &j
 }
 
-// Experimental.
 func NewFactName_Override(f FactName) {
 	_init_.Initialize()
 
@@ -175,7 +165,6 @@ func NewFactName_Override(f FactName) {
 }
 
 // The ARN of CloudWatch Lambda Insights for a version (e.g. 1.0.98.0).
-// Experimental.
 func FactName_CloudwatchLambdaInsightsVersion(version *string) *string {
 	_init_.Initialize()
 
@@ -192,7 +181,6 @@ func FactName_CloudwatchLambdaInsightsVersion(version *string) *string {
 }
 
 // The name of the regional service principal for a given service.
-// Experimental.
 func FactName_ServicePrincipal(service *string) *string {
 	_init_.Initialize()
 
@@ -330,18 +318,14 @@ func FactName_VPC_ENDPOINT_SERVICE_NAME_PREFIX() *string {
 }
 
 // A fact that can be registered about a particular region.
-// Experimental.
 type IFact interface {
 	// The name of this fact.
 	//
 	// Standardized values are provided by the `Facts` class.
-	// Experimental.
 	Name() *string
 	// The region for which this fact applies.
-	// Experimental.
 	Region() *string
 	// The value of this fact.
-	// Experimental.
 	Value() *string
 }
 
@@ -384,7 +368,6 @@ func (j *jsiiProxy_IFact) Value() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RegionInfo interface {
 	AppMeshRepositoryAccount() *string
 	CdkMetadataResourceAvailable() *bool
@@ -529,7 +512,6 @@ func (j *jsiiProxy_RegionInfo) VpcEndpointServiceNamePrefix() *string {
 
 
 // Obtain region info for a given region name.
-// Experimental.
 func RegionInfo_Get(name *string) RegionInfo {
 	_init_.Initialize()
 
@@ -549,7 +531,6 @@ func RegionInfo_Get(name *string) RegionInfo {
 //
 // Returns: a mapping with AWS region codes as the keys,
 // and the fact in the given region as the value for that key
-// Experimental.
 func RegionInfo_RegionMap(factName *string) *map[string]*string {
 	_init_.Initialize()
 
@@ -577,7 +558,6 @@ func RegionInfo_Regions() *[]RegionInfo {
 }
 
 // The ARN of the CloudWatch Lambda Insights extension, for the given version.
-// Experimental.
 func (r *jsiiProxy_RegionInfo) CloudwatchLambdaInsightsArn(insightsVersion *string) *string {
 	var returns *string
 
@@ -592,7 +572,6 @@ func (r *jsiiProxy_RegionInfo) CloudwatchLambdaInsightsArn(insightsVersion *stri
 }
 
 // The name of the service principal for a given service in this region.
-// Experimental.
 func (r *jsiiProxy_RegionInfo) ServicePrincipal(service *string) *string {
 	var returns *string
 

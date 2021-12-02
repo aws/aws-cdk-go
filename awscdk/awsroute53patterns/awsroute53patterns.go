@@ -16,7 +16,6 @@ import (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HttpsRedirect interface {
 	constructs.Construct
 	Node() constructs.Node
@@ -39,7 +38,6 @@ func (j *jsiiProxy_HttpsRedirect) Node() constructs.Node {
 }
 
 
-// Experimental.
 func NewHttpsRedirect(scope constructs.Construct, id *string, props *HttpsRedirectProps) HttpsRedirect {
 	_init_.Initialize()
 
@@ -54,7 +52,6 @@ func NewHttpsRedirect(scope constructs.Construct, id *string, props *HttpsRedire
 	return &j
 }
 
-// Experimental.
 func NewHttpsRedirect_Override(h HttpsRedirect, scope constructs.Construct, id *string, props *HttpsRedirectProps) {
 	_init_.Initialize()
 
@@ -85,7 +82,6 @@ func HttpsRedirect_IsConstruct(x interface{}) *bool {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (h *jsiiProxy_HttpsRedirect) ToString() *string {
 	var returns *string
 
@@ -103,14 +99,12 @@ func (h *jsiiProxy_HttpsRedirect) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HttpsRedirectProps struct {
 	// The redirect target fully qualified domain name (FQDN).
 	//
 	// An alias record
 	// will be created that points to your CloudFront distribution. Root domain
 	// or sub-domain can be supplied.
-	// Experimental.
 	TargetDomain *string `json:"targetDomain"`
 	// Hosted zone of the domain which will be used to create alias record(s) from domain names in the hosted zone to the target domain.
 	//
@@ -120,16 +114,13 @@ type HttpsRedirectProps struct {
 	//
 	// Domain names in the hosted zone can include a specific domain (example.com)
 	// and its subdomains (acme.example.com, zenith.example.com).
-	// Experimental.
 	Zone awsroute53.IHostedZone `json:"zone"`
 	// The AWS Certificate Manager (ACM) certificate that will be associated with the CloudFront distribution that will be created.
 	//
 	// If provided, the certificate must be
 	// stored in us-east-1 (N. Virginia)
-	// Experimental.
 	Certificate awscertificatemanager.ICertificate `json:"certificate"`
 	// The domain names that will redirect to `targetDomain`.
-	// Experimental.
 	RecordNames *[]*string `json:"recordNames"`
 }
 

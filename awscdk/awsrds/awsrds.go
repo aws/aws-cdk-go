@@ -25,7 +25,6 @@ import (
 //
 // See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.architecture
 //
-// Experimental.
 type AuroraCapacityUnit string
 
 const (
@@ -48,10 +47,8 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AuroraClusterEngineProps struct {
 	// The version of the Aurora cluster engine.
-	// Experimental.
 	Version AuroraEngineVersion `json:"version"`
 }
 
@@ -59,7 +56,6 @@ type AuroraClusterEngineProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AuroraEngineVersion interface {
 	AuroraFullVersion() *string
 	AuroraMajorVersion() *string
@@ -92,7 +88,6 @@ func (j *jsiiProxy_AuroraEngineVersion) AuroraMajorVersion() *string {
 
 
 // Create a new AuroraEngineVersion with an arbitrary version.
-// Experimental.
 func AuroraEngineVersion_Of(auroraFullVersion *string, auroraMajorVersion *string) AuroraEngineVersion {
 	_init_.Initialize()
 
@@ -268,10 +263,8 @@ func AuroraEngineVersion_VER_10A() AuroraEngineVersion {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AuroraMysqlClusterEngineProps struct {
 	// The version of the Aurora MySQL cluster engine.
-	// Experimental.
 	Version AuroraMysqlEngineVersion `json:"version"`
 }
 
@@ -279,7 +272,6 @@ type AuroraMysqlClusterEngineProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AuroraMysqlEngineVersion interface {
 	AuroraMysqlFullVersion() *string
 	AuroraMysqlMajorVersion() *string
@@ -312,7 +304,6 @@ func (j *jsiiProxy_AuroraMysqlEngineVersion) AuroraMysqlMajorVersion() *string {
 
 
 // Create a new AuroraMysqlEngineVersion with an arbitrary version.
-// Experimental.
 func AuroraMysqlEngineVersion_Of(auroraMysqlFullVersion *string, auroraMysqlMajorVersion *string) AuroraMysqlEngineVersion {
 	_init_.Initialize()
 
@@ -620,10 +611,8 @@ func AuroraMysqlEngineVersion_VER_5_7_12() AuroraMysqlEngineVersion {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AuroraPostgresClusterEngineProps struct {
 	// The version of the Aurora PostgreSQL cluster engine.
-	// Experimental.
 	Version AuroraPostgresEngineVersion `json:"version"`
 }
 
@@ -631,13 +620,10 @@ type AuroraPostgresClusterEngineProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AuroraPostgresEngineFeatures struct {
 	// Whether this version of the Aurora Postgres cluster engine supports the S3 data export feature.
-	// Experimental.
 	S3Export *bool `json:"s3Export"`
 	// Whether this version of the Aurora Postgres cluster engine supports the S3 data import feature.
-	// Experimental.
 	S3Import *bool `json:"s3Import"`
 }
 
@@ -645,7 +631,6 @@ type AuroraPostgresEngineFeatures struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AuroraPostgresEngineVersion interface {
 	AuroraPostgresFullVersion() *string
 	AuroraPostgresMajorVersion() *string
@@ -678,7 +663,6 @@ func (j *jsiiProxy_AuroraPostgresEngineVersion) AuroraPostgresMajorVersion() *st
 
 
 // Create a new AuroraPostgresEngineVersion with an arbitrary version.
-// Experimental.
 func AuroraPostgresEngineVersion_Of(auroraPostgresFullVersion *string, auroraPostgresMajorVersion *string, auroraPostgresFeatures *AuroraPostgresEngineFeatures) AuroraPostgresEngineVersion {
 	_init_.Initialize()
 
@@ -1030,17 +1014,14 @@ func AuroraPostgresEngineVersion_VER_9_6_9() AuroraPostgresEngineVersion {
 //
 // See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow
 //
-// Experimental.
 type BackupProps struct {
 	// A daily time range in 24-hours UTC format in which backups preferably execute.
 	//
 	// Must be at least 30 minutes long.
 	//
 	// Example: '01:00-02:00'
-	// Experimental.
 	PreferredWindow *string `json:"preferredWindow"`
 	// How many days to retain the backup.
-	// Experimental.
 	Retention awscdk.Duration `json:"retention"`
 }
 
@@ -1890,7 +1871,6 @@ func (j *jsiiProxy_CfnDBCluster) SetVpcSecurityGroupIds(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnDBCluster_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -1907,7 +1887,6 @@ func CfnDBCluster_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnDBCluster_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -1954,7 +1933,6 @@ func CfnDBCluster_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnDBCluster) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1967,7 +1945,6 @@ func (c *jsiiProxy_CfnDBCluster) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnDBCluster) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1983,7 +1960,6 @@ func (c *jsiiProxy_CfnDBCluster) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDBCluster) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2029,7 +2005,6 @@ func (c *jsiiProxy_CfnDBCluster) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnDBCluster) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2039,7 +2014,6 @@ func (c *jsiiProxy_CfnDBCluster) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnDBCluster) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2051,7 +2025,6 @@ func (c *jsiiProxy_CfnDBCluster) AddPropertyDeletionOverride(propertyPath *strin
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnDBCluster) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2069,7 +2042,6 @@ func (c *jsiiProxy_CfnDBCluster) AddPropertyOverride(propertyPath *string, value
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnDBCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2082,7 +2054,6 @@ func (c *jsiiProxy_CfnDBCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy,
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnDBCluster) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2103,7 +2074,6 @@ func (c *jsiiProxy_CfnDBCluster) GetAtt(attributeName *string) awscdk.Reference 
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDBCluster) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2127,7 +2097,6 @@ func (c *jsiiProxy_CfnDBCluster) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnDBCluster) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2153,7 +2122,6 @@ func (c *jsiiProxy_CfnDBCluster) RenderProperties(props *map[string]interface{})
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnDBCluster) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2170,7 +2138,6 @@ func (c *jsiiProxy_CfnDBCluster) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnDBCluster) ToString() *string {
 	var returns *string
 
@@ -2184,7 +2151,6 @@ func (c *jsiiProxy_CfnDBCluster) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnDBCluster) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2448,7 +2414,6 @@ func (j *jsiiProxy_CfnDBClusterParameterGroup) SetParameters(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnDBClusterParameterGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -2465,7 +2430,6 @@ func CfnDBClusterParameterGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnDBClusterParameterGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -2512,7 +2476,6 @@ func CfnDBClusterParameterGroup_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnDBClusterParameterGroup) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2525,7 +2488,6 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) AddDeletionOverride(path *string)
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnDBClusterParameterGroup) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2541,7 +2503,6 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) AddDependsOn(target awscdk.CfnRes
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDBClusterParameterGroup) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2587,7 +2548,6 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) AddMetadata(key *string, value in
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnDBClusterParameterGroup) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2597,7 +2557,6 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) AddOverride(path *string, value i
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnDBClusterParameterGroup) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2609,7 +2568,6 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) AddPropertyDeletionOverride(prope
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnDBClusterParameterGroup) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2627,7 +2585,6 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) AddPropertyOverride(propertyPath 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnDBClusterParameterGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2640,7 +2597,6 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) ApplyRemovalPolicy(policy awscdk.
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnDBClusterParameterGroup) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2661,7 +2617,6 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) GetAtt(attributeName *string) aws
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDBClusterParameterGroup) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2685,7 +2640,6 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) Inspect(inspector awscdk.TreeInsp
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnDBClusterParameterGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2711,7 +2665,6 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) RenderProperties(props *map[strin
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnDBClusterParameterGroup) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2728,7 +2681,6 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnDBClusterParameterGroup) ToString() *string {
 	var returns *string
 
@@ -2742,7 +2694,6 @@ func (c *jsiiProxy_CfnDBClusterParameterGroup) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnDBClusterParameterGroup) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4054,7 +4005,6 @@ func (j *jsiiProxy_CfnDBInstance) SetVpcSecurityGroups(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnDBInstance_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -4071,7 +4021,6 @@ func CfnDBInstance_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnDBInstance_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -4118,7 +4067,6 @@ func CfnDBInstance_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnDBInstance) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4131,7 +4079,6 @@ func (c *jsiiProxy_CfnDBInstance) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnDBInstance) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4147,7 +4094,6 @@ func (c *jsiiProxy_CfnDBInstance) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDBInstance) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4193,7 +4139,6 @@ func (c *jsiiProxy_CfnDBInstance) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnDBInstance) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4203,7 +4148,6 @@ func (c *jsiiProxy_CfnDBInstance) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnDBInstance) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4215,7 +4159,6 @@ func (c *jsiiProxy_CfnDBInstance) AddPropertyDeletionOverride(propertyPath *stri
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnDBInstance) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4233,7 +4176,6 @@ func (c *jsiiProxy_CfnDBInstance) AddPropertyOverride(propertyPath *string, valu
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnDBInstance) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4246,7 +4188,6 @@ func (c *jsiiProxy_CfnDBInstance) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnDBInstance) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -4267,7 +4208,6 @@ func (c *jsiiProxy_CfnDBInstance) GetAtt(attributeName *string) awscdk.Reference
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDBInstance) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -4291,7 +4231,6 @@ func (c *jsiiProxy_CfnDBInstance) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnDBInstance) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4317,7 +4256,6 @@ func (c *jsiiProxy_CfnDBInstance) RenderProperties(props *map[string]interface{}
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnDBInstance) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -4334,7 +4272,6 @@ func (c *jsiiProxy_CfnDBInstance) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnDBInstance) ToString() *string {
 	var returns *string
 
@@ -4348,7 +4285,6 @@ func (c *jsiiProxy_CfnDBInstance) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnDBInstance) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4719,7 +4655,6 @@ func (j *jsiiProxy_CfnDBParameterGroup) SetParameters(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnDBParameterGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -4736,7 +4671,6 @@ func CfnDBParameterGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnDBParameterGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -4783,7 +4717,6 @@ func CfnDBParameterGroup_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnDBParameterGroup) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4796,7 +4729,6 @@ func (c *jsiiProxy_CfnDBParameterGroup) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnDBParameterGroup) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4812,7 +4744,6 @@ func (c *jsiiProxy_CfnDBParameterGroup) AddDependsOn(target awscdk.CfnResource) 
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDBParameterGroup) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4858,7 +4789,6 @@ func (c *jsiiProxy_CfnDBParameterGroup) AddMetadata(key *string, value interface
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnDBParameterGroup) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4868,7 +4798,6 @@ func (c *jsiiProxy_CfnDBParameterGroup) AddOverride(path *string, value interfac
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnDBParameterGroup) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4880,7 +4809,6 @@ func (c *jsiiProxy_CfnDBParameterGroup) AddPropertyDeletionOverride(propertyPath
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnDBParameterGroup) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4898,7 +4826,6 @@ func (c *jsiiProxy_CfnDBParameterGroup) AddPropertyOverride(propertyPath *string
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnDBParameterGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4911,7 +4838,6 @@ func (c *jsiiProxy_CfnDBParameterGroup) ApplyRemovalPolicy(policy awscdk.Removal
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnDBParameterGroup) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -4932,7 +4858,6 @@ func (c *jsiiProxy_CfnDBParameterGroup) GetAtt(attributeName *string) awscdk.Ref
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDBParameterGroup) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -4956,7 +4881,6 @@ func (c *jsiiProxy_CfnDBParameterGroup) Inspect(inspector awscdk.TreeInspector) 
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnDBParameterGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4982,7 +4906,6 @@ func (c *jsiiProxy_CfnDBParameterGroup) RenderProperties(props *map[string]inter
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnDBParameterGroup) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -4999,7 +4922,6 @@ func (c *jsiiProxy_CfnDBParameterGroup) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnDBParameterGroup) ToString() *string {
 	var returns *string
 
@@ -5013,7 +4935,6 @@ func (c *jsiiProxy_CfnDBParameterGroup) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnDBParameterGroup) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5432,7 +5353,6 @@ func (j *jsiiProxy_CfnDBProxy) SetVpcSubnetIds(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnDBProxy_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -5449,7 +5369,6 @@ func CfnDBProxy_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnDBProxy_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -5496,7 +5415,6 @@ func CfnDBProxy_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnDBProxy) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5509,7 +5427,6 @@ func (c *jsiiProxy_CfnDBProxy) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnDBProxy) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5525,7 +5442,6 @@ func (c *jsiiProxy_CfnDBProxy) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDBProxy) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5571,7 +5487,6 @@ func (c *jsiiProxy_CfnDBProxy) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnDBProxy) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5581,7 +5496,6 @@ func (c *jsiiProxy_CfnDBProxy) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnDBProxy) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5593,7 +5507,6 @@ func (c *jsiiProxy_CfnDBProxy) AddPropertyDeletionOverride(propertyPath *string)
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnDBProxy) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5611,7 +5524,6 @@ func (c *jsiiProxy_CfnDBProxy) AddPropertyOverride(propertyPath *string, value i
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnDBProxy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5624,7 +5536,6 @@ func (c *jsiiProxy_CfnDBProxy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, o
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnDBProxy) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -5645,7 +5556,6 @@ func (c *jsiiProxy_CfnDBProxy) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDBProxy) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -5669,7 +5579,6 @@ func (c *jsiiProxy_CfnDBProxy) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnDBProxy) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5695,7 +5604,6 @@ func (c *jsiiProxy_CfnDBProxy) RenderProperties(props *map[string]interface{}) *
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnDBProxy) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -5712,7 +5620,6 @@ func (c *jsiiProxy_CfnDBProxy) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnDBProxy) ToString() *string {
 	var returns *string
 
@@ -5726,7 +5633,6 @@ func (c *jsiiProxy_CfnDBProxy) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnDBProxy) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6085,7 +5991,6 @@ func (j *jsiiProxy_CfnDBProxyEndpoint) SetVpcSubnetIds(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnDBProxyEndpoint_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -6102,7 +6007,6 @@ func CfnDBProxyEndpoint_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnDBProxyEndpoint_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -6149,7 +6053,6 @@ func CfnDBProxyEndpoint_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnDBProxyEndpoint) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6162,7 +6065,6 @@ func (c *jsiiProxy_CfnDBProxyEndpoint) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnDBProxyEndpoint) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6178,7 +6080,6 @@ func (c *jsiiProxy_CfnDBProxyEndpoint) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDBProxyEndpoint) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6224,7 +6125,6 @@ func (c *jsiiProxy_CfnDBProxyEndpoint) AddMetadata(key *string, value interface{
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnDBProxyEndpoint) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6234,7 +6134,6 @@ func (c *jsiiProxy_CfnDBProxyEndpoint) AddOverride(path *string, value interface
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnDBProxyEndpoint) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6246,7 +6145,6 @@ func (c *jsiiProxy_CfnDBProxyEndpoint) AddPropertyDeletionOverride(propertyPath 
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnDBProxyEndpoint) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6264,7 +6162,6 @@ func (c *jsiiProxy_CfnDBProxyEndpoint) AddPropertyOverride(propertyPath *string,
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnDBProxyEndpoint) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6277,7 +6174,6 @@ func (c *jsiiProxy_CfnDBProxyEndpoint) ApplyRemovalPolicy(policy awscdk.RemovalP
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnDBProxyEndpoint) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -6298,7 +6194,6 @@ func (c *jsiiProxy_CfnDBProxyEndpoint) GetAtt(attributeName *string) awscdk.Refe
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDBProxyEndpoint) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -6322,7 +6217,6 @@ func (c *jsiiProxy_CfnDBProxyEndpoint) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnDBProxyEndpoint) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6348,7 +6242,6 @@ func (c *jsiiProxy_CfnDBProxyEndpoint) RenderProperties(props *map[string]interf
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnDBProxyEndpoint) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -6365,7 +6258,6 @@ func (c *jsiiProxy_CfnDBProxyEndpoint) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnDBProxyEndpoint) ToString() *string {
 	var returns *string
 
@@ -6379,7 +6271,6 @@ func (c *jsiiProxy_CfnDBProxyEndpoint) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnDBProxyEndpoint) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6716,7 +6607,6 @@ func (j *jsiiProxy_CfnDBProxyTargetGroup) SetTargetGroupName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnDBProxyTargetGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -6733,7 +6623,6 @@ func CfnDBProxyTargetGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnDBProxyTargetGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -6780,7 +6669,6 @@ func CfnDBProxyTargetGroup_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnDBProxyTargetGroup) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6793,7 +6681,6 @@ func (c *jsiiProxy_CfnDBProxyTargetGroup) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnDBProxyTargetGroup) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6809,7 +6696,6 @@ func (c *jsiiProxy_CfnDBProxyTargetGroup) AddDependsOn(target awscdk.CfnResource
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDBProxyTargetGroup) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6855,7 +6741,6 @@ func (c *jsiiProxy_CfnDBProxyTargetGroup) AddMetadata(key *string, value interfa
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnDBProxyTargetGroup) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6865,7 +6750,6 @@ func (c *jsiiProxy_CfnDBProxyTargetGroup) AddOverride(path *string, value interf
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnDBProxyTargetGroup) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6877,7 +6761,6 @@ func (c *jsiiProxy_CfnDBProxyTargetGroup) AddPropertyDeletionOverride(propertyPa
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnDBProxyTargetGroup) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6895,7 +6778,6 @@ func (c *jsiiProxy_CfnDBProxyTargetGroup) AddPropertyOverride(propertyPath *stri
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnDBProxyTargetGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6908,7 +6790,6 @@ func (c *jsiiProxy_CfnDBProxyTargetGroup) ApplyRemovalPolicy(policy awscdk.Remov
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnDBProxyTargetGroup) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -6929,7 +6810,6 @@ func (c *jsiiProxy_CfnDBProxyTargetGroup) GetAtt(attributeName *string) awscdk.R
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDBProxyTargetGroup) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -6953,7 +6833,6 @@ func (c *jsiiProxy_CfnDBProxyTargetGroup) Inspect(inspector awscdk.TreeInspector
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnDBProxyTargetGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6979,7 +6858,6 @@ func (c *jsiiProxy_CfnDBProxyTargetGroup) RenderProperties(props *map[string]int
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnDBProxyTargetGroup) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -6996,7 +6874,6 @@ func (c *jsiiProxy_CfnDBProxyTargetGroup) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnDBProxyTargetGroup) ToString() *string {
 	var returns *string
 
@@ -7010,7 +6887,6 @@ func (c *jsiiProxy_CfnDBProxyTargetGroup) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnDBProxyTargetGroup) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7284,7 +7160,6 @@ func (j *jsiiProxy_CfnDBSecurityGroup) SetGroupDescription(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnDBSecurityGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -7301,7 +7176,6 @@ func CfnDBSecurityGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnDBSecurityGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -7348,7 +7222,6 @@ func CfnDBSecurityGroup_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnDBSecurityGroup) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7361,7 +7234,6 @@ func (c *jsiiProxy_CfnDBSecurityGroup) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnDBSecurityGroup) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7377,7 +7249,6 @@ func (c *jsiiProxy_CfnDBSecurityGroup) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDBSecurityGroup) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7423,7 +7294,6 @@ func (c *jsiiProxy_CfnDBSecurityGroup) AddMetadata(key *string, value interface{
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnDBSecurityGroup) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7433,7 +7303,6 @@ func (c *jsiiProxy_CfnDBSecurityGroup) AddOverride(path *string, value interface
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnDBSecurityGroup) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7445,7 +7314,6 @@ func (c *jsiiProxy_CfnDBSecurityGroup) AddPropertyDeletionOverride(propertyPath 
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnDBSecurityGroup) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7463,7 +7331,6 @@ func (c *jsiiProxy_CfnDBSecurityGroup) AddPropertyOverride(propertyPath *string,
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnDBSecurityGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7476,7 +7343,6 @@ func (c *jsiiProxy_CfnDBSecurityGroup) ApplyRemovalPolicy(policy awscdk.RemovalP
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnDBSecurityGroup) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -7497,7 +7363,6 @@ func (c *jsiiProxy_CfnDBSecurityGroup) GetAtt(attributeName *string) awscdk.Refe
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDBSecurityGroup) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -7521,7 +7386,6 @@ func (c *jsiiProxy_CfnDBSecurityGroup) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnDBSecurityGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7547,7 +7411,6 @@ func (c *jsiiProxy_CfnDBSecurityGroup) RenderProperties(props *map[string]interf
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnDBSecurityGroup) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -7564,7 +7427,6 @@ func (c *jsiiProxy_CfnDBSecurityGroup) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnDBSecurityGroup) ToString() *string {
 	var returns *string
 
@@ -7578,7 +7440,6 @@ func (c *jsiiProxy_CfnDBSecurityGroup) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnDBSecurityGroup) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7862,7 +7723,6 @@ func (j *jsiiProxy_CfnDBSecurityGroupIngress) SetEc2SecurityGroupOwnerId(val *st
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnDBSecurityGroupIngress_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -7879,7 +7739,6 @@ func CfnDBSecurityGroupIngress_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnDBSecurityGroupIngress_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -7926,7 +7785,6 @@ func CfnDBSecurityGroupIngress_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnDBSecurityGroupIngress) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7939,7 +7797,6 @@ func (c *jsiiProxy_CfnDBSecurityGroupIngress) AddDeletionOverride(path *string) 
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnDBSecurityGroupIngress) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7955,7 +7812,6 @@ func (c *jsiiProxy_CfnDBSecurityGroupIngress) AddDependsOn(target awscdk.CfnReso
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDBSecurityGroupIngress) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8001,7 +7857,6 @@ func (c *jsiiProxy_CfnDBSecurityGroupIngress) AddMetadata(key *string, value int
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnDBSecurityGroupIngress) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8011,7 +7866,6 @@ func (c *jsiiProxy_CfnDBSecurityGroupIngress) AddOverride(path *string, value in
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnDBSecurityGroupIngress) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8023,7 +7877,6 @@ func (c *jsiiProxy_CfnDBSecurityGroupIngress) AddPropertyDeletionOverride(proper
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnDBSecurityGroupIngress) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8041,7 +7894,6 @@ func (c *jsiiProxy_CfnDBSecurityGroupIngress) AddPropertyOverride(propertyPath *
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnDBSecurityGroupIngress) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8054,7 +7906,6 @@ func (c *jsiiProxy_CfnDBSecurityGroupIngress) ApplyRemovalPolicy(policy awscdk.R
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnDBSecurityGroupIngress) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -8075,7 +7926,6 @@ func (c *jsiiProxy_CfnDBSecurityGroupIngress) GetAtt(attributeName *string) awsc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDBSecurityGroupIngress) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -8099,7 +7949,6 @@ func (c *jsiiProxy_CfnDBSecurityGroupIngress) Inspect(inspector awscdk.TreeInspe
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnDBSecurityGroupIngress) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8125,7 +7974,6 @@ func (c *jsiiProxy_CfnDBSecurityGroupIngress) RenderProperties(props *map[string
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnDBSecurityGroupIngress) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -8142,7 +7990,6 @@ func (c *jsiiProxy_CfnDBSecurityGroupIngress) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnDBSecurityGroupIngress) ToString() *string {
 	var returns *string
 
@@ -8156,7 +8003,6 @@ func (c *jsiiProxy_CfnDBSecurityGroupIngress) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnDBSecurityGroupIngress) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8430,7 +8276,6 @@ func (j *jsiiProxy_CfnDBSubnetGroup) SetSubnetIds(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnDBSubnetGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -8447,7 +8292,6 @@ func CfnDBSubnetGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnDBSubnetGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -8494,7 +8338,6 @@ func CfnDBSubnetGroup_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnDBSubnetGroup) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8507,7 +8350,6 @@ func (c *jsiiProxy_CfnDBSubnetGroup) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnDBSubnetGroup) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8523,7 +8365,6 @@ func (c *jsiiProxy_CfnDBSubnetGroup) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDBSubnetGroup) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8569,7 +8410,6 @@ func (c *jsiiProxy_CfnDBSubnetGroup) AddMetadata(key *string, value interface{})
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnDBSubnetGroup) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8579,7 +8419,6 @@ func (c *jsiiProxy_CfnDBSubnetGroup) AddOverride(path *string, value interface{}
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnDBSubnetGroup) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8591,7 +8430,6 @@ func (c *jsiiProxy_CfnDBSubnetGroup) AddPropertyDeletionOverride(propertyPath *s
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnDBSubnetGroup) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8609,7 +8447,6 @@ func (c *jsiiProxy_CfnDBSubnetGroup) AddPropertyOverride(propertyPath *string, v
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnDBSubnetGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8622,7 +8459,6 @@ func (c *jsiiProxy_CfnDBSubnetGroup) ApplyRemovalPolicy(policy awscdk.RemovalPol
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnDBSubnetGroup) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -8643,7 +8479,6 @@ func (c *jsiiProxy_CfnDBSubnetGroup) GetAtt(attributeName *string) awscdk.Refere
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDBSubnetGroup) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -8667,7 +8502,6 @@ func (c *jsiiProxy_CfnDBSubnetGroup) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnDBSubnetGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8693,7 +8527,6 @@ func (c *jsiiProxy_CfnDBSubnetGroup) RenderProperties(props *map[string]interfac
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnDBSubnetGroup) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -8710,7 +8543,6 @@ func (c *jsiiProxy_CfnDBSubnetGroup) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnDBSubnetGroup) ToString() *string {
 	var returns *string
 
@@ -8724,7 +8556,6 @@ func (c *jsiiProxy_CfnDBSubnetGroup) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnDBSubnetGroup) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9010,7 +8841,6 @@ func (j *jsiiProxy_CfnEventSubscription) SetSourceType(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnEventSubscription_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -9027,7 +8857,6 @@ func CfnEventSubscription_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnEventSubscription_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -9074,7 +8903,6 @@ func CfnEventSubscription_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnEventSubscription) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9087,7 +8915,6 @@ func (c *jsiiProxy_CfnEventSubscription) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnEventSubscription) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9103,7 +8930,6 @@ func (c *jsiiProxy_CfnEventSubscription) AddDependsOn(target awscdk.CfnResource)
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnEventSubscription) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9149,7 +8975,6 @@ func (c *jsiiProxy_CfnEventSubscription) AddMetadata(key *string, value interfac
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnEventSubscription) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9159,7 +8984,6 @@ func (c *jsiiProxy_CfnEventSubscription) AddOverride(path *string, value interfa
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnEventSubscription) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9171,7 +8995,6 @@ func (c *jsiiProxy_CfnEventSubscription) AddPropertyDeletionOverride(propertyPat
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnEventSubscription) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9189,7 +9012,6 @@ func (c *jsiiProxy_CfnEventSubscription) AddPropertyOverride(propertyPath *strin
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnEventSubscription) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9202,7 +9024,6 @@ func (c *jsiiProxy_CfnEventSubscription) ApplyRemovalPolicy(policy awscdk.Remova
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnEventSubscription) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -9223,7 +9044,6 @@ func (c *jsiiProxy_CfnEventSubscription) GetAtt(attributeName *string) awscdk.Re
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnEventSubscription) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -9247,7 +9067,6 @@ func (c *jsiiProxy_CfnEventSubscription) Inspect(inspector awscdk.TreeInspector)
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnEventSubscription) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9273,7 +9092,6 @@ func (c *jsiiProxy_CfnEventSubscription) RenderProperties(props *map[string]inte
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnEventSubscription) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -9290,7 +9108,6 @@ func (c *jsiiProxy_CfnEventSubscription) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnEventSubscription) ToString() *string {
 	var returns *string
 
@@ -9304,7 +9121,6 @@ func (c *jsiiProxy_CfnEventSubscription) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnEventSubscription) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9612,7 +9428,6 @@ func (j *jsiiProxy_CfnGlobalCluster) SetStorageEncrypted(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnGlobalCluster_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -9629,7 +9444,6 @@ func CfnGlobalCluster_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnGlobalCluster_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -9676,7 +9490,6 @@ func CfnGlobalCluster_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnGlobalCluster) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9689,7 +9502,6 @@ func (c *jsiiProxy_CfnGlobalCluster) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnGlobalCluster) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9705,7 +9517,6 @@ func (c *jsiiProxy_CfnGlobalCluster) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnGlobalCluster) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9751,7 +9562,6 @@ func (c *jsiiProxy_CfnGlobalCluster) AddMetadata(key *string, value interface{})
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnGlobalCluster) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9761,7 +9571,6 @@ func (c *jsiiProxy_CfnGlobalCluster) AddOverride(path *string, value interface{}
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnGlobalCluster) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9773,7 +9582,6 @@ func (c *jsiiProxy_CfnGlobalCluster) AddPropertyDeletionOverride(propertyPath *s
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnGlobalCluster) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9791,7 +9599,6 @@ func (c *jsiiProxy_CfnGlobalCluster) AddPropertyOverride(propertyPath *string, v
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnGlobalCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9804,7 +9611,6 @@ func (c *jsiiProxy_CfnGlobalCluster) ApplyRemovalPolicy(policy awscdk.RemovalPol
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnGlobalCluster) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -9825,7 +9631,6 @@ func (c *jsiiProxy_CfnGlobalCluster) GetAtt(attributeName *string) awscdk.Refere
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnGlobalCluster) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -9849,7 +9654,6 @@ func (c *jsiiProxy_CfnGlobalCluster) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnGlobalCluster) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9875,7 +9679,6 @@ func (c *jsiiProxy_CfnGlobalCluster) RenderProperties(props *map[string]interfac
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnGlobalCluster) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -9892,7 +9695,6 @@ func (c *jsiiProxy_CfnGlobalCluster) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnGlobalCluster) ToString() *string {
 	var returns *string
 
@@ -9906,7 +9708,6 @@ func (c *jsiiProxy_CfnGlobalCluster) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnGlobalCluster) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -10187,7 +9988,6 @@ func (j *jsiiProxy_CfnOptionGroup) SetOptionGroupDescription(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnOptionGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -10204,7 +10004,6 @@ func CfnOptionGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnOptionGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -10251,7 +10050,6 @@ func CfnOptionGroup_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnOptionGroup) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -10264,7 +10062,6 @@ func (c *jsiiProxy_CfnOptionGroup) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnOptionGroup) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -10280,7 +10077,6 @@ func (c *jsiiProxy_CfnOptionGroup) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnOptionGroup) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -10326,7 +10122,6 @@ func (c *jsiiProxy_CfnOptionGroup) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnOptionGroup) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -10336,7 +10131,6 @@ func (c *jsiiProxy_CfnOptionGroup) AddOverride(path *string, value interface{}) 
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnOptionGroup) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -10348,7 +10142,6 @@ func (c *jsiiProxy_CfnOptionGroup) AddPropertyDeletionOverride(propertyPath *str
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnOptionGroup) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -10366,7 +10159,6 @@ func (c *jsiiProxy_CfnOptionGroup) AddPropertyOverride(propertyPath *string, val
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnOptionGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -10379,7 +10171,6 @@ func (c *jsiiProxy_CfnOptionGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnOptionGroup) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -10400,7 +10191,6 @@ func (c *jsiiProxy_CfnOptionGroup) GetAtt(attributeName *string) awscdk.Referenc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnOptionGroup) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -10424,7 +10214,6 @@ func (c *jsiiProxy_CfnOptionGroup) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnOptionGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -10450,7 +10239,6 @@ func (c *jsiiProxy_CfnOptionGroup) RenderProperties(props *map[string]interface{
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnOptionGroup) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -10467,7 +10255,6 @@ func (c *jsiiProxy_CfnOptionGroup) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnOptionGroup) ToString() *string {
 	var returns *string
 
@@ -10481,7 +10268,6 @@ func (c *jsiiProxy_CfnOptionGroup) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnOptionGroup) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -10537,16 +10323,12 @@ type CfnOptionGroupProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ClusterEngineBindOptions struct {
 	// The customer-provided ParameterGroup.
-	// Experimental.
 	ParameterGroup IParameterGroup `json:"parameterGroup"`
 	// The role used for S3 exporting.
-	// Experimental.
 	S3ExportRole awsiam.IRole `json:"s3ExportRole"`
 	// The role used for S3 importing.
-	// Experimental.
 	S3ImportRole awsiam.IRole `json:"s3ImportRole"`
 }
 
@@ -10554,18 +10336,14 @@ type ClusterEngineBindOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ClusterEngineConfig struct {
 	// Features supported by the database engine.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html
 	//
-	// Experimental.
 	Features *ClusterEngineFeatures `json:"features"`
 	// The ParameterGroup to use for the cluster.
-	// Experimental.
 	ParameterGroup IParameterGroup `json:"parameterGroup"`
 	// The port to use for this cluster, unless the customer specified the port directly.
-	// Experimental.
 	Port *float64 `json:"port"`
 }
 
@@ -10573,13 +10351,10 @@ type ClusterEngineConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ClusterEngineFeatures struct {
 	// Feature name for the DB instance that the IAM role to export to S3 bucket is to be associated with.
-	// Experimental.
 	S3Export *string `json:"s3Export"`
 	// Feature name for the DB instance that the IAM role to access the S3 bucket for import is to be associated with.
-	// Experimental.
 	S3Import *string `json:"s3Import"`
 }
 
@@ -10587,7 +10362,6 @@ type ClusterEngineFeatures struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Credentials interface {
 	EncryptionKey() awskms.IKey
 	ExcludeCharacters() *string
@@ -10685,7 +10459,6 @@ func (j *jsiiProxy_Credentials) UsernameAsString() *bool {
 }
 
 
-// Experimental.
 func NewCredentials_Override(c Credentials) {
 	_init_.Initialize()
 
@@ -10697,7 +10470,6 @@ func NewCredentials_Override(c Credentials) {
 }
 
 // Creates Credentials with a password generated and stored in Secrets Manager.
-// Experimental.
 func Credentials_FromGeneratedSecret(username *string, options *CredentialsBaseOptions) Credentials {
 	_init_.Initialize()
 
@@ -10716,7 +10488,6 @@ func Credentials_FromGeneratedSecret(username *string, options *CredentialsBaseO
 // Creates Credentials from a password.
 //
 // Do not put passwords in your CDK code directly.
-// Experimental.
 func Credentials_FromPassword(username *string, password awscdk.SecretValue) Credentials {
 	_init_.Initialize()
 
@@ -10742,7 +10513,6 @@ func Credentials_FromPassword(username *string, password awscdk.SecretValue) Cre
 //    "password": <required: password>,
 // }
 // ```
-// Experimental.
 func Credentials_FromSecret(secret awssecretsmanager.ISecret, username *string) Credentials {
 	_init_.Initialize()
 
@@ -10761,7 +10531,6 @@ func Credentials_FromSecret(secret awssecretsmanager.ISecret, username *string) 
 // Creates Credentials for the given username, and optional password and key.
 //
 // If no password is provided, one will be generated and stored in Secrets Manager.
-// Experimental.
 func Credentials_FromUsername(username *string, options *CredentialsFromUsernameOptions) Credentials {
 	_init_.Initialize()
 
@@ -10781,21 +10550,16 @@ func Credentials_FromUsername(username *string, options *CredentialsFromUsername
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CredentialsBaseOptions struct {
 	// KMS encryption key to encrypt the generated secret.
-	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey"`
 	// The characters to exclude from the generated password.
 	//
 	// Has no effect if {@link password} has been provided.
-	// Experimental.
 	ExcludeCharacters *string `json:"excludeCharacters"`
 	// A list of regions where to replicate this secret.
-	// Experimental.
 	ReplicaRegions *[]*awssecretsmanager.ReplicaRegion `json:"replicaRegions"`
 	// The name of the secret.
-	// Experimental.
 	SecretName *string `json:"secretName"`
 }
 
@@ -10803,26 +10567,20 @@ type CredentialsBaseOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CredentialsFromUsernameOptions struct {
 	// KMS encryption key to encrypt the generated secret.
-	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey"`
 	// The characters to exclude from the generated password.
 	//
 	// Has no effect if {@link password} has been provided.
-	// Experimental.
 	ExcludeCharacters *string `json:"excludeCharacters"`
 	// A list of regions where to replicate this secret.
-	// Experimental.
 	ReplicaRegions *[]*awssecretsmanager.ReplicaRegion `json:"replicaRegions"`
 	// The name of the secret.
-	// Experimental.
 	SecretName *string `json:"secretName"`
 	// Password.
 	//
 	// Do not put passwords in your CDK code directly.
-	// Experimental.
 	Password awscdk.SecretValue `json:"password"`
 }
 
@@ -10830,7 +10588,6 @@ type CredentialsFromUsernameOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DatabaseCluster interface {
 	DatabaseClusterBase
 	ClusterEndpoint() Endpoint
@@ -11030,7 +10787,6 @@ func (j *jsiiProxy_DatabaseCluster) SubnetGroup() ISubnetGroup {
 }
 
 
-// Experimental.
 func NewDatabaseCluster(scope constructs.Construct, id *string, props *DatabaseClusterProps) DatabaseCluster {
 	_init_.Initialize()
 
@@ -11045,7 +10801,6 @@ func NewDatabaseCluster(scope constructs.Construct, id *string, props *DatabaseC
 	return &j
 }
 
-// Experimental.
 func NewDatabaseCluster_Override(d DatabaseCluster, scope constructs.Construct, id *string, props *DatabaseClusterProps) {
 	_init_.Initialize()
 
@@ -11057,7 +10812,6 @@ func NewDatabaseCluster_Override(d DatabaseCluster, scope constructs.Construct, 
 }
 
 // Import an existing DatabaseCluster from properties.
-// Experimental.
 func DatabaseCluster_FromDatabaseClusterAttributes(scope constructs.Construct, id *string, attrs *DatabaseClusterAttributes) IDatabaseCluster {
 	_init_.Initialize()
 
@@ -11093,7 +10847,6 @@ func DatabaseCluster_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func DatabaseCluster_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -11110,7 +10863,6 @@ func DatabaseCluster_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Add a new db proxy to this cluster.
-// Experimental.
 func (d *jsiiProxy_DatabaseCluster) AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy {
 	var returns DatabaseProxy
 
@@ -11125,7 +10877,6 @@ func (d *jsiiProxy_DatabaseCluster) AddProxy(id *string, options *DatabaseProxyO
 }
 
 // Adds the multi user rotation to this cluster.
-// Experimental.
 func (d *jsiiProxy_DatabaseCluster) AddRotationMultiUser(id *string, options *RotationMultiUserOptions) awssecretsmanager.SecretRotation {
 	var returns awssecretsmanager.SecretRotation
 
@@ -11140,7 +10891,6 @@ func (d *jsiiProxy_DatabaseCluster) AddRotationMultiUser(id *string, options *Ro
 }
 
 // Adds the single user rotation of the master password to this cluster.
-// Experimental.
 func (d *jsiiProxy_DatabaseCluster) AddRotationSingleUser(options *RotationSingleUserOptions) awssecretsmanager.SecretRotation {
 	var returns awssecretsmanager.SecretRotation
 
@@ -11163,7 +10913,6 @@ func (d *jsiiProxy_DatabaseCluster) AddRotationSingleUser(options *RotationSingl
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (d *jsiiProxy_DatabaseCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		d,
@@ -11173,7 +10922,6 @@ func (d *jsiiProxy_DatabaseCluster) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 }
 
 // Renders the secret attachment target specifications.
-// Experimental.
 func (d *jsiiProxy_DatabaseCluster) AsSecretAttachmentTarget() *awssecretsmanager.SecretAttachmentTargetProps {
 	var returns *awssecretsmanager.SecretAttachmentTargetProps
 
@@ -11187,7 +10935,6 @@ func (d *jsiiProxy_DatabaseCluster) AsSecretAttachmentTarget() *awssecretsmanage
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DatabaseCluster) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -11207,7 +10954,6 @@ func (d *jsiiProxy_DatabaseCluster) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (d *jsiiProxy_DatabaseCluster) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -11226,7 +10972,6 @@ func (d *jsiiProxy_DatabaseCluster) GetResourceArnAttribute(arnAttr *string, arn
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (d *jsiiProxy_DatabaseCluster) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -11241,7 +10986,6 @@ func (d *jsiiProxy_DatabaseCluster) GetResourceNameAttribute(nameAttr *string) *
 }
 
 // Return the given named metric for this DBCluster.
-// Experimental.
 func (d *jsiiProxy_DatabaseCluster) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11258,7 +11002,6 @@ func (d *jsiiProxy_DatabaseCluster) Metric(metricName *string, props *awscloudwa
 // The percentage of CPU utilization.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseCluster) MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11275,7 +11018,6 @@ func (d *jsiiProxy_DatabaseCluster) MetricCPUUtilization(props *awscloudwatch.Me
 // The number of database connections in use.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseCluster) MetricDatabaseConnections(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11292,7 +11034,6 @@ func (d *jsiiProxy_DatabaseCluster) MetricDatabaseConnections(props *awscloudwat
 // The average number of deadlocks in the database per second.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseCluster) MetricDeadlocks(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11309,7 +11050,6 @@ func (d *jsiiProxy_DatabaseCluster) MetricDeadlocks(props *awscloudwatch.MetricO
 // The amount of time that the instance has been running, in seconds.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseCluster) MetricEngineUptime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11326,7 +11066,6 @@ func (d *jsiiProxy_DatabaseCluster) MetricEngineUptime(props *awscloudwatch.Metr
 // The amount of available random access memory, in bytes.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseCluster) MetricFreeableMemory(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11343,7 +11082,6 @@ func (d *jsiiProxy_DatabaseCluster) MetricFreeableMemory(props *awscloudwatch.Me
 // The amount of local storage available, in bytes.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseCluster) MetricFreeLocalStorage(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11360,7 +11098,6 @@ func (d *jsiiProxy_DatabaseCluster) MetricFreeLocalStorage(props *awscloudwatch.
 // The amount of network throughput received from clients by each instance, in bytes per second.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseCluster) MetricNetworkReceiveThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11377,7 +11114,6 @@ func (d *jsiiProxy_DatabaseCluster) MetricNetworkReceiveThroughput(props *awsclo
 // The amount of network throughput both received from and transmitted to clients by each instance, in bytes per second.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseCluster) MetricNetworkThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11394,7 +11130,6 @@ func (d *jsiiProxy_DatabaseCluster) MetricNetworkThroughput(props *awscloudwatch
 // The amount of network throughput sent to clients by each instance, in bytes per second.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseCluster) MetricNetworkTransmitThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11411,7 +11146,6 @@ func (d *jsiiProxy_DatabaseCluster) MetricNetworkTransmitThroughput(props *awscl
 // The total amount of backup storage in bytes consumed by all Aurora snapshots outside its backup retention window.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseCluster) MetricSnapshotStorageUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11428,7 +11162,6 @@ func (d *jsiiProxy_DatabaseCluster) MetricSnapshotStorageUsed(props *awscloudwat
 // The total amount of backup storage in bytes for which you are billed.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseCluster) MetricTotalBackupStorageBilled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11445,7 +11178,6 @@ func (d *jsiiProxy_DatabaseCluster) MetricTotalBackupStorageBilled(props *awsclo
 // The amount of storage used by your Aurora DB instance, in bytes.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseCluster) MetricVolumeBytesUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11462,7 +11194,6 @@ func (d *jsiiProxy_DatabaseCluster) MetricVolumeBytesUsed(props *awscloudwatch.M
 // The number of billed read I/O operations from a cluster volume, reported at 5-minute intervals.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseCluster) MetricVolumeReadIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11479,7 +11210,6 @@ func (d *jsiiProxy_DatabaseCluster) MetricVolumeReadIOPs(props *awscloudwatch.Me
 // The number of write disk I/O operations to the cluster volume, reported at 5-minute intervals.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseCluster) MetricVolumeWriteIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11494,7 +11224,6 @@ func (d *jsiiProxy_DatabaseCluster) MetricVolumeWriteIOPs(props *awscloudwatch.M
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DatabaseCluster) ToString() *string {
 	var returns *string
 
@@ -11512,36 +11241,26 @@ func (d *jsiiProxy_DatabaseCluster) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DatabaseClusterAttributes struct {
 	// Cluster endpoint address.
-	// Experimental.
 	ClusterEndpointAddress *string `json:"clusterEndpointAddress"`
 	// Identifier for the cluster.
-	// Experimental.
 	ClusterIdentifier *string `json:"clusterIdentifier"`
 	// The engine of the existing Cluster.
-	// Experimental.
 	Engine IClusterEngine `json:"engine"`
 	// Endpoint addresses of individual instances.
-	// Experimental.
 	InstanceEndpointAddresses *[]*string `json:"instanceEndpointAddresses"`
 	// Identifier for the instances.
-	// Experimental.
 	InstanceIdentifiers *[]*string `json:"instanceIdentifiers"`
 	// The database port.
-	// Experimental.
 	Port *float64 `json:"port"`
 	// Reader endpoint address.
-	// Experimental.
 	ReaderEndpointAddress *string `json:"readerEndpointAddress"`
 	// The security groups of the database cluster.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 }
 
 // A new or imported clustered database.
-// Experimental.
 type DatabaseClusterBase interface {
 	awscdk.Resource
 	IDatabaseCluster
@@ -11697,7 +11416,6 @@ func (j *jsiiProxy_DatabaseClusterBase) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewDatabaseClusterBase_Override(d DatabaseClusterBase, scope constructs.Construct, id *string, props *awscdk.ResourceProps) {
 	_init_.Initialize()
 
@@ -11728,7 +11446,6 @@ func DatabaseClusterBase_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func DatabaseClusterBase_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -11745,7 +11462,6 @@ func DatabaseClusterBase_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Add a new db proxy to this cluster.
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterBase) AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy {
 	var returns DatabaseProxy
 
@@ -11768,7 +11484,6 @@ func (d *jsiiProxy_DatabaseClusterBase) AddProxy(id *string, options *DatabasePr
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		d,
@@ -11778,7 +11493,6 @@ func (d *jsiiProxy_DatabaseClusterBase) ApplyRemovalPolicy(policy awscdk.Removal
 }
 
 // Renders the secret attachment target specifications.
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterBase) AsSecretAttachmentTarget() *awssecretsmanager.SecretAttachmentTargetProps {
 	var returns *awssecretsmanager.SecretAttachmentTargetProps
 
@@ -11792,7 +11506,6 @@ func (d *jsiiProxy_DatabaseClusterBase) AsSecretAttachmentTarget() *awssecretsma
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterBase) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -11812,7 +11525,6 @@ func (d *jsiiProxy_DatabaseClusterBase) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterBase) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -11831,7 +11543,6 @@ func (d *jsiiProxy_DatabaseClusterBase) GetResourceArnAttribute(arnAttr *string,
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterBase) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -11846,7 +11557,6 @@ func (d *jsiiProxy_DatabaseClusterBase) GetResourceNameAttribute(nameAttr *strin
 }
 
 // Return the given named metric for this DBCluster.
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterBase) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11863,7 +11573,6 @@ func (d *jsiiProxy_DatabaseClusterBase) Metric(metricName *string, props *awsclo
 // The percentage of CPU utilization.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterBase) MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11880,7 +11589,6 @@ func (d *jsiiProxy_DatabaseClusterBase) MetricCPUUtilization(props *awscloudwatc
 // The number of database connections in use.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterBase) MetricDatabaseConnections(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11897,7 +11605,6 @@ func (d *jsiiProxy_DatabaseClusterBase) MetricDatabaseConnections(props *awsclou
 // The average number of deadlocks in the database per second.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterBase) MetricDeadlocks(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11914,7 +11621,6 @@ func (d *jsiiProxy_DatabaseClusterBase) MetricDeadlocks(props *awscloudwatch.Met
 // The amount of time that the instance has been running, in seconds.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterBase) MetricEngineUptime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11931,7 +11637,6 @@ func (d *jsiiProxy_DatabaseClusterBase) MetricEngineUptime(props *awscloudwatch.
 // The amount of available random access memory, in bytes.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterBase) MetricFreeableMemory(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11948,7 +11653,6 @@ func (d *jsiiProxy_DatabaseClusterBase) MetricFreeableMemory(props *awscloudwatc
 // The amount of local storage available, in bytes.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterBase) MetricFreeLocalStorage(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11965,7 +11669,6 @@ func (d *jsiiProxy_DatabaseClusterBase) MetricFreeLocalStorage(props *awscloudwa
 // The amount of network throughput received from clients by each instance, in bytes per second.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterBase) MetricNetworkReceiveThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11982,7 +11685,6 @@ func (d *jsiiProxy_DatabaseClusterBase) MetricNetworkReceiveThroughput(props *aw
 // The amount of network throughput both received from and transmitted to clients by each instance, in bytes per second.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterBase) MetricNetworkThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -11999,7 +11701,6 @@ func (d *jsiiProxy_DatabaseClusterBase) MetricNetworkThroughput(props *awscloudw
 // The amount of network throughput sent to clients by each instance, in bytes per second.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterBase) MetricNetworkTransmitThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -12016,7 +11717,6 @@ func (d *jsiiProxy_DatabaseClusterBase) MetricNetworkTransmitThroughput(props *a
 // The total amount of backup storage in bytes consumed by all Aurora snapshots outside its backup retention window.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterBase) MetricSnapshotStorageUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -12033,7 +11733,6 @@ func (d *jsiiProxy_DatabaseClusterBase) MetricSnapshotStorageUsed(props *awsclou
 // The total amount of backup storage in bytes for which you are billed.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterBase) MetricTotalBackupStorageBilled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -12050,7 +11749,6 @@ func (d *jsiiProxy_DatabaseClusterBase) MetricTotalBackupStorageBilled(props *aw
 // The amount of storage used by your Aurora DB instance, in bytes.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterBase) MetricVolumeBytesUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -12067,7 +11765,6 @@ func (d *jsiiProxy_DatabaseClusterBase) MetricVolumeBytesUsed(props *awscloudwat
 // The number of billed read I/O operations from a cluster volume, reported at 5-minute intervals.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterBase) MetricVolumeReadIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -12084,7 +11781,6 @@ func (d *jsiiProxy_DatabaseClusterBase) MetricVolumeReadIOPs(props *awscloudwatc
 // The number of write disk I/O operations to the cluster volume, reported at 5-minute intervals.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterBase) MetricVolumeWriteIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -12099,7 +11795,6 @@ func (d *jsiiProxy_DatabaseClusterBase) MetricVolumeWriteIOPs(props *awscloudwat
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterBase) ToString() *string {
 	var returns *string
 
@@ -12120,7 +11815,6 @@ func (d *jsiiProxy_DatabaseClusterBase) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DatabaseClusterEngine interface {
 }
 
@@ -12129,7 +11823,6 @@ type jsiiProxy_DatabaseClusterEngine struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewDatabaseClusterEngine() DatabaseClusterEngine {
 	_init_.Initialize()
 
@@ -12144,7 +11837,6 @@ func NewDatabaseClusterEngine() DatabaseClusterEngine {
 	return &j
 }
 
-// Experimental.
 func NewDatabaseClusterEngine_Override(d DatabaseClusterEngine) {
 	_init_.Initialize()
 
@@ -12156,7 +11848,6 @@ func NewDatabaseClusterEngine_Override(d DatabaseClusterEngine) {
 }
 
 // Creates a new plain Aurora database cluster engine.
-// Experimental.
 func DatabaseClusterEngine_Aurora(props *AuroraClusterEngineProps) IClusterEngine {
 	_init_.Initialize()
 
@@ -12173,7 +11864,6 @@ func DatabaseClusterEngine_Aurora(props *AuroraClusterEngineProps) IClusterEngin
 }
 
 // Creates a new Aurora MySQL database cluster engine.
-// Experimental.
 func DatabaseClusterEngine_AuroraMysql(props *AuroraMysqlClusterEngineProps) IClusterEngine {
 	_init_.Initialize()
 
@@ -12190,7 +11880,6 @@ func DatabaseClusterEngine_AuroraMysql(props *AuroraMysqlClusterEngineProps) ICl
 }
 
 // Creates a new Aurora PostgreSQL database cluster engine.
-// Experimental.
 func DatabaseClusterEngine_AuroraPostgres(props *AuroraPostgresClusterEngineProps) IClusterEngine {
 	_init_.Initialize()
 
@@ -12243,7 +11932,6 @@ func DatabaseClusterEngine_AURORA_POSTGRESQL() IClusterEngine {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DatabaseClusterFromSnapshot interface {
 	DatabaseClusterBase
 	ClusterEndpoint() Endpoint
@@ -12430,7 +12118,6 @@ func (j *jsiiProxy_DatabaseClusterFromSnapshot) SubnetGroup() ISubnetGroup {
 }
 
 
-// Experimental.
 func NewDatabaseClusterFromSnapshot(scope constructs.Construct, id *string, props *DatabaseClusterFromSnapshotProps) DatabaseClusterFromSnapshot {
 	_init_.Initialize()
 
@@ -12445,7 +12132,6 @@ func NewDatabaseClusterFromSnapshot(scope constructs.Construct, id *string, prop
 	return &j
 }
 
-// Experimental.
 func NewDatabaseClusterFromSnapshot_Override(d DatabaseClusterFromSnapshot, scope constructs.Construct, id *string, props *DatabaseClusterFromSnapshotProps) {
 	_init_.Initialize()
 
@@ -12476,7 +12162,6 @@ func DatabaseClusterFromSnapshot_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func DatabaseClusterFromSnapshot_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -12493,7 +12178,6 @@ func DatabaseClusterFromSnapshot_IsResource(construct constructs.IConstruct) *bo
 }
 
 // Add a new db proxy to this cluster.
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy {
 	var returns DatabaseProxy
 
@@ -12516,7 +12200,6 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) AddProxy(id *string, options *Da
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		d,
@@ -12526,7 +12209,6 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) ApplyRemovalPolicy(policy awscdk
 }
 
 // Renders the secret attachment target specifications.
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) AsSecretAttachmentTarget() *awssecretsmanager.SecretAttachmentTargetProps {
 	var returns *awssecretsmanager.SecretAttachmentTargetProps
 
@@ -12540,7 +12222,6 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) AsSecretAttachmentTarget() *awss
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -12560,7 +12241,6 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -12579,7 +12259,6 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) GetResourceArnAttribute(arnAttr 
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -12594,7 +12273,6 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) GetResourceNameAttribute(nameAtt
 }
 
 // Return the given named metric for this DBCluster.
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -12611,7 +12289,6 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) Metric(metricName *string, props
 // The percentage of CPU utilization.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -12628,7 +12305,6 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricCPUUtilization(props *awsc
 // The number of database connections in use.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricDatabaseConnections(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -12645,7 +12321,6 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricDatabaseConnections(props 
 // The average number of deadlocks in the database per second.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricDeadlocks(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -12662,7 +12337,6 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricDeadlocks(props *awscloudw
 // The amount of time that the instance has been running, in seconds.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricEngineUptime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -12679,7 +12353,6 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricEngineUptime(props *awsclo
 // The amount of available random access memory, in bytes.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricFreeableMemory(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -12696,7 +12369,6 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricFreeableMemory(props *awsc
 // The amount of local storage available, in bytes.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricFreeLocalStorage(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -12713,7 +12385,6 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricFreeLocalStorage(props *aw
 // The amount of network throughput received from clients by each instance, in bytes per second.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricNetworkReceiveThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -12730,7 +12401,6 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricNetworkReceiveThroughput(p
 // The amount of network throughput both received from and transmitted to clients by each instance, in bytes per second.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricNetworkThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -12747,7 +12417,6 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricNetworkThroughput(props *a
 // The amount of network throughput sent to clients by each instance, in bytes per second.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricNetworkTransmitThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -12764,7 +12433,6 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricNetworkTransmitThroughput(
 // The total amount of backup storage in bytes consumed by all Aurora snapshots outside its backup retention window.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricSnapshotStorageUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -12781,7 +12449,6 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricSnapshotStorageUsed(props 
 // The total amount of backup storage in bytes for which you are billed.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricTotalBackupStorageBilled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -12798,7 +12465,6 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricTotalBackupStorageBilled(p
 // The amount of storage used by your Aurora DB instance, in bytes.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricVolumeBytesUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -12815,7 +12481,6 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricVolumeBytesUsed(props *aws
 // The number of billed read I/O operations from a cluster volume, reported at 5-minute intervals.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricVolumeReadIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -12832,7 +12497,6 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricVolumeReadIOPs(props *awsc
 // The number of write disk I/O operations to the cluster volume, reported at 5-minute intervals.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricVolumeWriteIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -12847,7 +12511,6 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) MetricVolumeWriteIOPs(props *aws
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DatabaseClusterFromSnapshot) ToString() *string {
 	var returns *string
 
@@ -12865,19 +12528,15 @@ func (d *jsiiProxy_DatabaseClusterFromSnapshot) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DatabaseClusterFromSnapshotProps struct {
 	// What kind of database to start.
-	// Experimental.
 	Engine IClusterEngine `json:"engine"`
 	// Settings for the individual instances that are launched.
-	// Experimental.
 	InstanceProps *InstanceProps `json:"instanceProps"`
 	// The identifier for the DB instance snapshot or DB cluster snapshot to restore from.
 	//
 	// You can use either the name or the Amazon Resource Name (ARN) to specify a DB cluster snapshot.
 	// However, you can use only the ARN to specify a DB instance snapshot.
-	// Experimental.
 	SnapshotIdentifier *string `json:"snapshotIdentifier"`
 	// The number of seconds to set a cluster's target backtrack window to.
 	//
@@ -12885,69 +12544,52 @@ type DatabaseClusterFromSnapshotProps struct {
 	// cannot be enabled on existing clusters.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html
 	//
-	// Experimental.
 	BacktrackWindow awscdk.Duration `json:"backtrackWindow"`
 	// Backup settings.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow
 	//
-	// Experimental.
 	Backup *BackupProps `json:"backup"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
-	// Experimental.
 	CloudwatchLogsExports *[]*string `json:"cloudwatchLogsExports"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `Infinity`.
-	// Experimental.
 	CloudwatchLogsRetention awslogs.RetentionDays `json:"cloudwatchLogsRetention"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	// Experimental.
 	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole"`
 	// An optional identifier for the cluster.
-	// Experimental.
 	ClusterIdentifier *string `json:"clusterIdentifier"`
 	// Name of a database which is automatically created inside the cluster.
-	// Experimental.
 	DefaultDatabaseName *string `json:"defaultDatabaseName"`
 	// Indicates whether the DB cluster should have deletion protection enabled.
-	// Experimental.
 	DeletionProtection *bool `json:"deletionProtection"`
 	// Whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
-	// Experimental.
 	IamAuthentication *bool `json:"iamAuthentication"`
 	// Base identifier for instances.
 	//
 	// Every replica is named by appending the replica number to this string, 1-based.
-	// Experimental.
 	InstanceIdentifierBase *string `json:"instanceIdentifierBase"`
 	// How many replicas/instances to create.
 	//
 	// Has to be at least 1.
-	// Experimental.
 	Instances *float64 `json:"instances"`
 	// The interval, in seconds, between points when Amazon RDS collects enhanced monitoring metrics for the DB instances.
-	// Experimental.
 	MonitoringInterval awscdk.Duration `json:"monitoringInterval"`
 	// Role that will be used to manage DB instances monitoring.
-	// Experimental.
 	MonitoringRole awsiam.IRole `json:"monitoringRole"`
 	// Additional parameters to pass to the database engine.
-	// Experimental.
 	ParameterGroup IParameterGroup `json:"parameterGroup"`
 	// What port to listen on.
-	// Experimental.
 	Port *float64 `json:"port"`
 	// A preferred maintenance window day/time range. Should be specified as a range ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC).
 	//
 	// Example: 'Sun:23:45-Mon:00:15'
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance
 	//
-	// Experimental.
 	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
 	// The removal policy to apply when the cluster and its instances are removed from the stack or replaced during an update.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// S3 buckets that you want to load data into. This feature is only supported by the Aurora database engine.
 	//
@@ -12956,7 +12598,6 @@ type DatabaseClusterFromSnapshotProps struct {
 	// For MySQL:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/postgresql-s3-export.html
 	//
-	// Experimental.
 	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets"`
 	// Role that will be associated with this DB cluster to enable S3 export.
 	//
@@ -12967,7 +12608,6 @@ type DatabaseClusterFromSnapshotProps struct {
 	// For MySQL:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/postgresql-s3-export.html
 	//
-	// Experimental.
 	S3ExportRole awsiam.IRole `json:"s3ExportRole"`
 	// S3 buckets that you want to load data from. This feature is only supported by the Aurora database engine.
 	//
@@ -12976,7 +12616,6 @@ type DatabaseClusterFromSnapshotProps struct {
 	// For MySQL:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Migrating.html
 	//
-	// Experimental.
 	S3ImportBuckets *[]awss3.IBucket `json:"s3ImportBuckets"`
 	// Role that will be associated with this DB cluster to enable S3 import.
 	//
@@ -12987,10 +12626,8 @@ type DatabaseClusterFromSnapshotProps struct {
 	// For MySQL:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Migrating.html
 	//
-	// Experimental.
 	S3ImportRole awsiam.IRole `json:"s3ImportRole"`
 	// Existing subnet group for the cluster.
-	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup"`
 }
 
@@ -12998,13 +12635,10 @@ type DatabaseClusterFromSnapshotProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DatabaseClusterProps struct {
 	// What kind of database to start.
-	// Experimental.
 	Engine IClusterEngine `json:"engine"`
 	// Settings for the individual instances that are launched.
-	// Experimental.
 	InstanceProps *InstanceProps `json:"instanceProps"`
 	// The number of seconds to set a cluster's target backtrack window to.
 	//
@@ -13012,75 +12646,56 @@ type DatabaseClusterProps struct {
 	// cannot be enabled on existing clusters.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Managing.Backtrack.html
 	//
-	// Experimental.
 	BacktrackWindow awscdk.Duration `json:"backtrackWindow"`
 	// Backup settings.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow
 	//
-	// Experimental.
 	Backup *BackupProps `json:"backup"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
-	// Experimental.
 	CloudwatchLogsExports *[]*string `json:"cloudwatchLogsExports"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `Infinity`.
-	// Experimental.
 	CloudwatchLogsRetention awslogs.RetentionDays `json:"cloudwatchLogsRetention"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	// Experimental.
 	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole"`
 	// An optional identifier for the cluster.
-	// Experimental.
 	ClusterIdentifier *string `json:"clusterIdentifier"`
 	// Whether to copy tags to the snapshot when a snapshot is created.
-	// Experimental.
 	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot"`
 	// Credentials for the administrative user.
-	// Experimental.
 	Credentials Credentials `json:"credentials"`
 	// Name of a database which is automatically created inside the cluster.
-	// Experimental.
 	DefaultDatabaseName *string `json:"defaultDatabaseName"`
 	// Indicates whether the DB cluster should have deletion protection enabled.
-	// Experimental.
 	DeletionProtection *bool `json:"deletionProtection"`
 	// Whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
-	// Experimental.
 	IamAuthentication *bool `json:"iamAuthentication"`
 	// Base identifier for instances.
 	//
 	// Every replica is named by appending the replica number to this string, 1-based.
-	// Experimental.
 	InstanceIdentifierBase *string `json:"instanceIdentifierBase"`
 	// How many replicas/instances to create.
 	//
 	// Has to be at least 1.
-	// Experimental.
 	Instances *float64 `json:"instances"`
 	// The interval, in seconds, between points when Amazon RDS collects enhanced monitoring metrics for the DB instances.
-	// Experimental.
 	MonitoringInterval awscdk.Duration `json:"monitoringInterval"`
 	// Role that will be used to manage DB instances monitoring.
-	// Experimental.
 	MonitoringRole awsiam.IRole `json:"monitoringRole"`
 	// Additional parameters to pass to the database engine.
-	// Experimental.
 	ParameterGroup IParameterGroup `json:"parameterGroup"`
 	// What port to listen on.
-	// Experimental.
 	Port *float64 `json:"port"`
 	// A preferred maintenance window day/time range. Should be specified as a range ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC).
 	//
 	// Example: 'Sun:23:45-Mon:00:15'
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.Maintenance.html#Concepts.DBMaintenance
 	//
-	// Experimental.
 	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
 	// The removal policy to apply when the cluster and its instances are removed from the stack or replaced during an update.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// S3 buckets that you want to load data into. This feature is only supported by the Aurora database engine.
 	//
@@ -13089,7 +12704,6 @@ type DatabaseClusterProps struct {
 	// For MySQL:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/postgresql-s3-export.html
 	//
-	// Experimental.
 	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets"`
 	// Role that will be associated with this DB cluster to enable S3 export.
 	//
@@ -13100,7 +12714,6 @@ type DatabaseClusterProps struct {
 	// For MySQL:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/postgresql-s3-export.html
 	//
-	// Experimental.
 	S3ExportRole awsiam.IRole `json:"s3ExportRole"`
 	// S3 buckets that you want to load data from. This feature is only supported by the Aurora database engine.
 	//
@@ -13109,7 +12722,6 @@ type DatabaseClusterProps struct {
 	// For MySQL:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Migrating.html
 	//
-	// Experimental.
 	S3ImportBuckets *[]awss3.IBucket `json:"s3ImportBuckets"`
 	// Role that will be associated with this DB cluster to enable S3 import.
 	//
@@ -13120,18 +12732,14 @@ type DatabaseClusterProps struct {
 	// For MySQL:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraPostgreSQL.Migrating.html
 	//
-	// Experimental.
 	S3ImportRole awsiam.IRole `json:"s3ImportRole"`
 	// Whether to enable storage encryption.
-	// Experimental.
 	StorageEncrypted *bool `json:"storageEncrypted"`
 	// The KMS key for storage encryption.
 	//
 	// If specified, {@link storageEncrypted} will be set to `true`.
-	// Experimental.
 	StorageEncryptionKey awskms.IKey `json:"storageEncryptionKey"`
 	// Existing subnet group for the cluster.
-	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup"`
 }
 
@@ -13139,7 +12747,6 @@ type DatabaseClusterProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DatabaseInstance interface {
 	DatabaseInstanceBase
 	IDatabaseInstance
@@ -13370,7 +12977,6 @@ func (j *jsiiProxy_DatabaseInstance) VpcPlacement() *awsec2.SubnetSelection {
 }
 
 
-// Experimental.
 func NewDatabaseInstance(scope constructs.Construct, id *string, props *DatabaseInstanceProps) DatabaseInstance {
 	_init_.Initialize()
 
@@ -13385,7 +12991,6 @@ func NewDatabaseInstance(scope constructs.Construct, id *string, props *Database
 	return &j
 }
 
-// Experimental.
 func NewDatabaseInstance_Override(d DatabaseInstance, scope constructs.Construct, id *string, props *DatabaseInstanceProps) {
 	_init_.Initialize()
 
@@ -13405,7 +13010,6 @@ func (j *jsiiProxy_DatabaseInstance) SetEnableIamAuthentication(val *bool) {
 }
 
 // Import an existing database instance.
-// Experimental.
 func DatabaseInstance_FromDatabaseInstanceAttributes(scope constructs.Construct, id *string, attrs *DatabaseInstanceAttributes) IDatabaseInstance {
 	_init_.Initialize()
 
@@ -13441,7 +13045,6 @@ func DatabaseInstance_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func DatabaseInstance_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -13458,7 +13061,6 @@ func DatabaseInstance_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Add a new db proxy to this instance.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstance) AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy {
 	var returns DatabaseProxy
 
@@ -13473,7 +13075,6 @@ func (d *jsiiProxy_DatabaseInstance) AddProxy(id *string, options *DatabaseProxy
 }
 
 // Adds the multi user rotation to this instance.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstance) AddRotationMultiUser(id *string, options *RotationMultiUserOptions) awssecretsmanager.SecretRotation {
 	var returns awssecretsmanager.SecretRotation
 
@@ -13488,7 +13089,6 @@ func (d *jsiiProxy_DatabaseInstance) AddRotationMultiUser(id *string, options *R
 }
 
 // Adds the single user rotation of the master password to this instance.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstance) AddRotationSingleUser(options *RotationSingleUserOptions) awssecretsmanager.SecretRotation {
 	var returns awssecretsmanager.SecretRotation
 
@@ -13511,7 +13111,6 @@ func (d *jsiiProxy_DatabaseInstance) AddRotationSingleUser(options *RotationSing
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (d *jsiiProxy_DatabaseInstance) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		d,
@@ -13521,7 +13120,6 @@ func (d *jsiiProxy_DatabaseInstance) ApplyRemovalPolicy(policy awscdk.RemovalPol
 }
 
 // Renders the secret attachment target specifications.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstance) AsSecretAttachmentTarget() *awssecretsmanager.SecretAttachmentTargetProps {
 	var returns *awssecretsmanager.SecretAttachmentTargetProps
 
@@ -13535,7 +13133,6 @@ func (d *jsiiProxy_DatabaseInstance) AsSecretAttachmentTarget() *awssecretsmanag
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DatabaseInstance) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -13555,7 +13152,6 @@ func (d *jsiiProxy_DatabaseInstance) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstance) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -13574,7 +13170,6 @@ func (d *jsiiProxy_DatabaseInstance) GetResourceArnAttribute(arnAttr *string, ar
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstance) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -13589,7 +13184,6 @@ func (d *jsiiProxy_DatabaseInstance) GetResourceNameAttribute(nameAttr *string) 
 }
 
 // Grant the given identity connection access to the database.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstance) GrantConnect(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -13604,7 +13198,6 @@ func (d *jsiiProxy_DatabaseInstance) GrantConnect(grantee awsiam.IGrantable) aws
 }
 
 // Return the given named metric for this DBInstance.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstance) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -13621,7 +13214,6 @@ func (d *jsiiProxy_DatabaseInstance) Metric(metricName *string, props *awscloudw
 // The percentage of CPU utilization.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseInstance) MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -13638,7 +13230,6 @@ func (d *jsiiProxy_DatabaseInstance) MetricCPUUtilization(props *awscloudwatch.M
 // The number of database connections in use.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseInstance) MetricDatabaseConnections(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -13655,7 +13246,6 @@ func (d *jsiiProxy_DatabaseInstance) MetricDatabaseConnections(props *awscloudwa
 // The amount of available random access memory.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseInstance) MetricFreeableMemory(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -13672,7 +13262,6 @@ func (d *jsiiProxy_DatabaseInstance) MetricFreeableMemory(props *awscloudwatch.M
 // The amount of available storage space.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseInstance) MetricFreeStorageSpace(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -13689,7 +13278,6 @@ func (d *jsiiProxy_DatabaseInstance) MetricFreeStorageSpace(props *awscloudwatch
 // The average number of disk write I/O operations per second.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseInstance) MetricReadIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -13706,7 +13294,6 @@ func (d *jsiiProxy_DatabaseInstance) MetricReadIOPS(props *awscloudwatch.MetricO
 // The average number of disk read I/O operations per second.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseInstance) MetricWriteIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -13724,7 +13311,6 @@ func (d *jsiiProxy_DatabaseInstance) MetricWriteIOPS(props *awscloudwatch.Metric
 //
 // Use
 // `rule.addEventPattern(pattern)` to specify a filter.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstance) OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -13738,7 +13324,6 @@ func (d *jsiiProxy_DatabaseInstance) OnEvent(id *string, options *awsevents.OnEv
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DatabaseInstance) SetLogRetention() {
 	_jsii_.InvokeVoid(
 		d,
@@ -13748,7 +13333,6 @@ func (d *jsiiProxy_DatabaseInstance) SetLogRetention() {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstance) ToString() *string {
 	var returns *string
 
@@ -13766,22 +13350,16 @@ func (d *jsiiProxy_DatabaseInstance) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DatabaseInstanceAttributes struct {
 	// The engine of the existing database Instance.
-	// Experimental.
 	Engine IInstanceEngine `json:"engine"`
 	// The endpoint address.
-	// Experimental.
 	InstanceEndpointAddress *string `json:"instanceEndpointAddress"`
 	// The instance identifier.
-	// Experimental.
 	InstanceIdentifier *string `json:"instanceIdentifier"`
 	// The database port.
-	// Experimental.
 	Port *float64 `json:"port"`
 	// The security groups of the instance.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 }
 
@@ -13789,7 +13367,6 @@ type DatabaseInstanceAttributes struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DatabaseInstanceBase interface {
 	awscdk.Resource
 	IDatabaseInstance
@@ -13951,7 +13528,6 @@ func (j *jsiiProxy_DatabaseInstanceBase) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewDatabaseInstanceBase_Override(d DatabaseInstanceBase, scope constructs.Construct, id *string, props *awscdk.ResourceProps) {
 	_init_.Initialize()
 
@@ -13971,7 +13547,6 @@ func (j *jsiiProxy_DatabaseInstanceBase) SetEnableIamAuthentication(val *bool) {
 }
 
 // Import an existing database instance.
-// Experimental.
 func DatabaseInstanceBase_FromDatabaseInstanceAttributes(scope constructs.Construct, id *string, attrs *DatabaseInstanceAttributes) IDatabaseInstance {
 	_init_.Initialize()
 
@@ -14007,7 +13582,6 @@ func DatabaseInstanceBase_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func DatabaseInstanceBase_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -14024,7 +13598,6 @@ func DatabaseInstanceBase_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Add a new db proxy to this instance.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceBase) AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy {
 	var returns DatabaseProxy
 
@@ -14047,7 +13620,6 @@ func (d *jsiiProxy_DatabaseInstanceBase) AddProxy(id *string, options *DatabaseP
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		d,
@@ -14057,7 +13629,6 @@ func (d *jsiiProxy_DatabaseInstanceBase) ApplyRemovalPolicy(policy awscdk.Remova
 }
 
 // Renders the secret attachment target specifications.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceBase) AsSecretAttachmentTarget() *awssecretsmanager.SecretAttachmentTargetProps {
 	var returns *awssecretsmanager.SecretAttachmentTargetProps
 
@@ -14071,7 +13642,6 @@ func (d *jsiiProxy_DatabaseInstanceBase) AsSecretAttachmentTarget() *awssecretsm
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceBase) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -14091,7 +13661,6 @@ func (d *jsiiProxy_DatabaseInstanceBase) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceBase) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -14110,7 +13679,6 @@ func (d *jsiiProxy_DatabaseInstanceBase) GetResourceArnAttribute(arnAttr *string
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceBase) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -14125,7 +13693,6 @@ func (d *jsiiProxy_DatabaseInstanceBase) GetResourceNameAttribute(nameAttr *stri
 }
 
 // Grant the given identity connection access to the database.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceBase) GrantConnect(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -14140,7 +13707,6 @@ func (d *jsiiProxy_DatabaseInstanceBase) GrantConnect(grantee awsiam.IGrantable)
 }
 
 // Return the given named metric for this DBInstance.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceBase) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -14157,7 +13723,6 @@ func (d *jsiiProxy_DatabaseInstanceBase) Metric(metricName *string, props *awscl
 // The percentage of CPU utilization.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceBase) MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -14174,7 +13739,6 @@ func (d *jsiiProxy_DatabaseInstanceBase) MetricCPUUtilization(props *awscloudwat
 // The number of database connections in use.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceBase) MetricDatabaseConnections(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -14191,7 +13755,6 @@ func (d *jsiiProxy_DatabaseInstanceBase) MetricDatabaseConnections(props *awsclo
 // The amount of available random access memory.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceBase) MetricFreeableMemory(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -14208,7 +13771,6 @@ func (d *jsiiProxy_DatabaseInstanceBase) MetricFreeableMemory(props *awscloudwat
 // The amount of available storage space.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceBase) MetricFreeStorageSpace(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -14225,7 +13787,6 @@ func (d *jsiiProxy_DatabaseInstanceBase) MetricFreeStorageSpace(props *awscloudw
 // The average number of disk write I/O operations per second.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceBase) MetricReadIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -14242,7 +13803,6 @@ func (d *jsiiProxy_DatabaseInstanceBase) MetricReadIOPS(props *awscloudwatch.Met
 // The average number of disk read I/O operations per second.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceBase) MetricWriteIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -14260,7 +13820,6 @@ func (d *jsiiProxy_DatabaseInstanceBase) MetricWriteIOPS(props *awscloudwatch.Me
 //
 // Use
 // `rule.addEventPattern(pattern)` to specify a filter.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceBase) OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -14275,7 +13834,6 @@ func (d *jsiiProxy_DatabaseInstanceBase) OnEvent(id *string, options *awsevents.
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceBase) ToString() *string {
 	var returns *string
 
@@ -14296,7 +13854,6 @@ func (d *jsiiProxy_DatabaseInstanceBase) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DatabaseInstanceEngine interface {
 }
 
@@ -14305,7 +13862,6 @@ type jsiiProxy_DatabaseInstanceEngine struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewDatabaseInstanceEngine() DatabaseInstanceEngine {
 	_init_.Initialize()
 
@@ -14320,7 +13876,6 @@ func NewDatabaseInstanceEngine() DatabaseInstanceEngine {
 	return &j
 }
 
-// Experimental.
 func NewDatabaseInstanceEngine_Override(d DatabaseInstanceEngine) {
 	_init_.Initialize()
 
@@ -14332,7 +13887,6 @@ func NewDatabaseInstanceEngine_Override(d DatabaseInstanceEngine) {
 }
 
 // Creates a new MariaDB instance engine.
-// Experimental.
 func DatabaseInstanceEngine_MariaDb(props *MariaDbInstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
@@ -14349,7 +13903,6 @@ func DatabaseInstanceEngine_MariaDb(props *MariaDbInstanceEngineProps) IInstance
 }
 
 // Creates a new MySQL instance engine.
-// Experimental.
 func DatabaseInstanceEngine_Mysql(props *MySqlInstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
@@ -14366,7 +13919,6 @@ func DatabaseInstanceEngine_Mysql(props *MySqlInstanceEngineProps) IInstanceEngi
 }
 
 // Creates a new Oracle Enterprise Edition instance engine.
-// Experimental.
 func DatabaseInstanceEngine_OracleEe(props *OracleEeInstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
@@ -14383,7 +13935,6 @@ func DatabaseInstanceEngine_OracleEe(props *OracleEeInstanceEngineProps) IInstan
 }
 
 // Creates a new Oracle Standard Edition 1 instance engine.
-// Experimental.
 func DatabaseInstanceEngine_OracleSe2(props *OracleSe2InstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
@@ -14400,7 +13951,6 @@ func DatabaseInstanceEngine_OracleSe2(props *OracleSe2InstanceEngineProps) IInst
 }
 
 // Creates a new PostgreSQL instance engine.
-// Experimental.
 func DatabaseInstanceEngine_Postgres(props *PostgresInstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
@@ -14417,7 +13967,6 @@ func DatabaseInstanceEngine_Postgres(props *PostgresInstanceEngineProps) IInstan
 }
 
 // Creates a new SQL Server Enterprise Edition instance engine.
-// Experimental.
 func DatabaseInstanceEngine_SqlServerEe(props *SqlServerEeInstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
@@ -14434,7 +13983,6 @@ func DatabaseInstanceEngine_SqlServerEe(props *SqlServerEeInstanceEngineProps) I
 }
 
 // Creates a new SQL Server Express Edition instance engine.
-// Experimental.
 func DatabaseInstanceEngine_SqlServerEx(props *SqlServerExInstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
@@ -14451,7 +13999,6 @@ func DatabaseInstanceEngine_SqlServerEx(props *SqlServerExInstanceEngineProps) I
 }
 
 // Creates a new SQL Server Standard Edition instance engine.
-// Experimental.
 func DatabaseInstanceEngine_SqlServerSe(props *SqlServerSeInstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
@@ -14468,7 +14015,6 @@ func DatabaseInstanceEngine_SqlServerSe(props *SqlServerSeInstanceEngineProps) I
 }
 
 // Creates a new SQL Server Web Edition instance engine.
-// Experimental.
 func DatabaseInstanceEngine_SqlServerWeb(props *SqlServerWebInstanceEngineProps) IInstanceEngine {
 	_init_.Initialize()
 
@@ -14488,7 +14034,6 @@ func DatabaseInstanceEngine_SqlServerWeb(props *SqlServerWebInstanceEngineProps)
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DatabaseInstanceFromSnapshot interface {
 	DatabaseInstanceBase
 	IDatabaseInstance
@@ -14719,7 +14264,6 @@ func (j *jsiiProxy_DatabaseInstanceFromSnapshot) VpcPlacement() *awsec2.SubnetSe
 }
 
 
-// Experimental.
 func NewDatabaseInstanceFromSnapshot(scope constructs.Construct, id *string, props *DatabaseInstanceFromSnapshotProps) DatabaseInstanceFromSnapshot {
 	_init_.Initialize()
 
@@ -14734,7 +14278,6 @@ func NewDatabaseInstanceFromSnapshot(scope constructs.Construct, id *string, pro
 	return &j
 }
 
-// Experimental.
 func NewDatabaseInstanceFromSnapshot_Override(d DatabaseInstanceFromSnapshot, scope constructs.Construct, id *string, props *DatabaseInstanceFromSnapshotProps) {
 	_init_.Initialize()
 
@@ -14754,7 +14297,6 @@ func (j *jsiiProxy_DatabaseInstanceFromSnapshot) SetEnableIamAuthentication(val 
 }
 
 // Import an existing database instance.
-// Experimental.
 func DatabaseInstanceFromSnapshot_FromDatabaseInstanceAttributes(scope constructs.Construct, id *string, attrs *DatabaseInstanceAttributes) IDatabaseInstance {
 	_init_.Initialize()
 
@@ -14790,7 +14332,6 @@ func DatabaseInstanceFromSnapshot_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func DatabaseInstanceFromSnapshot_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -14807,7 +14348,6 @@ func DatabaseInstanceFromSnapshot_IsResource(construct constructs.IConstruct) *b
 }
 
 // Add a new db proxy to this instance.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceFromSnapshot) AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy {
 	var returns DatabaseProxy
 
@@ -14822,7 +14362,6 @@ func (d *jsiiProxy_DatabaseInstanceFromSnapshot) AddProxy(id *string, options *D
 }
 
 // Adds the multi user rotation to this instance.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceFromSnapshot) AddRotationMultiUser(id *string, options *RotationMultiUserOptions) awssecretsmanager.SecretRotation {
 	var returns awssecretsmanager.SecretRotation
 
@@ -14837,7 +14376,6 @@ func (d *jsiiProxy_DatabaseInstanceFromSnapshot) AddRotationMultiUser(id *string
 }
 
 // Adds the single user rotation of the master password to this instance.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceFromSnapshot) AddRotationSingleUser(options *RotationSingleUserOptions) awssecretsmanager.SecretRotation {
 	var returns awssecretsmanager.SecretRotation
 
@@ -14860,7 +14398,6 @@ func (d *jsiiProxy_DatabaseInstanceFromSnapshot) AddRotationSingleUser(options *
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceFromSnapshot) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		d,
@@ -14870,7 +14407,6 @@ func (d *jsiiProxy_DatabaseInstanceFromSnapshot) ApplyRemovalPolicy(policy awscd
 }
 
 // Renders the secret attachment target specifications.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceFromSnapshot) AsSecretAttachmentTarget() *awssecretsmanager.SecretAttachmentTargetProps {
 	var returns *awssecretsmanager.SecretAttachmentTargetProps
 
@@ -14884,7 +14420,6 @@ func (d *jsiiProxy_DatabaseInstanceFromSnapshot) AsSecretAttachmentTarget() *aws
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceFromSnapshot) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -14904,7 +14439,6 @@ func (d *jsiiProxy_DatabaseInstanceFromSnapshot) GeneratePhysicalName() *string 
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceFromSnapshot) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -14923,7 +14457,6 @@ func (d *jsiiProxy_DatabaseInstanceFromSnapshot) GetResourceArnAttribute(arnAttr
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceFromSnapshot) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -14938,7 +14471,6 @@ func (d *jsiiProxy_DatabaseInstanceFromSnapshot) GetResourceNameAttribute(nameAt
 }
 
 // Grant the given identity connection access to the database.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceFromSnapshot) GrantConnect(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -14953,7 +14485,6 @@ func (d *jsiiProxy_DatabaseInstanceFromSnapshot) GrantConnect(grantee awsiam.IGr
 }
 
 // Return the given named metric for this DBInstance.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceFromSnapshot) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -14970,7 +14501,6 @@ func (d *jsiiProxy_DatabaseInstanceFromSnapshot) Metric(metricName *string, prop
 // The percentage of CPU utilization.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceFromSnapshot) MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -14987,7 +14517,6 @@ func (d *jsiiProxy_DatabaseInstanceFromSnapshot) MetricCPUUtilization(props *aws
 // The number of database connections in use.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceFromSnapshot) MetricDatabaseConnections(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -15004,7 +14533,6 @@ func (d *jsiiProxy_DatabaseInstanceFromSnapshot) MetricDatabaseConnections(props
 // The amount of available random access memory.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceFromSnapshot) MetricFreeableMemory(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -15021,7 +14549,6 @@ func (d *jsiiProxy_DatabaseInstanceFromSnapshot) MetricFreeableMemory(props *aws
 // The amount of available storage space.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceFromSnapshot) MetricFreeStorageSpace(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -15038,7 +14565,6 @@ func (d *jsiiProxy_DatabaseInstanceFromSnapshot) MetricFreeStorageSpace(props *a
 // The average number of disk write I/O operations per second.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceFromSnapshot) MetricReadIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -15055,7 +14581,6 @@ func (d *jsiiProxy_DatabaseInstanceFromSnapshot) MetricReadIOPS(props *awscloudw
 // The average number of disk read I/O operations per second.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceFromSnapshot) MetricWriteIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -15073,7 +14598,6 @@ func (d *jsiiProxy_DatabaseInstanceFromSnapshot) MetricWriteIOPS(props *awscloud
 //
 // Use
 // `rule.addEventPattern(pattern)` to specify a filter.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceFromSnapshot) OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -15087,7 +14611,6 @@ func (d *jsiiProxy_DatabaseInstanceFromSnapshot) OnEvent(id *string, options *aw
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceFromSnapshot) SetLogRetention() {
 	_jsii_.InvokeVoid(
 		d,
@@ -15097,7 +14620,6 @@ func (d *jsiiProxy_DatabaseInstanceFromSnapshot) SetLogRetention() {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceFromSnapshot) ToString() *string {
 	var returns *string
 
@@ -15115,94 +14637,70 @@ func (d *jsiiProxy_DatabaseInstanceFromSnapshot) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DatabaseInstanceFromSnapshotProps struct {
 	// Indicates that minor engine upgrades are applied automatically to the DB instance during the maintenance window.
-	// Experimental.
 	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade"`
 	// The name of the Availability Zone where the DB instance will be located.
-	// Experimental.
 	AvailabilityZone *string `json:"availabilityZone"`
 	// The number of days during which automatic DB snapshots are retained.
 	//
 	// Set to zero to disable backups.
 	// When creating a read replica, you must enable automatic backups on the source
 	// database instance by setting the backup retention to a value other than zero.
-	// Experimental.
 	BackupRetention awscdk.Duration `json:"backupRetention"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
-	// Experimental.
 	CloudwatchLogsExports *[]*string `json:"cloudwatchLogsExports"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `Infinity`.
-	// Experimental.
 	CloudwatchLogsRetention awslogs.RetentionDays `json:"cloudwatchLogsRetention"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	// Experimental.
 	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole"`
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance.
-	// Experimental.
 	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot"`
 	// Indicates whether automated backups should be deleted or retained when you delete a DB instance.
-	// Experimental.
 	DeleteAutomatedBackups *bool `json:"deleteAutomatedBackups"`
 	// Indicates whether the DB instance should have deletion protection enabled.
-	// Experimental.
 	DeletionProtection *bool `json:"deletionProtection"`
 	// The Active Directory directory ID to create the DB instance in.
-	// Experimental.
 	Domain *string `json:"domain"`
 	// The IAM role to be used when making API calls to the Directory Service.
 	//
 	// The role needs the AWS-managed policy
 	// AmazonRDSDirectoryServiceAccess or equivalent.
-	// Experimental.
 	DomainRole awsiam.IRole `json:"domainRole"`
 	// Whether to enable Performance Insights for the DB instance.
-	// Experimental.
 	EnablePerformanceInsights *bool `json:"enablePerformanceInsights"`
 	// Whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
-	// Experimental.
 	IamAuthentication *bool `json:"iamAuthentication"`
 	// A name for the DB instance.
 	//
 	// If you specify a name, AWS CloudFormation
 	// converts it to lowercase.
-	// Experimental.
 	InstanceIdentifier *string `json:"instanceIdentifier"`
 	// The number of I/O operations per second (IOPS) that the database provisions.
 	//
 	// The value must be equal to or greater than 1000.
-	// Experimental.
 	Iops *float64 `json:"iops"`
 	// Upper limit to which RDS can scale the storage in GiB(Gibibyte).
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling
 	//
-	// Experimental.
 	MaxAllocatedStorage *float64 `json:"maxAllocatedStorage"`
 	// The interval, in seconds, between points when Amazon RDS collects enhanced monitoring metrics for the DB instance.
-	// Experimental.
 	MonitoringInterval awscdk.Duration `json:"monitoringInterval"`
 	// Role that will be used to manage DB instance monitoring.
-	// Experimental.
 	MonitoringRole awsiam.IRole `json:"monitoringRole"`
 	// Specifies if the database instance is a multiple Availability Zone deployment.
-	// Experimental.
 	MultiAz *bool `json:"multiAz"`
 	// The option group to associate with the instance.
-	// Experimental.
 	OptionGroup IOptionGroup `json:"optionGroup"`
 	// The AWS KMS key for encryption of Performance Insights data.
-	// Experimental.
 	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
-	// Experimental.
 	PerformanceInsightRetention PerformanceInsightRetention `json:"performanceInsightRetention"`
 	// The port for the instance.
-	// Experimental.
 	Port *float64 `json:"port"`
 	// The daily time range during which automated backups are performed.
 	//
@@ -15211,22 +14709,17 @@ type DatabaseInstanceFromSnapshotProps struct {
 	// - Must be in Universal Coordinated Time (UTC).
 	// - Must not conflict with the preferred maintenance window.
 	// - Must be at least 30 minutes.
-	// Experimental.
 	PreferredBackupWindow *string `json:"preferredBackupWindow"`
 	// The weekly time range (in UTC) during which system maintenance can occur.
 	//
 	// Format: `ddd:hh24:mi-ddd:hh24:mi`
 	// Constraint: Minimum 30-minute window
-	// Experimental.
 	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
 	// The number of CPU cores and the number of threads per core.
-	// Experimental.
 	ProcessorFeatures *ProcessorFeatures `json:"processorFeatures"`
 	// Indicates whether the DB instance is an internet-facing instance.
-	// Experimental.
 	PubliclyAccessible *bool `json:"publiclyAccessible"`
 	// The CloudFormation policy to apply when the instance is removed from the stack or replaced during an update.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// S3 buckets that you want to load data into.
 	//
@@ -15235,7 +14728,6 @@ type DatabaseInstanceFromSnapshotProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
-	// Experimental.
 	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 export.
 	//
@@ -15244,7 +14736,6 @@ type DatabaseInstanceFromSnapshotProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
-	// Experimental.
 	S3ExportRole awsiam.IRole `json:"s3ExportRole"`
 	// S3 buckets that you want to load data from.
 	//
@@ -15255,7 +14746,6 @@ type DatabaseInstanceFromSnapshotProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
-	// Experimental.
 	S3ImportBuckets *[]awss3.IBucket `json:"s3ImportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 import.
 	//
@@ -15266,64 +14756,48 @@ type DatabaseInstanceFromSnapshotProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
-	// Experimental.
 	S3ImportRole awsiam.IRole `json:"s3ImportRole"`
 	// The security groups to assign to the DB instance.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 	// The storage type.
 	//
 	// Storage types supported are gp2, io1, standard.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#Concepts.Storage.GeneralSSD
 	//
-	// Experimental.
 	StorageType StorageType `json:"storageType"`
 	// Existing subnet group for the instance.
-	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup"`
 	// The VPC network where the DB subnet group should be created.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// The type of subnets to add to the created DB subnet group.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 	// The allocated storage size, specified in gigabytes (GB).
-	// Experimental.
 	AllocatedStorage *float64 `json:"allocatedStorage"`
 	// Whether to allow major version upgrades.
-	// Experimental.
 	AllowMajorVersionUpgrade *bool `json:"allowMajorVersionUpgrade"`
 	// The name of the database.
-	// Experimental.
 	DatabaseName *string `json:"databaseName"`
 	// The database engine.
-	// Experimental.
 	Engine IInstanceEngine `json:"engine"`
 	// The name of the compute and memory capacity for the instance.
-	// Experimental.
 	InstanceType awsec2.InstanceType `json:"instanceType"`
 	// The license model.
-	// Experimental.
 	LicenseModel LicenseModel `json:"licenseModel"`
 	// The DB parameter group to associate with the instance.
-	// Experimental.
 	ParameterGroup IParameterGroup `json:"parameterGroup"`
 	// The time zone of the instance.
 	//
 	// This is currently supported only by Microsoft Sql Server.
-	// Experimental.
 	Timezone *string `json:"timezone"`
 	// The name or Amazon Resource Name (ARN) of the DB snapshot that's used to restore the DB instance.
 	//
 	// If you're restoring from a shared manual DB
 	// snapshot, you must specify the ARN of the snapshot.
-	// Experimental.
 	SnapshotIdentifier *string `json:"snapshotIdentifier"`
 	// Master user credentials.
 	//
 	// Note - It is not possible to change the master username for a snapshot;
 	// however, it is possible to provide (or generate) a new password.
-	// Experimental.
 	Credentials SnapshotCredentials `json:"credentials"`
 }
 
@@ -15331,94 +14805,70 @@ type DatabaseInstanceFromSnapshotProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DatabaseInstanceNewProps struct {
 	// Indicates that minor engine upgrades are applied automatically to the DB instance during the maintenance window.
-	// Experimental.
 	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade"`
 	// The name of the Availability Zone where the DB instance will be located.
-	// Experimental.
 	AvailabilityZone *string `json:"availabilityZone"`
 	// The number of days during which automatic DB snapshots are retained.
 	//
 	// Set to zero to disable backups.
 	// When creating a read replica, you must enable automatic backups on the source
 	// database instance by setting the backup retention to a value other than zero.
-	// Experimental.
 	BackupRetention awscdk.Duration `json:"backupRetention"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
-	// Experimental.
 	CloudwatchLogsExports *[]*string `json:"cloudwatchLogsExports"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `Infinity`.
-	// Experimental.
 	CloudwatchLogsRetention awslogs.RetentionDays `json:"cloudwatchLogsRetention"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	// Experimental.
 	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole"`
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance.
-	// Experimental.
 	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot"`
 	// Indicates whether automated backups should be deleted or retained when you delete a DB instance.
-	// Experimental.
 	DeleteAutomatedBackups *bool `json:"deleteAutomatedBackups"`
 	// Indicates whether the DB instance should have deletion protection enabled.
-	// Experimental.
 	DeletionProtection *bool `json:"deletionProtection"`
 	// The Active Directory directory ID to create the DB instance in.
-	// Experimental.
 	Domain *string `json:"domain"`
 	// The IAM role to be used when making API calls to the Directory Service.
 	//
 	// The role needs the AWS-managed policy
 	// AmazonRDSDirectoryServiceAccess or equivalent.
-	// Experimental.
 	DomainRole awsiam.IRole `json:"domainRole"`
 	// Whether to enable Performance Insights for the DB instance.
-	// Experimental.
 	EnablePerformanceInsights *bool `json:"enablePerformanceInsights"`
 	// Whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
-	// Experimental.
 	IamAuthentication *bool `json:"iamAuthentication"`
 	// A name for the DB instance.
 	//
 	// If you specify a name, AWS CloudFormation
 	// converts it to lowercase.
-	// Experimental.
 	InstanceIdentifier *string `json:"instanceIdentifier"`
 	// The number of I/O operations per second (IOPS) that the database provisions.
 	//
 	// The value must be equal to or greater than 1000.
-	// Experimental.
 	Iops *float64 `json:"iops"`
 	// Upper limit to which RDS can scale the storage in GiB(Gibibyte).
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling
 	//
-	// Experimental.
 	MaxAllocatedStorage *float64 `json:"maxAllocatedStorage"`
 	// The interval, in seconds, between points when Amazon RDS collects enhanced monitoring metrics for the DB instance.
-	// Experimental.
 	MonitoringInterval awscdk.Duration `json:"monitoringInterval"`
 	// Role that will be used to manage DB instance monitoring.
-	// Experimental.
 	MonitoringRole awsiam.IRole `json:"monitoringRole"`
 	// Specifies if the database instance is a multiple Availability Zone deployment.
-	// Experimental.
 	MultiAz *bool `json:"multiAz"`
 	// The option group to associate with the instance.
-	// Experimental.
 	OptionGroup IOptionGroup `json:"optionGroup"`
 	// The AWS KMS key for encryption of Performance Insights data.
-	// Experimental.
 	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
-	// Experimental.
 	PerformanceInsightRetention PerformanceInsightRetention `json:"performanceInsightRetention"`
 	// The port for the instance.
-	// Experimental.
 	Port *float64 `json:"port"`
 	// The daily time range during which automated backups are performed.
 	//
@@ -15427,22 +14877,17 @@ type DatabaseInstanceNewProps struct {
 	// - Must be in Universal Coordinated Time (UTC).
 	// - Must not conflict with the preferred maintenance window.
 	// - Must be at least 30 minutes.
-	// Experimental.
 	PreferredBackupWindow *string `json:"preferredBackupWindow"`
 	// The weekly time range (in UTC) during which system maintenance can occur.
 	//
 	// Format: `ddd:hh24:mi-ddd:hh24:mi`
 	// Constraint: Minimum 30-minute window
-	// Experimental.
 	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
 	// The number of CPU cores and the number of threads per core.
-	// Experimental.
 	ProcessorFeatures *ProcessorFeatures `json:"processorFeatures"`
 	// Indicates whether the DB instance is an internet-facing instance.
-	// Experimental.
 	PubliclyAccessible *bool `json:"publiclyAccessible"`
 	// The CloudFormation policy to apply when the instance is removed from the stack or replaced during an update.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// S3 buckets that you want to load data into.
 	//
@@ -15451,7 +14896,6 @@ type DatabaseInstanceNewProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
-	// Experimental.
 	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 export.
 	//
@@ -15460,7 +14904,6 @@ type DatabaseInstanceNewProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
-	// Experimental.
 	S3ExportRole awsiam.IRole `json:"s3ExportRole"`
 	// S3 buckets that you want to load data from.
 	//
@@ -15471,7 +14914,6 @@ type DatabaseInstanceNewProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
-	// Experimental.
 	S3ImportBuckets *[]awss3.IBucket `json:"s3ImportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 import.
 	//
@@ -15482,26 +14924,20 @@ type DatabaseInstanceNewProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
-	// Experimental.
 	S3ImportRole awsiam.IRole `json:"s3ImportRole"`
 	// The security groups to assign to the DB instance.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 	// The storage type.
 	//
 	// Storage types supported are gp2, io1, standard.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#Concepts.Storage.GeneralSSD
 	//
-	// Experimental.
 	StorageType StorageType `json:"storageType"`
 	// Existing subnet group for the instance.
-	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup"`
 	// The VPC network where the DB subnet group should be created.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// The type of subnets to add to the created DB subnet group.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 }
 
@@ -15509,94 +14945,70 @@ type DatabaseInstanceNewProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DatabaseInstanceProps struct {
 	// Indicates that minor engine upgrades are applied automatically to the DB instance during the maintenance window.
-	// Experimental.
 	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade"`
 	// The name of the Availability Zone where the DB instance will be located.
-	// Experimental.
 	AvailabilityZone *string `json:"availabilityZone"`
 	// The number of days during which automatic DB snapshots are retained.
 	//
 	// Set to zero to disable backups.
 	// When creating a read replica, you must enable automatic backups on the source
 	// database instance by setting the backup retention to a value other than zero.
-	// Experimental.
 	BackupRetention awscdk.Duration `json:"backupRetention"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
-	// Experimental.
 	CloudwatchLogsExports *[]*string `json:"cloudwatchLogsExports"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `Infinity`.
-	// Experimental.
 	CloudwatchLogsRetention awslogs.RetentionDays `json:"cloudwatchLogsRetention"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	// Experimental.
 	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole"`
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance.
-	// Experimental.
 	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot"`
 	// Indicates whether automated backups should be deleted or retained when you delete a DB instance.
-	// Experimental.
 	DeleteAutomatedBackups *bool `json:"deleteAutomatedBackups"`
 	// Indicates whether the DB instance should have deletion protection enabled.
-	// Experimental.
 	DeletionProtection *bool `json:"deletionProtection"`
 	// The Active Directory directory ID to create the DB instance in.
-	// Experimental.
 	Domain *string `json:"domain"`
 	// The IAM role to be used when making API calls to the Directory Service.
 	//
 	// The role needs the AWS-managed policy
 	// AmazonRDSDirectoryServiceAccess or equivalent.
-	// Experimental.
 	DomainRole awsiam.IRole `json:"domainRole"`
 	// Whether to enable Performance Insights for the DB instance.
-	// Experimental.
 	EnablePerformanceInsights *bool `json:"enablePerformanceInsights"`
 	// Whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
-	// Experimental.
 	IamAuthentication *bool `json:"iamAuthentication"`
 	// A name for the DB instance.
 	//
 	// If you specify a name, AWS CloudFormation
 	// converts it to lowercase.
-	// Experimental.
 	InstanceIdentifier *string `json:"instanceIdentifier"`
 	// The number of I/O operations per second (IOPS) that the database provisions.
 	//
 	// The value must be equal to or greater than 1000.
-	// Experimental.
 	Iops *float64 `json:"iops"`
 	// Upper limit to which RDS can scale the storage in GiB(Gibibyte).
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling
 	//
-	// Experimental.
 	MaxAllocatedStorage *float64 `json:"maxAllocatedStorage"`
 	// The interval, in seconds, between points when Amazon RDS collects enhanced monitoring metrics for the DB instance.
-	// Experimental.
 	MonitoringInterval awscdk.Duration `json:"monitoringInterval"`
 	// Role that will be used to manage DB instance monitoring.
-	// Experimental.
 	MonitoringRole awsiam.IRole `json:"monitoringRole"`
 	// Specifies if the database instance is a multiple Availability Zone deployment.
-	// Experimental.
 	MultiAz *bool `json:"multiAz"`
 	// The option group to associate with the instance.
-	// Experimental.
 	OptionGroup IOptionGroup `json:"optionGroup"`
 	// The AWS KMS key for encryption of Performance Insights data.
-	// Experimental.
 	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
-	// Experimental.
 	PerformanceInsightRetention PerformanceInsightRetention `json:"performanceInsightRetention"`
 	// The port for the instance.
-	// Experimental.
 	Port *float64 `json:"port"`
 	// The daily time range during which automated backups are performed.
 	//
@@ -15605,22 +15017,17 @@ type DatabaseInstanceProps struct {
 	// - Must be in Universal Coordinated Time (UTC).
 	// - Must not conflict with the preferred maintenance window.
 	// - Must be at least 30 minutes.
-	// Experimental.
 	PreferredBackupWindow *string `json:"preferredBackupWindow"`
 	// The weekly time range (in UTC) during which system maintenance can occur.
 	//
 	// Format: `ddd:hh24:mi-ddd:hh24:mi`
 	// Constraint: Minimum 30-minute window
-	// Experimental.
 	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
 	// The number of CPU cores and the number of threads per core.
-	// Experimental.
 	ProcessorFeatures *ProcessorFeatures `json:"processorFeatures"`
 	// Indicates whether the DB instance is an internet-facing instance.
-	// Experimental.
 	PubliclyAccessible *bool `json:"publiclyAccessible"`
 	// The CloudFormation policy to apply when the instance is removed from the stack or replaced during an update.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// S3 buckets that you want to load data into.
 	//
@@ -15629,7 +15036,6 @@ type DatabaseInstanceProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
-	// Experimental.
 	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 export.
 	//
@@ -15638,7 +15044,6 @@ type DatabaseInstanceProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
-	// Experimental.
 	S3ExportRole awsiam.IRole `json:"s3ExportRole"`
 	// S3 buckets that you want to load data from.
 	//
@@ -15649,7 +15054,6 @@ type DatabaseInstanceProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
-	// Experimental.
 	S3ImportBuckets *[]awss3.IBucket `json:"s3ImportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 import.
 	//
@@ -15660,64 +15064,46 @@ type DatabaseInstanceProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
-	// Experimental.
 	S3ImportRole awsiam.IRole `json:"s3ImportRole"`
 	// The security groups to assign to the DB instance.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 	// The storage type.
 	//
 	// Storage types supported are gp2, io1, standard.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#Concepts.Storage.GeneralSSD
 	//
-	// Experimental.
 	StorageType StorageType `json:"storageType"`
 	// Existing subnet group for the instance.
-	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup"`
 	// The VPC network where the DB subnet group should be created.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// The type of subnets to add to the created DB subnet group.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 	// The allocated storage size, specified in gigabytes (GB).
-	// Experimental.
 	AllocatedStorage *float64 `json:"allocatedStorage"`
 	// Whether to allow major version upgrades.
-	// Experimental.
 	AllowMajorVersionUpgrade *bool `json:"allowMajorVersionUpgrade"`
 	// The name of the database.
-	// Experimental.
 	DatabaseName *string `json:"databaseName"`
 	// The database engine.
-	// Experimental.
 	Engine IInstanceEngine `json:"engine"`
 	// The name of the compute and memory capacity for the instance.
-	// Experimental.
 	InstanceType awsec2.InstanceType `json:"instanceType"`
 	// The license model.
-	// Experimental.
 	LicenseModel LicenseModel `json:"licenseModel"`
 	// The DB parameter group to associate with the instance.
-	// Experimental.
 	ParameterGroup IParameterGroup `json:"parameterGroup"`
 	// The time zone of the instance.
 	//
 	// This is currently supported only by Microsoft Sql Server.
-	// Experimental.
 	Timezone *string `json:"timezone"`
 	// For supported engines, specifies the character set to associate with the DB instance.
-	// Experimental.
 	CharacterSetName *string `json:"characterSetName"`
 	// Credentials for the administrative user.
-	// Experimental.
 	Credentials Credentials `json:"credentials"`
 	// Indicates whether the DB instance is encrypted.
-	// Experimental.
 	StorageEncrypted *bool `json:"storageEncrypted"`
 	// The KMS key that's used to encrypt the DB instance.
-	// Experimental.
 	StorageEncryptionKey awskms.IKey `json:"storageEncryptionKey"`
 }
 
@@ -15725,7 +15111,6 @@ type DatabaseInstanceProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DatabaseInstanceReadReplica interface {
 	DatabaseInstanceBase
 	IDatabaseInstance
@@ -15932,7 +15317,6 @@ func (j *jsiiProxy_DatabaseInstanceReadReplica) VpcPlacement() *awsec2.SubnetSel
 }
 
 
-// Experimental.
 func NewDatabaseInstanceReadReplica(scope constructs.Construct, id *string, props *DatabaseInstanceReadReplicaProps) DatabaseInstanceReadReplica {
 	_init_.Initialize()
 
@@ -15947,7 +15331,6 @@ func NewDatabaseInstanceReadReplica(scope constructs.Construct, id *string, prop
 	return &j
 }
 
-// Experimental.
 func NewDatabaseInstanceReadReplica_Override(d DatabaseInstanceReadReplica, scope constructs.Construct, id *string, props *DatabaseInstanceReadReplicaProps) {
 	_init_.Initialize()
 
@@ -15967,7 +15350,6 @@ func (j *jsiiProxy_DatabaseInstanceReadReplica) SetEnableIamAuthentication(val *
 }
 
 // Import an existing database instance.
-// Experimental.
 func DatabaseInstanceReadReplica_FromDatabaseInstanceAttributes(scope constructs.Construct, id *string, attrs *DatabaseInstanceAttributes) IDatabaseInstance {
 	_init_.Initialize()
 
@@ -16003,7 +15385,6 @@ func DatabaseInstanceReadReplica_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func DatabaseInstanceReadReplica_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -16020,7 +15401,6 @@ func DatabaseInstanceReadReplica_IsResource(construct constructs.IConstruct) *bo
 }
 
 // Add a new db proxy to this instance.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceReadReplica) AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy {
 	var returns DatabaseProxy
 
@@ -16043,7 +15423,6 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) AddProxy(id *string, options *Da
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceReadReplica) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		d,
@@ -16053,7 +15432,6 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) ApplyRemovalPolicy(policy awscdk
 }
 
 // Renders the secret attachment target specifications.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceReadReplica) AsSecretAttachmentTarget() *awssecretsmanager.SecretAttachmentTargetProps {
 	var returns *awssecretsmanager.SecretAttachmentTargetProps
 
@@ -16067,7 +15445,6 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) AsSecretAttachmentTarget() *awss
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceReadReplica) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -16087,7 +15464,6 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceReadReplica) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -16106,7 +15482,6 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) GetResourceArnAttribute(arnAttr 
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceReadReplica) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -16121,7 +15496,6 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) GetResourceNameAttribute(nameAtt
 }
 
 // Grant the given identity connection access to the database.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceReadReplica) GrantConnect(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -16136,7 +15510,6 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) GrantConnect(grantee awsiam.IGra
 }
 
 // Return the given named metric for this DBInstance.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceReadReplica) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -16153,7 +15526,6 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) Metric(metricName *string, props
 // The percentage of CPU utilization.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceReadReplica) MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -16170,7 +15542,6 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) MetricCPUUtilization(props *awsc
 // The number of database connections in use.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceReadReplica) MetricDatabaseConnections(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -16187,7 +15558,6 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) MetricDatabaseConnections(props 
 // The amount of available random access memory.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceReadReplica) MetricFreeableMemory(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -16204,7 +15574,6 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) MetricFreeableMemory(props *awsc
 // The amount of available storage space.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceReadReplica) MetricFreeStorageSpace(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -16221,7 +15590,6 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) MetricFreeStorageSpace(props *aw
 // The average number of disk write I/O operations per second.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceReadReplica) MetricReadIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -16238,7 +15606,6 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) MetricReadIOPS(props *awscloudwa
 // The average number of disk read I/O operations per second.
 //
 // Average over 5 minutes
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceReadReplica) MetricWriteIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -16256,7 +15623,6 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) MetricWriteIOPS(props *awscloudw
 //
 // Use
 // `rule.addEventPattern(pattern)` to specify a filter.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceReadReplica) OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule {
 	var returns awsevents.Rule
 
@@ -16270,7 +15636,6 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) OnEvent(id *string, options *aws
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceReadReplica) SetLogRetention() {
 	_jsii_.InvokeVoid(
 		d,
@@ -16280,7 +15645,6 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) SetLogRetention() {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DatabaseInstanceReadReplica) ToString() *string {
 	var returns *string
 
@@ -16298,94 +15662,70 @@ func (d *jsiiProxy_DatabaseInstanceReadReplica) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DatabaseInstanceReadReplicaProps struct {
 	// Indicates that minor engine upgrades are applied automatically to the DB instance during the maintenance window.
-	// Experimental.
 	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade"`
 	// The name of the Availability Zone where the DB instance will be located.
-	// Experimental.
 	AvailabilityZone *string `json:"availabilityZone"`
 	// The number of days during which automatic DB snapshots are retained.
 	//
 	// Set to zero to disable backups.
 	// When creating a read replica, you must enable automatic backups on the source
 	// database instance by setting the backup retention to a value other than zero.
-	// Experimental.
 	BackupRetention awscdk.Duration `json:"backupRetention"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
-	// Experimental.
 	CloudwatchLogsExports *[]*string `json:"cloudwatchLogsExports"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `Infinity`.
-	// Experimental.
 	CloudwatchLogsRetention awslogs.RetentionDays `json:"cloudwatchLogsRetention"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	// Experimental.
 	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole"`
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance.
-	// Experimental.
 	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot"`
 	// Indicates whether automated backups should be deleted or retained when you delete a DB instance.
-	// Experimental.
 	DeleteAutomatedBackups *bool `json:"deleteAutomatedBackups"`
 	// Indicates whether the DB instance should have deletion protection enabled.
-	// Experimental.
 	DeletionProtection *bool `json:"deletionProtection"`
 	// The Active Directory directory ID to create the DB instance in.
-	// Experimental.
 	Domain *string `json:"domain"`
 	// The IAM role to be used when making API calls to the Directory Service.
 	//
 	// The role needs the AWS-managed policy
 	// AmazonRDSDirectoryServiceAccess or equivalent.
-	// Experimental.
 	DomainRole awsiam.IRole `json:"domainRole"`
 	// Whether to enable Performance Insights for the DB instance.
-	// Experimental.
 	EnablePerformanceInsights *bool `json:"enablePerformanceInsights"`
 	// Whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
-	// Experimental.
 	IamAuthentication *bool `json:"iamAuthentication"`
 	// A name for the DB instance.
 	//
 	// If you specify a name, AWS CloudFormation
 	// converts it to lowercase.
-	// Experimental.
 	InstanceIdentifier *string `json:"instanceIdentifier"`
 	// The number of I/O operations per second (IOPS) that the database provisions.
 	//
 	// The value must be equal to or greater than 1000.
-	// Experimental.
 	Iops *float64 `json:"iops"`
 	// Upper limit to which RDS can scale the storage in GiB(Gibibyte).
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling
 	//
-	// Experimental.
 	MaxAllocatedStorage *float64 `json:"maxAllocatedStorage"`
 	// The interval, in seconds, between points when Amazon RDS collects enhanced monitoring metrics for the DB instance.
-	// Experimental.
 	MonitoringInterval awscdk.Duration `json:"monitoringInterval"`
 	// Role that will be used to manage DB instance monitoring.
-	// Experimental.
 	MonitoringRole awsiam.IRole `json:"monitoringRole"`
 	// Specifies if the database instance is a multiple Availability Zone deployment.
-	// Experimental.
 	MultiAz *bool `json:"multiAz"`
 	// The option group to associate with the instance.
-	// Experimental.
 	OptionGroup IOptionGroup `json:"optionGroup"`
 	// The AWS KMS key for encryption of Performance Insights data.
-	// Experimental.
 	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
-	// Experimental.
 	PerformanceInsightRetention PerformanceInsightRetention `json:"performanceInsightRetention"`
 	// The port for the instance.
-	// Experimental.
 	Port *float64 `json:"port"`
 	// The daily time range during which automated backups are performed.
 	//
@@ -16394,22 +15734,17 @@ type DatabaseInstanceReadReplicaProps struct {
 	// - Must be in Universal Coordinated Time (UTC).
 	// - Must not conflict with the preferred maintenance window.
 	// - Must be at least 30 minutes.
-	// Experimental.
 	PreferredBackupWindow *string `json:"preferredBackupWindow"`
 	// The weekly time range (in UTC) during which system maintenance can occur.
 	//
 	// Format: `ddd:hh24:mi-ddd:hh24:mi`
 	// Constraint: Minimum 30-minute window
-	// Experimental.
 	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
 	// The number of CPU cores and the number of threads per core.
-	// Experimental.
 	ProcessorFeatures *ProcessorFeatures `json:"processorFeatures"`
 	// Indicates whether the DB instance is an internet-facing instance.
-	// Experimental.
 	PubliclyAccessible *bool `json:"publiclyAccessible"`
 	// The CloudFormation policy to apply when the instance is removed from the stack or replaced during an update.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// S3 buckets that you want to load data into.
 	//
@@ -16418,7 +15753,6 @@ type DatabaseInstanceReadReplicaProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
-	// Experimental.
 	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 export.
 	//
@@ -16427,7 +15761,6 @@ type DatabaseInstanceReadReplicaProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
-	// Experimental.
 	S3ExportRole awsiam.IRole `json:"s3ExportRole"`
 	// S3 buckets that you want to load data from.
 	//
@@ -16438,7 +15771,6 @@ type DatabaseInstanceReadReplicaProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
-	// Experimental.
 	S3ImportBuckets *[]awss3.IBucket `json:"s3ImportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 import.
 	//
@@ -16449,41 +15781,31 @@ type DatabaseInstanceReadReplicaProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
-	// Experimental.
 	S3ImportRole awsiam.IRole `json:"s3ImportRole"`
 	// The security groups to assign to the DB instance.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 	// The storage type.
 	//
 	// Storage types supported are gp2, io1, standard.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#Concepts.Storage.GeneralSSD
 	//
-	// Experimental.
 	StorageType StorageType `json:"storageType"`
 	// Existing subnet group for the instance.
-	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup"`
 	// The VPC network where the DB subnet group should be created.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// The type of subnets to add to the created DB subnet group.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 	// The name of the compute and memory capacity classes.
-	// Experimental.
 	InstanceType awsec2.InstanceType `json:"instanceType"`
 	// The source database instance.
 	//
 	// Each DB instance can have a limited number of read replicas. For more
 	// information, see https://docs.aws.amazon.com/AmazonRDS/latest/DeveloperGuide/USER_ReadRepl.html.
-	// Experimental.
 	SourceDatabaseInstance IDatabaseInstance `json:"sourceDatabaseInstance"`
 	// Indicates whether the DB instance is encrypted.
-	// Experimental.
 	StorageEncrypted *bool `json:"storageEncrypted"`
 	// The KMS key that's used to encrypt the DB instance.
-	// Experimental.
 	StorageEncryptionKey awskms.IKey `json:"storageEncryptionKey"`
 }
 
@@ -16491,94 +15813,70 @@ type DatabaseInstanceReadReplicaProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DatabaseInstanceSourceProps struct {
 	// Indicates that minor engine upgrades are applied automatically to the DB instance during the maintenance window.
-	// Experimental.
 	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade"`
 	// The name of the Availability Zone where the DB instance will be located.
-	// Experimental.
 	AvailabilityZone *string `json:"availabilityZone"`
 	// The number of days during which automatic DB snapshots are retained.
 	//
 	// Set to zero to disable backups.
 	// When creating a read replica, you must enable automatic backups on the source
 	// database instance by setting the backup retention to a value other than zero.
-	// Experimental.
 	BackupRetention awscdk.Duration `json:"backupRetention"`
 	// The list of log types that need to be enabled for exporting to CloudWatch Logs.
-	// Experimental.
 	CloudwatchLogsExports *[]*string `json:"cloudwatchLogsExports"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `Infinity`.
-	// Experimental.
 	CloudwatchLogsRetention awslogs.RetentionDays `json:"cloudwatchLogsRetention"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
-	// Experimental.
 	CloudwatchLogsRetentionRole awsiam.IRole `json:"cloudwatchLogsRetentionRole"`
 	// Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance.
-	// Experimental.
 	CopyTagsToSnapshot *bool `json:"copyTagsToSnapshot"`
 	// Indicates whether automated backups should be deleted or retained when you delete a DB instance.
-	// Experimental.
 	DeleteAutomatedBackups *bool `json:"deleteAutomatedBackups"`
 	// Indicates whether the DB instance should have deletion protection enabled.
-	// Experimental.
 	DeletionProtection *bool `json:"deletionProtection"`
 	// The Active Directory directory ID to create the DB instance in.
-	// Experimental.
 	Domain *string `json:"domain"`
 	// The IAM role to be used when making API calls to the Directory Service.
 	//
 	// The role needs the AWS-managed policy
 	// AmazonRDSDirectoryServiceAccess or equivalent.
-	// Experimental.
 	DomainRole awsiam.IRole `json:"domainRole"`
 	// Whether to enable Performance Insights for the DB instance.
-	// Experimental.
 	EnablePerformanceInsights *bool `json:"enablePerformanceInsights"`
 	// Whether to enable mapping of AWS Identity and Access Management (IAM) accounts to database accounts.
-	// Experimental.
 	IamAuthentication *bool `json:"iamAuthentication"`
 	// A name for the DB instance.
 	//
 	// If you specify a name, AWS CloudFormation
 	// converts it to lowercase.
-	// Experimental.
 	InstanceIdentifier *string `json:"instanceIdentifier"`
 	// The number of I/O operations per second (IOPS) that the database provisions.
 	//
 	// The value must be equal to or greater than 1000.
-	// Experimental.
 	Iops *float64 `json:"iops"`
 	// Upper limit to which RDS can scale the storage in GiB(Gibibyte).
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PIOPS.StorageTypes.html#USER_PIOPS.Autoscaling
 	//
-	// Experimental.
 	MaxAllocatedStorage *float64 `json:"maxAllocatedStorage"`
 	// The interval, in seconds, between points when Amazon RDS collects enhanced monitoring metrics for the DB instance.
-	// Experimental.
 	MonitoringInterval awscdk.Duration `json:"monitoringInterval"`
 	// Role that will be used to manage DB instance monitoring.
-	// Experimental.
 	MonitoringRole awsiam.IRole `json:"monitoringRole"`
 	// Specifies if the database instance is a multiple Availability Zone deployment.
-	// Experimental.
 	MultiAz *bool `json:"multiAz"`
 	// The option group to associate with the instance.
-	// Experimental.
 	OptionGroup IOptionGroup `json:"optionGroup"`
 	// The AWS KMS key for encryption of Performance Insights data.
-	// Experimental.
 	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
-	// Experimental.
 	PerformanceInsightRetention PerformanceInsightRetention `json:"performanceInsightRetention"`
 	// The port for the instance.
-	// Experimental.
 	Port *float64 `json:"port"`
 	// The daily time range during which automated backups are performed.
 	//
@@ -16587,22 +15885,17 @@ type DatabaseInstanceSourceProps struct {
 	// - Must be in Universal Coordinated Time (UTC).
 	// - Must not conflict with the preferred maintenance window.
 	// - Must be at least 30 minutes.
-	// Experimental.
 	PreferredBackupWindow *string `json:"preferredBackupWindow"`
 	// The weekly time range (in UTC) during which system maintenance can occur.
 	//
 	// Format: `ddd:hh24:mi-ddd:hh24:mi`
 	// Constraint: Minimum 30-minute window
-	// Experimental.
 	PreferredMaintenanceWindow *string `json:"preferredMaintenanceWindow"`
 	// The number of CPU cores and the number of threads per core.
-	// Experimental.
 	ProcessorFeatures *ProcessorFeatures `json:"processorFeatures"`
 	// Indicates whether the DB instance is an internet-facing instance.
-	// Experimental.
 	PubliclyAccessible *bool `json:"publiclyAccessible"`
 	// The CloudFormation policy to apply when the instance is removed from the stack or replaced during an update.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// S3 buckets that you want to load data into.
 	//
@@ -16611,7 +15904,6 @@ type DatabaseInstanceSourceProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
-	// Experimental.
 	S3ExportBuckets *[]awss3.IBucket `json:"s3ExportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 export.
 	//
@@ -16620,7 +15912,6 @@ type DatabaseInstanceSourceProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-s3-integration.html
 	//
-	// Experimental.
 	S3ExportRole awsiam.IRole `json:"s3ExportRole"`
 	// S3 buckets that you want to load data from.
 	//
@@ -16631,7 +15922,6 @@ type DatabaseInstanceSourceProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
-	// Experimental.
 	S3ImportBuckets *[]awss3.IBucket `json:"s3ImportBuckets"`
 	// Role that will be associated with this DB instance to enable S3 import.
 	//
@@ -16642,52 +15932,38 @@ type DatabaseInstanceSourceProps struct {
 	// For Microsoft SQL Server:
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/PostgreSQL.Procedural.Importing.html
 	//
-	// Experimental.
 	S3ImportRole awsiam.IRole `json:"s3ImportRole"`
 	// The security groups to assign to the DB instance.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 	// The storage type.
 	//
 	// Storage types supported are gp2, io1, standard.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#Concepts.Storage.GeneralSSD
 	//
-	// Experimental.
 	StorageType StorageType `json:"storageType"`
 	// Existing subnet group for the instance.
-	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup"`
 	// The VPC network where the DB subnet group should be created.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// The type of subnets to add to the created DB subnet group.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 	// The allocated storage size, specified in gigabytes (GB).
-	// Experimental.
 	AllocatedStorage *float64 `json:"allocatedStorage"`
 	// Whether to allow major version upgrades.
-	// Experimental.
 	AllowMajorVersionUpgrade *bool `json:"allowMajorVersionUpgrade"`
 	// The name of the database.
-	// Experimental.
 	DatabaseName *string `json:"databaseName"`
 	// The database engine.
-	// Experimental.
 	Engine IInstanceEngine `json:"engine"`
 	// The name of the compute and memory capacity for the instance.
-	// Experimental.
 	InstanceType awsec2.InstanceType `json:"instanceType"`
 	// The license model.
-	// Experimental.
 	LicenseModel LicenseModel `json:"licenseModel"`
 	// The DB parameter group to associate with the instance.
-	// Experimental.
 	ParameterGroup IParameterGroup `json:"parameterGroup"`
 	// The time zone of the instance.
 	//
 	// This is currently supported only by Microsoft Sql Server.
-	// Experimental.
 	Timezone *string `json:"timezone"`
 }
 
@@ -16695,7 +15971,6 @@ type DatabaseInstanceSourceProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DatabaseProxy interface {
 	awscdk.Resource
 	awsec2.IConnectable
@@ -16807,7 +16082,6 @@ func (j *jsiiProxy_DatabaseProxy) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewDatabaseProxy(scope constructs.Construct, id *string, props *DatabaseProxyProps) DatabaseProxy {
 	_init_.Initialize()
 
@@ -16822,7 +16096,6 @@ func NewDatabaseProxy(scope constructs.Construct, id *string, props *DatabasePro
 	return &j
 }
 
-// Experimental.
 func NewDatabaseProxy_Override(d DatabaseProxy, scope constructs.Construct, id *string, props *DatabaseProxyProps) {
 	_init_.Initialize()
 
@@ -16834,7 +16107,6 @@ func NewDatabaseProxy_Override(d DatabaseProxy, scope constructs.Construct, id *
 }
 
 // Import an existing database proxy.
-// Experimental.
 func DatabaseProxy_FromDatabaseProxyAttributes(scope constructs.Construct, id *string, attrs *DatabaseProxyAttributes) IDatabaseProxy {
 	_init_.Initialize()
 
@@ -16870,7 +16142,6 @@ func DatabaseProxy_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func DatabaseProxy_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -16895,7 +16166,6 @@ func DatabaseProxy_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (d *jsiiProxy_DatabaseProxy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		d,
@@ -16905,7 +16175,6 @@ func (d *jsiiProxy_DatabaseProxy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 }
 
 // Renders the secret attachment target specifications.
-// Experimental.
 func (d *jsiiProxy_DatabaseProxy) AsSecretAttachmentTarget() *awssecretsmanager.SecretAttachmentTargetProps {
 	var returns *awssecretsmanager.SecretAttachmentTargetProps
 
@@ -16919,7 +16188,6 @@ func (d *jsiiProxy_DatabaseProxy) AsSecretAttachmentTarget() *awssecretsmanager.
 	return returns
 }
 
-// Experimental.
 func (d *jsiiProxy_DatabaseProxy) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -16939,7 +16207,6 @@ func (d *jsiiProxy_DatabaseProxy) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (d *jsiiProxy_DatabaseProxy) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -16958,7 +16225,6 @@ func (d *jsiiProxy_DatabaseProxy) GetResourceArnAttribute(arnAttr *string, arnCo
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (d *jsiiProxy_DatabaseProxy) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -16973,7 +16239,6 @@ func (d *jsiiProxy_DatabaseProxy) GetResourceNameAttribute(nameAttr *string) *st
 }
 
 // Grant the given identity connection access to the proxy.
-// Experimental.
 func (d *jsiiProxy_DatabaseProxy) GrantConnect(grantee awsiam.IGrantable, dbUser *string) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -16988,7 +16253,6 @@ func (d *jsiiProxy_DatabaseProxy) GrantConnect(grantee awsiam.IGrantable, dbUser
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DatabaseProxy) ToString() *string {
 	var returns *string
 
@@ -17006,19 +16270,14 @@ func (d *jsiiProxy_DatabaseProxy) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DatabaseProxyAttributes struct {
 	// DB Proxy ARN.
-	// Experimental.
 	DbProxyArn *string `json:"dbProxyArn"`
 	// DB Proxy Name.
-	// Experimental.
 	DbProxyName *string `json:"dbProxyName"`
 	// Endpoint.
-	// Experimental.
 	Endpoint *string `json:"endpoint"`
 	// The security groups of the instance.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 }
 
@@ -17026,7 +16285,6 @@ type DatabaseProxyAttributes struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DatabaseProxyOptions struct {
 	// The duration for a proxy to wait for a connection to become available in the connection pool.
 	//
@@ -17034,14 +16292,12 @@ type DatabaseProxyOptions struct {
 	// sessions.
 	//
 	// Value must be between 1 second and 1 hour, or `Duration.seconds(0)` to represent unlimited.
-	// Experimental.
 	BorrowTimeout awscdk.Duration `json:"borrowTimeout"`
 	// The identifier for the proxy.
 	//
 	// This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
 	// An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens;
 	// it can't end with a hyphen or contain two consecutive hyphens.
-	// Experimental.
 	DbProxyName *string `json:"dbProxyName"`
 	// Whether the proxy includes detailed information about SQL statements in its logs.
 	//
@@ -17049,15 +16305,12 @@ type DatabaseProxyOptions struct {
 	// The debug information includes the text of SQL statements that you submit through the proxy.
 	// Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive
 	// information that appears in the logs.
-	// Experimental.
 	DebugLogging *bool `json:"debugLogging"`
 	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
-	// Experimental.
 	IamAuth *bool `json:"iamAuth"`
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
 	//
 	// You can set this value higher or lower than the connection timeout limit for the associated database.
-	// Experimental.
 	IdleClientTimeout awscdk.Duration `json:"idleClientTimeout"`
 	// One or more SQL statements for the proxy to run when opening each new database connection.
 	//
@@ -17067,7 +16320,6 @@ type DatabaseProxyOptions struct {
 	// You can also include multiple variables in a single SET statement, such as SET x=1, y=2.
 	//
 	// not currently supported for PostgreSQL.
-	// Experimental.
 	InitQuery *string `json:"initQuery"`
 	// The maximum size of the connection pool for each target in a target group.
 	//
@@ -17075,7 +16327,6 @@ type DatabaseProxyOptions struct {
 	// cluster used by the target group.
 	//
 	// 1-100
-	// Experimental.
 	MaxConnectionsPercent *float64 `json:"maxConnectionsPercent"`
 	// Controls how actively the proxy closes idle database connections in the connection pool.
 	//
@@ -17086,35 +16337,27 @@ type DatabaseProxyOptions struct {
 	// or Aurora DB cluster used by the target group.
 	//
 	// between 0 and MaxConnectionsPercent
-	// Experimental.
 	MaxIdleConnectionsPercent *float64 `json:"maxIdleConnectionsPercent"`
 	// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
 	//
 	// By enabling this setting, you can enforce encrypted TLS connections to the proxy.
-	// Experimental.
 	RequireTLS *bool `json:"requireTLS"`
 	// IAM role that the proxy uses to access secrets in AWS Secrets Manager.
-	// Experimental.
 	Role awsiam.IRole `json:"role"`
 	// The secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster.
 	//
 	// These secrets are stored within Amazon Secrets Manager.
 	// One or more secrets are required.
-	// Experimental.
 	Secrets *[]awssecretsmanager.ISecret `json:"secrets"`
 	// One or more VPC security groups to associate with the new proxy.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 	// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection.
 	//
 	// Including an item in the list exempts that class of SQL operations from the pinning behavior.
-	// Experimental.
 	SessionPinningFilters *[]SessionPinningFilter `json:"sessionPinningFilters"`
 	// The VPC to associate with the new proxy.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// The subnets used by the proxy.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 }
 
@@ -17122,7 +16365,6 @@ type DatabaseProxyOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DatabaseProxyProps struct {
 	// The duration for a proxy to wait for a connection to become available in the connection pool.
 	//
@@ -17130,14 +16372,12 @@ type DatabaseProxyProps struct {
 	// sessions.
 	//
 	// Value must be between 1 second and 1 hour, or `Duration.seconds(0)` to represent unlimited.
-	// Experimental.
 	BorrowTimeout awscdk.Duration `json:"borrowTimeout"`
 	// The identifier for the proxy.
 	//
 	// This name must be unique for all proxies owned by your AWS account in the specified AWS Region.
 	// An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens;
 	// it can't end with a hyphen or contain two consecutive hyphens.
-	// Experimental.
 	DbProxyName *string `json:"dbProxyName"`
 	// Whether the proxy includes detailed information about SQL statements in its logs.
 	//
@@ -17145,15 +16385,12 @@ type DatabaseProxyProps struct {
 	// The debug information includes the text of SQL statements that you submit through the proxy.
 	// Thus, only enable this setting when needed for debugging, and only when you have security measures in place to safeguard any sensitive
 	// information that appears in the logs.
-	// Experimental.
 	DebugLogging *bool `json:"debugLogging"`
 	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
-	// Experimental.
 	IamAuth *bool `json:"iamAuth"`
 	// The number of seconds that a connection to the proxy can be inactive before the proxy disconnects it.
 	//
 	// You can set this value higher or lower than the connection timeout limit for the associated database.
-	// Experimental.
 	IdleClientTimeout awscdk.Duration `json:"idleClientTimeout"`
 	// One or more SQL statements for the proxy to run when opening each new database connection.
 	//
@@ -17163,7 +16400,6 @@ type DatabaseProxyProps struct {
 	// You can also include multiple variables in a single SET statement, such as SET x=1, y=2.
 	//
 	// not currently supported for PostgreSQL.
-	// Experimental.
 	InitQuery *string `json:"initQuery"`
 	// The maximum size of the connection pool for each target in a target group.
 	//
@@ -17171,7 +16407,6 @@ type DatabaseProxyProps struct {
 	// cluster used by the target group.
 	//
 	// 1-100
-	// Experimental.
 	MaxConnectionsPercent *float64 `json:"maxConnectionsPercent"`
 	// Controls how actively the proxy closes idle database connections in the connection pool.
 	//
@@ -17182,38 +16417,29 @@ type DatabaseProxyProps struct {
 	// or Aurora DB cluster used by the target group.
 	//
 	// between 0 and MaxConnectionsPercent
-	// Experimental.
 	MaxIdleConnectionsPercent *float64 `json:"maxIdleConnectionsPercent"`
 	// A Boolean parameter that specifies whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
 	//
 	// By enabling this setting, you can enforce encrypted TLS connections to the proxy.
-	// Experimental.
 	RequireTLS *bool `json:"requireTLS"`
 	// IAM role that the proxy uses to access secrets in AWS Secrets Manager.
-	// Experimental.
 	Role awsiam.IRole `json:"role"`
 	// The secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster.
 	//
 	// These secrets are stored within Amazon Secrets Manager.
 	// One or more secrets are required.
-	// Experimental.
 	Secrets *[]awssecretsmanager.ISecret `json:"secrets"`
 	// One or more VPC security groups to associate with the new proxy.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 	// Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection.
 	//
 	// Including an item in the list exempts that class of SQL operations from the pinning behavior.
-	// Experimental.
 	SessionPinningFilters *[]SessionPinningFilter `json:"sessionPinningFilters"`
 	// The VPC to associate with the new proxy.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// The subnets used by the proxy.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 	// DB proxy target: Instance or Cluster.
-	// Experimental.
 	ProxyTarget ProxyTarget `json:"proxyTarget"`
 }
 
@@ -17221,7 +16447,6 @@ type DatabaseProxyProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DatabaseSecret interface {
 	awssecretsmanager.Secret
 	ArnForPolicies() *string
@@ -17366,7 +16591,6 @@ func (j *jsiiProxy_DatabaseSecret) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewDatabaseSecret(scope constructs.Construct, id *string, props *DatabaseSecretProps) DatabaseSecret {
 	_init_.Initialize()
 
@@ -17381,7 +16605,6 @@ func NewDatabaseSecret(scope constructs.Construct, id *string, props *DatabaseSe
 	return &j
 }
 
-// Experimental.
 func NewDatabaseSecret_Override(d DatabaseSecret, scope constructs.Construct, id *string, props *DatabaseSecretProps) {
 	_init_.Initialize()
 
@@ -17393,7 +16616,6 @@ func NewDatabaseSecret_Override(d DatabaseSecret, scope constructs.Construct, id
 }
 
 // Import an existing secret into the Stack.
-// Experimental.
 func DatabaseSecret_FromSecretAttributes(scope constructs.Construct, id *string, attrs *awssecretsmanager.SecretAttributes) awssecretsmanager.ISecret {
 	_init_.Initialize()
 
@@ -17412,7 +16634,6 @@ func DatabaseSecret_FromSecretAttributes(scope constructs.Construct, id *string,
 // Imports a secret by complete ARN.
 //
 // The complete ARN is the ARN with the Secrets Manager-supplied suffix.
-// Experimental.
 func DatabaseSecret_FromSecretCompleteArn(scope constructs.Construct, id *string, secretCompleteArn *string) awssecretsmanager.ISecret {
 	_init_.Initialize()
 
@@ -17432,7 +16653,6 @@ func DatabaseSecret_FromSecretCompleteArn(scope constructs.Construct, id *string
 //
 // A secret with this name must exist in the same account & region.
 // Replaces the deprecated `fromSecretName`.
-// Experimental.
 func DatabaseSecret_FromSecretNameV2(scope constructs.Construct, id *string, secretName *string) awssecretsmanager.ISecret {
 	_init_.Initialize()
 
@@ -17451,7 +16671,6 @@ func DatabaseSecret_FromSecretNameV2(scope constructs.Construct, id *string, sec
 // Imports a secret by partial ARN.
 //
 // The partial ARN is the ARN without the Secrets Manager-supplied suffix.
-// Experimental.
 func DatabaseSecret_FromSecretPartialArn(scope constructs.Construct, id *string, secretPartialArn *string) awssecretsmanager.ISecret {
 	_init_.Initialize()
 
@@ -17487,7 +16706,6 @@ func DatabaseSecret_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func DatabaseSecret_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -17504,7 +16722,6 @@ func DatabaseSecret_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Adds a replica region for the secret.
-// Experimental.
 func (d *jsiiProxy_DatabaseSecret) AddReplicaRegion(region *string, encryptionKey awskms.IKey) {
 	_jsii_.InvokeVoid(
 		d,
@@ -17514,7 +16731,6 @@ func (d *jsiiProxy_DatabaseSecret) AddReplicaRegion(region *string, encryptionKe
 }
 
 // Adds a rotation schedule to the secret.
-// Experimental.
 func (d *jsiiProxy_DatabaseSecret) AddRotationSchedule(id *string, options *awssecretsmanager.RotationScheduleOptions) awssecretsmanager.RotationSchedule {
 	var returns awssecretsmanager.RotationSchedule
 
@@ -17533,7 +16749,6 @@ func (d *jsiiProxy_DatabaseSecret) AddRotationSchedule(id *string, options *awss
 // If this secret was created in this stack, a resource policy will be
 // automatically created upon the first call to `addToResourcePolicy`. If
 // the secret is imported, then this is a no-op.
-// Experimental.
 func (d *jsiiProxy_DatabaseSecret) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
 	var returns *awsiam.AddToResourcePolicyResult
 
@@ -17556,7 +16771,6 @@ func (d *jsiiProxy_DatabaseSecret) AddToResourcePolicy(statement awsiam.PolicySt
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (d *jsiiProxy_DatabaseSecret) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		d,
@@ -17568,7 +16782,6 @@ func (d *jsiiProxy_DatabaseSecret) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 // Attach a target to this secret.
 //
 // Returns: An attached secret
-// Experimental.
 func (d *jsiiProxy_DatabaseSecret) Attach(target awssecretsmanager.ISecretAttachmentTarget) awssecretsmanager.ISecret {
 	var returns awssecretsmanager.ISecret
 
@@ -17583,7 +16796,6 @@ func (d *jsiiProxy_DatabaseSecret) Attach(target awssecretsmanager.ISecretAttach
 }
 
 // Denies the `DeleteSecret` action to all principals within the current account.
-// Experimental.
 func (d *jsiiProxy_DatabaseSecret) DenyAccountRootDelete() {
 	_jsii_.InvokeVoid(
 		d,
@@ -17592,7 +16804,6 @@ func (d *jsiiProxy_DatabaseSecret) DenyAccountRootDelete() {
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DatabaseSecret) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -17612,7 +16823,6 @@ func (d *jsiiProxy_DatabaseSecret) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (d *jsiiProxy_DatabaseSecret) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -17631,7 +16841,6 @@ func (d *jsiiProxy_DatabaseSecret) GetResourceArnAttribute(arnAttr *string, arnC
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (d *jsiiProxy_DatabaseSecret) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -17646,7 +16855,6 @@ func (d *jsiiProxy_DatabaseSecret) GetResourceNameAttribute(nameAttr *string) *s
 }
 
 // Grants reading the secret value to some role.
-// Experimental.
 func (d *jsiiProxy_DatabaseSecret) GrantRead(grantee awsiam.IGrantable, versionStages *[]*string) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -17661,7 +16869,6 @@ func (d *jsiiProxy_DatabaseSecret) GrantRead(grantee awsiam.IGrantable, versionS
 }
 
 // Grants writing and updating the secret value to some role.
-// Experimental.
 func (d *jsiiProxy_DatabaseSecret) GrantWrite(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -17676,7 +16883,6 @@ func (d *jsiiProxy_DatabaseSecret) GrantWrite(grantee awsiam.IGrantable) awsiam.
 }
 
 // Interpret the secret as a JSON object and return a field's value from it as a `SecretValue`.
-// Experimental.
 func (d *jsiiProxy_DatabaseSecret) SecretValueFromJson(jsonField *string) awscdk.SecretValue {
 	var returns awscdk.SecretValue
 
@@ -17691,7 +16897,6 @@ func (d *jsiiProxy_DatabaseSecret) SecretValueFromJson(jsonField *string) awscdk
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DatabaseSecret) ToString() *string {
 	var returns *string
 
@@ -17709,19 +16914,14 @@ func (d *jsiiProxy_DatabaseSecret) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DatabaseSecretProps struct {
 	// The username.
-	// Experimental.
 	Username *string `json:"username"`
 	// The KMS key to use to encrypt the secret.
-	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey"`
 	// Characters to not include in the generated password.
-	// Experimental.
 	ExcludeCharacters *string `json:"excludeCharacters"`
 	// The master secret which will be used to rotate this secret.
-	// Experimental.
 	MasterSecret awssecretsmanager.ISecret `json:"masterSecret"`
 	// Whether to replace this secret when the criteria for the password change.
 	//
@@ -17729,13 +16929,10 @@ type DatabaseSecretProps struct {
 	// with a hash of the options that influence the password generation. This
 	// way a new secret will be created when the password is regenerated and the
 	// cluster or instance consuming this secret will have its credentials updated.
-	// Experimental.
 	ReplaceOnPasswordCriteriaChanges *bool `json:"replaceOnPasswordCriteriaChanges"`
 	// A list of regions where to replicate this secret.
-	// Experimental.
 	ReplicaRegions *[]*awssecretsmanager.ReplicaRegion `json:"replicaRegions"`
 	// A name for the secret.
-	// Experimental.
 	SecretName *string `json:"secretName"`
 }
 
@@ -17745,7 +16942,6 @@ type DatabaseSecretProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Endpoint interface {
 	Hostname() *string
 	Port() *float64
@@ -17788,7 +16984,6 @@ func (j *jsiiProxy_Endpoint) SocketAddress() *string {
 }
 
 
-// Experimental.
 func NewEndpoint(address *string, port *float64) Endpoint {
 	_init_.Initialize()
 
@@ -17803,7 +16998,6 @@ func NewEndpoint(address *string, port *float64) Endpoint {
 	return &j
 }
 
-// Experimental.
 func NewEndpoint_Override(e Endpoint, address *string, port *float64) {
 	_init_.Initialize()
 
@@ -17818,31 +17012,23 @@ func NewEndpoint_Override(e Endpoint, address *string, port *float64) {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type EngineVersion struct {
 	// The full version string of the engine, for example, "5.6.mysql_aurora.1.22.1". It can be undefined, which means RDS should use whatever version it deems appropriate for the given engine type.
-	// Experimental.
 	FullVersion *string `json:"fullVersion"`
 	// The major version of the engine, for example, "5.6". Used in specifying the ParameterGroup family and OptionGroup version for this engine.
-	// Experimental.
 	MajorVersion *string `json:"majorVersion"`
 }
 
 // The interface representing a database cluster (as opposed to instance) engine.
-// Experimental.
 type IClusterEngine interface {
 	IEngine
 	// Method called when the engine is used to create a new cluster.
-	// Experimental.
 	BindToCluster(scope constructs.Construct, options *ClusterEngineBindOptions) *ClusterEngineConfig
 	// The application used by this engine to perform rotation for a multi-user scenario.
-	// Experimental.
 	MultiUserRotationApplication() awssecretsmanager.SecretRotationApplication
 	// The application used by this engine to perform rotation for a single-user scenario.
-	// Experimental.
 	SingleUserRotationApplication() awssecretsmanager.SecretRotationApplication
 	// The log types that are available with this engine type.
-	// Experimental.
 	SupportedLogTypes() *[]*string
 }
 
@@ -17895,106 +17081,83 @@ func (j *jsiiProxy_IClusterEngine) SupportedLogTypes() *[]*string {
 }
 
 // Create a clustered database with a given number of instances.
-// Experimental.
 type IDatabaseCluster interface {
 	awsec2.IConnectable
 	awscdk.IResource
 	awssecretsmanager.ISecretAttachmentTarget
 	// Add a new db proxy to this cluster.
-	// Experimental.
 	AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy
 	// Return the given named metric for this DBCluster.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The percentage of CPU utilization.
 	//
 	// Average over 5 minutes
-	// Experimental.
 	MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of database connections in use.
 	//
 	// Average over 5 minutes
-	// Experimental.
 	MetricDatabaseConnections(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The average number of deadlocks in the database per second.
 	//
 	// Average over 5 minutes
-	// Experimental.
 	MetricDeadlocks(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of time that the instance has been running, in seconds.
 	//
 	// Average over 5 minutes
-	// Experimental.
 	MetricEngineUptime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of available random access memory, in bytes.
 	//
 	// Average over 5 minutes
-	// Experimental.
 	MetricFreeableMemory(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of local storage available, in bytes.
 	//
 	// Average over 5 minutes
-	// Experimental.
 	MetricFreeLocalStorage(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of network throughput received from clients by each instance, in bytes per second.
 	//
 	// Average over 5 minutes
-	// Experimental.
 	MetricNetworkReceiveThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of network throughput both received from and transmitted to clients by each instance, in bytes per second.
 	//
 	// Average over 5 minutes
-	// Experimental.
 	MetricNetworkThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of network throughput sent to clients by each instance, in bytes per second.
 	//
 	// Average over 5 minutes
-	// Experimental.
 	MetricNetworkTransmitThroughput(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The total amount of backup storage in bytes consumed by all Aurora snapshots outside its backup retention window.
 	//
 	// Average over 5 minutes
-	// Experimental.
 	MetricSnapshotStorageUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The total amount of backup storage in bytes for which you are billed.
 	//
 	// Average over 5 minutes
-	// Experimental.
 	MetricTotalBackupStorageBilled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of storage used by your Aurora DB instance, in bytes.
 	//
 	// Average over 5 minutes
-	// Experimental.
 	MetricVolumeBytesUsed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of billed read I/O operations from a cluster volume, reported at 5-minute intervals.
 	//
 	// Average over 5 minutes
-	// Experimental.
 	MetricVolumeReadIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of write disk I/O operations to the cluster volume, reported at 5-minute intervals.
 	//
 	// Average over 5 minutes
-	// Experimental.
 	MetricVolumeWriteIOPs(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The endpoint to use for read/write operations.
-	// Experimental.
 	ClusterEndpoint() Endpoint
 	// Identifier of the cluster.
-	// Experimental.
 	ClusterIdentifier() *string
 	// Endpoint to use for load-balanced read-only operations.
-	// Experimental.
 	ClusterReadEndpoint() Endpoint
 	// The engine of this Cluster.
 	//
 	// May be not known for imported Clusters if it wasn't provided explicitly.
-	// Experimental.
 	Engine() IClusterEngine
 	// Endpoints which address each individual replica.
-	// Experimental.
 	InstanceEndpoints() *[]Endpoint
 	// Identifiers of the replicas.
-	// Experimental.
 	InstanceIdentifiers() *[]*string
 }
 
@@ -18327,76 +17490,59 @@ func (j *jsiiProxy_IDatabaseCluster) Stack() awscdk.Stack {
 }
 
 // A database instance.
-// Experimental.
 type IDatabaseInstance interface {
 	awsec2.IConnectable
 	awscdk.IResource
 	awssecretsmanager.ISecretAttachmentTarget
 	// Add a new db proxy to this instance.
-	// Experimental.
 	AddProxy(id *string, options *DatabaseProxyOptions) DatabaseProxy
 	// Grant the given identity connection access to the database.
-	// Experimental.
 	GrantConnect(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this DBInstance.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The percentage of CPU utilization.
 	//
 	// Average over 5 minutes
-	// Experimental.
 	MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of database connections in use.
 	//
 	// Average over 5 minutes
-	// Experimental.
 	MetricDatabaseConnections(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of available random access memory.
 	//
 	// Average over 5 minutes
-	// Experimental.
 	MetricFreeableMemory(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The amount of available storage space.
 	//
 	// Average over 5 minutes
-	// Experimental.
 	MetricFreeStorageSpace(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The average number of disk write I/O operations per second.
 	//
 	// Average over 5 minutes
-	// Experimental.
 	MetricReadIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The average number of disk read I/O operations per second.
 	//
 	// Average over 5 minutes
-	// Experimental.
 	MetricWriteIOPS(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Defines a CloudWatch event rule which triggers for instance events.
 	//
 	// Use
 	// `rule.addEventPattern(pattern)` to specify a filter.
-	// Experimental.
 	OnEvent(id *string, options *awsevents.OnEventOptions) awsevents.Rule
 	// The instance endpoint address.
-	// Experimental.
 	DbInstanceEndpointAddress() *string
 	// The instance endpoint port.
-	// Experimental.
 	DbInstanceEndpointPort() *string
 	// The engine of this database Instance.
 	//
 	// May be not known for imported Instances if it wasn't provided explicitly,
 	// or for read replicas.
-	// Experimental.
 	Engine() IInstanceEngine
 	// The instance arn.
-	// Experimental.
 	InstanceArn() *string
 	// The instance endpoint.
-	// Experimental.
 	InstanceEndpoint() Endpoint
 	// The instance identifier.
-	// Experimental.
 	InstanceIdentifier() *string
 }
 
@@ -18651,20 +17797,15 @@ func (j *jsiiProxy_IDatabaseInstance) Stack() awscdk.Stack {
 }
 
 // DB Proxy.
-// Experimental.
 type IDatabaseProxy interface {
 	awscdk.IResource
 	// Grant the given identity connection access to the proxy.
-	// Experimental.
 	GrantConnect(grantee awsiam.IGrantable, dbUser *string) awsiam.Grant
 	// DB Proxy ARN.
-	// Experimental.
 	DbProxyArn() *string
 	// DB Proxy Name.
-	// Experimental.
 	DbProxyName() *string
 	// Endpoint.
-	// Experimental.
 	Endpoint() *string
 }
 
@@ -18721,33 +17862,27 @@ func (j *jsiiProxy_IDatabaseProxy) Endpoint() *string {
 // Don't implement this interface directly,
 // instead implement one of the known sub-interfaces,
 // like IClusterEngine and IInstanceEngine.
-// Experimental.
 type IEngine interface {
 	// The default name of the master database user if one was not provided explicitly.
 	//
 	// The global default of 'admin' will be used if this is `undefined`.
 	// Note that 'admin' is a reserved word in PostgreSQL and cannot be used.
-	// Experimental.
 	DefaultUsername() *string
 	// The family this engine belongs to, like "MYSQL", or "POSTGRESQL".
 	//
 	// This property is used when creating a Database Proxy.
 	// Most engines don't belong to any family
 	// (and because of that, you can't create Database Proxies for their Clusters or Instances).
-	// Experimental.
 	EngineFamily() *string
 	// The type of the engine, for example "mysql".
-	// Experimental.
 	EngineType() *string
 	// The exact version of the engine that is used, for example "5.1.42".
-	// Experimental.
 	EngineVersion() *EngineVersion
 	// The family to use for ParameterGroups using this engine.
 	//
 	// This is usually equal to "<engineType><engineMajorVersion>",
 	// but can sometimes be a variation of that.
 	// You can pass this property when creating new ParameterGroup.
-	// Experimental.
 	ParameterGroupFamily() *string
 }
 
@@ -18807,20 +17942,15 @@ func (j *jsiiProxy_IEngine) ParameterGroupFamily() *string {
 }
 
 // Interface representing a database instance (as opposed to cluster) engine.
-// Experimental.
 type IInstanceEngine interface {
 	IEngine
 	// Method called when the engine is used to create a new instance.
-	// Experimental.
 	BindToInstance(scope constructs.Construct, options *InstanceEngineBindOptions) *InstanceEngineConfig
 	// The application used by this engine to perform rotation for a multi-user scenario.
-	// Experimental.
 	MultiUserRotationApplication() awssecretsmanager.SecretRotationApplication
 	// The application used by this engine to perform rotation for a single-user scenario.
-	// Experimental.
 	SingleUserRotationApplication() awssecretsmanager.SecretRotationApplication
 	// Whether this engine supports automatic backups of a read replica instance.
-	// Experimental.
 	SupportsReadReplicaBackups() *bool
 }
 
@@ -18873,7 +18003,6 @@ func (j *jsiiProxy_IInstanceEngine) SupportsReadReplicaBackups() *bool {
 }
 
 // An option group.
-// Experimental.
 type IOptionGroup interface {
 	awscdk.IResource
 	// Adds a configuration to this OptionGroup.
@@ -18881,10 +18010,8 @@ type IOptionGroup interface {
 	// This method is a no-op for an imported OptionGroup.
 	//
 	// Returns: true if the OptionConfiguration was successfully added.
-	// Experimental.
 	AddConfiguration(configuration *OptionConfiguration) *bool
 	// The name of the option group.
-	// Experimental.
 	OptionGroupName() *string
 }
 
@@ -18920,7 +18047,6 @@ func (j *jsiiProxy_IOptionGroup) OptionGroupName() *string {
 //
 // Represents both a cluster parameter group,
 // and an instance parameter group.
-// Experimental.
 type IParameterGroup interface {
 	awscdk.IResource
 	// Adds a parameter to this group.
@@ -18931,13 +18057,10 @@ type IParameterGroup interface {
 	// Returns: true if the parameter was actually added
 	// (i.e., this ParameterGroup is not imported),
 	// false otherwise
-	// Experimental.
 	AddParameter(key *string, value *string) *bool
 	// Method called when this Parameter Group is used when defining a database cluster.
-	// Experimental.
 	BindToCluster(options *ParameterGroupClusterBindOptions) *ParameterGroupClusterConfig
 	// Method called when this Parameter Group is used when defining a database instance.
-	// Experimental.
 	BindToInstance(options *ParameterGroupInstanceBindOptions) *ParameterGroupInstanceConfig
 }
 
@@ -18986,25 +18109,19 @@ func (i *jsiiProxy_IParameterGroup) BindToInstance(options *ParameterGroupInstan
 }
 
 // Interface representing a serverless database cluster.
-// Experimental.
 type IServerlessCluster interface {
 	awsec2.IConnectable
 	awscdk.IResource
 	awssecretsmanager.ISecretAttachmentTarget
 	// Grant the given identity to access to the Data API.
-	// Experimental.
 	GrantDataApiAccess(grantee awsiam.IGrantable) awsiam.Grant
 	// The ARN of the cluster.
-	// Experimental.
 	ClusterArn() *string
 	// The endpoint to use for read/write operations.
-	// Experimental.
 	ClusterEndpoint() Endpoint
 	// Identifier of the cluster.
-	// Experimental.
 	ClusterIdentifier() *string
 	// Endpoint to use for load-balanced read-only operations.
-	// Experimental.
 	ClusterReadEndpoint() Endpoint
 }
 
@@ -19122,11 +18239,9 @@ func (j *jsiiProxy_IServerlessCluster) Stack() awscdk.Stack {
 }
 
 // Interface for a subnet group.
-// Experimental.
 type ISubnetGroup interface {
 	awscdk.IResource
 	// The name of the subnet group.
-	// Experimental.
 	SubnetGroupName() *string
 }
 
@@ -19149,22 +18264,16 @@ func (j *jsiiProxy_ISubnetGroup) SubnetGroupName() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type InstanceEngineBindOptions struct {
 	// The Active Directory directory ID to create the DB instance in.
-	// Experimental.
 	Domain *string `json:"domain"`
 	// The option group of the database.
-	// Experimental.
 	OptionGroup IOptionGroup `json:"optionGroup"`
 	// The role used for S3 exporting.
-	// Experimental.
 	S3ExportRole awsiam.IRole `json:"s3ExportRole"`
 	// The role used for S3 importing.
-	// Experimental.
 	S3ImportRole awsiam.IRole `json:"s3ImportRole"`
 	// The timezone of the database, set by the customer.
-	// Experimental.
 	Timezone *string `json:"timezone"`
 }
 
@@ -19172,15 +18281,12 @@ type InstanceEngineBindOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type InstanceEngineConfig struct {
 	// Features supported by the database engine.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DBEngineVersion.html
 	//
-	// Experimental.
 	Features *InstanceEngineFeatures `json:"features"`
 	// Option group of the database.
-	// Experimental.
 	OptionGroup IOptionGroup `json:"optionGroup"`
 }
 
@@ -19188,13 +18294,10 @@ type InstanceEngineConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type InstanceEngineFeatures struct {
 	// Feature name for the DB instance that the IAM role to export to S3 bucket is to be associated with.
-	// Experimental.
 	S3Export *string `json:"s3Export"`
 	// Feature name for the DB instance that the IAM role to access the S3 bucket for import is to be associated with.
-	// Experimental.
 	S3Import *string `json:"s3Import"`
 }
 
@@ -19202,50 +18305,36 @@ type InstanceEngineFeatures struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type InstanceProps struct {
 	// What subnets to run the RDS instances in.
 	//
 	// Must be at least 2 subnets in two different AZs.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// Whether to allow upgrade of major version for the DB instance.
-	// Experimental.
 	AllowMajorVersionUpgrade *bool `json:"allowMajorVersionUpgrade"`
 	// Whether to enable automatic upgrade of minor version for the DB instance.
-	// Experimental.
 	AutoMinorVersionUpgrade *bool `json:"autoMinorVersionUpgrade"`
 	// Whether to remove automated backups immediately after the DB instance is deleted for the DB instance.
-	// Experimental.
 	DeleteAutomatedBackups *bool `json:"deleteAutomatedBackups"`
 	// Whether to enable Performance Insights for the DB instance.
-	// Experimental.
 	EnablePerformanceInsights *bool `json:"enablePerformanceInsights"`
 	// What type of instance to start for the replicas.
-	// Experimental.
 	InstanceType awsec2.InstanceType `json:"instanceType"`
 	// The DB parameter group to associate with the instance.
-	// Experimental.
 	ParameterGroup IParameterGroup `json:"parameterGroup"`
 	// The AWS KMS key for encryption of Performance Insights data.
-	// Experimental.
 	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
-	// Experimental.
 	PerformanceInsightRetention PerformanceInsightRetention `json:"performanceInsightRetention"`
 	// Indicates whether the DB instance is an internet-facing instance.
-	// Experimental.
 	PubliclyAccessible *bool `json:"publiclyAccessible"`
 	// Security group.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 	// Where to place the instances within the VPC.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 }
 
 // The license model.
-// Experimental.
 type LicenseModel string
 
 const (
@@ -19258,7 +18347,6 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type MariaDbEngineVersion interface {
 	MariaDbFullVersion() *string
 	MariaDbMajorVersion() *string
@@ -19291,7 +18379,6 @@ func (j *jsiiProxy_MariaDbEngineVersion) MariaDbMajorVersion() *string {
 
 
 // Create a new MariaDbEngineVersion with an arbitrary version.
-// Experimental.
 func MariaDbEngineVersion_Of(mariaDbFullVersion *string, mariaDbMajorVersion *string) MariaDbEngineVersion {
 	_init_.Initialize()
 
@@ -19588,10 +18675,8 @@ func MariaDbEngineVersion_VER_10_5_9() MariaDbEngineVersion {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type MariaDbInstanceEngineProps struct {
 	// The exact version of the engine to use.
-	// Experimental.
 	Version MariaDbEngineVersion `json:"version"`
 }
 
@@ -19601,10 +18686,8 @@ type MariaDbInstanceEngineProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type MySqlInstanceEngineProps struct {
 	// The exact version of the engine to use.
-	// Experimental.
 	Version MysqlEngineVersion `json:"version"`
 }
 
@@ -19612,7 +18695,6 @@ type MySqlInstanceEngineProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type MysqlEngineVersion interface {
 	MysqlFullVersion() *string
 	MysqlMajorVersion() *string
@@ -19645,7 +18727,6 @@ func (j *jsiiProxy_MysqlEngineVersion) MysqlMajorVersion() *string {
 
 
 // Create a new MysqlEngineVersion with an arbitrary version.
-// Experimental.
 func MysqlEngineVersion_Of(mysqlFullVersion *string, mysqlMajorVersion *string) MysqlEngineVersion {
 	_init_.Initialize()
 
@@ -19962,33 +19043,26 @@ func MysqlEngineVersion_VER_8_0_26() MysqlEngineVersion {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type OptionConfiguration struct {
 	// The name of the option.
-	// Experimental.
 	Name *string `json:"name"`
 	// The port number that this option uses.
 	//
 	// If `port` is specified then `vpc`
 	// must also be specified.
-	// Experimental.
 	Port *float64 `json:"port"`
 	// Optional list of security groups to use for this option, if `vpc` is specified.
 	//
 	// If no groups are provided, a default one will be created.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 	// The settings for the option.
-	// Experimental.
 	Settings *map[string]*string `json:"settings"`
 	// The version for the option.
-	// Experimental.
 	Version *string `json:"version"`
 	// The VPC where a security group should be created for this option.
 	//
 	// If `vpc`
 	// is specified then `port` must also be specified.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 }
 
@@ -19996,7 +19070,6 @@ type OptionConfiguration struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type OptionGroup interface {
 	awscdk.Resource
 	IOptionGroup
@@ -20081,7 +19154,6 @@ func (j *jsiiProxy_OptionGroup) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewOptionGroup(scope constructs.Construct, id *string, props *OptionGroupProps) OptionGroup {
 	_init_.Initialize()
 
@@ -20096,7 +19168,6 @@ func NewOptionGroup(scope constructs.Construct, id *string, props *OptionGroupPr
 	return &j
 }
 
-// Experimental.
 func NewOptionGroup_Override(o OptionGroup, scope constructs.Construct, id *string, props *OptionGroupProps) {
 	_init_.Initialize()
 
@@ -20108,7 +19179,6 @@ func NewOptionGroup_Override(o OptionGroup, scope constructs.Construct, id *stri
 }
 
 // Import an existing option group.
-// Experimental.
 func OptionGroup_FromOptionGroupName(scope constructs.Construct, id *string, optionGroupName *string) IOptionGroup {
 	_init_.Initialize()
 
@@ -20144,7 +19214,6 @@ func OptionGroup_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func OptionGroup_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -20163,7 +19232,6 @@ func OptionGroup_IsResource(construct constructs.IConstruct) *bool {
 // Adds a configuration to this OptionGroup.
 //
 // This method is a no-op for an imported OptionGroup.
-// Experimental.
 func (o *jsiiProxy_OptionGroup) AddConfiguration(configuration *OptionConfiguration) *bool {
 	var returns *bool
 
@@ -20186,7 +19254,6 @@ func (o *jsiiProxy_OptionGroup) AddConfiguration(configuration *OptionConfigurat
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (o *jsiiProxy_OptionGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		o,
@@ -20195,7 +19262,6 @@ func (o *jsiiProxy_OptionGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) 
 	)
 }
 
-// Experimental.
 func (o *jsiiProxy_OptionGroup) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -20215,7 +19281,6 @@ func (o *jsiiProxy_OptionGroup) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (o *jsiiProxy_OptionGroup) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -20234,7 +19299,6 @@ func (o *jsiiProxy_OptionGroup) GetResourceArnAttribute(arnAttr *string, arnComp
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (o *jsiiProxy_OptionGroup) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -20249,7 +19313,6 @@ func (o *jsiiProxy_OptionGroup) GetResourceNameAttribute(nameAttr *string) *stri
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (o *jsiiProxy_OptionGroup) ToString() *string {
 	var returns *string
 
@@ -20267,16 +19330,12 @@ func (o *jsiiProxy_OptionGroup) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type OptionGroupProps struct {
 	// The configurations for this option group.
-	// Experimental.
 	Configurations *[]*OptionConfiguration `json:"configurations"`
 	// The database engine that this option group is associated with.
-	// Experimental.
 	Engine IInstanceEngine `json:"engine"`
 	// A description of the option group.
-	// Experimental.
 	Description *string `json:"description"`
 }
 
@@ -20286,10 +19345,8 @@ type OptionGroupProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type OracleEeInstanceEngineProps struct {
 	// The exact version of the engine to use.
-	// Experimental.
 	Version OracleEngineVersion `json:"version"`
 }
 
@@ -20297,7 +19354,6 @@ type OracleEeInstanceEngineProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type OracleEngineVersion interface {
 	OracleFullVersion() *string
 	OracleMajorVersion() *string
@@ -20330,7 +19386,6 @@ func (j *jsiiProxy_OracleEngineVersion) OracleMajorVersion() *string {
 
 
 // Creates a new OracleEngineVersion with an arbitrary version.
-// Experimental.
 func OracleEngineVersion_Of(oracleFullVersion *string, oracleMajorVersion *string) OracleEngineVersion {
 	_init_.Initialize()
 
@@ -20935,10 +19990,8 @@ func OracleEngineVersion_VER_19_0_0_0_2021_04_R1() OracleEngineVersion {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type OracleSe2InstanceEngineProps struct {
 	// The exact version of the engine to use.
-	// Experimental.
 	Version OracleEngineVersion `json:"version"`
 }
 
@@ -20949,7 +20002,6 @@ type OracleSe2InstanceEngineProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ParameterGroup interface {
 	awscdk.Resource
 	IParameterGroup
@@ -21014,7 +20066,6 @@ func (j *jsiiProxy_ParameterGroup) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewParameterGroup(scope constructs.Construct, id *string, props *ParameterGroupProps) ParameterGroup {
 	_init_.Initialize()
 
@@ -21029,7 +20080,6 @@ func NewParameterGroup(scope constructs.Construct, id *string, props *ParameterG
 	return &j
 }
 
-// Experimental.
 func NewParameterGroup_Override(p ParameterGroup, scope constructs.Construct, id *string, props *ParameterGroupProps) {
 	_init_.Initialize()
 
@@ -21041,7 +20091,6 @@ func NewParameterGroup_Override(p ParameterGroup, scope constructs.Construct, id
 }
 
 // Imports a parameter group.
-// Experimental.
 func ParameterGroup_FromParameterGroupName(scope constructs.Construct, id *string, parameterGroupName *string) IParameterGroup {
 	_init_.Initialize()
 
@@ -21077,7 +20126,6 @@ func ParameterGroup_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func ParameterGroup_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -21094,7 +20142,6 @@ func ParameterGroup_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Add a parameter to this parameter group.
-// Experimental.
 func (p *jsiiProxy_ParameterGroup) AddParameter(key *string, value *string) *bool {
 	var returns *bool
 
@@ -21117,7 +20164,6 @@ func (p *jsiiProxy_ParameterGroup) AddParameter(key *string, value *string) *boo
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (p *jsiiProxy_ParameterGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		p,
@@ -21127,7 +20173,6 @@ func (p *jsiiProxy_ParameterGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 }
 
 // Method called when this Parameter Group is used when defining a database cluster.
-// Experimental.
 func (p *jsiiProxy_ParameterGroup) BindToCluster(_options *ParameterGroupClusterBindOptions) *ParameterGroupClusterConfig {
 	var returns *ParameterGroupClusterConfig
 
@@ -21142,7 +20187,6 @@ func (p *jsiiProxy_ParameterGroup) BindToCluster(_options *ParameterGroupCluster
 }
 
 // Method called when this Parameter Group is used when defining a database instance.
-// Experimental.
 func (p *jsiiProxy_ParameterGroup) BindToInstance(_options *ParameterGroupInstanceBindOptions) *ParameterGroupInstanceConfig {
 	var returns *ParameterGroupInstanceConfig
 
@@ -21156,7 +20200,6 @@ func (p *jsiiProxy_ParameterGroup) BindToInstance(_options *ParameterGroupInstan
 	return returns
 }
 
-// Experimental.
 func (p *jsiiProxy_ParameterGroup) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -21176,7 +20219,6 @@ func (p *jsiiProxy_ParameterGroup) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (p *jsiiProxy_ParameterGroup) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -21195,7 +20237,6 @@ func (p *jsiiProxy_ParameterGroup) GetResourceArnAttribute(arnAttr *string, arnC
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (p *jsiiProxy_ParameterGroup) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -21210,7 +20251,6 @@ func (p *jsiiProxy_ParameterGroup) GetResourceNameAttribute(nameAttr *string) *s
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (p *jsiiProxy_ParameterGroup) ToString() *string {
 	var returns *string
 
@@ -21228,7 +20268,6 @@ func (p *jsiiProxy_ParameterGroup) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ParameterGroupClusterBindOptions struct {
 }
 
@@ -21236,10 +20275,8 @@ type ParameterGroupClusterBindOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ParameterGroupClusterConfig struct {
 	// The name of this parameter group.
-	// Experimental.
 	ParameterGroupName *string `json:"parameterGroupName"`
 }
 
@@ -21247,7 +20284,6 @@ type ParameterGroupClusterConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ParameterGroupInstanceBindOptions struct {
 }
 
@@ -21255,10 +20291,8 @@ type ParameterGroupInstanceBindOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ParameterGroupInstanceConfig struct {
 	// The name of this parameter group.
-	// Experimental.
 	ParameterGroupName *string `json:"parameterGroupName"`
 }
 
@@ -21266,21 +20300,16 @@ type ParameterGroupInstanceConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ParameterGroupProps struct {
 	// Description for this parameter group.
-	// Experimental.
 	Description *string `json:"description"`
 	// The database engine for this parameter group.
-	// Experimental.
 	Engine IEngine `json:"engine"`
 	// The parameters in this parameter group.
-	// Experimental.
 	Parameters *map[string]*string `json:"parameters"`
 }
 
 // The retention period for Performance Insight.
-// Experimental.
 type PerformanceInsightRetention string
 
 const (
@@ -21292,13 +20321,10 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type PostgresEngineFeatures struct {
 	// Whether this version of the Postgres engine supports the S3 data export feature.
-	// Experimental.
 	S3Export *bool `json:"s3Export"`
 	// Whether this version of the Postgres engine supports the S3 data import feature.
-	// Experimental.
 	S3Import *bool `json:"s3Import"`
 }
 
@@ -21306,7 +20332,6 @@ type PostgresEngineFeatures struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type PostgresEngineVersion interface {
 	PostgresFullVersion() *string
 	PostgresMajorVersion() *string
@@ -21339,7 +20364,6 @@ func (j *jsiiProxy_PostgresEngineVersion) PostgresMajorVersion() *string {
 
 
 // Create a new PostgresEngineVersion with an arbitrary version.
-// Experimental.
 func PostgresEngineVersion_Of(postgresFullVersion *string, postgresMajorVersion *string, postgresFeatures *PostgresEngineFeatures) PostgresEngineVersion {
 	_init_.Initialize()
 
@@ -21834,10 +20858,8 @@ func PostgresEngineVersion_VER_13_4() PostgresEngineVersion {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type PostgresInstanceEngineProps struct {
 	// The exact version of the engine to use.
-	// Experimental.
 	Version PostgresEngineVersion `json:"version"`
 }
 
@@ -21845,13 +20867,10 @@ type PostgresInstanceEngineProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ProcessorFeatures struct {
 	// The number of CPU core.
-	// Experimental.
 	CoreCount *float64 `json:"coreCount"`
 	// The number of threads per core.
-	// Experimental.
 	ThreadsPerCore *float64 `json:"threadsPerCore"`
 }
 
@@ -21862,7 +20881,6 @@ type ProcessorFeatures struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ProxyTarget interface {
 	Bind(proxy DatabaseProxy) *ProxyTargetConfig
 }
@@ -21873,7 +20891,6 @@ type jsiiProxy_ProxyTarget struct {
 }
 
 // From cluster.
-// Experimental.
 func ProxyTarget_FromCluster(cluster IDatabaseCluster) ProxyTarget {
 	_init_.Initialize()
 
@@ -21890,7 +20907,6 @@ func ProxyTarget_FromCluster(cluster IDatabaseCluster) ProxyTarget {
 }
 
 // From instance.
-// Experimental.
 func ProxyTarget_FromInstance(instance IDatabaseInstance) ProxyTarget {
 	_init_.Initialize()
 
@@ -21907,7 +20923,6 @@ func ProxyTarget_FromInstance(instance IDatabaseInstance) ProxyTarget {
 }
 
 // Bind this target to the specified database proxy.
-// Experimental.
 func (p *jsiiProxy_ProxyTarget) Bind(proxy DatabaseProxy) *ProxyTargetConfig {
 	var returns *ProxyTargetConfig
 
@@ -21925,20 +20940,16 @@ func (p *jsiiProxy_ProxyTarget) Bind(proxy DatabaseProxy) *ProxyTargetConfig {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ProxyTargetConfig struct {
 	// The database clusters to which this proxy connects.
 	//
 	// Either this or `dbInstances` will be set and the other `undefined`.
-	// Experimental.
 	DbClusters *[]IDatabaseCluster `json:"dbClusters"`
 	// The database instances to which this proxy connects.
 	//
 	// Either this or `dbClusters` will be set and the other `undefined`.
-	// Experimental.
 	DbInstances *[]IDatabaseInstance `json:"dbInstances"`
 	// The engine family of the database instance or cluster this proxy connects with.
-	// Experimental.
 	EngineFamily *string `json:"engineFamily"`
 }
 
@@ -21946,7 +20957,6 @@ type ProxyTargetConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RotationMultiUserOptions struct {
 	// The secret to rotate.
 	//
@@ -21962,10 +20972,8 @@ type RotationMultiUserOptions struct {
 	//    "masterarn": <required: the arn of the master secret which will be used to create users/change passwords>
 	// }
 	// ```
-	// Experimental.
 	Secret awssecretsmanager.ISecret `json:"secret"`
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
-	// Experimental.
 	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter"`
 	// The VPC interface endpoint to use for the Secrets Manager API.
 	//
@@ -21973,13 +20981,10 @@ type RotationMultiUserOptions struct {
 	// need to specify an endpoint. The standard Secrets Manager DNS hostname the Secrets Manager
 	// CLI and SDKs use by default (https://secretsmanager.<region>.amazonaws.com) automatically
 	// resolves to your VPC endpoint.
-	// Experimental.
 	Endpoint awsec2.IInterfaceVpcEndpoint `json:"endpoint"`
 	// Specifies characters to not include in generated passwords.
-	// Experimental.
 	ExcludeCharacters *string `json:"excludeCharacters"`
 	// Where to place the rotation Lambda function.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 }
 
@@ -21987,10 +20992,8 @@ type RotationMultiUserOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RotationSingleUserOptions struct {
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
-	// Experimental.
 	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter"`
 	// The VPC interface endpoint to use for the Secrets Manager API.
 	//
@@ -21998,13 +21001,10 @@ type RotationSingleUserOptions struct {
 	// need to specify an endpoint. The standard Secrets Manager DNS hostname the Secrets Manager
 	// CLI and SDKs use by default (https://secretsmanager.<region>.amazonaws.com) automatically
 	// resolves to your VPC endpoint.
-	// Experimental.
 	Endpoint awsec2.IInterfaceVpcEndpoint `json:"endpoint"`
 	// Specifies characters to not include in generated passwords.
-	// Experimental.
 	ExcludeCharacters *string `json:"excludeCharacters"`
 	// Where to place the rotation Lambda function.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 }
 
@@ -22012,7 +21012,6 @@ type RotationSingleUserOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ServerlessCluster interface {
 	awscdk.Resource
 	IServerlessCluster
@@ -22156,7 +21155,6 @@ func (j *jsiiProxy_ServerlessCluster) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewServerlessCluster(scope constructs.Construct, id *string, props *ServerlessClusterProps) ServerlessCluster {
 	_init_.Initialize()
 
@@ -22171,7 +21169,6 @@ func NewServerlessCluster(scope constructs.Construct, id *string, props *Serverl
 	return &j
 }
 
-// Experimental.
 func NewServerlessCluster_Override(s ServerlessCluster, scope constructs.Construct, id *string, props *ServerlessClusterProps) {
 	_init_.Initialize()
 
@@ -22191,7 +21188,6 @@ func (j *jsiiProxy_ServerlessCluster) SetEnableDataApi(val *bool) {
 }
 
 // Import an existing DatabaseCluster from properties.
-// Experimental.
 func ServerlessCluster_FromServerlessClusterAttributes(scope constructs.Construct, id *string, attrs *ServerlessClusterAttributes) IServerlessCluster {
 	_init_.Initialize()
 
@@ -22227,7 +21223,6 @@ func ServerlessCluster_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func ServerlessCluster_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -22244,7 +21239,6 @@ func ServerlessCluster_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Adds the multi user rotation to this cluster.
-// Experimental.
 func (s *jsiiProxy_ServerlessCluster) AddRotationMultiUser(id *string, options *RotationMultiUserOptions) awssecretsmanager.SecretRotation {
 	var returns awssecretsmanager.SecretRotation
 
@@ -22259,7 +21253,6 @@ func (s *jsiiProxy_ServerlessCluster) AddRotationMultiUser(id *string, options *
 }
 
 // Adds the single user rotation of the master password to this cluster.
-// Experimental.
 func (s *jsiiProxy_ServerlessCluster) AddRotationSingleUser(options *RotationSingleUserOptions) awssecretsmanager.SecretRotation {
 	var returns awssecretsmanager.SecretRotation
 
@@ -22282,7 +21275,6 @@ func (s *jsiiProxy_ServerlessCluster) AddRotationSingleUser(options *RotationSin
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (s *jsiiProxy_ServerlessCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		s,
@@ -22292,7 +21284,6 @@ func (s *jsiiProxy_ServerlessCluster) ApplyRemovalPolicy(policy awscdk.RemovalPo
 }
 
 // Renders the secret attachment target specifications.
-// Experimental.
 func (s *jsiiProxy_ServerlessCluster) AsSecretAttachmentTarget() *awssecretsmanager.SecretAttachmentTargetProps {
 	var returns *awssecretsmanager.SecretAttachmentTargetProps
 
@@ -22306,7 +21297,6 @@ func (s *jsiiProxy_ServerlessCluster) AsSecretAttachmentTarget() *awssecretsmana
 	return returns
 }
 
-// Experimental.
 func (s *jsiiProxy_ServerlessCluster) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -22326,7 +21316,6 @@ func (s *jsiiProxy_ServerlessCluster) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (s *jsiiProxy_ServerlessCluster) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -22345,7 +21334,6 @@ func (s *jsiiProxy_ServerlessCluster) GetResourceArnAttribute(arnAttr *string, a
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (s *jsiiProxy_ServerlessCluster) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -22360,7 +21348,6 @@ func (s *jsiiProxy_ServerlessCluster) GetResourceNameAttribute(nameAttr *string)
 }
 
 // Grant the given identity to access to the Data API, including read access to the secret attached to the cluster if present.
-// Experimental.
 func (s *jsiiProxy_ServerlessCluster) GrantDataApiAccess(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -22375,7 +21362,6 @@ func (s *jsiiProxy_ServerlessCluster) GrantDataApiAccess(grantee awsiam.IGrantab
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (s *jsiiProxy_ServerlessCluster) ToString() *string {
 	var returns *string
 
@@ -22393,25 +21379,18 @@ func (s *jsiiProxy_ServerlessCluster) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ServerlessClusterAttributes struct {
 	// Cluster endpoint address.
-	// Experimental.
 	ClusterEndpointAddress *string `json:"clusterEndpointAddress"`
 	// Identifier for the cluster.
-	// Experimental.
 	ClusterIdentifier *string `json:"clusterIdentifier"`
 	// The database port.
-	// Experimental.
 	Port *float64 `json:"port"`
 	// Reader endpoint address.
-	// Experimental.
 	ReaderEndpointAddress *string `json:"readerEndpointAddress"`
 	// The secret attached to the database cluster.
-	// Experimental.
 	Secret awssecretsmanager.ISecret `json:"secret"`
 	// The security groups of the database cluster.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 }
 
@@ -22419,57 +21398,41 @@ type ServerlessClusterAttributes struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ServerlessClusterProps struct {
 	// What kind of database to start.
-	// Experimental.
 	Engine IClusterEngine `json:"engine"`
 	// The VPC that this Aurora Serverless cluster has been created in.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// The number of days during which automatic DB snapshots are retained.
 	//
 	// Automatic backup retention cannot be disabled on serverless clusters.
 	// Must be a value from 1 day to 35 days.
-	// Experimental.
 	BackupRetention awscdk.Duration `json:"backupRetention"`
 	// An optional identifier for the cluster.
-	// Experimental.
 	ClusterIdentifier *string `json:"clusterIdentifier"`
 	// Credentials for the administrative user.
-	// Experimental.
 	Credentials Credentials `json:"credentials"`
 	// Name of a database which is automatically created inside the cluster.
-	// Experimental.
 	DefaultDatabaseName *string `json:"defaultDatabaseName"`
 	// Indicates whether the DB cluster should have deletion protection enabled.
-	// Experimental.
 	DeletionProtection *bool `json:"deletionProtection"`
 	// Whether to enable the Data API.
 	// See: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/data-api.html
 	//
-	// Experimental.
 	EnableDataApi *bool `json:"enableDataApi"`
 	// Additional parameters to pass to the database engine.
-	// Experimental.
 	ParameterGroup IParameterGroup `json:"parameterGroup"`
 	// The removal policy to apply when the cluster and its instances are removed from the stack or replaced during an update.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// Scaling configuration of an Aurora Serverless database cluster.
-	// Experimental.
 	Scaling *ServerlessScalingOptions `json:"scaling"`
 	// Security group.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 	// The KMS key for storage encryption.
-	// Experimental.
 	StorageEncryptionKey awskms.IKey `json:"storageEncryptionKey"`
 	// Existing subnet group for the cluster.
-	// Experimental.
 	SubnetGroup ISubnetGroup `json:"subnetGroup"`
 	// Where to place the instances within the VPC.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 }
 
@@ -22477,7 +21440,6 @@ type ServerlessClusterProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ServerlessScalingOptions struct {
 	// The time before an Aurora Serverless database cluster is paused.
 	//
@@ -22489,13 +21451,10 @@ type ServerlessScalingOptions struct {
 	// is a request to connect to it.
 	//
 	// Set to 0 to disable
-	// Experimental.
 	AutoPause awscdk.Duration `json:"autoPause"`
 	// The maximum capacity for an Aurora Serverless database cluster.
-	// Experimental.
 	MaxCapacity AuroraCapacityUnit `json:"maxCapacity"`
 	// The minimum capacity for an Aurora Serverless database cluster.
-	// Experimental.
 	MinCapacity AuroraCapacityUnit `json:"minCapacity"`
 }
 
@@ -22505,7 +21464,6 @@ type ServerlessScalingOptions struct {
 //
 // See: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html#rds-proxy-pinning
 //
-// Experimental.
 type SessionPinningFilter interface {
 	FilterName() *string
 }
@@ -22527,7 +21485,6 @@ func (j *jsiiProxy_SessionPinningFilter) FilterName() *string {
 
 
 // custom filter.
-// Experimental.
 func SessionPinningFilter_Of(filterName *string) SessionPinningFilter {
 	_init_.Initialize()
 
@@ -22558,7 +21515,6 @@ func SessionPinningFilter_EXCLUDE_VARIABLE_SETS() SessionPinningFilter {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SnapshotCredentials interface {
 	EncryptionKey() awskms.IKey
 	ExcludeCharacters() *string
@@ -22656,7 +21612,6 @@ func (j *jsiiProxy_SnapshotCredentials) Username() *string {
 }
 
 
-// Experimental.
 func NewSnapshotCredentials_Override(s SnapshotCredentials) {
 	_init_.Initialize()
 
@@ -22672,7 +21627,6 @@ func NewSnapshotCredentials_Override(s SnapshotCredentials) {
 // The new credentials are stored in Secrets Manager.
 //
 // Note - The username must match the existing master username of the snapshot.
-// Experimental.
 func SnapshotCredentials_FromGeneratedSecret(username *string, options *SnapshotCredentialsFromGeneratedPasswordOptions) SnapshotCredentials {
 	_init_.Initialize()
 
@@ -22689,7 +21643,6 @@ func SnapshotCredentials_FromGeneratedSecret(username *string, options *Snapshot
 }
 
 // Update the snapshot login with an existing password.
-// Experimental.
 func SnapshotCredentials_FromPassword(password awscdk.SecretValue) SnapshotCredentials {
 	_init_.Initialize()
 
@@ -22714,7 +21667,6 @@ func SnapshotCredentials_FromPassword(password awscdk.SecretValue) SnapshotCrede
 //    "password": <required: password>,
 // }
 // ```
-// Experimental.
 func SnapshotCredentials_FromSecret(secret awssecretsmanager.Secret) SnapshotCredentials {
 	_init_.Initialize()
 
@@ -22734,16 +21686,12 @@ func SnapshotCredentials_FromSecret(secret awssecretsmanager.Secret) SnapshotCre
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SnapshotCredentialsFromGeneratedPasswordOptions struct {
 	// KMS encryption key to encrypt the generated secret.
-	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey"`
 	// The characters to exclude from the generated password.
-	// Experimental.
 	ExcludeCharacters *string `json:"excludeCharacters"`
 	// A list of regions where to replicate this secret.
-	// Experimental.
 	ReplicaRegions *[]*awssecretsmanager.ReplicaRegion `json:"replicaRegions"`
 }
 
@@ -22753,10 +21701,8 @@ type SnapshotCredentialsFromGeneratedPasswordOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SqlServerEeInstanceEngineProps struct {
 	// The exact version of the engine to use.
-	// Experimental.
 	Version SqlServerEngineVersion `json:"version"`
 }
 
@@ -22764,7 +21710,6 @@ type SqlServerEeInstanceEngineProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SqlServerEngineVersion interface {
 	SqlServerFullVersion() *string
 	SqlServerMajorVersion() *string
@@ -22797,7 +21742,6 @@ func (j *jsiiProxy_SqlServerEngineVersion) SqlServerMajorVersion() *string {
 
 
 // Create a new SqlServerEngineVersion with an arbitrary version.
-// Experimental.
 func SqlServerEngineVersion_Of(sqlServerFullVersion *string, sqlServerMajorVersion *string) SqlServerEngineVersion {
 	_init_.Initialize()
 
@@ -23259,10 +22203,8 @@ func SqlServerEngineVersion_VER_15_00_4073_23_V1() SqlServerEngineVersion {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SqlServerExInstanceEngineProps struct {
 	// The exact version of the engine to use.
-	// Experimental.
 	Version SqlServerEngineVersion `json:"version"`
 }
 
@@ -23272,10 +22214,8 @@ type SqlServerExInstanceEngineProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SqlServerSeInstanceEngineProps struct {
 	// The exact version of the engine to use.
-	// Experimental.
 	Version SqlServerEngineVersion `json:"version"`
 }
 
@@ -23285,15 +22225,12 @@ type SqlServerSeInstanceEngineProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SqlServerWebInstanceEngineProps struct {
 	// The exact version of the engine to use.
-	// Experimental.
 	Version SqlServerEngineVersion `json:"version"`
 }
 
 // The type of storage.
-// Experimental.
 type StorageType string
 
 const (
@@ -23306,7 +22243,6 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SubnetGroup interface {
 	awscdk.Resource
 	ISubnetGroup
@@ -23379,7 +22315,6 @@ func (j *jsiiProxy_SubnetGroup) SubnetGroupName() *string {
 }
 
 
-// Experimental.
 func NewSubnetGroup(scope constructs.Construct, id *string, props *SubnetGroupProps) SubnetGroup {
 	_init_.Initialize()
 
@@ -23394,7 +22329,6 @@ func NewSubnetGroup(scope constructs.Construct, id *string, props *SubnetGroupPr
 	return &j
 }
 
-// Experimental.
 func NewSubnetGroup_Override(s SubnetGroup, scope constructs.Construct, id *string, props *SubnetGroupProps) {
 	_init_.Initialize()
 
@@ -23406,7 +22340,6 @@ func NewSubnetGroup_Override(s SubnetGroup, scope constructs.Construct, id *stri
 }
 
 // Imports an existing subnet group by name.
-// Experimental.
 func SubnetGroup_FromSubnetGroupName(scope constructs.Construct, id *string, subnetGroupName *string) ISubnetGroup {
 	_init_.Initialize()
 
@@ -23442,7 +22375,6 @@ func SubnetGroup_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func SubnetGroup_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -23467,7 +22399,6 @@ func SubnetGroup_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (s *jsiiProxy_SubnetGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		s,
@@ -23476,7 +22407,6 @@ func (s *jsiiProxy_SubnetGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) 
 	)
 }
 
-// Experimental.
 func (s *jsiiProxy_SubnetGroup) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -23496,7 +22426,6 @@ func (s *jsiiProxy_SubnetGroup) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (s *jsiiProxy_SubnetGroup) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -23515,7 +22444,6 @@ func (s *jsiiProxy_SubnetGroup) GetResourceArnAttribute(arnAttr *string, arnComp
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (s *jsiiProxy_SubnetGroup) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -23530,7 +22458,6 @@ func (s *jsiiProxy_SubnetGroup) GetResourceNameAttribute(nameAttr *string) *stri
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (s *jsiiProxy_SubnetGroup) ToString() *string {
 	var returns *string
 
@@ -23548,22 +22475,16 @@ func (s *jsiiProxy_SubnetGroup) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SubnetGroupProps struct {
 	// Description of the subnet group.
-	// Experimental.
 	Description *string `json:"description"`
 	// The removal policy to apply when the subnet group are removed from the stack or replaced during an update.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// The name of the subnet group.
-	// Experimental.
 	SubnetGroupName *string `json:"subnetGroupName"`
 	// The VPC to place the subnet group in.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// Which subnets within the VPC to associate with this group.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 }
 

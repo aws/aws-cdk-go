@@ -19,7 +19,6 @@ import (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type FunctionHook interface {
 	awsautoscaling.ILifecycleHookTarget
 	Bind(scope constructs.Construct, lifecycleHook awsautoscaling.ILifecycleHook) *awsautoscaling.LifecycleHookTargetConfig
@@ -30,7 +29,6 @@ type jsiiProxy_FunctionHook struct {
 	internal.Type__awsautoscalingILifecycleHookTarget
 }
 
-// Experimental.
 func NewFunctionHook(fn awslambda.IFunction, encryptionKey awskms.IKey) FunctionHook {
 	_init_.Initialize()
 
@@ -45,7 +43,6 @@ func NewFunctionHook(fn awslambda.IFunction, encryptionKey awskms.IKey) Function
 	return &j
 }
 
-// Experimental.
 func NewFunctionHook_Override(f FunctionHook, fn awslambda.IFunction, encryptionKey awskms.IKey) {
 	_init_.Initialize()
 
@@ -57,7 +54,6 @@ func NewFunctionHook_Override(f FunctionHook, fn awslambda.IFunction, encryption
 }
 
 // Called when this object is used as the target of a lifecycle hook.
-// Experimental.
 func (f *jsiiProxy_FunctionHook) Bind(scope constructs.Construct, lifecycleHook awsautoscaling.ILifecycleHook) *awsautoscaling.LifecycleHookTargetConfig {
 	var returns *awsautoscaling.LifecycleHookTargetConfig
 
@@ -75,7 +71,6 @@ func (f *jsiiProxy_FunctionHook) Bind(scope constructs.Construct, lifecycleHook 
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type QueueHook interface {
 	awsautoscaling.ILifecycleHookTarget
 	Bind(_scope constructs.Construct, lifecycleHook awsautoscaling.ILifecycleHook) *awsautoscaling.LifecycleHookTargetConfig
@@ -86,7 +81,6 @@ type jsiiProxy_QueueHook struct {
 	internal.Type__awsautoscalingILifecycleHookTarget
 }
 
-// Experimental.
 func NewQueueHook(queue awssqs.IQueue) QueueHook {
 	_init_.Initialize()
 
@@ -101,7 +95,6 @@ func NewQueueHook(queue awssqs.IQueue) QueueHook {
 	return &j
 }
 
-// Experimental.
 func NewQueueHook_Override(q QueueHook, queue awssqs.IQueue) {
 	_init_.Initialize()
 
@@ -113,7 +106,6 @@ func NewQueueHook_Override(q QueueHook, queue awssqs.IQueue) {
 }
 
 // Called when this object is used as the target of a lifecycle hook.
-// Experimental.
 func (q *jsiiProxy_QueueHook) Bind(_scope constructs.Construct, lifecycleHook awsautoscaling.ILifecycleHook) *awsautoscaling.LifecycleHookTargetConfig {
 	var returns *awsautoscaling.LifecycleHookTargetConfig
 
@@ -131,7 +123,6 @@ func (q *jsiiProxy_QueueHook) Bind(_scope constructs.Construct, lifecycleHook aw
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TopicHook interface {
 	awsautoscaling.ILifecycleHookTarget
 	Bind(_scope constructs.Construct, lifecycleHook awsautoscaling.ILifecycleHook) *awsautoscaling.LifecycleHookTargetConfig
@@ -142,7 +133,6 @@ type jsiiProxy_TopicHook struct {
 	internal.Type__awsautoscalingILifecycleHookTarget
 }
 
-// Experimental.
 func NewTopicHook(topic awssns.ITopic) TopicHook {
 	_init_.Initialize()
 
@@ -157,7 +147,6 @@ func NewTopicHook(topic awssns.ITopic) TopicHook {
 	return &j
 }
 
-// Experimental.
 func NewTopicHook_Override(t TopicHook, topic awssns.ITopic) {
 	_init_.Initialize()
 
@@ -169,7 +158,6 @@ func NewTopicHook_Override(t TopicHook, topic awssns.ITopic) {
 }
 
 // Called when this object is used as the target of a lifecycle hook.
-// Experimental.
 func (t *jsiiProxy_TopicHook) Bind(_scope constructs.Construct, lifecycleHook awsautoscaling.ILifecycleHook) *awsautoscaling.LifecycleHookTargetConfig {
 	var returns *awsautoscaling.LifecycleHookTargetConfig
 

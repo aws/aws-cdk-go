@@ -21,7 +21,6 @@ import (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Alias interface {
 	awscdk.Resource
 	IAlias
@@ -133,7 +132,6 @@ func (j *jsiiProxy_Alias) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewAlias(scope constructs.Construct, id *string, props *AliasProps) Alias {
 	_init_.Initialize()
 
@@ -148,7 +146,6 @@ func NewAlias(scope constructs.Construct, id *string, props *AliasProps) Alias {
 	return &j
 }
 
-// Experimental.
 func NewAlias_Override(a Alias, scope constructs.Construct, id *string, props *AliasProps) {
 	_init_.Initialize()
 
@@ -160,7 +157,6 @@ func NewAlias_Override(a Alias, scope constructs.Construct, id *string, props *A
 }
 
 // Import an existing KMS Alias defined outside the CDK app.
-// Experimental.
 func Alias_FromAliasAttributes(scope constructs.Construct, id *string, attrs *AliasAttributes) IAlias {
 	_init_.Initialize()
 
@@ -181,7 +177,6 @@ func Alias_FromAliasAttributes(scope constructs.Construct, id *string, attrs *Al
 // This method should be used
 // instead of 'fromAliasAttributes' when the underlying KMS Key ARN is not available.
 // This Alias will not have a direct reference to the KMS Key, so addAlias and grant* methods are not supported.
-// Experimental.
 func Alias_FromAliasName(scope constructs.Construct, id *string, aliasName *string) IAlias {
 	_init_.Initialize()
 
@@ -217,7 +212,6 @@ func Alias_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func Alias_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -234,7 +228,6 @@ func Alias_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Defines a new alias for the key.
-// Experimental.
 func (a *jsiiProxy_Alias) AddAlias(alias *string) Alias {
 	var returns Alias
 
@@ -249,7 +242,6 @@ func (a *jsiiProxy_Alias) AddAlias(alias *string) Alias {
 }
 
 // Adds a statement to the KMS key resource policy.
-// Experimental.
 func (a *jsiiProxy_Alias) AddToResourcePolicy(statement awsiam.PolicyStatement, allowNoOp *bool) *awsiam.AddToResourcePolicyResult {
 	var returns *awsiam.AddToResourcePolicyResult
 
@@ -272,7 +264,6 @@ func (a *jsiiProxy_Alias) AddToResourcePolicy(statement awsiam.PolicyStatement, 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (a *jsiiProxy_Alias) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		a,
@@ -281,7 +272,6 @@ func (a *jsiiProxy_Alias) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (a *jsiiProxy_Alias) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -301,7 +291,6 @@ func (a *jsiiProxy_Alias) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (a *jsiiProxy_Alias) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -320,7 +309,6 @@ func (a *jsiiProxy_Alias) GetResourceArnAttribute(arnAttr *string, arnComponents
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (a *jsiiProxy_Alias) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -335,7 +323,6 @@ func (a *jsiiProxy_Alias) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 // Grant the indicated permissions on this key to the given principal.
-// Experimental.
 func (a *jsiiProxy_Alias) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
 	args := []interface{}{grantee}
 	for _, a := range actions {
@@ -355,7 +342,6 @@ func (a *jsiiProxy_Alias) Grant(grantee awsiam.IGrantable, actions ...*string) a
 }
 
 // Grant decryption permissions using this key to the given principal.
-// Experimental.
 func (a *jsiiProxy_Alias) GrantDecrypt(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -370,7 +356,6 @@ func (a *jsiiProxy_Alias) GrantDecrypt(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 // Grant encryption permissions using this key to the given principal.
-// Experimental.
 func (a *jsiiProxy_Alias) GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -385,7 +370,6 @@ func (a *jsiiProxy_Alias) GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 // Grant encryption and decryption permissions using this key to the given principal.
-// Experimental.
 func (a *jsiiProxy_Alias) GrantEncryptDecrypt(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -400,7 +384,6 @@ func (a *jsiiProxy_Alias) GrantEncryptDecrypt(grantee awsiam.IGrantable) awsiam.
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (a *jsiiProxy_Alias) ToString() *string {
 	var returns *string
 
@@ -418,15 +401,12 @@ func (a *jsiiProxy_Alias) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AliasAttributes struct {
 	// Specifies the alias name.
 	//
 	// This value must begin with alias/ followed by a name (i.e. alias/ExampleAlias)
-	// Experimental.
 	AliasName *string `json:"aliasName"`
 	// The customer master key (CMK) to which the Alias refers.
-	// Experimental.
 	AliasTargetKey IKey `json:"aliasTargetKey"`
 }
 
@@ -434,24 +414,20 @@ type AliasAttributes struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AliasProps struct {
 	// The name of the alias.
 	//
 	// The name must start with alias followed by a
 	// forward slash, such as alias/. You can't specify aliases that begin with
 	// alias/AWS. These aliases are reserved.
-	// Experimental.
 	AliasName *string `json:"aliasName"`
 	// Policy to apply when the alias is removed from this stack.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// The ID of the key for which you are creating the alias.
 	//
 	// Specify the key's
 	// globally unique identifier or Amazon Resource Name (ARN). You can't
 	// specify another alias.
-	// Experimental.
 	TargetKey IKey `json:"targetKey"`
 }
 
@@ -657,7 +633,6 @@ func (j *jsiiProxy_CfnAlias) SetTargetKeyId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnAlias_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -674,7 +649,6 @@ func CfnAlias_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnAlias_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -721,7 +695,6 @@ func CfnAlias_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnAlias) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -734,7 +707,6 @@ func (c *jsiiProxy_CfnAlias) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnAlias) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -750,7 +722,6 @@ func (c *jsiiProxy_CfnAlias) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnAlias) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -796,7 +767,6 @@ func (c *jsiiProxy_CfnAlias) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnAlias) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -806,7 +776,6 @@ func (c *jsiiProxy_CfnAlias) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnAlias) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -818,7 +787,6 @@ func (c *jsiiProxy_CfnAlias) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnAlias) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -836,7 +804,6 @@ func (c *jsiiProxy_CfnAlias) AddPropertyOverride(propertyPath *string, value int
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnAlias) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -849,7 +816,6 @@ func (c *jsiiProxy_CfnAlias) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnAlias) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -870,7 +836,6 @@ func (c *jsiiProxy_CfnAlias) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnAlias) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -894,7 +859,6 @@ func (c *jsiiProxy_CfnAlias) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnAlias) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -920,7 +884,6 @@ func (c *jsiiProxy_CfnAlias) RenderProperties(props *map[string]interface{}) *ma
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnAlias) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -937,7 +900,6 @@ func (c *jsiiProxy_CfnAlias) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnAlias) ToString() *string {
 	var returns *string
 
@@ -951,7 +913,6 @@ func (c *jsiiProxy_CfnAlias) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnAlias) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1326,7 +1287,6 @@ func (j *jsiiProxy_CfnKey) SetPendingWindowInDays(val *float64) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnKey_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -1343,7 +1303,6 @@ func CfnKey_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnKey_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -1390,7 +1349,6 @@ func CfnKey_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnKey) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1403,7 +1361,6 @@ func (c *jsiiProxy_CfnKey) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnKey) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1419,7 +1376,6 @@ func (c *jsiiProxy_CfnKey) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnKey) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1465,7 +1421,6 @@ func (c *jsiiProxy_CfnKey) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnKey) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1475,7 +1430,6 @@ func (c *jsiiProxy_CfnKey) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnKey) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1487,7 +1441,6 @@ func (c *jsiiProxy_CfnKey) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnKey) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1505,7 +1458,6 @@ func (c *jsiiProxy_CfnKey) AddPropertyOverride(propertyPath *string, value inter
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1518,7 +1470,6 @@ func (c *jsiiProxy_CfnKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, optio
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnKey) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1539,7 +1490,6 @@ func (c *jsiiProxy_CfnKey) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnKey) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1563,7 +1513,6 @@ func (c *jsiiProxy_CfnKey) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnKey) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1589,7 +1538,6 @@ func (c *jsiiProxy_CfnKey) RenderProperties(props *map[string]interface{}) *map[
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnKey) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1606,7 +1554,6 @@ func (c *jsiiProxy_CfnKey) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnKey) ToString() *string {
 	var returns *string
 
@@ -1620,7 +1567,6 @@ func (c *jsiiProxy_CfnKey) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnKey) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1949,7 +1895,6 @@ func (j *jsiiProxy_CfnReplicaKey) SetPrimaryKeyArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnReplicaKey_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -1966,7 +1911,6 @@ func CfnReplicaKey_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnReplicaKey_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -2013,7 +1957,6 @@ func CfnReplicaKey_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2026,7 +1969,6 @@ func (c *jsiiProxy_CfnReplicaKey) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2042,7 +1984,6 @@ func (c *jsiiProxy_CfnReplicaKey) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2088,7 +2029,6 @@ func (c *jsiiProxy_CfnReplicaKey) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2098,7 +2038,6 @@ func (c *jsiiProxy_CfnReplicaKey) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2110,7 +2049,6 @@ func (c *jsiiProxy_CfnReplicaKey) AddPropertyDeletionOverride(propertyPath *stri
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2128,7 +2066,6 @@ func (c *jsiiProxy_CfnReplicaKey) AddPropertyOverride(propertyPath *string, valu
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2141,7 +2078,6 @@ func (c *jsiiProxy_CfnReplicaKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2162,7 +2098,6 @@ func (c *jsiiProxy_CfnReplicaKey) GetAtt(attributeName *string) awscdk.Reference
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2186,7 +2121,6 @@ func (c *jsiiProxy_CfnReplicaKey) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2212,7 +2146,6 @@ func (c *jsiiProxy_CfnReplicaKey) RenderProperties(props *map[string]interface{}
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2229,7 +2162,6 @@ func (c *jsiiProxy_CfnReplicaKey) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) ToString() *string {
 	var returns *string
 
@@ -2243,7 +2175,6 @@ func (c *jsiiProxy_CfnReplicaKey) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnReplicaKey) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2274,14 +2205,11 @@ type CfnReplicaKeyProps struct {
 // A KMS Key alias.
 //
 // An alias can be used in all places that expect a key.
-// Experimental.
 type IAlias interface {
 	IKey
 	// The name of the alias.
-	// Experimental.
 	AliasName() *string
 	// The Key to which the Alias refers.
-	// Experimental.
 	AliasTargetKey() IKey
 }
 
@@ -2311,32 +2239,23 @@ func (j *jsiiProxy_IAlias) AliasTargetKey() IKey {
 }
 
 // A KMS Key, either managed by this CDK app, or imported.
-// Experimental.
 type IKey interface {
 	awscdk.IResource
 	// Defines a new alias for the key.
-	// Experimental.
 	AddAlias(alias *string) Alias
 	// Adds a statement to the KMS key resource policy.
-	// Experimental.
 	AddToResourcePolicy(statement awsiam.PolicyStatement, allowNoOp *bool) *awsiam.AddToResourcePolicyResult
 	// Grant the indicated permissions on this key to the given principal.
-	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Grant decryption permissions using this key to the given principal.
-	// Experimental.
 	GrantDecrypt(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant encryption permissions using this key to the given principal.
-	// Experimental.
 	GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant encryption and decryption permissions using this key to the given principal.
-	// Experimental.
 	GrantEncryptDecrypt(grantee awsiam.IGrantable) awsiam.Grant
 	// The ARN of the key.
-	// Experimental.
 	KeyArn() *string
 	// The ID of the key (the part that looks something like: 1234abcd-12ab-34cd-56ef-1234567890ab).
-	// Experimental.
 	KeyId() *string
 }
 
@@ -2452,7 +2371,6 @@ func (j *jsiiProxy_IKey) KeyId() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Key interface {
 	awscdk.Resource
 	IKey
@@ -2565,7 +2483,6 @@ func (j *jsiiProxy_Key) TrustAccountIdentities() *bool {
 }
 
 
-// Experimental.
 func NewKey(scope constructs.Construct, id *string, props *KeyProps) Key {
 	_init_.Initialize()
 
@@ -2580,7 +2497,6 @@ func NewKey(scope constructs.Construct, id *string, props *KeyProps) Key {
 	return &j
 }
 
-// Experimental.
 func NewKey_Override(k Key, scope constructs.Construct, id *string, props *KeyProps) {
 	_init_.Initialize()
 
@@ -2601,7 +2517,6 @@ func NewKey_Override(k Key, scope constructs.Construct, id *string, props *KeyPr
 // will actually be reflected in the resulting template,
 // as opposed to the object returned from {@link fromKeyArn()},
 // on which calling those methods would have no effect.
-// Experimental.
 func Key_FromCfnKey(cfnKey CfnKey) IKey {
 	_init_.Initialize()
 
@@ -2618,7 +2533,6 @@ func Key_FromCfnKey(cfnKey CfnKey) IKey {
 }
 
 // Import an externally defined KMS Key using its ARN.
-// Experimental.
 func Key_FromKeyArn(scope constructs.Construct, id *string, keyArn *string) IKey {
 	_init_.Initialize()
 
@@ -2651,7 +2565,6 @@ func Key_FromKeyArn(scope constructs.Construct, id *string, keyArn *string) IKey
 // will be used on future runs. To refresh the lookup, you will have to
 // evict the value from the cache using the `cdk context` command. See
 // https://docs.aws.amazon.com/cdk/latest/guide/context.html for more information.
-// Experimental.
 func Key_FromLookup(scope constructs.Construct, id *string, options *KeyLookupOptions) IKey {
 	_init_.Initialize()
 
@@ -2687,7 +2600,6 @@ func Key_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func Key_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -2704,7 +2616,6 @@ func Key_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Defines a new alias for the key.
-// Experimental.
 func (k *jsiiProxy_Key) AddAlias(aliasName *string) Alias {
 	var returns Alias
 
@@ -2719,7 +2630,6 @@ func (k *jsiiProxy_Key) AddAlias(aliasName *string) Alias {
 }
 
 // Adds a statement to the KMS key resource policy.
-// Experimental.
 func (k *jsiiProxy_Key) AddToResourcePolicy(statement awsiam.PolicyStatement, allowNoOp *bool) *awsiam.AddToResourcePolicyResult {
 	var returns *awsiam.AddToResourcePolicyResult
 
@@ -2742,7 +2652,6 @@ func (k *jsiiProxy_Key) AddToResourcePolicy(statement awsiam.PolicyStatement, al
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (k *jsiiProxy_Key) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		k,
@@ -2751,7 +2660,6 @@ func (k *jsiiProxy_Key) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (k *jsiiProxy_Key) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -2771,7 +2679,6 @@ func (k *jsiiProxy_Key) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (k *jsiiProxy_Key) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -2790,7 +2697,6 @@ func (k *jsiiProxy_Key) GetResourceArnAttribute(arnAttr *string, arnComponents *
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (k *jsiiProxy_Key) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -2809,7 +2715,6 @@ func (k *jsiiProxy_Key) GetResourceNameAttribute(nameAttr *string) *string {
 // This modifies both the principal's policy as well as the resource policy,
 // since the default CloudFormation setup for KMS keys is that the policy
 // must not be empty and so default grants won't work.
-// Experimental.
 func (k *jsiiProxy_Key) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
 	args := []interface{}{grantee}
 	for _, a := range actions {
@@ -2832,7 +2737,6 @@ func (k *jsiiProxy_Key) Grant(grantee awsiam.IGrantable, actions ...*string) aws
 //
 // Key administrators have permissions to manage the key (e.g., change permissions, revoke), but do not have permissions
 // to use the key in cryptographic operations (e.g., encrypt, decrypt).
-// Experimental.
 func (k *jsiiProxy_Key) GrantAdmin(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2847,7 +2751,6 @@ func (k *jsiiProxy_Key) GrantAdmin(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 // Grant decryption permissions using this key to the given principal.
-// Experimental.
 func (k *jsiiProxy_Key) GrantDecrypt(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2862,7 +2765,6 @@ func (k *jsiiProxy_Key) GrantDecrypt(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 // Grant encryption permissions using this key to the given principal.
-// Experimental.
 func (k *jsiiProxy_Key) GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2877,7 +2779,6 @@ func (k *jsiiProxy_Key) GrantEncrypt(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 // Grant encryption and decryption permissions using this key to the given principal.
-// Experimental.
 func (k *jsiiProxy_Key) GrantEncryptDecrypt(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2892,7 +2793,6 @@ func (k *jsiiProxy_Key) GrantEncryptDecrypt(grantee awsiam.IGrantable) awsiam.Gr
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (k *jsiiProxy_Key) ToString() *string {
 	var returns *string
 
@@ -2910,10 +2810,8 @@ func (k *jsiiProxy_Key) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type KeyLookupOptions struct {
 	// The alias name of the Key.
-	// Experimental.
 	AliasName *string `json:"aliasName"`
 }
 
@@ -2921,7 +2819,6 @@ type KeyLookupOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type KeyProps struct {
 	// A list of principals to add as key administrators to the key policy.
 	//
@@ -2929,36 +2826,29 @@ type KeyProps struct {
 	// to use the key in cryptographic operations (e.g., encrypt, decrypt).
 	//
 	// These principals will be added to the default key policy (if none specified), or to the specified policy (if provided).
-	// Experimental.
 	Admins *[]awsiam.IPrincipal `json:"admins"`
 	// Initial alias to add to the key.
 	//
 	// More aliases can be added later by calling `addAlias`.
-	// Experimental.
 	Alias *string `json:"alias"`
 	// A description of the key.
 	//
 	// Use a description that helps your users decide
 	// whether the key is appropriate for a particular task.
-	// Experimental.
 	Description *string `json:"description"`
 	// Indicates whether the key is available for use.
-	// Experimental.
 	Enabled *bool `json:"enabled"`
 	// Indicates whether AWS KMS rotates the key.
-	// Experimental.
 	EnableKeyRotation *bool `json:"enableKeyRotation"`
 	// The cryptographic configuration of the key. The valid value depends on usage of the key.
 	//
 	// IMPORTANT: If you change this property of an existing key, the existing key is scheduled for deletion
 	// and a new key is created with the specified value.
-	// Experimental.
 	KeySpec KeySpec `json:"keySpec"`
 	// The cryptographic operations for which the key can be used.
 	//
 	// IMPORTANT: If you change this property of an existing key, the existing key is scheduled for deletion
 	// and a new key is created with the specified value.
-	// Experimental.
 	KeyUsage KeyUsage `json:"keyUsage"`
 	// Specifies the number of days in the waiting period before AWS KMS deletes a CMK that has been removed from a CloudFormation stack.
 	//
@@ -2970,20 +2860,17 @@ type KeyProps struct {
 	// Enter a value between 7 and 30 days.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
 	//
-	// Experimental.
 	PendingWindow awscdk.Duration `json:"pendingWindow"`
 	// Custom policy document to attach to the KMS key.
 	//
 	// NOTE - If the `@aws-cdk/aws-kms:defaultKeyPolicies` feature flag is set (the default for new projects),
 	// this policy will *override* the default key policy and become the only key policy for the key. If the
 	// feature flag is not set, this policy will be appended to the default key policy.
-	// Experimental.
 	Policy awsiam.PolicyDocument `json:"policy"`
 	// Whether the encryption key should be retained when it is removed from the Stack.
 	//
 	// This is useful when one wants to
 	// retain access to data that was encrypted with a key that is being retired.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 }
 
@@ -2991,7 +2878,6 @@ type KeyProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type KeySpec string
 
 const (
@@ -3009,7 +2895,6 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type KeyUsage string
 
 const (
@@ -3021,7 +2906,6 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ViaServicePrincipal interface {
 	awsiam.PrincipalBase
 	AssumeRoleAction() *string
@@ -3081,7 +2965,6 @@ func (j *jsiiProxy_ViaServicePrincipal) PrincipalAccount() *string {
 }
 
 
-// Experimental.
 func NewViaServicePrincipal(serviceName *string, basePrincipal awsiam.IPrincipal) ViaServicePrincipal {
 	_init_.Initialize()
 
@@ -3096,7 +2979,6 @@ func NewViaServicePrincipal(serviceName *string, basePrincipal awsiam.IPrincipal
 	return &j
 }
 
-// Experimental.
 func NewViaServicePrincipal_Override(v ViaServicePrincipal, serviceName *string, basePrincipal awsiam.IPrincipal) {
 	_init_.Initialize()
 
@@ -3108,7 +2990,6 @@ func NewViaServicePrincipal_Override(v ViaServicePrincipal, serviceName *string,
 }
 
 // Add to the policy of this principal.
-// Experimental.
 func (v *jsiiProxy_ViaServicePrincipal) AddToPolicy(statement awsiam.PolicyStatement) *bool {
 	var returns *bool
 
@@ -3123,7 +3004,6 @@ func (v *jsiiProxy_ViaServicePrincipal) AddToPolicy(statement awsiam.PolicyState
 }
 
 // Add to the policy of this principal.
-// Experimental.
 func (v *jsiiProxy_ViaServicePrincipal) AddToPrincipalPolicy(_statement awsiam.PolicyStatement) *awsiam.AddToPrincipalPolicyResult {
 	var returns *awsiam.AddToPrincipalPolicyResult
 
@@ -3140,7 +3020,6 @@ func (v *jsiiProxy_ViaServicePrincipal) AddToPrincipalPolicy(_statement awsiam.P
 // JSON-ify the principal.
 //
 // Used when JSON.stringify() is called
-// Experimental.
 func (v *jsiiProxy_ViaServicePrincipal) ToJSON() *map[string]*[]*string {
 	var returns *map[string]*[]*string
 
@@ -3155,7 +3034,6 @@ func (v *jsiiProxy_ViaServicePrincipal) ToJSON() *map[string]*[]*string {
 }
 
 // Returns a string representation of an object.
-// Experimental.
 func (v *jsiiProxy_ViaServicePrincipal) ToString() *string {
 	var returns *string
 
@@ -3175,7 +3053,6 @@ func (v *jsiiProxy_ViaServicePrincipal) ToString() *string {
 // conditions parameter, the value from the conditions parameter will be used.
 //
 // Returns: a new PrincipalWithConditions object.
-// Experimental.
 func (v *jsiiProxy_ViaServicePrincipal) WithConditions(conditions *map[string]interface{}) awsiam.IPrincipal {
 	var returns awsiam.IPrincipal
 

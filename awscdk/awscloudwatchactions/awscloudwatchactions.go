@@ -16,7 +16,6 @@ import (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ApplicationScalingAction interface {
 	awscloudwatch.IAlarmAction
 	Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
@@ -27,7 +26,6 @@ type jsiiProxy_ApplicationScalingAction struct {
 	internal.Type__awscloudwatchIAlarmAction
 }
 
-// Experimental.
 func NewApplicationScalingAction(stepScalingAction awsapplicationautoscaling.StepScalingAction) ApplicationScalingAction {
 	_init_.Initialize()
 
@@ -42,7 +40,6 @@ func NewApplicationScalingAction(stepScalingAction awsapplicationautoscaling.Ste
 	return &j
 }
 
-// Experimental.
 func NewApplicationScalingAction_Override(a ApplicationScalingAction, stepScalingAction awsapplicationautoscaling.StepScalingAction) {
 	_init_.Initialize()
 
@@ -54,7 +51,6 @@ func NewApplicationScalingAction_Override(a ApplicationScalingAction, stepScalin
 }
 
 // Returns an alarm action configuration to use an ApplicationScaling StepScalingAction as an alarm action.
-// Experimental.
 func (a *jsiiProxy_ApplicationScalingAction) Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
 	var returns *awscloudwatch.AlarmActionConfig
 
@@ -72,7 +68,6 @@ func (a *jsiiProxy_ApplicationScalingAction) Bind(_scope constructs.Construct, _
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AutoScalingAction interface {
 	awscloudwatch.IAlarmAction
 	Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
@@ -83,7 +78,6 @@ type jsiiProxy_AutoScalingAction struct {
 	internal.Type__awscloudwatchIAlarmAction
 }
 
-// Experimental.
 func NewAutoScalingAction(stepScalingAction awsautoscaling.StepScalingAction) AutoScalingAction {
 	_init_.Initialize()
 
@@ -98,7 +92,6 @@ func NewAutoScalingAction(stepScalingAction awsautoscaling.StepScalingAction) Au
 	return &j
 }
 
-// Experimental.
 func NewAutoScalingAction_Override(a AutoScalingAction, stepScalingAction awsautoscaling.StepScalingAction) {
 	_init_.Initialize()
 
@@ -110,7 +103,6 @@ func NewAutoScalingAction_Override(a AutoScalingAction, stepScalingAction awsaut
 }
 
 // Returns an alarm action configuration to use an AutoScaling StepScalingAction as an alarm action.
-// Experimental.
 func (a *jsiiProxy_AutoScalingAction) Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
 	var returns *awscloudwatch.AlarmActionConfig
 
@@ -128,7 +120,6 @@ func (a *jsiiProxy_AutoScalingAction) Bind(_scope constructs.Construct, _alarm a
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Ec2Action interface {
 	awscloudwatch.IAlarmAction
 	Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
@@ -139,7 +130,6 @@ type jsiiProxy_Ec2Action struct {
 	internal.Type__awscloudwatchIAlarmAction
 }
 
-// Experimental.
 func NewEc2Action(instanceAction Ec2InstanceAction) Ec2Action {
 	_init_.Initialize()
 
@@ -154,7 +144,6 @@ func NewEc2Action(instanceAction Ec2InstanceAction) Ec2Action {
 	return &j
 }
 
-// Experimental.
 func NewEc2Action_Override(e Ec2Action, instanceAction Ec2InstanceAction) {
 	_init_.Initialize()
 
@@ -166,7 +155,6 @@ func NewEc2Action_Override(e Ec2Action, instanceAction Ec2InstanceAction) {
 }
 
 // Returns an alarm action configuration to use an EC2 action as an alarm action.
-// Experimental.
 func (e *jsiiProxy_Ec2Action) Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
 	var returns *awscloudwatch.AlarmActionConfig
 
@@ -181,7 +169,6 @@ func (e *jsiiProxy_Ec2Action) Bind(_scope constructs.Construct, _alarm awscloudw
 }
 
 // Types of EC2 actions available.
-// Experimental.
 type Ec2InstanceAction string
 
 const (
@@ -195,7 +182,6 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SnsAction interface {
 	awscloudwatch.IAlarmAction
 	Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig
@@ -206,7 +192,6 @@ type jsiiProxy_SnsAction struct {
 	internal.Type__awscloudwatchIAlarmAction
 }
 
-// Experimental.
 func NewSnsAction(topic awssns.ITopic) SnsAction {
 	_init_.Initialize()
 
@@ -221,7 +206,6 @@ func NewSnsAction(topic awssns.ITopic) SnsAction {
 	return &j
 }
 
-// Experimental.
 func NewSnsAction_Override(s SnsAction, topic awssns.ITopic) {
 	_init_.Initialize()
 
@@ -233,7 +217,6 @@ func NewSnsAction_Override(s SnsAction, topic awssns.ITopic) {
 }
 
 // Returns an alarm action configuration to use an SNS topic as an alarm action.
-// Experimental.
 func (s *jsiiProxy_SnsAction) Bind(_scope constructs.Construct, _alarm awscloudwatch.IAlarm) *awscloudwatch.AlarmActionConfig {
 	var returns *awscloudwatch.AlarmActionConfig
 

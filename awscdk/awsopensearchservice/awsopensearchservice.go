@@ -20,24 +20,20 @@ import (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AdvancedSecurityOptions struct {
 	// ARN for the master user.
 	//
 	// Only specify this or masterUserName, but not both.
-	// Experimental.
 	MasterUserArn *string `json:"masterUserArn"`
 	// Username for the master user.
 	//
 	// Only specify this or masterUserArn, but not both.
-	// Experimental.
 	MasterUserName *string `json:"masterUserName"`
 	// Password for the master user.
 	//
 	// You can use `SecretValue.plainText` to specify a password in plain text or
 	// use `secretsmanager.Secret.fromSecretAttributes` to reference a secret in
 	// Secrets Manager.
-	// Experimental.
 	MasterUserPassword awscdk.SecretValue `json:"masterUserPassword"`
 }
 
@@ -45,25 +41,18 @@ type AdvancedSecurityOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CapacityConfig struct {
 	// The instance type for your data nodes, such as `m3.medium.search`. For valid values, see [Supported Instance Types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) in the Amazon OpenSearch Service Developer Guide.
-	// Experimental.
 	DataNodeInstanceType *string `json:"dataNodeInstanceType"`
 	// The number of data nodes (instances) to use in the Amazon OpenSearch Service domain.
-	// Experimental.
 	DataNodes *float64 `json:"dataNodes"`
 	// The hardware configuration of the computer that hosts the dedicated master node, such as `m3.medium.search`. For valid values, see [Supported Instance Types] (https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) in the Amazon OpenSearch Service Developer Guide.
-	// Experimental.
 	MasterNodeInstanceType *string `json:"masterNodeInstanceType"`
 	// The number of instances to use for the master node.
-	// Experimental.
 	MasterNodes *float64 `json:"masterNodes"`
 	// The instance type for your UltraWarm node, such as `ultrawarm1.medium.search`. For valid values, see [UltraWarm Storage Limits] (https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#limits-ultrawarm) in the Amazon OpenSearch Service Developer Guide.
-	// Experimental.
 	WarmInstanceType *string `json:"warmInstanceType"`
 	// The number of UltraWarm nodes (instances) to use in the Amazon OpenSearch Service domain.
-	// Experimental.
 	WarmNodes *float64 `json:"warmNodes"`
 }
 
@@ -553,7 +542,6 @@ func (j *jsiiProxy_CfnDomain) SetVpcOptions(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnDomain_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -570,7 +558,6 @@ func CfnDomain_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnDomain_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -617,7 +604,6 @@ func CfnDomain_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnDomain) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -630,7 +616,6 @@ func (c *jsiiProxy_CfnDomain) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnDomain) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -646,7 +631,6 @@ func (c *jsiiProxy_CfnDomain) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDomain) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -692,7 +676,6 @@ func (c *jsiiProxy_CfnDomain) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnDomain) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -702,7 +685,6 @@ func (c *jsiiProxy_CfnDomain) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnDomain) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -714,7 +696,6 @@ func (c *jsiiProxy_CfnDomain) AddPropertyDeletionOverride(propertyPath *string) 
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnDomain) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -732,7 +713,6 @@ func (c *jsiiProxy_CfnDomain) AddPropertyOverride(propertyPath *string, value in
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnDomain) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -745,7 +725,6 @@ func (c *jsiiProxy_CfnDomain) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, op
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnDomain) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -766,7 +745,6 @@ func (c *jsiiProxy_CfnDomain) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDomain) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -790,7 +768,6 @@ func (c *jsiiProxy_CfnDomain) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnDomain) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -816,7 +793,6 @@ func (c *jsiiProxy_CfnDomain) RenderProperties(props *map[string]interface{}) *m
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnDomain) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -833,7 +809,6 @@ func (c *jsiiProxy_CfnDomain) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnDomain) ToString() *string {
 	var returns *string
 
@@ -847,7 +822,6 @@ func (c *jsiiProxy_CfnDomain) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnDomain) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1035,20 +1009,16 @@ type CfnDomainProps struct {
 //
 // See: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html
 //
-// Experimental.
 type CognitoOptions struct {
 	// The Amazon Cognito identity pool ID that you want Amazon OpenSearch Service to use for OpenSearch Dashboards authentication.
-	// Experimental.
 	IdentityPoolId *string `json:"identityPoolId"`
 	// A role that allows Amazon OpenSearch Service to configure your user pool and identity pool.
 	//
 	// It must have the `AmazonESCognitoAccess` policy attached to it.
 	// See: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cognito-auth.html#cognito-auth-prereq
 	//
-	// Experimental.
 	Role awsiam.IRole `json:"role"`
 	// The Amazon Cognito user pool ID that you want Amazon OpenSearch Service to use for OpenSearch Dashboards authentication.
-	// Experimental.
 	UserPoolId *string `json:"userPoolId"`
 }
 
@@ -1056,16 +1026,12 @@ type CognitoOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CustomEndpointOptions struct {
 	// The custom domain name to assign.
-	// Experimental.
 	DomainName *string `json:"domainName"`
 	// The certificate to use.
-	// Experimental.
 	Certificate awscertificatemanager.ICertificate `json:"certificate"`
 	// The hosted zone in Route53 to create the CNAME record in.
-	// Experimental.
 	HostedZone awsroute53.IHostedZone `json:"hostedZone"`
 }
 
@@ -1073,7 +1039,6 @@ type CustomEndpointOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Domain interface {
 	awscdk.Resource
 	awsec2.IConnectable
@@ -1272,7 +1237,6 @@ func (j *jsiiProxy_Domain) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewDomain(scope constructs.Construct, id *string, props *DomainProps) Domain {
 	_init_.Initialize()
 
@@ -1287,7 +1251,6 @@ func NewDomain(scope constructs.Construct, id *string, props *DomainProps) Domai
 	return &j
 }
 
-// Experimental.
 func NewDomain_Override(d Domain, scope constructs.Construct, id *string, props *DomainProps) {
 	_init_.Initialize()
 
@@ -1299,7 +1262,6 @@ func NewDomain_Override(d Domain, scope constructs.Construct, id *string, props 
 }
 
 // Creates a domain construct that represents an external domain.
-// Experimental.
 func Domain_FromDomainAttributes(scope constructs.Construct, id *string, attrs *DomainAttributes) IDomain {
 	_init_.Initialize()
 
@@ -1316,7 +1278,6 @@ func Domain_FromDomainAttributes(scope constructs.Construct, id *string, attrs *
 }
 
 // Creates a domain construct that represents an external domain via domain endpoint.
-// Experimental.
 func Domain_FromDomainEndpoint(scope constructs.Construct, id *string, domainEndpoint *string) IDomain {
 	_init_.Initialize()
 
@@ -1352,7 +1313,6 @@ func Domain_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func Domain_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -1377,7 +1337,6 @@ func Domain_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (d *jsiiProxy_Domain) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		d,
@@ -1386,7 +1345,6 @@ func (d *jsiiProxy_Domain) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_Domain) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -1406,7 +1364,6 @@ func (d *jsiiProxy_Domain) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (d *jsiiProxy_Domain) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -1425,7 +1382,6 @@ func (d *jsiiProxy_Domain) GetResourceArnAttribute(arnAttr *string, arnComponent
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (d *jsiiProxy_Domain) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -1440,7 +1396,6 @@ func (d *jsiiProxy_Domain) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 // Grant read permissions for an index in this domain to an IAM principal (Role/Group/User).
-// Experimental.
 func (d *jsiiProxy_Domain) GrantIndexRead(index *string, identity awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -1455,7 +1410,6 @@ func (d *jsiiProxy_Domain) GrantIndexRead(index *string, identity awsiam.IGranta
 }
 
 // Grant read/write permissions for an index in this domain to an IAM principal (Role/Group/User).
-// Experimental.
 func (d *jsiiProxy_Domain) GrantIndexReadWrite(index *string, identity awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -1470,7 +1424,6 @@ func (d *jsiiProxy_Domain) GrantIndexReadWrite(index *string, identity awsiam.IG
 }
 
 // Grant write permissions for an index in this domain to an IAM principal (Role/Group/User).
-// Experimental.
 func (d *jsiiProxy_Domain) GrantIndexWrite(index *string, identity awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -1485,7 +1438,6 @@ func (d *jsiiProxy_Domain) GrantIndexWrite(index *string, identity awsiam.IGrant
 }
 
 // Grant read permissions for a specific path in this domain to an IAM principal (Role/Group/User).
-// Experimental.
 func (d *jsiiProxy_Domain) GrantPathRead(path *string, identity awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -1500,7 +1452,6 @@ func (d *jsiiProxy_Domain) GrantPathRead(path *string, identity awsiam.IGrantabl
 }
 
 // Grant read/write permissions for a specific path in this domain to an IAM principal (Role/Group/User).
-// Experimental.
 func (d *jsiiProxy_Domain) GrantPathReadWrite(path *string, identity awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -1515,7 +1466,6 @@ func (d *jsiiProxy_Domain) GrantPathReadWrite(path *string, identity awsiam.IGra
 }
 
 // Grant write permissions for a specific path in this domain to an IAM principal (Role/Group/User).
-// Experimental.
 func (d *jsiiProxy_Domain) GrantPathWrite(path *string, identity awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -1530,7 +1480,6 @@ func (d *jsiiProxy_Domain) GrantPathWrite(path *string, identity awsiam.IGrantab
 }
 
 // Grant read permissions for this domain and its contents to an IAM principal (Role/Group/User).
-// Experimental.
 func (d *jsiiProxy_Domain) GrantRead(identity awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -1545,7 +1494,6 @@ func (d *jsiiProxy_Domain) GrantRead(identity awsiam.IGrantable) awsiam.Grant {
 }
 
 // Grant read/write permissions for this domain and its contents to an IAM principal (Role/Group/User).
-// Experimental.
 func (d *jsiiProxy_Domain) GrantReadWrite(identity awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -1560,7 +1508,6 @@ func (d *jsiiProxy_Domain) GrantReadWrite(identity awsiam.IGrantable) awsiam.Gra
 }
 
 // Grant write permissions for this domain and its contents to an IAM principal (Role/Group/User).
-// Experimental.
 func (d *jsiiProxy_Domain) GrantWrite(identity awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -1575,7 +1522,6 @@ func (d *jsiiProxy_Domain) GrantWrite(identity awsiam.IGrantable) awsiam.Grant {
 }
 
 // Return the given named metric for this domain.
-// Experimental.
 func (d *jsiiProxy_Domain) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1590,7 +1536,6 @@ func (d *jsiiProxy_Domain) Metric(metricName *string, props *awscloudwatch.Metri
 }
 
 // Metric for automated snapshot failures.
-// Experimental.
 func (d *jsiiProxy_Domain) MetricAutomatedSnapshotFailure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1605,7 +1550,6 @@ func (d *jsiiProxy_Domain) MetricAutomatedSnapshotFailure(props *awscloudwatch.M
 }
 
 // Metric for the cluster blocking index writes.
-// Experimental.
 func (d *jsiiProxy_Domain) MetricClusterIndexWritesBlocked(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1620,7 +1564,6 @@ func (d *jsiiProxy_Domain) MetricClusterIndexWritesBlocked(props *awscloudwatch.
 }
 
 // Metric for the time the cluster status is red.
-// Experimental.
 func (d *jsiiProxy_Domain) MetricClusterStatusRed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1635,7 +1578,6 @@ func (d *jsiiProxy_Domain) MetricClusterStatusRed(props *awscloudwatch.MetricOpt
 }
 
 // Metric for the time the cluster status is yellow.
-// Experimental.
 func (d *jsiiProxy_Domain) MetricClusterStatusYellow(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1650,7 +1592,6 @@ func (d *jsiiProxy_Domain) MetricClusterStatusYellow(props *awscloudwatch.Metric
 }
 
 // Metric for CPU utilization.
-// Experimental.
 func (d *jsiiProxy_Domain) MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1665,7 +1606,6 @@ func (d *jsiiProxy_Domain) MetricCPUUtilization(props *awscloudwatch.MetricOptio
 }
 
 // Metric for the storage space of nodes in the cluster.
-// Experimental.
 func (d *jsiiProxy_Domain) MetricFreeStorageSpace(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1680,7 +1620,6 @@ func (d *jsiiProxy_Domain) MetricFreeStorageSpace(props *awscloudwatch.MetricOpt
 }
 
 // Metric for indexing latency.
-// Experimental.
 func (d *jsiiProxy_Domain) MetricIndexingLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1695,7 +1634,6 @@ func (d *jsiiProxy_Domain) MetricIndexingLatency(props *awscloudwatch.MetricOpti
 }
 
 // Metric for JVM memory pressure.
-// Experimental.
 func (d *jsiiProxy_Domain) MetricJVMMemoryPressure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1710,7 +1648,6 @@ func (d *jsiiProxy_Domain) MetricJVMMemoryPressure(props *awscloudwatch.MetricOp
 }
 
 // Metric for KMS key errors.
-// Experimental.
 func (d *jsiiProxy_Domain) MetricKMSKeyError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1725,7 +1662,6 @@ func (d *jsiiProxy_Domain) MetricKMSKeyError(props *awscloudwatch.MetricOptions)
 }
 
 // Metric for KMS key being inaccessible.
-// Experimental.
 func (d *jsiiProxy_Domain) MetricKMSKeyInaccessible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1740,7 +1676,6 @@ func (d *jsiiProxy_Domain) MetricKMSKeyInaccessible(props *awscloudwatch.MetricO
 }
 
 // Metric for master CPU utilization.
-// Experimental.
 func (d *jsiiProxy_Domain) MetricMasterCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1755,7 +1690,6 @@ func (d *jsiiProxy_Domain) MetricMasterCPUUtilization(props *awscloudwatch.Metri
 }
 
 // Metric for master JVM memory pressure.
-// Experimental.
 func (d *jsiiProxy_Domain) MetricMasterJVMMemoryPressure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1770,7 +1704,6 @@ func (d *jsiiProxy_Domain) MetricMasterJVMMemoryPressure(props *awscloudwatch.Me
 }
 
 // Metric for the number of nodes.
-// Experimental.
 func (d *jsiiProxy_Domain) MetricNodes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1785,7 +1718,6 @@ func (d *jsiiProxy_Domain) MetricNodes(props *awscloudwatch.MetricOptions) awscl
 }
 
 // Metric for number of searchable documents.
-// Experimental.
 func (d *jsiiProxy_Domain) MetricSearchableDocuments(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1800,7 +1732,6 @@ func (d *jsiiProxy_Domain) MetricSearchableDocuments(props *awscloudwatch.Metric
 }
 
 // Metric for search latency.
-// Experimental.
 func (d *jsiiProxy_Domain) MetricSearchLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1815,7 +1746,6 @@ func (d *jsiiProxy_Domain) MetricSearchLatency(props *awscloudwatch.MetricOption
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_Domain) ToString() *string {
 	var returns *string
 
@@ -1833,13 +1763,10 @@ func (d *jsiiProxy_Domain) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DomainAttributes struct {
 	// The ARN of the Amazon OpenSearch Service domain.
-	// Experimental.
 	DomainArn *string `json:"domainArn"`
 	// The domain endpoint of the Amazon OpenSearch Service domain.
-	// Experimental.
 	DomainEndpoint *string `json:"domainEndpoint"`
 }
 
@@ -1847,80 +1774,61 @@ type DomainAttributes struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DomainProps struct {
 	// The Elasticsearch/OpenSearch version that your domain will leverage.
-	// Experimental.
 	Version EngineVersion `json:"version"`
 	// Domain access policies.
-	// Experimental.
 	AccessPolicies *[]awsiam.PolicyStatement `json:"accessPolicies"`
 	// Additional options to specify for the Amazon OpenSearch Service domain.
 	// See: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html#createdomain-configure-advanced-options
 	//
-	// Experimental.
 	AdvancedOptions *map[string]*string `json:"advancedOptions"`
 	// The hour in UTC during which the service takes an automated daily snapshot of the indices in the Amazon OpenSearch Service domain.
 	//
 	// Only applies for Elasticsearch versions
 	// below 5.3.
-	// Experimental.
 	AutomatedSnapshotStartHour *float64 `json:"automatedSnapshotStartHour"`
 	// The cluster capacity configuration for the Amazon OpenSearch Service domain.
-	// Experimental.
 	Capacity *CapacityConfig `json:"capacity"`
 	// Configures Amazon OpenSearch Service to use Amazon Cognito authentication for OpenSearch Dashboards.
-	// Experimental.
 	CognitoDashboardsAuth *CognitoOptions `json:"cognitoDashboardsAuth"`
 	// To configure a custom domain configure these options.
 	//
 	// If you specify a Route53 hosted zone it will create a CNAME record and use DNS validation for the certificate
-	// Experimental.
 	CustomEndpoint *CustomEndpointOptions `json:"customEndpoint"`
 	// Enforces a particular physical domain name.
-	// Experimental.
 	DomainName *string `json:"domainName"`
 	// The configurations of Amazon Elastic Block Store (Amazon EBS) volumes that are attached to data nodes in the Amazon OpenSearch Service domain.
-	// Experimental.
 	Ebs *EbsOptions `json:"ebs"`
 	// To upgrade an Amazon OpenSearch Service domain to a new version, rather than replacing the entire domain resource, use the EnableVersionUpgrade update policy.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-updatepolicy.html#cfn-attributes-updatepolicy-upgradeopensearchdomain
 	//
-	// Experimental.
 	EnableVersionUpgrade *bool `json:"enableVersionUpgrade"`
 	// Encryption at rest options for the cluster.
-	// Experimental.
 	EncryptionAtRest *EncryptionAtRestOptions `json:"encryptionAtRest"`
 	// True to require that all traffic to the domain arrive over HTTPS.
-	// Experimental.
 	EnforceHttps *bool `json:"enforceHttps"`
 	// Specifies options for fine-grained access control.
 	//
 	// Requires Elasticsearch version 6.7 or later or OpenSearch version 1.0 or later. Enabling fine-grained access control
 	// also requires encryption of data at rest and node-to-node encryption, along with
 	// enforced HTTPS.
-	// Experimental.
 	FineGrainedAccessControl *AdvancedSecurityOptions `json:"fineGrainedAccessControl"`
 	// Configuration log publishing configuration options.
-	// Experimental.
 	Logging *LoggingOptions `json:"logging"`
 	// Specify true to enable node to node encryption.
 	//
 	// Requires Elasticsearch version 6.0 or later or OpenSearch version 1.0 or later.
-	// Experimental.
 	NodeToNodeEncryption *bool `json:"nodeToNodeEncryption"`
 	// Policy to apply when the domain is removed from the stack.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// The list of security groups that are associated with the VPC endpoints for the domain.
 	//
 	// Only used if `vpc` is specified.
 	// See: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html
 	//
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 	// The minimum TLS version required for traffic to the domain.
-	// Experimental.
 	TlsSecurityPolicy TLSSecurityPolicy `json:"tlsSecurityPolicy"`
 	// Configures the domain so that unsigned basic auth is enabled.
 	//
@@ -1932,12 +1840,10 @@ type DomainProps struct {
 	// access, enable node to node encryption, encryption at rest. If conflicting
 	// settings are encountered (like disabling encryption at rest) enabling this
 	// setting will cause a failure.
-	// Experimental.
 	UseUnsignedBasicAuth *bool `json:"useUnsignedBasicAuth"`
 	// Place the domain inside this VPC.
 	// See: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html
 	//
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// The specific vpc subnets the domain will be placed in.
 	//
@@ -1948,10 +1854,8 @@ type DomainProps struct {
 	// Only used if `vpc` is specified.
 	// See: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html
 	//
-	// Experimental.
 	VpcSubnets *[]*awsec2.SubnetSelection `json:"vpcSubnets"`
 	// The cluster zone awareness configuration for the Amazon OpenSearch Service domain.
-	// Experimental.
 	ZoneAwareness *ZoneAwarenessConfig `json:"zoneAwareness"`
 }
 
@@ -1964,16 +1868,13 @@ type DomainProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type EbsOptions struct {
 	// Specifies whether Amazon EBS volumes are attached to data nodes in the Amazon OpenSearch Service domain.
-	// Experimental.
 	Enabled *bool `json:"enabled"`
 	// The number of I/O operations per second (IOPS) that the volume supports.
 	//
 	// This property applies only to the Provisioned IOPS (SSD) EBS
 	// volume type.
-	// Experimental.
 	Iops *float64 `json:"iops"`
 	// The size (in GiB) of the EBS volume for each data node.
 	//
@@ -1983,10 +1884,8 @@ type EbsOptions struct {
 	// [EBS volume size limits]
 	// (https://docs.aws.amazon.com/opensearch-service/latest/developerguide/limits.html#ebsresource)
 	// in the Amazon OpenSearch Service Developer Guide.
-	// Experimental.
 	VolumeSize *float64 `json:"volumeSize"`
 	// The EBS volume type to use with the Amazon OpenSearch Service domain, such as standard, gp2, io1.
-	// Experimental.
 	VolumeType awsec2.EbsDeviceVolumeType `json:"volumeType"`
 }
 
@@ -1997,13 +1896,10 @@ type EbsOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type EncryptionAtRestOptions struct {
 	// Specify true to enable encryption at rest.
-	// Experimental.
 	Enabled *bool `json:"enabled"`
 	// Supply if using KMS key for encryption at rest.
-	// Experimental.
 	KmsKey awskms.IKey `json:"kmsKey"`
 }
 
@@ -2011,7 +1907,6 @@ type EncryptionAtRestOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type EngineVersion interface {
 	Version() *string
 }
@@ -2033,7 +1928,6 @@ func (j *jsiiProxy_EngineVersion) Version() *string {
 
 
 // Custom ElasticSearch version.
-// Experimental.
 func EngineVersion_Elasticsearch(version *string) EngineVersion {
 	_init_.Initialize()
 
@@ -2050,7 +1944,6 @@ func EngineVersion_Elasticsearch(version *string) EngineVersion {
 }
 
 // Custom OpenSearch version.
-// Experimental.
 func EngineVersion_OpenSearch(version *string) EngineVersion {
 	_init_.Initialize()
 
@@ -2287,95 +2180,65 @@ func EngineVersion_OPENSEARCH_1_0() EngineVersion {
 }
 
 // An interface that represents an Amazon OpenSearch Service domain - either created with the CDK, or an existing one.
-// Experimental.
 type IDomain interface {
 	awscdk.IResource
 	// Grant read permissions for an index in this domain to an IAM principal (Role/Group/User).
-	// Experimental.
 	GrantIndexRead(index *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant read/write permissions for an index in this domain to an IAM principal (Role/Group/User).
-	// Experimental.
 	GrantIndexReadWrite(index *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant write permissions for an index in this domain to an IAM principal (Role/Group/User).
-	// Experimental.
 	GrantIndexWrite(index *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant read permissions for a specific path in this domain to an IAM principal (Role/Group/User).
-	// Experimental.
 	GrantPathRead(path *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant read/write permissions for a specific path in this domain to an IAM principal (Role/Group/User).
-	// Experimental.
 	GrantPathReadWrite(path *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant write permissions for a specific path in this domain to an IAM principal (Role/Group/User).
-	// Experimental.
 	GrantPathWrite(path *string, identity awsiam.IGrantable) awsiam.Grant
 	// Grant read permissions for this domain and its contents to an IAM principal (Role/Group/User).
-	// Experimental.
 	GrantRead(identity awsiam.IGrantable) awsiam.Grant
 	// Grant read/write permissions for this domain and its contents to an IAM principal (Role/Group/User).
-	// Experimental.
 	GrantReadWrite(identity awsiam.IGrantable) awsiam.Grant
 	// Grant write permissions for this domain and its contents to an IAM principal (Role/Group/User).
-	// Experimental.
 	GrantWrite(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this domain.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for automated snapshot failures.
-	// Experimental.
 	MetricAutomatedSnapshotFailure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the cluster blocking index writes.
-	// Experimental.
 	MetricClusterIndexWritesBlocked(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the time the cluster status is red.
-	// Experimental.
 	MetricClusterStatusRed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the time the cluster status is yellow.
-	// Experimental.
 	MetricClusterStatusYellow(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for CPU utilization.
-	// Experimental.
 	MetricCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the storage space of nodes in the cluster.
-	// Experimental.
 	MetricFreeStorageSpace(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for indexing latency.
-	// Experimental.
 	MetricIndexingLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for JVM memory pressure.
-	// Experimental.
 	MetricJVMMemoryPressure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for KMS key errors.
-	// Experimental.
 	MetricKMSKeyError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for KMS key being inaccessible.
-	// Experimental.
 	MetricKMSKeyInaccessible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for master CPU utilization.
-	// Experimental.
 	MetricMasterCPUUtilization(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for master JVM memory pressure.
-	// Experimental.
 	MetricMasterJVMMemoryPressure(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the number of nodes.
-	// Experimental.
 	MetricNodes(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for number of searchable documents.
-	// Experimental.
 	MetricSearchableDocuments(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for search latency.
-	// Experimental.
 	MetricSearchLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Arn of the Amazon OpenSearch Service domain.
-	// Experimental.
 	DomainArn() *string
 	// Endpoint of the Amazon OpenSearch Service domain.
-	// Experimental.
 	DomainEndpoint() *string
 	// Identifier of the Amazon OpenSearch Service domain.
-	// Experimental.
 	DomainId() *string
 	// Domain name of the Amazon OpenSearch Service domain.
-	// Experimental.
 	DomainName() *string
 }
 
@@ -2753,44 +2616,34 @@ func (j *jsiiProxy_IDomain) DomainName() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LoggingOptions struct {
 	// Specify if Amazon OpenSearch Service application logging should be set up.
 	//
 	// Requires Elasticsearch version 5.1 or later or OpenSearch version 1.0 or later.
-	// Experimental.
 	AppLogEnabled *bool `json:"appLogEnabled"`
 	// Log Amazon OpenSearch Service application logs to this log group.
-	// Experimental.
 	AppLogGroup awslogs.ILogGroup `json:"appLogGroup"`
 	// Specify if Amazon OpenSearch Service audit logging should be set up.
 	//
 	// Requires Elasticsearch version 6.7 or later or OpenSearch version 1.0 or later and fine grained access control to be enabled.
-	// Experimental.
 	AuditLogEnabled *bool `json:"auditLogEnabled"`
 	// Log Amazon OpenSearch Service audit logs to this log group.
-	// Experimental.
 	AuditLogGroup awslogs.ILogGroup `json:"auditLogGroup"`
 	// Specify if slow index logging should be set up.
 	//
 	// Requires Elasticsearch version 5.1 or later or OpenSearch version 1.0 or later.
-	// Experimental.
 	SlowIndexLogEnabled *bool `json:"slowIndexLogEnabled"`
 	// Log slow indices to this log group.
-	// Experimental.
 	SlowIndexLogGroup awslogs.ILogGroup `json:"slowIndexLogGroup"`
 	// Specify if slow search logging should be set up.
 	//
 	// Requires Elasticsearch version 5.1 or later or OpenSearch version 1.0 or later.
-	// Experimental.
 	SlowSearchLogEnabled *bool `json:"slowSearchLogEnabled"`
 	// Log slow searches to this log group.
-	// Experimental.
 	SlowSearchLogGroup awslogs.ILogGroup `json:"slowSearchLogGroup"`
 }
 
 // The minimum TLS version required for traffic to the domain.
-// Experimental.
 type TLSSecurityPolicy string
 
 const (
@@ -2802,12 +2655,10 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ZoneAwarenessConfig struct {
 	// If you enabled multiple Availability Zones (AZs), the number of AZs that you want the domain to use.
 	//
 	// Valid values are 2 and 3.
-	// Experimental.
 	AvailabilityZoneCount *float64 `json:"availabilityZoneCount"`
 	// Indicates whether to enable zone awareness for the Amazon OpenSearch Service domain.
 	//
@@ -2819,7 +2670,6 @@ type ZoneAwarenessConfig struct {
 	// see [Configuring a Multi-AZ Domain]
 	// (https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html)
 	// in the Amazon OpenSearch Service Developer Guide.
-	// Experimental.
 	Enabled *bool `json:"enabled"`
 }
 

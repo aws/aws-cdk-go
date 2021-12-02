@@ -18,7 +18,6 @@ import (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type BucketDeployment interface {
 	constructs.Construct
 	Node() constructs.Node
@@ -41,7 +40,6 @@ func (j *jsiiProxy_BucketDeployment) Node() constructs.Node {
 }
 
 
-// Experimental.
 func NewBucketDeployment(scope constructs.Construct, id *string, props *BucketDeploymentProps) BucketDeployment {
 	_init_.Initialize()
 
@@ -56,7 +54,6 @@ func NewBucketDeployment(scope constructs.Construct, id *string, props *BucketDe
 	return &j
 }
 
-// Experimental.
 func NewBucketDeployment_Override(b BucketDeployment, scope constructs.Construct, id *string, props *BucketDeploymentProps) {
 	_init_.Initialize()
 
@@ -87,7 +84,6 @@ func BucketDeployment_IsConstruct(x interface{}) *bool {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (b *jsiiProxy_BucketDeployment) ToString() *string {
 	var returns *string
 
@@ -105,54 +101,43 @@ func (b *jsiiProxy_BucketDeployment) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type BucketDeploymentProps struct {
 	// System-defined x-amz-acl metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl
 	//
-	// Experimental.
 	AccessControl awss3.BucketAccessControl `json:"accessControl"`
 	// System-defined cache-control metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 	//
-	// Experimental.
 	CacheControl *[]CacheControl `json:"cacheControl"`
 	// System-defined cache-disposition metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 	//
-	// Experimental.
 	ContentDisposition *string `json:"contentDisposition"`
 	// System-defined content-encoding metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 	//
-	// Experimental.
 	ContentEncoding *string `json:"contentEncoding"`
 	// System-defined content-language metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 	//
-	// Experimental.
 	ContentLanguage *string `json:"contentLanguage"`
 	// System-defined content-type metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 	//
-	// Experimental.
 	ContentType *string `json:"contentType"`
 	// The S3 bucket to sync the contents of the zip file to.
-	// Experimental.
 	DestinationBucket awss3.IBucket `json:"destinationBucket"`
 	// Key prefix in the destination bucket.
 	//
 	// Must be <=104 characters
-	// Experimental.
 	DestinationKeyPrefix *string `json:"destinationKeyPrefix"`
 	// The CloudFront distribution using the destination bucket as an origin.
 	//
 	// Files in the distribution's edge caches will be invalidated after
 	// files are uploaded to the destination bucket.
-	// Experimental.
 	Distribution awscloudfront.IDistribution `json:"distribution"`
 	// The file paths to invalidate in the CloudFront distribution.
-	// Experimental.
 	DistributionPaths *[]*string `json:"distributionPaths"`
 	// If this is set, matching files or objects will be excluded from the deployment's sync command.
 	//
@@ -163,12 +148,10 @@ type BucketDeploymentProps struct {
 	// `AssetOptions` when defining your source.
 	// See: https://docs.aws.amazon.com/cli/latest/reference/s3/index.html#use-of-exclude-and-include-filters
 	//
-	// Experimental.
 	Exclude *[]*string `json:"exclude"`
 	// System-defined expires metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 	//
-	// Experimental.
 	Expires awscdk.Expiration `json:"expires"`
 	// If this is set, matching files or objects will be included with the deployment's sync command.
 	//
@@ -176,23 +159,19 @@ type BucketDeploymentProps struct {
 	// is usually leveraged alongside an `exclude` filter.
 	// See: https://docs.aws.amazon.com/cli/latest/reference/s3/index.html#use-of-exclude-and-include-filters
 	//
-	// Experimental.
 	Include *[]*string `json:"include"`
 	// The amount of memory (in MiB) to allocate to the AWS Lambda function which replicates the files from the CDK bucket to the destination bucket.
 	//
 	// If you are deploying large files, you will need to increase this number
 	// accordingly.
-	// Experimental.
 	MemoryLimit *float64 `json:"memoryLimit"`
 	// User-defined object metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#UserMetadata
 	//
-	// Experimental.
 	Metadata *UserDefinedObjectMetadata `json:"metadata"`
 	// If this is set to false, files in the destination bucket that do not exist in the asset, will NOT be deleted during deployment (create/update).
 	// See: https://docs.aws.amazon.com/cli/latest/reference/s3/sync.html
 	//
-	// Experimental.
 	Prune *bool `json:"prune"`
 	// If this is set to "false", the destination files will be deleted when the resource is deleted or the destination is updated.
 	//
@@ -200,56 +179,45 @@ type BucketDeploymentProps struct {
 	// visit to the package documentation referred below to make sure you fully understand those implications.
 	// See: https://github.com/aws/aws-cdk/tree/master/packages/%40aws-cdk/aws-s3-deployment#retain-on-delete
 	//
-	// Experimental.
 	RetainOnDelete *bool `json:"retainOnDelete"`
 	// Execution role associated with this function.
-	// Experimental.
 	Role awsiam.IRole `json:"role"`
 	// System-defined x-amz-server-side-encryption metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 	//
-	// Experimental.
 	ServerSideEncryption ServerSideEncryption `json:"serverSideEncryption"`
 	// System-defined x-amz-server-side-encryption-aws-kms-key-id metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 	//
-	// Experimental.
 	ServerSideEncryptionAwsKmsKeyId *string `json:"serverSideEncryptionAwsKmsKeyId"`
 	// System-defined x-amz-server-side-encryption-customer-algorithm metadata to be set on all objects in the deployment.
 	//
 	// Warning: This is not a useful parameter until this bug is fixed: https://github.com/aws/aws-cdk/issues/6080
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html#sse-c-how-to-programmatically-intro
 	//
-	// Experimental.
 	ServerSideEncryptionCustomerAlgorithm *string `json:"serverSideEncryptionCustomerAlgorithm"`
 	// The sources from which to deploy the contents of this bucket.
-	// Experimental.
 	Sources *[]ISource `json:"sources"`
 	// System-defined x-amz-storage-class metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 	//
-	// Experimental.
 	StorageClass StorageClass `json:"storageClass"`
 	// Mount an EFS file system.
 	//
 	// Enable this if your assets are large and you encounter disk space errors.
 	// Enabling this option will require a VPC to be specified.
-	// Experimental.
 	UseEfs *bool `json:"useEfs"`
 	// The VPC network to place the deployment lambda handler in.
 	//
 	// This is required if `useEfs` is set.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// Where in the VPC to place the deployment lambda handler.
 	//
 	// Only used if 'vpc' is supplied.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 	// System-defined x-amz-website-redirect-location metadata to be set on all objects in the deployment.
 	// See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 	//
-	// Experimental.
 	WebsiteRedirectLocation *string `json:"websiteRedirectLocation"`
 }
 
@@ -259,7 +227,6 @@ type BucketDeploymentProps struct {
 //
 // See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 //
-// Experimental.
 type CacheControl interface {
 	Value() interface{}
 }
@@ -281,7 +248,6 @@ func (j *jsiiProxy_CacheControl) Value() interface{} {
 
 
 // Constructs a custom cache control key from the literal value.
-// Experimental.
 func CacheControl_FromString(s *string) CacheControl {
 	_init_.Initialize()
 
@@ -298,7 +264,6 @@ func CacheControl_FromString(s *string) CacheControl {
 }
 
 // Sets 'max-age=<duration-in-seconds>'.
-// Experimental.
 func CacheControl_MaxAge(t awscdk.Duration) CacheControl {
 	_init_.Initialize()
 
@@ -315,7 +280,6 @@ func CacheControl_MaxAge(t awscdk.Duration) CacheControl {
 }
 
 // Sets 'must-revalidate'.
-// Experimental.
 func CacheControl_MustRevalidate() CacheControl {
 	_init_.Initialize()
 
@@ -332,7 +296,6 @@ func CacheControl_MustRevalidate() CacheControl {
 }
 
 // Sets 'no-cache'.
-// Experimental.
 func CacheControl_NoCache() CacheControl {
 	_init_.Initialize()
 
@@ -349,7 +312,6 @@ func CacheControl_NoCache() CacheControl {
 }
 
 // Sets 'no-transform'.
-// Experimental.
 func CacheControl_NoTransform() CacheControl {
 	_init_.Initialize()
 
@@ -366,7 +328,6 @@ func CacheControl_NoTransform() CacheControl {
 }
 
 // Sets 'proxy-revalidate'.
-// Experimental.
 func CacheControl_ProxyRevalidate() CacheControl {
 	_init_.Initialize()
 
@@ -383,7 +344,6 @@ func CacheControl_ProxyRevalidate() CacheControl {
 }
 
 // Sets 'private'.
-// Experimental.
 func CacheControl_SetPrivate() CacheControl {
 	_init_.Initialize()
 
@@ -400,7 +360,6 @@ func CacheControl_SetPrivate() CacheControl {
 }
 
 // Sets 'public'.
-// Experimental.
 func CacheControl_SetPublic() CacheControl {
 	_init_.Initialize()
 
@@ -417,7 +376,6 @@ func CacheControl_SetPublic() CacheControl {
 }
 
 // Sets 's-maxage=<duration-in-seconds>'.
-// Experimental.
 func CacheControl_SMaxAge(t awscdk.Duration) CacheControl {
 	_init_.Initialize()
 
@@ -437,18 +395,14 @@ func CacheControl_SMaxAge(t awscdk.Duration) CacheControl {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DeploymentSourceContext struct {
 	// The role for the handler.
-	// Experimental.
 	HandlerRole awsiam.IRole `json:"handlerRole"`
 }
 
 // Represents a source for bucket deployments.
-// Experimental.
 type ISource interface {
 	// Binds the source to a bucket deployment.
-	// Experimental.
 	Bind(scope constructs.Construct, context *DeploymentSourceContext) *SourceConfig
 }
 
@@ -473,7 +427,6 @@ func (i *jsiiProxy_ISource) Bind(scope constructs.Construct, context *Deployment
 // Indicates whether server-side encryption is enabled for the object, and whether that encryption is from the AWS Key Management Service (AWS KMS) or from Amazon S3 managed encryption (SSE-S3).
 // See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 //
-// Experimental.
 type ServerSideEncryption string
 
 const (
@@ -488,7 +441,6 @@ const (
 //      Source.bucket(bucket, key)
 //      Source.asset('/local/path/to/directory')
 //      Source.asset('/local/path/to/a/file.zip')
-// Experimental.
 type Source interface {
 }
 
@@ -501,7 +453,6 @@ type jsiiProxy_Source struct {
 //
 // If the local asset is a .zip archive, make sure you trust the
 // producer of the archive.
-// Experimental.
 func Source_Asset(path *string, options *awss3assets.AssetOptions) ISource {
 	_init_.Initialize()
 
@@ -520,7 +471,6 @@ func Source_Asset(path *string, options *awss3assets.AssetOptions) ISource {
 // Uses a .zip file stored in an S3 bucket as the source for the destination bucket contents.
 //
 // Make sure you trust the producer of the archive.
-// Experimental.
 func Source_Bucket(bucket awss3.IBucket, zipObjectKey *string) ISource {
 	_init_.Initialize()
 
@@ -540,20 +490,16 @@ func Source_Bucket(bucket awss3.IBucket, zipObjectKey *string) ISource {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SourceConfig struct {
 	// The source bucket to deploy from.
-	// Experimental.
 	Bucket awss3.IBucket `json:"bucket"`
 	// An S3 object key in the source bucket that points to a zip file.
-	// Experimental.
 	ZipObjectKey *string `json:"zipObjectKey"`
 }
 
 // Storage class used for storing the object.
 // See: https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#SysMetadata
 //
-// Experimental.
 type StorageClass string
 
 const (
@@ -570,7 +516,6 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type UserDefinedObjectMetadata struct {
 }
 

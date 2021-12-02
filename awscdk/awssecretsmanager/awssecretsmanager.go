@@ -17,15 +17,12 @@ import (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AttachedSecretOptions struct {
 	// The target to attach the secret to.
-	// Experimental.
 	Target ISecretAttachmentTarget `json:"target"`
 }
 
 // The type of service or database that's being associated with the secret.
-// Experimental.
 type AttachmentTargetType string
 
 const (
@@ -259,7 +256,6 @@ func (j *jsiiProxy_CfnResourcePolicy) SetSecretId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnResourcePolicy_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -276,7 +272,6 @@ func CfnResourcePolicy_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnResourcePolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -323,7 +318,6 @@ func CfnResourcePolicy_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnResourcePolicy) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -336,7 +330,6 @@ func (c *jsiiProxy_CfnResourcePolicy) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnResourcePolicy) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -352,7 +345,6 @@ func (c *jsiiProxy_CfnResourcePolicy) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnResourcePolicy) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -398,7 +390,6 @@ func (c *jsiiProxy_CfnResourcePolicy) AddMetadata(key *string, value interface{}
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnResourcePolicy) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -408,7 +399,6 @@ func (c *jsiiProxy_CfnResourcePolicy) AddOverride(path *string, value interface{
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnResourcePolicy) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -420,7 +410,6 @@ func (c *jsiiProxy_CfnResourcePolicy) AddPropertyDeletionOverride(propertyPath *
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnResourcePolicy) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -438,7 +427,6 @@ func (c *jsiiProxy_CfnResourcePolicy) AddPropertyOverride(propertyPath *string, 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnResourcePolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -451,7 +439,6 @@ func (c *jsiiProxy_CfnResourcePolicy) ApplyRemovalPolicy(policy awscdk.RemovalPo
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnResourcePolicy) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -472,7 +459,6 @@ func (c *jsiiProxy_CfnResourcePolicy) GetAtt(attributeName *string) awscdk.Refer
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnResourcePolicy) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -496,7 +482,6 @@ func (c *jsiiProxy_CfnResourcePolicy) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnResourcePolicy) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -522,7 +507,6 @@ func (c *jsiiProxy_CfnResourcePolicy) RenderProperties(props *map[string]interfa
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnResourcePolicy) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -539,7 +523,6 @@ func (c *jsiiProxy_CfnResourcePolicy) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnResourcePolicy) ToString() *string {
 	var returns *string
 
@@ -553,7 +536,6 @@ func (c *jsiiProxy_CfnResourcePolicy) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnResourcePolicy) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -817,7 +799,6 @@ func (j *jsiiProxy_CfnRotationSchedule) SetSecretId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnRotationSchedule_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -834,7 +815,6 @@ func CfnRotationSchedule_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnRotationSchedule_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -881,7 +861,6 @@ func CfnRotationSchedule_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnRotationSchedule) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -894,7 +873,6 @@ func (c *jsiiProxy_CfnRotationSchedule) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnRotationSchedule) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -910,7 +888,6 @@ func (c *jsiiProxy_CfnRotationSchedule) AddDependsOn(target awscdk.CfnResource) 
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnRotationSchedule) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -956,7 +933,6 @@ func (c *jsiiProxy_CfnRotationSchedule) AddMetadata(key *string, value interface
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnRotationSchedule) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -966,7 +942,6 @@ func (c *jsiiProxy_CfnRotationSchedule) AddOverride(path *string, value interfac
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnRotationSchedule) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -978,7 +953,6 @@ func (c *jsiiProxy_CfnRotationSchedule) AddPropertyDeletionOverride(propertyPath
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnRotationSchedule) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -996,7 +970,6 @@ func (c *jsiiProxy_CfnRotationSchedule) AddPropertyOverride(propertyPath *string
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnRotationSchedule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1009,7 +982,6 @@ func (c *jsiiProxy_CfnRotationSchedule) ApplyRemovalPolicy(policy awscdk.Removal
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnRotationSchedule) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1030,7 +1002,6 @@ func (c *jsiiProxy_CfnRotationSchedule) GetAtt(attributeName *string) awscdk.Ref
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnRotationSchedule) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1054,7 +1025,6 @@ func (c *jsiiProxy_CfnRotationSchedule) Inspect(inspector awscdk.TreeInspector) 
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnRotationSchedule) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1080,7 +1050,6 @@ func (c *jsiiProxy_CfnRotationSchedule) RenderProperties(props *map[string]inter
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnRotationSchedule) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1097,7 +1066,6 @@ func (c *jsiiProxy_CfnRotationSchedule) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnRotationSchedule) ToString() *string {
 	var returns *string
 
@@ -1111,7 +1079,6 @@ func (c *jsiiProxy_CfnRotationSchedule) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnRotationSchedule) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1458,7 +1425,6 @@ func (j *jsiiProxy_CfnSecret) SetSecretString(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnSecret_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -1475,7 +1441,6 @@ func CfnSecret_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnSecret_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -1522,7 +1487,6 @@ func CfnSecret_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnSecret) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1535,7 +1499,6 @@ func (c *jsiiProxy_CfnSecret) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnSecret) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1551,7 +1514,6 @@ func (c *jsiiProxy_CfnSecret) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnSecret) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1597,7 +1559,6 @@ func (c *jsiiProxy_CfnSecret) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnSecret) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1607,7 +1568,6 @@ func (c *jsiiProxy_CfnSecret) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnSecret) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1619,7 +1579,6 @@ func (c *jsiiProxy_CfnSecret) AddPropertyDeletionOverride(propertyPath *string) 
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnSecret) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1637,7 +1596,6 @@ func (c *jsiiProxy_CfnSecret) AddPropertyOverride(propertyPath *string, value in
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnSecret) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1650,7 +1608,6 @@ func (c *jsiiProxy_CfnSecret) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, op
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnSecret) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1671,7 +1628,6 @@ func (c *jsiiProxy_CfnSecret) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnSecret) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1695,7 +1651,6 @@ func (c *jsiiProxy_CfnSecret) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnSecret) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1721,7 +1676,6 @@ func (c *jsiiProxy_CfnSecret) RenderProperties(props *map[string]interface{}) *m
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnSecret) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1738,7 +1692,6 @@ func (c *jsiiProxy_CfnSecret) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnSecret) ToString() *string {
 	var returns *string
 
@@ -1752,7 +1705,6 @@ func (c *jsiiProxy_CfnSecret) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnSecret) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2038,7 +1990,6 @@ func (j *jsiiProxy_CfnSecretTargetAttachment) SetTargetType(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnSecretTargetAttachment_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -2055,7 +2006,6 @@ func CfnSecretTargetAttachment_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnSecretTargetAttachment_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -2102,7 +2052,6 @@ func CfnSecretTargetAttachment_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnSecretTargetAttachment) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2115,7 +2064,6 @@ func (c *jsiiProxy_CfnSecretTargetAttachment) AddDeletionOverride(path *string) 
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnSecretTargetAttachment) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2131,7 +2079,6 @@ func (c *jsiiProxy_CfnSecretTargetAttachment) AddDependsOn(target awscdk.CfnReso
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnSecretTargetAttachment) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2177,7 +2124,6 @@ func (c *jsiiProxy_CfnSecretTargetAttachment) AddMetadata(key *string, value int
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnSecretTargetAttachment) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2187,7 +2133,6 @@ func (c *jsiiProxy_CfnSecretTargetAttachment) AddOverride(path *string, value in
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnSecretTargetAttachment) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2199,7 +2144,6 @@ func (c *jsiiProxy_CfnSecretTargetAttachment) AddPropertyDeletionOverride(proper
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnSecretTargetAttachment) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2217,7 +2161,6 @@ func (c *jsiiProxy_CfnSecretTargetAttachment) AddPropertyOverride(propertyPath *
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnSecretTargetAttachment) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2230,7 +2173,6 @@ func (c *jsiiProxy_CfnSecretTargetAttachment) ApplyRemovalPolicy(policy awscdk.R
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnSecretTargetAttachment) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2251,7 +2193,6 @@ func (c *jsiiProxy_CfnSecretTargetAttachment) GetAtt(attributeName *string) awsc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnSecretTargetAttachment) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2275,7 +2216,6 @@ func (c *jsiiProxy_CfnSecretTargetAttachment) Inspect(inspector awscdk.TreeInspe
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnSecretTargetAttachment) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2301,7 +2241,6 @@ func (c *jsiiProxy_CfnSecretTargetAttachment) RenderProperties(props *map[string
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnSecretTargetAttachment) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2318,7 +2257,6 @@ func (c *jsiiProxy_CfnSecretTargetAttachment) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnSecretTargetAttachment) ToString() *string {
 	var returns *string
 
@@ -2332,7 +2270,6 @@ func (c *jsiiProxy_CfnSecretTargetAttachment) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnSecretTargetAttachment) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2358,7 +2295,6 @@ type CfnSecretTargetAttachmentProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HostedRotation interface {
 	awsec2.IConnectable
 	Connections() awsec2.Connections
@@ -2382,7 +2318,6 @@ func (j *jsiiProxy_HostedRotation) Connections() awsec2.Connections {
 
 
 // MariaDB Multi User.
-// Experimental.
 func HostedRotation_MariaDbMultiUser(options *MultiUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
@@ -2399,7 +2334,6 @@ func HostedRotation_MariaDbMultiUser(options *MultiUserHostedRotationOptions) Ho
 }
 
 // MariaDB Single User.
-// Experimental.
 func HostedRotation_MariaDbSingleUser(options *SingleUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
@@ -2416,7 +2350,6 @@ func HostedRotation_MariaDbSingleUser(options *SingleUserHostedRotationOptions) 
 }
 
 // MongoDB Multi User.
-// Experimental.
 func HostedRotation_MongoDbMultiUser(options *MultiUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
@@ -2433,7 +2366,6 @@ func HostedRotation_MongoDbMultiUser(options *MultiUserHostedRotationOptions) Ho
 }
 
 // MongoDB Single User.
-// Experimental.
 func HostedRotation_MongoDbSingleUser(options *SingleUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
@@ -2450,7 +2382,6 @@ func HostedRotation_MongoDbSingleUser(options *SingleUserHostedRotationOptions) 
 }
 
 // MySQL Multi User.
-// Experimental.
 func HostedRotation_MysqlMultiUser(options *MultiUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
@@ -2467,7 +2398,6 @@ func HostedRotation_MysqlMultiUser(options *MultiUserHostedRotationOptions) Host
 }
 
 // MySQL Single User.
-// Experimental.
 func HostedRotation_MysqlSingleUser(options *SingleUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
@@ -2484,7 +2414,6 @@ func HostedRotation_MysqlSingleUser(options *SingleUserHostedRotationOptions) Ho
 }
 
 // Oracle Multi User.
-// Experimental.
 func HostedRotation_OracleMultiUser(options *MultiUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
@@ -2501,7 +2430,6 @@ func HostedRotation_OracleMultiUser(options *MultiUserHostedRotationOptions) Hos
 }
 
 // Oracle Single User.
-// Experimental.
 func HostedRotation_OracleSingleUser(options *SingleUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
@@ -2518,7 +2446,6 @@ func HostedRotation_OracleSingleUser(options *SingleUserHostedRotationOptions) H
 }
 
 // PostgreSQL Multi User.
-// Experimental.
 func HostedRotation_PostgreSqlMultiUser(options *MultiUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
@@ -2535,7 +2462,6 @@ func HostedRotation_PostgreSqlMultiUser(options *MultiUserHostedRotationOptions)
 }
 
 // PostgreSQL Single User.
-// Experimental.
 func HostedRotation_PostgreSqlSingleUser(options *SingleUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
@@ -2552,7 +2478,6 @@ func HostedRotation_PostgreSqlSingleUser(options *SingleUserHostedRotationOption
 }
 
 // Redshift Multi User.
-// Experimental.
 func HostedRotation_RedshiftMultiUser(options *MultiUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
@@ -2569,7 +2494,6 @@ func HostedRotation_RedshiftMultiUser(options *MultiUserHostedRotationOptions) H
 }
 
 // Redshift Single User.
-// Experimental.
 func HostedRotation_RedshiftSingleUser(options *SingleUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
@@ -2586,7 +2510,6 @@ func HostedRotation_RedshiftSingleUser(options *SingleUserHostedRotationOptions)
 }
 
 // SQL Server Multi User.
-// Experimental.
 func HostedRotation_SqlServerMultiUser(options *MultiUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
@@ -2603,7 +2526,6 @@ func HostedRotation_SqlServerMultiUser(options *MultiUserHostedRotationOptions) 
 }
 
 // SQL Server Single User.
-// Experimental.
 func HostedRotation_SqlServerSingleUser(options *SingleUserHostedRotationOptions) HostedRotation {
 	_init_.Initialize()
 
@@ -2620,7 +2542,6 @@ func HostedRotation_SqlServerSingleUser(options *SingleUserHostedRotationOptions
 }
 
 // Binds this hosted rotation to a secret.
-// Experimental.
 func (h *jsiiProxy_HostedRotation) Bind(secret ISecret, scope constructs.Construct) *CfnRotationSchedule_HostedRotationLambdaProperty {
 	var returns *CfnRotationSchedule_HostedRotationLambdaProperty
 
@@ -2638,7 +2559,6 @@ func (h *jsiiProxy_HostedRotation) Bind(secret ISecret, scope constructs.Constru
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HostedRotationType interface {
 	IsMultiUser() *bool
 	Name() *string
@@ -2825,61 +2745,48 @@ func HostedRotationType_SQLSERVER_SINGLE_USER() HostedRotationType {
 }
 
 // A secret in AWS Secrets Manager.
-// Experimental.
 type ISecret interface {
 	awscdk.IResource
 	// Adds a rotation schedule to the secret.
-	// Experimental.
 	AddRotationSchedule(id *string, options *RotationScheduleOptions) RotationSchedule
 	// Adds a statement to the IAM resource policy associated with this secret.
 	//
 	// If this secret was created in this stack, a resource policy will be
 	// automatically created upon the first call to `addToResourcePolicy`. If
 	// the secret is imported, then this is a no-op.
-	// Experimental.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Attach a target to this secret.
 	//
 	// Returns: An attached secret
-	// Experimental.
 	Attach(target ISecretAttachmentTarget) ISecret
 	// Denies the `DeleteSecret` action to all principals within the current account.
-	// Experimental.
 	DenyAccountRootDelete()
 	// Grants reading the secret value to some role.
-	// Experimental.
 	GrantRead(grantee awsiam.IGrantable, versionStages *[]*string) awsiam.Grant
 	// Grants writing and updating the secret value to some role.
-	// Experimental.
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
 	// Interpret the secret as a JSON object and return a field's value from it as a `SecretValue`.
-	// Experimental.
 	SecretValueFromJson(key *string) awscdk.SecretValue
 	// The customer-managed encryption key that is used to encrypt this secret, if any.
 	//
 	// When not specified, the default
 	// KMS key for the account and region is being used.
-	// Experimental.
 	EncryptionKey() awskms.IKey
 	// The ARN of the secret in AWS Secrets Manager.
 	//
 	// Will return the full ARN if available, otherwise a partial arn.
 	// For secrets imported by the deprecated `fromSecretName`, it will return the `secretName`.
-	// Experimental.
 	SecretArn() *string
 	// The full ARN of the secret in AWS Secrets Manager, which is the ARN including the Secrets Manager-supplied 6-character suffix.
 	//
 	// This is equal to `secretArn` in most cases, but is undefined when a full ARN is not available (e.g., secrets imported by name).
-	// Experimental.
 	SecretFullArn() *string
 	// The name of the secret.
 	//
 	// For "owned" secrets, this will be the full resource name (secret name + suffix), unless the
 	// '@aws-cdk/aws-secretsmanager:parseOwnedSecretName' feature flag is set.
-	// Experimental.
 	SecretName() *string
 	// Retrieve the value of the stored secret as a `SecretValue`.
-	// Experimental.
 	SecretValue() awscdk.SecretValue
 }
 
@@ -3025,10 +2932,8 @@ func (j *jsiiProxy_ISecret) SecretValue() awscdk.SecretValue {
 }
 
 // A secret attachment target.
-// Experimental.
 type ISecretAttachmentTarget interface {
 	// Renders the target specifications.
-	// Experimental.
 	AsSecretAttachmentTarget() *SecretAttachmentTargetProps
 }
 
@@ -3050,11 +2955,9 @@ func (i *jsiiProxy_ISecretAttachmentTarget) AsSecretAttachmentTarget() *SecretAt
 	return returns
 }
 
-// Experimental.
 type ISecretTargetAttachment interface {
 	ISecret
 	// Same as `secretArn`.
-	// Experimental.
 	SecretTargetAttachmentSecretArn() *string
 }
 
@@ -3077,22 +2980,16 @@ func (j *jsiiProxy_ISecretTargetAttachment) SecretTargetAttachmentSecretArn() *s
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type MultiUserHostedRotationOptions struct {
 	// A name for the Lambda created to rotate the secret.
-	// Experimental.
 	FunctionName *string `json:"functionName"`
 	// A list of security groups for the Lambda created to rotate the secret.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 	// The VPC where the Lambda rotation function will run.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// The type of subnets in the VPC where the Lambda rotation function will run.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 	// The master secret for a multi user rotation scheme.
-	// Experimental.
 	MasterSecret ISecret `json:"masterSecret"`
 }
 
@@ -3100,13 +2997,10 @@ type MultiUserHostedRotationOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ReplicaRegion struct {
 	// The customer-managed encryption key to use for encrypting the secret value.
-	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey"`
 	// The name of the region.
-	// Experimental.
 	Region *string `json:"region"`
 }
 
@@ -3114,7 +3008,6 @@ type ReplicaRegion struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ResourcePolicy interface {
 	awscdk.Resource
 	Document() awsiam.PolicyDocument
@@ -3185,7 +3078,6 @@ func (j *jsiiProxy_ResourcePolicy) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewResourcePolicy(scope constructs.Construct, id *string, props *ResourcePolicyProps) ResourcePolicy {
 	_init_.Initialize()
 
@@ -3200,7 +3092,6 @@ func NewResourcePolicy(scope constructs.Construct, id *string, props *ResourcePo
 	return &j
 }
 
-// Experimental.
 func NewResourcePolicy_Override(r ResourcePolicy, scope constructs.Construct, id *string, props *ResourcePolicyProps) {
 	_init_.Initialize()
 
@@ -3231,7 +3122,6 @@ func ResourcePolicy_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func ResourcePolicy_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -3256,7 +3146,6 @@ func ResourcePolicy_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (r *jsiiProxy_ResourcePolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		r,
@@ -3265,7 +3154,6 @@ func (r *jsiiProxy_ResourcePolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 	)
 }
 
-// Experimental.
 func (r *jsiiProxy_ResourcePolicy) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -3285,7 +3173,6 @@ func (r *jsiiProxy_ResourcePolicy) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (r *jsiiProxy_ResourcePolicy) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -3304,7 +3191,6 @@ func (r *jsiiProxy_ResourcePolicy) GetResourceArnAttribute(arnAttr *string, arnC
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (r *jsiiProxy_ResourcePolicy) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -3319,7 +3205,6 @@ func (r *jsiiProxy_ResourcePolicy) GetResourceNameAttribute(nameAttr *string) *s
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (r *jsiiProxy_ResourcePolicy) ToString() *string {
 	var returns *string
 
@@ -3337,10 +3222,8 @@ func (r *jsiiProxy_ResourcePolicy) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ResourcePolicyProps struct {
 	// The secret to attach a resource-based permissions policy.
-	// Experimental.
 	Secret ISecret `json:"secret"`
 }
 
@@ -3348,7 +3231,6 @@ type ResourcePolicyProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RotationSchedule interface {
 	awscdk.Resource
 	Env() *awscdk.ResourceEnvironment
@@ -3408,7 +3290,6 @@ func (j *jsiiProxy_RotationSchedule) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewRotationSchedule(scope constructs.Construct, id *string, props *RotationScheduleProps) RotationSchedule {
 	_init_.Initialize()
 
@@ -3423,7 +3304,6 @@ func NewRotationSchedule(scope constructs.Construct, id *string, props *Rotation
 	return &j
 }
 
-// Experimental.
 func NewRotationSchedule_Override(r RotationSchedule, scope constructs.Construct, id *string, props *RotationScheduleProps) {
 	_init_.Initialize()
 
@@ -3454,7 +3334,6 @@ func RotationSchedule_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func RotationSchedule_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -3479,7 +3358,6 @@ func RotationSchedule_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (r *jsiiProxy_RotationSchedule) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		r,
@@ -3488,7 +3366,6 @@ func (r *jsiiProxy_RotationSchedule) ApplyRemovalPolicy(policy awscdk.RemovalPol
 	)
 }
 
-// Experimental.
 func (r *jsiiProxy_RotationSchedule) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -3508,7 +3385,6 @@ func (r *jsiiProxy_RotationSchedule) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (r *jsiiProxy_RotationSchedule) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -3527,7 +3403,6 @@ func (r *jsiiProxy_RotationSchedule) GetResourceArnAttribute(arnAttr *string, ar
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (r *jsiiProxy_RotationSchedule) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -3542,7 +3417,6 @@ func (r *jsiiProxy_RotationSchedule) GetResourceNameAttribute(nameAttr *string) 
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (r *jsiiProxy_RotationSchedule) ToString() *string {
 	var returns *string
 
@@ -3560,16 +3434,12 @@ func (r *jsiiProxy_RotationSchedule) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RotationScheduleOptions struct {
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
-	// Experimental.
 	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter"`
 	// Hosted rotation.
-	// Experimental.
 	HostedRotation HostedRotation `json:"hostedRotation"`
 	// A Lambda function that can rotate the secret.
-	// Experimental.
 	RotationLambda awslambda.IFunction `json:"rotationLambda"`
 }
 
@@ -3577,16 +3447,12 @@ type RotationScheduleOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RotationScheduleProps struct {
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
-	// Experimental.
 	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter"`
 	// Hosted rotation.
-	// Experimental.
 	HostedRotation HostedRotation `json:"hostedRotation"`
 	// A Lambda function that can rotate the secret.
-	// Experimental.
 	RotationLambda awslambda.IFunction `json:"rotationLambda"`
 	// The secret to rotate.
 	//
@@ -3606,7 +3472,6 @@ type RotationScheduleProps struct {
 	//
 	// This is typically the case for a secret referenced from an `AWS::SecretsManager::SecretTargetAttachment`
 	// or an `ISecret` returned by the `attach()` method of `Secret`.
-	// Experimental.
 	Secret ISecret `json:"secret"`
 }
 
@@ -3614,7 +3479,6 @@ type RotationScheduleProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Secret interface {
 	awscdk.Resource
 	ISecret
@@ -3761,7 +3625,6 @@ func (j *jsiiProxy_Secret) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewSecret(scope constructs.Construct, id *string, props *SecretProps) Secret {
 	_init_.Initialize()
 
@@ -3776,7 +3639,6 @@ func NewSecret(scope constructs.Construct, id *string, props *SecretProps) Secre
 	return &j
 }
 
-// Experimental.
 func NewSecret_Override(s Secret, scope constructs.Construct, id *string, props *SecretProps) {
 	_init_.Initialize()
 
@@ -3788,7 +3650,6 @@ func NewSecret_Override(s Secret, scope constructs.Construct, id *string, props 
 }
 
 // Import an existing secret into the Stack.
-// Experimental.
 func Secret_FromSecretAttributes(scope constructs.Construct, id *string, attrs *SecretAttributes) ISecret {
 	_init_.Initialize()
 
@@ -3807,7 +3668,6 @@ func Secret_FromSecretAttributes(scope constructs.Construct, id *string, attrs *
 // Imports a secret by complete ARN.
 //
 // The complete ARN is the ARN with the Secrets Manager-supplied suffix.
-// Experimental.
 func Secret_FromSecretCompleteArn(scope constructs.Construct, id *string, secretCompleteArn *string) ISecret {
 	_init_.Initialize()
 
@@ -3827,7 +3687,6 @@ func Secret_FromSecretCompleteArn(scope constructs.Construct, id *string, secret
 //
 // A secret with this name must exist in the same account & region.
 // Replaces the deprecated `fromSecretName`.
-// Experimental.
 func Secret_FromSecretNameV2(scope constructs.Construct, id *string, secretName *string) ISecret {
 	_init_.Initialize()
 
@@ -3846,7 +3705,6 @@ func Secret_FromSecretNameV2(scope constructs.Construct, id *string, secretName 
 // Imports a secret by partial ARN.
 //
 // The partial ARN is the ARN without the Secrets Manager-supplied suffix.
-// Experimental.
 func Secret_FromSecretPartialArn(scope constructs.Construct, id *string, secretPartialArn *string) ISecret {
 	_init_.Initialize()
 
@@ -3882,7 +3740,6 @@ func Secret_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func Secret_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -3899,7 +3756,6 @@ func Secret_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Adds a replica region for the secret.
-// Experimental.
 func (s *jsiiProxy_Secret) AddReplicaRegion(region *string, encryptionKey awskms.IKey) {
 	_jsii_.InvokeVoid(
 		s,
@@ -3909,7 +3765,6 @@ func (s *jsiiProxy_Secret) AddReplicaRegion(region *string, encryptionKey awskms
 }
 
 // Adds a rotation schedule to the secret.
-// Experimental.
 func (s *jsiiProxy_Secret) AddRotationSchedule(id *string, options *RotationScheduleOptions) RotationSchedule {
 	var returns RotationSchedule
 
@@ -3928,7 +3783,6 @@ func (s *jsiiProxy_Secret) AddRotationSchedule(id *string, options *RotationSche
 // If this secret was created in this stack, a resource policy will be
 // automatically created upon the first call to `addToResourcePolicy`. If
 // the secret is imported, then this is a no-op.
-// Experimental.
 func (s *jsiiProxy_Secret) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
 	var returns *awsiam.AddToResourcePolicyResult
 
@@ -3951,7 +3805,6 @@ func (s *jsiiProxy_Secret) AddToResourcePolicy(statement awsiam.PolicyStatement)
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (s *jsiiProxy_Secret) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		s,
@@ -3963,7 +3816,6 @@ func (s *jsiiProxy_Secret) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 // Attach a target to this secret.
 //
 // Returns: An attached secret
-// Experimental.
 func (s *jsiiProxy_Secret) Attach(target ISecretAttachmentTarget) ISecret {
 	var returns ISecret
 
@@ -3978,7 +3830,6 @@ func (s *jsiiProxy_Secret) Attach(target ISecretAttachmentTarget) ISecret {
 }
 
 // Denies the `DeleteSecret` action to all principals within the current account.
-// Experimental.
 func (s *jsiiProxy_Secret) DenyAccountRootDelete() {
 	_jsii_.InvokeVoid(
 		s,
@@ -3987,7 +3838,6 @@ func (s *jsiiProxy_Secret) DenyAccountRootDelete() {
 	)
 }
 
-// Experimental.
 func (s *jsiiProxy_Secret) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -4007,7 +3857,6 @@ func (s *jsiiProxy_Secret) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (s *jsiiProxy_Secret) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -4026,7 +3875,6 @@ func (s *jsiiProxy_Secret) GetResourceArnAttribute(arnAttr *string, arnComponent
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (s *jsiiProxy_Secret) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -4041,7 +3889,6 @@ func (s *jsiiProxy_Secret) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 // Grants reading the secret value to some role.
-// Experimental.
 func (s *jsiiProxy_Secret) GrantRead(grantee awsiam.IGrantable, versionStages *[]*string) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -4056,7 +3903,6 @@ func (s *jsiiProxy_Secret) GrantRead(grantee awsiam.IGrantable, versionStages *[
 }
 
 // Grants writing and updating the secret value to some role.
-// Experimental.
 func (s *jsiiProxy_Secret) GrantWrite(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -4071,7 +3917,6 @@ func (s *jsiiProxy_Secret) GrantWrite(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 // Interpret the secret as a JSON object and return a field's value from it as a `SecretValue`.
-// Experimental.
 func (s *jsiiProxy_Secret) SecretValueFromJson(jsonField *string) awscdk.SecretValue {
 	var returns awscdk.SecretValue
 
@@ -4086,7 +3931,6 @@ func (s *jsiiProxy_Secret) SecretValueFromJson(jsonField *string) awscdk.SecretV
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (s *jsiiProxy_Secret) ToString() *string {
 	var returns *string
 
@@ -4104,13 +3948,10 @@ func (s *jsiiProxy_Secret) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SecretAttachmentTargetProps struct {
 	// The id of the target to attach the secret to.
-	// Experimental.
 	TargetId *string `json:"targetId"`
 	// The type of the target to attach the secret to.
-	// Experimental.
 	TargetType AttachmentTargetType `json:"targetType"`
 }
 
@@ -4120,22 +3961,18 @@ type SecretAttachmentTargetProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SecretAttributes struct {
 	// The encryption key that is used to encrypt the secret, unless the default SecretsManager key is used.
-	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey"`
 	// The complete ARN of the secret in SecretsManager.
 	//
 	// This is the ARN including the Secrets Manager 6-character suffix.
 	// Cannot be used with `secretArn` or `secretPartialArn`.
-	// Experimental.
 	SecretCompleteArn *string `json:"secretCompleteArn"`
 	// The partial ARN of the secret in SecretsManager.
 	//
 	// This is the ARN without the Secrets Manager 6-character suffix.
 	// Cannot be used with `secretArn` or `secretCompleteArn`.
-	// Experimental.
 	SecretPartialArn *string `json:"secretPartialArn"`
 }
 
@@ -4143,28 +3980,21 @@ type SecretAttributes struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SecretProps struct {
 	// An optional, human-friendly description of the secret.
-	// Experimental.
 	Description *string `json:"description"`
 	// The customer-managed encryption key to use for encrypting the secret value.
-	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey"`
 	// Configuration for how to generate a secret value.
-	// Experimental.
 	GenerateSecretString *SecretStringGenerator `json:"generateSecretString"`
 	// Policy to apply when the secret is removed from this stack.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// A list of regions where to replicate this secret.
-	// Experimental.
 	ReplicaRegions *[]*ReplicaRegion `json:"replicaRegions"`
 	// A name for the secret.
 	//
 	// Note that deleting secrets from SecretsManager does not happen immediately, but after a 7 to
 	// 30 days blackout period. During that period, it is not possible to create another secret that shares the same name.
-	// Experimental.
 	SecretName *string `json:"secretName"`
 }
 
@@ -4172,7 +4002,6 @@ type SecretProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SecretRotation interface {
 	constructs.Construct
 	Node() constructs.Node
@@ -4195,7 +4024,6 @@ func (j *jsiiProxy_SecretRotation) Node() constructs.Node {
 }
 
 
-// Experimental.
 func NewSecretRotation(scope constructs.Construct, id *string, props *SecretRotationProps) SecretRotation {
 	_init_.Initialize()
 
@@ -4210,7 +4038,6 @@ func NewSecretRotation(scope constructs.Construct, id *string, props *SecretRota
 	return &j
 }
 
-// Experimental.
 func NewSecretRotation_Override(s SecretRotation, scope constructs.Construct, id *string, props *SecretRotationProps) {
 	_init_.Initialize()
 
@@ -4241,7 +4068,6 @@ func SecretRotation_IsConstruct(x interface{}) *bool {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (s *jsiiProxy_SecretRotation) ToString() *string {
 	var returns *string
 
@@ -4259,7 +4085,6 @@ func (s *jsiiProxy_SecretRotation) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SecretRotationApplication interface {
 	IsMultiUser() *bool
 	ApplicationArnForPartition(partition *string) *string
@@ -4282,7 +4107,6 @@ func (j *jsiiProxy_SecretRotationApplication) IsMultiUser() *bool {
 }
 
 
-// Experimental.
 func NewSecretRotationApplication(applicationId *string, semanticVersion *string, options *SecretRotationApplicationOptions) SecretRotationApplication {
 	_init_.Initialize()
 
@@ -4297,7 +4121,6 @@ func NewSecretRotationApplication(applicationId *string, semanticVersion *string
 	return &j
 }
 
-// Experimental.
 func NewSecretRotationApplication_Override(s SecretRotationApplication, applicationId *string, semanticVersion *string, options *SecretRotationApplicationOptions) {
 	_init_.Initialize()
 
@@ -4465,7 +4288,6 @@ func SecretRotationApplication_SQLSERVER_ROTATION_SINGLE_USER() SecretRotationAp
 // Returns the application ARN for the current partition.
 //
 // Can be used in combination with a `CfnMapping` to automatically select the correct ARN based on the current partition.
-// Experimental.
 func (s *jsiiProxy_SecretRotationApplication) ApplicationArnForPartition(partition *string) *string {
 	var returns *string
 
@@ -4482,7 +4304,6 @@ func (s *jsiiProxy_SecretRotationApplication) ApplicationArnForPartition(partiti
 // The semantic version of the app for the current partition.
 //
 // Can be used in combination with a `CfnMapping` to automatically select the correct version based on the current partition.
-// Experimental.
 func (s *jsiiProxy_SecretRotationApplication) SemanticVersionForPartition(partition *string) *string {
 	var returns *string
 
@@ -4500,10 +4321,8 @@ func (s *jsiiProxy_SecretRotationApplication) SemanticVersionForPartition(partit
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SecretRotationApplicationOptions struct {
 	// Whether the rotation application uses the mutli user scheme.
-	// Experimental.
 	IsMultiUser *bool `json:"isMultiUser"`
 }
 
@@ -4511,13 +4330,10 @@ type SecretRotationApplicationOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SecretRotationProps struct {
 	// The serverless application for the rotation.
-	// Experimental.
 	Application SecretRotationApplication `json:"application"`
 	// Specifies the number of days after the previous rotation before Secrets Manager triggers the next automatic rotation.
-	// Experimental.
 	AutomaticallyAfter awscdk.Duration `json:"automaticallyAfter"`
 	// The VPC interface endpoint to use for the Secrets Manager API.
 	//
@@ -4525,13 +4341,10 @@ type SecretRotationProps struct {
 	// need to specify an endpoint. The standard Secrets Manager DNS hostname the Secrets Manager
 	// CLI and SDKs use by default (https://secretsmanager.<region>.amazonaws.com) automatically
 	// resolves to your VPC endpoint.
-	// Experimental.
 	Endpoint awsec2.IInterfaceVpcEndpoint `json:"endpoint"`
 	// Characters which should not appear in the generated password.
-	// Experimental.
 	ExcludeCharacters *string `json:"excludeCharacters"`
 	// The master secret for a multi user rotation scheme.
-	// Experimental.
 	MasterSecret ISecret `json:"masterSecret"`
 	// The secret to rotate. It must be a JSON string with the following format:.
 	//
@@ -4551,19 +4364,14 @@ type SecretRotationProps struct {
 	// or an `ISecret` returned by the `attach()` method of `Secret`.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html
 	//
-	// Experimental.
 	Secret ISecret `json:"secret"`
 	// The security group for the Lambda rotation function.
-	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 	// The target service or database.
-	// Experimental.
 	Target awsec2.IConnectable `json:"target"`
 	// The VPC where the Lambda rotation function will run.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// The type of subnets in the VPC where the Lambda rotation function will run.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 }
 
@@ -4571,40 +4379,30 @@ type SecretRotationProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SecretStringGenerator struct {
 	// A string that includes characters that shouldn't be included in the generated password.
 	//
 	// The string can be a minimum
 	// of ``0`` and a maximum of ``4096`` characters long.
-	// Experimental.
 	ExcludeCharacters *string `json:"excludeCharacters"`
 	// Specifies that the generated password shouldn't include lowercase letters.
-	// Experimental.
 	ExcludeLowercase *bool `json:"excludeLowercase"`
 	// Specifies that the generated password shouldn't include digits.
-	// Experimental.
 	ExcludeNumbers *bool `json:"excludeNumbers"`
 	// Specifies that the generated password shouldn't include punctuation characters.
-	// Experimental.
 	ExcludePunctuation *bool `json:"excludePunctuation"`
 	// Specifies that the generated password shouldn't include uppercase letters.
-	// Experimental.
 	ExcludeUppercase *bool `json:"excludeUppercase"`
 	// The JSON key name that's used to add the generated password to the JSON structure specified by the ``secretStringTemplate`` parameter.
 	//
 	// If you specify ``generateStringKey`` then ``secretStringTemplate``
 	// must be also be specified.
-	// Experimental.
 	GenerateStringKey *string `json:"generateStringKey"`
 	// Specifies that the generated password can include the space character.
-	// Experimental.
 	IncludeSpace *bool `json:"includeSpace"`
 	// The desired length of the generated password.
-	// Experimental.
 	PasswordLength *float64 `json:"passwordLength"`
 	// Specifies whether the generated password must include at least one of every allowed character type.
-	// Experimental.
 	RequireEachIncludedType *bool `json:"requireEachIncludedType"`
 	// A properly structured JSON string that the generated password can be added to.
 	//
@@ -4612,7 +4410,6 @@ type SecretStringGenerator struct {
 	// combined with the generated random string and inserted into the JSON structure that's specified by this parameter.
 	// The merged JSON string is returned as the completed SecretString of the secret. If you specify ``secretStringTemplate``
 	// then ``generateStringKey`` must be also be specified.
-	// Experimental.
 	SecretStringTemplate *string `json:"secretStringTemplate"`
 }
 
@@ -4620,7 +4417,6 @@ type SecretStringGenerator struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SecretTargetAttachment interface {
 	awscdk.Resource
 	ISecret
@@ -4779,7 +4575,6 @@ func (j *jsiiProxy_SecretTargetAttachment) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewSecretTargetAttachment(scope constructs.Construct, id *string, props *SecretTargetAttachmentProps) SecretTargetAttachment {
 	_init_.Initialize()
 
@@ -4794,7 +4589,6 @@ func NewSecretTargetAttachment(scope constructs.Construct, id *string, props *Se
 	return &j
 }
 
-// Experimental.
 func NewSecretTargetAttachment_Override(s SecretTargetAttachment, scope constructs.Construct, id *string, props *SecretTargetAttachmentProps) {
 	_init_.Initialize()
 
@@ -4805,7 +4599,6 @@ func NewSecretTargetAttachment_Override(s SecretTargetAttachment, scope construc
 	)
 }
 
-// Experimental.
 func SecretTargetAttachment_FromSecretTargetAttachmentSecretArn(scope constructs.Construct, id *string, secretTargetAttachmentSecretArn *string) ISecretTargetAttachment {
 	_init_.Initialize()
 
@@ -4841,7 +4634,6 @@ func SecretTargetAttachment_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func SecretTargetAttachment_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -4858,7 +4650,6 @@ func SecretTargetAttachment_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Adds a rotation schedule to the secret.
-// Experimental.
 func (s *jsiiProxy_SecretTargetAttachment) AddRotationSchedule(id *string, options *RotationScheduleOptions) RotationSchedule {
 	var returns RotationSchedule
 
@@ -4877,7 +4668,6 @@ func (s *jsiiProxy_SecretTargetAttachment) AddRotationSchedule(id *string, optio
 // If this secret was created in this stack, a resource policy will be
 // automatically created upon the first call to `addToResourcePolicy`. If
 // the secret is imported, then this is a no-op.
-// Experimental.
 func (s *jsiiProxy_SecretTargetAttachment) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
 	var returns *awsiam.AddToResourcePolicyResult
 
@@ -4900,7 +4690,6 @@ func (s *jsiiProxy_SecretTargetAttachment) AddToResourcePolicy(statement awsiam.
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (s *jsiiProxy_SecretTargetAttachment) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		s,
@@ -4912,7 +4701,6 @@ func (s *jsiiProxy_SecretTargetAttachment) ApplyRemovalPolicy(policy awscdk.Remo
 // Attach a target to this secret.
 //
 // Returns: An attached secret
-// Experimental.
 func (s *jsiiProxy_SecretTargetAttachment) Attach(target ISecretAttachmentTarget) ISecret {
 	var returns ISecret
 
@@ -4927,7 +4715,6 @@ func (s *jsiiProxy_SecretTargetAttachment) Attach(target ISecretAttachmentTarget
 }
 
 // Denies the `DeleteSecret` action to all principals within the current account.
-// Experimental.
 func (s *jsiiProxy_SecretTargetAttachment) DenyAccountRootDelete() {
 	_jsii_.InvokeVoid(
 		s,
@@ -4936,7 +4723,6 @@ func (s *jsiiProxy_SecretTargetAttachment) DenyAccountRootDelete() {
 	)
 }
 
-// Experimental.
 func (s *jsiiProxy_SecretTargetAttachment) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -4956,7 +4742,6 @@ func (s *jsiiProxy_SecretTargetAttachment) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (s *jsiiProxy_SecretTargetAttachment) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -4975,7 +4760,6 @@ func (s *jsiiProxy_SecretTargetAttachment) GetResourceArnAttribute(arnAttr *stri
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (s *jsiiProxy_SecretTargetAttachment) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -4990,7 +4774,6 @@ func (s *jsiiProxy_SecretTargetAttachment) GetResourceNameAttribute(nameAttr *st
 }
 
 // Grants reading the secret value to some role.
-// Experimental.
 func (s *jsiiProxy_SecretTargetAttachment) GrantRead(grantee awsiam.IGrantable, versionStages *[]*string) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -5005,7 +4788,6 @@ func (s *jsiiProxy_SecretTargetAttachment) GrantRead(grantee awsiam.IGrantable, 
 }
 
 // Grants writing and updating the secret value to some role.
-// Experimental.
 func (s *jsiiProxy_SecretTargetAttachment) GrantWrite(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -5020,7 +4802,6 @@ func (s *jsiiProxy_SecretTargetAttachment) GrantWrite(grantee awsiam.IGrantable)
 }
 
 // Interpret the secret as a JSON object and return a field's value from it as a `SecretValue`.
-// Experimental.
 func (s *jsiiProxy_SecretTargetAttachment) SecretValueFromJson(jsonField *string) awscdk.SecretValue {
 	var returns awscdk.SecretValue
 
@@ -5035,7 +4816,6 @@ func (s *jsiiProxy_SecretTargetAttachment) SecretValueFromJson(jsonField *string
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (s *jsiiProxy_SecretTargetAttachment) ToString() *string {
 	var returns *string
 
@@ -5053,13 +4833,10 @@ func (s *jsiiProxy_SecretTargetAttachment) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SecretTargetAttachmentProps struct {
 	// The target to attach the secret to.
-	// Experimental.
 	Target ISecretAttachmentTarget `json:"target"`
 	// The secret to attach to the target.
-	// Experimental.
 	Secret ISecret `json:"secret"`
 }
 
@@ -5067,19 +4844,14 @@ type SecretTargetAttachmentProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SingleUserHostedRotationOptions struct {
 	// A name for the Lambda created to rotate the secret.
-	// Experimental.
 	FunctionName *string `json:"functionName"`
 	// A list of security groups for the Lambda created to rotate the secret.
-	// Experimental.
 	SecurityGroups *[]awsec2.ISecurityGroup `json:"securityGroups"`
 	// The VPC where the Lambda rotation function will run.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// The type of subnets in the VPC where the Lambda rotation function will run.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 }
 

@@ -19,7 +19,6 @@ import (
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type ApiEventSource interface {
 	awslambda.IEventSource
 	Bind(target awslambda.IFunction)
@@ -30,7 +29,6 @@ type jsiiProxy_ApiEventSource struct {
 	internal.Type__awslambdaIEventSource
 }
 
-// Experimental.
 func NewApiEventSource(method *string, path *string, options *awsapigateway.MethodOptions) ApiEventSource {
 	_init_.Initialize()
 
@@ -45,7 +43,6 @@ func NewApiEventSource(method *string, path *string, options *awsapigateway.Meth
 	return &j
 }
 
-// Experimental.
 func NewApiEventSource_Override(a ApiEventSource, method *string, path *string, options *awsapigateway.MethodOptions) {
 	_init_.Initialize()
 
@@ -57,7 +54,6 @@ func NewApiEventSource_Override(a ApiEventSource, method *string, path *string, 
 }
 
 // Called by `lambda.addEventSource` to allow the event source to bind to this function.
-// Experimental.
 func (a *jsiiProxy_ApiEventSource) Bind(target awslambda.IFunction) {
 	_jsii_.InvokeVoid(
 		a,
@@ -67,7 +63,6 @@ func (a *jsiiProxy_ApiEventSource) Bind(target awslambda.IFunction) {
 }
 
 // The authentication method to use with SelfManagedKafkaEventSource.
-// Experimental.
 type AuthenticationMethod string
 
 const (
@@ -80,7 +75,6 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DynamoEventSource interface {
 	StreamEventSource
 	EventSourceMappingId() *string
@@ -115,7 +109,6 @@ func (j *jsiiProxy_DynamoEventSource) Props() *StreamEventSourceProps {
 }
 
 
-// Experimental.
 func NewDynamoEventSource(table awsdynamodb.ITable, props *DynamoEventSourceProps) DynamoEventSource {
 	_init_.Initialize()
 
@@ -130,7 +123,6 @@ func NewDynamoEventSource(table awsdynamodb.ITable, props *DynamoEventSourceProp
 	return &j
 }
 
-// Experimental.
 func NewDynamoEventSource_Override(d DynamoEventSource, table awsdynamodb.ITable, props *DynamoEventSourceProps) {
 	_init_.Initialize()
 
@@ -142,7 +134,6 @@ func NewDynamoEventSource_Override(d DynamoEventSource, table awsdynamodb.ITable
 }
 
 // Called by `lambda.addEventSource` to allow the event source to bind to this function.
-// Experimental.
 func (d *jsiiProxy_DynamoEventSource) Bind(target awslambda.IFunction) {
 	_jsii_.InvokeVoid(
 		d,
@@ -151,7 +142,6 @@ func (d *jsiiProxy_DynamoEventSource) Bind(target awslambda.IFunction) {
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DynamoEventSource) EnrichMappingOptions(options *awslambda.EventSourceMappingOptions) *awslambda.EventSourceMappingOptions {
 	var returns *awslambda.EventSourceMappingOptions
 
@@ -167,7 +157,6 @@ func (d *jsiiProxy_DynamoEventSource) EnrichMappingOptions(options *awslambda.Ev
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type DynamoEventSourceProps struct {
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
@@ -179,49 +168,38 @@ type DynamoEventSourceProps struct {
 	// * Maximum value of:
 	//    * 1000 for {@link DynamoEventSource}
 	//    * 10000 for {@link KinesisEventSource}
-	// Experimental.
 	BatchSize *float64 `json:"batchSize"`
 	// If the function returns an error, split the batch in two and retry.
-	// Experimental.
 	BisectBatchOnError *bool `json:"bisectBatchOnError"`
 	// If the stream event source mapping should be enabled.
-	// Experimental.
 	Enabled *bool `json:"enabled"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5)
-	// Experimental.
 	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow"`
 	// The maximum age of a record that Lambda sends to a function for processing.
 	//
 	// Valid Range:
 	// * Minimum value of 60 seconds
 	// * Maximum value of 7 days
-	// Experimental.
 	MaxRecordAge awscdk.Duration `json:"maxRecordAge"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-	// Experimental.
 	OnFailure awslambda.IEventSourceDlq `json:"onFailure"`
 	// The number of batches to process from each shard concurrently.
 	//
 	// Valid Range:
 	// * Minimum value of 1
 	// * Maximum value of 10
-	// Experimental.
 	ParallelizationFactor *float64 `json:"parallelizationFactor"`
 	// Allow functions to return partially successful responses for a batch of records.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting
 	//
-	// Experimental.
 	ReportBatchItemFailures *bool `json:"reportBatchItemFailures"`
 	// Maximum number of retry attempts Valid Range: * Minimum value of 0 * Maximum value of 10000.
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 	// Where to begin consuming the stream.
-	// Experimental.
 	StartingPosition awslambda.StartingPosition `json:"startingPosition"`
 	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis Valid Range: 0 - 15 minutes.
-	// Experimental.
 	TumblingWindow awscdk.Duration `json:"tumblingWindow"`
 }
 
@@ -229,7 +207,6 @@ type DynamoEventSourceProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type KafkaEventSourceProps struct {
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
@@ -241,55 +218,42 @@ type KafkaEventSourceProps struct {
 	// * Maximum value of:
 	//    * 1000 for {@link DynamoEventSource}
 	//    * 10000 for {@link KinesisEventSource}
-	// Experimental.
 	BatchSize *float64 `json:"batchSize"`
 	// If the function returns an error, split the batch in two and retry.
-	// Experimental.
 	BisectBatchOnError *bool `json:"bisectBatchOnError"`
 	// If the stream event source mapping should be enabled.
-	// Experimental.
 	Enabled *bool `json:"enabled"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5)
-	// Experimental.
 	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow"`
 	// The maximum age of a record that Lambda sends to a function for processing.
 	//
 	// Valid Range:
 	// * Minimum value of 60 seconds
 	// * Maximum value of 7 days
-	// Experimental.
 	MaxRecordAge awscdk.Duration `json:"maxRecordAge"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-	// Experimental.
 	OnFailure awslambda.IEventSourceDlq `json:"onFailure"`
 	// The number of batches to process from each shard concurrently.
 	//
 	// Valid Range:
 	// * Minimum value of 1
 	// * Maximum value of 10
-	// Experimental.
 	ParallelizationFactor *float64 `json:"parallelizationFactor"`
 	// Allow functions to return partially successful responses for a batch of records.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting
 	//
-	// Experimental.
 	ReportBatchItemFailures *bool `json:"reportBatchItemFailures"`
 	// Maximum number of retry attempts Valid Range: * Minimum value of 0 * Maximum value of 10000.
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 	// Where to begin consuming the stream.
-	// Experimental.
 	StartingPosition awslambda.StartingPosition `json:"startingPosition"`
 	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis Valid Range: 0 - 15 minutes.
-	// Experimental.
 	TumblingWindow awscdk.Duration `json:"tumblingWindow"`
 	// The secret with the Kafka credentials, see https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html for details This field is required if your Kafka brokers are accessed over the Internet.
-	// Experimental.
 	Secret awssecretsmanager.ISecret `json:"secret"`
 	// The Kafka topic to subscribe to.
-	// Experimental.
 	Topic *string `json:"topic"`
 }
 
@@ -297,7 +261,6 @@ type KafkaEventSourceProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type KinesisEventSource interface {
 	StreamEventSource
 	EventSourceMappingId() *string
@@ -343,7 +306,6 @@ func (j *jsiiProxy_KinesisEventSource) Stream() awskinesis.IStream {
 }
 
 
-// Experimental.
 func NewKinesisEventSource(stream awskinesis.IStream, props *KinesisEventSourceProps) KinesisEventSource {
 	_init_.Initialize()
 
@@ -358,7 +320,6 @@ func NewKinesisEventSource(stream awskinesis.IStream, props *KinesisEventSourceP
 	return &j
 }
 
-// Experimental.
 func NewKinesisEventSource_Override(k KinesisEventSource, stream awskinesis.IStream, props *KinesisEventSourceProps) {
 	_init_.Initialize()
 
@@ -370,7 +331,6 @@ func NewKinesisEventSource_Override(k KinesisEventSource, stream awskinesis.IStr
 }
 
 // Called by `lambda.addEventSource` to allow the event source to bind to this function.
-// Experimental.
 func (k *jsiiProxy_KinesisEventSource) Bind(target awslambda.IFunction) {
 	_jsii_.InvokeVoid(
 		k,
@@ -379,7 +339,6 @@ func (k *jsiiProxy_KinesisEventSource) Bind(target awslambda.IFunction) {
 	)
 }
 
-// Experimental.
 func (k *jsiiProxy_KinesisEventSource) EnrichMappingOptions(options *awslambda.EventSourceMappingOptions) *awslambda.EventSourceMappingOptions {
 	var returns *awslambda.EventSourceMappingOptions
 
@@ -395,7 +354,6 @@ func (k *jsiiProxy_KinesisEventSource) EnrichMappingOptions(options *awslambda.E
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type KinesisEventSourceProps struct {
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
@@ -407,49 +365,38 @@ type KinesisEventSourceProps struct {
 	// * Maximum value of:
 	//    * 1000 for {@link DynamoEventSource}
 	//    * 10000 for {@link KinesisEventSource}
-	// Experimental.
 	BatchSize *float64 `json:"batchSize"`
 	// If the function returns an error, split the batch in two and retry.
-	// Experimental.
 	BisectBatchOnError *bool `json:"bisectBatchOnError"`
 	// If the stream event source mapping should be enabled.
-	// Experimental.
 	Enabled *bool `json:"enabled"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5)
-	// Experimental.
 	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow"`
 	// The maximum age of a record that Lambda sends to a function for processing.
 	//
 	// Valid Range:
 	// * Minimum value of 60 seconds
 	// * Maximum value of 7 days
-	// Experimental.
 	MaxRecordAge awscdk.Duration `json:"maxRecordAge"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-	// Experimental.
 	OnFailure awslambda.IEventSourceDlq `json:"onFailure"`
 	// The number of batches to process from each shard concurrently.
 	//
 	// Valid Range:
 	// * Minimum value of 1
 	// * Maximum value of 10
-	// Experimental.
 	ParallelizationFactor *float64 `json:"parallelizationFactor"`
 	// Allow functions to return partially successful responses for a batch of records.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting
 	//
-	// Experimental.
 	ReportBatchItemFailures *bool `json:"reportBatchItemFailures"`
 	// Maximum number of retry attempts Valid Range: * Minimum value of 0 * Maximum value of 10000.
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 	// Where to begin consuming the stream.
-	// Experimental.
 	StartingPosition awslambda.StartingPosition `json:"startingPosition"`
 	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis Valid Range: 0 - 15 minutes.
-	// Experimental.
 	TumblingWindow awscdk.Duration `json:"tumblingWindow"`
 }
 
@@ -457,7 +404,6 @@ type KinesisEventSourceProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ManagedKafkaEventSource interface {
 	StreamEventSource
 	EventSourceMappingId() *string
@@ -492,7 +438,6 @@ func (j *jsiiProxy_ManagedKafkaEventSource) Props() *StreamEventSourceProps {
 }
 
 
-// Experimental.
 func NewManagedKafkaEventSource(props *ManagedKafkaEventSourceProps) ManagedKafkaEventSource {
 	_init_.Initialize()
 
@@ -507,7 +452,6 @@ func NewManagedKafkaEventSource(props *ManagedKafkaEventSourceProps) ManagedKafk
 	return &j
 }
 
-// Experimental.
 func NewManagedKafkaEventSource_Override(m ManagedKafkaEventSource, props *ManagedKafkaEventSourceProps) {
 	_init_.Initialize()
 
@@ -519,7 +463,6 @@ func NewManagedKafkaEventSource_Override(m ManagedKafkaEventSource, props *Manag
 }
 
 // Called by `lambda.addEventSource` to allow the event source to bind to this function.
-// Experimental.
 func (m *jsiiProxy_ManagedKafkaEventSource) Bind(target awslambda.IFunction) {
 	_jsii_.InvokeVoid(
 		m,
@@ -528,7 +471,6 @@ func (m *jsiiProxy_ManagedKafkaEventSource) Bind(target awslambda.IFunction) {
 	)
 }
 
-// Experimental.
 func (m *jsiiProxy_ManagedKafkaEventSource) EnrichMappingOptions(options *awslambda.EventSourceMappingOptions) *awslambda.EventSourceMappingOptions {
 	var returns *awslambda.EventSourceMappingOptions
 
@@ -546,7 +488,6 @@ func (m *jsiiProxy_ManagedKafkaEventSource) EnrichMappingOptions(options *awslam
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ManagedKafkaEventSourceProps struct {
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
@@ -558,58 +499,44 @@ type ManagedKafkaEventSourceProps struct {
 	// * Maximum value of:
 	//    * 1000 for {@link DynamoEventSource}
 	//    * 10000 for {@link KinesisEventSource}
-	// Experimental.
 	BatchSize *float64 `json:"batchSize"`
 	// If the function returns an error, split the batch in two and retry.
-	// Experimental.
 	BisectBatchOnError *bool `json:"bisectBatchOnError"`
 	// If the stream event source mapping should be enabled.
-	// Experimental.
 	Enabled *bool `json:"enabled"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5)
-	// Experimental.
 	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow"`
 	// The maximum age of a record that Lambda sends to a function for processing.
 	//
 	// Valid Range:
 	// * Minimum value of 60 seconds
 	// * Maximum value of 7 days
-	// Experimental.
 	MaxRecordAge awscdk.Duration `json:"maxRecordAge"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-	// Experimental.
 	OnFailure awslambda.IEventSourceDlq `json:"onFailure"`
 	// The number of batches to process from each shard concurrently.
 	//
 	// Valid Range:
 	// * Minimum value of 1
 	// * Maximum value of 10
-	// Experimental.
 	ParallelizationFactor *float64 `json:"parallelizationFactor"`
 	// Allow functions to return partially successful responses for a batch of records.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting
 	//
-	// Experimental.
 	ReportBatchItemFailures *bool `json:"reportBatchItemFailures"`
 	// Maximum number of retry attempts Valid Range: * Minimum value of 0 * Maximum value of 10000.
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 	// Where to begin consuming the stream.
-	// Experimental.
 	StartingPosition awslambda.StartingPosition `json:"startingPosition"`
 	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis Valid Range: 0 - 15 minutes.
-	// Experimental.
 	TumblingWindow awscdk.Duration `json:"tumblingWindow"`
 	// The secret with the Kafka credentials, see https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html for details This field is required if your Kafka brokers are accessed over the Internet.
-	// Experimental.
 	Secret awssecretsmanager.ISecret `json:"secret"`
 	// The Kafka topic to subscribe to.
-	// Experimental.
 	Topic *string `json:"topic"`
 	// An MSK cluster construct.
-	// Experimental.
 	ClusterArn *string `json:"clusterArn"`
 }
 
@@ -617,7 +544,6 @@ type ManagedKafkaEventSourceProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type S3EventSource interface {
 	awslambda.IEventSource
 	Bucket() awss3.Bucket
@@ -640,7 +566,6 @@ func (j *jsiiProxy_S3EventSource) Bucket() awss3.Bucket {
 }
 
 
-// Experimental.
 func NewS3EventSource(bucket awss3.Bucket, props *S3EventSourceProps) S3EventSource {
 	_init_.Initialize()
 
@@ -655,7 +580,6 @@ func NewS3EventSource(bucket awss3.Bucket, props *S3EventSourceProps) S3EventSou
 	return &j
 }
 
-// Experimental.
 func NewS3EventSource_Override(s S3EventSource, bucket awss3.Bucket, props *S3EventSourceProps) {
 	_init_.Initialize()
 
@@ -667,7 +591,6 @@ func NewS3EventSource_Override(s S3EventSource, bucket awss3.Bucket, props *S3Ev
 }
 
 // Called by `lambda.addEventSource` to allow the event source to bind to this function.
-// Experimental.
 func (s *jsiiProxy_S3EventSource) Bind(target awslambda.IFunction) {
 	_jsii_.InvokeVoid(
 		s,
@@ -678,17 +601,14 @@ func (s *jsiiProxy_S3EventSource) Bind(target awslambda.IFunction) {
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type S3EventSourceProps struct {
 	// The s3 event types that will trigger the notification.
-	// Experimental.
 	Events *[]awss3.EventType `json:"events"`
 	// S3 object key filter rules to determine which objects trigger this event.
 	//
 	// Each filter must include a `prefix` and/or `suffix` that will be matched
 	// against the s3 object key. Refer to the S3 Developer Guide for details
 	// about allowed filter rules.
-	// Experimental.
 	Filters *[]*awss3.NotificationKeyFilter `json:"filters"`
 }
 
@@ -696,7 +616,6 @@ type S3EventSourceProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SelfManagedKafkaEventSource interface {
 	StreamEventSource
 	Props() *StreamEventSourceProps
@@ -720,7 +639,6 @@ func (j *jsiiProxy_SelfManagedKafkaEventSource) Props() *StreamEventSourceProps 
 }
 
 
-// Experimental.
 func NewSelfManagedKafkaEventSource(props *SelfManagedKafkaEventSourceProps) SelfManagedKafkaEventSource {
 	_init_.Initialize()
 
@@ -735,7 +653,6 @@ func NewSelfManagedKafkaEventSource(props *SelfManagedKafkaEventSourceProps) Sel
 	return &j
 }
 
-// Experimental.
 func NewSelfManagedKafkaEventSource_Override(s SelfManagedKafkaEventSource, props *SelfManagedKafkaEventSourceProps) {
 	_init_.Initialize()
 
@@ -747,7 +664,6 @@ func NewSelfManagedKafkaEventSource_Override(s SelfManagedKafkaEventSource, prop
 }
 
 // Called by `lambda.addEventSource` to allow the event source to bind to this function.
-// Experimental.
 func (s *jsiiProxy_SelfManagedKafkaEventSource) Bind(target awslambda.IFunction) {
 	_jsii_.InvokeVoid(
 		s,
@@ -756,7 +672,6 @@ func (s *jsiiProxy_SelfManagedKafkaEventSource) Bind(target awslambda.IFunction)
 	)
 }
 
-// Experimental.
 func (s *jsiiProxy_SelfManagedKafkaEventSource) EnrichMappingOptions(options *awslambda.EventSourceMappingOptions) *awslambda.EventSourceMappingOptions {
 	var returns *awslambda.EventSourceMappingOptions
 
@@ -776,7 +691,6 @@ func (s *jsiiProxy_SelfManagedKafkaEventSource) EnrichMappingOptions(options *aw
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SelfManagedKafkaEventSourceProps struct {
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
@@ -788,72 +702,54 @@ type SelfManagedKafkaEventSourceProps struct {
 	// * Maximum value of:
 	//    * 1000 for {@link DynamoEventSource}
 	//    * 10000 for {@link KinesisEventSource}
-	// Experimental.
 	BatchSize *float64 `json:"batchSize"`
 	// If the function returns an error, split the batch in two and retry.
-	// Experimental.
 	BisectBatchOnError *bool `json:"bisectBatchOnError"`
 	// If the stream event source mapping should be enabled.
-	// Experimental.
 	Enabled *bool `json:"enabled"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5)
-	// Experimental.
 	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow"`
 	// The maximum age of a record that Lambda sends to a function for processing.
 	//
 	// Valid Range:
 	// * Minimum value of 60 seconds
 	// * Maximum value of 7 days
-	// Experimental.
 	MaxRecordAge awscdk.Duration `json:"maxRecordAge"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-	// Experimental.
 	OnFailure awslambda.IEventSourceDlq `json:"onFailure"`
 	// The number of batches to process from each shard concurrently.
 	//
 	// Valid Range:
 	// * Minimum value of 1
 	// * Maximum value of 10
-	// Experimental.
 	ParallelizationFactor *float64 `json:"parallelizationFactor"`
 	// Allow functions to return partially successful responses for a batch of records.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting
 	//
-	// Experimental.
 	ReportBatchItemFailures *bool `json:"reportBatchItemFailures"`
 	// Maximum number of retry attempts Valid Range: * Minimum value of 0 * Maximum value of 10000.
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 	// Where to begin consuming the stream.
-	// Experimental.
 	StartingPosition awslambda.StartingPosition `json:"startingPosition"`
 	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis Valid Range: 0 - 15 minutes.
-	// Experimental.
 	TumblingWindow awscdk.Duration `json:"tumblingWindow"`
 	// The secret with the Kafka credentials, see https://docs.aws.amazon.com/msk/latest/developerguide/msk-password.html for details This field is required if your Kafka brokers are accessed over the Internet.
-	// Experimental.
 	Secret awssecretsmanager.ISecret `json:"secret"`
 	// The Kafka topic to subscribe to.
-	// Experimental.
 	Topic *string `json:"topic"`
 	// The list of host and port pairs that are the addresses of the Kafka brokers in a "bootstrap" Kafka cluster that a Kafka client connects to initially to bootstrap itself.
 	//
 	// They are in the format `abc.xyz.com:xxxx`.
-	// Experimental.
 	BootstrapServers *[]*string `json:"bootstrapServers"`
 	// The authentication method for your Kafka cluster.
-	// Experimental.
 	AuthenticationMethod AuthenticationMethod `json:"authenticationMethod"`
 	// If your Kafka brokers are only reachable via VPC, provide the security group here.
-	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 	// If your Kafka brokers are only reachable via VPC provide the VPC here.
-	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// If your Kafka brokers are only reachable via VPC, provide the subnets selection here.
-	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 }
 
@@ -861,7 +757,6 @@ type SelfManagedKafkaEventSourceProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SnsDlq interface {
 	awslambda.IEventSourceDlq
 	Bind(_target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) *awslambda.DlqDestinationConfig
@@ -872,7 +767,6 @@ type jsiiProxy_SnsDlq struct {
 	internal.Type__awslambdaIEventSourceDlq
 }
 
-// Experimental.
 func NewSnsDlq(topic awssns.ITopic) SnsDlq {
 	_init_.Initialize()
 
@@ -887,7 +781,6 @@ func NewSnsDlq(topic awssns.ITopic) SnsDlq {
 	return &j
 }
 
-// Experimental.
 func NewSnsDlq_Override(s SnsDlq, topic awssns.ITopic) {
 	_init_.Initialize()
 
@@ -899,7 +792,6 @@ func NewSnsDlq_Override(s SnsDlq, topic awssns.ITopic) {
 }
 
 // Returns a destination configuration for the DLQ.
-// Experimental.
 func (s *jsiiProxy_SnsDlq) Bind(_target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) *awslambda.DlqDestinationConfig {
 	var returns *awslambda.DlqDestinationConfig
 
@@ -917,7 +809,6 @@ func (s *jsiiProxy_SnsDlq) Bind(_target awslambda.IEventSourceMapping, targetHan
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SnsEventSource interface {
 	awslambda.IEventSource
 	Topic() awssns.ITopic
@@ -940,7 +831,6 @@ func (j *jsiiProxy_SnsEventSource) Topic() awssns.ITopic {
 }
 
 
-// Experimental.
 func NewSnsEventSource(topic awssns.ITopic, props *SnsEventSourceProps) SnsEventSource {
 	_init_.Initialize()
 
@@ -955,7 +845,6 @@ func NewSnsEventSource(topic awssns.ITopic, props *SnsEventSourceProps) SnsEvent
 	return &j
 }
 
-// Experimental.
 func NewSnsEventSource_Override(s SnsEventSource, topic awssns.ITopic, props *SnsEventSourceProps) {
 	_init_.Initialize()
 
@@ -967,7 +856,6 @@ func NewSnsEventSource_Override(s SnsEventSource, topic awssns.ITopic, props *Sn
 }
 
 // Called by `lambda.addEventSource` to allow the event source to bind to this function.
-// Experimental.
 func (s *jsiiProxy_SnsEventSource) Bind(target awslambda.IFunction) {
 	_jsii_.InvokeVoid(
 		s,
@@ -980,15 +868,12 @@ func (s *jsiiProxy_SnsEventSource) Bind(target awslambda.IFunction) {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SnsEventSourceProps struct {
 	// Queue to be used as dead letter queue.
 	//
 	// If not passed no dead letter queue is enabled.
-	// Experimental.
 	DeadLetterQueue awssqs.IQueue `json:"deadLetterQueue"`
 	// The filter policy.
-	// Experimental.
 	FilterPolicy *map[string]awssns.SubscriptionFilter `json:"filterPolicy"`
 }
 
@@ -996,7 +881,6 @@ type SnsEventSourceProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SqsDlq interface {
 	awslambda.IEventSourceDlq
 	Bind(_target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) *awslambda.DlqDestinationConfig
@@ -1007,7 +891,6 @@ type jsiiProxy_SqsDlq struct {
 	internal.Type__awslambdaIEventSourceDlq
 }
 
-// Experimental.
 func NewSqsDlq(queue awssqs.IQueue) SqsDlq {
 	_init_.Initialize()
 
@@ -1022,7 +905,6 @@ func NewSqsDlq(queue awssqs.IQueue) SqsDlq {
 	return &j
 }
 
-// Experimental.
 func NewSqsDlq_Override(s SqsDlq, queue awssqs.IQueue) {
 	_init_.Initialize()
 
@@ -1034,7 +916,6 @@ func NewSqsDlq_Override(s SqsDlq, queue awssqs.IQueue) {
 }
 
 // Returns a destination configuration for the DLQ.
-// Experimental.
 func (s *jsiiProxy_SqsDlq) Bind(_target awslambda.IEventSourceMapping, targetHandler awslambda.IFunction) *awslambda.DlqDestinationConfig {
 	var returns *awslambda.DlqDestinationConfig
 
@@ -1052,7 +933,6 @@ func (s *jsiiProxy_SqsDlq) Bind(_target awslambda.IEventSourceMapping, targetHan
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SqsEventSource interface {
 	awslambda.IEventSource
 	EventSourceMappingId() *string
@@ -1086,7 +966,6 @@ func (j *jsiiProxy_SqsEventSource) Queue() awssqs.IQueue {
 }
 
 
-// Experimental.
 func NewSqsEventSource(queue awssqs.IQueue, props *SqsEventSourceProps) SqsEventSource {
 	_init_.Initialize()
 
@@ -1101,7 +980,6 @@ func NewSqsEventSource(queue awssqs.IQueue, props *SqsEventSourceProps) SqsEvent
 	return &j
 }
 
-// Experimental.
 func NewSqsEventSource_Override(s SqsEventSource, queue awssqs.IQueue, props *SqsEventSourceProps) {
 	_init_.Initialize()
 
@@ -1113,7 +991,6 @@ func NewSqsEventSource_Override(s SqsEventSource, queue awssqs.IQueue, props *Sq
 }
 
 // Called by `lambda.addEventSource` to allow the event source to bind to this function.
-// Experimental.
 func (s *jsiiProxy_SqsEventSource) Bind(target awslambda.IFunction) {
 	_jsii_.InvokeVoid(
 		s,
@@ -1124,7 +1001,6 @@ func (s *jsiiProxy_SqsEventSource) Bind(target awslambda.IFunction) {
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type SqsEventSourceProps struct {
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
@@ -1133,20 +1009,16 @@ type SqsEventSourceProps struct {
 	//
 	// Valid Range: Minimum value of 1. Maximum value of 10.
 	// If `maxBatchingWindow` is configured, this value can go up to 10,000.
-	// Experimental.
 	BatchSize *float64 `json:"batchSize"`
 	// If the SQS event source mapping should be enabled.
-	// Experimental.
 	Enabled *bool `json:"enabled"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Valid Range: Minimum value of 0 minutes. Maximum value of 5 minutes.
-	// Experimental.
 	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow"`
 }
 
 // Use an stream as an event source for AWS Lambda.
-// Experimental.
 type StreamEventSource interface {
 	awslambda.IEventSource
 	Props() *StreamEventSourceProps
@@ -1170,7 +1042,6 @@ func (j *jsiiProxy_StreamEventSource) Props() *StreamEventSourceProps {
 }
 
 
-// Experimental.
 func NewStreamEventSource_Override(s StreamEventSource, props *StreamEventSourceProps) {
 	_init_.Initialize()
 
@@ -1182,7 +1053,6 @@ func NewStreamEventSource_Override(s StreamEventSource, props *StreamEventSource
 }
 
 // Called by `lambda.addEventSource` to allow the event source to bind to this function.
-// Experimental.
 func (s *jsiiProxy_StreamEventSource) Bind(_target awslambda.IFunction) {
 	_jsii_.InvokeVoid(
 		s,
@@ -1191,7 +1061,6 @@ func (s *jsiiProxy_StreamEventSource) Bind(_target awslambda.IFunction) {
 	)
 }
 
-// Experimental.
 func (s *jsiiProxy_StreamEventSource) EnrichMappingOptions(options *awslambda.EventSourceMappingOptions) *awslambda.EventSourceMappingOptions {
 	var returns *awslambda.EventSourceMappingOptions
 
@@ -1209,7 +1078,6 @@ func (s *jsiiProxy_StreamEventSource) EnrichMappingOptions(options *awslambda.Ev
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type StreamEventSourceProps struct {
 	// The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function.
 	//
@@ -1221,49 +1089,38 @@ type StreamEventSourceProps struct {
 	// * Maximum value of:
 	//    * 1000 for {@link DynamoEventSource}
 	//    * 10000 for {@link KinesisEventSource}
-	// Experimental.
 	BatchSize *float64 `json:"batchSize"`
 	// If the function returns an error, split the batch in two and retry.
-	// Experimental.
 	BisectBatchOnError *bool `json:"bisectBatchOnError"`
 	// If the stream event source mapping should be enabled.
-	// Experimental.
 	Enabled *bool `json:"enabled"`
 	// The maximum amount of time to gather records before invoking the function.
 	//
 	// Maximum of Duration.minutes(5)
-	// Experimental.
 	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow"`
 	// The maximum age of a record that Lambda sends to a function for processing.
 	//
 	// Valid Range:
 	// * Minimum value of 60 seconds
 	// * Maximum value of 7 days
-	// Experimental.
 	MaxRecordAge awscdk.Duration `json:"maxRecordAge"`
 	// An Amazon SQS queue or Amazon SNS topic destination for discarded records.
-	// Experimental.
 	OnFailure awslambda.IEventSourceDlq `json:"onFailure"`
 	// The number of batches to process from each shard concurrently.
 	//
 	// Valid Range:
 	// * Minimum value of 1
 	// * Maximum value of 10
-	// Experimental.
 	ParallelizationFactor *float64 `json:"parallelizationFactor"`
 	// Allow functions to return partially successful responses for a batch of records.
 	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting
 	//
-	// Experimental.
 	ReportBatchItemFailures *bool `json:"reportBatchItemFailures"`
 	// Maximum number of retry attempts Valid Range: * Minimum value of 0 * Maximum value of 10000.
-	// Experimental.
 	RetryAttempts *float64 `json:"retryAttempts"`
 	// Where to begin consuming the stream.
-	// Experimental.
 	StartingPosition awslambda.StartingPosition `json:"startingPosition"`
 	// The size of the tumbling windows to group records sent to DynamoDB or Kinesis Valid Range: 0 - 15 minutes.
-	// Experimental.
 	TumblingWindow awscdk.Duration `json:"tumblingWindow"`
 }
 

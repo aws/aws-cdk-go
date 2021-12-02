@@ -274,7 +274,6 @@ func (j *jsiiProxy_CfnProfilingGroup) SetProfilingGroupName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnProfilingGroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -291,7 +290,6 @@ func CfnProfilingGroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnProfilingGroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -338,7 +336,6 @@ func CfnProfilingGroup_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnProfilingGroup) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -351,7 +348,6 @@ func (c *jsiiProxy_CfnProfilingGroup) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnProfilingGroup) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -367,7 +363,6 @@ func (c *jsiiProxy_CfnProfilingGroup) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnProfilingGroup) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -413,7 +408,6 @@ func (c *jsiiProxy_CfnProfilingGroup) AddMetadata(key *string, value interface{}
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnProfilingGroup) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -423,7 +417,6 @@ func (c *jsiiProxy_CfnProfilingGroup) AddOverride(path *string, value interface{
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnProfilingGroup) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -435,7 +428,6 @@ func (c *jsiiProxy_CfnProfilingGroup) AddPropertyDeletionOverride(propertyPath *
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnProfilingGroup) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -453,7 +445,6 @@ func (c *jsiiProxy_CfnProfilingGroup) AddPropertyOverride(propertyPath *string, 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnProfilingGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -466,7 +457,6 @@ func (c *jsiiProxy_CfnProfilingGroup) ApplyRemovalPolicy(policy awscdk.RemovalPo
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnProfilingGroup) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -487,7 +477,6 @@ func (c *jsiiProxy_CfnProfilingGroup) GetAtt(attributeName *string) awscdk.Refer
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnProfilingGroup) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -511,7 +500,6 @@ func (c *jsiiProxy_CfnProfilingGroup) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnProfilingGroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -537,7 +525,6 @@ func (c *jsiiProxy_CfnProfilingGroup) RenderProperties(props *map[string]interfa
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnProfilingGroup) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -554,7 +541,6 @@ func (c *jsiiProxy_CfnProfilingGroup) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnProfilingGroup) ToString() *string {
 	var returns *string
 
@@ -568,7 +554,6 @@ func (c *jsiiProxy_CfnProfilingGroup) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnProfilingGroup) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -604,7 +589,6 @@ type CfnProfilingGroupProps struct {
 }
 
 // The compute platform of the profiling group.
-// Experimental.
 type ComputePlatform string
 
 const (
@@ -613,7 +597,6 @@ const (
 )
 
 // IResource represents a Profiling Group.
-// Experimental.
 type IProfilingGroup interface {
 	awscdk.IResource
 	// Grant access to publish profiling information to the Profiling Group to the given identity.
@@ -622,7 +605,6 @@ type IProfilingGroup interface {
 	//
 	//   - codeguru-profiler:ConfigureAgent
 	//   - codeguru-profiler:PostAgentProfile
-	// Experimental.
 	GrantPublish(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant access to read profiling information from the Profiling Group to the given identity.
 	//
@@ -630,10 +612,8 @@ type IProfilingGroup interface {
 	//
 	//   - codeguru-profiler:GetProfile
 	//   - codeguru-profiler:DescribeProfilingGroup
-	// Experimental.
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	// A name for the profiling group.
-	// Experimental.
 	ProfilingGroupName() *string
 }
 
@@ -682,7 +662,6 @@ func (j *jsiiProxy_IProfilingGroup) ProfilingGroupName() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ProfilingGroup interface {
 	awscdk.Resource
 	IProfilingGroup
@@ -768,7 +747,6 @@ func (j *jsiiProxy_ProfilingGroup) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewProfilingGroup(scope constructs.Construct, id *string, props *ProfilingGroupProps) ProfilingGroup {
 	_init_.Initialize()
 
@@ -783,7 +761,6 @@ func NewProfilingGroup(scope constructs.Construct, id *string, props *ProfilingG
 	return &j
 }
 
-// Experimental.
 func NewProfilingGroup_Override(p ProfilingGroup, scope constructs.Construct, id *string, props *ProfilingGroupProps) {
 	_init_.Initialize()
 
@@ -795,7 +772,6 @@ func NewProfilingGroup_Override(p ProfilingGroup, scope constructs.Construct, id
 }
 
 // Import an existing Profiling Group provided an ARN.
-// Experimental.
 func ProfilingGroup_FromProfilingGroupArn(scope constructs.Construct, id *string, profilingGroupArn *string) IProfilingGroup {
 	_init_.Initialize()
 
@@ -812,7 +788,6 @@ func ProfilingGroup_FromProfilingGroupArn(scope constructs.Construct, id *string
 }
 
 // Import an existing Profiling Group provided a Profiling Group Name.
-// Experimental.
 func ProfilingGroup_FromProfilingGroupName(scope constructs.Construct, id *string, profilingGroupName *string) IProfilingGroup {
 	_init_.Initialize()
 
@@ -848,7 +823,6 @@ func ProfilingGroup_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func ProfilingGroup_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -873,7 +847,6 @@ func ProfilingGroup_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (p *jsiiProxy_ProfilingGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		p,
@@ -882,7 +855,6 @@ func (p *jsiiProxy_ProfilingGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 	)
 }
 
-// Experimental.
 func (p *jsiiProxy_ProfilingGroup) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -902,7 +874,6 @@ func (p *jsiiProxy_ProfilingGroup) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (p *jsiiProxy_ProfilingGroup) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -921,7 +892,6 @@ func (p *jsiiProxy_ProfilingGroup) GetResourceArnAttribute(arnAttr *string, arnC
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (p *jsiiProxy_ProfilingGroup) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -941,7 +911,6 @@ func (p *jsiiProxy_ProfilingGroup) GetResourceNameAttribute(nameAttr *string) *s
 //
 //   - codeguru-profiler:ConfigureAgent
 //   - codeguru-profiler:PostAgentProfile
-// Experimental.
 func (p *jsiiProxy_ProfilingGroup) GrantPublish(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -961,7 +930,6 @@ func (p *jsiiProxy_ProfilingGroup) GrantPublish(grantee awsiam.IGrantable) awsia
 //
 //   - codeguru-profiler:GetProfile
 //   - codeguru-profiler:DescribeProfilingGroup
-// Experimental.
 func (p *jsiiProxy_ProfilingGroup) GrantRead(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -976,7 +944,6 @@ func (p *jsiiProxy_ProfilingGroup) GrantRead(grantee awsiam.IGrantable) awsiam.G
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (p *jsiiProxy_ProfilingGroup) ToString() *string {
 	var returns *string
 
@@ -994,13 +961,10 @@ func (p *jsiiProxy_ProfilingGroup) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ProfilingGroupProps struct {
 	// The compute platform of the profiling group.
-	// Experimental.
 	ComputePlatform ComputePlatform `json:"computePlatform"`
 	// A name for the profiling group.
-	// Experimental.
 	ProfilingGroupName *string `json:"profilingGroupName"`
 }
 

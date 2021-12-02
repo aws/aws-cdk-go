@@ -23,10 +23,8 @@ import (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AccessLogDestinationConfig struct {
 	// The Amazon Resource Name (ARN) of the destination resource.
-	// Experimental.
 	DestinationArn *string `json:"destinationArn"`
 }
 
@@ -34,7 +32,6 @@ type AccessLogDestinationConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AccessLogField interface {
 }
 
@@ -43,7 +40,6 @@ type jsiiProxy_AccessLogField struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewAccessLogField() AccessLogField {
 	_init_.Initialize()
 
@@ -58,7 +54,6 @@ func NewAccessLogField() AccessLogField {
 	return &j
 }
 
-// Experimental.
 func NewAccessLogField_Override(a AccessLogField) {
 	_init_.Initialize()
 
@@ -70,7 +65,6 @@ func NewAccessLogField_Override(a AccessLogField) {
 }
 
 // The API owner's AWS account ID.
-// Experimental.
 func AccessLogField_ContextAccountId() *string {
 	_init_.Initialize()
 
@@ -87,7 +81,6 @@ func AccessLogField_ContextAccountId() *string {
 }
 
 // The identifier API Gateway assigns to your API.
-// Experimental.
 func AccessLogField_ContextApiId() *string {
 	_init_.Initialize()
 
@@ -106,7 +99,6 @@ func AccessLogField_ContextApiId() *string {
 // The stringified value of the specified key-value pair of the `context` map returned from an API Gateway Lambda authorizer function.
 // See: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html
 //
-// Experimental.
 func AccessLogField_ContextAuthorizer(property *string) *string {
 	_init_.Initialize()
 
@@ -125,7 +117,6 @@ func AccessLogField_ContextAuthorizer(property *string) *string {
 // A property of the claims returned from the Amazon Cognito user pool after the method caller is successfully authenticated.
 // See: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-integrate-with-cognito.html
 //
-// Experimental.
 func AccessLogField_ContextAuthorizerClaims(property *string) *string {
 	_init_.Initialize()
 
@@ -142,7 +133,6 @@ func AccessLogField_ContextAuthorizerClaims(property *string) *string {
 }
 
 // The authorizer latency in ms.
-// Experimental.
 func AccessLogField_ContextAuthorizerIntegrationLatency() *string {
 	_init_.Initialize()
 
@@ -161,7 +151,6 @@ func AccessLogField_ContextAuthorizerIntegrationLatency() *string {
 // The principal user identification associated with the token sent by the client and returned from an API Gateway Lambda authorizer (formerly known as a custom authorizer).
 // See: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html
 //
-// Experimental.
 func AccessLogField_ContextAuthorizerPrincipalId() *string {
 	_init_.Initialize()
 
@@ -178,7 +167,6 @@ func AccessLogField_ContextAuthorizerPrincipalId() *string {
 }
 
 // The AWS endpoint's request ID.
-// Experimental.
 func AccessLogField_ContextAwsEndpointRequestId() *string {
 	_init_.Initialize()
 
@@ -197,7 +185,6 @@ func AccessLogField_ContextAwsEndpointRequestId() *string {
 // The full domain name used to invoke the API.
 //
 // This should be the same as the incoming `Host` header.
-// Experimental.
 func AccessLogField_ContextDomainName() *string {
 	_init_.Initialize()
 
@@ -214,7 +201,6 @@ func AccessLogField_ContextDomainName() *string {
 }
 
 // The first label of the `$context.domainName`. This is often used as a caller/customer identifier.
-// Experimental.
 func AccessLogField_ContextDomainPrefix() *string {
 	_init_.Initialize()
 
@@ -231,7 +217,6 @@ func AccessLogField_ContextDomainPrefix() *string {
 }
 
 // A string containing an API Gateway error message.
-// Experimental.
 func AccessLogField_ContextErrorMessage() *string {
 	_init_.Initialize()
 
@@ -248,7 +233,6 @@ func AccessLogField_ContextErrorMessage() *string {
 }
 
 // The quoted value of $context.error.message, namely "$context.error.message".
-// Experimental.
 func AccessLogField_ContextErrorMessageString() *string {
 	_init_.Initialize()
 
@@ -270,7 +254,6 @@ func AccessLogField_ContextErrorMessageString() *string {
 // which is not processed by the Velocity Template Language engine, and in access logging.
 // See: https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html
 //
-// Experimental.
 func AccessLogField_ContextErrorResponseType() *string {
 	_init_.Initialize()
 
@@ -287,7 +270,6 @@ func AccessLogField_ContextErrorResponseType() *string {
 }
 
 // A string containing a detailed validation error message.
-// Experimental.
 func AccessLogField_ContextErrorValidationErrorString() *string {
 	_init_.Initialize()
 
@@ -304,7 +286,6 @@ func AccessLogField_ContextErrorValidationErrorString() *string {
 }
 
 // The extended ID that API Gateway assigns to the API request, which contains more useful information for debugging/troubleshooting.
-// Experimental.
 func AccessLogField_ContextExtendedRequestId() *string {
 	_init_.Initialize()
 
@@ -323,7 +304,6 @@ func AccessLogField_ContextExtendedRequestId() *string {
 // The HTTP method used.
 //
 // Valid values include: `DELETE`, `GET`, `HEAD`, `OPTIONS`, `PATCH`, `POST`, and `PUT`.
-// Experimental.
 func AccessLogField_ContextHttpMethod() *string {
 	_init_.Initialize()
 
@@ -340,7 +320,6 @@ func AccessLogField_ContextHttpMethod() *string {
 }
 
 // The AWS account ID associated with the request.
-// Experimental.
 func AccessLogField_ContextIdentityAccountId() *string {
 	_init_.Initialize()
 
@@ -361,7 +340,6 @@ func AccessLogField_ContextIdentityAccountId() *string {
 // For methods that don't require an API key, this variable is
 // See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-api-usage-plans.html
 //
-// Experimental.
 func AccessLogField_ContextIdentityApiKey() *string {
 	_init_.Initialize()
 
@@ -378,7 +356,6 @@ func AccessLogField_ContextIdentityApiKey() *string {
 }
 
 // The API key ID associated with an API request that requires an API key.
-// Experimental.
 func AccessLogField_ContextIdentityApiKeyId() *string {
 	_init_.Initialize()
 
@@ -395,7 +372,6 @@ func AccessLogField_ContextIdentityApiKeyId() *string {
 }
 
 // The principal identifier of the caller making the request.
-// Experimental.
 func AccessLogField_ContextIdentityCaller() *string {
 	_init_.Initialize()
 
@@ -416,7 +392,6 @@ func AccessLogField_ContextIdentityCaller() *string {
 // Available only if the request was signed with Amazon Cognito credentials.
 // See: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html
 //
-// Experimental.
 func AccessLogField_ContextIdentityCognitoAuthenticationProvider() *string {
 	_init_.Initialize()
 
@@ -435,7 +410,6 @@ func AccessLogField_ContextIdentityCognitoAuthenticationProvider() *string {
 // The Amazon Cognito authentication type of the caller making the request.
 //
 // Available only if the request was signed with Amazon Cognito credentials.
-// Experimental.
 func AccessLogField_ContextIdentityCognitoAuthenticationType() *string {
 	_init_.Initialize()
 
@@ -454,7 +428,6 @@ func AccessLogField_ContextIdentityCognitoAuthenticationType() *string {
 // The Amazon Cognito identity ID of the caller making the request.
 //
 // Available only if the request was signed with Amazon Cognito credentials.
-// Experimental.
 func AccessLogField_ContextIdentityCognitoIdentityId() *string {
 	_init_.Initialize()
 
@@ -473,7 +446,6 @@ func AccessLogField_ContextIdentityCognitoIdentityId() *string {
 // The Amazon Cognito identity pool ID of the caller making the request.
 //
 // Available only if the request was signed with Amazon Cognito credentials.
-// Experimental.
 func AccessLogField_ContextIdentityCognitoIdentityPoolId() *string {
 	_init_.Initialize()
 
@@ -490,7 +462,6 @@ func AccessLogField_ContextIdentityCognitoIdentityPoolId() *string {
 }
 
 // The AWS organization ID.
-// Experimental.
 func AccessLogField_ContextIdentityPrincipalOrgId() *string {
 	_init_.Initialize()
 
@@ -509,7 +480,6 @@ func AccessLogField_ContextIdentityPrincipalOrgId() *string {
 // The source IP address of the TCP connection making the request to API Gateway.
 //
 // Warning: You should not trust this value if there is any chance that the `X-Forwarded-For` header could be forged.
-// Experimental.
 func AccessLogField_ContextIdentitySourceIp() *string {
 	_init_.Initialize()
 
@@ -530,7 +500,6 @@ func AccessLogField_ContextIdentitySourceIp() *string {
 // Used in Lambda authorizers.
 // See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-lambda-authorizer-output.html
 //
-// Experimental.
 func AccessLogField_ContextIdentityUser() *string {
 	_init_.Initialize()
 
@@ -547,7 +516,6 @@ func AccessLogField_ContextIdentityUser() *string {
 }
 
 // The User-Agent header of the API caller.
-// Experimental.
 func AccessLogField_ContextIdentityUserAgent() *string {
 	_init_.Initialize()
 
@@ -566,7 +534,6 @@ func AccessLogField_ContextIdentityUserAgent() *string {
 // The Amazon Resource Name (ARN) of the effective user identified after authentication.
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users.html
 //
-// Experimental.
 func AccessLogField_ContextIdentityUserArn() *string {
 	_init_.Initialize()
 
@@ -583,7 +550,6 @@ func AccessLogField_ContextIdentityUserArn() *string {
 }
 
 // The integration latency in ms.
-// Experimental.
 func AccessLogField_ContextIntegrationLatency() *string {
 	_init_.Initialize()
 
@@ -600,7 +566,6 @@ func AccessLogField_ContextIntegrationLatency() *string {
 }
 
 // For Lambda proxy integration, this parameter represents the status code returned from AWS Lambda, not from the backend Lambda function.
-// Experimental.
 func AccessLogField_ContextIntegrationStatus() *string {
 	_init_.Initialize()
 
@@ -620,7 +585,6 @@ func AccessLogField_ContextIntegrationStatus() *string {
 //
 // For example, for a non-proxy request URL of https://{rest-api-id.execute-api.{region}.amazonaws.com/{stage}/root/child,
 // this value is /{stage}/root/child.
-// Experimental.
 func AccessLogField_ContextPath() *string {
 	_init_.Initialize()
 
@@ -637,7 +601,6 @@ func AccessLogField_ContextPath() *string {
 }
 
 // The request protocol, for example, HTTP/1.1.
-// Experimental.
 func AccessLogField_ContextProtocol() *string {
 	_init_.Initialize()
 
@@ -654,7 +617,6 @@ func AccessLogField_ContextProtocol() *string {
 }
 
 // The ID that API Gateway assigns to the API request.
-// Experimental.
 func AccessLogField_ContextRequestId() *string {
 	_init_.Initialize()
 
@@ -675,7 +637,6 @@ func AccessLogField_ContextRequestId() *string {
 // If this parameter is defined, it contains the headers to be used instead of the HTTP Headers that are defined in the Integration Request pane.
 // See: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-override-request-response-parameters.html
 //
-// Experimental.
 func AccessLogField_ContextRequestOverrideHeader(headerName *string) *string {
 	_init_.Initialize()
 
@@ -697,7 +658,6 @@ func AccessLogField_ContextRequestOverrideHeader(headerName *string) *string {
 // it contains the request path to be used instead of the URL Path Parameters that are defined in the Integration Request pane.
 // See: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-override-request-response-parameters.html
 //
-// Experimental.
 func AccessLogField_ContextRequestOverridePath(pathName *string) *string {
 	_init_.Initialize()
 
@@ -717,7 +677,6 @@ func AccessLogField_ContextRequestOverridePath(pathName *string) *string {
 //
 // If this parameter is defined, it contains the request query strings to be used instead
 // of the URL Query String Parameters that are defined in the Integration Request pane.
-// Experimental.
 func AccessLogField_ContextRequestOverrideQuerystring(querystringName *string) *string {
 	_init_.Initialize()
 
@@ -734,7 +693,6 @@ func AccessLogField_ContextRequestOverrideQuerystring(querystringName *string) *
 }
 
 // The CLF-formatted request time (dd/MMM/yyyy:HH:mm:ss +-hhmm).
-// Experimental.
 func AccessLogField_ContextRequestTime() *string {
 	_init_.Initialize()
 
@@ -751,7 +709,6 @@ func AccessLogField_ContextRequestTime() *string {
 }
 
 // The Epoch-formatted request time.
-// Experimental.
 func AccessLogField_ContextRequestTimeEpoch() *string {
 	_init_.Initialize()
 
@@ -768,7 +725,6 @@ func AccessLogField_ContextRequestTimeEpoch() *string {
 }
 
 // The identifier that API Gateway assigns to your resource.
-// Experimental.
 func AccessLogField_ContextResourceId() *string {
 	_init_.Initialize()
 
@@ -790,7 +746,6 @@ func AccessLogField_ContextResourceId() *string {
 // The $context.resourcePath value is `/root/child`.
 // See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-create-api-step-by-step.html
 //
-// Experimental.
 func AccessLogField_ContextResourcePath() *string {
 	_init_.Initialize()
 
@@ -807,7 +762,6 @@ func AccessLogField_ContextResourcePath() *string {
 }
 
 // The response latency in ms.
-// Experimental.
 func AccessLogField_ContextResponseLatency() *string {
 	_init_.Initialize()
 
@@ -824,7 +778,6 @@ func AccessLogField_ContextResponseLatency() *string {
 }
 
 // The response payload length.
-// Experimental.
 func AccessLogField_ContextResponseLength() *string {
 	_init_.Initialize()
 
@@ -846,7 +799,6 @@ func AccessLogField_ContextResponseLength() *string {
 // that is defined as the Default mapping in the Integration Response pane.
 // See: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-override-request-response-parameters.html
 //
-// Experimental.
 func AccessLogField_ContextResponseOverrideHeader(headerName *string) *string {
 	_init_.Initialize()
 
@@ -868,7 +820,6 @@ func AccessLogField_ContextResponseOverrideHeader(headerName *string) *string {
 // that is defined as the Default mapping in the Integration Response pane.
 // See: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-override-request-response-parameters.html
 //
-// Experimental.
 func AccessLogField_ContextResponseOverrideStatus() *string {
 	_init_.Initialize()
 
@@ -885,7 +836,6 @@ func AccessLogField_ContextResponseOverrideStatus() *string {
 }
 
 // The deployment stage of the API request (for example, `Beta` or `Prod`).
-// Experimental.
 func AccessLogField_ContextStage() *string {
 	_init_.Initialize()
 
@@ -902,7 +852,6 @@ func AccessLogField_ContextStage() *string {
 }
 
 // The method response status.
-// Experimental.
 func AccessLogField_ContextStatus() *string {
 	_init_.Initialize()
 
@@ -923,7 +872,6 @@ func AccessLogField_ContextStatus() *string {
 // Will not be set if the stage is not associated with a web ACL.
 // See: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-control-access-aws-waf.html
 //
-// Experimental.
 func AccessLogField_ContextWafResponseCode() *string {
 	_init_.Initialize()
 
@@ -944,7 +892,6 @@ func AccessLogField_ContextWafResponseCode() *string {
 // Will not be set if the stage is not associated with a web ACL.
 // See: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-control-access-aws-waf.html
 //
-// Experimental.
 func AccessLogField_ContextWebaclArn() *string {
 	_init_.Initialize()
 
@@ -963,7 +910,6 @@ func AccessLogField_ContextWebaclArn() *string {
 // The trace ID for the X-Ray trace.
 // See: https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-enabling-xray.html
 //
-// Experimental.
 func AccessLogField_ContextXrayTraceId() *string {
 	_init_.Initialize()
 
@@ -983,7 +929,6 @@ func AccessLogField_ContextXrayTraceId() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AccessLogFormat interface {
 	ToString() *string
 }
@@ -994,7 +939,6 @@ type jsiiProxy_AccessLogFormat struct {
 }
 
 // Generate Common Log Format.
-// Experimental.
 func AccessLogFormat_Clf() AccessLogFormat {
 	_init_.Initialize()
 
@@ -1016,7 +960,6 @@ func AccessLogFormat_Clf() AccessLogFormat {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 func AccessLogFormat_Custom(format *string) AccessLogFormat {
 	_init_.Initialize()
 
@@ -1036,7 +979,6 @@ func AccessLogFormat_Custom(format *string) AccessLogFormat {
 //
 // All fields are turned on by default with the
 // option to turn off specific fields.
-// Experimental.
 func AccessLogFormat_JsonWithStandardFields(fields *JsonWithStandardFieldProps) AccessLogFormat {
 	_init_.Initialize()
 
@@ -1053,7 +995,6 @@ func AccessLogFormat_JsonWithStandardFields(fields *JsonWithStandardFieldProps) 
 }
 
 // Output a format string to be used with CloudFormation.
-// Experimental.
 func (a *jsiiProxy_AccessLogFormat) ToString() *string {
 	var returns *string
 
@@ -1071,10 +1012,8 @@ func (a *jsiiProxy_AccessLogFormat) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AddApiKeyOptions struct {
 	// Override the CloudFormation logical id of the AWS::ApiGateway::UsagePlanKey resource.
-	// Experimental.
 	OverrideLogicalId *string `json:"overrideLogicalId"`
 }
 
@@ -1082,7 +1021,6 @@ type AddApiKeyOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ApiDefinition interface {
 	Bind(scope constructs.Construct) *ApiDefinitionConfig
 	BindAfterCreate(_scope constructs.Construct, _restApi IRestApi)
@@ -1093,7 +1031,6 @@ type jsiiProxy_ApiDefinition struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewApiDefinition_Override(a ApiDefinition) {
 	_init_.Initialize()
 
@@ -1105,7 +1042,6 @@ func NewApiDefinition_Override(a ApiDefinition) {
 }
 
 // Loads the API specification from a local disk asset.
-// Experimental.
 func ApiDefinition_FromAsset(file *string, options *awss3assets.AssetOptions) AssetApiDefinition {
 	_init_.Initialize()
 
@@ -1122,7 +1058,6 @@ func ApiDefinition_FromAsset(file *string, options *awss3assets.AssetOptions) As
 }
 
 // Creates an API definition from a specification file in an S3 bucket.
-// Experimental.
 func ApiDefinition_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3ApiDefinition {
 	_init_.Initialize()
 
@@ -1145,7 +1080,6 @@ func ApiDefinition_FromBucket(bucket awss3.IBucket, key *string, objectVersion *
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 func ApiDefinition_FromInline(definition interface{}) InlineApiDefinition {
 	_init_.Initialize()
 
@@ -1162,7 +1096,6 @@ func ApiDefinition_FromInline(definition interface{}) InlineApiDefinition {
 }
 
 // Called when the specification is initialized to allow this object to bind to the stack, add resources and have fun.
-// Experimental.
 func (a *jsiiProxy_ApiDefinition) Bind(scope constructs.Construct) *ApiDefinitionConfig {
 	var returns *ApiDefinitionConfig
 
@@ -1180,7 +1113,6 @@ func (a *jsiiProxy_ApiDefinition) Bind(scope constructs.Construct) *ApiDefinitio
 //
 // Specifically it's required to allow assets to add
 // metadata for tooling like SAM CLI to be able to find their origins.
-// Experimental.
 func (a *jsiiProxy_ApiDefinition) BindAfterCreate(_scope constructs.Construct, _restApi IRestApi) {
 	_jsii_.InvokeVoid(
 		a,
@@ -1193,13 +1125,10 @@ func (a *jsiiProxy_ApiDefinition) BindAfterCreate(_scope constructs.Construct, _
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ApiDefinitionConfig struct {
 	// Inline specification (mutually exclusive with `s3Location`).
-	// Experimental.
 	InlineDefinition interface{} `json:"inlineDefinition"`
 	// The location of the specification in S3 (mutually exclusive with `inlineDefinition`).
-	// Experimental.
 	S3Location *ApiDefinitionS3Location `json:"s3Location"`
 }
 
@@ -1207,16 +1136,12 @@ type ApiDefinitionConfig struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ApiDefinitionS3Location struct {
 	// The S3 bucket.
-	// Experimental.
 	Bucket *string `json:"bucket"`
 	// The S3 key.
-	// Experimental.
 	Key *string `json:"key"`
 	// An optional version.
-	// Experimental.
 	Version *string `json:"version"`
 }
 
@@ -1227,7 +1152,6 @@ type ApiDefinitionS3Location struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ApiKey interface {
 	awscdk.Resource
 	IApiKey
@@ -1314,7 +1238,6 @@ func (j *jsiiProxy_ApiKey) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewApiKey(scope constructs.Construct, id *string, props *ApiKeyProps) ApiKey {
 	_init_.Initialize()
 
@@ -1329,7 +1252,6 @@ func NewApiKey(scope constructs.Construct, id *string, props *ApiKeyProps) ApiKe
 	return &j
 }
 
-// Experimental.
 func NewApiKey_Override(a ApiKey, scope constructs.Construct, id *string, props *ApiKeyProps) {
 	_init_.Initialize()
 
@@ -1341,7 +1263,6 @@ func NewApiKey_Override(a ApiKey, scope constructs.Construct, id *string, props 
 }
 
 // Import an ApiKey by its Id.
-// Experimental.
 func ApiKey_FromApiKeyId(scope constructs.Construct, id *string, apiKeyId *string) IApiKey {
 	_init_.Initialize()
 
@@ -1377,7 +1298,6 @@ func ApiKey_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func ApiKey_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -1402,7 +1322,6 @@ func ApiKey_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (a *jsiiProxy_ApiKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		a,
@@ -1411,7 +1330,6 @@ func (a *jsiiProxy_ApiKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (a *jsiiProxy_ApiKey) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -1431,7 +1349,6 @@ func (a *jsiiProxy_ApiKey) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (a *jsiiProxy_ApiKey) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -1450,7 +1367,6 @@ func (a *jsiiProxy_ApiKey) GetResourceArnAttribute(arnAttr *string, arnComponent
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (a *jsiiProxy_ApiKey) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -1465,7 +1381,6 @@ func (a *jsiiProxy_ApiKey) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 // Permits the IAM principal all read operations through this key.
-// Experimental.
 func (a *jsiiProxy_ApiKey) GrantRead(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -1480,7 +1395,6 @@ func (a *jsiiProxy_ApiKey) GrantRead(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 // Permits the IAM principal all read and write operations through this key.
-// Experimental.
 func (a *jsiiProxy_ApiKey) GrantReadWrite(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -1495,7 +1409,6 @@ func (a *jsiiProxy_ApiKey) GrantReadWrite(grantee awsiam.IGrantable) awsiam.Gran
 }
 
 // Permits the IAM principal all write operations through this key.
-// Experimental.
 func (a *jsiiProxy_ApiKey) GrantWrite(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -1510,7 +1423,6 @@ func (a *jsiiProxy_ApiKey) GrantWrite(grantee awsiam.IGrantable) awsiam.Grant {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (a *jsiiProxy_ApiKey) ToString() *string {
 	var returns *string
 
@@ -1528,31 +1440,24 @@ func (a *jsiiProxy_ApiKey) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ApiKeyOptions struct {
 	// Adds a CORS preflight OPTIONS method to this resource and all child resources.
 	//
 	// You can add CORS at the resource-level using `addCorsPreflight`.
-	// Experimental.
 	DefaultCorsPreflightOptions *CorsOptions `json:"defaultCorsPreflightOptions"`
 	// An integration to use as a default for all methods created within this API unless an integration is specified.
-	// Experimental.
 	DefaultIntegration Integration `json:"defaultIntegration"`
 	// Method options to use as a default for all methods created within this API unless custom options are specified.
-	// Experimental.
 	DefaultMethodOptions *MethodOptions `json:"defaultMethodOptions"`
 	// A name for the API key.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the API key name.
-	// Experimental.
 	ApiKeyName *string `json:"apiKeyName"`
 	// A description of the purpose of the API key.
-	// Experimental.
 	Description *string `json:"description"`
 	// The value of the API key.
 	//
 	// Must be at least 20 characters long.
-	// Experimental.
 	Value *string `json:"value"`
 }
 
@@ -1560,47 +1465,35 @@ type ApiKeyOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ApiKeyProps struct {
 	// Adds a CORS preflight OPTIONS method to this resource and all child resources.
 	//
 	// You can add CORS at the resource-level using `addCorsPreflight`.
-	// Experimental.
 	DefaultCorsPreflightOptions *CorsOptions `json:"defaultCorsPreflightOptions"`
 	// An integration to use as a default for all methods created within this API unless an integration is specified.
-	// Experimental.
 	DefaultIntegration Integration `json:"defaultIntegration"`
 	// Method options to use as a default for all methods created within this API unless custom options are specified.
-	// Experimental.
 	DefaultMethodOptions *MethodOptions `json:"defaultMethodOptions"`
 	// A name for the API key.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the API key name.
-	// Experimental.
 	ApiKeyName *string `json:"apiKeyName"`
 	// A description of the purpose of the API key.
-	// Experimental.
 	Description *string `json:"description"`
 	// The value of the API key.
 	//
 	// Must be at least 20 characters long.
-	// Experimental.
 	Value *string `json:"value"`
 	// An AWS Marketplace customer identifier to use when integrating with the AWS SaaS Marketplace.
-	// Experimental.
 	CustomerId *string `json:"customerId"`
 	// Indicates whether the API key can be used by clients.
-	// Experimental.
 	Enabled *bool `json:"enabled"`
 	// Specifies whether the key identifier is distinct from the created API key value.
-	// Experimental.
 	GenerateDistinctId *bool `json:"generateDistinctId"`
 	// A list of resources this api key is associated with.
-	// Experimental.
 	Resources *[]IRestApi `json:"resources"`
 }
 
-// Experimental.
 type ApiKeySourceType string
 
 const (
@@ -1612,7 +1505,6 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AssetApiDefinition interface {
 	ApiDefinition
 	Bind(scope constructs.Construct) *ApiDefinitionConfig
@@ -1624,7 +1516,6 @@ type jsiiProxy_AssetApiDefinition struct {
 	jsiiProxy_ApiDefinition
 }
 
-// Experimental.
 func NewAssetApiDefinition(path *string, options *awss3assets.AssetOptions) AssetApiDefinition {
 	_init_.Initialize()
 
@@ -1639,7 +1530,6 @@ func NewAssetApiDefinition(path *string, options *awss3assets.AssetOptions) Asse
 	return &j
 }
 
-// Experimental.
 func NewAssetApiDefinition_Override(a AssetApiDefinition, path *string, options *awss3assets.AssetOptions) {
 	_init_.Initialize()
 
@@ -1651,7 +1541,6 @@ func NewAssetApiDefinition_Override(a AssetApiDefinition, path *string, options 
 }
 
 // Loads the API specification from a local disk asset.
-// Experimental.
 func AssetApiDefinition_FromAsset(file *string, options *awss3assets.AssetOptions) AssetApiDefinition {
 	_init_.Initialize()
 
@@ -1668,7 +1557,6 @@ func AssetApiDefinition_FromAsset(file *string, options *awss3assets.AssetOption
 }
 
 // Creates an API definition from a specification file in an S3 bucket.
-// Experimental.
 func AssetApiDefinition_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3ApiDefinition {
 	_init_.Initialize()
 
@@ -1691,7 +1579,6 @@ func AssetApiDefinition_FromBucket(bucket awss3.IBucket, key *string, objectVers
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 func AssetApiDefinition_FromInline(definition interface{}) InlineApiDefinition {
 	_init_.Initialize()
 
@@ -1708,7 +1595,6 @@ func AssetApiDefinition_FromInline(definition interface{}) InlineApiDefinition {
 }
 
 // Called when the specification is initialized to allow this object to bind to the stack, add resources and have fun.
-// Experimental.
 func (a *jsiiProxy_AssetApiDefinition) Bind(scope constructs.Construct) *ApiDefinitionConfig {
 	var returns *ApiDefinitionConfig
 
@@ -1726,7 +1612,6 @@ func (a *jsiiProxy_AssetApiDefinition) Bind(scope constructs.Construct) *ApiDefi
 //
 // Specifically it's required to allow assets to add
 // metadata for tooling like SAM CLI to be able to find their origins.
-// Experimental.
 func (a *jsiiProxy_AssetApiDefinition) BindAfterCreate(scope constructs.Construct, restApi IRestApi) {
 	_jsii_.InvokeVoid(
 		a,
@@ -1737,7 +1622,6 @@ func (a *jsiiProxy_AssetApiDefinition) BindAfterCreate(scope constructs.Construc
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type AuthorizationType string
 
 const (
@@ -1748,7 +1632,6 @@ const (
 )
 
 // Base class for all custom authorizers.
-// Experimental.
 type Authorizer interface {
 	awscdk.Resource
 	IAuthorizer
@@ -1832,7 +1715,6 @@ func (j *jsiiProxy_Authorizer) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewAuthorizer_Override(a Authorizer, scope constructs.Construct, id *string, props *awscdk.ResourceProps) {
 	_init_.Initialize()
 
@@ -1844,7 +1726,6 @@ func NewAuthorizer_Override(a Authorizer, scope constructs.Construct, id *string
 }
 
 // Return whether the given object is an Authorizer.
-// Experimental.
 func Authorizer_IsAuthorizer(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -1880,7 +1761,6 @@ func Authorizer_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func Authorizer_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -1905,7 +1785,6 @@ func Authorizer_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (a *jsiiProxy_Authorizer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		a,
@@ -1914,7 +1793,6 @@ func (a *jsiiProxy_Authorizer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (a *jsiiProxy_Authorizer) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -1934,7 +1812,6 @@ func (a *jsiiProxy_Authorizer) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (a *jsiiProxy_Authorizer) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -1953,7 +1830,6 @@ func (a *jsiiProxy_Authorizer) GetResourceArnAttribute(arnAttr *string, arnCompo
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (a *jsiiProxy_Authorizer) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -1968,7 +1844,6 @@ func (a *jsiiProxy_Authorizer) GetResourceNameAttribute(nameAttr *string) *strin
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (a *jsiiProxy_Authorizer) ToString() *string {
 	var returns *string
 
@@ -1991,7 +1866,6 @@ func (a *jsiiProxy_Authorizer) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AwsIntegration interface {
 	Integration
 	Bind(method Method) *IntegrationConfig
@@ -2002,7 +1876,6 @@ type jsiiProxy_AwsIntegration struct {
 	jsiiProxy_Integration
 }
 
-// Experimental.
 func NewAwsIntegration(props *AwsIntegrationProps) AwsIntegration {
 	_init_.Initialize()
 
@@ -2017,7 +1890,6 @@ func NewAwsIntegration(props *AwsIntegrationProps) AwsIntegration {
 	return &j
 }
 
-// Experimental.
 func NewAwsIntegration_Override(a AwsIntegration, props *AwsIntegrationProps) {
 	_init_.Initialize()
 
@@ -2029,7 +1901,6 @@ func NewAwsIntegration_Override(a AwsIntegration, props *AwsIntegrationProps) {
 }
 
 // Can be overridden by subclasses to allow the integration to interact with the method being integrated, access the REST API object, method ARNs, etc.
-// Experimental.
 func (a *jsiiProxy_AwsIntegration) Bind(method Method) *IntegrationConfig {
 	var returns *IntegrationConfig
 
@@ -2045,29 +1916,23 @@ func (a *jsiiProxy_AwsIntegration) Bind(method Method) *IntegrationConfig {
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type AwsIntegrationProps struct {
 	// The name of the integrated AWS service (e.g. `s3`).
-	// Experimental.
 	Service *string `json:"service"`
 	// The AWS action to perform in the integration.
 	//
 	// Use `actionParams` to specify key-value params for the action.
 	//
 	// Mutually exclusive with `path`.
-	// Experimental.
 	Action *string `json:"action"`
 	// Parameters for the action.
 	//
 	// `action` must be set, and `path` must be undefined.
 	// The action params will be URL encoded.
-	// Experimental.
 	ActionParameters *map[string]*string `json:"actionParameters"`
 	// The integration's HTTP method type.
-	// Experimental.
 	IntegrationHttpMethod *string `json:"integrationHttpMethod"`
 	// Integration options, such as content handling, request/response mapping, etc.
-	// Experimental.
 	Options *IntegrationOptions `json:"options"`
 	// The path to use for path-base APIs.
 	//
@@ -2075,16 +1940,12 @@ type AwsIntegrationProps struct {
 	// For lambda, you can set path to `2015-03-31/functions/${function-arn}/invocations`
 	//
 	// Mutually exclusive with the `action` options.
-	// Experimental.
 	Path *string `json:"path"`
 	// Use AWS_PROXY integration.
-	// Experimental.
 	Proxy *bool `json:"proxy"`
 	// The region of the integrated AWS service.
-	// Experimental.
 	Region *string `json:"region"`
 	// A designated subdomain supported by certain AWS service for fast host-name lookup.
-	// Experimental.
 	Subdomain *string `json:"subdomain"`
 }
 
@@ -2095,7 +1956,6 @@ type AwsIntegrationProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type BasePathMapping interface {
 	awscdk.Resource
 	Env() *awscdk.ResourceEnvironment
@@ -2155,7 +2015,6 @@ func (j *jsiiProxy_BasePathMapping) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewBasePathMapping(scope constructs.Construct, id *string, props *BasePathMappingProps) BasePathMapping {
 	_init_.Initialize()
 
@@ -2170,7 +2029,6 @@ func NewBasePathMapping(scope constructs.Construct, id *string, props *BasePathM
 	return &j
 }
 
-// Experimental.
 func NewBasePathMapping_Override(b BasePathMapping, scope constructs.Construct, id *string, props *BasePathMappingProps) {
 	_init_.Initialize()
 
@@ -2201,7 +2059,6 @@ func BasePathMapping_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func BasePathMapping_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -2226,7 +2083,6 @@ func BasePathMapping_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (b *jsiiProxy_BasePathMapping) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		b,
@@ -2235,7 +2091,6 @@ func (b *jsiiProxy_BasePathMapping) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 	)
 }
 
-// Experimental.
 func (b *jsiiProxy_BasePathMapping) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -2255,7 +2110,6 @@ func (b *jsiiProxy_BasePathMapping) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (b *jsiiProxy_BasePathMapping) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -2274,7 +2128,6 @@ func (b *jsiiProxy_BasePathMapping) GetResourceArnAttribute(arnAttr *string, arn
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (b *jsiiProxy_BasePathMapping) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -2289,7 +2142,6 @@ func (b *jsiiProxy_BasePathMapping) GetResourceNameAttribute(nameAttr *string) *
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (b *jsiiProxy_BasePathMapping) ToString() *string {
 	var returns *string
 
@@ -2305,31 +2157,23 @@ func (b *jsiiProxy_BasePathMapping) ToString() *string {
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type BasePathMappingOptions struct {
 	// The base path name that callers of the API must provide in the URL after the domain name (e.g. `example.com/base-path`). If you specify this property, it can't be an empty string.
-	// Experimental.
 	BasePath *string `json:"basePath"`
 	// The Deployment stage of API [disable-awslint:ref-via-interface].
-	// Experimental.
 	Stage Stage `json:"stage"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type BasePathMappingProps struct {
 	// The base path name that callers of the API must provide in the URL after the domain name (e.g. `example.com/base-path`). If you specify this property, it can't be an empty string.
-	// Experimental.
 	BasePath *string `json:"basePath"`
 	// The Deployment stage of API [disable-awslint:ref-via-interface].
-	// Experimental.
 	Stage Stage `json:"stage"`
 	// The DomainName to associate with this base path mapping.
-	// Experimental.
 	DomainName IDomainName `json:"domainName"`
 	// The RestApi resource to target.
-	// Experimental.
 	RestApi IRestApi `json:"restApi"`
 }
 
@@ -2526,7 +2370,6 @@ func (j *jsiiProxy_CfnAccount) SetCloudWatchRoleArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnAccount_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -2543,7 +2386,6 @@ func CfnAccount_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnAccount_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -2590,7 +2432,6 @@ func CfnAccount_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnAccount) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2603,7 +2444,6 @@ func (c *jsiiProxy_CfnAccount) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnAccount) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2619,7 +2459,6 @@ func (c *jsiiProxy_CfnAccount) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnAccount) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2665,7 +2504,6 @@ func (c *jsiiProxy_CfnAccount) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnAccount) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2675,7 +2513,6 @@ func (c *jsiiProxy_CfnAccount) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnAccount) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2687,7 +2524,6 @@ func (c *jsiiProxy_CfnAccount) AddPropertyDeletionOverride(propertyPath *string)
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnAccount) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2705,7 +2541,6 @@ func (c *jsiiProxy_CfnAccount) AddPropertyOverride(propertyPath *string, value i
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnAccount) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2718,7 +2553,6 @@ func (c *jsiiProxy_CfnAccount) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, o
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnAccount) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2739,7 +2573,6 @@ func (c *jsiiProxy_CfnAccount) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnAccount) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2763,7 +2596,6 @@ func (c *jsiiProxy_CfnAccount) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnAccount) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2789,7 +2621,6 @@ func (c *jsiiProxy_CfnAccount) RenderProperties(props *map[string]interface{}) *
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnAccount) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2806,7 +2637,6 @@ func (c *jsiiProxy_CfnAccount) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnAccount) ToString() *string {
 	var returns *string
 
@@ -2820,7 +2650,6 @@ func (c *jsiiProxy_CfnAccount) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnAccount) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3162,7 +2991,6 @@ func (j *jsiiProxy_CfnApiKey) SetValue(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnApiKey_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -3179,7 +3007,6 @@ func CfnApiKey_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnApiKey_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -3226,7 +3053,6 @@ func CfnApiKey_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnApiKey) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3239,7 +3065,6 @@ func (c *jsiiProxy_CfnApiKey) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnApiKey) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3255,7 +3080,6 @@ func (c *jsiiProxy_CfnApiKey) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnApiKey) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3301,7 +3125,6 @@ func (c *jsiiProxy_CfnApiKey) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnApiKey) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3311,7 +3134,6 @@ func (c *jsiiProxy_CfnApiKey) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnApiKey) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3323,7 +3145,6 @@ func (c *jsiiProxy_CfnApiKey) AddPropertyDeletionOverride(propertyPath *string) 
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnApiKey) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3341,7 +3162,6 @@ func (c *jsiiProxy_CfnApiKey) AddPropertyOverride(propertyPath *string, value in
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnApiKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3354,7 +3174,6 @@ func (c *jsiiProxy_CfnApiKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, op
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnApiKey) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3375,7 +3194,6 @@ func (c *jsiiProxy_CfnApiKey) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnApiKey) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3399,7 +3217,6 @@ func (c *jsiiProxy_CfnApiKey) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnApiKey) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3425,7 +3242,6 @@ func (c *jsiiProxy_CfnApiKey) RenderProperties(props *map[string]interface{}) *m
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnApiKey) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3442,7 +3258,6 @@ func (c *jsiiProxy_CfnApiKey) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnApiKey) ToString() *string {
 	var returns *string
 
@@ -3456,7 +3271,6 @@ func (c *jsiiProxy_CfnApiKey) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnApiKey) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3870,7 +3684,6 @@ func (j *jsiiProxy_CfnAuthorizer) SetType(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnAuthorizer_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -3887,7 +3700,6 @@ func CfnAuthorizer_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnAuthorizer_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -3934,7 +3746,6 @@ func CfnAuthorizer_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnAuthorizer) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3947,7 +3758,6 @@ func (c *jsiiProxy_CfnAuthorizer) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnAuthorizer) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3963,7 +3773,6 @@ func (c *jsiiProxy_CfnAuthorizer) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnAuthorizer) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4009,7 +3818,6 @@ func (c *jsiiProxy_CfnAuthorizer) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnAuthorizer) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4019,7 +3827,6 @@ func (c *jsiiProxy_CfnAuthorizer) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnAuthorizer) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4031,7 +3838,6 @@ func (c *jsiiProxy_CfnAuthorizer) AddPropertyDeletionOverride(propertyPath *stri
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnAuthorizer) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4049,7 +3855,6 @@ func (c *jsiiProxy_CfnAuthorizer) AddPropertyOverride(propertyPath *string, valu
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnAuthorizer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4062,7 +3867,6 @@ func (c *jsiiProxy_CfnAuthorizer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnAuthorizer) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -4083,7 +3887,6 @@ func (c *jsiiProxy_CfnAuthorizer) GetAtt(attributeName *string) awscdk.Reference
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnAuthorizer) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -4107,7 +3910,6 @@ func (c *jsiiProxy_CfnAuthorizer) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnAuthorizer) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4133,7 +3935,6 @@ func (c *jsiiProxy_CfnAuthorizer) RenderProperties(props *map[string]interface{}
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnAuthorizer) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -4150,7 +3951,6 @@ func (c *jsiiProxy_CfnAuthorizer) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnAuthorizer) ToString() *string {
 	var returns *string
 
@@ -4164,7 +3964,6 @@ func (c *jsiiProxy_CfnAuthorizer) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnAuthorizer) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4442,7 +4241,6 @@ func (j *jsiiProxy_CfnBasePathMapping) SetStage(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnBasePathMapping_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -4459,7 +4257,6 @@ func CfnBasePathMapping_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnBasePathMapping_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -4506,7 +4303,6 @@ func CfnBasePathMapping_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnBasePathMapping) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4519,7 +4315,6 @@ func (c *jsiiProxy_CfnBasePathMapping) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnBasePathMapping) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4535,7 +4330,6 @@ func (c *jsiiProxy_CfnBasePathMapping) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnBasePathMapping) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4581,7 +4375,6 @@ func (c *jsiiProxy_CfnBasePathMapping) AddMetadata(key *string, value interface{
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnBasePathMapping) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4591,7 +4384,6 @@ func (c *jsiiProxy_CfnBasePathMapping) AddOverride(path *string, value interface
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnBasePathMapping) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4603,7 +4395,6 @@ func (c *jsiiProxy_CfnBasePathMapping) AddPropertyDeletionOverride(propertyPath 
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnBasePathMapping) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4621,7 +4412,6 @@ func (c *jsiiProxy_CfnBasePathMapping) AddPropertyOverride(propertyPath *string,
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnBasePathMapping) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4634,7 +4424,6 @@ func (c *jsiiProxy_CfnBasePathMapping) ApplyRemovalPolicy(policy awscdk.RemovalP
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnBasePathMapping) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -4655,7 +4444,6 @@ func (c *jsiiProxy_CfnBasePathMapping) GetAtt(attributeName *string) awscdk.Refe
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnBasePathMapping) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -4679,7 +4467,6 @@ func (c *jsiiProxy_CfnBasePathMapping) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnBasePathMapping) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4705,7 +4492,6 @@ func (c *jsiiProxy_CfnBasePathMapping) RenderProperties(props *map[string]interf
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnBasePathMapping) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -4722,7 +4508,6 @@ func (c *jsiiProxy_CfnBasePathMapping) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnBasePathMapping) ToString() *string {
 	var returns *string
 
@@ -4736,7 +4521,6 @@ func (c *jsiiProxy_CfnBasePathMapping) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnBasePathMapping) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4964,7 +4748,6 @@ func (j *jsiiProxy_CfnClientCertificate) SetDescription(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnClientCertificate_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -4981,7 +4764,6 @@ func CfnClientCertificate_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnClientCertificate_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -5028,7 +4810,6 @@ func CfnClientCertificate_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnClientCertificate) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5041,7 +4822,6 @@ func (c *jsiiProxy_CfnClientCertificate) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnClientCertificate) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5057,7 +4837,6 @@ func (c *jsiiProxy_CfnClientCertificate) AddDependsOn(target awscdk.CfnResource)
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnClientCertificate) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5103,7 +4882,6 @@ func (c *jsiiProxy_CfnClientCertificate) AddMetadata(key *string, value interfac
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnClientCertificate) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5113,7 +4891,6 @@ func (c *jsiiProxy_CfnClientCertificate) AddOverride(path *string, value interfa
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnClientCertificate) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5125,7 +4902,6 @@ func (c *jsiiProxy_CfnClientCertificate) AddPropertyDeletionOverride(propertyPat
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnClientCertificate) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5143,7 +4919,6 @@ func (c *jsiiProxy_CfnClientCertificate) AddPropertyOverride(propertyPath *strin
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnClientCertificate) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5156,7 +4931,6 @@ func (c *jsiiProxy_CfnClientCertificate) ApplyRemovalPolicy(policy awscdk.Remova
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnClientCertificate) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -5177,7 +4951,6 @@ func (c *jsiiProxy_CfnClientCertificate) GetAtt(attributeName *string) awscdk.Re
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnClientCertificate) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -5201,7 +4974,6 @@ func (c *jsiiProxy_CfnClientCertificate) Inspect(inspector awscdk.TreeInspector)
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnClientCertificate) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5227,7 +4999,6 @@ func (c *jsiiProxy_CfnClientCertificate) RenderProperties(props *map[string]inte
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnClientCertificate) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -5244,7 +5015,6 @@ func (c *jsiiProxy_CfnClientCertificate) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnClientCertificate) ToString() *string {
 	var returns *string
 
@@ -5258,7 +5028,6 @@ func (c *jsiiProxy_CfnClientCertificate) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnClientCertificate) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5540,7 +5309,6 @@ func (j *jsiiProxy_CfnDeployment) SetStageName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnDeployment_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -5557,7 +5325,6 @@ func CfnDeployment_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnDeployment_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -5604,7 +5371,6 @@ func CfnDeployment_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnDeployment) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5617,7 +5383,6 @@ func (c *jsiiProxy_CfnDeployment) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnDeployment) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5633,7 +5398,6 @@ func (c *jsiiProxy_CfnDeployment) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDeployment) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5679,7 +5443,6 @@ func (c *jsiiProxy_CfnDeployment) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnDeployment) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5689,7 +5452,6 @@ func (c *jsiiProxy_CfnDeployment) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnDeployment) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5701,7 +5463,6 @@ func (c *jsiiProxy_CfnDeployment) AddPropertyDeletionOverride(propertyPath *stri
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnDeployment) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5719,7 +5480,6 @@ func (c *jsiiProxy_CfnDeployment) AddPropertyOverride(propertyPath *string, valu
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnDeployment) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5732,7 +5492,6 @@ func (c *jsiiProxy_CfnDeployment) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnDeployment) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -5753,7 +5512,6 @@ func (c *jsiiProxy_CfnDeployment) GetAtt(attributeName *string) awscdk.Reference
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDeployment) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -5777,7 +5535,6 @@ func (c *jsiiProxy_CfnDeployment) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnDeployment) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -5803,7 +5560,6 @@ func (c *jsiiProxy_CfnDeployment) RenderProperties(props *map[string]interface{}
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnDeployment) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -5820,7 +5576,6 @@ func (c *jsiiProxy_CfnDeployment) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnDeployment) ToString() *string {
 	var returns *string
 
@@ -5834,7 +5589,6 @@ func (c *jsiiProxy_CfnDeployment) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnDeployment) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6181,7 +5935,6 @@ func (j *jsiiProxy_CfnDocumentationPart) SetRestApiId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnDocumentationPart_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -6198,7 +5951,6 @@ func CfnDocumentationPart_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnDocumentationPart_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -6245,7 +5997,6 @@ func CfnDocumentationPart_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnDocumentationPart) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6258,7 +6009,6 @@ func (c *jsiiProxy_CfnDocumentationPart) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnDocumentationPart) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6274,7 +6024,6 @@ func (c *jsiiProxy_CfnDocumentationPart) AddDependsOn(target awscdk.CfnResource)
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDocumentationPart) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6320,7 +6069,6 @@ func (c *jsiiProxy_CfnDocumentationPart) AddMetadata(key *string, value interfac
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnDocumentationPart) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6330,7 +6078,6 @@ func (c *jsiiProxy_CfnDocumentationPart) AddOverride(path *string, value interfa
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnDocumentationPart) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6342,7 +6089,6 @@ func (c *jsiiProxy_CfnDocumentationPart) AddPropertyDeletionOverride(propertyPat
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnDocumentationPart) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6360,7 +6106,6 @@ func (c *jsiiProxy_CfnDocumentationPart) AddPropertyOverride(propertyPath *strin
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnDocumentationPart) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6373,7 +6118,6 @@ func (c *jsiiProxy_CfnDocumentationPart) ApplyRemovalPolicy(policy awscdk.Remova
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnDocumentationPart) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -6394,7 +6138,6 @@ func (c *jsiiProxy_CfnDocumentationPart) GetAtt(attributeName *string) awscdk.Re
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDocumentationPart) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -6418,7 +6161,6 @@ func (c *jsiiProxy_CfnDocumentationPart) Inspect(inspector awscdk.TreeInspector)
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnDocumentationPart) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6444,7 +6186,6 @@ func (c *jsiiProxy_CfnDocumentationPart) RenderProperties(props *map[string]inte
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnDocumentationPart) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -6461,7 +6202,6 @@ func (c *jsiiProxy_CfnDocumentationPart) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnDocumentationPart) ToString() *string {
 	var returns *string
 
@@ -6475,7 +6215,6 @@ func (c *jsiiProxy_CfnDocumentationPart) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnDocumentationPart) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6734,7 +6473,6 @@ func (j *jsiiProxy_CfnDocumentationVersion) SetRestApiId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnDocumentationVersion_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -6751,7 +6489,6 @@ func CfnDocumentationVersion_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnDocumentationVersion_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -6798,7 +6535,6 @@ func CfnDocumentationVersion_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnDocumentationVersion) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6811,7 +6547,6 @@ func (c *jsiiProxy_CfnDocumentationVersion) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnDocumentationVersion) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6827,7 +6562,6 @@ func (c *jsiiProxy_CfnDocumentationVersion) AddDependsOn(target awscdk.CfnResour
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDocumentationVersion) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6873,7 +6607,6 @@ func (c *jsiiProxy_CfnDocumentationVersion) AddMetadata(key *string, value inter
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnDocumentationVersion) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6883,7 +6616,6 @@ func (c *jsiiProxy_CfnDocumentationVersion) AddOverride(path *string, value inte
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnDocumentationVersion) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6895,7 +6627,6 @@ func (c *jsiiProxy_CfnDocumentationVersion) AddPropertyDeletionOverride(property
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnDocumentationVersion) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6913,7 +6644,6 @@ func (c *jsiiProxy_CfnDocumentationVersion) AddPropertyOverride(propertyPath *st
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnDocumentationVersion) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6926,7 +6656,6 @@ func (c *jsiiProxy_CfnDocumentationVersion) ApplyRemovalPolicy(policy awscdk.Rem
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnDocumentationVersion) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -6947,7 +6676,6 @@ func (c *jsiiProxy_CfnDocumentationVersion) GetAtt(attributeName *string) awscdk
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDocumentationVersion) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -6971,7 +6699,6 @@ func (c *jsiiProxy_CfnDocumentationVersion) Inspect(inspector awscdk.TreeInspect
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnDocumentationVersion) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -6997,7 +6724,6 @@ func (c *jsiiProxy_CfnDocumentationVersion) RenderProperties(props *map[string]i
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnDocumentationVersion) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -7014,7 +6740,6 @@ func (c *jsiiProxy_CfnDocumentationVersion) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnDocumentationVersion) ToString() *string {
 	var returns *string
 
@@ -7028,7 +6753,6 @@ func (c *jsiiProxy_CfnDocumentationVersion) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnDocumentationVersion) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7407,7 +7131,6 @@ func (j *jsiiProxy_CfnDomainName) SetSecurityPolicy(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnDomainName_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -7424,7 +7147,6 @@ func CfnDomainName_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnDomainName_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -7471,7 +7193,6 @@ func CfnDomainName_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnDomainName) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7484,7 +7205,6 @@ func (c *jsiiProxy_CfnDomainName) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnDomainName) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7500,7 +7220,6 @@ func (c *jsiiProxy_CfnDomainName) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDomainName) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7546,7 +7265,6 @@ func (c *jsiiProxy_CfnDomainName) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnDomainName) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7556,7 +7274,6 @@ func (c *jsiiProxy_CfnDomainName) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnDomainName) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7568,7 +7285,6 @@ func (c *jsiiProxy_CfnDomainName) AddPropertyDeletionOverride(propertyPath *stri
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnDomainName) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7586,7 +7302,6 @@ func (c *jsiiProxy_CfnDomainName) AddPropertyOverride(propertyPath *string, valu
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnDomainName) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7599,7 +7314,6 @@ func (c *jsiiProxy_CfnDomainName) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnDomainName) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -7620,7 +7334,6 @@ func (c *jsiiProxy_CfnDomainName) GetAtt(attributeName *string) awscdk.Reference
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnDomainName) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -7644,7 +7357,6 @@ func (c *jsiiProxy_CfnDomainName) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnDomainName) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -7670,7 +7382,6 @@ func (c *jsiiProxy_CfnDomainName) RenderProperties(props *map[string]interface{}
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnDomainName) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -7687,7 +7398,6 @@ func (c *jsiiProxy_CfnDomainName) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnDomainName) ToString() *string {
 	var returns *string
 
@@ -7701,7 +7411,6 @@ func (c *jsiiProxy_CfnDomainName) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnDomainName) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8022,7 +7731,6 @@ func (j *jsiiProxy_CfnGatewayResponse) SetStatusCode(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnGatewayResponse_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -8039,7 +7747,6 @@ func CfnGatewayResponse_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnGatewayResponse_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -8086,7 +7793,6 @@ func CfnGatewayResponse_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnGatewayResponse) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8099,7 +7805,6 @@ func (c *jsiiProxy_CfnGatewayResponse) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnGatewayResponse) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8115,7 +7820,6 @@ func (c *jsiiProxy_CfnGatewayResponse) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnGatewayResponse) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8161,7 +7865,6 @@ func (c *jsiiProxy_CfnGatewayResponse) AddMetadata(key *string, value interface{
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnGatewayResponse) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8171,7 +7874,6 @@ func (c *jsiiProxy_CfnGatewayResponse) AddOverride(path *string, value interface
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnGatewayResponse) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8183,7 +7885,6 @@ func (c *jsiiProxy_CfnGatewayResponse) AddPropertyDeletionOverride(propertyPath 
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnGatewayResponse) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8201,7 +7902,6 @@ func (c *jsiiProxy_CfnGatewayResponse) AddPropertyOverride(propertyPath *string,
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnGatewayResponse) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8214,7 +7914,6 @@ func (c *jsiiProxy_CfnGatewayResponse) ApplyRemovalPolicy(policy awscdk.RemovalP
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnGatewayResponse) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -8235,7 +7934,6 @@ func (c *jsiiProxy_CfnGatewayResponse) GetAtt(attributeName *string) awscdk.Refe
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnGatewayResponse) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -8259,7 +7957,6 @@ func (c *jsiiProxy_CfnGatewayResponse) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnGatewayResponse) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8285,7 +7982,6 @@ func (c *jsiiProxy_CfnGatewayResponse) RenderProperties(props *map[string]interf
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnGatewayResponse) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -8302,7 +7998,6 @@ func (c *jsiiProxy_CfnGatewayResponse) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnGatewayResponse) ToString() *string {
 	var returns *string
 
@@ -8316,7 +8011,6 @@ func (c *jsiiProxy_CfnGatewayResponse) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnGatewayResponse) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8764,7 +8458,6 @@ func (j *jsiiProxy_CfnMethod) SetRestApiId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnMethod_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -8781,7 +8474,6 @@ func CfnMethod_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnMethod_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -8828,7 +8520,6 @@ func CfnMethod_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnMethod) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8841,7 +8532,6 @@ func (c *jsiiProxy_CfnMethod) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnMethod) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8857,7 +8547,6 @@ func (c *jsiiProxy_CfnMethod) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnMethod) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8903,7 +8592,6 @@ func (c *jsiiProxy_CfnMethod) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnMethod) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8913,7 +8601,6 @@ func (c *jsiiProxy_CfnMethod) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnMethod) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8925,7 +8612,6 @@ func (c *jsiiProxy_CfnMethod) AddPropertyDeletionOverride(propertyPath *string) 
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnMethod) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8943,7 +8629,6 @@ func (c *jsiiProxy_CfnMethod) AddPropertyOverride(propertyPath *string, value in
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnMethod) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -8956,7 +8641,6 @@ func (c *jsiiProxy_CfnMethod) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, op
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnMethod) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -8977,7 +8661,6 @@ func (c *jsiiProxy_CfnMethod) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnMethod) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -9001,7 +8684,6 @@ func (c *jsiiProxy_CfnMethod) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnMethod) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9027,7 +8709,6 @@ func (c *jsiiProxy_CfnMethod) RenderProperties(props *map[string]interface{}) *m
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnMethod) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -9044,7 +8725,6 @@ func (c *jsiiProxy_CfnMethod) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnMethod) ToString() *string {
 	var returns *string
 
@@ -9058,7 +8738,6 @@ func (c *jsiiProxy_CfnMethod) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnMethod) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9421,7 +9100,6 @@ func (j *jsiiProxy_CfnModel) SetSchema(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnModel_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -9438,7 +9116,6 @@ func CfnModel_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnModel_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -9485,7 +9162,6 @@ func CfnModel_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnModel) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9498,7 +9174,6 @@ func (c *jsiiProxy_CfnModel) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnModel) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9514,7 +9189,6 @@ func (c *jsiiProxy_CfnModel) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnModel) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9560,7 +9234,6 @@ func (c *jsiiProxy_CfnModel) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnModel) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9570,7 +9243,6 @@ func (c *jsiiProxy_CfnModel) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnModel) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9582,7 +9254,6 @@ func (c *jsiiProxy_CfnModel) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnModel) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9600,7 +9271,6 @@ func (c *jsiiProxy_CfnModel) AddPropertyOverride(propertyPath *string, value int
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnModel) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9613,7 +9283,6 @@ func (c *jsiiProxy_CfnModel) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnModel) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -9634,7 +9303,6 @@ func (c *jsiiProxy_CfnModel) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnModel) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -9658,7 +9326,6 @@ func (c *jsiiProxy_CfnModel) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnModel) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9684,7 +9351,6 @@ func (c *jsiiProxy_CfnModel) RenderProperties(props *map[string]interface{}) *ma
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnModel) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -9701,7 +9367,6 @@ func (c *jsiiProxy_CfnModel) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnModel) ToString() *string {
 	var returns *string
 
@@ -9715,7 +9380,6 @@ func (c *jsiiProxy_CfnModel) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnModel) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -9994,7 +9658,6 @@ func (j *jsiiProxy_CfnRequestValidator) SetValidateRequestParameters(val interfa
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnRequestValidator_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -10011,7 +9674,6 @@ func CfnRequestValidator_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnRequestValidator_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -10058,7 +9720,6 @@ func CfnRequestValidator_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnRequestValidator) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -10071,7 +9732,6 @@ func (c *jsiiProxy_CfnRequestValidator) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnRequestValidator) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -10087,7 +9747,6 @@ func (c *jsiiProxy_CfnRequestValidator) AddDependsOn(target awscdk.CfnResource) 
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnRequestValidator) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -10133,7 +9792,6 @@ func (c *jsiiProxy_CfnRequestValidator) AddMetadata(key *string, value interface
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnRequestValidator) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -10143,7 +9801,6 @@ func (c *jsiiProxy_CfnRequestValidator) AddOverride(path *string, value interfac
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnRequestValidator) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -10155,7 +9812,6 @@ func (c *jsiiProxy_CfnRequestValidator) AddPropertyDeletionOverride(propertyPath
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnRequestValidator) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -10173,7 +9829,6 @@ func (c *jsiiProxy_CfnRequestValidator) AddPropertyOverride(propertyPath *string
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnRequestValidator) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -10186,7 +9841,6 @@ func (c *jsiiProxy_CfnRequestValidator) ApplyRemovalPolicy(policy awscdk.Removal
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnRequestValidator) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -10207,7 +9861,6 @@ func (c *jsiiProxy_CfnRequestValidator) GetAtt(attributeName *string) awscdk.Ref
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnRequestValidator) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -10231,7 +9884,6 @@ func (c *jsiiProxy_CfnRequestValidator) Inspect(inspector awscdk.TreeInspector) 
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnRequestValidator) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -10257,7 +9909,6 @@ func (c *jsiiProxy_CfnRequestValidator) RenderProperties(props *map[string]inter
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnRequestValidator) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -10274,7 +9925,6 @@ func (c *jsiiProxy_CfnRequestValidator) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnRequestValidator) ToString() *string {
 	var returns *string
 
@@ -10288,7 +9938,6 @@ func (c *jsiiProxy_CfnRequestValidator) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnRequestValidator) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -10545,7 +10194,6 @@ func (j *jsiiProxy_CfnResource) SetRestApiId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnResource_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -10562,7 +10210,6 @@ func CfnResource_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnResource_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -10609,7 +10256,6 @@ func CfnResource_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnResource) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -10622,7 +10268,6 @@ func (c *jsiiProxy_CfnResource) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnResource) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -10638,7 +10283,6 @@ func (c *jsiiProxy_CfnResource) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnResource) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -10684,7 +10328,6 @@ func (c *jsiiProxy_CfnResource) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnResource) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -10694,7 +10337,6 @@ func (c *jsiiProxy_CfnResource) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnResource) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -10706,7 +10348,6 @@ func (c *jsiiProxy_CfnResource) AddPropertyDeletionOverride(propertyPath *string
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnResource) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -10724,7 +10365,6 @@ func (c *jsiiProxy_CfnResource) AddPropertyOverride(propertyPath *string, value 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnResource) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -10737,7 +10377,6 @@ func (c *jsiiProxy_CfnResource) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, 
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnResource) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -10758,7 +10397,6 @@ func (c *jsiiProxy_CfnResource) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnResource) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -10782,7 +10420,6 @@ func (c *jsiiProxy_CfnResource) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnResource) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -10808,7 +10445,6 @@ func (c *jsiiProxy_CfnResource) RenderProperties(props *map[string]interface{}) 
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnResource) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -10825,7 +10461,6 @@ func (c *jsiiProxy_CfnResource) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnResource) ToString() *string {
 	var returns *string
 
@@ -10839,7 +10474,6 @@ func (c *jsiiProxy_CfnResource) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnResource) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -11325,7 +10959,6 @@ func (j *jsiiProxy_CfnRestApi) SetPolicy(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnRestApi_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -11342,7 +10975,6 @@ func CfnRestApi_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnRestApi_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -11389,7 +11021,6 @@ func CfnRestApi_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnRestApi) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -11402,7 +11033,6 @@ func (c *jsiiProxy_CfnRestApi) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnRestApi) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -11418,7 +11048,6 @@ func (c *jsiiProxy_CfnRestApi) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnRestApi) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -11464,7 +11093,6 @@ func (c *jsiiProxy_CfnRestApi) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnRestApi) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -11474,7 +11102,6 @@ func (c *jsiiProxy_CfnRestApi) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnRestApi) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -11486,7 +11113,6 @@ func (c *jsiiProxy_CfnRestApi) AddPropertyDeletionOverride(propertyPath *string)
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnRestApi) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -11504,7 +11130,6 @@ func (c *jsiiProxy_CfnRestApi) AddPropertyOverride(propertyPath *string, value i
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnRestApi) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -11517,7 +11142,6 @@ func (c *jsiiProxy_CfnRestApi) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, o
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnRestApi) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -11538,7 +11162,6 @@ func (c *jsiiProxy_CfnRestApi) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnRestApi) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -11562,7 +11185,6 @@ func (c *jsiiProxy_CfnRestApi) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnRestApi) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -11588,7 +11210,6 @@ func (c *jsiiProxy_CfnRestApi) RenderProperties(props *map[string]interface{}) *
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnRestApi) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -11605,7 +11226,6 @@ func (c *jsiiProxy_CfnRestApi) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnRestApi) ToString() *string {
 	var returns *string
 
@@ -11619,7 +11239,6 @@ func (c *jsiiProxy_CfnRestApi) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnRestApi) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -12120,7 +11739,6 @@ func (j *jsiiProxy_CfnStage) SetVariables(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnStage_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -12137,7 +11755,6 @@ func CfnStage_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnStage_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -12184,7 +11801,6 @@ func CfnStage_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnStage) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -12197,7 +11813,6 @@ func (c *jsiiProxy_CfnStage) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnStage) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -12213,7 +11828,6 @@ func (c *jsiiProxy_CfnStage) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnStage) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -12259,7 +11873,6 @@ func (c *jsiiProxy_CfnStage) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnStage) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -12269,7 +11882,6 @@ func (c *jsiiProxy_CfnStage) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnStage) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -12281,7 +11893,6 @@ func (c *jsiiProxy_CfnStage) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnStage) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -12299,7 +11910,6 @@ func (c *jsiiProxy_CfnStage) AddPropertyOverride(propertyPath *string, value int
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnStage) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -12312,7 +11922,6 @@ func (c *jsiiProxy_CfnStage) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnStage) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -12333,7 +11942,6 @@ func (c *jsiiProxy_CfnStage) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnStage) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -12357,7 +11965,6 @@ func (c *jsiiProxy_CfnStage) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnStage) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -12383,7 +11990,6 @@ func (c *jsiiProxy_CfnStage) RenderProperties(props *map[string]interface{}) *ma
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnStage) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -12400,7 +12006,6 @@ func (c *jsiiProxy_CfnStage) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnStage) ToString() *string {
 	var returns *string
 
@@ -12414,7 +12019,6 @@ func (c *jsiiProxy_CfnStage) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnStage) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -12789,7 +12393,6 @@ func (j *jsiiProxy_CfnUsagePlan) SetUsagePlanName(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnUsagePlan_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -12806,7 +12409,6 @@ func CfnUsagePlan_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnUsagePlan_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -12853,7 +12455,6 @@ func CfnUsagePlan_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnUsagePlan) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -12866,7 +12467,6 @@ func (c *jsiiProxy_CfnUsagePlan) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnUsagePlan) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -12882,7 +12482,6 @@ func (c *jsiiProxy_CfnUsagePlan) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnUsagePlan) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -12928,7 +12527,6 @@ func (c *jsiiProxy_CfnUsagePlan) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnUsagePlan) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -12938,7 +12536,6 @@ func (c *jsiiProxy_CfnUsagePlan) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnUsagePlan) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -12950,7 +12547,6 @@ func (c *jsiiProxy_CfnUsagePlan) AddPropertyDeletionOverride(propertyPath *strin
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnUsagePlan) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -12968,7 +12564,6 @@ func (c *jsiiProxy_CfnUsagePlan) AddPropertyOverride(propertyPath *string, value
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnUsagePlan) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -12981,7 +12576,6 @@ func (c *jsiiProxy_CfnUsagePlan) ApplyRemovalPolicy(policy awscdk.RemovalPolicy,
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnUsagePlan) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -13002,7 +12596,6 @@ func (c *jsiiProxy_CfnUsagePlan) GetAtt(attributeName *string) awscdk.Reference 
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnUsagePlan) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -13026,7 +12619,6 @@ func (c *jsiiProxy_CfnUsagePlan) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnUsagePlan) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -13052,7 +12644,6 @@ func (c *jsiiProxy_CfnUsagePlan) RenderProperties(props *map[string]interface{})
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnUsagePlan) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -13069,7 +12660,6 @@ func (c *jsiiProxy_CfnUsagePlan) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnUsagePlan) ToString() *string {
 	var returns *string
 
@@ -13083,7 +12673,6 @@ func (c *jsiiProxy_CfnUsagePlan) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnUsagePlan) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -13356,7 +12945,6 @@ func (j *jsiiProxy_CfnUsagePlanKey) SetUsagePlanId(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnUsagePlanKey_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -13373,7 +12961,6 @@ func CfnUsagePlanKey_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnUsagePlanKey_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -13420,7 +13007,6 @@ func CfnUsagePlanKey_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnUsagePlanKey) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -13433,7 +13019,6 @@ func (c *jsiiProxy_CfnUsagePlanKey) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnUsagePlanKey) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -13449,7 +13034,6 @@ func (c *jsiiProxy_CfnUsagePlanKey) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnUsagePlanKey) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -13495,7 +13079,6 @@ func (c *jsiiProxy_CfnUsagePlanKey) AddMetadata(key *string, value interface{}) 
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnUsagePlanKey) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -13505,7 +13088,6 @@ func (c *jsiiProxy_CfnUsagePlanKey) AddOverride(path *string, value interface{})
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnUsagePlanKey) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -13517,7 +13099,6 @@ func (c *jsiiProxy_CfnUsagePlanKey) AddPropertyDeletionOverride(propertyPath *st
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnUsagePlanKey) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -13535,7 +13116,6 @@ func (c *jsiiProxy_CfnUsagePlanKey) AddPropertyOverride(propertyPath *string, va
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnUsagePlanKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -13548,7 +13128,6 @@ func (c *jsiiProxy_CfnUsagePlanKey) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnUsagePlanKey) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -13569,7 +13148,6 @@ func (c *jsiiProxy_CfnUsagePlanKey) GetAtt(attributeName *string) awscdk.Referen
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnUsagePlanKey) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -13593,7 +13171,6 @@ func (c *jsiiProxy_CfnUsagePlanKey) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnUsagePlanKey) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -13619,7 +13196,6 @@ func (c *jsiiProxy_CfnUsagePlanKey) RenderProperties(props *map[string]interface
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnUsagePlanKey) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -13636,7 +13212,6 @@ func (c *jsiiProxy_CfnUsagePlanKey) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnUsagePlanKey) ToString() *string {
 	var returns *string
 
@@ -13650,7 +13225,6 @@ func (c *jsiiProxy_CfnUsagePlanKey) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnUsagePlanKey) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -13924,7 +13498,6 @@ func (j *jsiiProxy_CfnVpcLink) SetTargetArns(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnVpcLink_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -13941,7 +13514,6 @@ func CfnVpcLink_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnVpcLink_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -13988,7 +13560,6 @@ func CfnVpcLink_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnVpcLink) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -14001,7 +13572,6 @@ func (c *jsiiProxy_CfnVpcLink) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnVpcLink) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -14017,7 +13587,6 @@ func (c *jsiiProxy_CfnVpcLink) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnVpcLink) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -14063,7 +13632,6 @@ func (c *jsiiProxy_CfnVpcLink) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnVpcLink) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -14073,7 +13641,6 @@ func (c *jsiiProxy_CfnVpcLink) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnVpcLink) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -14085,7 +13652,6 @@ func (c *jsiiProxy_CfnVpcLink) AddPropertyDeletionOverride(propertyPath *string)
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnVpcLink) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -14103,7 +13669,6 @@ func (c *jsiiProxy_CfnVpcLink) AddPropertyOverride(propertyPath *string, value i
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnVpcLink) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -14116,7 +13681,6 @@ func (c *jsiiProxy_CfnVpcLink) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, o
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnVpcLink) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -14137,7 +13701,6 @@ func (c *jsiiProxy_CfnVpcLink) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnVpcLink) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -14161,7 +13724,6 @@ func (c *jsiiProxy_CfnVpcLink) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnVpcLink) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -14187,7 +13749,6 @@ func (c *jsiiProxy_CfnVpcLink) RenderProperties(props *map[string]interface{}) *
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnVpcLink) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -14204,7 +13765,6 @@ func (c *jsiiProxy_CfnVpcLink) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnVpcLink) ToString() *string {
 	var returns *string
 
@@ -14218,7 +13778,6 @@ func (c *jsiiProxy_CfnVpcLink) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnVpcLink) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -14246,7 +13805,6 @@ type CfnVpcLinkProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CognitoUserPoolsAuthorizer interface {
 	Authorizer
 	IAuthorizer
@@ -14341,7 +13899,6 @@ func (j *jsiiProxy_CognitoUserPoolsAuthorizer) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewCognitoUserPoolsAuthorizer(scope constructs.Construct, id *string, props *CognitoUserPoolsAuthorizerProps) CognitoUserPoolsAuthorizer {
 	_init_.Initialize()
 
@@ -14356,7 +13913,6 @@ func NewCognitoUserPoolsAuthorizer(scope constructs.Construct, id *string, props
 	return &j
 }
 
-// Experimental.
 func NewCognitoUserPoolsAuthorizer_Override(c CognitoUserPoolsAuthorizer, scope constructs.Construct, id *string, props *CognitoUserPoolsAuthorizerProps) {
 	_init_.Initialize()
 
@@ -14368,7 +13924,6 @@ func NewCognitoUserPoolsAuthorizer_Override(c CognitoUserPoolsAuthorizer, scope 
 }
 
 // Return whether the given object is an Authorizer.
-// Experimental.
 func CognitoUserPoolsAuthorizer_IsAuthorizer(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -14404,7 +13959,6 @@ func CognitoUserPoolsAuthorizer_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func CognitoUserPoolsAuthorizer_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -14429,7 +13983,6 @@ func CognitoUserPoolsAuthorizer_IsResource(construct constructs.IConstruct) *boo
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CognitoUserPoolsAuthorizer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		c,
@@ -14438,7 +13991,6 @@ func (c *jsiiProxy_CognitoUserPoolsAuthorizer) ApplyRemovalPolicy(policy awscdk.
 	)
 }
 
-// Experimental.
 func (c *jsiiProxy_CognitoUserPoolsAuthorizer) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -14458,7 +14010,6 @@ func (c *jsiiProxy_CognitoUserPoolsAuthorizer) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (c *jsiiProxy_CognitoUserPoolsAuthorizer) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -14477,7 +14028,6 @@ func (c *jsiiProxy_CognitoUserPoolsAuthorizer) GetResourceArnAttribute(arnAttr *
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (c *jsiiProxy_CognitoUserPoolsAuthorizer) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -14492,7 +14042,6 @@ func (c *jsiiProxy_CognitoUserPoolsAuthorizer) GetResourceNameAttribute(nameAttr
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (c *jsiiProxy_CognitoUserPoolsAuthorizer) ToString() *string {
 	var returns *string
 
@@ -14510,15 +14059,12 @@ func (c *jsiiProxy_CognitoUserPoolsAuthorizer) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CognitoUserPoolsAuthorizerProps struct {
 	// The user pools to associate with this authorizer.
-	// Experimental.
 	CognitoUserPools *[]awscognito.IUserPool `json:"cognitoUserPools"`
 	// An optional human friendly name for the authorizer.
 	//
 	// Note that, this is not the primary identifier of the authorizer.
-	// Experimental.
 	AuthorizerName *string `json:"authorizerName"`
 	// The request header mapping expression for the bearer token.
 	//
@@ -14526,19 +14072,16 @@ type CognitoUserPoolsAuthorizerProps struct {
 	// this should be `method.request.header.Authorizer` where Authorizer is the header containing the bearer token.
 	// See: https://docs.aws.amazon.com/apigateway/api-reference/link-relation/authorizer-create/#identitySource
 	//
-	// Experimental.
 	IdentitySource *string `json:"identitySource"`
 	// How long APIGateway should cache the results.
 	//
 	// Max 1 hour.
 	// Disable caching by setting this to 0.
-	// Experimental.
 	ResultsCacheTtl awscdk.Duration `json:"resultsCacheTtl"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type ConnectionType string
 
 const (
@@ -14548,7 +14091,6 @@ const (
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type ContentHandling string
 
 const (
@@ -14558,7 +14100,6 @@ const (
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type Cors interface {
 }
 
@@ -14602,7 +14143,6 @@ func Cors_DEFAULT_HEADERS() *[]*string {
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type CorsOptions struct {
 	// The Access-Control-Allow-Credentials response header tells browsers whether to expose the response to frontend JavaScript code when the request's credentials mode (Request.credentials) is "include".
 	//
@@ -14613,19 +14153,16 @@ type CorsOptions struct {
 	// Credentials are cookies, authorization headers or TLS client certificates.
 	// See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials
 	//
-	// Experimental.
 	AllowCredentials *bool `json:"allowCredentials"`
 	// The Access-Control-Allow-Headers response header is used in response to a preflight request which includes the Access-Control-Request-Headers to indicate which HTTP headers can be used during the actual request.
 	// See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers
 	//
-	// Experimental.
 	AllowHeaders *[]*string `json:"allowHeaders"`
 	// The Access-Control-Allow-Methods response header specifies the method or methods allowed when accessing the resource in response to a preflight request.
 	//
 	// If `ANY` is specified, it will be expanded to `Cors.ALL_METHODS`.
 	// See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods
 	//
-	// Experimental.
 	AllowMethods *[]*string `json:"allowMethods"`
 	// Specifies the list of origins that are allowed to make requests to this resource.
 	//
@@ -14637,12 +14174,10 @@ type CorsOptions struct {
 	// also be included.
 	// See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin
 	//
-	// Experimental.
 	AllowOrigins *[]*string `json:"allowOrigins"`
 	// Sets Access-Control-Max-Age to -1, which means that caching is disabled.
 	//
 	// This option cannot be used with `maxAge`.
-	// Experimental.
 	DisableCache *bool `json:"disableCache"`
 	// The Access-Control-Expose-Headers response header indicates which headers can be exposed as part of the response by listing their names.
 	//
@@ -14650,17 +14185,14 @@ type CorsOptions struct {
 	// them using the Access-Control-Expose-Headers header.
 	// See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers
 	//
-	// Experimental.
 	ExposeHeaders *[]*string `json:"exposeHeaders"`
 	// The Access-Control-Max-Age response header indicates how long the results of a preflight request (that is the information contained in the Access-Control-Allow-Methods and Access-Control-Allow-Headers headers) can be cached.
 	//
 	// To disable caching altogether use `disableCache: true`.
 	// See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Max-Age
 	//
-	// Experimental.
 	MaxAge awscdk.Duration `json:"maxAge"`
 	// Specifies the response status code returned from the OPTIONS method.
-	// Experimental.
 	StatusCode *float64 `json:"statusCode"`
 }
 
@@ -14695,7 +14227,6 @@ type CorsOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Deployment interface {
 	awscdk.Resource
 	Api() IRestApi
@@ -14778,7 +14309,6 @@ func (j *jsiiProxy_Deployment) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewDeployment(scope constructs.Construct, id *string, props *DeploymentProps) Deployment {
 	_init_.Initialize()
 
@@ -14793,7 +14323,6 @@ func NewDeployment(scope constructs.Construct, id *string, props *DeploymentProp
 	return &j
 }
 
-// Experimental.
 func NewDeployment_Override(d Deployment, scope constructs.Construct, id *string, props *DeploymentProps) {
 	_init_.Initialize()
 
@@ -14824,7 +14353,6 @@ func Deployment_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func Deployment_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -14845,7 +14373,6 @@ func Deployment_IsResource(construct constructs.IConstruct) *bool {
 // This should be called by constructs of the API Gateway model that want to
 // invalidate the deployment when their settings change. The component will
 // be resolve()ed during synthesis so tokens are welcome.
-// Experimental.
 func (d *jsiiProxy_Deployment) AddToLogicalId(data interface{}) {
 	_jsii_.InvokeVoid(
 		d,
@@ -14863,7 +14390,6 @@ func (d *jsiiProxy_Deployment) AddToLogicalId(data interface{}) {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (d *jsiiProxy_Deployment) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		d,
@@ -14872,7 +14398,6 @@ func (d *jsiiProxy_Deployment) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_Deployment) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -14892,7 +14417,6 @@ func (d *jsiiProxy_Deployment) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (d *jsiiProxy_Deployment) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -14911,7 +14435,6 @@ func (d *jsiiProxy_Deployment) GetResourceArnAttribute(arnAttr *string, arnCompo
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (d *jsiiProxy_Deployment) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -14926,7 +14449,6 @@ func (d *jsiiProxy_Deployment) GetResourceNameAttribute(nameAttr *string) *strin
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_Deployment) ToString() *string {
 	var returns *string
 
@@ -14942,25 +14464,20 @@ func (d *jsiiProxy_Deployment) ToString() *string {
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type DeploymentProps struct {
 	// The Rest API to deploy.
-	// Experimental.
 	Api IRestApi `json:"api"`
 	// A description of the purpose of the API Gateway deployment.
-	// Experimental.
 	Description *string `json:"description"`
 	// When an API Gateway model is updated, a new deployment will automatically be created.
 	//
 	// If this is true, the old API Gateway Deployment resource will not be deleted.
 	// This will allow manually reverting back to a previous deployment in case for example
-	// Experimental.
 	RetainDeployments *bool `json:"retainDeployments"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type DomainName interface {
 	awscdk.Resource
 	IDomainName
@@ -15056,7 +14573,6 @@ func (j *jsiiProxy_DomainName) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewDomainName(scope constructs.Construct, id *string, props *DomainNameProps) DomainName {
 	_init_.Initialize()
 
@@ -15071,7 +14587,6 @@ func NewDomainName(scope constructs.Construct, id *string, props *DomainNameProp
 	return &j
 }
 
-// Experimental.
 func NewDomainName_Override(d DomainName, scope constructs.Construct, id *string, props *DomainNameProps) {
 	_init_.Initialize()
 
@@ -15083,7 +14598,6 @@ func NewDomainName_Override(d DomainName, scope constructs.Construct, id *string
 }
 
 // Imports an existing domain name.
-// Experimental.
 func DomainName_FromDomainNameAttributes(scope constructs.Construct, id *string, attrs *DomainNameAttributes) IDomainName {
 	_init_.Initialize()
 
@@ -15119,7 +14633,6 @@ func DomainName_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func DomainName_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -15136,7 +14649,6 @@ func DomainName_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Maps this domain to an API endpoint.
-// Experimental.
 func (d *jsiiProxy_DomainName) AddBasePathMapping(targetApi IRestApi, options *BasePathMappingOptions) BasePathMapping {
 	var returns BasePathMapping
 
@@ -15159,7 +14671,6 @@ func (d *jsiiProxy_DomainName) AddBasePathMapping(targetApi IRestApi, options *B
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (d *jsiiProxy_DomainName) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		d,
@@ -15168,7 +14679,6 @@ func (d *jsiiProxy_DomainName) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DomainName) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -15188,7 +14698,6 @@ func (d *jsiiProxy_DomainName) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (d *jsiiProxy_DomainName) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -15207,7 +14716,6 @@ func (d *jsiiProxy_DomainName) GetResourceArnAttribute(arnAttr *string, arnCompo
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (d *jsiiProxy_DomainName) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -15222,7 +14730,6 @@ func (d *jsiiProxy_DomainName) GetResourceNameAttribute(nameAttr *string) *strin
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DomainName) ToString() *string {
 	var returns *string
 
@@ -15238,79 +14745,62 @@ func (d *jsiiProxy_DomainName) ToString() *string {
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type DomainNameAttributes struct {
 	// The domain name (e.g. `example.com`).
-	// Experimental.
 	DomainName *string `json:"domainName"`
 	// The Route53 hosted zone ID to use in order to connect a record set to this domain through an alias.
-	// Experimental.
 	DomainNameAliasHostedZoneId *string `json:"domainNameAliasHostedZoneId"`
 	// The Route53 alias target to use in order to connect a record set to this domain through an alias.
-	// Experimental.
 	DomainNameAliasTarget *string `json:"domainNameAliasTarget"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type DomainNameOptions struct {
 	// The reference to an AWS-managed certificate for use by the edge-optimized endpoint for the domain name.
 	//
 	// For "EDGE" domain names, the certificate
 	// needs to be in the US East (N. Virginia) region.
-	// Experimental.
 	Certificate awscertificatemanager.ICertificate `json:"certificate"`
 	// The custom domain name for your API.
 	//
 	// Uppercase letters are not supported.
-	// Experimental.
 	DomainName *string `json:"domainName"`
 	// The type of endpoint for this DomainName.
-	// Experimental.
 	EndpointType EndpointType `json:"endpointType"`
 	// The mutual TLS authentication configuration for a custom domain name.
-	// Experimental.
 	Mtls *MTLSConfig `json:"mtls"`
 	// The Transport Layer Security (TLS) version + cipher suite for this domain name.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html
 	//
-	// Experimental.
 	SecurityPolicy SecurityPolicy `json:"securityPolicy"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type DomainNameProps struct {
 	// The reference to an AWS-managed certificate for use by the edge-optimized endpoint for the domain name.
 	//
 	// For "EDGE" domain names, the certificate
 	// needs to be in the US East (N. Virginia) region.
-	// Experimental.
 	Certificate awscertificatemanager.ICertificate `json:"certificate"`
 	// The custom domain name for your API.
 	//
 	// Uppercase letters are not supported.
-	// Experimental.
 	DomainName *string `json:"domainName"`
 	// The type of endpoint for this DomainName.
-	// Experimental.
 	EndpointType EndpointType `json:"endpointType"`
 	// The mutual TLS authentication configuration for a custom domain name.
-	// Experimental.
 	Mtls *MTLSConfig `json:"mtls"`
 	// The Transport Layer Security (TLS) version + cipher suite for this domain name.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html
 	//
-	// Experimental.
 	SecurityPolicy SecurityPolicy `json:"securityPolicy"`
 	// If specified, all requests to this domain will be mapped to the production deployment of this API.
 	//
 	// If you wish to map this domain to multiple APIs
 	// with different base paths, don't specify this option and use
 	// `addBasePathMapping`.
-	// Experimental.
 	Mapping IRestApi `json:"mapping"`
 }
 
@@ -15320,19 +14810,15 @@ type DomainNameProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type EndpointConfiguration struct {
 	// A list of endpoint types of an API or its custom domain name.
-	// Experimental.
 	Types *[]EndpointType `json:"types"`
 	// A list of VPC Endpoints against which to create Route53 ALIASes.
-	// Experimental.
 	VpcEndpoints *[]awsec2.IVpcEndpoint `json:"vpcEndpoints"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type EndpointType string
 
 const (
@@ -15345,7 +14831,6 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type GatewayResponse interface {
 	awscdk.Resource
 	IGatewayResponse
@@ -15407,7 +14892,6 @@ func (j *jsiiProxy_GatewayResponse) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewGatewayResponse(scope constructs.Construct, id *string, props *GatewayResponseProps) GatewayResponse {
 	_init_.Initialize()
 
@@ -15422,7 +14906,6 @@ func NewGatewayResponse(scope constructs.Construct, id *string, props *GatewayRe
 	return &j
 }
 
-// Experimental.
 func NewGatewayResponse_Override(g GatewayResponse, scope constructs.Construct, id *string, props *GatewayResponseProps) {
 	_init_.Initialize()
 
@@ -15453,7 +14936,6 @@ func GatewayResponse_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func GatewayResponse_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -15478,7 +14960,6 @@ func GatewayResponse_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (g *jsiiProxy_GatewayResponse) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		g,
@@ -15487,7 +14968,6 @@ func (g *jsiiProxy_GatewayResponse) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 	)
 }
 
-// Experimental.
 func (g *jsiiProxy_GatewayResponse) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -15507,7 +14987,6 @@ func (g *jsiiProxy_GatewayResponse) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (g *jsiiProxy_GatewayResponse) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -15526,7 +15005,6 @@ func (g *jsiiProxy_GatewayResponse) GetResourceArnAttribute(arnAttr *string, arn
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (g *jsiiProxy_GatewayResponse) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -15541,7 +15019,6 @@ func (g *jsiiProxy_GatewayResponse) GetResourceNameAttribute(nameAttr *string) *
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (g *jsiiProxy_GatewayResponse) ToString() *string {
 	var returns *string
 
@@ -15559,21 +15036,16 @@ func (g *jsiiProxy_GatewayResponse) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type GatewayResponseOptions struct {
 	// Custom headers parameters for response.
-	// Experimental.
 	ResponseHeaders *map[string]*string `json:"responseHeaders"`
 	// Http status code for response.
-	// Experimental.
 	StatusCode *string `json:"statusCode"`
 	// Custom templates to get mapped as response.
-	// Experimental.
 	Templates *map[string]*string `json:"templates"`
 	// Response type to associate with gateway response.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html
 	//
-	// Experimental.
 	Type ResponseType `json:"type"`
 }
 
@@ -15581,24 +15053,18 @@ type GatewayResponseOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type GatewayResponseProps struct {
 	// Custom headers parameters for response.
-	// Experimental.
 	ResponseHeaders *map[string]*string `json:"responseHeaders"`
 	// Http status code for response.
-	// Experimental.
 	StatusCode *string `json:"statusCode"`
 	// Custom templates to get mapped as response.
-	// Experimental.
 	Templates *map[string]*string `json:"templates"`
 	// Response type to associate with gateway response.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html
 	//
-	// Experimental.
 	Type ResponseType `json:"type"`
 	// Rest api resource to target.
-	// Experimental.
 	RestApi IRestApi `json:"restApi"`
 }
 
@@ -15615,7 +15081,6 @@ type GatewayResponseProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type HttpIntegration interface {
 	Integration
 	Bind(_method Method) *IntegrationConfig
@@ -15626,7 +15091,6 @@ type jsiiProxy_HttpIntegration struct {
 	jsiiProxy_Integration
 }
 
-// Experimental.
 func NewHttpIntegration(url *string, props *HttpIntegrationProps) HttpIntegration {
 	_init_.Initialize()
 
@@ -15641,7 +15105,6 @@ func NewHttpIntegration(url *string, props *HttpIntegrationProps) HttpIntegratio
 	return &j
 }
 
-// Experimental.
 func NewHttpIntegration_Override(h HttpIntegration, url *string, props *HttpIntegrationProps) {
 	_init_.Initialize()
 
@@ -15653,7 +15116,6 @@ func NewHttpIntegration_Override(h HttpIntegration, url *string, props *HttpInte
 }
 
 // Can be overridden by subclasses to allow the integration to interact with the method being integrated, access the REST API object, method ARNs, etc.
-// Experimental.
 func (h *jsiiProxy_HttpIntegration) Bind(_method Method) *IntegrationConfig {
 	var returns *IntegrationConfig
 
@@ -15669,24 +15131,18 @@ func (h *jsiiProxy_HttpIntegration) Bind(_method Method) *IntegrationConfig {
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type HttpIntegrationProps struct {
 	// HTTP method to use when invoking the backend URL.
-	// Experimental.
 	HttpMethod *string `json:"httpMethod"`
 	// Integration options, such as request/resopnse mapping, content handling, etc.
-	// Experimental.
 	Options *IntegrationOptions `json:"options"`
 	// Determines whether to use proxy integration or custom integration.
-	// Experimental.
 	Proxy *bool `json:"proxy"`
 }
 
 // Access log destination for a RestApi Stage.
-// Experimental.
 type IAccessLogDestination interface {
 	// Binds this destination to the RestApi Stage.
-	// Experimental.
 	Bind(stage IStage) *AccessLogDestinationConfig
 }
 
@@ -15709,14 +15165,11 @@ func (i *jsiiProxy_IAccessLogDestination) Bind(stage IStage) *AccessLogDestinati
 }
 
 // API keys are alphanumeric string values that you distribute to app developer customers to grant access to your API.
-// Experimental.
 type IApiKey interface {
 	awscdk.IResource
 	// The API key ARN.
-	// Experimental.
 	KeyArn() *string
 	// The API key ID.
-	// Experimental.
 	KeyId() *string
 }
 
@@ -15746,13 +15199,10 @@ func (j *jsiiProxy_IApiKey) KeyId() *string {
 }
 
 // Represents an API Gateway authorizer.
-// Experimental.
 type IAuthorizer interface {
 	// The authorization type of this authorizer.
-	// Experimental.
 	AuthorizationType() AuthorizationType
 	// The authorizer ID.
-	// Experimental.
 	AuthorizerId() *string
 }
 
@@ -15781,17 +15231,13 @@ func (j *jsiiProxy_IAuthorizer) AuthorizerId() *string {
 	return returns
 }
 
-// Experimental.
 type IDomainName interface {
 	awscdk.IResource
 	// The domain name (e.g. `example.com`).
-	// Experimental.
 	DomainName() *string
 	// The Route53 alias target to use in order to connect a record set to this domain through an alias.
-	// Experimental.
 	DomainNameAliasDomainName() *string
 	// The Route53 hosted zone ID to use in order to connect a record set to this domain through an alias.
-	// Experimental.
 	DomainNameAliasHostedZoneId() *string
 }
 
@@ -15831,7 +15277,6 @@ func (j *jsiiProxy_IDomainName) DomainNameAliasHostedZoneId() *string {
 }
 
 // Represents gateway response resource.
-// Experimental.
 type IGatewayResponse interface {
 	awscdk.IResource
 }
@@ -15841,10 +15286,8 @@ type jsiiProxy_IGatewayResponse struct {
 	internal.Type__awscdkIResource
 }
 
-// Experimental.
 type IModel interface {
 	// Returns the model name, such as 'myModel'.
-	// Experimental.
 	ModelId() *string
 }
 
@@ -15863,11 +15306,9 @@ func (j *jsiiProxy_IModel) ModelId() *string {
 	return returns
 }
 
-// Experimental.
 type IRequestValidator interface {
 	awscdk.IResource
 	// ID of the request validator, such as abc123.
-	// Experimental.
 	RequestValidatorId() *string
 }
 
@@ -15886,7 +15327,6 @@ func (j *jsiiProxy_IRequestValidator) RequestValidatorId() *string {
 	return returns
 }
 
-// Experimental.
 type IResource interface {
 	awscdk.IResource
 	// Adds an OPTIONS method to this resource which responds to Cross-Origin Resource Sharing (CORS) preflight requests.
@@ -15901,25 +15341,20 @@ type IResource interface {
 	// Returns: a `Method` object
 	// See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
 	//
-	// Experimental.
 	AddCorsPreflight(options *CorsOptions) Method
 	// Defines a new method for this resource.
 	//
 	// Returns: The newly created `Method` object.
-	// Experimental.
 	AddMethod(httpMethod *string, target Integration, options *MethodOptions) Method
 	// Adds a greedy proxy resource ("{proxy+}") and an ANY method to this route.
-	// Experimental.
 	AddProxy(options *ProxyResourceOptions) ProxyResource
 	// Defines a new child resource where this resource is the parent.
 	//
 	// Returns: A Resource object
-	// Experimental.
 	AddResource(pathPart *string, options *ResourceOptions) Resource
 	// Retrieves a child resource by path part.
 	//
 	// Returns: the child resource or undefined if not found
-	// Experimental.
 	GetResource(pathPart *string) IResource
 	// Gets or create all resources leading up to the specified path.
 	//
@@ -15927,7 +15362,6 @@ type IResource interface {
 	// - All resources are created using default options.
 	//
 	// Returns: a new or existing resource.
-	// Experimental.
 	ResourceForPath(path *string) Resource
 	// The rest API that this resource is part of.
 	//
@@ -15935,25 +15369,18 @@ type IResource interface {
 	// is being tracked by the top-level RestApi object for the purpose of calculating it's
 	// hash to determine the ID of the deployment. This allows us to automatically update
 	// the deployment when the model of the REST API changes.
-	// Experimental.
 	Api() IRestApi
 	// Default options for CORS preflight OPTIONS method.
-	// Experimental.
 	DefaultCorsPreflightOptions() *CorsOptions
 	// An integration to use as a default for all methods created within this API unless an integration is specified.
-	// Experimental.
 	DefaultIntegration() Integration
 	// Method options to use as a default for all methods created within this API unless custom options are specified.
-	// Experimental.
 	DefaultMethodOptions() *MethodOptions
 	// The parent of this resource or undefined for the root resource.
-	// Experimental.
 	ParentResource() IResource
 	// The full path of this resource.
-	// Experimental.
 	Path() *string
 	// The ID of the resource.
-	// Experimental.
 	ResourceId() *string
 }
 
@@ -16110,37 +15537,29 @@ func (j *jsiiProxy_IResource) ResourceId() *string {
 	return returns
 }
 
-// Experimental.
 type IRestApi interface {
 	awscdk.IResource
 	// Gets the "execute-api" ARN.
 	//
 	// Returns: The "execute-api" ARN.
-	// Experimental.
 	ArnForExecuteApi(method *string, path *string, stage *string) *string
 	// API Gateway stage that points to the latest deployment (if defined).
-	// Experimental.
 	DeploymentStage() Stage
 	// API Gateway stage that points to the latest deployment (if defined).
-	// Experimental.
 	SetDeploymentStage(d Stage)
 	// API Gateway deployment that represents the latest changes of the API.
 	//
 	// This resource will be automatically updated every time the REST API model changes.
 	// `undefined` when no deployment is configured.
-	// Experimental.
 	LatestDeployment() Deployment
 	// The ID of this API Gateway RestApi.
-	// Experimental.
 	RestApiId() *string
 	// The resource ID of the root resource.
-	// Experimental.
 	RestApiRootResourceId() *string
 	// Represents the root resource ("/") of this API. Use it to define the API model:.
 	//
 	// api.root.addMethod('ANY', redirectToHomePage); // "ANY /"
 	//     api.root.addResource('friends').addMethod('GET', getFriendsHandler); // "GET /friends"
-	// Experimental.
 	Root() IResource
 }
 
@@ -16221,14 +15640,11 @@ func (j *jsiiProxy_IRestApi) Root() IResource {
 }
 
 // Represents an APIGateway Stage.
-// Experimental.
 type IStage interface {
 	awscdk.IResource
 	// RestApi to which this stage is associated.
-	// Experimental.
 	RestApi() IRestApi
 	// Name of this stage.
-	// Experimental.
 	StageName() *string
 }
 
@@ -16258,14 +15674,11 @@ func (j *jsiiProxy_IStage) StageName() *string {
 }
 
 // A UsagePlan, either managed by this CDK app, or imported.
-// Experimental.
 type IUsagePlan interface {
 	awscdk.IResource
 	// Adds an ApiKey.
-	// Experimental.
 	AddApiKey(apiKey IApiKey, options *AddApiKeyOptions)
 	// Id of the usage plan.
-	// Experimental.
 	UsagePlanId() *string
 }
 
@@ -16293,11 +15706,9 @@ func (j *jsiiProxy_IUsagePlan) UsagePlanId() *string {
 }
 
 // Represents an API Gateway VpcLink.
-// Experimental.
 type IVpcLink interface {
 	awscdk.IResource
 	// Physical ID of the VpcLink resource.
-	// Experimental.
 	VpcLinkId() *string
 }
 
@@ -16323,7 +15734,6 @@ func (j *jsiiProxy_IVpcLink) VpcLinkId() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type IdentitySource interface {
 }
 
@@ -16332,7 +15742,6 @@ type jsiiProxy_IdentitySource struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewIdentitySource() IdentitySource {
 	_init_.Initialize()
 
@@ -16347,7 +15756,6 @@ func NewIdentitySource() IdentitySource {
 	return &j
 }
 
-// Experimental.
 func NewIdentitySource_Override(i IdentitySource) {
 	_init_.Initialize()
 
@@ -16361,7 +15769,6 @@ func NewIdentitySource_Override(i IdentitySource) {
 // Provides a properly formatted request context identity source.
 //
 // Returns: a request context identity source.
-// Experimental.
 func IdentitySource_Context(context *string) *string {
 	_init_.Initialize()
 
@@ -16380,7 +15787,6 @@ func IdentitySource_Context(context *string) *string {
 // Provides a properly formatted header identity source.
 //
 // Returns: a header identity source.
-// Experimental.
 func IdentitySource_Header(headerName *string) *string {
 	_init_.Initialize()
 
@@ -16399,7 +15805,6 @@ func IdentitySource_Header(headerName *string) *string {
 // Provides a properly formatted query string identity source.
 //
 // Returns: a query string identity source.
-// Experimental.
 func IdentitySource_QueryString(queryString *string) *string {
 	_init_.Initialize()
 
@@ -16418,7 +15823,6 @@ func IdentitySource_QueryString(queryString *string) *string {
 // Provides a properly formatted API Gateway stage variable identity source.
 //
 // Returns: an API Gateway stage variable identity source.
-// Experimental.
 func IdentitySource_StageVariable(stageVariable *string) *string {
 	_init_.Initialize()
 
@@ -16438,7 +15842,6 @@ func IdentitySource_StageVariable(stageVariable *string) *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type InlineApiDefinition interface {
 	ApiDefinition
 	Bind(_scope constructs.Construct) *ApiDefinitionConfig
@@ -16450,7 +15853,6 @@ type jsiiProxy_InlineApiDefinition struct {
 	jsiiProxy_ApiDefinition
 }
 
-// Experimental.
 func NewInlineApiDefinition(definition interface{}) InlineApiDefinition {
 	_init_.Initialize()
 
@@ -16465,7 +15867,6 @@ func NewInlineApiDefinition(definition interface{}) InlineApiDefinition {
 	return &j
 }
 
-// Experimental.
 func NewInlineApiDefinition_Override(i InlineApiDefinition, definition interface{}) {
 	_init_.Initialize()
 
@@ -16477,7 +15878,6 @@ func NewInlineApiDefinition_Override(i InlineApiDefinition, definition interface
 }
 
 // Loads the API specification from a local disk asset.
-// Experimental.
 func InlineApiDefinition_FromAsset(file *string, options *awss3assets.AssetOptions) AssetApiDefinition {
 	_init_.Initialize()
 
@@ -16494,7 +15894,6 @@ func InlineApiDefinition_FromAsset(file *string, options *awss3assets.AssetOptio
 }
 
 // Creates an API definition from a specification file in an S3 bucket.
-// Experimental.
 func InlineApiDefinition_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3ApiDefinition {
 	_init_.Initialize()
 
@@ -16517,7 +15916,6 @@ func InlineApiDefinition_FromBucket(bucket awss3.IBucket, key *string, objectVer
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 func InlineApiDefinition_FromInline(definition interface{}) InlineApiDefinition {
 	_init_.Initialize()
 
@@ -16534,7 +15932,6 @@ func InlineApiDefinition_FromInline(definition interface{}) InlineApiDefinition 
 }
 
 // Called when the specification is initialized to allow this object to bind to the stack, add resources and have fun.
-// Experimental.
 func (i *jsiiProxy_InlineApiDefinition) Bind(_scope constructs.Construct) *ApiDefinitionConfig {
 	var returns *ApiDefinitionConfig
 
@@ -16552,7 +15949,6 @@ func (i *jsiiProxy_InlineApiDefinition) Bind(_scope constructs.Construct) *ApiDe
 //
 // Specifically it's required to allow assets to add
 // metadata for tooling like SAM CLI to be able to find their origins.
-// Experimental.
 func (i *jsiiProxy_InlineApiDefinition) BindAfterCreate(_scope constructs.Construct, _restApi IRestApi) {
 	_jsii_.InvokeVoid(
 		i,
@@ -16568,7 +15964,6 @@ func (i *jsiiProxy_InlineApiDefinition) BindAfterCreate(_scope constructs.Constr
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Integration interface {
 	Bind(_method Method) *IntegrationConfig
 }
@@ -16578,7 +15973,6 @@ type jsiiProxy_Integration struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewIntegration(props *IntegrationProps) Integration {
 	_init_.Initialize()
 
@@ -16593,7 +15987,6 @@ func NewIntegration(props *IntegrationProps) Integration {
 	return &j
 }
 
-// Experimental.
 func NewIntegration_Override(i Integration, props *IntegrationProps) {
 	_init_.Initialize()
 
@@ -16605,7 +15998,6 @@ func NewIntegration_Override(i Integration, props *IntegrationProps) {
 }
 
 // Can be overridden by subclasses to allow the integration to interact with the method being integrated, access the REST API object, method ARNs, etc.
-// Experimental.
 func (i *jsiiProxy_Integration) Bind(_method Method) *IntegrationConfig {
 	var returns *IntegrationConfig
 
@@ -16623,7 +16015,6 @@ func (i *jsiiProxy_Integration) Bind(_method Method) *IntegrationConfig {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type IntegrationConfig struct {
 	// This value is included in computing the Deployment's fingerprint.
 	//
@@ -16631,50 +16022,38 @@ type IntegrationConfig struct {
 	// changes, a new deployment is triggered.
 	// This property should contain values associated with the Integration that upon changing
 	// should trigger a fresh the Deployment needs to be refreshed.
-	// Experimental.
 	DeploymentToken *string `json:"deploymentToken"`
 	// The integration's HTTP method type.
-	// Experimental.
 	IntegrationHttpMethod *string `json:"integrationHttpMethod"`
 	// Integration options.
-	// Experimental.
 	Options *IntegrationOptions `json:"options"`
 	// Specifies an API method integration type.
-	// Experimental.
 	Type IntegrationType `json:"type"`
 	// The Uniform Resource Identifier (URI) for the integration.
 	// See: https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#uri
 	//
-	// Experimental.
 	Uri *string `json:"uri"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type IntegrationOptions struct {
 	// A list of request parameters whose values are to be cached.
 	//
 	// It determines
 	// request parameters that will make it into the cache key.
-	// Experimental.
 	CacheKeyParameters *[]*string `json:"cacheKeyParameters"`
 	// An API-specific tag group of related cached parameters.
-	// Experimental.
 	CacheNamespace *string `json:"cacheNamespace"`
 	// The type of network connection to the integration endpoint.
-	// Experimental.
 	ConnectionType ConnectionType `json:"connectionType"`
 	// Specifies how to handle request payload content type conversions.
-	// Experimental.
 	ContentHandling ContentHandling `json:"contentHandling"`
 	// Requires that the caller's identity be passed through from the request.
-	// Experimental.
 	CredentialsPassthrough *bool `json:"credentialsPassthrough"`
 	// An IAM role that API Gateway assumes.
 	//
 	// Mutually exclusive with `credentialsPassThrough`.
-	// Experimental.
 	CredentialsRole awsiam.IRole `json:"credentialsRole"`
 	// The response that API Gateway provides after a method's backend completes processing a request.
 	//
@@ -16682,13 +16061,11 @@ type IntegrationOptions struct {
 	// backend so that you can control how API Gateway surfaces backend
 	// responses. For example, you can map the backend status codes to codes
 	// that you define.
-	// Experimental.
 	IntegrationResponses *[]*IntegrationResponse `json:"integrationResponses"`
 	// Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource.
 	//
 	// There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and
 	// NEVER.
-	// Experimental.
 	PassthroughBehavior PassthroughBehavior `json:"passthroughBehavior"`
 	// The request parameters that API Gateway sends with the backend request.
 	//
@@ -16702,7 +16079,6 @@ type IntegrationOptions struct {
 	// The source must be an existing method request parameter or a static
 	// value. You must enclose static values in single quotation marks and
 	// pre-encode these values based on their destination in the request.
-	// Experimental.
 	RequestParameters *map[string]*string `json:"requestParameters"`
 	// A map of Apache Velocity templates that are applied on the request payload.
 	//
@@ -16716,34 +16092,27 @@ type IntegrationOptions struct {
 	// ```
 	// See: http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html
 	//
-	// Experimental.
 	RequestTemplates *map[string]*string `json:"requestTemplates"`
 	// The maximum amount of time an integration will run before it returns without a response.
 	//
 	// Must be between 50 milliseconds and 29 seconds.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
 	// The VpcLink used for the integration.
 	//
 	// Required if connectionType is VPC_LINK
-	// Experimental.
 	VpcLink IVpcLink `json:"vpcLink"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type IntegrationProps struct {
 	// The integration's HTTP method type.
 	//
 	// Required unless you use a MOCK integration.
-	// Experimental.
 	IntegrationHttpMethod *string `json:"integrationHttpMethod"`
 	// Integration options.
-	// Experimental.
 	Options *IntegrationOptions `json:"options"`
 	// Specifies an API method integration type.
-	// Experimental.
 	Type IntegrationType `json:"type"`
 	// The Uniform Resource Identifier (URI) for the integration.
 	//
@@ -16756,16 +16125,13 @@ type IntegrationProps struct {
 	//    form /2015-03-31/functions/LambdaFunctionARN/invocations.
 	// See: https://docs.aws.amazon.com/apigateway/api-reference/resource/integration/#uri
 	//
-	// Experimental.
 	Uri interface{} `json:"uri"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type IntegrationResponse struct {
 	// Specifies how to handle request payload content type conversions.
-	// Experimental.
 	ContentHandling ContentHandling `json:"contentHandling"`
 	// The response parameters from the backend response that API Gateway sends to the method response.
 	//
@@ -16779,7 +16145,6 @@ type IntegrationResponse struct {
 	//    request.
 	// See: http://docs.aws.amazon.com/apigateway/latest/developerguide/request-response-data-mappings.html
 	//
-	// Experimental.
 	ResponseParameters *map[string]*string `json:"responseParameters"`
 	// The templates that are used to transform the integration response body.
 	//
@@ -16787,7 +16152,6 @@ type IntegrationResponse struct {
 	// a template as the value.
 	// See: http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html
 	//
-	// Experimental.
 	ResponseTemplates *map[string]*string `json:"responseTemplates"`
 	// Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end.
 	//
@@ -16797,16 +16161,13 @@ type IntegrationResponse struct {
 	// header is matched. For all other HTTP and AWS back ends, the HTTP status code is matched.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-integration-settings-integration-response.html
 	//
-	// Experimental.
 	SelectionPattern *string `json:"selectionPattern"`
 	// The status code that API Gateway uses to map the integration response to a MethodResponse status code.
-	// Experimental.
 	StatusCode *string `json:"statusCode"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type IntegrationType string
 
 const (
@@ -16825,86 +16186,48 @@ const (
 //
 // See: https://github.com/tdegrunt/jsonschema
 //
-// Experimental.
 type JsonSchema struct {
-	// Experimental.
 	AdditionalItems *[]*JsonSchema `json:"additionalItems"`
-	// Experimental.
 	AdditionalProperties interface{} `json:"additionalProperties"`
-	// Experimental.
 	AllOf *[]*JsonSchema `json:"allOf"`
-	// Experimental.
 	AnyOf *[]*JsonSchema `json:"anyOf"`
-	// Experimental.
 	Contains interface{} `json:"contains"`
 	// The default value if you use an enum.
-	// Experimental.
 	Default interface{} `json:"default"`
-	// Experimental.
 	Definitions *map[string]*JsonSchema `json:"definitions"`
-	// Experimental.
 	Dependencies *map[string]interface{} `json:"dependencies"`
-	// Experimental.
 	Description *string `json:"description"`
-	// Experimental.
 	Enum *[]interface{} `json:"enum"`
-	// Experimental.
 	ExclusiveMaximum *bool `json:"exclusiveMaximum"`
-	// Experimental.
 	ExclusiveMinimum *bool `json:"exclusiveMinimum"`
-	// Experimental.
 	Format *string `json:"format"`
-	// Experimental.
 	Id *string `json:"id"`
-	// Experimental.
 	Items interface{} `json:"items"`
-	// Experimental.
 	Maximum *float64 `json:"maximum"`
-	// Experimental.
 	MaxItems *float64 `json:"maxItems"`
-	// Experimental.
 	MaxLength *float64 `json:"maxLength"`
-	// Experimental.
 	MaxProperties *float64 `json:"maxProperties"`
-	// Experimental.
 	Minimum *float64 `json:"minimum"`
-	// Experimental.
 	MinItems *float64 `json:"minItems"`
-	// Experimental.
 	MinLength *float64 `json:"minLength"`
-	// Experimental.
 	MinProperties *float64 `json:"minProperties"`
-	// Experimental.
 	MultipleOf *float64 `json:"multipleOf"`
-	// Experimental.
 	Not **JsonSchema `json:"not"`
-	// Experimental.
 	OneOf *[]*JsonSchema `json:"oneOf"`
-	// Experimental.
 	Pattern *string `json:"pattern"`
-	// Experimental.
 	PatternProperties *map[string]*JsonSchema `json:"patternProperties"`
-	// Experimental.
 	Properties *map[string]*JsonSchema `json:"properties"`
-	// Experimental.
 	PropertyNames **JsonSchema `json:"propertyNames"`
-	// Experimental.
 	Ref *string `json:"ref"`
-	// Experimental.
 	Required *[]*string `json:"required"`
-	// Experimental.
 	Schema JsonSchemaVersion `json:"schema"`
-	// Experimental.
 	Title *string `json:"title"`
-	// Experimental.
 	Type interface{} `json:"type"`
-	// Experimental.
 	UniqueItems *bool `json:"uniqueItems"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type JsonSchemaType string
 
 const (
@@ -16919,7 +16242,6 @@ const (
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type JsonSchemaVersion string
 
 const (
@@ -16931,34 +16253,24 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type JsonWithStandardFieldProps struct {
 	// If this flag is enabled, the principal identifier of the caller will be output to the log.
-	// Experimental.
 	Caller *bool `json:"caller"`
 	// If this flag is enabled, the http method will be output to the log.
-	// Experimental.
 	HttpMethod *bool `json:"httpMethod"`
 	// If this flag is enabled, the source IP of request will be output to the log.
-	// Experimental.
 	Ip *bool `json:"ip"`
 	// If this flag is enabled, the request protocol will be output to the log.
-	// Experimental.
 	Protocol *bool `json:"protocol"`
 	// If this flag is enabled, the CLF-formatted request time((dd/MMM/yyyy:HH:mm:ss +-hhmm) will be output to the log.
-	// Experimental.
 	RequestTime *bool `json:"requestTime"`
 	// If this flag is enabled, the path to your resource will be output to the log.
-	// Experimental.
 	ResourcePath *bool `json:"resourcePath"`
 	// If this flag is enabled, the response payload length will be output to the log.
-	// Experimental.
 	ResponseLength *bool `json:"responseLength"`
 	// If this flag is enabled, the method response status will be output to the log.
-	// Experimental.
 	Status *bool `json:"status"`
 	// If this flag is enabled, the principal identifier of the user will be output to the log.
-	// Experimental.
 	User *bool `json:"user"`
 }
 
@@ -16966,18 +16278,15 @@ type JsonWithStandardFieldProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LambdaAuthorizerProps struct {
 	// An optional IAM role for APIGateway to assume before calling the Lambda-based authorizer.
 	//
 	// The IAM role must be
 	// assumable by 'apigateway.amazonaws.com'.
-	// Experimental.
 	AssumeRole awsiam.IRole `json:"assumeRole"`
 	// An optional human friendly name for the authorizer.
 	//
 	// Note that, this is not the primary identifier of the authorizer.
-	// Experimental.
 	AuthorizerName *string `json:"authorizerName"`
 	// The handler for the authorizer lambda function.
 	//
@@ -16985,13 +16294,11 @@ type LambdaAuthorizerProps struct {
 	// API Gateway has documented the handler's input specification
 	// {@link https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-lambda-authorizer-input.html | here} and output specification
 	// {@link https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-lambda-authorizer-output.html | here}.
-	// Experimental.
 	Handler awslambda.IFunction `json:"handler"`
 	// How long APIGateway should cache the results.
 	//
 	// Max 1 hour.
 	// Disable caching by setting this to 0.
-	// Experimental.
 	ResultsCacheTtl awscdk.Duration `json:"resultsCacheTtl"`
 }
 
@@ -16999,7 +16306,6 @@ type LambdaAuthorizerProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LambdaIntegration interface {
 	AwsIntegration
 	Bind(method Method) *IntegrationConfig
@@ -17010,7 +16316,6 @@ type jsiiProxy_LambdaIntegration struct {
 	jsiiProxy_AwsIntegration
 }
 
-// Experimental.
 func NewLambdaIntegration(handler awslambda.IFunction, options *LambdaIntegrationOptions) LambdaIntegration {
 	_init_.Initialize()
 
@@ -17025,7 +16330,6 @@ func NewLambdaIntegration(handler awslambda.IFunction, options *LambdaIntegratio
 	return &j
 }
 
-// Experimental.
 func NewLambdaIntegration_Override(l LambdaIntegration, handler awslambda.IFunction, options *LambdaIntegrationOptions) {
 	_init_.Initialize()
 
@@ -17037,7 +16341,6 @@ func NewLambdaIntegration_Override(l LambdaIntegration, handler awslambda.IFunct
 }
 
 // Can be overridden by subclasses to allow the integration to interact with the method being integrated, access the REST API object, method ARNs, etc.
-// Experimental.
 func (l *jsiiProxy_LambdaIntegration) Bind(method Method) *IntegrationConfig {
 	var returns *IntegrationConfig
 
@@ -17053,30 +16356,23 @@ func (l *jsiiProxy_LambdaIntegration) Bind(method Method) *IntegrationConfig {
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type LambdaIntegrationOptions struct {
 	// A list of request parameters whose values are to be cached.
 	//
 	// It determines
 	// request parameters that will make it into the cache key.
-	// Experimental.
 	CacheKeyParameters *[]*string `json:"cacheKeyParameters"`
 	// An API-specific tag group of related cached parameters.
-	// Experimental.
 	CacheNamespace *string `json:"cacheNamespace"`
 	// The type of network connection to the integration endpoint.
-	// Experimental.
 	ConnectionType ConnectionType `json:"connectionType"`
 	// Specifies how to handle request payload content type conversions.
-	// Experimental.
 	ContentHandling ContentHandling `json:"contentHandling"`
 	// Requires that the caller's identity be passed through from the request.
-	// Experimental.
 	CredentialsPassthrough *bool `json:"credentialsPassthrough"`
 	// An IAM role that API Gateway assumes.
 	//
 	// Mutually exclusive with `credentialsPassThrough`.
-	// Experimental.
 	CredentialsRole awsiam.IRole `json:"credentialsRole"`
 	// The response that API Gateway provides after a method's backend completes processing a request.
 	//
@@ -17084,13 +16380,11 @@ type LambdaIntegrationOptions struct {
 	// backend so that you can control how API Gateway surfaces backend
 	// responses. For example, you can map the backend status codes to codes
 	// that you define.
-	// Experimental.
 	IntegrationResponses *[]*IntegrationResponse `json:"integrationResponses"`
 	// Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource.
 	//
 	// There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and
 	// NEVER.
-	// Experimental.
 	PassthroughBehavior PassthroughBehavior `json:"passthroughBehavior"`
 	// The request parameters that API Gateway sends with the backend request.
 	//
@@ -17104,7 +16398,6 @@ type LambdaIntegrationOptions struct {
 	// The source must be an existing method request parameter or a static
 	// value. You must enclose static values in single quotation marks and
 	// pre-encode these values based on their destination in the request.
-	// Experimental.
 	RequestParameters *map[string]*string `json:"requestParameters"`
 	// A map of Apache Velocity templates that are applied on the request payload.
 	//
@@ -17118,17 +16411,14 @@ type LambdaIntegrationOptions struct {
 	// ```
 	// See: http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html
 	//
-	// Experimental.
 	RequestTemplates *map[string]*string `json:"requestTemplates"`
 	// The maximum amount of time an integration will run before it returns without a response.
 	//
 	// Must be between 50 milliseconds and 29 seconds.
-	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
 	// The VpcLink used for the integration.
 	//
 	// Required if connectionType is VPC_LINK
-	// Experimental.
 	VpcLink IVpcLink `json:"vpcLink"`
 	// Allow invoking method from AWS Console UI (for testing purposes).
 	//
@@ -17136,12 +16426,10 @@ type LambdaIntegrationOptions struct {
 	// will allow the `test-invoke-stage` stage to invoke this handler. If this
 	// is set to `false`, the function will only be usable from the deployment
 	// endpoint.
-	// Experimental.
 	AllowTestInvoke *bool `json:"allowTestInvoke"`
 	// Use proxy integration or normal (request/response mapping) integration.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-output-format
 	//
-	// Experimental.
 	Proxy *bool `json:"proxy"`
 }
 
@@ -17153,7 +16441,6 @@ type LambdaIntegrationOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LambdaRestApi interface {
 	RestApi
 	DeploymentStage() Stage
@@ -17329,7 +16616,6 @@ func (j *jsiiProxy_LambdaRestApi) Url() *string {
 }
 
 
-// Experimental.
 func NewLambdaRestApi(scope constructs.Construct, id *string, props *LambdaRestApiProps) LambdaRestApi {
 	_init_.Initialize()
 
@@ -17344,7 +16630,6 @@ func NewLambdaRestApi(scope constructs.Construct, id *string, props *LambdaRestA
 	return &j
 }
 
-// Experimental.
 func NewLambdaRestApi_Override(l LambdaRestApi, scope constructs.Construct, id *string, props *LambdaRestApiProps) {
 	_init_.Initialize()
 
@@ -17364,7 +16649,6 @@ func (j *jsiiProxy_LambdaRestApi) SetDeploymentStage(val Stage) {
 }
 
 // Import an existing RestApi that can be configured with additional Methods and Resources.
-// Experimental.
 func LambdaRestApi_FromRestApiAttributes(scope constructs.Construct, id *string, attrs *RestApiAttributes) IRestApi {
 	_init_.Initialize()
 
@@ -17381,7 +16665,6 @@ func LambdaRestApi_FromRestApiAttributes(scope constructs.Construct, id *string,
 }
 
 // Import an existing RestApi.
-// Experimental.
 func LambdaRestApi_FromRestApiId(scope constructs.Construct, id *string, restApiId *string) IRestApi {
 	_init_.Initialize()
 
@@ -17417,7 +16700,6 @@ func LambdaRestApi_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func LambdaRestApi_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -17434,7 +16716,6 @@ func LambdaRestApi_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Add an ApiKey.
-// Experimental.
 func (l *jsiiProxy_LambdaRestApi) AddApiKey(id *string, options *ApiKeyOptions) IApiKey {
 	var returns IApiKey
 
@@ -17449,7 +16730,6 @@ func (l *jsiiProxy_LambdaRestApi) AddApiKey(id *string, options *ApiKeyOptions) 
 }
 
 // Defines an API Gateway domain name and maps it to this API.
-// Experimental.
 func (l *jsiiProxy_LambdaRestApi) AddDomainName(id *string, options *DomainNameOptions) DomainName {
 	var returns DomainName
 
@@ -17464,7 +16744,6 @@ func (l *jsiiProxy_LambdaRestApi) AddDomainName(id *string, options *DomainNameO
 }
 
 // Adds a new gateway response.
-// Experimental.
 func (l *jsiiProxy_LambdaRestApi) AddGatewayResponse(id *string, options *GatewayResponseOptions) GatewayResponse {
 	var returns GatewayResponse
 
@@ -17479,7 +16758,6 @@ func (l *jsiiProxy_LambdaRestApi) AddGatewayResponse(id *string, options *Gatewa
 }
 
 // Adds a new model.
-// Experimental.
 func (l *jsiiProxy_LambdaRestApi) AddModel(id *string, props *ModelOptions) Model {
 	var returns Model
 
@@ -17494,7 +16772,6 @@ func (l *jsiiProxy_LambdaRestApi) AddModel(id *string, props *ModelOptions) Mode
 }
 
 // Adds a new request validator.
-// Experimental.
 func (l *jsiiProxy_LambdaRestApi) AddRequestValidator(id *string, props *RequestValidatorOptions) RequestValidator {
 	var returns RequestValidator
 
@@ -17509,7 +16786,6 @@ func (l *jsiiProxy_LambdaRestApi) AddRequestValidator(id *string, props *Request
 }
 
 // Adds a usage plan.
-// Experimental.
 func (l *jsiiProxy_LambdaRestApi) AddUsagePlan(id *string, props *UsagePlanProps) UsagePlan {
 	var returns UsagePlan
 
@@ -17532,7 +16808,6 @@ func (l *jsiiProxy_LambdaRestApi) AddUsagePlan(id *string, props *UsagePlanProps
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (l *jsiiProxy_LambdaRestApi) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		l,
@@ -17542,7 +16817,6 @@ func (l *jsiiProxy_LambdaRestApi) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 }
 
 // Gets the "execute-api" ARN.
-// Experimental.
 func (l *jsiiProxy_LambdaRestApi) ArnForExecuteApi(method *string, path *string, stage *string) *string {
 	var returns *string
 
@@ -17556,7 +16830,6 @@ func (l *jsiiProxy_LambdaRestApi) ArnForExecuteApi(method *string, path *string,
 	return returns
 }
 
-// Experimental.
 func (l *jsiiProxy_LambdaRestApi) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -17576,7 +16849,6 @@ func (l *jsiiProxy_LambdaRestApi) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (l *jsiiProxy_LambdaRestApi) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -17595,7 +16867,6 @@ func (l *jsiiProxy_LambdaRestApi) GetResourceArnAttribute(arnAttr *string, arnCo
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (l *jsiiProxy_LambdaRestApi) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -17610,7 +16881,6 @@ func (l *jsiiProxy_LambdaRestApi) GetResourceNameAttribute(nameAttr *string) *st
 }
 
 // Returns the given named metric for this API.
-// Experimental.
 func (l *jsiiProxy_LambdaRestApi) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -17627,7 +16897,6 @@ func (l *jsiiProxy_LambdaRestApi) Metric(metricName *string, props *awscloudwatc
 // Metric for the number of requests served from the API cache in a given period.
 //
 // Default: sum over 5 minutes
-// Experimental.
 func (l *jsiiProxy_LambdaRestApi) MetricCacheHitCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -17644,7 +16913,6 @@ func (l *jsiiProxy_LambdaRestApi) MetricCacheHitCount(props *awscloudwatch.Metri
 // Metric for the number of requests served from the backend in a given period, when API caching is enabled.
 //
 // Default: sum over 5 minutes
-// Experimental.
 func (l *jsiiProxy_LambdaRestApi) MetricCacheMissCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -17661,7 +16929,6 @@ func (l *jsiiProxy_LambdaRestApi) MetricCacheMissCount(props *awscloudwatch.Metr
 // Metric for the number of client-side errors captured in a given period.
 //
 // Default: sum over 5 minutes
-// Experimental.
 func (l *jsiiProxy_LambdaRestApi) MetricClientError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -17678,7 +16945,6 @@ func (l *jsiiProxy_LambdaRestApi) MetricClientError(props *awscloudwatch.MetricO
 // Metric for the total number API requests in a given period.
 //
 // Default: sample count over 5 minutes
-// Experimental.
 func (l *jsiiProxy_LambdaRestApi) MetricCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -17695,7 +16961,6 @@ func (l *jsiiProxy_LambdaRestApi) MetricCount(props *awscloudwatch.MetricOptions
 // Metric for the time between when API Gateway relays a request to the backend and when it receives a response from the backend.
 //
 // Default: average over 5 minutes.
-// Experimental.
 func (l *jsiiProxy_LambdaRestApi) MetricIntegrationLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -17714,7 +16979,6 @@ func (l *jsiiProxy_LambdaRestApi) MetricIntegrationLatency(props *awscloudwatch.
 // The latency includes the integration latency and other API Gateway overhead.
 //
 // Default: average over 5 minutes.
-// Experimental.
 func (l *jsiiProxy_LambdaRestApi) MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -17731,7 +16995,6 @@ func (l *jsiiProxy_LambdaRestApi) MetricLatency(props *awscloudwatch.MetricOptio
 // Metric for the number of server-side errors captured in a given period.
 //
 // Default: sum over 5 minutes
-// Experimental.
 func (l *jsiiProxy_LambdaRestApi) MetricServerError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -17746,7 +17009,6 @@ func (l *jsiiProxy_LambdaRestApi) MetricServerError(props *awscloudwatch.MetricO
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (l *jsiiProxy_LambdaRestApi) ToString() *string {
 	var returns *string
 
@@ -17763,7 +17025,6 @@ func (l *jsiiProxy_LambdaRestApi) ToString() *string {
 // Returns the URL for an HTTP path.
 //
 // Fails if `deploymentStage` is not set either by `deploy` or explicitly.
-// Experimental.
 func (l *jsiiProxy_LambdaRestApi) UrlForPath(path *string) *string {
 	var returns *string
 
@@ -17779,21 +17040,16 @@ func (l *jsiiProxy_LambdaRestApi) UrlForPath(path *string) *string {
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type LambdaRestApiProps struct {
 	// Adds a CORS preflight OPTIONS method to this resource and all child resources.
 	//
 	// You can add CORS at the resource-level using `addCorsPreflight`.
-	// Experimental.
 	DefaultCorsPreflightOptions *CorsOptions `json:"defaultCorsPreflightOptions"`
 	// An integration to use as a default for all methods created within this API unless an integration is specified.
-	// Experimental.
 	DefaultIntegration Integration `json:"defaultIntegration"`
 	// Method options to use as a default for all methods created within this API unless custom options are specified.
-	// Experimental.
 	DefaultMethodOptions *MethodOptions `json:"defaultMethodOptions"`
 	// Automatically configure an AWS CloudWatch role for API Gateway.
-	// Experimental.
 	CloudWatchRole *bool `json:"cloudWatchRole"`
 	// Indicates if a Deployment should be automatically created for this API, and recreated when the API model (resources, methods) changes.
 	//
@@ -17811,13 +17067,11 @@ type LambdaRestApiProps struct {
 	//
 	// A CloudFormation Output will also be defined with the root URL endpoint
 	// of this REST API.
-	// Experimental.
 	Deploy *bool `json:"deploy"`
 	// Options for the API Gateway stage that will always point to the latest deployment when `deploy` is enabled.
 	//
 	// If `deploy` is disabled,
 	// this value cannot be set.
-	// Experimental.
 	DeployOptions *StageOptions `json:"deployOptions"`
 	// Specifies whether clients can invoke the API using the default execute-api endpoint.
 	//
@@ -17825,57 +17079,43 @@ type LambdaRestApiProps struct {
 	// API, disable the default endpoint.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html
 	//
-	// Experimental.
 	DisableExecuteApiEndpoint *bool `json:"disableExecuteApiEndpoint"`
 	// Configure a custom domain name and map it to this API.
-	// Experimental.
 	DomainName *DomainNameOptions `json:"domainName"`
 	// Export name for the CfnOutput containing the API endpoint.
-	// Experimental.
 	EndpointExportName *string `json:"endpointExportName"`
 	// A list of the endpoint types of the API.
 	//
 	// Use this property when creating
 	// an API.
-	// Experimental.
 	EndpointTypes *[]EndpointType `json:"endpointTypes"`
 	// Indicates whether to roll back the resource if a warning occurs while API Gateway is creating the RestApi resource.
-	// Experimental.
 	FailOnWarnings *bool `json:"failOnWarnings"`
 	// Custom header parameters for the request.
 	// See: https://docs.aws.amazon.com/cli/latest/reference/apigateway/import-rest-api.html
 	//
-	// Experimental.
 	Parameters *map[string]*string `json:"parameters"`
 	// A policy document that contains the permissions for this RestApi.
-	// Experimental.
 	Policy awsiam.PolicyDocument `json:"policy"`
 	// A name for the API Gateway RestApi resource.
-	// Experimental.
 	RestApiName *string `json:"restApiName"`
 	// Retains old deployment resources when the API changes.
 	//
 	// This allows
 	// manually reverting stages to point to old deployments via the AWS
 	// Console.
-	// Experimental.
 	RetainDeployments *bool `json:"retainDeployments"`
 	// The source of the API key for metering requests according to a usage plan.
-	// Experimental.
 	ApiKeySourceType ApiKeySourceType `json:"apiKeySourceType"`
 	// The list of binary media mime-types that are supported by the RestApi resource, such as "image/png" or "application/octet-stream".
-	// Experimental.
 	BinaryMediaTypes *[]*string `json:"binaryMediaTypes"`
 	// The ID of the API Gateway RestApi resource that you want to clone.
-	// Experimental.
 	CloneFrom IRestApi `json:"cloneFrom"`
 	// A description of the purpose of this API Gateway RestApi resource.
-	// Experimental.
 	Description *string `json:"description"`
 	// The EndpointConfiguration property type specifies the endpoint types of a REST API.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html
 	//
-	// Experimental.
 	EndpointConfiguration *EndpointConfiguration `json:"endpointConfiguration"`
 	// A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (when undefined) on an API.
 	//
@@ -17883,19 +17123,16 @@ type LambdaRestApiProps struct {
 	// decompression is not applied on the payload if the payload size is
 	// smaller than this value. Setting it to zero allows compression for any
 	// payload size.
-	// Experimental.
 	MinimumCompressionSize *float64 `json:"minimumCompressionSize"`
 	// The default Lambda function that handles all requests from this API.
 	//
 	// This handler will be used as a the default integration for all methods in
 	// this API, unless specified otherwise in `addMethod`.
-	// Experimental.
 	Handler awslambda.IFunction `json:"handler"`
 	// If true, route all requests to the Lambda Function.
 	//
 	// If set to false, you will need to explicitly define the API model using
 	// `addResource` and `addMethod` (or `addProxy`).
-	// Experimental.
 	Proxy *bool `json:"proxy"`
 }
 
@@ -17903,7 +17140,6 @@ type LambdaRestApiProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LogGroupLogDestination interface {
 	IAccessLogDestination
 	Bind(_stage IStage) *AccessLogDestinationConfig
@@ -17914,7 +17150,6 @@ type jsiiProxy_LogGroupLogDestination struct {
 	jsiiProxy_IAccessLogDestination
 }
 
-// Experimental.
 func NewLogGroupLogDestination(logGroup awslogs.ILogGroup) LogGroupLogDestination {
 	_init_.Initialize()
 
@@ -17929,7 +17164,6 @@ func NewLogGroupLogDestination(logGroup awslogs.ILogGroup) LogGroupLogDestinatio
 	return &j
 }
 
-// Experimental.
 func NewLogGroupLogDestination_Override(l LogGroupLogDestination, logGroup awslogs.ILogGroup) {
 	_init_.Initialize()
 
@@ -17941,7 +17175,6 @@ func NewLogGroupLogDestination_Override(l LogGroupLogDestination, logGroup awslo
 }
 
 // Binds this destination to the CloudWatch Logs.
-// Experimental.
 func (l *jsiiProxy_LogGroupLogDestination) Bind(_stage IStage) *AccessLogDestinationConfig {
 	var returns *AccessLogDestinationConfig
 
@@ -17959,24 +17192,19 @@ func (l *jsiiProxy_LogGroupLogDestination) Bind(_stage IStage) *AccessLogDestina
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type MTLSConfig struct {
 	// The bucket that the trust store is hosted in.
-	// Experimental.
 	Bucket awss3.IBucket `json:"bucket"`
 	// The key in S3 to look at for the trust store.
-	// Experimental.
 	Key *string `json:"key"`
 	// The version of the S3 object that contains your truststore.
 	//
 	// To specify a version, you must have versioning enabled for the S3 bucket.
-	// Experimental.
 	Version *string `json:"version"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type Method interface {
 	awscdk.Resource
 	Api() IRestApi
@@ -18102,7 +17330,6 @@ func (j *jsiiProxy_Method) TestMethodArn() *string {
 }
 
 
-// Experimental.
 func NewMethod(scope constructs.Construct, id *string, props *MethodProps) Method {
 	_init_.Initialize()
 
@@ -18117,7 +17344,6 @@ func NewMethod(scope constructs.Construct, id *string, props *MethodProps) Metho
 	return &j
 }
 
-// Experimental.
 func NewMethod_Override(m Method, scope constructs.Construct, id *string, props *MethodProps) {
 	_init_.Initialize()
 
@@ -18148,7 +17374,6 @@ func Method_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func Method_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -18173,7 +17398,6 @@ func Method_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (m *jsiiProxy_Method) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		m,
@@ -18182,7 +17406,6 @@ func (m *jsiiProxy_Method) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (m *jsiiProxy_Method) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -18202,7 +17425,6 @@ func (m *jsiiProxy_Method) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (m *jsiiProxy_Method) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -18221,7 +17443,6 @@ func (m *jsiiProxy_Method) GetResourceArnAttribute(arnAttr *string, arnComponent
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (m *jsiiProxy_Method) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -18236,7 +17457,6 @@ func (m *jsiiProxy_Method) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (m *jsiiProxy_Method) ToString() *string {
 	var returns *string
 
@@ -18252,10 +17472,8 @@ func (m *jsiiProxy_Method) ToString() *string {
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type MethodDeploymentOptions struct {
 	// Indicates whether the cached responses are encrypted.
-	// Experimental.
 	CacheDataEncrypted *bool `json:"cacheDataEncrypted"`
 	// Specifies the time to live (TTL), in seconds, for cached responses.
 	//
@@ -18263,42 +17481,34 @@ type MethodDeploymentOptions struct {
 	// higher the TTL, the longer the response will be cached.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html
 	//
-	// Experimental.
 	CacheTtl awscdk.Duration `json:"cacheTtl"`
 	// Specifies whether responses should be cached and returned for requests.
 	//
 	// A
 	// cache cluster must be enabled on the stage for responses to be cached.
-	// Experimental.
 	CachingEnabled *bool `json:"cachingEnabled"`
 	// Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
-	// Experimental.
 	DataTraceEnabled *bool `json:"dataTraceEnabled"`
 	// Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
-	// Experimental.
 	LoggingLevel MethodLoggingLevel `json:"loggingLevel"`
 	// Specifies whether Amazon CloudWatch metrics are enabled for this method.
-	// Experimental.
 	MetricsEnabled *bool `json:"metricsEnabled"`
 	// Specifies the throttling burst limit.
 	//
 	// The total rate of all requests in your AWS account is limited to 5,000 requests.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html
 	//
-	// Experimental.
 	ThrottlingBurstLimit *float64 `json:"throttlingBurstLimit"`
 	// Specifies the throttling rate limit.
 	//
 	// The total rate of all requests in your AWS account is limited to 10,000 requests per second (rps).
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html
 	//
-	// Experimental.
 	ThrottlingRateLimit *float64 `json:"throttlingRateLimit"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type MethodLoggingLevel string
 
 const (
@@ -18309,10 +17519,8 @@ const (
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type MethodOptions struct {
 	// Indicates whether the method requires clients to submit a valid API key.
-	// Experimental.
 	ApiKeyRequired *bool `json:"apiKeyRequired"`
 	// A list of authorization scopes configured on the method.
 	//
@@ -18320,7 +17528,6 @@ type MethodOptions struct {
 	// a COGNITO_USER_POOLS authorizer to authorize the method invocation.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-authorizationscopes
 	//
-	// Experimental.
 	AuthorizationScopes *[]*string `json:"authorizationScopes"`
 	// Method authorization. If the value is set of `Custom`, an `authorizer` must also be specified.
 	//
@@ -18328,23 +17535,19 @@ type MethodOptions struct {
 	// it is recommended that this option not be specified. The authorizer will take care of setting the correct authorization type.
 	// However, specifying an authorization type using this property that conflicts with what is expected by the {@link Authorizer}
 	// will result in an error.
-	// Experimental.
 	AuthorizationType AuthorizationType `json:"authorizationType"`
 	// If `authorizationType` is `Custom`, this specifies the ID of the method authorizer resource.
 	//
 	// If specified, the value of `authorizationType` must be set to `Custom`
-	// Experimental.
 	Authorizer IAuthorizer `json:"authorizer"`
 	// The responses that can be sent to the client who calls the method.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-settings-method-response.html
 	//
-	// Experimental.
 	MethodResponses *[]*MethodResponse `json:"methodResponses"`
 	// A friendly operation name for the method.
 	//
 	// For example, you can assign the
 	// OperationName of ListPets for the GET /pets method.
-	// Experimental.
 	OperationName *string `json:"operationName"`
 	// The models which describe data structure of request payload.
 	//
@@ -18358,7 +17561,6 @@ type MethodOptions struct {
 	//
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-settings-method-request.html#setup-method-request-model
 	//
-	// Experimental.
 	RequestModels *map[string]IModel `json:"requestModels"`
 	// The request parameters that API Gateway accepts.
 	//
@@ -18367,54 +17569,44 @@ type MethodOptions struct {
 	// a Boolean as the value. The Boolean specifies whether a parameter is required.
 	// A source must match the format method.request.location.name, where the location
 	// is querystring, path, or header, and name is a valid, unique parameter name.
-	// Experimental.
 	RequestParameters *map[string]*bool `json:"requestParameters"`
 	// The ID of the associated request validator.
 	//
 	// Only one of `requestValidator` or `requestValidatorOptions` must be specified.
 	// Works together with `requestModels` or `requestParameters` to validate
 	// the request before it reaches integration like Lambda Proxy Integration.
-	// Experimental.
 	RequestValidator IRequestValidator `json:"requestValidator"`
 	// Request validator options to create new validator Only one of `requestValidator` or `requestValidatorOptions` must be specified.
 	//
 	// Works together with `requestModels` or `requestParameters` to validate
 	// the request before it reaches integration like Lambda Proxy Integration.
-	// Experimental.
 	RequestValidatorOptions *RequestValidatorOptions `json:"requestValidatorOptions"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type MethodProps struct {
 	// The HTTP method ("GET", "POST", "PUT", ...) that clients use to call this method.
-	// Experimental.
 	HttpMethod *string `json:"httpMethod"`
 	// The backend system that the method calls when it receives a request.
-	// Experimental.
 	Integration Integration `json:"integration"`
 	// Method options.
-	// Experimental.
 	Options *MethodOptions `json:"options"`
 	// The resource this method is associated with.
 	//
 	// For root resource methods,
 	// specify the `RestApi` object.
-	// Experimental.
 	Resource IResource `json:"resource"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type MethodResponse struct {
 	// The resources used for the response's content type.
 	//
 	// Specify response models as
 	// key-value pairs (string-to-string maps), with a content type as the key and a Model
 	// resource name as the value.
-	// Experimental.
 	ResponseModels *map[string]IModel `json:"responseModels"`
 	// Response parameters that API Gateway sends to the client that called a method.
 	//
@@ -18422,12 +17614,10 @@ type MethodResponse struct {
 	// a destination as the key and a Boolean as the value. Specify the destination
 	// using the following pattern: method.response.header.name, where the name is a
 	// valid, unique header name. The Boolean specifies whether a parameter is required.
-	// Experimental.
 	ResponseParameters *map[string]*bool `json:"responseParameters"`
 	// The method response's status code, which you map to an IntegrationResponse.
 	//
 	// Required.
-	// Experimental.
 	StatusCode *string `json:"statusCode"`
 }
 
@@ -18445,7 +17635,6 @@ type MethodResponse struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type MockIntegration interface {
 	Integration
 	Bind(_method Method) *IntegrationConfig
@@ -18456,7 +17645,6 @@ type jsiiProxy_MockIntegration struct {
 	jsiiProxy_Integration
 }
 
-// Experimental.
 func NewMockIntegration(options *IntegrationOptions) MockIntegration {
 	_init_.Initialize()
 
@@ -18471,7 +17659,6 @@ func NewMockIntegration(options *IntegrationOptions) MockIntegration {
 	return &j
 }
 
-// Experimental.
 func NewMockIntegration_Override(m MockIntegration, options *IntegrationOptions) {
 	_init_.Initialize()
 
@@ -18483,7 +17670,6 @@ func NewMockIntegration_Override(m MockIntegration, options *IntegrationOptions)
 }
 
 // Can be overridden by subclasses to allow the integration to interact with the method being integrated, access the REST API object, method ARNs, etc.
-// Experimental.
 func (m *jsiiProxy_MockIntegration) Bind(_method Method) *IntegrationConfig {
 	var returns *IntegrationConfig
 
@@ -18499,7 +17685,6 @@ func (m *jsiiProxy_MockIntegration) Bind(_method Method) *IntegrationConfig {
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type Model interface {
 	awscdk.Resource
 	IModel
@@ -18572,7 +17757,6 @@ func (j *jsiiProxy_Model) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewModel(scope constructs.Construct, id *string, props *ModelProps) Model {
 	_init_.Initialize()
 
@@ -18587,7 +17771,6 @@ func NewModel(scope constructs.Construct, id *string, props *ModelProps) Model {
 	return &j
 }
 
-// Experimental.
 func NewModel_Override(m Model, scope constructs.Construct, id *string, props *ModelProps) {
 	_init_.Initialize()
 
@@ -18598,7 +17781,6 @@ func NewModel_Override(m Model, scope constructs.Construct, id *string, props *M
 	)
 }
 
-// Experimental.
 func Model_FromModelName(scope constructs.Construct, id *string, modelName *string) IModel {
 	_init_.Initialize()
 
@@ -18634,7 +17816,6 @@ func Model_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func Model_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -18681,7 +17862,6 @@ func Model_ERROR_MODEL() IModel {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (m *jsiiProxy_Model) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		m,
@@ -18690,7 +17870,6 @@ func (m *jsiiProxy_Model) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (m *jsiiProxy_Model) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -18710,7 +17889,6 @@ func (m *jsiiProxy_Model) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (m *jsiiProxy_Model) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -18729,7 +17907,6 @@ func (m *jsiiProxy_Model) GetResourceArnAttribute(arnAttr *string, arnComponents
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (m *jsiiProxy_Model) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -18744,7 +17921,6 @@ func (m *jsiiProxy_Model) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (m *jsiiProxy_Model) ToString() *string {
 	var returns *string
 
@@ -18760,16 +17936,13 @@ func (m *jsiiProxy_Model) ToString() *string {
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type ModelOptions struct {
 	// The content type for the model.
 	//
 	// You can also force a
 	// content type in the request or response model mapping.
-	// Experimental.
 	ContentType *string `json:"contentType"`
 	// A description that identifies this model.
-	// Experimental.
 	Description *string `json:"description"`
 	// A name for the model.
 	//
@@ -18778,27 +17951,22 @@ type ModelOptions struct {
 	//   require replacement of this resource. You can perform
 	//   updates that require no or some interruption. If you
 	//   must replace the resource, specify a new name.
-	// Experimental.
 	ModelName *string `json:"modelName"`
 	// The schema to use to transform data to one or more output formats.
 	//
 	// Specify null ({}) if you don't want to specify a schema.
-	// Experimental.
 	Schema *JsonSchema `json:"schema"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type ModelProps struct {
 	// The content type for the model.
 	//
 	// You can also force a
 	// content type in the request or response model mapping.
-	// Experimental.
 	ContentType *string `json:"contentType"`
 	// A description that identifies this model.
-	// Experimental.
 	Description *string `json:"description"`
 	// A name for the model.
 	//
@@ -18807,12 +17975,10 @@ type ModelProps struct {
 	//   require replacement of this resource. You can perform
 	//   updates that require no or some interruption. If you
 	//   must replace the resource, specify a new name.
-	// Experimental.
 	ModelName *string `json:"modelName"`
 	// The schema to use to transform data to one or more output formats.
 	//
 	// Specify null ({}) if you don't want to specify a schema.
-	// Experimental.
 	Schema *JsonSchema `json:"schema"`
 	// The rest API that this model is part of.
 	//
@@ -18820,13 +17986,11 @@ type ModelProps struct {
 	// is being tracked by the top-level RestApi object for the purpose of calculating it's
 	// hash to determine the ID of the deployment. This allows us to automatically update
 	// the deployment when the model of the REST API changes.
-	// Experimental.
 	RestApi IRestApi `json:"restApi"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type PassthroughBehavior string
 
 const (
@@ -18839,7 +18003,6 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Period string
 
 const (
@@ -18854,7 +18017,6 @@ const (
 //
 // See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-set-up-simple-proxy.html
 //
-// Experimental.
 type ProxyResource interface {
 	Resource
 	AnyMethod() Method
@@ -19008,7 +18170,6 @@ func (j *jsiiProxy_ProxyResource) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewProxyResource(scope constructs.Construct, id *string, props *ProxyResourceProps) ProxyResource {
 	_init_.Initialize()
 
@@ -19023,7 +18184,6 @@ func NewProxyResource(scope constructs.Construct, id *string, props *ProxyResour
 	return &j
 }
 
-// Experimental.
 func NewProxyResource_Override(p ProxyResource, scope constructs.Construct, id *string, props *ProxyResourceProps) {
 	_init_.Initialize()
 
@@ -19035,7 +18195,6 @@ func NewProxyResource_Override(p ProxyResource, scope constructs.Construct, id *
 }
 
 // Import an existing resource.
-// Experimental.
 func ProxyResource_FromResourceAttributes(scope constructs.Construct, id *string, attrs *ResourceAttributes) IResource {
 	_init_.Initialize()
 
@@ -19071,7 +18230,6 @@ func ProxyResource_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func ProxyResource_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -19095,7 +18253,6 @@ func ProxyResource_IsResource(construct constructs.IConstruct) *bool {
 // application executes a cross-origin HTTP request when it requests a
 // resource that has a different origin (domain, protocol, or port) from its
 // own.
-// Experimental.
 func (p *jsiiProxy_ProxyResource) AddCorsPreflight(options *CorsOptions) Method {
 	var returns Method
 
@@ -19110,7 +18267,6 @@ func (p *jsiiProxy_ProxyResource) AddCorsPreflight(options *CorsOptions) Method 
 }
 
 // Defines a new method for this resource.
-// Experimental.
 func (p *jsiiProxy_ProxyResource) AddMethod(httpMethod *string, integration Integration, options *MethodOptions) Method {
 	var returns Method
 
@@ -19125,7 +18281,6 @@ func (p *jsiiProxy_ProxyResource) AddMethod(httpMethod *string, integration Inte
 }
 
 // Adds a greedy proxy resource ("{proxy+}") and an ANY method to this route.
-// Experimental.
 func (p *jsiiProxy_ProxyResource) AddProxy(options *ProxyResourceOptions) ProxyResource {
 	var returns ProxyResource
 
@@ -19140,7 +18295,6 @@ func (p *jsiiProxy_ProxyResource) AddProxy(options *ProxyResourceOptions) ProxyR
 }
 
 // Defines a new child resource where this resource is the parent.
-// Experimental.
 func (p *jsiiProxy_ProxyResource) AddResource(pathPart *string, options *ResourceOptions) Resource {
 	var returns Resource
 
@@ -19163,7 +18317,6 @@ func (p *jsiiProxy_ProxyResource) AddResource(pathPart *string, options *Resourc
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (p *jsiiProxy_ProxyResource) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		p,
@@ -19172,7 +18325,6 @@ func (p *jsiiProxy_ProxyResource) ApplyRemovalPolicy(policy awscdk.RemovalPolicy
 	)
 }
 
-// Experimental.
 func (p *jsiiProxy_ProxyResource) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -19187,7 +18339,6 @@ func (p *jsiiProxy_ProxyResource) GeneratePhysicalName() *string {
 }
 
 // Retrieves a child resource by path part.
-// Experimental.
 func (p *jsiiProxy_ProxyResource) GetResource(pathPart *string) IResource {
 	var returns IResource
 
@@ -19207,7 +18358,6 @@ func (p *jsiiProxy_ProxyResource) GetResource(pathPart *string) IResource {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (p *jsiiProxy_ProxyResource) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -19226,7 +18376,6 @@ func (p *jsiiProxy_ProxyResource) GetResourceArnAttribute(arnAttr *string, arnCo
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (p *jsiiProxy_ProxyResource) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -19244,7 +18393,6 @@ func (p *jsiiProxy_ProxyResource) GetResourceNameAttribute(nameAttr *string) *st
 //
 // - Path may only start with "/" if this method is called on the root resource.
 // - All resources are created using default options.
-// Experimental.
 func (p *jsiiProxy_ProxyResource) ResourceForPath(path *string) Resource {
 	var returns Resource
 
@@ -19259,7 +18407,6 @@ func (p *jsiiProxy_ProxyResource) ResourceForPath(path *string) Resource {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (p *jsiiProxy_ProxyResource) ToString() *string {
 	var returns *string
 
@@ -19275,53 +18422,42 @@ func (p *jsiiProxy_ProxyResource) ToString() *string {
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type ProxyResourceOptions struct {
 	// Adds a CORS preflight OPTIONS method to this resource and all child resources.
 	//
 	// You can add CORS at the resource-level using `addCorsPreflight`.
-	// Experimental.
 	DefaultCorsPreflightOptions *CorsOptions `json:"defaultCorsPreflightOptions"`
 	// An integration to use as a default for all methods created within this API unless an integration is specified.
-	// Experimental.
 	DefaultIntegration Integration `json:"defaultIntegration"`
 	// Method options to use as a default for all methods created within this API unless custom options are specified.
-	// Experimental.
 	DefaultMethodOptions *MethodOptions `json:"defaultMethodOptions"`
 	// Adds an "ANY" method to this resource.
 	//
 	// If set to `false`, you will have to explicitly
 	// add methods to this resource after it's created.
-	// Experimental.
 	AnyMethod *bool `json:"anyMethod"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type ProxyResourceProps struct {
 	// Adds a CORS preflight OPTIONS method to this resource and all child resources.
 	//
 	// You can add CORS at the resource-level using `addCorsPreflight`.
-	// Experimental.
 	DefaultCorsPreflightOptions *CorsOptions `json:"defaultCorsPreflightOptions"`
 	// An integration to use as a default for all methods created within this API unless an integration is specified.
-	// Experimental.
 	DefaultIntegration Integration `json:"defaultIntegration"`
 	// Method options to use as a default for all methods created within this API unless custom options are specified.
-	// Experimental.
 	DefaultMethodOptions *MethodOptions `json:"defaultMethodOptions"`
 	// Adds an "ANY" method to this resource.
 	//
 	// If set to `false`, you will have to explicitly
 	// add methods to this resource after it's created.
-	// Experimental.
 	AnyMethod *bool `json:"anyMethod"`
 	// The parent resource of this resource.
 	//
 	// You can either pass another
 	// `Resource` object or a `RestApi` object here.
-	// Experimental.
 	Parent IResource `json:"parent"`
 }
 
@@ -19329,16 +18465,12 @@ type ProxyResourceProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type QuotaSettings struct {
 	// The maximum number of requests that users can make within the specified time period.
-	// Experimental.
 	Limit *float64 `json:"limit"`
 	// For the initial time period, the number of requests to subtract from the specified limit.
-	// Experimental.
 	Offset *float64 `json:"offset"`
 	// The time period for which the maximum limit of requests applies.
-	// Experimental.
 	Period Period `json:"period"`
 }
 
@@ -19346,7 +18478,6 @@ type QuotaSettings struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RateLimitedApiKey interface {
 	awscdk.Resource
 	IApiKey
@@ -19433,7 +18564,6 @@ func (j *jsiiProxy_RateLimitedApiKey) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewRateLimitedApiKey(scope constructs.Construct, id *string, props *RateLimitedApiKeyProps) RateLimitedApiKey {
 	_init_.Initialize()
 
@@ -19448,7 +18578,6 @@ func NewRateLimitedApiKey(scope constructs.Construct, id *string, props *RateLim
 	return &j
 }
 
-// Experimental.
 func NewRateLimitedApiKey_Override(r RateLimitedApiKey, scope constructs.Construct, id *string, props *RateLimitedApiKeyProps) {
 	_init_.Initialize()
 
@@ -19479,7 +18608,6 @@ func RateLimitedApiKey_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func RateLimitedApiKey_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -19504,7 +18632,6 @@ func RateLimitedApiKey_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (r *jsiiProxy_RateLimitedApiKey) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		r,
@@ -19513,7 +18640,6 @@ func (r *jsiiProxy_RateLimitedApiKey) ApplyRemovalPolicy(policy awscdk.RemovalPo
 	)
 }
 
-// Experimental.
 func (r *jsiiProxy_RateLimitedApiKey) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -19533,7 +18659,6 @@ func (r *jsiiProxy_RateLimitedApiKey) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (r *jsiiProxy_RateLimitedApiKey) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -19552,7 +18677,6 @@ func (r *jsiiProxy_RateLimitedApiKey) GetResourceArnAttribute(arnAttr *string, a
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (r *jsiiProxy_RateLimitedApiKey) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -19567,7 +18691,6 @@ func (r *jsiiProxy_RateLimitedApiKey) GetResourceNameAttribute(nameAttr *string)
 }
 
 // Permits the IAM principal all read operations through this key.
-// Experimental.
 func (r *jsiiProxy_RateLimitedApiKey) GrantRead(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -19582,7 +18705,6 @@ func (r *jsiiProxy_RateLimitedApiKey) GrantRead(grantee awsiam.IGrantable) awsia
 }
 
 // Permits the IAM principal all read and write operations through this key.
-// Experimental.
 func (r *jsiiProxy_RateLimitedApiKey) GrantReadWrite(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -19597,7 +18719,6 @@ func (r *jsiiProxy_RateLimitedApiKey) GrantReadWrite(grantee awsiam.IGrantable) 
 }
 
 // Permits the IAM principal all write operations through this key.
-// Experimental.
 func (r *jsiiProxy_RateLimitedApiKey) GrantWrite(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -19612,7 +18733,6 @@ func (r *jsiiProxy_RateLimitedApiKey) GrantWrite(grantee awsiam.IGrantable) awsi
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (r *jsiiProxy_RateLimitedApiKey) ToString() *string {
 	var returns *string
 
@@ -19630,52 +18750,38 @@ func (r *jsiiProxy_RateLimitedApiKey) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RateLimitedApiKeyProps struct {
 	// Adds a CORS preflight OPTIONS method to this resource and all child resources.
 	//
 	// You can add CORS at the resource-level using `addCorsPreflight`.
-	// Experimental.
 	DefaultCorsPreflightOptions *CorsOptions `json:"defaultCorsPreflightOptions"`
 	// An integration to use as a default for all methods created within this API unless an integration is specified.
-	// Experimental.
 	DefaultIntegration Integration `json:"defaultIntegration"`
 	// Method options to use as a default for all methods created within this API unless custom options are specified.
-	// Experimental.
 	DefaultMethodOptions *MethodOptions `json:"defaultMethodOptions"`
 	// A name for the API key.
 	//
 	// If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the API key name.
-	// Experimental.
 	ApiKeyName *string `json:"apiKeyName"`
 	// A description of the purpose of the API key.
-	// Experimental.
 	Description *string `json:"description"`
 	// The value of the API key.
 	//
 	// Must be at least 20 characters long.
-	// Experimental.
 	Value *string `json:"value"`
 	// An AWS Marketplace customer identifier to use when integrating with the AWS SaaS Marketplace.
-	// Experimental.
 	CustomerId *string `json:"customerId"`
 	// Indicates whether the API key can be used by clients.
-	// Experimental.
 	Enabled *bool `json:"enabled"`
 	// Specifies whether the key identifier is distinct from the created API key value.
-	// Experimental.
 	GenerateDistinctId *bool `json:"generateDistinctId"`
 	// A list of resources this api key is associated with.
-	// Experimental.
 	Resources *[]IRestApi `json:"resources"`
 	// API Stages to be associated with the RateLimitedApiKey.
-	// Experimental.
 	ApiStages *[]*UsagePlanPerApiStage `json:"apiStages"`
 	// Number of requests clients can make in a given time period.
-	// Experimental.
 	Quota *QuotaSettings `json:"quota"`
 	// Overall throttle settings for the API.
-	// Experimental.
 	Throttle *ThrottleSettings `json:"throttle"`
 }
 
@@ -19685,7 +18791,6 @@ type RateLimitedApiKeyProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RequestAuthorizer interface {
 	Authorizer
 	IAuthorizer
@@ -19816,7 +18921,6 @@ func (j *jsiiProxy_RequestAuthorizer) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewRequestAuthorizer(scope constructs.Construct, id *string, props *RequestAuthorizerProps) RequestAuthorizer {
 	_init_.Initialize()
 
@@ -19831,7 +18935,6 @@ func NewRequestAuthorizer(scope constructs.Construct, id *string, props *Request
 	return &j
 }
 
-// Experimental.
 func NewRequestAuthorizer_Override(r RequestAuthorizer, scope constructs.Construct, id *string, props *RequestAuthorizerProps) {
 	_init_.Initialize()
 
@@ -19851,7 +18954,6 @@ func (j *jsiiProxy_RequestAuthorizer) SetRestApiId(val *string) {
 }
 
 // Return whether the given object is an Authorizer.
-// Experimental.
 func RequestAuthorizer_IsAuthorizer(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -19887,7 +18989,6 @@ func RequestAuthorizer_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func RequestAuthorizer_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -19912,7 +19013,6 @@ func RequestAuthorizer_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (r *jsiiProxy_RequestAuthorizer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		r,
@@ -19921,7 +19021,6 @@ func (r *jsiiProxy_RequestAuthorizer) ApplyRemovalPolicy(policy awscdk.RemovalPo
 	)
 }
 
-// Experimental.
 func (r *jsiiProxy_RequestAuthorizer) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -19941,7 +19040,6 @@ func (r *jsiiProxy_RequestAuthorizer) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (r *jsiiProxy_RequestAuthorizer) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -19960,7 +19058,6 @@ func (r *jsiiProxy_RequestAuthorizer) GetResourceArnAttribute(arnAttr *string, a
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (r *jsiiProxy_RequestAuthorizer) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -19977,7 +19074,6 @@ func (r *jsiiProxy_RequestAuthorizer) GetResourceNameAttribute(nameAttr *string)
 // Returns a token that resolves to the Rest Api Id at the time of synthesis.
 //
 // Throws an error, during token resolution, if no RestApi is attached to this authorizer.
-// Experimental.
 func (r *jsiiProxy_RequestAuthorizer) LazyRestApiId() *string {
 	var returns *string
 
@@ -19992,7 +19088,6 @@ func (r *jsiiProxy_RequestAuthorizer) LazyRestApiId() *string {
 }
 
 // Sets up the permissions necessary for the API Gateway service to invoke the Lambda function.
-// Experimental.
 func (r *jsiiProxy_RequestAuthorizer) SetupPermissions() {
 	_jsii_.InvokeVoid(
 		r,
@@ -20002,7 +19097,6 @@ func (r *jsiiProxy_RequestAuthorizer) SetupPermissions() {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (r *jsiiProxy_RequestAuthorizer) ToString() *string {
 	var returns *string
 
@@ -20020,18 +19114,15 @@ func (r *jsiiProxy_RequestAuthorizer) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RequestAuthorizerProps struct {
 	// An optional IAM role for APIGateway to assume before calling the Lambda-based authorizer.
 	//
 	// The IAM role must be
 	// assumable by 'apigateway.amazonaws.com'.
-	// Experimental.
 	AssumeRole awsiam.IRole `json:"assumeRole"`
 	// An optional human friendly name for the authorizer.
 	//
 	// Note that, this is not the primary identifier of the authorizer.
-	// Experimental.
 	AuthorizerName *string `json:"authorizerName"`
 	// The handler for the authorizer lambda function.
 	//
@@ -20039,13 +19130,11 @@ type RequestAuthorizerProps struct {
 	// API Gateway has documented the handler's input specification
 	// {@link https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-lambda-authorizer-input.html | here} and output specification
 	// {@link https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-lambda-authorizer-output.html | here}.
-	// Experimental.
 	Handler awslambda.IFunction `json:"handler"`
 	// How long APIGateway should cache the results.
 	//
 	// Max 1 hour.
 	// Disable caching by setting this to 0.
-	// Experimental.
 	ResultsCacheTtl awscdk.Duration `json:"resultsCacheTtl"`
 	// An array of request header mapping expressions for identities.
 	//
@@ -20059,13 +19148,11 @@ type RequestAuthorizerProps struct {
 	// API Gateway returns a 401 Unauthorized response without calling the authorizer Lambda function.
 	// See: https://docs.aws.amazon.com/apigateway/api-reference/link-relation/authorizer-create/#identitySource
 	//
-	// Experimental.
 	IdentitySources *[]*string `json:"identitySources"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type RequestValidator interface {
 	awscdk.Resource
 	IRequestValidator
@@ -20138,7 +19225,6 @@ func (j *jsiiProxy_RequestValidator) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewRequestValidator(scope constructs.Construct, id *string, props *RequestValidatorProps) RequestValidator {
 	_init_.Initialize()
 
@@ -20153,7 +19239,6 @@ func NewRequestValidator(scope constructs.Construct, id *string, props *RequestV
 	return &j
 }
 
-// Experimental.
 func NewRequestValidator_Override(r RequestValidator, scope constructs.Construct, id *string, props *RequestValidatorProps) {
 	_init_.Initialize()
 
@@ -20164,7 +19249,6 @@ func NewRequestValidator_Override(r RequestValidator, scope constructs.Construct
 	)
 }
 
-// Experimental.
 func RequestValidator_FromRequestValidatorId(scope constructs.Construct, id *string, requestValidatorId *string) IRequestValidator {
 	_init_.Initialize()
 
@@ -20200,7 +19284,6 @@ func RequestValidator_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func RequestValidator_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -20225,7 +19308,6 @@ func RequestValidator_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (r *jsiiProxy_RequestValidator) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		r,
@@ -20234,7 +19316,6 @@ func (r *jsiiProxy_RequestValidator) ApplyRemovalPolicy(policy awscdk.RemovalPol
 	)
 }
 
-// Experimental.
 func (r *jsiiProxy_RequestValidator) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -20254,7 +19335,6 @@ func (r *jsiiProxy_RequestValidator) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (r *jsiiProxy_RequestValidator) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -20273,7 +19353,6 @@ func (r *jsiiProxy_RequestValidator) GetResourceArnAttribute(arnAttr *string, ar
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (r *jsiiProxy_RequestValidator) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -20288,7 +19367,6 @@ func (r *jsiiProxy_RequestValidator) GetResourceNameAttribute(nameAttr *string) 
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (r *jsiiProxy_RequestValidator) ToString() *string {
 	var returns *string
 
@@ -20304,31 +19382,23 @@ func (r *jsiiProxy_RequestValidator) ToString() *string {
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type RequestValidatorOptions struct {
 	// The name of this request validator.
-	// Experimental.
 	RequestValidatorName *string `json:"requestValidatorName"`
 	// Indicates whether to validate the request body according to the configured schema for the targeted API and method.
-	// Experimental.
 	ValidateRequestBody *bool `json:"validateRequestBody"`
 	// Indicates whether to validate request parameters.
-	// Experimental.
 	ValidateRequestParameters *bool `json:"validateRequestParameters"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type RequestValidatorProps struct {
 	// The name of this request validator.
-	// Experimental.
 	RequestValidatorName *string `json:"requestValidatorName"`
 	// Indicates whether to validate the request body according to the configured schema for the targeted API and method.
-	// Experimental.
 	ValidateRequestBody *bool `json:"validateRequestBody"`
 	// Indicates whether to validate request parameters.
-	// Experimental.
 	ValidateRequestParameters *bool `json:"validateRequestParameters"`
 	// The rest API that this model is part of.
 	//
@@ -20336,13 +19406,11 @@ type RequestValidatorProps struct {
 	// is being tracked by the top-level RestApi object for the purpose of calculating it's
 	// hash to determine the ID of the deployment. This allows us to automatically update
 	// the deployment when the model of the REST API changes.
-	// Experimental.
 	RestApi IRestApi `json:"restApi"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type Resource interface {
 	ResourceBase
 	Api() IRestApi
@@ -20485,7 +19553,6 @@ func (j *jsiiProxy_Resource) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewResource(scope constructs.Construct, id *string, props *ResourceProps) Resource {
 	_init_.Initialize()
 
@@ -20500,7 +19567,6 @@ func NewResource(scope constructs.Construct, id *string, props *ResourceProps) R
 	return &j
 }
 
-// Experimental.
 func NewResource_Override(r Resource, scope constructs.Construct, id *string, props *ResourceProps) {
 	_init_.Initialize()
 
@@ -20512,7 +19578,6 @@ func NewResource_Override(r Resource, scope constructs.Construct, id *string, pr
 }
 
 // Import an existing resource.
-// Experimental.
 func Resource_FromResourceAttributes(scope constructs.Construct, id *string, attrs *ResourceAttributes) IResource {
 	_init_.Initialize()
 
@@ -20548,7 +19613,6 @@ func Resource_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func Resource_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -20572,7 +19636,6 @@ func Resource_IsResource(construct constructs.IConstruct) *bool {
 // application executes a cross-origin HTTP request when it requests a
 // resource that has a different origin (domain, protocol, or port) from its
 // own.
-// Experimental.
 func (r *jsiiProxy_Resource) AddCorsPreflight(options *CorsOptions) Method {
 	var returns Method
 
@@ -20587,7 +19650,6 @@ func (r *jsiiProxy_Resource) AddCorsPreflight(options *CorsOptions) Method {
 }
 
 // Defines a new method for this resource.
-// Experimental.
 func (r *jsiiProxy_Resource) AddMethod(httpMethod *string, integration Integration, options *MethodOptions) Method {
 	var returns Method
 
@@ -20602,7 +19664,6 @@ func (r *jsiiProxy_Resource) AddMethod(httpMethod *string, integration Integrati
 }
 
 // Adds a greedy proxy resource ("{proxy+}") and an ANY method to this route.
-// Experimental.
 func (r *jsiiProxy_Resource) AddProxy(options *ProxyResourceOptions) ProxyResource {
 	var returns ProxyResource
 
@@ -20617,7 +19678,6 @@ func (r *jsiiProxy_Resource) AddProxy(options *ProxyResourceOptions) ProxyResour
 }
 
 // Defines a new child resource where this resource is the parent.
-// Experimental.
 func (r *jsiiProxy_Resource) AddResource(pathPart *string, options *ResourceOptions) Resource {
 	var returns Resource
 
@@ -20640,7 +19700,6 @@ func (r *jsiiProxy_Resource) AddResource(pathPart *string, options *ResourceOpti
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (r *jsiiProxy_Resource) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		r,
@@ -20649,7 +19708,6 @@ func (r *jsiiProxy_Resource) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (r *jsiiProxy_Resource) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -20664,7 +19722,6 @@ func (r *jsiiProxy_Resource) GeneratePhysicalName() *string {
 }
 
 // Retrieves a child resource by path part.
-// Experimental.
 func (r *jsiiProxy_Resource) GetResource(pathPart *string) IResource {
 	var returns IResource
 
@@ -20684,7 +19741,6 @@ func (r *jsiiProxy_Resource) GetResource(pathPart *string) IResource {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (r *jsiiProxy_Resource) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -20703,7 +19759,6 @@ func (r *jsiiProxy_Resource) GetResourceArnAttribute(arnAttr *string, arnCompone
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (r *jsiiProxy_Resource) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -20721,7 +19776,6 @@ func (r *jsiiProxy_Resource) GetResourceNameAttribute(nameAttr *string) *string 
 //
 // - Path may only start with "/" if this method is called on the root resource.
 // - All resources are created using default options.
-// Experimental.
 func (r *jsiiProxy_Resource) ResourceForPath(path *string) Resource {
 	var returns Resource
 
@@ -20736,7 +19790,6 @@ func (r *jsiiProxy_Resource) ResourceForPath(path *string) Resource {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (r *jsiiProxy_Resource) ToString() *string {
 	var returns *string
 
@@ -20754,20 +19807,15 @@ func (r *jsiiProxy_Resource) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ResourceAttributes struct {
 	// The full path of this resource.
-	// Experimental.
 	Path *string `json:"path"`
 	// The ID of the resource.
-	// Experimental.
 	ResourceId *string `json:"resourceId"`
 	// The rest API that this resource is part of.
-	// Experimental.
 	RestApi IRestApi `json:"restApi"`
 }
 
-// Experimental.
 type ResourceBase interface {
 	awscdk.Resource
 	IResource
@@ -20912,7 +19960,6 @@ func (j *jsiiProxy_ResourceBase) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewResourceBase_Override(r ResourceBase, scope constructs.Construct, id *string) {
 	_init_.Initialize()
 
@@ -20943,7 +19990,6 @@ func ResourceBase_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func ResourceBase_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -20967,7 +20013,6 @@ func ResourceBase_IsResource(construct constructs.IConstruct) *bool {
 // application executes a cross-origin HTTP request when it requests a
 // resource that has a different origin (domain, protocol, or port) from its
 // own.
-// Experimental.
 func (r *jsiiProxy_ResourceBase) AddCorsPreflight(options *CorsOptions) Method {
 	var returns Method
 
@@ -20982,7 +20027,6 @@ func (r *jsiiProxy_ResourceBase) AddCorsPreflight(options *CorsOptions) Method {
 }
 
 // Defines a new method for this resource.
-// Experimental.
 func (r *jsiiProxy_ResourceBase) AddMethod(httpMethod *string, integration Integration, options *MethodOptions) Method {
 	var returns Method
 
@@ -20997,7 +20041,6 @@ func (r *jsiiProxy_ResourceBase) AddMethod(httpMethod *string, integration Integ
 }
 
 // Adds a greedy proxy resource ("{proxy+}") and an ANY method to this route.
-// Experimental.
 func (r *jsiiProxy_ResourceBase) AddProxy(options *ProxyResourceOptions) ProxyResource {
 	var returns ProxyResource
 
@@ -21012,7 +20055,6 @@ func (r *jsiiProxy_ResourceBase) AddProxy(options *ProxyResourceOptions) ProxyRe
 }
 
 // Defines a new child resource where this resource is the parent.
-// Experimental.
 func (r *jsiiProxy_ResourceBase) AddResource(pathPart *string, options *ResourceOptions) Resource {
 	var returns Resource
 
@@ -21035,7 +20077,6 @@ func (r *jsiiProxy_ResourceBase) AddResource(pathPart *string, options *Resource
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (r *jsiiProxy_ResourceBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		r,
@@ -21044,7 +20085,6 @@ func (r *jsiiProxy_ResourceBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
 	)
 }
 
-// Experimental.
 func (r *jsiiProxy_ResourceBase) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -21059,7 +20099,6 @@ func (r *jsiiProxy_ResourceBase) GeneratePhysicalName() *string {
 }
 
 // Retrieves a child resource by path part.
-// Experimental.
 func (r *jsiiProxy_ResourceBase) GetResource(pathPart *string) IResource {
 	var returns IResource
 
@@ -21079,7 +20118,6 @@ func (r *jsiiProxy_ResourceBase) GetResource(pathPart *string) IResource {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (r *jsiiProxy_ResourceBase) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -21098,7 +20136,6 @@ func (r *jsiiProxy_ResourceBase) GetResourceArnAttribute(arnAttr *string, arnCom
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (r *jsiiProxy_ResourceBase) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -21116,7 +20153,6 @@ func (r *jsiiProxy_ResourceBase) GetResourceNameAttribute(nameAttr *string) *str
 //
 // - Path may only start with "/" if this method is called on the root resource.
 // - All resources are created using default options.
-// Experimental.
 func (r *jsiiProxy_ResourceBase) ResourceForPath(path *string) Resource {
 	var returns Resource
 
@@ -21131,7 +20167,6 @@ func (r *jsiiProxy_ResourceBase) ResourceForPath(path *string) Resource {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (r *jsiiProxy_ResourceBase) ToString() *string {
 	var returns *string
 
@@ -21147,44 +20182,34 @@ func (r *jsiiProxy_ResourceBase) ToString() *string {
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type ResourceOptions struct {
 	// Adds a CORS preflight OPTIONS method to this resource and all child resources.
 	//
 	// You can add CORS at the resource-level using `addCorsPreflight`.
-	// Experimental.
 	DefaultCorsPreflightOptions *CorsOptions `json:"defaultCorsPreflightOptions"`
 	// An integration to use as a default for all methods created within this API unless an integration is specified.
-	// Experimental.
 	DefaultIntegration Integration `json:"defaultIntegration"`
 	// Method options to use as a default for all methods created within this API unless custom options are specified.
-	// Experimental.
 	DefaultMethodOptions *MethodOptions `json:"defaultMethodOptions"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type ResourceProps struct {
 	// Adds a CORS preflight OPTIONS method to this resource and all child resources.
 	//
 	// You can add CORS at the resource-level using `addCorsPreflight`.
-	// Experimental.
 	DefaultCorsPreflightOptions *CorsOptions `json:"defaultCorsPreflightOptions"`
 	// An integration to use as a default for all methods created within this API unless an integration is specified.
-	// Experimental.
 	DefaultIntegration Integration `json:"defaultIntegration"`
 	// Method options to use as a default for all methods created within this API unless custom options are specified.
-	// Experimental.
 	DefaultMethodOptions *MethodOptions `json:"defaultMethodOptions"`
 	// The parent resource of this resource.
 	//
 	// You can either pass another
 	// `Resource` object or a `RestApi` object here.
-	// Experimental.
 	Parent IResource `json:"parent"`
 	// A path name for the resource.
-	// Experimental.
 	PathPart *string `json:"pathPart"`
 }
 
@@ -21194,7 +20219,6 @@ type ResourceProps struct {
 //
 // See: https://docs.aws.amazon.com/apigateway/latest/developerguide/supported-gateway-response-types.html
 //
-// Experimental.
 type ResponseType interface {
 	ResponseType() *string
 }
@@ -21216,7 +20240,6 @@ func (j *jsiiProxy_ResponseType) ResponseType() *string {
 
 
 // A custom response type to support future cases.
-// Experimental.
 func ResponseType_Of(type_ *string) ResponseType {
 	_init_.Initialize()
 
@@ -21472,7 +20495,6 @@ func ResponseType_WAF_FILTERED() ResponseType {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RestApi interface {
 	RestApiBase
 	DeploymentStage() Stage
@@ -21648,7 +20670,6 @@ func (j *jsiiProxy_RestApi) Url() *string {
 }
 
 
-// Experimental.
 func NewRestApi(scope constructs.Construct, id *string, props *RestApiProps) RestApi {
 	_init_.Initialize()
 
@@ -21663,7 +20684,6 @@ func NewRestApi(scope constructs.Construct, id *string, props *RestApiProps) Res
 	return &j
 }
 
-// Experimental.
 func NewRestApi_Override(r RestApi, scope constructs.Construct, id *string, props *RestApiProps) {
 	_init_.Initialize()
 
@@ -21683,7 +20703,6 @@ func (j *jsiiProxy_RestApi) SetDeploymentStage(val Stage) {
 }
 
 // Import an existing RestApi that can be configured with additional Methods and Resources.
-// Experimental.
 func RestApi_FromRestApiAttributes(scope constructs.Construct, id *string, attrs *RestApiAttributes) IRestApi {
 	_init_.Initialize()
 
@@ -21700,7 +20719,6 @@ func RestApi_FromRestApiAttributes(scope constructs.Construct, id *string, attrs
 }
 
 // Import an existing RestApi.
-// Experimental.
 func RestApi_FromRestApiId(scope constructs.Construct, id *string, restApiId *string) IRestApi {
 	_init_.Initialize()
 
@@ -21736,7 +20754,6 @@ func RestApi_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func RestApi_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -21753,7 +20770,6 @@ func RestApi_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Add an ApiKey.
-// Experimental.
 func (r *jsiiProxy_RestApi) AddApiKey(id *string, options *ApiKeyOptions) IApiKey {
 	var returns IApiKey
 
@@ -21768,7 +20784,6 @@ func (r *jsiiProxy_RestApi) AddApiKey(id *string, options *ApiKeyOptions) IApiKe
 }
 
 // Defines an API Gateway domain name and maps it to this API.
-// Experimental.
 func (r *jsiiProxy_RestApi) AddDomainName(id *string, options *DomainNameOptions) DomainName {
 	var returns DomainName
 
@@ -21783,7 +20798,6 @@ func (r *jsiiProxy_RestApi) AddDomainName(id *string, options *DomainNameOptions
 }
 
 // Adds a new gateway response.
-// Experimental.
 func (r *jsiiProxy_RestApi) AddGatewayResponse(id *string, options *GatewayResponseOptions) GatewayResponse {
 	var returns GatewayResponse
 
@@ -21798,7 +20812,6 @@ func (r *jsiiProxy_RestApi) AddGatewayResponse(id *string, options *GatewayRespo
 }
 
 // Adds a new model.
-// Experimental.
 func (r *jsiiProxy_RestApi) AddModel(id *string, props *ModelOptions) Model {
 	var returns Model
 
@@ -21813,7 +20826,6 @@ func (r *jsiiProxy_RestApi) AddModel(id *string, props *ModelOptions) Model {
 }
 
 // Adds a new request validator.
-// Experimental.
 func (r *jsiiProxy_RestApi) AddRequestValidator(id *string, props *RequestValidatorOptions) RequestValidator {
 	var returns RequestValidator
 
@@ -21828,7 +20840,6 @@ func (r *jsiiProxy_RestApi) AddRequestValidator(id *string, props *RequestValida
 }
 
 // Adds a usage plan.
-// Experimental.
 func (r *jsiiProxy_RestApi) AddUsagePlan(id *string, props *UsagePlanProps) UsagePlan {
 	var returns UsagePlan
 
@@ -21851,7 +20862,6 @@ func (r *jsiiProxy_RestApi) AddUsagePlan(id *string, props *UsagePlanProps) Usag
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (r *jsiiProxy_RestApi) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		r,
@@ -21861,7 +20871,6 @@ func (r *jsiiProxy_RestApi) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 }
 
 // Gets the "execute-api" ARN.
-// Experimental.
 func (r *jsiiProxy_RestApi) ArnForExecuteApi(method *string, path *string, stage *string) *string {
 	var returns *string
 
@@ -21875,7 +20884,6 @@ func (r *jsiiProxy_RestApi) ArnForExecuteApi(method *string, path *string, stage
 	return returns
 }
 
-// Experimental.
 func (r *jsiiProxy_RestApi) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -21895,7 +20903,6 @@ func (r *jsiiProxy_RestApi) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (r *jsiiProxy_RestApi) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -21914,7 +20921,6 @@ func (r *jsiiProxy_RestApi) GetResourceArnAttribute(arnAttr *string, arnComponen
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (r *jsiiProxy_RestApi) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -21929,7 +20935,6 @@ func (r *jsiiProxy_RestApi) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 // Returns the given named metric for this API.
-// Experimental.
 func (r *jsiiProxy_RestApi) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -21946,7 +20951,6 @@ func (r *jsiiProxy_RestApi) Metric(metricName *string, props *awscloudwatch.Metr
 // Metric for the number of requests served from the API cache in a given period.
 //
 // Default: sum over 5 minutes
-// Experimental.
 func (r *jsiiProxy_RestApi) MetricCacheHitCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -21963,7 +20967,6 @@ func (r *jsiiProxy_RestApi) MetricCacheHitCount(props *awscloudwatch.MetricOptio
 // Metric for the number of requests served from the backend in a given period, when API caching is enabled.
 //
 // Default: sum over 5 minutes
-// Experimental.
 func (r *jsiiProxy_RestApi) MetricCacheMissCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -21980,7 +20983,6 @@ func (r *jsiiProxy_RestApi) MetricCacheMissCount(props *awscloudwatch.MetricOpti
 // Metric for the number of client-side errors captured in a given period.
 //
 // Default: sum over 5 minutes
-// Experimental.
 func (r *jsiiProxy_RestApi) MetricClientError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -21997,7 +20999,6 @@ func (r *jsiiProxy_RestApi) MetricClientError(props *awscloudwatch.MetricOptions
 // Metric for the total number API requests in a given period.
 //
 // Default: sample count over 5 minutes
-// Experimental.
 func (r *jsiiProxy_RestApi) MetricCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -22014,7 +21015,6 @@ func (r *jsiiProxy_RestApi) MetricCount(props *awscloudwatch.MetricOptions) awsc
 // Metric for the time between when API Gateway relays a request to the backend and when it receives a response from the backend.
 //
 // Default: average over 5 minutes.
-// Experimental.
 func (r *jsiiProxy_RestApi) MetricIntegrationLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -22033,7 +21033,6 @@ func (r *jsiiProxy_RestApi) MetricIntegrationLatency(props *awscloudwatch.Metric
 // The latency includes the integration latency and other API Gateway overhead.
 //
 // Default: average over 5 minutes.
-// Experimental.
 func (r *jsiiProxy_RestApi) MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -22050,7 +21049,6 @@ func (r *jsiiProxy_RestApi) MetricLatency(props *awscloudwatch.MetricOptions) aw
 // Metric for the number of server-side errors captured in a given period.
 //
 // Default: sum over 5 minutes
-// Experimental.
 func (r *jsiiProxy_RestApi) MetricServerError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -22065,7 +21063,6 @@ func (r *jsiiProxy_RestApi) MetricServerError(props *awscloudwatch.MetricOptions
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (r *jsiiProxy_RestApi) ToString() *string {
 	var returns *string
 
@@ -22082,7 +21079,6 @@ func (r *jsiiProxy_RestApi) ToString() *string {
 // Returns the URL for an HTTP path.
 //
 // Fails if `deploymentStage` is not set either by `deploy` or explicitly.
-// Experimental.
 func (r *jsiiProxy_RestApi) UrlForPath(path *string) *string {
 	var returns *string
 
@@ -22100,13 +21096,10 @@ func (r *jsiiProxy_RestApi) UrlForPath(path *string) *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RestApiAttributes struct {
 	// The ID of the API Gateway RestApi.
-	// Experimental.
 	RestApiId *string `json:"restApiId"`
 	// The resource ID of the root resource.
-	// Experimental.
 	RootResourceId *string `json:"rootResourceId"`
 }
 
@@ -22114,7 +21107,6 @@ type RestApiAttributes struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RestApiBase interface {
 	awscdk.Resource
 	IRestApi
@@ -22268,7 +21260,6 @@ func (j *jsiiProxy_RestApiBase) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewRestApiBase_Override(r RestApiBase, scope constructs.Construct, id *string, props *RestApiBaseProps) {
 	_init_.Initialize()
 
@@ -22307,7 +21298,6 @@ func RestApiBase_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func RestApiBase_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -22324,7 +21314,6 @@ func RestApiBase_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Add an ApiKey.
-// Experimental.
 func (r *jsiiProxy_RestApiBase) AddApiKey(id *string, options *ApiKeyOptions) IApiKey {
 	var returns IApiKey
 
@@ -22339,7 +21328,6 @@ func (r *jsiiProxy_RestApiBase) AddApiKey(id *string, options *ApiKeyOptions) IA
 }
 
 // Defines an API Gateway domain name and maps it to this API.
-// Experimental.
 func (r *jsiiProxy_RestApiBase) AddDomainName(id *string, options *DomainNameOptions) DomainName {
 	var returns DomainName
 
@@ -22354,7 +21342,6 @@ func (r *jsiiProxy_RestApiBase) AddDomainName(id *string, options *DomainNameOpt
 }
 
 // Adds a new gateway response.
-// Experimental.
 func (r *jsiiProxy_RestApiBase) AddGatewayResponse(id *string, options *GatewayResponseOptions) GatewayResponse {
 	var returns GatewayResponse
 
@@ -22369,7 +21356,6 @@ func (r *jsiiProxy_RestApiBase) AddGatewayResponse(id *string, options *GatewayR
 }
 
 // Adds a usage plan.
-// Experimental.
 func (r *jsiiProxy_RestApiBase) AddUsagePlan(id *string, props *UsagePlanProps) UsagePlan {
 	var returns UsagePlan
 
@@ -22392,7 +21378,6 @@ func (r *jsiiProxy_RestApiBase) AddUsagePlan(id *string, props *UsagePlanProps) 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (r *jsiiProxy_RestApiBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		r,
@@ -22402,7 +21387,6 @@ func (r *jsiiProxy_RestApiBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) 
 }
 
 // Gets the "execute-api" ARN.
-// Experimental.
 func (r *jsiiProxy_RestApiBase) ArnForExecuteApi(method *string, path *string, stage *string) *string {
 	var returns *string
 
@@ -22416,7 +21400,6 @@ func (r *jsiiProxy_RestApiBase) ArnForExecuteApi(method *string, path *string, s
 	return returns
 }
 
-// Experimental.
 func (r *jsiiProxy_RestApiBase) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -22436,7 +21419,6 @@ func (r *jsiiProxy_RestApiBase) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (r *jsiiProxy_RestApiBase) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -22455,7 +21437,6 @@ func (r *jsiiProxy_RestApiBase) GetResourceArnAttribute(arnAttr *string, arnComp
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (r *jsiiProxy_RestApiBase) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -22470,7 +21451,6 @@ func (r *jsiiProxy_RestApiBase) GetResourceNameAttribute(nameAttr *string) *stri
 }
 
 // Returns the given named metric for this API.
-// Experimental.
 func (r *jsiiProxy_RestApiBase) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -22487,7 +21467,6 @@ func (r *jsiiProxy_RestApiBase) Metric(metricName *string, props *awscloudwatch.
 // Metric for the number of requests served from the API cache in a given period.
 //
 // Default: sum over 5 minutes
-// Experimental.
 func (r *jsiiProxy_RestApiBase) MetricCacheHitCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -22504,7 +21483,6 @@ func (r *jsiiProxy_RestApiBase) MetricCacheHitCount(props *awscloudwatch.MetricO
 // Metric for the number of requests served from the backend in a given period, when API caching is enabled.
 //
 // Default: sum over 5 minutes
-// Experimental.
 func (r *jsiiProxy_RestApiBase) MetricCacheMissCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -22521,7 +21499,6 @@ func (r *jsiiProxy_RestApiBase) MetricCacheMissCount(props *awscloudwatch.Metric
 // Metric for the number of client-side errors captured in a given period.
 //
 // Default: sum over 5 minutes
-// Experimental.
 func (r *jsiiProxy_RestApiBase) MetricClientError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -22538,7 +21515,6 @@ func (r *jsiiProxy_RestApiBase) MetricClientError(props *awscloudwatch.MetricOpt
 // Metric for the total number API requests in a given period.
 //
 // Default: sample count over 5 minutes
-// Experimental.
 func (r *jsiiProxy_RestApiBase) MetricCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -22555,7 +21531,6 @@ func (r *jsiiProxy_RestApiBase) MetricCount(props *awscloudwatch.MetricOptions) 
 // Metric for the time between when API Gateway relays a request to the backend and when it receives a response from the backend.
 //
 // Default: average over 5 minutes.
-// Experimental.
 func (r *jsiiProxy_RestApiBase) MetricIntegrationLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -22574,7 +21549,6 @@ func (r *jsiiProxy_RestApiBase) MetricIntegrationLatency(props *awscloudwatch.Me
 // The latency includes the integration latency and other API Gateway overhead.
 //
 // Default: average over 5 minutes.
-// Experimental.
 func (r *jsiiProxy_RestApiBase) MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -22591,7 +21565,6 @@ func (r *jsiiProxy_RestApiBase) MetricLatency(props *awscloudwatch.MetricOptions
 // Metric for the number of server-side errors captured in a given period.
 //
 // Default: sum over 5 minutes
-// Experimental.
 func (r *jsiiProxy_RestApiBase) MetricServerError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -22606,7 +21579,6 @@ func (r *jsiiProxy_RestApiBase) MetricServerError(props *awscloudwatch.MetricOpt
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (r *jsiiProxy_RestApiBase) ToString() *string {
 	var returns *string
 
@@ -22623,7 +21595,6 @@ func (r *jsiiProxy_RestApiBase) ToString() *string {
 // Returns the URL for an HTTP path.
 //
 // Fails if `deploymentStage` is not set either by `deploy` or explicitly.
-// Experimental.
 func (r *jsiiProxy_RestApiBase) UrlForPath(path *string) *string {
 	var returns *string
 
@@ -22641,10 +21612,8 @@ func (r *jsiiProxy_RestApiBase) UrlForPath(path *string) *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RestApiBaseProps struct {
 	// Automatically configure an AWS CloudWatch role for API Gateway.
-	// Experimental.
 	CloudWatchRole *bool `json:"cloudWatchRole"`
 	// Indicates if a Deployment should be automatically created for this API, and recreated when the API model (resources, methods) changes.
 	//
@@ -22662,13 +21631,11 @@ type RestApiBaseProps struct {
 	//
 	// A CloudFormation Output will also be defined with the root URL endpoint
 	// of this REST API.
-	// Experimental.
 	Deploy *bool `json:"deploy"`
 	// Options for the API Gateway stage that will always point to the latest deployment when `deploy` is enabled.
 	//
 	// If `deploy` is disabled,
 	// this value cannot be set.
-	// Experimental.
 	DeployOptions *StageOptions `json:"deployOptions"`
 	// Specifies whether clients can invoke the API using the default execute-api endpoint.
 	//
@@ -22676,40 +21643,31 @@ type RestApiBaseProps struct {
 	// API, disable the default endpoint.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html
 	//
-	// Experimental.
 	DisableExecuteApiEndpoint *bool `json:"disableExecuteApiEndpoint"`
 	// Configure a custom domain name and map it to this API.
-	// Experimental.
 	DomainName *DomainNameOptions `json:"domainName"`
 	// Export name for the CfnOutput containing the API endpoint.
-	// Experimental.
 	EndpointExportName *string `json:"endpointExportName"`
 	// A list of the endpoint types of the API.
 	//
 	// Use this property when creating
 	// an API.
-	// Experimental.
 	EndpointTypes *[]EndpointType `json:"endpointTypes"`
 	// Indicates whether to roll back the resource if a warning occurs while API Gateway is creating the RestApi resource.
-	// Experimental.
 	FailOnWarnings *bool `json:"failOnWarnings"`
 	// Custom header parameters for the request.
 	// See: https://docs.aws.amazon.com/cli/latest/reference/apigateway/import-rest-api.html
 	//
-	// Experimental.
 	Parameters *map[string]*string `json:"parameters"`
 	// A policy document that contains the permissions for this RestApi.
-	// Experimental.
 	Policy awsiam.PolicyDocument `json:"policy"`
 	// A name for the API Gateway RestApi resource.
-	// Experimental.
 	RestApiName *string `json:"restApiName"`
 	// Retains old deployment resources when the API changes.
 	//
 	// This allows
 	// manually reverting stages to point to old deployments via the AWS
 	// Console.
-	// Experimental.
 	RetainDeployments *bool `json:"retainDeployments"`
 }
 
@@ -22717,21 +21675,16 @@ type RestApiBaseProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type RestApiProps struct {
 	// Adds a CORS preflight OPTIONS method to this resource and all child resources.
 	//
 	// You can add CORS at the resource-level using `addCorsPreflight`.
-	// Experimental.
 	DefaultCorsPreflightOptions *CorsOptions `json:"defaultCorsPreflightOptions"`
 	// An integration to use as a default for all methods created within this API unless an integration is specified.
-	// Experimental.
 	DefaultIntegration Integration `json:"defaultIntegration"`
 	// Method options to use as a default for all methods created within this API unless custom options are specified.
-	// Experimental.
 	DefaultMethodOptions *MethodOptions `json:"defaultMethodOptions"`
 	// Automatically configure an AWS CloudWatch role for API Gateway.
-	// Experimental.
 	CloudWatchRole *bool `json:"cloudWatchRole"`
 	// Indicates if a Deployment should be automatically created for this API, and recreated when the API model (resources, methods) changes.
 	//
@@ -22749,13 +21702,11 @@ type RestApiProps struct {
 	//
 	// A CloudFormation Output will also be defined with the root URL endpoint
 	// of this REST API.
-	// Experimental.
 	Deploy *bool `json:"deploy"`
 	// Options for the API Gateway stage that will always point to the latest deployment when `deploy` is enabled.
 	//
 	// If `deploy` is disabled,
 	// this value cannot be set.
-	// Experimental.
 	DeployOptions *StageOptions `json:"deployOptions"`
 	// Specifies whether clients can invoke the API using the default execute-api endpoint.
 	//
@@ -22763,57 +21714,43 @@ type RestApiProps struct {
 	// API, disable the default endpoint.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html
 	//
-	// Experimental.
 	DisableExecuteApiEndpoint *bool `json:"disableExecuteApiEndpoint"`
 	// Configure a custom domain name and map it to this API.
-	// Experimental.
 	DomainName *DomainNameOptions `json:"domainName"`
 	// Export name for the CfnOutput containing the API endpoint.
-	// Experimental.
 	EndpointExportName *string `json:"endpointExportName"`
 	// A list of the endpoint types of the API.
 	//
 	// Use this property when creating
 	// an API.
-	// Experimental.
 	EndpointTypes *[]EndpointType `json:"endpointTypes"`
 	// Indicates whether to roll back the resource if a warning occurs while API Gateway is creating the RestApi resource.
-	// Experimental.
 	FailOnWarnings *bool `json:"failOnWarnings"`
 	// Custom header parameters for the request.
 	// See: https://docs.aws.amazon.com/cli/latest/reference/apigateway/import-rest-api.html
 	//
-	// Experimental.
 	Parameters *map[string]*string `json:"parameters"`
 	// A policy document that contains the permissions for this RestApi.
-	// Experimental.
 	Policy awsiam.PolicyDocument `json:"policy"`
 	// A name for the API Gateway RestApi resource.
-	// Experimental.
 	RestApiName *string `json:"restApiName"`
 	// Retains old deployment resources when the API changes.
 	//
 	// This allows
 	// manually reverting stages to point to old deployments via the AWS
 	// Console.
-	// Experimental.
 	RetainDeployments *bool `json:"retainDeployments"`
 	// The source of the API key for metering requests according to a usage plan.
-	// Experimental.
 	ApiKeySourceType ApiKeySourceType `json:"apiKeySourceType"`
 	// The list of binary media mime-types that are supported by the RestApi resource, such as "image/png" or "application/octet-stream".
-	// Experimental.
 	BinaryMediaTypes *[]*string `json:"binaryMediaTypes"`
 	// The ID of the API Gateway RestApi resource that you want to clone.
-	// Experimental.
 	CloneFrom IRestApi `json:"cloneFrom"`
 	// A description of the purpose of this API Gateway RestApi resource.
-	// Experimental.
 	Description *string `json:"description"`
 	// The EndpointConfiguration property type specifies the endpoint types of a REST API.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html
 	//
-	// Experimental.
 	EndpointConfiguration *EndpointConfiguration `json:"endpointConfiguration"`
 	// A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (when undefined) on an API.
 	//
@@ -22821,7 +21758,6 @@ type RestApiProps struct {
 	// decompression is not applied on the payload if the payload size is
 	// smaller than this value. Setting it to zero allows compression for any
 	// payload size.
-	// Experimental.
 	MinimumCompressionSize *float64 `json:"minimumCompressionSize"`
 }
 
@@ -22829,7 +21765,6 @@ type RestApiProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type S3ApiDefinition interface {
 	ApiDefinition
 	Bind(_scope constructs.Construct) *ApiDefinitionConfig
@@ -22841,7 +21776,6 @@ type jsiiProxy_S3ApiDefinition struct {
 	jsiiProxy_ApiDefinition
 }
 
-// Experimental.
 func NewS3ApiDefinition(bucket awss3.IBucket, key *string, objectVersion *string) S3ApiDefinition {
 	_init_.Initialize()
 
@@ -22856,7 +21790,6 @@ func NewS3ApiDefinition(bucket awss3.IBucket, key *string, objectVersion *string
 	return &j
 }
 
-// Experimental.
 func NewS3ApiDefinition_Override(s S3ApiDefinition, bucket awss3.IBucket, key *string, objectVersion *string) {
 	_init_.Initialize()
 
@@ -22868,7 +21801,6 @@ func NewS3ApiDefinition_Override(s S3ApiDefinition, bucket awss3.IBucket, key *s
 }
 
 // Loads the API specification from a local disk asset.
-// Experimental.
 func S3ApiDefinition_FromAsset(file *string, options *awss3assets.AssetOptions) AssetApiDefinition {
 	_init_.Initialize()
 
@@ -22885,7 +21817,6 @@ func S3ApiDefinition_FromAsset(file *string, options *awss3assets.AssetOptions) 
 }
 
 // Creates an API definition from a specification file in an S3 bucket.
-// Experimental.
 func S3ApiDefinition_FromBucket(bucket awss3.IBucket, key *string, objectVersion *string) S3ApiDefinition {
 	_init_.Initialize()
 
@@ -22908,7 +21839,6 @@ func S3ApiDefinition_FromBucket(bucket awss3.IBucket, key *string, objectVersion
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 func S3ApiDefinition_FromInline(definition interface{}) InlineApiDefinition {
 	_init_.Initialize()
 
@@ -22925,7 +21855,6 @@ func S3ApiDefinition_FromInline(definition interface{}) InlineApiDefinition {
 }
 
 // Called when the specification is initialized to allow this object to bind to the stack, add resources and have fun.
-// Experimental.
 func (s *jsiiProxy_S3ApiDefinition) Bind(_scope constructs.Construct) *ApiDefinitionConfig {
 	var returns *ApiDefinitionConfig
 
@@ -22943,7 +21872,6 @@ func (s *jsiiProxy_S3ApiDefinition) Bind(_scope constructs.Construct) *ApiDefini
 //
 // Specifically it's required to allow assets to add
 // metadata for tooling like SAM CLI to be able to find their origins.
-// Experimental.
 func (s *jsiiProxy_S3ApiDefinition) BindAfterCreate(_scope constructs.Construct, _restApi IRestApi) {
 	_jsii_.InvokeVoid(
 		s,
@@ -22956,7 +21884,6 @@ func (s *jsiiProxy_S3ApiDefinition) BindAfterCreate(_scope constructs.Construct,
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SecurityPolicy string
 
 const (
@@ -22975,7 +21902,6 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SpecRestApi interface {
 	RestApiBase
 	DeploymentStage() Stage
@@ -23127,7 +22053,6 @@ func (j *jsiiProxy_SpecRestApi) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewSpecRestApi(scope constructs.Construct, id *string, props *SpecRestApiProps) SpecRestApi {
 	_init_.Initialize()
 
@@ -23142,7 +22067,6 @@ func NewSpecRestApi(scope constructs.Construct, id *string, props *SpecRestApiPr
 	return &j
 }
 
-// Experimental.
 func NewSpecRestApi_Override(s SpecRestApi, scope constructs.Construct, id *string, props *SpecRestApiProps) {
 	_init_.Initialize()
 
@@ -23181,7 +22105,6 @@ func SpecRestApi_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func SpecRestApi_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -23198,7 +22121,6 @@ func SpecRestApi_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Add an ApiKey.
-// Experimental.
 func (s *jsiiProxy_SpecRestApi) AddApiKey(id *string, options *ApiKeyOptions) IApiKey {
 	var returns IApiKey
 
@@ -23213,7 +22135,6 @@ func (s *jsiiProxy_SpecRestApi) AddApiKey(id *string, options *ApiKeyOptions) IA
 }
 
 // Defines an API Gateway domain name and maps it to this API.
-// Experimental.
 func (s *jsiiProxy_SpecRestApi) AddDomainName(id *string, options *DomainNameOptions) DomainName {
 	var returns DomainName
 
@@ -23228,7 +22149,6 @@ func (s *jsiiProxy_SpecRestApi) AddDomainName(id *string, options *DomainNameOpt
 }
 
 // Adds a new gateway response.
-// Experimental.
 func (s *jsiiProxy_SpecRestApi) AddGatewayResponse(id *string, options *GatewayResponseOptions) GatewayResponse {
 	var returns GatewayResponse
 
@@ -23243,7 +22163,6 @@ func (s *jsiiProxy_SpecRestApi) AddGatewayResponse(id *string, options *GatewayR
 }
 
 // Adds a usage plan.
-// Experimental.
 func (s *jsiiProxy_SpecRestApi) AddUsagePlan(id *string, props *UsagePlanProps) UsagePlan {
 	var returns UsagePlan
 
@@ -23266,7 +22185,6 @@ func (s *jsiiProxy_SpecRestApi) AddUsagePlan(id *string, props *UsagePlanProps) 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (s *jsiiProxy_SpecRestApi) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		s,
@@ -23276,7 +22194,6 @@ func (s *jsiiProxy_SpecRestApi) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) 
 }
 
 // Gets the "execute-api" ARN.
-// Experimental.
 func (s *jsiiProxy_SpecRestApi) ArnForExecuteApi(method *string, path *string, stage *string) *string {
 	var returns *string
 
@@ -23290,7 +22207,6 @@ func (s *jsiiProxy_SpecRestApi) ArnForExecuteApi(method *string, path *string, s
 	return returns
 }
 
-// Experimental.
 func (s *jsiiProxy_SpecRestApi) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -23310,7 +22226,6 @@ func (s *jsiiProxy_SpecRestApi) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (s *jsiiProxy_SpecRestApi) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -23329,7 +22244,6 @@ func (s *jsiiProxy_SpecRestApi) GetResourceArnAttribute(arnAttr *string, arnComp
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (s *jsiiProxy_SpecRestApi) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -23344,7 +22258,6 @@ func (s *jsiiProxy_SpecRestApi) GetResourceNameAttribute(nameAttr *string) *stri
 }
 
 // Returns the given named metric for this API.
-// Experimental.
 func (s *jsiiProxy_SpecRestApi) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -23361,7 +22274,6 @@ func (s *jsiiProxy_SpecRestApi) Metric(metricName *string, props *awscloudwatch.
 // Metric for the number of requests served from the API cache in a given period.
 //
 // Default: sum over 5 minutes
-// Experimental.
 func (s *jsiiProxy_SpecRestApi) MetricCacheHitCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -23378,7 +22290,6 @@ func (s *jsiiProxy_SpecRestApi) MetricCacheHitCount(props *awscloudwatch.MetricO
 // Metric for the number of requests served from the backend in a given period, when API caching is enabled.
 //
 // Default: sum over 5 minutes
-// Experimental.
 func (s *jsiiProxy_SpecRestApi) MetricCacheMissCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -23395,7 +22306,6 @@ func (s *jsiiProxy_SpecRestApi) MetricCacheMissCount(props *awscloudwatch.Metric
 // Metric for the number of client-side errors captured in a given period.
 //
 // Default: sum over 5 minutes
-// Experimental.
 func (s *jsiiProxy_SpecRestApi) MetricClientError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -23412,7 +22322,6 @@ func (s *jsiiProxy_SpecRestApi) MetricClientError(props *awscloudwatch.MetricOpt
 // Metric for the total number API requests in a given period.
 //
 // Default: sample count over 5 minutes
-// Experimental.
 func (s *jsiiProxy_SpecRestApi) MetricCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -23429,7 +22338,6 @@ func (s *jsiiProxy_SpecRestApi) MetricCount(props *awscloudwatch.MetricOptions) 
 // Metric for the time between when API Gateway relays a request to the backend and when it receives a response from the backend.
 //
 // Default: average over 5 minutes.
-// Experimental.
 func (s *jsiiProxy_SpecRestApi) MetricIntegrationLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -23448,7 +22356,6 @@ func (s *jsiiProxy_SpecRestApi) MetricIntegrationLatency(props *awscloudwatch.Me
 // The latency includes the integration latency and other API Gateway overhead.
 //
 // Default: average over 5 minutes.
-// Experimental.
 func (s *jsiiProxy_SpecRestApi) MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -23465,7 +22372,6 @@ func (s *jsiiProxy_SpecRestApi) MetricLatency(props *awscloudwatch.MetricOptions
 // Metric for the number of server-side errors captured in a given period.
 //
 // Default: sum over 5 minutes
-// Experimental.
 func (s *jsiiProxy_SpecRestApi) MetricServerError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -23480,7 +22386,6 @@ func (s *jsiiProxy_SpecRestApi) MetricServerError(props *awscloudwatch.MetricOpt
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (s *jsiiProxy_SpecRestApi) ToString() *string {
 	var returns *string
 
@@ -23497,7 +22402,6 @@ func (s *jsiiProxy_SpecRestApi) ToString() *string {
 // Returns the URL for an HTTP path.
 //
 // Fails if `deploymentStage` is not set either by `deploy` or explicitly.
-// Experimental.
 func (s *jsiiProxy_SpecRestApi) UrlForPath(path *string) *string {
 	var returns *string
 
@@ -23515,10 +22419,8 @@ func (s *jsiiProxy_SpecRestApi) UrlForPath(path *string) *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SpecRestApiProps struct {
 	// Automatically configure an AWS CloudWatch role for API Gateway.
-	// Experimental.
 	CloudWatchRole *bool `json:"cloudWatchRole"`
 	// Indicates if a Deployment should be automatically created for this API, and recreated when the API model (resources, methods) changes.
 	//
@@ -23536,13 +22438,11 @@ type SpecRestApiProps struct {
 	//
 	// A CloudFormation Output will also be defined with the root URL endpoint
 	// of this REST API.
-	// Experimental.
 	Deploy *bool `json:"deploy"`
 	// Options for the API Gateway stage that will always point to the latest deployment when `deploy` is enabled.
 	//
 	// If `deploy` is disabled,
 	// this value cannot be set.
-	// Experimental.
 	DeployOptions *StageOptions `json:"deployOptions"`
 	// Specifies whether clients can invoke the API using the default execute-api endpoint.
 	//
@@ -23550,51 +22450,40 @@ type SpecRestApiProps struct {
 	// API, disable the default endpoint.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html
 	//
-	// Experimental.
 	DisableExecuteApiEndpoint *bool `json:"disableExecuteApiEndpoint"`
 	// Configure a custom domain name and map it to this API.
-	// Experimental.
 	DomainName *DomainNameOptions `json:"domainName"`
 	// Export name for the CfnOutput containing the API endpoint.
-	// Experimental.
 	EndpointExportName *string `json:"endpointExportName"`
 	// A list of the endpoint types of the API.
 	//
 	// Use this property when creating
 	// an API.
-	// Experimental.
 	EndpointTypes *[]EndpointType `json:"endpointTypes"`
 	// Indicates whether to roll back the resource if a warning occurs while API Gateway is creating the RestApi resource.
-	// Experimental.
 	FailOnWarnings *bool `json:"failOnWarnings"`
 	// Custom header parameters for the request.
 	// See: https://docs.aws.amazon.com/cli/latest/reference/apigateway/import-rest-api.html
 	//
-	// Experimental.
 	Parameters *map[string]*string `json:"parameters"`
 	// A policy document that contains the permissions for this RestApi.
-	// Experimental.
 	Policy awsiam.PolicyDocument `json:"policy"`
 	// A name for the API Gateway RestApi resource.
-	// Experimental.
 	RestApiName *string `json:"restApiName"`
 	// Retains old deployment resources when the API changes.
 	//
 	// This allows
 	// manually reverting stages to point to old deployments via the AWS
 	// Console.
-	// Experimental.
 	RetainDeployments *bool `json:"retainDeployments"`
 	// An OpenAPI definition compatible with API Gateway.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html
 	//
-	// Experimental.
 	ApiDefinition ApiDefinition `json:"apiDefinition"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type Stage interface {
 	awscdk.Resource
 	IStage
@@ -23679,7 +22568,6 @@ func (j *jsiiProxy_Stage) StageName() *string {
 }
 
 
-// Experimental.
 func NewStage(scope constructs.Construct, id *string, props *StageProps) Stage {
 	_init_.Initialize()
 
@@ -23694,7 +22582,6 @@ func NewStage(scope constructs.Construct, id *string, props *StageProps) Stage {
 	return &j
 }
 
-// Experimental.
 func NewStage_Override(s Stage, scope constructs.Construct, id *string, props *StageProps) {
 	_init_.Initialize()
 
@@ -23725,7 +22612,6 @@ func Stage_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func Stage_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -23750,7 +22636,6 @@ func Stage_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (s *jsiiProxy_Stage) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		s,
@@ -23759,7 +22644,6 @@ func (s *jsiiProxy_Stage) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (s *jsiiProxy_Stage) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -23779,7 +22663,6 @@ func (s *jsiiProxy_Stage) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (s *jsiiProxy_Stage) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -23798,7 +22681,6 @@ func (s *jsiiProxy_Stage) GetResourceArnAttribute(arnAttr *string, arnComponents
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (s *jsiiProxy_Stage) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -23813,7 +22695,6 @@ func (s *jsiiProxy_Stage) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (s *jsiiProxy_Stage) ToString() *string {
 	var returns *string
 
@@ -23828,7 +22709,6 @@ func (s *jsiiProxy_Stage) ToString() *string {
 }
 
 // Returns the invoke URL for a certain path.
-// Experimental.
 func (s *jsiiProxy_Stage) UrlForPath(path *string) *string {
 	var returns *string
 
@@ -23844,10 +22724,8 @@ func (s *jsiiProxy_Stage) UrlForPath(path *string) *string {
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type StageOptions struct {
 	// Indicates whether the cached responses are encrypted.
-	// Experimental.
 	CacheDataEncrypted *bool `json:"cacheDataEncrypted"`
 	// Specifies the time to live (TTL), in seconds, for cached responses.
 	//
@@ -23855,89 +22733,69 @@ type StageOptions struct {
 	// higher the TTL, the longer the response will be cached.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html
 	//
-	// Experimental.
 	CacheTtl awscdk.Duration `json:"cacheTtl"`
 	// Specifies whether responses should be cached and returned for requests.
 	//
 	// A
 	// cache cluster must be enabled on the stage for responses to be cached.
-	// Experimental.
 	CachingEnabled *bool `json:"cachingEnabled"`
 	// Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
-	// Experimental.
 	DataTraceEnabled *bool `json:"dataTraceEnabled"`
 	// Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
-	// Experimental.
 	LoggingLevel MethodLoggingLevel `json:"loggingLevel"`
 	// Specifies whether Amazon CloudWatch metrics are enabled for this method.
-	// Experimental.
 	MetricsEnabled *bool `json:"metricsEnabled"`
 	// Specifies the throttling burst limit.
 	//
 	// The total rate of all requests in your AWS account is limited to 5,000 requests.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html
 	//
-	// Experimental.
 	ThrottlingBurstLimit *float64 `json:"throttlingBurstLimit"`
 	// Specifies the throttling rate limit.
 	//
 	// The total rate of all requests in your AWS account is limited to 10,000 requests per second (rps).
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html
 	//
-	// Experimental.
 	ThrottlingRateLimit *float64 `json:"throttlingRateLimit"`
 	// The CloudWatch Logs log group.
-	// Experimental.
 	AccessLogDestination IAccessLogDestination `json:"accessLogDestination"`
 	// A single line format of access logs of data, as specified by selected $content variables.
 	//
 	// The format must include at least `AccessLogFormat.contextRequestId()`.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference
 	//
-	// Experimental.
 	AccessLogFormat AccessLogFormat `json:"accessLogFormat"`
 	// Indicates whether cache clustering is enabled for the stage.
-	// Experimental.
 	CacheClusterEnabled *bool `json:"cacheClusterEnabled"`
 	// The stage's cache cluster size.
-	// Experimental.
 	CacheClusterSize *string `json:"cacheClusterSize"`
 	// The identifier of the client certificate that API Gateway uses to call your integration endpoints in the stage.
-	// Experimental.
 	ClientCertificateId *string `json:"clientCertificateId"`
 	// A description of the purpose of the stage.
-	// Experimental.
 	Description *string `json:"description"`
 	// The version identifier of the API documentation snapshot.
-	// Experimental.
 	DocumentationVersion *string `json:"documentationVersion"`
 	// Method deployment options for specific resources/methods.
 	//
 	// These will
 	// override common options defined in `StageOptions#methodOptions`.
-	// Experimental.
 	MethodOptions *map[string]*MethodDeploymentOptions `json:"methodOptions"`
 	// The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
-	// Experimental.
 	StageName *string `json:"stageName"`
 	// Specifies whether Amazon X-Ray tracing is enabled for this method.
-	// Experimental.
 	TracingEnabled *bool `json:"tracingEnabled"`
 	// A map that defines the stage variables.
 	//
 	// Variable names must consist of
 	// alphanumeric characters, and the values must match the following regular
 	// expression: [A-Za-z0-9-._~:/?#&amp;=,]+.
-	// Experimental.
 	Variables *map[string]*string `json:"variables"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type StageProps struct {
 	// Indicates whether the cached responses are encrypted.
-	// Experimental.
 	CacheDataEncrypted *bool `json:"cacheDataEncrypted"`
 	// Specifies the time to live (TTL), in seconds, for cached responses.
 	//
@@ -23945,83 +22803,64 @@ type StageProps struct {
 	// higher the TTL, the longer the response will be cached.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html
 	//
-	// Experimental.
 	CacheTtl awscdk.Duration `json:"cacheTtl"`
 	// Specifies whether responses should be cached and returned for requests.
 	//
 	// A
 	// cache cluster must be enabled on the stage for responses to be cached.
-	// Experimental.
 	CachingEnabled *bool `json:"cachingEnabled"`
 	// Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
-	// Experimental.
 	DataTraceEnabled *bool `json:"dataTraceEnabled"`
 	// Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
-	// Experimental.
 	LoggingLevel MethodLoggingLevel `json:"loggingLevel"`
 	// Specifies whether Amazon CloudWatch metrics are enabled for this method.
-	// Experimental.
 	MetricsEnabled *bool `json:"metricsEnabled"`
 	// Specifies the throttling burst limit.
 	//
 	// The total rate of all requests in your AWS account is limited to 5,000 requests.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html
 	//
-	// Experimental.
 	ThrottlingBurstLimit *float64 `json:"throttlingBurstLimit"`
 	// Specifies the throttling rate limit.
 	//
 	// The total rate of all requests in your AWS account is limited to 10,000 requests per second (rps).
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-request-throttling.html
 	//
-	// Experimental.
 	ThrottlingRateLimit *float64 `json:"throttlingRateLimit"`
 	// The CloudWatch Logs log group.
-	// Experimental.
 	AccessLogDestination IAccessLogDestination `json:"accessLogDestination"`
 	// A single line format of access logs of data, as specified by selected $content variables.
 	//
 	// The format must include at least `AccessLogFormat.contextRequestId()`.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html#context-variable-reference
 	//
-	// Experimental.
 	AccessLogFormat AccessLogFormat `json:"accessLogFormat"`
 	// Indicates whether cache clustering is enabled for the stage.
-	// Experimental.
 	CacheClusterEnabled *bool `json:"cacheClusterEnabled"`
 	// The stage's cache cluster size.
-	// Experimental.
 	CacheClusterSize *string `json:"cacheClusterSize"`
 	// The identifier of the client certificate that API Gateway uses to call your integration endpoints in the stage.
-	// Experimental.
 	ClientCertificateId *string `json:"clientCertificateId"`
 	// A description of the purpose of the stage.
-	// Experimental.
 	Description *string `json:"description"`
 	// The version identifier of the API documentation snapshot.
-	// Experimental.
 	DocumentationVersion *string `json:"documentationVersion"`
 	// Method deployment options for specific resources/methods.
 	//
 	// These will
 	// override common options defined in `StageOptions#methodOptions`.
-	// Experimental.
 	MethodOptions *map[string]*MethodDeploymentOptions `json:"methodOptions"`
 	// The name of the stage, which API Gateway uses as the first path segment in the invoked Uniform Resource Identifier (URI).
-	// Experimental.
 	StageName *string `json:"stageName"`
 	// Specifies whether Amazon X-Ray tracing is enabled for this method.
-	// Experimental.
 	TracingEnabled *bool `json:"tracingEnabled"`
 	// A map that defines the stage variables.
 	//
 	// Variable names must consist of
 	// alphanumeric characters, and the values must match the following regular
 	// expression: [A-Za-z0-9-._~:/?#&amp;=,]+.
-	// Experimental.
 	Variables *map[string]*string `json:"variables"`
 	// The deployment that this stage points to [disable-awslint:ref-via-interface].
-	// Experimental.
 	Deployment Deployment `json:"deployment"`
 }
 
@@ -24029,13 +22868,10 @@ type StageProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ThrottleSettings struct {
 	// The maximum API request rate limit over a time ranging from one to a few seconds.
-	// Experimental.
 	BurstLimit *float64 `json:"burstLimit"`
 	// The API request steady-state rate limit (average requests per second over an extended period of time).
-	// Experimental.
 	RateLimit *float64 `json:"rateLimit"`
 }
 
@@ -24043,13 +22879,10 @@ type ThrottleSettings struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type ThrottlingPerMethod struct {
 	// [disable-awslint:ref-via-interface] The method for which you specify the throttling settings.
-	// Experimental.
 	Method Method `json:"method"`
 	// Specifies the overall request rate (average requests per second) and burst capacity.
-	// Experimental.
 	Throttle *ThrottleSettings `json:"throttle"`
 }
 
@@ -24059,7 +22892,6 @@ type ThrottlingPerMethod struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TokenAuthorizer interface {
 	Authorizer
 	IAuthorizer
@@ -24190,7 +23022,6 @@ func (j *jsiiProxy_TokenAuthorizer) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewTokenAuthorizer(scope constructs.Construct, id *string, props *TokenAuthorizerProps) TokenAuthorizer {
 	_init_.Initialize()
 
@@ -24205,7 +23036,6 @@ func NewTokenAuthorizer(scope constructs.Construct, id *string, props *TokenAuth
 	return &j
 }
 
-// Experimental.
 func NewTokenAuthorizer_Override(t TokenAuthorizer, scope constructs.Construct, id *string, props *TokenAuthorizerProps) {
 	_init_.Initialize()
 
@@ -24225,7 +23055,6 @@ func (j *jsiiProxy_TokenAuthorizer) SetRestApiId(val *string) {
 }
 
 // Return whether the given object is an Authorizer.
-// Experimental.
 func TokenAuthorizer_IsAuthorizer(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -24261,7 +23090,6 @@ func TokenAuthorizer_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func TokenAuthorizer_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -24286,7 +23114,6 @@ func TokenAuthorizer_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (t *jsiiProxy_TokenAuthorizer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		t,
@@ -24295,7 +23122,6 @@ func (t *jsiiProxy_TokenAuthorizer) ApplyRemovalPolicy(policy awscdk.RemovalPoli
 	)
 }
 
-// Experimental.
 func (t *jsiiProxy_TokenAuthorizer) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -24315,7 +23141,6 @@ func (t *jsiiProxy_TokenAuthorizer) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (t *jsiiProxy_TokenAuthorizer) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -24334,7 +23159,6 @@ func (t *jsiiProxy_TokenAuthorizer) GetResourceArnAttribute(arnAttr *string, arn
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (t *jsiiProxy_TokenAuthorizer) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -24351,7 +23175,6 @@ func (t *jsiiProxy_TokenAuthorizer) GetResourceNameAttribute(nameAttr *string) *
 // Returns a token that resolves to the Rest Api Id at the time of synthesis.
 //
 // Throws an error, during token resolution, if no RestApi is attached to this authorizer.
-// Experimental.
 func (t *jsiiProxy_TokenAuthorizer) LazyRestApiId() *string {
 	var returns *string
 
@@ -24366,7 +23189,6 @@ func (t *jsiiProxy_TokenAuthorizer) LazyRestApiId() *string {
 }
 
 // Sets up the permissions necessary for the API Gateway service to invoke the Lambda function.
-// Experimental.
 func (t *jsiiProxy_TokenAuthorizer) SetupPermissions() {
 	_jsii_.InvokeVoid(
 		t,
@@ -24376,7 +23198,6 @@ func (t *jsiiProxy_TokenAuthorizer) SetupPermissions() {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (t *jsiiProxy_TokenAuthorizer) ToString() *string {
 	var returns *string
 
@@ -24394,18 +23215,15 @@ func (t *jsiiProxy_TokenAuthorizer) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TokenAuthorizerProps struct {
 	// An optional IAM role for APIGateway to assume before calling the Lambda-based authorizer.
 	//
 	// The IAM role must be
 	// assumable by 'apigateway.amazonaws.com'.
-	// Experimental.
 	AssumeRole awsiam.IRole `json:"assumeRole"`
 	// An optional human friendly name for the authorizer.
 	//
 	// Note that, this is not the primary identifier of the authorizer.
-	// Experimental.
 	AuthorizerName *string `json:"authorizerName"`
 	// The handler for the authorizer lambda function.
 	//
@@ -24413,13 +23231,11 @@ type TokenAuthorizerProps struct {
 	// API Gateway has documented the handler's input specification
 	// {@link https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-lambda-authorizer-input.html | here} and output specification
 	// {@link https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-lambda-authorizer-output.html | here}.
-	// Experimental.
 	Handler awslambda.IFunction `json:"handler"`
 	// How long APIGateway should cache the results.
 	//
 	// Max 1 hour.
 	// Disable caching by setting this to 0.
-	// Experimental.
 	ResultsCacheTtl awscdk.Duration `json:"resultsCacheTtl"`
 	// The request header mapping expression for the bearer token.
 	//
@@ -24427,19 +23243,16 @@ type TokenAuthorizerProps struct {
 	// this should be `method.request.header.Authorizer` where Authorizer is the header containing the bearer token.
 	// See: https://docs.aws.amazon.com/apigateway/api-reference/link-relation/authorizer-create/#identitySource
 	//
-	// Experimental.
 	IdentitySource *string `json:"identitySource"`
 	// An optional regex to be matched against the authorization token.
 	//
 	// When matched the authorizer lambda is invoked,
 	// otherwise a 401 Unauthorized is returned to the client.
-	// Experimental.
 	ValidationRegex *string `json:"validationRegex"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type UsagePlan interface {
 	awscdk.Resource
 	IUsagePlan
@@ -24514,7 +23327,6 @@ func (j *jsiiProxy_UsagePlan) UsagePlanId() *string {
 }
 
 
-// Experimental.
 func NewUsagePlan(scope constructs.Construct, id *string, props *UsagePlanProps) UsagePlan {
 	_init_.Initialize()
 
@@ -24529,7 +23341,6 @@ func NewUsagePlan(scope constructs.Construct, id *string, props *UsagePlanProps)
 	return &j
 }
 
-// Experimental.
 func NewUsagePlan_Override(u UsagePlan, scope constructs.Construct, id *string, props *UsagePlanProps) {
 	_init_.Initialize()
 
@@ -24541,7 +23352,6 @@ func NewUsagePlan_Override(u UsagePlan, scope constructs.Construct, id *string, 
 }
 
 // Import an externally defined usage plan using its ARN.
-// Experimental.
 func UsagePlan_FromUsagePlanId(scope constructs.Construct, id *string, usagePlanId *string) IUsagePlan {
 	_init_.Initialize()
 
@@ -24577,7 +23387,6 @@ func UsagePlan_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func UsagePlan_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -24594,7 +23403,6 @@ func UsagePlan_IsResource(construct constructs.IConstruct) *bool {
 }
 
 // Adds an ApiKey.
-// Experimental.
 func (u *jsiiProxy_UsagePlan) AddApiKey(apiKey IApiKey, options *AddApiKeyOptions) {
 	_jsii_.InvokeVoid(
 		u,
@@ -24604,7 +23412,6 @@ func (u *jsiiProxy_UsagePlan) AddApiKey(apiKey IApiKey, options *AddApiKeyOption
 }
 
 // Adds an apiStage.
-// Experimental.
 func (u *jsiiProxy_UsagePlan) AddApiStage(apiStage *UsagePlanPerApiStage) {
 	_jsii_.InvokeVoid(
 		u,
@@ -24622,7 +23429,6 @@ func (u *jsiiProxy_UsagePlan) AddApiStage(apiStage *UsagePlanPerApiStage) {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (u *jsiiProxy_UsagePlan) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		u,
@@ -24631,7 +23437,6 @@ func (u *jsiiProxy_UsagePlan) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (u *jsiiProxy_UsagePlan) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -24651,7 +23456,6 @@ func (u *jsiiProxy_UsagePlan) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (u *jsiiProxy_UsagePlan) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -24670,7 +23474,6 @@ func (u *jsiiProxy_UsagePlan) GetResourceArnAttribute(arnAttr *string, arnCompon
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (u *jsiiProxy_UsagePlan) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -24685,7 +23488,6 @@ func (u *jsiiProxy_UsagePlan) GetResourceNameAttribute(nameAttr *string) *string
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (u *jsiiProxy_UsagePlan) ToString() *string {
 	var returns *string
 
@@ -24703,35 +23505,25 @@ func (u *jsiiProxy_UsagePlan) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type UsagePlanPerApiStage struct {
-	// Experimental.
 	Api IRestApi `json:"api"`
 	// [disable-awslint:ref-via-interface].
-	// Experimental.
 	Stage Stage `json:"stage"`
-	// Experimental.
 	Throttle *[]*ThrottlingPerMethod `json:"throttle"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type UsagePlanProps struct {
 	// API Stages to be associated with the usage plan.
-	// Experimental.
 	ApiStages *[]*UsagePlanPerApiStage `json:"apiStages"`
 	// Represents usage plan purpose.
-	// Experimental.
 	Description *string `json:"description"`
 	// Name for this usage plan.
-	// Experimental.
 	Name *string `json:"name"`
 	// Number of requests clients can make in a given time period.
-	// Experimental.
 	Quota *QuotaSettings `json:"quota"`
 	// Overall throttle settings for the API.
-	// Experimental.
 	Throttle *ThrottleSettings `json:"throttle"`
 }
 
@@ -24739,7 +23531,6 @@ type UsagePlanProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VpcLink interface {
 	awscdk.Resource
 	IVpcLink
@@ -24813,7 +23604,6 @@ func (j *jsiiProxy_VpcLink) VpcLinkId() *string {
 }
 
 
-// Experimental.
 func NewVpcLink(scope constructs.Construct, id *string, props *VpcLinkProps) VpcLink {
 	_init_.Initialize()
 
@@ -24828,7 +23618,6 @@ func NewVpcLink(scope constructs.Construct, id *string, props *VpcLinkProps) Vpc
 	return &j
 }
 
-// Experimental.
 func NewVpcLink_Override(v VpcLink, scope constructs.Construct, id *string, props *VpcLinkProps) {
 	_init_.Initialize()
 
@@ -24840,7 +23629,6 @@ func NewVpcLink_Override(v VpcLink, scope constructs.Construct, id *string, prop
 }
 
 // Import a VPC Link by its Id.
-// Experimental.
 func VpcLink_FromVpcLinkId(scope constructs.Construct, id *string, vpcLinkId *string) IVpcLink {
 	_init_.Initialize()
 
@@ -24876,7 +23664,6 @@ func VpcLink_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func VpcLink_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -24892,7 +23679,6 @@ func VpcLink_IsResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Experimental.
 func (v *jsiiProxy_VpcLink) AddTargets(targets ...awselasticloadbalancingv2.INetworkLoadBalancer) {
 	args := []interface{}{}
 	for _, a := range targets {
@@ -24915,7 +23701,6 @@ func (v *jsiiProxy_VpcLink) AddTargets(targets ...awselasticloadbalancingv2.INet
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (v *jsiiProxy_VpcLink) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		v,
@@ -24924,7 +23709,6 @@ func (v *jsiiProxy_VpcLink) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (v *jsiiProxy_VpcLink) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -24944,7 +23728,6 @@ func (v *jsiiProxy_VpcLink) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (v *jsiiProxy_VpcLink) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -24963,7 +23746,6 @@ func (v *jsiiProxy_VpcLink) GetResourceArnAttribute(arnAttr *string, arnComponen
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (v *jsiiProxy_VpcLink) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -24978,7 +23760,6 @@ func (v *jsiiProxy_VpcLink) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (v *jsiiProxy_VpcLink) ToString() *string {
 	var returns *string
 
@@ -24996,18 +23777,14 @@ func (v *jsiiProxy_VpcLink) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VpcLinkProps struct {
 	// The description of the VPC link.
-	// Experimental.
 	Description *string `json:"description"`
 	// The network load balancers of the VPC targeted by the VPC link.
 	//
 	// The network load balancers must be owned by the same AWS account of the API owner.
-	// Experimental.
 	Targets *[]awselasticloadbalancingv2.INetworkLoadBalancer `json:"targets"`
 	// The name used to label and identify the VPC link.
-	// Experimental.
 	VpcLinkName *string `json:"vpcLinkName"`
 }
 

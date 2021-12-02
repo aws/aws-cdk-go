@@ -16,7 +16,6 @@ import (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CfnInclude interface {
 	awscdk.CfnElement
 	CreationStack() *[]*string
@@ -82,7 +81,6 @@ func (j *jsiiProxy_CfnInclude) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewCfnInclude(scope constructs.Construct, id *string, props *CfnIncludeProps) CfnInclude {
 	_init_.Initialize()
 
@@ -97,7 +95,6 @@ func NewCfnInclude(scope constructs.Construct, id *string, props *CfnIncludeProp
 	return &j
 }
 
-// Experimental.
 func NewCfnInclude_Override(c CfnInclude, scope constructs.Construct, id *string, props *CfnIncludeProps) {
 	_init_.Initialize()
 
@@ -114,7 +111,6 @@ func NewCfnInclude_Override(c CfnInclude, scope constructs.Construct, id *string
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnInclude_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -155,7 +151,6 @@ func CfnInclude_IsConstruct(x interface{}) *bool {
 //
 // If a Condition with the given name is not present in the template,
 // throws an exception.
-// Experimental.
 func (c *jsiiProxy_CfnInclude) GetCondition(conditionName *string) awscdk.CfnCondition {
 	var returns awscdk.CfnCondition
 
@@ -175,7 +170,6 @@ func (c *jsiiProxy_CfnInclude) GetCondition(conditionName *string) awscdk.CfnCon
 //
 // If a Hook with the given logical ID is not present in the template,
 // an exception will be thrown.
-// Experimental.
 func (c *jsiiProxy_CfnInclude) GetHook(hookLogicalId *string) awscdk.CfnHook {
 	var returns awscdk.CfnHook
 
@@ -195,7 +189,6 @@ func (c *jsiiProxy_CfnInclude) GetHook(hookLogicalId *string) awscdk.CfnHook {
 //
 // If a Mapping with the given name is not present in the template,
 // an exception will be thrown.
-// Experimental.
 func (c *jsiiProxy_CfnInclude) GetMapping(mappingName *string) awscdk.CfnMapping {
 	var returns awscdk.CfnMapping
 
@@ -214,7 +207,6 @@ func (c *jsiiProxy_CfnInclude) GetMapping(mappingName *string) awscdk.CfnMapping
 // For a nested stack to be returned by this method,
 // it must be specified either in the {@link CfnIncludeProps.loadNestedStacks} property,
 // or through the {@link loadNestedStack} method.
-// Experimental.
 func (c *jsiiProxy_CfnInclude) GetNestedStack(logicalId *string) *IncludedNestedStack {
 	var returns *IncludedNestedStack
 
@@ -234,7 +226,6 @@ func (c *jsiiProxy_CfnInclude) GetNestedStack(logicalId *string) *IncludedNested
 //
 // If an Output with the given name is not present in the template,
 // throws an exception.
-// Experimental.
 func (c *jsiiProxy_CfnInclude) GetOutput(logicalId *string) awscdk.CfnOutput {
 	var returns awscdk.CfnOutput
 
@@ -254,7 +245,6 @@ func (c *jsiiProxy_CfnInclude) GetOutput(logicalId *string) awscdk.CfnOutput {
 //
 // If a Parameter with the given name is not present in the template,
 // throws an exception.
-// Experimental.
 func (c *jsiiProxy_CfnInclude) GetParameter(parameterName *string) awscdk.CfnParameter {
 	var returns awscdk.CfnParameter
 
@@ -281,7 +271,6 @@ func (c *jsiiProxy_CfnInclude) GetParameter(parameterName *string) awscdk.CfnPar
 //
 // If the template does not contain a resource with the given logical ID,
 // an exception will be thrown.
-// Experimental.
 func (c *jsiiProxy_CfnInclude) GetResource(logicalId *string) awscdk.CfnResource {
 	var returns awscdk.CfnResource
 
@@ -301,7 +290,6 @@ func (c *jsiiProxy_CfnInclude) GetResource(logicalId *string) awscdk.CfnResource
 //
 // If a Rule with the given name is not present in the template,
 // an exception will be thrown.
-// Experimental.
 func (c *jsiiProxy_CfnInclude) GetRule(ruleName *string) awscdk.CfnRule {
 	var returns awscdk.CfnRule
 
@@ -323,7 +311,6 @@ func (c *jsiiProxy_CfnInclude) GetRule(ruleName *string) awscdk.CfnRule {
 // property on object construction.
 //
 // Returns: the same {@link IncludedNestedStack} object that {@link getNestedStack} returns for this logical ID
-// Experimental.
 func (c *jsiiProxy_CfnInclude) LoadNestedStack(logicalId *string, nestedStackProps *CfnIncludeProps) *IncludedNestedStack {
 	var returns *IncludedNestedStack
 
@@ -338,7 +325,6 @@ func (c *jsiiProxy_CfnInclude) LoadNestedStack(logicalId *string, nestedStackPro
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnInclude) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -348,7 +334,6 @@ func (c *jsiiProxy_CfnInclude) OverrideLogicalId(newLogicalId *string) {
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (c *jsiiProxy_CfnInclude) ToString() *string {
 	var returns *string
 
@@ -366,12 +351,10 @@ func (c *jsiiProxy_CfnInclude) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CfnIncludeProps struct {
 	// Path to the template file.
 	//
 	// Both JSON and YAML template formats are supported.
-	// Experimental.
 	TemplateFile *string `json:"templateFile"`
 	// Specifies the template files that define nested stacks that should be included.
 	//
@@ -382,14 +365,12 @@ type CfnIncludeProps struct {
 	// If you include a stack here with an ID that isn't in the template,
 	// or is in the template but is not a nested stack,
 	// template creation will fail and an error will be thrown.
-	// Experimental.
 	LoadNestedStacks *map[string]*CfnIncludeProps `json:"loadNestedStacks"`
 	// Specifies parameters to be replaced by the values in this mapping.
 	//
 	// Any parameters in the template that aren't specified here will be left unmodified.
 	// If you include a parameter here with an ID that isn't in the template,
 	// template creation will fail and an error will be thrown.
-	// Experimental.
 	Parameters *map[string]interface{} `json:"parameters"`
 	// Whether the resources should have the same logical IDs in the resulting CDK template as they did in the original CloudFormation template file.
 	//
@@ -399,7 +380,6 @@ type CfnIncludeProps struct {
 	// **Note**: regardless of whether this option is true or false,
 	// the {@link CfnInclude.getResource} and related methods always uses the original logical ID of the resource/element,
 	// as specified in the template file.
-	// Experimental.
 	PreserveLogicalIds *bool `json:"preserveLogicalIds"`
 }
 
@@ -407,13 +387,10 @@ type CfnIncludeProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type IncludedNestedStack struct {
 	// The CfnInclude that represents the template, which can be used to access Resources and other template elements.
-	// Experimental.
 	IncludedTemplate CfnInclude `json:"includedTemplate"`
 	// The NestedStack object which represents the scope of the template.
-	// Experimental.
 	Stack awscdk.NestedStack `json:"stack"`
 }
 

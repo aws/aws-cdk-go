@@ -487,7 +487,6 @@ func (j *jsiiProxy_CfnQueue) SetVisibilityTimeout(val *float64) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnQueue_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -504,7 +503,6 @@ func CfnQueue_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnQueue_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -551,7 +549,6 @@ func CfnQueue_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnQueue) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -564,7 +561,6 @@ func (c *jsiiProxy_CfnQueue) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnQueue) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -580,7 +576,6 @@ func (c *jsiiProxy_CfnQueue) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnQueue) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -626,7 +621,6 @@ func (c *jsiiProxy_CfnQueue) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnQueue) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -636,7 +630,6 @@ func (c *jsiiProxy_CfnQueue) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnQueue) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -648,7 +641,6 @@ func (c *jsiiProxy_CfnQueue) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnQueue) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -666,7 +658,6 @@ func (c *jsiiProxy_CfnQueue) AddPropertyOverride(propertyPath *string, value int
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnQueue) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -679,7 +670,6 @@ func (c *jsiiProxy_CfnQueue) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnQueue) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -700,7 +690,6 @@ func (c *jsiiProxy_CfnQueue) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnQueue) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -724,7 +713,6 @@ func (c *jsiiProxy_CfnQueue) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnQueue) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -750,7 +738,6 @@ func (c *jsiiProxy_CfnQueue) RenderProperties(props *map[string]interface{}) *ma
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnQueue) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -767,7 +754,6 @@ func (c *jsiiProxy_CfnQueue) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnQueue) ToString() *string {
 	var returns *string
 
@@ -781,7 +767,6 @@ func (c *jsiiProxy_CfnQueue) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnQueue) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1003,7 +988,6 @@ func (j *jsiiProxy_CfnQueuePolicy) SetQueues(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnQueuePolicy_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -1020,7 +1004,6 @@ func CfnQueuePolicy_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnQueuePolicy_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -1067,7 +1050,6 @@ func CfnQueuePolicy_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnQueuePolicy) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1080,7 +1062,6 @@ func (c *jsiiProxy_CfnQueuePolicy) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnQueuePolicy) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1096,7 +1077,6 @@ func (c *jsiiProxy_CfnQueuePolicy) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnQueuePolicy) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1142,7 +1122,6 @@ func (c *jsiiProxy_CfnQueuePolicy) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnQueuePolicy) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1152,7 +1131,6 @@ func (c *jsiiProxy_CfnQueuePolicy) AddOverride(path *string, value interface{}) 
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnQueuePolicy) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1164,7 +1142,6 @@ func (c *jsiiProxy_CfnQueuePolicy) AddPropertyDeletionOverride(propertyPath *str
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnQueuePolicy) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1182,7 +1159,6 @@ func (c *jsiiProxy_CfnQueuePolicy) AddPropertyOverride(propertyPath *string, val
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnQueuePolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1195,7 +1171,6 @@ func (c *jsiiProxy_CfnQueuePolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnQueuePolicy) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1216,7 +1191,6 @@ func (c *jsiiProxy_CfnQueuePolicy) GetAtt(attributeName *string) awscdk.Referenc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnQueuePolicy) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1240,7 +1214,6 @@ func (c *jsiiProxy_CfnQueuePolicy) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnQueuePolicy) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1266,7 +1239,6 @@ func (c *jsiiProxy_CfnQueuePolicy) RenderProperties(props *map[string]interface{
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnQueuePolicy) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1283,7 +1255,6 @@ func (c *jsiiProxy_CfnQueuePolicy) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnQueuePolicy) ToString() *string {
 	var returns *string
 
@@ -1297,7 +1268,6 @@ func (c *jsiiProxy_CfnQueuePolicy) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnQueuePolicy) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1358,18 +1328,14 @@ type CfnQueueProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DeadLetterQueue struct {
 	// The number of times a message can be unsuccesfully dequeued before being moved to the dead-letter queue.
-	// Experimental.
 	MaxReceiveCount *float64 `json:"maxReceiveCount"`
 	// The dead-letter queue to which Amazon SQS moves messages after the value of maxReceiveCount is exceeded.
-	// Experimental.
 	Queue IQueue `json:"queue"`
 }
 
 // What kind of deduplication scope to apply.
-// Experimental.
 type DeduplicationScope string
 
 const (
@@ -1378,7 +1344,6 @@ const (
 )
 
 // Whether the FIFO queue throughput quota applies to the entire queue or per message group.
-// Experimental.
 type FifoThroughputLimit string
 
 const (
@@ -1387,7 +1352,6 @@ const (
 )
 
 // Represents an SQS queue.
-// Experimental.
 type IQueue interface {
 	awscdk.IResource
 	// Adds a statement to the IAM resource policy associated with this queue.
@@ -1395,10 +1359,8 @@ type IQueue interface {
 	// If this queue was created in this stack (`new Queue`), a queue policy
 	// will be automatically created upon the first call to `addToPolicy`. If
 	// the queue is imported (`Queue.import`), then this is a no-op.
-	// Experimental.
 	AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult
 	// Grant the actions defined in queueActions to the identity Principal given on this SQS queue resource.
-	// Experimental.
 	Grant(grantee awsiam.IGrantable, queueActions ...*string) awsiam.Grant
 	// Grant permissions to consume messages from a queue.
 	//
@@ -1409,7 +1371,6 @@ type IQueue interface {
 	//    - sqs:ReceiveMessage
 	//    - sqs:GetQueueAttributes
 	//    - sqs:GetQueueUrl
-	// Experimental.
 	GrantConsumeMessages(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant an IAM principal permissions to purge all messages from the queue.
 	//
@@ -1418,7 +1379,6 @@ type IQueue interface {
 	//   - sqs:PurgeQueue
 	//   - sqs:GetQueueAttributes
 	//   - sqs:GetQueueUrl
-	// Experimental.
 	GrantPurge(grantee awsiam.IGrantable) awsiam.Grant
 	// Grant access to send messages to a queue to the given identity.
 	//
@@ -1427,72 +1387,56 @@ type IQueue interface {
 	//   - sqs:SendMessage
 	//   - sqs:GetQueueAttributes
 	//   - sqs:GetQueueUrl
-	// Experimental.
 	GrantSendMessages(grantee awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this Queue.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The approximate age of the oldest non-deleted message in the queue.
 	//
 	// Maximum over 5 minutes
-	// Experimental.
 	MetricApproximateAgeOfOldestMessage(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages in the queue that are delayed and not available for reading immediately.
 	//
 	// Maximum over 5 minutes
-	// Experimental.
 	MetricApproximateNumberOfMessagesDelayed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages that are in flight.
 	//
 	// Maximum over 5 minutes
-	// Experimental.
 	MetricApproximateNumberOfMessagesNotVisible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages available for retrieval from the queue.
 	//
 	// Maximum over 5 minutes
-	// Experimental.
 	MetricApproximateNumberOfMessagesVisible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of ReceiveMessage API calls that did not return a message.
 	//
 	// Sum over 5 minutes
-	// Experimental.
 	MetricNumberOfEmptyReceives(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages deleted from the queue.
 	//
 	// Sum over 5 minutes
-	// Experimental.
 	MetricNumberOfMessagesDeleted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages returned by calls to the ReceiveMessage action.
 	//
 	// Sum over 5 minutes
-	// Experimental.
 	MetricNumberOfMessagesReceived(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The number of messages added to a queue.
 	//
 	// Sum over 5 minutes
-	// Experimental.
 	MetricNumberOfMessagesSent(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The size of messages added to a queue.
 	//
 	// Average over 5 minutes
-	// Experimental.
 	MetricSentMessageSize(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// If this queue is server-side encrypted, this is the KMS encryption key.
-	// Experimental.
 	EncryptionMasterKey() awskms.IKey
 	// Whether this queue is an Amazon SQS FIFO queue.
 	//
 	// If false, this is a standard queue.
-	// Experimental.
 	Fifo() *bool
 	// The ARN of this queue.
-	// Experimental.
 	QueueArn() *string
 	// The name of this queue.
-	// Experimental.
 	QueueName() *string
 	// The URL of this queue.
-	// Experimental.
 	QueueUrl() *string
 }
 
@@ -1755,7 +1699,6 @@ func (j *jsiiProxy_IQueue) QueueUrl() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Queue interface {
 	QueueBase
 	AutoCreatePolicy() *bool
@@ -1896,7 +1839,6 @@ func (j *jsiiProxy_Queue) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewQueue(scope constructs.Construct, id *string, props *QueueProps) Queue {
 	_init_.Initialize()
 
@@ -1911,7 +1853,6 @@ func NewQueue(scope constructs.Construct, id *string, props *QueueProps) Queue {
 	return &j
 }
 
-// Experimental.
 func NewQueue_Override(q Queue, scope constructs.Construct, id *string, props *QueueProps) {
 	_init_.Initialize()
 
@@ -1923,7 +1864,6 @@ func NewQueue_Override(q Queue, scope constructs.Construct, id *string, props *Q
 }
 
 // Import an existing SQS queue provided an ARN.
-// Experimental.
 func Queue_FromQueueArn(scope constructs.Construct, id *string, queueArn *string) IQueue {
 	_init_.Initialize()
 
@@ -1940,7 +1880,6 @@ func Queue_FromQueueArn(scope constructs.Construct, id *string, queueArn *string
 }
 
 // Import an existing queue.
-// Experimental.
 func Queue_FromQueueAttributes(scope constructs.Construct, id *string, attrs *QueueAttributes) IQueue {
 	_init_.Initialize()
 
@@ -1976,7 +1915,6 @@ func Queue_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func Queue_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -1997,7 +1935,6 @@ func Queue_IsResource(construct constructs.IConstruct) *bool {
 // If this queue was created in this stack (`new Queue`), a queue policy
 // will be automatically created upon the first call to `addToPolicy`. If
 // the queue is imported (`Queue.import`), then this is a no-op.
-// Experimental.
 func (q *jsiiProxy_Queue) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
 	var returns *awsiam.AddToResourcePolicyResult
 
@@ -2020,7 +1957,6 @@ func (q *jsiiProxy_Queue) AddToResourcePolicy(statement awsiam.PolicyStatement) 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (q *jsiiProxy_Queue) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		q,
@@ -2029,7 +1965,6 @@ func (q *jsiiProxy_Queue) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (q *jsiiProxy_Queue) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -2049,7 +1984,6 @@ func (q *jsiiProxy_Queue) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (q *jsiiProxy_Queue) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -2068,7 +2002,6 @@ func (q *jsiiProxy_Queue) GetResourceArnAttribute(arnAttr *string, arnComponents
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (q *jsiiProxy_Queue) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -2083,7 +2016,6 @@ func (q *jsiiProxy_Queue) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 // Grant the actions defined in queueActions to the identity Principal given on this SQS queue resource.
-// Experimental.
 func (q *jsiiProxy_Queue) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
 	args := []interface{}{grantee}
 	for _, a := range actions {
@@ -2111,7 +2043,6 @@ func (q *jsiiProxy_Queue) Grant(grantee awsiam.IGrantable, actions ...*string) a
 //    - sqs:ReceiveMessage
 //    - sqs:GetQueueAttributes
 //    - sqs:GetQueueUrl
-// Experimental.
 func (q *jsiiProxy_Queue) GrantConsumeMessages(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2132,7 +2063,6 @@ func (q *jsiiProxy_Queue) GrantConsumeMessages(grantee awsiam.IGrantable) awsiam
 //   - sqs:PurgeQueue
 //   - sqs:GetQueueAttributes
 //   - sqs:GetQueueUrl
-// Experimental.
 func (q *jsiiProxy_Queue) GrantPurge(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2153,7 +2083,6 @@ func (q *jsiiProxy_Queue) GrantPurge(grantee awsiam.IGrantable) awsiam.Grant {
 //   - sqs:SendMessage
 //   - sqs:GetQueueAttributes
 //   - sqs:GetQueueUrl
-// Experimental.
 func (q *jsiiProxy_Queue) GrantSendMessages(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2168,7 +2097,6 @@ func (q *jsiiProxy_Queue) GrantSendMessages(grantee awsiam.IGrantable) awsiam.Gr
 }
 
 // Return the given named metric for this Queue.
-// Experimental.
 func (q *jsiiProxy_Queue) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2185,7 +2113,6 @@ func (q *jsiiProxy_Queue) Metric(metricName *string, props *awscloudwatch.Metric
 // The approximate age of the oldest non-deleted message in the queue.
 //
 // Maximum over 5 minutes
-// Experimental.
 func (q *jsiiProxy_Queue) MetricApproximateAgeOfOldestMessage(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2202,7 +2129,6 @@ func (q *jsiiProxy_Queue) MetricApproximateAgeOfOldestMessage(props *awscloudwat
 // The number of messages in the queue that are delayed and not available for reading immediately.
 //
 // Maximum over 5 minutes
-// Experimental.
 func (q *jsiiProxy_Queue) MetricApproximateNumberOfMessagesDelayed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2219,7 +2145,6 @@ func (q *jsiiProxy_Queue) MetricApproximateNumberOfMessagesDelayed(props *awsclo
 // The number of messages that are in flight.
 //
 // Maximum over 5 minutes
-// Experimental.
 func (q *jsiiProxy_Queue) MetricApproximateNumberOfMessagesNotVisible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2236,7 +2161,6 @@ func (q *jsiiProxy_Queue) MetricApproximateNumberOfMessagesNotVisible(props *aws
 // The number of messages available for retrieval from the queue.
 //
 // Maximum over 5 minutes
-// Experimental.
 func (q *jsiiProxy_Queue) MetricApproximateNumberOfMessagesVisible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2253,7 +2177,6 @@ func (q *jsiiProxy_Queue) MetricApproximateNumberOfMessagesVisible(props *awsclo
 // The number of ReceiveMessage API calls that did not return a message.
 //
 // Sum over 5 minutes
-// Experimental.
 func (q *jsiiProxy_Queue) MetricNumberOfEmptyReceives(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2270,7 +2193,6 @@ func (q *jsiiProxy_Queue) MetricNumberOfEmptyReceives(props *awscloudwatch.Metri
 // The number of messages deleted from the queue.
 //
 // Sum over 5 minutes
-// Experimental.
 func (q *jsiiProxy_Queue) MetricNumberOfMessagesDeleted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2287,7 +2209,6 @@ func (q *jsiiProxy_Queue) MetricNumberOfMessagesDeleted(props *awscloudwatch.Met
 // The number of messages returned by calls to the ReceiveMessage action.
 //
 // Sum over 5 minutes
-// Experimental.
 func (q *jsiiProxy_Queue) MetricNumberOfMessagesReceived(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2304,7 +2225,6 @@ func (q *jsiiProxy_Queue) MetricNumberOfMessagesReceived(props *awscloudwatch.Me
 // The number of messages added to a queue.
 //
 // Sum over 5 minutes
-// Experimental.
 func (q *jsiiProxy_Queue) MetricNumberOfMessagesSent(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2321,7 +2241,6 @@ func (q *jsiiProxy_Queue) MetricNumberOfMessagesSent(props *awscloudwatch.Metric
 // The size of messages added to a queue.
 //
 // Average over 5 minutes
-// Experimental.
 func (q *jsiiProxy_Queue) MetricSentMessageSize(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2336,7 +2255,6 @@ func (q *jsiiProxy_Queue) MetricSentMessageSize(props *awscloudwatch.MetricOptio
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (q *jsiiProxy_Queue) ToString() *string {
 	var returns *string
 
@@ -2354,31 +2272,24 @@ func (q *jsiiProxy_Queue) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type QueueAttributes struct {
 	// Whether this queue is an Amazon SQS FIFO queue. If false, this is a standard queue.
 	//
 	// In case of a FIFO queue which is imported from a token, this value has to be explicitly set to true.
-	// Experimental.
 	Fifo *bool `json:"fifo"`
 	// KMS encryption key, if this queue is server-side encrypted by a KMS key.
-	// Experimental.
 	KeyArn *string `json:"keyArn"`
 	// The ARN of the queue.
-	// Experimental.
 	QueueArn *string `json:"queueArn"`
 	// The name of the queue.
-	// Experimental.
 	QueueName *string `json:"queueName"`
 	// The URL of the queue.
 	// See: https://docs.aws.amazon.com/sdk-for-net/v2/developer-guide/QueueURL.html
 	//
-	// Experimental.
 	QueueUrl *string `json:"queueUrl"`
 }
 
 // Reference to a new or existing Amazon SQS queue.
-// Experimental.
 type QueueBase interface {
 	awscdk.Resource
 	IQueue
@@ -2521,7 +2432,6 @@ func (j *jsiiProxy_QueueBase) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewQueueBase_Override(q QueueBase, scope constructs.Construct, id *string, props *awscdk.ResourceProps) {
 	_init_.Initialize()
 
@@ -2552,7 +2462,6 @@ func QueueBase_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func QueueBase_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -2573,7 +2482,6 @@ func QueueBase_IsResource(construct constructs.IConstruct) *bool {
 // If this queue was created in this stack (`new Queue`), a queue policy
 // will be automatically created upon the first call to `addToPolicy`. If
 // the queue is imported (`Queue.import`), then this is a no-op.
-// Experimental.
 func (q *jsiiProxy_QueueBase) AddToResourcePolicy(statement awsiam.PolicyStatement) *awsiam.AddToResourcePolicyResult {
 	var returns *awsiam.AddToResourcePolicyResult
 
@@ -2596,7 +2504,6 @@ func (q *jsiiProxy_QueueBase) AddToResourcePolicy(statement awsiam.PolicyStateme
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (q *jsiiProxy_QueueBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		q,
@@ -2605,7 +2512,6 @@ func (q *jsiiProxy_QueueBase) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
-// Experimental.
 func (q *jsiiProxy_QueueBase) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -2625,7 +2531,6 @@ func (q *jsiiProxy_QueueBase) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (q *jsiiProxy_QueueBase) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -2644,7 +2549,6 @@ func (q *jsiiProxy_QueueBase) GetResourceArnAttribute(arnAttr *string, arnCompon
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (q *jsiiProxy_QueueBase) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -2659,7 +2563,6 @@ func (q *jsiiProxy_QueueBase) GetResourceNameAttribute(nameAttr *string) *string
 }
 
 // Grant the actions defined in queueActions to the identity Principal given on this SQS queue resource.
-// Experimental.
 func (q *jsiiProxy_QueueBase) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
 	args := []interface{}{grantee}
 	for _, a := range actions {
@@ -2687,7 +2590,6 @@ func (q *jsiiProxy_QueueBase) Grant(grantee awsiam.IGrantable, actions ...*strin
 //    - sqs:ReceiveMessage
 //    - sqs:GetQueueAttributes
 //    - sqs:GetQueueUrl
-// Experimental.
 func (q *jsiiProxy_QueueBase) GrantConsumeMessages(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2708,7 +2610,6 @@ func (q *jsiiProxy_QueueBase) GrantConsumeMessages(grantee awsiam.IGrantable) aw
 //   - sqs:PurgeQueue
 //   - sqs:GetQueueAttributes
 //   - sqs:GetQueueUrl
-// Experimental.
 func (q *jsiiProxy_QueueBase) GrantPurge(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2729,7 +2630,6 @@ func (q *jsiiProxy_QueueBase) GrantPurge(grantee awsiam.IGrantable) awsiam.Grant
 //   - sqs:SendMessage
 //   - sqs:GetQueueAttributes
 //   - sqs:GetQueueUrl
-// Experimental.
 func (q *jsiiProxy_QueueBase) GrantSendMessages(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -2744,7 +2644,6 @@ func (q *jsiiProxy_QueueBase) GrantSendMessages(grantee awsiam.IGrantable) awsia
 }
 
 // Return the given named metric for this Queue.
-// Experimental.
 func (q *jsiiProxy_QueueBase) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2761,7 +2660,6 @@ func (q *jsiiProxy_QueueBase) Metric(metricName *string, props *awscloudwatch.Me
 // The approximate age of the oldest non-deleted message in the queue.
 //
 // Maximum over 5 minutes
-// Experimental.
 func (q *jsiiProxy_QueueBase) MetricApproximateAgeOfOldestMessage(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2778,7 +2676,6 @@ func (q *jsiiProxy_QueueBase) MetricApproximateAgeOfOldestMessage(props *awsclou
 // The number of messages in the queue that are delayed and not available for reading immediately.
 //
 // Maximum over 5 minutes
-// Experimental.
 func (q *jsiiProxy_QueueBase) MetricApproximateNumberOfMessagesDelayed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2795,7 +2692,6 @@ func (q *jsiiProxy_QueueBase) MetricApproximateNumberOfMessagesDelayed(props *aw
 // The number of messages that are in flight.
 //
 // Maximum over 5 minutes
-// Experimental.
 func (q *jsiiProxy_QueueBase) MetricApproximateNumberOfMessagesNotVisible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2812,7 +2708,6 @@ func (q *jsiiProxy_QueueBase) MetricApproximateNumberOfMessagesNotVisible(props 
 // The number of messages available for retrieval from the queue.
 //
 // Maximum over 5 minutes
-// Experimental.
 func (q *jsiiProxy_QueueBase) MetricApproximateNumberOfMessagesVisible(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2829,7 +2724,6 @@ func (q *jsiiProxy_QueueBase) MetricApproximateNumberOfMessagesVisible(props *aw
 // The number of ReceiveMessage API calls that did not return a message.
 //
 // Sum over 5 minutes
-// Experimental.
 func (q *jsiiProxy_QueueBase) MetricNumberOfEmptyReceives(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2846,7 +2740,6 @@ func (q *jsiiProxy_QueueBase) MetricNumberOfEmptyReceives(props *awscloudwatch.M
 // The number of messages deleted from the queue.
 //
 // Sum over 5 minutes
-// Experimental.
 func (q *jsiiProxy_QueueBase) MetricNumberOfMessagesDeleted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2863,7 +2756,6 @@ func (q *jsiiProxy_QueueBase) MetricNumberOfMessagesDeleted(props *awscloudwatch
 // The number of messages returned by calls to the ReceiveMessage action.
 //
 // Sum over 5 minutes
-// Experimental.
 func (q *jsiiProxy_QueueBase) MetricNumberOfMessagesReceived(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2880,7 +2772,6 @@ func (q *jsiiProxy_QueueBase) MetricNumberOfMessagesReceived(props *awscloudwatc
 // The number of messages added to a queue.
 //
 // Sum over 5 minutes
-// Experimental.
 func (q *jsiiProxy_QueueBase) MetricNumberOfMessagesSent(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2897,7 +2788,6 @@ func (q *jsiiProxy_QueueBase) MetricNumberOfMessagesSent(props *awscloudwatch.Me
 // The size of messages added to a queue.
 //
 // Average over 5 minutes
-// Experimental.
 func (q *jsiiProxy_QueueBase) MetricSentMessageSize(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2912,7 +2802,6 @@ func (q *jsiiProxy_QueueBase) MetricSentMessageSize(props *awscloudwatch.MetricO
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (q *jsiiProxy_QueueBase) ToString() *string {
 	var returns *string
 
@@ -2930,7 +2819,6 @@ func (q *jsiiProxy_QueueBase) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type QueueEncryption string
 
 const (
@@ -2943,7 +2831,6 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type QueuePolicy interface {
 	awscdk.Resource
 	Document() awsiam.PolicyDocument
@@ -3025,7 +2912,6 @@ func (j *jsiiProxy_QueuePolicy) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewQueuePolicy(scope constructs.Construct, id *string, props *QueuePolicyProps) QueuePolicy {
 	_init_.Initialize()
 
@@ -3040,7 +2926,6 @@ func NewQueuePolicy(scope constructs.Construct, id *string, props *QueuePolicyPr
 	return &j
 }
 
-// Experimental.
 func NewQueuePolicy_Override(q QueuePolicy, scope constructs.Construct, id *string, props *QueuePolicyProps) {
 	_init_.Initialize()
 
@@ -3071,7 +2956,6 @@ func QueuePolicy_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func QueuePolicy_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -3096,7 +2980,6 @@ func QueuePolicy_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (q *jsiiProxy_QueuePolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		q,
@@ -3105,7 +2988,6 @@ func (q *jsiiProxy_QueuePolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) 
 	)
 }
 
-// Experimental.
 func (q *jsiiProxy_QueuePolicy) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -3125,7 +3007,6 @@ func (q *jsiiProxy_QueuePolicy) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (q *jsiiProxy_QueuePolicy) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -3144,7 +3025,6 @@ func (q *jsiiProxy_QueuePolicy) GetResourceArnAttribute(arnAttr *string, arnComp
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (q *jsiiProxy_QueuePolicy) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -3159,7 +3039,6 @@ func (q *jsiiProxy_QueuePolicy) GetResourceNameAttribute(nameAttr *string) *stri
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (q *jsiiProxy_QueuePolicy) ToString() *string {
 	var returns *string
 
@@ -3177,10 +3056,8 @@ func (q *jsiiProxy_QueuePolicy) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type QueuePolicyProps struct {
 	// The set of queues this policy applies to.
-	// Experimental.
 	Queues *[]IQueue `json:"queues"`
 }
 
@@ -3188,7 +3065,6 @@ type QueuePolicyProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type QueueProps struct {
 	// Specifies whether to enable content-based deduplication.
 	//
@@ -3200,33 +3076,27 @@ type QueueProps struct {
 	// messages, provide an explicit deduplication ID in your SendMessage() call.
 	//
 	// (Only applies to FIFO queues.)
-	// Experimental.
 	ContentBasedDeduplication *bool `json:"contentBasedDeduplication"`
 	// The length of time that Amazon SQS reuses a data key before calling KMS again.
 	//
 	// The value must be an integer between 60 (1 minute) and 86,400 (24
 	// hours). The default is 300 (5 minutes).
-	// Experimental.
 	DataKeyReuse awscdk.Duration `json:"dataKeyReuse"`
 	// Send messages to this queue if they were unsuccessfully dequeued a number of times.
-	// Experimental.
 	DeadLetterQueue *DeadLetterQueue `json:"deadLetterQueue"`
 	// For high throughput for FIFO queues, specifies whether message deduplication occurs at the message group or queue level.
 	//
 	// (Only applies to FIFO queues.)
-	// Experimental.
 	DeduplicationScope DeduplicationScope `json:"deduplicationScope"`
 	// The time in seconds that the delivery of all messages in the queue is delayed.
 	//
 	// You can specify an integer value of 0 to 900 (15 minutes). The default
 	// value is 0.
-	// Experimental.
 	DeliveryDelay awscdk.Duration `json:"deliveryDelay"`
 	// Whether the contents of the queue are encrypted, and by what type of key.
 	//
 	// Be aware that encryption is not available in all regions, please see the docs
 	// for current availability details.
-	// Experimental.
 	Encryption QueueEncryption `json:"encryption"`
 	// External KMS master key to use for queue encryption.
 	//
@@ -3236,26 +3106,21 @@ type QueueProps struct {
 	//
 	// If the 'encryptionMasterKey' property is set, 'encryption' type will be
 	// implicitly set to "KMS".
-	// Experimental.
 	EncryptionMasterKey awskms.IKey `json:"encryptionMasterKey"`
 	// Whether this a first-in-first-out (FIFO) queue.
-	// Experimental.
 	Fifo *bool `json:"fifo"`
 	// For high throughput for FIFO queues, specifies whether the FIFO queue throughput quota applies to the entire queue or per message group.
 	//
 	// (Only applies to FIFO queues.)
-	// Experimental.
 	FifoThroughputLimit FifoThroughputLimit `json:"fifoThroughputLimit"`
 	// The limit of how many bytes that a message can contain before Amazon SQS rejects it.
 	//
 	// You can specify an integer value from 1024 bytes (1 KiB) to 262144 bytes
 	// (256 KiB). The default value is 262144 (256 KiB).
-	// Experimental.
 	MaxMessageSizeBytes *float64 `json:"maxMessageSizeBytes"`
 	// A name for the queue.
 	//
 	// If specified and this is a FIFO queue, must end in the string '.fifo'.
-	// Experimental.
 	QueueName *string `json:"queueName"`
 	// Default wait time for ReceiveMessage calls.
 	//
@@ -3263,7 +3128,6 @@ type QueueProps struct {
 	// by default for messages to arrive.
 	//
 	// For more information, see Amazon SQS Long Poll.
-	// Experimental.
 	ReceiveMessageWaitTime awscdk.Duration `json:"receiveMessageWaitTime"`
 	// Policy to apply when the user pool is removed from the stack.
 	//
@@ -3271,13 +3135,11 @@ type QueueProps struct {
 	// is common to add and remove Queues while rearchitecting your application. The
 	// default is therefore `DESTROY`. Change it to `RETAIN` if the messages are so
 	// valuable that accidentally losing them would be unacceptable.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// The number of seconds that Amazon SQS retains a message.
 	//
 	// You can specify an integer value from 60 seconds (1 minute) to 1209600
 	// seconds (14 days). The default value is 345600 seconds (4 days).
-	// Experimental.
 	RetentionPeriod awscdk.Duration `json:"retentionPeriod"`
 	// Timeout of processing a single message.
 	//
@@ -3287,7 +3149,6 @@ type QueueProps struct {
 	//
 	// Values must be from 0 to 43200 seconds (12 hours). If you don't specify
 	// a value, AWS CloudFormation uses the default value of 30 seconds.
-	// Experimental.
 	VisibilityTimeout awscdk.Duration `json:"visibilityTimeout"`
 }
 

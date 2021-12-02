@@ -17,7 +17,6 @@ import (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Certificate interface {
 	awscdk.Resource
 	ICertificate
@@ -102,7 +101,6 @@ func (j *jsiiProxy_Certificate) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewCertificate(scope constructs.Construct, id *string, props *CertificateProps) Certificate {
 	_init_.Initialize()
 
@@ -117,7 +115,6 @@ func NewCertificate(scope constructs.Construct, id *string, props *CertificatePr
 	return &j
 }
 
-// Experimental.
 func NewCertificate_Override(c Certificate, scope constructs.Construct, id *string, props *CertificateProps) {
 	_init_.Initialize()
 
@@ -129,7 +126,6 @@ func NewCertificate_Override(c Certificate, scope constructs.Construct, id *stri
 }
 
 // Import a certificate.
-// Experimental.
 func Certificate_FromCertificateArn(scope constructs.Construct, id *string, certificateArn *string) ICertificate {
 	_init_.Initialize()
 
@@ -165,7 +161,6 @@ func Certificate_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func Certificate_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -190,7 +185,6 @@ func Certificate_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_Certificate) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		c,
@@ -199,7 +193,6 @@ func (c *jsiiProxy_Certificate) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) 
 	)
 }
 
-// Experimental.
 func (c *jsiiProxy_Certificate) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -219,7 +212,6 @@ func (c *jsiiProxy_Certificate) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (c *jsiiProxy_Certificate) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -238,7 +230,6 @@ func (c *jsiiProxy_Certificate) GetResourceArnAttribute(arnAttr *string, arnComp
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (c *jsiiProxy_Certificate) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -257,7 +248,6 @@ func (c *jsiiProxy_Certificate) GetResourceNameAttribute(nameAttr *string) *stri
 // This metric is no longer emitted once the certificate has effectively
 // expired, so alarms configured on this metric should probably treat missing
 // data as "breaching".
-// Experimental.
 func (c *jsiiProxy_Certificate) MetricDaysToExpiry(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -272,7 +262,6 @@ func (c *jsiiProxy_Certificate) MetricDaysToExpiry(props *awscloudwatch.MetricOp
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (c *jsiiProxy_Certificate) ToString() *string {
 	var returns *string
 
@@ -290,20 +279,16 @@ func (c *jsiiProxy_Certificate) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CertificateProps struct {
 	// Fully-qualified domain name to request a certificate for.
 	//
 	// May contain wildcards, such as ``*.domain.com``.
-	// Experimental.
 	DomainName *string `json:"domainName"`
 	// Alternative domain names on your certificate.
 	//
 	// Use this to register alternative domain names that represent the same site.
-	// Experimental.
 	SubjectAlternativeNames *[]*string `json:"subjectAlternativeNames"`
 	// How to validate this certificate.
-	// Experimental.
 	Validation CertificateValidation `json:"validation"`
 }
 
@@ -311,7 +296,6 @@ type CertificateProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CertificateValidation interface {
 	Method() ValidationMethod
 	Props() *CertificationValidationProps
@@ -348,7 +332,6 @@ func (j *jsiiProxy_CertificateValidation) Props() *CertificationValidationProps 
 // IMPORTANT: If `hostedZone` is not specified, DNS records must be added
 // manually and the stack will not complete creating until the records are
 // added.
-// Experimental.
 func CertificateValidation_FromDns(hostedZone awsroute53.IHostedZone) CertificateValidation {
 	_init_.Initialize()
 
@@ -365,7 +348,6 @@ func CertificateValidation_FromDns(hostedZone awsroute53.IHostedZone) Certificat
 }
 
 // Validate the certificate with automatically created DNS records in multiple Amazon Route 53 hosted zones.
-// Experimental.
 func CertificateValidation_FromDnsMultiZone(hostedZones *map[string]awsroute53.IHostedZone) CertificateValidation {
 	_init_.Initialize()
 
@@ -396,7 +378,6 @@ func CertificateValidation_FromDnsMultiZone(hostedZones *map[string]awsroute53.I
 //   webmaster@domain.com
 //
 // For every domain that you register.
-// Experimental.
 func CertificateValidation_FromEmail(validationDomains *map[string]*string) CertificateValidation {
 	_init_.Initialize()
 
@@ -416,19 +397,14 @@ func CertificateValidation_FromEmail(validationDomains *map[string]*string) Cert
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CertificationValidationProps struct {
 	// Hosted zone to use for DNS validation.
-	// Experimental.
 	HostedZone awsroute53.IHostedZone `json:"hostedZone"`
 	// A map of hosted zones to use for DNS validation.
-	// Experimental.
 	HostedZones *map[string]awsroute53.IHostedZone `json:"hostedZones"`
 	// Validation method.
-	// Experimental.
 	Method ValidationMethod `json:"method"`
 	// Validation domains to use for email validation.
-	// Experimental.
 	ValidationDomains *map[string]*string `json:"validationDomains"`
 }
 
@@ -625,7 +601,6 @@ func (j *jsiiProxy_CfnAccount) SetExpiryEventsConfiguration(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnAccount_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -642,7 +617,6 @@ func CfnAccount_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnAccount_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -689,7 +663,6 @@ func CfnAccount_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnAccount) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -702,7 +675,6 @@ func (c *jsiiProxy_CfnAccount) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnAccount) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -718,7 +690,6 @@ func (c *jsiiProxy_CfnAccount) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnAccount) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -764,7 +735,6 @@ func (c *jsiiProxy_CfnAccount) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnAccount) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -774,7 +744,6 @@ func (c *jsiiProxy_CfnAccount) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnAccount) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -786,7 +755,6 @@ func (c *jsiiProxy_CfnAccount) AddPropertyDeletionOverride(propertyPath *string)
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnAccount) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -804,7 +772,6 @@ func (c *jsiiProxy_CfnAccount) AddPropertyOverride(propertyPath *string, value i
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnAccount) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -817,7 +784,6 @@ func (c *jsiiProxy_CfnAccount) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, o
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnAccount) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -838,7 +804,6 @@ func (c *jsiiProxy_CfnAccount) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnAccount) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -862,7 +827,6 @@ func (c *jsiiProxy_CfnAccount) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnAccount) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -888,7 +852,6 @@ func (c *jsiiProxy_CfnAccount) RenderProperties(props *map[string]interface{}) *
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnAccount) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -905,7 +868,6 @@ func (c *jsiiProxy_CfnAccount) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnAccount) ToString() *string {
 	var returns *string
 
@@ -919,7 +881,6 @@ func (c *jsiiProxy_CfnAccount) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnAccount) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1237,7 +1198,6 @@ func (j *jsiiProxy_CfnCertificate) SetValidationMethod(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnCertificate_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
@@ -1254,7 +1214,6 @@ func CfnCertificate_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnCertificate_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -1301,7 +1260,6 @@ func CfnCertificate_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnCertificate) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1314,7 +1272,6 @@ func (c *jsiiProxy_CfnCertificate) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnCertificate) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1330,7 +1287,6 @@ func (c *jsiiProxy_CfnCertificate) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnCertificate) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1376,7 +1332,6 @@ func (c *jsiiProxy_CfnCertificate) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnCertificate) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1386,7 +1341,6 @@ func (c *jsiiProxy_CfnCertificate) AddOverride(path *string, value interface{}) 
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnCertificate) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1398,7 +1352,6 @@ func (c *jsiiProxy_CfnCertificate) AddPropertyDeletionOverride(propertyPath *str
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnCertificate) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1416,7 +1369,6 @@ func (c *jsiiProxy_CfnCertificate) AddPropertyOverride(propertyPath *string, val
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnCertificate) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1429,7 +1381,6 @@ func (c *jsiiProxy_CfnCertificate) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnCertificate) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1450,7 +1401,6 @@ func (c *jsiiProxy_CfnCertificate) GetAtt(attributeName *string) awscdk.Referenc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnCertificate) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1474,7 +1424,6 @@ func (c *jsiiProxy_CfnCertificate) Inspect(inspector awscdk.TreeInspector) {
 }
 
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnCertificate) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1500,7 +1449,6 @@ func (c *jsiiProxy_CfnCertificate) RenderProperties(props *map[string]interface{
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnCertificate) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1517,7 +1465,6 @@ func (c *jsiiProxy_CfnCertificate) ShouldSynthesize() *bool {
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnCertificate) ToString() *string {
 	var returns *string
 
@@ -1531,7 +1478,6 @@ func (c *jsiiProxy_CfnCertificate) ToString() *string {
 	return returns
 }
 
-// Experimental.
 func (c *jsiiProxy_CfnCertificate) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1579,7 +1525,6 @@ type CfnCertificateProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DnsValidatedCertificate interface {
 	awscdk.Resource
 	ICertificate
@@ -1677,7 +1622,6 @@ func (j *jsiiProxy_DnsValidatedCertificate) Tags() awscdk.TagManager {
 }
 
 
-// Experimental.
 func NewDnsValidatedCertificate(scope constructs.Construct, id *string, props *DnsValidatedCertificateProps) DnsValidatedCertificate {
 	_init_.Initialize()
 
@@ -1692,7 +1636,6 @@ func NewDnsValidatedCertificate(scope constructs.Construct, id *string, props *D
 	return &j
 }
 
-// Experimental.
 func NewDnsValidatedCertificate_Override(d DnsValidatedCertificate, scope constructs.Construct, id *string, props *DnsValidatedCertificateProps) {
 	_init_.Initialize()
 
@@ -1723,7 +1666,6 @@ func DnsValidatedCertificate_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func DnsValidatedCertificate_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -1748,7 +1690,6 @@ func DnsValidatedCertificate_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (d *jsiiProxy_DnsValidatedCertificate) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		d,
@@ -1757,7 +1698,6 @@ func (d *jsiiProxy_DnsValidatedCertificate) ApplyRemovalPolicy(policy awscdk.Rem
 	)
 }
 
-// Experimental.
 func (d *jsiiProxy_DnsValidatedCertificate) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -1777,7 +1717,6 @@ func (d *jsiiProxy_DnsValidatedCertificate) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (d *jsiiProxy_DnsValidatedCertificate) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -1796,7 +1735,6 @@ func (d *jsiiProxy_DnsValidatedCertificate) GetResourceArnAttribute(arnAttr *str
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (d *jsiiProxy_DnsValidatedCertificate) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -1815,7 +1753,6 @@ func (d *jsiiProxy_DnsValidatedCertificate) GetResourceNameAttribute(nameAttr *s
 // This metric is no longer emitted once the certificate has effectively
 // expired, so alarms configured on this metric should probably treat missing
 // data as "breaching".
-// Experimental.
 func (d *jsiiProxy_DnsValidatedCertificate) MetricDaysToExpiry(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1830,7 +1767,6 @@ func (d *jsiiProxy_DnsValidatedCertificate) MetricDaysToExpiry(props *awscloudwa
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (d *jsiiProxy_DnsValidatedCertificate) ToString() *string {
 	var returns *string
 
@@ -1848,48 +1784,39 @@ func (d *jsiiProxy_DnsValidatedCertificate) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type DnsValidatedCertificateProps struct {
 	// Fully-qualified domain name to request a certificate for.
 	//
 	// May contain wildcards, such as ``*.domain.com``.
-	// Experimental.
 	DomainName *string `json:"domainName"`
 	// Alternative domain names on your certificate.
 	//
 	// Use this to register alternative domain names that represent the same site.
-	// Experimental.
 	SubjectAlternativeNames *[]*string `json:"subjectAlternativeNames"`
 	// How to validate this certificate.
-	// Experimental.
 	Validation CertificateValidation `json:"validation"`
 	// Route 53 Hosted Zone used to perform DNS validation of the request.
 	//
 	// The zone
 	// must be authoritative for the domain name specified in the Certificate Request.
-	// Experimental.
 	HostedZone awsroute53.IHostedZone `json:"hostedZone"`
 	// Role to use for the custom resource that creates the validated certificate.
-	// Experimental.
 	CustomResourceRole awsiam.IRole `json:"customResourceRole"`
 	// AWS region that will host the certificate.
 	//
 	// This is needed especially
 	// for certificates used for CloudFront distributions, which require the region
 	// to be us-east-1.
-	// Experimental.
 	Region *string `json:"region"`
 	// An endpoint of Route53 service, which is not necessary as AWS SDK could figure out the right endpoints for most regions, but for some regions such as those in aws-cn partition, the default endpoint is not working now, hence the right endpoint need to be specified through this prop.
 	//
 	// Route53 is not been officially launched in China, it is only available for AWS
 	// internal accounts now. To make DnsValidatedCertificate work for internal accounts
 	// now, a special endpoint needs to be provided.
-	// Experimental.
 	Route53Endpoint *string `json:"route53Endpoint"`
 }
 
 // Represents a certificate in AWS Certificate Manager.
-// Experimental.
 type ICertificate interface {
 	awscdk.IResource
 	// Return the DaysToExpiry metric for this AWS Certificate Manager Certificate. By default, this is the minimum value over 1 day.
@@ -1897,10 +1824,8 @@ type ICertificate interface {
 	// This metric is no longer emitted once the certificate has effectively
 	// expired, so alarms configured on this metric should probably treat missing
 	// data as "breaching".
-	// Experimental.
 	MetricDaysToExpiry(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The certificate's ARN.
-	// Experimental.
 	CertificateArn() *string
 }
 
@@ -1936,7 +1861,6 @@ func (j *jsiiProxy_ICertificate) CertificateArn() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type PrivateCertificate interface {
 	awscdk.Resource
 	ICertificate
@@ -2021,7 +1945,6 @@ func (j *jsiiProxy_PrivateCertificate) Stack() awscdk.Stack {
 }
 
 
-// Experimental.
 func NewPrivateCertificate(scope constructs.Construct, id *string, props *PrivateCertificateProps) PrivateCertificate {
 	_init_.Initialize()
 
@@ -2036,7 +1959,6 @@ func NewPrivateCertificate(scope constructs.Construct, id *string, props *Privat
 	return &j
 }
 
-// Experimental.
 func NewPrivateCertificate_Override(p PrivateCertificate, scope constructs.Construct, id *string, props *PrivateCertificateProps) {
 	_init_.Initialize()
 
@@ -2048,7 +1970,6 @@ func NewPrivateCertificate_Override(p PrivateCertificate, scope constructs.Const
 }
 
 // Import a certificate.
-// Experimental.
 func PrivateCertificate_FromCertificateArn(scope constructs.Construct, id *string, certificateArn *string) ICertificate {
 	_init_.Initialize()
 
@@ -2084,7 +2005,6 @@ func PrivateCertificate_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
 func PrivateCertificate_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
@@ -2109,7 +2029,6 @@ func PrivateCertificate_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (p *jsiiProxy_PrivateCertificate) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		p,
@@ -2118,7 +2037,6 @@ func (p *jsiiProxy_PrivateCertificate) ApplyRemovalPolicy(policy awscdk.RemovalP
 	)
 }
 
-// Experimental.
 func (p *jsiiProxy_PrivateCertificate) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -2138,7 +2056,6 @@ func (p *jsiiProxy_PrivateCertificate) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (p *jsiiProxy_PrivateCertificate) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -2157,7 +2074,6 @@ func (p *jsiiProxy_PrivateCertificate) GetResourceArnAttribute(arnAttr *string, 
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (p *jsiiProxy_PrivateCertificate) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -2176,7 +2092,6 @@ func (p *jsiiProxy_PrivateCertificate) GetResourceNameAttribute(nameAttr *string
 // This metric is no longer emitted once the certificate has effectively
 // expired, so alarms configured on this metric should probably treat missing
 // data as "breaching".
-// Experimental.
 func (p *jsiiProxy_PrivateCertificate) MetricDaysToExpiry(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -2191,7 +2106,6 @@ func (p *jsiiProxy_PrivateCertificate) MetricDaysToExpiry(props *awscloudwatch.M
 }
 
 // Returns a string representation of this construct.
-// Experimental.
 func (p *jsiiProxy_PrivateCertificate) ToString() *string {
 	var returns *string
 
@@ -2209,25 +2123,20 @@ func (p *jsiiProxy_PrivateCertificate) ToString() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type PrivateCertificateProps struct {
 	// Private certificate authority (CA) that will be used to issue the certificate.
-	// Experimental.
 	CertificateAuthority awsacmpca.ICertificateAuthority `json:"certificateAuthority"`
 	// Fully-qualified domain name to request a private certificate for.
 	//
 	// May contain wildcards, such as ``*.domain.com``.
-	// Experimental.
 	DomainName *string `json:"domainName"`
 	// Alternative domain names on your private certificate.
 	//
 	// Use this to register alternative domain names that represent the same site.
-	// Experimental.
 	SubjectAlternativeNames *[]*string `json:"subjectAlternativeNames"`
 }
 
 // Method used to assert ownership of the domain.
-// Experimental.
 type ValidationMethod string
 
 const (
