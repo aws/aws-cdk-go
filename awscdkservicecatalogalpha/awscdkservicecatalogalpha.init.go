@@ -12,6 +12,7 @@ func init() {
 		reflect.TypeOf((*CloudFormationProduct)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "associateTagOptions", GoMethod: "AssociateTagOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
@@ -64,6 +65,7 @@ func init() {
 		reflect.TypeOf((*IPortfolio)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addProduct", GoMethod: "AddProduct"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "associateTagOptions", GoMethod: "AssociateTagOptions"},
 			_jsii_.MemberMethod{JsiiMethod: "constrainCloudFormationParameters", GoMethod: "ConstrainCloudFormationParameters"},
 			_jsii_.MemberMethod{JsiiMethod: "constrainTagUpdates", GoMethod: "ConstrainTagUpdates"},
@@ -92,6 +94,8 @@ func init() {
 		"@aws-cdk/aws-servicecatalog-alpha.IProduct",
 		reflect.TypeOf((*IProduct)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "associateTagOptions", GoMethod: "AssociateTagOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "productArn", GoGetter: "ProductArn"},
@@ -163,6 +167,7 @@ func init() {
 		reflect.TypeOf((*Product)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "associateTagOptions", GoMethod: "AssociateTagOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},

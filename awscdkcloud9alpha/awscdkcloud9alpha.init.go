@@ -52,6 +52,7 @@ func init() {
 		"@aws-cdk/aws-cloud9-alpha.IEc2Environment",
 		reflect.TypeOf((*IEc2Environment)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "ec2EnvironmentArn", GoGetter: "Ec2EnvironmentArn"},
 			_jsii_.MemberProperty{JsiiProperty: "ec2EnvironmentName", GoGetter: "Ec2EnvironmentName"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},

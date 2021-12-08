@@ -424,6 +424,7 @@ func init() {
 		"aws-cdk-lib.aws_servicediscovery.IHttpNamespace",
 		reflect.TypeOf((*IHttpNamespace)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "namespaceArn", GoGetter: "NamespaceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "namespaceId", GoGetter: "NamespaceId"},
@@ -442,6 +443,7 @@ func init() {
 		"aws-cdk-lib.aws_servicediscovery.IInstance",
 		reflect.TypeOf((*IInstance)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "instanceId", GoGetter: "InstanceId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -458,6 +460,7 @@ func init() {
 		"aws-cdk-lib.aws_servicediscovery.INamespace",
 		reflect.TypeOf((*INamespace)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "namespaceArn", GoGetter: "NamespaceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "namespaceId", GoGetter: "NamespaceId"},
@@ -476,6 +479,7 @@ func init() {
 		"aws-cdk-lib.aws_servicediscovery.IPrivateDnsNamespace",
 		reflect.TypeOf((*IPrivateDnsNamespace)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "namespaceArn", GoGetter: "NamespaceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "namespaceId", GoGetter: "NamespaceId"},
@@ -494,6 +498,7 @@ func init() {
 		"aws-cdk-lib.aws_servicediscovery.IPublicDnsNamespace",
 		reflect.TypeOf((*IPublicDnsNamespace)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "namespaceArn", GoGetter: "NamespaceArn"},
 			_jsii_.MemberProperty{JsiiProperty: "namespaceId", GoGetter: "NamespaceId"},
@@ -512,6 +517,7 @@ func init() {
 		"aws-cdk-lib.aws_servicediscovery.IService",
 		reflect.TypeOf((*IService)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "dnsRecordType", GoGetter: "DnsRecordType"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "namespace", GoGetter: "Namespace"},

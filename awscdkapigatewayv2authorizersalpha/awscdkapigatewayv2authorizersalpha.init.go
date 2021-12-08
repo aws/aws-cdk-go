@@ -60,7 +60,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/aws-apigatewayv2-authorizers-alpha.UserPoolAuthorizerProps",
-		reflect.TypeOf((*UserPoolAuthorizerProps)(nil)).Elem(),
+		"@aws-cdk/aws-apigatewayv2-authorizers-alpha.HttpUserPoolAuthorizerProps",
+		reflect.TypeOf((*HttpUserPoolAuthorizerProps)(nil)).Elem(),
 	)
 }

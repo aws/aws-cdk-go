@@ -225,6 +225,7 @@ type Bucket interface {
 	OnCloudTrailWriteObject(id *string, options *OnCloudTrailBucketEventOptions) awsevents.Rule
 	S3UrlForObject(key *string) *string
 	ToString() *string
+	TransferAccelerationUrlForObject(key *string, options *TransferAccelerationUrlOptions) *string
 	UrlForObject(key *string) *string
 	VirtualHostedUrlForObject(key *string, options *VirtualHostedStyleUrlOptions) *string
 }
@@ -986,6 +987,28 @@ func (b *jsiiProxy_Bucket) ToString() *string {
 	return returns
 }
 
+// The https Transfer Acceleration URL of an S3 object.
+//
+// Specify `dualStack: true` at the options
+// for dual-stack endpoint (connect to the bucket over IPv6). For example:
+//
+// - `https://bucket.s3-accelerate.amazonaws.com`
+// - `https://bucket.s3-accelerate.amazonaws.com/key`
+//
+// Returns: an TransferAccelerationUrl token
+func (b *jsiiProxy_Bucket) TransferAccelerationUrlForObject(key *string, options *TransferAccelerationUrlOptions) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		b,
+		"transferAccelerationUrlForObject",
+		[]interface{}{key, options},
+		&returns,
+	)
+
+	return returns
+}
+
 // The https URL of an S3 object. Specify `regional: false` at the options for non-regional URLs. For example:.
 //
 // - `https://s3.us-west-1.amazonaws.com/onlybucket`
@@ -1146,6 +1169,7 @@ type BucketBase interface {
 	OnCloudTrailWriteObject(id *string, options *OnCloudTrailBucketEventOptions) awsevents.Rule
 	S3UrlForObject(key *string) *string
 	ToString() *string
+	TransferAccelerationUrlForObject(key *string, options *TransferAccelerationUrlOptions) *string
 	UrlForObject(key *string) *string
 	VirtualHostedUrlForObject(key *string, options *VirtualHostedStyleUrlOptions) *string
 }
@@ -1801,6 +1825,28 @@ func (b *jsiiProxy_BucketBase) ToString() *string {
 	return returns
 }
 
+// The https Transfer Acceleration URL of an S3 object.
+//
+// Specify `dualStack: true` at the options
+// for dual-stack endpoint (connect to the bucket over IPv6). For example:
+//
+// - `https://bucket.s3-accelerate.amazonaws.com`
+// - `https://bucket.s3-accelerate.amazonaws.com/key`
+//
+// Returns: an TransferAccelerationUrl token
+func (b *jsiiProxy_BucketBase) TransferAccelerationUrlForObject(key *string, options *TransferAccelerationUrlOptions) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		b,
+		"transferAccelerationUrlForObject",
+		[]interface{}{key, options},
+		&returns,
+	)
+
+	return returns
+}
+
 // The https URL of an S3 object. Specify `regional: false` at the options for non-regional URLs. For example:.
 //
 // - `https://s3.us-west-1.amazonaws.com/onlybucket`
@@ -2178,6 +2224,8 @@ type BucketProps struct {
 	//
 	// If defined without "serverAccessLogsBucket", enables access logs to current bucket with this prefix.
 	ServerAccessLogsPrefix *string `json:"serverAccessLogsPrefix"`
+	// Whether this bucket should have transfer acceleration turned on or not.
+	TransferAcceleration *bool `json:"transferAcceleration"`
 	// Whether this bucket should have versioning turned on or not.
 	Versioned *bool `json:"versioned"`
 	// The name of the error document (e.g. "404.html") for the website. `websiteIndexDocument` must also be set if this is set.
@@ -6722,6 +6770,16 @@ type IBucket interface {
 	//
 	// Returns: an ObjectS3Url token
 	S3UrlForObject(key *string) *string
+	// The https Transfer Acceleration URL of an S3 object.
+	//
+	// Specify `dualStack: true` at the options
+	// for dual-stack endpoint (connect to the bucket over IPv6). For example:
+	//
+	// - `https://bucket.s3-accelerate.amazonaws.com`
+	// - `https://bucket.s3-accelerate.amazonaws.com/key`
+	//
+	// Returns: an TransferAccelerationUrl token
+	TransferAccelerationUrlForObject(key *string, options *TransferAccelerationUrlOptions) *string
 	// The https URL of an S3 object. For example:.
 	//
 	// - `https://s3.us-west-1.amazonaws.com/onlybucket`
@@ -6981,6 +7039,19 @@ func (i *jsiiProxy_IBucket) S3UrlForObject(key *string) *string {
 		i,
 		"s3UrlForObject",
 		[]interface{}{key},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IBucket) TransferAccelerationUrlForObject(key *string, options *TransferAccelerationUrlOptions) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		i,
+		"transferAccelerationUrlForObject",
+		[]interface{}{key, options},
 		&returns,
 	)
 
@@ -7546,6 +7617,17 @@ func StorageClass_GLACIER() StorageClass {
 	return returns
 }
 
+func StorageClass_GLACIER_INSTANT_RETRIEVAL() StorageClass {
+	_init_.Initialize()
+	var returns StorageClass
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_s3.StorageClass",
+		"GLACIER_INSTANT_RETRIEVAL",
+		&returns,
+	)
+	return returns
+}
+
 func StorageClass_INFREQUENT_ACCESS() StorageClass {
 	_init_.Initialize()
 	var returns StorageClass
@@ -7590,6 +7672,15 @@ func (s *jsiiProxy_StorageClass) ToString() *string {
 	)
 
 	return returns
+}
+
+// Options for creating a Transfer Acceleration URL.
+//
+// TODO: EXAMPLE
+//
+type TransferAccelerationUrlOptions struct {
+	// Dual-stack support to connect to the bucket over IPv6.
+	DualStack *bool `json:"dualStack"`
 }
 
 // Describes when an object transitions to a specified storage class.

@@ -427,6 +427,7 @@ func init() {
 		"aws-cdk-lib.aws_backup.IBackupPlan",
 		reflect.TypeOf((*IBackupPlan)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "backupPlanId", GoGetter: "BackupPlanId"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -442,6 +443,7 @@ func init() {
 		"aws-cdk-lib.aws_backup.IBackupVault",
 		reflect.TypeOf((*IBackupVault)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "backupVaultArn", GoGetter: "BackupVaultArn"},
 			_jsii_.MemberProperty{JsiiProperty: "backupVaultName", GoGetter: "BackupVaultName"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},

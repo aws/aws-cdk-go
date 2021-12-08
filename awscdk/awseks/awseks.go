@@ -6229,6 +6229,14 @@ func (i *jsiiProxy_ICluster) ConnectAutoScalingGroupCapacity(autoScalingGroup aw
 	)
 }
 
+func (i *jsiiProxy_ICluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_ICluster) ClusterArn() *string {
 	var returns *string
 	_jsii_.Get(

@@ -2255,14 +2255,19 @@ type LocalSecondaryIndexProps struct {
 type Operation string
 
 const (
+	Operation_BATCH_EXECUTE_STATEMENT Operation = "BATCH_EXECUTE_STATEMENT"
 	Operation_BATCH_GET_ITEM Operation = "BATCH_GET_ITEM"
 	Operation_BATCH_WRITE_ITEM Operation = "BATCH_WRITE_ITEM"
 	Operation_DELETE_ITEM Operation = "DELETE_ITEM"
+	Operation_EXECUTE_STATEMENT Operation = "EXECUTE_STATEMENT"
+	Operation_EXECUTE_TRANSACTION Operation = "EXECUTE_TRANSACTION"
 	Operation_GET_ITEM Operation = "GET_ITEM"
 	Operation_GET_RECORDS Operation = "GET_RECORDS"
 	Operation_PUT_ITEM Operation = "PUT_ITEM"
 	Operation_QUERY Operation = "QUERY"
 	Operation_SCAN Operation = "SCAN"
+	Operation_TRANSACT_GET_ITEMS Operation = "TRANSACT_GET_ITEMS"
+	Operation_TRANSACT_WRITE_ITEMS Operation = "TRANSACT_WRITE_ITEMS"
 	Operation_UPDATE_ITEM Operation = "UPDATE_ITEM"
 )
 

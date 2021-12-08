@@ -606,6 +606,14 @@ type jsiiProxy_ICluster struct {
 	internal.Type__awscdkIResource
 }
 
+func (i *jsiiProxy_ICluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_ICluster) ClusterArn() *string {
 	var returns *string
 	_jsii_.Get(

@@ -9218,6 +9218,24 @@ func Group_FromGroupArn(scope constructs.Construct, id *string, groupArn *string
 	return returns
 }
 
+// Import an existing group by given name (with path).
+//
+// This method has same caveats of `fromGroupArn`
+func Group_FromGroupName(scope constructs.Construct, id *string, groupName *string) IGroup {
+	_init_.Initialize()
+
+	var returns IGroup
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_iam.Group",
+		"fromGroupName",
+		[]interface{}{scope, id, groupName},
+		&returns,
+	)
+
+	return returns
+}
+
 // Checks if `x` is a construct.
 //
 // Returns: true if `x` is an object created from a class which extends `Construct`.
@@ -9520,6 +9538,14 @@ func (i *jsiiProxy_IIdentity) AddToPrincipalPolicy(statement PolicyStatement) *A
 	)
 
 	return returns
+}
+
+func (i *jsiiProxy_IIdentity) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
 }
 
 func (j *jsiiProxy_IIdentity) AssumeRoleAction() *string {

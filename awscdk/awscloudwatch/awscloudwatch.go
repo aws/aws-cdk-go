@@ -6582,6 +6582,14 @@ type jsiiProxy_IAlarm struct {
 	internal.Type__awscdkIResource
 }
 
+func (i *jsiiProxy_IAlarm) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (i *jsiiProxy_IAlarm) RenderAlarmRule() *string {
 	var returns *string
 
@@ -8149,6 +8157,9 @@ type TextWidgetProps struct {
 }
 
 // Specify how missing data points are treated during alarm evaluation.
+//
+// TODO: EXAMPLE
+//
 type TreatMissingData string
 
 const (

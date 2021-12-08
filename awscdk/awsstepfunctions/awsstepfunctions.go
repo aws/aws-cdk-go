@@ -4717,6 +4717,8 @@ type IStateMachine interface {
 	GrantRead(identity awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity permissions to start an execution of this state machine.
 	GrantStartExecution(identity awsiam.IGrantable) awsiam.Grant
+	// Grant the given identity permissions to start a synchronous execution of this state machine.
+	GrantStartSyncExecution(identity awsiam.IGrantable) awsiam.Grant
 	// Grant the given identity read permissions for this state machine.
 	GrantTaskResponse(identity awsiam.IGrantable) awsiam.Grant
 	// Return the given named metric for this State Machine's executions.
@@ -4800,6 +4802,19 @@ func (i *jsiiProxy_IStateMachine) GrantStartExecution(identity awsiam.IGrantable
 	_jsii_.Invoke(
 		i,
 		"grantStartExecution",
+		[]interface{}{identity},
+		&returns,
+	)
+
+	return returns
+}
+
+func (i *jsiiProxy_IStateMachine) GrantStartSyncExecution(identity awsiam.IGrantable) awsiam.Grant {
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		i,
+		"grantStartSyncExecution",
 		[]interface{}{identity},
 		&returns,
 	)
@@ -4922,6 +4937,14 @@ func (i *jsiiProxy_IStateMachine) MetricTimedOut(props *awscloudwatch.MetricOpti
 	)
 
 	return returns
+}
+
+func (i *jsiiProxy_IStateMachine) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
 }
 
 func (j *jsiiProxy_IStateMachine) StateMachineArn() *string {
@@ -6177,10 +6200,7 @@ func (p *jsiiProxy_Parallel) AddRetry(props *RetryProps) Parallel {
 	return returns
 }
 
-// Register this state as part of the given graph.
-//
-// Don't call this. It will be called automatically when you work
-// with states normally.
+// Overwrites State.bindToGraph. Adds branches to the Parallel state here so that any necessary prefixes are appended first.
 func (p *jsiiProxy_Parallel) BindToGraph(graph StateGraph) {
 	_jsii_.InvokeVoid(
 		p,
@@ -7892,6 +7912,7 @@ type StateMachine interface {
 	GrantExecution(identity awsiam.IGrantable, actions ...*string) awsiam.Grant
 	GrantRead(identity awsiam.IGrantable) awsiam.Grant
 	GrantStartExecution(identity awsiam.IGrantable) awsiam.Grant
+	GrantStartSyncExecution(identity awsiam.IGrantable) awsiam.Grant
 	GrantTaskResponse(identity awsiam.IGrantable) awsiam.Grant
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricAborted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
@@ -8211,6 +8232,20 @@ func (s *jsiiProxy_StateMachine) GrantStartExecution(identity awsiam.IGrantable)
 	_jsii_.Invoke(
 		s,
 		"grantStartExecution",
+		[]interface{}{identity},
+		&returns,
+	)
+
+	return returns
+}
+
+// Grant the given identity permissions to start a synchronous execution of this state machine.
+func (s *jsiiProxy_StateMachine) GrantStartSyncExecution(identity awsiam.IGrantable) awsiam.Grant {
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		s,
+		"grantStartSyncExecution",
 		[]interface{}{identity},
 		&returns,
 	)
@@ -8541,6 +8576,9 @@ type StateMachineProps struct {
 }
 
 // Two types of state machines are available in AWS Step Functions: EXPRESS AND STANDARD.
+//
+// TODO: EXAMPLE
+//
 // See: https://docs.aws.amazon.com/step-functions/latest/dg/concepts-standard-vs-express.html
 //
 type StateMachineType string

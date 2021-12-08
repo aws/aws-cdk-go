@@ -989,6 +989,12 @@ type BastionHostLinuxProps struct {
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html
 	//
 	BlockDevices *[]*BlockDevice `json:"blockDevices"`
+	// Apply the given CloudFormation Init configuration to the instance at startup.
+	Init CloudFormationInit `json:"init"`
+	// Use the given options for applying CloudFormation Init.
+	//
+	// Describes the configsets to use and the timeout to wait
+	InitOptions *ApplyCloudFormationInitOptions `json:"initOptions"`
 	// The name of the instance.
 	InstanceName *string `json:"instanceName"`
 	// Type of instance to launch.
@@ -49068,6 +49074,14 @@ type jsiiProxy_IClientVpnEndpoint struct {
 	internal.Type__awscdkIResource
 }
 
+func (i *jsiiProxy_IClientVpnEndpoint) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_IClientVpnEndpoint) EndpointId() *string {
 	var returns *string
 	_jsii_.Get(
@@ -49231,6 +49245,14 @@ type jsiiProxy_IInstance struct {
 	internal.Type__awscdkIResource
 }
 
+func (i *jsiiProxy_IInstance) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_IInstance) InstanceAvailabilityZone() *string {
 	var returns *string
 	_jsii_.Get(
@@ -49351,6 +49373,14 @@ type IInterfaceVpcEndpoint interface {
 type jsiiProxy_IInterfaceVpcEndpoint struct {
 	jsiiProxy_IConnectable
 	jsiiProxy_IVpcEndpoint
+}
+
+func (i *jsiiProxy_IInterfaceVpcEndpoint) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
 }
 
 func (j *jsiiProxy_IInterfaceVpcEndpoint) Connections() Connections {
@@ -49729,6 +49759,14 @@ func (i *jsiiProxy_ISecurityGroup) AddIngressRule(peer IPeer, connection Port, d
 		i,
 		"addIngressRule",
 		[]interface{}{peer, connection, description, remoteRule},
+	)
+}
+
+func (i *jsiiProxy_ISecurityGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
 	)
 }
 
@@ -52069,10 +52107,12 @@ const (
 	InstanceClass_GRAPHICS3 InstanceClass = "GRAPHICS3"
 	InstanceClass_GRAPHICS4_NVME_DRIVE_HIGH_PERFORMANCE InstanceClass = "GRAPHICS4_NVME_DRIVE_HIGH_PERFORMANCE"
 	InstanceClass_GRAPHICS5 InstanceClass = "GRAPHICS5"
+	InstanceClass_GRAPHICS5_GRAVITON2 InstanceClass = "GRAPHICS5_GRAVITON2"
 	InstanceClass_HIGH_COMPUTE_MEMORY1 InstanceClass = "HIGH_COMPUTE_MEMORY1"
 	InstanceClass_INFERENCE1 InstanceClass = "INFERENCE1"
 	InstanceClass_IO3 InstanceClass = "IO3"
 	InstanceClass_IO3_DENSE_NVME_DRIVE InstanceClass = "IO3_DENSE_NVME_DRIVE"
+	InstanceClass_MACINTOSH1_INTEL InstanceClass = "MACINTOSH1_INTEL"
 	InstanceClass_MEMORY_INTENSIVE_1 InstanceClass = "MEMORY_INTENSIVE_1"
 	InstanceClass_MEMORY_INTENSIVE_1_EXTENDED InstanceClass = "MEMORY_INTENSIVE_1_EXTENDED"
 	InstanceClass_MEMORY_INTENSIVE_2_GRAVITON2 InstanceClass = "MEMORY_INTENSIVE_2_GRAVITON2"
@@ -52088,6 +52128,7 @@ const (
 	InstanceClass_MEMORY5_NVME_DRIVE_HIGH_PERFORMANCE InstanceClass = "MEMORY5_NVME_DRIVE_HIGH_PERFORMANCE"
 	InstanceClass_MEMORY6_GRAVITON InstanceClass = "MEMORY6_GRAVITON"
 	InstanceClass_MEMORY6_GRAVITON2_NVME_DRIVE InstanceClass = "MEMORY6_GRAVITON2_NVME_DRIVE"
+	InstanceClass_MEMORY6_INTEL InstanceClass = "MEMORY6_INTEL"
 	InstanceClass_PARALLEL2 InstanceClass = "PARALLEL2"
 	InstanceClass_PARALLEL3 InstanceClass = "PARALLEL3"
 	InstanceClass_PARALLEL4 InstanceClass = "PARALLEL4"
@@ -52096,14 +52137,17 @@ const (
 	InstanceClass_STANDARD5 InstanceClass = "STANDARD5"
 	InstanceClass_STANDARD5_AMD InstanceClass = "STANDARD5_AMD"
 	InstanceClass_STANDARD5_AMD_NVME_DRIVE InstanceClass = "STANDARD5_AMD_NVME_DRIVE"
+	InstanceClass_STANDARD5_HIGH_COMPUTE InstanceClass = "STANDARD5_HIGH_COMPUTE"
 	InstanceClass_STANDARD5_HIGH_PERFORMANCE InstanceClass = "STANDARD5_HIGH_PERFORMANCE"
 	InstanceClass_STANDARD5_NVME_DRIVE InstanceClass = "STANDARD5_NVME_DRIVE"
 	InstanceClass_STANDARD5_NVME_DRIVE_HIGH_PERFORMANCE InstanceClass = "STANDARD5_NVME_DRIVE_HIGH_PERFORMANCE"
+	InstanceClass_STANDARD6_AMD InstanceClass = "STANDARD6_AMD"
 	InstanceClass_STANDARD6_GRAVITON InstanceClass = "STANDARD6_GRAVITON"
 	InstanceClass_STANDARD6_GRAVITON2_NVME_DRIVE InstanceClass = "STANDARD6_GRAVITON2_NVME_DRIVE"
 	InstanceClass_STANDARD6_INTEL InstanceClass = "STANDARD6_INTEL"
 	InstanceClass_STORAGE_COMPUTE_1 InstanceClass = "STORAGE_COMPUTE_1"
 	InstanceClass_STORAGE2 InstanceClass = "STORAGE2"
+	InstanceClass_VIDEO_TRANSCODING1 InstanceClass = "VIDEO_TRANSCODING1"
 )
 
 // Provides the options for specifying the instance initiated shutdown behavior.
@@ -58279,6 +58323,8 @@ type SubnetConfiguration struct {
 	//
 	// Valid values are `16--28`.
 	CidrMask *float64 `json:"cidrMask"`
+	// Controls if a public IP is associated to an instance at launch.
+	MapPublicIpOnLaunch *bool `json:"mapPublicIpOnLaunch"`
 	// Logical name for the subnet group.
 	//
 	// This name can be used when selecting VPC subnets to distinguish

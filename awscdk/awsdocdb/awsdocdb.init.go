@@ -370,6 +370,7 @@ func init() {
 		"aws-cdk-lib.aws_docdb.IClusterParameterGroup",
 		reflect.TypeOf((*IClusterParameterGroup)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "parameterGroupName", GoGetter: "ParameterGroupName"},
@@ -385,6 +386,7 @@ func init() {
 		"aws-cdk-lib.aws_docdb.IDatabaseCluster",
 		reflect.TypeOf((*IDatabaseCluster)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "asSecretAttachmentTarget", GoMethod: "AsSecretAttachmentTarget"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterEndpoint", GoGetter: "ClusterEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterIdentifier", GoGetter: "ClusterIdentifier"},
@@ -409,6 +411,7 @@ func init() {
 		"aws-cdk-lib.aws_docdb.IDatabaseInstance",
 		reflect.TypeOf((*IDatabaseInstance)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "dbInstanceEndpointAddress", GoGetter: "DbInstanceEndpointAddress"},
 			_jsii_.MemberProperty{JsiiProperty: "dbInstanceEndpointPort", GoGetter: "DbInstanceEndpointPort"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},

@@ -14030,6 +14030,105 @@ func DatabaseInstanceEngine_SqlServerWeb(props *SqlServerWebInstanceEngineProps)
 	return returns
 }
 
+func DatabaseInstanceEngine_MARIADB() IInstanceEngine {
+	_init_.Initialize()
+	var returns IInstanceEngine
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"MARIADB",
+		&returns,
+	)
+	return returns
+}
+
+func DatabaseInstanceEngine_MYSQL() IInstanceEngine {
+	_init_.Initialize()
+	var returns IInstanceEngine
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"MYSQL",
+		&returns,
+	)
+	return returns
+}
+
+func DatabaseInstanceEngine_ORACLE_EE() IInstanceEngine {
+	_init_.Initialize()
+	var returns IInstanceEngine
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"ORACLE_EE",
+		&returns,
+	)
+	return returns
+}
+
+func DatabaseInstanceEngine_ORACLE_SE2() IInstanceEngine {
+	_init_.Initialize()
+	var returns IInstanceEngine
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"ORACLE_SE2",
+		&returns,
+	)
+	return returns
+}
+
+func DatabaseInstanceEngine_POSTGRES() IInstanceEngine {
+	_init_.Initialize()
+	var returns IInstanceEngine
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"POSTGRES",
+		&returns,
+	)
+	return returns
+}
+
+func DatabaseInstanceEngine_SQL_SERVER_EE() IInstanceEngine {
+	_init_.Initialize()
+	var returns IInstanceEngine
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"SQL_SERVER_EE",
+		&returns,
+	)
+	return returns
+}
+
+func DatabaseInstanceEngine_SQL_SERVER_EX() IInstanceEngine {
+	_init_.Initialize()
+	var returns IInstanceEngine
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"SQL_SERVER_EX",
+		&returns,
+	)
+	return returns
+}
+
+func DatabaseInstanceEngine_SQL_SERVER_SE() IInstanceEngine {
+	_init_.Initialize()
+	var returns IInstanceEngine
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"SQL_SERVER_SE",
+		&returns,
+	)
+	return returns
+}
+
+func DatabaseInstanceEngine_SQL_SERVER_WEB() IInstanceEngine {
+	_init_.Initialize()
+	var returns IInstanceEngine
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_rds.DatabaseInstanceEngine",
+		"SQL_SERVER_WEB",
+		&returns,
+	)
+	return returns
+}
+
 // A database instance restored from a snapshot.
 //
 // TODO: EXAMPLE
@@ -14696,6 +14795,8 @@ type DatabaseInstanceFromSnapshotProps struct {
 	MultiAz *bool `json:"multiAz"`
 	// The option group to associate with the instance.
 	OptionGroup IOptionGroup `json:"optionGroup"`
+	// The DB parameter group to associate with the instance.
+	ParameterGroup IParameterGroup `json:"parameterGroup"`
 	// The AWS KMS key for encryption of Performance Insights data.
 	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
@@ -14783,8 +14884,6 @@ type DatabaseInstanceFromSnapshotProps struct {
 	InstanceType awsec2.InstanceType `json:"instanceType"`
 	// The license model.
 	LicenseModel LicenseModel `json:"licenseModel"`
-	// The DB parameter group to associate with the instance.
-	ParameterGroup IParameterGroup `json:"parameterGroup"`
 	// The time zone of the instance.
 	//
 	// This is currently supported only by Microsoft Sql Server.
@@ -14864,6 +14963,8 @@ type DatabaseInstanceNewProps struct {
 	MultiAz *bool `json:"multiAz"`
 	// The option group to associate with the instance.
 	OptionGroup IOptionGroup `json:"optionGroup"`
+	// The DB parameter group to associate with the instance.
+	ParameterGroup IParameterGroup `json:"parameterGroup"`
 	// The AWS KMS key for encryption of Performance Insights data.
 	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
@@ -15004,6 +15105,8 @@ type DatabaseInstanceProps struct {
 	MultiAz *bool `json:"multiAz"`
 	// The option group to associate with the instance.
 	OptionGroup IOptionGroup `json:"optionGroup"`
+	// The DB parameter group to associate with the instance.
+	ParameterGroup IParameterGroup `json:"parameterGroup"`
 	// The AWS KMS key for encryption of Performance Insights data.
 	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
@@ -15091,8 +15194,6 @@ type DatabaseInstanceProps struct {
 	InstanceType awsec2.InstanceType `json:"instanceType"`
 	// The license model.
 	LicenseModel LicenseModel `json:"licenseModel"`
-	// The DB parameter group to associate with the instance.
-	ParameterGroup IParameterGroup `json:"parameterGroup"`
 	// The time zone of the instance.
 	//
 	// This is currently supported only by Microsoft Sql Server.
@@ -15721,6 +15822,8 @@ type DatabaseInstanceReadReplicaProps struct {
 	MultiAz *bool `json:"multiAz"`
 	// The option group to associate with the instance.
 	OptionGroup IOptionGroup `json:"optionGroup"`
+	// The DB parameter group to associate with the instance.
+	ParameterGroup IParameterGroup `json:"parameterGroup"`
 	// The AWS KMS key for encryption of Performance Insights data.
 	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
@@ -15872,6 +15975,8 @@ type DatabaseInstanceSourceProps struct {
 	MultiAz *bool `json:"multiAz"`
 	// The option group to associate with the instance.
 	OptionGroup IOptionGroup `json:"optionGroup"`
+	// The DB parameter group to associate with the instance.
+	ParameterGroup IParameterGroup `json:"parameterGroup"`
 	// The AWS KMS key for encryption of Performance Insights data.
 	PerformanceInsightEncryptionKey awskms.IKey `json:"performanceInsightEncryptionKey"`
 	// The amount of time, in days, to retain Performance Insights data.
@@ -15959,8 +16064,6 @@ type DatabaseInstanceSourceProps struct {
 	InstanceType awsec2.InstanceType `json:"instanceType"`
 	// The license model.
 	LicenseModel LicenseModel `json:"licenseModel"`
-	// The DB parameter group to associate with the instance.
-	ParameterGroup IParameterGroup `json:"parameterGroup"`
 	// The time zone of the instance.
 	//
 	// This is currently supported only by Microsoft Sql Server.
@@ -17376,6 +17479,14 @@ func (i *jsiiProxy_IDatabaseCluster) MetricVolumeWriteIOPs(props *awscloudwatch.
 	return returns
 }
 
+func (i *jsiiProxy_IDatabaseCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (i *jsiiProxy_IDatabaseCluster) AsSecretAttachmentTarget() *awssecretsmanager.SecretAttachmentTargetProps {
 	var returns *awssecretsmanager.SecretAttachmentTargetProps
 
@@ -17681,6 +17792,14 @@ func (i *jsiiProxy_IDatabaseInstance) OnEvent(id *string, options *awsevents.OnE
 	)
 
 	return returns
+}
+
+func (i *jsiiProxy_IDatabaseInstance) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
 }
 
 func (i *jsiiProxy_IDatabaseInstance) AsSecretAttachmentTarget() *awssecretsmanager.SecretAttachmentTargetProps {
@@ -18143,6 +18262,14 @@ func (i *jsiiProxy_IServerlessCluster) GrantDataApiAccess(grantee awsiam.IGranta
 	)
 
 	return returns
+}
+
+func (i *jsiiProxy_IServerlessCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
 }
 
 func (i *jsiiProxy_IServerlessCluster) AsSecretAttachmentTarget() *awssecretsmanager.SecretAttachmentTargetProps {
@@ -21620,6 +21747,26 @@ func NewSnapshotCredentials_Override(s SnapshotCredentials) {
 		nil, // no parameters
 		s,
 	)
+}
+
+// Generate a new password for the snapshot, using the existing username and an optional encryption key.
+//
+// Note - The username must match the existing master username of the snapshot.
+//
+// NOTE: use `fromGeneratedSecret()` for new Clusters and Instances.
+func SnapshotCredentials_FromGeneratedPassword(username *string, options *SnapshotCredentialsFromGeneratedPasswordOptions) SnapshotCredentials {
+	_init_.Initialize()
+
+	var returns SnapshotCredentials
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_rds.SnapshotCredentials",
+		"fromGeneratedPassword",
+		[]interface{}{username, options},
+		&returns,
+	)
+
+	return returns
 }
 
 // Generate a new password for the snapshot, using the existing username and an optional encryption key.

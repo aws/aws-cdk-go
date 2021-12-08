@@ -570,6 +570,7 @@ func init() {
 		"aws-cdk-lib.aws_route53.IHostedZone",
 		reflect.TypeOf((*IHostedZone)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneArn", GoGetter: "HostedZoneArn"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneId", GoGetter: "HostedZoneId"},
@@ -588,6 +589,7 @@ func init() {
 		"aws-cdk-lib.aws_route53.IPrivateHostedZone",
 		reflect.TypeOf((*IPrivateHostedZone)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneArn", GoGetter: "HostedZoneArn"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneId", GoGetter: "HostedZoneId"},
@@ -606,6 +608,7 @@ func init() {
 		"aws-cdk-lib.aws_route53.IPublicHostedZone",
 		reflect.TypeOf((*IPublicHostedZone)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneArn", GoGetter: "HostedZoneArn"},
 			_jsii_.MemberProperty{JsiiProperty: "hostedZoneId", GoGetter: "HostedZoneId"},
@@ -624,6 +627,7 @@ func init() {
 		"aws-cdk-lib.aws_route53.IRecordSet",
 		reflect.TypeOf((*IRecordSet)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "domainName", GoGetter: "DomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},

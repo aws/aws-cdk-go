@@ -216,6 +216,7 @@ func init() {
 		"aws-cdk-lib.aws_opensearchservice.IDomain",
 		reflect.TypeOf((*IDomain)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "domainArn", GoGetter: "DomainArn"},
 			_jsii_.MemberProperty{JsiiProperty: "domainEndpoint", GoGetter: "DomainEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "domainId", GoGetter: "DomainId"},

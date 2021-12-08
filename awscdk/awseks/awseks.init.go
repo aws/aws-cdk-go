@@ -596,6 +596,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addHelmChart", GoMethod: "AddHelmChart"},
 			_jsii_.MemberMethod{JsiiMethod: "addManifest", GoMethod: "AddManifest"},
 			_jsii_.MemberMethod{JsiiMethod: "addServiceAccount", GoMethod: "AddServiceAccount"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterArn", GoGetter: "ClusterArn"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterCertificateAuthorityData", GoGetter: "ClusterCertificateAuthorityData"},
 			_jsii_.MemberProperty{JsiiProperty: "clusterEncryptionConfigKeyArn", GoGetter: "ClusterEncryptionConfigKeyArn"},
@@ -632,6 +633,7 @@ func init() {
 		"aws-cdk-lib.aws_eks.INodegroup",
 		reflect.TypeOf((*INodegroup)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "nodegroupName", GoGetter: "NodegroupName"},

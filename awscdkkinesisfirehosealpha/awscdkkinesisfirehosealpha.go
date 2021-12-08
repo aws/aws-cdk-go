@@ -823,6 +823,14 @@ func (i *jsiiProxy_IDeliveryStream) MetricIncomingRecords(props *awscloudwatch.M
 	return returns
 }
 
+func (i *jsiiProxy_IDeliveryStream) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_IDeliveryStream) DeliveryStreamArn() *string {
 	var returns *string
 	_jsii_.Get(

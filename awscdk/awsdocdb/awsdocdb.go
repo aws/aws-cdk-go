@@ -3326,6 +3326,18 @@ type DatabaseClusterProps struct {
 	DeletionProtection *bool `json:"deletionProtection"`
 	// What version of the database to start.
 	EngineVersion *string `json:"engineVersion"`
+	// Whether the audit logs should be exported to CloudWatch.
+	//
+	// Note that you also have to configure the audit log export in the Cluster's Parameter Group.
+	// See: https://docs.aws.amazon.com/documentdb/latest/developerguide/event-auditing.html#event-auditing-enabling-auditing
+	//
+	ExportAuditLogsToCloudWatch *bool `json:"exportAuditLogsToCloudWatch"`
+	// Whether the profiler logs should be exported to CloudWatch.
+	//
+	// Note that you also have to configure the profiler log export in the Cluster's Parameter Group.
+	// See: https://docs.aws.amazon.com/documentdb/latest/developerguide/profiling.html#profiling.enable-profiling
+	//
+	ExportProfilerLogsToCloudWatch *bool `json:"exportProfilerLogsToCloudWatch"`
 	// Base identifier for instances.
 	//
 	// Every replica is named by appending the replica number to this string, 1-based.
@@ -4320,6 +4332,14 @@ type jsiiProxy_IDatabaseCluster struct {
 	internal.Type__awsec2IConnectable
 	internal.Type__awscdkIResource
 	internal.Type__awssecretsmanagerISecretAttachmentTarget
+}
+
+func (i *jsiiProxy_IDatabaseCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
 }
 
 func (i *jsiiProxy_IDatabaseCluster) AsSecretAttachmentTarget() *awssecretsmanager.SecretAttachmentTargetProps {

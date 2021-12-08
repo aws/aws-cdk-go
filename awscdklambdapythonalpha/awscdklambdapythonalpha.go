@@ -43,6 +43,7 @@ type PythonFunction interface {
 	Role() awsiam.IRole
 	Runtime() awslambda.Runtime
 	Stack() awscdk.Stack
+	Timeout() awscdk.Duration
 	AddEnvironment(key *string, value *string, options *awslambda.EnvironmentOptions) awslambda.Function
 	AddEventSource(source awslambda.IEventSource)
 	AddEventSourceMapping(id *string, options *awslambda.EventSourceMappingOptions) awslambda.EventSourceMapping
@@ -243,6 +244,16 @@ func (j *jsiiProxy_PythonFunction) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_PythonFunction) Timeout() awscdk.Duration {
+	var returns awscdk.Duration
+	_jsii_.Get(
+		j,
+		"timeout",
 		&returns,
 	)
 	return returns

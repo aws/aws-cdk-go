@@ -28,6 +28,7 @@ type CloudFormationProduct interface {
 	ProductId() *string
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	AssociateTagOptions(tagOptions TagOptions)
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
@@ -197,6 +198,19 @@ func (c *jsiiProxy_CloudFormationProduct) ApplyRemovalPolicy(policy awscdk.Remov
 	)
 }
 
+// Associate Tag Options.
+//
+// A TagOption is a key-value pair managed in AWS Service Catalog.
+// It is not an AWS tag, but serves as a template for creating an AWS tag based on the TagOption.
+// Experimental.
+func (c *jsiiProxy_CloudFormationProduct) AssociateTagOptions(tagOptions TagOptions) {
+	_jsii_.InvokeVoid(
+		c,
+		"associateTagOptions",
+		[]interface{}{tagOptions},
+	)
+}
+
 // Experimental.
 func (c *jsiiProxy_CloudFormationProduct) GeneratePhysicalName() *string {
 	var returns *string
@@ -303,6 +317,9 @@ type CloudFormationProductProps struct {
 	// The contact URL for product support.
 	// Experimental.
 	SupportUrl *string `json:"supportUrl"`
+	// TagOptions associated directly to a product.
+	// Experimental.
+	TagOptions TagOptions `json:"tagOptions"`
 }
 
 // Properties of product version (also known as a provisioning artifact).
@@ -667,6 +684,12 @@ func (j *jsiiProxy_IPortfolio) PortfolioId() *string {
 // Experimental.
 type IProduct interface {
 	awscdk.IResource
+	// Associate Tag Options.
+	//
+	// A TagOption is a key-value pair managed in AWS Service Catalog.
+	// It is not an AWS tag, but serves as a template for creating an AWS tag based on the TagOption.
+	// Experimental.
+	AssociateTagOptions(tagOptions TagOptions)
 	// The ARN of the product.
 	// Experimental.
 	ProductArn() *string
@@ -678,6 +701,14 @@ type IProduct interface {
 // The jsii proxy for IProduct
 type jsiiProxy_IProduct struct {
 	internal.Type__awscdkIResource
+}
+
+func (i *jsiiProxy_IProduct) AssociateTagOptions(tagOptions TagOptions) {
+	_jsii_.InvokeVoid(
+		i,
+		"associateTagOptions",
+		[]interface{}{tagOptions},
+	)
 }
 
 func (j *jsiiProxy_IProduct) ProductArn() *string {
@@ -1168,7 +1199,7 @@ type PortfolioProps struct {
 	// status logging and errors.
 	// Experimental.
 	MessageLanguage MessageLanguage `json:"messageLanguage"`
-	// TagOptions associated directly on portfolio.
+	// TagOptions associated directly to a portfolio.
 	// Experimental.
 	TagOptions TagOptions `json:"tagOptions"`
 }
@@ -1204,6 +1235,7 @@ type Product interface {
 	ProductId() *string
 	Stack() awscdk.Stack
 	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	AssociateTagOptions(tagOptions TagOptions)
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
@@ -1356,6 +1388,19 @@ func (p *jsiiProxy_Product) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 		p,
 		"applyRemovalPolicy",
 		[]interface{}{policy},
+	)
+}
+
+// Associate Tag Options.
+//
+// A TagOption is a key-value pair managed in AWS Service Catalog.
+// It is not an AWS tag, but serves as a template for creating an AWS tag based on the TagOption.
+// Experimental.
+func (p *jsiiProxy_Product) AssociateTagOptions(tagOptions TagOptions) {
+	_jsii_.InvokeVoid(
+		p,
+		"associateTagOptions",
+		[]interface{}{tagOptions},
 	)
 }
 

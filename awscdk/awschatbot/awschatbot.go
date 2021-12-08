@@ -703,6 +703,14 @@ func (i *jsiiProxy_ISlackChannelConfiguration) Metric(metricName *string, props 
 	return returns
 }
 
+func (i *jsiiProxy_ISlackChannelConfiguration) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (i *jsiiProxy_ISlackChannelConfiguration) BindAsNotificationRuleTarget(scope constructs.Construct) *awscodestarnotifications.NotificationRuleTargetConfig {
 	var returns *awscodestarnotifications.NotificationRuleTargetConfig
 

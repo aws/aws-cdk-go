@@ -277,6 +277,7 @@ func init() {
 		"aws-cdk-lib.aws_dynamodb.ITable",
 		reflect.TypeOf((*ITable)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "encryptionKey", GoGetter: "EncryptionKey"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
@@ -315,14 +316,19 @@ func init() {
 		"aws-cdk-lib.aws_dynamodb.Operation",
 		reflect.TypeOf((*Operation)(nil)).Elem(),
 		map[string]interface{}{
+			"BATCH_EXECUTE_STATEMENT": Operation_BATCH_EXECUTE_STATEMENT,
 			"BATCH_GET_ITEM": Operation_BATCH_GET_ITEM,
 			"BATCH_WRITE_ITEM": Operation_BATCH_WRITE_ITEM,
 			"DELETE_ITEM": Operation_DELETE_ITEM,
+			"EXECUTE_STATEMENT": Operation_EXECUTE_STATEMENT,
+			"EXECUTE_TRANSACTION": Operation_EXECUTE_TRANSACTION,
 			"GET_ITEM": Operation_GET_ITEM,
 			"GET_RECORDS": Operation_GET_RECORDS,
 			"PUT_ITEM": Operation_PUT_ITEM,
 			"QUERY": Operation_QUERY,
 			"SCAN": Operation_SCAN,
+			"TRANSACT_GET_ITEMS": Operation_TRANSACT_GET_ITEMS,
+			"TRANSACT_WRITE_ITEMS": Operation_TRANSACT_WRITE_ITEMS,
 			"UPDATE_ITEM": Operation_UPDATE_ITEM,
 		},
 	)

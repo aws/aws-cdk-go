@@ -1604,6 +1604,14 @@ type jsiiProxy_ICluster struct {
 	internal.Type__awssecretsmanagerISecretAttachmentTarget
 }
 
+func (i *jsiiProxy_ICluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (i *jsiiProxy_ICluster) AsSecretAttachmentTarget() *awssecretsmanager.SecretAttachmentTargetProps {
 	var returns *awssecretsmanager.SecretAttachmentTargetProps
 

@@ -6756,6 +6756,14 @@ func (i *jsiiProxy_IAutoScalingGroup) ScaleToTrackMetric(id *string, props *Metr
 	return returns
 }
 
+func (i *jsiiProxy_IAutoScalingGroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_IAutoScalingGroup) AutoScalingGroupArn() *string {
 	var returns *string
 	_jsii_.Get(

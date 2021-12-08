@@ -4568,6 +4568,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IClientVpnEndpoint",
 		reflect.TypeOf((*IClientVpnEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberProperty{JsiiProperty: "endpointId", GoGetter: "EndpointId"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -4596,6 +4597,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IFlowLog",
 		reflect.TypeOf((*IFlowLog)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "flowLogId", GoGetter: "FlowLogId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -4611,6 +4613,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IGatewayVpcEndpoint",
 		reflect.TypeOf((*IGatewayVpcEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -4636,6 +4639,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IInstance",
 		reflect.TypeOf((*IInstance)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
@@ -4660,6 +4664,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IInterfaceVpcEndpoint",
 		reflect.TypeOf((*IInterfaceVpcEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -4689,6 +4694,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.ILaunchTemplate",
 		reflect.TypeOf((*ILaunchTemplate)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "launchTemplateId", GoGetter: "LaunchTemplateId"},
 			_jsii_.MemberProperty{JsiiProperty: "launchTemplateName", GoGetter: "LaunchTemplateName"},
@@ -4717,6 +4723,7 @@ func init() {
 		reflect.TypeOf((*INetworkAcl)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addEntry", GoMethod: "AddEntry"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "networkAclId", GoGetter: "NetworkAclId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -4732,6 +4739,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.INetworkAclEntry",
 		reflect.TypeOf((*INetworkAclEntry)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "networkAcl", GoGetter: "NetworkAcl"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -4763,6 +4771,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IPrivateSubnet",
 		reflect.TypeOf((*IPrivateSubnet)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "associateNetworkAcl", GoMethod: "AssociateNetworkAcl"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZone", GoGetter: "AvailabilityZone"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -4783,6 +4792,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IPublicSubnet",
 		reflect.TypeOf((*IPublicSubnet)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "associateNetworkAcl", GoMethod: "AssociateNetworkAcl"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZone", GoGetter: "AvailabilityZone"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -4816,6 +4826,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addEgressRule", GoMethod: "AddEgressRule"},
 			_jsii_.MemberMethod{JsiiMethod: "addIngressRule", GoMethod: "AddIngressRule"},
 			_jsii_.MemberProperty{JsiiProperty: "allowAllOutbound", GoGetter: "AllowAllOutbound"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "canInlineRule", GoGetter: "CanInlineRule"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -4837,6 +4848,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.ISubnet",
 		reflect.TypeOf((*ISubnet)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "associateNetworkAcl", GoMethod: "AssociateNetworkAcl"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZone", GoGetter: "AvailabilityZone"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -4857,6 +4869,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.ISubnetNetworkAclAssociation",
 		reflect.TypeOf((*ISubnetNetworkAclAssociation)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -4872,6 +4885,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IVolume",
 		reflect.TypeOf((*IVolume)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZone", GoGetter: "AvailabilityZone"},
 			_jsii_.MemberProperty{JsiiProperty: "encryptionKey", GoGetter: "EncryptionKey"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -4898,6 +4912,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addGatewayEndpoint", GoMethod: "AddGatewayEndpoint"},
 			_jsii_.MemberMethod{JsiiMethod: "addInterfaceEndpoint", GoMethod: "AddInterfaceEndpoint"},
 			_jsii_.MemberMethod{JsiiMethod: "addVpnConnection", GoMethod: "AddVpnConnection"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "availabilityZones", GoGetter: "AvailabilityZones"},
 			_jsii_.MemberMethod{JsiiMethod: "enableVpnGateway", GoMethod: "EnableVpnGateway"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -4923,6 +4938,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IVpcEndpoint",
 		reflect.TypeOf((*IVpcEndpoint)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -4938,6 +4954,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IVpcEndpointService",
 		reflect.TypeOf((*IVpcEndpointService)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -4964,6 +4981,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IVpnConnection",
 		reflect.TypeOf((*IVpnConnection)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "customerGatewayAsn", GoGetter: "CustomerGatewayAsn"},
 			_jsii_.MemberProperty{JsiiProperty: "customerGatewayId", GoGetter: "CustomerGatewayId"},
 			_jsii_.MemberProperty{JsiiProperty: "customerGatewayIp", GoGetter: "CustomerGatewayIp"},
@@ -4986,6 +5004,7 @@ func init() {
 		"aws-cdk-lib.aws_ec2.IVpnGateway",
 		reflect.TypeOf((*IVpnGateway)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "gatewayId", GoGetter: "GatewayId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -5215,10 +5234,12 @@ func init() {
 			"GRAPHICS3": InstanceClass_GRAPHICS3,
 			"GRAPHICS4_NVME_DRIVE_HIGH_PERFORMANCE": InstanceClass_GRAPHICS4_NVME_DRIVE_HIGH_PERFORMANCE,
 			"GRAPHICS5": InstanceClass_GRAPHICS5,
+			"GRAPHICS5_GRAVITON2": InstanceClass_GRAPHICS5_GRAVITON2,
 			"HIGH_COMPUTE_MEMORY1": InstanceClass_HIGH_COMPUTE_MEMORY1,
 			"INFERENCE1": InstanceClass_INFERENCE1,
 			"IO3": InstanceClass_IO3,
 			"IO3_DENSE_NVME_DRIVE": InstanceClass_IO3_DENSE_NVME_DRIVE,
+			"MACINTOSH1_INTEL": InstanceClass_MACINTOSH1_INTEL,
 			"MEMORY_INTENSIVE_1": InstanceClass_MEMORY_INTENSIVE_1,
 			"MEMORY_INTENSIVE_1_EXTENDED": InstanceClass_MEMORY_INTENSIVE_1_EXTENDED,
 			"MEMORY_INTENSIVE_2_GRAVITON2": InstanceClass_MEMORY_INTENSIVE_2_GRAVITON2,
@@ -5234,6 +5255,7 @@ func init() {
 			"MEMORY5_NVME_DRIVE_HIGH_PERFORMANCE": InstanceClass_MEMORY5_NVME_DRIVE_HIGH_PERFORMANCE,
 			"MEMORY6_GRAVITON": InstanceClass_MEMORY6_GRAVITON,
 			"MEMORY6_GRAVITON2_NVME_DRIVE": InstanceClass_MEMORY6_GRAVITON2_NVME_DRIVE,
+			"MEMORY6_INTEL": InstanceClass_MEMORY6_INTEL,
 			"PARALLEL2": InstanceClass_PARALLEL2,
 			"PARALLEL3": InstanceClass_PARALLEL3,
 			"PARALLEL4": InstanceClass_PARALLEL4,
@@ -5242,14 +5264,17 @@ func init() {
 			"STANDARD5": InstanceClass_STANDARD5,
 			"STANDARD5_AMD": InstanceClass_STANDARD5_AMD,
 			"STANDARD5_AMD_NVME_DRIVE": InstanceClass_STANDARD5_AMD_NVME_DRIVE,
+			"STANDARD5_HIGH_COMPUTE": InstanceClass_STANDARD5_HIGH_COMPUTE,
 			"STANDARD5_HIGH_PERFORMANCE": InstanceClass_STANDARD5_HIGH_PERFORMANCE,
 			"STANDARD5_NVME_DRIVE": InstanceClass_STANDARD5_NVME_DRIVE,
 			"STANDARD5_NVME_DRIVE_HIGH_PERFORMANCE": InstanceClass_STANDARD5_NVME_DRIVE_HIGH_PERFORMANCE,
+			"STANDARD6_AMD": InstanceClass_STANDARD6_AMD,
 			"STANDARD6_GRAVITON": InstanceClass_STANDARD6_GRAVITON,
 			"STANDARD6_GRAVITON2_NVME_DRIVE": InstanceClass_STANDARD6_GRAVITON2_NVME_DRIVE,
 			"STANDARD6_INTEL": InstanceClass_STANDARD6_INTEL,
 			"STORAGE_COMPUTE_1": InstanceClass_STORAGE_COMPUTE_1,
 			"STORAGE2": InstanceClass_STORAGE2,
+			"VIDEO_TRANSCODING1": InstanceClass_VIDEO_TRANSCODING1,
 		},
 	)
 	_jsii_.RegisterEnum(

@@ -951,6 +951,28 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_cloudfront.HeadersFrameOption",
+		reflect.TypeOf((*HeadersFrameOption)(nil)).Elem(),
+		map[string]interface{}{
+			"DENY": HeadersFrameOption_DENY,
+			"SAMEORIGIN": HeadersFrameOption_SAMEORIGIN,
+		},
+	)
+	_jsii_.RegisterEnum(
+		"aws-cdk-lib.aws_cloudfront.HeadersReferrerPolicy",
+		reflect.TypeOf((*HeadersReferrerPolicy)(nil)).Elem(),
+		map[string]interface{}{
+			"NO_REFERRER": HeadersReferrerPolicy_NO_REFERRER,
+			"NO_REFERRER_WHEN_DOWNGRADE": HeadersReferrerPolicy_NO_REFERRER_WHEN_DOWNGRADE,
+			"ORIGIN": HeadersReferrerPolicy_ORIGIN,
+			"ORIGIN_WHEN_CROSS_ORIGIN": HeadersReferrerPolicy_ORIGIN_WHEN_CROSS_ORIGIN,
+			"SAME_ORIGIN": HeadersReferrerPolicy_SAME_ORIGIN,
+			"STRICT_ORIGIN": HeadersReferrerPolicy_STRICT_ORIGIN,
+			"STRICT_ORIGIN_WHEN_CROSS_ORIGIN": HeadersReferrerPolicy_STRICT_ORIGIN_WHEN_CROSS_ORIGIN,
+			"UNSAFE_URL": HeadersReferrerPolicy_UNSAFE_URL,
+		},
+	)
+	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_cloudfront.HttpVersion",
 		reflect.TypeOf((*HttpVersion)(nil)).Elem(),
 		map[string]interface{}{
@@ -972,6 +994,7 @@ func init() {
 		"aws-cdk-lib.aws_cloudfront.IDistribution",
 		reflect.TypeOf((*IDistribution)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "distributionDomainName", GoGetter: "DistributionDomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "distributionId", GoGetter: "DistributionId"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -988,6 +1011,7 @@ func init() {
 		"aws-cdk-lib.aws_cloudfront.IFunction",
 		reflect.TypeOf((*IFunction)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "functionArn", GoGetter: "FunctionArn"},
 			_jsii_.MemberProperty{JsiiProperty: "functionName", GoGetter: "FunctionName"},
@@ -1004,6 +1028,7 @@ func init() {
 		"aws-cdk-lib.aws_cloudfront.IKeyGroup",
 		reflect.TypeOf((*IKeyGroup)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "keyGroupId", GoGetter: "KeyGroupId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -1029,6 +1054,7 @@ func init() {
 		"aws-cdk-lib.aws_cloudfront.IOriginAccessIdentity",
 		reflect.TypeOf((*IOriginAccessIdentity)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -1056,6 +1082,7 @@ func init() {
 		"aws-cdk-lib.aws_cloudfront.IPublicKey",
 		reflect.TypeOf((*IPublicKey)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "publicKeyId", GoGetter: "PublicKeyId"},
@@ -1065,6 +1092,16 @@ func init() {
 			j := jsiiProxy_IPublicKey{}
 			_jsii_.InitJsiiProxy(&j.Type__awscdkIResource)
 			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"aws-cdk-lib.aws_cloudfront.IResponseHeadersPolicy",
+		reflect.TypeOf((*IResponseHeadersPolicy)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "responseHeadersPolicyId", GoGetter: "ResponseHeadersPolicyId"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IResponseHeadersPolicy{}
 		},
 	)
 	_jsii_.RegisterClass(
@@ -1282,6 +1319,72 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.PublicKeyProps",
 		reflect.TypeOf((*PublicKeyProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.ResponseCustomHeader",
+		reflect.TypeOf((*ResponseCustomHeader)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.ResponseCustomHeadersBehavior",
+		reflect.TypeOf((*ResponseCustomHeadersBehavior)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.ResponseHeadersContentSecurityPolicy",
+		reflect.TypeOf((*ResponseHeadersContentSecurityPolicy)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.ResponseHeadersContentTypeOptions",
+		reflect.TypeOf((*ResponseHeadersContentTypeOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.ResponseHeadersCorsBehavior",
+		reflect.TypeOf((*ResponseHeadersCorsBehavior)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.ResponseHeadersFrameOptions",
+		reflect.TypeOf((*ResponseHeadersFrameOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_cloudfront.ResponseHeadersPolicy",
+		reflect.TypeOf((*ResponseHeadersPolicy)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "responseHeadersPolicyId", GoGetter: "ResponseHeadersPolicyId"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+		},
+		func() interface{} {
+			j := jsiiProxy_ResponseHeadersPolicy{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IResponseHeadersPolicy)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.ResponseHeadersPolicyProps",
+		reflect.TypeOf((*ResponseHeadersPolicyProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.ResponseHeadersReferrerPolicy",
+		reflect.TypeOf((*ResponseHeadersReferrerPolicy)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.ResponseHeadersStrictTransportSecurity",
+		reflect.TypeOf((*ResponseHeadersStrictTransportSecurity)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.ResponseHeadersXSSProtection",
+		reflect.TypeOf((*ResponseHeadersXSSProtection)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_cloudfront.ResponseSecurityHeadersBehavior",
+		reflect.TypeOf((*ResponseSecurityHeadersBehavior)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_cloudfront.S3OriginConfig",

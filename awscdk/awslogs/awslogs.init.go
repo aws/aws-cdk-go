@@ -376,6 +376,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addStream", GoMethod: "AddStream"},
 			_jsii_.MemberMethod{JsiiMethod: "addSubscriptionFilter", GoMethod: "AddSubscriptionFilter"},
 			_jsii_.MemberMethod{JsiiMethod: "addToResourcePolicy", GoMethod: "AddToResourcePolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "extractMetric", GoMethod: "ExtractMetric"},
 			_jsii_.MemberMethod{JsiiMethod: "grant", GoMethod: "Grant"},
@@ -396,6 +397,7 @@ func init() {
 		"aws-cdk-lib.aws_logs.ILogStream",
 		reflect.TypeOf((*ILogStream)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "logStreamName", GoGetter: "LogStreamName"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},

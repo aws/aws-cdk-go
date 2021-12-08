@@ -218,6 +218,7 @@ func init() {
 		"aws-cdk-lib.aws_elasticsearch.IDomain",
 		reflect.TypeOf((*IDomain)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "domainArn", GoGetter: "DomainArn"},
 			_jsii_.MemberProperty{JsiiProperty: "domainEndpoint", GoGetter: "DomainEndpoint"},
 			_jsii_.MemberProperty{JsiiProperty: "domainName", GoGetter: "DomainName"},

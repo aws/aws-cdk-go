@@ -2698,6 +2698,8 @@ type EcrSourceActionProps struct {
 	// The repository that will be watched for changes.
 	Repository awsecr.IRepository `json:"repository"`
 	// The image tag that will be checked for changes.
+	//
+	// Provide an empty string to trigger on changes to any tag.
 	ImageTag *string `json:"imageTag"`
 }
 

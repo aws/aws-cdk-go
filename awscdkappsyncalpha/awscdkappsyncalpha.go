@@ -1063,6 +1063,9 @@ type BaseDataSourceProps struct {
 //
 // Experimental.
 type BaseResolverProps struct {
+	// The caching configuration for this resolver.
+	// Experimental.
+	CachingConfig *CachingConfig `json:"cachingConfig"`
 	// name of the GraphQL field in the given type this resolver is attached to.
 	// Experimental.
 	FieldName *string `json:"fieldName"`
@@ -1095,6 +1098,24 @@ type BaseTypeOptions struct {
 	// property determining if this attribute is a non-nullable list i.e. if true, attribute would be [ Type ]! or if isRequired true, attribe would be [ Type! ]!
 	// Experimental.
 	IsRequiredList *bool `json:"isRequiredList"`
+}
+
+// CachingConfig for AppSync resolvers.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type CachingConfig struct {
+	// The caching keys for a resolver that has caching enabled.
+	//
+	// Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+	// Experimental.
+	CachingKeys *[]*string `json:"cachingKeys"`
+	// The TTL in seconds for a resolver that has caching enabled.
+	//
+	// Valid values are between 1 and 3600 seconds.
+	// Experimental.
+	Ttl awscdk.Duration `json:"ttl"`
 }
 
 // Optional configuration for data sources.
@@ -1909,6 +1930,9 @@ type ExtendedDataSourceProps struct {
 //
 // Experimental.
 type ExtendedResolverProps struct {
+	// The caching configuration for this resolver.
+	// Experimental.
+	CachingConfig *CachingConfig `json:"cachingConfig"`
 	// name of the GraphQL field in the given type this resolver is attached to.
 	// Experimental.
 	FieldName *string `json:"fieldName"`
@@ -7048,6 +7072,9 @@ func (r *jsiiProxy_Resolver) ToString() *string {
 //
 // Experimental.
 type ResolverProps struct {
+	// The caching configuration for this resolver.
+	// Experimental.
+	CachingConfig *CachingConfig `json:"cachingConfig"`
 	// name of the GraphQL field in the given type this resolver is attached to.
 	// Experimental.
 	FieldName *string `json:"fieldName"`

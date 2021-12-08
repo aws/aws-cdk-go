@@ -81,6 +81,108 @@ type CloudWatchLogsActionProps struct {
 	Role awsiam.IRole `json:"role"`
 }
 
+// The action to capture an Amazon CloudWatch metric.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type CloudWatchPutMetricAction interface {
+	awscdkiotalpha.IAction
+	Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig
+}
+
+// The jsii proxy struct for CloudWatchPutMetricAction
+type jsiiProxy_CloudWatchPutMetricAction struct {
+	internal.Type__awscdkiotalphaIAction
+}
+
+// Experimental.
+func NewCloudWatchPutMetricAction(props *CloudWatchPutMetricActionProps) CloudWatchPutMetricAction {
+	_init_.Initialize()
+
+	j := jsiiProxy_CloudWatchPutMetricAction{}
+
+	_jsii_.Create(
+		"@aws-cdk/aws-iot-actions-alpha.CloudWatchPutMetricAction",
+		[]interface{}{props},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewCloudWatchPutMetricAction_Override(c CloudWatchPutMetricAction, props *CloudWatchPutMetricActionProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/aws-iot-actions-alpha.CloudWatchPutMetricAction",
+		[]interface{}{props},
+		c,
+	)
+}
+
+// (experimental) Returns the topic rule action specification.
+// Experimental.
+func (c *jsiiProxy_CloudWatchPutMetricAction) Bind(rule awscdkiotalpha.ITopicRule) *awscdkiotalpha.ActionConfig {
+	var returns *awscdkiotalpha.ActionConfig
+
+	_jsii_.Invoke(
+		c,
+		"bind",
+		[]interface{}{rule},
+		&returns,
+	)
+
+	return returns
+}
+
+// Configuration properties of an action for CloudWatch metric.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type CloudWatchPutMetricActionProps struct {
+	// The IAM role that allows access to AWS service.
+	// Experimental.
+	Role awsiam.IRole `json:"role"`
+	// The CloudWatch metric name.
+	//
+	// Supports substitution templates.
+	// See: https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html
+	//
+	// Experimental.
+	MetricName *string `json:"metricName"`
+	// The CloudWatch metric namespace name.
+	//
+	// Supports substitution templates.
+	// See: https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html
+	//
+	// Experimental.
+	MetricNamespace *string `json:"metricNamespace"`
+	// The metric unit supported by CloudWatch.
+	//
+	// Supports substitution templates.
+	// See: https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html
+	//
+	// Experimental.
+	MetricUnit *string `json:"metricUnit"`
+	// A string that contains the CloudWatch metric value.
+	//
+	// Supports substitution templates.
+	// See: https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html
+	//
+	// Experimental.
+	MetricValue *string `json:"metricValue"`
+	// A string that contains the timestamp, expressed in seconds in Unix epoch time.
+	//
+	// Supports substitution templates.
+	// See: https://docs.aws.amazon.com/iot/latest/developerguide/iot-substitution-templates.html
+	//
+	// Experimental.
+	MetricTimestamp *string `json:"metricTimestamp"`
+}
+
 // Common properties shared by Actions it access to AWS service.
 //
 // TODO: EXAMPLE

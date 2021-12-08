@@ -165,6 +165,10 @@ func init() {
 		reflect.TypeOf((*BaseTypeOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-appsync-alpha.CachingConfig",
+		reflect.TypeOf((*CachingConfig)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-appsync-alpha.DataSourceOptions",
 		reflect.TypeOf((*DataSourceOptions)(nil)).Elem(),
 	)
@@ -430,6 +434,7 @@ func init() {
 		"@aws-cdk/aws-appsync-alpha.IAppsyncFunction",
 		reflect.TypeOf((*IAppsyncFunction)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "functionArn", GoGetter: "FunctionArn"},
 			_jsii_.MemberProperty{JsiiProperty: "functionId", GoGetter: "FunctionId"},
@@ -472,6 +477,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addRdsDataSource", GoMethod: "AddRdsDataSource"},
 			_jsii_.MemberMethod{JsiiMethod: "addSchemaDependency", GoMethod: "AddSchemaDependency"},
 			_jsii_.MemberProperty{JsiiProperty: "apiId", GoGetter: "ApiId"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "arn", GoGetter: "Arn"},
 			_jsii_.MemberMethod{JsiiMethod: "createResolver", GoMethod: "CreateResolver"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},

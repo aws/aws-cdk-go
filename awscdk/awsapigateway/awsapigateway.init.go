@@ -1346,6 +1346,7 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.IApiKey",
 		reflect.TypeOf((*IApiKey)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "keyArn", GoGetter: "KeyArn"},
 			_jsii_.MemberProperty{JsiiProperty: "keyId", GoGetter: "KeyId"},
@@ -1373,6 +1374,7 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.IDomainName",
 		reflect.TypeOf((*IDomainName)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "domainName", GoGetter: "DomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "domainNameAliasDomainName", GoGetter: "DomainNameAliasDomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "domainNameAliasHostedZoneId", GoGetter: "DomainNameAliasHostedZoneId"},
@@ -1390,6 +1392,7 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.IGatewayResponse",
 		reflect.TypeOf((*IGatewayResponse)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -1414,6 +1417,7 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.IRequestValidator",
 		reflect.TypeOf((*IRequestValidator)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "requestValidatorId", GoGetter: "RequestValidatorId"},
@@ -1434,6 +1438,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addProxy", GoMethod: "AddProxy"},
 			_jsii_.MemberMethod{JsiiMethod: "addResource", GoMethod: "AddResource"},
 			_jsii_.MemberProperty{JsiiProperty: "api", GoGetter: "Api"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultCorsPreflightOptions", GoGetter: "DefaultCorsPreflightOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultIntegration", GoGetter: "DefaultIntegration"},
 			_jsii_.MemberProperty{JsiiProperty: "defaultMethodOptions", GoGetter: "DefaultMethodOptions"},
@@ -1456,6 +1461,7 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.IRestApi",
 		reflect.TypeOf((*IRestApi)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "arnForExecuteApi", GoMethod: "ArnForExecuteApi"},
 			_jsii_.MemberProperty{JsiiProperty: "deploymentStage", GoGetter: "DeploymentStage"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
@@ -1476,6 +1482,7 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.IStage",
 		reflect.TypeOf((*IStage)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "restApi", GoGetter: "RestApi"},
@@ -1493,6 +1500,7 @@ func init() {
 		reflect.TypeOf((*IUsagePlan)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addApiKey", GoMethod: "AddApiKey"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -1508,6 +1516,7 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.IVpcLink",
 		reflect.TypeOf((*IVpcLink)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -1911,6 +1920,10 @@ func init() {
 		"aws-cdk-lib.aws_apigateway.RequestAuthorizerProps",
 		reflect.TypeOf((*RequestAuthorizerProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_apigateway.RequestContext",
+		reflect.TypeOf((*RequestContext)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_apigateway.RequestValidator",
 		reflect.TypeOf((*RequestValidator)(nil)).Elem(),
@@ -2226,6 +2239,67 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_apigateway.StageProps",
 		reflect.TypeOf((*StageProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_apigateway.StepFunctionsExecutionIntegrationOptions",
+		reflect.TypeOf((*StepFunctionsExecutionIntegrationOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_apigateway.StepFunctionsIntegration",
+		reflect.TypeOf((*StepFunctionsIntegration)(nil)).Elem(),
+		nil, // no members
+		func() interface{} {
+			return &jsiiProxy_StepFunctionsIntegration{}
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_apigateway.StepFunctionsRestApi",
+		reflect.TypeOf((*StepFunctionsRestApi)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addApiKey", GoMethod: "AddApiKey"},
+			_jsii_.MemberMethod{JsiiMethod: "addDomainName", GoMethod: "AddDomainName"},
+			_jsii_.MemberMethod{JsiiMethod: "addGatewayResponse", GoMethod: "AddGatewayResponse"},
+			_jsii_.MemberMethod{JsiiMethod: "addModel", GoMethod: "AddModel"},
+			_jsii_.MemberMethod{JsiiMethod: "addRequestValidator", GoMethod: "AddRequestValidator"},
+			_jsii_.MemberMethod{JsiiMethod: "addUsagePlan", GoMethod: "AddUsagePlan"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberMethod{JsiiMethod: "arnForExecuteApi", GoMethod: "ArnForExecuteApi"},
+			_jsii_.MemberProperty{JsiiProperty: "deploymentStage", GoGetter: "DeploymentStage"},
+			_jsii_.MemberProperty{JsiiProperty: "domainName", GoGetter: "DomainName"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "latestDeployment", GoGetter: "LatestDeployment"},
+			_jsii_.MemberProperty{JsiiProperty: "methods", GoGetter: "Methods"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricCacheHitCount", GoMethod: "MetricCacheHitCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricCacheMissCount", GoMethod: "MetricCacheMissCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricClientError", GoMethod: "MetricClientError"},
+			_jsii_.MemberMethod{JsiiMethod: "metricCount", GoMethod: "MetricCount"},
+			_jsii_.MemberMethod{JsiiMethod: "metricIntegrationLatency", GoMethod: "MetricIntegrationLatency"},
+			_jsii_.MemberMethod{JsiiMethod: "metricLatency", GoMethod: "MetricLatency"},
+			_jsii_.MemberMethod{JsiiMethod: "metricServerError", GoMethod: "MetricServerError"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberProperty{JsiiProperty: "restApiId", GoGetter: "RestApiId"},
+			_jsii_.MemberProperty{JsiiProperty: "restApiName", GoGetter: "RestApiName"},
+			_jsii_.MemberProperty{JsiiProperty: "restApiRootResourceId", GoGetter: "RestApiRootResourceId"},
+			_jsii_.MemberProperty{JsiiProperty: "root", GoGetter: "Root"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberProperty{JsiiProperty: "url", GoGetter: "Url"},
+			_jsii_.MemberMethod{JsiiMethod: "urlForPath", GoMethod: "UrlForPath"},
+		},
+		func() interface{} {
+			j := jsiiProxy_StepFunctionsRestApi{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_RestApi)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_apigateway.StepFunctionsRestApiProps",
+		reflect.TypeOf((*StepFunctionsRestApiProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_apigateway.ThrottleSettings",

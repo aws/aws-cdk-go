@@ -519,6 +519,14 @@ func (i *jsiiProxy_IApplication) AddToRolePolicy(policyStatement awsiam.PolicySt
 	return returns
 }
 
+func (i *jsiiProxy_IApplication) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_IApplication) ApplicationArn() *string {
 	var returns *string
 	_jsii_.Get(

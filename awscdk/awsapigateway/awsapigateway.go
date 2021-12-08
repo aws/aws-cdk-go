@@ -16,6 +16,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3assets"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsstepfunctions"
 	"github.com/aws/constructs-go/constructs/v10"
 )
 
@@ -17487,7 +17488,11 @@ type MethodDeploymentOptions struct {
 	// A
 	// cache cluster must be enabled on the stage for responses to be cached.
 	CachingEnabled *bool `json:"cachingEnabled"`
-	// Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
+	// Specifies whether data trace logging is enabled for this method.
+	//
+	// When enabled, API gateway will log the full API requests and responses.
+	// This can be useful to troubleshoot APIs, but can result in logging sensitive data.
+	// We recommend that you don't enable this feature for production APIs.
 	DataTraceEnabled *bool `json:"dataTraceEnabled"`
 	// Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
 	LoggingLevel MethodLoggingLevel `json:"loggingLevel"`
@@ -19149,6 +19154,99 @@ type RequestAuthorizerProps struct {
 	// See: https://docs.aws.amazon.com/apigateway/api-reference/link-relation/authorizer-create/#identitySource
 	//
 	IdentitySources *[]*string `json:"identitySources"`
+}
+
+// Configure what must be included in the `requestContext`.
+//
+// More details can be found at mapping templates documentation.
+//
+// TODO: EXAMPLE
+//
+// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html
+//
+type RequestContext struct {
+	// Represents the information of $context.identity.accountId.
+	//
+	// Whether the AWS account of the API owner should be included in the request context
+	AccountId *bool `json:"accountId"`
+	// Represents the information of $context.apiId.
+	//
+	// Whether the identifier API Gateway assigns to your API should be included in the request context.
+	ApiId *bool `json:"apiId"`
+	// Represents the information of $context.identity.apiKey.
+	//
+	// Whether the API key associated with the request should be included in request context.
+	ApiKey *bool `json:"apiKey"`
+	// Represents the information of $context.authorizer.principalId.
+	//
+	// Whether the principal user identifier associated with the token sent by the client and returned
+	// from an API Gateway Lambda authorizer should be included in the request context.
+	AuthorizerPrincipalId *bool `json:"authorizerPrincipalId"`
+	// Represents the information of $context.identity.caller.
+	//
+	// Whether the principal identifier of the caller that signed the request should be included in the request context.
+	// Supported for resources that use IAM authorization.
+	Caller *bool `json:"caller"`
+	// Represents the information of $context.identity.cognitoAuthenticationProvider.
+	//
+	// Whether the list of the Amazon Cognito authentication providers used by the caller making the request should be included in the request context.
+	// Available only if the request was signed with Amazon Cognito credentials.
+	CognitoAuthenticationProvider *bool `json:"cognitoAuthenticationProvider"`
+	// Represents the information of $context.identity.cognitoAuthenticationType.
+	//
+	// Whether the Amazon Cognito authentication type of the caller making the request should be included in the request context.
+	// Available only if the request was signed with Amazon Cognito credentials.
+	// Possible values include authenticated for authenticated identities and unauthenticated for unauthenticated identities.
+	CognitoAuthenticationType *bool `json:"cognitoAuthenticationType"`
+	// Represents the information of $context.identity.cognitoIdentityId.
+	//
+	// Whether the Amazon Cognito identity ID of the caller making the request should be included in the request context.
+	// Available only if the request was signed with Amazon Cognito credentials.
+	CognitoIdentityId *bool `json:"cognitoIdentityId"`
+	// Represents the information of $context.identity.cognitoIdentityPoolId.
+	//
+	// Whether the Amazon Cognito identity pool ID of the caller making the request should be included in the request context.
+	// Available only if the request was signed with Amazon Cognito credentials.
+	CognitoIdentityPoolId *bool `json:"cognitoIdentityPoolId"`
+	// Represents the information of $context.httpMethod.
+	//
+	// Whether the HTTP method used should be included in the request context.
+	// Valid values include: DELETE, GET, HEAD, OPTIONS, PATCH, POST, and PUT.
+	HttpMethod *bool `json:"httpMethod"`
+	// Represents the information of $context.requestId.
+	//
+	// Whether the ID for the request should be included in the request context.
+	RequestId *bool `json:"requestId"`
+	// Represents the information of $context.resourceId.
+	//
+	// Whether the identifier that API Gateway assigns to your resource should be included in the request context.
+	ResourceId *bool `json:"resourceId"`
+	// Represents the information of $context.resourcePath.
+	//
+	// Whether the path to the resource should be included in the request context.
+	ResourcePath *bool `json:"resourcePath"`
+	// Represents the information of $context.identity.sourceIp.
+	//
+	// Whether the source IP address of the immediate TCP connection making the request
+	// to API Gateway endpoint should be included in the request context.
+	SourceIp *bool `json:"sourceIp"`
+	// Represents the information of $context.stage.
+	//
+	// Whether the deployment stage of the API request should be included in the request context.
+	Stage *bool `json:"stage"`
+	// Represents the information of $context.identity.user.
+	//
+	// Whether the principal identifier of the user that will be authorized should be included in the request context.
+	// Supported for resources that use IAM authorization.
+	User *bool `json:"user"`
+	// Represents the information of $context.identity.userAgent.
+	//
+	// Whether the User-Agent header of the API caller should be included in the request context.
+	UserAgent *bool `json:"userAgent"`
+	// Represents the information of $context.identity.userArn.
+	//
+	// Whether the Amazon Resource Name (ARN) of the effective user identified after authentication should be included in the request context.
+	UserArn *bool `json:"userArn"`
 }
 
 // TODO: EXAMPLE
@@ -22739,7 +22837,11 @@ type StageOptions struct {
 	// A
 	// cache cluster must be enabled on the stage for responses to be cached.
 	CachingEnabled *bool `json:"cachingEnabled"`
-	// Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
+	// Specifies whether data trace logging is enabled for this method.
+	//
+	// When enabled, API gateway will log the full API requests and responses.
+	// This can be useful to troubleshoot APIs, but can result in logging sensitive data.
+	// We recommend that you don't enable this feature for production APIs.
 	DataTraceEnabled *bool `json:"dataTraceEnabled"`
 	// Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
 	LoggingLevel MethodLoggingLevel `json:"loggingLevel"`
@@ -22809,7 +22911,11 @@ type StageProps struct {
 	// A
 	// cache cluster must be enabled on the stage for responses to be cached.
 	CachingEnabled *bool `json:"cachingEnabled"`
-	// Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
+	// Specifies whether data trace logging is enabled for this method.
+	//
+	// When enabled, API gateway will log the full API requests and responses.
+	// This can be useful to troubleshoot APIs, but can result in logging sensitive data.
+	// We recommend that you don't enable this feature for production APIs.
 	DataTraceEnabled *bool `json:"dataTraceEnabled"`
 	// Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
 	LoggingLevel MethodLoggingLevel `json:"loggingLevel"`
@@ -22862,6 +22968,917 @@ type StageProps struct {
 	Variables *map[string]*string `json:"variables"`
 	// The deployment that this stage points to [disable-awslint:ref-via-interface].
 	Deployment Deployment `json:"deployment"`
+}
+
+// Options when configuring Step Functions synchronous integration with Rest API.
+//
+// TODO: EXAMPLE
+//
+type StepFunctionsExecutionIntegrationOptions struct {
+	// A list of request parameters whose values are to be cached.
+	//
+	// It determines
+	// request parameters that will make it into the cache key.
+	CacheKeyParameters *[]*string `json:"cacheKeyParameters"`
+	// An API-specific tag group of related cached parameters.
+	CacheNamespace *string `json:"cacheNamespace"`
+	// The type of network connection to the integration endpoint.
+	ConnectionType ConnectionType `json:"connectionType"`
+	// Specifies how to handle request payload content type conversions.
+	ContentHandling ContentHandling `json:"contentHandling"`
+	// Requires that the caller's identity be passed through from the request.
+	CredentialsPassthrough *bool `json:"credentialsPassthrough"`
+	// An IAM role that API Gateway assumes.
+	//
+	// Mutually exclusive with `credentialsPassThrough`.
+	CredentialsRole awsiam.IRole `json:"credentialsRole"`
+	// The response that API Gateway provides after a method's backend completes processing a request.
+	//
+	// API Gateway intercepts the response from the
+	// backend so that you can control how API Gateway surfaces backend
+	// responses. For example, you can map the backend status codes to codes
+	// that you define.
+	IntegrationResponses *[]*IntegrationResponse `json:"integrationResponses"`
+	// Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the requestTemplates property on the Integration resource.
+	//
+	// There are three valid values: WHEN_NO_MATCH, WHEN_NO_TEMPLATES, and
+	// NEVER.
+	PassthroughBehavior PassthroughBehavior `json:"passthroughBehavior"`
+	// The request parameters that API Gateway sends with the backend request.
+	//
+	// Specify request parameters as key-value pairs (string-to-string
+	// mappings), with a destination as the key and a source as the value.
+	//
+	// Specify the destination by using the following pattern
+	// integration.request.location.name, where location is querystring, path,
+	// or header, and name is a valid, unique parameter name.
+	//
+	// The source must be an existing method request parameter or a static
+	// value. You must enclose static values in single quotation marks and
+	// pre-encode these values based on their destination in the request.
+	RequestParameters *map[string]*string `json:"requestParameters"`
+	// A map of Apache Velocity templates that are applied on the request payload.
+	//
+	// The template that API Gateway uses is based on the value of the
+	// Content-Type header that's sent by the client. The content type value is
+	// the key, and the template is the value (specified as a string), such as
+	// the following snippet:
+	//
+	// ```
+	//    { "application/json": "{ \"statusCode\": 200 }" }
+	// ```
+	// See: http://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-mapping-template-reference.html
+	//
+	RequestTemplates *map[string]*string `json:"requestTemplates"`
+	// The maximum amount of time an integration will run before it returns without a response.
+	//
+	// Must be between 50 milliseconds and 29 seconds.
+	Timeout awscdk.Duration `json:"timeout"`
+	// The VpcLink used for the integration.
+	//
+	// Required if connectionType is VPC_LINK
+	VpcLink IVpcLink `json:"vpcLink"`
+	// Check if header is to be included inside the execution input.
+	//
+	// The execution input will include a new key `headers`:
+	//
+	// {
+	//    "body": {},
+	//    "headers": {
+	//       "header1": "value",
+	//       "header2": "value"
+	//    }
+	// }
+	Headers *bool `json:"headers"`
+	// Check if path is to be included inside the execution input.
+	//
+	// The execution input will include a new key `path`:
+	//
+	// {
+	//    "body": {},
+	//    "path": {
+	//      "resourceName": "resourceValue"
+	//    }
+	// }
+	Path *bool `json:"path"`
+	// Check if querystring is to be included inside the execution input.
+	//
+	// The execution input will include a new key `queryString`:
+	//
+	// {
+	//    "body": {},
+	//    "querystring": {
+	//      "key": "value"
+	//    }
+	// }
+	Querystring *bool `json:"querystring"`
+	// Which details of the incoming request must be passed onto the underlying state machine, such as, account id, user identity, request id, etc.
+	//
+	// The execution input will include a new key `requestContext`:
+	//
+	// {
+	//    "body": {},
+	//    "requestContext": {
+	//        "key": "value"
+	//    }
+	// }
+	RequestContext *RequestContext `json:"requestContext"`
+}
+
+// Options to integrate with various StepFunction API.
+//
+// TODO: EXAMPLE
+//
+type StepFunctionsIntegration interface {
+}
+
+// The jsii proxy struct for StepFunctionsIntegration
+type jsiiProxy_StepFunctionsIntegration struct {
+	_ byte // padding
+}
+
+func NewStepFunctionsIntegration() StepFunctionsIntegration {
+	_init_.Initialize()
+
+	j := jsiiProxy_StepFunctionsIntegration{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_apigateway.StepFunctionsIntegration",
+		nil, // no parameters
+		&j,
+	)
+
+	return &j
+}
+
+func NewStepFunctionsIntegration_Override(s StepFunctionsIntegration) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_apigateway.StepFunctionsIntegration",
+		nil, // no parameters
+		s,
+	)
+}
+
+// Integrates a Synchronous Express State Machine from AWS Step Functions to an API Gateway method.
+//
+// TODO: EXAMPLE
+//
+func StepFunctionsIntegration_StartExecution(stateMachine awsstepfunctions.IStateMachine, options *StepFunctionsExecutionIntegrationOptions) AwsIntegration {
+	_init_.Initialize()
+
+	var returns AwsIntegration
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigateway.StepFunctionsIntegration",
+		"startExecution",
+		[]interface{}{stateMachine, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Defines an API Gateway REST API with a Synchrounous Express State Machine as a proxy integration.
+//
+// TODO: EXAMPLE
+//
+type StepFunctionsRestApi interface {
+	RestApi
+	DeploymentStage() Stage
+	SetDeploymentStage(val Stage)
+	DomainName() DomainName
+	Env() *awscdk.ResourceEnvironment
+	LatestDeployment() Deployment
+	Methods() *[]Method
+	Node() constructs.Node
+	PhysicalName() *string
+	RestApiId() *string
+	RestApiName() *string
+	RestApiRootResourceId() *string
+	Root() IResource
+	Stack() awscdk.Stack
+	Url() *string
+	AddApiKey(id *string, options *ApiKeyOptions) IApiKey
+	AddDomainName(id *string, options *DomainNameOptions) DomainName
+	AddGatewayResponse(id *string, options *GatewayResponseOptions) GatewayResponse
+	AddModel(id *string, props *ModelOptions) Model
+	AddRequestValidator(id *string, props *RequestValidatorOptions) RequestValidator
+	AddUsagePlan(id *string, props *UsagePlanProps) UsagePlan
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	ArnForExecuteApi(method *string, path *string, stage *string) *string
+	GeneratePhysicalName() *string
+	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	GetResourceNameAttribute(nameAttr *string) *string
+	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricCacheHitCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricCacheMissCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricClientError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricIntegrationLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricServerError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	ToString() *string
+	UrlForPath(path *string) *string
+}
+
+// The jsii proxy struct for StepFunctionsRestApi
+type jsiiProxy_StepFunctionsRestApi struct {
+	jsiiProxy_RestApi
+}
+
+func (j *jsiiProxy_StepFunctionsRestApi) DeploymentStage() Stage {
+	var returns Stage
+	_jsii_.Get(
+		j,
+		"deploymentStage",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StepFunctionsRestApi) DomainName() DomainName {
+	var returns DomainName
+	_jsii_.Get(
+		j,
+		"domainName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StepFunctionsRestApi) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StepFunctionsRestApi) LatestDeployment() Deployment {
+	var returns Deployment
+	_jsii_.Get(
+		j,
+		"latestDeployment",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StepFunctionsRestApi) Methods() *[]Method {
+	var returns *[]Method
+	_jsii_.Get(
+		j,
+		"methods",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StepFunctionsRestApi) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StepFunctionsRestApi) PhysicalName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StepFunctionsRestApi) RestApiId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"restApiId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StepFunctionsRestApi) RestApiName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"restApiName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StepFunctionsRestApi) RestApiRootResourceId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"restApiRootResourceId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StepFunctionsRestApi) Root() IResource {
+	var returns IResource
+	_jsii_.Get(
+		j,
+		"root",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StepFunctionsRestApi) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_StepFunctionsRestApi) Url() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"url",
+		&returns,
+	)
+	return returns
+}
+
+
+func NewStepFunctionsRestApi(scope constructs.Construct, id *string, props *StepFunctionsRestApiProps) StepFunctionsRestApi {
+	_init_.Initialize()
+
+	j := jsiiProxy_StepFunctionsRestApi{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_apigateway.StepFunctionsRestApi",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+func NewStepFunctionsRestApi_Override(s StepFunctionsRestApi, scope constructs.Construct, id *string, props *StepFunctionsRestApiProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_apigateway.StepFunctionsRestApi",
+		[]interface{}{scope, id, props},
+		s,
+	)
+}
+
+func (j *jsiiProxy_StepFunctionsRestApi) SetDeploymentStage(val Stage) {
+	_jsii_.Set(
+		j,
+		"deploymentStage",
+		val,
+	)
+}
+
+// Import an existing RestApi that can be configured with additional Methods and Resources.
+func StepFunctionsRestApi_FromRestApiAttributes(scope constructs.Construct, id *string, attrs *RestApiAttributes) IRestApi {
+	_init_.Initialize()
+
+	var returns IRestApi
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigateway.StepFunctionsRestApi",
+		"fromRestApiAttributes",
+		[]interface{}{scope, id, attrs},
+		&returns,
+	)
+
+	return returns
+}
+
+// Import an existing RestApi.
+func StepFunctionsRestApi_FromRestApiId(scope constructs.Construct, id *string, restApiId *string) IRestApi {
+	_init_.Initialize()
+
+	var returns IRestApi
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigateway.StepFunctionsRestApi",
+		"fromRestApiId",
+		[]interface{}{scope, id, restApiId},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func StepFunctionsRestApi_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigateway.StepFunctionsRestApi",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+func StepFunctionsRestApi_IsResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_apigateway.StepFunctionsRestApi",
+		"isResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Add an ApiKey.
+func (s *jsiiProxy_StepFunctionsRestApi) AddApiKey(id *string, options *ApiKeyOptions) IApiKey {
+	var returns IApiKey
+
+	_jsii_.Invoke(
+		s,
+		"addApiKey",
+		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Defines an API Gateway domain name and maps it to this API.
+func (s *jsiiProxy_StepFunctionsRestApi) AddDomainName(id *string, options *DomainNameOptions) DomainName {
+	var returns DomainName
+
+	_jsii_.Invoke(
+		s,
+		"addDomainName",
+		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Adds a new gateway response.
+func (s *jsiiProxy_StepFunctionsRestApi) AddGatewayResponse(id *string, options *GatewayResponseOptions) GatewayResponse {
+	var returns GatewayResponse
+
+	_jsii_.Invoke(
+		s,
+		"addGatewayResponse",
+		[]interface{}{id, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Adds a new model.
+func (s *jsiiProxy_StepFunctionsRestApi) AddModel(id *string, props *ModelOptions) Model {
+	var returns Model
+
+	_jsii_.Invoke(
+		s,
+		"addModel",
+		[]interface{}{id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Adds a new request validator.
+func (s *jsiiProxy_StepFunctionsRestApi) AddRequestValidator(id *string, props *RequestValidatorOptions) RequestValidator {
+	var returns RequestValidator
+
+	_jsii_.Invoke(
+		s,
+		"addRequestValidator",
+		[]interface{}{id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Adds a usage plan.
+func (s *jsiiProxy_StepFunctionsRestApi) AddUsagePlan(id *string, props *UsagePlanProps) UsagePlan {
+	var returns UsagePlan
+
+	_jsii_.Invoke(
+		s,
+		"addUsagePlan",
+		[]interface{}{id, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Apply the given removal policy to this resource.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+func (s *jsiiProxy_StepFunctionsRestApi) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		s,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
+// Gets the "execute-api" ARN.
+func (s *jsiiProxy_StepFunctionsRestApi) ArnForExecuteApi(method *string, path *string, stage *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		s,
+		"arnForExecuteApi",
+		[]interface{}{method, path, stage},
+		&returns,
+	)
+
+	return returns
+}
+
+func (s *jsiiProxy_StepFunctionsRestApi) GeneratePhysicalName() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		s,
+		"generatePhysicalName",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+//
+// Normally, this token will resolve to `arnAttr`, but if the resource is
+// referenced across environments, `arnComponents` will be used to synthesize
+// a concrete ARN with the resource's physical name. Make sure to reference
+// `this.physicalName` in `arnComponents`.
+func (s *jsiiProxy_StepFunctionsRestApi) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		s,
+		"getResourceArnAttribute",
+		[]interface{}{arnAttr, arnComponents},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+//
+// Normally, this token will resolve to `nameAttr`, but if the resource is
+// referenced across environments, it will be resolved to `this.physicalName`,
+// which will be a concrete name.
+func (s *jsiiProxy_StepFunctionsRestApi) GetResourceNameAttribute(nameAttr *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		s,
+		"getResourceNameAttribute",
+		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns the given named metric for this API.
+func (s *jsiiProxy_StepFunctionsRestApi) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		s,
+		"metric",
+		[]interface{}{metricName, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of requests served from the API cache in a given period.
+//
+// Default: sum over 5 minutes
+func (s *jsiiProxy_StepFunctionsRestApi) MetricCacheHitCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		s,
+		"metricCacheHitCount",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of requests served from the backend in a given period, when API caching is enabled.
+//
+// Default: sum over 5 minutes
+func (s *jsiiProxy_StepFunctionsRestApi) MetricCacheMissCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		s,
+		"metricCacheMissCount",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of client-side errors captured in a given period.
+//
+// Default: sum over 5 minutes
+func (s *jsiiProxy_StepFunctionsRestApi) MetricClientError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		s,
+		"metricClientError",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the total number API requests in a given period.
+//
+// Default: sample count over 5 minutes
+func (s *jsiiProxy_StepFunctionsRestApi) MetricCount(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		s,
+		"metricCount",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the time between when API Gateway relays a request to the backend and when it receives a response from the backend.
+//
+// Default: average over 5 minutes.
+func (s *jsiiProxy_StepFunctionsRestApi) MetricIntegrationLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		s,
+		"metricIntegrationLatency",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The time between when API Gateway receives a request from a client and when it returns a response to the client.
+//
+// The latency includes the integration latency and other API Gateway overhead.
+//
+// Default: average over 5 minutes.
+func (s *jsiiProxy_StepFunctionsRestApi) MetricLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		s,
+		"metricLatency",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of server-side errors captured in a given period.
+//
+// Default: sum over 5 minutes
+func (s *jsiiProxy_StepFunctionsRestApi) MetricServerError(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		s,
+		"metricServerError",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns a string representation of this construct.
+func (s *jsiiProxy_StepFunctionsRestApi) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		s,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns the URL for an HTTP path.
+//
+// Fails if `deploymentStage` is not set either by `deploy` or explicitly.
+func (s *jsiiProxy_StepFunctionsRestApi) UrlForPath(path *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		s,
+		"urlForPath",
+		[]interface{}{path},
+		&returns,
+	)
+
+	return returns
+}
+
+// Properties for StepFunctionsRestApi.
+//
+// TODO: EXAMPLE
+//
+type StepFunctionsRestApiProps struct {
+	// Adds a CORS preflight OPTIONS method to this resource and all child resources.
+	//
+	// You can add CORS at the resource-level using `addCorsPreflight`.
+	DefaultCorsPreflightOptions *CorsOptions `json:"defaultCorsPreflightOptions"`
+	// An integration to use as a default for all methods created within this API unless an integration is specified.
+	DefaultIntegration Integration `json:"defaultIntegration"`
+	// Method options to use as a default for all methods created within this API unless custom options are specified.
+	DefaultMethodOptions *MethodOptions `json:"defaultMethodOptions"`
+	// Automatically configure an AWS CloudWatch role for API Gateway.
+	CloudWatchRole *bool `json:"cloudWatchRole"`
+	// Indicates if a Deployment should be automatically created for this API, and recreated when the API model (resources, methods) changes.
+	//
+	// Since API Gateway deployments are immutable, When this option is enabled
+	// (by default), an AWS::ApiGateway::Deployment resource will automatically
+	// created with a logical ID that hashes the API model (methods, resources
+	// and options). This means that when the model changes, the logical ID of
+	// this CloudFormation resource will change, and a new deployment will be
+	// created.
+	//
+	// If this is set, `latestDeployment` will refer to the `Deployment` object
+	// and `deploymentStage` will refer to a `Stage` that points to this
+	// deployment. To customize the stage options, use the `deployOptions`
+	// property.
+	//
+	// A CloudFormation Output will also be defined with the root URL endpoint
+	// of this REST API.
+	Deploy *bool `json:"deploy"`
+	// Options for the API Gateway stage that will always point to the latest deployment when `deploy` is enabled.
+	//
+	// If `deploy` is disabled,
+	// this value cannot be set.
+	DeployOptions *StageOptions `json:"deployOptions"`
+	// Specifies whether clients can invoke the API using the default execute-api endpoint.
+	//
+	// To require that clients use a custom domain name to invoke the
+	// API, disable the default endpoint.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html
+	//
+	DisableExecuteApiEndpoint *bool `json:"disableExecuteApiEndpoint"`
+	// Configure a custom domain name and map it to this API.
+	DomainName *DomainNameOptions `json:"domainName"`
+	// Export name for the CfnOutput containing the API endpoint.
+	EndpointExportName *string `json:"endpointExportName"`
+	// A list of the endpoint types of the API.
+	//
+	// Use this property when creating
+	// an API.
+	EndpointTypes *[]EndpointType `json:"endpointTypes"`
+	// Indicates whether to roll back the resource if a warning occurs while API Gateway is creating the RestApi resource.
+	FailOnWarnings *bool `json:"failOnWarnings"`
+	// Custom header parameters for the request.
+	// See: https://docs.aws.amazon.com/cli/latest/reference/apigateway/import-rest-api.html
+	//
+	Parameters *map[string]*string `json:"parameters"`
+	// A policy document that contains the permissions for this RestApi.
+	Policy awsiam.PolicyDocument `json:"policy"`
+	// A name for the API Gateway RestApi resource.
+	RestApiName *string `json:"restApiName"`
+	// Retains old deployment resources when the API changes.
+	//
+	// This allows
+	// manually reverting stages to point to old deployments via the AWS
+	// Console.
+	RetainDeployments *bool `json:"retainDeployments"`
+	// The source of the API key for metering requests according to a usage plan.
+	ApiKeySourceType ApiKeySourceType `json:"apiKeySourceType"`
+	// The list of binary media mime-types that are supported by the RestApi resource, such as "image/png" or "application/octet-stream".
+	BinaryMediaTypes *[]*string `json:"binaryMediaTypes"`
+	// The ID of the API Gateway RestApi resource that you want to clone.
+	CloneFrom IRestApi `json:"cloneFrom"`
+	// A description of the purpose of this API Gateway RestApi resource.
+	Description *string `json:"description"`
+	// The EndpointConfiguration property type specifies the endpoint types of a REST API.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-endpointconfiguration.html
+	//
+	EndpointConfiguration *EndpointConfiguration `json:"endpointConfiguration"`
+	// A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (when undefined) on an API.
+	//
+	// When compression is enabled, compression or
+	// decompression is not applied on the payload if the payload size is
+	// smaller than this value. Setting it to zero allows compression for any
+	// payload size.
+	MinimumCompressionSize *float64 `json:"minimumCompressionSize"`
+	// The default State Machine that handles all requests from this API.
+	//
+	// This stateMachine will be used as a the default integration for all methods in
+	// this API, unless specified otherwise in `addMethod`.
+	StateMachine awsstepfunctions.IStateMachine `json:"stateMachine"`
+	// Check if header is to be included inside the execution input.
+	//
+	// The execution input will include a new key `headers`:
+	//
+	// {
+	//    "body": {},
+	//    "headers": {
+	//       "header1": "value",
+	//       "header2": "value"
+	//    }
+	// }
+	Headers *bool `json:"headers"`
+	// Check if path is to be included inside the execution input.
+	//
+	// The execution input will include a new key `path`:
+	//
+	// {
+	//    "body": {},
+	//    "path": {
+	//      "resourceName": "resourceValue"
+	//    }
+	// }
+	Path *bool `json:"path"`
+	// Check if querystring is to be included inside the execution input.
+	//
+	// The execution input will include a new key `queryString`:
+	//
+	// {
+	//    "body": {},
+	//    "querystring": {
+	//      "key": "value"
+	//    }
+	// }
+	Querystring *bool `json:"querystring"`
+	// Which details of the incoming request must be passed onto the underlying state machine, such as, account id, user identity, request id, etc.
+	//
+	// The execution input will include a new key `requestContext`:
+	//
+	// {
+	//    "body": {},
+	//    "requestContext": {
+	//        "key": "value"
+	//    }
+	// }
+	RequestContext *RequestContext `json:"requestContext"`
 }
 
 // Container for defining throttling parameters to API stages or methods.

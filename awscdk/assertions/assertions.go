@@ -22,6 +22,7 @@ type Capture interface {
 	AsNumber() *float64
 	AsObject() *map[string]interface{}
 	AsString() *string
+	Next() *bool
 	Test(actual interface{}) MatchResult
 }
 
@@ -41,26 +42,28 @@ func (j *jsiiProxy_Capture) Name() *string {
 }
 
 
-func NewCapture() Capture {
+// Initialize a new capture.
+func NewCapture(pattern interface{}) Capture {
 	_init_.Initialize()
 
 	j := jsiiProxy_Capture{}
 
 	_jsii_.Create(
 		"aws-cdk-lib.assertions.Capture",
-		nil, // no parameters
+		[]interface{}{pattern},
 		&j,
 	)
 
 	return &j
 }
 
-func NewCapture_Override(c Capture) {
+// Initialize a new capture.
+func NewCapture_Override(c Capture, pattern interface{}) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"aws-cdk-lib.assertions.Capture",
-		nil, // no parameters
+		[]interface{}{pattern},
 		c,
 	)
 }
@@ -154,6 +157,22 @@ func (c *jsiiProxy_Capture) AsString() *string {
 	_jsii_.Invoke(
 		c,
 		"asString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// When multiple results are captured, move the iterator to the next result.
+//
+// Returns: true if another capture is present, false otherwise
+func (c *jsiiProxy_Capture) Next() *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		c,
+		"next",
 		nil, // no parameters
 		&returns,
 	)
@@ -349,6 +368,34 @@ func Match_SerializedJson(pattern interface{}) Matcher {
 	return returns
 }
 
+// Information about a value captured during match.
+//
+// TODO: EXAMPLE
+//
+type MatchCapture struct {
+	// The instance of Capture class to which this capture is associated with.
+	Capture Capture `json:"capture"`
+	// The value that was captured.
+	Value interface{} `json:"value"`
+}
+
+// Match failure details.
+//
+// TODO: EXAMPLE
+//
+type MatchFailure struct {
+	// The matcher that had the failure.
+	Matcher Matcher `json:"matcher"`
+	// Failure message.
+	Message *string `json:"message"`
+	// The relative path in the target where the failure occurred.
+	//
+	// If the failure occurred at root of the match tree, set the path to an empty list.
+	// If it occurs in the 5th index of an array nested within the 'foo' key of an object,
+	// set the path as `['/foo', '[5]']`.
+	Path *[]*string `json:"path"`
+}
+
 // The result of `Match.test()`.
 //
 // TODO: EXAMPLE
@@ -357,8 +404,11 @@ type MatchResult interface {
 	FailCount() *float64
 	Target() interface{}
 	Compose(id *string, inner MatchResult) MatchResult
+	Finished() MatchResult
 	HasFailed() *bool
 	Push(matcher Matcher, path *[]*string, message *string) MatchResult
+	RecordCapture(options *MatchCapture)
+	RecordFailure(failure *MatchFailure) MatchResult
 	ToHumanStrings() *[]*string
 }
 
@@ -426,6 +476,22 @@ func (m *jsiiProxy_MatchResult) Compose(id *string, inner MatchResult) MatchResu
 	return returns
 }
 
+// Prepare the result to be analyzed.
+//
+// This API *must* be called prior to analyzing these results.
+func (m *jsiiProxy_MatchResult) Finished() MatchResult {
+	var returns MatchResult
+
+	_jsii_.Invoke(
+		m,
+		"finished",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Does the result contain any failures.
 //
 // If not, the result is a success
@@ -442,11 +508,8 @@ func (m *jsiiProxy_MatchResult) HasFailed() *bool {
 	return returns
 }
 
-// Push a new failure into this result at a specific path.
-//
-// If the failure occurred at root of the match tree, set the path to an empty list.
-// If it occurs in the 5th index of an array nested within the 'foo' key of an object,
-// set the path as `['/foo', '[5]']`.
+// DEPRECATED.
+// Deprecated: use recordFailure()
 func (m *jsiiProxy_MatchResult) Push(matcher Matcher, path *[]*string, message *string) MatchResult {
 	var returns MatchResult
 
@@ -454,6 +517,29 @@ func (m *jsiiProxy_MatchResult) Push(matcher Matcher, path *[]*string, message *
 		m,
 		"push",
 		[]interface{}{matcher, path, message},
+		&returns,
+	)
+
+	return returns
+}
+
+// Record a capture against in this match result.
+func (m *jsiiProxy_MatchResult) RecordCapture(options *MatchCapture) {
+	_jsii_.InvokeVoid(
+		m,
+		"recordCapture",
+		[]interface{}{options},
+	)
+}
+
+// Record a new failure into this result at a specific path.
+func (m *jsiiProxy_MatchResult) RecordFailure(failure *MatchFailure) MatchResult {
+	var returns MatchResult
+
+	_jsii_.Invoke(
+		m,
+		"recordFailure",
+		[]interface{}{failure},
 		&returns,
 	)
 

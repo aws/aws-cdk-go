@@ -1709,6 +1709,14 @@ func (i *jsiiProxy_IJob) OnTimeout(id *string, options *awsevents.OnEventOptions
 	return returns
 }
 
+func (i *jsiiProxy_IJob) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_IJob) JobArn() *string {
 	var returns *string
 	_jsii_.Get(

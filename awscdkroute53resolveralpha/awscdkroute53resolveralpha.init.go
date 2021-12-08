@@ -160,6 +160,7 @@ func init() {
 		"@aws-cdk/aws-route53resolver-alpha.IFirewallDomainList",
 		reflect.TypeOf((*IFirewallDomainList)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "firewallDomainListId", GoGetter: "FirewallDomainListId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -175,6 +176,7 @@ func init() {
 		"@aws-cdk/aws-route53resolver-alpha.IFirewallRuleGroup",
 		reflect.TypeOf((*IFirewallRuleGroup)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "firewallRuleGroupId", GoGetter: "FirewallRuleGroupId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},

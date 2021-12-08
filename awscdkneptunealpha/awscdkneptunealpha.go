@@ -1639,6 +1639,17 @@ func EngineVersion_V1_0_5_0() EngineVersion {
 	return returns
 }
 
+func EngineVersion_V1_1_0_0() EngineVersion {
+	_init_.Initialize()
+	var returns EngineVersion
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-neptune-alpha.EngineVersion",
+		"V1_1_0_0",
+		&returns,
+	)
+	return returns
+}
+
 // A parameter group.
 // Experimental.
 type IClusterParameterGroup interface {
@@ -1702,6 +1713,14 @@ func (i *jsiiProxy_IDatabaseCluster) GrantConnect(grantee awsiam.IGrantable) aws
 	)
 
 	return returns
+}
+
+func (i *jsiiProxy_IDatabaseCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
 }
 
 func (j *jsiiProxy_IDatabaseCluster) ClusterEndpoint() Endpoint {
@@ -2057,12 +2076,100 @@ func InstanceType_R5_XLARGE() InstanceType {
 	return returns
 }
 
+func InstanceType_R6G_12XLARGE() InstanceType {
+	_init_.Initialize()
+	var returns InstanceType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-neptune-alpha.InstanceType",
+		"R6G_12XLARGE",
+		&returns,
+	)
+	return returns
+}
+
+func InstanceType_R6G_16XLARGE() InstanceType {
+	_init_.Initialize()
+	var returns InstanceType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-neptune-alpha.InstanceType",
+		"R6G_16XLARGE",
+		&returns,
+	)
+	return returns
+}
+
+func InstanceType_R6G_2XLARGE() InstanceType {
+	_init_.Initialize()
+	var returns InstanceType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-neptune-alpha.InstanceType",
+		"R6G_2XLARGE",
+		&returns,
+	)
+	return returns
+}
+
+func InstanceType_R6G_4XLARGE() InstanceType {
+	_init_.Initialize()
+	var returns InstanceType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-neptune-alpha.InstanceType",
+		"R6G_4XLARGE",
+		&returns,
+	)
+	return returns
+}
+
+func InstanceType_R6G_8XLARGE() InstanceType {
+	_init_.Initialize()
+	var returns InstanceType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-neptune-alpha.InstanceType",
+		"R6G_8XLARGE",
+		&returns,
+	)
+	return returns
+}
+
+func InstanceType_R6G_LARGE() InstanceType {
+	_init_.Initialize()
+	var returns InstanceType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-neptune-alpha.InstanceType",
+		"R6G_LARGE",
+		&returns,
+	)
+	return returns
+}
+
+func InstanceType_R6G_XLARGE() InstanceType {
+	_init_.Initialize()
+	var returns InstanceType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-neptune-alpha.InstanceType",
+		"R6G_XLARGE",
+		&returns,
+	)
+	return returns
+}
+
 func InstanceType_T3_MEDIUM() InstanceType {
 	_init_.Initialize()
 	var returns InstanceType
 	_jsii_.StaticGet(
 		"@aws-cdk/aws-neptune-alpha.InstanceType",
 		"T3_MEDIUM",
+		&returns,
+	)
+	return returns
+}
+
+func InstanceType_T4G_MEDIUM() InstanceType {
+	_init_.Initialize()
+	var returns InstanceType
+	_jsii_.StaticGet(
+		"@aws-cdk/aws-neptune-alpha.InstanceType",
+		"T4G_MEDIUM",
 		&returns,
 	)
 	return returns

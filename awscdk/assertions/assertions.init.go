@@ -17,6 +17,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "asObject", GoMethod: "AsObject"},
 			_jsii_.MemberMethod{JsiiMethod: "asString", GoMethod: "AsString"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
+			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
 			_jsii_.MemberMethod{JsiiMethod: "test", GoMethod: "Test"},
 		},
 		func() interface{} {
@@ -33,14 +34,25 @@ func init() {
 			return &jsiiProxy_Match{}
 		},
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.assertions.MatchCapture",
+		reflect.TypeOf((*MatchCapture)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.assertions.MatchFailure",
+		reflect.TypeOf((*MatchFailure)(nil)).Elem(),
+	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.assertions.MatchResult",
 		reflect.TypeOf((*MatchResult)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "compose", GoMethod: "Compose"},
 			_jsii_.MemberProperty{JsiiProperty: "failCount", GoGetter: "FailCount"},
+			_jsii_.MemberMethod{JsiiMethod: "finished", GoMethod: "Finished"},
 			_jsii_.MemberMethod{JsiiMethod: "hasFailed", GoMethod: "HasFailed"},
 			_jsii_.MemberMethod{JsiiMethod: "push", GoMethod: "Push"},
+			_jsii_.MemberMethod{JsiiMethod: "recordCapture", GoMethod: "RecordCapture"},
+			_jsii_.MemberMethod{JsiiMethod: "recordFailure", GoMethod: "RecordFailure"},
 			_jsii_.MemberProperty{JsiiProperty: "target", GoGetter: "Target"},
 			_jsii_.MemberMethod{JsiiMethod: "toHumanStrings", GoMethod: "ToHumanStrings"},
 		},

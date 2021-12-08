@@ -23,7 +23,7 @@ import (
 type AddRoutesOptions struct {
 	// The integration to be configured on this route.
 	// Experimental.
-	Integration IHttpRouteIntegration `json:"integration"`
+	Integration HttpRouteIntegration `json:"integration"`
 	// The path at which all of these routes are configured.
 	// Experimental.
 	Path *string `json:"path"`
@@ -361,7 +361,7 @@ const (
 type BatchHttpRouteOptions struct {
 	// The integration to be configured on this route.
 	// Experimental.
-	Integration IHttpRouteIntegration `json:"integration"`
+	Integration HttpRouteIntegration `json:"integration"`
 }
 
 // Supported CORS HTTP methods.
@@ -1306,7 +1306,7 @@ type HttpApiProps struct {
 	DefaultDomainMapping *DomainMappingOptions `json:"defaultDomainMapping"`
 	// An integration that will be configured on the catch-all route ($default).
 	// Experimental.
-	DefaultIntegration IHttpRouteIntegration `json:"defaultIntegration"`
+	DefaultIntegration HttpRouteIntegration `json:"defaultIntegration"`
 	// The description of the API.
 	// Experimental.
 	Description *string `json:"description"`
@@ -2294,6 +2294,47 @@ type HttpRouteAuthorizerConfig struct {
 	AuthorizerId *string `json:"authorizerId"`
 }
 
+// The interface that various route integration classes will inherit.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type HttpRouteIntegration interface {
+	Bind(options *HttpRouteIntegrationBindOptions) *HttpRouteIntegrationConfig
+}
+
+// The jsii proxy struct for HttpRouteIntegration
+type jsiiProxy_HttpRouteIntegration struct {
+	_ byte // padding
+}
+
+// Initialize an integration for a route on http api.
+// Experimental.
+func NewHttpRouteIntegration_Override(h HttpRouteIntegration, id *string) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/aws-apigatewayv2-alpha.HttpRouteIntegration",
+		[]interface{}{id},
+		h,
+	)
+}
+
+// Bind this integration to the route.
+// Experimental.
+func (h *jsiiProxy_HttpRouteIntegration) Bind(options *HttpRouteIntegrationBindOptions) *HttpRouteIntegrationConfig {
+	var returns *HttpRouteIntegrationConfig
+
+	_jsii_.Invoke(
+		h,
+		"bind",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
 // Options to the HttpRouteIntegration during its bind operation.
 //
 // TODO: EXAMPLE
@@ -2427,7 +2468,7 @@ func HttpRouteKey_DEFAULT() HttpRouteKey {
 type HttpRouteProps struct {
 	// The integration to be configured on this route.
 	// Experimental.
-	Integration IHttpRouteIntegration `json:"integration"`
+	Integration HttpRouteIntegration `json:"integration"`
 	// The list of OIDC scopes to include in the authorization.
 	//
 	// These scopes will be merged with the scopes from the attached authorizer
@@ -3294,32 +3335,6 @@ func (i *jsiiProxy_IHttpRouteAuthorizer) Bind(options *HttpRouteAuthorizerBindOp
 	return returns
 }
 
-// The interface that various route integration classes will inherit.
-// Experimental.
-type IHttpRouteIntegration interface {
-	// Bind this integration to the route.
-	// Experimental.
-	Bind(options *HttpRouteIntegrationBindOptions) *HttpRouteIntegrationConfig
-}
-
-// The jsii proxy for IHttpRouteIntegration
-type jsiiProxy_IHttpRouteIntegration struct {
-	_ byte // padding
-}
-
-func (i *jsiiProxy_IHttpRouteIntegration) Bind(options *HttpRouteIntegrationBindOptions) *HttpRouteIntegrationConfig {
-	var returns *HttpRouteIntegrationConfig
-
-	_jsii_.Invoke(
-		i,
-		"bind",
-		[]interface{}{options},
-		&returns,
-	)
-
-	return returns
-}
-
 // Represents the HttpStage.
 // Experimental.
 type IHttpStage interface {
@@ -3687,32 +3702,6 @@ func (j *jsiiProxy_IWebSocketRoute) WebSocketApi() IWebSocketApi {
 		"webSocketApi",
 		&returns,
 	)
-	return returns
-}
-
-// The interface that various route integration classes will inherit.
-// Experimental.
-type IWebSocketRouteIntegration interface {
-	// Bind this integration to the route.
-	// Experimental.
-	Bind(options *WebSocketRouteIntegrationBindOptions) *WebSocketRouteIntegrationConfig
-}
-
-// The jsii proxy for IWebSocketRouteIntegration
-type jsiiProxy_IWebSocketRouteIntegration struct {
-	_ byte // padding
-}
-
-func (i *jsiiProxy_IWebSocketRouteIntegration) Bind(options *WebSocketRouteIntegrationBindOptions) *WebSocketRouteIntegrationConfig {
-	var returns *WebSocketRouteIntegrationConfig
-
-	_jsii_.Invoke(
-		i,
-		"bind",
-		[]interface{}{options},
-		&returns,
-	)
-
 	return returns
 }
 
@@ -5419,6 +5408,47 @@ func (w *jsiiProxy_WebSocketRoute) ToString() *string {
 	return returns
 }
 
+// The interface that various route integration classes will inherit.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type WebSocketRouteIntegration interface {
+	Bind(options *WebSocketRouteIntegrationBindOptions) *WebSocketRouteIntegrationConfig
+}
+
+// The jsii proxy struct for WebSocketRouteIntegration
+type jsiiProxy_WebSocketRouteIntegration struct {
+	_ byte // padding
+}
+
+// Initialize an integration for a route on websocket api.
+// Experimental.
+func NewWebSocketRouteIntegration_Override(w WebSocketRouteIntegration, id *string) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/aws-apigatewayv2-alpha.WebSocketRouteIntegration",
+		[]interface{}{id},
+		w,
+	)
+}
+
+// Bind this integration to the route.
+// Experimental.
+func (w *jsiiProxy_WebSocketRouteIntegration) Bind(options *WebSocketRouteIntegrationBindOptions) *WebSocketRouteIntegrationConfig {
+	var returns *WebSocketRouteIntegrationConfig
+
+	_jsii_.Invoke(
+		w,
+		"bind",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
 // Options to the WebSocketRouteIntegration during its bind operation.
 //
 // TODO: EXAMPLE
@@ -5458,7 +5488,7 @@ type WebSocketRouteIntegrationConfig struct {
 type WebSocketRouteOptions struct {
 	// The integration to be configured on this route.
 	// Experimental.
-	Integration IWebSocketRouteIntegration `json:"integration"`
+	Integration WebSocketRouteIntegration `json:"integration"`
 }
 
 // Properties to initialize a new Route.
@@ -5469,7 +5499,7 @@ type WebSocketRouteOptions struct {
 type WebSocketRouteProps struct {
 	// The integration to be configured on this route.
 	// Experimental.
-	Integration IWebSocketRouteIntegration `json:"integration"`
+	Integration WebSocketRouteIntegration `json:"integration"`
 	// The key to this route.
 	// Experimental.
 	RouteKey *string `json:"routeKey"`

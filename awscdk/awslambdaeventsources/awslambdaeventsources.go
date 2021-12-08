@@ -1016,6 +1016,10 @@ type SqsEventSourceProps struct {
 	//
 	// Valid Range: Minimum value of 0 minutes. Maximum value of 5 minutes.
 	MaxBatchingWindow awscdk.Duration `json:"maxBatchingWindow"`
+	// Allow functions to return partially successful responses for a batch of records.
+	// See: https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#services-sqs-batchfailurereporting
+	//
+	ReportBatchItemFailures *bool `json:"reportBatchItemFailures"`
 }
 
 // Use an stream as an event source for AWS Lambda.

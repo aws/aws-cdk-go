@@ -1005,6 +1005,14 @@ func (i *jsiiProxy_IRepository) OnStateChange(id *string, options *awsevents.OnE
 	return returns
 }
 
+func (i *jsiiProxy_IRepository) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (i *jsiiProxy_IRepository) BindAsNotificationRuleSource(scope constructs.Construct) *awscodestarnotifications.NotificationRuleSourceConfig {
 	var returns *awscodestarnotifications.NotificationRuleSourceConfig
 

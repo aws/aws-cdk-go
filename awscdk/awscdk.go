@@ -15763,6 +15763,16 @@ func (j *jsiiProxy_IResolveContext) Scope() constructs.IConstruct {
 // Interface for the Resource construct.
 type IResource interface {
 	constructs.IConstruct
+	// Apply the given removal policy to this resource.
+	//
+	// The Removal Policy controls what happens to this resource when it stops
+	// being managed by CloudFormation, either because you've removed it from the
+	// CDK application or because you've made a change that requires the resource
+	// to be replaced.
+	//
+	// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+	// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+	ApplyRemovalPolicy(policy RemovalPolicy)
 	// The environment this resource belongs to.
 	//
 	// For resources that are created and managed by the CDK
@@ -15779,6 +15789,14 @@ type IResource interface {
 // The jsii proxy for IResource
 type jsiiProxy_IResource struct {
 	internal.Type__constructsIConstruct
+}
+
+func (i *jsiiProxy_IResource) ApplyRemovalPolicy(policy RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
 }
 
 func (j *jsiiProxy_IResource) Env() *ResourceEnvironment {

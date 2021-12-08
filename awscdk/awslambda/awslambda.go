@@ -8022,6 +8022,7 @@ type DockerImageFunction interface {
 	Role() awsiam.IRole
 	Runtime() Runtime
 	Stack() awscdk.Stack
+	Timeout() awscdk.Duration
 	AddEnvironment(key *string, value *string, options *EnvironmentOptions) Function
 	AddEventSource(source IEventSource)
 	AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping
@@ -8222,6 +8223,16 @@ func (j *jsiiProxy_DockerImageFunction) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_DockerImageFunction) Timeout() awscdk.Duration {
+	var returns awscdk.Duration
+	_jsii_.Get(
+		j,
+		"timeout",
 		&returns,
 	)
 	return returns
@@ -9845,6 +9856,7 @@ type Function interface {
 	Role() awsiam.IRole
 	Runtime() Runtime
 	Stack() awscdk.Stack
+	Timeout() awscdk.Duration
 	AddEnvironment(key *string, value *string, options *EnvironmentOptions) Function
 	AddEventSource(source IEventSource)
 	AddEventSourceMapping(id *string, options *EventSourceMappingOptions) EventSourceMapping
@@ -10045,6 +10057,16 @@ func (j *jsiiProxy_Function) Stack() awscdk.Stack {
 	_jsii_.Get(
 		j,
 		"stack",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Function) Timeout() awscdk.Duration {
+	var returns awscdk.Duration
+	_jsii_.Get(
+		j,
+		"timeout",
 		&returns,
 	)
 	return returns
@@ -11686,6 +11708,14 @@ func (i *jsiiProxy_IFunction) MetricThrottles(props *awscloudwatch.MetricOptions
 	return returns
 }
 
+func (i *jsiiProxy_IFunction) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_IFunction) FunctionArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -12598,7 +12628,7 @@ type LogRetentionRetryOptions struct {
 	MaxRetries *float64 `json:"maxRetries"`
 }
 
-// Represents a permission statement that can be added to a Lambda's resource policy via the `addToResourcePolicy` method.
+// Represents a permission statement that can be added to a Lambda function's resource policy via the `addPermissions()` method.
 //
 // TODO: EXAMPLE
 //

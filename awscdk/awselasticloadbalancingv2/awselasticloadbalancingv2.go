@@ -6919,6 +6919,14 @@ func (i *jsiiProxy_IApplicationListener) RegisterConnectable(connectable awsec2.
 	)
 }
 
+func (i *jsiiProxy_IApplicationListener) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_IApplicationListener) ListenerArn() *string {
 	var returns *string
 	_jsii_.Get(
@@ -7007,6 +7015,14 @@ func (i *jsiiProxy_IApplicationLoadBalancer) AddListener(id *string, props *Base
 	)
 
 	return returns
+}
+
+func (i *jsiiProxy_IApplicationLoadBalancer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
 }
 
 func (j *jsiiProxy_IApplicationLoadBalancer) IpAddressType() IpAddressType {
@@ -7318,6 +7334,14 @@ func (i *jsiiProxy_INetworkLoadBalancer) AddListener(id *string, props *BaseNetw
 	)
 
 	return returns
+}
+
+func (i *jsiiProxy_INetworkLoadBalancer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
 }
 
 func (j *jsiiProxy_INetworkLoadBalancer) Vpc() awsec2.IVpc {

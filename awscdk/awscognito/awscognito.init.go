@@ -835,6 +835,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addClient", GoMethod: "AddClient"},
 			_jsii_.MemberMethod{JsiiMethod: "addDomain", GoMethod: "AddDomain"},
 			_jsii_.MemberMethod{JsiiMethod: "addResourceServer", GoMethod: "AddResourceServer"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "identityProviders", GoGetter: "IdentityProviders"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -853,6 +854,7 @@ func init() {
 		"aws-cdk-lib.aws_cognito.IUserPoolClient",
 		reflect.TypeOf((*IUserPoolClient)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
@@ -868,6 +870,7 @@ func init() {
 		"aws-cdk-lib.aws_cognito.IUserPoolDomain",
 		reflect.TypeOf((*IUserPoolDomain)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "domainName", GoGetter: "DomainName"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -883,6 +886,7 @@ func init() {
 		"aws-cdk-lib.aws_cognito.IUserPoolIdentityProvider",
 		reflect.TypeOf((*IUserPoolIdentityProvider)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "providerName", GoGetter: "ProviderName"},
@@ -898,6 +902,7 @@ func init() {
 		"aws-cdk-lib.aws_cognito.IUserPoolResourceServer",
 		reflect.TypeOf((*IUserPoolResourceServer)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},

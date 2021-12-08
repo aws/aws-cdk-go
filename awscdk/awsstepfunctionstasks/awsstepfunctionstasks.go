@@ -18,6 +18,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awss3"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awssqs"
@@ -197,6 +198,31 @@ type AlgorithmSpecification struct {
 	TrainingImage DockerImage `json:"trainingImage"`
 	// Input mode that the algorithm supports.
 	TrainingInputMode InputMode `json:"trainingInputMode"`
+}
+
+// A configuration specification to be used when provisioning virtual clusters, which can include configurations for applications and software bundled with Amazon EMR on EKS.
+//
+// A configuration consists of a classification, properties, and optional nested configurations.
+// A classification refers to an application-specific configuration file.
+// Properties are the settings you want to change in that file.
+//
+// TODO: EXAMPLE
+//
+// See: https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html
+//
+type ApplicationConfiguration struct {
+	// The classification within a configuration.
+	//
+	// Length Constraints: Minimum length of 1. Maximum length of 1024.
+	Classification Classification `json:"classification"`
+	// A list of additional configurations to apply within a configuration object.
+	//
+	// Array Members: Maximum number of 100 items.
+	NestedConfig *[]*ApplicationConfiguration `json:"nestedConfig"`
+	// A set of properties specified within a configuration classification.
+	//
+	// Map Entries: Maximum number of 100 items.
+	Properties *map[string]*string `json:"properties"`
 }
 
 // How to assemble the results of the transform job as a single S3 object.
@@ -6876,6 +6902,125 @@ type Channel struct {
 	ShuffleConfig *ShuffleConfig `json:"shuffleConfig"`
 }
 
+// The classification within a EMR Containers application configuration.
+//
+// Class can be extended to add other classifications.
+// For example, new Classification('xxx-yyy');
+//
+// TODO: EXAMPLE
+//
+type Classification interface {
+	ClassificationStatement() *string
+}
+
+// The jsii proxy struct for Classification
+type jsiiProxy_Classification struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_Classification) ClassificationStatement() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"classificationStatement",
+		&returns,
+	)
+	return returns
+}
+
+
+// Creates a new Classification.
+func NewClassification(classificationStatement *string) Classification {
+	_init_.Initialize()
+
+	j := jsiiProxy_Classification{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_stepfunctions_tasks.Classification",
+		[]interface{}{classificationStatement},
+		&j,
+	)
+
+	return &j
+}
+
+// Creates a new Classification.
+func NewClassification_Override(c Classification, classificationStatement *string) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_stepfunctions_tasks.Classification",
+		[]interface{}{classificationStatement},
+		c,
+	)
+}
+
+func Classification_SPARK() Classification {
+	_init_.Initialize()
+	var returns Classification
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_stepfunctions_tasks.Classification",
+		"SPARK",
+		&returns,
+	)
+	return returns
+}
+
+func Classification_SPARK_DEFAULTS() Classification {
+	_init_.Initialize()
+	var returns Classification
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_stepfunctions_tasks.Classification",
+		"SPARK_DEFAULTS",
+		&returns,
+	)
+	return returns
+}
+
+func Classification_SPARK_ENV() Classification {
+	_init_.Initialize()
+	var returns Classification
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_stepfunctions_tasks.Classification",
+		"SPARK_ENV",
+		&returns,
+	)
+	return returns
+}
+
+func Classification_SPARK_HIVE_SITE() Classification {
+	_init_.Initialize()
+	var returns Classification
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_stepfunctions_tasks.Classification",
+		"SPARK_HIVE_SITE",
+		&returns,
+	)
+	return returns
+}
+
+func Classification_SPARK_LOG4J() Classification {
+	_init_.Initialize()
+	var returns Classification
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_stepfunctions_tasks.Classification",
+		"SPARK_LOG4J",
+		&returns,
+	)
+	return returns
+}
+
+func Classification_SPARK_METRICS() Classification {
+	_init_.Initialize()
+	var returns Classification
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_stepfunctions_tasks.Classification",
+		"SPARK_METRICS",
+		&returns,
+	)
+	return returns
+}
+
 // Start a CodeBuild Build as a task.
 //
 // TODO: EXAMPLE
@@ -13469,6 +13614,62 @@ type EksCallProps struct {
 	RequestBody awsstepfunctions.TaskInput `json:"requestBody"`
 }
 
+// Class that supports methods which return the EKS cluster name depending on input type.
+//
+// TODO: EXAMPLE
+//
+type EksClusterInput interface {
+	ClusterName() *string
+}
+
+// The jsii proxy struct for EksClusterInput
+type jsiiProxy_EksClusterInput struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_EksClusterInput) ClusterName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"clusterName",
+		&returns,
+	)
+	return returns
+}
+
+
+// Specify an existing EKS Cluster as the name for this Cluster.
+func EksClusterInput_FromCluster(cluster awseks.ICluster) EksClusterInput {
+	_init_.Initialize()
+
+	var returns EksClusterInput
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EksClusterInput",
+		"fromCluster",
+		[]interface{}{cluster},
+		&returns,
+	)
+
+	return returns
+}
+
+// Specify a Task Input as the name for this Cluster.
+func EksClusterInput_FromTaskInput(taskInput awsstepfunctions.TaskInput) EksClusterInput {
+	_init_.Initialize()
+
+	var returns EksClusterInput
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EksClusterInput",
+		"fromTaskInput",
+		[]interface{}{taskInput},
+		&returns,
+	)
+
+	return returns
+}
+
 // A Step Functions Task to add a Step to an EMR Cluster.
 //
 // The StepConfiguration is defined as Parameters in the state machine definition.
@@ -15083,6 +15284,2435 @@ type EmrCancelStepProps struct {
 	ClusterId *string `json:"clusterId"`
 	// The StepId to cancel.
 	StepId *string `json:"stepId"`
+}
+
+// Task that creates an EMR Containers virtual cluster from an EKS cluster.
+//
+// TODO: EXAMPLE
+//
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-emr-eks.html
+//
+type EmrContainersCreateVirtualCluster interface {
+	awsstepfunctions.TaskStateBase
+	Branches() *[]awsstepfunctions.StateGraph
+	Comment() *string
+	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
+	EndStates() *[]awsstepfunctions.INextable
+	Id() *string
+	InputPath() *string
+	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
+	Node() constructs.Node
+	OutputPath() *string
+	Parameters() *map[string]interface{}
+	ResultPath() *string
+	ResultSelector() *map[string]interface{}
+	StartState() awsstepfunctions.State
+	StateId() *string
+	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
+	TaskPolicies() *[]awsiam.PolicyStatement
+	AddBranch(branch awsstepfunctions.StateGraph)
+	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
+	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
+	AddIterator(iteration awsstepfunctions.StateGraph)
+	AddPrefix(x *string)
+	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
+	BindToGraph(graph awsstepfunctions.StateGraph)
+	MakeDefault(def awsstepfunctions.State)
+	MakeNext(next awsstepfunctions.State)
+	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	RenderBranches() interface{}
+	RenderChoices() interface{}
+	RenderInputOutput() interface{}
+	RenderIterator() interface{}
+	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
+	RenderRetryCatch() interface{}
+	ToStateJson() *map[string]interface{}
+	ToString() *string
+	ValidateState() *[]*string
+	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
+}
+
+// The jsii proxy struct for EmrContainersCreateVirtualCluster
+type jsiiProxy_EmrContainersCreateVirtualCluster struct {
+	internal.Type__awsstepfunctionsTaskStateBase
+}
+
+func (j *jsiiProxy_EmrContainersCreateVirtualCluster) Branches() *[]awsstepfunctions.StateGraph {
+	var returns *[]awsstepfunctions.StateGraph
+	_jsii_.Get(
+		j,
+		"branches",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersCreateVirtualCluster) Comment() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"comment",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersCreateVirtualCluster) DefaultChoice() awsstepfunctions.State {
+	var returns awsstepfunctions.State
+	_jsii_.Get(
+		j,
+		"defaultChoice",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersCreateVirtualCluster) EndStates() *[]awsstepfunctions.INextable {
+	var returns *[]awsstepfunctions.INextable
+	_jsii_.Get(
+		j,
+		"endStates",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersCreateVirtualCluster) Id() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"id",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersCreateVirtualCluster) InputPath() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"inputPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersCreateVirtualCluster) Iteration() awsstepfunctions.StateGraph {
+	var returns awsstepfunctions.StateGraph
+	_jsii_.Get(
+		j,
+		"iteration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersCreateVirtualCluster) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersCreateVirtualCluster) OutputPath() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"outputPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersCreateVirtualCluster) Parameters() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"parameters",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersCreateVirtualCluster) ResultPath() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersCreateVirtualCluster) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersCreateVirtualCluster) StartState() awsstepfunctions.State {
+	var returns awsstepfunctions.State
+	_jsii_.Get(
+		j,
+		"startState",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersCreateVirtualCluster) StateId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"stateId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersCreateVirtualCluster) TaskMetrics() *awsstepfunctions.TaskMetricsConfig {
+	var returns *awsstepfunctions.TaskMetricsConfig
+	_jsii_.Get(
+		j,
+		"taskMetrics",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersCreateVirtualCluster) TaskPolicies() *[]awsiam.PolicyStatement {
+	var returns *[]awsiam.PolicyStatement
+	_jsii_.Get(
+		j,
+		"taskPolicies",
+		&returns,
+	)
+	return returns
+}
+
+
+func NewEmrContainersCreateVirtualCluster(scope constructs.Construct, id *string, props *EmrContainersCreateVirtualClusterProps) EmrContainersCreateVirtualCluster {
+	_init_.Initialize()
+
+	j := jsiiProxy_EmrContainersCreateVirtualCluster{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersCreateVirtualCluster",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+func NewEmrContainersCreateVirtualCluster_Override(e EmrContainersCreateVirtualCluster, scope constructs.Construct, id *string, props *EmrContainersCreateVirtualClusterProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersCreateVirtualCluster",
+		[]interface{}{scope, id, props},
+		e,
+	)
+}
+
+func (j *jsiiProxy_EmrContainersCreateVirtualCluster) SetDefaultChoice(val awsstepfunctions.State) {
+	_jsii_.Set(
+		j,
+		"defaultChoice",
+		val,
+	)
+}
+
+func (j *jsiiProxy_EmrContainersCreateVirtualCluster) SetIteration(val awsstepfunctions.StateGraph) {
+	_jsii_.Set(
+		j,
+		"iteration",
+		val,
+	)
+}
+
+// Return only the states that allow chaining from an array of states.
+func EmrContainersCreateVirtualCluster_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
+	_init_.Initialize()
+
+	var returns *[]awsstepfunctions.INextable
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersCreateVirtualCluster",
+		"filterNextables",
+		[]interface{}{states},
+		&returns,
+	)
+
+	return returns
+}
+
+// Find the set of end states states reachable through transitions from the given start state.
+func EmrContainersCreateVirtualCluster_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
+	_init_.Initialize()
+
+	var returns *[]awsstepfunctions.State
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersCreateVirtualCluster",
+		"findReachableEndStates",
+		[]interface{}{start, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Find the set of states reachable through transitions from the given start state.
+//
+// This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
+func EmrContainersCreateVirtualCluster_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
+	_init_.Initialize()
+
+	var returns *[]awsstepfunctions.State
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersCreateVirtualCluster",
+		"findReachableStates",
+		[]interface{}{start, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func EmrContainersCreateVirtualCluster_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersCreateVirtualCluster",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Add a prefix to the stateId of all States found in a construct tree.
+func EmrContainersCreateVirtualCluster_PrefixStates(root constructs.IConstruct, prefix *string) {
+	_init_.Initialize()
+
+	_jsii_.StaticInvokeVoid(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersCreateVirtualCluster",
+		"prefixStates",
+		[]interface{}{root, prefix},
+	)
+}
+
+// Add a paralle branch to this state.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) AddBranch(branch awsstepfunctions.StateGraph) {
+	_jsii_.InvokeVoid(
+		e,
+		"addBranch",
+		[]interface{}{branch},
+	)
+}
+
+// Add a recovery handler for this state.
+//
+// When a particular error occurs, execution will continue at the error
+// handler instead of failing the state machine execution.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase {
+	var returns awsstepfunctions.TaskStateBase
+
+	_jsii_.Invoke(
+		e,
+		"addCatch",
+		[]interface{}{handler, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Add a choice branch to this state.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State) {
+	_jsii_.InvokeVoid(
+		e,
+		"addChoice",
+		[]interface{}{condition, next},
+	)
+}
+
+// Add a map iterator to this state.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) AddIterator(iteration awsstepfunctions.StateGraph) {
+	_jsii_.InvokeVoid(
+		e,
+		"addIterator",
+		[]interface{}{iteration},
+	)
+}
+
+// Add a prefix to the stateId of this state.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) AddPrefix(x *string) {
+	_jsii_.InvokeVoid(
+		e,
+		"addPrefix",
+		[]interface{}{x},
+	)
+}
+
+// Add retry configuration for this state.
+//
+// This controls if and how the execution will be retried if a particular
+// error occurs.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase {
+	var returns awsstepfunctions.TaskStateBase
+
+	_jsii_.Invoke(
+		e,
+		"addRetry",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Register this state as part of the given graph.
+//
+// Don't call this. It will be called automatically when you work
+// with states normally.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) BindToGraph(graph awsstepfunctions.StateGraph) {
+	_jsii_.InvokeVoid(
+		e,
+		"bindToGraph",
+		[]interface{}{graph},
+	)
+}
+
+// Make the indicated state the default choice transition of this state.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MakeDefault(def awsstepfunctions.State) {
+	_jsii_.InvokeVoid(
+		e,
+		"makeDefault",
+		[]interface{}{def},
+	)
+}
+
+// Make the indicated state the default transition of this state.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MakeNext(next awsstepfunctions.State) {
+	_jsii_.InvokeVoid(
+		e,
+		"makeNext",
+		[]interface{}{next},
+	)
+}
+
+// Return the given named metric for this Task.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metric",
+		[]interface{}{metricName, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of times this activity fails.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricFailed",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of times the heartbeat times out for this activity.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricHeartbeatTimedOut",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The interval, in milliseconds, between the time the Task starts and the time it closes.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricRunTime",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of times this activity is scheduled.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricScheduled",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The interval, in milliseconds, for which the activity stays in the schedule state.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricScheduleTime",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of times this activity is started.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricStarted",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of times this activity succeeds.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricSucceeded",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricTime",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of times this activity times out.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricTimedOut",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Continue normal execution with the given state.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain {
+	var returns awsstepfunctions.Chain
+
+	_jsii_.Invoke(
+		e,
+		"next",
+		[]interface{}{next},
+		&returns,
+	)
+
+	return returns
+}
+
+// Render parallel branches in ASL JSON format.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) RenderBranches() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderBranches",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render the choices in ASL JSON format.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) RenderChoices() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderChoices",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render InputPath/Parameters/OutputPath in ASL JSON format.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) RenderInputOutput() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderInputOutput",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render map iterator in ASL JSON format.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) RenderIterator() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderIterator",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render the default next state in ASL JSON format.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) RenderNextEnd() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderNextEnd",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render ResultSelector in ASL JSON format.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render error recovery options in ASL JSON format.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) RenderRetryCatch() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderRetryCatch",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Return the Amazon States Language object for this state.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) ToStateJson() *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		e,
+		"toStateJson",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns a string representation of this construct.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		e,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Allows the state to validate itself.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) ValidateState() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"validateState",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Called whenever this state is bound to a graph.
+//
+// Can be overridden by subclasses.
+func (e *jsiiProxy_EmrContainersCreateVirtualCluster) WhenBoundToGraph(graph awsstepfunctions.StateGraph) {
+	_jsii_.InvokeVoid(
+		e,
+		"whenBoundToGraph",
+		[]interface{}{graph},
+	)
+}
+
+// Properties to define a EMR Containers CreateVirtualCluster Task on an EKS cluster.
+//
+// TODO: EXAMPLE
+//
+type EmrContainersCreateVirtualClusterProps struct {
+	// An optional description for this state.
+	Comment *string `json:"comment"`
+	// Timeout for the heartbeat.
+	Heartbeat awscdk.Duration `json:"heartbeat"`
+	// JSONPath expression to select part of the state to be the input to this state.
+	//
+	// May also be the special value JsonPath.DISCARD, which will cause the effective
+	// input to be the empty object {}.
+	InputPath *string `json:"inputPath"`
+	// AWS Step Functions integrates with services directly in the Amazon States Language.
+	//
+	// You can control these AWS services using service integration patterns
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
+	//
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	// JSONPath expression to select select a portion of the state output to pass to the next state.
+	//
+	// May also be the special value JsonPath.DISCARD, which will cause the effective
+	// output to be the empty object {}.
+	OutputPath *string `json:"outputPath"`
+	// JSONPath expression to indicate where to inject the state's output.
+	//
+	// May also be the special value JsonPath.DISCARD, which will cause the state's
+	// input to become its output.
+	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	// Timeout for the state machine.
+	Timeout awscdk.Duration `json:"timeout"`
+	// EKS Cluster or task input that contains the name of the cluster.
+	EksCluster EksClusterInput `json:"eksCluster"`
+	// The namespace of an EKS cluster.
+	EksNamespace *string `json:"eksNamespace"`
+	// The tags assigned to the virtual cluster.
+	Tags *map[string]*string `json:"tags"`
+	// Name of the virtual cluster that will be created.
+	VirtualClusterName *string `json:"virtualClusterName"`
+}
+
+// Deletes an EMR Containers virtual cluster as a Task.
+//
+// TODO: EXAMPLE
+//
+// See: https://docs.amazonaws.cn/en_us/step-functions/latest/dg/connect-emr-eks.html
+//
+type EmrContainersDeleteVirtualCluster interface {
+	awsstepfunctions.TaskStateBase
+	Branches() *[]awsstepfunctions.StateGraph
+	Comment() *string
+	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
+	EndStates() *[]awsstepfunctions.INextable
+	Id() *string
+	InputPath() *string
+	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
+	Node() constructs.Node
+	OutputPath() *string
+	Parameters() *map[string]interface{}
+	ResultPath() *string
+	ResultSelector() *map[string]interface{}
+	StartState() awsstepfunctions.State
+	StateId() *string
+	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
+	TaskPolicies() *[]awsiam.PolicyStatement
+	AddBranch(branch awsstepfunctions.StateGraph)
+	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
+	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
+	AddIterator(iteration awsstepfunctions.StateGraph)
+	AddPrefix(x *string)
+	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
+	BindToGraph(graph awsstepfunctions.StateGraph)
+	MakeDefault(def awsstepfunctions.State)
+	MakeNext(next awsstepfunctions.State)
+	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	RenderBranches() interface{}
+	RenderChoices() interface{}
+	RenderInputOutput() interface{}
+	RenderIterator() interface{}
+	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
+	RenderRetryCatch() interface{}
+	ToStateJson() *map[string]interface{}
+	ToString() *string
+	ValidateState() *[]*string
+	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
+}
+
+// The jsii proxy struct for EmrContainersDeleteVirtualCluster
+type jsiiProxy_EmrContainersDeleteVirtualCluster struct {
+	internal.Type__awsstepfunctionsTaskStateBase
+}
+
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) Branches() *[]awsstepfunctions.StateGraph {
+	var returns *[]awsstepfunctions.StateGraph
+	_jsii_.Get(
+		j,
+		"branches",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) Comment() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"comment",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) DefaultChoice() awsstepfunctions.State {
+	var returns awsstepfunctions.State
+	_jsii_.Get(
+		j,
+		"defaultChoice",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) EndStates() *[]awsstepfunctions.INextable {
+	var returns *[]awsstepfunctions.INextable
+	_jsii_.Get(
+		j,
+		"endStates",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) Id() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"id",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) InputPath() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"inputPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) Iteration() awsstepfunctions.StateGraph {
+	var returns awsstepfunctions.StateGraph
+	_jsii_.Get(
+		j,
+		"iteration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) OutputPath() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"outputPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) Parameters() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"parameters",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) ResultPath() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) StartState() awsstepfunctions.State {
+	var returns awsstepfunctions.State
+	_jsii_.Get(
+		j,
+		"startState",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) StateId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"stateId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) TaskMetrics() *awsstepfunctions.TaskMetricsConfig {
+	var returns *awsstepfunctions.TaskMetricsConfig
+	_jsii_.Get(
+		j,
+		"taskMetrics",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) TaskPolicies() *[]awsiam.PolicyStatement {
+	var returns *[]awsiam.PolicyStatement
+	_jsii_.Get(
+		j,
+		"taskPolicies",
+		&returns,
+	)
+	return returns
+}
+
+
+func NewEmrContainersDeleteVirtualCluster(scope constructs.Construct, id *string, props *EmrContainersDeleteVirtualClusterProps) EmrContainersDeleteVirtualCluster {
+	_init_.Initialize()
+
+	j := jsiiProxy_EmrContainersDeleteVirtualCluster{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersDeleteVirtualCluster",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+func NewEmrContainersDeleteVirtualCluster_Override(e EmrContainersDeleteVirtualCluster, scope constructs.Construct, id *string, props *EmrContainersDeleteVirtualClusterProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersDeleteVirtualCluster",
+		[]interface{}{scope, id, props},
+		e,
+	)
+}
+
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) SetDefaultChoice(val awsstepfunctions.State) {
+	_jsii_.Set(
+		j,
+		"defaultChoice",
+		val,
+	)
+}
+
+func (j *jsiiProxy_EmrContainersDeleteVirtualCluster) SetIteration(val awsstepfunctions.StateGraph) {
+	_jsii_.Set(
+		j,
+		"iteration",
+		val,
+	)
+}
+
+// Return only the states that allow chaining from an array of states.
+func EmrContainersDeleteVirtualCluster_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
+	_init_.Initialize()
+
+	var returns *[]awsstepfunctions.INextable
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersDeleteVirtualCluster",
+		"filterNextables",
+		[]interface{}{states},
+		&returns,
+	)
+
+	return returns
+}
+
+// Find the set of end states states reachable through transitions from the given start state.
+func EmrContainersDeleteVirtualCluster_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
+	_init_.Initialize()
+
+	var returns *[]awsstepfunctions.State
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersDeleteVirtualCluster",
+		"findReachableEndStates",
+		[]interface{}{start, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Find the set of states reachable through transitions from the given start state.
+//
+// This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
+func EmrContainersDeleteVirtualCluster_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
+	_init_.Initialize()
+
+	var returns *[]awsstepfunctions.State
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersDeleteVirtualCluster",
+		"findReachableStates",
+		[]interface{}{start, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func EmrContainersDeleteVirtualCluster_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersDeleteVirtualCluster",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Add a prefix to the stateId of all States found in a construct tree.
+func EmrContainersDeleteVirtualCluster_PrefixStates(root constructs.IConstruct, prefix *string) {
+	_init_.Initialize()
+
+	_jsii_.StaticInvokeVoid(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersDeleteVirtualCluster",
+		"prefixStates",
+		[]interface{}{root, prefix},
+	)
+}
+
+// Add a paralle branch to this state.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) AddBranch(branch awsstepfunctions.StateGraph) {
+	_jsii_.InvokeVoid(
+		e,
+		"addBranch",
+		[]interface{}{branch},
+	)
+}
+
+// Add a recovery handler for this state.
+//
+// When a particular error occurs, execution will continue at the error
+// handler instead of failing the state machine execution.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase {
+	var returns awsstepfunctions.TaskStateBase
+
+	_jsii_.Invoke(
+		e,
+		"addCatch",
+		[]interface{}{handler, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Add a choice branch to this state.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State) {
+	_jsii_.InvokeVoid(
+		e,
+		"addChoice",
+		[]interface{}{condition, next},
+	)
+}
+
+// Add a map iterator to this state.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) AddIterator(iteration awsstepfunctions.StateGraph) {
+	_jsii_.InvokeVoid(
+		e,
+		"addIterator",
+		[]interface{}{iteration},
+	)
+}
+
+// Add a prefix to the stateId of this state.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) AddPrefix(x *string) {
+	_jsii_.InvokeVoid(
+		e,
+		"addPrefix",
+		[]interface{}{x},
+	)
+}
+
+// Add retry configuration for this state.
+//
+// This controls if and how the execution will be retried if a particular
+// error occurs.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase {
+	var returns awsstepfunctions.TaskStateBase
+
+	_jsii_.Invoke(
+		e,
+		"addRetry",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Register this state as part of the given graph.
+//
+// Don't call this. It will be called automatically when you work
+// with states normally.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) BindToGraph(graph awsstepfunctions.StateGraph) {
+	_jsii_.InvokeVoid(
+		e,
+		"bindToGraph",
+		[]interface{}{graph},
+	)
+}
+
+// Make the indicated state the default choice transition of this state.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) MakeDefault(def awsstepfunctions.State) {
+	_jsii_.InvokeVoid(
+		e,
+		"makeDefault",
+		[]interface{}{def},
+	)
+}
+
+// Make the indicated state the default transition of this state.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) MakeNext(next awsstepfunctions.State) {
+	_jsii_.InvokeVoid(
+		e,
+		"makeNext",
+		[]interface{}{next},
+	)
+}
+
+// Return the given named metric for this Task.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metric",
+		[]interface{}{metricName, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of times this activity fails.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricFailed",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of times the heartbeat times out for this activity.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricHeartbeatTimedOut",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The interval, in milliseconds, between the time the Task starts and the time it closes.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricRunTime",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of times this activity is scheduled.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricScheduled",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The interval, in milliseconds, for which the activity stays in the schedule state.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricScheduleTime",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of times this activity is started.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricStarted",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of times this activity succeeds.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricSucceeded",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricTime",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of times this activity times out.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricTimedOut",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Continue normal execution with the given state.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain {
+	var returns awsstepfunctions.Chain
+
+	_jsii_.Invoke(
+		e,
+		"next",
+		[]interface{}{next},
+		&returns,
+	)
+
+	return returns
+}
+
+// Render parallel branches in ASL JSON format.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) RenderBranches() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderBranches",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render the choices in ASL JSON format.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) RenderChoices() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderChoices",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render InputPath/Parameters/OutputPath in ASL JSON format.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) RenderInputOutput() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderInputOutput",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render map iterator in ASL JSON format.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) RenderIterator() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderIterator",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render the default next state in ASL JSON format.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) RenderNextEnd() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderNextEnd",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render ResultSelector in ASL JSON format.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render error recovery options in ASL JSON format.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) RenderRetryCatch() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderRetryCatch",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Return the Amazon States Language object for this state.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) ToStateJson() *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		e,
+		"toStateJson",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns a string representation of this construct.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		e,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Allows the state to validate itself.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) ValidateState() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"validateState",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Called whenever this state is bound to a graph.
+//
+// Can be overridden by subclasses.
+func (e *jsiiProxy_EmrContainersDeleteVirtualCluster) WhenBoundToGraph(graph awsstepfunctions.StateGraph) {
+	_jsii_.InvokeVoid(
+		e,
+		"whenBoundToGraph",
+		[]interface{}{graph},
+	)
+}
+
+// Properties to define a EMR Containers DeleteVirtualCluster Task.
+//
+// TODO: EXAMPLE
+//
+type EmrContainersDeleteVirtualClusterProps struct {
+	// An optional description for this state.
+	Comment *string `json:"comment"`
+	// Timeout for the heartbeat.
+	Heartbeat awscdk.Duration `json:"heartbeat"`
+	// JSONPath expression to select part of the state to be the input to this state.
+	//
+	// May also be the special value JsonPath.DISCARD, which will cause the effective
+	// input to be the empty object {}.
+	InputPath *string `json:"inputPath"`
+	// AWS Step Functions integrates with services directly in the Amazon States Language.
+	//
+	// You can control these AWS services using service integration patterns
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
+	//
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	// JSONPath expression to select select a portion of the state output to pass to the next state.
+	//
+	// May also be the special value JsonPath.DISCARD, which will cause the effective
+	// output to be the empty object {}.
+	OutputPath *string `json:"outputPath"`
+	// JSONPath expression to indicate where to inject the state's output.
+	//
+	// May also be the special value JsonPath.DISCARD, which will cause the state's
+	// input to become its output.
+	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	// Timeout for the state machine.
+	Timeout awscdk.Duration `json:"timeout"`
+	// The ID of the virtual cluster that will be deleted.
+	VirtualClusterId awsstepfunctions.TaskInput `json:"virtualClusterId"`
+}
+
+// Starts a job run.
+//
+// A job is a unit of work that you submit to Amazon EMR on EKS for execution.
+// The work performed by the job can be defined by a Spark jar, PySpark script, or SparkSQL query.
+// A job run is an execution of the job on the virtual cluster.
+//
+// TODO: EXAMPLE
+//
+// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-emr-eks.html
+//
+type EmrContainersStartJobRun interface {
+	awsstepfunctions.TaskStateBase
+	awsiam.IGrantable
+	Branches() *[]awsstepfunctions.StateGraph
+	Comment() *string
+	DefaultChoice() awsstepfunctions.State
+	SetDefaultChoice(val awsstepfunctions.State)
+	EndStates() *[]awsstepfunctions.INextable
+	GrantPrincipal() awsiam.IPrincipal
+	Id() *string
+	InputPath() *string
+	Iteration() awsstepfunctions.StateGraph
+	SetIteration(val awsstepfunctions.StateGraph)
+	Node() constructs.Node
+	OutputPath() *string
+	Parameters() *map[string]interface{}
+	ResultPath() *string
+	ResultSelector() *map[string]interface{}
+	StartState() awsstepfunctions.State
+	StateId() *string
+	TaskMetrics() *awsstepfunctions.TaskMetricsConfig
+	TaskPolicies() *[]awsiam.PolicyStatement
+	AddBranch(branch awsstepfunctions.StateGraph)
+	AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase
+	AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State)
+	AddIterator(iteration awsstepfunctions.StateGraph)
+	AddPrefix(x *string)
+	AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase
+	BindToGraph(graph awsstepfunctions.StateGraph)
+	MakeDefault(def awsstepfunctions.State)
+	MakeNext(next awsstepfunctions.State)
+	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain
+	RenderBranches() interface{}
+	RenderChoices() interface{}
+	RenderInputOutput() interface{}
+	RenderIterator() interface{}
+	RenderNextEnd() interface{}
+	RenderResultSelector() interface{}
+	RenderRetryCatch() interface{}
+	ToStateJson() *map[string]interface{}
+	ToString() *string
+	ValidateState() *[]*string
+	WhenBoundToGraph(graph awsstepfunctions.StateGraph)
+}
+
+// The jsii proxy struct for EmrContainersStartJobRun
+type jsiiProxy_EmrContainersStartJobRun struct {
+	internal.Type__awsstepfunctionsTaskStateBase
+	internal.Type__awsiamIGrantable
+}
+
+func (j *jsiiProxy_EmrContainersStartJobRun) Branches() *[]awsstepfunctions.StateGraph {
+	var returns *[]awsstepfunctions.StateGraph
+	_jsii_.Get(
+		j,
+		"branches",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersStartJobRun) Comment() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"comment",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersStartJobRun) DefaultChoice() awsstepfunctions.State {
+	var returns awsstepfunctions.State
+	_jsii_.Get(
+		j,
+		"defaultChoice",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersStartJobRun) EndStates() *[]awsstepfunctions.INextable {
+	var returns *[]awsstepfunctions.INextable
+	_jsii_.Get(
+		j,
+		"endStates",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersStartJobRun) GrantPrincipal() awsiam.IPrincipal {
+	var returns awsiam.IPrincipal
+	_jsii_.Get(
+		j,
+		"grantPrincipal",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersStartJobRun) Id() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"id",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersStartJobRun) InputPath() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"inputPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersStartJobRun) Iteration() awsstepfunctions.StateGraph {
+	var returns awsstepfunctions.StateGraph
+	_jsii_.Get(
+		j,
+		"iteration",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersStartJobRun) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersStartJobRun) OutputPath() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"outputPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersStartJobRun) Parameters() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"parameters",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersStartJobRun) ResultPath() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"resultPath",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersStartJobRun) ResultSelector() *map[string]interface{} {
+	var returns *map[string]interface{}
+	_jsii_.Get(
+		j,
+		"resultSelector",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersStartJobRun) StartState() awsstepfunctions.State {
+	var returns awsstepfunctions.State
+	_jsii_.Get(
+		j,
+		"startState",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersStartJobRun) StateId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"stateId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersStartJobRun) TaskMetrics() *awsstepfunctions.TaskMetricsConfig {
+	var returns *awsstepfunctions.TaskMetricsConfig
+	_jsii_.Get(
+		j,
+		"taskMetrics",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_EmrContainersStartJobRun) TaskPolicies() *[]awsiam.PolicyStatement {
+	var returns *[]awsiam.PolicyStatement
+	_jsii_.Get(
+		j,
+		"taskPolicies",
+		&returns,
+	)
+	return returns
+}
+
+
+func NewEmrContainersStartJobRun(scope constructs.Construct, id *string, props *EmrContainersStartJobRunProps) EmrContainersStartJobRun {
+	_init_.Initialize()
+
+	j := jsiiProxy_EmrContainersStartJobRun{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersStartJobRun",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+func NewEmrContainersStartJobRun_Override(e EmrContainersStartJobRun, scope constructs.Construct, id *string, props *EmrContainersStartJobRunProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersStartJobRun",
+		[]interface{}{scope, id, props},
+		e,
+	)
+}
+
+func (j *jsiiProxy_EmrContainersStartJobRun) SetDefaultChoice(val awsstepfunctions.State) {
+	_jsii_.Set(
+		j,
+		"defaultChoice",
+		val,
+	)
+}
+
+func (j *jsiiProxy_EmrContainersStartJobRun) SetIteration(val awsstepfunctions.StateGraph) {
+	_jsii_.Set(
+		j,
+		"iteration",
+		val,
+	)
+}
+
+// Return only the states that allow chaining from an array of states.
+func EmrContainersStartJobRun_FilterNextables(states *[]awsstepfunctions.State) *[]awsstepfunctions.INextable {
+	_init_.Initialize()
+
+	var returns *[]awsstepfunctions.INextable
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersStartJobRun",
+		"filterNextables",
+		[]interface{}{states},
+		&returns,
+	)
+
+	return returns
+}
+
+// Find the set of end states states reachable through transitions from the given start state.
+func EmrContainersStartJobRun_FindReachableEndStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
+	_init_.Initialize()
+
+	var returns *[]awsstepfunctions.State
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersStartJobRun",
+		"findReachableEndStates",
+		[]interface{}{start, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Find the set of states reachable through transitions from the given start state.
+//
+// This does not retrieve states from within sub-graphs, such as states within a Parallel state's branch.
+func EmrContainersStartJobRun_FindReachableStates(start awsstepfunctions.State, options *awsstepfunctions.FindStateOptions) *[]awsstepfunctions.State {
+	_init_.Initialize()
+
+	var returns *[]awsstepfunctions.State
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersStartJobRun",
+		"findReachableStates",
+		[]interface{}{start, options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func EmrContainersStartJobRun_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersStartJobRun",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Add a prefix to the stateId of all States found in a construct tree.
+func EmrContainersStartJobRun_PrefixStates(root constructs.IConstruct, prefix *string) {
+	_init_.Initialize()
+
+	_jsii_.StaticInvokeVoid(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersStartJobRun",
+		"prefixStates",
+		[]interface{}{root, prefix},
+	)
+}
+
+// Add a paralle branch to this state.
+func (e *jsiiProxy_EmrContainersStartJobRun) AddBranch(branch awsstepfunctions.StateGraph) {
+	_jsii_.InvokeVoid(
+		e,
+		"addBranch",
+		[]interface{}{branch},
+	)
+}
+
+// Add a recovery handler for this state.
+//
+// When a particular error occurs, execution will continue at the error
+// handler instead of failing the state machine execution.
+func (e *jsiiProxy_EmrContainersStartJobRun) AddCatch(handler awsstepfunctions.IChainable, props *awsstepfunctions.CatchProps) awsstepfunctions.TaskStateBase {
+	var returns awsstepfunctions.TaskStateBase
+
+	_jsii_.Invoke(
+		e,
+		"addCatch",
+		[]interface{}{handler, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Add a choice branch to this state.
+func (e *jsiiProxy_EmrContainersStartJobRun) AddChoice(condition awsstepfunctions.Condition, next awsstepfunctions.State) {
+	_jsii_.InvokeVoid(
+		e,
+		"addChoice",
+		[]interface{}{condition, next},
+	)
+}
+
+// Add a map iterator to this state.
+func (e *jsiiProxy_EmrContainersStartJobRun) AddIterator(iteration awsstepfunctions.StateGraph) {
+	_jsii_.InvokeVoid(
+		e,
+		"addIterator",
+		[]interface{}{iteration},
+	)
+}
+
+// Add a prefix to the stateId of this state.
+func (e *jsiiProxy_EmrContainersStartJobRun) AddPrefix(x *string) {
+	_jsii_.InvokeVoid(
+		e,
+		"addPrefix",
+		[]interface{}{x},
+	)
+}
+
+// Add retry configuration for this state.
+//
+// This controls if and how the execution will be retried if a particular
+// error occurs.
+func (e *jsiiProxy_EmrContainersStartJobRun) AddRetry(props *awsstepfunctions.RetryProps) awsstepfunctions.TaskStateBase {
+	var returns awsstepfunctions.TaskStateBase
+
+	_jsii_.Invoke(
+		e,
+		"addRetry",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Register this state as part of the given graph.
+//
+// Don't call this. It will be called automatically when you work
+// with states normally.
+func (e *jsiiProxy_EmrContainersStartJobRun) BindToGraph(graph awsstepfunctions.StateGraph) {
+	_jsii_.InvokeVoid(
+		e,
+		"bindToGraph",
+		[]interface{}{graph},
+	)
+}
+
+// Make the indicated state the default choice transition of this state.
+func (e *jsiiProxy_EmrContainersStartJobRun) MakeDefault(def awsstepfunctions.State) {
+	_jsii_.InvokeVoid(
+		e,
+		"makeDefault",
+		[]interface{}{def},
+	)
+}
+
+// Make the indicated state the default transition of this state.
+func (e *jsiiProxy_EmrContainersStartJobRun) MakeNext(next awsstepfunctions.State) {
+	_jsii_.InvokeVoid(
+		e,
+		"makeNext",
+		[]interface{}{next},
+	)
+}
+
+// Return the given named metric for this Task.
+func (e *jsiiProxy_EmrContainersStartJobRun) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metric",
+		[]interface{}{metricName, props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of times this activity fails.
+func (e *jsiiProxy_EmrContainersStartJobRun) MetricFailed(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricFailed",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of times the heartbeat times out for this activity.
+func (e *jsiiProxy_EmrContainersStartJobRun) MetricHeartbeatTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricHeartbeatTimedOut",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The interval, in milliseconds, between the time the Task starts and the time it closes.
+func (e *jsiiProxy_EmrContainersStartJobRun) MetricRunTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricRunTime",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of times this activity is scheduled.
+func (e *jsiiProxy_EmrContainersStartJobRun) MetricScheduled(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricScheduled",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The interval, in milliseconds, for which the activity stays in the schedule state.
+func (e *jsiiProxy_EmrContainersStartJobRun) MetricScheduleTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricScheduleTime",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of times this activity is started.
+func (e *jsiiProxy_EmrContainersStartJobRun) MetricStarted(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricStarted",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of times this activity succeeds.
+func (e *jsiiProxy_EmrContainersStartJobRun) MetricSucceeded(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricSucceeded",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// The interval, in milliseconds, between the time the activity is scheduled and the time it closes.
+func (e *jsiiProxy_EmrContainersStartJobRun) MetricTime(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricTime",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Metric for the number of times this activity times out.
+func (e *jsiiProxy_EmrContainersStartJobRun) MetricTimedOut(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
+	var returns awscloudwatch.Metric
+
+	_jsii_.Invoke(
+		e,
+		"metricTimedOut",
+		[]interface{}{props},
+		&returns,
+	)
+
+	return returns
+}
+
+// Continue normal execution with the given state.
+func (e *jsiiProxy_EmrContainersStartJobRun) Next(next awsstepfunctions.IChainable) awsstepfunctions.Chain {
+	var returns awsstepfunctions.Chain
+
+	_jsii_.Invoke(
+		e,
+		"next",
+		[]interface{}{next},
+		&returns,
+	)
+
+	return returns
+}
+
+// Render parallel branches in ASL JSON format.
+func (e *jsiiProxy_EmrContainersStartJobRun) RenderBranches() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderBranches",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render the choices in ASL JSON format.
+func (e *jsiiProxy_EmrContainersStartJobRun) RenderChoices() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderChoices",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render InputPath/Parameters/OutputPath in ASL JSON format.
+func (e *jsiiProxy_EmrContainersStartJobRun) RenderInputOutput() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderInputOutput",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render map iterator in ASL JSON format.
+func (e *jsiiProxy_EmrContainersStartJobRun) RenderIterator() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderIterator",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render the default next state in ASL JSON format.
+func (e *jsiiProxy_EmrContainersStartJobRun) RenderNextEnd() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderNextEnd",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render ResultSelector in ASL JSON format.
+func (e *jsiiProxy_EmrContainersStartJobRun) RenderResultSelector() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderResultSelector",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Render error recovery options in ASL JSON format.
+func (e *jsiiProxy_EmrContainersStartJobRun) RenderRetryCatch() interface{} {
+	var returns interface{}
+
+	_jsii_.Invoke(
+		e,
+		"renderRetryCatch",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Return the Amazon States Language object for this state.
+func (e *jsiiProxy_EmrContainersStartJobRun) ToStateJson() *map[string]interface{} {
+	var returns *map[string]interface{}
+
+	_jsii_.Invoke(
+		e,
+		"toStateJson",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns a string representation of this construct.
+func (e *jsiiProxy_EmrContainersStartJobRun) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		e,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Allows the state to validate itself.
+func (e *jsiiProxy_EmrContainersStartJobRun) ValidateState() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		e,
+		"validateState",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Called whenever this state is bound to a graph.
+//
+// Can be overridden by subclasses.
+func (e *jsiiProxy_EmrContainersStartJobRun) WhenBoundToGraph(graph awsstepfunctions.StateGraph) {
+	_jsii_.InvokeVoid(
+		e,
+		"whenBoundToGraph",
+		[]interface{}{graph},
+	)
+}
+
+// The props for a EMR Containers StartJobRun Task.
+//
+// TODO: EXAMPLE
+//
+type EmrContainersStartJobRunProps struct {
+	// An optional description for this state.
+	Comment *string `json:"comment"`
+	// Timeout for the heartbeat.
+	Heartbeat awscdk.Duration `json:"heartbeat"`
+	// JSONPath expression to select part of the state to be the input to this state.
+	//
+	// May also be the special value JsonPath.DISCARD, which will cause the effective
+	// input to be the empty object {}.
+	InputPath *string `json:"inputPath"`
+	// AWS Step Functions integrates with services directly in the Amazon States Language.
+	//
+	// You can control these AWS services using service integration patterns
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html#connect-wait-token
+	//
+	IntegrationPattern awsstepfunctions.IntegrationPattern `json:"integrationPattern"`
+	// JSONPath expression to select select a portion of the state output to pass to the next state.
+	//
+	// May also be the special value JsonPath.DISCARD, which will cause the effective
+	// output to be the empty object {}.
+	OutputPath *string `json:"outputPath"`
+	// JSONPath expression to indicate where to inject the state's output.
+	//
+	// May also be the special value JsonPath.DISCARD, which will cause the state's
+	// input to become its output.
+	ResultPath *string `json:"resultPath"`
+	// The JSON that will replace the state's raw result and become the effective result before ResultPath is applied.
+	//
+	// You can use ResultSelector to create a payload with values that are static
+	// or selected from the state's raw result.
+	// See: https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector
+	//
+	ResultSelector *map[string]interface{} `json:"resultSelector"`
+	// Timeout for the state machine.
+	Timeout awscdk.Duration `json:"timeout"`
+	// The job driver for the job run.
+	// See: https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_JobDriver.html
+	//
+	JobDriver *JobDriver `json:"jobDriver"`
+	// The Amazon EMR release version to use for the job run.
+	ReleaseLabel ReleaseLabel `json:"releaseLabel"`
+	// The ID of the virtual cluster where the job will be run.
+	VirtualCluster VirtualClusterInput `json:"virtualCluster"`
+	// The configurations for the application running in the job run.
+	//
+	// Maximum of 100 items
+	// See: https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_Configuration.html
+	//
+	ApplicationConfig *[]*ApplicationConfiguration `json:"applicationConfig"`
+	// The execution role for the job run.
+	//
+	// If `virtualClusterId` is from a JSON input path, an execution role must be provided.
+	// If an execution role is provided, follow the documentation to update the role trust policy.
+	// See: https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/setting-up-trust-policy.html
+	//
+	ExecutionRole awsiam.IRole `json:"executionRole"`
+	// The name of the job run.
+	JobName *string `json:"jobName"`
+	// Configuration for monitoring the job run.
+	// See: https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_MonitoringConfiguration.html
+	//
+	Monitoring *Monitoring `json:"monitoring"`
+	// The tags assigned to job runs.
+	Tags *map[string]*string `json:"tags"`
 }
 
 // A Step Functions Task to create an EMR Cluster.
@@ -23161,6 +25791,19 @@ type JobDependency struct {
 	Type *string `json:"type"`
 }
 
+// Specify the driver that the EMR Containers job runs on.
+//
+// The job driver is used to provide an input for the job that will be run.
+//
+// TODO: EXAMPLE
+//
+type JobDriver struct {
+	// The job driver parameters specified for spark submit.
+	// See: https://docs.aws.amazon.com/emr-on-eks/latest/APIReference/API_SparkSubmitJobDriver.html
+	//
+	SparkSubmitJobDriver *SparkSubmitJobDriver `json:"sparkSubmitJobDriver"`
+}
+
 // Invocation type of a Lambda.
 //
 // TODO: EXAMPLE
@@ -24066,6 +26709,30 @@ type ModelClientOptions struct {
 	InvocationsTimeout awscdk.Duration `json:"invocationsTimeout"`
 }
 
+// Configuration setting for monitoring.
+//
+// TODO: EXAMPLE
+//
+type Monitoring struct {
+	// Amazon S3 Bucket for monitoring log publishing.
+	//
+	// You can configure your jobs to send log information to Amazon S3.
+	LogBucket awss3.IBucket `json:"logBucket"`
+	// Enable logging for this job.
+	//
+	// If set to true, will automatically create a Cloudwatch Log Group and S3 bucket.
+	// This will be set to `true` implicitly if values are provided for `logGroup` or `logBucket`.
+	Logging *bool `json:"logging"`
+	// A log group for CloudWatch monitoring.
+	//
+	// You can configure your jobs to send log information to CloudWatch Logs.
+	LogGroup awslogs.ILogGroup `json:"logGroup"`
+	// A log stream name prefix for Cloudwatch monitoring.
+	LogStreamNamePrefix *string `json:"logStreamNamePrefix"`
+	// Monitoring configurations for the persistent application UI.
+	PersistentAppUI *bool `json:"persistentAppUI"`
+}
+
 // Configures the S3 bucket where SageMaker will save the result of model training.
 //
 // TODO: EXAMPLE
@@ -24120,6 +26787,104 @@ const (
 	RecordWrapperType_NONE RecordWrapperType = "NONE"
 	RecordWrapperType_RECORD_IO RecordWrapperType = "RECORD_IO"
 )
+
+// The Amazon EMR release version to use for the job run.
+//
+// Can be extended to include new EMR releases
+//
+// For example, `new ReleaseLabel('emr-x.xx.x-latest');`
+//
+// TODO: EXAMPLE
+//
+type ReleaseLabel interface {
+	Label() *string
+}
+
+// The jsii proxy struct for ReleaseLabel
+type jsiiProxy_ReleaseLabel struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_ReleaseLabel) Label() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"label",
+		&returns,
+	)
+	return returns
+}
+
+
+// Initializes the label string.
+func NewReleaseLabel(label *string) ReleaseLabel {
+	_init_.Initialize()
+
+	j := jsiiProxy_ReleaseLabel{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_stepfunctions_tasks.ReleaseLabel",
+		[]interface{}{label},
+		&j,
+	)
+
+	return &j
+}
+
+// Initializes the label string.
+func NewReleaseLabel_Override(r ReleaseLabel, label *string) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_stepfunctions_tasks.ReleaseLabel",
+		[]interface{}{label},
+		r,
+	)
+}
+
+func ReleaseLabel_EMR_5_32_0() ReleaseLabel {
+	_init_.Initialize()
+	var returns ReleaseLabel
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_stepfunctions_tasks.ReleaseLabel",
+		"EMR_5_32_0",
+		&returns,
+	)
+	return returns
+}
+
+func ReleaseLabel_EMR_5_33_0() ReleaseLabel {
+	_init_.Initialize()
+	var returns ReleaseLabel
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_stepfunctions_tasks.ReleaseLabel",
+		"EMR_5_33_0",
+		&returns,
+	)
+	return returns
+}
+
+func ReleaseLabel_EMR_6_2_0() ReleaseLabel {
+	_init_.Initialize()
+	var returns ReleaseLabel
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_stepfunctions_tasks.ReleaseLabel",
+		"EMR_6_2_0",
+		&returns,
+	)
+	return returns
+}
+
+func ReleaseLabel_EMR_6_3_0() ReleaseLabel {
+	_init_.Initialize()
+	var returns ReleaseLabel
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_stepfunctions_tasks.ReleaseLabel",
+		"EMR_6_3_0",
+		&returns,
+	)
+	return returns
+}
 
 // Specifies the resources, ML compute instances, and ML storage volumes to deploy for model training.
 //
@@ -30073,6 +32838,25 @@ type SnsPublishProps struct {
 	Subject *string `json:"subject"`
 }
 
+// The information about job driver for Spark submit.
+//
+// TODO: EXAMPLE
+//
+type SparkSubmitJobDriver struct {
+	// The entry point of job application.
+	//
+	// Length Constraints: Minimum length of 1. Maximum length of 256.
+	EntryPoint awsstepfunctions.TaskInput `json:"entryPoint"`
+	// The arguments for a job application in a task input object containing an array of strings.
+	//
+	// Length Constraints: Minimum length of 1. Maximum length of 10280.
+	EntryPointArguments awsstepfunctions.TaskInput `json:"entryPointArguments"`
+	// The Spark submit parameters that are used for job runs.
+	//
+	// Length Constraints: Minimum length of 1. Maximum length of 102400.
+	SparkSubmitParameters *string `json:"sparkSubmitParameters"`
+}
+
 // Method to use to split the transform job's data files into smaller batches.
 type SplitType string
 
@@ -32580,6 +35364,62 @@ type TransformS3DataSource struct {
 	S3Uri *string `json:"s3Uri"`
 	// S3 Data Type.
 	S3DataType S3DataType `json:"s3DataType"`
+}
+
+// Class that returns a virtual cluster's id depending on input type.
+//
+// TODO: EXAMPLE
+//
+type VirtualClusterInput interface {
+	Id() *string
+}
+
+// The jsii proxy struct for VirtualClusterInput
+type jsiiProxy_VirtualClusterInput struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_VirtualClusterInput) Id() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"id",
+		&returns,
+	)
+	return returns
+}
+
+
+// Input for a virtualClusterId from a Task Input.
+func VirtualClusterInput_FromTaskInput(taskInput awsstepfunctions.TaskInput) VirtualClusterInput {
+	_init_.Initialize()
+
+	var returns VirtualClusterInput
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.VirtualClusterInput",
+		"fromTaskInput",
+		[]interface{}{taskInput},
+		&returns,
+	)
+
+	return returns
+}
+
+// Input for virtualClusterId from a literal string.
+func VirtualClusterInput_FromVirtualClusterId(virtualClusterId *string) VirtualClusterInput {
+	_init_.Initialize()
+
+	var returns VirtualClusterInput
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_stepfunctions_tasks.VirtualClusterInput",
+		"fromVirtualClusterId",
+		[]interface{}{virtualClusterId},
+		&returns,
+	)
+
+	return returns
 }
 
 // Specifies the VPC that you want your Amazon SageMaker training job to connect to.

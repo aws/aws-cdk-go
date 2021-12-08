@@ -27,28 +27,30 @@ type jsiiProxy_HttpJwtAuthorizer struct {
 	internal.Type__awscdkapigatewayv2alphaIHttpRouteAuthorizer
 }
 
+// Initialize a JWT authorizer to be bound with HTTP route.
 // Experimental.
-func NewHttpJwtAuthorizer(props *HttpJwtAuthorizerProps) HttpJwtAuthorizer {
+func NewHttpJwtAuthorizer(id *string, jwtIssuer *string, props *HttpJwtAuthorizerProps) HttpJwtAuthorizer {
 	_init_.Initialize()
 
 	j := jsiiProxy_HttpJwtAuthorizer{}
 
 	_jsii_.Create(
 		"@aws-cdk/aws-apigatewayv2-authorizers-alpha.HttpJwtAuthorizer",
-		[]interface{}{props},
+		[]interface{}{id, jwtIssuer, props},
 		&j,
 	)
 
 	return &j
 }
 
+// Initialize a JWT authorizer to be bound with HTTP route.
 // Experimental.
-func NewHttpJwtAuthorizer_Override(h HttpJwtAuthorizer, props *HttpJwtAuthorizerProps) {
+func NewHttpJwtAuthorizer_Override(h HttpJwtAuthorizer, id *string, jwtIssuer *string, props *HttpJwtAuthorizerProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"@aws-cdk/aws-apigatewayv2-authorizers-alpha.HttpJwtAuthorizer",
-		[]interface{}{props},
+		[]interface{}{id, jwtIssuer, props},
 		h,
 	)
 }
@@ -79,9 +81,6 @@ type HttpJwtAuthorizerProps struct {
 	// A valid JWT must provide an aud that matches at least one entry in this list.
 	// Experimental.
 	JwtAudience *[]*string `json:"jwtAudience"`
-	// The base domain of the identity provider that issues JWT.
-	// Experimental.
-	JwtIssuer *string `json:"jwtIssuer"`
 	// The name of the authorizer.
 	// Experimental.
 	AuthorizerName *string `json:"authorizerName"`
@@ -105,28 +104,30 @@ type jsiiProxy_HttpLambdaAuthorizer struct {
 	internal.Type__awscdkapigatewayv2alphaIHttpRouteAuthorizer
 }
 
+// Initialize a lambda authorizer to be bound with HTTP route.
 // Experimental.
-func NewHttpLambdaAuthorizer(props *HttpLambdaAuthorizerProps) HttpLambdaAuthorizer {
+func NewHttpLambdaAuthorizer(id *string, handler awslambda.IFunction, props *HttpLambdaAuthorizerProps) HttpLambdaAuthorizer {
 	_init_.Initialize()
 
 	j := jsiiProxy_HttpLambdaAuthorizer{}
 
 	_jsii_.Create(
 		"@aws-cdk/aws-apigatewayv2-authorizers-alpha.HttpLambdaAuthorizer",
-		[]interface{}{props},
+		[]interface{}{id, handler, props},
 		&j,
 	)
 
 	return &j
 }
 
+// Initialize a lambda authorizer to be bound with HTTP route.
 // Experimental.
-func NewHttpLambdaAuthorizer_Override(h HttpLambdaAuthorizer, props *HttpLambdaAuthorizerProps) {
+func NewHttpLambdaAuthorizer_Override(h HttpLambdaAuthorizer, id *string, handler awslambda.IFunction, props *HttpLambdaAuthorizerProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"@aws-cdk/aws-apigatewayv2-authorizers-alpha.HttpLambdaAuthorizer",
-		[]interface{}{props},
+		[]interface{}{id, handler, props},
 		h,
 	)
 }
@@ -152,12 +153,9 @@ func (h *jsiiProxy_HttpLambdaAuthorizer) Bind(options *awscdkapigatewayv2alpha.H
 //
 // Experimental.
 type HttpLambdaAuthorizerProps struct {
-	// The name of the authorizer.
+	// Friendly authorizer name.
 	// Experimental.
 	AuthorizerName *string `json:"authorizerName"`
-	// The lambda function used for authorization.
-	// Experimental.
-	Handler awslambda.IFunction `json:"handler"`
 	// The identity source for which authorization is requested.
 	// Experimental.
 	IdentitySource *[]*string `json:"identitySource"`
@@ -201,28 +199,30 @@ type jsiiProxy_HttpUserPoolAuthorizer struct {
 	internal.Type__awscdkapigatewayv2alphaIHttpRouteAuthorizer
 }
 
+// Initialize a Cognito user pool authorizer to be bound with HTTP route.
 // Experimental.
-func NewHttpUserPoolAuthorizer(props *UserPoolAuthorizerProps) HttpUserPoolAuthorizer {
+func NewHttpUserPoolAuthorizer(id *string, pool awscognito.IUserPool, props *HttpUserPoolAuthorizerProps) HttpUserPoolAuthorizer {
 	_init_.Initialize()
 
 	j := jsiiProxy_HttpUserPoolAuthorizer{}
 
 	_jsii_.Create(
 		"@aws-cdk/aws-apigatewayv2-authorizers-alpha.HttpUserPoolAuthorizer",
-		[]interface{}{props},
+		[]interface{}{id, pool, props},
 		&j,
 	)
 
 	return &j
 }
 
+// Initialize a Cognito user pool authorizer to be bound with HTTP route.
 // Experimental.
-func NewHttpUserPoolAuthorizer_Override(h HttpUserPoolAuthorizer, props *UserPoolAuthorizerProps) {
+func NewHttpUserPoolAuthorizer_Override(h HttpUserPoolAuthorizer, id *string, pool awscognito.IUserPool, props *HttpUserPoolAuthorizerProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"@aws-cdk/aws-apigatewayv2-authorizers-alpha.HttpUserPoolAuthorizer",
-		[]interface{}{props},
+		[]interface{}{id, pool, props},
 		h,
 	)
 }
@@ -242,24 +242,21 @@ func (h *jsiiProxy_HttpUserPoolAuthorizer) Bind(options *awscdkapigatewayv2alpha
 	return returns
 }
 
-// Properties to initialize UserPoolAuthorizer.
+// Properties to initialize HttpUserPoolAuthorizer.
 //
 // TODO: EXAMPLE
 //
 // Experimental.
-type UserPoolAuthorizerProps struct {
-	// The associated user pool.
-	// Experimental.
-	UserPool awscognito.IUserPool `json:"userPool"`
-	// The user pool clients that should be used to authorize requests with the user pool.
-	// Experimental.
-	UserPoolClients *[]awscognito.IUserPoolClient `json:"userPoolClients"`
-	// The name of the authorizer.
+type HttpUserPoolAuthorizerProps struct {
+	// Friendly name of the authorizer.
 	// Experimental.
 	AuthorizerName *string `json:"authorizerName"`
 	// The identity source for which authorization is requested.
 	// Experimental.
 	IdentitySource *[]*string `json:"identitySource"`
+	// The user pool clients that should be used to authorize requests with the user pool.
+	// Experimental.
+	UserPoolClients *[]awscognito.IUserPoolClient `json:"userPoolClients"`
 	// The AWS region in which the user pool is present.
 	// Experimental.
 	UserPoolRegion *string `json:"userPoolRegion"`

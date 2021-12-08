@@ -181,6 +181,7 @@ func init() {
 		"aws-cdk-lib.aws_certificatemanager.ICertificate",
 		reflect.TypeOf((*ICertificate)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "certificateArn", GoGetter: "CertificateArn"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "metricDaysToExpiry", GoMethod: "MetricDaysToExpiry"},

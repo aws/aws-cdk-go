@@ -18,7 +18,7 @@ import (
 //
 // Experimental.
 type HttpAlbIntegration interface {
-	awscdkapigatewayv2alpha.IHttpRouteIntegration
+	awscdkapigatewayv2alpha.HttpRouteIntegration
 	ConnectionType() awscdkapigatewayv2alpha.HttpConnectionType
 	SetConnectionType(val awscdkapigatewayv2alpha.HttpConnectionType)
 	HttpMethod() awscdkapigatewayv2alpha.HttpMethod
@@ -32,7 +32,7 @@ type HttpAlbIntegration interface {
 
 // The jsii proxy struct for HttpAlbIntegration
 type jsiiProxy_HttpAlbIntegration struct {
-	internal.Type__awscdkapigatewayv2alphaIHttpRouteIntegration
+	internal.Type__awscdkapigatewayv2alphaHttpRouteIntegration
 }
 
 func (j *jsiiProxy_HttpAlbIntegration) ConnectionType() awscdkapigatewayv2alpha.HttpConnectionType {
@@ -77,14 +77,14 @@ func (j *jsiiProxy_HttpAlbIntegration) PayloadFormatVersion() awscdkapigatewayv2
 
 
 // Experimental.
-func NewHttpAlbIntegration(props *HttpAlbIntegrationProps) HttpAlbIntegration {
+func NewHttpAlbIntegration(id *string, listener awselasticloadbalancingv2.IApplicationListener, props *HttpAlbIntegrationProps) HttpAlbIntegration {
 	_init_.Initialize()
 
 	j := jsiiProxy_HttpAlbIntegration{}
 
 	_jsii_.Create(
 		"@aws-cdk/aws-apigatewayv2-integrations-alpha.HttpAlbIntegration",
-		[]interface{}{props},
+		[]interface{}{id, listener, props},
 		&j,
 	)
 
@@ -92,12 +92,12 @@ func NewHttpAlbIntegration(props *HttpAlbIntegrationProps) HttpAlbIntegration {
 }
 
 // Experimental.
-func NewHttpAlbIntegration_Override(h HttpAlbIntegration, props *HttpAlbIntegrationProps) {
+func NewHttpAlbIntegration_Override(h HttpAlbIntegration, id *string, listener awselasticloadbalancingv2.IApplicationListener, props *HttpAlbIntegrationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"@aws-cdk/aws-apigatewayv2-integrations-alpha.HttpAlbIntegration",
-		[]interface{}{props},
+		[]interface{}{id, listener, props},
 		h,
 	)
 }
@@ -171,9 +171,80 @@ type HttpAlbIntegrationProps struct {
 	// The vpc link to be used for the private integration.
 	// Experimental.
 	VpcLink awscdkapigatewayv2alpha.IVpcLink `json:"vpcLink"`
-	// The listener to the application load balancer used for the integration.
+}
+
+// The Lambda Proxy integration resource for HTTP API.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type HttpLambdaIntegration interface {
+	awscdkapigatewayv2alpha.HttpRouteIntegration
+	Bind(options *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig
+}
+
+// The jsii proxy struct for HttpLambdaIntegration
+type jsiiProxy_HttpLambdaIntegration struct {
+	internal.Type__awscdkapigatewayv2alphaHttpRouteIntegration
+}
+
+// Experimental.
+func NewHttpLambdaIntegration(id *string, handler awslambda.IFunction, props *HttpLambdaIntegrationProps) HttpLambdaIntegration {
+	_init_.Initialize()
+
+	j := jsiiProxy_HttpLambdaIntegration{}
+
+	_jsii_.Create(
+		"@aws-cdk/aws-apigatewayv2-integrations-alpha.HttpLambdaIntegration",
+		[]interface{}{id, handler, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewHttpLambdaIntegration_Override(h HttpLambdaIntegration, id *string, handler awslambda.IFunction, props *HttpLambdaIntegrationProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"@aws-cdk/aws-apigatewayv2-integrations-alpha.HttpLambdaIntegration",
+		[]interface{}{id, handler, props},
+		h,
+	)
+}
+
+// (experimental) Bind this integration to the route.
+// Experimental.
+func (h *jsiiProxy_HttpLambdaIntegration) Bind(options *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig {
+	var returns *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig
+
+	_jsii_.Invoke(
+		h,
+		"bind",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Lambda Proxy integration properties.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type HttpLambdaIntegrationProps struct {
+	// Specifies how to transform HTTP requests before sending them to the backend.
+	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html
+	//
 	// Experimental.
-	Listener awselasticloadbalancingv2.IApplicationListener `json:"listener"`
+	ParameterMapping awscdkapigatewayv2alpha.ParameterMapping `json:"parameterMapping"`
+	// Version of the payload sent to the lambda handler.
+	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
+	//
+	// Experimental.
+	PayloadFormatVersion awscdkapigatewayv2alpha.PayloadFormatVersion `json:"payloadFormatVersion"`
 }
 
 // The Network Load Balancer integration resource for HTTP API.
@@ -182,7 +253,7 @@ type HttpAlbIntegrationProps struct {
 //
 // Experimental.
 type HttpNlbIntegration interface {
-	awscdkapigatewayv2alpha.IHttpRouteIntegration
+	awscdkapigatewayv2alpha.HttpRouteIntegration
 	ConnectionType() awscdkapigatewayv2alpha.HttpConnectionType
 	SetConnectionType(val awscdkapigatewayv2alpha.HttpConnectionType)
 	HttpMethod() awscdkapigatewayv2alpha.HttpMethod
@@ -196,7 +267,7 @@ type HttpNlbIntegration interface {
 
 // The jsii proxy struct for HttpNlbIntegration
 type jsiiProxy_HttpNlbIntegration struct {
-	internal.Type__awscdkapigatewayv2alphaIHttpRouteIntegration
+	internal.Type__awscdkapigatewayv2alphaHttpRouteIntegration
 }
 
 func (j *jsiiProxy_HttpNlbIntegration) ConnectionType() awscdkapigatewayv2alpha.HttpConnectionType {
@@ -241,14 +312,14 @@ func (j *jsiiProxy_HttpNlbIntegration) PayloadFormatVersion() awscdkapigatewayv2
 
 
 // Experimental.
-func NewHttpNlbIntegration(props *HttpNlbIntegrationProps) HttpNlbIntegration {
+func NewHttpNlbIntegration(id *string, listener awselasticloadbalancingv2.INetworkListener, props *HttpNlbIntegrationProps) HttpNlbIntegration {
 	_init_.Initialize()
 
 	j := jsiiProxy_HttpNlbIntegration{}
 
 	_jsii_.Create(
 		"@aws-cdk/aws-apigatewayv2-integrations-alpha.HttpNlbIntegration",
-		[]interface{}{props},
+		[]interface{}{id, listener, props},
 		&j,
 	)
 
@@ -256,12 +327,12 @@ func NewHttpNlbIntegration(props *HttpNlbIntegrationProps) HttpNlbIntegration {
 }
 
 // Experimental.
-func NewHttpNlbIntegration_Override(h HttpNlbIntegration, props *HttpNlbIntegrationProps) {
+func NewHttpNlbIntegration_Override(h HttpNlbIntegration, id *string, listener awselasticloadbalancingv2.INetworkListener, props *HttpNlbIntegrationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"@aws-cdk/aws-apigatewayv2-integrations-alpha.HttpNlbIntegration",
-		[]interface{}{props},
+		[]interface{}{id, listener, props},
 		h,
 	)
 }
@@ -335,9 +406,6 @@ type HttpNlbIntegrationProps struct {
 	// The vpc link to be used for the private integration.
 	// Experimental.
 	VpcLink awscdkapigatewayv2alpha.IVpcLink `json:"vpcLink"`
-	// The listener to the network load balancer used for the integration.
-	// Experimental.
-	Listener awselasticloadbalancingv2.INetworkListener `json:"listener"`
 }
 
 // Base options for private integration.
@@ -364,88 +432,13 @@ type HttpPrivateIntegrationOptions struct {
 	VpcLink awscdkapigatewayv2alpha.IVpcLink `json:"vpcLink"`
 }
 
-// The HTTP Proxy integration resource for HTTP API.
-//
-// TODO: EXAMPLE
-//
-// Experimental.
-type HttpProxyIntegration interface {
-	awscdkapigatewayv2alpha.IHttpRouteIntegration
-	Bind(_arg *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig
-}
-
-// The jsii proxy struct for HttpProxyIntegration
-type jsiiProxy_HttpProxyIntegration struct {
-	internal.Type__awscdkapigatewayv2alphaIHttpRouteIntegration
-}
-
-// Experimental.
-func NewHttpProxyIntegration(props *HttpProxyIntegrationProps) HttpProxyIntegration {
-	_init_.Initialize()
-
-	j := jsiiProxy_HttpProxyIntegration{}
-
-	_jsii_.Create(
-		"@aws-cdk/aws-apigatewayv2-integrations-alpha.HttpProxyIntegration",
-		[]interface{}{props},
-		&j,
-	)
-
-	return &j
-}
-
-// Experimental.
-func NewHttpProxyIntegration_Override(h HttpProxyIntegration, props *HttpProxyIntegrationProps) {
-	_init_.Initialize()
-
-	_jsii_.Create(
-		"@aws-cdk/aws-apigatewayv2-integrations-alpha.HttpProxyIntegration",
-		[]interface{}{props},
-		h,
-	)
-}
-
-// (experimental) Bind this integration to the route.
-// Experimental.
-func (h *jsiiProxy_HttpProxyIntegration) Bind(_arg *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig {
-	var returns *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig
-
-	_jsii_.Invoke(
-		h,
-		"bind",
-		[]interface{}{_arg},
-		&returns,
-	)
-
-	return returns
-}
-
-// Properties to initialize a new `HttpProxyIntegration`.
-//
-// TODO: EXAMPLE
-//
-// Experimental.
-type HttpProxyIntegrationProps struct {
-	// The full-qualified HTTP URL for the HTTP integration.
-	// Experimental.
-	Url *string `json:"url"`
-	// The HTTP method that must be used to invoke the underlying HTTP proxy.
-	// Experimental.
-	Method awscdkapigatewayv2alpha.HttpMethod `json:"method"`
-	// Specifies how to transform HTTP requests before sending them to the backend.
-	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html
-	//
-	// Experimental.
-	ParameterMapping awscdkapigatewayv2alpha.ParameterMapping `json:"parameterMapping"`
-}
-
 // The Service Discovery integration resource for HTTP API.
 //
 // TODO: EXAMPLE
 //
 // Experimental.
 type HttpServiceDiscoveryIntegration interface {
-	awscdkapigatewayv2alpha.IHttpRouteIntegration
+	awscdkapigatewayv2alpha.HttpRouteIntegration
 	ConnectionType() awscdkapigatewayv2alpha.HttpConnectionType
 	SetConnectionType(val awscdkapigatewayv2alpha.HttpConnectionType)
 	HttpMethod() awscdkapigatewayv2alpha.HttpMethod
@@ -459,7 +452,7 @@ type HttpServiceDiscoveryIntegration interface {
 
 // The jsii proxy struct for HttpServiceDiscoveryIntegration
 type jsiiProxy_HttpServiceDiscoveryIntegration struct {
-	internal.Type__awscdkapigatewayv2alphaIHttpRouteIntegration
+	internal.Type__awscdkapigatewayv2alphaHttpRouteIntegration
 }
 
 func (j *jsiiProxy_HttpServiceDiscoveryIntegration) ConnectionType() awscdkapigatewayv2alpha.HttpConnectionType {
@@ -504,14 +497,14 @@ func (j *jsiiProxy_HttpServiceDiscoveryIntegration) PayloadFormatVersion() awscd
 
 
 // Experimental.
-func NewHttpServiceDiscoveryIntegration(props *HttpServiceDiscoveryIntegrationProps) HttpServiceDiscoveryIntegration {
+func NewHttpServiceDiscoveryIntegration(id *string, service awsservicediscovery.IService, props *HttpServiceDiscoveryIntegrationProps) HttpServiceDiscoveryIntegration {
 	_init_.Initialize()
 
 	j := jsiiProxy_HttpServiceDiscoveryIntegration{}
 
 	_jsii_.Create(
 		"@aws-cdk/aws-apigatewayv2-integrations-alpha.HttpServiceDiscoveryIntegration",
-		[]interface{}{props},
+		[]interface{}{id, service, props},
 		&j,
 	)
 
@@ -519,12 +512,12 @@ func NewHttpServiceDiscoveryIntegration(props *HttpServiceDiscoveryIntegrationPr
 }
 
 // Experimental.
-func NewHttpServiceDiscoveryIntegration_Override(h HttpServiceDiscoveryIntegration, props *HttpServiceDiscoveryIntegrationProps) {
+func NewHttpServiceDiscoveryIntegration_Override(h HttpServiceDiscoveryIntegration, id *string, service awsservicediscovery.IService, props *HttpServiceDiscoveryIntegrationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
 		"@aws-cdk/aws-apigatewayv2-integrations-alpha.HttpServiceDiscoveryIntegration",
-		[]interface{}{props},
+		[]interface{}{id, service, props},
 		h,
 	)
 }
@@ -598,35 +591,32 @@ type HttpServiceDiscoveryIntegrationProps struct {
 	// The vpc link to be used for the private integration.
 	// Experimental.
 	VpcLink awscdkapigatewayv2alpha.IVpcLink `json:"vpcLink"`
-	// The discovery service used for the integration.
-	// Experimental.
-	Service awsservicediscovery.IService `json:"service"`
 }
 
-// The Lambda Proxy integration resource for HTTP API.
+// The HTTP Proxy integration resource for HTTP API.
 //
 // TODO: EXAMPLE
 //
 // Experimental.
-type LambdaProxyIntegration interface {
-	awscdkapigatewayv2alpha.IHttpRouteIntegration
-	Bind(options *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig
+type HttpUrlIntegration interface {
+	awscdkapigatewayv2alpha.HttpRouteIntegration
+	Bind(_arg *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig
 }
 
-// The jsii proxy struct for LambdaProxyIntegration
-type jsiiProxy_LambdaProxyIntegration struct {
-	internal.Type__awscdkapigatewayv2alphaIHttpRouteIntegration
+// The jsii proxy struct for HttpUrlIntegration
+type jsiiProxy_HttpUrlIntegration struct {
+	internal.Type__awscdkapigatewayv2alphaHttpRouteIntegration
 }
 
 // Experimental.
-func NewLambdaProxyIntegration(props *LambdaProxyIntegrationProps) LambdaProxyIntegration {
+func NewHttpUrlIntegration(id *string, url *string, props *HttpUrlIntegrationProps) HttpUrlIntegration {
 	_init_.Initialize()
 
-	j := jsiiProxy_LambdaProxyIntegration{}
+	j := jsiiProxy_HttpUrlIntegration{}
 
 	_jsii_.Create(
-		"@aws-cdk/aws-apigatewayv2-integrations-alpha.LambdaProxyIntegration",
-		[]interface{}{props},
+		"@aws-cdk/aws-apigatewayv2-integrations-alpha.HttpUrlIntegration",
+		[]interface{}{id, url, props},
 		&j,
 	)
 
@@ -634,50 +624,45 @@ func NewLambdaProxyIntegration(props *LambdaProxyIntegrationProps) LambdaProxyIn
 }
 
 // Experimental.
-func NewLambdaProxyIntegration_Override(l LambdaProxyIntegration, props *LambdaProxyIntegrationProps) {
+func NewHttpUrlIntegration_Override(h HttpUrlIntegration, id *string, url *string, props *HttpUrlIntegrationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"@aws-cdk/aws-apigatewayv2-integrations-alpha.LambdaProxyIntegration",
-		[]interface{}{props},
-		l,
+		"@aws-cdk/aws-apigatewayv2-integrations-alpha.HttpUrlIntegration",
+		[]interface{}{id, url, props},
+		h,
 	)
 }
 
 // (experimental) Bind this integration to the route.
 // Experimental.
-func (l *jsiiProxy_LambdaProxyIntegration) Bind(options *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig {
+func (h *jsiiProxy_HttpUrlIntegration) Bind(_arg *awscdkapigatewayv2alpha.HttpRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig {
 	var returns *awscdkapigatewayv2alpha.HttpRouteIntegrationConfig
 
 	_jsii_.Invoke(
-		l,
+		h,
 		"bind",
-		[]interface{}{options},
+		[]interface{}{_arg},
 		&returns,
 	)
 
 	return returns
 }
 
-// Lambda Proxy integration properties.
+// Properties to initialize a new `HttpProxyIntegration`.
 //
 // TODO: EXAMPLE
 //
 // Experimental.
-type LambdaProxyIntegrationProps struct {
-	// The handler for this integration.
+type HttpUrlIntegrationProps struct {
+	// The HTTP method that must be used to invoke the underlying HTTP proxy.
 	// Experimental.
-	Handler awslambda.IFunction `json:"handler"`
+	Method awscdkapigatewayv2alpha.HttpMethod `json:"method"`
 	// Specifies how to transform HTTP requests before sending them to the backend.
 	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html
 	//
 	// Experimental.
 	ParameterMapping awscdkapigatewayv2alpha.ParameterMapping `json:"parameterMapping"`
-	// Version of the payload sent to the lambda handler.
-	// See: https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-integrations-lambda.html
-	//
-	// Experimental.
-	PayloadFormatVersion awscdkapigatewayv2alpha.PayloadFormatVersion `json:"payloadFormatVersion"`
 }
 
 // Lambda WebSocket Integration.
@@ -685,25 +670,25 @@ type LambdaProxyIntegrationProps struct {
 // TODO: EXAMPLE
 //
 // Experimental.
-type LambdaWebSocketIntegration interface {
-	awscdkapigatewayv2alpha.IWebSocketRouteIntegration
+type WebSocketLambdaIntegration interface {
+	awscdkapigatewayv2alpha.WebSocketRouteIntegration
 	Bind(options *awscdkapigatewayv2alpha.WebSocketRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.WebSocketRouteIntegrationConfig
 }
 
-// The jsii proxy struct for LambdaWebSocketIntegration
-type jsiiProxy_LambdaWebSocketIntegration struct {
-	internal.Type__awscdkapigatewayv2alphaIWebSocketRouteIntegration
+// The jsii proxy struct for WebSocketLambdaIntegration
+type jsiiProxy_WebSocketLambdaIntegration struct {
+	internal.Type__awscdkapigatewayv2alphaWebSocketRouteIntegration
 }
 
 // Experimental.
-func NewLambdaWebSocketIntegration(props *LambdaWebSocketIntegrationProps) LambdaWebSocketIntegration {
+func NewWebSocketLambdaIntegration(id *string, handler awslambda.IFunction) WebSocketLambdaIntegration {
 	_init_.Initialize()
 
-	j := jsiiProxy_LambdaWebSocketIntegration{}
+	j := jsiiProxy_WebSocketLambdaIntegration{}
 
 	_jsii_.Create(
-		"@aws-cdk/aws-apigatewayv2-integrations-alpha.LambdaWebSocketIntegration",
-		[]interface{}{props},
+		"@aws-cdk/aws-apigatewayv2-integrations-alpha.WebSocketLambdaIntegration",
+		[]interface{}{id, handler},
 		&j,
 	)
 
@@ -711,39 +696,28 @@ func NewLambdaWebSocketIntegration(props *LambdaWebSocketIntegrationProps) Lambd
 }
 
 // Experimental.
-func NewLambdaWebSocketIntegration_Override(l LambdaWebSocketIntegration, props *LambdaWebSocketIntegrationProps) {
+func NewWebSocketLambdaIntegration_Override(w WebSocketLambdaIntegration, id *string, handler awslambda.IFunction) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"@aws-cdk/aws-apigatewayv2-integrations-alpha.LambdaWebSocketIntegration",
-		[]interface{}{props},
-		l,
+		"@aws-cdk/aws-apigatewayv2-integrations-alpha.WebSocketLambdaIntegration",
+		[]interface{}{id, handler},
+		w,
 	)
 }
 
 // (experimental) Bind this integration to the route.
 // Experimental.
-func (l *jsiiProxy_LambdaWebSocketIntegration) Bind(options *awscdkapigatewayv2alpha.WebSocketRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.WebSocketRouteIntegrationConfig {
+func (w *jsiiProxy_WebSocketLambdaIntegration) Bind(options *awscdkapigatewayv2alpha.WebSocketRouteIntegrationBindOptions) *awscdkapigatewayv2alpha.WebSocketRouteIntegrationConfig {
 	var returns *awscdkapigatewayv2alpha.WebSocketRouteIntegrationConfig
 
 	_jsii_.Invoke(
-		l,
+		w,
 		"bind",
 		[]interface{}{options},
 		&returns,
 	)
 
 	return returns
-}
-
-// Lambda WebSocket Integration props.
-//
-// TODO: EXAMPLE
-//
-// Experimental.
-type LambdaWebSocketIntegrationProps struct {
-	// The handler for this integration.
-	// Experimental.
-	Handler awslambda.IFunction `json:"handler"`
 }
 

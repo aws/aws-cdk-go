@@ -8,6 +8,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscertificatemanager"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awscognito/internal"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
 	"github.com/aws/constructs-go/constructs/v10"
 )
@@ -11799,12 +11800,34 @@ func UserPoolOperation_CREATE_AUTH_CHALLENGE() UserPoolOperation {
 	return returns
 }
 
+func UserPoolOperation_CUSTOM_EMAIL_SENDER() UserPoolOperation {
+	_init_.Initialize()
+	var returns UserPoolOperation
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_cognito.UserPoolOperation",
+		"CUSTOM_EMAIL_SENDER",
+		&returns,
+	)
+	return returns
+}
+
 func UserPoolOperation_CUSTOM_MESSAGE() UserPoolOperation {
 	_init_.Initialize()
 	var returns UserPoolOperation
 	_jsii_.StaticGet(
 		"aws-cdk-lib.aws_cognito.UserPoolOperation",
 		"CUSTOM_MESSAGE",
+		&returns,
+	)
+	return returns
+}
+
+func UserPoolOperation_CUSTOM_SMS_SENDER() UserPoolOperation {
+	_init_.Initialize()
+	var returns UserPoolOperation
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_cognito.UserPoolOperation",
+		"CUSTOM_SMS_SENDER",
 		&returns,
 	)
 	return returns
@@ -11911,6 +11934,10 @@ type UserPoolProps struct {
 	AutoVerify *AutoVerifiedAttrs `json:"autoVerify"`
 	// Define a set of custom attributes that can be configured for each user in the user pool.
 	CustomAttributes *map[string]ICustomAttribute `json:"customAttributes"`
+	// This key will be used to encrypt temporary passwords and authorization codes that Amazon Cognito generates.
+	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-custom-sender-triggers.html
+	//
+	CustomSenderKmsKey awskms.IKey `json:"customSenderKmsKey"`
 	// Device tracking settings.
 	DeviceTracking *DeviceTracking `json:"deviceTracking"`
 	// Email settings for a user pool.
@@ -12281,10 +12308,18 @@ type UserPoolTriggers struct {
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-create-auth-challenge.html
 	//
 	CreateAuthChallenge awslambda.IFunction `json:"createAuthChallenge"`
+	// Amazon Cognito invokes this trigger to send email notifications to users.
+	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-custom-email-sender.html
+	//
+	CustomEmailSender awslambda.IFunction `json:"customEmailSender"`
 	// A custom Message AWS Lambda trigger.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-custom-message.html
 	//
 	CustomMessage awslambda.IFunction `json:"customMessage"`
+	// Amazon Cognito invokes this trigger to send SMS notifications to users.
+	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-custom-sms-sender.html
+	//
+	CustomSmsSender awslambda.IFunction `json:"customSmsSender"`
 	// Defines the authentication challenge.
 	// See: https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-define-auth-challenge.html
 	//

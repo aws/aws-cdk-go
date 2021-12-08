@@ -635,6 +635,10 @@ type ProviderProps struct {
 	// updating this property, unsetting it doesn't remove the log retention policy.
 	// To remove the retention policy, set the value to `INFINITE`.
 	LogRetention awslogs.RetentionDays `json:"logRetention"`
+	// Provider Lambda name.
+	//
+	// The provider lambda function name.
+	ProviderFunctionName *string `json:"providerFunctionName"`
 	// Time between calls to the `isComplete` handler which determines if the resource has been stabilized.
 	//
 	// The first `isComplete` will be called immediately after `handler` and then

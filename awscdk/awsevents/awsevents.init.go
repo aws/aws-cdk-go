@@ -465,6 +465,7 @@ func init() {
 		"aws-cdk-lib.aws_events.IEventBus",
 		reflect.TypeOf((*IEventBus)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberMethod{JsiiMethod: "archive", GoMethod: "Archive"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "eventBusArn", GoGetter: "EventBusArn"},
@@ -485,6 +486,7 @@ func init() {
 		"aws-cdk-lib.aws_events.IRule",
 		reflect.TypeOf((*IRule)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "ruleArn", GoGetter: "RuleArn"},

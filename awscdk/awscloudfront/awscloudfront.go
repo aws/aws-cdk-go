@@ -45,6 +45,10 @@ type AddBehaviorOptions struct {
 	// The origin request policy determines which values (e.g., headers, cookies)
 	// are included in requests that CloudFront sends to the origin.
 	OriginRequestPolicy IOriginRequestPolicy `json:"originRequestPolicy"`
+	// The response headers policy for this behavior.
+	//
+	// The response headers policy determines which headers are included in responses
+	ResponseHeadersPolicy IResponseHeadersPolicy `json:"responseHeadersPolicy"`
 	// Set this to true to indicate you want to distribute media files in the Microsoft Smooth Streaming format using this behavior.
 	SmoothStreaming *bool `json:"smoothStreaming"`
 	// A list of Key Groups that CloudFront can use to validate signed URLs or signed cookies.
@@ -187,6 +191,10 @@ type BehaviorOptions struct {
 	// The origin request policy determines which values (e.g., headers, cookies)
 	// are included in requests that CloudFront sends to the origin.
 	OriginRequestPolicy IOriginRequestPolicy `json:"originRequestPolicy"`
+	// The response headers policy for this behavior.
+	//
+	// The response headers policy determines which headers are included in responses
+	ResponseHeadersPolicy IResponseHeadersPolicy `json:"responseHeadersPolicy"`
 	// Set this to true to indicate you want to distribute media files in the Microsoft Smooth Streaming format using this behavior.
 	SmoothStreaming *bool `json:"smoothStreaming"`
 	// A list of Key Groups that CloudFront can use to validate signed URLs or signed cookies.
@@ -7989,6 +7997,34 @@ func GeoRestriction_Denylist(locations ...*string) GeoRestriction {
 	return returns
 }
 
+// Enum representing possible values of the X-Frame-Options HTTP response header.
+//
+// TODO: EXAMPLE
+//
+type HeadersFrameOption string
+
+const (
+	HeadersFrameOption_DENY HeadersFrameOption = "DENY"
+	HeadersFrameOption_SAMEORIGIN HeadersFrameOption = "SAMEORIGIN"
+)
+
+// Enum representing possible values of the Referrer-Policy HTTP response header.
+//
+// TODO: EXAMPLE
+//
+type HeadersReferrerPolicy string
+
+const (
+	HeadersReferrerPolicy_NO_REFERRER HeadersReferrerPolicy = "NO_REFERRER"
+	HeadersReferrerPolicy_NO_REFERRER_WHEN_DOWNGRADE HeadersReferrerPolicy = "NO_REFERRER_WHEN_DOWNGRADE"
+	HeadersReferrerPolicy_ORIGIN HeadersReferrerPolicy = "ORIGIN"
+	HeadersReferrerPolicy_ORIGIN_WHEN_CROSS_ORIGIN HeadersReferrerPolicy = "ORIGIN_WHEN_CROSS_ORIGIN"
+	HeadersReferrerPolicy_SAME_ORIGIN HeadersReferrerPolicy = "SAME_ORIGIN"
+	HeadersReferrerPolicy_STRICT_ORIGIN HeadersReferrerPolicy = "STRICT_ORIGIN"
+	HeadersReferrerPolicy_STRICT_ORIGIN_WHEN_CROSS_ORIGIN HeadersReferrerPolicy = "STRICT_ORIGIN_WHEN_CROSS_ORIGIN"
+	HeadersReferrerPolicy_UNSAFE_URL HeadersReferrerPolicy = "UNSAFE_URL"
+)
+
 // Maximum HTTP version to support.
 type HttpVersion string
 
@@ -8148,6 +8184,14 @@ type jsiiProxy_IOriginAccessIdentity struct {
 	internal.Type__awscdkIResource
 }
 
+func (i *jsiiProxy_IOriginAccessIdentity) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_IOriginAccessIdentity) OriginAccessIdentityName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -8236,6 +8280,27 @@ func (j *jsiiProxy_IPublicKey) PublicKeyId() *string {
 	_jsii_.Get(
 		j,
 		"publicKeyId",
+		&returns,
+	)
+	return returns
+}
+
+// Represents a response headers policy.
+type IResponseHeadersPolicy interface {
+	// The ID of the response headers policy.
+	ResponseHeadersPolicyId() *string
+}
+
+// The jsii proxy for IResponseHeadersPolicy
+type jsiiProxy_IResponseHeadersPolicy struct {
+	_ byte // padding
+}
+
+func (j *jsiiProxy_IResponseHeadersPolicy) ResponseHeadersPolicyId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"responseHeadersPolicyId",
 		&returns,
 	)
 	return returns
@@ -9788,6 +9853,463 @@ type PublicKeyProps struct {
 	Comment *string `json:"comment"`
 	// A name to identify the public key.
 	PublicKeyName *string `json:"publicKeyName"`
+}
+
+// An HTTP response header name and its value.
+//
+// CloudFront includes this header in HTTP responses that it sends for requests that match a cache behavior that’s associated with this response headers policy.
+//
+// TODO: EXAMPLE
+//
+type ResponseCustomHeader struct {
+	// The HTTP response header name.
+	Header *string `json:"header"`
+	// A Boolean that determines whether CloudFront overrides a response header with the same name received from the origin with the header specified here.
+	Override *bool `json:"override"`
+	// The value for the HTTP response header.
+	Value *string `json:"value"`
+}
+
+// Configuration for a set of HTTP response headers that are sent for requests that match a cache behavior that’s associated with this response headers policy.
+//
+// TODO: EXAMPLE
+//
+type ResponseCustomHeadersBehavior struct {
+	// The list of HTTP response headers and their values.
+	CustomHeaders *[]*ResponseCustomHeader `json:"customHeaders"`
+}
+
+// The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
+//
+// TODO: EXAMPLE
+//
+type ResponseHeadersContentSecurityPolicy struct {
+	// The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
+	ContentSecurityPolicy *string `json:"contentSecurityPolicy"`
+	// A Boolean that determines whether CloudFront overrides the Content-Security-Policy HTTP response header received from the origin with the one specified in this response headers policy.
+	Override *bool `json:"override"`
+}
+
+// Determines whether CloudFront includes the X-Content-Type-Options HTTP response header with its value set to nosniff.
+//
+// TODO: EXAMPLE
+//
+type ResponseHeadersContentTypeOptions struct {
+	// A Boolean that determines whether CloudFront overrides the X-Content-Type-Options HTTP response header received from the origin with the one specified in this response headers policy.
+	Override *bool `json:"override"`
+}
+
+// Configuration for a set of HTTP response headers that are used for cross-origin resource sharing (CORS).
+//
+// CloudFront adds these headers to HTTP responses that it sends for CORS requests that match a cache behavior
+// associated with this response headers policy.
+//
+// TODO: EXAMPLE
+//
+type ResponseHeadersCorsBehavior struct {
+	// A Boolean that CloudFront uses as the value for the Access-Control-Allow-Credentials HTTP response header.
+	AccessControlAllowCredentials *bool `json:"accessControlAllowCredentials"`
+	// A list of HTTP header names that CloudFront includes as values for the Access-Control-Allow-Headers HTTP response header.
+	//
+	// You can specify `['*']` to allow all headers.
+	AccessControlAllowHeaders *[]*string `json:"accessControlAllowHeaders"`
+	// A list of HTTP methods that CloudFront includes as values for the Access-Control-Allow-Methods HTTP response header.
+	AccessControlAllowMethods *[]*string `json:"accessControlAllowMethods"`
+	// A list of origins (domain names) that CloudFront can use as the value for the Access-Control-Allow-Origin HTTP response header.
+	//
+	// You can specify `['*']` to allow all origins.
+	AccessControlAllowOrigins *[]*string `json:"accessControlAllowOrigins"`
+	// A Boolean that determines whether CloudFront overrides HTTP response headers received from the origin with the ones specified in this response headers policy.
+	OriginOverride *bool `json:"originOverride"`
+	// A list of HTTP headers that CloudFront includes as values for the Access-Control-Expose-Headers HTTP response header.
+	//
+	// You can specify `['*']` to expose all headers.
+	AccessControlExposeHeaders *[]*string `json:"accessControlExposeHeaders"`
+	// A number that CloudFront uses as the value for the Access-Control-Max-Age HTTP response header.
+	AccessControlMaxAge awscdk.Duration `json:"accessControlMaxAge"`
+}
+
+// Determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value.
+//
+// TODO: EXAMPLE
+//
+type ResponseHeadersFrameOptions struct {
+	// The value of the X-Frame-Options HTTP response header.
+	FrameOption HeadersFrameOption `json:"frameOption"`
+	// A Boolean that determines whether CloudFront overrides the X-Frame-Options HTTP response header received from the origin with the one specified in this response headers policy.
+	Override *bool `json:"override"`
+}
+
+// A Response Headers Policy configuration.
+//
+// TODO: EXAMPLE
+//
+type ResponseHeadersPolicy interface {
+	awscdk.Resource
+	IResponseHeadersPolicy
+	Env() *awscdk.ResourceEnvironment
+	Node() constructs.Node
+	PhysicalName() *string
+	ResponseHeadersPolicyId() *string
+	Stack() awscdk.Stack
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	GeneratePhysicalName() *string
+	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	GetResourceNameAttribute(nameAttr *string) *string
+	ToString() *string
+}
+
+// The jsii proxy struct for ResponseHeadersPolicy
+type jsiiProxy_ResponseHeadersPolicy struct {
+	internal.Type__awscdkResource
+	jsiiProxy_IResponseHeadersPolicy
+}
+
+func (j *jsiiProxy_ResponseHeadersPolicy) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ResponseHeadersPolicy) Node() constructs.Node {
+	var returns constructs.Node
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ResponseHeadersPolicy) PhysicalName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ResponseHeadersPolicy) ResponseHeadersPolicyId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"responseHeadersPolicyId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_ResponseHeadersPolicy) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+
+func NewResponseHeadersPolicy(scope constructs.Construct, id *string, props *ResponseHeadersPolicyProps) ResponseHeadersPolicy {
+	_init_.Initialize()
+
+	j := jsiiProxy_ResponseHeadersPolicy{}
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_cloudfront.ResponseHeadersPolicy",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+func NewResponseHeadersPolicy_Override(r ResponseHeadersPolicy, scope constructs.Construct, id *string, props *ResponseHeadersPolicyProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"aws-cdk-lib.aws_cloudfront.ResponseHeadersPolicy",
+		[]interface{}{scope, id, props},
+		r,
+	)
+}
+
+// Import an existing Response Headers Policy from its ID.
+func ResponseHeadersPolicy_FromResponseHeadersPolicyId(scope constructs.Construct, id *string, responseHeadersPolicyId *string) IResponseHeadersPolicy {
+	_init_.Initialize()
+
+	var returns IResponseHeadersPolicy
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudfront.ResponseHeadersPolicy",
+		"fromResponseHeadersPolicyId",
+		[]interface{}{scope, id, responseHeadersPolicyId},
+		&returns,
+	)
+
+	return returns
+}
+
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
+func ResponseHeadersPolicy_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudfront.ResponseHeadersPolicy",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+func ResponseHeadersPolicy_IsResource(construct constructs.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"aws-cdk-lib.aws_cloudfront.ResponseHeadersPolicy",
+		"isResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+func ResponseHeadersPolicy_CORS_ALLOW_ALL_ORIGINS() IResponseHeadersPolicy {
+	_init_.Initialize()
+	var returns IResponseHeadersPolicy
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_cloudfront.ResponseHeadersPolicy",
+		"CORS_ALLOW_ALL_ORIGINS",
+		&returns,
+	)
+	return returns
+}
+
+func ResponseHeadersPolicy_CORS_ALLOW_ALL_ORIGINS_AND_SECURITY_HEADERS() IResponseHeadersPolicy {
+	_init_.Initialize()
+	var returns IResponseHeadersPolicy
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_cloudfront.ResponseHeadersPolicy",
+		"CORS_ALLOW_ALL_ORIGINS_AND_SECURITY_HEADERS",
+		&returns,
+	)
+	return returns
+}
+
+func ResponseHeadersPolicy_CORS_ALLOW_ALL_ORIGINS_WITH_PREFLIGHT() IResponseHeadersPolicy {
+	_init_.Initialize()
+	var returns IResponseHeadersPolicy
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_cloudfront.ResponseHeadersPolicy",
+		"CORS_ALLOW_ALL_ORIGINS_WITH_PREFLIGHT",
+		&returns,
+	)
+	return returns
+}
+
+func ResponseHeadersPolicy_CORS_ALLOW_ALL_ORIGINS_WITH_PREFLIGHT_AND_SECURITY_HEADERS() IResponseHeadersPolicy {
+	_init_.Initialize()
+	var returns IResponseHeadersPolicy
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_cloudfront.ResponseHeadersPolicy",
+		"CORS_ALLOW_ALL_ORIGINS_WITH_PREFLIGHT_AND_SECURITY_HEADERS",
+		&returns,
+	)
+	return returns
+}
+
+func ResponseHeadersPolicy_SECURITY_HEADERS() IResponseHeadersPolicy {
+	_init_.Initialize()
+	var returns IResponseHeadersPolicy
+	_jsii_.StaticGet(
+		"aws-cdk-lib.aws_cloudfront.ResponseHeadersPolicy",
+		"SECURITY_HEADERS",
+		&returns,
+	)
+	return returns
+}
+
+// Apply the given removal policy to this resource.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+func (r *jsiiProxy_ResponseHeadersPolicy) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		r,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
+func (r *jsiiProxy_ResponseHeadersPolicy) GeneratePhysicalName() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		r,
+		"generatePhysicalName",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+//
+// Normally, this token will resolve to `arnAttr`, but if the resource is
+// referenced across environments, `arnComponents` will be used to synthesize
+// a concrete ARN with the resource's physical name. Make sure to reference
+// `this.physicalName` in `arnComponents`.
+func (r *jsiiProxy_ResponseHeadersPolicy) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		r,
+		"getResourceArnAttribute",
+		[]interface{}{arnAttr, arnComponents},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+//
+// Normally, this token will resolve to `nameAttr`, but if the resource is
+// referenced across environments, it will be resolved to `this.physicalName`,
+// which will be a concrete name.
+func (r *jsiiProxy_ResponseHeadersPolicy) GetResourceNameAttribute(nameAttr *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		r,
+		"getResourceNameAttribute",
+		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns a string representation of this construct.
+func (r *jsiiProxy_ResponseHeadersPolicy) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		r,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Properties for creating a Response Headers Policy.
+//
+// TODO: EXAMPLE
+//
+type ResponseHeadersPolicyProps struct {
+	// A comment to describe the response headers policy.
+	Comment *string `json:"comment"`
+	// A configuration for a set of HTTP response headers that are used for cross-origin resource sharing (CORS).
+	CorsBehavior *ResponseHeadersCorsBehavior `json:"corsBehavior"`
+	// A configuration for a set of custom HTTP response headers.
+	CustomHeadersBehavior *ResponseCustomHeadersBehavior `json:"customHeadersBehavior"`
+	// A unique name to identify the response headers policy.
+	ResponseHeadersPolicyName *string `json:"responseHeadersPolicyName"`
+	// A configuration for a set of security-related HTTP response headers.
+	SecurityHeadersBehavior *ResponseSecurityHeadersBehavior `json:"securityHeadersBehavior"`
+}
+
+// Determines whether CloudFront includes the Referrer-Policy HTTP response header and the header’s value.
+//
+// TODO: EXAMPLE
+//
+type ResponseHeadersReferrerPolicy struct {
+	// A Boolean that determines whether CloudFront overrides the Referrer-Policy HTTP response header received from the origin with the one specified in this response headers policy.
+	Override *bool `json:"override"`
+	// The value of the Referrer-Policy HTTP response header.
+	ReferrerPolicy HeadersReferrerPolicy `json:"referrerPolicy"`
+}
+
+// Determines whether CloudFront includes the Strict-Transport-Security HTTP response header and the header’s value.
+//
+// TODO: EXAMPLE
+//
+type ResponseHeadersStrictTransportSecurity struct {
+	// A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
+	AccessControlMaxAge awscdk.Duration `json:"accessControlMaxAge"`
+	// A Boolean that determines whether CloudFront overrides the Strict-Transport-Security HTTP response header received from the origin with the one specified in this response headers policy.
+	Override *bool `json:"override"`
+	// A Boolean that determines whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
+	IncludeSubdomains *bool `json:"includeSubdomains"`
+	// A Boolean that determines whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
+	Preload *bool `json:"preload"`
+}
+
+// Determines whether CloudFront includes the X-XSS-Protection HTTP response header and the header’s value.
+//
+// TODO: EXAMPLE
+//
+type ResponseHeadersXSSProtection struct {
+	// A Boolean that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+	Override *bool `json:"override"`
+	// A Boolean that determines the value of the X-XSS-Protection HTTP response header.
+	//
+	// When this setting is true, the value of the X-XSS-Protection header is 1.
+	// When this setting is false, the value of the X-XSS-Protection header is 0.
+	Protection *bool `json:"protection"`
+	// A Boolean that determines whether CloudFront includes the mode=block directive in the X-XSS-Protection header.
+	ModeBlock *bool `json:"modeBlock"`
+	// A reporting URI, which CloudFront uses as the value of the report directive in the X-XSS-Protection header.
+	//
+	// You cannot specify a ReportUri when ModeBlock is true.
+	ReportUri *string `json:"reportUri"`
+}
+
+// Configuration for a set of security-related HTTP response headers.
+//
+// CloudFront adds these headers to HTTP responses that it sends for requests that match a cache behavior
+// associated with this response headers policy.
+//
+// TODO: EXAMPLE
+//
+type ResponseSecurityHeadersBehavior struct {
+	// The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
+	ContentSecurityPolicy *ResponseHeadersContentSecurityPolicy `json:"contentSecurityPolicy"`
+	// Determines whether CloudFront includes the X-Content-Type-Options HTTP response header with its value set to nosniff.
+	ContentTypeOptions *ResponseHeadersContentTypeOptions `json:"contentTypeOptions"`
+	// Determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value.
+	FrameOptions *ResponseHeadersFrameOptions `json:"frameOptions"`
+	// Determines whether CloudFront includes the Referrer-Policy HTTP response header and the header’s value.
+	ReferrerPolicy *ResponseHeadersReferrerPolicy `json:"referrerPolicy"`
+	// Determines whether CloudFront includes the Strict-Transport-Security HTTP response header and the header’s value.
+	StrictTransportSecurity *ResponseHeadersStrictTransportSecurity `json:"strictTransportSecurity"`
+	// Determines whether CloudFront includes the X-XSS-Protection HTTP response header and the header’s value.
+	XssProtection *ResponseHeadersXSSProtection `json:"xssProtection"`
 }
 
 // S3 origin configuration for CloudFront.

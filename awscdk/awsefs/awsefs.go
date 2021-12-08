@@ -2744,6 +2744,14 @@ func (i *jsiiProxy_IFileSystem) Grant(grantee awsiam.IGrantable, actions ...*str
 	return returns
 }
 
+func (i *jsiiProxy_IFileSystem) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		i,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
 func (j *jsiiProxy_IFileSystem) FileSystemArn() *string {
 	var returns *string
 	_jsii_.Get(

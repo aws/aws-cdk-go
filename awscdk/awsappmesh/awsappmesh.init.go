@@ -1177,6 +1177,7 @@ func init() {
 		"aws-cdk-lib.aws_appmesh.IGatewayRoute",
 		reflect.TypeOf((*IGatewayRoute)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "gatewayRouteArn", GoGetter: "GatewayRouteArn"},
 			_jsii_.MemberProperty{JsiiProperty: "gatewayRouteName", GoGetter: "GatewayRouteName"},
@@ -1197,6 +1198,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addVirtualGateway", GoMethod: "AddVirtualGateway"},
 			_jsii_.MemberMethod{JsiiMethod: "addVirtualNode", GoMethod: "AddVirtualNode"},
 			_jsii_.MemberMethod{JsiiMethod: "addVirtualRouter", GoMethod: "AddVirtualRouter"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "meshArn", GoGetter: "MeshArn"},
 			_jsii_.MemberProperty{JsiiProperty: "meshName", GoGetter: "MeshName"},
@@ -1213,6 +1215,7 @@ func init() {
 		"aws-cdk-lib.aws_appmesh.IRoute",
 		reflect.TypeOf((*IRoute)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
 			_jsii_.MemberProperty{JsiiProperty: "routeArn", GoGetter: "RouteArn"},
@@ -1231,6 +1234,7 @@ func init() {
 		reflect.TypeOf((*IVirtualGateway)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addGatewayRoute", GoMethod: "AddGatewayRoute"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "grantStreamAggregatedResources", GoMethod: "GrantStreamAggregatedResources"},
 			_jsii_.MemberProperty{JsiiProperty: "mesh", GoGetter: "Mesh"},
@@ -1249,6 +1253,7 @@ func init() {
 		"aws-cdk-lib.aws_appmesh.IVirtualNode",
 		reflect.TypeOf((*IVirtualNode)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberMethod{JsiiMethod: "grantStreamAggregatedResources", GoMethod: "GrantStreamAggregatedResources"},
 			_jsii_.MemberProperty{JsiiProperty: "mesh", GoGetter: "Mesh"},
@@ -1268,6 +1273,7 @@ func init() {
 		reflect.TypeOf((*IVirtualRouter)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addRoute", GoMethod: "AddRoute"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "mesh", GoGetter: "Mesh"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -1285,6 +1291,7 @@ func init() {
 		"aws-cdk-lib.aws_appmesh.IVirtualService",
 		reflect.TypeOf((*IVirtualService)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "mesh", GoGetter: "Mesh"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},

@@ -385,6 +385,10 @@ type BackupPlanProps struct {
 	BackupPlanRules *[]BackupPlanRule `json:"backupPlanRules"`
 	// The backup vault where backups are stored.
 	BackupVault IBackupVault `json:"backupVault"`
+	// Enable Windows VSS backup.
+	// See: https://docs.aws.amazon.com/aws-backup/latest/devguide/windows-backups.html
+	//
+	WindowsVss *bool `json:"windowsVss"`
 }
 
 // A backup plan rule.

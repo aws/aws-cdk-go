@@ -759,6 +759,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "addCertificates", GoMethod: "AddCertificates"},
 			_jsii_.MemberMethod{JsiiMethod: "addTargetGroups", GoMethod: "AddTargetGroups"},
 			_jsii_.MemberMethod{JsiiMethod: "addTargets", GoMethod: "AddTargets"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "listenerArn", GoGetter: "ListenerArn"},
@@ -778,6 +779,7 @@ func init() {
 		reflect.TypeOf((*IApplicationLoadBalancer)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addListener", GoMethod: "AddListener"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "ipAddressType", GoGetter: "IpAddressType"},
@@ -848,6 +850,7 @@ func init() {
 		"aws-cdk-lib.aws_elasticloadbalancingv2.ILoadBalancerV2",
 		reflect.TypeOf((*ILoadBalancerV2)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerCanonicalHostedZoneId", GoGetter: "LoadBalancerCanonicalHostedZoneId"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerDnsName", GoGetter: "LoadBalancerDnsName"},
@@ -864,6 +867,7 @@ func init() {
 		"aws-cdk-lib.aws_elasticloadbalancingv2.INetworkListener",
 		reflect.TypeOf((*INetworkListener)(nil)).Elem(),
 		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "listenerArn", GoGetter: "ListenerArn"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
@@ -880,6 +884,7 @@ func init() {
 		reflect.TypeOf((*INetworkLoadBalancer)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addListener", GoMethod: "AddListener"},
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
 			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerArn", GoGetter: "LoadBalancerArn"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerCanonicalHostedZoneId", GoGetter: "LoadBalancerCanonicalHostedZoneId"},

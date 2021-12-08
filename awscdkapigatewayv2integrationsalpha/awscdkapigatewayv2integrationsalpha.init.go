@@ -19,13 +19,29 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_HttpAlbIntegration{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkapigatewayv2alphaIHttpRouteIntegration)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkapigatewayv2alphaHttpRouteIntegration)
 			return &j
 		},
 	)
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-apigatewayv2-integrations-alpha.HttpAlbIntegrationProps",
 		reflect.TypeOf((*HttpAlbIntegrationProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"@aws-cdk/aws-apigatewayv2-integrations-alpha.HttpLambdaIntegration",
+		reflect.TypeOf((*HttpLambdaIntegration)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_HttpLambdaIntegration{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkapigatewayv2alphaHttpRouteIntegration)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"@aws-cdk/aws-apigatewayv2-integrations-alpha.HttpLambdaIntegrationProps",
+		reflect.TypeOf((*HttpLambdaIntegrationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-apigatewayv2-integrations-alpha.HttpNlbIntegration",
@@ -39,7 +55,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_HttpNlbIntegration{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkapigatewayv2alphaIHttpRouteIntegration)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkapigatewayv2alphaHttpRouteIntegration)
 			return &j
 		},
 	)
@@ -50,22 +66,6 @@ func init() {
 	_jsii_.RegisterStruct(
 		"@aws-cdk/aws-apigatewayv2-integrations-alpha.HttpPrivateIntegrationOptions",
 		reflect.TypeOf((*HttpPrivateIntegrationOptions)(nil)).Elem(),
-	)
-	_jsii_.RegisterClass(
-		"@aws-cdk/aws-apigatewayv2-integrations-alpha.HttpProxyIntegration",
-		reflect.TypeOf((*HttpProxyIntegration)(nil)).Elem(),
-		[]_jsii_.Member{
-			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
-		},
-		func() interface{} {
-			j := jsiiProxy_HttpProxyIntegration{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkapigatewayv2alphaIHttpRouteIntegration)
-			return &j
-		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/aws-apigatewayv2-integrations-alpha.HttpProxyIntegrationProps",
-		reflect.TypeOf((*HttpProxyIntegrationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"@aws-cdk/aws-apigatewayv2-integrations-alpha.HttpServiceDiscoveryIntegration",
@@ -79,7 +79,7 @@ func init() {
 		},
 		func() interface{} {
 			j := jsiiProxy_HttpServiceDiscoveryIntegration{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkapigatewayv2alphaIHttpRouteIntegration)
+			_jsii_.InitJsiiProxy(&j.Type__awscdkapigatewayv2alphaHttpRouteIntegration)
 			return &j
 		},
 	)
@@ -88,35 +88,31 @@ func init() {
 		reflect.TypeOf((*HttpServiceDiscoveryIntegrationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/aws-apigatewayv2-integrations-alpha.LambdaProxyIntegration",
-		reflect.TypeOf((*LambdaProxyIntegration)(nil)).Elem(),
+		"@aws-cdk/aws-apigatewayv2-integrations-alpha.HttpUrlIntegration",
+		reflect.TypeOf((*HttpUrlIntegration)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
 		},
 		func() interface{} {
-			j := jsiiProxy_LambdaProxyIntegration{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkapigatewayv2alphaIHttpRouteIntegration)
+			j := jsiiProxy_HttpUrlIntegration{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkapigatewayv2alphaHttpRouteIntegration)
 			return &j
 		},
 	)
 	_jsii_.RegisterStruct(
-		"@aws-cdk/aws-apigatewayv2-integrations-alpha.LambdaProxyIntegrationProps",
-		reflect.TypeOf((*LambdaProxyIntegrationProps)(nil)).Elem(),
+		"@aws-cdk/aws-apigatewayv2-integrations-alpha.HttpUrlIntegrationProps",
+		reflect.TypeOf((*HttpUrlIntegrationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"@aws-cdk/aws-apigatewayv2-integrations-alpha.LambdaWebSocketIntegration",
-		reflect.TypeOf((*LambdaWebSocketIntegration)(nil)).Elem(),
+		"@aws-cdk/aws-apigatewayv2-integrations-alpha.WebSocketLambdaIntegration",
+		reflect.TypeOf((*WebSocketLambdaIntegration)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
 		},
 		func() interface{} {
-			j := jsiiProxy_LambdaWebSocketIntegration{}
-			_jsii_.InitJsiiProxy(&j.Type__awscdkapigatewayv2alphaIWebSocketRouteIntegration)
+			j := jsiiProxy_WebSocketLambdaIntegration{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkapigatewayv2alphaWebSocketRouteIntegration)
 			return &j
 		},
-	)
-	_jsii_.RegisterStruct(
-		"@aws-cdk/aws-apigatewayv2-integrations-alpha.LambdaWebSocketIntegrationProps",
-		reflect.TypeOf((*LambdaWebSocketIntegrationProps)(nil)).Elem(),
 	)
 }

@@ -40,6 +40,10 @@ func init() {
 		"aws-cdk-lib.aws_stepfunctions_tasks.AlgorithmSpecification",
 		reflect.TypeOf((*AlgorithmSpecification)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions_tasks.ApplicationConfiguration",
+		reflect.TypeOf((*ApplicationConfiguration)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_stepfunctions_tasks.AssembleWith",
 		reflect.TypeOf((*AssembleWith)(nil)).Elem(),
@@ -584,6 +588,16 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions_tasks.Channel",
 		reflect.TypeOf((*Channel)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_stepfunctions_tasks.Classification",
+		reflect.TypeOf((*Classification)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "classificationStatement", GoGetter: "ClassificationStatement"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Classification{}
+		},
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_stepfunctions_tasks.CodeBuildStartBuild",
@@ -1167,6 +1181,16 @@ func init() {
 		reflect.TypeOf((*EksCallProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EksClusterInput",
+		reflect.TypeOf((*EksClusterInput)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "clusterName", GoGetter: "ClusterName"},
+		},
+		func() interface{} {
+			return &jsiiProxy_EksClusterInput{}
+		},
+	)
+	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_stepfunctions_tasks.EmrAddStep",
 		reflect.TypeOf((*EmrAddStep)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1289,6 +1313,194 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCancelStepProps",
 		reflect.TypeOf((*EmrCancelStepProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersCreateVirtualCluster",
+		reflect.TypeOf((*EmrContainersCreateVirtualCluster)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
+			_jsii_.MemberMethod{JsiiMethod: "addCatch", GoMethod: "AddCatch"},
+			_jsii_.MemberMethod{JsiiMethod: "addChoice", GoMethod: "AddChoice"},
+			_jsii_.MemberMethod{JsiiMethod: "addIterator", GoMethod: "AddIterator"},
+			_jsii_.MemberMethod{JsiiMethod: "addPrefix", GoMethod: "AddPrefix"},
+			_jsii_.MemberMethod{JsiiMethod: "addRetry", GoMethod: "AddRetry"},
+			_jsii_.MemberMethod{JsiiMethod: "bindToGraph", GoMethod: "BindToGraph"},
+			_jsii_.MemberProperty{JsiiProperty: "branches", GoGetter: "Branches"},
+			_jsii_.MemberProperty{JsiiProperty: "comment", GoGetter: "Comment"},
+			_jsii_.MemberProperty{JsiiProperty: "defaultChoice", GoGetter: "DefaultChoice"},
+			_jsii_.MemberProperty{JsiiProperty: "endStates", GoGetter: "EndStates"},
+			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
+			_jsii_.MemberProperty{JsiiProperty: "inputPath", GoGetter: "InputPath"},
+			_jsii_.MemberProperty{JsiiProperty: "iteration", GoGetter: "Iteration"},
+			_jsii_.MemberMethod{JsiiMethod: "makeDefault", GoMethod: "MakeDefault"},
+			_jsii_.MemberMethod{JsiiMethod: "makeNext", GoMethod: "MakeNext"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricFailed", GoMethod: "MetricFailed"},
+			_jsii_.MemberMethod{JsiiMethod: "metricHeartbeatTimedOut", GoMethod: "MetricHeartbeatTimedOut"},
+			_jsii_.MemberMethod{JsiiMethod: "metricRunTime", GoMethod: "MetricRunTime"},
+			_jsii_.MemberMethod{JsiiMethod: "metricScheduled", GoMethod: "MetricScheduled"},
+			_jsii_.MemberMethod{JsiiMethod: "metricScheduleTime", GoMethod: "MetricScheduleTime"},
+			_jsii_.MemberMethod{JsiiMethod: "metricStarted", GoMethod: "MetricStarted"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSucceeded", GoMethod: "MetricSucceeded"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTime", GoMethod: "MetricTime"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
+			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
+			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
+			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
+			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
+			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
+			_jsii_.MemberMethod{JsiiMethod: "renderIterator", GoMethod: "RenderIterator"},
+			_jsii_.MemberMethod{JsiiMethod: "renderNextEnd", GoMethod: "RenderNextEnd"},
+			_jsii_.MemberMethod{JsiiMethod: "renderResultSelector", GoMethod: "RenderResultSelector"},
+			_jsii_.MemberMethod{JsiiMethod: "renderRetryCatch", GoMethod: "RenderRetryCatch"},
+			_jsii_.MemberProperty{JsiiProperty: "resultPath", GoGetter: "ResultPath"},
+			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
+			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
+			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
+			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
+			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
+			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
+			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
+		},
+		func() interface{} {
+			j := jsiiProxy_EmrContainersCreateVirtualCluster{}
+			_jsii_.InitJsiiProxy(&j.Type__awsstepfunctionsTaskStateBase)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersCreateVirtualClusterProps",
+		reflect.TypeOf((*EmrContainersCreateVirtualClusterProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersDeleteVirtualCluster",
+		reflect.TypeOf((*EmrContainersDeleteVirtualCluster)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
+			_jsii_.MemberMethod{JsiiMethod: "addCatch", GoMethod: "AddCatch"},
+			_jsii_.MemberMethod{JsiiMethod: "addChoice", GoMethod: "AddChoice"},
+			_jsii_.MemberMethod{JsiiMethod: "addIterator", GoMethod: "AddIterator"},
+			_jsii_.MemberMethod{JsiiMethod: "addPrefix", GoMethod: "AddPrefix"},
+			_jsii_.MemberMethod{JsiiMethod: "addRetry", GoMethod: "AddRetry"},
+			_jsii_.MemberMethod{JsiiMethod: "bindToGraph", GoMethod: "BindToGraph"},
+			_jsii_.MemberProperty{JsiiProperty: "branches", GoGetter: "Branches"},
+			_jsii_.MemberProperty{JsiiProperty: "comment", GoGetter: "Comment"},
+			_jsii_.MemberProperty{JsiiProperty: "defaultChoice", GoGetter: "DefaultChoice"},
+			_jsii_.MemberProperty{JsiiProperty: "endStates", GoGetter: "EndStates"},
+			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
+			_jsii_.MemberProperty{JsiiProperty: "inputPath", GoGetter: "InputPath"},
+			_jsii_.MemberProperty{JsiiProperty: "iteration", GoGetter: "Iteration"},
+			_jsii_.MemberMethod{JsiiMethod: "makeDefault", GoMethod: "MakeDefault"},
+			_jsii_.MemberMethod{JsiiMethod: "makeNext", GoMethod: "MakeNext"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricFailed", GoMethod: "MetricFailed"},
+			_jsii_.MemberMethod{JsiiMethod: "metricHeartbeatTimedOut", GoMethod: "MetricHeartbeatTimedOut"},
+			_jsii_.MemberMethod{JsiiMethod: "metricRunTime", GoMethod: "MetricRunTime"},
+			_jsii_.MemberMethod{JsiiMethod: "metricScheduled", GoMethod: "MetricScheduled"},
+			_jsii_.MemberMethod{JsiiMethod: "metricScheduleTime", GoMethod: "MetricScheduleTime"},
+			_jsii_.MemberMethod{JsiiMethod: "metricStarted", GoMethod: "MetricStarted"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSucceeded", GoMethod: "MetricSucceeded"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTime", GoMethod: "MetricTime"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
+			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
+			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
+			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
+			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
+			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
+			_jsii_.MemberMethod{JsiiMethod: "renderIterator", GoMethod: "RenderIterator"},
+			_jsii_.MemberMethod{JsiiMethod: "renderNextEnd", GoMethod: "RenderNextEnd"},
+			_jsii_.MemberMethod{JsiiMethod: "renderResultSelector", GoMethod: "RenderResultSelector"},
+			_jsii_.MemberMethod{JsiiMethod: "renderRetryCatch", GoMethod: "RenderRetryCatch"},
+			_jsii_.MemberProperty{JsiiProperty: "resultPath", GoGetter: "ResultPath"},
+			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
+			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
+			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
+			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
+			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
+			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
+			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
+		},
+		func() interface{} {
+			j := jsiiProxy_EmrContainersDeleteVirtualCluster{}
+			_jsii_.InitJsiiProxy(&j.Type__awsstepfunctionsTaskStateBase)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersDeleteVirtualClusterProps",
+		reflect.TypeOf((*EmrContainersDeleteVirtualClusterProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersStartJobRun",
+		reflect.TypeOf((*EmrContainersStartJobRun)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "addBranch", GoMethod: "AddBranch"},
+			_jsii_.MemberMethod{JsiiMethod: "addCatch", GoMethod: "AddCatch"},
+			_jsii_.MemberMethod{JsiiMethod: "addChoice", GoMethod: "AddChoice"},
+			_jsii_.MemberMethod{JsiiMethod: "addIterator", GoMethod: "AddIterator"},
+			_jsii_.MemberMethod{JsiiMethod: "addPrefix", GoMethod: "AddPrefix"},
+			_jsii_.MemberMethod{JsiiMethod: "addRetry", GoMethod: "AddRetry"},
+			_jsii_.MemberMethod{JsiiMethod: "bindToGraph", GoMethod: "BindToGraph"},
+			_jsii_.MemberProperty{JsiiProperty: "branches", GoGetter: "Branches"},
+			_jsii_.MemberProperty{JsiiProperty: "comment", GoGetter: "Comment"},
+			_jsii_.MemberProperty{JsiiProperty: "defaultChoice", GoGetter: "DefaultChoice"},
+			_jsii_.MemberProperty{JsiiProperty: "endStates", GoGetter: "EndStates"},
+			_jsii_.MemberProperty{JsiiProperty: "grantPrincipal", GoGetter: "GrantPrincipal"},
+			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
+			_jsii_.MemberProperty{JsiiProperty: "inputPath", GoGetter: "InputPath"},
+			_jsii_.MemberProperty{JsiiProperty: "iteration", GoGetter: "Iteration"},
+			_jsii_.MemberMethod{JsiiMethod: "makeDefault", GoMethod: "MakeDefault"},
+			_jsii_.MemberMethod{JsiiMethod: "makeNext", GoMethod: "MakeNext"},
+			_jsii_.MemberMethod{JsiiMethod: "metric", GoMethod: "Metric"},
+			_jsii_.MemberMethod{JsiiMethod: "metricFailed", GoMethod: "MetricFailed"},
+			_jsii_.MemberMethod{JsiiMethod: "metricHeartbeatTimedOut", GoMethod: "MetricHeartbeatTimedOut"},
+			_jsii_.MemberMethod{JsiiMethod: "metricRunTime", GoMethod: "MetricRunTime"},
+			_jsii_.MemberMethod{JsiiMethod: "metricScheduled", GoMethod: "MetricScheduled"},
+			_jsii_.MemberMethod{JsiiMethod: "metricScheduleTime", GoMethod: "MetricScheduleTime"},
+			_jsii_.MemberMethod{JsiiMethod: "metricStarted", GoMethod: "MetricStarted"},
+			_jsii_.MemberMethod{JsiiMethod: "metricSucceeded", GoMethod: "MetricSucceeded"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTime", GoMethod: "MetricTime"},
+			_jsii_.MemberMethod{JsiiMethod: "metricTimedOut", GoMethod: "MetricTimedOut"},
+			_jsii_.MemberMethod{JsiiMethod: "next", GoMethod: "Next"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "outputPath", GoGetter: "OutputPath"},
+			_jsii_.MemberProperty{JsiiProperty: "parameters", GoGetter: "Parameters"},
+			_jsii_.MemberMethod{JsiiMethod: "renderBranches", GoMethod: "RenderBranches"},
+			_jsii_.MemberMethod{JsiiMethod: "renderChoices", GoMethod: "RenderChoices"},
+			_jsii_.MemberMethod{JsiiMethod: "renderInputOutput", GoMethod: "RenderInputOutput"},
+			_jsii_.MemberMethod{JsiiMethod: "renderIterator", GoMethod: "RenderIterator"},
+			_jsii_.MemberMethod{JsiiMethod: "renderNextEnd", GoMethod: "RenderNextEnd"},
+			_jsii_.MemberMethod{JsiiMethod: "renderResultSelector", GoMethod: "RenderResultSelector"},
+			_jsii_.MemberMethod{JsiiMethod: "renderRetryCatch", GoMethod: "RenderRetryCatch"},
+			_jsii_.MemberProperty{JsiiProperty: "resultPath", GoGetter: "ResultPath"},
+			_jsii_.MemberProperty{JsiiProperty: "resultSelector", GoGetter: "ResultSelector"},
+			_jsii_.MemberProperty{JsiiProperty: "startState", GoGetter: "StartState"},
+			_jsii_.MemberProperty{JsiiProperty: "stateId", GoGetter: "StateId"},
+			_jsii_.MemberProperty{JsiiProperty: "taskMetrics", GoGetter: "TaskMetrics"},
+			_jsii_.MemberProperty{JsiiProperty: "taskPolicies", GoGetter: "TaskPolicies"},
+			_jsii_.MemberMethod{JsiiMethod: "toStateJson", GoMethod: "ToStateJson"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validateState", GoMethod: "ValidateState"},
+			_jsii_.MemberMethod{JsiiMethod: "whenBoundToGraph", GoMethod: "WhenBoundToGraph"},
+		},
+		func() interface{} {
+			j := jsiiProxy_EmrContainersStartJobRun{}
+			_jsii_.InitJsiiProxy(&j.Type__awsstepfunctionsTaskStateBase)
+			_jsii_.InitJsiiProxy(&j.Type__awsiamIGrantable)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions_tasks.EmrContainersStartJobRunProps",
+		reflect.TypeOf((*EmrContainersStartJobRunProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"aws-cdk-lib.aws_stepfunctions_tasks.EmrCreateCluster",
@@ -2153,6 +2365,10 @@ func init() {
 		"aws-cdk-lib.aws_stepfunctions_tasks.JobDependency",
 		reflect.TypeOf((*JobDependency)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions_tasks.JobDriver",
+		reflect.TypeOf((*JobDriver)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_stepfunctions_tasks.LambdaInvocationType",
 		reflect.TypeOf((*LambdaInvocationType)(nil)).Elem(),
@@ -2259,6 +2475,10 @@ func init() {
 		reflect.TypeOf((*ModelClientOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions_tasks.Monitoring",
+		reflect.TypeOf((*Monitoring)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions_tasks.OutputDataConfig",
 		reflect.TypeOf((*OutputDataConfig)(nil)).Elem(),
 	)
@@ -2276,6 +2496,16 @@ func init() {
 		map[string]interface{}{
 			"NONE": RecordWrapperType_NONE,
 			"RECORD_IO": RecordWrapperType_RECORD_IO,
+		},
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_stepfunctions_tasks.ReleaseLabel",
+		reflect.TypeOf((*ReleaseLabel)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "label", GoGetter: "Label"},
+		},
+		func() interface{} {
+			return &jsiiProxy_ReleaseLabel{}
 		},
 	)
 	_jsii_.RegisterStruct(
@@ -2776,6 +3006,10 @@ func init() {
 		"aws-cdk-lib.aws_stepfunctions_tasks.SnsPublishProps",
 		reflect.TypeOf((*SnsPublishProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"aws-cdk-lib.aws_stepfunctions_tasks.SparkSubmitJobDriver",
+		reflect.TypeOf((*SparkSubmitJobDriver)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"aws-cdk-lib.aws_stepfunctions_tasks.SplitType",
 		reflect.TypeOf((*SplitType)(nil)).Elem(),
@@ -2999,6 +3233,16 @@ func init() {
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions_tasks.TransformS3DataSource",
 		reflect.TypeOf((*TransformS3DataSource)(nil)).Elem(),
+	)
+	_jsii_.RegisterClass(
+		"aws-cdk-lib.aws_stepfunctions_tasks.VirtualClusterInput",
+		reflect.TypeOf((*VirtualClusterInput)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberProperty{JsiiProperty: "id", GoGetter: "Id"},
+		},
+		func() interface{} {
+			return &jsiiProxy_VirtualClusterInput{}
+		},
 	)
 	_jsii_.RegisterStruct(
 		"aws-cdk-lib.aws_stepfunctions_tasks.VpcConfig",
