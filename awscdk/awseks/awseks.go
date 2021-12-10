@@ -1,17 +1,18 @@
 package awseks
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsautoscaling"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsec2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awseks/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslambda"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awsautoscaling"
+	"github.com/aws/aws-cdk-go/awscdk/awsec2"
+	"github.com/aws/aws-cdk-go/awscdk/awseks/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/awslambda"
+	"github.com/aws/aws-cdk-go/awscdk/awssns"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // Construct for installing the AWS ALB Contoller on EKS clusters.
@@ -22,19 +23,26 @@ import (
 //
 // See: https://kubernetes-sigs.github.io/aws-load-balancer-controller
 //
+// Experimental.
 type AlbController interface {
-	constructs.Construct
-	Node() constructs.Node
+	awscdk.Construct
+	Node() awscdk.ConstructNode
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for AlbController
 type jsiiProxy_AlbController struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 }
 
-func (j *jsiiProxy_AlbController) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_AlbController) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -44,13 +52,14 @@ func (j *jsiiProxy_AlbController) Node() constructs.Node {
 }
 
 
+// Experimental.
 func NewAlbController(scope constructs.Construct, id *string, props *AlbControllerProps) AlbController {
 	_init_.Initialize()
 
 	j := jsiiProxy_AlbController{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.AlbController",
+		"monocdk.aws_eks.AlbController",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -58,11 +67,12 @@ func NewAlbController(scope constructs.Construct, id *string, props *AlbControll
 	return &j
 }
 
+// Experimental.
 func NewAlbController_Override(a AlbController, scope constructs.Construct, id *string, props *AlbControllerProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.AlbController",
+		"monocdk.aws_eks.AlbController",
 		[]interface{}{scope, id, props},
 		a,
 	)
@@ -71,13 +81,14 @@ func NewAlbController_Override(a AlbController, scope constructs.Construct, id *
 // Create the controller construct associated with this cluster and scope.
 //
 // Singleton per stack/cluster.
+// Experimental.
 func AlbController_Create(scope constructs.Construct, props *AlbControllerProps) AlbController {
 	_init_.Initialize()
 
 	var returns AlbController
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.AlbController",
+		"monocdk.aws_eks.AlbController",
 		"create",
 		[]interface{}{scope, props},
 		&returns,
@@ -86,17 +97,15 @@ func AlbController_Create(scope constructs.Construct, props *AlbControllerProps)
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func AlbController_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.AlbController",
+		"monocdk.aws_eks.AlbController",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -105,7 +114,88 @@ func AlbController_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_AlbController) OnPrepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_AlbController) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_AlbController) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_AlbController) Prepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_AlbController) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (a *jsiiProxy_AlbController) ToString() *string {
 	var returns *string
 
@@ -119,10 +209,31 @@ func (a *jsiiProxy_AlbController) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_AlbController) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Options for `AlbController`.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AlbControllerOptions struct {
 	// The IAM policy to apply to the service account.
 	//
@@ -130,14 +241,17 @@ type AlbControllerOptions struct {
 	// CDK ships with the appropriate policies for those versions.
 	//
 	// However, if you are using a custom version, this is required (and validated).
+	// Experimental.
 	Policy interface{} `json:"policy"`
 	// The repository to pull the controller image from.
 	//
 	// Note that the default repository works for most regions, but not all.
 	// If the repository is not applicable to your region, use a custom repository
 	// according to the information here: https://github.com/kubernetes-sigs/aws-load-balancer-controller/releases.
+	// Experimental.
 	Repository *string `json:"repository"`
 	// Version of the controller.
+	// Experimental.
 	Version AlbControllerVersion `json:"version"`
 }
 
@@ -145,6 +259,7 @@ type AlbControllerOptions struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AlbControllerProps struct {
 	// The IAM policy to apply to the service account.
 	//
@@ -152,16 +267,20 @@ type AlbControllerProps struct {
 	// CDK ships with the appropriate policies for those versions.
 	//
 	// However, if you are using a custom version, this is required (and validated).
+	// Experimental.
 	Policy interface{} `json:"policy"`
 	// The repository to pull the controller image from.
 	//
 	// Note that the default repository works for most regions, but not all.
 	// If the repository is not applicable to your region, use a custom repository
 	// according to the information here: https://github.com/kubernetes-sigs/aws-load-balancer-controller/releases.
+	// Experimental.
 	Repository *string `json:"repository"`
 	// Version of the controller.
+	// Experimental.
 	Version AlbControllerVersion `json:"version"`
 	// [disable-awslint:ref-via-interface] Cluster to install the controller onto.
+	// Experimental.
 	Cluster Cluster `json:"cluster"`
 }
 
@@ -171,6 +290,7 @@ type AlbControllerProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AlbControllerVersion interface {
 	Custom() *bool
 	Version() *string
@@ -206,13 +326,14 @@ func (j *jsiiProxy_AlbControllerVersion) Version() *string {
 //
 // Use this if the version you need is not available in one of the predefined versions.
 // Note that in this case, you will also need to provide an IAM policy in the controller options.
+// Experimental.
 func AlbControllerVersion_Of(version *string) AlbControllerVersion {
 	_init_.Initialize()
 
 	var returns AlbControllerVersion
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.AlbControllerVersion",
+		"monocdk.aws_eks.AlbControllerVersion",
 		"of",
 		[]interface{}{version},
 		&returns,
@@ -225,7 +346,7 @@ func AlbControllerVersion_V2_0_0() AlbControllerVersion {
 	_init_.Initialize()
 	var returns AlbControllerVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.AlbControllerVersion",
+		"monocdk.aws_eks.AlbControllerVersion",
 		"V2_0_0",
 		&returns,
 	)
@@ -236,7 +357,7 @@ func AlbControllerVersion_V2_0_1() AlbControllerVersion {
 	_init_.Initialize()
 	var returns AlbControllerVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.AlbControllerVersion",
+		"monocdk.aws_eks.AlbControllerVersion",
 		"V2_0_1",
 		&returns,
 	)
@@ -247,7 +368,7 @@ func AlbControllerVersion_V2_1_0() AlbControllerVersion {
 	_init_.Initialize()
 	var returns AlbControllerVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.AlbControllerVersion",
+		"monocdk.aws_eks.AlbControllerVersion",
 		"V2_1_0",
 		&returns,
 	)
@@ -258,7 +379,7 @@ func AlbControllerVersion_V2_1_1() AlbControllerVersion {
 	_init_.Initialize()
 	var returns AlbControllerVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.AlbControllerVersion",
+		"monocdk.aws_eks.AlbControllerVersion",
 		"V2_1_1",
 		&returns,
 	)
@@ -269,7 +390,7 @@ func AlbControllerVersion_V2_1_2() AlbControllerVersion {
 	_init_.Initialize()
 	var returns AlbControllerVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.AlbControllerVersion",
+		"monocdk.aws_eks.AlbControllerVersion",
 		"V2_1_2",
 		&returns,
 	)
@@ -280,7 +401,7 @@ func AlbControllerVersion_V2_1_3() AlbControllerVersion {
 	_init_.Initialize()
 	var returns AlbControllerVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.AlbControllerVersion",
+		"monocdk.aws_eks.AlbControllerVersion",
 		"V2_1_3",
 		&returns,
 	)
@@ -291,7 +412,7 @@ func AlbControllerVersion_V2_2_0() AlbControllerVersion {
 	_init_.Initialize()
 	var returns AlbControllerVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.AlbControllerVersion",
+		"monocdk.aws_eks.AlbControllerVersion",
 		"V2_2_0",
 		&returns,
 	)
@@ -302,7 +423,7 @@ func AlbControllerVersion_V2_2_1() AlbControllerVersion {
 	_init_.Initialize()
 	var returns AlbControllerVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.AlbControllerVersion",
+		"monocdk.aws_eks.AlbControllerVersion",
 		"V2_2_1",
 		&returns,
 	)
@@ -313,7 +434,7 @@ func AlbControllerVersion_V2_2_2() AlbControllerVersion {
 	_init_.Initialize()
 	var returns AlbControllerVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.AlbControllerVersion",
+		"monocdk.aws_eks.AlbControllerVersion",
 		"V2_2_2",
 		&returns,
 	)
@@ -324,7 +445,7 @@ func AlbControllerVersion_V2_2_3() AlbControllerVersion {
 	_init_.Initialize()
 	var returns AlbControllerVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.AlbControllerVersion",
+		"monocdk.aws_eks.AlbControllerVersion",
 		"V2_2_3",
 		&returns,
 	)
@@ -335,7 +456,7 @@ func AlbControllerVersion_V2_2_4() AlbControllerVersion {
 	_init_.Initialize()
 	var returns AlbControllerVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.AlbControllerVersion",
+		"monocdk.aws_eks.AlbControllerVersion",
 		"V2_2_4",
 		&returns,
 	)
@@ -346,7 +467,7 @@ func AlbControllerVersion_V2_3_0() AlbControllerVersion {
 	_init_.Initialize()
 	var returns AlbControllerVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.AlbControllerVersion",
+		"monocdk.aws_eks.AlbControllerVersion",
 		"V2_3_0",
 		&returns,
 	)
@@ -356,6 +477,7 @@ func AlbControllerVersion_V2_3_0() AlbControllerVersion {
 // ALB Scheme.
 // See: https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.3/guide/ingress/annotations/#scheme
 //
+// Experimental.
 type AlbScheme string
 
 const (
@@ -367,14 +489,18 @@ const (
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AutoScalingGroupCapacityOptions struct {
 	// Whether the instances can initiate connections to anywhere by default.
+	// Experimental.
 	AllowAllOutbound *bool `json:"allowAllOutbound"`
 	// Whether instances in the Auto Scaling Group should have public IP addresses associated with them.
+	// Experimental.
 	AssociatePublicIpAddress *bool `json:"associatePublicIpAddress"`
 	// The name of the Auto Scaling group.
 	//
 	// This name must be unique per Region per account.
+	// Experimental.
 	AutoScalingGroupName *string `json:"autoScalingGroupName"`
 	// Specifies how block devices are exposed to the instance. You can specify virtual devices and EBS volumes.
 	//
@@ -384,8 +510,10 @@ type AutoScalingGroupCapacityOptions struct {
 	// instance store volumes to attach to an instance when it is launched.
 	// See: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html
 	//
+	// Experimental.
 	BlockDevices *[]*awsautoscaling.BlockDevice `json:"blockDevices"`
 	// Default scaling cooldown for this AutoScalingGroup.
+	// Experimental.
 	Cooldown awscdk.Duration `json:"cooldown"`
 	// Initial amount of instances in the fleet.
 	//
@@ -393,13 +521,16 @@ type AutoScalingGroupCapacityOptions struct {
 	// instances to this number. It is recommended to leave this value blank.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-desiredcapacity
 	//
+	// Experimental.
 	DesiredCapacity *float64 `json:"desiredCapacity"`
 	// Enable monitoring for group metrics, these metrics describe the group rather than any of its instances.
 	//
 	// To report all group metrics use `GroupMetrics.all()`
 	// Group metrics are reported in a granularity of 1 minute at no additional charge.
+	// Experimental.
 	GroupMetrics *[]awsautoscaling.GroupMetrics `json:"groupMetrics"`
 	// Configuration for health checks.
+	// Experimental.
 	HealthCheck awsautoscaling.HealthCheck `json:"healthCheck"`
 	// If the ASG has scheduled actions, don't reset unchanged group sizes.
 	//
@@ -408,6 +539,7 @@ type AutoScalingGroupCapacityOptions struct {
 	// will only be reset if it has been changed in the CDK app. If false, the
 	// sizes will always be changed back to what they were in the CDK app
 	// on deployment.
+	// Experimental.
 	IgnoreUnmodifiedSizeProperties *bool `json:"ignoreUnmodifiedSizeProperties"`
 	// Controls whether instances in this group are launched with detailed or basic monitoring.
 	//
@@ -415,10 +547,13 @@ type AutoScalingGroupCapacityOptions struct {
 	// is charged a fee. When you disable detailed monitoring, CloudWatch generates metrics every 5 minutes.
 	// See: https://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-monitoring.html#enable-as-instance-metrics
 	//
+	// Experimental.
 	InstanceMonitoring awsautoscaling.Monitoring `json:"instanceMonitoring"`
 	// Name of SSH keypair to grant access to instances.
+	// Experimental.
 	KeyName *string `json:"keyName"`
 	// Maximum number of instances in the fleet.
+	// Experimental.
 	MaxCapacity *float64 `json:"maxCapacity"`
 	// The maximum amount of time that an instance can be in service.
 	//
@@ -430,8 +565,10 @@ type AutoScalingGroupCapacityOptions struct {
 	// leave this property undefined.
 	// See: https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-max-instance-lifetime.html
 	//
+	// Experimental.
 	MaxInstanceLifetime awscdk.Duration `json:"maxInstanceLifetime"`
 	// Minimum number of instances in the fleet.
+	// Experimental.
 	MinCapacity *float64 `json:"minCapacity"`
 	// Whether newly-launched instances are protected from termination by Amazon EC2 Auto Scaling when scaling in.
 	//
@@ -443,11 +580,35 @@ type AutoScalingGroupCapacityOptions struct {
 	//
 	// This flag must be enabled if the Auto Scaling Group will be associated with
 	// an ECS Capacity Provider with managed termination protection.
+	// Experimental.
 	NewInstancesProtectedFromScaleIn *bool `json:"newInstancesProtectedFromScaleIn"`
 	// Configure autoscaling group to send notifications about fleet changes to an SNS topic(s).
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-notificationconfigurations
 	//
+	// Experimental.
 	Notifications *[]*awsautoscaling.NotificationConfiguration `json:"notifications"`
+	// SNS topic to send notifications about fleet changes.
+	// Deprecated: use `notifications`
+	NotificationsTopic awssns.ITopic `json:"notificationsTopic"`
+	// Configuration for replacing updates.
+	//
+	// Only used if updateType == UpdateType.ReplacingUpdate. Specifies how
+	// many instances must signal success for the update to succeed.
+	// Deprecated: Use `signals` instead
+	ReplacingUpdateMinSuccessfulInstancesPercent *float64 `json:"replacingUpdateMinSuccessfulInstancesPercent"`
+	// How many ResourceSignal calls CloudFormation expects before the resource is considered created.
+	// Deprecated: Use `signals` instead.
+	ResourceSignalCount *float64 `json:"resourceSignalCount"`
+	// The length of time to wait for the resourceSignalCount.
+	//
+	// The maximum value is 43200 (12 hours).
+	// Deprecated: Use `signals` instead.
+	ResourceSignalTimeout awscdk.Duration `json:"resourceSignalTimeout"`
+	// Configuration for rolling updates.
+	//
+	// Only used if updateType == UpdateType.RollingUpdate.
+	// Deprecated: Use `updatePolicy` instead
+	RollingUpdateConfiguration *awsautoscaling.RollingUpdateConfiguration `json:"rollingUpdateConfiguration"`
 	// Configure waiting for signals during deployment.
 	//
 	// Use this to pause the CloudFormation deployment to wait for the instances
@@ -465,11 +626,13 @@ type AutoScalingGroupCapacityOptions struct {
 	// command in the Auto Scaling rolling updates sample template:
 	//
 	// https://github.com/awslabs/aws-cloudformation-templates/blob/master/aws/services/AutoScaling/AutoScalingRollingUpdates.yaml
+	// Experimental.
 	Signals awsautoscaling.Signals `json:"signals"`
 	// The maximum hourly price (in USD) to be paid for any Spot Instance launched to fulfill the request.
 	//
 	// Spot Instances are
 	// launched when the price you specify exceeds the current Spot market price.
+	// Experimental.
 	SpotPrice *string `json:"spotPrice"`
 	// What to do when an AutoScalingGroup's instance configuration is changed.
 	//
@@ -478,27 +641,44 @@ type AutoScalingGroupCapacityOptions struct {
 	// scripts, etc.). It indicates how the existing instances should be
 	// replaced with new instances matching the new config. By default, nothing
 	// is done and only new instances are launched with the new config.
+	// Experimental.
 	UpdatePolicy awsautoscaling.UpdatePolicy `json:"updatePolicy"`
+	// What to do when an AutoScalingGroup's instance configuration is changed.
+	//
+	// This is applied when any of the settings on the ASG are changed that
+	// affect how the instances should be created (VPC, instance type, startup
+	// scripts, etc.). It indicates how the existing instances should be
+	// replaced with new instances matching the new config. By default, nothing
+	// is done and only new instances are launched with the new config.
+	// Deprecated: Use `updatePolicy` instead
+	UpdateType awsautoscaling.UpdateType `json:"updateType"`
 	// Where to place instances within the VPC.
+	// Experimental.
 	VpcSubnets *awsec2.SubnetSelection `json:"vpcSubnets"`
 	// Configures the EC2 user-data script for instances in this autoscaling group to bootstrap the node (invoke `/etc/eks/bootstrap.sh`) and associate it with the EKS cluster.
 	//
 	// If you wish to provide a custom user data script, set this to `false` and
 	// manually invoke `autoscalingGroup.addUserData()`.
+	// Experimental.
 	BootstrapEnabled *bool `json:"bootstrapEnabled"`
 	// EKS node bootstrapping options.
+	// Experimental.
 	BootstrapOptions *BootstrapOptions `json:"bootstrapOptions"`
 	// Instance type of the instances to start.
+	// Experimental.
 	InstanceType awsec2.InstanceType `json:"instanceType"`
 	// Machine image type.
+	// Experimental.
 	MachineImageType MachineImageType `json:"machineImageType"`
 	// Will automatically update the aws-auth ConfigMap to map the IAM instance role to RBAC.
 	//
 	// This cannot be explicitly set to `true` if the cluster has kubectl disabled.
+	// Experimental.
 	MapRole *bool `json:"mapRole"`
 	// Installs the AWS spot instance interrupt handler on the cluster if it's not already added.
 	//
 	// Only relevant if `spotPrice` is used.
+	// Experimental.
 	SpotInterruptHandler *bool `json:"spotInterruptHandler"`
 }
 
@@ -506,23 +686,29 @@ type AutoScalingGroupCapacityOptions struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AutoScalingGroupOptions struct {
 	// Configures the EC2 user-data script for instances in this autoscaling group to bootstrap the node (invoke `/etc/eks/bootstrap.sh`) and associate it with the EKS cluster.
 	//
 	// If you wish to provide a custom user data script, set this to `false` and
 	// manually invoke `autoscalingGroup.addUserData()`.
+	// Experimental.
 	BootstrapEnabled *bool `json:"bootstrapEnabled"`
 	// Allows options for node bootstrapping through EC2 user data.
+	// Experimental.
 	BootstrapOptions *BootstrapOptions `json:"bootstrapOptions"`
 	// Allow options to specify different machine image type.
+	// Experimental.
 	MachineImageType MachineImageType `json:"machineImageType"`
 	// Will automatically update the aws-auth ConfigMap to map the IAM instance role to RBAC.
 	//
 	// This cannot be explicitly set to `true` if the cluster has kubectl disabled.
+	// Experimental.
 	MapRole *bool `json:"mapRole"`
 	// Installs the AWS spot instance interrupt handler on the cluster if it's not already added.
 	//
 	// Only relevant if `spotPrice` is configured on the auto-scaling group.
+	// Experimental.
 	SpotInterruptHandler *bool `json:"spotInterruptHandler"`
 }
 
@@ -532,23 +718,30 @@ type AutoScalingGroupOptions struct {
 //
 // See: https://docs.aws.amazon.com/en_us/eks/latest/userguide/add-user-role.html
 //
+// Experimental.
 type AwsAuth interface {
-	constructs.Construct
-	Node() constructs.Node
+	awscdk.Construct
+	Node() awscdk.ConstructNode
 	AddAccount(accountId *string)
 	AddMastersRole(role awsiam.IRole, username *string)
 	AddRoleMapping(role awsiam.IRole, mapping *AwsAuthMapping)
 	AddUserMapping(user awsiam.IUser, mapping *AwsAuthMapping)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for AwsAuth
 type jsiiProxy_AwsAuth struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 }
 
-func (j *jsiiProxy_AwsAuth) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_AwsAuth) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -558,13 +751,14 @@ func (j *jsiiProxy_AwsAuth) Node() constructs.Node {
 }
 
 
+// Experimental.
 func NewAwsAuth(scope constructs.Construct, id *string, props *AwsAuthProps) AwsAuth {
 	_init_.Initialize()
 
 	j := jsiiProxy_AwsAuth{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.AwsAuth",
+		"monocdk.aws_eks.AwsAuth",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -572,27 +766,26 @@ func NewAwsAuth(scope constructs.Construct, id *string, props *AwsAuthProps) Aws
 	return &j
 }
 
+// Experimental.
 func NewAwsAuth_Override(a AwsAuth, scope constructs.Construct, id *string, props *AwsAuthProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.AwsAuth",
+		"monocdk.aws_eks.AwsAuth",
 		[]interface{}{scope, id, props},
 		a,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func AwsAuth_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.AwsAuth",
+		"monocdk.aws_eks.AwsAuth",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -602,6 +795,7 @@ func AwsAuth_IsConstruct(x interface{}) *bool {
 }
 
 // Additional AWS account to add to the aws-auth configmap.
+// Experimental.
 func (a *jsiiProxy_AwsAuth) AddAccount(accountId *string) {
 	_jsii_.InvokeVoid(
 		a,
@@ -611,6 +805,7 @@ func (a *jsiiProxy_AwsAuth) AddAccount(accountId *string) {
 }
 
 // Adds the specified IAM role to the `system:masters` RBAC group, which means that anyone that can assume it will be able to administer this Kubernetes system.
+// Experimental.
 func (a *jsiiProxy_AwsAuth) AddMastersRole(role awsiam.IRole, username *string) {
 	_jsii_.InvokeVoid(
 		a,
@@ -620,6 +815,7 @@ func (a *jsiiProxy_AwsAuth) AddMastersRole(role awsiam.IRole, username *string) 
 }
 
 // Adds a mapping between an IAM role to a Kubernetes user and groups.
+// Experimental.
 func (a *jsiiProxy_AwsAuth) AddRoleMapping(role awsiam.IRole, mapping *AwsAuthMapping) {
 	_jsii_.InvokeVoid(
 		a,
@@ -629,6 +825,7 @@ func (a *jsiiProxy_AwsAuth) AddRoleMapping(role awsiam.IRole, mapping *AwsAuthMa
 }
 
 // Adds a mapping between an IAM user to a Kubernetes user and groups.
+// Experimental.
 func (a *jsiiProxy_AwsAuth) AddUserMapping(user awsiam.IUser, mapping *AwsAuthMapping) {
 	_jsii_.InvokeVoid(
 		a,
@@ -637,7 +834,88 @@ func (a *jsiiProxy_AwsAuth) AddUserMapping(user awsiam.IUser, mapping *AwsAuthMa
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_AwsAuth) OnPrepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_AwsAuth) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_AwsAuth) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (a *jsiiProxy_AwsAuth) Prepare() {
+	_jsii_.InvokeVoid(
+		a,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (a *jsiiProxy_AwsAuth) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		a,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (a *jsiiProxy_AwsAuth) ToString() *string {
 	var returns *string
 
@@ -651,16 +929,39 @@ func (a *jsiiProxy_AwsAuth) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (a *jsiiProxy_AwsAuth) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		a,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // AwsAuth mapping.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AwsAuthMapping struct {
 	// A list of groups within Kubernetes to which the role is mapped.
 	// See: https://kubernetes.io/docs/reference/access-authn-authz/rbac/#default-roles-and-role-bindings
 	//
+	// Experimental.
 	Groups *[]*string `json:"groups"`
 	// The user name within Kubernetes to map to the IAM role.
+	// Experimental.
 	Username *string `json:"username"`
 }
 
@@ -668,10 +969,12 @@ type AwsAuthMapping struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type AwsAuthProps struct {
 	// The EKS cluster to apply this configuration to.
 	//
 	// [disable-awslint:ref-via-interface]
+	// Experimental.
 	Cluster Cluster `json:"cluster"`
 }
 
@@ -679,24 +982,32 @@ type AwsAuthProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type BootstrapOptions struct {
 	// Additional command line arguments to pass to the `/etc/eks/bootstrap.sh` command.
 	// See: https://github.com/awslabs/amazon-eks-ami/blob/master/files/bootstrap.sh
 	//
+	// Experimental.
 	AdditionalArgs *string `json:"additionalArgs"`
 	// Number of retry attempts for AWS API call (DescribeCluster).
+	// Experimental.
 	AwsApiRetryAttempts *float64 `json:"awsApiRetryAttempts"`
 	// Overrides the IP address to use for DNS queries within the cluster.
+	// Experimental.
 	DnsClusterIp *string `json:"dnsClusterIp"`
 	// The contents of the `/etc/docker/daemon.json` file. Useful if you want a custom config differing from the default one in the EKS AMI.
+	// Experimental.
 	DockerConfigJson *string `json:"dockerConfigJson"`
 	// Restores the docker default bridge network.
+	// Experimental.
 	EnableDockerBridge *bool `json:"enableDockerBridge"`
 	// Extra arguments to add to the kubelet. Useful for adding labels or taints.
 	//
 	// For example, `--node-labels foo=bar,goo=far`.
+	// Experimental.
 	KubeletExtraArgs *string `json:"kubeletExtraArgs"`
 	// Sets `--max-pods` for the kubelet based on the capacity of the EC2 instance.
+	// Experimental.
 	UseMaxPods *bool `json:"useMaxPods"`
 }
 
@@ -704,6 +1015,7 @@ type BootstrapOptions struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type CapacityType string
 
 const (
@@ -730,7 +1042,7 @@ type CfnAddon interface {
 	SetClusterName(val *string)
 	CreationStack() *[]*string
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	ResolveConflicts() *string
 	SetResolveConflicts(val *string)
@@ -749,10 +1061,16 @@ type CfnAddon interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -852,8 +1170,8 @@ func (j *jsiiProxy_CfnAddon) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnAddon) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnAddon) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -924,13 +1242,13 @@ func (j *jsiiProxy_CfnAddon) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::EKS::Addon`.
-func NewCfnAddon(scope constructs.Construct, id *string, props *CfnAddonProps) CfnAddon {
+func NewCfnAddon(scope awscdk.Construct, id *string, props *CfnAddonProps) CfnAddon {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnAddon{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.CfnAddon",
+		"monocdk.aws_eks.CfnAddon",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -939,11 +1257,11 @@ func NewCfnAddon(scope constructs.Construct, id *string, props *CfnAddonProps) C
 }
 
 // Create a new `AWS::EKS::Addon`.
-func NewCfnAddon_Override(c CfnAddon, scope constructs.Construct, id *string, props *CfnAddonProps) {
+func NewCfnAddon_Override(c CfnAddon, scope awscdk.Construct, id *string, props *CfnAddonProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.CfnAddon",
+		"monocdk.aws_eks.CfnAddon",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -995,13 +1313,14 @@ func (j *jsiiProxy_CfnAddon) SetServiceAccountRoleArn(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnAddon_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.CfnAddon",
+		"monocdk.aws_eks.CfnAddon",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1011,13 +1330,14 @@ func CfnAddon_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnAddon_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.CfnAddon",
+		"monocdk.aws_eks.CfnAddon",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1026,17 +1346,15 @@ func CfnAddon_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnAddon_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.CfnAddon",
+		"monocdk.aws_eks.CfnAddon",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1049,7 +1367,7 @@ func CfnAddon_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.CfnAddon",
+		"monocdk.aws_eks.CfnAddon",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1057,6 +1375,7 @@ func CfnAddon_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnAddon) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1069,6 +1388,7 @@ func (c *jsiiProxy_CfnAddon) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnAddon) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1084,6 +1404,7 @@ func (c *jsiiProxy_CfnAddon) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnAddon) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1129,6 +1450,7 @@ func (c *jsiiProxy_CfnAddon) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnAddon) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1138,6 +1460,7 @@ func (c *jsiiProxy_CfnAddon) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnAddon) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1149,6 +1472,7 @@ func (c *jsiiProxy_CfnAddon) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnAddon) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1166,6 +1490,7 @@ func (c *jsiiProxy_CfnAddon) AddPropertyOverride(propertyPath *string, value int
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnAddon) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1178,6 +1503,7 @@ func (c *jsiiProxy_CfnAddon) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnAddon) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1198,6 +1524,7 @@ func (c *jsiiProxy_CfnAddon) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnAddon) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1220,12 +1547,80 @@ func (c *jsiiProxy_CfnAddon) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAddon) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAddon) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAddon) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnAddon) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnAddon) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1246,6 +1641,7 @@ func (c *jsiiProxy_CfnAddon) RenderProperties(props *map[string]interface{}) *ma
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnAddon) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1259,9 +1655,23 @@ func (c *jsiiProxy_CfnAddon) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnAddon) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnAddon) ToString() *string {
 	var returns *string
 
@@ -1275,6 +1685,27 @@ func (c *jsiiProxy_CfnAddon) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnAddon) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnAddon) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1314,6 +1745,7 @@ type CfnCluster interface {
 	AttrClusterSecurityGroupId() *string
 	AttrEncryptionConfigKeyArn() *string
 	AttrEndpoint() *string
+	AttrKubernetesNetworkConfigServiceIpv6Cidr() *string
 	AttrOpenIdConnectIssuerUrl() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -1328,7 +1760,7 @@ type CfnCluster interface {
 	LogicalId() *string
 	Name() *string
 	SetName(val *string)
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	ResourcesVpcConfig() interface{}
 	SetResourcesVpcConfig(val interface{})
@@ -1349,10 +1781,16 @@ type CfnCluster interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1407,6 +1845,16 @@ func (j *jsiiProxy_CfnCluster) AttrEndpoint() *string {
 	_jsii_.Get(
 		j,
 		"attrEndpoint",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnCluster) AttrKubernetesNetworkConfigServiceIpv6Cidr() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrKubernetesNetworkConfigServiceIpv6Cidr",
 		&returns,
 	)
 	return returns
@@ -1512,8 +1960,8 @@ func (j *jsiiProxy_CfnCluster) Name() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnCluster) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnCluster) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -1594,13 +2042,13 @@ func (j *jsiiProxy_CfnCluster) Version() *string {
 
 
 // Create a new `AWS::EKS::Cluster`.
-func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProps) CfnCluster {
+func NewCfnCluster(scope awscdk.Construct, id *string, props *CfnClusterProps) CfnCluster {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnCluster{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.CfnCluster",
+		"monocdk.aws_eks.CfnCluster",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1609,11 +2057,11 @@ func NewCfnCluster(scope constructs.Construct, id *string, props *CfnClusterProp
 }
 
 // Create a new `AWS::EKS::Cluster`.
-func NewCfnCluster_Override(c CfnCluster, scope constructs.Construct, id *string, props *CfnClusterProps) {
+func NewCfnCluster_Override(c CfnCluster, scope awscdk.Construct, id *string, props *CfnClusterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.CfnCluster",
+		"monocdk.aws_eks.CfnCluster",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1681,13 +2129,14 @@ func (j *jsiiProxy_CfnCluster) SetVersion(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnCluster_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.CfnCluster",
+		"monocdk.aws_eks.CfnCluster",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1697,13 +2146,14 @@ func CfnCluster_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnCluster_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.CfnCluster",
+		"monocdk.aws_eks.CfnCluster",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1712,17 +2162,15 @@ func CfnCluster_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.CfnCluster",
+		"monocdk.aws_eks.CfnCluster",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1735,7 +2183,7 @@ func CfnCluster_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.CfnCluster",
+		"monocdk.aws_eks.CfnCluster",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1743,6 +2191,7 @@ func CfnCluster_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnCluster) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1755,6 +2204,7 @@ func (c *jsiiProxy_CfnCluster) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnCluster) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1770,6 +2220,7 @@ func (c *jsiiProxy_CfnCluster) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnCluster) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1815,6 +2266,7 @@ func (c *jsiiProxy_CfnCluster) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnCluster) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1824,6 +2276,7 @@ func (c *jsiiProxy_CfnCluster) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnCluster) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1835,6 +2288,7 @@ func (c *jsiiProxy_CfnCluster) AddPropertyDeletionOverride(propertyPath *string)
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnCluster) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1852,6 +2306,7 @@ func (c *jsiiProxy_CfnCluster) AddPropertyOverride(propertyPath *string, value i
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1864,6 +2319,7 @@ func (c *jsiiProxy_CfnCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, o
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnCluster) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1884,6 +2340,7 @@ func (c *jsiiProxy_CfnCluster) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnCluster) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1906,12 +2363,80 @@ func (c *jsiiProxy_CfnCluster) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnCluster) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnCluster) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnCluster) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnCluster) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnCluster) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -1932,6 +2457,7 @@ func (c *jsiiProxy_CfnCluster) RenderProperties(props *map[string]interface{}) *
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnCluster) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1945,9 +2471,23 @@ func (c *jsiiProxy_CfnCluster) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnCluster) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnCluster) ToString() *string {
 	var returns *string
 
@@ -1961,6 +2501,27 @@ func (c *jsiiProxy_CfnCluster) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnCluster) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnCluster) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1988,8 +2549,12 @@ type CfnCluster_EncryptionConfigProperty struct {
 // TODO: EXAMPLE
 //
 type CfnCluster_KubernetesNetworkConfigProperty struct {
+	// `CfnCluster.KubernetesNetworkConfigProperty.IpFamily`.
+	IpFamily *string `json:"ipFamily"`
 	// `CfnCluster.KubernetesNetworkConfigProperty.ServiceIpv4Cidr`.
 	ServiceIpv4Cidr *string `json:"serviceIpv4Cidr"`
+	// `CfnCluster.KubernetesNetworkConfigProperty.ServiceIpv6Cidr`.
+	ServiceIpv6Cidr *string `json:"serviceIpv6Cidr"`
 }
 
 // TODO: EXAMPLE
@@ -2061,7 +2626,7 @@ type CfnFargateProfile interface {
 	FargateProfileName() *string
 	SetFargateProfileName(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PodExecutionRoleArn() *string
 	SetPodExecutionRoleArn(val *string)
 	Ref() *string
@@ -2082,10 +2647,16 @@ type CfnFargateProfile interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2175,8 +2746,8 @@ func (j *jsiiProxy_CfnFargateProfile) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnFargateProfile) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnFargateProfile) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -2257,13 +2828,13 @@ func (j *jsiiProxy_CfnFargateProfile) UpdatedProperites() *map[string]interface{
 
 
 // Create a new `AWS::EKS::FargateProfile`.
-func NewCfnFargateProfile(scope constructs.Construct, id *string, props *CfnFargateProfileProps) CfnFargateProfile {
+func NewCfnFargateProfile(scope awscdk.Construct, id *string, props *CfnFargateProfileProps) CfnFargateProfile {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnFargateProfile{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.CfnFargateProfile",
+		"monocdk.aws_eks.CfnFargateProfile",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2272,11 +2843,11 @@ func NewCfnFargateProfile(scope constructs.Construct, id *string, props *CfnFarg
 }
 
 // Create a new `AWS::EKS::FargateProfile`.
-func NewCfnFargateProfile_Override(c CfnFargateProfile, scope constructs.Construct, id *string, props *CfnFargateProfileProps) {
+func NewCfnFargateProfile_Override(c CfnFargateProfile, scope awscdk.Construct, id *string, props *CfnFargateProfileProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.CfnFargateProfile",
+		"monocdk.aws_eks.CfnFargateProfile",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -2328,13 +2899,14 @@ func (j *jsiiProxy_CfnFargateProfile) SetSubnets(val *[]*string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnFargateProfile_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.CfnFargateProfile",
+		"monocdk.aws_eks.CfnFargateProfile",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -2344,13 +2916,14 @@ func CfnFargateProfile_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnFargateProfile_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.CfnFargateProfile",
+		"monocdk.aws_eks.CfnFargateProfile",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -2359,17 +2932,15 @@ func CfnFargateProfile_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnFargateProfile_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.CfnFargateProfile",
+		"monocdk.aws_eks.CfnFargateProfile",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2382,7 +2953,7 @@ func CfnFargateProfile_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.CfnFargateProfile",
+		"monocdk.aws_eks.CfnFargateProfile",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -2390,6 +2961,7 @@ func CfnFargateProfile_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnFargateProfile) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2402,6 +2974,7 @@ func (c *jsiiProxy_CfnFargateProfile) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnFargateProfile) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2417,6 +2990,7 @@ func (c *jsiiProxy_CfnFargateProfile) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnFargateProfile) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2462,6 +3036,7 @@ func (c *jsiiProxy_CfnFargateProfile) AddMetadata(key *string, value interface{}
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnFargateProfile) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2471,6 +3046,7 @@ func (c *jsiiProxy_CfnFargateProfile) AddOverride(path *string, value interface{
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnFargateProfile) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2482,6 +3058,7 @@ func (c *jsiiProxy_CfnFargateProfile) AddPropertyDeletionOverride(propertyPath *
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnFargateProfile) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2499,6 +3076,7 @@ func (c *jsiiProxy_CfnFargateProfile) AddPropertyOverride(propertyPath *string, 
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnFargateProfile) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2511,6 +3089,7 @@ func (c *jsiiProxy_CfnFargateProfile) ApplyRemovalPolicy(policy awscdk.RemovalPo
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnFargateProfile) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -2531,6 +3110,7 @@ func (c *jsiiProxy_CfnFargateProfile) GetAtt(attributeName *string) awscdk.Refer
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnFargateProfile) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -2553,12 +3133,80 @@ func (c *jsiiProxy_CfnFargateProfile) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnFargateProfile) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnFargateProfile) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnFargateProfile) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnFargateProfile) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnFargateProfile) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -2579,6 +3227,7 @@ func (c *jsiiProxy_CfnFargateProfile) RenderProperties(props *map[string]interfa
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnFargateProfile) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -2592,9 +3241,23 @@ func (c *jsiiProxy_CfnFargateProfile) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnFargateProfile) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnFargateProfile) ToString() *string {
 	var returns *string
 
@@ -2608,6 +3271,27 @@ func (c *jsiiProxy_CfnFargateProfile) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnFargateProfile) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnFargateProfile) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2684,7 +3368,7 @@ type CfnNodegroup interface {
 	LaunchTemplate() interface{}
 	SetLaunchTemplate(val interface{})
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	NodegroupName() *string
 	SetNodegroupName(val *string)
 	NodeRole() *string
@@ -2717,10 +3401,16 @@ type CfnNodegroup interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -2890,8 +3580,8 @@ func (j *jsiiProxy_CfnNodegroup) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnNodegroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnNodegroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3032,13 +3722,13 @@ func (j *jsiiProxy_CfnNodegroup) Version() *string {
 
 
 // Create a new `AWS::EKS::Nodegroup`.
-func NewCfnNodegroup(scope constructs.Construct, id *string, props *CfnNodegroupProps) CfnNodegroup {
+func NewCfnNodegroup(scope awscdk.Construct, id *string, props *CfnNodegroupProps) CfnNodegroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnNodegroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.CfnNodegroup",
+		"monocdk.aws_eks.CfnNodegroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3047,11 +3737,11 @@ func NewCfnNodegroup(scope constructs.Construct, id *string, props *CfnNodegroup
 }
 
 // Create a new `AWS::EKS::Nodegroup`.
-func NewCfnNodegroup_Override(c CfnNodegroup, scope constructs.Construct, id *string, props *CfnNodegroupProps) {
+func NewCfnNodegroup_Override(c CfnNodegroup, scope awscdk.Construct, id *string, props *CfnNodegroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.CfnNodegroup",
+		"monocdk.aws_eks.CfnNodegroup",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -3199,13 +3889,14 @@ func (j *jsiiProxy_CfnNodegroup) SetVersion(val *string) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnNodegroup_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.CfnNodegroup",
+		"monocdk.aws_eks.CfnNodegroup",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -3215,13 +3906,14 @@ func CfnNodegroup_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnNodegroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.CfnNodegroup",
+		"monocdk.aws_eks.CfnNodegroup",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -3230,17 +3922,15 @@ func CfnNodegroup_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnNodegroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.CfnNodegroup",
+		"monocdk.aws_eks.CfnNodegroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -3253,7 +3943,7 @@ func CfnNodegroup_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.CfnNodegroup",
+		"monocdk.aws_eks.CfnNodegroup",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -3261,6 +3951,7 @@ func CfnNodegroup_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnNodegroup) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3273,6 +3964,7 @@ func (c *jsiiProxy_CfnNodegroup) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnNodegroup) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3288,6 +3980,7 @@ func (c *jsiiProxy_CfnNodegroup) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnNodegroup) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3333,6 +4026,7 @@ func (c *jsiiProxy_CfnNodegroup) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnNodegroup) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3342,6 +4036,7 @@ func (c *jsiiProxy_CfnNodegroup) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnNodegroup) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3353,6 +4048,7 @@ func (c *jsiiProxy_CfnNodegroup) AddPropertyDeletionOverride(propertyPath *strin
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnNodegroup) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3370,6 +4066,7 @@ func (c *jsiiProxy_CfnNodegroup) AddPropertyOverride(propertyPath *string, value
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnNodegroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3382,6 +4079,7 @@ func (c *jsiiProxy_CfnNodegroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy,
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnNodegroup) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -3402,6 +4100,7 @@ func (c *jsiiProxy_CfnNodegroup) GetAtt(attributeName *string) awscdk.Reference 
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnNodegroup) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -3424,12 +4123,80 @@ func (c *jsiiProxy_CfnNodegroup) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnNodegroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnNodegroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnNodegroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnNodegroup) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnNodegroup) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -3450,6 +4217,7 @@ func (c *jsiiProxy_CfnNodegroup) RenderProperties(props *map[string]interface{})
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnNodegroup) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -3463,9 +4231,23 @@ func (c *jsiiProxy_CfnNodegroup) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnNodegroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnNodegroup) ToString() *string {
 	var returns *string
 
@@ -3479,6 +4261,27 @@ func (c *jsiiProxy_CfnNodegroup) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnNodegroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnNodegroup) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -3588,6 +4391,7 @@ type CfnNodegroupProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type Cluster interface {
 	awscdk.Resource
 	ICluster
@@ -3615,7 +4419,7 @@ type Cluster interface {
 	KubectlPrivateSubnets() *[]awsec2.ISubnet
 	KubectlRole() awsiam.IRole
 	KubectlSecurityGroup() awsec2.ISecurityGroup
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OnEventLayer() awslambda.ILayerVersion
 	OpenIdConnectProvider() awsiam.IOpenIdConnectProvider
 	PhysicalName() *string
@@ -3637,7 +4441,13 @@ type Cluster interface {
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
 	GetServiceLoadBalancerAddress(serviceName *string, options *ServiceLoadBalancerAddressOptions) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for Cluster
@@ -3886,8 +4696,8 @@ func (j *jsiiProxy_Cluster) KubectlSecurityGroup() awsec2.ISecurityGroup {
 	return returns
 }
 
-func (j *jsiiProxy_Cluster) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Cluster) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -3968,13 +4778,14 @@ func (j *jsiiProxy_Cluster) Vpc() awsec2.IVpc {
 
 
 // Initiates an EKS Cluster with the supplied arguments.
+// Experimental.
 func NewCluster(scope constructs.Construct, id *string, props *ClusterProps) Cluster {
 	_init_.Initialize()
 
 	j := jsiiProxy_Cluster{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.Cluster",
+		"monocdk.aws_eks.Cluster",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -3983,24 +4794,26 @@ func NewCluster(scope constructs.Construct, id *string, props *ClusterProps) Clu
 }
 
 // Initiates an EKS Cluster with the supplied arguments.
+// Experimental.
 func NewCluster_Override(c Cluster, scope constructs.Construct, id *string, props *ClusterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.Cluster",
+		"monocdk.aws_eks.Cluster",
 		[]interface{}{scope, id, props},
 		c,
 	)
 }
 
 // Import an existing cluster.
+// Experimental.
 func Cluster_FromClusterAttributes(scope constructs.Construct, id *string, attrs *ClusterAttributes) ICluster {
 	_init_.Initialize()
 
 	var returns ICluster
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.Cluster",
+		"monocdk.aws_eks.Cluster",
 		"fromClusterAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -4009,17 +4822,15 @@ func Cluster_FromClusterAttributes(scope constructs.Construct, id *string, attrs
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func Cluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.Cluster",
+		"monocdk.aws_eks.Cluster",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -4029,13 +4840,14 @@ func Cluster_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func Cluster_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func Cluster_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.Cluster",
+		"monocdk.aws_eks.Cluster",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -4057,6 +4869,7 @@ func Cluster_IsResource(construct constructs.IConstruct) *bool {
 // In addition, the [spot interrupt handler](https://github.com/awslabs/ec2-spot-labs/tree/master/ec2-spot-eks-solution/spot-termination-handler)
 // daemon will be installed on all spot instances to handle
 // [EC2 Spot Instance Termination Notices](https://aws.amazon.com/blogs/aws/new-ec2-spot-instance-termination-notices/).
+// Experimental.
 func (c *jsiiProxy_Cluster) AddAutoScalingGroupCapacity(id *string, options *AutoScalingGroupCapacityOptions) awsautoscaling.AutoScalingGroup {
 	var returns awsautoscaling.AutoScalingGroup
 
@@ -4073,6 +4886,7 @@ func (c *jsiiProxy_Cluster) AddAutoScalingGroupCapacity(id *string, options *Aut
 // Defines a CDK8s chart in this cluster.
 //
 // Returns: a `KubernetesManifest` construct representing the chart.
+// Experimental.
 func (c *jsiiProxy_Cluster) AddCdk8sChart(id *string, chart constructs.Construct, options *KubernetesManifestOptions) KubernetesManifest {
 	var returns KubernetesManifest
 
@@ -4089,6 +4903,7 @@ func (c *jsiiProxy_Cluster) AddCdk8sChart(id *string, chart constructs.Construct
 // Adds a Fargate profile to this cluster.
 // See: https://docs.aws.amazon.com/eks/latest/userguide/fargate-profile.html
 //
+// Experimental.
 func (c *jsiiProxy_Cluster) AddFargateProfile(id *string, options *FargateProfileOptions) FargateProfile {
 	var returns FargateProfile
 
@@ -4105,6 +4920,7 @@ func (c *jsiiProxy_Cluster) AddFargateProfile(id *string, options *FargateProfil
 // Defines a Helm chart in this cluster.
 //
 // Returns: a `HelmChart` construct
+// Experimental.
 func (c *jsiiProxy_Cluster) AddHelmChart(id *string, options *HelmChartOptions) HelmChart {
 	var returns HelmChart
 
@@ -4123,6 +4939,7 @@ func (c *jsiiProxy_Cluster) AddHelmChart(id *string, options *HelmChartOptions) 
 // The manifest will be applied/deleted using kubectl as needed.
 //
 // Returns: a `KubernetesResource` object.
+// Experimental.
 func (c *jsiiProxy_Cluster) AddManifest(id *string, manifest ...*map[string]interface{}) KubernetesManifest {
 	args := []interface{}{id}
 	for _, a := range manifest {
@@ -4146,6 +4963,7 @@ func (c *jsiiProxy_Cluster) AddManifest(id *string, manifest ...*map[string]inte
 // This method will create a new managed nodegroup and add into the capacity.
 // See: https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html
 //
+// Experimental.
 func (c *jsiiProxy_Cluster) AddNodegroupCapacity(id *string, options *NodegroupOptions) Nodegroup {
 	var returns Nodegroup
 
@@ -4160,6 +4978,7 @@ func (c *jsiiProxy_Cluster) AddNodegroupCapacity(id *string, options *NodegroupO
 }
 
 // Creates a new service account with corresponding IAM Role (IRSA).
+// Experimental.
 func (c *jsiiProxy_Cluster) AddServiceAccount(id *string, options *ServiceAccountOptions) ServiceAccount {
 	var returns ServiceAccount
 
@@ -4182,6 +5001,7 @@ func (c *jsiiProxy_Cluster) AddServiceAccount(id *string, options *ServiceAccoun
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_Cluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4206,6 +5026,7 @@ func (c *jsiiProxy_Cluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 // Prefer to use `addAutoScalingGroupCapacity` if possible.
 // See: https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html
 //
+// Experimental.
 func (c *jsiiProxy_Cluster) ConnectAutoScalingGroupCapacity(autoScalingGroup awsautoscaling.AutoScalingGroup, options *AutoScalingGroupOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -4214,6 +5035,7 @@ func (c *jsiiProxy_Cluster) ConnectAutoScalingGroupCapacity(autoScalingGroup aws
 	)
 }
 
+// Experimental.
 func (c *jsiiProxy_Cluster) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -4228,6 +5050,7 @@ func (c *jsiiProxy_Cluster) GeneratePhysicalName() *string {
 }
 
 // Fetch the load balancer address of an ingress backed by a load balancer.
+// Experimental.
 func (c *jsiiProxy_Cluster) GetIngressLoadBalancerAddress(ingressName *string, options *IngressLoadBalancerAddressOptions) *string {
 	var returns *string
 
@@ -4247,6 +5070,7 @@ func (c *jsiiProxy_Cluster) GetIngressLoadBalancerAddress(ingressName *string, o
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (c *jsiiProxy_Cluster) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -4265,6 +5089,7 @@ func (c *jsiiProxy_Cluster) GetResourceArnAttribute(arnAttr *string, arnComponen
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (c *jsiiProxy_Cluster) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -4279,6 +5104,7 @@ func (c *jsiiProxy_Cluster) GetResourceNameAttribute(nameAttr *string) *string {
 }
 
 // Fetch the load balancer address of a service of type 'LoadBalancer'.
+// Experimental.
 func (c *jsiiProxy_Cluster) GetServiceLoadBalancerAddress(serviceName *string, options *ServiceLoadBalancerAddressOptions) *string {
 	var returns *string
 
@@ -4292,7 +5118,88 @@ func (c *jsiiProxy_Cluster) GetServiceLoadBalancerAddress(serviceName *string, o
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_Cluster) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_Cluster) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_Cluster) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_Cluster) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_Cluster) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (c *jsiiProxy_Cluster) ToString() *string {
 	var returns *string
 
@@ -4306,26 +5213,54 @@ func (c *jsiiProxy_Cluster) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_Cluster) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Attributes for EKS clusters.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type ClusterAttributes struct {
 	// The certificate-authority-data for your cluster.
+	// Experimental.
 	ClusterCertificateAuthorityData *string `json:"clusterCertificateAuthorityData"`
 	// Amazon Resource Name (ARN) or alias of the customer master key (CMK).
+	// Experimental.
 	ClusterEncryptionConfigKeyArn *string `json:"clusterEncryptionConfigKeyArn"`
 	// The API Server endpoint URL.
+	// Experimental.
 	ClusterEndpoint *string `json:"clusterEndpoint"`
 	// A security group id to associate with the Cluster Handler's Lambdas.
 	//
 	// The Cluster Handler's Lambdas are responsible for calling AWS's EKS API.
+	// Experimental.
 	ClusterHandlerSecurityGroupId *string `json:"clusterHandlerSecurityGroupId"`
 	// The physical name of the Cluster.
+	// Experimental.
 	ClusterName *string `json:"clusterName"`
 	// The cluster security group that was created by Amazon EKS for the cluster.
+	// Experimental.
 	ClusterSecurityGroupId *string `json:"clusterSecurityGroupId"`
 	// Environment variables to use when running `kubectl` against this cluster.
+	// Experimental.
 	KubectlEnvironment *map[string]*string `json:"kubectlEnvironment"`
 	// An IAM role that can perform kubectl operations against this cluster.
 	//
@@ -4333,6 +5268,7 @@ type ClusterAttributes struct {
 	//
 	// This role is directly passed to the lambda handler that sends Kube Ctl commands
 	// to the cluster.
+	// Experimental.
 	KubectlLambdaRole awsiam.IRole `json:"kubectlLambdaRole"`
 	// An AWS Lambda Layer which includes `kubectl`, Helm and the AWS CLI.
 	//
@@ -4344,20 +5280,25 @@ type ClusterAttributes struct {
 	//     helm/helm
 	//     kubectl/kubectl
 	//     awscli/aws
+	// Experimental.
 	KubectlLayer awslambda.ILayerVersion `json:"kubectlLayer"`
 	// Amount of memory to allocate to the provider's lambda function.
+	// Experimental.
 	KubectlMemory awscdk.Size `json:"kubectlMemory"`
 	// Subnets to host the `kubectl` compute resources.
 	//
 	// If not specified, the k8s
 	// endpoint is expected to be accessible publicly.
+	// Experimental.
 	KubectlPrivateSubnetIds *[]*string `json:"kubectlPrivateSubnetIds"`
 	// An IAM role with cluster administrator and "system:masters" permissions.
+	// Experimental.
 	KubectlRoleArn *string `json:"kubectlRoleArn"`
 	// A security group to use for `kubectl` execution.
 	//
 	// If not specified, the k8s
 	// endpoint is expected to be accessible publicly.
+	// Experimental.
 	KubectlSecurityGroupId *string `json:"kubectlSecurityGroupId"`
 	// An AWS Lambda Layer which includes the NPM dependency `proxy-agent`.
 	//
@@ -4367,21 +5308,26 @@ type ClusterAttributes struct {
 	// The handler expects the layer to include the following node_modules:
 	//
 	//     proxy-agent
+	// Experimental.
 	OnEventLayer awslambda.ILayerVersion `json:"onEventLayer"`
 	// An Open ID Connect provider for this cluster that can be used to configure service accounts.
 	//
 	// You can either import an existing provider using `iam.OpenIdConnectProvider.fromProviderArn`,
 	// or create a new provider using `new eks.OpenIdConnectProvider`
+	// Experimental.
 	OpenIdConnectProvider awsiam.IOpenIdConnectProvider `json:"openIdConnectProvider"`
 	// Indicates whether Kubernetes resources added through `addManifest()` can be automatically pruned.
 	//
 	// When this is enabled (default), prune labels will be
 	// allocated and injected to each resource. These labels will then be used
 	// when issuing the `kubectl apply` operation with the `--prune` switch.
+	// Experimental.
 	Prune *bool `json:"prune"`
 	// Additional security groups associated with this cluster.
+	// Experimental.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
 	// The VPC in which this Cluster was created.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 }
 
@@ -4389,23 +5335,31 @@ type ClusterAttributes struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type ClusterOptions struct {
 	// Name for the cluster.
+	// Experimental.
 	ClusterName *string `json:"clusterName"`
 	// Determines whether a CloudFormation output with the name of the cluster will be synthesized.
+	// Experimental.
 	OutputClusterName *bool `json:"outputClusterName"`
 	// Determines whether a CloudFormation output with the `aws eks update-kubeconfig` command will be synthesized.
 	//
 	// This command will include
 	// the cluster name and, if applicable, the ARN of the masters IAM role.
+	// Experimental.
 	OutputConfigCommand *bool `json:"outputConfigCommand"`
 	// Role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+	// Experimental.
 	Role awsiam.IRole `json:"role"`
 	// Security Group to use for Control Plane ENIs.
+	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 	// The Kubernetes version to run in the cluster.
+	// Experimental.
 	Version KubernetesVersion `json:"version"`
 	// The VPC in which to create the Cluster.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// Where to place EKS Control Plane ENIs.
 	//
@@ -4414,28 +5368,35 @@ type ClusterOptions struct {
 	// For example, to only select private subnets, supply the following:
 	//
 	// `vpcSubnets: [{ subnetType: ec2.SubnetType.PRIVATE }]`
+	// Experimental.
 	VpcSubnets *[]*awsec2.SubnetSelection `json:"vpcSubnets"`
 	// Install the AWS Load Balancer Controller onto the cluster.
 	// See: https://kubernetes-sigs.github.io/aws-load-balancer-controller
 	//
+	// Experimental.
 	AlbController *AlbControllerOptions `json:"albController"`
 	// Custom environment variables when interacting with the EKS endpoint to manage the cluster lifecycle.
+	// Experimental.
 	ClusterHandlerEnvironment *map[string]*string `json:"clusterHandlerEnvironment"`
 	// A security group to associate with the Cluster Handler's Lambdas.
 	//
 	// The Cluster Handler's Lambdas are responsible for calling AWS's EKS API.
 	//
 	// Requires `placeClusterHandlerInVpc` to be set to true.
+	// Experimental.
 	ClusterHandlerSecurityGroup awsec2.ISecurityGroup `json:"clusterHandlerSecurityGroup"`
 	// Controls the "eks.amazonaws.com/compute-type" annotation in the CoreDNS configuration on your cluster to determine which compute type to use for CoreDNS.
+	// Experimental.
 	CoreDnsComputeType CoreDnsComputeType `json:"coreDnsComputeType"`
 	// Configure access to the Kubernetes API server endpoint..
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html
 	//
+	// Experimental.
 	EndpointAccess EndpointAccess `json:"endpointAccess"`
 	// Environment variables for the kubectl execution.
 	//
 	// Only relevant for kubectl enabled clusters.
+	// Experimental.
 	KubectlEnvironment *map[string]*string `json:"kubectlEnvironment"`
 	// An AWS Lambda Layer which includes `kubectl`, Helm and the AWS CLI.
 	//
@@ -4456,12 +5417,15 @@ type ClusterOptions struct {
 	// ```
 	// See: https://github.com/aws-samples/aws-lambda-layer-kubectl
 	//
+	// Experimental.
 	KubectlLayer awslambda.ILayerVersion `json:"kubectlLayer"`
 	// Amount of memory to allocate to the provider's lambda function.
+	// Experimental.
 	KubectlMemory awscdk.Size `json:"kubectlMemory"`
 	// An IAM role that will be added to the `system:masters` Kubernetes RBAC group.
 	// See: https://kubernetes.io/docs/reference/access-authn-authz/rbac/#default-roles-and-role-bindings
 	//
+	// Experimental.
 	MastersRole awsiam.IRole `json:"mastersRole"`
 	// An AWS Lambda Layer which includes the NPM dependency `proxy-agent`.
 	//
@@ -4480,22 +5444,28 @@ type ClusterOptions struct {
 	//    compatibleRuntimes: [lambda.Runtime.NODEJS_12_X],
 	// });
 	// ```
+	// Experimental.
 	OnEventLayer awslambda.ILayerVersion `json:"onEventLayer"`
 	// Determines whether a CloudFormation output with the ARN of the "masters" IAM role will be synthesized (if `mastersRole` is specified).
+	// Experimental.
 	OutputMastersRoleArn *bool `json:"outputMastersRoleArn"`
 	// If set to true, the cluster handler functions will be placed in the private subnets of the cluster vpc, subject to the `vpcSubnets` selection strategy.
+	// Experimental.
 	PlaceClusterHandlerInVpc *bool `json:"placeClusterHandlerInVpc"`
 	// Indicates whether Kubernetes resources added through `addManifest()` can be automatically pruned.
 	//
 	// When this is enabled (default), prune labels will be
 	// allocated and injected to each resource. These labels will then be used
 	// when issuing the `kubectl apply` operation with the `--prune` switch.
+	// Experimental.
 	Prune *bool `json:"prune"`
 	// KMS secret for envelope encryption for Kubernetes secrets.
+	// Experimental.
 	SecretsEncryptionKey awskms.IKey `json:"secretsEncryptionKey"`
 	// The CIDR block to assign Kubernetes service IP addresses from.
 	// See: https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-serviceIpv4Cidr
 	//
+	// Experimental.
 	ServiceIpv4Cidr *string `json:"serviceIpv4Cidr"`
 }
 
@@ -4503,23 +5473,31 @@ type ClusterOptions struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type ClusterProps struct {
 	// Name for the cluster.
+	// Experimental.
 	ClusterName *string `json:"clusterName"`
 	// Determines whether a CloudFormation output with the name of the cluster will be synthesized.
+	// Experimental.
 	OutputClusterName *bool `json:"outputClusterName"`
 	// Determines whether a CloudFormation output with the `aws eks update-kubeconfig` command will be synthesized.
 	//
 	// This command will include
 	// the cluster name and, if applicable, the ARN of the masters IAM role.
+	// Experimental.
 	OutputConfigCommand *bool `json:"outputConfigCommand"`
 	// Role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+	// Experimental.
 	Role awsiam.IRole `json:"role"`
 	// Security Group to use for Control Plane ENIs.
+	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 	// The Kubernetes version to run in the cluster.
+	// Experimental.
 	Version KubernetesVersion `json:"version"`
 	// The VPC in which to create the Cluster.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// Where to place EKS Control Plane ENIs.
 	//
@@ -4528,28 +5506,35 @@ type ClusterProps struct {
 	// For example, to only select private subnets, supply the following:
 	//
 	// `vpcSubnets: [{ subnetType: ec2.SubnetType.PRIVATE }]`
+	// Experimental.
 	VpcSubnets *[]*awsec2.SubnetSelection `json:"vpcSubnets"`
 	// Install the AWS Load Balancer Controller onto the cluster.
 	// See: https://kubernetes-sigs.github.io/aws-load-balancer-controller
 	//
+	// Experimental.
 	AlbController *AlbControllerOptions `json:"albController"`
 	// Custom environment variables when interacting with the EKS endpoint to manage the cluster lifecycle.
+	// Experimental.
 	ClusterHandlerEnvironment *map[string]*string `json:"clusterHandlerEnvironment"`
 	// A security group to associate with the Cluster Handler's Lambdas.
 	//
 	// The Cluster Handler's Lambdas are responsible for calling AWS's EKS API.
 	//
 	// Requires `placeClusterHandlerInVpc` to be set to true.
+	// Experimental.
 	ClusterHandlerSecurityGroup awsec2.ISecurityGroup `json:"clusterHandlerSecurityGroup"`
 	// Controls the "eks.amazonaws.com/compute-type" annotation in the CoreDNS configuration on your cluster to determine which compute type to use for CoreDNS.
+	// Experimental.
 	CoreDnsComputeType CoreDnsComputeType `json:"coreDnsComputeType"`
 	// Configure access to the Kubernetes API server endpoint..
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html
 	//
+	// Experimental.
 	EndpointAccess EndpointAccess `json:"endpointAccess"`
 	// Environment variables for the kubectl execution.
 	//
 	// Only relevant for kubectl enabled clusters.
+	// Experimental.
 	KubectlEnvironment *map[string]*string `json:"kubectlEnvironment"`
 	// An AWS Lambda Layer which includes `kubectl`, Helm and the AWS CLI.
 	//
@@ -4570,12 +5555,15 @@ type ClusterProps struct {
 	// ```
 	// See: https://github.com/aws-samples/aws-lambda-layer-kubectl
 	//
+	// Experimental.
 	KubectlLayer awslambda.ILayerVersion `json:"kubectlLayer"`
 	// Amount of memory to allocate to the provider's lambda function.
+	// Experimental.
 	KubectlMemory awscdk.Size `json:"kubectlMemory"`
 	// An IAM role that will be added to the `system:masters` Kubernetes RBAC group.
 	// See: https://kubernetes.io/docs/reference/access-authn-authz/rbac/#default-roles-and-role-bindings
 	//
+	// Experimental.
 	MastersRole awsiam.IRole `json:"mastersRole"`
 	// An AWS Lambda Layer which includes the NPM dependency `proxy-agent`.
 	//
@@ -4594,22 +5582,28 @@ type ClusterProps struct {
 	//    compatibleRuntimes: [lambda.Runtime.NODEJS_12_X],
 	// });
 	// ```
+	// Experimental.
 	OnEventLayer awslambda.ILayerVersion `json:"onEventLayer"`
 	// Determines whether a CloudFormation output with the ARN of the "masters" IAM role will be synthesized (if `mastersRole` is specified).
+	// Experimental.
 	OutputMastersRoleArn *bool `json:"outputMastersRoleArn"`
 	// If set to true, the cluster handler functions will be placed in the private subnets of the cluster vpc, subject to the `vpcSubnets` selection strategy.
+	// Experimental.
 	PlaceClusterHandlerInVpc *bool `json:"placeClusterHandlerInVpc"`
 	// Indicates whether Kubernetes resources added through `addManifest()` can be automatically pruned.
 	//
 	// When this is enabled (default), prune labels will be
 	// allocated and injected to each resource. These labels will then be used
 	// when issuing the `kubectl apply` operation with the `--prune` switch.
+	// Experimental.
 	Prune *bool `json:"prune"`
 	// KMS secret for envelope encryption for Kubernetes secrets.
+	// Experimental.
 	SecretsEncryptionKey awskms.IKey `json:"secretsEncryptionKey"`
 	// The CIDR block to assign Kubernetes service IP addresses from.
 	// See: https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-serviceIpv4Cidr
 	//
+	// Experimental.
 	ServiceIpv4Cidr *string `json:"serviceIpv4Cidr"`
 	// Number of instances to allocate as an initial capacity for this cluster.
 	//
@@ -4618,15 +5612,19 @@ type ClusterProps struct {
 	//
 	// Use `cluster.addAutoScalingGroupCapacity` to add additional customized capacity. Set this
 	// to `0` is you wish to avoid the initial capacity allocation.
+	// Experimental.
 	DefaultCapacity *float64 `json:"defaultCapacity"`
 	// The instance type to use for the default capacity.
 	//
 	// This will only be taken
 	// into account if `defaultCapacity` is > 0.
+	// Experimental.
 	DefaultCapacityInstance awsec2.InstanceType `json:"defaultCapacityInstance"`
 	// The default capacity type for the cluster.
+	// Experimental.
 	DefaultCapacityType DefaultCapacityType `json:"defaultCapacityType"`
 	// The IAM role to pass to the Kubectl Lambda Handler.
+	// Experimental.
 	KubectlLambdaRole awsiam.IRole `json:"kubectlLambdaRole"`
 }
 
@@ -4634,23 +5632,31 @@ type ClusterProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type CommonClusterOptions struct {
 	// Name for the cluster.
+	// Experimental.
 	ClusterName *string `json:"clusterName"`
 	// Determines whether a CloudFormation output with the name of the cluster will be synthesized.
+	// Experimental.
 	OutputClusterName *bool `json:"outputClusterName"`
 	// Determines whether a CloudFormation output with the `aws eks update-kubeconfig` command will be synthesized.
 	//
 	// This command will include
 	// the cluster name and, if applicable, the ARN of the masters IAM role.
+	// Experimental.
 	OutputConfigCommand *bool `json:"outputConfigCommand"`
 	// Role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+	// Experimental.
 	Role awsiam.IRole `json:"role"`
 	// Security Group to use for Control Plane ENIs.
+	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 	// The Kubernetes version to run in the cluster.
+	// Experimental.
 	Version KubernetesVersion `json:"version"`
 	// The VPC in which to create the Cluster.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// Where to place EKS Control Plane ENIs.
 	//
@@ -4659,10 +5665,12 @@ type CommonClusterOptions struct {
 	// For example, to only select private subnets, supply the following:
 	//
 	// `vpcSubnets: [{ subnetType: ec2.SubnetType.PRIVATE }]`
+	// Experimental.
 	VpcSubnets *[]*awsec2.SubnetSelection `json:"vpcSubnets"`
 }
 
 // The type of compute resources to use for CoreDNS.
+// Experimental.
 type CoreDnsComputeType string
 
 const (
@@ -4671,6 +5679,7 @@ const (
 )
 
 // CPU architecture.
+// Experimental.
 type CpuArch string
 
 const (
@@ -4682,6 +5691,7 @@ const (
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type DefaultCapacityType string
 
 const (
@@ -4693,9 +5703,10 @@ const (
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type EksOptimizedImage interface {
 	awsec2.IMachineImage
-	GetImage(scope constructs.Construct) *awsec2.MachineImageConfig
+	GetImage(scope awscdk.Construct) *awsec2.MachineImageConfig
 }
 
 // The jsii proxy struct for EksOptimizedImage
@@ -4704,13 +5715,14 @@ type jsiiProxy_EksOptimizedImage struct {
 }
 
 // Constructs a new instance of the EcsOptimizedAmi class.
+// Experimental.
 func NewEksOptimizedImage(props *EksOptimizedImageProps) EksOptimizedImage {
 	_init_.Initialize()
 
 	j := jsiiProxy_EksOptimizedImage{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.EksOptimizedImage",
+		"monocdk.aws_eks.EksOptimizedImage",
 		[]interface{}{props},
 		&j,
 	)
@@ -4719,18 +5731,20 @@ func NewEksOptimizedImage(props *EksOptimizedImageProps) EksOptimizedImage {
 }
 
 // Constructs a new instance of the EcsOptimizedAmi class.
+// Experimental.
 func NewEksOptimizedImage_Override(e EksOptimizedImage, props *EksOptimizedImageProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.EksOptimizedImage",
+		"monocdk.aws_eks.EksOptimizedImage",
 		[]interface{}{props},
 		e,
 	)
 }
 
 // Return the correct image.
-func (e *jsiiProxy_EksOptimizedImage) GetImage(scope constructs.Construct) *awsec2.MachineImageConfig {
+// Experimental.
+func (e *jsiiProxy_EksOptimizedImage) GetImage(scope awscdk.Construct) *awsec2.MachineImageConfig {
 	var returns *awsec2.MachineImageConfig
 
 	_jsii_.Invoke(
@@ -4747,12 +5761,16 @@ func (e *jsiiProxy_EksOptimizedImage) GetImage(scope constructs.Construct) *awse
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type EksOptimizedImageProps struct {
 	// What cpu architecture to retrieve the image for (arm64 or x86_64).
+	// Experimental.
 	CpuArch CpuArch `json:"cpuArch"`
 	// The Kubernetes version to use.
+	// Experimental.
 	KubernetesVersion *string `json:"kubernetesVersion"`
 	// What instance type to retrieve the image for (standard or GPU-optimized).
+	// Experimental.
 	NodeType NodeType `json:"nodeType"`
 }
 
@@ -4760,6 +5778,7 @@ type EksOptimizedImageProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type EndpointAccess interface {
 	OnlyFrom(cidr ...*string) EndpointAccess
 }
@@ -4773,7 +5792,7 @@ func EndpointAccess_PRIVATE() EndpointAccess {
 	_init_.Initialize()
 	var returns EndpointAccess
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.EndpointAccess",
+		"monocdk.aws_eks.EndpointAccess",
 		"PRIVATE",
 		&returns,
 	)
@@ -4784,7 +5803,7 @@ func EndpointAccess_PUBLIC() EndpointAccess {
 	_init_.Initialize()
 	var returns EndpointAccess
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.EndpointAccess",
+		"monocdk.aws_eks.EndpointAccess",
 		"PUBLIC",
 		&returns,
 	)
@@ -4795,7 +5814,7 @@ func EndpointAccess_PUBLIC_AND_PRIVATE() EndpointAccess {
 	_init_.Initialize()
 	var returns EndpointAccess
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.EndpointAccess",
+		"monocdk.aws_eks.EndpointAccess",
 		"PUBLIC_AND_PRIVATE",
 		&returns,
 	)
@@ -4805,6 +5824,7 @@ func EndpointAccess_PUBLIC_AND_PRIVATE() EndpointAccess {
 // Restrict public access to specific CIDR blocks.
 //
 // If public access is disabled, this method will result in an error.
+// Experimental.
 func (e *jsiiProxy_EndpointAccess) OnlyFrom(cidr ...*string) EndpointAccess {
 	args := []interface{}{}
 	for _, a := range cidr {
@@ -4831,6 +5851,7 @@ func (e *jsiiProxy_EndpointAccess) OnlyFrom(cidr ...*string) EndpointAccess {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type FargateCluster interface {
 	Cluster
 	AdminRole() awsiam.Role
@@ -4858,7 +5879,7 @@ type FargateCluster interface {
 	KubectlPrivateSubnets() *[]awsec2.ISubnet
 	KubectlRole() awsiam.IRole
 	KubectlSecurityGroup() awsec2.ISecurityGroup
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OnEventLayer() awslambda.ILayerVersion
 	OpenIdConnectProvider() awsiam.IOpenIdConnectProvider
 	PhysicalName() *string
@@ -4880,7 +5901,13 @@ type FargateCluster interface {
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
 	GetServiceLoadBalancerAddress(serviceName *string, options *ServiceLoadBalancerAddressOptions) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for FargateCluster
@@ -5138,8 +6165,8 @@ func (j *jsiiProxy_FargateCluster) KubectlSecurityGroup() awsec2.ISecurityGroup 
 	return returns
 }
 
-func (j *jsiiProxy_FargateCluster) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_FargateCluster) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5219,13 +6246,14 @@ func (j *jsiiProxy_FargateCluster) Vpc() awsec2.IVpc {
 }
 
 
+// Experimental.
 func NewFargateCluster(scope constructs.Construct, id *string, props *FargateClusterProps) FargateCluster {
 	_init_.Initialize()
 
 	j := jsiiProxy_FargateCluster{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.FargateCluster",
+		"monocdk.aws_eks.FargateCluster",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5233,24 +6261,26 @@ func NewFargateCluster(scope constructs.Construct, id *string, props *FargateClu
 	return &j
 }
 
+// Experimental.
 func NewFargateCluster_Override(f FargateCluster, scope constructs.Construct, id *string, props *FargateClusterProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.FargateCluster",
+		"monocdk.aws_eks.FargateCluster",
 		[]interface{}{scope, id, props},
 		f,
 	)
 }
 
 // Import an existing cluster.
+// Experimental.
 func FargateCluster_FromClusterAttributes(scope constructs.Construct, id *string, attrs *ClusterAttributes) ICluster {
 	_init_.Initialize()
 
 	var returns ICluster
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.FargateCluster",
+		"monocdk.aws_eks.FargateCluster",
 		"fromClusterAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -5259,17 +6289,15 @@ func FargateCluster_FromClusterAttributes(scope constructs.Construct, id *string
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func FargateCluster_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.FargateCluster",
+		"monocdk.aws_eks.FargateCluster",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5279,13 +6307,14 @@ func FargateCluster_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func FargateCluster_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func FargateCluster_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.FargateCluster",
+		"monocdk.aws_eks.FargateCluster",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -5307,6 +6336,7 @@ func FargateCluster_IsResource(construct constructs.IConstruct) *bool {
 // In addition, the [spot interrupt handler](https://github.com/awslabs/ec2-spot-labs/tree/master/ec2-spot-eks-solution/spot-termination-handler)
 // daemon will be installed on all spot instances to handle
 // [EC2 Spot Instance Termination Notices](https://aws.amazon.com/blogs/aws/new-ec2-spot-instance-termination-notices/).
+// Experimental.
 func (f *jsiiProxy_FargateCluster) AddAutoScalingGroupCapacity(id *string, options *AutoScalingGroupCapacityOptions) awsautoscaling.AutoScalingGroup {
 	var returns awsautoscaling.AutoScalingGroup
 
@@ -5323,6 +6353,7 @@ func (f *jsiiProxy_FargateCluster) AddAutoScalingGroupCapacity(id *string, optio
 // Defines a CDK8s chart in this cluster.
 //
 // Returns: a `KubernetesManifest` construct representing the chart.
+// Experimental.
 func (f *jsiiProxy_FargateCluster) AddCdk8sChart(id *string, chart constructs.Construct, options *KubernetesManifestOptions) KubernetesManifest {
 	var returns KubernetesManifest
 
@@ -5339,6 +6370,7 @@ func (f *jsiiProxy_FargateCluster) AddCdk8sChart(id *string, chart constructs.Co
 // Adds a Fargate profile to this cluster.
 // See: https://docs.aws.amazon.com/eks/latest/userguide/fargate-profile.html
 //
+// Experimental.
 func (f *jsiiProxy_FargateCluster) AddFargateProfile(id *string, options *FargateProfileOptions) FargateProfile {
 	var returns FargateProfile
 
@@ -5355,6 +6387,7 @@ func (f *jsiiProxy_FargateCluster) AddFargateProfile(id *string, options *Fargat
 // Defines a Helm chart in this cluster.
 //
 // Returns: a `HelmChart` construct
+// Experimental.
 func (f *jsiiProxy_FargateCluster) AddHelmChart(id *string, options *HelmChartOptions) HelmChart {
 	var returns HelmChart
 
@@ -5373,6 +6406,7 @@ func (f *jsiiProxy_FargateCluster) AddHelmChart(id *string, options *HelmChartOp
 // The manifest will be applied/deleted using kubectl as needed.
 //
 // Returns: a `KubernetesResource` object.
+// Experimental.
 func (f *jsiiProxy_FargateCluster) AddManifest(id *string, manifest ...*map[string]interface{}) KubernetesManifest {
 	args := []interface{}{id}
 	for _, a := range manifest {
@@ -5396,6 +6430,7 @@ func (f *jsiiProxy_FargateCluster) AddManifest(id *string, manifest ...*map[stri
 // This method will create a new managed nodegroup and add into the capacity.
 // See: https://docs.aws.amazon.com/eks/latest/userguide/managed-node-groups.html
 //
+// Experimental.
 func (f *jsiiProxy_FargateCluster) AddNodegroupCapacity(id *string, options *NodegroupOptions) Nodegroup {
 	var returns Nodegroup
 
@@ -5410,6 +6445,7 @@ func (f *jsiiProxy_FargateCluster) AddNodegroupCapacity(id *string, options *Nod
 }
 
 // Creates a new service account with corresponding IAM Role (IRSA).
+// Experimental.
 func (f *jsiiProxy_FargateCluster) AddServiceAccount(id *string, options *ServiceAccountOptions) ServiceAccount {
 	var returns ServiceAccount
 
@@ -5432,6 +6468,7 @@ func (f *jsiiProxy_FargateCluster) AddServiceAccount(id *string, options *Servic
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (f *jsiiProxy_FargateCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		f,
@@ -5456,6 +6493,7 @@ func (f *jsiiProxy_FargateCluster) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 // Prefer to use `addAutoScalingGroupCapacity` if possible.
 // See: https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html
 //
+// Experimental.
 func (f *jsiiProxy_FargateCluster) ConnectAutoScalingGroupCapacity(autoScalingGroup awsautoscaling.AutoScalingGroup, options *AutoScalingGroupOptions) {
 	_jsii_.InvokeVoid(
 		f,
@@ -5464,6 +6502,7 @@ func (f *jsiiProxy_FargateCluster) ConnectAutoScalingGroupCapacity(autoScalingGr
 	)
 }
 
+// Experimental.
 func (f *jsiiProxy_FargateCluster) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -5478,6 +6517,7 @@ func (f *jsiiProxy_FargateCluster) GeneratePhysicalName() *string {
 }
 
 // Fetch the load balancer address of an ingress backed by a load balancer.
+// Experimental.
 func (f *jsiiProxy_FargateCluster) GetIngressLoadBalancerAddress(ingressName *string, options *IngressLoadBalancerAddressOptions) *string {
 	var returns *string
 
@@ -5497,6 +6537,7 @@ func (f *jsiiProxy_FargateCluster) GetIngressLoadBalancerAddress(ingressName *st
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (f *jsiiProxy_FargateCluster) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -5515,6 +6556,7 @@ func (f *jsiiProxy_FargateCluster) GetResourceArnAttribute(arnAttr *string, arnC
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (f *jsiiProxy_FargateCluster) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -5529,6 +6571,7 @@ func (f *jsiiProxy_FargateCluster) GetResourceNameAttribute(nameAttr *string) *s
 }
 
 // Fetch the load balancer address of a service of type 'LoadBalancer'.
+// Experimental.
 func (f *jsiiProxy_FargateCluster) GetServiceLoadBalancerAddress(serviceName *string, options *ServiceLoadBalancerAddressOptions) *string {
 	var returns *string
 
@@ -5542,7 +6585,88 @@ func (f *jsiiProxy_FargateCluster) GetServiceLoadBalancerAddress(serviceName *st
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (f *jsiiProxy_FargateCluster) OnPrepare() {
+	_jsii_.InvokeVoid(
+		f,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (f *jsiiProxy_FargateCluster) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		f,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (f *jsiiProxy_FargateCluster) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		f,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (f *jsiiProxy_FargateCluster) Prepare() {
+	_jsii_.InvokeVoid(
+		f,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (f *jsiiProxy_FargateCluster) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		f,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (f *jsiiProxy_FargateCluster) ToString() *string {
 	var returns *string
 
@@ -5556,27 +6680,55 @@ func (f *jsiiProxy_FargateCluster) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (f *jsiiProxy_FargateCluster) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		f,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Configuration props for EKS Fargate.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type FargateClusterProps struct {
 	// Name for the cluster.
+	// Experimental.
 	ClusterName *string `json:"clusterName"`
 	// Determines whether a CloudFormation output with the name of the cluster will be synthesized.
+	// Experimental.
 	OutputClusterName *bool `json:"outputClusterName"`
 	// Determines whether a CloudFormation output with the `aws eks update-kubeconfig` command will be synthesized.
 	//
 	// This command will include
 	// the cluster name and, if applicable, the ARN of the masters IAM role.
+	// Experimental.
 	OutputConfigCommand *bool `json:"outputConfigCommand"`
 	// Role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+	// Experimental.
 	Role awsiam.IRole `json:"role"`
 	// Security Group to use for Control Plane ENIs.
+	// Experimental.
 	SecurityGroup awsec2.ISecurityGroup `json:"securityGroup"`
 	// The Kubernetes version to run in the cluster.
+	// Experimental.
 	Version KubernetesVersion `json:"version"`
 	// The VPC in which to create the Cluster.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// Where to place EKS Control Plane ENIs.
 	//
@@ -5585,28 +6737,35 @@ type FargateClusterProps struct {
 	// For example, to only select private subnets, supply the following:
 	//
 	// `vpcSubnets: [{ subnetType: ec2.SubnetType.PRIVATE }]`
+	// Experimental.
 	VpcSubnets *[]*awsec2.SubnetSelection `json:"vpcSubnets"`
 	// Install the AWS Load Balancer Controller onto the cluster.
 	// See: https://kubernetes-sigs.github.io/aws-load-balancer-controller
 	//
+	// Experimental.
 	AlbController *AlbControllerOptions `json:"albController"`
 	// Custom environment variables when interacting with the EKS endpoint to manage the cluster lifecycle.
+	// Experimental.
 	ClusterHandlerEnvironment *map[string]*string `json:"clusterHandlerEnvironment"`
 	// A security group to associate with the Cluster Handler's Lambdas.
 	//
 	// The Cluster Handler's Lambdas are responsible for calling AWS's EKS API.
 	//
 	// Requires `placeClusterHandlerInVpc` to be set to true.
+	// Experimental.
 	ClusterHandlerSecurityGroup awsec2.ISecurityGroup `json:"clusterHandlerSecurityGroup"`
 	// Controls the "eks.amazonaws.com/compute-type" annotation in the CoreDNS configuration on your cluster to determine which compute type to use for CoreDNS.
+	// Experimental.
 	CoreDnsComputeType CoreDnsComputeType `json:"coreDnsComputeType"`
 	// Configure access to the Kubernetes API server endpoint..
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/cluster-endpoint.html
 	//
+	// Experimental.
 	EndpointAccess EndpointAccess `json:"endpointAccess"`
 	// Environment variables for the kubectl execution.
 	//
 	// Only relevant for kubectl enabled clusters.
+	// Experimental.
 	KubectlEnvironment *map[string]*string `json:"kubectlEnvironment"`
 	// An AWS Lambda Layer which includes `kubectl`, Helm and the AWS CLI.
 	//
@@ -5627,12 +6786,15 @@ type FargateClusterProps struct {
 	// ```
 	// See: https://github.com/aws-samples/aws-lambda-layer-kubectl
 	//
+	// Experimental.
 	KubectlLayer awslambda.ILayerVersion `json:"kubectlLayer"`
 	// Amount of memory to allocate to the provider's lambda function.
+	// Experimental.
 	KubectlMemory awscdk.Size `json:"kubectlMemory"`
 	// An IAM role that will be added to the `system:masters` Kubernetes RBAC group.
 	// See: https://kubernetes.io/docs/reference/access-authn-authz/rbac/#default-roles-and-role-bindings
 	//
+	// Experimental.
 	MastersRole awsiam.IRole `json:"mastersRole"`
 	// An AWS Lambda Layer which includes the NPM dependency `proxy-agent`.
 	//
@@ -5651,24 +6813,31 @@ type FargateClusterProps struct {
 	//    compatibleRuntimes: [lambda.Runtime.NODEJS_12_X],
 	// });
 	// ```
+	// Experimental.
 	OnEventLayer awslambda.ILayerVersion `json:"onEventLayer"`
 	// Determines whether a CloudFormation output with the ARN of the "masters" IAM role will be synthesized (if `mastersRole` is specified).
+	// Experimental.
 	OutputMastersRoleArn *bool `json:"outputMastersRoleArn"`
 	// If set to true, the cluster handler functions will be placed in the private subnets of the cluster vpc, subject to the `vpcSubnets` selection strategy.
+	// Experimental.
 	PlaceClusterHandlerInVpc *bool `json:"placeClusterHandlerInVpc"`
 	// Indicates whether Kubernetes resources added through `addManifest()` can be automatically pruned.
 	//
 	// When this is enabled (default), prune labels will be
 	// allocated and injected to each resource. These labels will then be used
 	// when issuing the `kubectl apply` operation with the `--prune` switch.
+	// Experimental.
 	Prune *bool `json:"prune"`
 	// KMS secret for envelope encryption for Kubernetes secrets.
+	// Experimental.
 	SecretsEncryptionKey awskms.IKey `json:"secretsEncryptionKey"`
 	// The CIDR block to assign Kubernetes service IP addresses from.
 	// See: https://docs.aws.amazon.com/eks/latest/APIReference/API_KubernetesNetworkConfigRequest.html#AmazonEKS-Type-KubernetesNetworkConfigRequest-serviceIpv4Cidr
 	//
+	// Experimental.
 	ServiceIpv4Cidr *string `json:"serviceIpv4Cidr"`
 	// Fargate Profile to create along with the cluster.
+	// Experimental.
 	DefaultProfile *FargateProfileOptions `json:"defaultProfile"`
 }
 
@@ -5693,20 +6862,27 @@ type FargateClusterProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type FargateProfile interface {
-	constructs.Construct
+	awscdk.Construct
 	awscdk.ITaggable
 	FargateProfileArn() *string
 	FargateProfileName() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PodExecutionRole() awsiam.IRole
 	Tags() awscdk.TagManager
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for FargateProfile
 type jsiiProxy_FargateProfile struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 	internal.Type__awscdkITaggable
 }
 
@@ -5730,8 +6906,8 @@ func (j *jsiiProxy_FargateProfile) FargateProfileName() *string {
 	return returns
 }
 
-func (j *jsiiProxy_FargateProfile) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_FargateProfile) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5761,13 +6937,14 @@ func (j *jsiiProxy_FargateProfile) Tags() awscdk.TagManager {
 }
 
 
+// Experimental.
 func NewFargateProfile(scope constructs.Construct, id *string, props *FargateProfileProps) FargateProfile {
 	_init_.Initialize()
 
 	j := jsiiProxy_FargateProfile{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.FargateProfile",
+		"monocdk.aws_eks.FargateProfile",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5775,27 +6952,26 @@ func NewFargateProfile(scope constructs.Construct, id *string, props *FargatePro
 	return &j
 }
 
+// Experimental.
 func NewFargateProfile_Override(f FargateProfile, scope constructs.Construct, id *string, props *FargateProfileProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.FargateProfile",
+		"monocdk.aws_eks.FargateProfile",
 		[]interface{}{scope, id, props},
 		f,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func FargateProfile_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.FargateProfile",
+		"monocdk.aws_eks.FargateProfile",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5804,7 +6980,88 @@ func FargateProfile_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (f *jsiiProxy_FargateProfile) OnPrepare() {
+	_jsii_.InvokeVoid(
+		f,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (f *jsiiProxy_FargateProfile) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		f,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (f *jsiiProxy_FargateProfile) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		f,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (f *jsiiProxy_FargateProfile) Prepare() {
+	_jsii_.InvokeVoid(
+		f,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (f *jsiiProxy_FargateProfile) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		f,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (f *jsiiProxy_FargateProfile) ToString() *string {
 	var returns *string
 
@@ -5818,12 +7075,34 @@ func (f *jsiiProxy_FargateProfile) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (f *jsiiProxy_FargateProfile) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		f,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Options for defining EKS Fargate Profiles.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type FargateProfileOptions struct {
 	// The name of the Fargate profile.
+	// Experimental.
 	FargateProfileName *string `json:"fargateProfileName"`
 	// The pod execution role to use for pods that match the selectors in the Fargate profile.
 	//
@@ -5832,6 +7111,7 @@ type FargateProfileOptions struct {
 	// ECR image repositories.
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html
 	//
+	// Experimental.
 	PodExecutionRole awsiam.IRole `json:"podExecutionRole"`
 	// The selectors to match for pods to use this Fargate profile.
 	//
@@ -5840,6 +7120,7 @@ type FargateProfileOptions struct {
 	// for a namespace.
 	//
 	// At least one selector is required and you may specify up to five selectors.
+	// Experimental.
 	Selectors *[]*Selector `json:"selectors"`
 	// Select which subnets to launch your pods into.
 	//
@@ -5848,11 +7129,13 @@ type FargateProfileOptions struct {
 	// (with no direct route to an Internet Gateway) are allowed.
 	//
 	// You must specify the VPC to customize the subnet selection
+	// Experimental.
 	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection"`
 	// The VPC from which to select subnets to launch your pods into.
 	//
 	// By default, all private subnets are selected. You can customize this using
 	// `subnetSelection`.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 }
 
@@ -5860,8 +7143,10 @@ type FargateProfileOptions struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type FargateProfileProps struct {
 	// The name of the Fargate profile.
+	// Experimental.
 	FargateProfileName *string `json:"fargateProfileName"`
 	// The pod execution role to use for pods that match the selectors in the Fargate profile.
 	//
@@ -5870,6 +7155,7 @@ type FargateProfileProps struct {
 	// ECR image repositories.
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/pod-execution-role.html
 	//
+	// Experimental.
 	PodExecutionRole awsiam.IRole `json:"podExecutionRole"`
 	// The selectors to match for pods to use this Fargate profile.
 	//
@@ -5878,6 +7164,7 @@ type FargateProfileProps struct {
 	// for a namespace.
 	//
 	// At least one selector is required and you may specify up to five selectors.
+	// Experimental.
 	Selectors *[]*Selector `json:"selectors"`
 	// Select which subnets to launch your pods into.
 	//
@@ -5886,15 +7173,18 @@ type FargateProfileProps struct {
 	// (with no direct route to an Internet Gateway) are allowed.
 	//
 	// You must specify the VPC to customize the subnet selection
+	// Experimental.
 	SubnetSelection *awsec2.SubnetSelection `json:"subnetSelection"`
 	// The VPC from which to select subnets to launch your pods into.
 	//
 	// By default, all private subnets are selected. You can customize this using
 	// `subnetSelection`.
+	// Experimental.
 	Vpc awsec2.IVpc `json:"vpc"`
 	// The EKS cluster to apply the Fargate profile to.
 	//
 	// [disable-awslint:ref-via-interface]
+	// Experimental.
 	Cluster Cluster `json:"cluster"`
 }
 
@@ -5904,19 +7194,26 @@ type FargateProfileProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type HelmChart interface {
-	constructs.Construct
-	Node() constructs.Node
+	awscdk.Construct
+	Node() awscdk.ConstructNode
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for HelmChart
 type jsiiProxy_HelmChart struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 }
 
-func (j *jsiiProxy_HelmChart) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_HelmChart) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -5926,13 +7223,14 @@ func (j *jsiiProxy_HelmChart) Node() constructs.Node {
 }
 
 
+// Experimental.
 func NewHelmChart(scope constructs.Construct, id *string, props *HelmChartProps) HelmChart {
 	_init_.Initialize()
 
 	j := jsiiProxy_HelmChart{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.HelmChart",
+		"monocdk.aws_eks.HelmChart",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -5940,27 +7238,26 @@ func NewHelmChart(scope constructs.Construct, id *string, props *HelmChartProps)
 	return &j
 }
 
+// Experimental.
 func NewHelmChart_Override(h HelmChart, scope constructs.Construct, id *string, props *HelmChartProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.HelmChart",
+		"monocdk.aws_eks.HelmChart",
 		[]interface{}{scope, id, props},
 		h,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func HelmChart_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.HelmChart",
+		"monocdk.aws_eks.HelmChart",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -5973,14 +7270,95 @@ func HelmChart_RESOURCE_TYPE() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.HelmChart",
+		"monocdk.aws_eks.HelmChart",
 		"RESOURCE_TYPE",
 		&returns,
 	)
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (h *jsiiProxy_HelmChart) OnPrepare() {
+	_jsii_.InvokeVoid(
+		h,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (h *jsiiProxy_HelmChart) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		h,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (h *jsiiProxy_HelmChart) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		h,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (h *jsiiProxy_HelmChart) Prepare() {
+	_jsii_.InvokeVoid(
+		h,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (h *jsiiProxy_HelmChart) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		h,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (h *jsiiProxy_HelmChart) ToString() *string {
 	var returns *string
 
@@ -5994,32 +7372,62 @@ func (h *jsiiProxy_HelmChart) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (h *jsiiProxy_HelmChart) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		h,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Helm Chart options.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type HelmChartOptions struct {
 	// The name of the chart.
+	// Experimental.
 	Chart *string `json:"chart"`
 	// create namespace if not exist.
+	// Experimental.
 	CreateNamespace *bool `json:"createNamespace"`
 	// The Kubernetes namespace scope of the requests.
+	// Experimental.
 	Namespace *string `json:"namespace"`
 	// The name of the release.
+	// Experimental.
 	Release *string `json:"release"`
 	// The repository which contains the chart.
 	//
 	// For example: https://kubernetes-charts.storage.googleapis.com/
+	// Experimental.
 	Repository *string `json:"repository"`
 	// Amount of time to wait for any individual Kubernetes operation.
 	//
 	// Maximum 15 minutes.
+	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
 	// The values to be used by the chart.
+	// Experimental.
 	Values *map[string]interface{} `json:"values"`
 	// The chart version to install.
+	// Experimental.
 	Version *string `json:"version"`
 	// Whether or not Helm should wait until all Pods, PVCs, Services, and minimum number of Pods of a Deployment, StatefulSet, or ReplicaSet are in a ready state before marking the release as successful.
+	// Experimental.
 	Wait *bool `json:"wait"`
 }
 
@@ -6027,54 +7435,70 @@ type HelmChartOptions struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type HelmChartProps struct {
 	// The name of the chart.
+	// Experimental.
 	Chart *string `json:"chart"`
 	// create namespace if not exist.
+	// Experimental.
 	CreateNamespace *bool `json:"createNamespace"`
 	// The Kubernetes namespace scope of the requests.
+	// Experimental.
 	Namespace *string `json:"namespace"`
 	// The name of the release.
+	// Experimental.
 	Release *string `json:"release"`
 	// The repository which contains the chart.
 	//
 	// For example: https://kubernetes-charts.storage.googleapis.com/
+	// Experimental.
 	Repository *string `json:"repository"`
 	// Amount of time to wait for any individual Kubernetes operation.
 	//
 	// Maximum 15 minutes.
+	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
 	// The values to be used by the chart.
+	// Experimental.
 	Values *map[string]interface{} `json:"values"`
 	// The chart version to install.
+	// Experimental.
 	Version *string `json:"version"`
 	// Whether or not Helm should wait until all Pods, PVCs, Services, and minimum number of Pods of a Deployment, StatefulSet, or ReplicaSet are in a ready state before marking the release as successful.
+	// Experimental.
 	Wait *bool `json:"wait"`
 	// The EKS cluster to apply this configuration to.
 	//
 	// [disable-awslint:ref-via-interface]
+	// Experimental.
 	Cluster ICluster `json:"cluster"`
 }
 
 // An EKS cluster.
+// Experimental.
 type ICluster interface {
 	awsec2.IConnectable
 	awscdk.IResource
 	// Defines a CDK8s chart in this cluster.
 	//
 	// Returns: a `KubernetesManifest` construct representing the chart.
+	// Experimental.
 	AddCdk8sChart(id *string, chart constructs.Construct, options *KubernetesManifestOptions) KubernetesManifest
 	// Defines a Helm chart in this cluster.
 	//
 	// Returns: a `HelmChart` construct
+	// Experimental.
 	AddHelmChart(id *string, options *HelmChartOptions) HelmChart
 	// Defines a Kubernetes resource in this cluster.
 	//
 	// The manifest will be applied/deleted using kubectl as needed.
 	//
 	// Returns: a `KubernetesManifest` object.
+	// Experimental.
 	AddManifest(id *string, manifest ...*map[string]interface{}) KubernetesManifest
 	// Creates a new service account with corresponding IAM Role (IRSA).
+	// Experimental.
 	AddServiceAccount(id *string, options *ServiceAccountOptions) ServiceAccount
 	// Connect capacity in the form of an existing AutoScalingGroup to the EKS cluster.
 	//
@@ -6092,60 +7516,78 @@ type ICluster interface {
 	// Prefer to use `addAutoScalingGroupCapacity` if possible.
 	// See: https://docs.aws.amazon.com/eks/latest/userguide/launch-workers.html
 	//
+	// Experimental.
 	ConnectAutoScalingGroupCapacity(autoScalingGroup awsautoscaling.AutoScalingGroup, options *AutoScalingGroupOptions)
 	// The unique ARN assigned to the service by AWS in the form of arn:aws:eks:.
+	// Experimental.
 	ClusterArn() *string
 	// The certificate-authority-data for your cluster.
+	// Experimental.
 	ClusterCertificateAuthorityData() *string
 	// Amazon Resource Name (ARN) or alias of the customer master key (CMK).
+	// Experimental.
 	ClusterEncryptionConfigKeyArn() *string
 	// The API Server endpoint URL.
+	// Experimental.
 	ClusterEndpoint() *string
 	// A security group to associate with the Cluster Handler's Lambdas.
 	//
 	// The Cluster Handler's Lambdas are responsible for calling AWS's EKS API.
 	//
 	// Requires `placeClusterHandlerInVpc` to be set to true.
+	// Experimental.
 	ClusterHandlerSecurityGroup() awsec2.ISecurityGroup
 	// The physical name of the Cluster.
+	// Experimental.
 	ClusterName() *string
 	// The cluster security group that was created by Amazon EKS for the cluster.
+	// Experimental.
 	ClusterSecurityGroup() awsec2.ISecurityGroup
 	// The id of the cluster security group that was created by Amazon EKS for the cluster.
+	// Experimental.
 	ClusterSecurityGroupId() *string
 	// Custom environment variables when running `kubectl` against this cluster.
+	// Experimental.
 	KubectlEnvironment() *map[string]*string
 	// An IAM role that can perform kubectl operations against this cluster.
 	//
 	// The role should be mapped to the `system:masters` Kubernetes RBAC role.
 	//
 	// This role is directly passed to the lambda handler that sends Kube Ctl commands to the cluster.
+	// Experimental.
 	KubectlLambdaRole() awsiam.IRole
 	// An AWS Lambda layer that includes `kubectl`, `helm` and the `aws` CLI.
 	//
 	// If not defined, a default layer will be used.
+	// Experimental.
 	KubectlLayer() awslambda.ILayerVersion
 	// Amount of memory to allocate to the provider's lambda function.
+	// Experimental.
 	KubectlMemory() awscdk.Size
 	// Subnets to host the `kubectl` compute resources.
 	//
 	// If this is undefined, the k8s endpoint is expected to be accessible
 	// publicly.
+	// Experimental.
 	KubectlPrivateSubnets() *[]awsec2.ISubnet
 	// An IAM role that can perform kubectl operations against this cluster.
 	//
 	// The role should be mapped to the `system:masters` Kubernetes RBAC role.
+	// Experimental.
 	KubectlRole() awsiam.IRole
 	// A security group to use for `kubectl` execution.
 	//
 	// If this is undefined, the k8s endpoint is expected to be accessible
 	// publicly.
+	// Experimental.
 	KubectlSecurityGroup() awsec2.ISecurityGroup
 	// An AWS Lambda layer that includes the NPM dependency `proxy-agent`.
 	//
 	// If not defined, a default layer will be used.
+	// Experimental.
 	OnEventLayer() awslambda.ILayerVersion
 	// The Open ID Connect Provider of the cluster used to configure Service Accounts.
+	// Experimental.
 	OpenIdConnectProvider() awsiam.IOpenIdConnectProvider
 	// Indicates whether Kubernetes resources can be automatically pruned.
 	//
@@ -6153,8 +7595,10 @@ type ICluster interface {
 	// this is enabled (default), prune labels will be allocated and injected to
 	// each resource. These labels will then be used when issuing the `kubectl
 	// apply` operation with the `--prune` switch.
+	// Experimental.
 	Prune() *bool
 	// The VPC in which this Cluster was created.
+	// Experimental.
 	Vpc() awsec2.IVpc
 }
 
@@ -6447,8 +7891,8 @@ func (j *jsiiProxy_ICluster) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_ICluster) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ICluster) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -6468,9 +7912,11 @@ func (j *jsiiProxy_ICluster) Stack() awscdk.Stack {
 }
 
 // NodeGroup interface.
+// Experimental.
 type INodegroup interface {
 	awscdk.IResource
 	// Name of the nodegroup.
+	// Experimental.
 	NodegroupName() *string
 }
 
@@ -6493,10 +7939,13 @@ func (j *jsiiProxy_INodegroup) NodegroupName() *string {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type IngressLoadBalancerAddressOptions struct {
 	// The namespace the service belongs to.
+	// Experimental.
 	Namespace *string `json:"namespace"`
 	// Timeout for waiting on the load balancer address.
+	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
 }
 
@@ -6509,19 +7958,26 @@ type IngressLoadBalancerAddressOptions struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type KubernetesManifest interface {
-	constructs.Construct
-	Node() constructs.Node
+	awscdk.Construct
+	Node() awscdk.ConstructNode
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for KubernetesManifest
 type jsiiProxy_KubernetesManifest struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 }
 
-func (j *jsiiProxy_KubernetesManifest) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_KubernetesManifest) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -6531,13 +7987,14 @@ func (j *jsiiProxy_KubernetesManifest) Node() constructs.Node {
 }
 
 
+// Experimental.
 func NewKubernetesManifest(scope constructs.Construct, id *string, props *KubernetesManifestProps) KubernetesManifest {
 	_init_.Initialize()
 
 	j := jsiiProxy_KubernetesManifest{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.KubernetesManifest",
+		"monocdk.aws_eks.KubernetesManifest",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6545,27 +8002,26 @@ func NewKubernetesManifest(scope constructs.Construct, id *string, props *Kubern
 	return &j
 }
 
+// Experimental.
 func NewKubernetesManifest_Override(k KubernetesManifest, scope constructs.Construct, id *string, props *KubernetesManifestProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.KubernetesManifest",
+		"monocdk.aws_eks.KubernetesManifest",
 		[]interface{}{scope, id, props},
 		k,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func KubernetesManifest_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.KubernetesManifest",
+		"monocdk.aws_eks.KubernetesManifest",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6578,14 +8034,95 @@ func KubernetesManifest_RESOURCE_TYPE() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.KubernetesManifest",
+		"monocdk.aws_eks.KubernetesManifest",
 		"RESOURCE_TYPE",
 		&returns,
 	)
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (k *jsiiProxy_KubernetesManifest) OnPrepare() {
+	_jsii_.InvokeVoid(
+		k,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (k *jsiiProxy_KubernetesManifest) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		k,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (k *jsiiProxy_KubernetesManifest) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		k,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (k *jsiiProxy_KubernetesManifest) Prepare() {
+	_jsii_.InvokeVoid(
+		k,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (k *jsiiProxy_KubernetesManifest) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		k,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (k *jsiiProxy_KubernetesManifest) ToString() *string {
 	var returns *string
 
@@ -6599,16 +8136,39 @@ func (k *jsiiProxy_KubernetesManifest) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (k *jsiiProxy_KubernetesManifest) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		k,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Options for `KubernetesManifest`.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type KubernetesManifestOptions struct {
 	// Automatically detect `Ingress` resources in the manifest and annotate them so they are picked up by an ALB Ingress Controller.
+	// Experimental.
 	IngressAlb *bool `json:"ingressAlb"`
 	// Specify the ALB scheme that should be applied to `Ingress` resources.
 	//
 	// Only applicable if `ingressAlb` is set to `true`.
+	// Experimental.
 	IngressAlbScheme AlbScheme `json:"ingressAlbScheme"`
 	// When a resource is removed from a Kubernetes manifest, it no longer appears in the manifest, and there is no way to know that this resource needs to be deleted.
 	//
@@ -6627,8 +8187,10 @@ type KubernetesManifestOptions struct {
 	// empty.
 	// See: https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/#alternative-kubectl-apply-f-directory-prune-l-your-label
 	//
+	// Experimental.
 	Prune *bool `json:"prune"`
 	// A flag to signify if the manifest validation should be skipped.
+	// Experimental.
 	SkipValidation *bool `json:"skipValidation"`
 }
 
@@ -6636,12 +8198,15 @@ type KubernetesManifestOptions struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type KubernetesManifestProps struct {
 	// Automatically detect `Ingress` resources in the manifest and annotate them so they are picked up by an ALB Ingress Controller.
+	// Experimental.
 	IngressAlb *bool `json:"ingressAlb"`
 	// Specify the ALB scheme that should be applied to `Ingress` resources.
 	//
 	// Only applicable if `ingressAlb` is set to `true`.
+	// Experimental.
 	IngressAlbScheme AlbScheme `json:"ingressAlbScheme"`
 	// When a resource is removed from a Kubernetes manifest, it no longer appears in the manifest, and there is no way to know that this resource needs to be deleted.
 	//
@@ -6660,12 +8225,15 @@ type KubernetesManifestProps struct {
 	// empty.
 	// See: https://kubernetes.io/docs/tasks/manage-kubernetes-objects/declarative-config/#alternative-kubectl-apply-f-directory-prune-l-your-label
 	//
+	// Experimental.
 	Prune *bool `json:"prune"`
 	// A flag to signify if the manifest validation should be skipped.
+	// Experimental.
 	SkipValidation *bool `json:"skipValidation"`
 	// The EKS cluster to apply this manifest to.
 	//
 	// [disable-awslint:ref-via-interface]
+	// Experimental.
 	Cluster ICluster `json:"cluster"`
 	// The manifest to apply.
 	//
@@ -6677,12 +8245,14 @@ type KubernetesManifestProps struct {
 	//
 	// TODO: EXAMPLE
 	//
+	// Experimental.
 	Manifest *[]*map[string]interface{} `json:"manifest"`
 	// Overwrite any existing resources.
 	//
 	// If this is set, we will use `kubectl apply` instead of `kubectl create`
 	// when the resource is created. Otherwise, if there is already a resource
 	// in the cluster with the same name, the operation will fail.
+	// Experimental.
 	Overwrite *bool `json:"overwrite"`
 }
 
@@ -6692,20 +8262,27 @@ type KubernetesManifestProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type KubernetesObjectValue interface {
-	constructs.Construct
-	Node() constructs.Node
+	awscdk.Construct
+	Node() awscdk.ConstructNode
 	Value() *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for KubernetesObjectValue
 type jsiiProxy_KubernetesObjectValue struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 }
 
-func (j *jsiiProxy_KubernetesObjectValue) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_KubernetesObjectValue) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -6725,13 +8302,14 @@ func (j *jsiiProxy_KubernetesObjectValue) Value() *string {
 }
 
 
+// Experimental.
 func NewKubernetesObjectValue(scope constructs.Construct, id *string, props *KubernetesObjectValueProps) KubernetesObjectValue {
 	_init_.Initialize()
 
 	j := jsiiProxy_KubernetesObjectValue{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.KubernetesObjectValue",
+		"monocdk.aws_eks.KubernetesObjectValue",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6739,27 +8317,26 @@ func NewKubernetesObjectValue(scope constructs.Construct, id *string, props *Kub
 	return &j
 }
 
+// Experimental.
 func NewKubernetesObjectValue_Override(k KubernetesObjectValue, scope constructs.Construct, id *string, props *KubernetesObjectValueProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.KubernetesObjectValue",
+		"monocdk.aws_eks.KubernetesObjectValue",
 		[]interface{}{scope, id, props},
 		k,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func KubernetesObjectValue_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.KubernetesObjectValue",
+		"monocdk.aws_eks.KubernetesObjectValue",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6772,14 +8349,95 @@ func KubernetesObjectValue_RESOURCE_TYPE() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.KubernetesObjectValue",
+		"monocdk.aws_eks.KubernetesObjectValue",
 		"RESOURCE_TYPE",
 		&returns,
 	)
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (k *jsiiProxy_KubernetesObjectValue) OnPrepare() {
+	_jsii_.InvokeVoid(
+		k,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (k *jsiiProxy_KubernetesObjectValue) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		k,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (k *jsiiProxy_KubernetesObjectValue) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		k,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (k *jsiiProxy_KubernetesObjectValue) Prepare() {
+	_jsii_.InvokeVoid(
+		k,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (k *jsiiProxy_KubernetesObjectValue) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		k,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (k *jsiiProxy_KubernetesObjectValue) ToString() *string {
 	var returns *string
 
@@ -6793,28 +8451,55 @@ func (k *jsiiProxy_KubernetesObjectValue) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (k *jsiiProxy_KubernetesObjectValue) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		k,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Properties for KubernetesObjectValue.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type KubernetesObjectValueProps struct {
 	// The EKS cluster to fetch attributes from.
 	//
 	// [disable-awslint:ref-via-interface]
+	// Experimental.
 	Cluster ICluster `json:"cluster"`
 	// JSONPath to the specific value.
 	// See: https://kubernetes.io/docs/reference/kubectl/jsonpath/
 	//
+	// Experimental.
 	JsonPath *string `json:"jsonPath"`
 	// The name of the object to query.
+	// Experimental.
 	ObjectName *string `json:"objectName"`
 	// The object type to query.
 	//
 	// (e.g 'service', 'pod'...)
+	// Experimental.
 	ObjectType *string `json:"objectType"`
 	// The namespace the object belongs to.
+	// Experimental.
 	ObjectNamespace *string `json:"objectNamespace"`
 	// Timeout for waiting on a value.
+	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
 }
 
@@ -6824,19 +8509,26 @@ type KubernetesObjectValueProps struct {
 //
 // See: https://kubernetes.io/docs/tasks/run-application/update-api-object-kubectl-patch/
 //
+// Experimental.
 type KubernetesPatch interface {
-	constructs.Construct
-	Node() constructs.Node
+	awscdk.Construct
+	Node() awscdk.ConstructNode
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for KubernetesPatch
 type jsiiProxy_KubernetesPatch struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 }
 
-func (j *jsiiProxy_KubernetesPatch) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_KubernetesPatch) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -6846,13 +8538,14 @@ func (j *jsiiProxy_KubernetesPatch) Node() constructs.Node {
 }
 
 
+// Experimental.
 func NewKubernetesPatch(scope constructs.Construct, id *string, props *KubernetesPatchProps) KubernetesPatch {
 	_init_.Initialize()
 
 	j := jsiiProxy_KubernetesPatch{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.KubernetesPatch",
+		"monocdk.aws_eks.KubernetesPatch",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -6860,27 +8553,26 @@ func NewKubernetesPatch(scope constructs.Construct, id *string, props *Kubernete
 	return &j
 }
 
+// Experimental.
 func NewKubernetesPatch_Override(k KubernetesPatch, scope constructs.Construct, id *string, props *KubernetesPatchProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.KubernetesPatch",
+		"monocdk.aws_eks.KubernetesPatch",
 		[]interface{}{scope, id, props},
 		k,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func KubernetesPatch_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.KubernetesPatch",
+		"monocdk.aws_eks.KubernetesPatch",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -6889,7 +8581,88 @@ func KubernetesPatch_IsConstruct(x interface{}) *bool {
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (k *jsiiProxy_KubernetesPatch) OnPrepare() {
+	_jsii_.InvokeVoid(
+		k,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (k *jsiiProxy_KubernetesPatch) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		k,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (k *jsiiProxy_KubernetesPatch) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		k,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (k *jsiiProxy_KubernetesPatch) Prepare() {
+	_jsii_.InvokeVoid(
+		k,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (k *jsiiProxy_KubernetesPatch) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		k,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (k *jsiiProxy_KubernetesPatch) ToString() *string {
 	var returns *string
 
@@ -6903,26 +8676,53 @@ func (k *jsiiProxy_KubernetesPatch) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (k *jsiiProxy_KubernetesPatch) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		k,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Properties for KubernetesPatch.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type KubernetesPatchProps struct {
 	// The JSON object to pass to `kubectl patch` when the resource is created/updated.
+	// Experimental.
 	ApplyPatch *map[string]interface{} `json:"applyPatch"`
 	// The cluster to apply the patch to.
 	//
 	// [disable-awslint:ref-via-interface]
+	// Experimental.
 	Cluster ICluster `json:"cluster"`
 	// The full name of the resource to patch (e.g. `deployment/coredns`).
+	// Experimental.
 	ResourceName *string `json:"resourceName"`
 	// The JSON object to pass to `kubectl patch` when the resource is removed.
+	// Experimental.
 	RestorePatch *map[string]interface{} `json:"restorePatch"`
 	// The patch type to pass to `kubectl patch`.
 	//
 	// The default type used by `kubectl patch` is "strategic".
+	// Experimental.
 	PatchType PatchType `json:"patchType"`
 	// The kubernetes API namespace.
+	// Experimental.
 	ResourceNamespace *string `json:"resourceNamespace"`
 }
 
@@ -6930,6 +8730,7 @@ type KubernetesPatchProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type KubernetesVersion interface {
 	Version() *string
 }
@@ -6951,13 +8752,14 @@ func (j *jsiiProxy_KubernetesVersion) Version() *string {
 
 
 // Custom cluster version.
+// Experimental.
 func KubernetesVersion_Of(version *string) KubernetesVersion {
 	_init_.Initialize()
 
 	var returns KubernetesVersion
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.KubernetesVersion",
+		"monocdk.aws_eks.KubernetesVersion",
 		"of",
 		[]interface{}{version},
 		&returns,
@@ -6970,7 +8772,7 @@ func KubernetesVersion_V1_14() KubernetesVersion {
 	_init_.Initialize()
 	var returns KubernetesVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.KubernetesVersion",
+		"monocdk.aws_eks.KubernetesVersion",
 		"V1_14",
 		&returns,
 	)
@@ -6981,7 +8783,7 @@ func KubernetesVersion_V1_15() KubernetesVersion {
 	_init_.Initialize()
 	var returns KubernetesVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.KubernetesVersion",
+		"monocdk.aws_eks.KubernetesVersion",
 		"V1_15",
 		&returns,
 	)
@@ -6992,7 +8794,7 @@ func KubernetesVersion_V1_16() KubernetesVersion {
 	_init_.Initialize()
 	var returns KubernetesVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.KubernetesVersion",
+		"monocdk.aws_eks.KubernetesVersion",
 		"V1_16",
 		&returns,
 	)
@@ -7003,7 +8805,7 @@ func KubernetesVersion_V1_17() KubernetesVersion {
 	_init_.Initialize()
 	var returns KubernetesVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.KubernetesVersion",
+		"monocdk.aws_eks.KubernetesVersion",
 		"V1_17",
 		&returns,
 	)
@@ -7014,7 +8816,7 @@ func KubernetesVersion_V1_18() KubernetesVersion {
 	_init_.Initialize()
 	var returns KubernetesVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.KubernetesVersion",
+		"monocdk.aws_eks.KubernetesVersion",
 		"V1_18",
 		&returns,
 	)
@@ -7025,7 +8827,7 @@ func KubernetesVersion_V1_19() KubernetesVersion {
 	_init_.Initialize()
 	var returns KubernetesVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.KubernetesVersion",
+		"monocdk.aws_eks.KubernetesVersion",
 		"V1_19",
 		&returns,
 	)
@@ -7036,7 +8838,7 @@ func KubernetesVersion_V1_20() KubernetesVersion {
 	_init_.Initialize()
 	var returns KubernetesVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.KubernetesVersion",
+		"monocdk.aws_eks.KubernetesVersion",
 		"V1_20",
 		&returns,
 	)
@@ -7047,7 +8849,7 @@ func KubernetesVersion_V1_21() KubernetesVersion {
 	_init_.Initialize()
 	var returns KubernetesVersion
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_eks.KubernetesVersion",
+		"monocdk.aws_eks.KubernetesVersion",
 		"V1_21",
 		&returns,
 	)
@@ -7058,10 +8860,13 @@ func KubernetesVersion_V1_21() KubernetesVersion {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type LaunchTemplateSpec struct {
 	// The Launch template ID.
+	// Experimental.
 	Id *string `json:"id"`
 	// The launch template version to be used (optional).
+	// Experimental.
 	Version *string `json:"version"`
 }
 
@@ -7069,6 +8874,7 @@ type LaunchTemplateSpec struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type MachineImageType string
 
 const (
@@ -7077,6 +8883,7 @@ const (
 )
 
 // Whether the worker nodes should support GPU or just standard instances.
+// Experimental.
 type NodeType string
 
 const (
@@ -7089,12 +8896,13 @@ const (
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type Nodegroup interface {
 	awscdk.Resource
 	INodegroup
 	Cluster() ICluster
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	NodegroupArn() *string
 	NodegroupName() *string
 	PhysicalName() *string
@@ -7104,7 +8912,13 @@ type Nodegroup interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for Nodegroup
@@ -7133,8 +8947,8 @@ func (j *jsiiProxy_Nodegroup) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_Nodegroup) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_Nodegroup) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -7194,13 +9008,14 @@ func (j *jsiiProxy_Nodegroup) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewNodegroup(scope constructs.Construct, id *string, props *NodegroupProps) Nodegroup {
 	_init_.Initialize()
 
 	j := jsiiProxy_Nodegroup{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.Nodegroup",
+		"monocdk.aws_eks.Nodegroup",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7208,24 +9023,26 @@ func NewNodegroup(scope constructs.Construct, id *string, props *NodegroupProps)
 	return &j
 }
 
+// Experimental.
 func NewNodegroup_Override(n Nodegroup, scope constructs.Construct, id *string, props *NodegroupProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.Nodegroup",
+		"monocdk.aws_eks.Nodegroup",
 		[]interface{}{scope, id, props},
 		n,
 	)
 }
 
 // Import the Nodegroup from attributes.
+// Experimental.
 func Nodegroup_FromNodegroupName(scope constructs.Construct, id *string, nodegroupName *string) INodegroup {
 	_init_.Initialize()
 
 	var returns INodegroup
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.Nodegroup",
+		"monocdk.aws_eks.Nodegroup",
 		"fromNodegroupName",
 		[]interface{}{scope, id, nodegroupName},
 		&returns,
@@ -7234,17 +9051,15 @@ func Nodegroup_FromNodegroupName(scope constructs.Construct, id *string, nodegro
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func Nodegroup_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.Nodegroup",
+		"monocdk.aws_eks.Nodegroup",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7254,13 +9069,14 @@ func Nodegroup_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func Nodegroup_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func Nodegroup_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.Nodegroup",
+		"monocdk.aws_eks.Nodegroup",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -7278,6 +9094,7 @@ func Nodegroup_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (n *jsiiProxy_Nodegroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		n,
@@ -7286,6 +9103,7 @@ func (n *jsiiProxy_Nodegroup) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	)
 }
 
+// Experimental.
 func (n *jsiiProxy_Nodegroup) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -7305,6 +9123,7 @@ func (n *jsiiProxy_Nodegroup) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (n *jsiiProxy_Nodegroup) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -7323,6 +9142,7 @@ func (n *jsiiProxy_Nodegroup) GetResourceArnAttribute(arnAttr *string, arnCompon
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (n *jsiiProxy_Nodegroup) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -7336,13 +9156,114 @@ func (n *jsiiProxy_Nodegroup) GetResourceNameAttribute(nameAttr *string) *string
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (n *jsiiProxy_Nodegroup) OnPrepare() {
+	_jsii_.InvokeVoid(
+		n,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (n *jsiiProxy_Nodegroup) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		n,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (n *jsiiProxy_Nodegroup) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		n,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (n *jsiiProxy_Nodegroup) Prepare() {
+	_jsii_.InvokeVoid(
+		n,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (n *jsiiProxy_Nodegroup) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		n,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (n *jsiiProxy_Nodegroup) ToString() *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		n,
 		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (n *jsiiProxy_Nodegroup) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		n,
+		"validate",
 		nil, // no parameters
 		&returns,
 	)
@@ -7358,6 +9279,7 @@ func (n *jsiiProxy_Nodegroup) ToString() *string {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type NodegroupAmiType string
 
 const (
@@ -7372,43 +9294,62 @@ const (
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type NodegroupOptions struct {
 	// The AMI type for your node group.
+	// Experimental.
 	AmiType NodegroupAmiType `json:"amiType"`
 	// The capacity type of the nodegroup.
+	// Experimental.
 	CapacityType CapacityType `json:"capacityType"`
 	// The current number of worker nodes that the managed node group should maintain.
 	//
 	// If not specified,
 	// the nodewgroup will initially create `minSize` instances.
+	// Experimental.
 	DesiredSize *float64 `json:"desiredSize"`
 	// The root device disk size (in GiB) for your node group instances.
+	// Experimental.
 	DiskSize *float64 `json:"diskSize"`
 	// Force the update if the existing node group's pods are unable to be drained due to a pod disruption budget issue.
 	//
 	// If an update fails because pods could not be drained, you can force the update after it fails to terminate the old
 	// node whether or not any pods are
 	// running on the node.
+	// Experimental.
 	ForceUpdate *bool `json:"forceUpdate"`
+	// The instance type to use for your node group.
+	//
+	// Currently, you can specify a single instance type for a node group.
+	// The default value for this parameter is `t3.medium`. If you choose a GPU instance type, be sure to specify the
+	// `AL2_x86_64_GPU` with the amiType parameter.
+	// Deprecated: Use `instanceTypes` instead.
+	InstanceType awsec2.InstanceType `json:"instanceType"`
 	// The instance types to use for your node group.
 	// See: - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-instancetypes
 	//
+	// Experimental.
 	InstanceTypes *[]awsec2.InstanceType `json:"instanceTypes"`
 	// The Kubernetes labels to be applied to the nodes in the node group when they are created.
+	// Experimental.
 	Labels *map[string]*string `json:"labels"`
 	// Launch template specification used for the nodegroup.
 	// See: - https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html
 	//
+	// Experimental.
 	LaunchTemplateSpec *LaunchTemplateSpec `json:"launchTemplateSpec"`
 	// The maximum number of worker nodes that the managed node group can scale out to.
 	//
 	// Managed node groups can support up to 100 nodes by default.
+	// Experimental.
 	MaxSize *float64 `json:"maxSize"`
 	// The minimum number of worker nodes that the managed node group can scale in to.
 	//
 	// This number must be greater than or equal to zero.
+	// Experimental.
 	MinSize *float64 `json:"minSize"`
 	// Name of the Nodegroup.
+	// Experimental.
 	NodegroupName *string `json:"nodegroupName"`
 	// The IAM role to associate with your node group.
 	//
@@ -7416,14 +9357,17 @@ type NodegroupOptions struct {
 	// makes calls to AWS APIs on your behalf. Worker nodes receive permissions for these API calls through
 	// an IAM instance profile and associated policies. Before you can launch worker nodes and register them
 	// into a cluster, you must create an IAM role for those worker nodes to use when they are launched.
+	// Experimental.
 	NodeRole awsiam.IRole `json:"nodeRole"`
 	// The AMI version of the Amazon EKS-optimized AMI to use with your node group (for example, `1.14.7-YYYYMMDD`).
+	// Experimental.
 	ReleaseVersion *string `json:"releaseVersion"`
 	// The remote access (SSH) configuration to use with your node group.
 	//
 	// Disabled by default, however, if you
 	// specify an Amazon EC2 SSH key but do not specify a source security group when you create a managed node group,
 	// then port 22 on the worker nodes is opened to the internet (0.0.0.0/0)
+	// Experimental.
 	RemoteAccess *NodegroupRemoteAccess `json:"remoteAccess"`
 	// The subnets to use for the Auto Scaling group that is created for your node group.
 	//
@@ -7431,14 +9375,17 @@ type NodegroupOptions struct {
 	// SubnetSelection, the selected subnets will automatically apply required tags i.e.
 	// `kubernetes.io/cluster/CLUSTER_NAME` with a value of `shared`, where `CLUSTER_NAME` is replaced with
 	// the name of your cluster.
+	// Experimental.
 	Subnets *awsec2.SubnetSelection `json:"subnets"`
 	// The metadata to apply to the node group to assist with categorization and organization.
 	//
 	// Each tag consists of
 	// a key and an optional value, both of which you define. Node group tags do not propagate to any other resources
 	// associated with the node group, such as the Amazon EC2 instances or subnets.
+	// Experimental.
 	Tags *map[string]*string `json:"tags"`
 	// The Kubernetes taints to be applied to the nodes in the node group when they are created.
+	// Experimental.
 	Taints *[]*TaintSpec `json:"taints"`
 }
 
@@ -7446,43 +9393,62 @@ type NodegroupOptions struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type NodegroupProps struct {
 	// The AMI type for your node group.
+	// Experimental.
 	AmiType NodegroupAmiType `json:"amiType"`
 	// The capacity type of the nodegroup.
+	// Experimental.
 	CapacityType CapacityType `json:"capacityType"`
 	// The current number of worker nodes that the managed node group should maintain.
 	//
 	// If not specified,
 	// the nodewgroup will initially create `minSize` instances.
+	// Experimental.
 	DesiredSize *float64 `json:"desiredSize"`
 	// The root device disk size (in GiB) for your node group instances.
+	// Experimental.
 	DiskSize *float64 `json:"diskSize"`
 	// Force the update if the existing node group's pods are unable to be drained due to a pod disruption budget issue.
 	//
 	// If an update fails because pods could not be drained, you can force the update after it fails to terminate the old
 	// node whether or not any pods are
 	// running on the node.
+	// Experimental.
 	ForceUpdate *bool `json:"forceUpdate"`
+	// The instance type to use for your node group.
+	//
+	// Currently, you can specify a single instance type for a node group.
+	// The default value for this parameter is `t3.medium`. If you choose a GPU instance type, be sure to specify the
+	// `AL2_x86_64_GPU` with the amiType parameter.
+	// Deprecated: Use `instanceTypes` instead.
+	InstanceType awsec2.InstanceType `json:"instanceType"`
 	// The instance types to use for your node group.
 	// See: - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-instancetypes
 	//
+	// Experimental.
 	InstanceTypes *[]awsec2.InstanceType `json:"instanceTypes"`
 	// The Kubernetes labels to be applied to the nodes in the node group when they are created.
+	// Experimental.
 	Labels *map[string]*string `json:"labels"`
 	// Launch template specification used for the nodegroup.
 	// See: - https://docs.aws.amazon.com/eks/latest/userguide/launch-templates.html
 	//
+	// Experimental.
 	LaunchTemplateSpec *LaunchTemplateSpec `json:"launchTemplateSpec"`
 	// The maximum number of worker nodes that the managed node group can scale out to.
 	//
 	// Managed node groups can support up to 100 nodes by default.
+	// Experimental.
 	MaxSize *float64 `json:"maxSize"`
 	// The minimum number of worker nodes that the managed node group can scale in to.
 	//
 	// This number must be greater than or equal to zero.
+	// Experimental.
 	MinSize *float64 `json:"minSize"`
 	// Name of the Nodegroup.
+	// Experimental.
 	NodegroupName *string `json:"nodegroupName"`
 	// The IAM role to associate with your node group.
 	//
@@ -7490,14 +9456,17 @@ type NodegroupProps struct {
 	// makes calls to AWS APIs on your behalf. Worker nodes receive permissions for these API calls through
 	// an IAM instance profile and associated policies. Before you can launch worker nodes and register them
 	// into a cluster, you must create an IAM role for those worker nodes to use when they are launched.
+	// Experimental.
 	NodeRole awsiam.IRole `json:"nodeRole"`
 	// The AMI version of the Amazon EKS-optimized AMI to use with your node group (for example, `1.14.7-YYYYMMDD`).
+	// Experimental.
 	ReleaseVersion *string `json:"releaseVersion"`
 	// The remote access (SSH) configuration to use with your node group.
 	//
 	// Disabled by default, however, if you
 	// specify an Amazon EC2 SSH key but do not specify a source security group when you create a managed node group,
 	// then port 22 on the worker nodes is opened to the internet (0.0.0.0/0)
+	// Experimental.
 	RemoteAccess *NodegroupRemoteAccess `json:"remoteAccess"`
 	// The subnets to use for the Auto Scaling group that is created for your node group.
 	//
@@ -7505,16 +9474,20 @@ type NodegroupProps struct {
 	// SubnetSelection, the selected subnets will automatically apply required tags i.e.
 	// `kubernetes.io/cluster/CLUSTER_NAME` with a value of `shared`, where `CLUSTER_NAME` is replaced with
 	// the name of your cluster.
+	// Experimental.
 	Subnets *awsec2.SubnetSelection `json:"subnets"`
 	// The metadata to apply to the node group to assist with categorization and organization.
 	//
 	// Each tag consists of
 	// a key and an optional value, both of which you define. Node group tags do not propagate to any other resources
 	// associated with the node group, such as the Amazon EC2 instances or subnets.
+	// Experimental.
 	Tags *map[string]*string `json:"tags"`
 	// The Kubernetes taints to be applied to the nodes in the node group when they are created.
+	// Experimental.
 	Taints *[]*TaintSpec `json:"taints"`
 	// Cluster resource.
+	// Experimental.
 	Cluster ICluster `json:"cluster"`
 }
 
@@ -7524,14 +9497,17 @@ type NodegroupProps struct {
 //
 // See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-remoteaccess.html
 //
+// Experimental.
 type NodegroupRemoteAccess struct {
 	// The security groups that are allowed SSH access (port 22) to the worker nodes.
 	//
 	// If you specify an Amazon EC2 SSH
 	// key but do not specify a source security group when you create a managed node group, then port 22 on the worker
 	// nodes is opened to the internet (0.0.0.0/0).
+	// Experimental.
 	SourceSecurityGroups *[]awsec2.ISecurityGroup `json:"sourceSecurityGroups"`
 	// The Amazon EC2 SSH key that provides access for SSH communication with the worker nodes in the managed node group.
+	// Experimental.
 	SshKeyName *string `json:"sshKeyName"`
 }
 
@@ -7548,10 +9524,11 @@ type NodegroupRemoteAccess struct {
 //
 // See: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html
 //
+// Experimental.
 type OpenIdConnectProvider interface {
 	awsiam.OpenIdConnectProvider
 	Env() *awscdk.ResourceEnvironment
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	OpenIdConnectProviderArn() *string
 	OpenIdConnectProviderIssuer() *string
 	PhysicalName() *string
@@ -7560,7 +9537,13 @@ type OpenIdConnectProvider interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for OpenIdConnectProvider
@@ -7578,8 +9561,8 @@ func (j *jsiiProxy_OpenIdConnectProvider) Env() *awscdk.ResourceEnvironment {
 	return returns
 }
 
-func (j *jsiiProxy_OpenIdConnectProvider) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_OpenIdConnectProvider) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -7630,13 +9613,14 @@ func (j *jsiiProxy_OpenIdConnectProvider) Stack() awscdk.Stack {
 
 
 // Defines an OpenID Connect provider.
+// Experimental.
 func NewOpenIdConnectProvider(scope constructs.Construct, id *string, props *OpenIdConnectProviderProps) OpenIdConnectProvider {
 	_init_.Initialize()
 
 	j := jsiiProxy_OpenIdConnectProvider{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.OpenIdConnectProvider",
+		"monocdk.aws_eks.OpenIdConnectProvider",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7645,24 +9629,26 @@ func NewOpenIdConnectProvider(scope constructs.Construct, id *string, props *Ope
 }
 
 // Defines an OpenID Connect provider.
+// Experimental.
 func NewOpenIdConnectProvider_Override(o OpenIdConnectProvider, scope constructs.Construct, id *string, props *OpenIdConnectProviderProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.OpenIdConnectProvider",
+		"monocdk.aws_eks.OpenIdConnectProvider",
 		[]interface{}{scope, id, props},
 		o,
 	)
 }
 
 // Imports an Open ID connect provider from an ARN.
+// Experimental.
 func OpenIdConnectProvider_FromOpenIdConnectProviderArn(scope constructs.Construct, id *string, openIdConnectProviderArn *string) awsiam.IOpenIdConnectProvider {
 	_init_.Initialize()
 
 	var returns awsiam.IOpenIdConnectProvider
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.OpenIdConnectProvider",
+		"monocdk.aws_eks.OpenIdConnectProvider",
 		"fromOpenIdConnectProviderArn",
 		[]interface{}{scope, id, openIdConnectProviderArn},
 		&returns,
@@ -7671,17 +9657,15 @@ func OpenIdConnectProvider_FromOpenIdConnectProviderArn(scope constructs.Constru
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func OpenIdConnectProvider_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.OpenIdConnectProvider",
+		"monocdk.aws_eks.OpenIdConnectProvider",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7691,13 +9675,14 @@ func OpenIdConnectProvider_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func OpenIdConnectProvider_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func OpenIdConnectProvider_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.OpenIdConnectProvider",
+		"monocdk.aws_eks.OpenIdConnectProvider",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -7715,6 +9700,7 @@ func OpenIdConnectProvider_IsResource(construct constructs.IConstruct) *bool {
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (o *jsiiProxy_OpenIdConnectProvider) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		o,
@@ -7723,6 +9709,7 @@ func (o *jsiiProxy_OpenIdConnectProvider) ApplyRemovalPolicy(policy awscdk.Remov
 	)
 }
 
+// Experimental.
 func (o *jsiiProxy_OpenIdConnectProvider) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -7742,6 +9729,7 @@ func (o *jsiiProxy_OpenIdConnectProvider) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (o *jsiiProxy_OpenIdConnectProvider) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -7760,6 +9748,7 @@ func (o *jsiiProxy_OpenIdConnectProvider) GetResourceArnAttribute(arnAttr *strin
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (o *jsiiProxy_OpenIdConnectProvider) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -7773,7 +9762,88 @@ func (o *jsiiProxy_OpenIdConnectProvider) GetResourceNameAttribute(nameAttr *str
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (o *jsiiProxy_OpenIdConnectProvider) OnPrepare() {
+	_jsii_.InvokeVoid(
+		o,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (o *jsiiProxy_OpenIdConnectProvider) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		o,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (o *jsiiProxy_OpenIdConnectProvider) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		o,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (o *jsiiProxy_OpenIdConnectProvider) Prepare() {
+	_jsii_.InvokeVoid(
+		o,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (o *jsiiProxy_OpenIdConnectProvider) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		o,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (o *jsiiProxy_OpenIdConnectProvider) ToString() *string {
 	var returns *string
 
@@ -7787,10 +9857,31 @@ func (o *jsiiProxy_OpenIdConnectProvider) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (o *jsiiProxy_OpenIdConnectProvider) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		o,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Initialization properties for `OpenIdConnectProvider`.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type OpenIdConnectProviderProps struct {
 	// The URL of the identity provider.
 	//
@@ -7802,10 +9893,12 @@ type OpenIdConnectProviderProps struct {
 	//
 	// You can find your OIDC Issuer URL by:
 	// aws eks describe-cluster --name %cluster_name% --query "cluster.identity.oidc.issuer" --output text
+	// Experimental.
 	Url *string `json:"url"`
 }
 
 // Values for `kubectl patch` --type argument.
+// Experimental.
 type PatchType string
 
 const (
@@ -7818,18 +9911,21 @@ const (
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type Selector struct {
 	// The Kubernetes labels that the selector should match.
 	//
 	// A pod must contain
 	// all of the labels that are specified in the selector for it to be
 	// considered a match.
+	// Experimental.
 	Labels *map[string]*string `json:"labels"`
 	// The Kubernetes namespace that the selector should match.
 	//
 	// You must specify a namespace for a selector. The selector only matches pods
 	// that are created in this namespace, but you can create multiple selectors
 	// to target multiple namespaces.
+	// Experimental.
 	Namespace *string `json:"namespace"`
 }
 
@@ -7837,23 +9933,31 @@ type Selector struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type ServiceAccount interface {
-	constructs.Construct
+	awscdk.Construct
 	awsiam.IPrincipal
 	AssumeRoleAction() *string
 	GrantPrincipal() awsiam.IPrincipal
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PolicyFragment() awsiam.PrincipalPolicyFragment
 	Role() awsiam.IRole
 	ServiceAccountName() *string
 	ServiceAccountNamespace() *string
+	AddToPolicy(statement awsiam.PolicyStatement) *bool
 	AddToPrincipalPolicy(statement awsiam.PolicyStatement) *awsiam.AddToPrincipalPolicyResult
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for ServiceAccount
 type jsiiProxy_ServiceAccount struct {
-	internal.Type__constructsConstruct
+	internal.Type__awscdkConstruct
 	internal.Type__awsiamIPrincipal
 }
 
@@ -7877,8 +9981,8 @@ func (j *jsiiProxy_ServiceAccount) GrantPrincipal() awsiam.IPrincipal {
 	return returns
 }
 
-func (j *jsiiProxy_ServiceAccount) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ServiceAccount) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -7928,13 +10032,14 @@ func (j *jsiiProxy_ServiceAccount) ServiceAccountNamespace() *string {
 }
 
 
+// Experimental.
 func NewServiceAccount(scope constructs.Construct, id *string, props *ServiceAccountProps) ServiceAccount {
 	_init_.Initialize()
 
 	j := jsiiProxy_ServiceAccount{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.ServiceAccount",
+		"monocdk.aws_eks.ServiceAccount",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -7942,27 +10047,26 @@ func NewServiceAccount(scope constructs.Construct, id *string, props *ServiceAcc
 	return &j
 }
 
+// Experimental.
 func NewServiceAccount_Override(s ServiceAccount, scope constructs.Construct, id *string, props *ServiceAccountProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_eks.ServiceAccount",
+		"monocdk.aws_eks.ServiceAccount",
 		[]interface{}{scope, id, props},
 		s,
 	)
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func ServiceAccount_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_eks.ServiceAccount",
+		"monocdk.aws_eks.ServiceAccount",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -7972,6 +10076,22 @@ func ServiceAccount_IsConstruct(x interface{}) *bool {
 }
 
 // Add to the policy of this principal.
+// Deprecated: use `addToPrincipalPolicy()`
+func (s *jsiiProxy_ServiceAccount) AddToPolicy(statement awsiam.PolicyStatement) *bool {
+	var returns *bool
+
+	_jsii_.Invoke(
+		s,
+		"addToPolicy",
+		[]interface{}{statement},
+		&returns,
+	)
+
+	return returns
+}
+
+// Add to the policy of this principal.
+// Experimental.
 func (s *jsiiProxy_ServiceAccount) AddToPrincipalPolicy(statement awsiam.PolicyStatement) *awsiam.AddToPrincipalPolicyResult {
 	var returns *awsiam.AddToPrincipalPolicyResult
 
@@ -7985,7 +10105,88 @@ func (s *jsiiProxy_ServiceAccount) AddToPrincipalPolicy(statement awsiam.PolicyS
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_ServiceAccount) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_ServiceAccount) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_ServiceAccount) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_ServiceAccount) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_ServiceAccount) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (s *jsiiProxy_ServiceAccount) ToString() *string {
 	var returns *string
 
@@ -7999,14 +10200,37 @@ func (s *jsiiProxy_ServiceAccount) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_ServiceAccount) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Options for `ServiceAccount`.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type ServiceAccountOptions struct {
 	// The name of the service account.
+	// Experimental.
 	Name *string `json:"name"`
 	// The namespace of the service account.
+	// Experimental.
 	Namespace *string `json:"namespace"`
 }
 
@@ -8014,12 +10238,16 @@ type ServiceAccountOptions struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type ServiceAccountProps struct {
 	// The name of the service account.
+	// Experimental.
 	Name *string `json:"name"`
 	// The namespace of the service account.
+	// Experimental.
 	Namespace *string `json:"namespace"`
 	// The cluster to apply the patch to.
+	// Experimental.
 	Cluster ICluster `json:"cluster"`
 }
 
@@ -8027,10 +10255,13 @@ type ServiceAccountProps struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type ServiceLoadBalancerAddressOptions struct {
 	// The namespace the service belongs to.
+	// Experimental.
 	Namespace *string `json:"namespace"`
 	// Timeout for waiting on the load balancer address.
+	// Experimental.
 	Timeout awscdk.Duration `json:"timeout"`
 }
 
@@ -8038,6 +10269,7 @@ type ServiceLoadBalancerAddressOptions struct {
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type TaintEffect string
 
 const (
@@ -8050,12 +10282,16 @@ const (
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type TaintSpec struct {
 	// Effect type.
+	// Experimental.
 	Effect TaintEffect `json:"effect"`
 	// Taint key.
+	// Experimental.
 	Key *string `json:"key"`
 	// Taint value.
+	// Experimental.
 	Value *string `json:"value"`
 }
 
