@@ -357,10 +357,21 @@ type BasicStepScalingPolicyProps struct {
 	//
 	// Experimental.
 	Cooldown awscdk.Duration `json:"cooldown"`
+	// The number of data points out of the evaluation periods that must be breaching to trigger a scaling action.
+	//
+	// Creates an "M out of N" alarm, where this property is the M and the value set for
+	// `evaluationPeriods` is the N value.
+	//
+	// Only has meaning if `evaluationPeriods != 1`.
+	// Experimental.
+	DatapointsToAlarm *float64 `json:"datapointsToAlarm"`
 	// How many evaluation periods of the metric to wait before triggering a scaling action.
 	//
 	// Raising this value can be used to smooth out the metric, at the expense
 	// of slower response times.
+	//
+	// If `datapointsToAlarm` is not set, then all data points in the evaluation period
+	// must meet the criteria to trigger a scaling action.
 	// Experimental.
 	EvaluationPeriods *float64 `json:"evaluationPeriods"`
 	// Metric to scale on.
@@ -2145,6 +2156,9 @@ const (
 	PredefinedMetric_EC2_SPOT_FLEET_REQUEST_AVERAGE_NETWORK_OUT PredefinedMetric = "EC2_SPOT_FLEET_REQUEST_AVERAGE_NETWORK_OUT"
 	PredefinedMetric_ECS_SERVICE_AVERAGE_CPU_UTILIZATION PredefinedMetric = "ECS_SERVICE_AVERAGE_CPU_UTILIZATION"
 	PredefinedMetric_ECS_SERVICE_AVERAGE_MEMORY_UTILIZATION PredefinedMetric = "ECS_SERVICE_AVERAGE_MEMORY_UTILIZATION"
+	PredefinedMetric_ELASTICACHE_DATABASE_MEMORY_USAGE_COUNTED_FOR_EVICT_PERCENTAGE PredefinedMetric = "ELASTICACHE_DATABASE_MEMORY_USAGE_COUNTED_FOR_EVICT_PERCENTAGE"
+	PredefinedMetric_ELASTICACHE_PRIMARY_ENGINE_CPU_UTILIZATION PredefinedMetric = "ELASTICACHE_PRIMARY_ENGINE_CPU_UTILIZATION"
+	PredefinedMetric_ELASTICACHE_REPLICA_ENGINE_CPU_UTILIZATION PredefinedMetric = "ELASTICACHE_REPLICA_ENGINE_CPU_UTILIZATION"
 	PredefinedMetric_KAFKA_BROKER_STORAGE_UTILIZATION PredefinedMetric = "KAFKA_BROKER_STORAGE_UTILIZATION"
 	PredefinedMetric_LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION PredefinedMetric = "LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION"
 	PredefinedMetric_RDS_READER_AVERAGE_CPU_UTILIZATION PredefinedMetric = "RDS_READER_AVERAGE_CPU_UTILIZATION"
@@ -2787,6 +2801,7 @@ const (
 	ServiceNamespace_EC2 ServiceNamespace = "EC2"
 	ServiceNamespace_ECS ServiceNamespace = "ECS"
 	ServiceNamespace_ELASTIC_MAP_REDUCE ServiceNamespace = "ELASTIC_MAP_REDUCE"
+	ServiceNamespace_ELASTICACHE ServiceNamespace = "ELASTICACHE"
 	ServiceNamespace_KAFKA ServiceNamespace = "KAFKA"
 	ServiceNamespace_LAMBDA ServiceNamespace = "LAMBDA"
 	ServiceNamespace_RDS ServiceNamespace = "RDS"
@@ -3305,10 +3320,21 @@ type StepScalingPolicyProps struct {
 	//
 	// Experimental.
 	Cooldown awscdk.Duration `json:"cooldown"`
+	// The number of data points out of the evaluation periods that must be breaching to trigger a scaling action.
+	//
+	// Creates an "M out of N" alarm, where this property is the M and the value set for
+	// `evaluationPeriods` is the N value.
+	//
+	// Only has meaning if `evaluationPeriods != 1`.
+	// Experimental.
+	DatapointsToAlarm *float64 `json:"datapointsToAlarm"`
 	// How many evaluation periods of the metric to wait before triggering a scaling action.
 	//
 	// Raising this value can be used to smooth out the metric, at the expense
 	// of slower response times.
+	//
+	// If `datapointsToAlarm` is not set, then all data points in the evaluation period
+	// must meet the criteria to trigger a scaling action.
 	// Experimental.
 	EvaluationPeriods *float64 `json:"evaluationPeriods"`
 	// Metric to scale on.

@@ -63,4 +63,20 @@ func init() {
 		"monocdk.aws_apigatewayv2_authorizers.HttpUserPoolAuthorizerProps",
 		reflect.TypeOf((*HttpUserPoolAuthorizerProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_apigatewayv2_authorizers.WebSocketLambdaAuthorizer",
+		reflect.TypeOf((*WebSocketLambdaAuthorizer)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_WebSocketLambdaAuthorizer{}
+			_jsii_.InitJsiiProxy(&j.Type__awsapigatewayv2IWebSocketRouteAuthorizer)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_apigatewayv2_authorizers.WebSocketLambdaAuthorizerProps",
+		reflect.TypeOf((*WebSocketLambdaAuthorizerProps)(nil)).Elem(),
+	)
 }

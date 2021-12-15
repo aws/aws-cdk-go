@@ -36,6 +36,8 @@ type CfnStream interface {
 	Stack() awscdk.Stack
 	StreamEncryption() interface{}
 	SetStreamEncryption(val interface{})
+	StreamModeDetails() interface{}
+	SetStreamModeDetails(val interface{})
 	Tags() awscdk.TagManager
 	UpdatedProperites() *map[string]interface{}
 	AddDeletionOverride(path *string)
@@ -197,6 +199,16 @@ func (j *jsiiProxy_CfnStream) StreamEncryption() interface{} {
 	return returns
 }
 
+func (j *jsiiProxy_CfnStream) StreamModeDetails() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"streamModeDetails",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnStream) Tags() awscdk.TagManager {
 	var returns awscdk.TagManager
 	_jsii_.Get(
@@ -272,6 +284,14 @@ func (j *jsiiProxy_CfnStream) SetStreamEncryption(val interface{}) {
 	_jsii_.Set(
 		j,
 		"streamEncryption",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnStream) SetStreamModeDetails(val interface{}) {
+	_jsii_.Set(
+		j,
+		"streamModeDetails",
 		val,
 	)
 }
@@ -690,6 +710,13 @@ type CfnStream_StreamEncryptionProperty struct {
 	EncryptionType *string `json:"encryptionType"`
 	// `CfnStream.StreamEncryptionProperty.KeyId`.
 	KeyId *string `json:"keyId"`
+}
+
+// TODO: EXAMPLE
+//
+type CfnStream_StreamModeDetailsProperty struct {
+	// `CfnStream.StreamModeDetailsProperty.StreamMode`.
+	StreamMode *string `json:"streamMode"`
 }
 
 // A CloudFormation `AWS::Kinesis::StreamConsumer`.
@@ -1380,6 +1407,8 @@ type CfnStreamProps struct {
 	ShardCount *float64 `json:"shardCount"`
 	// `AWS::Kinesis::Stream.StreamEncryption`.
 	StreamEncryption interface{} `json:"streamEncryption"`
+	// `AWS::Kinesis::Stream.StreamModeDetails`.
+	StreamModeDetails interface{} `json:"streamModeDetails"`
 	// `AWS::Kinesis::Stream.Tags`.
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 }

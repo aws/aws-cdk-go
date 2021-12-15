@@ -8666,6 +8666,7 @@ type NotificationKeyFilter struct {
 type ObjectOwnership string
 
 const (
+	ObjectOwnership_BUCKET_OWNER_ENFORCED ObjectOwnership = "BUCKET_OWNER_ENFORCED"
 	ObjectOwnership_BUCKET_OWNER_PREFERRED ObjectOwnership = "BUCKET_OWNER_PREFERRED"
 	ObjectOwnership_OBJECT_WRITER ObjectOwnership = "OBJECT_WRITER"
 )

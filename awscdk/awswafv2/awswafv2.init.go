@@ -233,6 +233,10 @@ func init() {
 		reflect.TypeOf((*CfnRuleGroup_ByteMatchStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_wafv2.CfnRuleGroup.CaptchaConfigProperty",
+		reflect.TypeOf((*CfnRuleGroup_CaptchaConfigProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_wafv2.CfnRuleGroup.CustomResponseBodyProperty",
 		reflect.TypeOf((*CfnRuleGroup_CustomResponseBodyProperty)(nil)).Elem(),
 	)
@@ -272,6 +276,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_wafv2.CfnRuleGroup.ImmunityTimePropertyProperty",
+		reflect.TypeOf((*CfnRuleGroup_ImmunityTimePropertyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_wafv2.CfnRuleGroup.JsonBodyProperty",
 		reflect.TypeOf((*CfnRuleGroup_JsonBodyProperty)(nil)).Elem(),
 	)
@@ -302,6 +310,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_wafv2.CfnRuleGroup.RateBasedStatementProperty",
 		reflect.TypeOf((*CfnRuleGroup_RateBasedStatementProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_wafv2.CfnRuleGroup.RegexMatchStatementProperty",
+		reflect.TypeOf((*CfnRuleGroup_RegexMatchStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_wafv2.CfnRuleGroup.RegexPatternSetReferenceStatementProperty",
@@ -358,6 +370,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "attrCapacity", GoGetter: "AttrCapacity"},
 			_jsii_.MemberProperty{JsiiProperty: "attrId", GoGetter: "AttrId"},
 			_jsii_.MemberProperty{JsiiProperty: "attrLabelNamespace", GoGetter: "AttrLabelNamespace"},
+			_jsii_.MemberProperty{JsiiProperty: "captchaConfig", GoGetter: "CaptchaConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnOptions", GoGetter: "CfnOptions"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnProperties", GoGetter: "CfnProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "cfnResourceType", GoGetter: "CfnResourceType"},
@@ -412,6 +425,14 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_wafv2.CfnWebACL.ByteMatchStatementProperty",
 		reflect.TypeOf((*CfnWebACL_ByteMatchStatementProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_wafv2.CfnWebACL.CaptchaActionProperty",
+		reflect.TypeOf((*CfnWebACL_CaptchaActionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_wafv2.CfnWebACL.CaptchaConfigProperty",
+		reflect.TypeOf((*CfnWebACL_CaptchaConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_wafv2.CfnWebACL.CountActionProperty",
@@ -477,6 +498,10 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_wafv2.CfnWebACL.ImmunityTimePropertyProperty",
+		reflect.TypeOf((*CfnWebACL_ImmunityTimePropertyProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_wafv2.CfnWebACL.JsonBodyProperty",
 		reflect.TypeOf((*CfnWebACL_JsonBodyProperty)(nil)).Elem(),
 	)
@@ -511,6 +536,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_wafv2.CfnWebACL.RateBasedStatementProperty",
 		reflect.TypeOf((*CfnWebACL_RateBasedStatementProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_wafv2.CfnWebACL.RegexMatchStatementProperty",
+		reflect.TypeOf((*CfnWebACL_RegexMatchStatementProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
 		"monocdk.aws_wafv2.CfnWebACL.RegexPatternSetReferenceStatementProperty",

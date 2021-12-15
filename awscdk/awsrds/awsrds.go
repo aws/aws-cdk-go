@@ -603,6 +603,17 @@ func AuroraMysqlEngineVersion_VER_2_10_1() AuroraMysqlEngineVersion {
 	return returns
 }
 
+func AuroraMysqlEngineVersion_VER_3_01_0() AuroraMysqlEngineVersion {
+	_init_.Initialize()
+	var returns AuroraMysqlEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.AuroraMysqlEngineVersion",
+		"VER_3_01_0",
+		&returns,
+	)
+	return returns
+}
+
 func AuroraMysqlEngineVersion_VER_5_7_12() AuroraMysqlEngineVersion {
 	_init_.Initialize()
 	var returns AuroraMysqlEngineVersion
@@ -22111,6 +22122,17 @@ func MariaDbEngineVersion_VER_10_2_40() MariaDbEngineVersion {
 	return returns
 }
 
+func MariaDbEngineVersion_VER_10_2_41() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_2_41",
+		&returns,
+	)
+	return returns
+}
+
 func MariaDbEngineVersion_VER_10_3() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
@@ -22177,6 +22199,17 @@ func MariaDbEngineVersion_VER_10_3_31() MariaDbEngineVersion {
 	return returns
 }
 
+func MariaDbEngineVersion_VER_10_3_32() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_3_32",
+		&returns,
+	)
+	return returns
+}
+
 func MariaDbEngineVersion_VER_10_3_8() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
@@ -22232,6 +22265,17 @@ func MariaDbEngineVersion_VER_10_4_21() MariaDbEngineVersion {
 	return returns
 }
 
+func MariaDbEngineVersion_VER_10_4_22() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_4_22",
+		&returns,
+	)
+	return returns
+}
+
 func MariaDbEngineVersion_VER_10_4_8() MariaDbEngineVersion {
 	_init_.Initialize()
 	var returns MariaDbEngineVersion
@@ -22260,6 +22304,17 @@ func MariaDbEngineVersion_VER_10_5_12() MariaDbEngineVersion {
 	_jsii_.StaticGet(
 		"monocdk.aws_rds.MariaDbEngineVersion",
 		"VER_10_5_12",
+		&returns,
+	)
+	return returns
+}
+
+func MariaDbEngineVersion_VER_10_5_13() MariaDbEngineVersion {
+	_init_.Initialize()
+	var returns MariaDbEngineVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_rds.MariaDbEngineVersion",
+		"VER_10_5_13",
 		&returns,
 	)
 	return returns

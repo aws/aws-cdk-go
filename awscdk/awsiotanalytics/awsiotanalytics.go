@@ -2468,6 +2468,7 @@ type CfnDatastoreProps struct {
 type CfnPipeline interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrId() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -2509,6 +2510,16 @@ type CfnPipeline interface {
 type jsiiProxy_CfnPipeline struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnPipeline) AttrId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnPipeline) CfnOptions() awscdk.ICfnResourceOptions {

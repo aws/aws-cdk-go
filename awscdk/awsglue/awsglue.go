@@ -17129,6 +17129,7 @@ type Table interface {
 	GeneratePhysicalName() *string
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
+	Grant(grantee awsiam.IGrantable, actions *[]*string) awsiam.Grant
 	GrantRead(grantee awsiam.IGrantable) awsiam.Grant
 	GrantReadWrite(grantee awsiam.IGrantable) awsiam.Grant
 	GrantWrite(grantee awsiam.IGrantable) awsiam.Grant
@@ -17456,6 +17457,21 @@ func (t *jsiiProxy_Table) GetResourceNameAttribute(nameAttr *string) *string {
 		t,
 		"getResourceNameAttribute",
 		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+// Grant the given identity custom permissions.
+// Experimental.
+func (t *jsiiProxy_Table) Grant(grantee awsiam.IGrantable, actions *[]*string) awsiam.Grant {
+	var returns awsiam.Grant
+
+	_jsii_.Invoke(
+		t,
+		"grant",
+		[]interface{}{grantee, actions},
 		&returns,
 	)
 

@@ -1482,6 +1482,22 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
+		"monocdk.aws_apigatewayv2.IWebSocketAuthorizer",
+		reflect.TypeOf((*IWebSocketAuthorizer)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "authorizerId", GoGetter: "AuthorizerId"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+		},
+		func() interface{} {
+			j := jsiiProxy_IWebSocketAuthorizer{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IAuthorizer)
+			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
 		"monocdk.aws_apigatewayv2.IWebSocketIntegration",
 		reflect.TypeOf((*IWebSocketIntegration)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1514,6 +1530,16 @@ func init() {
 			j := jsiiProxy_IWebSocketRoute{}
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IRoute)
 			return &j
+		},
+	)
+	_jsii_.RegisterInterface(
+		"monocdk.aws_apigatewayv2.IWebSocketRouteAuthorizer",
+		reflect.TypeOf((*IWebSocketRouteAuthorizer)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			return &jsiiProxy_IWebSocketRouteAuthorizer{}
 		},
 	)
 	_jsii_.RegisterInterface(
@@ -1674,6 +1700,49 @@ func init() {
 		reflect.TypeOf((*WebSocketApiProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
+		"monocdk.aws_apigatewayv2.WebSocketAuthorizer",
+		reflect.TypeOf((*WebSocketAuthorizer)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
+			_jsii_.MemberProperty{JsiiProperty: "authorizerId", GoGetter: "AuthorizerId"},
+			_jsii_.MemberProperty{JsiiProperty: "env", GoGetter: "Env"},
+			_jsii_.MemberMethod{JsiiMethod: "generatePhysicalName", GoMethod: "GeneratePhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
+			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
+			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
+			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
+			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
+			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
+			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
+			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
+			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
+			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
+			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
+		},
+		func() interface{} {
+			j := jsiiProxy_WebSocketAuthorizer{}
+			_jsii_.InitJsiiProxy(&j.Type__awscdkResource)
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IWebSocketAuthorizer)
+			return &j
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_apigatewayv2.WebSocketAuthorizerAttributes",
+		reflect.TypeOf((*WebSocketAuthorizerAttributes)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_apigatewayv2.WebSocketAuthorizerProps",
+		reflect.TypeOf((*WebSocketAuthorizerProps)(nil)).Elem(),
+	)
+	_jsii_.RegisterEnum(
+		"monocdk.aws_apigatewayv2.WebSocketAuthorizerType",
+		reflect.TypeOf((*WebSocketAuthorizerType)(nil)).Elem(),
+		map[string]interface{}{
+			"LAMBDA": WebSocketAuthorizerType_LAMBDA,
+		},
+	)
+	_jsii_.RegisterClass(
 		"monocdk.aws_apigatewayv2.WebSocketIntegration",
 		reflect.TypeOf((*WebSocketIntegration)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1714,6 +1783,18 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
+		"monocdk.aws_apigatewayv2.WebSocketNoneAuthorizer",
+		reflect.TypeOf((*WebSocketNoneAuthorizer)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			j := jsiiProxy_WebSocketNoneAuthorizer{}
+			_jsii_.InitJsiiProxy(&j.jsiiProxy_IWebSocketRouteAuthorizer)
+			return &j
+		},
+	)
+	_jsii_.RegisterClass(
 		"monocdk.aws_apigatewayv2.WebSocketRoute",
 		reflect.TypeOf((*WebSocketRoute)(nil)).Elem(),
 		[]_jsii_.Member{
@@ -1743,6 +1824,14 @@ func init() {
 			_jsii_.InitJsiiProxy(&j.jsiiProxy_IWebSocketRoute)
 			return &j
 		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_apigatewayv2.WebSocketRouteAuthorizerBindOptions",
+		reflect.TypeOf((*WebSocketRouteAuthorizerBindOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_apigatewayv2.WebSocketRouteAuthorizerConfig",
+		reflect.TypeOf((*WebSocketRouteAuthorizerConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_apigatewayv2.WebSocketRouteIntegration",

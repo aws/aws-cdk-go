@@ -1334,6 +1334,26 @@ type BasicTargetTrackingScalingPolicyProps struct {
 	TargetValue *float64 `json:"targetValue"`
 }
 
+// Options needed to bind a target to a lifecycle hook.
+//
+// [disable-awslint:ref-via-interface] The lifecycle hook to attach to and an IRole to use
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type BindHookTargetOptions struct {
+	// The lifecycle hook to attach to.
+	//
+	// [disable-awslint:ref-via-interface]
+	// Experimental.
+	LifecycleHook LifecycleHook `json:"lifecycleHook"`
+	// The role to use when attaching to the lifecycle hook.
+	//
+	// [disable-awslint:ref-via-interface]
+	// Experimental.
+	Role awsiam.IRole `json:"role"`
+}
+
 // Block device.
 //
 // TODO: EXAMPLE
@@ -7950,7 +7970,7 @@ func (j *jsiiProxy_ILifecycleHook) Role() awsiam.IRole {
 type ILifecycleHookTarget interface {
 	// Called when this object is used as the target of a lifecycle hook.
 	// Experimental.
-	Bind(scope awscdk.Construct, lifecycleHook ILifecycleHook) *LifecycleHookTargetConfig
+	Bind(scope constructs.Construct, options *BindHookTargetOptions) *LifecycleHookTargetConfig
 }
 
 // The jsii proxy for ILifecycleHookTarget
@@ -7958,13 +7978,13 @@ type jsiiProxy_ILifecycleHookTarget struct {
 	_ byte // padding
 }
 
-func (i *jsiiProxy_ILifecycleHookTarget) Bind(scope awscdk.Construct, lifecycleHook ILifecycleHook) *LifecycleHookTargetConfig {
+func (i *jsiiProxy_ILifecycleHookTarget) Bind(scope constructs.Construct, options *BindHookTargetOptions) *LifecycleHookTargetConfig {
 	var returns *LifecycleHookTargetConfig
 
 	_jsii_.Invoke(
 		i,
 		"bind",
-		[]interface{}{scope, lifecycleHook},
+		[]interface{}{scope, options},
 		&returns,
 	)
 
@@ -8345,13 +8365,16 @@ type LifecycleHookProps struct {
 	AutoScalingGroup IAutoScalingGroup `json:"autoScalingGroup"`
 }
 
-// Properties to add the target to a lifecycle hook.
+// Result of binding a lifecycle hook to a target.
 //
 // TODO: EXAMPLE
 //
 // Experimental.
 type LifecycleHookTargetConfig struct {
-	// The ARN to use as the notification target.
+	// The IRole that was used to bind the lifecycle hook to the target.
+	// Experimental.
+	CreatedRole awsiam.IRole `json:"createdRole"`
+	// The targetArn that the lifecycle hook was bound to.
 	// Experimental.
 	NotificationTargetArn *string `json:"notificationTargetArn"`
 }

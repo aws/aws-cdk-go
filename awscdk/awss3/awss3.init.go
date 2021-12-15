@@ -981,6 +981,7 @@ func init() {
 		"monocdk.aws_s3.ObjectOwnership",
 		reflect.TypeOf((*ObjectOwnership)(nil)).Elem(),
 		map[string]interface{}{
+			"BUCKET_OWNER_ENFORCED": ObjectOwnership_BUCKET_OWNER_ENFORCED,
 			"BUCKET_OWNER_PREFERRED": ObjectOwnership_BUCKET_OWNER_PREFERRED,
 			"OBJECT_WRITER": ObjectOwnership_OBJECT_WRITER,
 		},

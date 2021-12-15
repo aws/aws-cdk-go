@@ -4,13 +4,13 @@ import (
 	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
 	"github.com/aws/aws-cdk-go/awscdk/awsautoscaling"
 	"github.com/aws/aws-cdk-go/awscdk/awsautoscalinghooktargets/internal"
 	"github.com/aws/aws-cdk-go/awscdk/awskms"
 	"github.com/aws/aws-cdk-go/awscdk/awslambda"
 	"github.com/aws/aws-cdk-go/awscdk/awssns"
 	"github.com/aws/aws-cdk-go/awscdk/awssqs"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // Use a Lambda Function as a hook target.
@@ -22,7 +22,7 @@ import (
 // Experimental.
 type FunctionHook interface {
 	awsautoscaling.ILifecycleHookTarget
-	Bind(scope awscdk.Construct, lifecycleHook awsautoscaling.ILifecycleHook) *awsautoscaling.LifecycleHookTargetConfig
+	Bind(_scope constructs.Construct, options *awsautoscaling.BindHookTargetOptions) *awsautoscaling.LifecycleHookTargetConfig
 }
 
 // The jsii proxy struct for FunctionHook
@@ -56,15 +56,17 @@ func NewFunctionHook_Override(f FunctionHook, fn awslambda.IFunction, encryption
 	)
 }
 
-// Called when this object is used as the target of a lifecycle hook.
+// If the `IRole` does not exist in `options`, will create an `IRole` and an SNS Topic and attach both to the lifecycle hook.
+//
+// If the `IRole` does exist in `options`, will only create an SNS Topic and attach it to the lifecycle hook.
 // Experimental.
-func (f *jsiiProxy_FunctionHook) Bind(scope awscdk.Construct, lifecycleHook awsautoscaling.ILifecycleHook) *awsautoscaling.LifecycleHookTargetConfig {
+func (f *jsiiProxy_FunctionHook) Bind(_scope constructs.Construct, options *awsautoscaling.BindHookTargetOptions) *awsautoscaling.LifecycleHookTargetConfig {
 	var returns *awsautoscaling.LifecycleHookTargetConfig
 
 	_jsii_.Invoke(
 		f,
 		"bind",
-		[]interface{}{scope, lifecycleHook},
+		[]interface{}{_scope, options},
 		&returns,
 	)
 
@@ -78,7 +80,7 @@ func (f *jsiiProxy_FunctionHook) Bind(scope awscdk.Construct, lifecycleHook awsa
 // Experimental.
 type QueueHook interface {
 	awsautoscaling.ILifecycleHookTarget
-	Bind(_scope awscdk.Construct, lifecycleHook awsautoscaling.ILifecycleHook) *awsautoscaling.LifecycleHookTargetConfig
+	Bind(_scope constructs.Construct, options *awsautoscaling.BindHookTargetOptions) *awsautoscaling.LifecycleHookTargetConfig
 }
 
 // The jsii proxy struct for QueueHook
@@ -112,15 +114,19 @@ func NewQueueHook_Override(q QueueHook, queue awssqs.IQueue) {
 	)
 }
 
-// Called when this object is used as the target of a lifecycle hook.
+// If an `IRole` is found in `options`, grant it access to send messages.
+//
+// Otherwise, create a new `IRole` and grant it access to send messages.
+//
+// Returns: the `IRole` with access to send messages and the ARN of the queue it has access to send messages to.
 // Experimental.
-func (q *jsiiProxy_QueueHook) Bind(_scope awscdk.Construct, lifecycleHook awsautoscaling.ILifecycleHook) *awsautoscaling.LifecycleHookTargetConfig {
+func (q *jsiiProxy_QueueHook) Bind(_scope constructs.Construct, options *awsautoscaling.BindHookTargetOptions) *awsautoscaling.LifecycleHookTargetConfig {
 	var returns *awsautoscaling.LifecycleHookTargetConfig
 
 	_jsii_.Invoke(
 		q,
 		"bind",
-		[]interface{}{_scope, lifecycleHook},
+		[]interface{}{_scope, options},
 		&returns,
 	)
 
@@ -134,7 +140,7 @@ func (q *jsiiProxy_QueueHook) Bind(_scope awscdk.Construct, lifecycleHook awsaut
 // Experimental.
 type TopicHook interface {
 	awsautoscaling.ILifecycleHookTarget
-	Bind(_scope awscdk.Construct, lifecycleHook awsautoscaling.ILifecycleHook) *awsautoscaling.LifecycleHookTargetConfig
+	Bind(_scope constructs.Construct, options *awsautoscaling.BindHookTargetOptions) *awsautoscaling.LifecycleHookTargetConfig
 }
 
 // The jsii proxy struct for TopicHook
@@ -168,15 +174,19 @@ func NewTopicHook_Override(t TopicHook, topic awssns.ITopic) {
 	)
 }
 
-// Called when this object is used as the target of a lifecycle hook.
+// If an `IRole` is found in `options`, grant it topic publishing permissions.
+//
+// Otherwise, create a new `IRole` and grant it topic publishing permissions.
+//
+// Returns: the `IRole` with topic publishing permissions and the ARN of the topic it has publishing permission to.
 // Experimental.
-func (t *jsiiProxy_TopicHook) Bind(_scope awscdk.Construct, lifecycleHook awsautoscaling.ILifecycleHook) *awsautoscaling.LifecycleHookTargetConfig {
+func (t *jsiiProxy_TopicHook) Bind(_scope constructs.Construct, options *awsautoscaling.BindHookTargetOptions) *awsautoscaling.LifecycleHookTargetConfig {
 	var returns *awsautoscaling.LifecycleHookTargetConfig
 
 	_jsii_.Invoke(
 		t,
 		"bind",
-		[]interface{}{_scope, lifecycleHook},
+		[]interface{}{_scope, options},
 		&returns,
 	)
 

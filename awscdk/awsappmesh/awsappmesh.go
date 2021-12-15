@@ -6581,6 +6581,21 @@ type CfnVirtualServiceProps struct {
 	VirtualServiceName *string `json:"virtualServiceName"`
 }
 
+// Base options for all gateway route specs.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type CommonGatewayRouteSpecOptions struct {
+	// The priority for the gateway route.
+	//
+	// When a Virtual Gateway has multiple gateway routes, gateway route match
+	// is performed in the order of specified value, where 0 is the highest priority,
+	// and first matched gateway route is selected.
+	// Experimental.
+	Priority *float64 `json:"priority"`
+}
+
 // Enum of DNS service discovery response type.
 //
 // TODO: EXAMPLE
@@ -7219,6 +7234,13 @@ type GatewayRouteSpecConfig struct {
 	// The spec for an http gateway route.
 	// Experimental.
 	HttpSpecConfig *CfnGatewayRoute_HttpGatewayRouteProperty `json:"httpSpecConfig"`
+	// The priority for the gateway route.
+	//
+	// When a Virtual Gateway has multiple gateway routes, gateway route match
+	// is performed in the order of specified value, where 0 is the highest priority,
+	// and first matched gateway route is selected.
+	// Experimental.
+	Priority *float64 `json:"priority"`
 }
 
 // Connection pool properties for gRPC listeners.
@@ -7282,6 +7304,13 @@ type GrpcGatewayRouteMatch struct {
 //
 // Experimental.
 type GrpcGatewayRouteSpecOptions struct {
+	// The priority for the gateway route.
+	//
+	// When a Virtual Gateway has multiple gateway routes, gateway route match
+	// is performed in the order of specified value, where 0 is the highest priority,
+	// and first matched gateway route is selected.
+	// Experimental.
+	Priority *float64 `json:"priority"`
 	// The criterion for determining a request match for this GatewayRoute.
 	// Experimental.
 	Match *GrpcGatewayRouteMatch `json:"match"`
@@ -7390,8 +7419,8 @@ type GrpcRouteMatch struct {
 type GrpcRouteSpecOptions struct {
 	// The priority for the route.
 	//
-	// Routes are matched based on the specified
-	// value, where 0 is the highest priority.
+	// When a Virtual Router has multiple routes, route match is performed in the
+	// order of specified value, where 0 is the highest priority, and first matched route is selected.
 	// Experimental.
 	Priority *float64 `json:"priority"`
 	// The criterion for determining a request match for this Route.
@@ -8050,6 +8079,13 @@ type HttpGatewayRoutePathMatchConfig struct {
 //
 // Experimental.
 type HttpGatewayRouteSpecOptions struct {
+	// The priority for the gateway route.
+	//
+	// When a Virtual Gateway has multiple gateway routes, gateway route match
+	// is performed in the order of specified value, where 0 is the highest priority,
+	// and first matched gateway route is selected.
+	// Experimental.
+	Priority *float64 `json:"priority"`
 	// The criterion for determining a request match for this GatewayRoute.
 	//
 	// When path match is defined, this may optionally determine the path rewrite configuration.
@@ -8301,8 +8337,8 @@ const (
 type HttpRouteSpecOptions struct {
 	// The priority for the route.
 	//
-	// Routes are matched based on the specified
-	// value, where 0 is the highest priority.
+	// When a Virtual Router has multiple routes, route match is performed in the
+	// order of specified value, where 0 is the highest priority, and first matched route is selected.
 	// Experimental.
 	Priority *float64 `json:"priority"`
 	// The criterion for determining a request match for this Route.
@@ -10181,8 +10217,8 @@ type RouteSpecConfig struct {
 	HttpRouteSpec *CfnRoute_HttpRouteProperty `json:"httpRouteSpec"`
 	// The priority for the route.
 	//
-	// Routes are matched based on the specified
-	// value, where 0 is the highest priority.
+	// When a Virtual Router has multiple routes, route match is performed in the
+	// order of specified value, where 0 is the highest priority, and first matched route is selected.
 	// Experimental.
 	Priority *float64 `json:"priority"`
 	// The spec for a tcp route.
@@ -10198,8 +10234,8 @@ type RouteSpecConfig struct {
 type RouteSpecOptionsBase struct {
 	// The priority for the route.
 	//
-	// Routes are matched based on the specified
-	// value, where 0 is the highest priority.
+	// When a Virtual Router has multiple routes, route match is performed in the
+	// order of specified value, where 0 is the highest priority, and first matched route is selected.
 	// Experimental.
 	Priority *float64 `json:"priority"`
 }
@@ -10412,8 +10448,8 @@ const (
 type TcpRouteSpecOptions struct {
 	// The priority for the route.
 	//
-	// Routes are matched based on the specified
-	// value, where 0 is the highest priority.
+	// When a Virtual Router has multiple routes, route match is performed in the
+	// order of specified value, where 0 is the highest priority, and first matched route is selected.
 	// Experimental.
 	Priority *float64 `json:"priority"`
 	// An object that represents a tcp timeout.

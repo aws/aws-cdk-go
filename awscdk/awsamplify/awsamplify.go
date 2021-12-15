@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/awscodecommit"
 	"github.com/aws/aws-cdk-go/awscdk/awsiam"
 	"github.com/aws/aws-cdk-go/awscdk/awskms"
+	"github.com/aws/aws-cdk-go/awscdk/awss3assets"
 	"github.com/aws/constructs-go/constructs/v3"
 )
 
@@ -1094,6 +1095,12 @@ func (b *jsiiProxy_Branch) Validate() *[]*string {
 //
 // Experimental.
 type BranchOptions struct {
+	// Asset for deployment.
+	//
+	// The Amplify app must not have a sourceCodeProvider configured as this resource uses Amplify's
+	// startDeployment API to initiate and deploy a S3 asset onto the App.
+	// Experimental.
+	Asset awss3assets.Asset `json:"asset"`
 	// Whether to enable auto building for the branch.
 	// Experimental.
 	AutoBuild *bool `json:"autoBuild"`
@@ -1137,6 +1144,12 @@ type BranchOptions struct {
 //
 // Experimental.
 type BranchProps struct {
+	// Asset for deployment.
+	//
+	// The Amplify app must not have a sourceCodeProvider configured as this resource uses Amplify's
+	// startDeployment API to initiate and deploy a S3 asset onto the App.
+	// Experimental.
+	Asset awss3assets.Asset `json:"asset"`
 	// Whether to enable auto building for the branch.
 	// Experimental.
 	AutoBuild *bool `json:"autoBuild"`

@@ -2918,6 +2918,13 @@ type CfnRuleGroup_ByteMatchStatementProperty struct {
 
 // TODO: EXAMPLE
 //
+type CfnRuleGroup_CaptchaConfigProperty struct {
+	// `CfnRuleGroup.CaptchaConfigProperty.ImmunityTimeProperty`.
+	ImmunityTimeProperty interface{} `json:"immunityTimeProperty"`
+}
+
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_CustomResponseBodyProperty struct {
 	// `CfnRuleGroup.CustomResponseBodyProperty.Content`.
 	Content *string `json:"content"`
@@ -3042,6 +3049,13 @@ func (j *jsiiProxy_CfnRuleGroup_IPSetReferenceStatementProperty) IpSetForwardedI
 
 // TODO: EXAMPLE
 //
+type CfnRuleGroup_ImmunityTimePropertyProperty struct {
+	// `CfnRuleGroup.ImmunityTimePropertyProperty.ImmunityTime`.
+	ImmunityTime *float64 `json:"immunityTime"`
+}
+
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_JsonBodyProperty struct {
 	// `CfnRuleGroup.JsonBodyProperty.InvalidFallbackBehavior`.
 	InvalidFallbackBehavior *string `json:"invalidFallbackBehavior"`
@@ -3112,6 +3126,17 @@ type CfnRuleGroup_RateBasedStatementProperty struct {
 
 // TODO: EXAMPLE
 //
+type CfnRuleGroup_RegexMatchStatementProperty struct {
+	// `CfnRuleGroup.RegexMatchStatementProperty.FieldToMatch`.
+	FieldToMatch interface{} `json:"fieldToMatch"`
+	// `CfnRuleGroup.RegexMatchStatementProperty.RegexString`.
+	RegexString *string `json:"regexString"`
+	// `CfnRuleGroup.RegexMatchStatementProperty.TextTransformations`.
+	TextTransformations interface{} `json:"textTransformations"`
+}
+
+// TODO: EXAMPLE
+//
 type CfnRuleGroup_RegexPatternSetReferenceStatementProperty struct {
 	// `CfnRuleGroup.RegexPatternSetReferenceStatementProperty.Arn`.
 	Arn *string `json:"arn"`
@@ -3128,6 +3153,8 @@ type CfnRuleGroup_RuleActionProperty struct {
 	Allow interface{} `json:"allow"`
 	// `CfnRuleGroup.RuleActionProperty.Block`.
 	Block interface{} `json:"block"`
+	// `CfnRuleGroup.RuleActionProperty.Captcha`.
+	Captcha interface{} `json:"captcha"`
 	// `CfnRuleGroup.RuleActionProperty.Count`.
 	Count interface{} `json:"count"`
 }
@@ -3137,6 +3164,8 @@ type CfnRuleGroup_RuleActionProperty struct {
 type CfnRuleGroup_RuleProperty struct {
 	// `CfnRuleGroup.RuleProperty.Action`.
 	Action interface{} `json:"action"`
+	// `CfnRuleGroup.RuleProperty.CaptchaConfig`.
+	CaptchaConfig interface{} `json:"captchaConfig"`
 	// `CfnRuleGroup.RuleProperty.Name`.
 	Name *string `json:"name"`
 	// `CfnRuleGroup.RuleProperty.Priority`.
@@ -3190,6 +3219,8 @@ type CfnRuleGroup_StatementProperty struct {
 	OrStatement interface{} `json:"orStatement"`
 	// `CfnRuleGroup.StatementProperty.RateBasedStatement`.
 	RateBasedStatement interface{} `json:"rateBasedStatement"`
+	// `CfnRuleGroup.StatementProperty.RegexMatchStatement`.
+	RegexMatchStatement interface{} `json:"regexMatchStatement"`
 	// `CfnRuleGroup.StatementProperty.RegexPatternSetReferenceStatement`.
 	RegexPatternSetReferenceStatement interface{} `json:"regexPatternSetReferenceStatement"`
 	// `CfnRuleGroup.StatementProperty.SizeConstraintStatement`.
@@ -3263,6 +3294,8 @@ type CfnWebACL interface {
 	AttrCapacity() *float64
 	AttrId() *string
 	AttrLabelNamespace() *string
+	CaptchaConfig() interface{}
+	SetCaptchaConfig(val interface{})
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -3351,6 +3384,16 @@ func (j *jsiiProxy_CfnWebACL) AttrLabelNamespace() *string {
 	_jsii_.Get(
 		j,
 		"attrLabelNamespace",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_CfnWebACL) CaptchaConfig() interface{} {
+	var returns interface{}
+	_jsii_.Get(
+		j,
+		"captchaConfig",
 		&returns,
 	)
 	return returns
@@ -3550,6 +3593,14 @@ func NewCfnWebACL_Override(c CfnWebACL, scope awscdk.Construct, id *string, prop
 		"monocdk.aws_wafv2.CfnWebACL",
 		[]interface{}{scope, id, props},
 		c,
+	)
+}
+
+func (j *jsiiProxy_CfnWebACL) SetCaptchaConfig(val interface{}) {
+	_jsii_.Set(
+		j,
+		"captchaConfig",
+		val,
 	)
 }
 
@@ -4054,6 +4105,20 @@ type CfnWebACL_ByteMatchStatementProperty struct {
 
 // TODO: EXAMPLE
 //
+type CfnWebACL_CaptchaActionProperty struct {
+	// `CfnWebACL.CaptchaActionProperty.CustomRequestHandling`.
+	CustomRequestHandling interface{} `json:"customRequestHandling"`
+}
+
+// TODO: EXAMPLE
+//
+type CfnWebACL_CaptchaConfigProperty struct {
+	// `CfnWebACL.CaptchaConfigProperty.ImmunityTimeProperty`.
+	ImmunityTimeProperty interface{} `json:"immunityTimeProperty"`
+}
+
+// TODO: EXAMPLE
+//
 type CfnWebACL_CountActionProperty struct {
 	// `CfnWebACL.CountActionProperty.CustomRequestHandling`.
 	CustomRequestHandling interface{} `json:"customRequestHandling"`
@@ -4228,6 +4293,13 @@ func (j *jsiiProxy_CfnWebACL_IPSetReferenceStatementProperty) IpSetForwardedIpCo
 
 // TODO: EXAMPLE
 //
+type CfnWebACL_ImmunityTimePropertyProperty struct {
+	// `CfnWebACL.ImmunityTimePropertyProperty.ImmunityTime`.
+	ImmunityTime *float64 `json:"immunityTime"`
+}
+
+// TODO: EXAMPLE
+//
 type CfnWebACL_JsonBodyProperty struct {
 	// `CfnWebACL.JsonBodyProperty.InvalidFallbackBehavior`.
 	InvalidFallbackBehavior *string `json:"invalidFallbackBehavior"`
@@ -4315,6 +4387,17 @@ type CfnWebACL_RateBasedStatementProperty struct {
 
 // TODO: EXAMPLE
 //
+type CfnWebACL_RegexMatchStatementProperty struct {
+	// `CfnWebACL.RegexMatchStatementProperty.FieldToMatch`.
+	FieldToMatch interface{} `json:"fieldToMatch"`
+	// `CfnWebACL.RegexMatchStatementProperty.RegexString`.
+	RegexString *string `json:"regexString"`
+	// `CfnWebACL.RegexMatchStatementProperty.TextTransformations`.
+	TextTransformations interface{} `json:"textTransformations"`
+}
+
+// TODO: EXAMPLE
+//
 type CfnWebACL_RegexPatternSetReferenceStatementProperty struct {
 	// `CfnWebACL.RegexPatternSetReferenceStatementProperty.Arn`.
 	Arn *string `json:"arn"`
@@ -4331,6 +4414,8 @@ type CfnWebACL_RuleActionProperty struct {
 	Allow interface{} `json:"allow"`
 	// `CfnWebACL.RuleActionProperty.Block`.
 	Block interface{} `json:"block"`
+	// `CfnWebACL.RuleActionProperty.Captcha`.
+	Captcha interface{} `json:"captcha"`
 	// `CfnWebACL.RuleActionProperty.Count`.
 	Count interface{} `json:"count"`
 }
@@ -4349,6 +4434,8 @@ type CfnWebACL_RuleGroupReferenceStatementProperty struct {
 type CfnWebACL_RuleProperty struct {
 	// `CfnWebACL.RuleProperty.Action`.
 	Action interface{} `json:"action"`
+	// `CfnWebACL.RuleProperty.CaptchaConfig`.
+	CaptchaConfig interface{} `json:"captchaConfig"`
 	// `CfnWebACL.RuleProperty.Name`.
 	Name *string `json:"name"`
 	// `CfnWebACL.RuleProperty.OverrideAction`.
@@ -4406,6 +4493,8 @@ type CfnWebACL_StatementProperty struct {
 	OrStatement interface{} `json:"orStatement"`
 	// `CfnWebACL.StatementProperty.RateBasedStatement`.
 	RateBasedStatement interface{} `json:"rateBasedStatement"`
+	// `CfnWebACL.StatementProperty.RegexMatchStatement`.
+	RegexMatchStatement interface{} `json:"regexMatchStatement"`
 	// `CfnWebACL.StatementProperty.RegexPatternSetReferenceStatement`.
 	RegexPatternSetReferenceStatement interface{} `json:"regexPatternSetReferenceStatement"`
 	// `CfnWebACL.StatementProperty.RuleGroupReferenceStatement`.
@@ -5072,6 +5161,8 @@ type CfnWebACLAssociationProps struct {
 // TODO: EXAMPLE
 //
 type CfnWebACLProps struct {
+	// `AWS::WAFv2::WebACL.CaptchaConfig`.
+	CaptchaConfig interface{} `json:"captchaConfig"`
 	// `AWS::WAFv2::WebACL.CustomResponseBodies`.
 	CustomResponseBodies interface{} `json:"customResponseBodies"`
 	// `AWS::WAFv2::WebACL.DefaultAction`.

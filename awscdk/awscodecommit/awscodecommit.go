@@ -9,6 +9,7 @@ import (
 	"github.com/aws/aws-cdk-go/awscdk/awscodestarnotifications"
 	"github.com/aws/aws-cdk-go/awscdk/awsevents"
 	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awss3assets"
 	"github.com/aws/constructs-go/constructs/v3"
 )
 
@@ -766,6 +767,108 @@ type CfnRepositoryProps struct {
 	Tags *[]*awscdk.CfnTag `json:"tags"`
 	// `AWS::CodeCommit::Repository.Triggers`.
 	Triggers interface{} `json:"triggers"`
+}
+
+// Represents the contents to initialize the repository with.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type Code interface {
+	Bind(scope constructs.Construct) *CodeConfig
+}
+
+// The jsii proxy struct for Code
+type jsiiProxy_Code struct {
+	_ byte // padding
+}
+
+// Experimental.
+func NewCode_Override(c Code) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_codecommit.Code",
+		nil, // no parameters
+		c,
+	)
+}
+
+// Code from user-supplied asset.
+// Experimental.
+func Code_FromAsset(asset awss3assets.Asset, branch *string) Code {
+	_init_.Initialize()
+
+	var returns Code
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_codecommit.Code",
+		"fromAsset",
+		[]interface{}{asset, branch},
+		&returns,
+	)
+
+	return returns
+}
+
+// Code from directory.
+// Experimental.
+func Code_FromDirectory(directoryPath *string, branch *string) Code {
+	_init_.Initialize()
+
+	var returns Code
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_codecommit.Code",
+		"fromDirectory",
+		[]interface{}{directoryPath, branch},
+		&returns,
+	)
+
+	return returns
+}
+
+// Code from preexisting ZIP file.
+// Experimental.
+func Code_FromZipFile(filePath *string, branch *string) Code {
+	_init_.Initialize()
+
+	var returns Code
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_codecommit.Code",
+		"fromZipFile",
+		[]interface{}{filePath, branch},
+		&returns,
+	)
+
+	return returns
+}
+
+// This method is called after a repository is passed this instance of Code in its 'code' property.
+// Experimental.
+func (c *jsiiProxy_Code) Bind(scope constructs.Construct) *CodeConfig {
+	var returns *CodeConfig
+
+	_jsii_.Invoke(
+		c,
+		"bind",
+		[]interface{}{scope},
+		&returns,
+	)
+
+	return returns
+}
+
+// Represents the structure to pass into the underlying CfnRepository class.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type CodeConfig struct {
+	// represents the underlying code structure.
+	// Experimental.
+	Code *CfnRepository_CodeProperty `json:"code"`
 }
 
 // Experimental.
@@ -2258,6 +2361,9 @@ type RepositoryProps struct {
 	// This property is required for all CodeCommit repositories.
 	// Experimental.
 	RepositoryName *string `json:"repositoryName"`
+	// The contents with which to initialize the repository after it has been created.
+	// Experimental.
+	Code Code `json:"code"`
 	// A description of the repository.
 	//
 	// Use the description to identify the

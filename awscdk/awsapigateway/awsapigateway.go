@@ -8676,6 +8676,7 @@ type CfnClientCertificateProps struct {
 type CfnDeployment interface {
 	awscdk.CfnResource
 	awscdk.IInspectable
+	AttrDeploymentId() *string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
 	CfnResourceType() *string
@@ -8722,6 +8723,16 @@ type CfnDeployment interface {
 type jsiiProxy_CfnDeployment struct {
 	internal.Type__awscdkCfnResource
 	internal.Type__awscdkIInspectable
+}
+
+func (j *jsiiProxy_CfnDeployment) AttrDeploymentId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"attrDeploymentId",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_CfnDeployment) CfnOptions() awscdk.ICfnResourceOptions {
@@ -26731,6 +26742,9 @@ type DomainNameAttributes struct {
 //
 // Experimental.
 type DomainNameOptions struct {
+	// The base path name that callers of the API must provide in the URL after the domain name (e.g. `example.com/base-path`). If you specify this property, it can't be an empty string.
+	// Experimental.
+	BasePath *string `json:"basePath"`
 	// The reference to an AWS-managed certificate for use by the edge-optimized endpoint for the domain name.
 	//
 	// For "EDGE" domain names, the certificate
@@ -26759,6 +26773,9 @@ type DomainNameOptions struct {
 //
 // Experimental.
 type DomainNameProps struct {
+	// The base path name that callers of the API must provide in the URL after the domain name (e.g. `example.com/base-path`). If you specify this property, it can't be an empty string.
+	// Experimental.
+	BasePath *string `json:"basePath"`
 	// The reference to an AWS-managed certificate for use by the edge-optimized endpoint for the domain name.
 	//
 	// For "EDGE" domain names, the certificate

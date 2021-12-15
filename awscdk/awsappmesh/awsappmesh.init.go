@@ -947,6 +947,10 @@ func init() {
 		"monocdk.aws_appmesh.CfnVirtualServiceProps",
 		reflect.TypeOf((*CfnVirtualServiceProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_appmesh.CommonGatewayRouteSpecOptions",
+		reflect.TypeOf((*CommonGatewayRouteSpecOptions)(nil)).Elem(),
+	)
 	_jsii_.RegisterEnum(
 		"monocdk.aws_appmesh.DnsResponseType",
 		reflect.TypeOf((*DnsResponseType)(nil)).Elem(),

@@ -121,6 +121,10 @@ func init() {
 		reflect.TypeOf((*BasicTargetTrackingScalingPolicyProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
+		"monocdk.aws_autoscaling.BindHookTargetOptions",
+		reflect.TypeOf((*BindHookTargetOptions)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
 		"monocdk.aws_autoscaling.BlockDevice",
 		reflect.TypeOf((*BlockDevice)(nil)).Elem(),
 	)

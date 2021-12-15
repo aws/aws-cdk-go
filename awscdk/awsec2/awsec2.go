@@ -50233,7 +50233,6 @@ type CfnVPCEndpoint interface {
 	awscdk.IInspectable
 	AttrCreationTimestamp() *string
 	AttrDnsEntries() *[]*string
-	AttrId() *string
 	AttrNetworkInterfaceIds() *[]*string
 	CfnOptions() awscdk.ICfnResourceOptions
 	CfnProperties() *map[string]interface{}
@@ -50304,16 +50303,6 @@ func (j *jsiiProxy_CfnVPCEndpoint) AttrDnsEntries() *[]*string {
 	_jsii_.Get(
 		j,
 		"attrDnsEntries",
-		&returns,
-	)
-	return returns
-}
-
-func (j *jsiiProxy_CfnVPCEndpoint) AttrId() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"attrId",
 		&returns,
 	)
 	return returns
@@ -51703,6 +51692,8 @@ type CfnVPCEndpointService interface {
 	NetworkLoadBalancerArns() *[]*string
 	SetNetworkLoadBalancerArns(val *[]*string)
 	Node() awscdk.ConstructNode
+	PayerResponsibility() *string
+	SetPayerResponsibility(val *string)
 	Ref() *string
 	Stack() awscdk.Stack
 	UpdatedProperites() *map[string]interface{}
@@ -51825,6 +51816,16 @@ func (j *jsiiProxy_CfnVPCEndpointService) Node() awscdk.ConstructNode {
 	return returns
 }
 
+func (j *jsiiProxy_CfnVPCEndpointService) PayerResponsibility() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"payerResponsibility",
+		&returns,
+	)
+	return returns
+}
+
 func (j *jsiiProxy_CfnVPCEndpointService) Ref() *string {
 	var returns *string
 	_jsii_.Get(
@@ -51902,6 +51903,14 @@ func (j *jsiiProxy_CfnVPCEndpointService) SetNetworkLoadBalancerArns(val *[]*str
 	_jsii_.Set(
 		j,
 		"networkLoadBalancerArns",
+		val,
+	)
+}
+
+func (j *jsiiProxy_CfnVPCEndpointService) SetPayerResponsibility(val *string) {
+	_jsii_.Set(
+		j,
+		"payerResponsibility",
 		val,
 	)
 }
@@ -52944,6 +52953,8 @@ type CfnVPCEndpointServiceProps struct {
 	GatewayLoadBalancerArns *[]*string `json:"gatewayLoadBalancerArns"`
 	// `AWS::EC2::VPCEndpointService.NetworkLoadBalancerArns`.
 	NetworkLoadBalancerArns *[]*string `json:"networkLoadBalancerArns"`
+	// `AWS::EC2::VPCEndpointService.PayerResponsibility`.
+	PayerResponsibility *string `json:"payerResponsibility"`
 }
 
 // A CloudFormation `AWS::EC2::VPCGatewayAttachment`.
@@ -65335,6 +65346,11 @@ const (
 	InstanceClass_GRAPHICS5 InstanceClass = "GRAPHICS5"
 	InstanceClass_GRAPHICS5_GRAVITON2 InstanceClass = "GRAPHICS5_GRAVITON2"
 	InstanceClass_HIGH_COMPUTE_MEMORY1 InstanceClass = "HIGH_COMPUTE_MEMORY1"
+	InstanceClass_HIGH_MEMORY_12TB_1 InstanceClass = "HIGH_MEMORY_12TB_1"
+	InstanceClass_HIGH_MEMORY_18TB_1 InstanceClass = "HIGH_MEMORY_18TB_1"
+	InstanceClass_HIGH_MEMORY_24TB_1 InstanceClass = "HIGH_MEMORY_24TB_1"
+	InstanceClass_HIGH_MEMORY_6TB_1 InstanceClass = "HIGH_MEMORY_6TB_1"
+	InstanceClass_HIGH_MEMORY_9TB_1 InstanceClass = "HIGH_MEMORY_9TB_1"
 	InstanceClass_INFERENCE1 InstanceClass = "INFERENCE1"
 	InstanceClass_IO3 InstanceClass = "IO3"
 	InstanceClass_IO3_DENSE_NVME_DRIVE InstanceClass = "IO3_DENSE_NVME_DRIVE"
@@ -65373,6 +65389,10 @@ const (
 	InstanceClass_STANDARD6_INTEL InstanceClass = "STANDARD6_INTEL"
 	InstanceClass_STORAGE_COMPUTE_1 InstanceClass = "STORAGE_COMPUTE_1"
 	InstanceClass_STORAGE2 InstanceClass = "STORAGE2"
+	InstanceClass_STORAGE3 InstanceClass = "STORAGE3"
+	InstanceClass_STORAGE3_ENHANCED_NETWORK InstanceClass = "STORAGE3_ENHANCED_NETWORK"
+	InstanceClass_STORAGE4_GRAVITON_NETWORK_OPTIMIZED InstanceClass = "STORAGE4_GRAVITON_NETWORK_OPTIMIZED"
+	InstanceClass_STORAGE4_GRAVITON_NETWORK_STORAGE_OPTIMIZED InstanceClass = "STORAGE4_GRAVITON_NETWORK_STORAGE_OPTIMIZED"
 	InstanceClass_VIDEO_TRANSCODING1 InstanceClass = "VIDEO_TRANSCODING1"
 )
 
@@ -65608,6 +65628,7 @@ const (
 	InstanceSize_SMALL InstanceSize = "SMALL"
 	InstanceSize_XLARGE InstanceSize = "XLARGE"
 	InstanceSize_XLARGE10 InstanceSize = "XLARGE10"
+	InstanceSize_XLARGE112 InstanceSize = "XLARGE112"
 	InstanceSize_XLARGE12 InstanceSize = "XLARGE12"
 	InstanceSize_XLARGE16 InstanceSize = "XLARGE16"
 	InstanceSize_XLARGE18 InstanceSize = "XLARGE18"
@@ -65617,6 +65638,7 @@ const (
 	InstanceSize_XLARGE32 InstanceSize = "XLARGE32"
 	InstanceSize_XLARGE4 InstanceSize = "XLARGE4"
 	InstanceSize_XLARGE48 InstanceSize = "XLARGE48"
+	InstanceSize_XLARGE56 InstanceSize = "XLARGE56"
 	InstanceSize_XLARGE6 InstanceSize = "XLARGE6"
 	InstanceSize_XLARGE8 InstanceSize = "XLARGE8"
 	InstanceSize_XLARGE9 InstanceSize = "XLARGE9"

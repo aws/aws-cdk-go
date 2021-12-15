@@ -9193,6 +9193,7 @@ type ContainerDefinition interface {
 	Ulimits() *[]*Ulimit
 	VolumesFrom() *[]*VolumeFrom
 	AddContainerDependencies(containerDependencies ...*ContainerDependency)
+	AddEnvironment(name *string, value *string)
 	AddInferenceAcceleratorResource(inferenceAcceleratorResources ...*string)
 	AddLink(container ContainerDefinition, alias *string)
 	AddMountPoints(mountPoints ...*MountPoint)
@@ -9435,6 +9436,16 @@ func (c *jsiiProxy_ContainerDefinition) AddContainerDependencies(containerDepend
 		c,
 		"addContainerDependencies",
 		args,
+	)
+}
+
+// This method adds an environment variable to the container.
+// Experimental.
+func (c *jsiiProxy_ContainerDefinition) AddEnvironment(name *string, value *string) {
+	_jsii_.InvokeVoid(
+		c,
+		"addEnvironment",
+		[]interface{}{name, value},
 	)
 }
 
@@ -15767,6 +15778,7 @@ type FirelensLogRouter interface {
 	Ulimits() *[]*Ulimit
 	VolumesFrom() *[]*VolumeFrom
 	AddContainerDependencies(containerDependencies ...*ContainerDependency)
+	AddEnvironment(name *string, value *string)
 	AddInferenceAcceleratorResource(inferenceAcceleratorResources ...*string)
 	AddLink(container ContainerDefinition, alias *string)
 	AddMountPoints(mountPoints ...*MountPoint)
@@ -16019,6 +16031,16 @@ func (f *jsiiProxy_FirelensLogRouter) AddContainerDependencies(containerDependen
 		f,
 		"addContainerDependencies",
 		args,
+	)
+}
+
+// This method adds an environment variable to the container.
+// Experimental.
+func (f *jsiiProxy_FirelensLogRouter) AddEnvironment(name *string, value *string) {
+	_jsii_.InvokeVoid(
+		f,
+		"addEnvironment",
+		[]interface{}{name, value},
 	)
 }
 

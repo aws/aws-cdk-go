@@ -261,3 +261,73 @@ type HttpUserPoolAuthorizerProps struct {
 	UserPoolRegion *string `json:"userPoolRegion"`
 }
 
+// Authorize WebSocket Api routes via a lambda function.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type WebSocketLambdaAuthorizer interface {
+	awsapigatewayv2.IWebSocketRouteAuthorizer
+	Bind(options *awsapigatewayv2.WebSocketRouteAuthorizerBindOptions) *awsapigatewayv2.WebSocketRouteAuthorizerConfig
+}
+
+// The jsii proxy struct for WebSocketLambdaAuthorizer
+type jsiiProxy_WebSocketLambdaAuthorizer struct {
+	internal.Type__awsapigatewayv2IWebSocketRouteAuthorizer
+}
+
+// Experimental.
+func NewWebSocketLambdaAuthorizer(id *string, handler awslambda.IFunction, props *WebSocketLambdaAuthorizerProps) WebSocketLambdaAuthorizer {
+	_init_.Initialize()
+
+	j := jsiiProxy_WebSocketLambdaAuthorizer{}
+
+	_jsii_.Create(
+		"monocdk.aws_apigatewayv2_authorizers.WebSocketLambdaAuthorizer",
+		[]interface{}{id, handler, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewWebSocketLambdaAuthorizer_Override(w WebSocketLambdaAuthorizer, id *string, handler awslambda.IFunction, props *WebSocketLambdaAuthorizerProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_apigatewayv2_authorizers.WebSocketLambdaAuthorizer",
+		[]interface{}{id, handler, props},
+		w,
+	)
+}
+
+// Bind this authorizer to a specified WebSocket route.
+// Experimental.
+func (w *jsiiProxy_WebSocketLambdaAuthorizer) Bind(options *awsapigatewayv2.WebSocketRouteAuthorizerBindOptions) *awsapigatewayv2.WebSocketRouteAuthorizerConfig {
+	var returns *awsapigatewayv2.WebSocketRouteAuthorizerConfig
+
+	_jsii_.Invoke(
+		w,
+		"bind",
+		[]interface{}{options},
+		&returns,
+	)
+
+	return returns
+}
+
+// Properties to initialize WebSocketTokenAuthorizer.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type WebSocketLambdaAuthorizerProps struct {
+	// The name of the authorizer.
+	// Experimental.
+	AuthorizerName *string `json:"authorizerName"`
+	// The identity source for which authorization is requested.
+	// Experimental.
+	IdentitySource *[]*string `json:"identitySource"`
+}
+

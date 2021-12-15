@@ -14403,6 +14403,17 @@ type jsiiProxy_IWebSocketApi struct {
 	jsiiProxy_IApi
 }
 
+// An authorizer for WebSocket APIs.
+// Experimental.
+type IWebSocketAuthorizer interface {
+	IAuthorizer
+}
+
+// The jsii proxy for IWebSocketAuthorizer
+type jsiiProxy_IWebSocketAuthorizer struct {
+	jsiiProxy_IAuthorizer
+}
+
 // Represents an Integration for an WebSocket API.
 // Experimental.
 type IWebSocketIntegration interface {
@@ -14461,6 +14472,32 @@ func (j *jsiiProxy_IWebSocketRoute) WebSocketApi() IWebSocketApi {
 		"webSocketApi",
 		&returns,
 	)
+	return returns
+}
+
+// An authorizer that can attach to an WebSocket Route.
+// Experimental.
+type IWebSocketRouteAuthorizer interface {
+	// Bind this authorizer to a specified WebSocket route.
+	// Experimental.
+	Bind(options *WebSocketRouteAuthorizerBindOptions) *WebSocketRouteAuthorizerConfig
+}
+
+// The jsii proxy for IWebSocketRouteAuthorizer
+type jsiiProxy_IWebSocketRouteAuthorizer struct {
+	_ byte // padding
+}
+
+func (i *jsiiProxy_IWebSocketRouteAuthorizer) Bind(options *WebSocketRouteAuthorizerBindOptions) *WebSocketRouteAuthorizerConfig {
+	var returns *WebSocketRouteAuthorizerConfig
+
+	_jsii_.Invoke(
+		i,
+		"bind",
+		[]interface{}{options},
+		&returns,
+	)
+
 	return returns
 }
 
@@ -15856,6 +15893,405 @@ type WebSocketApiProps struct {
 	RouteSelectionExpression *string `json:"routeSelectionExpression"`
 }
 
+// An authorizer for WebSocket Apis.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type WebSocketAuthorizer interface {
+	awscdk.Resource
+	IWebSocketAuthorizer
+	AuthorizerId() *string
+	Env() *awscdk.ResourceEnvironment
+	Node() awscdk.ConstructNode
+	PhysicalName() *string
+	Stack() awscdk.Stack
+	ApplyRemovalPolicy(policy awscdk.RemovalPolicy)
+	GeneratePhysicalName() *string
+	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
+	GetResourceNameAttribute(nameAttr *string) *string
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
+	ToString() *string
+	Validate() *[]*string
+}
+
+// The jsii proxy struct for WebSocketAuthorizer
+type jsiiProxy_WebSocketAuthorizer struct {
+	internal.Type__awscdkResource
+	jsiiProxy_IWebSocketAuthorizer
+}
+
+func (j *jsiiProxy_WebSocketAuthorizer) AuthorizerId() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"authorizerId",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_WebSocketAuthorizer) Env() *awscdk.ResourceEnvironment {
+	var returns *awscdk.ResourceEnvironment
+	_jsii_.Get(
+		j,
+		"env",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_WebSocketAuthorizer) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
+	_jsii_.Get(
+		j,
+		"node",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_WebSocketAuthorizer) PhysicalName() *string {
+	var returns *string
+	_jsii_.Get(
+		j,
+		"physicalName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_WebSocketAuthorizer) Stack() awscdk.Stack {
+	var returns awscdk.Stack
+	_jsii_.Get(
+		j,
+		"stack",
+		&returns,
+	)
+	return returns
+}
+
+
+// Experimental.
+func NewWebSocketAuthorizer(scope constructs.Construct, id *string, props *WebSocketAuthorizerProps) WebSocketAuthorizer {
+	_init_.Initialize()
+
+	j := jsiiProxy_WebSocketAuthorizer{}
+
+	_jsii_.Create(
+		"monocdk.aws_apigatewayv2.WebSocketAuthorizer",
+		[]interface{}{scope, id, props},
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewWebSocketAuthorizer_Override(w WebSocketAuthorizer, scope constructs.Construct, id *string, props *WebSocketAuthorizerProps) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_apigatewayv2.WebSocketAuthorizer",
+		[]interface{}{scope, id, props},
+		w,
+	)
+}
+
+// Import an existing WebSocket Authorizer into this CDK app.
+// Experimental.
+func WebSocketAuthorizer_FromWebSocketAuthorizerAttributes(scope constructs.Construct, id *string, attrs *WebSocketAuthorizerAttributes) IWebSocketRouteAuthorizer {
+	_init_.Initialize()
+
+	var returns IWebSocketRouteAuthorizer
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_apigatewayv2.WebSocketAuthorizer",
+		"fromWebSocketAuthorizerAttributes",
+		[]interface{}{scope, id, attrs},
+		&returns,
+	)
+
+	return returns
+}
+
+// Return whether the given object is a Construct.
+// Experimental.
+func WebSocketAuthorizer_IsConstruct(x interface{}) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_apigatewayv2.WebSocketAuthorizer",
+		"isConstruct",
+		[]interface{}{x},
+		&returns,
+	)
+
+	return returns
+}
+
+// Check whether the given construct is a Resource.
+// Experimental.
+func WebSocketAuthorizer_IsResource(construct awscdk.IConstruct) *bool {
+	_init_.Initialize()
+
+	var returns *bool
+
+	_jsii_.StaticInvoke(
+		"monocdk.aws_apigatewayv2.WebSocketAuthorizer",
+		"isResource",
+		[]interface{}{construct},
+		&returns,
+	)
+
+	return returns
+}
+
+// Apply the given removal policy to this resource.
+//
+// The Removal Policy controls what happens to this resource when it stops
+// being managed by CloudFormation, either because you've removed it from the
+// CDK application or because you've made a change that requires the resource
+// to be replaced.
+//
+// The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
+// account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
+func (w *jsiiProxy_WebSocketAuthorizer) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
+	_jsii_.InvokeVoid(
+		w,
+		"applyRemovalPolicy",
+		[]interface{}{policy},
+	)
+}
+
+// Experimental.
+func (w *jsiiProxy_WebSocketAuthorizer) GeneratePhysicalName() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		w,
+		"generatePhysicalName",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns an environment-sensitive token that should be used for the resource's "ARN" attribute (e.g. `bucket.bucketArn`).
+//
+// Normally, this token will resolve to `arnAttr`, but if the resource is
+// referenced across environments, `arnComponents` will be used to synthesize
+// a concrete ARN with the resource's physical name. Make sure to reference
+// `this.physicalName` in `arnComponents`.
+// Experimental.
+func (w *jsiiProxy_WebSocketAuthorizer) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		w,
+		"getResourceArnAttribute",
+		[]interface{}{arnAttr, arnComponents},
+		&returns,
+	)
+
+	return returns
+}
+
+// Returns an environment-sensitive token that should be used for the resource's "name" attribute (e.g. `bucket.bucketName`).
+//
+// Normally, this token will resolve to `nameAttr`, but if the resource is
+// referenced across environments, it will be resolved to `this.physicalName`,
+// which will be a concrete name.
+// Experimental.
+func (w *jsiiProxy_WebSocketAuthorizer) GetResourceNameAttribute(nameAttr *string) *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		w,
+		"getResourceNameAttribute",
+		[]interface{}{nameAttr},
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (w *jsiiProxy_WebSocketAuthorizer) OnPrepare() {
+	_jsii_.InvokeVoid(
+		w,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (w *jsiiProxy_WebSocketAuthorizer) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		w,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (w *jsiiProxy_WebSocketAuthorizer) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		w,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (w *jsiiProxy_WebSocketAuthorizer) Prepare() {
+	_jsii_.InvokeVoid(
+		w,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (w *jsiiProxy_WebSocketAuthorizer) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		w,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
+// Returns a string representation of this construct.
+// Experimental.
+func (w *jsiiProxy_WebSocketAuthorizer) ToString() *string {
+	var returns *string
+
+	_jsii_.Invoke(
+		w,
+		"toString",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (w *jsiiProxy_WebSocketAuthorizer) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		w,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Reference to an WebSocket authorizer.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type WebSocketAuthorizerAttributes struct {
+	// Id of the Authorizer.
+	// Experimental.
+	AuthorizerId *string `json:"authorizerId"`
+	// Type of authorizer.
+	//
+	// Possible values are:
+	// - CUSTOM - Lambda Authorizer
+	// - NONE - No Authorization
+	// Experimental.
+	AuthorizerType *string `json:"authorizerType"`
+}
+
+// Properties to initialize an instance of `WebSocketAuthorizer`.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type WebSocketAuthorizerProps struct {
+	// Name of the authorizer.
+	// Experimental.
+	AuthorizerName *string `json:"authorizerName"`
+	// The authorizer's Uniform Resource Identifier (URI).
+	//
+	// For REQUEST authorizers, this must be a well-formed Lambda function URI.
+	// Experimental.
+	AuthorizerUri *string `json:"authorizerUri"`
+	// The identity source for which authorization is requested.
+	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-identitysource
+	//
+	// Experimental.
+	IdentitySource *[]*string `json:"identitySource"`
+	// The type of authorizer.
+	// Experimental.
+	Type WebSocketAuthorizerType `json:"type"`
+	// WebSocket Api to attach the authorizer to.
+	// Experimental.
+	WebSocketApi IWebSocketApi `json:"webSocketApi"`
+}
+
+// Supported Authorizer types.
+// Experimental.
+type WebSocketAuthorizerType string
+
+const (
+	WebSocketAuthorizerType_LAMBDA WebSocketAuthorizerType = "LAMBDA"
+)
+
 // The integration for an API route.
 //
 // TODO: EXAMPLE
@@ -16221,6 +16657,62 @@ const (
 	WebSocketIntegrationType_AWS_PROXY WebSocketIntegrationType = "AWS_PROXY"
 )
 
+// Explicitly configure no authorizers on specific WebSocket API routes.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type WebSocketNoneAuthorizer interface {
+	IWebSocketRouteAuthorizer
+	Bind(_arg *WebSocketRouteAuthorizerBindOptions) *WebSocketRouteAuthorizerConfig
+}
+
+// The jsii proxy struct for WebSocketNoneAuthorizer
+type jsiiProxy_WebSocketNoneAuthorizer struct {
+	jsiiProxy_IWebSocketRouteAuthorizer
+}
+
+// Experimental.
+func NewWebSocketNoneAuthorizer() WebSocketNoneAuthorizer {
+	_init_.Initialize()
+
+	j := jsiiProxy_WebSocketNoneAuthorizer{}
+
+	_jsii_.Create(
+		"monocdk.aws_apigatewayv2.WebSocketNoneAuthorizer",
+		nil, // no parameters
+		&j,
+	)
+
+	return &j
+}
+
+// Experimental.
+func NewWebSocketNoneAuthorizer_Override(w WebSocketNoneAuthorizer) {
+	_init_.Initialize()
+
+	_jsii_.Create(
+		"monocdk.aws_apigatewayv2.WebSocketNoneAuthorizer",
+		nil, // no parameters
+		w,
+	)
+}
+
+// Bind this authorizer to a specified WebSocket route.
+// Experimental.
+func (w *jsiiProxy_WebSocketNoneAuthorizer) Bind(_arg *WebSocketRouteAuthorizerBindOptions) *WebSocketRouteAuthorizerConfig {
+	var returns *WebSocketRouteAuthorizerConfig
+
+	_jsii_.Invoke(
+		w,
+		"bind",
+		[]interface{}{_arg},
+		&returns,
+	)
+
+	return returns
+}
+
 // Route class that creates the Route for API Gateway WebSocket API.
 //
 // TODO: EXAMPLE
@@ -16583,6 +17075,38 @@ func (w *jsiiProxy_WebSocketRoute) Validate() *[]*string {
 	return returns
 }
 
+// Input to the bind() operation, that binds an authorizer to a route.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type WebSocketRouteAuthorizerBindOptions struct {
+	// The route to which the authorizer is being bound.
+	// Experimental.
+	Route IWebSocketRoute `json:"route"`
+	// The scope for any constructs created as part of the bind.
+	// Experimental.
+	Scope constructs.Construct `json:"scope"`
+}
+
+// Results of binding an authorizer to an WebSocket route.
+//
+// TODO: EXAMPLE
+//
+// Experimental.
+type WebSocketRouteAuthorizerConfig struct {
+	// The type of authorization.
+	//
+	// Possible values are:
+	// - CUSTOM - Lambda Authorizer
+	// - NONE - No Authorization
+	// Experimental.
+	AuthorizationType *string `json:"authorizationType"`
+	// The authorizer id.
+	// Experimental.
+	AuthorizerId *string `json:"authorizerId"`
+}
+
 // The interface that various route integration classes will inherit.
 //
 // TODO: EXAMPLE
@@ -16661,6 +17185,11 @@ type WebSocketRouteIntegrationConfig struct {
 //
 // Experimental.
 type WebSocketRouteOptions struct {
+	// The authorize to this route.
+	//
+	// You can only set authorizer to a $connect route.
+	// Experimental.
+	Authorizer IWebSocketRouteAuthorizer `json:"authorizer"`
 	// The integration to be configured on this route.
 	// Experimental.
 	Integration WebSocketRouteIntegration `json:"integration"`
@@ -16672,13 +17201,18 @@ type WebSocketRouteOptions struct {
 //
 // Experimental.
 type WebSocketRouteProps struct {
+	// The authorize to this route.
+	//
+	// You can only set authorizer to a $connect route.
+	// Experimental.
+	Authorizer IWebSocketRouteAuthorizer `json:"authorizer"`
 	// The integration to be configured on this route.
 	// Experimental.
 	Integration WebSocketRouteIntegration `json:"integration"`
 	// The key to this route.
 	// Experimental.
 	RouteKey *string `json:"routeKey"`
-	// the API the route is associated with.
+	// The API the route is associated with.
 	// Experimental.
 	WebSocketApi IWebSocketApi `json:"webSocketApi"`
 }

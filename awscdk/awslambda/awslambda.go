@@ -33,6 +33,7 @@ type Alias interface {
 	QualifiedFunctionBase
 	IAlias
 	AliasName() *string
+	Architecture() Architecture
 	CanCreatePermissions() *bool
 	Connections() awsec2.Connections
 	Env() *awscdk.ResourceEnvironment
@@ -85,6 +86,16 @@ func (j *jsiiProxy_Alias) AliasName() *string {
 	_jsii_.Get(
 		j,
 		"aliasName",
+		&returns,
+	)
+	return returns
+}
+
+func (j *jsiiProxy_Alias) Architecture() Architecture {
+	var returns Architecture
+	_jsii_.Get(
+		j,
+		"architecture",
 		&returns,
 	)
 	return returns
@@ -13030,6 +13041,9 @@ func (f *jsiiProxy_Function) Validate() *[]*string {
 //
 // Experimental.
 type FunctionAttributes struct {
+	// The architecture of this Lambda Function (this is an optional attribute and defaults to X86_64).
+	// Experimental.
+	Architecture Architecture `json:"architecture"`
 	// The ARN of the Lambda function.
 	//
 	// Format: arn:<partition>:lambda:<region>:<account-id>:function:<function-name>
@@ -13069,6 +13083,7 @@ type FunctionBase interface {
 	awscdk.Resource
 	awsec2.IClientVpnConnectionHandler
 	IFunction
+	Architecture() Architecture
 	CanCreatePermissions() *bool
 	Connections() awsec2.Connections
 	Env() *awscdk.ResourceEnvironment
@@ -13111,6 +13126,16 @@ type jsiiProxy_FunctionBase struct {
 	internal.Type__awscdkResource
 	internal.Type__awsec2IClientVpnConnectionHandler
 	jsiiProxy_IFunction
+}
+
+func (j *jsiiProxy_FunctionBase) Architecture() Architecture {
+	var returns Architecture
+	_jsii_.Get(
+		j,
+		"architecture",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_FunctionBase) CanCreatePermissions() *bool {
@@ -14281,6 +14306,9 @@ type IFunction interface {
 	// Sum over 5 minutes
 	// Experimental.
 	MetricThrottles(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	// The system architectures compatible with this lambda function.
+	// Experimental.
+	Architecture() Architecture
 	// The ARN of the function.
 	// Experimental.
 	FunctionArn() *string
@@ -14446,6 +14474,16 @@ func (i *jsiiProxy_IFunction) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 		"applyRemovalPolicy",
 		[]interface{}{policy},
 	)
+}
+
+func (j *jsiiProxy_IFunction) Architecture() Architecture {
+	var returns Architecture
+	_jsii_.Get(
+		j,
+		"architecture",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_IFunction) FunctionArn() *string {
@@ -15045,6 +15083,17 @@ func LambdaInsightsVersion_FromInsightVersionArn(arn *string) LambdaInsightsVers
 		&returns,
 	)
 
+	return returns
+}
+
+func LambdaInsightsVersion_VERSION_1_0_119_0() LambdaInsightsVersion {
+	_init_.Initialize()
+	var returns LambdaInsightsVersion
+	_jsii_.StaticGet(
+		"monocdk.aws_lambda.LambdaInsightsVersion",
+		"VERSION_1_0_119_0",
+		&returns,
+	)
 	return returns
 }
 
@@ -15885,6 +15934,7 @@ type Permission struct {
 // Experimental.
 type QualifiedFunctionBase interface {
 	FunctionBase
+	Architecture() Architecture
 	CanCreatePermissions() *bool
 	Connections() awsec2.Connections
 	Env() *awscdk.ResourceEnvironment
@@ -15927,6 +15977,16 @@ type QualifiedFunctionBase interface {
 // The jsii proxy struct for QualifiedFunctionBase
 type jsiiProxy_QualifiedFunctionBase struct {
 	jsiiProxy_FunctionBase
+}
+
+func (j *jsiiProxy_QualifiedFunctionBase) Architecture() Architecture {
+	var returns Architecture
+	_jsii_.Get(
+		j,
+		"architecture",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_QualifiedFunctionBase) CanCreatePermissions() *bool {
@@ -17211,6 +17271,7 @@ func (s *jsiiProxy_S3Code) BindToResource(_resource awscdk.CfnResource, _options
 // Experimental.
 type SingletonFunction interface {
 	FunctionBase
+	Architecture() Architecture
 	CanCreatePermissions() *bool
 	Connections() awsec2.Connections
 	CurrentVersion() Version
@@ -17258,6 +17319,16 @@ type SingletonFunction interface {
 // The jsii proxy struct for SingletonFunction
 type jsiiProxy_SingletonFunction struct {
 	jsiiProxy_FunctionBase
+}
+
+func (j *jsiiProxy_SingletonFunction) Architecture() Architecture {
+	var returns Architecture
+	_jsii_.Get(
+		j,
+		"architecture",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_SingletonFunction) CanCreatePermissions() *bool {
@@ -18315,6 +18386,7 @@ type UtilizationScalingOptions struct {
 type Version interface {
 	QualifiedFunctionBase
 	IVersion
+	Architecture() Architecture
 	CanCreatePermissions() *bool
 	Connections() awsec2.Connections
 	EdgeArn() *string
@@ -18361,6 +18433,16 @@ type Version interface {
 type jsiiProxy_Version struct {
 	jsiiProxy_QualifiedFunctionBase
 	jsiiProxy_IVersion
+}
+
+func (j *jsiiProxy_Version) Architecture() Architecture {
+	var returns Architecture
+	_jsii_.Get(
+		j,
+		"architecture",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_Version) CanCreatePermissions() *bool {

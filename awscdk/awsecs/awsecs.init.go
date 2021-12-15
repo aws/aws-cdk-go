@@ -972,6 +972,7 @@ func init() {
 		reflect.TypeOf((*ContainerDefinition)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addContainerDependencies", GoMethod: "AddContainerDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "addEnvironment", GoMethod: "AddEnvironment"},
 			_jsii_.MemberMethod{JsiiMethod: "addInferenceAcceleratorResource", GoMethod: "AddInferenceAcceleratorResource"},
 			_jsii_.MemberMethod{JsiiMethod: "addLink", GoMethod: "AddLink"},
 			_jsii_.MemberMethod{JsiiMethod: "addMountPoints", GoMethod: "AddMountPoints"},
@@ -1575,6 +1576,7 @@ func init() {
 		reflect.TypeOf((*FirelensLogRouter)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addContainerDependencies", GoMethod: "AddContainerDependencies"},
+			_jsii_.MemberMethod{JsiiMethod: "addEnvironment", GoMethod: "AddEnvironment"},
 			_jsii_.MemberMethod{JsiiMethod: "addInferenceAcceleratorResource", GoMethod: "AddInferenceAcceleratorResource"},
 			_jsii_.MemberMethod{JsiiMethod: "addLink", GoMethod: "AddLink"},
 			_jsii_.MemberMethod{JsiiMethod: "addMountPoints", GoMethod: "AddMountPoints"},

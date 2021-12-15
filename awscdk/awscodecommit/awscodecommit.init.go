@@ -74,6 +74,20 @@ func init() {
 		"monocdk.aws_codecommit.CfnRepositoryProps",
 		reflect.TypeOf((*CfnRepositoryProps)(nil)).Elem(),
 	)
+	_jsii_.RegisterClass(
+		"monocdk.aws_codecommit.Code",
+		reflect.TypeOf((*Code)(nil)).Elem(),
+		[]_jsii_.Member{
+			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
+		},
+		func() interface{} {
+			return &jsiiProxy_Code{}
+		},
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_codecommit.CodeConfig",
+		reflect.TypeOf((*CodeConfig)(nil)).Elem(),
+	)
 	_jsii_.RegisterInterface(
 		"monocdk.aws_codecommit.IRepository",
 		reflect.TypeOf((*IRepository)(nil)).Elem(),

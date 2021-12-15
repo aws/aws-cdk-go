@@ -41,6 +41,7 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "streamEncryption", GoGetter: "StreamEncryption"},
+			_jsii_.MemberProperty{JsiiProperty: "streamModeDetails", GoGetter: "StreamModeDetails"},
 			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
@@ -58,6 +59,10 @@ func init() {
 	_jsii_.RegisterStruct(
 		"monocdk.aws_kinesis.CfnStream.StreamEncryptionProperty",
 		reflect.TypeOf((*CfnStream_StreamEncryptionProperty)(nil)).Elem(),
+	)
+	_jsii_.RegisterStruct(
+		"monocdk.aws_kinesis.CfnStream.StreamModeDetailsProperty",
+		reflect.TypeOf((*CfnStream_StreamModeDetailsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
 		"monocdk.aws_kinesis.CfnStreamConsumer",

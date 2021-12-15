@@ -31,6 +31,7 @@ import (
 type EdgeFunction interface {
 	awscdk.Resource
 	awslambda.IVersion
+	Architecture() awslambda.Architecture
 	Connections() awsec2.Connections
 	CurrentVersion() awslambda.IVersion
 	EdgeArn() *string
@@ -76,6 +77,16 @@ type EdgeFunction interface {
 type jsiiProxy_EdgeFunction struct {
 	internal.Type__awscdkResource
 	internal.Type__awslambdaIVersion
+}
+
+func (j *jsiiProxy_EdgeFunction) Architecture() awslambda.Architecture {
+	var returns awslambda.Architecture
+	_jsii_.Get(
+		j,
+		"architecture",
+		&returns,
+	)
+	return returns
 }
 
 func (j *jsiiProxy_EdgeFunction) Connections() awsec2.Connections {

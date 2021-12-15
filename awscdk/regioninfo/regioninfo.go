@@ -176,7 +176,7 @@ func NewFactName_Override(f FactName) {
 
 // The ARN of CloudWatch Lambda Insights for a version (e.g. 1.0.98.0).
 // Experimental.
-func FactName_CloudwatchLambdaInsightsVersion(version *string) *string {
+func FactName_CloudwatchLambdaInsightsVersion(version *string, arch *string) *string {
 	_init_.Initialize()
 
 	var returns *string
@@ -184,7 +184,7 @@ func FactName_CloudwatchLambdaInsightsVersion(version *string) *string {
 	_jsii_.StaticInvoke(
 		"monocdk.region_info.FactName",
 		"cloudwatchLambdaInsightsVersion",
-		[]interface{}{version},
+		[]interface{}{version, arch},
 		&returns,
 	)
 
@@ -398,7 +398,7 @@ type RegionInfo interface {
 	S3StaticWebsiteEndpoint() *string
 	S3StaticWebsiteHostedZoneId() *string
 	VpcEndpointServiceNamePrefix() *string
-	CloudwatchLambdaInsightsArn(insightsVersion *string) *string
+	CloudwatchLambdaInsightsArn(insightsVersion *string, architecture *string) *string
 	ServicePrincipal(service *string) *string
 }
 
@@ -578,13 +578,13 @@ func RegionInfo_Regions() *[]RegionInfo {
 
 // The ARN of the CloudWatch Lambda Insights extension, for the given version.
 // Experimental.
-func (r *jsiiProxy_RegionInfo) CloudwatchLambdaInsightsArn(insightsVersion *string) *string {
+func (r *jsiiProxy_RegionInfo) CloudwatchLambdaInsightsArn(insightsVersion *string, architecture *string) *string {
 	var returns *string
 
 	_jsii_.Invoke(
 		r,
 		"cloudwatchLambdaInsightsArn",
-		[]interface{}{insightsVersion},
+		[]interface{}{insightsVersion, architecture},
 		&returns,
 	)
 
