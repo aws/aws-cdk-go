@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_elasticloadbalancing.CfnLoadBalancer",
+		"aws-cdk-lib.aws_elasticloadbalancing.CfnLoadBalancer",
 		reflect.TypeOf((*CfnLoadBalancer)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "accessLoggingPolicy", GoGetter: "AccessLoggingPolicy"},
@@ -43,12 +43,8 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerName", GoGetter: "LoadBalancerName"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "policies", GoGetter: "Policies"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "scheme", GoGetter: "Scheme"},
@@ -56,11 +52,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
 			_jsii_.MemberProperty{JsiiProperty: "subnets", GoGetter: "Subnets"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -71,47 +65,47 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_elasticloadbalancing.CfnLoadBalancer.AccessLoggingPolicyProperty",
+		"aws-cdk-lib.aws_elasticloadbalancing.CfnLoadBalancer.AccessLoggingPolicyProperty",
 		reflect.TypeOf((*CfnLoadBalancer_AccessLoggingPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_elasticloadbalancing.CfnLoadBalancer.AppCookieStickinessPolicyProperty",
+		"aws-cdk-lib.aws_elasticloadbalancing.CfnLoadBalancer.AppCookieStickinessPolicyProperty",
 		reflect.TypeOf((*CfnLoadBalancer_AppCookieStickinessPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_elasticloadbalancing.CfnLoadBalancer.ConnectionDrainingPolicyProperty",
+		"aws-cdk-lib.aws_elasticloadbalancing.CfnLoadBalancer.ConnectionDrainingPolicyProperty",
 		reflect.TypeOf((*CfnLoadBalancer_ConnectionDrainingPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_elasticloadbalancing.CfnLoadBalancer.ConnectionSettingsProperty",
+		"aws-cdk-lib.aws_elasticloadbalancing.CfnLoadBalancer.ConnectionSettingsProperty",
 		reflect.TypeOf((*CfnLoadBalancer_ConnectionSettingsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_elasticloadbalancing.CfnLoadBalancer.HealthCheckProperty",
+		"aws-cdk-lib.aws_elasticloadbalancing.CfnLoadBalancer.HealthCheckProperty",
 		reflect.TypeOf((*CfnLoadBalancer_HealthCheckProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_elasticloadbalancing.CfnLoadBalancer.LBCookieStickinessPolicyProperty",
+		"aws-cdk-lib.aws_elasticloadbalancing.CfnLoadBalancer.LBCookieStickinessPolicyProperty",
 		reflect.TypeOf((*CfnLoadBalancer_LBCookieStickinessPolicyProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_elasticloadbalancing.CfnLoadBalancer.ListenersProperty",
+		"aws-cdk-lib.aws_elasticloadbalancing.CfnLoadBalancer.ListenersProperty",
 		reflect.TypeOf((*CfnLoadBalancer_ListenersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_elasticloadbalancing.CfnLoadBalancer.PoliciesProperty",
+		"aws-cdk-lib.aws_elasticloadbalancing.CfnLoadBalancer.PoliciesProperty",
 		reflect.TypeOf((*CfnLoadBalancer_PoliciesProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_elasticloadbalancing.CfnLoadBalancerProps",
+		"aws-cdk-lib.aws_elasticloadbalancing.CfnLoadBalancerProps",
 		reflect.TypeOf((*CfnLoadBalancerProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_elasticloadbalancing.HealthCheck",
+		"aws-cdk-lib.aws_elasticloadbalancing.HealthCheck",
 		reflect.TypeOf((*HealthCheck)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_elasticloadbalancing.ILoadBalancerTarget",
+		"aws-cdk-lib.aws_elasticloadbalancing.ILoadBalancerTarget",
 		reflect.TypeOf((*ILoadBalancerTarget)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "attachToClassicLB", GoMethod: "AttachToClassicLB"},
@@ -124,7 +118,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_elasticloadbalancing.ListenerPort",
+		"aws-cdk-lib.aws_elasticloadbalancing.ListenerPort",
 		reflect.TypeOf((*ListenerPort)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "connections", GoGetter: "Connections"},
@@ -136,7 +130,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_elasticloadbalancing.LoadBalancer",
+		"aws-cdk-lib.aws_elasticloadbalancing.LoadBalancer",
 		reflect.TypeOf((*LoadBalancer)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addListener", GoMethod: "AddListener"},
@@ -155,15 +149,9 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerSourceSecurityGroupGroupName", GoGetter: "LoadBalancerSourceSecurityGroupGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "loadBalancerSourceSecurityGroupOwnerAlias", GoGetter: "LoadBalancerSourceSecurityGroupOwnerAlias"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_LoadBalancer{}
@@ -173,15 +161,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_elasticloadbalancing.LoadBalancerListener",
+		"aws-cdk-lib.aws_elasticloadbalancing.LoadBalancerListener",
 		reflect.TypeOf((*LoadBalancerListener)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_elasticloadbalancing.LoadBalancerProps",
+		"aws-cdk-lib.aws_elasticloadbalancing.LoadBalancerProps",
 		reflect.TypeOf((*LoadBalancerProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_elasticloadbalancing.LoadBalancingProtocol",
+		"aws-cdk-lib.aws_elasticloadbalancing.LoadBalancingProtocol",
 		reflect.TypeOf((*LoadBalancingProtocol)(nil)).Elem(),
 		map[string]interface{}{
 			"HTTP": LoadBalancingProtocol_HTTP,

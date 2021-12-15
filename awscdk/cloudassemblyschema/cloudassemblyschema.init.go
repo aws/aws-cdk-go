@@ -8,15 +8,15 @@ import (
 
 func init() {
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.AmiContextQuery",
+		"aws-cdk-lib.cloud_assembly_schema.AmiContextQuery",
 		reflect.TypeOf((*AmiContextQuery)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.ArtifactManifest",
+		"aws-cdk-lib.cloud_assembly_schema.ArtifactManifest",
 		reflect.TypeOf((*ArtifactManifest)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.cloud_assembly_schema.ArtifactMetadataEntryType",
+		"aws-cdk-lib.cloud_assembly_schema.ArtifactMetadataEntryType",
 		reflect.TypeOf((*ArtifactMetadataEntryType)(nil)).Elem(),
 		map[string]interface{}{
 			"ASSET": ArtifactMetadataEntryType_ASSET,
@@ -28,7 +28,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.cloud_assembly_schema.ArtifactType",
+		"aws-cdk-lib.cloud_assembly_schema.ArtifactType",
 		reflect.TypeOf((*ArtifactType)(nil)).Elem(),
 		map[string]interface{}{
 			"ASSET_MANIFEST": ArtifactType_ASSET_MANIFEST,
@@ -39,35 +39,35 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.AssemblyManifest",
+		"aws-cdk-lib.cloud_assembly_schema.AssemblyManifest",
 		reflect.TypeOf((*AssemblyManifest)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.AssetManifest",
+		"aws-cdk-lib.cloud_assembly_schema.AssetManifest",
 		reflect.TypeOf((*AssetManifest)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.AssetManifestProperties",
+		"aws-cdk-lib.cloud_assembly_schema.AssetManifestProperties",
 		reflect.TypeOf((*AssetManifestProperties)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.AvailabilityZonesContextQuery",
+		"aws-cdk-lib.cloud_assembly_schema.AvailabilityZonesContextQuery",
 		reflect.TypeOf((*AvailabilityZonesContextQuery)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.AwsCloudFormationStackProperties",
+		"aws-cdk-lib.cloud_assembly_schema.AwsCloudFormationStackProperties",
 		reflect.TypeOf((*AwsCloudFormationStackProperties)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.AwsDestination",
+		"aws-cdk-lib.cloud_assembly_schema.AwsDestination",
 		reflect.TypeOf((*AwsDestination)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.ContainerImageAssetMetadataEntry",
+		"aws-cdk-lib.cloud_assembly_schema.ContainerImageAssetMetadataEntry",
 		reflect.TypeOf((*ContainerImageAssetMetadataEntry)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.cloud_assembly_schema.ContextProvider",
+		"aws-cdk-lib.cloud_assembly_schema.ContextProvider",
 		reflect.TypeOf((*ContextProvider)(nil)).Elem(),
 		map[string]interface{}{
 			"AMI_PROVIDER": ContextProvider_AMI_PROVIDER,
@@ -83,31 +83,31 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.DockerImageAsset",
+		"aws-cdk-lib.cloud_assembly_schema.DockerImageAsset",
 		reflect.TypeOf((*DockerImageAsset)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.DockerImageDestination",
+		"aws-cdk-lib.cloud_assembly_schema.DockerImageDestination",
 		reflect.TypeOf((*DockerImageDestination)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.DockerImageSource",
+		"aws-cdk-lib.cloud_assembly_schema.DockerImageSource",
 		reflect.TypeOf((*DockerImageSource)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.EndpointServiceAvailabilityZonesContextQuery",
+		"aws-cdk-lib.cloud_assembly_schema.EndpointServiceAvailabilityZonesContextQuery",
 		reflect.TypeOf((*EndpointServiceAvailabilityZonesContextQuery)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.FileAsset",
+		"aws-cdk-lib.cloud_assembly_schema.FileAsset",
 		reflect.TypeOf((*FileAsset)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.FileAssetMetadataEntry",
+		"aws-cdk-lib.cloud_assembly_schema.FileAssetMetadataEntry",
 		reflect.TypeOf((*FileAssetMetadataEntry)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.cloud_assembly_schema.FileAssetPackaging",
+		"aws-cdk-lib.cloud_assembly_schema.FileAssetPackaging",
 		reflect.TypeOf((*FileAssetPackaging)(nil)).Elem(),
 		map[string]interface{}{
 			"FILE": FileAssetPackaging_FILE,
@@ -115,35 +115,35 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.FileDestination",
+		"aws-cdk-lib.cloud_assembly_schema.FileDestination",
 		reflect.TypeOf((*FileDestination)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.FileSource",
+		"aws-cdk-lib.cloud_assembly_schema.FileSource",
 		reflect.TypeOf((*FileSource)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.HostedZoneContextQuery",
+		"aws-cdk-lib.cloud_assembly_schema.HostedZoneContextQuery",
 		reflect.TypeOf((*HostedZoneContextQuery)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.KeyContextQuery",
+		"aws-cdk-lib.cloud_assembly_schema.KeyContextQuery",
 		reflect.TypeOf((*KeyContextQuery)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.LoadBalancerContextQuery",
+		"aws-cdk-lib.cloud_assembly_schema.LoadBalancerContextQuery",
 		reflect.TypeOf((*LoadBalancerContextQuery)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.LoadBalancerFilter",
+		"aws-cdk-lib.cloud_assembly_schema.LoadBalancerFilter",
 		reflect.TypeOf((*LoadBalancerFilter)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.LoadBalancerListenerContextQuery",
+		"aws-cdk-lib.cloud_assembly_schema.LoadBalancerListenerContextQuery",
 		reflect.TypeOf((*LoadBalancerListenerContextQuery)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.cloud_assembly_schema.LoadBalancerListenerProtocol",
+		"aws-cdk-lib.cloud_assembly_schema.LoadBalancerListenerProtocol",
 		reflect.TypeOf((*LoadBalancerListenerProtocol)(nil)).Elem(),
 		map[string]interface{}{
 			"HTTP": LoadBalancerListenerProtocol_HTTP,
@@ -155,7 +155,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.cloud_assembly_schema.LoadBalancerType",
+		"aws-cdk-lib.cloud_assembly_schema.LoadBalancerType",
 		reflect.TypeOf((*LoadBalancerType)(nil)).Elem(),
 		map[string]interface{}{
 			"APPLICATION": LoadBalancerType_APPLICATION,
@@ -163,7 +163,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.cloud_assembly_schema.Manifest",
+		"aws-cdk-lib.cloud_assembly_schema.Manifest",
 		reflect.TypeOf((*Manifest)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -171,39 +171,39 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.MetadataEntry",
+		"aws-cdk-lib.cloud_assembly_schema.MetadataEntry",
 		reflect.TypeOf((*MetadataEntry)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.MissingContext",
+		"aws-cdk-lib.cloud_assembly_schema.MissingContext",
 		reflect.TypeOf((*MissingContext)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.NestedCloudAssemblyProperties",
+		"aws-cdk-lib.cloud_assembly_schema.NestedCloudAssemblyProperties",
 		reflect.TypeOf((*NestedCloudAssemblyProperties)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.RuntimeInfo",
+		"aws-cdk-lib.cloud_assembly_schema.RuntimeInfo",
 		reflect.TypeOf((*RuntimeInfo)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.SSMParameterContextQuery",
+		"aws-cdk-lib.cloud_assembly_schema.SSMParameterContextQuery",
 		reflect.TypeOf((*SSMParameterContextQuery)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.SecurityGroupContextQuery",
+		"aws-cdk-lib.cloud_assembly_schema.SecurityGroupContextQuery",
 		reflect.TypeOf((*SecurityGroupContextQuery)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.Tag",
+		"aws-cdk-lib.cloud_assembly_schema.Tag",
 		reflect.TypeOf((*Tag)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.TreeArtifactProperties",
+		"aws-cdk-lib.cloud_assembly_schema.TreeArtifactProperties",
 		reflect.TypeOf((*TreeArtifactProperties)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.cloud_assembly_schema.VpcContextQuery",
+		"aws-cdk-lib.cloud_assembly_schema.VpcContextQuery",
 		reflect.TypeOf((*VpcContextQuery)(nil)).Elem(),
 	)
 }
