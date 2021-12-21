@@ -1,17 +1,17 @@
 package awschatbot
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/v2"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awschatbot/internal"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awscodestarnotifications"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awslogs"
-	"github.com/aws/aws-cdk-go/awscdk/v2/awssns"
-	"github.com/aws/constructs-go/constructs/v10"
+	"github.com/aws/aws-cdk-go/awscdk"
+	"github.com/aws/aws-cdk-go/awscdk/awschatbot/internal"
+	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/awscodestarnotifications"
+	"github.com/aws/aws-cdk-go/awscdk/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/awslogs"
+	"github.com/aws/aws-cdk-go/awscdk/awssns"
+	"github.com/aws/constructs-go/constructs/v3"
 )
 
 // A CloudFormation `AWS::Chatbot::SlackChannelConfiguration`.
@@ -35,7 +35,7 @@ type CfnSlackChannelConfiguration interface {
 	LoggingLevel() *string
 	SetLoggingLevel(val *string)
 	LogicalId() *string
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	Ref() *string
 	SlackChannelId() *string
 	SetSlackChannelId(val *string)
@@ -57,10 +57,16 @@ type CfnSlackChannelConfiguration interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
+	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -170,8 +176,8 @@ func (j *jsiiProxy_CfnSlackChannelConfiguration) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnSlackChannelConfiguration) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_CfnSlackChannelConfiguration) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -252,13 +258,13 @@ func (j *jsiiProxy_CfnSlackChannelConfiguration) UserRoleRequired() interface{} 
 
 
 // Create a new `AWS::Chatbot::SlackChannelConfiguration`.
-func NewCfnSlackChannelConfiguration(scope constructs.Construct, id *string, props *CfnSlackChannelConfigurationProps) CfnSlackChannelConfiguration {
+func NewCfnSlackChannelConfiguration(scope awscdk.Construct, id *string, props *CfnSlackChannelConfigurationProps) CfnSlackChannelConfiguration {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnSlackChannelConfiguration{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_chatbot.CfnSlackChannelConfiguration",
+		"monocdk.aws_chatbot.CfnSlackChannelConfiguration",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -267,11 +273,11 @@ func NewCfnSlackChannelConfiguration(scope constructs.Construct, id *string, pro
 }
 
 // Create a new `AWS::Chatbot::SlackChannelConfiguration`.
-func NewCfnSlackChannelConfiguration_Override(c CfnSlackChannelConfiguration, scope constructs.Construct, id *string, props *CfnSlackChannelConfigurationProps) {
+func NewCfnSlackChannelConfiguration_Override(c CfnSlackChannelConfiguration, scope awscdk.Construct, id *string, props *CfnSlackChannelConfigurationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_chatbot.CfnSlackChannelConfiguration",
+		"monocdk.aws_chatbot.CfnSlackChannelConfiguration",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -347,13 +353,14 @@ func (j *jsiiProxy_CfnSlackChannelConfiguration) SetUserRoleRequired(val interfa
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
+// Experimental.
 func CfnSlackChannelConfiguration_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_chatbot.CfnSlackChannelConfiguration",
+		"monocdk.aws_chatbot.CfnSlackChannelConfiguration",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -363,13 +370,14 @@ func CfnSlackChannelConfiguration_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
+// Experimental.
 func CfnSlackChannelConfiguration_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_chatbot.CfnSlackChannelConfiguration",
+		"monocdk.aws_chatbot.CfnSlackChannelConfiguration",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -378,17 +386,15 @@ func CfnSlackChannelConfiguration_IsCfnResource(construct constructs.IConstruct)
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func CfnSlackChannelConfiguration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_chatbot.CfnSlackChannelConfiguration",
+		"monocdk.aws_chatbot.CfnSlackChannelConfiguration",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -401,7 +407,7 @@ func CfnSlackChannelConfiguration_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"aws-cdk-lib.aws_chatbot.CfnSlackChannelConfiguration",
+		"monocdk.aws_chatbot.CfnSlackChannelConfiguration",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -409,6 +415,7 @@ func CfnSlackChannelConfiguration_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
+// Experimental.
 func (c *jsiiProxy_CfnSlackChannelConfiguration) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -421,6 +428,7 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) AddDeletionOverride(path *strin
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
+// Experimental.
 func (c *jsiiProxy_CfnSlackChannelConfiguration) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -436,6 +444,7 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) AddDependsOn(target awscdk.CfnR
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnSlackChannelConfiguration) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -481,6 +490,7 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) AddMetadata(key *string, value 
 //    ...
 // }
 // ```
+// Experimental.
 func (c *jsiiProxy_CfnSlackChannelConfiguration) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -490,6 +500,7 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) AddOverride(path *string, value
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
+// Experimental.
 func (c *jsiiProxy_CfnSlackChannelConfiguration) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -501,6 +512,7 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) AddPropertyDeletionOverride(pro
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
+// Experimental.
 func (c *jsiiProxy_CfnSlackChannelConfiguration) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -518,6 +530,7 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) AddPropertyOverride(propertyPat
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (c *jsiiProxy_CfnSlackChannelConfiguration) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -530,6 +543,7 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) ApplyRemovalPolicy(policy awscd
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
+// Experimental.
 func (c *jsiiProxy_CfnSlackChannelConfiguration) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -550,6 +564,7 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) GetAtt(attributeName *string) a
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
+// Experimental.
 func (c *jsiiProxy_CfnSlackChannelConfiguration) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -572,12 +587,80 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) Inspect(inspector awscdk.TreeIn
 	)
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnSlackChannelConfiguration) OnPrepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnSlackChannelConfiguration) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnSlackChannelConfiguration) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Overrides the auto-generated logical ID with a specific ID.
+// Experimental.
 func (c *jsiiProxy_CfnSlackChannelConfiguration) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
+	)
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (c *jsiiProxy_CfnSlackChannelConfiguration) Prepare() {
+	_jsii_.InvokeVoid(
+		c,
+		"prepare",
+		nil, // no parameters
 	)
 }
 
@@ -598,6 +681,7 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) RenderProperties(props *map[str
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
+// Experimental.
 func (c *jsiiProxy_CfnSlackChannelConfiguration) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -611,9 +695,23 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) ShouldSynthesize() *bool {
 	return returns
 }
 
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (c *jsiiProxy_CfnSlackChannelConfiguration) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		c,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
+// Experimental.
 func (c *jsiiProxy_CfnSlackChannelConfiguration) ToString() *string {
 	var returns *string
 
@@ -627,6 +725,27 @@ func (c *jsiiProxy_CfnSlackChannelConfiguration) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (c *jsiiProxy_CfnSlackChannelConfiguration) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		c,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Experimental.
 func (c *jsiiProxy_CfnSlackChannelConfiguration) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -659,19 +778,25 @@ type CfnSlackChannelConfigurationProps struct {
 }
 
 // Represents a Slack channel configuration.
+// Experimental.
 type ISlackChannelConfiguration interface {
 	awsiam.IGrantable
 	awscodestarnotifications.INotificationRuleTarget
 	awscdk.IResource
 	// Adds a statement to the IAM role.
+	// Experimental.
 	AddToRolePolicy(statement awsiam.PolicyStatement)
 	// Return the given named metric for this SlackChannelConfiguration.
+	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// The permission role of Slack channel configuration.
+	// Experimental.
 	Role() awsiam.IRole
 	// The ARN of the Slack channel configuration In the form of arn:aws:chatbot:{region}:{account}:chat-configuration/slack-channel/{slackChannelName}.
+	// Experimental.
 	SlackChannelConfigurationArn() *string
 	// The name of Slack channel configuration.
+	// Experimental.
 	SlackChannelConfigurationName() *string
 }
 
@@ -774,8 +899,8 @@ func (j *jsiiProxy_ISlackChannelConfiguration) GrantPrincipal() awsiam.IPrincipa
 	return returns
 }
 
-func (j *jsiiProxy_ISlackChannelConfiguration) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_ISlackChannelConfiguration) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -795,6 +920,7 @@ func (j *jsiiProxy_ISlackChannelConfiguration) Stack() awscdk.Stack {
 }
 
 // Logging levels include ERROR, INFO, or NONE.
+// Experimental.
 type LoggingLevel string
 
 const (
@@ -807,12 +933,13 @@ const (
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type SlackChannelConfiguration interface {
 	awscdk.Resource
 	ISlackChannelConfiguration
 	Env() *awscdk.ResourceEnvironment
 	GrantPrincipal() awsiam.IPrincipal
-	Node() constructs.Node
+	Node() awscdk.ConstructNode
 	PhysicalName() *string
 	Role() awsiam.IRole
 	SlackChannelConfigurationArn() *string
@@ -826,7 +953,13 @@ type SlackChannelConfiguration interface {
 	GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string
 	GetResourceNameAttribute(nameAttr *string) *string
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
+	OnPrepare()
+	OnSynthesize(session constructs.ISynthesisSession)
+	OnValidate() *[]*string
+	Prepare()
+	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
+	Validate() *[]*string
 }
 
 // The jsii proxy struct for SlackChannelConfiguration
@@ -855,8 +988,8 @@ func (j *jsiiProxy_SlackChannelConfiguration) GrantPrincipal() awsiam.IPrincipal
 	return returns
 }
 
-func (j *jsiiProxy_SlackChannelConfiguration) Node() constructs.Node {
-	var returns constructs.Node
+func (j *jsiiProxy_SlackChannelConfiguration) Node() awscdk.ConstructNode {
+	var returns awscdk.ConstructNode
 	_jsii_.Get(
 		j,
 		"node",
@@ -916,13 +1049,14 @@ func (j *jsiiProxy_SlackChannelConfiguration) Stack() awscdk.Stack {
 }
 
 
+// Experimental.
 func NewSlackChannelConfiguration(scope constructs.Construct, id *string, props *SlackChannelConfigurationProps) SlackChannelConfiguration {
 	_init_.Initialize()
 
 	j := jsiiProxy_SlackChannelConfiguration{}
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_chatbot.SlackChannelConfiguration",
+		"monocdk.aws_chatbot.SlackChannelConfiguration",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -930,11 +1064,12 @@ func NewSlackChannelConfiguration(scope constructs.Construct, id *string, props 
 	return &j
 }
 
+// Experimental.
 func NewSlackChannelConfiguration_Override(s SlackChannelConfiguration, scope constructs.Construct, id *string, props *SlackChannelConfigurationProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"aws-cdk-lib.aws_chatbot.SlackChannelConfiguration",
+		"monocdk.aws_chatbot.SlackChannelConfiguration",
 		[]interface{}{scope, id, props},
 		s,
 	)
@@ -943,13 +1078,14 @@ func NewSlackChannelConfiguration_Override(s SlackChannelConfiguration, scope co
 // Import an existing Slack channel configuration provided an ARN.
 //
 // Returns: a reference to the existing Slack channel configuration
+// Experimental.
 func SlackChannelConfiguration_FromSlackChannelConfigurationArn(scope constructs.Construct, id *string, slackChannelConfigurationArn *string) ISlackChannelConfiguration {
 	_init_.Initialize()
 
 	var returns ISlackChannelConfiguration
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_chatbot.SlackChannelConfiguration",
+		"monocdk.aws_chatbot.SlackChannelConfiguration",
 		"fromSlackChannelConfigurationArn",
 		[]interface{}{scope, id, slackChannelConfigurationArn},
 		&returns,
@@ -958,17 +1094,15 @@ func SlackChannelConfiguration_FromSlackChannelConfigurationArn(scope constructs
 	return returns
 }
 
-// Checks if `x` is a construct.
-//
-// Returns: true if `x` is an object created from a class which extends `Construct`.
-// Deprecated: use `x instanceof Construct` instead
+// Return whether the given object is a Construct.
+// Experimental.
 func SlackChannelConfiguration_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_chatbot.SlackChannelConfiguration",
+		"monocdk.aws_chatbot.SlackChannelConfiguration",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -978,13 +1112,14 @@ func SlackChannelConfiguration_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-func SlackChannelConfiguration_IsResource(construct constructs.IConstruct) *bool {
+// Experimental.
+func SlackChannelConfiguration_IsResource(construct awscdk.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_chatbot.SlackChannelConfiguration",
+		"monocdk.aws_chatbot.SlackChannelConfiguration",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -994,13 +1129,14 @@ func SlackChannelConfiguration_IsResource(construct constructs.IConstruct) *bool
 }
 
 // Return the given named metric for All SlackChannelConfigurations.
+// Experimental.
 func SlackChannelConfiguration_MetricAll(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	_init_.Initialize()
 
 	var returns awscloudwatch.Metric
 
 	_jsii_.StaticInvoke(
-		"aws-cdk-lib.aws_chatbot.SlackChannelConfiguration",
+		"monocdk.aws_chatbot.SlackChannelConfiguration",
 		"metricAll",
 		[]interface{}{metricName, props},
 		&returns,
@@ -1010,6 +1146,7 @@ func SlackChannelConfiguration_MetricAll(metricName *string, props *awscloudwatc
 }
 
 // Adds a SNS topic that deliver notifications to AWS Chatbot.
+// Experimental.
 func (s *jsiiProxy_SlackChannelConfiguration) AddNotificationTopic(notificationTopic awssns.ITopic) {
 	_jsii_.InvokeVoid(
 		s,
@@ -1019,6 +1156,7 @@ func (s *jsiiProxy_SlackChannelConfiguration) AddNotificationTopic(notificationT
 }
 
 // Adds extra permission to iam-role of Slack channel configuration.
+// Experimental.
 func (s *jsiiProxy_SlackChannelConfiguration) AddToRolePolicy(statement awsiam.PolicyStatement) {
 	_jsii_.InvokeVoid(
 		s,
@@ -1036,6 +1174,7 @@ func (s *jsiiProxy_SlackChannelConfiguration) AddToRolePolicy(statement awsiam.P
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
+// Experimental.
 func (s *jsiiProxy_SlackChannelConfiguration) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		s,
@@ -1045,6 +1184,7 @@ func (s *jsiiProxy_SlackChannelConfiguration) ApplyRemovalPolicy(policy awscdk.R
 }
 
 // Returns a target configuration for notification rule.
+// Experimental.
 func (s *jsiiProxy_SlackChannelConfiguration) BindAsNotificationRuleTarget(_scope constructs.Construct) *awscodestarnotifications.NotificationRuleTargetConfig {
 	var returns *awscodestarnotifications.NotificationRuleTargetConfig
 
@@ -1058,6 +1198,7 @@ func (s *jsiiProxy_SlackChannelConfiguration) BindAsNotificationRuleTarget(_scop
 	return returns
 }
 
+// Experimental.
 func (s *jsiiProxy_SlackChannelConfiguration) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -1077,6 +1218,7 @@ func (s *jsiiProxy_SlackChannelConfiguration) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
+// Experimental.
 func (s *jsiiProxy_SlackChannelConfiguration) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -1095,6 +1237,7 @@ func (s *jsiiProxy_SlackChannelConfiguration) GetResourceArnAttribute(arnAttr *s
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
+// Experimental.
 func (s *jsiiProxy_SlackChannelConfiguration) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -1109,6 +1252,7 @@ func (s *jsiiProxy_SlackChannelConfiguration) GetResourceNameAttribute(nameAttr 
 }
 
 // Return the given named metric for this SlackChannelConfiguration.
+// Experimental.
 func (s *jsiiProxy_SlackChannelConfiguration) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -1122,7 +1266,88 @@ func (s *jsiiProxy_SlackChannelConfiguration) Metric(metricName *string, props *
 	return returns
 }
 
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_SlackChannelConfiguration) OnPrepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"onPrepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_SlackChannelConfiguration) OnSynthesize(session constructs.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"onSynthesize",
+		[]interface{}{session},
+	)
+}
+
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_SlackChannelConfiguration) OnValidate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"onValidate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
+// Perform final modifications before synthesis.
+//
+// This method can be implemented by derived constructs in order to perform
+// final changes before synthesis. prepare() will be called after child
+// constructs have been prepared.
+//
+// This is an advanced framework feature. Only use this if you
+// understand the implications.
+// Experimental.
+func (s *jsiiProxy_SlackChannelConfiguration) Prepare() {
+	_jsii_.InvokeVoid(
+		s,
+		"prepare",
+		nil, // no parameters
+	)
+}
+
+// Allows this construct to emit artifacts into the cloud assembly during synthesis.
+//
+// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
+// as they participate in synthesizing the cloud assembly.
+// Experimental.
+func (s *jsiiProxy_SlackChannelConfiguration) Synthesize(session awscdk.ISynthesisSession) {
+	_jsii_.InvokeVoid(
+		s,
+		"synthesize",
+		[]interface{}{session},
+	)
+}
+
 // Returns a string representation of this construct.
+// Experimental.
 func (s *jsiiProxy_SlackChannelConfiguration) ToString() *string {
 	var returns *string
 
@@ -1136,17 +1361,40 @@ func (s *jsiiProxy_SlackChannelConfiguration) ToString() *string {
 	return returns
 }
 
+// Validate the current construct.
+//
+// This method can be implemented by derived constructs in order to perform
+// validation logic. It is called on all constructs before synthesis.
+//
+// Returns: An array of validation error messages, or an empty array if the construct is valid.
+// Experimental.
+func (s *jsiiProxy_SlackChannelConfiguration) Validate() *[]*string {
+	var returns *[]*string
+
+	_jsii_.Invoke(
+		s,
+		"validate",
+		nil, // no parameters
+		&returns,
+	)
+
+	return returns
+}
+
 // Properties for a new Slack channel configuration.
 //
 // TODO: EXAMPLE
 //
+// Experimental.
 type SlackChannelConfigurationProps struct {
 	// The name of Slack channel configuration.
+	// Experimental.
 	SlackChannelConfigurationName *string `json:"slackChannelConfigurationName"`
 	// The ID of the Slack channel.
 	//
 	// To get the ID, open Slack, right click on the channel name in the left pane, then choose Copy Link.
 	// The channel ID is the 9-character string at the end of the URL. For example, ABCBBLZZZ.
+	// Experimental.
 	SlackChannelId *string `json:"slackChannelId"`
 	// The ID of the Slack workspace authorized with AWS Chatbot.
 	//
@@ -1155,26 +1403,33 @@ type SlackChannelConfigurationProps struct {
 	// For more details, see steps 1-4 in Setting Up AWS Chatbot with Slack in the AWS Chatbot User Guide.
 	// See: https://docs.aws.amazon.com/chatbot/latest/adminguide/setting-up.html#Setup_intro
 	//
+	// Experimental.
 	SlackWorkspaceId *string `json:"slackWorkspaceId"`
 	// Specifies the logging level for this configuration.
 	//
 	// This property affects the log entries pushed to Amazon CloudWatch Logs.
+	// Experimental.
 	LoggingLevel LoggingLevel `json:"loggingLevel"`
 	// The number of days log events are kept in CloudWatch Logs.
 	//
 	// When updating
 	// this property, unsetting it doesn't remove the log retention policy. To
 	// remove the retention policy, set the value to `INFINITE`.
+	// Experimental.
 	LogRetention awslogs.RetentionDays `json:"logRetention"`
 	// When log retention is specified, a custom resource attempts to create the CloudWatch log group.
 	//
 	// These options control the retry policy when interacting with CloudWatch APIs.
+	// Experimental.
 	LogRetentionRetryOptions *awslogs.LogRetentionRetryOptions `json:"logRetentionRetryOptions"`
 	// The IAM role for the Lambda function associated with the custom resource that sets the retention policy.
+	// Experimental.
 	LogRetentionRole awsiam.IRole `json:"logRetentionRole"`
 	// The SNS topics that deliver notifications to AWS Chatbot.
+	// Experimental.
 	NotificationTopics *[]awssns.ITopic `json:"notificationTopics"`
 	// The permission role of Slack channel configuration.
+	// Experimental.
 	Role awsiam.IRole `json:"role"`
 }
 
