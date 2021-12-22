@@ -1,27 +1,21 @@
 package cxapi
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk/cloudassemblyschema"
+	"github.com/aws/aws-cdk-go/awscdk/v2/cloudassemblyschema"
 )
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type AssemblyBuildOptions struct {
-	// Include the specified runtime information (module versions) in manifest.
-	// Deprecated: All template modifications that should result from this should
-	// have already been inserted into the template.
-	RuntimeInfo *RuntimeInfo `json:"runtimeInfo"`
 }
 
 // Asset manifest is a description of a set of assets which need to be built and published.
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AssetManifestArtifact interface {
 	CloudArtifact
 	Assembly() CloudAssembly
@@ -132,14 +126,13 @@ func (j *jsiiProxy_AssetManifestArtifact) RequiresBootstrapStackVersion() *float
 }
 
 
-// Experimental.
 func NewAssetManifestArtifact(assembly CloudAssembly, name *string, artifact *cloudassemblyschema.ArtifactManifest) AssetManifestArtifact {
 	_init_.Initialize()
 
 	j := jsiiProxy_AssetManifestArtifact{}
 
 	_jsii_.Create(
-		"monocdk.cx_api.AssetManifestArtifact",
+		"aws-cdk-lib.cx_api.AssetManifestArtifact",
 		[]interface{}{assembly, name, artifact},
 		&j,
 	)
@@ -147,12 +140,11 @@ func NewAssetManifestArtifact(assembly CloudAssembly, name *string, artifact *cl
 	return &j
 }
 
-// Experimental.
 func NewAssetManifestArtifact_Override(a AssetManifestArtifact, assembly CloudAssembly, name *string, artifact *cloudassemblyschema.ArtifactManifest) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.cx_api.AssetManifestArtifact",
+		"aws-cdk-lib.cx_api.AssetManifestArtifact",
 		[]interface{}{assembly, name, artifact},
 		a,
 	)
@@ -161,14 +153,13 @@ func NewAssetManifestArtifact_Override(a AssetManifestArtifact, assembly CloudAs
 // Returns a subclass of `CloudArtifact` based on the artifact type defined in the artifact manifest.
 //
 // Returns: the `CloudArtifact` that matches the artifact type or `undefined` if it's an artifact type that is unrecognized by this module.
-// Experimental.
 func AssetManifestArtifact_FromManifest(assembly CloudAssembly, id *string, artifact *cloudassemblyschema.ArtifactManifest) CloudArtifact {
 	_init_.Initialize()
 
 	var returns CloudArtifact
 
 	_jsii_.StaticInvoke(
-		"monocdk.cx_api.AssetManifestArtifact",
+		"aws-cdk-lib.cx_api.AssetManifestArtifact",
 		"fromManifest",
 		[]interface{}{assembly, id, artifact},
 		&returns,
@@ -178,7 +169,6 @@ func AssetManifestArtifact_FromManifest(assembly CloudAssembly, id *string, arti
 }
 
 // Returns: all the metadata entries of a specific type in this artifact.
-// Experimental.
 func (a *jsiiProxy_AssetManifestArtifact) FindMetadataByType(type_ *string) *[]*MetadataEntryResult {
 	var returns *[]*MetadataEntryResult
 
@@ -196,19 +186,14 @@ func (a *jsiiProxy_AssetManifestArtifact) FindMetadataByType(type_ *string) *[]*
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type AwsCloudFormationStackProperties struct {
 	// Values for CloudFormation stack parameters that should be passed when the stack is deployed.
-	// Experimental.
 	Parameters *map[string]*string `json:"parameters"`
 	// The name to use for the CloudFormation stack.
-	// Experimental.
 	StackName *string `json:"stackName"`
 	// A file relative to the assembly root which contains the CloudFormation template for this stack.
-	// Experimental.
 	TemplateFile *string `json:"templateFile"`
 	// Whether to enable termination protection for this stack.
-	// Experimental.
 	TerminationProtection *bool `json:"terminationProtection"`
 }
 
@@ -216,7 +201,6 @@ type AwsCloudFormationStackProperties struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CloudArtifact interface {
 	Assembly() CloudAssembly
 	Dependencies() *[]CloudArtifact
@@ -293,14 +277,13 @@ func (j *jsiiProxy_CloudArtifact) Messages() *[]*SynthesisMessage {
 }
 
 
-// Experimental.
 func NewCloudArtifact(assembly CloudAssembly, id *string, manifest *cloudassemblyschema.ArtifactManifest) CloudArtifact {
 	_init_.Initialize()
 
 	j := jsiiProxy_CloudArtifact{}
 
 	_jsii_.Create(
-		"monocdk.cx_api.CloudArtifact",
+		"aws-cdk-lib.cx_api.CloudArtifact",
 		[]interface{}{assembly, id, manifest},
 		&j,
 	)
@@ -308,12 +291,11 @@ func NewCloudArtifact(assembly CloudAssembly, id *string, manifest *cloudassembl
 	return &j
 }
 
-// Experimental.
 func NewCloudArtifact_Override(c CloudArtifact, assembly CloudAssembly, id *string, manifest *cloudassemblyschema.ArtifactManifest) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.cx_api.CloudArtifact",
+		"aws-cdk-lib.cx_api.CloudArtifact",
 		[]interface{}{assembly, id, manifest},
 		c,
 	)
@@ -322,14 +304,13 @@ func NewCloudArtifact_Override(c CloudArtifact, assembly CloudAssembly, id *stri
 // Returns a subclass of `CloudArtifact` based on the artifact type defined in the artifact manifest.
 //
 // Returns: the `CloudArtifact` that matches the artifact type or `undefined` if it's an artifact type that is unrecognized by this module.
-// Experimental.
 func CloudArtifact_FromManifest(assembly CloudAssembly, id *string, artifact *cloudassemblyschema.ArtifactManifest) CloudArtifact {
 	_init_.Initialize()
 
 	var returns CloudArtifact
 
 	_jsii_.StaticInvoke(
-		"monocdk.cx_api.CloudArtifact",
+		"aws-cdk-lib.cx_api.CloudArtifact",
 		"fromManifest",
 		[]interface{}{assembly, id, artifact},
 		&returns,
@@ -339,7 +320,6 @@ func CloudArtifact_FromManifest(assembly CloudAssembly, id *string, artifact *cl
 }
 
 // Returns: all the metadata entries of a specific type in this artifact.
-// Experimental.
 func (c *jsiiProxy_CloudArtifact) FindMetadataByType(type_ *string) *[]*MetadataEntryResult {
 	var returns *[]*MetadataEntryResult
 
@@ -357,7 +337,6 @@ func (c *jsiiProxy_CloudArtifact) FindMetadataByType(type_ *string) *[]*Metadata
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CloudAssembly interface {
 	Artifacts() *[]CloudArtifact
 	Directory() *string
@@ -369,7 +348,6 @@ type CloudAssembly interface {
 	Version() *string
 	GetNestedAssembly(artifactId *string) CloudAssembly
 	GetNestedAssemblyArtifact(artifactId *string) NestedCloudAssemblyArtifact
-	GetStack(stackName *string) CloudFormationStackArtifact
 	GetStackArtifact(artifactId *string) CloudFormationStackArtifact
 	GetStackByName(stackName *string) CloudFormationStackArtifact
 	Tree() TreeCloudArtifact
@@ -463,14 +441,13 @@ func (j *jsiiProxy_CloudAssembly) Version() *string {
 
 
 // Reads a cloud assembly from the specified directory.
-// Experimental.
 func NewCloudAssembly(directory *string) CloudAssembly {
 	_init_.Initialize()
 
 	j := jsiiProxy_CloudAssembly{}
 
 	_jsii_.Create(
-		"monocdk.cx_api.CloudAssembly",
+		"aws-cdk-lib.cx_api.CloudAssembly",
 		[]interface{}{directory},
 		&j,
 	)
@@ -479,19 +456,17 @@ func NewCloudAssembly(directory *string) CloudAssembly {
 }
 
 // Reads a cloud assembly from the specified directory.
-// Experimental.
 func NewCloudAssembly_Override(c CloudAssembly, directory *string) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.cx_api.CloudAssembly",
+		"aws-cdk-lib.cx_api.CloudAssembly",
 		[]interface{}{directory},
 		c,
 	)
 }
 
 // Returns a nested assembly.
-// Experimental.
 func (c *jsiiProxy_CloudAssembly) GetNestedAssembly(artifactId *string) CloudAssembly {
 	var returns CloudAssembly
 
@@ -506,7 +481,6 @@ func (c *jsiiProxy_CloudAssembly) GetNestedAssembly(artifactId *string) CloudAss
 }
 
 // Returns a nested assembly artifact.
-// Experimental.
 func (c *jsiiProxy_CloudAssembly) GetNestedAssemblyArtifact(artifactId *string) NestedCloudAssemblyArtifact {
 	var returns NestedCloudAssemblyArtifact
 
@@ -520,25 +494,9 @@ func (c *jsiiProxy_CloudAssembly) GetNestedAssemblyArtifact(artifactId *string) 
 	return returns
 }
 
-// Returns a CloudFormation stack artifact by name from this assembly.
-// Deprecated: renamed to `getStackByName` (or `getStackArtifact(id)`)
-func (c *jsiiProxy_CloudAssembly) GetStack(stackName *string) CloudFormationStackArtifact {
-	var returns CloudFormationStackArtifact
-
-	_jsii_.Invoke(
-		c,
-		"getStack",
-		[]interface{}{stackName},
-		&returns,
-	)
-
-	return returns
-}
-
 // Returns a CloudFormation stack artifact from this assembly.
 //
 // Returns: a `CloudFormationStackArtifact` object.
-// Experimental.
 func (c *jsiiProxy_CloudAssembly) GetStackArtifact(artifactId *string) CloudFormationStackArtifact {
 	var returns CloudFormationStackArtifact
 
@@ -557,7 +515,6 @@ func (c *jsiiProxy_CloudAssembly) GetStackArtifact(artifactId *string) CloudForm
 // Will only search the current assembly.
 //
 // Returns: a `CloudFormationStackArtifact` object.
-// Experimental.
 func (c *jsiiProxy_CloudAssembly) GetStackByName(stackName *string) CloudFormationStackArtifact {
 	var returns CloudFormationStackArtifact
 
@@ -574,7 +531,6 @@ func (c *jsiiProxy_CloudAssembly) GetStackByName(stackName *string) CloudFormati
 // Returns the tree metadata artifact from this assembly.
 //
 // Returns: a `TreeCloudArtifact` object if there is one defined in the manifest, `undefined` otherwise.
-// Experimental.
 func (c *jsiiProxy_CloudAssembly) Tree() TreeCloudArtifact {
 	var returns TreeCloudArtifact
 
@@ -591,7 +547,6 @@ func (c *jsiiProxy_CloudAssembly) Tree() TreeCloudArtifact {
 // Attempts to find an artifact with a specific identity.
 //
 // Returns: A `CloudArtifact` object or `undefined` if the artifact does not exist in this assembly.
-// Experimental.
 func (c *jsiiProxy_CloudAssembly) TryGetArtifact(id *string) CloudArtifact {
 	var returns CloudArtifact
 
@@ -609,7 +564,6 @@ func (c *jsiiProxy_CloudAssembly) TryGetArtifact(id *string) CloudArtifact {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CloudAssemblyBuilder interface {
 	AssetOutdir() *string
 	Outdir() *string
@@ -646,14 +600,13 @@ func (j *jsiiProxy_CloudAssemblyBuilder) Outdir() *string {
 
 
 // Initializes a cloud assembly builder.
-// Experimental.
 func NewCloudAssemblyBuilder(outdir *string, props *CloudAssemblyBuilderProps) CloudAssemblyBuilder {
 	_init_.Initialize()
 
 	j := jsiiProxy_CloudAssemblyBuilder{}
 
 	_jsii_.Create(
-		"monocdk.cx_api.CloudAssemblyBuilder",
+		"aws-cdk-lib.cx_api.CloudAssemblyBuilder",
 		[]interface{}{outdir, props},
 		&j,
 	)
@@ -662,19 +615,17 @@ func NewCloudAssemblyBuilder(outdir *string, props *CloudAssemblyBuilderProps) C
 }
 
 // Initializes a cloud assembly builder.
-// Experimental.
 func NewCloudAssemblyBuilder_Override(c CloudAssemblyBuilder, outdir *string, props *CloudAssemblyBuilderProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.cx_api.CloudAssemblyBuilder",
+		"aws-cdk-lib.cx_api.CloudAssemblyBuilder",
 		[]interface{}{outdir, props},
 		c,
 	)
 }
 
 // Adds an artifact into the cloud assembly.
-// Experimental.
 func (c *jsiiProxy_CloudAssemblyBuilder) AddArtifact(id *string, manifest *cloudassemblyschema.ArtifactManifest) {
 	_jsii_.InvokeVoid(
 		c,
@@ -684,7 +635,6 @@ func (c *jsiiProxy_CloudAssemblyBuilder) AddArtifact(id *string, manifest *cloud
 }
 
 // Reports that some context is missing in order for this cloud assembly to be fully synthesized.
-// Experimental.
 func (c *jsiiProxy_CloudAssemblyBuilder) AddMissing(missing *cloudassemblyschema.MissingContext) {
 	_jsii_.InvokeVoid(
 		c,
@@ -694,7 +644,6 @@ func (c *jsiiProxy_CloudAssemblyBuilder) AddMissing(missing *cloudassemblyschema
 }
 
 // Finalizes the cloud assembly into the output directory returns a `CloudAssembly` object that can be used to inspect the assembly.
-// Experimental.
 func (c *jsiiProxy_CloudAssemblyBuilder) BuildAssembly(options *AssemblyBuildOptions) CloudAssembly {
 	var returns CloudAssembly
 
@@ -709,7 +658,6 @@ func (c *jsiiProxy_CloudAssemblyBuilder) BuildAssembly(options *AssemblyBuildOpt
 }
 
 // Creates a nested cloud assembly.
-// Experimental.
 func (c *jsiiProxy_CloudAssemblyBuilder) CreateNestedAssembly(artifactId *string, displayName *string) CloudAssemblyBuilder {
 	var returns CloudAssemblyBuilder
 
@@ -727,19 +675,15 @@ func (c *jsiiProxy_CloudAssemblyBuilder) CreateNestedAssembly(artifactId *string
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type CloudAssemblyBuilderProps struct {
 	// Use the given asset output directory.
-	// Experimental.
 	AssetOutdir *string `json:"assetOutdir"`
 	// If this builder is for a nested assembly, the parent assembly builder.
-	// Experimental.
 	ParentBuilder CloudAssemblyBuilder `json:"parentBuilder"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type CloudFormationStackArtifact interface {
 	CloudArtifact
 	Assembly() CloudAssembly
@@ -755,7 +699,6 @@ type CloudFormationStackArtifact interface {
 	Id() *string
 	Manifest() *cloudassemblyschema.ArtifactManifest
 	Messages() *[]*SynthesisMessage
-	Name() *string
 	OriginalName() *string
 	Parameters() *map[string]*string
 	RequiresBootstrapStackVersion() *float64
@@ -905,16 +848,6 @@ func (j *jsiiProxy_CloudFormationStackArtifact) Messages() *[]*SynthesisMessage 
 	return returns
 }
 
-func (j *jsiiProxy_CloudFormationStackArtifact) Name() *string {
-	var returns *string
-	_jsii_.Get(
-		j,
-		"name",
-		&returns,
-	)
-	return returns
-}
-
 func (j *jsiiProxy_CloudFormationStackArtifact) OriginalName() *string {
 	var returns *string
 	_jsii_.Get(
@@ -1026,14 +959,13 @@ func (j *jsiiProxy_CloudFormationStackArtifact) ValidateOnSynth() *bool {
 }
 
 
-// Experimental.
 func NewCloudFormationStackArtifact(assembly CloudAssembly, artifactId *string, artifact *cloudassemblyschema.ArtifactManifest) CloudFormationStackArtifact {
 	_init_.Initialize()
 
 	j := jsiiProxy_CloudFormationStackArtifact{}
 
 	_jsii_.Create(
-		"monocdk.cx_api.CloudFormationStackArtifact",
+		"aws-cdk-lib.cx_api.CloudFormationStackArtifact",
 		[]interface{}{assembly, artifactId, artifact},
 		&j,
 	)
@@ -1041,12 +973,11 @@ func NewCloudFormationStackArtifact(assembly CloudAssembly, artifactId *string, 
 	return &j
 }
 
-// Experimental.
 func NewCloudFormationStackArtifact_Override(c CloudFormationStackArtifact, assembly CloudAssembly, artifactId *string, artifact *cloudassemblyschema.ArtifactManifest) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.cx_api.CloudFormationStackArtifact",
+		"aws-cdk-lib.cx_api.CloudFormationStackArtifact",
 		[]interface{}{assembly, artifactId, artifact},
 		c,
 	)
@@ -1055,14 +986,13 @@ func NewCloudFormationStackArtifact_Override(c CloudFormationStackArtifact, asse
 // Returns a subclass of `CloudArtifact` based on the artifact type defined in the artifact manifest.
 //
 // Returns: the `CloudArtifact` that matches the artifact type or `undefined` if it's an artifact type that is unrecognized by this module.
-// Experimental.
 func CloudFormationStackArtifact_FromManifest(assembly CloudAssembly, id *string, artifact *cloudassemblyschema.ArtifactManifest) CloudArtifact {
 	_init_.Initialize()
 
 	var returns CloudArtifact
 
 	_jsii_.StaticInvoke(
-		"monocdk.cx_api.CloudFormationStackArtifact",
+		"aws-cdk-lib.cx_api.CloudFormationStackArtifact",
 		"fromManifest",
 		[]interface{}{assembly, id, artifact},
 		&returns,
@@ -1072,7 +1002,6 @@ func CloudFormationStackArtifact_FromManifest(assembly CloudAssembly, id *string
 }
 
 // Returns: all the metadata entries of a specific type in this artifact.
-// Experimental.
 func (c *jsiiProxy_CloudFormationStackArtifact) FindMetadataByType(type_ *string) *[]*MetadataEntryResult {
 	var returns *[]*MetadataEntryResult
 
@@ -1090,16 +1019,12 @@ func (c *jsiiProxy_CloudFormationStackArtifact) FindMetadataByType(type_ *string
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type EndpointServiceAvailabilityZonesContextQuery struct {
 	// Query account.
-	// Experimental.
 	Account *string `json:"account"`
 	// Query region.
-	// Experimental.
 	Region *string `json:"region"`
 	// Query service name.
-	// Experimental.
 	ServiceName *string `json:"serviceName"`
 }
 
@@ -1107,16 +1032,12 @@ type EndpointServiceAvailabilityZonesContextQuery struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Environment struct {
 	// The AWS account this environment deploys into.
-	// Experimental.
 	Account *string `json:"account"`
 	// The arbitrary name of this environment (user-set, or at least user-meaningful).
-	// Experimental.
 	Name *string `json:"name"`
 	// The AWS region name where this environment deploys into.
-	// Experimental.
 	Region *string `json:"region"`
 }
 
@@ -1124,16 +1045,12 @@ type Environment struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type EnvironmentPlaceholderValues struct {
 	// Return the account.
-	// Experimental.
 	AccountId *string `json:"accountId"`
 	// Return the partition.
-	// Experimental.
 	Partition *string `json:"partition"`
 	// Return the region.
-	// Experimental.
 	Region *string `json:"region"`
 }
 
@@ -1144,7 +1061,6 @@ type EnvironmentPlaceholderValues struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type EnvironmentPlaceholders interface {
 }
 
@@ -1153,14 +1069,13 @@ type jsiiProxy_EnvironmentPlaceholders struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewEnvironmentPlaceholders() EnvironmentPlaceholders {
 	_init_.Initialize()
 
 	j := jsiiProxy_EnvironmentPlaceholders{}
 
 	_jsii_.Create(
-		"monocdk.cx_api.EnvironmentPlaceholders",
+		"aws-cdk-lib.cx_api.EnvironmentPlaceholders",
 		nil, // no parameters
 		&j,
 	)
@@ -1168,12 +1083,11 @@ func NewEnvironmentPlaceholders() EnvironmentPlaceholders {
 	return &j
 }
 
-// Experimental.
 func NewEnvironmentPlaceholders_Override(e EnvironmentPlaceholders) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.cx_api.EnvironmentPlaceholders",
+		"aws-cdk-lib.cx_api.EnvironmentPlaceholders",
 		nil, // no parameters
 		e,
 	)
@@ -1183,14 +1097,13 @@ func NewEnvironmentPlaceholders_Override(e EnvironmentPlaceholders) {
 //
 // Duplicated between cdk-assets and aws-cdk CLI because we don't have a good single place to put it
 // (they're nominally independent tools).
-// Experimental.
 func EnvironmentPlaceholders_Replace(object interface{}, values *EnvironmentPlaceholderValues) interface{} {
 	_init_.Initialize()
 
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
-		"monocdk.cx_api.EnvironmentPlaceholders",
+		"aws-cdk-lib.cx_api.EnvironmentPlaceholders",
 		"replace",
 		[]interface{}{object, values},
 		&returns,
@@ -1200,14 +1113,13 @@ func EnvironmentPlaceholders_Replace(object interface{}, values *EnvironmentPlac
 }
 
 // Like 'replace', but asynchronous.
-// Experimental.
 func EnvironmentPlaceholders_ReplaceAsync(object interface{}, provider IEnvironmentPlaceholderProvider) interface{} {
 	_init_.Initialize()
 
 	var returns interface{}
 
 	_jsii_.StaticInvoke(
-		"monocdk.cx_api.EnvironmentPlaceholders",
+		"aws-cdk-lib.cx_api.EnvironmentPlaceholders",
 		"replaceAsync",
 		[]interface{}{object, provider},
 		&returns,
@@ -1220,7 +1132,7 @@ func EnvironmentPlaceholders_CURRENT_ACCOUNT() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.cx_api.EnvironmentPlaceholders",
+		"aws-cdk-lib.cx_api.EnvironmentPlaceholders",
 		"CURRENT_ACCOUNT",
 		&returns,
 	)
@@ -1231,7 +1143,7 @@ func EnvironmentPlaceholders_CURRENT_PARTITION() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.cx_api.EnvironmentPlaceholders",
+		"aws-cdk-lib.cx_api.EnvironmentPlaceholders",
 		"CURRENT_PARTITION",
 		&returns,
 	)
@@ -1242,7 +1154,7 @@ func EnvironmentPlaceholders_CURRENT_REGION() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.cx_api.EnvironmentPlaceholders",
+		"aws-cdk-lib.cx_api.EnvironmentPlaceholders",
 		"CURRENT_REGION",
 		&returns,
 	)
@@ -1251,7 +1163,6 @@ func EnvironmentPlaceholders_CURRENT_REGION() *string {
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type EnvironmentUtils interface {
 }
 
@@ -1260,14 +1171,13 @@ type jsiiProxy_EnvironmentUtils struct {
 	_ byte // padding
 }
 
-// Experimental.
 func NewEnvironmentUtils() EnvironmentUtils {
 	_init_.Initialize()
 
 	j := jsiiProxy_EnvironmentUtils{}
 
 	_jsii_.Create(
-		"monocdk.cx_api.EnvironmentUtils",
+		"aws-cdk-lib.cx_api.EnvironmentUtils",
 		nil, // no parameters
 		&j,
 	)
@@ -1275,26 +1185,24 @@ func NewEnvironmentUtils() EnvironmentUtils {
 	return &j
 }
 
-// Experimental.
 func NewEnvironmentUtils_Override(e EnvironmentUtils) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.cx_api.EnvironmentUtils",
+		"aws-cdk-lib.cx_api.EnvironmentUtils",
 		nil, // no parameters
 		e,
 	)
 }
 
 // Format an environment string from an account and region.
-// Experimental.
 func EnvironmentUtils_Format(account *string, region *string) *string {
 	_init_.Initialize()
 
 	var returns *string
 
 	_jsii_.StaticInvoke(
-		"monocdk.cx_api.EnvironmentUtils",
+		"aws-cdk-lib.cx_api.EnvironmentUtils",
 		"format",
 		[]interface{}{account, region},
 		&returns,
@@ -1304,14 +1212,13 @@ func EnvironmentUtils_Format(account *string, region *string) *string {
 }
 
 // Build an environment object from an account and region.
-// Experimental.
 func EnvironmentUtils_Make(account *string, region *string) *Environment {
 	_init_.Initialize()
 
 	var returns *Environment
 
 	_jsii_.StaticInvoke(
-		"monocdk.cx_api.EnvironmentUtils",
+		"aws-cdk-lib.cx_api.EnvironmentUtils",
 		"make",
 		[]interface{}{account, region},
 		&returns,
@@ -1320,14 +1227,13 @@ func EnvironmentUtils_Make(account *string, region *string) *Environment {
 	return returns
 }
 
-// Experimental.
 func EnvironmentUtils_Parse(environment *string) *Environment {
 	_init_.Initialize()
 
 	var returns *Environment
 
 	_jsii_.StaticInvoke(
-		"monocdk.cx_api.EnvironmentUtils",
+		"aws-cdk-lib.cx_api.EnvironmentUtils",
 		"parse",
 		[]interface{}{environment},
 		&returns,
@@ -1337,16 +1243,12 @@ func EnvironmentUtils_Parse(environment *string) *Environment {
 }
 
 // Return the appropriate values for the environment placeholders.
-// Experimental.
 type IEnvironmentPlaceholderProvider interface {
 	// Return the account.
-	// Experimental.
 	AccountId() *string
 	// Return the partition.
-	// Experimental.
 	Partition() *string
 	// Return the region.
-	// Experimental.
 	Region() *string
 }
 
@@ -1398,10 +1300,8 @@ func (i *jsiiProxy_IEnvironmentPlaceholderProvider) Region() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type KeyContextResponse struct {
 	// Id of the key.
-	// Experimental.
 	KeyId *string `json:"keyId"`
 }
 
@@ -1409,30 +1309,22 @@ type KeyContextResponse struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LoadBalancerContextResponse struct {
 	// Type of IP address.
-	// Experimental.
 	IpAddressType LoadBalancerIpAddressType `json:"ipAddressType"`
 	// The ARN of the load balancer.
-	// Experimental.
 	LoadBalancerArn *string `json:"loadBalancerArn"`
 	// The hosted zone ID of the load balancer's name.
-	// Experimental.
 	LoadBalancerCanonicalHostedZoneId *string `json:"loadBalancerCanonicalHostedZoneId"`
 	// Load balancer's DNS name.
-	// Experimental.
 	LoadBalancerDnsName *string `json:"loadBalancerDnsName"`
 	// Load balancer's security groups.
-	// Experimental.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
 	// Load balancer's VPC.
-	// Experimental.
 	VpcId *string `json:"vpcId"`
 }
 
 // Load balancer ip address type.
-// Experimental.
 type LoadBalancerIpAddressType string
 
 const (
@@ -1444,90 +1336,32 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LoadBalancerListenerContextResponse struct {
 	// The ARN of the listener.
-	// Experimental.
 	ListenerArn *string `json:"listenerArn"`
 	// The port the listener is listening on.
-	// Experimental.
 	ListenerPort *float64 `json:"listenerPort"`
 	// The security groups of the load balancer.
-	// Experimental.
 	SecurityGroupIds *[]*string `json:"securityGroupIds"`
 }
 
-// Backwards compatibility for when `MetadataEntry` was defined here.
-//
-// This is necessary because its used as an input in the stable
-//
 // TODO: EXAMPLE
 //
-// See: core.ConstructNode.metadata
-//
-// Deprecated: moved to package 'cloud-assembly-schema'
-type MetadataEntry struct {
-	// The data.
-	// Deprecated: moved to package 'cloud-assembly-schema'
-	Data interface{} `json:"data"`
-	// A stack trace for when the entry was created.
-	// Deprecated: moved to package 'cloud-assembly-schema'
-	Trace *[]*string `json:"trace"`
-	// The type of the metadata entry.
-	// Deprecated: moved to package 'cloud-assembly-schema'
-	Type *string `json:"type"`
-}
-
-// TODO: EXAMPLE
-//
-// Experimental.
 type MetadataEntryResult struct {
 	// The data.
-	// Experimental.
 	Data interface{} `json:"data"`
 	// A stack trace for when the entry was created.
-	// Experimental.
 	Trace *[]*string `json:"trace"`
 	// The type of the metadata entry.
-	// Experimental.
 	Type *string `json:"type"`
 	// The path in which this entry was defined.
-	// Experimental.
 	Path *string `json:"path"`
-}
-
-// Backwards compatibility for when `MissingContext` was defined here.
-//
-// This is necessary because its used as an input in the stable
-//
-// TODO: EXAMPLE
-//
-// See: core.Stack.reportMissingContext
-//
-// Deprecated: moved to package 'cloud-assembly-schema'
-type MissingContext struct {
-	// The missing context key.
-	// Deprecated: moved to package 'cloud-assembly-schema'
-	Key *string `json:"key"`
-	// A set of provider-specific options.
-	//
-	// (This is the old untyped definition, which is necessary for backwards compatibility.
-	// See cxschema for a type definition.)
-	// Deprecated: moved to package 'cloud-assembly-schema'
-	Props *map[string]interface{} `json:"props"`
-	// The provider from which we expect this context key to be obtained.
-	//
-	// (This is the old untyped definition, which is necessary for backwards compatibility.
-	// See cxschema for a type definition.)
-	// Deprecated: moved to package 'cloud-assembly-schema'
-	Provider *string `json:"provider"`
 }
 
 // Asset manifest is a description of a set of assets which need to be built and published.
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type NestedCloudAssemblyArtifact interface {
 	CloudArtifact
 	Assembly() CloudAssembly
@@ -1649,14 +1483,13 @@ func (j *jsiiProxy_NestedCloudAssemblyArtifact) NestedAssembly() CloudAssembly {
 }
 
 
-// Experimental.
 func NewNestedCloudAssemblyArtifact(assembly CloudAssembly, name *string, artifact *cloudassemblyschema.ArtifactManifest) NestedCloudAssemblyArtifact {
 	_init_.Initialize()
 
 	j := jsiiProxy_NestedCloudAssemblyArtifact{}
 
 	_jsii_.Create(
-		"monocdk.cx_api.NestedCloudAssemblyArtifact",
+		"aws-cdk-lib.cx_api.NestedCloudAssemblyArtifact",
 		[]interface{}{assembly, name, artifact},
 		&j,
 	)
@@ -1664,12 +1497,11 @@ func NewNestedCloudAssemblyArtifact(assembly CloudAssembly, name *string, artifa
 	return &j
 }
 
-// Experimental.
 func NewNestedCloudAssemblyArtifact_Override(n NestedCloudAssemblyArtifact, assembly CloudAssembly, name *string, artifact *cloudassemblyschema.ArtifactManifest) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.cx_api.NestedCloudAssemblyArtifact",
+		"aws-cdk-lib.cx_api.NestedCloudAssemblyArtifact",
 		[]interface{}{assembly, name, artifact},
 		n,
 	)
@@ -1678,14 +1510,13 @@ func NewNestedCloudAssemblyArtifact_Override(n NestedCloudAssemblyArtifact, asse
 // Returns a subclass of `CloudArtifact` based on the artifact type defined in the artifact manifest.
 //
 // Returns: the `CloudArtifact` that matches the artifact type or `undefined` if it's an artifact type that is unrecognized by this module.
-// Experimental.
 func NestedCloudAssemblyArtifact_FromManifest(assembly CloudAssembly, id *string, artifact *cloudassemblyschema.ArtifactManifest) CloudArtifact {
 	_init_.Initialize()
 
 	var returns CloudArtifact
 
 	_jsii_.StaticInvoke(
-		"monocdk.cx_api.NestedCloudAssemblyArtifact",
+		"aws-cdk-lib.cx_api.NestedCloudAssemblyArtifact",
 		"fromManifest",
 		[]interface{}{assembly, id, artifact},
 		&returns,
@@ -1695,7 +1526,6 @@ func NestedCloudAssemblyArtifact_FromManifest(assembly CloudAssembly, id *string
 }
 
 // Returns: all the metadata entries of a specific type in this artifact.
-// Experimental.
 func (n *jsiiProxy_NestedCloudAssemblyArtifact) FindMetadataByType(type_ *string) *[]*MetadataEntryResult {
 	var returns *[]*MetadataEntryResult
 
@@ -1709,52 +1539,29 @@ func (n *jsiiProxy_NestedCloudAssemblyArtifact) FindMetadataByType(type_ *string
 	return returns
 }
 
-// Backwards compatibility for when `RuntimeInfo` was defined here.
-//
-// This is necessary because its used as an input in the stable
-//
-// TODO: EXAMPLE
-//
-// See: core.ConstructNode.synth
-//
-// Deprecated: moved to package 'cloud-assembly-schema'
-type RuntimeInfo struct {
-	// The list of libraries loaded in the application, associated with their versions.
-	// Deprecated: moved to package 'cloud-assembly-schema'
-	Libraries *map[string]*string `json:"libraries"`
-}
-
 // Properties of a discovered SecurityGroup.
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SecurityGroupContextResponse struct {
 	// Whether the security group allows all outbound traffic.
 	//
 	// This will be true
 	// when the security group has all-protocol egress permissions to access both
 	// `0.0.0.0/0` and `::/0`.
-	// Experimental.
 	AllowAllOutbound *bool `json:"allowAllOutbound"`
 	// The security group's id.
-	// Experimental.
 	SecurityGroupId *string `json:"securityGroupId"`
 }
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type SynthesisMessage struct {
-	// Experimental.
 	Entry *cloudassemblyschema.MetadataEntry `json:"entry"`
-	// Experimental.
 	Id *string `json:"id"`
-	// Experimental.
 	Level SynthesisMessageLevel `json:"level"`
 }
 
-// Experimental.
 type SynthesisMessageLevel string
 
 const (
@@ -1765,7 +1572,6 @@ const (
 
 // TODO: EXAMPLE
 //
-// Experimental.
 type TreeCloudArtifact interface {
 	CloudArtifact
 	Assembly() CloudAssembly
@@ -1854,14 +1660,13 @@ func (j *jsiiProxy_TreeCloudArtifact) Messages() *[]*SynthesisMessage {
 }
 
 
-// Experimental.
 func NewTreeCloudArtifact(assembly CloudAssembly, name *string, artifact *cloudassemblyschema.ArtifactManifest) TreeCloudArtifact {
 	_init_.Initialize()
 
 	j := jsiiProxy_TreeCloudArtifact{}
 
 	_jsii_.Create(
-		"monocdk.cx_api.TreeCloudArtifact",
+		"aws-cdk-lib.cx_api.TreeCloudArtifact",
 		[]interface{}{assembly, name, artifact},
 		&j,
 	)
@@ -1869,12 +1674,11 @@ func NewTreeCloudArtifact(assembly CloudAssembly, name *string, artifact *clouda
 	return &j
 }
 
-// Experimental.
 func NewTreeCloudArtifact_Override(t TreeCloudArtifact, assembly CloudAssembly, name *string, artifact *cloudassemblyschema.ArtifactManifest) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.cx_api.TreeCloudArtifact",
+		"aws-cdk-lib.cx_api.TreeCloudArtifact",
 		[]interface{}{assembly, name, artifact},
 		t,
 	)
@@ -1883,14 +1687,13 @@ func NewTreeCloudArtifact_Override(t TreeCloudArtifact, assembly CloudAssembly, 
 // Returns a subclass of `CloudArtifact` based on the artifact type defined in the artifact manifest.
 //
 // Returns: the `CloudArtifact` that matches the artifact type or `undefined` if it's an artifact type that is unrecognized by this module.
-// Experimental.
 func TreeCloudArtifact_FromManifest(assembly CloudAssembly, id *string, artifact *cloudassemblyschema.ArtifactManifest) CloudArtifact {
 	_init_.Initialize()
 
 	var returns CloudArtifact
 
 	_jsii_.StaticInvoke(
-		"monocdk.cx_api.TreeCloudArtifact",
+		"aws-cdk-lib.cx_api.TreeCloudArtifact",
 		"fromManifest",
 		[]interface{}{assembly, id, artifact},
 		&returns,
@@ -1900,7 +1703,6 @@ func TreeCloudArtifact_FromManifest(assembly CloudAssembly, id *string, artifact
 }
 
 // Returns: all the metadata entries of a specific type in this artifact.
-// Experimental.
 func (t *jsiiProxy_TreeCloudArtifact) FindMetadataByType(type_ *string) *[]*MetadataEntryResult {
 	var returns *[]*MetadataEntryResult
 
@@ -1918,55 +1720,44 @@ func (t *jsiiProxy_TreeCloudArtifact) FindMetadataByType(type_ *string) *[]*Meta
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VpcContextResponse struct {
 	// AZs.
-	// Experimental.
 	AvailabilityZones *[]*string `json:"availabilityZones"`
 	// IDs of all isolated subnets.
 	//
 	// Element count: #(availabilityZones) · #(isolatedGroups)
-	// Experimental.
 	IsolatedSubnetIds *[]*string `json:"isolatedSubnetIds"`
 	// Name of isolated subnet groups.
 	//
 	// Element count: #(isolatedGroups)
-	// Experimental.
 	IsolatedSubnetNames *[]*string `json:"isolatedSubnetNames"`
 	// Route Table IDs of isolated subnet groups.
 	//
 	// Element count: #(availabilityZones) · #(isolatedGroups)
-	// Experimental.
 	IsolatedSubnetRouteTableIds *[]*string `json:"isolatedSubnetRouteTableIds"`
 	// IDs of all private subnets.
 	//
 	// Element count: #(availabilityZones) · #(privateGroups)
-	// Experimental.
 	PrivateSubnetIds *[]*string `json:"privateSubnetIds"`
 	// Name of private subnet groups.
 	//
 	// Element count: #(privateGroups)
-	// Experimental.
 	PrivateSubnetNames *[]*string `json:"privateSubnetNames"`
 	// Route Table IDs of private subnet groups.
 	//
 	// Element count: #(availabilityZones) · #(privateGroups)
-	// Experimental.
 	PrivateSubnetRouteTableIds *[]*string `json:"privateSubnetRouteTableIds"`
 	// IDs of all public subnets.
 	//
 	// Element count: #(availabilityZones) · #(publicGroups)
-	// Experimental.
 	PublicSubnetIds *[]*string `json:"publicSubnetIds"`
 	// Name of public subnet groups.
 	//
 	// Element count: #(publicGroups)
-	// Experimental.
 	PublicSubnetNames *[]*string `json:"publicSubnetNames"`
 	// Route Table IDs of public subnet groups.
 	//
 	// Element count: #(availabilityZones) · #(publicGroups)
-	// Experimental.
 	PublicSubnetRouteTableIds *[]*string `json:"publicSubnetRouteTableIds"`
 	// The subnet groups discovered for the given VPC.
 	//
@@ -1974,16 +1765,12 @@ type VpcContextResponse struct {
 	// if the VPC has any.
 	// This property will only be populated if {@link VpcContextQuery.returnAsymmetricSubnets}
 	// is true.
-	// Experimental.
 	SubnetGroups *[]*VpcSubnetGroup `json:"subnetGroups"`
 	// VPC cidr.
-	// Experimental.
 	VpcCidrBlock *string `json:"vpcCidrBlock"`
 	// VPC id.
-	// Experimental.
 	VpcId *string `json:"vpcId"`
 	// The VPN gateway ID.
-	// Experimental.
 	VpnGatewayId *string `json:"vpnGatewayId"`
 }
 
@@ -1991,19 +1778,14 @@ type VpcContextResponse struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VpcSubnet struct {
 	// The code of the availability zone this subnet is in (for example, 'us-west-2a').
-	// Experimental.
 	AvailabilityZone *string `json:"availabilityZone"`
 	// CIDR range of the subnet.
-	// Experimental.
 	Cidr *string `json:"cidr"`
 	// The identifier of the route table for this subnet.
-	// Experimental.
 	RouteTableId *string `json:"routeTableId"`
 	// The identifier of the subnet.
-	// Experimental.
 	SubnetId *string `json:"subnetId"`
 }
 
@@ -2013,19 +1795,15 @@ type VpcSubnet struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type VpcSubnetGroup struct {
 	// The name of the subnet group, determined by looking at the tags of of the subnets that belong to it.
-	// Experimental.
 	Name *string `json:"name"`
 	// The subnets that are part of this group.
 	//
 	// There is no condition that the subnets have to be symmetric
 	// in the group.
-	// Experimental.
 	Subnets *[]*VpcSubnet `json:"subnets"`
 	// The type of the subnet group.
-	// Experimental.
 	Type VpcSubnetGroupType `json:"type"`
 }
 
@@ -2033,7 +1811,6 @@ type VpcSubnetGroup struct {
 //
 // Same as SubnetType in the @aws-cdk/aws-ec2 package,
 // but we can't use that because of cyclical dependencies.
-// Experimental.
 type VpcSubnetGroupType string
 
 const (

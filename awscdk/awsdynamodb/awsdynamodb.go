@@ -1,30 +1,27 @@
 package awsdynamodb
 
 import (
-	_init_ "github.com/aws/aws-cdk-go/awscdk/jsii"
+	_init_ "github.com/aws/aws-cdk-go/awscdk/v2/jsii"
 	_jsii_ "github.com/aws/jsii-runtime-go/runtime"
 
-	"github.com/aws/aws-cdk-go/awscdk"
-	"github.com/aws/aws-cdk-go/awscdk/awsapplicationautoscaling"
-	"github.com/aws/aws-cdk-go/awscdk/awscloudwatch"
-	"github.com/aws/aws-cdk-go/awscdk/awsdynamodb/internal"
-	"github.com/aws/aws-cdk-go/awscdk/awsiam"
-	"github.com/aws/aws-cdk-go/awscdk/awskinesis"
-	"github.com/aws/aws-cdk-go/awscdk/awskms"
-	"github.com/aws/constructs-go/constructs/v3"
+	"github.com/aws/aws-cdk-go/awscdk/v2"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsapplicationautoscaling"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awscloudwatch"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsdynamodb/internal"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awsiam"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskinesis"
+	"github.com/aws/aws-cdk-go/awscdk/v2/awskms"
+	"github.com/aws/constructs-go/constructs/v10"
 )
 
 // Represents an attribute for describing the key schema for the table and indexes.
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Attribute struct {
 	// The name of an attribute.
-	// Experimental.
 	Name *string `json:"name"`
 	// The data type of an attribute.
-	// Experimental.
 	Type AttributeType `json:"type"`
 }
 
@@ -34,7 +31,6 @@ type Attribute struct {
 //
 // See: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes
 //
-// Experimental.
 type AttributeType string
 
 const (
@@ -47,7 +43,6 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type BillingMode string
 
 const (
@@ -80,7 +75,7 @@ type CfnGlobalTable interface {
 	LocalSecondaryIndexes() interface{}
 	SetLocalSecondaryIndexes(val interface{})
 	LogicalId() *string
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	Ref() *string
 	Replicas() interface{}
 	SetReplicas(val interface{})
@@ -106,16 +101,10 @@ type CfnGlobalTable interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -255,8 +244,8 @@ func (j *jsiiProxy_CfnGlobalTable) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnGlobalTable) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnGlobalTable) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -357,13 +346,13 @@ func (j *jsiiProxy_CfnGlobalTable) WriteProvisionedThroughputSettings() interfac
 
 
 // Create a new `AWS::DynamoDB::GlobalTable`.
-func NewCfnGlobalTable(scope awscdk.Construct, id *string, props *CfnGlobalTableProps) CfnGlobalTable {
+func NewCfnGlobalTable(scope constructs.Construct, id *string, props *CfnGlobalTableProps) CfnGlobalTable {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnGlobalTable{}
 
 	_jsii_.Create(
-		"monocdk.aws_dynamodb.CfnGlobalTable",
+		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -372,11 +361,11 @@ func NewCfnGlobalTable(scope awscdk.Construct, id *string, props *CfnGlobalTable
 }
 
 // Create a new `AWS::DynamoDB::GlobalTable`.
-func NewCfnGlobalTable_Override(c CfnGlobalTable, scope awscdk.Construct, id *string, props *CfnGlobalTableProps) {
+func NewCfnGlobalTable_Override(c CfnGlobalTable, scope constructs.Construct, id *string, props *CfnGlobalTableProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_dynamodb.CfnGlobalTable",
+		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -476,14 +465,13 @@ func (j *jsiiProxy_CfnGlobalTable) SetWriteProvisionedThroughputSettings(val int
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnGlobalTable_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_dynamodb.CfnGlobalTable",
+		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -493,14 +481,13 @@ func CfnGlobalTable_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnGlobalTable_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_dynamodb.CfnGlobalTable",
+		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -509,15 +496,17 @@ func CfnGlobalTable_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnGlobalTable_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_dynamodb.CfnGlobalTable",
+		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -530,7 +519,7 @@ func CfnGlobalTable_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_dynamodb.CfnGlobalTable",
+		"aws-cdk-lib.aws_dynamodb.CfnGlobalTable",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -538,7 +527,6 @@ func CfnGlobalTable_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnGlobalTable) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -551,7 +539,6 @@ func (c *jsiiProxy_CfnGlobalTable) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnGlobalTable) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -567,7 +554,6 @@ func (c *jsiiProxy_CfnGlobalTable) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnGlobalTable) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -613,7 +599,6 @@ func (c *jsiiProxy_CfnGlobalTable) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnGlobalTable) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -623,7 +608,6 @@ func (c *jsiiProxy_CfnGlobalTable) AddOverride(path *string, value interface{}) 
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnGlobalTable) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -635,7 +619,6 @@ func (c *jsiiProxy_CfnGlobalTable) AddPropertyDeletionOverride(propertyPath *str
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnGlobalTable) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -653,7 +636,6 @@ func (c *jsiiProxy_CfnGlobalTable) AddPropertyOverride(propertyPath *string, val
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnGlobalTable) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -666,7 +648,6 @@ func (c *jsiiProxy_CfnGlobalTable) ApplyRemovalPolicy(policy awscdk.RemovalPolic
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnGlobalTable) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -687,7 +668,6 @@ func (c *jsiiProxy_CfnGlobalTable) GetAtt(attributeName *string) awscdk.Referenc
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnGlobalTable) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -710,80 +690,12 @@ func (c *jsiiProxy_CfnGlobalTable) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnGlobalTable) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnGlobalTable) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnGlobalTable) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnGlobalTable) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnGlobalTable) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -804,7 +716,6 @@ func (c *jsiiProxy_CfnGlobalTable) RenderProperties(props *map[string]interface{
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnGlobalTable) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -818,23 +729,9 @@ func (c *jsiiProxy_CfnGlobalTable) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnGlobalTable) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnGlobalTable) ToString() *string {
 	var returns *string
 
@@ -848,27 +745,6 @@ func (c *jsiiProxy_CfnGlobalTable) ToString() *string {
 	return returns
 }
 
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnGlobalTable) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Experimental.
 func (c *jsiiProxy_CfnGlobalTable) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1103,7 +979,7 @@ type CfnTable interface {
 	LocalSecondaryIndexes() interface{}
 	SetLocalSecondaryIndexes(val interface{})
 	LogicalId() *string
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	PointInTimeRecoverySpecification() interface{}
 	SetPointInTimeRecoverySpecification(val interface{})
 	ProvisionedThroughput() interface{}
@@ -1132,16 +1008,10 @@ type CfnTable interface {
 	GetAtt(attributeName *string) awscdk.Reference
 	GetMetadata(key *string) interface{}
 	Inspect(inspector awscdk.TreeInspector)
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
 	OverrideLogicalId(newLogicalId *string)
-	Prepare()
 	RenderProperties(props *map[string]interface{}) *map[string]interface{}
 	ShouldSynthesize() *bool
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 	ValidateProperties(_properties interface{})
 }
 
@@ -1291,8 +1161,8 @@ func (j *jsiiProxy_CfnTable) LogicalId() *string {
 	return returns
 }
 
-func (j *jsiiProxy_CfnTable) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_CfnTable) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -1413,13 +1283,13 @@ func (j *jsiiProxy_CfnTable) UpdatedProperites() *map[string]interface{} {
 
 
 // Create a new `AWS::DynamoDB::Table`.
-func NewCfnTable(scope awscdk.Construct, id *string, props *CfnTableProps) CfnTable {
+func NewCfnTable(scope constructs.Construct, id *string, props *CfnTableProps) CfnTable {
 	_init_.Initialize()
 
 	j := jsiiProxy_CfnTable{}
 
 	_jsii_.Create(
-		"monocdk.aws_dynamodb.CfnTable",
+		"aws-cdk-lib.aws_dynamodb.CfnTable",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -1428,11 +1298,11 @@ func NewCfnTable(scope awscdk.Construct, id *string, props *CfnTableProps) CfnTa
 }
 
 // Create a new `AWS::DynamoDB::Table`.
-func NewCfnTable_Override(c CfnTable, scope awscdk.Construct, id *string, props *CfnTableProps) {
+func NewCfnTable_Override(c CfnTable, scope constructs.Construct, id *string, props *CfnTableProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_dynamodb.CfnTable",
+		"aws-cdk-lib.aws_dynamodb.CfnTable",
 		[]interface{}{scope, id, props},
 		c,
 	)
@@ -1556,14 +1426,13 @@ func (j *jsiiProxy_CfnTable) SetTimeToLiveSpecification(val interface{}) {
 // versions of this library to be included in the same stack.
 //
 // Returns: The construct as a stack element or undefined if it is not a stack element.
-// Experimental.
 func CfnTable_IsCfnElement(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_dynamodb.CfnTable",
+		"aws-cdk-lib.aws_dynamodb.CfnTable",
 		"isCfnElement",
 		[]interface{}{x},
 		&returns,
@@ -1573,14 +1442,13 @@ func CfnTable_IsCfnElement(x interface{}) *bool {
 }
 
 // Check whether the given construct is a CfnResource.
-// Experimental.
 func CfnTable_IsCfnResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_dynamodb.CfnTable",
+		"aws-cdk-lib.aws_dynamodb.CfnTable",
 		"isCfnResource",
 		[]interface{}{construct},
 		&returns,
@@ -1589,15 +1457,17 @@ func CfnTable_IsCfnResource(construct constructs.IConstruct) *bool {
 	return returns
 }
 
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func CfnTable_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_dynamodb.CfnTable",
+		"aws-cdk-lib.aws_dynamodb.CfnTable",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -1610,7 +1480,7 @@ func CfnTable_CFN_RESOURCE_TYPE_NAME() *string {
 	_init_.Initialize()
 	var returns *string
 	_jsii_.StaticGet(
-		"monocdk.aws_dynamodb.CfnTable",
+		"aws-cdk-lib.aws_dynamodb.CfnTable",
 		"CFN_RESOURCE_TYPE_NAME",
 		&returns,
 	)
@@ -1618,7 +1488,6 @@ func CfnTable_CFN_RESOURCE_TYPE_NAME() *string {
 }
 
 // Syntactic sugar for `addOverride(path, undefined)`.
-// Experimental.
 func (c *jsiiProxy_CfnTable) AddDeletionOverride(path *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1631,7 +1500,6 @@ func (c *jsiiProxy_CfnTable) AddDeletionOverride(path *string) {
 //
 // This can be used for resources across stacks (or nested stack) boundaries
 // and the dependency will automatically be transferred to the relevant scope.
-// Experimental.
 func (c *jsiiProxy_CfnTable) AddDependsOn(target awscdk.CfnResource) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1647,7 +1515,6 @@ func (c *jsiiProxy_CfnTable) AddDependsOn(target awscdk.CfnResource) {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnTable) AddMetadata(key *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1693,7 +1560,6 @@ func (c *jsiiProxy_CfnTable) AddMetadata(key *string, value interface{}) {
 //    ...
 // }
 // ```
-// Experimental.
 func (c *jsiiProxy_CfnTable) AddOverride(path *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1703,7 +1569,6 @@ func (c *jsiiProxy_CfnTable) AddOverride(path *string, value interface{}) {
 }
 
 // Adds an override that deletes the value of a property from the resource definition.
-// Experimental.
 func (c *jsiiProxy_CfnTable) AddPropertyDeletionOverride(propertyPath *string) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1715,7 +1580,6 @@ func (c *jsiiProxy_CfnTable) AddPropertyDeletionOverride(propertyPath *string) {
 // Adds an override to a resource property.
 //
 // Syntactic sugar for `addOverride("Properties.<...>", value)`.
-// Experimental.
 func (c *jsiiProxy_CfnTable) AddPropertyOverride(propertyPath *string, value interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1733,7 +1597,6 @@ func (c *jsiiProxy_CfnTable) AddPropertyOverride(propertyPath *string, value int
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (c *jsiiProxy_CfnTable) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, options *awscdk.RemovalPolicyOptions) {
 	_jsii_.InvokeVoid(
 		c,
@@ -1746,7 +1609,6 @@ func (c *jsiiProxy_CfnTable) ApplyRemovalPolicy(policy awscdk.RemovalPolicy, opt
 //
 // Ideally, use generated attribute accessors (e.g. `resource.arn`), but this can be used for future compatibility
 // in case there is no generated attribute.
-// Experimental.
 func (c *jsiiProxy_CfnTable) GetAtt(attributeName *string) awscdk.Reference {
 	var returns awscdk.Reference
 
@@ -1767,7 +1629,6 @@ func (c *jsiiProxy_CfnTable) GetAtt(attributeName *string) awscdk.Reference {
 // metadata ends up in the stack template under the resource, whereas CDK
 // node metadata ends up in the Cloud Assembly.
 //
-// Experimental.
 func (c *jsiiProxy_CfnTable) GetMetadata(key *string) interface{} {
 	var returns interface{}
 
@@ -1790,80 +1651,12 @@ func (c *jsiiProxy_CfnTable) Inspect(inspector awscdk.TreeInspector) {
 	)
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnTable) OnPrepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnTable) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnTable) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Overrides the auto-generated logical ID with a specific ID.
-// Experimental.
 func (c *jsiiProxy_CfnTable) OverrideLogicalId(newLogicalId *string) {
 	_jsii_.InvokeVoid(
 		c,
 		"overrideLogicalId",
 		[]interface{}{newLogicalId},
-	)
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (c *jsiiProxy_CfnTable) Prepare() {
-	_jsii_.InvokeVoid(
-		c,
-		"prepare",
-		nil, // no parameters
 	)
 }
 
@@ -1884,7 +1677,6 @@ func (c *jsiiProxy_CfnTable) RenderProperties(props *map[string]interface{}) *ma
 //
 // Returns: `true` if the resource should be included or `false` is the resource
 // should be omitted.
-// Experimental.
 func (c *jsiiProxy_CfnTable) ShouldSynthesize() *bool {
 	var returns *bool
 
@@ -1898,23 +1690,9 @@ func (c *jsiiProxy_CfnTable) ShouldSynthesize() *bool {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (c *jsiiProxy_CfnTable) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		c,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
 //
 // Returns: a string representation of this resource
-// Experimental.
 func (c *jsiiProxy_CfnTable) ToString() *string {
 	var returns *string
 
@@ -1928,27 +1706,6 @@ func (c *jsiiProxy_CfnTable) ToString() *string {
 	return returns
 }
 
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (c *jsiiProxy_CfnTable) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		c,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Experimental.
 func (c *jsiiProxy_CfnTable) ValidateProperties(_properties interface{}) {
 	_jsii_.InvokeVoid(
 		c,
@@ -2108,13 +1865,10 @@ type CfnTableProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type EnableScalingProps struct {
 	// Maximum capacity to scale to.
-	// Experimental.
 	MaxCapacity *float64 `json:"maxCapacity"`
 	// Minimum capacity to scale to.
-	// Experimental.
 	MinCapacity *float64 `json:"minCapacity"`
 }
 
@@ -2122,43 +1876,32 @@ type EnableScalingProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type GlobalSecondaryIndexProps struct {
 	// The name of the secondary index.
-	// Experimental.
 	IndexName *string `json:"indexName"`
 	// The non-key attributes that are projected into the secondary index.
-	// Experimental.
 	NonKeyAttributes *[]*string `json:"nonKeyAttributes"`
 	// The set of attributes that are projected into the secondary index.
-	// Experimental.
 	ProjectionType ProjectionType `json:"projectionType"`
 	// Partition key attribute definition.
-	// Experimental.
 	PartitionKey *Attribute `json:"partitionKey"`
 	// Sort key attribute definition.
-	// Experimental.
 	SortKey *Attribute `json:"sortKey"`
 	// The read capacity for the global secondary index.
 	//
 	// Can only be provided if table billingMode is Provisioned or undefined.
-	// Experimental.
 	ReadCapacity *float64 `json:"readCapacity"`
 	// The write capacity for the global secondary index.
 	//
 	// Can only be provided if table billingMode is Provisioned or undefined.
-	// Experimental.
 	WriteCapacity *float64 `json:"writeCapacity"`
 }
 
 // Interface for scalable attributes.
-// Experimental.
 type IScalableTableAttribute interface {
 	// Add scheduled scaling for this scaling attribute.
-	// Experimental.
 	ScaleOnSchedule(id *string, actions *awsapplicationautoscaling.ScalingSchedule)
 	// Scale out or in to keep utilization at a given level.
-	// Experimental.
 	ScaleOnUtilization(props *UtilizationScalingProps)
 }
 
@@ -2184,26 +1927,22 @@ func (i *jsiiProxy_IScalableTableAttribute) ScaleOnUtilization(props *Utilizatio
 }
 
 // An interface that represents a DynamoDB Table - either created with the CDK, or an existing one.
-// Experimental.
 type ITable interface {
 	awscdk.IResource
 	// Adds an IAM policy statement associated with this table to an IAM principal's policy.
 	//
 	// If `encryptionKey` is present, appropriate grants to the key needs to be added
 	// separately using the `table.encryptionKey.grant*` methods.
-	// Experimental.
 	Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Permits all DynamoDB operations ("dynamodb:*") to an IAM principal.
 	//
 	// Appropriate grants will also be added to the customer-managed KMS key
 	// if one was configured.
-	// Experimental.
 	GrantFullAccess(grantee awsiam.IGrantable) awsiam.Grant
 	// Permits an IAM principal all data read operations from this table: BatchGetItem, GetRecords, GetShardIterator, Query, GetItem, Scan.
 	//
 	// Appropriate grants will also be added to the customer-managed KMS key
 	// if one was configured.
-	// Experimental.
 	GrantReadData(grantee awsiam.IGrantable) awsiam.Grant
 	// Permits an IAM principal to all data read/write operations to this table.
 	//
@@ -2212,67 +1951,47 @@ type ITable interface {
 	//
 	// Appropriate grants will also be added to the customer-managed KMS key
 	// if one was configured.
-	// Experimental.
 	GrantReadWriteData(grantee awsiam.IGrantable) awsiam.Grant
 	// Adds an IAM policy statement associated with this table's stream to an IAM principal's policy.
 	//
 	// If `encryptionKey` is present, appropriate grants to the key needs to be added
 	// separately using the `table.encryptionKey.grant*` methods.
-	// Experimental.
 	GrantStream(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant
 	// Permits an IAM principal all stream data read operations for this table's stream: DescribeStream, GetRecords, GetShardIterator, ListStreams.
 	//
 	// Appropriate grants will also be added to the customer-managed KMS key
 	// if one was configured.
-	// Experimental.
 	GrantStreamRead(grantee awsiam.IGrantable) awsiam.Grant
 	// Permits an IAM Principal to list streams attached to current dynamodb table.
-	// Experimental.
 	GrantTableListStreams(grantee awsiam.IGrantable) awsiam.Grant
 	// Permits an IAM principal all data write operations to this table: BatchWriteItem, PutItem, UpdateItem, DeleteItem.
 	//
 	// Appropriate grants will also be added to the customer-managed KMS key
 	// if one was configured.
-	// Experimental.
 	GrantWriteData(grantee awsiam.IGrantable) awsiam.Grant
 	// Metric for the number of Errors executing all Lambdas.
-	// Experimental.
 	Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the conditional check failed requests.
-	// Experimental.
 	MetricConditionalCheckFailedRequests(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the consumed read capacity units.
-	// Experimental.
 	MetricConsumedReadCapacityUnits(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the consumed write capacity units.
-	// Experimental.
 	MetricConsumedWriteCapacityUnits(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the successful request latency.
-	// Experimental.
 	MetricSuccessfulRequestLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	// Metric for the system errors.
-	// Deprecated: use `metricSystemErrorsForOperations`
-	MetricSystemErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the system errors this table.
-	// Experimental.
 	MetricSystemErrorsForOperations(props *SystemErrorsForOperationsMetricOptions) awscloudwatch.IMetric
 	// Metric for throttled requests.
-	// Experimental.
 	MetricThrottledRequests(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Metric for the user errors.
-	// Experimental.
 	MetricUserErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	// Optional KMS encryption key associated with this table.
-	// Experimental.
 	EncryptionKey() awskms.IKey
 	// Arn of the dynamodb table.
-	// Experimental.
 	TableArn() *string
 	// Table name of the dynamodb table.
-	// Experimental.
 	TableName() *string
 	// ARN of the table's stream, if there is one.
-	// Experimental.
 	TableStreamArn() *string
 }
 
@@ -2460,19 +2179,6 @@ func (i *jsiiProxy_ITable) MetricSuccessfulRequestLatency(props *awscloudwatch.M
 	return returns
 }
 
-func (i *jsiiProxy_ITable) MetricSystemErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		i,
-		"metricSystemErrors",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
 func (i *jsiiProxy_ITable) MetricSystemErrorsForOperations(props *SystemErrorsForOperationsMetricOptions) awscloudwatch.IMetric {
 	var returns awscloudwatch.IMetric
 
@@ -2556,24 +2262,18 @@ func (j *jsiiProxy_ITable) TableStreamArn() *string {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type LocalSecondaryIndexProps struct {
 	// The name of the secondary index.
-	// Experimental.
 	IndexName *string `json:"indexName"`
 	// The non-key attributes that are projected into the secondary index.
-	// Experimental.
 	NonKeyAttributes *[]*string `json:"nonKeyAttributes"`
 	// The set of attributes that are projected into the secondary index.
-	// Experimental.
 	ProjectionType ProjectionType `json:"projectionType"`
 	// The attribute of a sort key for the local secondary index.
-	// Experimental.
 	SortKey *Attribute `json:"sortKey"`
 }
 
 // Supported DynamoDB table operations.
-// Experimental.
 type Operation string
 
 const (
@@ -2596,7 +2296,6 @@ const (
 // The set of attributes that are projected into the index.
 // See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Projection.html
 //
-// Experimental.
 type ProjectionType string
 
 const (
@@ -2609,13 +2308,10 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SchemaOptions struct {
 	// Partition key attribute definition.
-	// Experimental.
 	PartitionKey *Attribute `json:"partitionKey"`
 	// Sort key attribute definition.
-	// Experimental.
 	SortKey *Attribute `json:"sortKey"`
 }
 
@@ -2623,23 +2319,18 @@ type SchemaOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SecondaryIndexProps struct {
 	// The name of the secondary index.
-	// Experimental.
 	IndexName *string `json:"indexName"`
 	// The non-key attributes that are projected into the secondary index.
-	// Experimental.
 	NonKeyAttributes *[]*string `json:"nonKeyAttributes"`
 	// The set of attributes that are projected into the secondary index.
-	// Experimental.
 	ProjectionType ProjectionType `json:"projectionType"`
 }
 
 // When an item in the table is modified, StreamViewType determines what information is written to the stream for this table.
 // See: https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_StreamSpecification.html
 //
-// Experimental.
 type StreamViewType string
 
 const (
@@ -2653,28 +2344,18 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type SystemErrorsForOperationsMetricOptions struct {
 	// Account which this metric comes from.
-	// Experimental.
 	Account *string `json:"account"`
 	// The hex color code, prefixed with '#' (e.g. '#00ff00'), to use when this metric is rendered on a graph. The `Color` class has a set of standard colors that can be used here.
-	// Experimental.
 	Color *string `json:"color"`
 	// Dimensions of the metric.
-	// Deprecated: Use 'dimensionsMap' instead.
-	Dimensions *map[string]interface{} `json:"dimensions"`
-	// Dimensions of the metric.
-	// Experimental.
 	DimensionsMap *map[string]*string `json:"dimensionsMap"`
 	// Label for this metric when added to a Graph in a Dashboard.
-	// Experimental.
 	Label *string `json:"label"`
 	// The period over which the specified statistic is applied.
-	// Experimental.
 	Period awscdk.Duration `json:"period"`
 	// Region which this metric comes from.
-	// Experimental.
 	Region *string `json:"region"`
 	// What function to use for aggregating.
 	//
@@ -2686,7 +2367,6 @@ type SystemErrorsForOperationsMetricOptions struct {
 	// - "Sum" | "sum"
 	// - "SampleCount | "n"
 	// - "pNN.NN"
-	// Experimental.
 	Statistic *string `json:"statistic"`
 	// Unit used to filter the metric stream.
 	//
@@ -2698,10 +2378,8 @@ type SystemErrorsForOperationsMetricOptions struct {
 	// which is recommended in nearly all cases.
 	//
 	// CloudWatch does not honor this property for graphs.
-	// Experimental.
 	Unit awscloudwatch.Unit `json:"unit"`
 	// The operations to apply the metric to.
-	// Experimental.
 	Operations *[]Operation `json:"operations"`
 }
 
@@ -2709,14 +2387,13 @@ type SystemErrorsForOperationsMetricOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type Table interface {
 	awscdk.Resource
 	ITable
 	EncryptionKey() awskms.IKey
 	Env() *awscdk.ResourceEnvironment
 	HasIndex() *bool
-	Node() awscdk.ConstructNode
+	Node() constructs.Node
 	PhysicalName() *string
 	RegionalArns() *[]*string
 	Stack() awscdk.Stack
@@ -2746,18 +2423,11 @@ type Table interface {
 	MetricConsumedReadCapacityUnits(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricConsumedWriteCapacityUnits(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricSuccessfulRequestLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	MetricSystemErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricSystemErrorsForOperations(props *SystemErrorsForOperationsMetricOptions) awscloudwatch.IMetric
 	MetricThrottledRequests(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
 	MetricUserErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric
-	OnPrepare()
-	OnSynthesize(session constructs.ISynthesisSession)
-	OnValidate() *[]*string
-	Prepare()
 	Schema(indexName *string) *SchemaOptions
-	Synthesize(session awscdk.ISynthesisSession)
 	ToString() *string
-	Validate() *[]*string
 }
 
 // The jsii proxy struct for Table
@@ -2796,8 +2466,8 @@ func (j *jsiiProxy_Table) HasIndex() *bool {
 	return returns
 }
 
-func (j *jsiiProxy_Table) Node() awscdk.ConstructNode {
-	var returns awscdk.ConstructNode
+func (j *jsiiProxy_Table) Node() constructs.Node {
+	var returns constructs.Node
 	_jsii_.Get(
 		j,
 		"node",
@@ -2867,14 +2537,13 @@ func (j *jsiiProxy_Table) TableStreamArn() *string {
 }
 
 
-// Experimental.
 func NewTable(scope constructs.Construct, id *string, props *TableProps) Table {
 	_init_.Initialize()
 
 	j := jsiiProxy_Table{}
 
 	_jsii_.Create(
-		"monocdk.aws_dynamodb.Table",
+		"aws-cdk-lib.aws_dynamodb.Table",
 		[]interface{}{scope, id, props},
 		&j,
 	)
@@ -2882,26 +2551,24 @@ func NewTable(scope constructs.Construct, id *string, props *TableProps) Table {
 	return &j
 }
 
-// Experimental.
 func NewTable_Override(t Table, scope constructs.Construct, id *string, props *TableProps) {
 	_init_.Initialize()
 
 	_jsii_.Create(
-		"monocdk.aws_dynamodb.Table",
+		"aws-cdk-lib.aws_dynamodb.Table",
 		[]interface{}{scope, id, props},
 		t,
 	)
 }
 
 // Creates a Table construct that represents an external table via table arn.
-// Experimental.
 func Table_FromTableArn(scope constructs.Construct, id *string, tableArn *string) ITable {
 	_init_.Initialize()
 
 	var returns ITable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_dynamodb.Table",
+		"aws-cdk-lib.aws_dynamodb.Table",
 		"fromTableArn",
 		[]interface{}{scope, id, tableArn},
 		&returns,
@@ -2911,14 +2578,13 @@ func Table_FromTableArn(scope constructs.Construct, id *string, tableArn *string
 }
 
 // Creates a Table construct that represents an external table.
-// Experimental.
 func Table_FromTableAttributes(scope constructs.Construct, id *string, attrs *TableAttributes) ITable {
 	_init_.Initialize()
 
 	var returns ITable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_dynamodb.Table",
+		"aws-cdk-lib.aws_dynamodb.Table",
 		"fromTableAttributes",
 		[]interface{}{scope, id, attrs},
 		&returns,
@@ -2928,14 +2594,13 @@ func Table_FromTableAttributes(scope constructs.Construct, id *string, attrs *Ta
 }
 
 // Creates a Table construct that represents an external table via table name.
-// Experimental.
 func Table_FromTableName(scope constructs.Construct, id *string, tableName *string) ITable {
 	_init_.Initialize()
 
 	var returns ITable
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_dynamodb.Table",
+		"aws-cdk-lib.aws_dynamodb.Table",
 		"fromTableName",
 		[]interface{}{scope, id, tableName},
 		&returns,
@@ -2944,32 +2609,17 @@ func Table_FromTableName(scope constructs.Construct, id *string, tableName *stri
 	return returns
 }
 
-// Permits an IAM Principal to list all DynamoDB Streams.
-// Deprecated: Use {@link #grantTableListStreams} for more granular permission
-func Table_GrantListStreams(grantee awsiam.IGrantable) awsiam.Grant {
-	_init_.Initialize()
-
-	var returns awsiam.Grant
-
-	_jsii_.StaticInvoke(
-		"monocdk.aws_dynamodb.Table",
-		"grantListStreams",
-		[]interface{}{grantee},
-		&returns,
-	)
-
-	return returns
-}
-
-// Return whether the given object is a Construct.
-// Experimental.
+// Checks if `x` is a construct.
+//
+// Returns: true if `x` is an object created from a class which extends `Construct`.
+// Deprecated: use `x instanceof Construct` instead
 func Table_IsConstruct(x interface{}) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_dynamodb.Table",
+		"aws-cdk-lib.aws_dynamodb.Table",
 		"isConstruct",
 		[]interface{}{x},
 		&returns,
@@ -2979,14 +2629,13 @@ func Table_IsConstruct(x interface{}) *bool {
 }
 
 // Check whether the given construct is a Resource.
-// Experimental.
-func Table_IsResource(construct awscdk.IConstruct) *bool {
+func Table_IsResource(construct constructs.IConstruct) *bool {
 	_init_.Initialize()
 
 	var returns *bool
 
 	_jsii_.StaticInvoke(
-		"monocdk.aws_dynamodb.Table",
+		"aws-cdk-lib.aws_dynamodb.Table",
 		"isResource",
 		[]interface{}{construct},
 		&returns,
@@ -2996,7 +2645,6 @@ func Table_IsResource(construct awscdk.IConstruct) *bool {
 }
 
 // Add a global secondary index of table.
-// Experimental.
 func (t *jsiiProxy_Table) AddGlobalSecondaryIndex(props *GlobalSecondaryIndexProps) {
 	_jsii_.InvokeVoid(
 		t,
@@ -3006,7 +2654,6 @@ func (t *jsiiProxy_Table) AddGlobalSecondaryIndex(props *GlobalSecondaryIndexPro
 }
 
 // Add a local secondary index of table.
-// Experimental.
 func (t *jsiiProxy_Table) AddLocalSecondaryIndex(props *LocalSecondaryIndexProps) {
 	_jsii_.InvokeVoid(
 		t,
@@ -3024,7 +2671,6 @@ func (t *jsiiProxy_Table) AddLocalSecondaryIndex(props *LocalSecondaryIndexProps
 //
 // The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 // account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
-// Experimental.
 func (t *jsiiProxy_Table) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 	_jsii_.InvokeVoid(
 		t,
@@ -3036,7 +2682,6 @@ func (t *jsiiProxy_Table) ApplyRemovalPolicy(policy awscdk.RemovalPolicy) {
 // Enable read capacity scaling for the given GSI.
 //
 // Returns: An object to configure additional AutoScaling settings for this attribute
-// Experimental.
 func (t *jsiiProxy_Table) AutoScaleGlobalSecondaryIndexReadCapacity(indexName *string, props *EnableScalingProps) IScalableTableAttribute {
 	var returns IScalableTableAttribute
 
@@ -3053,7 +2698,6 @@ func (t *jsiiProxy_Table) AutoScaleGlobalSecondaryIndexReadCapacity(indexName *s
 // Enable write capacity scaling for the given GSI.
 //
 // Returns: An object to configure additional AutoScaling settings for this attribute
-// Experimental.
 func (t *jsiiProxy_Table) AutoScaleGlobalSecondaryIndexWriteCapacity(indexName *string, props *EnableScalingProps) IScalableTableAttribute {
 	var returns IScalableTableAttribute
 
@@ -3070,7 +2714,6 @@ func (t *jsiiProxy_Table) AutoScaleGlobalSecondaryIndexWriteCapacity(indexName *
 // Enable read capacity scaling for this table.
 //
 // Returns: An object to configure additional AutoScaling settings
-// Experimental.
 func (t *jsiiProxy_Table) AutoScaleReadCapacity(props *EnableScalingProps) IScalableTableAttribute {
 	var returns IScalableTableAttribute
 
@@ -3087,7 +2730,6 @@ func (t *jsiiProxy_Table) AutoScaleReadCapacity(props *EnableScalingProps) IScal
 // Enable write capacity scaling for this table.
 //
 // Returns: An object to configure additional AutoScaling settings for this attribute
-// Experimental.
 func (t *jsiiProxy_Table) AutoScaleWriteCapacity(props *EnableScalingProps) IScalableTableAttribute {
 	var returns IScalableTableAttribute
 
@@ -3101,7 +2743,6 @@ func (t *jsiiProxy_Table) AutoScaleWriteCapacity(props *EnableScalingProps) ISca
 	return returns
 }
 
-// Experimental.
 func (t *jsiiProxy_Table) GeneratePhysicalName() *string {
 	var returns *string
 
@@ -3121,7 +2762,6 @@ func (t *jsiiProxy_Table) GeneratePhysicalName() *string {
 // referenced across environments, `arnComponents` will be used to synthesize
 // a concrete ARN with the resource's physical name. Make sure to reference
 // `this.physicalName` in `arnComponents`.
-// Experimental.
 func (t *jsiiProxy_Table) GetResourceArnAttribute(arnAttr *string, arnComponents *awscdk.ArnComponents) *string {
 	var returns *string
 
@@ -3140,7 +2780,6 @@ func (t *jsiiProxy_Table) GetResourceArnAttribute(arnAttr *string, arnComponents
 // Normally, this token will resolve to `nameAttr`, but if the resource is
 // referenced across environments, it will be resolved to `this.physicalName`,
 // which will be a concrete name.
-// Experimental.
 func (t *jsiiProxy_Table) GetResourceNameAttribute(nameAttr *string) *string {
 	var returns *string
 
@@ -3158,7 +2797,6 @@ func (t *jsiiProxy_Table) GetResourceNameAttribute(nameAttr *string) *string {
 //
 // If `encryptionKey` is present, appropriate grants to the key needs to be added
 // separately using the `table.encryptionKey.grant*` methods.
-// Experimental.
 func (t *jsiiProxy_Table) Grant(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
 	args := []interface{}{grantee}
 	for _, a := range actions {
@@ -3181,7 +2819,6 @@ func (t *jsiiProxy_Table) Grant(grantee awsiam.IGrantable, actions ...*string) a
 //
 // Appropriate grants will also be added to the customer-managed KMS key
 // if one was configured.
-// Experimental.
 func (t *jsiiProxy_Table) GrantFullAccess(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -3199,7 +2836,6 @@ func (t *jsiiProxy_Table) GrantFullAccess(grantee awsiam.IGrantable) awsiam.Gran
 //
 // Appropriate grants will also be added to the customer-managed KMS key
 // if one was configured.
-// Experimental.
 func (t *jsiiProxy_Table) GrantReadData(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -3220,7 +2856,6 @@ func (t *jsiiProxy_Table) GrantReadData(grantee awsiam.IGrantable) awsiam.Grant 
 //
 // Appropriate grants will also be added to the customer-managed KMS key
 // if one was configured.
-// Experimental.
 func (t *jsiiProxy_Table) GrantReadWriteData(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -3238,7 +2873,6 @@ func (t *jsiiProxy_Table) GrantReadWriteData(grantee awsiam.IGrantable) awsiam.G
 //
 // If `encryptionKey` is present, appropriate grants to the key needs to be added
 // separately using the `table.encryptionKey.grant*` methods.
-// Experimental.
 func (t *jsiiProxy_Table) GrantStream(grantee awsiam.IGrantable, actions ...*string) awsiam.Grant {
 	args := []interface{}{grantee}
 	for _, a := range actions {
@@ -3261,7 +2895,6 @@ func (t *jsiiProxy_Table) GrantStream(grantee awsiam.IGrantable, actions ...*str
 //
 // Appropriate grants will also be added to the customer-managed KMS key
 // if one was configured.
-// Experimental.
 func (t *jsiiProxy_Table) GrantStreamRead(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -3276,7 +2909,6 @@ func (t *jsiiProxy_Table) GrantStreamRead(grantee awsiam.IGrantable) awsiam.Gran
 }
 
 // Permits an IAM Principal to list streams attached to current dynamodb table.
-// Experimental.
 func (t *jsiiProxy_Table) GrantTableListStreams(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -3294,7 +2926,6 @@ func (t *jsiiProxy_Table) GrantTableListStreams(grantee awsiam.IGrantable) awsia
 //
 // Appropriate grants will also be added to the customer-managed KMS key
 // if one was configured.
-// Experimental.
 func (t *jsiiProxy_Table) GrantWriteData(grantee awsiam.IGrantable) awsiam.Grant {
 	var returns awsiam.Grant
 
@@ -3312,7 +2943,6 @@ func (t *jsiiProxy_Table) GrantWriteData(grantee awsiam.IGrantable) awsiam.Grant
 //
 // By default, the metric will be calculated as a sum over a period of 5 minutes.
 // You can customize this by using the `statistic` and `period` properties.
-// Experimental.
 func (t *jsiiProxy_Table) Metric(metricName *string, props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -3330,7 +2960,6 @@ func (t *jsiiProxy_Table) Metric(metricName *string, props *awscloudwatch.Metric
 //
 // By default, the metric will be calculated as a sum over a period of 5 minutes.
 // You can customize this by using the `statistic` and `period` properties.
-// Experimental.
 func (t *jsiiProxy_Table) MetricConditionalCheckFailedRequests(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -3348,7 +2977,6 @@ func (t *jsiiProxy_Table) MetricConditionalCheckFailedRequests(props *awscloudwa
 //
 // By default, the metric will be calculated as a sum over a period of 5 minutes.
 // You can customize this by using the `statistic` and `period` properties.
-// Experimental.
 func (t *jsiiProxy_Table) MetricConsumedReadCapacityUnits(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -3366,7 +2994,6 @@ func (t *jsiiProxy_Table) MetricConsumedReadCapacityUnits(props *awscloudwatch.M
 //
 // By default, the metric will be calculated as a sum over a period of 5 minutes.
 // You can customize this by using the `statistic` and `period` properties.
-// Experimental.
 func (t *jsiiProxy_Table) MetricConsumedWriteCapacityUnits(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -3384,7 +3011,6 @@ func (t *jsiiProxy_Table) MetricConsumedWriteCapacityUnits(props *awscloudwatch.
 //
 // By default, the metric will be calculated as an average over a period of 5 minutes.
 // You can customize this by using the `statistic` and `period` properties.
-// Experimental.
 func (t *jsiiProxy_Table) MetricSuccessfulRequestLatency(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -3399,26 +3025,10 @@ func (t *jsiiProxy_Table) MetricSuccessfulRequestLatency(props *awscloudwatch.Me
 }
 
 // Metric for the system errors this table.
-// Deprecated: use `metricSystemErrorsForOperations`.
-func (t *jsiiProxy_Table) MetricSystemErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
-	var returns awscloudwatch.Metric
-
-	_jsii_.Invoke(
-		t,
-		"metricSystemErrors",
-		[]interface{}{props},
-		&returns,
-	)
-
-	return returns
-}
-
-// Metric for the system errors this table.
 //
 // This will sum errors across all possible operations.
 // Note that by default, each individual metric will be calculated as a sum over a period of 5 minutes.
 // You can customize this by using the `statistic` and `period` properties.
-// Experimental.
 func (t *jsiiProxy_Table) MetricSystemErrorsForOperations(props *SystemErrorsForOperationsMetricOptions) awscloudwatch.IMetric {
 	var returns awscloudwatch.IMetric
 
@@ -3435,7 +3045,6 @@ func (t *jsiiProxy_Table) MetricSystemErrorsForOperations(props *SystemErrorsFor
 // How many requests are throttled on this table.
 //
 // Default: sum over 5 minutes
-// Experimental.
 func (t *jsiiProxy_Table) MetricThrottledRequests(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -3456,7 +3065,6 @@ func (t *jsiiProxy_Table) MetricThrottledRequests(props *awscloudwatch.MetricOpt
 //
 // By default, the metric will be calculated as a sum over a period of 5 minutes.
 // You can customize this by using the `statistic` and `period` properties.
-// Experimental.
 func (t *jsiiProxy_Table) MetricUserErrors(props *awscloudwatch.MetricOptions) awscloudwatch.Metric {
 	var returns awscloudwatch.Metric
 
@@ -3470,77 +3078,9 @@ func (t *jsiiProxy_Table) MetricUserErrors(props *awscloudwatch.MetricOptions) a
 	return returns
 }
 
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (t *jsiiProxy_Table) OnPrepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"onPrepare",
-		nil, // no parameters
-	)
-}
-
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (t *jsiiProxy_Table) OnSynthesize(session constructs.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		t,
-		"onSynthesize",
-		[]interface{}{session},
-	)
-}
-
-// Validate the current construct.
-//
-// This method can be implemented by derived constructs in order to perform
-// validation logic. It is called on all constructs before synthesis.
-//
-// Returns: An array of validation error messages, or an empty array if the construct is valid.
-// Experimental.
-func (t *jsiiProxy_Table) OnValidate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"onValidate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
-// Perform final modifications before synthesis.
-//
-// This method can be implemented by derived constructs in order to perform
-// final changes before synthesis. prepare() will be called after child
-// constructs have been prepared.
-//
-// This is an advanced framework feature. Only use this if you
-// understand the implications.
-// Experimental.
-func (t *jsiiProxy_Table) Prepare() {
-	_jsii_.InvokeVoid(
-		t,
-		"prepare",
-		nil, // no parameters
-	)
-}
-
 // Get schema attributes of table or index.
 //
 // Returns: Schema of table or index.
-// Experimental.
 func (t *jsiiProxy_Table) Schema(indexName *string) *SchemaOptions {
 	var returns *SchemaOptions
 
@@ -3554,21 +3094,7 @@ func (t *jsiiProxy_Table) Schema(indexName *string) *SchemaOptions {
 	return returns
 }
 
-// Allows this construct to emit artifacts into the cloud assembly during synthesis.
-//
-// This method is usually implemented by framework-level constructs such as `Stack` and `Asset`
-// as they participate in synthesizing the cloud assembly.
-// Experimental.
-func (t *jsiiProxy_Table) Synthesize(session awscdk.ISynthesisSession) {
-	_jsii_.InvokeVoid(
-		t,
-		"synthesize",
-		[]interface{}{session},
-	)
-}
-
 // Returns a string representation of this construct.
-// Experimental.
 func (t *jsiiProxy_Table) ToString() *string {
 	var returns *string
 
@@ -3582,31 +3108,12 @@ func (t *jsiiProxy_Table) ToString() *string {
 	return returns
 }
 
-// Validate the table construct.
-//
-// Returns: an array of validation error message
-// Experimental.
-func (t *jsiiProxy_Table) Validate() *[]*string {
-	var returns *[]*string
-
-	_jsii_.Invoke(
-		t,
-		"validate",
-		nil, // no parameters
-		&returns,
-	)
-
-	return returns
-}
-
 // Reference to a dynamodb table.
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TableAttributes struct {
 	// KMS encryption key, if this table uses a customer-managed encryption key.
-	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey"`
 	// The name of the global indexes set for this Table.
 	//
@@ -3614,7 +3121,6 @@ type TableAttributes struct {
 	// or {@link localIndexes},
 	// if you want methods like grantReadData()
 	// to grant permissions for indexes as well as the table itself.
-	// Experimental.
 	GlobalIndexes *[]*string `json:"globalIndexes"`
 	// The name of the local indexes set for this Table.
 	//
@@ -3622,20 +3128,16 @@ type TableAttributes struct {
 	// or {@link globalIndexes},
 	// if you want methods like grantReadData()
 	// to grant permissions for indexes as well as the table itself.
-	// Experimental.
 	LocalIndexes *[]*string `json:"localIndexes"`
 	// The ARN of the dynamodb table.
 	//
 	// One of this, or {@link tableName}, is required.
-	// Experimental.
 	TableArn *string `json:"tableArn"`
 	// The table name of the dynamodb table.
 	//
 	// One of this, or {@link tableArn}, is required.
-	// Experimental.
 	TableName *string `json:"tableName"`
 	// The ARN of the table's stream.
-	// Experimental.
 	TableStreamArn *string `json:"tableStreamArn"`
 }
 
@@ -3643,7 +3145,6 @@ type TableAttributes struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TableEncryption string
 
 const (
@@ -3658,32 +3159,24 @@ const (
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TableOptions struct {
 	// Partition key attribute definition.
-	// Experimental.
 	PartitionKey *Attribute `json:"partitionKey"`
 	// Sort key attribute definition.
-	// Experimental.
 	SortKey *Attribute `json:"sortKey"`
 	// Specify how you are charged for read and write throughput and how you manage capacity.
-	// Experimental.
 	BillingMode BillingMode `json:"billingMode"`
 	// Whether CloudWatch contributor insights is enabled.
-	// Experimental.
 	ContributorInsightsEnabled *bool `json:"contributorInsightsEnabled"`
 	// Whether server-side encryption with an AWS managed customer master key is enabled.
 	//
 	// This property cannot be set if `serverSideEncryption` is set.
-	// Experimental.
 	Encryption TableEncryption `json:"encryption"`
 	// External KMS key to use for table encryption.
 	//
 	// This property can only be set if `encryption` is set to `TableEncryption.CUSTOMER_MANAGED`.
-	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey"`
 	// Whether point-in-time recovery is enabled.
-	// Experimental.
 	PointInTimeRecovery *bool `json:"pointInTimeRecovery"`
 	// The read capacity for the table.
 	//
@@ -3691,28 +3184,16 @@ type TableOptions struct {
 	// those will share the table's provisioned throughput.
 	//
 	// Can only be provided if billingMode is Provisioned.
-	// Experimental.
 	ReadCapacity *float64 `json:"readCapacity"`
 	// The removal policy to apply to the DynamoDB Table.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// Regions where replica tables will be created.
-	// Experimental.
 	ReplicationRegions *[]*string `json:"replicationRegions"`
 	// The timeout for a table replication operation in a single region.
-	// Experimental.
 	ReplicationTimeout awscdk.Duration `json:"replicationTimeout"`
-	// Whether server-side encryption with an AWS managed customer master key is enabled.
-	//
-	// This property cannot be set if `encryption` and/or `encryptionKey` is set.
-	// Deprecated: This property is deprecated. In order to obtain the same behavior as
-	// enabling this, set the `encryption` property to `TableEncryption.AWS_MANAGED` instead.
-	ServerSideEncryption *bool `json:"serverSideEncryption"`
 	// When an item in the table is modified, StreamViewType determines what information is written to the stream for this table.
-	// Experimental.
 	Stream StreamViewType `json:"stream"`
 	// The name of TTL attribute.
-	// Experimental.
 	TimeToLiveAttribute *string `json:"timeToLiveAttribute"`
 	// Indicates whether CloudFormation stack waits for replication to finish.
 	//
@@ -3726,7 +3207,6 @@ type TableOptions struct {
 	// finish before starting new replicationRegion.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-replicas
 	//
-	// Experimental.
 	WaitForReplicationToFinish *bool `json:"waitForReplicationToFinish"`
 	// The write capacity for the table.
 	//
@@ -3734,7 +3214,6 @@ type TableOptions struct {
 	// those will share the table's provisioned throughput.
 	//
 	// Can only be provided if billingMode is Provisioned.
-	// Experimental.
 	WriteCapacity *float64 `json:"writeCapacity"`
 }
 
@@ -3742,32 +3221,24 @@ type TableOptions struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type TableProps struct {
 	// Partition key attribute definition.
-	// Experimental.
 	PartitionKey *Attribute `json:"partitionKey"`
 	// Sort key attribute definition.
-	// Experimental.
 	SortKey *Attribute `json:"sortKey"`
 	// Specify how you are charged for read and write throughput and how you manage capacity.
-	// Experimental.
 	BillingMode BillingMode `json:"billingMode"`
 	// Whether CloudWatch contributor insights is enabled.
-	// Experimental.
 	ContributorInsightsEnabled *bool `json:"contributorInsightsEnabled"`
 	// Whether server-side encryption with an AWS managed customer master key is enabled.
 	//
 	// This property cannot be set if `serverSideEncryption` is set.
-	// Experimental.
 	Encryption TableEncryption `json:"encryption"`
 	// External KMS key to use for table encryption.
 	//
 	// This property can only be set if `encryption` is set to `TableEncryption.CUSTOMER_MANAGED`.
-	// Experimental.
 	EncryptionKey awskms.IKey `json:"encryptionKey"`
 	// Whether point-in-time recovery is enabled.
-	// Experimental.
 	PointInTimeRecovery *bool `json:"pointInTimeRecovery"`
 	// The read capacity for the table.
 	//
@@ -3775,28 +3246,16 @@ type TableProps struct {
 	// those will share the table's provisioned throughput.
 	//
 	// Can only be provided if billingMode is Provisioned.
-	// Experimental.
 	ReadCapacity *float64 `json:"readCapacity"`
 	// The removal policy to apply to the DynamoDB Table.
-	// Experimental.
 	RemovalPolicy awscdk.RemovalPolicy `json:"removalPolicy"`
 	// Regions where replica tables will be created.
-	// Experimental.
 	ReplicationRegions *[]*string `json:"replicationRegions"`
 	// The timeout for a table replication operation in a single region.
-	// Experimental.
 	ReplicationTimeout awscdk.Duration `json:"replicationTimeout"`
-	// Whether server-side encryption with an AWS managed customer master key is enabled.
-	//
-	// This property cannot be set if `encryption` and/or `encryptionKey` is set.
-	// Deprecated: This property is deprecated. In order to obtain the same behavior as
-	// enabling this, set the `encryption` property to `TableEncryption.AWS_MANAGED` instead.
-	ServerSideEncryption *bool `json:"serverSideEncryption"`
 	// When an item in the table is modified, StreamViewType determines what information is written to the stream for this table.
-	// Experimental.
 	Stream StreamViewType `json:"stream"`
 	// The name of TTL attribute.
-	// Experimental.
 	TimeToLiveAttribute *string `json:"timeToLiveAttribute"`
 	// Indicates whether CloudFormation stack waits for replication to finish.
 	//
@@ -3810,7 +3269,6 @@ type TableProps struct {
 	// finish before starting new replicationRegion.
 	// See: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html#cfn-dynamodb-globaltable-replicas
 	//
-	// Experimental.
 	WaitForReplicationToFinish *bool `json:"waitForReplicationToFinish"`
 	// The write capacity for the table.
 	//
@@ -3818,13 +3276,10 @@ type TableProps struct {
 	// those will share the table's provisioned throughput.
 	//
 	// Can only be provided if billingMode is Provisioned.
-	// Experimental.
 	WriteCapacity *float64 `json:"writeCapacity"`
 	// Kinesis Data Stream to capture item-level changes for the table.
-	// Experimental.
 	KinesisStream awskinesis.IStream `json:"kinesisStream"`
 	// Enforces a particular physical table name.
-	// Experimental.
 	TableName *string `json:"tableName"`
 }
 
@@ -3832,7 +3287,6 @@ type TableProps struct {
 //
 // TODO: EXAMPLE
 //
-// Experimental.
 type UtilizationScalingProps struct {
 	// Indicates whether scale in by the target tracking policy is disabled.
 	//
@@ -3840,19 +3294,14 @@ type UtilizationScalingProps struct {
 	// won't remove capacity from the scalable resource. Otherwise, scale in is
 	// enabled and the target tracking policy can remove capacity from the
 	// scalable resource.
-	// Experimental.
 	DisableScaleIn *bool `json:"disableScaleIn"`
 	// A name for the scaling policy.
-	// Experimental.
 	PolicyName *string `json:"policyName"`
 	// Period after a scale in activity completes before another scale in activity can start.
-	// Experimental.
 	ScaleInCooldown awscdk.Duration `json:"scaleInCooldown"`
 	// Period after a scale out activity completes before another scale out activity can start.
-	// Experimental.
 	ScaleOutCooldown awscdk.Duration `json:"scaleOutCooldown"`
 	// Target utilization percentage for the attribute.
-	// Experimental.
 	TargetUtilizationPercent *float64 `json:"targetUtilizationPercent"`
 }
 

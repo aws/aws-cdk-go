@@ -8,7 +8,7 @@ import (
 
 func init() {
 	_jsii_.RegisterClass(
-		"monocdk.aws_codebuild.Artifacts",
+		"aws-cdk-lib.aws_codebuild.Artifacts",
 		reflect.TypeOf((*Artifacts)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -22,23 +22,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.ArtifactsConfig",
+		"aws-cdk-lib.aws_codebuild.ArtifactsConfig",
 		reflect.TypeOf((*ArtifactsConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.ArtifactsProps",
+		"aws-cdk-lib.aws_codebuild.ArtifactsProps",
 		reflect.TypeOf((*ArtifactsProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.BatchBuildConfig",
+		"aws-cdk-lib.aws_codebuild.BatchBuildConfig",
 		reflect.TypeOf((*BatchBuildConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.BindToCodePipelineOptions",
+		"aws-cdk-lib.aws_codebuild.BindToCodePipelineOptions",
 		reflect.TypeOf((*BindToCodePipelineOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_codebuild.BitBucketSourceCredentials",
+		"aws-cdk-lib.aws_codebuild.BitBucketSourceCredentials",
 		reflect.TypeOf((*BitBucketSourceCredentials)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -47,15 +47,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_BitBucketSourceCredentials{}
@@ -64,31 +58,31 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.BitBucketSourceCredentialsProps",
+		"aws-cdk-lib.aws_codebuild.BitBucketSourceCredentialsProps",
 		reflect.TypeOf((*BitBucketSourceCredentialsProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.BitBucketSourceProps",
+		"aws-cdk-lib.aws_codebuild.BitBucketSourceProps",
 		reflect.TypeOf((*BitBucketSourceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.BucketCacheOptions",
+		"aws-cdk-lib.aws_codebuild.BucketCacheOptions",
 		reflect.TypeOf((*BucketCacheOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.BuildEnvironment",
+		"aws-cdk-lib.aws_codebuild.BuildEnvironment",
 		reflect.TypeOf((*BuildEnvironment)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.BuildEnvironmentCertificate",
+		"aws-cdk-lib.aws_codebuild.BuildEnvironmentCertificate",
 		reflect.TypeOf((*BuildEnvironmentCertificate)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.BuildEnvironmentVariable",
+		"aws-cdk-lib.aws_codebuild.BuildEnvironmentVariable",
 		reflect.TypeOf((*BuildEnvironmentVariable)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_codebuild.BuildEnvironmentVariableType",
+		"aws-cdk-lib.aws_codebuild.BuildEnvironmentVariableType",
 		reflect.TypeOf((*BuildEnvironmentVariableType)(nil)).Elem(),
 		map[string]interface{}{
 			"PARAMETER_STORE": BuildEnvironmentVariableType_PARAMETER_STORE,
@@ -97,15 +91,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.BuildImageBindOptions",
+		"aws-cdk-lib.aws_codebuild.BuildImageBindOptions",
 		reflect.TypeOf((*BuildImageBindOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.BuildImageConfig",
+		"aws-cdk-lib.aws_codebuild.BuildImageConfig",
 		reflect.TypeOf((*BuildImageConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_codebuild.BuildSpec",
+		"aws-cdk-lib.aws_codebuild.BuildSpec",
 		reflect.TypeOf((*BuildSpec)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "isImmediate", GoGetter: "IsImmediate"},
@@ -116,7 +110,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_codebuild.Cache",
+		"aws-cdk-lib.aws_codebuild.Cache",
 		reflect.TypeOf((*Cache)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -124,7 +118,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_codebuild.CfnProject",
+		"aws-cdk-lib.aws_codebuild.CfnProject",
 		reflect.TypeOf((*CfnProject)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -155,11 +149,7 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logsConfig", GoGetter: "LogsConfig"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "queuedTimeoutInMinutes", GoGetter: "QueuedTimeoutInMinutes"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
@@ -172,13 +162,11 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "source", GoGetter: "Source"},
 			_jsii_.MemberProperty{JsiiProperty: "sourceVersion", GoGetter: "SourceVersion"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberProperty{JsiiProperty: "timeoutInMinutes", GoGetter: "TimeoutInMinutes"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "triggers", GoGetter: "Triggers"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "visibility", GoGetter: "Visibility"},
 			_jsii_.MemberProperty{JsiiProperty: "vpcConfig", GoGetter: "VpcConfig"},
@@ -191,87 +179,87 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.CfnProject.ArtifactsProperty",
+		"aws-cdk-lib.aws_codebuild.CfnProject.ArtifactsProperty",
 		reflect.TypeOf((*CfnProject_ArtifactsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.CfnProject.BatchRestrictionsProperty",
+		"aws-cdk-lib.aws_codebuild.CfnProject.BatchRestrictionsProperty",
 		reflect.TypeOf((*CfnProject_BatchRestrictionsProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.CfnProject.BuildStatusConfigProperty",
+		"aws-cdk-lib.aws_codebuild.CfnProject.BuildStatusConfigProperty",
 		reflect.TypeOf((*CfnProject_BuildStatusConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.CfnProject.CloudWatchLogsConfigProperty",
+		"aws-cdk-lib.aws_codebuild.CfnProject.CloudWatchLogsConfigProperty",
 		reflect.TypeOf((*CfnProject_CloudWatchLogsConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.CfnProject.EnvironmentProperty",
+		"aws-cdk-lib.aws_codebuild.CfnProject.EnvironmentProperty",
 		reflect.TypeOf((*CfnProject_EnvironmentProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.CfnProject.EnvironmentVariableProperty",
+		"aws-cdk-lib.aws_codebuild.CfnProject.EnvironmentVariableProperty",
 		reflect.TypeOf((*CfnProject_EnvironmentVariableProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.CfnProject.GitSubmodulesConfigProperty",
+		"aws-cdk-lib.aws_codebuild.CfnProject.GitSubmodulesConfigProperty",
 		reflect.TypeOf((*CfnProject_GitSubmodulesConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.CfnProject.LogsConfigProperty",
+		"aws-cdk-lib.aws_codebuild.CfnProject.LogsConfigProperty",
 		reflect.TypeOf((*CfnProject_LogsConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.CfnProject.ProjectBuildBatchConfigProperty",
+		"aws-cdk-lib.aws_codebuild.CfnProject.ProjectBuildBatchConfigProperty",
 		reflect.TypeOf((*CfnProject_ProjectBuildBatchConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.CfnProject.ProjectCacheProperty",
+		"aws-cdk-lib.aws_codebuild.CfnProject.ProjectCacheProperty",
 		reflect.TypeOf((*CfnProject_ProjectCacheProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.CfnProject.ProjectFileSystemLocationProperty",
+		"aws-cdk-lib.aws_codebuild.CfnProject.ProjectFileSystemLocationProperty",
 		reflect.TypeOf((*CfnProject_ProjectFileSystemLocationProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.CfnProject.ProjectSourceVersionProperty",
+		"aws-cdk-lib.aws_codebuild.CfnProject.ProjectSourceVersionProperty",
 		reflect.TypeOf((*CfnProject_ProjectSourceVersionProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.CfnProject.ProjectTriggersProperty",
+		"aws-cdk-lib.aws_codebuild.CfnProject.ProjectTriggersProperty",
 		reflect.TypeOf((*CfnProject_ProjectTriggersProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.CfnProject.RegistryCredentialProperty",
+		"aws-cdk-lib.aws_codebuild.CfnProject.RegistryCredentialProperty",
 		reflect.TypeOf((*CfnProject_RegistryCredentialProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.CfnProject.S3LogsConfigProperty",
+		"aws-cdk-lib.aws_codebuild.CfnProject.S3LogsConfigProperty",
 		reflect.TypeOf((*CfnProject_S3LogsConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.CfnProject.SourceAuthProperty",
+		"aws-cdk-lib.aws_codebuild.CfnProject.SourceAuthProperty",
 		reflect.TypeOf((*CfnProject_SourceAuthProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.CfnProject.SourceProperty",
+		"aws-cdk-lib.aws_codebuild.CfnProject.SourceProperty",
 		reflect.TypeOf((*CfnProject_SourceProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.CfnProject.VpcConfigProperty",
+		"aws-cdk-lib.aws_codebuild.CfnProject.VpcConfigProperty",
 		reflect.TypeOf((*CfnProject_VpcConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.CfnProject.WebhookFilterProperty",
+		"aws-cdk-lib.aws_codebuild.CfnProject.WebhookFilterProperty",
 		reflect.TypeOf((*CfnProject_WebhookFilterProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.CfnProjectProps",
+		"aws-cdk-lib.aws_codebuild.CfnProjectProps",
 		reflect.TypeOf((*CfnProjectProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_codebuild.CfnReportGroup",
+		"aws-cdk-lib.aws_codebuild.CfnReportGroup",
 		reflect.TypeOf((*CfnReportGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -294,21 +282,15 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "name", GoGetter: "Name"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "tags", GoGetter: "Tags"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "type", GoGetter: "Type"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -319,19 +301,19 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.CfnReportGroup.ReportExportConfigProperty",
+		"aws-cdk-lib.aws_codebuild.CfnReportGroup.ReportExportConfigProperty",
 		reflect.TypeOf((*CfnReportGroup_ReportExportConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.CfnReportGroup.S3ReportExportConfigProperty",
+		"aws-cdk-lib.aws_codebuild.CfnReportGroup.S3ReportExportConfigProperty",
 		reflect.TypeOf((*CfnReportGroup_S3ReportExportConfigProperty)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.CfnReportGroupProps",
+		"aws-cdk-lib.aws_codebuild.CfnReportGroupProps",
 		reflect.TypeOf((*CfnReportGroupProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_codebuild.CfnSourceCredential",
+		"aws-cdk-lib.aws_codebuild.CfnSourceCredential",
 		reflect.TypeOf((*CfnSourceCredential)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addDeletionOverride", GoMethod: "AddDeletionOverride"},
@@ -351,22 +333,16 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "inspect", GoMethod: "Inspect"},
 			_jsii_.MemberProperty{JsiiProperty: "logicalId", GoGetter: "LogicalId"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberMethod{JsiiMethod: "overrideLogicalId", GoMethod: "OverrideLogicalId"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "ref", GoGetter: "Ref"},
 			_jsii_.MemberMethod{JsiiMethod: "renderProperties", GoMethod: "RenderProperties"},
 			_jsii_.MemberProperty{JsiiProperty: "serverType", GoGetter: "ServerType"},
 			_jsii_.MemberMethod{JsiiMethod: "shouldSynthesize", GoMethod: "ShouldSynthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberProperty{JsiiProperty: "token", GoGetter: "Token"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
 			_jsii_.MemberProperty{JsiiProperty: "updatedProperites", GoGetter: "UpdatedProperites"},
 			_jsii_.MemberProperty{JsiiProperty: "username", GoGetter: "Username"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 			_jsii_.MemberMethod{JsiiMethod: "validateProperties", GoMethod: "ValidateProperties"},
 		},
 		func() interface{} {
@@ -377,23 +353,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.CfnSourceCredentialProps",
+		"aws-cdk-lib.aws_codebuild.CfnSourceCredentialProps",
 		reflect.TypeOf((*CfnSourceCredentialProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.CloudWatchLoggingOptions",
+		"aws-cdk-lib.aws_codebuild.CloudWatchLoggingOptions",
 		reflect.TypeOf((*CloudWatchLoggingOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.CodeCommitSourceProps",
+		"aws-cdk-lib.aws_codebuild.CodeCommitSourceProps",
 		reflect.TypeOf((*CodeCommitSourceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.CommonProjectProps",
+		"aws-cdk-lib.aws_codebuild.CommonProjectProps",
 		reflect.TypeOf((*CommonProjectProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_codebuild.ComputeType",
+		"aws-cdk-lib.aws_codebuild.ComputeType",
 		reflect.TypeOf((*ComputeType)(nil)).Elem(),
 		map[string]interface{}{
 			"LARGE": ComputeType_LARGE,
@@ -403,15 +379,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.DockerImageOptions",
+		"aws-cdk-lib.aws_codebuild.DockerImageOptions",
 		reflect.TypeOf((*DockerImageOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.EfsFileSystemLocationProps",
+		"aws-cdk-lib.aws_codebuild.EfsFileSystemLocationProps",
 		reflect.TypeOf((*EfsFileSystemLocationProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_codebuild.EventAction",
+		"aws-cdk-lib.aws_codebuild.EventAction",
 		reflect.TypeOf((*EventAction)(nil)).Elem(),
 		map[string]interface{}{
 			"PUSH": EventAction_PUSH,
@@ -422,11 +398,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.FileSystemConfig",
+		"aws-cdk-lib.aws_codebuild.FileSystemConfig",
 		reflect.TypeOf((*FileSystemConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_codebuild.FileSystemLocation",
+		"aws-cdk-lib.aws_codebuild.FileSystemLocation",
 		reflect.TypeOf((*FileSystemLocation)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -434,7 +410,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_codebuild.FilterGroup",
+		"aws-cdk-lib.aws_codebuild.FilterGroup",
 		reflect.TypeOf((*FilterGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "andActorAccountIs", GoMethod: "AndActorAccountIs"},
@@ -459,7 +435,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_codebuild.GitHubEnterpriseSourceCredentials",
+		"aws-cdk-lib.aws_codebuild.GitHubEnterpriseSourceCredentials",
 		reflect.TypeOf((*GitHubEnterpriseSourceCredentials)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -468,15 +444,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_GitHubEnterpriseSourceCredentials{}
@@ -485,15 +455,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.GitHubEnterpriseSourceCredentialsProps",
+		"aws-cdk-lib.aws_codebuild.GitHubEnterpriseSourceCredentialsProps",
 		reflect.TypeOf((*GitHubEnterpriseSourceCredentialsProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.GitHubEnterpriseSourceProps",
+		"aws-cdk-lib.aws_codebuild.GitHubEnterpriseSourceProps",
 		reflect.TypeOf((*GitHubEnterpriseSourceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_codebuild.GitHubSourceCredentials",
+		"aws-cdk-lib.aws_codebuild.GitHubSourceCredentials",
 		reflect.TypeOf((*GitHubSourceCredentials)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -502,15 +472,9 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceArnAttribute", GoMethod: "GetResourceArnAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_GitHubSourceCredentials{}
@@ -519,15 +483,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.GitHubSourceCredentialsProps",
+		"aws-cdk-lib.aws_codebuild.GitHubSourceCredentialsProps",
 		reflect.TypeOf((*GitHubSourceCredentialsProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.GitHubSourceProps",
+		"aws-cdk-lib.aws_codebuild.GitHubSourceProps",
 		reflect.TypeOf((*GitHubSourceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_codebuild.IArtifacts",
+		"aws-cdk-lib.aws_codebuild.IArtifacts",
 		reflect.TypeOf((*IArtifacts)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -539,7 +503,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_codebuild.IBindableBuildImage",
+		"aws-cdk-lib.aws_codebuild.IBindableBuildImage",
 		reflect.TypeOf((*IBindableBuildImage)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -559,7 +523,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_codebuild.IBuildImage",
+		"aws-cdk-lib.aws_codebuild.IBuildImage",
 		reflect.TypeOf((*IBuildImage)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "defaultComputeType", GoGetter: "DefaultComputeType"},
@@ -576,7 +540,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_codebuild.IFileSystemLocation",
+		"aws-cdk-lib.aws_codebuild.IFileSystemLocation",
 		reflect.TypeOf((*IFileSystemLocation)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -586,7 +550,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_codebuild.IProject",
+		"aws-cdk-lib.aws_codebuild.IProject",
 		reflect.TypeOf((*IProject)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addToRolePolicy", GoMethod: "AddToRolePolicy"},
@@ -626,7 +590,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_codebuild.IReportGroup",
+		"aws-cdk-lib.aws_codebuild.IReportGroup",
 		reflect.TypeOf((*IReportGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -644,7 +608,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterInterface(
-		"monocdk.aws_codebuild.ISource",
+		"aws-cdk-lib.aws_codebuild.ISource",
 		reflect.TypeOf((*ISource)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "badgeSupported", GoGetter: "BadgeSupported"},
@@ -657,7 +621,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_codebuild.ImagePullPrincipalType",
+		"aws-cdk-lib.aws_codebuild.ImagePullPrincipalType",
 		reflect.TypeOf((*ImagePullPrincipalType)(nil)).Elem(),
 		map[string]interface{}{
 			"CODEBUILD": ImagePullPrincipalType_CODEBUILD,
@@ -665,7 +629,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_codebuild.LinuxBuildImage",
+		"aws-cdk-lib.aws_codebuild.LinuxBuildImage",
 		reflect.TypeOf((*LinuxBuildImage)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "defaultComputeType", GoGetter: "DefaultComputeType"},
@@ -684,7 +648,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_codebuild.LinuxGpuBuildImage",
+		"aws-cdk-lib.aws_codebuild.LinuxGpuBuildImage",
 		reflect.TypeOf((*LinuxGpuBuildImage)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "bind", GoMethod: "Bind"},
@@ -702,7 +666,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_codebuild.LocalCacheMode",
+		"aws-cdk-lib.aws_codebuild.LocalCacheMode",
 		reflect.TypeOf((*LocalCacheMode)(nil)).Elem(),
 		map[string]interface{}{
 			"CUSTOM": LocalCacheMode_CUSTOM,
@@ -711,11 +675,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.LoggingOptions",
+		"aws-cdk-lib.aws_codebuild.LoggingOptions",
 		reflect.TypeOf((*LoggingOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_codebuild.PhaseChangeEvent",
+		"aws-cdk-lib.aws_codebuild.PhaseChangeEvent",
 		reflect.TypeOf((*PhaseChangeEvent)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -723,7 +687,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_codebuild.PipelineProject",
+		"aws-cdk-lib.aws_codebuild.PipelineProject",
 		reflect.TypeOf((*PipelineProject)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addFileSystemLocation", GoMethod: "AddFileSystemLocation"},
@@ -754,19 +718,13 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "onBuildSucceeded", GoMethod: "OnBuildSucceeded"},
 			_jsii_.MemberMethod{JsiiMethod: "onEvent", GoMethod: "OnEvent"},
 			_jsii_.MemberMethod{JsiiMethod: "onPhaseChange", GoMethod: "OnPhaseChange"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
 			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "projectArn", GoGetter: "ProjectArn"},
 			_jsii_.MemberProperty{JsiiProperty: "projectName", GoGetter: "ProjectName"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_PipelineProject{}
@@ -775,11 +733,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.PipelineProjectProps",
+		"aws-cdk-lib.aws_codebuild.PipelineProjectProps",
 		reflect.TypeOf((*PipelineProjectProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_codebuild.Project",
+		"aws-cdk-lib.aws_codebuild.Project",
 		reflect.TypeOf((*Project)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addFileSystemLocation", GoMethod: "AddFileSystemLocation"},
@@ -810,19 +768,13 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "onBuildSucceeded", GoMethod: "OnBuildSucceeded"},
 			_jsii_.MemberMethod{JsiiMethod: "onEvent", GoMethod: "OnEvent"},
 			_jsii_.MemberMethod{JsiiMethod: "onPhaseChange", GoMethod: "OnPhaseChange"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
 			_jsii_.MemberMethod{JsiiMethod: "onStateChange", GoMethod: "OnStateChange"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "projectArn", GoGetter: "ProjectArn"},
 			_jsii_.MemberProperty{JsiiProperty: "projectName", GoGetter: "ProjectName"},
 			_jsii_.MemberProperty{JsiiProperty: "role", GoGetter: "Role"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_Project{}
@@ -832,7 +784,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_codebuild.ProjectNotificationEvents",
+		"aws-cdk-lib.aws_codebuild.ProjectNotificationEvents",
 		reflect.TypeOf((*ProjectNotificationEvents)(nil)).Elem(),
 		map[string]interface{}{
 			"BUILD_FAILED": ProjectNotificationEvents_BUILD_FAILED,
@@ -844,15 +796,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.ProjectNotifyOnOptions",
+		"aws-cdk-lib.aws_codebuild.ProjectNotifyOnOptions",
 		reflect.TypeOf((*ProjectNotifyOnOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.ProjectProps",
+		"aws-cdk-lib.aws_codebuild.ProjectProps",
 		reflect.TypeOf((*ProjectProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_codebuild.ReportGroup",
+		"aws-cdk-lib.aws_codebuild.ReportGroup",
 		reflect.TypeOf((*ReportGroup)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "applyRemovalPolicy", GoMethod: "ApplyRemovalPolicy"},
@@ -863,17 +815,11 @@ func init() {
 			_jsii_.MemberMethod{JsiiMethod: "getResourceNameAttribute", GoMethod: "GetResourceNameAttribute"},
 			_jsii_.MemberMethod{JsiiMethod: "grantWrite", GoMethod: "GrantWrite"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "reportGroupArn", GoGetter: "ReportGroupArn"},
 			_jsii_.MemberProperty{JsiiProperty: "reportGroupName", GoGetter: "ReportGroupName"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_ReportGroup{}
@@ -883,23 +829,23 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.ReportGroupProps",
+		"aws-cdk-lib.aws_codebuild.ReportGroupProps",
 		reflect.TypeOf((*ReportGroupProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.S3ArtifactsProps",
+		"aws-cdk-lib.aws_codebuild.S3ArtifactsProps",
 		reflect.TypeOf((*S3ArtifactsProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.S3LoggingOptions",
+		"aws-cdk-lib.aws_codebuild.S3LoggingOptions",
 		reflect.TypeOf((*S3LoggingOptions)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.S3SourceProps",
+		"aws-cdk-lib.aws_codebuild.S3SourceProps",
 		reflect.TypeOf((*S3SourceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_codebuild.Source",
+		"aws-cdk-lib.aws_codebuild.Source",
 		reflect.TypeOf((*Source)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "badgeSupported", GoGetter: "BadgeSupported"},
@@ -914,15 +860,15 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.SourceConfig",
+		"aws-cdk-lib.aws_codebuild.SourceConfig",
 		reflect.TypeOf((*SourceConfig)(nil)).Elem(),
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.SourceProps",
+		"aws-cdk-lib.aws_codebuild.SourceProps",
 		reflect.TypeOf((*SourceProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_codebuild.StateChangeEvent",
+		"aws-cdk-lib.aws_codebuild.StateChangeEvent",
 		reflect.TypeOf((*StateChangeEvent)(nil)).Elem(),
 		nil, // no members
 		func() interface{} {
@@ -930,7 +876,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_codebuild.UntrustedCodeBoundaryPolicy",
+		"aws-cdk-lib.aws_codebuild.UntrustedCodeBoundaryPolicy",
 		reflect.TypeOf((*UntrustedCodeBoundaryPolicy)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberMethod{JsiiMethod: "addStatements", GoMethod: "AddStatements"},
@@ -947,16 +893,10 @@ func init() {
 			_jsii_.MemberProperty{JsiiProperty: "managedPolicyArn", GoGetter: "ManagedPolicyArn"},
 			_jsii_.MemberProperty{JsiiProperty: "managedPolicyName", GoGetter: "ManagedPolicyName"},
 			_jsii_.MemberProperty{JsiiProperty: "node", GoGetter: "Node"},
-			_jsii_.MemberMethod{JsiiMethod: "onPrepare", GoMethod: "OnPrepare"},
-			_jsii_.MemberMethod{JsiiMethod: "onSynthesize", GoMethod: "OnSynthesize"},
-			_jsii_.MemberMethod{JsiiMethod: "onValidate", GoMethod: "OnValidate"},
 			_jsii_.MemberProperty{JsiiProperty: "path", GoGetter: "Path"},
 			_jsii_.MemberProperty{JsiiProperty: "physicalName", GoGetter: "PhysicalName"},
-			_jsii_.MemberMethod{JsiiMethod: "prepare", GoMethod: "Prepare"},
 			_jsii_.MemberProperty{JsiiProperty: "stack", GoGetter: "Stack"},
-			_jsii_.MemberMethod{JsiiMethod: "synthesize", GoMethod: "Synthesize"},
 			_jsii_.MemberMethod{JsiiMethod: "toString", GoMethod: "ToString"},
-			_jsii_.MemberMethod{JsiiMethod: "validate", GoMethod: "Validate"},
 		},
 		func() interface{} {
 			j := jsiiProxy_UntrustedCodeBoundaryPolicy{}
@@ -965,11 +905,11 @@ func init() {
 		},
 	)
 	_jsii_.RegisterStruct(
-		"monocdk.aws_codebuild.UntrustedCodeBoundaryPolicyProps",
+		"aws-cdk-lib.aws_codebuild.UntrustedCodeBoundaryPolicyProps",
 		reflect.TypeOf((*UntrustedCodeBoundaryPolicyProps)(nil)).Elem(),
 	)
 	_jsii_.RegisterClass(
-		"monocdk.aws_codebuild.WindowsBuildImage",
+		"aws-cdk-lib.aws_codebuild.WindowsBuildImage",
 		reflect.TypeOf((*WindowsBuildImage)(nil)).Elem(),
 		[]_jsii_.Member{
 			_jsii_.MemberProperty{JsiiProperty: "defaultComputeType", GoGetter: "DefaultComputeType"},
@@ -988,7 +928,7 @@ func init() {
 		},
 	)
 	_jsii_.RegisterEnum(
-		"monocdk.aws_codebuild.WindowsImageType",
+		"aws-cdk-lib.aws_codebuild.WindowsImageType",
 		reflect.TypeOf((*WindowsImageType)(nil)).Elem(),
 		map[string]interface{}{
 			"STANDARD": WindowsImageType_STANDARD,
